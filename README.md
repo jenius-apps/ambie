@@ -14,5 +14,5 @@ https://www.microsoft.com/store/productId/9P07XNM5CHP0
 - [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
 - [WinUI library](aka.ms/winui/github)
 - [Sounds](https://freesound.org). Specific file attributions are in `Data.json`.
-- [Images](https://unsplash.com/)
+- [Images](https://unsplash.com/). Specific image attributions are in `Data.json`.
 - [Json.NET](https://github.com/JamesNK/Newtonsoft.Json)
