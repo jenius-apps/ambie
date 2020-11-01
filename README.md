@@ -8,3 +8,11 @@ A modern Windows app that plays soothing tones to help you be healthier, happier
 https://www.microsoft.com/store/productId/9P07XNM5CHP0
 
 ![](images/ambie_hero.png)
+
+## Attributions
+- [Autofac](https://autofac.org/)
+- [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
+- [WinUI library](aka.ms/winui/github)
+- [Sounds](https://freesound.org). Specific file attributions are in `Data.json`.
+- [Images](https://unsplash.com/)
+- [Json.NET](https://github.com/JamesNK/Newtonsoft.Json)
