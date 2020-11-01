@@ -140,7 +140,13 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\beach.png" />
+    <Content Include="Assets\Images\birds.png" />
+    <Content Include="Assets\Images\citystreet.png" />
     <Content Include="Assets\Images\coffeeshop.png" />
+    <Content Include="Assets\Images\fireplace.png" />
+    <Content Include="Assets\Images\more.png" />
+    <Content Include="Assets\Images\rain.png" />
     <Content Include="Assets\Images\rainforest.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
@@ -152,7 +158,12 @@
     <Content Include="Assets\SmallTile.scale-150.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\Sounds\beach.mp3" />
+    <Content Include="Assets\Sounds\birds.mp3" />
+    <Content Include="Assets\Sounds\citystreet.mp3" />
     <Content Include="Assets\Sounds\coffeeshop.mp3" />
+    <Content Include="Assets\Sounds\fireplace.mp3" />
+    <Content Include="Assets\Sounds\rain.mp3" />
     <Content Include="Assets\Sounds\Rainforest.mp3" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />

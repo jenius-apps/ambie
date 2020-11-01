@@ -152,7 +152,8 @@
                                     FontSize="36"
                                     FontWeight="SemiBold"
                                     Foreground="White"
-                                    Text="{x:Bind Name}" />
+                                    Text="{x:Bind Name}"
+                                    TextWrapping="Wrap" />
                             </Grid>
                             <GridViewItem.ContextFlyout>
                                 <Flyout Placement="BottomEdgeAlignedLeft">
@@ -160,6 +161,7 @@
                                         <TextBlock FontWeight="SemiBold" Text="Attribution" />
                                         <TextBlock
                                             Margin="0,8,0,0"
+                                            IsTextSelectionEnabled="True"
                                             Text="{x:Bind Attribution}"
                                             TextWrapping="Wrap" />
                                     </StackPanel>

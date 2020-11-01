@@ -2,7 +2,9 @@
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.Media.Playback;
+using Windows.UI.Core;
 
 namespace AmbientSounds.ViewModels
 {
@@ -17,12 +19,13 @@ namespace AmbientSounds.ViewModels
         {
             _player = player ?? throw new ArgumentNullException(nameof(player));
             _player.NewSoundPlayed += NewSoundPlayed;
+            _player.PlaybackStateChanged += PlaybackStateChanged;
         }
 
         /// <summary>
         /// Flag for if the player is playing or is about to.
         /// </summary>
-        public bool IsPlaying => _player.PlayBackState == MediaPlaybackState.Playing || _player.PlayBackState == MediaPlaybackState.Opening;
+        public bool IsPlaying => _player.PlaybackState == MediaPlaybackState.Playing || _player.PlaybackState == MediaPlaybackState.Opening;
 
         /// <summary>
         /// For for if player is paused or otherwise not playing.
@@ -55,7 +58,21 @@ namespace AmbientSounds.ViewModels
         private void NewSoundPlayed(object sender, EventArgs e)
         {
             OnPropertyChanged(nameof(SoundName));
-            UpdatePlayState();
+        }
+
+        private async void PlaybackStateChanged(MediaPlaybackSession sender, object args)
+        {
+            if (sender.PlaybackState == MediaPlaybackState.Playing || sender.PlaybackState == MediaPlaybackState.Paused)
+            {
+                // This event is triggered by the media player object
+                // running in a background thread. The dispatcher is required
+                // to avoid exceptions when trying to update
+                // the visibility states for the play button.
+                await CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    UpdatePlayState();
+                });
+            }
         }
     }
 }
