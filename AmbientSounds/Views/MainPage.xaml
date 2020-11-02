@@ -6,12 +6,19 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
-    xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+    <interactivity:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}"/>
+        </core:EventTriggerBehavior>
+    </interactivity:Interaction.Behaviors>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="120" />
@@ -50,9 +57,9 @@
             <GridView
                 animations:ReorderGridAnimation.Duration="300"
                 IsItemClickEnabled="True"
-                ItemClick="{x:Bind Vm.GridViewSoundClicked}"
+                ItemClick="{x:Bind ViewModel.GridViewSoundClicked}"
                 ItemContainerStyle="{StaticResource GridViewItemExpanded}"
-                ItemsSource="{x:Bind Vm.Sounds}"
+                ItemsSource="{x:Bind ViewModel.Sounds}"
                 ScrollViewer.HorizontalScrollMode="Disabled"
                 ScrollViewer.VerticalScrollMode="Disabled"
                 SelectionMode="None">
@@ -116,7 +123,7 @@
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            IsActive="{x:Bind Vm.Loading, Mode=OneWay}" />
+            IsActive="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}" />
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

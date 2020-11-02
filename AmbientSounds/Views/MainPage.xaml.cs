@@ -4,9 +4,6 @@ using System.Numerics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Hosting;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace AmbientSounds.Views
 {
@@ -15,18 +12,13 @@ namespace AmbientSounds.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public MainPageViewModel Vm { get; private set; }
-
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = App.Container.Resolve<MainPageViewModel>();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            Vm = App.Container.Resolve<MainPageViewModel>();
-            Vm.LoadAsync();
-        }
+        public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
 
         private void GridScaleUp(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {

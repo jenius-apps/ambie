@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -17,7 +18,14 @@ namespace AmbientSounds.ViewModels
         public MainPageViewModel(MediaPlayerService mediaPlayerService)
         {
             _player = mediaPlayerService ?? throw new ArgumentNullException(nameof(mediaPlayerService));
+
+            LoadCommand = new AsyncRelayCommand(LoadAsync);
         }
+
+        /// <summary>
+        /// The <see cref="IAsyncRelayCommand"/> responsible for loading the viewmodel data.
+        /// </summary>
+        public IAsyncRelayCommand LoadCommand { get; }
 
         /// <summary>
         /// The list of sounds for this page.
@@ -25,29 +33,16 @@ namespace AmbientSounds.ViewModels
         public ObservableCollection<SoundViewModel> Sounds { get; } = new ObservableCollection<SoundViewModel>();
 
         /// <summary>
-        /// Flag for loading the list of sounds.
-        /// </summary>
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
-        private bool _loading;
-
-        /// <summary>
         /// Loads the list of sounds for this view model.
         /// </summary>
-        public async void LoadAsync()
+        private async Task LoadAsync()
         {
-            Loading = true;
-
             var soundList = await SoundDataProvider.GetSoundsAsync();
+
             foreach (var sound in soundList)
             {
                 Sounds.Add(new SoundViewModel(sound, _player));
             }
-
-            Loading = false;
         }
 
         /// <summary>
