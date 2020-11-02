@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
+using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using Windows.UI.Xaml.Media;
@@ -17,8 +18,11 @@ namespace AmbientSounds.ViewModels
 
         public SoundViewModel(Sound s, MediaPlayerService playerService)
         {
-            _sound = s ?? throw new ArgumentNullException(nameof(s));
-            _playerService = playerService ?? throw new ArgumentNullException(nameof(playerService));
+            Guard.IsNotNull(s, nameof(s));
+            Guard.IsNotNull(playerService, nameof(playerService));
+
+            _sound = s;
+            _playerService = playerService;
         }
 
         /// <summary>

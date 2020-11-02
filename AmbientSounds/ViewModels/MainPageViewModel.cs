@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Services;
+using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -17,7 +18,9 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public MainPageViewModel(MediaPlayerService mediaPlayerService)
         {
-            _player = mediaPlayerService ?? throw new ArgumentNullException(nameof(mediaPlayerService));
+            Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+
+            _player = mediaPlayerService;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);

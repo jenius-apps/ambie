@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Services;
+using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Threading.Tasks;
@@ -17,7 +18,9 @@ namespace AmbientSounds.ViewModels
 
         public PlayerViewModel(MediaPlayerService player)
         {
-            _player = player ?? throw new ArgumentNullException(nameof(player));
+            Guard.IsNotNull(player, nameof(player));
+
+            _player = player;
             _player.NewSoundPlayed += NewSoundPlayed;
             _player.PlaybackStateChanged += PlaybackStateChanged;
         }
