@@ -33,7 +33,7 @@ namespace AmbientSounds.Views
         {
             var element = sender as UIElement;
             var visual = ElementCompositionPreview.GetElementVisual(element);
-            visual.Scale = new Vector3(1, 1, 1);
+            visual.Scale = new Vector3(1);
         }
     }
 }

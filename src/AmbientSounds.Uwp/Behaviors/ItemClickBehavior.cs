@@ -26,7 +26,7 @@ namespace Microsoft.Xaml.Interactions.Core
             nameof(Command),
             typeof(ICommand),
             typeof(ItemClickBehavior),
-            new PropertyMetadata(default(ICommand)));
+            new(default(ICommand)));
 
         /// <summary>
         /// Handles a clicked item and invokes the associated command

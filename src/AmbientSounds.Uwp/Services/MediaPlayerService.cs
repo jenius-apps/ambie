@@ -81,7 +81,7 @@ namespace AmbientSounds.Services.Uwp
                 _player.Play();
 
                 Current = s;
-                NewSoundPlayed?.Invoke(this, new EventArgs());
+                NewSoundPlayed?.Invoke(this, EventArgs.Empty);
             }
         }
 

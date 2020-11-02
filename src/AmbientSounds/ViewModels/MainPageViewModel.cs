@@ -41,7 +41,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// The list of sounds for this page.
         /// </summary>
-        public ObservableCollection<SoundViewModel> Sounds { get; } = new ObservableCollection<SoundViewModel>();
+        public ObservableCollection<SoundViewModel> Sounds { get; } = new();
 
         /// <summary>
         /// Loads the list of sounds for this view model.
