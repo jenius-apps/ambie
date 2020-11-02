@@ -1,0 +1,61 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.LogoControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Image
+        Height="60"
+        extensions:VisualExtensions.CenterPoint="30,30,0"
+        PointerEntered="ScaleUp"
+        PointerExited="ScaleNormal"
+        Source="ms-appx:///Assets/logo.png"
+        Tapped="ImageTapped">
+        <animations:Implicit.Animations>
+            <animations:ScaleAnimation Duration="0:0:0.5" />
+        </animations:Implicit.Animations>
+        <animations:Implicit.ShowAnimations>
+            <animations:TranslationAnimation
+                From="20, 0, 0"
+                To="0"
+                Duration="0:0:0.3" />
+            <animations:OpacityAnimation
+                From="0"
+                To="1.0"
+                Duration="0:0:0.3" />
+        </animations:Implicit.ShowAnimations>
+        <animations:Implicit.HideAnimations>
+            <animations:TranslationAnimation
+                From="0"
+                To="20, 0, 0"
+                Duration="0:0:0.3" />
+            <animations:OpacityAnimation
+                From="1.0"
+                To="0"
+                Duration="0:0:0.3" />
+        </animations:Implicit.HideAnimations>
+        <FlyoutBase.AttachedFlyout>
+            <Flyout>
+                <StackPanel Margin="12">
+                    <TextBlock HorizontalAlignment="Center" Text="🍁" />
+                    <TextBlock HorizontalAlignment="Center" Text="Hello from Vancouver" />
+                    <TextBlock
+                        Margin="0,4,0,0"
+                        HorizontalAlignment="Center"
+                        Text="Copyright Jenius Apps" />
+                    <HyperlinkButton
+                        HorizontalAlignment="Center"
+                        Content="Contact creator"
+                        NavigateUri="mailto:jenius_apps@outlook.com" />
+                </StackPanel>
+            </Flyout>
+        </FlyoutBase.AttachedFlyout>
+    </Image>
+</UserControl>

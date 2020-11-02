@@ -27,83 +27,20 @@
 
             <controls:PlayerControl Margin="40,0,0,0" />
 
-            <Image
+            <controls:LogoControl
                 x:Name="TitleCentre"
                 Grid.ColumnSpan="3"
-                Height="60"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Source="ms-appx:///Assets/logo.png"
-                Visibility="Collapsed">
-                <animations:Implicit.ShowAnimations>
-                    <animations:TranslationAnimation
-                        From="20, 0, 0"
-                        To="0"
-                        Duration="0:0:0.3" />
-                    <animations:OpacityAnimation
-                        From="0"
-                        To="1.0"
-                        Duration="0:0:0.3" />
-                </animations:Implicit.ShowAnimations>
-                <animations:Implicit.HideAnimations>
-                    <animations:TranslationAnimation
-                        From="0"
-                        To="20, 0, 0"
-                        Duration="0:0:0.3" />
-                    <animations:OpacityAnimation
-                        From="1.0"
-                        To="0"
-                        Duration="0:0:0.3" />
-                </animations:Implicit.HideAnimations>
-            </Image>
+                Visibility="Collapsed" />
 
-
-            <Image
+            <controls:LogoControl
                 x:Name="TitleRight"
                 Grid.Column="3"
-                Height="60"
                 Margin="0,0,40,0"
-                HorizontalAlignment="Right"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Source="ms-appx:///Assets/Square44x44Logo.scale-400.png"
-                Visibility="Visible">
-                <animations:Implicit.ShowAnimations>
-                    <animations:TranslationAnimation
-                        From="-20, 0, 0"
-                        To="0"
-                        Duration="0:0:0.3" />
-                    <animations:OpacityAnimation
-                        From="0"
-                        To="1.0"
-                        Duration="0:0:0.3" />
-                </animations:Implicit.ShowAnimations>
-                <animations:Implicit.HideAnimations>
-                    <animations:TranslationAnimation
-                        From="0"
-                        To="-20, 0, 0"
-                        Duration="0:0:0.3" />
-                    <animations:OpacityAnimation
-                        From="1.0"
-                        To="0"
-                        Duration="0:0:0.3" />
-                </animations:Implicit.HideAnimations>
-            </Image>
-
-            <!--<StackPanel
-                Grid.Column="2"
-                Margin="0,16,40,0"
-                Orientation="Horizontal">
-                <Button
-                    Height="40"
-                    Background="Transparent"
-                    CornerRadius="4">
-                    <FontIcon
-                        Margin="0,2,0,0"
-                        FontFamily="Segoe MDL2 Assets"
-                        FontSize="20"
-                        Glyph="&#xE946;" />
-                </Button>
-            </StackPanel>-->
+                Visibility="Visible" />
         </Grid>
 
         <ScrollViewer
