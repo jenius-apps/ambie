@@ -10,13 +10,13 @@ namespace AmbientSounds.ViewModels
 {
     public class MainPageViewModel : ObservableObject
     {
-        private readonly MediaPlayerService _player;
+        private readonly IMediaPlayerService _player;
 
         /// <summary>
         /// Default constructor. Must initialize with <see cref="LoadAsync"/>
         /// immediately after creation.
         /// </summary>
-        public MainPageViewModel(MediaPlayerService mediaPlayerService)
+        public MainPageViewModel(IMediaPlayerService mediaPlayerService)
         {
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
 

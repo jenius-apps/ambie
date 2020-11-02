@@ -4,7 +4,6 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
-using Windows.Media.Playback;
 using Windows.UI.Core;
 
 namespace AmbientSounds.ViewModels
@@ -14,9 +13,9 @@ namespace AmbientSounds.ViewModels
     /// </summary>
     public class PlayerViewModel : ObservableObject
     {
-        private readonly MediaPlayerService _player;
+        private readonly IMediaPlayerService _player;
 
-        public PlayerViewModel(MediaPlayerService player)
+        public PlayerViewModel(IMediaPlayerService player)
         {
             Guard.IsNotNull(player, nameof(player));
 
@@ -63,9 +62,9 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(SoundName));
         }
 
-        private async void PlaybackStateChanged(MediaPlaybackSession sender, object args)
+        private async void PlaybackStateChanged(object sender, MediaPlaybackState state)
         {
-            if (sender.PlaybackState == MediaPlaybackState.Playing || sender.PlaybackState == MediaPlaybackState.Paused)
+            if (state == MediaPlaybackState.Playing || state == MediaPlaybackState.Paused)
             {
                 // This event is triggered by the media player object
                 // running in a background thread. The dispatcher is required

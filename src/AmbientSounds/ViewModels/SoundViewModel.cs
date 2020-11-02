@@ -14,9 +14,9 @@ namespace AmbientSounds.ViewModels
     public class SoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
-        private readonly MediaPlayerService _playerService;
+        private readonly IMediaPlayerService _playerService;
 
-        public SoundViewModel(Sound s, MediaPlayerService playerService)
+        public SoundViewModel(Sound s, IMediaPlayerService playerService)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
