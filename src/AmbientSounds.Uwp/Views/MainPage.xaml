@@ -61,6 +61,7 @@
                 ItemsSource="{x:Bind ViewModel.Sounds}"
                 ScrollViewer.HorizontalScrollMode="Disabled"
                 ScrollViewer.VerticalScrollMode="Disabled"
+                AutomationProperties.Name="Sounds"
                 SelectionMode="None">
                 <TransitionCollection>
                     <EntranceThemeTransition IsStaggeringEnabled="True" />
@@ -70,7 +71,7 @@
                 </interactivity:Interaction.Behaviors>
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:SoundViewModel">
-                        <GridViewItem Width="300" Height="180">
+                        <GridViewItem Width="300" Height="180" AutomationProperties.Name="{x:Bind AutomationName, Mode=OneWay}">
                             <GridViewItem.Resources>
                                 <!--  These two removes the border on hover and on pressed  -->
                                 <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
@@ -94,15 +95,20 @@
                                         </ImageBrush.ImageSource>
                                     </ImageBrush>
                                 </Grid.Background>
-                                <TextBlock
-                                    Margin="12,0,0,4"
-                                    VerticalAlignment="Bottom"
-                                    FontFamily="Calibri"
-                                    FontSize="36"
-                                    FontWeight="SemiBold"
-                                    Foreground="White"
-                                    Text="{x:Bind Name}"
-                                    TextWrapping="Wrap" />
+                                <Grid VerticalAlignment="Bottom">
+                                    <Grid.Background>
+                                        <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2"/>
+                                    </Grid.Background>
+                                    <TextBlock
+                                        Margin="12,0,0,4"
+                                        FontFamily="Calibri"
+                                        FontSize="36"
+                                        FontWeight="SemiBold"
+                                        Foreground="White"
+                                        Text="{x:Bind Name}"
+                                        TextWrapping="Wrap">
+                                    </TextBlock>
+                                </Grid>
                             </Grid>
                             <GridViewItem.ContextFlyout>
                                 <Flyout Placement="BottomEdgeAlignedLeft">
