@@ -2,9 +2,6 @@
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace AmbientSounds.ViewModels
 {
@@ -26,11 +23,6 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// A bitmap image source for this sound.
-        /// </summary>
-        public ImageSource SoundImageSource => new BitmapImage(new Uri(_sound.ImagePath));
-
-        /// <summary>
         /// The sound's attribution.
         /// </summary>
         public string Attribution => _sound.Attribution;
@@ -39,6 +31,11 @@ namespace AmbientSounds.ViewModels
         /// Name of the sound.
         /// </summary>
         public string Name => _sound.Name ?? _sound.Id;
+
+        /// <summary>
+        /// The path for the image to display for the current sound.
+        /// </summary>
+        public string ImagePath => _sound.ImagePath;
 
         /// <summary>
         /// Loads this sound into the player and plays it.

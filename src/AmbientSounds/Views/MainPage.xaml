@@ -87,9 +87,12 @@
                                 <animations:Implicit.Animations>
                                     <animations:ScaleAnimation Duration="0:0:0.5" />
                                 </animations:Implicit.Animations>
-
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="{x:Bind SoundImageSource}" Stretch="UniformToFill" />
+                                    <ImageBrush Stretch="UniformToFill">
+                                        <ImageBrush.ImageSource>
+                                            <BitmapImage UriSource="{x:Bind ImagePath}"/>
+                                        </ImageBrush.ImageSource>
+                                    </ImageBrush>
                                 </Grid.Background>
                                 <TextBlock
                                     Margin="12,0,0,4"
