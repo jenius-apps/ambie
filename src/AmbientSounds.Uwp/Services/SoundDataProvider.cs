@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace AmbientSounds.Services
+namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
     /// A provider of sound data.

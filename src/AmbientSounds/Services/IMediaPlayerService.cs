@@ -4,32 +4,6 @@ using System;
 namespace AmbientSounds.Services
 {
     /// <summary>
-    /// An enum representing possible media playback states.
-    /// </summary>
-    public enum MediaPlaybackState
-    {
-        /// <summary>
-        /// A file is currently being opened or buffered.
-        /// </summary>
-        Opening,
-
-        /// <summary>
-        /// A track is currently being played.
-        /// </summary>
-        Playing,
-
-        /// <summary>
-        /// A track is opened but currently paused.
-        /// </summary>
-        Paused,
-
-        /// <summary>
-        /// The media playback is currently stopped.
-        /// </summary>
-        Stopped
-    }
-
-    /// <summary>
     /// An interface for a service that controls a media player.
     /// </summary>
     public interface IMediaPlayerService
@@ -69,5 +43,31 @@ namespace AmbientSounds.Services
         /// Pauses the current track.
         /// </summary>
         void Pause();
+    }
+
+    /// <summary>
+    /// An enum representing possible media playback states.
+    /// </summary>
+    public enum MediaPlaybackState
+    {
+        /// <summary>
+        /// A file is currently being opened or buffered.
+        /// </summary>
+        Opening,
+
+        /// <summary>
+        /// A track is currently being played.
+        /// </summary>
+        Playing,
+
+        /// <summary>
+        /// A track is opened but currently paused.
+        /// </summary>
+        Paused,
+
+        /// <summary>
+        /// The media playback is currently stopped.
+        /// </summary>
+        Stopped
     }
 }

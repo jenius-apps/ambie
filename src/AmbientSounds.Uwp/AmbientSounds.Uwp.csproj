@@ -127,16 +127,10 @@
     <Compile Include="Controls\PlayerControl.xaml.cs">
       <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Sound.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ContainerService.cs" />
-    <Compile Include="Services\IMediaPlayerService.cs" />
     <Compile Include="Services\MediaPlayerService.cs" />
-    <Compile Include="Services\ISoundDataProvider.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
-    <Compile Include="ViewModels\PlayerViewModel.cs" />
-    <Compile Include="ViewModels\SoundViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -243,9 +237,6 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Toolkit.Mvvm">
-      <Version>7.0.0-preview3</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
       <Version>7.0.0-preview3</Version>
     </PackageReference>
@@ -258,6 +249,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Data.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AmbientSounds\AmbientSounds.csproj">
+      <Project>{e8943da1-afdd-4c4b-a216-05af46142cab}</Project>
+      <Name>AmbientSounds</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

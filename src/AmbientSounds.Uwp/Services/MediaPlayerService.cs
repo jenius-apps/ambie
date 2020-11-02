@@ -6,7 +6,7 @@ using Windows.Media.Playback;
 using Windows.System;
 using UwpMediaPlaybackState = Windows.Media.Playback.MediaPlaybackState;
 
-namespace AmbientSounds.Services
+namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
     /// Service that controls a media player.

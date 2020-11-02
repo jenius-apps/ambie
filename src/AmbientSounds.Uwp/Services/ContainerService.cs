@@ -1,4 +1,5 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Services.Uwp;
+using AmbientSounds.ViewModels;
 using Autofac;
 
 namespace AmbientSounds.Services
