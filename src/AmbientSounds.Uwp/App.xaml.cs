@@ -1,5 +1,8 @@
 ﻿using AmbientSounds.Services;
-using Autofac;
+using AmbientSounds.Services.Uwp;
+using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Diagnostics;
 using System;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
@@ -9,6 +12,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
+#nullable enable
+
 namespace AmbientSounds
 {
     /// <summary>
@@ -16,7 +21,7 @@ namespace AmbientSounds
     /// </summary>
     sealed partial class App : Application
     {
-        public static IContainer Container { get; private set; }
+        private IServiceProvider? _serviceProvider;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -24,8 +29,24 @@ namespace AmbientSounds
         public App()
         {
             this.InitializeComponent();
+        }
 
-            Container = ContainerService.Build();
+        /// <summary>
+        /// Gets the <see cref="IServiceProvider"/> instance for the current application instance.
+        /// </summary>
+        public static IServiceProvider Services
+        {
+            get
+            {
+                IServiceProvider? serviceProvider = ((App)Current)._serviceProvider;
+
+                if (serviceProvider is null)
+                {
+                    ThrowHelper.ThrowInvalidOperationException("The service provider is not initialized");
+                }
+
+                return serviceProvider;
+            }
         }
 
         /// <inheritdoc/>
@@ -41,6 +62,9 @@ namespace AmbientSounds
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
+                // Configure the services for later use
+                _serviceProvider = ConfigureServices();
             }
 
             if (!e.PrelaunchActivated)
@@ -81,6 +105,19 @@ namespace AmbientSounds
             viewTitleBar.ButtonBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonForegroundColor = darkTheme ? Colors.LightGray : Colors.Black;
+        }
+
+        /// <summary>
+        /// Configures a new <see cref="IServiceProvider"/> instance with the required services.
+        /// </summary>
+        private static IServiceProvider ConfigureServices()
+        {
+            return new ServiceCollection()
+                .AddTransient<MainPageViewModel>()
+                .AddSingleton<PlayerViewModel>()
+                .AddSingleton<IMediaPlayerService, MediaPlayerService>()
+                .AddSingleton<ISoundDataProvider, SoundDataProvider>()
+                .BuildServiceProvider();
         }
     }
 }

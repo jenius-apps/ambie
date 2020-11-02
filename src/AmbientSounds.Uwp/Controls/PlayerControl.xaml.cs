@@ -1,5 +1,5 @@
 ﻿using AmbientSounds.ViewModels;
-using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml.Controls;
 
 namespace AmbientSounds.Controls
@@ -9,7 +9,7 @@ namespace AmbientSounds.Controls
         public PlayerControl()
         {
             this.InitializeComponent();
-            this.DataContext = App.Container.Resolve<PlayerViewModel>();
+            this.DataContext = App.Services.GetRequiredService<PlayerViewModel>();
         }
 
         public PlayerViewModel ViewModel => (PlayerViewModel)this.DataContext;

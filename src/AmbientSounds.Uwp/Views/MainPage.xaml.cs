@@ -1,5 +1,5 @@
 ﻿using AmbientSounds.ViewModels;
-using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 using System.Numerics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,7 +15,7 @@ namespace AmbientSounds.Views
         public MainPage()
         {
             this.InitializeComponent();
-            this.DataContext = App.Container.Resolve<MainPageViewModel>();
+            this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
         }
 
         public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
