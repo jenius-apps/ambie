@@ -6,6 +6,8 @@ using Windows.Media.Playback;
 using Windows.System;
 using UwpMediaPlaybackState = Windows.Media.Playback.MediaPlaybackState;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -14,10 +16,10 @@ namespace AmbientSounds.Services.Uwp
     public sealed class MediaPlayerService : IMediaPlayerService
     {
         /// <inheritdoc/>
-        public event EventHandler NewSoundPlayed;
+        public event EventHandler? NewSoundPlayed;
 
         /// <inheritdoc/>
-        public event EventHandler<MediaPlaybackState> PlaybackStateChanged;
+        public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
         private readonly MediaPlayer _player;
         private readonly DispatcherQueue _dispatcherQueue;
@@ -40,7 +42,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public Sound Current { get; private set; }
+        public Sound? Current { get; private set; }
 
         /// <inheritdoc/>
         public MediaPlaybackState PlaybackState

@@ -21,7 +21,7 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Current the current sound track.
         /// </summary>
-        Sound Current { get; }
+        Sound? Current { get; }
 
         /// <summary>
         /// Gets the current playback state (e.g. paused, playing, etc.).
