@@ -12,7 +12,7 @@
         <StackPanel Orientation="Horizontal">
             <Button
                 Width="60"
-                Height="60"                
+                Height="60"
                 CornerRadius="30"
                 Command="{x:Bind ViewModel.TogglePlayStateCommand}">
                 <Grid>
