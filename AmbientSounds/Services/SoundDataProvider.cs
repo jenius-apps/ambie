@@ -1,7 +1,8 @@
 ﻿using AmbientSounds.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Windows.Storage;
 
@@ -23,9 +24,12 @@ namespace AmbientSounds.Services
         {
             StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-            var dataFile = await assets.GetFileAsync(DataFileName);
-            string text = await FileIO.ReadTextAsync(dataFile);
-            return JsonConvert.DeserializeObject<Sound[]>(text);
+            StorageFile dataFile = await assets.GetFileAsync(DataFileName);
+
+            using (Stream dataStream = await dataFile.OpenStreamForReadAsync())
+            {
+                return await JsonSerializer.DeserializeAsync<Sound[]>(dataStream);
+            }
         }
     }
 }
