@@ -2,7 +2,6 @@
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -11,16 +10,19 @@ namespace AmbientSounds.ViewModels
     public class MainPageViewModel : ObservableObject
     {
         private readonly IMediaPlayerService _player;
+        private readonly ISoundDataProvider _provider;
 
         /// <summary>
         /// Default constructor. Must initialize with <see cref="LoadAsync"/>
         /// immediately after creation.
         /// </summary>
-        public MainPageViewModel(IMediaPlayerService mediaPlayerService)
+        public MainPageViewModel(IMediaPlayerService mediaPlayerService, ISoundDataProvider soundDataProvider)
         {
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
 
             _player = mediaPlayerService;
+            _provider = soundDataProvider;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
@@ -46,7 +48,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private async Task LoadAsync()
         {
-            var soundList = await SoundDataProvider.GetSoundsAsync();
+            var soundList = await _provider.GetSoundsAsync();
 
             foreach (var sound in soundList)
             {

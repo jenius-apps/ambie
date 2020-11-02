@@ -9,27 +9,22 @@ using Windows.Storage;
 namespace AmbientSounds.Services
 {
     /// <summary>
-    /// Retrieves list of sound data
-    /// available to the app.
+    /// A provider of sound data.
     /// </summary>
-    public class SoundDataProvider
+    public sealed class SoundDataProvider : ISoundDataProvider
     {
         private const string DataFileName = "Data.json";
 
-        /// <summary>
-        /// Retrieves list of sound data available to the app.
-        /// </summary>
-        /// <returns>List of <see cref="Sound"/>.</returns>
-        public static async Task<IList<Sound>> GetSoundsAsync()
+        /// <inheritdoc/>
+        public async Task<IList<Sound>> GetSoundsAsync()
         {
             StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
             StorageFile dataFile = await assets.GetFileAsync(DataFileName);
 
-            using (Stream dataStream = await dataFile.OpenStreamForReadAsync())
-            {
-                return await JsonSerializer.DeserializeAsync<Sound[]>(dataStream);
-            }
+            using Stream dataStream = await dataFile.OpenStreamForReadAsync();
+
+            return await JsonSerializer.DeserializeAsync<Sound[]>(dataStream);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace AmbientSounds.Services
             builder.RegisterType<MainPageViewModel>();
             builder.RegisterType<PlayerViewModel>().SingleInstance();
             builder.RegisterType<MediaPlayerService>().As<IMediaPlayerService>().SingleInstance();
+            builder.RegisterType<SoundDataProvider>().As<ISoundDataProvider>().SingleInstance();
             return builder.Build();
         }
     }

@@ -132,6 +132,7 @@
     <Compile Include="Services\ContainerService.cs" />
     <Compile Include="Services\IMediaPlayerService.cs" />
     <Compile Include="Services\MediaPlayerService.cs" />
+    <Compile Include="Services\ISoundDataProvider.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />
     <Compile Include="ViewModels\SoundViewModel.cs" />
