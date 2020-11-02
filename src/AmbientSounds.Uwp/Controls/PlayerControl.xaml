@@ -14,6 +14,7 @@
                 Width="60"
                 Height="60"
                 CornerRadius="30"
+                AutomationProperties.Name="{x:Bind ViewModel.AutomationName, Mode=OneWay}"
                 Command="{x:Bind ViewModel.TogglePlayStateCommand}">
                 <Grid>
                     <!--  play  -->
