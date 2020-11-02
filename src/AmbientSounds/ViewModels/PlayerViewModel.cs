@@ -3,8 +3,6 @@ using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Core;
-using Windows.UI.Core;
 
 namespace AmbientSounds.ViewModels
 {
@@ -48,6 +46,7 @@ namespace AmbientSounds.ViewModels
             else _player.Play();
 
             await Task.Delay(100);
+
             UpdatePlayState();
         }
 
@@ -62,19 +61,9 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(SoundName));
         }
 
-        private async void PlaybackStateChanged(object sender, MediaPlaybackState state)
+        private void PlaybackStateChanged(object sender, MediaPlaybackState state)
         {
-            if (state == MediaPlaybackState.Playing || state == MediaPlaybackState.Paused)
-            {
-                // This event is triggered by the media player object
-                // running in a background thread. The dispatcher is required
-                // to avoid exceptions when trying to update
-                // the visibility states for the play button.
-                await CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    UpdatePlayState();
-                });
-            }
+            UpdatePlayState();
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Diagnostics;
 using System;
 using Windows.Media.Core;
 using Windows.Media.Playback;
+using Windows.System;
 using UwpMediaPlaybackState = Windows.Media.Playback.MediaPlaybackState;
 
 namespace AmbientSounds.Services
@@ -19,12 +20,23 @@ namespace AmbientSounds.Services
         public event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
         private readonly MediaPlayer _player;
+        private readonly DispatcherQueue _dispatcherQueue;
 
         public MediaPlayerService()
         {
             _player = new MediaPlayer { IsLoopingEnabled = true };
+            _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
-            _player.PlaybackSession.PlaybackStateChanged += (s, e) => PlaybackStateChanged?.Invoke(this, PlaybackState);
+            _player.PlaybackSession.PlaybackStateChanged += PlaybackSession_PlaybackStateChanged;
+        }
+
+        private void PlaybackSession_PlaybackStateChanged(MediaPlaybackSession sender, object args)
+        {
+            // This event is triggered by the media player object running in a background thread.
+            // The dispatcher is required to avoid exceptions when this event is used by other
+            // viewmodels to update bindable properties. We assume an instance of this service will
+            // always be created on a UI thread (from code behind), so we use a dispatcher queue.
+            _dispatcherQueue.TryEnqueue(() => PlaybackStateChanged?.Invoke(this, PlaybackState));
         }
 
         /// <inheritdoc/>
