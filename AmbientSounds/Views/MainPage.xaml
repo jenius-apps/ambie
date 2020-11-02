@@ -33,7 +33,7 @@
                 Height="60"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Source="ms-appx:///Assets/Square44x44Logo.scale-400.png"
+                Source="ms-appx:///Assets/logo.png"
                 Visibility="Collapsed">
                 <animations:Implicit.ShowAnimations>
                     <animations:TranslationAnimation
