@@ -57,7 +57,6 @@
             <GridView
                 animations:ReorderGridAnimation.Duration="300"
                 IsItemClickEnabled="True"
-                ItemClick="{x:Bind ViewModel.GridViewSoundClicked}"
                 ItemContainerStyle="{StaticResource GridViewItemExpanded}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
                 ScrollViewer.HorizontalScrollMode="Disabled"
@@ -66,6 +65,9 @@
                 <TransitionCollection>
                     <EntranceThemeTransition IsStaggeringEnabled="True" />
                 </TransitionCollection>
+                <interactivity:Interaction.Behaviors>
+                    <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}"/>
+                </interactivity:Interaction.Behaviors>
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:SoundViewModel">
                         <GridViewItem Width="300" Height="180">

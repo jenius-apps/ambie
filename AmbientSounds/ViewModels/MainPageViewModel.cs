@@ -20,12 +20,18 @@ namespace AmbientSounds.ViewModels
             _player = mediaPlayerService ?? throw new ArgumentNullException(nameof(mediaPlayerService));
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
+            PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
         }
 
         /// <summary>
         /// The <see cref="IAsyncRelayCommand"/> responsible for loading the viewmodel data.
         /// </summary>
         public IAsyncRelayCommand LoadCommand { get; }
+
+        /// <summary>
+        /// The <see cref="IRelayCommand{T}"/> responsible for playing a selected sound.
+        /// </summary>
+        public IRelayCommand<SoundViewModel> PlaySoundCommand { get; }
 
         /// <summary>
         /// The list of sounds for this page.
@@ -48,12 +54,9 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Loads the clicked sound into the player and plays it.
         /// </summary>
-        public void GridViewSoundClicked(object sender, Windows.UI.Xaml.Controls.ItemClickEventArgs e)
+        private void PlaySound(SoundViewModel sound)
         {
-            if (e.ClickedItem is SoundViewModel svm)
-            {
-                svm.Play();
-            }
+            sound?.Play();
         }
     }
 }
