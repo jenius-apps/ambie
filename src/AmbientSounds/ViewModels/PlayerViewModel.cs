@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Threading.Tasks;
 
@@ -20,7 +21,14 @@ namespace AmbientSounds.ViewModels
             _player = player;
             _player.NewSoundPlayed += NewSoundPlayed;
             _player.PlaybackStateChanged += PlaybackStateChanged;
+
+            TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
         }
+
+        /// <summary>
+        /// The <see cref="IAsyncRelayCommand"/> responsible for toggling the play state.
+        /// </summary>
+        public IAsyncRelayCommand TogglePlayStateCommand { get; }
 
         /// <summary>
         /// Flag for if the player is playing or is about to.
@@ -40,7 +48,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Toggles the player's state.
         /// </summary>
-        public async void TogglePlayState()
+        private async Task TogglePlayStateAsync()
         {
             if (IsPlaying) _player.Pause();
             else _player.Play();
