@@ -5,8 +5,6 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace AmbientSounds.Controls
 {
     public sealed partial class LogoControl : UserControl
@@ -34,7 +32,7 @@ namespace AmbientSounds.Controls
         {
             var element = sender as UIElement;
             var visual = ElementCompositionPreview.GetElementVisual(element);
-            visual.Scale = new Vector3(1, 1, 1);
+            visual.Scale = new Vector3(1);
         }
     }
 }

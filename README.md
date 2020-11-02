@@ -21,9 +21,9 @@ Pull requests are welcome! Please keep in mind the motivation behind Ambie, howe
 - Have attributions for sound and image
 
 ## Attributions
-- [Autofac](https://autofac.org/)
 - [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
 - [WinUI library](aka.ms/winui/github)
 - [Sounds](https://freesound.org). Specific file attributions are in `Data.json`.
 - [Images](https://unsplash.com/). Specific image attributions are in `Data.json`.
-- [Json.NET](https://github.com/JamesNK/Newtonsoft.Json)
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/)
+- [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)

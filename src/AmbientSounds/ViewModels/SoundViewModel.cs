@@ -1,9 +1,7 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
+using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace AmbientSounds.ViewModels
 {
@@ -13,18 +11,16 @@ namespace AmbientSounds.ViewModels
     public class SoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
-        private readonly MediaPlayerService _playerService;
+        private readonly IMediaPlayerService _playerService;
 
-        public SoundViewModel(Sound s, MediaPlayerService playerService)
+        public SoundViewModel(Sound s, IMediaPlayerService playerService)
         {
-            _sound = s ?? throw new ArgumentNullException(nameof(s));
-            _playerService = playerService ?? throw new ArgumentNullException(nameof(playerService));
-        }
+            Guard.IsNotNull(s, nameof(s));
+            Guard.IsNotNull(playerService, nameof(playerService));
 
-        /// <summary>
-        /// A bitmap image source for this sound.
-        /// </summary>
-        public ImageSource SoundImageSource => new BitmapImage(new Uri(_sound.ImagePath));
+            _sound = s;
+            _playerService = playerService;
+        }
 
         /// <summary>
         /// The sound's attribution.
@@ -35,6 +31,11 @@ namespace AmbientSounds.ViewModels
         /// Name of the sound.
         /// </summary>
         public string Name => _sound.Name ?? _sound.Id;
+
+        /// <summary>
+        /// The path for the image to display for the current sound.
+        /// </summary>
+        public string ImagePath => _sound.ImagePath;
 
         /// <summary>
         /// Loads this sound into the player and plays it.

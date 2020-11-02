@@ -5,7 +5,8 @@
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
-  IgnorableNamespaces="uap mp uap3">
+  xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+  IgnorableNamespaces="uap mp uap3 uap5">
 
   <Identity
     Name="90134f50-d8e6-4406-abc4-57d19471dbd5"
@@ -45,7 +46,7 @@
             <uap:ShowOn Tile="square310x310Logo"/>
           </uap:ShowNameOnTiles>
         </uap:DefaultTile >
-        <uap:SplashScreen Image="Assets\SplashScreen.png" a:Optional="true" xmlns:a="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"  BackgroundColor="#FFC15D"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true" xmlns:a="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"  BackgroundColor="#FFC15D"/>
       </uap:VisualElements>
     </Application>
   </Applications>

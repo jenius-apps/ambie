@@ -25,7 +25,7 @@
     
     
     <!-- Add your application specific runtime directives here. -->
-
+    <Type Name="System.Text.Json.Serialization.Converters.JsonConverterString" Dynamic="Required All" />
 
   </Application>
 </Directives>
