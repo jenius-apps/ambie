@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
+using Windows.Services.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,6 +35,12 @@ namespace AmbientSounds.Controls
             var element = sender as UIElement;
             var visual = ElementCompositionPreview.GetElementVisual(element);
             visual.Scale = new Vector3(1);
+        }
+
+        private async void RateUsClicked(object sender, RoutedEventArgs e)
+        {
+            var storeContext = StoreContext.GetDefault();
+            await storeContext.RequestRateAndReviewAppAsync();
         }
     }
 }
