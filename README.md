@@ -22,7 +22,7 @@ Pull requests are welcome! Please keep in mind the motivation behind Ambie, howe
 
 ## Attributions
 - [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
-- [WinUI library](aka.ms/winui/github)
+- [WinUI library](https://github.com/Microsoft/microsoft-ui-xaml)
 - [Sounds](https://freesound.org). Specific file attributions are in `Data.json`.
 - [Images](https://unsplash.com/). Specific image attributions are in `Data.json`.
 - [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/)
