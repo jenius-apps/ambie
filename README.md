@@ -5,7 +5,9 @@
 A modern Windows app that plays soothing tones to help you be healthier, happier, and more relaxed.
 
 
-https://www.microsoft.com/store/productId/9P07XNM5CHP0
+Download from store: https://www.microsoft.com/store/productId/9P07XNM5CHP0
+
+Chat about Ambie on Discord: https://discord.gg/b9z3BeXk3D
 
 ![](images/ambie_hero.png)
 
