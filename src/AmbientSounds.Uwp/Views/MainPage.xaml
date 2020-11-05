@@ -81,7 +81,7 @@
                                 Width="280"
                                 Height="160"
                                 Margin="4"
-                                extensions:VisualExtensions.CenterPoint="120,80,0"
+                                extensions:VisualExtensions.CenterPoint="140,80,0"
                                 CornerRadius="8"
                                 PointerEntered="GridScaleUp"
                                 PointerExited="GridScaleNormal">
