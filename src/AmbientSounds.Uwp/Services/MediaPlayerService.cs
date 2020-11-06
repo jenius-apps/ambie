@@ -100,7 +100,7 @@ namespace AmbientSounds.Services.Uwp
                 var playbackItem = MediaPlaybackItem.FindFromMediaSource(mediaSource);
                 var props = playbackItem.GetDisplayProperties();
                 props.Type = MediaPlaybackType.Music;
-                props.MusicProperties.Title = s.Id;
+                props.MusicProperties.Title = s.Name ?? s.Id;
                 if (!string.IsNullOrWhiteSpace(s.ImagePath) && Uri.IsWellFormedUriString(s.ImagePath, UriKind.Absolute))
                 {
                     props.Thumbnail = RandomAccessStreamReference.CreateFromUri(new Uri(s.ImagePath));
