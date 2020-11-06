@@ -1,8 +1,10 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using Windows.Media;
 using Windows.Media.Core;
 using Windows.Media.Playback;
+using Windows.Storage.Streams;
 using Windows.System;
 using UwpMediaPlaybackState = Windows.Media.Playback.MediaPlaybackState;
 
@@ -89,7 +91,22 @@ namespace AmbientSounds.Services.Uwp
             else
             {
                 _player.Pause();
-                _player.Source = MediaSource.CreateFromUri(new Uri(s.FilePath));
+
+                var mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
+                _player.Source = mediaSource;
+
+                // Set data in System Media Transport Controls
+                // This step must be done after setting the player source
+                var playbackItem = MediaPlaybackItem.FindFromMediaSource(mediaSource);
+                var props = playbackItem.GetDisplayProperties();
+                props.Type = MediaPlaybackType.Music;
+                props.MusicProperties.Title = s.Id;
+                if (!string.IsNullOrWhiteSpace(s.ImagePath) && Uri.IsWellFormedUriString(s.ImagePath, UriKind.Absolute))
+                {
+                    props.Thumbnail = RandomAccessStreamReference.CreateFromUri(new Uri(s.ImagePath));
+                }
+                playbackItem.ApplyDisplayProperties(props);
+
                 _player.Play();
 
                 Current = s;
