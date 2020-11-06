@@ -149,6 +149,7 @@
     <Content Include="Assets\Images\rain.png" />
     <Content Include="Assets\Images\rainforest.png" />
     <Content Include="Assets\Images\underwater.png" />
+    <Content Include="Assets\Images\whitenoise.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -167,6 +168,7 @@
     <Content Include="Assets\Sounds\rain.mp3" />
     <Content Include="Assets\Sounds\Rainforest.mp3" />
     <Content Include="Assets\Sounds\underwater.mp3" />
+    <Content Include="Assets\Sounds\whitenoise.mp3" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
