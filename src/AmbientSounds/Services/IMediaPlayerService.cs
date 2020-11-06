@@ -29,6 +29,11 @@ namespace AmbientSounds.Services
         MediaPlaybackState PlaybackState { get; }
 
         /// <summary>
+        /// Gets or sets the volume of the player. Max 100 and min 0.
+        /// </summary>
+        double Volume { get; set; }
+
+        /// <summary>
         /// Starts playing a given sound.
         /// </summary>
         /// <param name="sound">The <see cref="Sound"/> instance to play.</param>
