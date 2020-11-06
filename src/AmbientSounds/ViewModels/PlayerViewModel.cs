@@ -48,7 +48,16 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Name of current sound track.
         /// </summary>
-        public string SoundName => _player?.Current?.Name ?? _player?.Current?.Id ?? "None";
+        public string SoundName => _player?.Current?.Name ?? _player?.Current?.Id ?? "Ready to play";
+
+        /// <summary>
+        /// Volume of player.
+        /// </summary>
+        public double Volume
+        {
+            get => _player.Volume;
+            set => _player.Volume = value;
+        }
 
         /// <summary>
         /// Toggles the player's state.

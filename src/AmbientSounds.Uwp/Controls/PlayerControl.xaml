@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -13,9 +14,9 @@
             <Button
                 Width="60"
                 Height="60"
-                CornerRadius="30"
                 AutomationProperties.Name="{x:Bind ViewModel.AutomationName, Mode=OneWay}"
-                Command="{x:Bind ViewModel.TogglePlayStateCommand}">
+                Command="{x:Bind ViewModel.TogglePlayStateCommand}"
+                CornerRadius="30">
                 <Grid>
                     <!--  play  -->
                     <FontIcon
@@ -30,9 +31,15 @@
                         Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}" />
                 </Grid>
             </Button>
-            <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                <TextBlock Text="Now playing" />
-                <TextBlock Text="{x:Bind ViewModel.SoundName, Mode=OneWay}" />
+            <StackPanel
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                Background="Transparent">
+                <TextBlock Margin="0,8,0,0" Text="{x:Bind ViewModel.SoundName, Mode=OneWay}" />
+                <Slider
+                    Width="120"
+                    Margin="0,4,0,0"
+                    Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
             </StackPanel>
         </StackPanel>
     </Grid>

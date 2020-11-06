@@ -44,6 +44,18 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public Sound? Current { get; private set; }
 
+
+        /// <inheritdoc/>
+        public double Volume
+        {
+            get => _player.Volume * 100;
+            set
+            {
+                if (value == _player.Volume) return;
+                else _player.Volume = value / 100d;
+            }
+        }
+
         /// <inheritdoc/>
         public MediaPlaybackState PlaybackState
         {
