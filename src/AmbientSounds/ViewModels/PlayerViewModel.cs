@@ -85,6 +85,7 @@ namespace AmbientSounds.ViewModels
         {
             OnPropertyChanged(nameof(IsPlaying));
             OnPropertyChanged(nameof(IsPaused));
+            OnPropertyChanged(nameof(AutomationName));
         }
 
         private void NewSoundPlayed(object sender, EventArgs e)
