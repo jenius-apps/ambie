@@ -115,7 +115,9 @@ namespace AmbientSounds
             return new ServiceCollection()
                 .AddTransient<MainPageViewModel>()
                 .AddTransient<IUserSettings, LocalSettings>()
+                .AddTransient<ITimerService, TimerService>()
                 .AddSingleton<PlayerViewModel>()
+                .AddSingleton<SleepTimerViewModel>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .BuildServiceProvider();
