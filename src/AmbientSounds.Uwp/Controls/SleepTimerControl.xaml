@@ -1,0 +1,91 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.SleepTimerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Horizontal">
+        <Button
+            Width="40"
+            Height="40"
+            AutomationProperties.Name="Click here to set up a sleep timer, where the sound will pause after the selected time."
+            Background="Transparent"
+            CornerRadius="20"
+            ToolTipService.ToolTip="Click here to set up a sleep timer, where the sound will pause after the selected time.">
+            <Grid>
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF0CE;" />
+            </Grid>
+            <Button.Flyout>
+                <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
+                    <muxc:CommandBarFlyout.PrimaryCommands>
+                        <AppBarButton
+                            AutomationProperties.Name="Continue timer"
+                            Command="{x:Bind ViewModel.TimerPlayCommand}"
+                            Icon="Play" />
+                        <AppBarButton
+                            AutomationProperties.Name="Pause timer"
+                            Command="{x:Bind ViewModel.TimerPauseCommand}"
+                            Icon="Pause" />
+                        <AppBarButton
+                            AutomationProperties.Name="Stop timer and clear time"
+                            Command="{x:Bind ViewModel.TimerStopCommand}"
+                            Icon="Stop" />
+                    </muxc:CommandBarFlyout.PrimaryCommands>
+                    <muxc:CommandBarFlyout.SecondaryCommands>
+                        <AppBarButton
+                            Command="{x:Bind ViewModel.TimerStartCommand}"
+                            Icon="Clock"
+                            Label="5 minutes">
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>5</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                        <AppBarButton
+                            Command="{x:Bind ViewModel.TimerStartCommand}"
+                            Icon="Clock"
+                            Label="10 minutes">
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>10</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                        <AppBarButton
+                            Command="{x:Bind ViewModel.TimerStartCommand}"
+                            Icon="Clock"
+                            Label="15 minutes">
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>15</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                        <AppBarButton
+                            Command="{x:Bind ViewModel.TimerStartCommand}"
+                            Icon="Clock"
+                            Label="30 minutes">
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>30</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                        <AppBarButton
+                            Command="{x:Bind ViewModel.TimerStartCommand}"
+                            Icon="Clock"
+                            Label="60 minutes">
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>60</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                    </muxc:CommandBarFlyout.SecondaryCommands>
+                </muxc:CommandBarFlyout>
+            </Button.Flyout>
+        </Button>
+        <TextBlock
+            Margin="12,0,0,0"
+            VerticalAlignment="Center"
+            Text="{x:Bind ViewModel.TimeLeft, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}" />
+    </StackPanel>
+</UserControl>
