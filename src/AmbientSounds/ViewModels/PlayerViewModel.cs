@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -13,16 +14,20 @@ namespace AmbientSounds.ViewModels
     public class PlayerViewModel : ObservableObject
     {
         private readonly IMediaPlayerService _player;
+        private readonly IUserSettings _userSettings;
 
-        public PlayerViewModel(IMediaPlayerService player)
+        public PlayerViewModel(IMediaPlayerService player, IUserSettings userSettings)
         {
             Guard.IsNotNull(player, nameof(player));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
 
             _player = player;
+            _userSettings = userSettings;
             _player.NewSoundPlayed += NewSoundPlayed;
             _player.PlaybackStateChanged += PlaybackStateChanged;
 
             TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
+            Volume = userSettings.Get<double>(UserSettingsConstants.Volume);
         }
 
         /// <summary>
@@ -51,12 +56,16 @@ namespace AmbientSounds.ViewModels
         public string SoundName => _player?.Current?.Name ?? _player?.Current?.Id ?? "Ready to play";
 
         /// <summary>
-        /// Volume of player.
+        /// Volume of player. Range of 0 to 100.
         /// </summary>
         public double Volume
         {
             get => _player.Volume;
-            set => _player.Volume = value;
+            set
+            {
+                _player.Volume = value;
+                _userSettings.Set(UserSettingsConstants.Volume, value);
+            }
         }
 
         /// <summary>
