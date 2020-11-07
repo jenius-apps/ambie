@@ -114,6 +114,7 @@ namespace AmbientSounds
         {
             return new ServiceCollection()
                 .AddTransient<MainPageViewModel>()
+                .AddTransient<IUserSettings, LocalSettings>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
