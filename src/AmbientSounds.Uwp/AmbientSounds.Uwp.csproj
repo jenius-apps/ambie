@@ -130,6 +130,7 @@
     <Compile Include="Controls\SleepTimerControl.xaml.cs">
       <DependentUpon>SleepTimerControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\PlayButtonAutomationNameConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\MediaPlayerService.cs" />

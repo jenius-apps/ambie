@@ -1,7 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using Windows.Storage;
 
-namespace AmbientSounds.Services
+namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
     /// Class for storing and retrieving

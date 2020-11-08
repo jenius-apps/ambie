@@ -14,10 +14,10 @@
             <Button
                 Width="60"
                 Height="60"
-                AutomationProperties.Name="{x:Bind ViewModel.AutomationName, Mode=OneWay}"
+                AutomationProperties.Name="{x:Bind ViewModel.IsPaused, Mode=OneWay, Converter={StaticResource PlayButtonAutomationNameConverter}}"
                 Command="{x:Bind ViewModel.TogglePlayStateCommand}"
                 CornerRadius="30"
-                ToolTipService.ToolTip="{x:Bind ViewModel.AutomationName, Mode=OneWay}">
+                ToolTipService.ToolTip="{x:Bind ViewModel.IsPaused, Mode=OneWay, Converter={StaticResource PlayButtonAutomationNameConverter}}">
                 <Grid>
                     <!--  play  -->
                     <FontIcon

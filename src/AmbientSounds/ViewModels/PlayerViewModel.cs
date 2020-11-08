@@ -46,11 +46,6 @@ namespace AmbientSounds.ViewModels
         public bool IsPaused => !IsPlaying;
 
         /// <summary>
-        /// Automation name announced to users using narrator for the current available sound action.
-        /// </summary>
-        public string AutomationName => !IsPlaying ? "Play" : "Pause";
-
-        /// <summary>
         /// Name of current sound track.
         /// </summary>
         public string SoundName => _player?.Current?.Name ?? _player?.Current?.Id ?? "🎶";
@@ -85,7 +80,6 @@ namespace AmbientSounds.ViewModels
         {
             OnPropertyChanged(nameof(IsPlaying));
             OnPropertyChanged(nameof(IsPaused));
-            OnPropertyChanged(nameof(AutomationName));
         }
 
         private void NewSoundPlayed(object sender, EventArgs e)

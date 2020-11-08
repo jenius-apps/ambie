@@ -147,6 +147,12 @@
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Pause the timer</value>
   </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>Pause sound</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>Play sound</value>
+  </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Continue the timer</value>
   </data>

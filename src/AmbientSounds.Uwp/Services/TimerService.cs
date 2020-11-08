@@ -2,7 +2,7 @@
 using System.Timers;
 using Windows.System;
 
-namespace AmbientSounds.Services
+namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
     /// Class for handling a timer countdown.

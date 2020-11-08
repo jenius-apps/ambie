@@ -147,6 +147,12 @@
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Sospendere il timer</value>
   </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>Mettere in pausa l'audio</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>Riprodurre il suono</value>
+  </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Continuare il timer</value>
   </data>
