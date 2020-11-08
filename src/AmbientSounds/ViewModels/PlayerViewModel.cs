@@ -53,7 +53,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Name of current sound track.
         /// </summary>
-        public string SoundName => _player?.Current?.Name ?? _player?.Current?.Id ?? "Ready to play";
+        public string SoundName => _player?.Current?.Name ?? _player?.Current?.Id ?? "🎶";
 
         /// <summary>
         /// Volume of player. Range of 0 to 100.
