@@ -36,7 +36,7 @@
                 Margin="20,0,0,0"
                 VerticalAlignment="Center"
                 Background="Transparent">
-                <TextBlock Margin="0,8,0,0" Text="{x:Bind ViewModel.SoundName, Mode=OneWay}" />
+                <TextBlock Margin="0,8,0,0" Text="{x:Bind ViewModel.SoundName, Mode=OneWay, Converter={StaticResource SoundNameConverter}}" />
                 <Slider
                     Width="120"
                     Margin="0,4,0,0"

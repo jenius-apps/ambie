@@ -108,7 +108,7 @@
                                         FontSize="36"
                                         FontWeight="SemiBold"
                                         Foreground="White"
-                                        Text="{x:Bind Name}"
+                                        Text="{x:Bind Name, Converter={StaticResource SoundNameConverter}}"
                                         TextWrapping="Wrap" />
                                 </Grid>
                             </Grid>

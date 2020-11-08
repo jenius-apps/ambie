@@ -159,6 +159,9 @@
   <data name="RateUs.Content" xml:space="preserve">
     <value>Rate us</value>
   </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>Ready to play</value>
+  </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Click here to set up a sleep timer, where the sound will pause after the selected time.</value>
   </data>

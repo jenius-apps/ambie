@@ -10,6 +10,7 @@
             </ResourceDictionary.MergedDictionaries>
 
             <converters:PlayButtonAutomationNameConverter x:Key="PlayButtonAutomationNameConverter" />
+            <converters:SoundNameConverter x:Key="SoundNameConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
