@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 
 namespace AmbientSounds.Services.Uwp
@@ -24,7 +25,19 @@ namespace AmbientSounds.Services.Uwp
 
             using Stream dataStream = await dataFile.OpenStreamForReadAsync();
 
-            return await JsonSerializer.DeserializeAsync<Sound[]>(dataStream);
+            var resourceLoader = ResourceLoader.GetForCurrentView();
+            var sounds = await JsonSerializer.DeserializeAsync<Sound[]>(dataStream);
+
+            foreach (var s in sounds)
+            {
+                var translatedName = resourceLoader.GetString("Sound-" + s.Id);
+                if (!string.IsNullOrWhiteSpace(translatedName))
+                {
+                    s.Name = translatedName;
+                }
+            }
+
+            return sounds;
         }
     }
 }

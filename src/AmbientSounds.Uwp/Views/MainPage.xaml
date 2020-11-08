@@ -4,18 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
     <interactivity:Interaction.Behaviors>
         <core:EventTriggerBehavior EventName="Loaded">
-            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}"/>
+            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
         </core:EventTriggerBehavior>
     </interactivity:Interaction.Behaviors>
 
@@ -56,22 +56,25 @@
             CanContentRenderOutsideBounds="True">
             <GridView
                 animations:ReorderGridAnimation.Duration="300"
+                AutomationProperties.Name="Sounds"
                 IsItemClickEnabled="True"
                 ItemContainerStyle="{StaticResource GridViewItemExpanded}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
                 ScrollViewer.HorizontalScrollMode="Disabled"
                 ScrollViewer.VerticalScrollMode="Disabled"
-                AutomationProperties.Name="Sounds"
                 SelectionMode="None">
                 <TransitionCollection>
                     <EntranceThemeTransition IsStaggeringEnabled="True" />
                 </TransitionCollection>
                 <interactivity:Interaction.Behaviors>
-                    <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}"/>
+                    <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
                 </interactivity:Interaction.Behaviors>
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:SoundViewModel">
-                        <GridViewItem Width="300" Height="180" AutomationProperties.Name="{x:Bind AutomationName, Mode=OneWay}">
+                        <GridViewItem
+                            Width="300"
+                            Height="180"
+                            AutomationProperties.Name="{x:Bind AutomationName, Mode=OneWay}">
                             <GridViewItem.Resources>
                                 <!--  These two removes the border on hover and on pressed  -->
                                 <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
@@ -91,13 +94,13 @@
                                 <Grid.Background>
                                     <ImageBrush Stretch="UniformToFill">
                                         <ImageBrush.ImageSource>
-                                            <BitmapImage UriSource="{x:Bind ImagePath}"/>
+                                            <BitmapImage UriSource="{x:Bind ImagePath}" />
                                         </ImageBrush.ImageSource>
                                     </ImageBrush>
                                 </Grid.Background>
                                 <Grid VerticalAlignment="Bottom">
                                     <Grid.Background>
-                                        <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2"/>
+                                        <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />
                                     </Grid.Background>
                                     <TextBlock
                                         Margin="12,0,0,4"
@@ -106,14 +109,13 @@
                                         FontWeight="SemiBold"
                                         Foreground="White"
                                         Text="{x:Bind Name}"
-                                        TextWrapping="Wrap">
-                                    </TextBlock>
+                                        TextWrapping="Wrap" />
                                 </Grid>
                             </Grid>
                             <GridViewItem.ContextFlyout>
                                 <Flyout Placement="BottomEdgeAlignedLeft">
                                     <StackPanel Width="300">
-                                        <TextBlock FontWeight="SemiBold" Text="Attribution" />
+                                        <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
                                         <TextBlock
                                             Margin="0,8,0,0"
                                             IsTextSelectionEnabled="True"
