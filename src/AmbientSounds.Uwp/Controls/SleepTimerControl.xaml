@@ -12,12 +12,11 @@
 
     <StackPanel Orientation="Horizontal">
         <Button
+            x:Uid="SleepTimerButton"
             Width="40"
             Height="40"
-            AutomationProperties.Name="Click here to set up a sleep timer, where the sound will pause after the selected time."
             Background="Transparent"
-            CornerRadius="20"
-            ToolTipService.ToolTip="Click here to set up a sleep timer, where the sound will pause after the selected time.">
+            CornerRadius="20">
             <Grid>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF0CE;" />
             </Grid>
@@ -25,55 +24,55 @@
                 <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                     <muxc:CommandBarFlyout.PrimaryCommands>
                         <AppBarButton
-                            AutomationProperties.Name="Continue timer"
+                            x:Uid="PlayTimerButton"
                             Command="{x:Bind ViewModel.TimerPlayCommand}"
                             Icon="Play" />
                         <AppBarButton
-                            AutomationProperties.Name="Pause timer"
+                            x:Uid="PauseTimerButton"
                             Command="{x:Bind ViewModel.TimerPauseCommand}"
                             Icon="Pause" />
                         <AppBarButton
-                            AutomationProperties.Name="Stop timer and clear time"
+                            x:Uid="StopTimerButton"
                             Command="{x:Bind ViewModel.TimerStopCommand}"
                             Icon="Stop" />
                     </muxc:CommandBarFlyout.PrimaryCommands>
                     <muxc:CommandBarFlyout.SecondaryCommands>
                         <AppBarButton
+                            x:Uid="Minutes5Button"
                             Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock"
-                            Label="5 minutes">
+                            Icon="Clock">
                             <AppBarButton.CommandParameter>
                                 <x:Int32>5</x:Int32>
                             </AppBarButton.CommandParameter>
                         </AppBarButton>
                         <AppBarButton
+                            x:Uid="Minutes10Button"
                             Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock"
-                            Label="10 minutes">
+                            Icon="Clock">
                             <AppBarButton.CommandParameter>
                                 <x:Int32>10</x:Int32>
                             </AppBarButton.CommandParameter>
                         </AppBarButton>
                         <AppBarButton
+                            x:Uid="Minutes15Button"
                             Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock"
-                            Label="15 minutes">
+                            Icon="Clock">
                             <AppBarButton.CommandParameter>
                                 <x:Int32>15</x:Int32>
                             </AppBarButton.CommandParameter>
                         </AppBarButton>
                         <AppBarButton
+                            x:Uid="Minutes30Button"
                             Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock"
-                            Label="30 minutes">
+                            Icon="Clock">
                             <AppBarButton.CommandParameter>
                                 <x:Int32>30</x:Int32>
                             </AppBarButton.CommandParameter>
                         </AppBarButton>
                         <AppBarButton
+                            x:Uid="Minutes60Button"
                             Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock"
-                            Label="60 minutes">
+                            Icon="Clock">
                             <AppBarButton.CommandParameter>
                                 <x:Int32>60</x:Int32>
                             </AppBarButton.CommandParameter>

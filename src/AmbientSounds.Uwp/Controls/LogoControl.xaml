@@ -44,22 +44,22 @@
             <Flyout>
                 <StackPanel Margin="12">
                     <TextBlock HorizontalAlignment="Center" Text="🍁" />
-                    <TextBlock HorizontalAlignment="Center" Text="Hello from Vancouver" />
+                    <TextBlock x:Uid="HelloFromVancouver" HorizontalAlignment="Center" />
                     <TextBlock
+                        x:Uid="CopyrightJeniusApps"
                         Margin="0,4,0,0"
-                        HorizontalAlignment="Center"
-                        Text="Copyright Jenius Apps" />
+                        HorizontalAlignment="Center" />
                     <HyperlinkButton
+                        x:Uid="ContactCreator"
                         HorizontalAlignment="Center"
-                        Content="Contact creator"
                         NavigateUri="mailto:jenius_apps@outlook.com" />
                     <HyperlinkButton
+                        x:Uid="RateUs"
                         HorizontalAlignment="Center"
-                        Click="{x:Bind RateUsClicked}"
-                        Content="Rate us" />
+                        Click="{x:Bind RateUsClicked}" />
                     <HyperlinkButton
+                        x:Uid="ViewGitHub"
                         HorizontalAlignment="Center"
-                        Content="View GitHub"
                         NavigateUri="https://github.com/jenius-apps/ambie" />
                 </StackPanel>
             </Flyout>

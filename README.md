@@ -15,9 +15,31 @@ Chat about Ambie on Discord: https://discord.gg/b9z3BeXk3D
 
 The motivation behind Ambie is to build a simple but beautiful soothing sounds player for Windows. Animations are used to enhance the experience. Only a few UI elements are available in the app. This is on purpose because for Ambie, _less is more_.
 
+## Translation
+
+Ambie needs volunteer translators! To help translate, follow these instructions.
+
+### Adding a new language (requires Visual Studio 2019)
+- Create a new issue with the subject `[Translation] fr-CA` where you replace `fr-CA` with whatever language-region code you'll be translating into.
+    - If an issue already exists, then don't do this step.
+- Fork and clone this repo
+- Open in VS 2019
+- In the `AmbientSounds.Uwp` project, find the `Strings` folder.
+- Create a new folder inside `Strings` that looks like this: `en-US` but using the language you're translating into.
+- Add a new `Resources.resw` item in that new folder
+- Copy all the existing data from `Strings > en-US` into your new `Resources.resw`
+- Translate the strings from english to your language
+- Once done, then commit > push > create pull request!
+
+### Improving an existing language (can be done with any text editor)
+- Fork and clone this repo
+- Open the the `.resw` file (e.g. `en-US > Resources.resw`) you want to edit. Choose any text editor
+- Translate
+- Commit > push > create pull request!
+
 ## Contributors
 
-Pull requests are welcome! Please keep in mind the motivation behind Ambie, however: _Less is more_. New sounds are greatly appreciated. New sounds must
+Pull requests are welcome! Please keep in mind the motivation behind Ambie, however: _Less is more_. New sounds are appreciated. New sounds must
 - Have a license that can work with Ambie
 - Have an image
 - Have attributions for sound and image
