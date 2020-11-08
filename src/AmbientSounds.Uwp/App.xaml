@@ -4,13 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:AmbientSounds.Converters">
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-            </ResourceDictionary.MergedDictionaries>
-
-            <converters:PlayButtonAutomationNameConverter x:Key="PlayButtonAutomationNameConverter" />
-            <converters:SoundNameConverter x:Key="SoundNameConverter" />
-        </ResourceDictionary>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
     </Application.Resources>
 </Application>

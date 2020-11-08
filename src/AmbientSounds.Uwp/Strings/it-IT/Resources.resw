@@ -198,6 +198,9 @@
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>Rumore bianco</value>
   </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>Impossibile riprodurre l'audio</value>
+  </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Arrestare il timer e cancellare l'ora</value>
   </data>
