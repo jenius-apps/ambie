@@ -61,6 +61,10 @@
                         x:Uid="ViewGitHub"
                         HorizontalAlignment="Center"
                         NavigateUri="https://github.com/jenius-apps/ambie" />
+                    <HyperlinkButton
+                        x:Uid="AddImproveTranslations"
+                        HorizontalAlignment="Center"
+                        NavigateUri="https://github.com/jenius-apps/ambie#translation" />
                 </StackPanel>
             </Flyout>
         </FlyoutBase.AttachedFlyout>
