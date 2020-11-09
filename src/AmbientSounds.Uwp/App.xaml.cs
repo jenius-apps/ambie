@@ -6,6 +6,7 @@ using Microsoft.Toolkit.Diagnostics;
 using System;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -21,6 +22,7 @@ namespace AmbientSounds
     /// </summary>
     sealed partial class App : Application
     {
+        private static readonly bool _isTenFootPc = false;
         private IServiceProvider? _serviceProvider;
 
         /// <summary>
@@ -29,7 +31,15 @@ namespace AmbientSounds
         public App()
         {
             this.InitializeComponent();
+
+            if (IsTenFoot)
+            {
+                // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
+                this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+            }
         }
+
+        public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
 
         /// <summary>
         /// Gets the <see cref="IServiceProvider"/> instance for the current application instance.
