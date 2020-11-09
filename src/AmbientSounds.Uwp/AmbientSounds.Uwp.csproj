@@ -142,6 +142,7 @@
     <Compile Include="Services\MediaPlayerService.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
+    <Compile Include="StateTriggers\TenFootTrigger.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -11,6 +11,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:statetriggers="using:AmbientSounds.StateTriggers"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
@@ -22,18 +23,22 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="120" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" Canvas.ZIndex="1">
+        <Grid
+            x:Name="HeaderGrid"
+            Padding="40,28"
+            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
+            Canvas.ZIndex="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <controls:PlayerControl Margin="40,0,0,0" />
+            <controls:PlayerControl />
 
             <controls:LogoControl
                 x:Name="TitleCentre"
@@ -42,15 +47,13 @@
                 VerticalAlignment="Center"
                 Visibility="Collapsed" />
 
-            <StackPanel
-                Grid.Column="2"
-                Margin="0,0,40,0"
-                Orientation="Horizontal">
-                <controls:MoreButton Margin="4,0,0,0" />
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <controls:MoreButton />
             </StackPanel>
         </Grid>
 
         <ScrollViewer
+            x:Name="SoundsViewer"
             Grid.Row="1"
             Padding="40,32,40,0"
             CanContentRenderOutsideBounds="True">
@@ -146,6 +149,17 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="TitleCentre.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <statetriggers:TenFootTrigger />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitleCentre.Visibility" Value="Visible" />
+                        <Setter Target="HeaderGrid.Padding" Value="88,55,88,28" />
+                        <Setter Target="SoundsViewer.Padding" Value="88,32,88,0" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
