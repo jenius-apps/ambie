@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddImproveTranslations.Content" xml:space="preserve">
-    <value>Migliorare le traduzioni</value>
-  </data>
-  <data name="ContactCreator.Content" xml:space="preserve">
-    <value>Contatta il creatore</value>
-  </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
@@ -147,6 +141,24 @@
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 minuti</value>
   </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>Contatta il creatore</value>
+  </data>
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
+    <value>Chatta su Discord</value>
+  </data>
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
+    <value>Aprire GitHub</value>
+  </data>
+  <data name="MoreButtonRate.Label" xml:space="preserve">
+    <value>Tariffa e revisione</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>Condividi URL per Ambie</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>Migliorare le traduzioni</value>
+  </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Sospendere il timer</value>
   </data>
@@ -158,9 +170,6 @@
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Continuare il timer</value>
-  </data>
-  <data name="RateUs.Content" xml:space="preserve">
-    <value>Tariffa e revisione</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Selezionare un suono</value>
@@ -206,8 +215,5 @@
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Arrestare il timer e cancellare l'ora</value>
-  </data>
-  <data name="ViewGitHub.Content" xml:space="preserve">
-    <value>Aprire GitHub</value>
   </data>
 </root>

@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddImproveTranslations.Content" xml:space="preserve">
-    <value>Add or improve translations</value>
-  </data>
-  <data name="ContactCreator.Content" xml:space="preserve">
-    <value>Contact the creator</value>
-  </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
@@ -147,6 +141,24 @@
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 minutes</value>
   </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>Contact the creator</value>
+  </data>
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
+    <value>Chat on Discord</value>
+  </data>
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
+    <value>View GitHub</value>
+  </data>
+  <data name="MoreButtonRate.Label" xml:space="preserve">
+    <value>Rate us</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>Share link for Ambie</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>Add or improve translations</value>
+  </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Pause the timer</value>
   </data>
@@ -158,9 +170,6 @@
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Continue the timer</value>
-  </data>
-  <data name="RateUs.Content" xml:space="preserve">
-    <value>Rate us</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Ready to play</value>
@@ -206,8 +215,5 @@
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Stop the timer and clear the time</value>
-  </data>
-  <data name="ViewGitHub.Content" xml:space="preserve">
-    <value>View GitHub</value>
   </data>
 </root>
