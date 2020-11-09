@@ -160,16 +160,16 @@
     <value>Continuar el temporizador</value>
   </data>
   <data name="RateUs.Content" xml:space="preserve">
-    <value>Valoranos</value>
+    <value>Valóranos</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Listo para reproducir</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Haz click aqui para configurar un temporizador dormible, donde el sonido pausará despues del tiempo seleccionado.</value>
+    <value>Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará despues del tiempo seleccionado.</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Haz click aqui para configurar un temporizador dormible, donde el sonido pausará despues del tiempo seleccionado.</value>
+    <value>Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará después del tiempo seleccionado.</value>
   </data>
   <data name="Sound-beach" xml:space="preserve">
     <value>Playa</value>
@@ -187,7 +187,7 @@
     <value>Hoguera</value>
   </data>
   <data name="Sound-more" xml:space="preserve">
-    <value>Más proximamente</value>
+    <value>Más próximamente</value>
   </data>
   <data name="Sound-rain" xml:space="preserve">
     <value>Lluvia</value>
