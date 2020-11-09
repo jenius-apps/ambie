@@ -42,13 +42,12 @@
                 VerticalAlignment="Center"
                 Visibility="Collapsed" />
 
-            <controls:LogoControl
-                x:Name="TitleRight"
-                Grid.Column="3"
+            <StackPanel
+                Grid.Column="2"
                 Margin="0,0,40,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Visibility="Visible" />
+                Orientation="Horizontal">
+                <controls:MoreButton Margin="4,0,0,0" />
+            </StackPanel>
         </Grid>
 
         <ScrollViewer
@@ -147,7 +146,6 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="TitleCentre.Visibility" Value="Visible" />
-                        <Setter Target="TitleRight.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

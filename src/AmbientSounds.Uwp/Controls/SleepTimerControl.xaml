@@ -11,15 +11,8 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Horizontal">
-        <Button
-            x:Uid="SleepTimerButton"
-            Width="40"
-            Height="40"
-            Background="Transparent"
-            CornerRadius="20">
-            <Grid>
-                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF0CE;" />
-            </Grid>
+        <Button x:Uid="SleepTimerButton" Style="{StaticResource RoundButtonStyle}">
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF0CE;" />
             <Button.Flyout>
                 <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                     <muxc:CommandBarFlyout.PrimaryCommands>

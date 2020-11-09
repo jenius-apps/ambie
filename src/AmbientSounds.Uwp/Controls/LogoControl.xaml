@@ -5,68 +5,48 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Image
+    <Button
+        Width="60"
         Height="60"
         extensions:VisualExtensions.CenterPoint="30,30,0"
+        Background="Transparent"
+        CornerRadius="30"
         PointerEntered="ScaleUp"
-        PointerExited="ScaleNormal"
-        Source="ms-appx:///Assets/logo.png"
-        Tapped="ImageTapped">
+        PointerExited="ScaleNormal">
+        <Button.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Padding" Value="0" />
+            </Style>
+        </Button.Resources>
+
+        <Image Source="ms-appx:///Assets/logo.png" />
+
+        <Button.Flyout>
+            <Flyout>
+                <local:AboutControl />
+            </Flyout>
+        </Button.Flyout>
+
         <animations:Implicit.Animations>
             <animations:ScaleAnimation Duration="0:0:0.5" />
         </animations:Implicit.Animations>
         <animations:Implicit.ShowAnimations>
-            <animations:TranslationAnimation
-                From="20, 0, 0"
-                To="0"
-                Duration="0:0:0.3" />
             <animations:OpacityAnimation
                 From="0"
                 To="1.0"
                 Duration="0:0:0.3" />
         </animations:Implicit.ShowAnimations>
         <animations:Implicit.HideAnimations>
-            <animations:TranslationAnimation
-                From="0"
-                To="20, 0, 0"
-                Duration="0:0:0.3" />
             <animations:OpacityAnimation
                 From="1.0"
                 To="0"
                 Duration="0:0:0.3" />
         </animations:Implicit.HideAnimations>
-        <FlyoutBase.AttachedFlyout>
-            <Flyout>
-                <StackPanel Margin="12">
-                    <TextBlock HorizontalAlignment="Center" Text="🍁" />
-                    <TextBlock x:Uid="HelloFromVancouver" HorizontalAlignment="Center" />
-                    <TextBlock
-                        x:Uid="CopyrightJeniusApps"
-                        Margin="0,4,0,0"
-                        HorizontalAlignment="Center" />
-                    <HyperlinkButton
-                        x:Uid="ContactCreator"
-                        HorizontalAlignment="Center"
-                        NavigateUri="mailto:jenius_apps@outlook.com" />
-                    <HyperlinkButton
-                        x:Uid="RateUs"
-                        HorizontalAlignment="Center"
-                        Click="{x:Bind RateUsClicked}" />
-                    <HyperlinkButton
-                        x:Uid="ViewGitHub"
-                        HorizontalAlignment="Center"
-                        NavigateUri="https://github.com/jenius-apps/ambie" />
-                    <HyperlinkButton
-                        x:Uid="AddImproveTranslations"
-                        HorizontalAlignment="Center"
-                        NavigateUri="https://github.com/jenius-apps/ambie#translation" />
-                </StackPanel>
-            </Flyout>
-        </FlyoutBase.AttachedFlyout>
-    </Image>
+    </Button>
 </UserControl>
