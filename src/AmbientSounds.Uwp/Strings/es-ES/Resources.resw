@@ -166,7 +166,7 @@
     <value>Listo para reproducir</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará despues del tiempo seleccionado.</value>
+    <value>Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará después del tiempo seleccionado.</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará después del tiempo seleccionado.</value>
