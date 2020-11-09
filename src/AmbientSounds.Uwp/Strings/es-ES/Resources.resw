@@ -144,19 +144,19 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contactar con el creador</value>
   </data>
-	<data name="MoreButtonDiscord.Label" xml:space="preserve">
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
     <value>Chat sobre la Discord</value>
   </data>
-	<data name="MoreButtonGitHub.Label" xml:space="preserve">
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
     <value>Ver página de GitHub</value>
   </data>
-	<data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Valóranos</value>
   </data>
-	<data name="MoreButtonShare.Label" xml:space="preserve">
+  <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Compartir URL para Ambie</value>
   </data>
-	<data name="MoreButtonTranslate.Label" xml:space="preserve">
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
     <value>Agregar o mejorar traducciones</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
