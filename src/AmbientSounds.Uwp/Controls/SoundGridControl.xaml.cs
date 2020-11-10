@@ -20,6 +20,27 @@ namespace AmbientSounds.Controls
 
         public SoundListViewModel ViewModel => (SoundListViewModel)this.DataContext;
 
+        /// <summary>
+        /// If true, the compact mode button is visible.
+        /// Default is true.
+        /// </summary>
+        public DataTemplate ItemTemplate
+        {
+            get => (DataTemplate)GetValue(ItemTemplateProperty);
+            set => SetValue(ItemTemplateProperty, value);
+        }
+
+        /// <summary>
+        /// Dependency property for <see cref="ShowCompactMode"/>.
+        /// Default is true.
+        /// </summary>
+        public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(
+            nameof(ItemTemplate),
+            typeof(bool),
+            typeof(SoundGridControl),
+            null);
+
+
         private void GridScaleUp(object sender, PointerRoutedEventArgs e)
         {
             // Source for the scaling: https://github.com/windows-toolkit/WindowsCommunityToolkit/blob/master/Microsoft.Toolkit.Uwp.SampleApp/SamplePages/Implicit%20Animations/ImplicitAnimationsPage.xaml.cs
