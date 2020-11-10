@@ -38,7 +38,10 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <controls:PlayerControl />
+            <StackPanel Orientation="Horizontal">
+                <controls:PlayerControl />
+                <controls:SleepTimerControl Margin="20,0,0,0" VerticalAlignment="Center" />
+            </StackPanel>
 
             <controls:LogoControl
                 x:Name="TitleCentre"
