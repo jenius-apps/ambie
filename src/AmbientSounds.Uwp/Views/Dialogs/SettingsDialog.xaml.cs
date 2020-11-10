@@ -35,6 +35,9 @@ namespace AmbientSounds.Views.Dialogs
                     case "dark":
                         DarkThemeButton.IsChecked = true;
                         break;
+                    case "default":
+                        DefaultThemeButton.IsChecked = true;
+                        break;
                     default:
                         break;
                 }
@@ -59,6 +62,9 @@ namespace AmbientSounds.Views.Dialogs
                     break;
                 case "LightThemeButton":
                     ApplicationData.Current.LocalSettings.Values["themeSetting"] = "light";
+                    break;
+                case "DefaultThemeButton":
+                    ApplicationData.Current.LocalSettings.Values["themeSetting"] = "default";
                     break;
                 default:
                     break;

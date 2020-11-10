@@ -31,6 +31,7 @@
     <Grid>
         <StackPanel>
             <TextBlock x:Uid="AppThemeTextBlock" Text="App theme" Style="{StaticResource SettingTitleStyle}" />
+            <RadioButton x:Uid="DefaultThemeRadio" Content="Use system setting" Name="DefaultThemeButton" Click="RadioButton_Click" />
             <RadioButton x:Uid="DarkThemeRadio" Content="Dark theme" Name="DarkThemeButton" Click="RadioButton_Click" />
             <RadioButton x:Uid="LightThemeRadio" Content="Light theme" Name="LightThemeButton" Click="RadioButton_Click" />
             <TextBlock x:Uid="ThemeWarningTextBlock" Text="Theme will be changed after restart." Name="ThemeWarning" Style="{StaticResource ThemeWarningTextStyle}" />

@@ -55,6 +55,10 @@ namespace AmbientSounds
                         break;
                 }
             }
+            else
+            {
+                ApplicationData.Current.LocalSettings.Values["themeSetting"] = "default";
+            }
         }
 
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
