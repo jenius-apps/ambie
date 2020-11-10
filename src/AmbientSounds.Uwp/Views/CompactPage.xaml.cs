@@ -1,6 +1,4 @@
-﻿using AmbientSounds.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 
@@ -16,10 +14,7 @@ namespace AmbientSounds.Views
         public CompactPage()
         {
             this.InitializeComponent();
-            this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
         }
-
-        public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
 
         private async void CloseCompactClicked()
         {

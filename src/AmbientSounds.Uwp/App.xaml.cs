@@ -126,7 +126,7 @@ namespace AmbientSounds
         private static IServiceProvider ConfigureServices()
         {
             return new ServiceCollection()
-                .AddTransient<MainPageViewModel>()
+                .AddSingleton<SoundListViewModel>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
                 .AddSingleton<PlayerViewModel>()

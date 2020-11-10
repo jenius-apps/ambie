@@ -40,6 +40,8 @@
             </StackPanel>
         </Grid>
 
+        <controls:SoundGridControl Grid.Row="1" />
+
         <Grid
             Grid.Row="2"
             Padding="20,8"
