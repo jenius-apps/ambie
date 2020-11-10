@@ -143,6 +143,9 @@
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
+    <Compile Include="Views\CompactPage.xaml.cs">
+      <DependentUpon>CompactPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -250,6 +253,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SleepTimerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CompactPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
