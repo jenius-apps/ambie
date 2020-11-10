@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Copyright.Text" xml:space="preserve">
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>Cerrar modo compacto</value>
+  </data>
+	<data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Cerrar modo compacto</value>
+  </data>
+	<data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
