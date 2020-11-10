@@ -15,6 +15,14 @@
             <CommandBarFlyout Placement="BottomEdgeAlignedRight">
                 <CommandBarFlyout.SecondaryCommands>
                     <AppBarButton
+                        x:Uid="MoreButtonCompact"
+                        Click="{x:Bind CompactOverlayClicked}"
+                        Visibility="{x:Bind IsNotTenFoot}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B9;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton
                         x:Uid="MoreButtonShare"
                         Click="{x:Bind ShareClicked}"
                         Icon="Share" />

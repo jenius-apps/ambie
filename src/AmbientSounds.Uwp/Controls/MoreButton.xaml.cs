@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Services.Store;
 using Windows.System;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -32,9 +33,17 @@ namespace AmbientSounds.Controls
             };
         }
 
+        private bool IsNotTenFoot => !App.IsTenFoot;
+
         private void ShareClicked()
         {
             DataTransferManager.ShowShareUI();
+        }
+
+        private async void CompactOverlayClicked()
+        {
+            // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
+            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
         }
 
         private async void RateUsClicked(object sender, RoutedEventArgs e)

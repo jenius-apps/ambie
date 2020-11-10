@@ -141,6 +141,9 @@
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 minut</value>
   </data>
+  <data name="MoreButtonCompact.Label" xml:space="preserve">
+    <value>Kompaktní režim</value>
+  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Kontaktuje tvůrce aplikace</value>
   </data>

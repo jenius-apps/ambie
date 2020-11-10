@@ -141,6 +141,9 @@
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 minutes</value>
   </data>
+  <data name="MoreButtonCompact.Label" xml:space="preserve">
+    <value>Compact mode</value>
+  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contact the creator</value>
   </data>
