@@ -41,6 +41,8 @@ namespace AmbientSounds
 
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
 
+        public static Frame? AppFrame { get; private set; }
+
         /// <summary>
         /// Gets the <see cref="IServiceProvider"/> instance for the current application instance.
         /// </summary>
@@ -91,6 +93,7 @@ namespace AmbientSounds
                 Window.Current.Activate();
             }
 
+            AppFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
         }
 

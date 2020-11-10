@@ -17,7 +17,7 @@
                     <AppBarButton
                         x:Uid="MoreButtonCompact"
                         Click="{x:Bind CompactOverlayClicked}"
-                        Visibility="{x:Bind IsNotTenFoot}">
+                        Visibility="{x:Bind CompactButtonVisible}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B9;" />
                         </AppBarButton.Icon>
