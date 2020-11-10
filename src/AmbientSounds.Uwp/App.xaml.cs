@@ -6,6 +6,7 @@ using Microsoft.Toolkit.Diagnostics;
 using System;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -36,6 +37,23 @@ namespace AmbientSounds
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
                 this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+            }
+
+            object themeObject = ApplicationData.Current.LocalSettings.Values["themeSetting"];
+            if (themeObject != null)
+            {
+                string theme = themeObject.ToString();
+                switch (theme)
+                {
+                    case "light":
+                        App.Current.RequestedTheme = ApplicationTheme.Light;
+                        break;
+                    case "dark":
+                        App.Current.RequestedTheme = ApplicationTheme.Dark;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 

@@ -7,6 +7,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
+using AmbientSounds.Views.Dialogs;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -106,6 +107,12 @@ namespace AmbientSounds.Controls
                 await Launcher.LaunchUriAsync(new Uri(url));
             }
             catch { }
+        }
+
+        private async void SettingsClicked()
+        {
+            SettingsDialog settingsDialog = new SettingsDialog();
+            await settingsDialog.ShowAsync();
         }
     }
 }

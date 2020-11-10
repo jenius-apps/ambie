@@ -49,6 +49,8 @@
                         x:Uid="MoreButtonContact"
                         Click="{x:Bind ContactClicked}"
                         Icon="Mail" />
+                    <AppBarButton x:Uid="MoreButtonSettings" Label="Settings"
+                                  Click="{x:Bind SettingsClicked}" Icon="Setting" />
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </Button.Flyout>
