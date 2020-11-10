@@ -10,40 +10,37 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Button
-                Width="60"
-                Height="60"
-                AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
-                Command="{x:Bind ViewModel.TogglePlayStateCommand}"
-                CornerRadius="30"
-                ToolTipService.ToolTip="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}">
-                <Grid>
-                    <!--  play  -->
-                    <FontIcon
-                        FontFamily="Segoe MDL2 Assets"
-                        Glyph="&#xF5B0;"
-                        Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}" />
+    <StackPanel Orientation="Horizontal">
+        <Button
+            Width="60"
+            Height="60"
+            AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
+            Command="{x:Bind ViewModel.TogglePlayStateCommand}"
+            CornerRadius="30"
+            ToolTipService.ToolTip="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}">
+            <Grid>
+                <!--  play  -->
+                <FontIcon
+                    FontFamily="Segoe MDL2 Assets"
+                    Glyph="&#xF5B0;"
+                    Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}" />
 
-                    <!--  pause  -->
-                    <FontIcon
-                        FontFamily="Segoe MDL2 Assets"
-                        Glyph="&#xE103;"
-                        Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}" />
-                </Grid>
-            </Button>
-            <StackPanel
-                Margin="20,0,0,0"
-                VerticalAlignment="Center"
-                Background="Transparent">
-                <TextBlock Margin="0,8,0,0" Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(ViewModel.SoundName), Mode=OneWay}" />
-                <Slider
-                    Width="120"
-                    Margin="0,4,0,0"
-                    Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
-            </StackPanel>
-            <local:SleepTimerControl Margin="20,0,0,0" VerticalAlignment="Center" />
+                <!--  pause  -->
+                <FontIcon
+                    FontFamily="Segoe MDL2 Assets"
+                    Glyph="&#xE103;"
+                    Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}" />
+            </Grid>
+        </Button>
+        <StackPanel
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent">
+            <TextBlock Margin="0,8,0,0" Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(ViewModel.SoundName), Mode=OneWay}" />
+            <Slider
+                Width="120"
+                Margin="0,4,0,0"
+                Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
         </StackPanel>
-    </Grid>
+    </StackPanel>
 </UserControl>

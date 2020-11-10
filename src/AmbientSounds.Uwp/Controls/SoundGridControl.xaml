@@ -1,0 +1,47 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.SoundGridControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <interactivity:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
+        </core:EventTriggerBehavior>
+    </interactivity:Interaction.Behaviors>
+
+    <Grid>
+        <ScrollViewer CanContentRenderOutsideBounds="True">
+            <GridView
+                Padding="20,20,20,0"
+                animations:ReorderGridAnimation.Duration="300"
+                AutomationProperties.Name="Sounds"
+                IsItemClickEnabled="True"
+                ItemContainerStyle="{StaticResource GridViewItemExpanded}"
+                ItemTemplate="{x:Bind ItemTemplate}"
+                ItemsSource="{x:Bind ViewModel.Sounds}"
+                ScrollViewer.HorizontalScrollMode="Disabled"
+                ScrollViewer.VerticalScrollMode="Disabled"
+                SelectionMode="None">
+                <interactivity:Interaction.Behaviors>
+                    <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
+                </interactivity:Interaction.Behaviors>
+            </GridView>
+        </ScrollViewer>
+
+        <muxc:ProgressRing
+            Width="40"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsActive="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}" />
+    </Grid>
+</UserControl>

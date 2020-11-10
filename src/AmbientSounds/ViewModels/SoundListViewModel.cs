@@ -1,13 +1,12 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class MainPageViewModel : ObservableObject
+    public class SoundListViewModel
     {
         private readonly IMediaPlayerService _player;
         private readonly ISoundDataProvider _provider;
@@ -16,7 +15,7 @@ namespace AmbientSounds.ViewModels
         /// Default constructor. Must initialize with <see cref="LoadAsync"/>
         /// immediately after creation.
         /// </summary>
-        public MainPageViewModel(IMediaPlayerService mediaPlayerService, ISoundDataProvider soundDataProvider)
+        public SoundListViewModel(IMediaPlayerService mediaPlayerService, ISoundDataProvider soundDataProvider)
         {
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
@@ -48,8 +47,9 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private async Task LoadAsync()
         {
-            var soundList = await _provider.GetSoundsAsync();
+            if (Sounds.Count > 0) return; // already initialized
 
+            var soundList = await _provider.GetSoundsAsync();
             foreach (var sound in soundList)
             {
                 Sounds.Add(new SoundViewModel(sound, _player));
