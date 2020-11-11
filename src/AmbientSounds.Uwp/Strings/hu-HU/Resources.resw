@@ -120,10 +120,10 @@
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
     <value>Kompakt mód bezárása</value>
   </data>
-	<data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
     <value>Kompakt mód bezárása</value>
   </data>
-	<data name="Copyright.Text" xml:space="preserve">
+  <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
@@ -131,6 +131,9 @@
   </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
     <value>Hello Vancouverből</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value />
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10 perc</value>
@@ -146,6 +149,9 @@
   </data>
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 perc</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value />
   </data>
   <data name="MoreButtonCompact.Label" xml:space="preserve">
     <value>Kompakt mód</value>
@@ -219,10 +225,16 @@
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>Fehérzaj</value>
   </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value />
+  </data>
   <data name="SoundUnplayable" xml:space="preserve">
     <value>Nem lehet lejátszani</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Időzítő leállítása</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value />
   </data>
 </root>

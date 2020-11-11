@@ -9,7 +9,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Button Style="{StaticResource RoundButtonStyle}">
+    <Button x:Uid="MoreButton" Style="{StaticResource RoundButtonStyle}">
         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10C;" />
         <Button.Flyout>
             <CommandBarFlyout Placement="BottomEdgeAlignedRight">
