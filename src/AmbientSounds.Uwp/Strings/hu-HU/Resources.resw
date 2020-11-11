@@ -207,6 +207,9 @@
   <data name="Sound-coffeeshop" xml:space="preserve">
     <value>Kávéház</value>
   </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Creek</value>
+  </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Kandalló</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="Sound-underwater" xml:space="preserve">
     <value>Vízalatt</value>
+  </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Vízesés</value>
   </data>
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>Fehérzaj</value>

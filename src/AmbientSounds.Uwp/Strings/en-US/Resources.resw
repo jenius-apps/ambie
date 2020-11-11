@@ -207,6 +207,9 @@
   <data name="Sound-coffeeshop" xml:space="preserve">
     <value>Coffee shop</value>
   </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Creek</value>
+  </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Fireplace</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="Sound-underwater" xml:space="preserve">
     <value>Underwater</value>
+  </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Waterfall</value>
   </data>
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>White noise</value>

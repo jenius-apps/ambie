@@ -207,6 +207,9 @@
   <data name="Sound-coffeeshop" xml:space="preserve">
     <value>Cafetería</value>
   </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Riachuelo</value>
+  </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Hoguera</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="Sound-underwater" xml:space="preserve">
     <value>Bajo el mar</value>
+  </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Cascada</value>
   </data>
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>Ruido blanco</value>
