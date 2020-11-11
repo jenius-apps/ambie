@@ -207,6 +207,9 @@
   <data name="Sound-coffeeshop" xml:space="preserve">
     <value>Kavárna</value>
   </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Creek</value>
+  </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Krb</value>
   </data>

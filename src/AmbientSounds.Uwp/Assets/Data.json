@@ -24,6 +24,12 @@
     "Attribution": "370973__waweee__coffee-shop-ambience_remastered.mp3 by C_Rogers -- https://freesound.org/s/453074/ -- License: Creative Commons 0. Photo by Nathan Dumlao on Unsplash"
   },
   {
+    "Id": "creek",
+    "ImagePath": "ms-appx:///Assets/Images/creek.png",
+    "FilePath": "ms-appx:///Assets/Sounds/creek.mp3",
+    "Attribution": "Burbling Brook by hargissssound -- https://freesound.org/s/324591/ -- License: Creative Commons 0. Photo by Ed Paulino Photography - https://www.instagram.com/birdlifelist."
+  },
+  {
     "Id": "fireplace",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
     "FilePath": "ms-appx:///Assets/Sounds/fireplace.mp3",
