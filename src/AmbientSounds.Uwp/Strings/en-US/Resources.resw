@@ -225,6 +225,9 @@
   <data name="Sound-underwater" xml:space="preserve">
     <value>Underwater</value>
   </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Waterfall</value>
+  </data>
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>White noise</value>
   </data>

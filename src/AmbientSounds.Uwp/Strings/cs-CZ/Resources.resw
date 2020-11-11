@@ -225,6 +225,9 @@
   <data name="Sound-underwater" xml:space="preserve">
     <value>Pod vodou</value>
   </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Vodopád</value>
+  </data>
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>Bílý šum</value>
   </data>
