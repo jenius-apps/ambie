@@ -14,11 +14,17 @@ namespace AmbientSounds.Constants
         public const string Volume = "LastUsedVolume";
 
         /// <summary>
+        /// Telemetry enabled key.
+        /// </summary>
+        public const string TelemetryOn = "TelemetryOn";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
         {
             { Volume, 80d },
+            { TelemetryOn, true }
         };
     }
 }

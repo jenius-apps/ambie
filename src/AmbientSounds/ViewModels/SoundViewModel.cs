@@ -24,6 +24,11 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
+        /// The sound's Id.
+        /// </summary>
+        public string Id => _sound.Id;
+
+        /// <summary>
         /// The sound's attribution.
         /// </summary>
         public string Attribution => _sound.Attribution;
