@@ -15,6 +15,8 @@
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="CornerRadius" Value="20" />
             </Style>
+
+            <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
