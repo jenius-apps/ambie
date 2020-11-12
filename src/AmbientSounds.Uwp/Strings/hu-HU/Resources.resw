@@ -190,10 +190,10 @@
     <value>Kész a lejátszásra</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Alvási időzítő beállítása. A hangok abbamaradnak azz idő lejárta után.</value>
+    <value>Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Alvási időzítő beállítása. A hangok abbamaradnak azz idő lejárta után.</value>
+    <value>Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</value>
   </data>
   <data name="Sound-beach" xml:space="preserve">
     <value>Part</value>
@@ -208,7 +208,7 @@
     <value>Kávéház</value>
   </data>
   <data name="Sound-creek" xml:space="preserve">
-    <value>Creek</value>
+    <value>Patak</value>
   </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Kandalló</value>
