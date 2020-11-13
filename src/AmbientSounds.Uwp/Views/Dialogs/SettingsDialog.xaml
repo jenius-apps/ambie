@@ -24,16 +24,18 @@
         <Style TargetType="TextBlock" x:Key="ThemeWarningTextStyle">
             <Setter Property="Margin" Value="0,5,0,0" />
             <Setter Property="FontSize" Value="12" />
-            <Setter Property="Visibility" Value="Collapsed" />
         </Style>
     </ContentDialog.Resources>
 
     <Grid>
         <StackPanel>
             <TextBlock x:Uid="AppThemeTextBlock" Text="App theme" Style="{StaticResource SettingTitleStyle}" />
-            <RadioButton x:Uid="DefaultThemeRadio" Content="Use system setting" Name="DefaultThemeButton" Click="RadioButton_Click" />
-            <RadioButton x:Uid="DarkThemeRadio" Content="Dark theme" Name="DarkThemeButton" Click="RadioButton_Click" />
-            <RadioButton x:Uid="LightThemeRadio" Content="Light theme" Name="LightThemeButton" Click="RadioButton_Click" />
+            <RadioButton x:Uid="DefaultThemeRadio" Content="Use system setting"
+                         Click="{x:Bind ViewModel.DefaultThemeRadioClicked}" IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
+            <RadioButton x:Uid="DarkThemeRadio" Content="Dark theme"
+                         Click="{x:Bind ViewModel.DarkThemeRadioClicked}" IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
+            <RadioButton x:Uid="LightThemeRadio" Content="Light theme"
+                         Click="{x:Bind ViewModel.LightThemeRadioClicked}" IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
             <TextBlock x:Uid="ThemeWarningTextBlock" Text="Theme will be changed after restart." Name="ThemeWarning" Style="{StaticResource ThemeWarningTextStyle}" />
         </StackPanel>
     </Grid>

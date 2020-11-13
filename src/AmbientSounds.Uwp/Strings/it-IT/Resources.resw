@@ -168,6 +168,9 @@
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Tariffa e revisione</value>
   </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value />
+  </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Condividi URL per Ambie</value>
   </data>

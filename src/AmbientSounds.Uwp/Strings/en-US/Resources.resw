@@ -168,6 +168,9 @@
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Rate us</value>
   </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Share link for Ambie</value>
   </data>

@@ -133,7 +133,7 @@
     <value>Zdravíme z Vancouveru</value>
   </data>
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
-    <value />
+    <value>Klikněte zde pro zobrazení informací o aplikaci</value>
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10 minut</value>
@@ -151,7 +151,7 @@
     <value>60 minut</value>
   </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
-    <value />
+    <value>Klikněte zde pro zobrazení více možností</value>
   </data>
   <data name="MoreButtonCompact.Label" xml:space="preserve">
     <value>Kompaktní režim</value>
@@ -167,6 +167,9 @@
   </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Ohodnoťte nás</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Nastavení</value>
   </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Nasdílejte odkaz na Ambie</value>
@@ -208,7 +211,7 @@
     <value>Kavárna</value>
   </data>
   <data name="Sound-creek" xml:space="preserve">
-    <value>Creek</value>
+    <value>Potok</value>
   </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Krb</value>
@@ -232,7 +235,7 @@
     <value>Bílý šum</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
-    <value />
+    <value>Zvuky se načítají</value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
     <value>Nelze přehrát zvuk</value>
@@ -241,6 +244,6 @@
     <value>Zastavit časovač a vymazat čas</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value />
+    <value>Změnit hlasitost zvuku</value>
   </data>
 </root>
