@@ -1,6 +1,8 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -10,18 +12,24 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IMediaPlayerService _player;
         private readonly ISoundDataProvider _provider;
+        private readonly ITelemetry _telemetry;
 
         /// <summary>
         /// Default constructor. Must initialize with <see cref="LoadAsync"/>
         /// immediately after creation.
         /// </summary>
-        public SoundListViewModel(IMediaPlayerService mediaPlayerService, ISoundDataProvider soundDataProvider)
+        public SoundListViewModel(
+            IMediaPlayerService mediaPlayerService,
+            ISoundDataProvider soundDataProvider,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _player = mediaPlayerService;
             _provider = soundDataProvider;
+            _telemetry = telemetry;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
@@ -61,7 +69,16 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private void PlaySound(SoundViewModel sound)
         {
-            sound?.Play();
+            if (sound is null)
+            {
+                return;
+            }
+
+            sound.Play();
+            _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
+            {
+                { "id", sound.Id }
+            });
         }
     }
 }

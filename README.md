@@ -39,10 +39,12 @@ Ambie needs volunteer translators! To help translate, follow these instructions.
 
 ## Contributors
 
-Pull requests are welcome! Please keep in mind the motivation behind Ambie, however: _Less is more_. New sounds are appreciated. New sounds must
+Pull requests are welcome! Please keep in mind the motivation behind Ambie, however: _Less is more_. New sound requests are appreciated. New sounds must
 - Have a license that can work with Ambie
 - Have an image
 - Have attributions for sound and image
+
+For all pull requests, please make sure there's an issue created for it first and that maintainers have confirmed that the issue or feature request can be addressed. Maintainers can then assign the issue to you so that others can track who's working on what issue. In some cases, you might have contacted the maintainers directly via other channels such as Twitter or Discord. You might have asked the maintainers if you can submit a PR. In those scenarios, an issue is not required.
 
 ## Attributions
 - [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)

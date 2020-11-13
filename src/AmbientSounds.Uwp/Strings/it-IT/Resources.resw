@@ -120,10 +120,10 @@
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
     <value>Chiudere la modalità compatta</value>
   </data>
-	<data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
     <value>Chiudere la modalità compatta</value>
   </data>
-	<data name="Copyright.Text" xml:space="preserve">
+  <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
@@ -131,6 +131,9 @@
   </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
     <value>Saluti da Vancouver</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value />
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10 minuti</value>
@@ -146,6 +149,9 @@
   </data>
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 minuti</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value />
   </data>
   <data name="MoreButtonCompact.Label" xml:space="preserve">
     <value>Modalità compatta</value>
@@ -201,6 +207,9 @@
   <data name="Sound-coffeeshop" xml:space="preserve">
     <value>Caffè</value>
   </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Torrente</value>
+  </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Camino</value>
   </data>
@@ -216,13 +225,22 @@
   <data name="Sound-underwater" xml:space="preserve">
     <value>Subacquea</value>
   </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Cascata</value>
+  </data>
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>Rumore bianco</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value />
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
     <value>Impossibile riprodurre l'audio</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Arrestare il timer e cancellare l'ora</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value />
   </data>
 </root>

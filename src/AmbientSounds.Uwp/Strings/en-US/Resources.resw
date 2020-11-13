@@ -132,6 +132,9 @@
   <data name="HelloFromVancouver.Text" xml:space="preserve">
     <value>Hello from Vancouver</value>
   </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Click to view app information</value>
+  </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10 minutes</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 minutes</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Click to view more options</value>
   </data>
   <data name="MoreButtonCompact.Label" xml:space="preserve">
     <value>Compact mode</value>
@@ -201,6 +207,9 @@
   <data name="Sound-coffeeshop" xml:space="preserve">
     <value>Coffee shop</value>
   </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Creek</value>
+  </data>
   <data name="Sound-fireplace" xml:space="preserve">
     <value>Fireplace</value>
   </data>
@@ -216,13 +225,22 @@
   <data name="Sound-underwater" xml:space="preserve">
     <value>Underwater</value>
   </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Waterfall</value>
+  </data>
   <data name="Sound-whitenoise" xml:space="preserve">
     <value>White noise</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>Sounds are loading</value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
     <value>Cannot play sound</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Stop the timer and clear the time</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>Change sound volume</value>
   </data>
 </root>

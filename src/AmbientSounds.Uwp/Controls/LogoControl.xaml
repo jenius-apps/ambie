@@ -12,6 +12,7 @@
     mc:Ignorable="d">
 
     <Button
+        x:Uid="LogoButton"
         Width="60"
         Height="60"
         extensions:VisualExtensions.CenterPoint="30,30,0"

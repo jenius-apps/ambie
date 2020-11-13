@@ -9,8 +9,8 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Button Style="{StaticResource RoundButtonStyle}">
-        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10C;" />
+    <Button x:Uid="MoreButton" Style="{StaticResource RoundButtonStyle}">
+        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD0;" />
         <Button.Flyout>
             <CommandBarFlyout Placement="BottomEdgeAlignedRight">
                 <CommandBarFlyout.SecondaryCommands>
@@ -19,20 +19,22 @@
                         Click="{x:Bind CompactOverlayClicked}"
                         Visibility="{x:Bind CompactButtonVisible}">
                         <AppBarButton.Icon>
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B9;" />
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB1E;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton
-                        x:Uid="MoreButtonShare"
-                        Click="{x:Bind ShareClicked}"
-                        Icon="Share" />
-                    <AppBarButton
-                        x:Uid="MoreButtonRate"
-                        Click="{x:Bind RateUsClicked}"
-                        Icon="Like" />
+                    <AppBarButton x:Uid="MoreButtonShare" Click="{x:Bind ShareClicked}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB60;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton x:Uid="MoreButtonRate" Click="{x:Bind RateUsClicked}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEBF7;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
                     <AppBarButton x:Uid="MoreButtonDiscord" Click="{x:Bind DiscordClicked}">
                         <AppBarButton.Icon>
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8F2;" />
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C5;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
                     <AppBarButton x:Uid="MoreButtonGitHub" Click="{x:Bind GithubClicked}">
@@ -45,10 +47,11 @@
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF2B7;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton
-                        x:Uid="MoreButtonContact"
-                        Click="{x:Bind ContactClicked}"
-                        Icon="Mail" />
+                    <AppBarButton x:Uid="MoreButtonContact" Click="{x:Bind ContactClicked}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAB4;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
                     <AppBarButton x:Uid="MoreButtonSettings" Label="Settings"
                                   Click="{x:Bind SettingsClicked}" Icon="Setting" />
                 </CommandBarFlyout.SecondaryCommands>
