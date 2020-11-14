@@ -52,6 +52,11 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAB4;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
+                    <AppBarButton x:Uid="MoreButtonSettings" Click="{x:Bind SettingsClicked}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB5D;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </Button.Flyout>

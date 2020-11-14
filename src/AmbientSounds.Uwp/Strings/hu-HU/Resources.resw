@@ -243,4 +243,23 @@
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value />
   </data>
+	<data name="CloseText" xml:space="preserve">
+    <value>Közel</value>
+  </data>
+	<data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+	<data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Tiltva</value>
+  </data>
+	<data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Engedélyezve</value>
+  </data>
+	<data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetria</value>
+  </data>
+	<data name="SettingsText" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
 </root>
+

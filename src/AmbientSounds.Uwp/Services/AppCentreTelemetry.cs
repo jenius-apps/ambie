@@ -12,6 +12,7 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class AppCentreTelemetry : ITelemetry
     {
+        private const string AppSecret = "";  // Do not commit
         private readonly IUserSettings _userSettings;
 
         public AppCentreTelemetry(IUserSettings userSettings)
@@ -19,7 +20,7 @@ namespace AmbientSounds.Services.Uwp
             Guard.IsNotNull(userSettings, nameof(userSettings));
             _userSettings = userSettings;
             AppCenter.SetCountryCode(new GeographicRegion().CodeTwoLetter);
-            AppCenter.Start("", typeof(Analytics));
+            AppCenter.Start(AppSecret, typeof(Analytics));
         }
 
         /// <inheritdoc/>
