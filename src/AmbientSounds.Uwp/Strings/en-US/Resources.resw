@@ -123,6 +123,9 @@
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
     <value>Close compact mode</value>
   </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
@@ -168,11 +171,20 @@
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Rate us</value>
   </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Share link for Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
     <value>Add or improve translations</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>On</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Pause the timer</value>
@@ -188,6 +200,12 @@
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Ready to play</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetry enabled</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Click here to set up a sleep timer, where the sound will pause after the selected time.</value>
