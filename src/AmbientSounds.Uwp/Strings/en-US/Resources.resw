@@ -202,7 +202,7 @@
     <value>Ready to play</value>
   </data>
   <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetry enabled</value>
+    <value>Telemetry</value>
   </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Settings</value>
