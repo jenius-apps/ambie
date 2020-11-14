@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>컴팩트 모드 닫기</value>
+  </data>
+	<data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>컴팩트 모드 닫기</value>
+  </data>
+	<data name="CloseText" xml:space="preserve">
+    <value>종료</value>
+  </data>
+	<data name="Copyright.Text" xml:space="preserve">
+    <value>저작권</value>
+  </data>
+	<data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>저작권 Jenius Apps</value>
+  </data>
+	<data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>밴쿠버에서 안녕하세요</value>
+  </data>
+	<data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>앱을 클릭하여 앱 정보를 확인합니다</value>
+  </data>
+	<data name="Minutes10Button.Label" xml:space="preserve">
+    <value>10분</value>
+  </data>
+	<data name="Minutes15Button.Label" xml:space="preserve">
+    <value>15분</value>
+  </data>
+	<data name="Minutes30Button.Label" xml:space="preserve">
+    <value>30분</value>
+  </data>
+	<data name="Minutes5Button.Label" xml:space="preserve">
+    <value>5분</value>
+  </data>
+	<data name="Minutes60Button.Label" xml:space="preserve">
+    <value>60분</value>
+  </data>
+	<data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>더 많은 옵션을 보려면 클릭하십시오</value>
+  </data>
+	<data name="MoreButtonCompact.Label" xml:space="preserve">
+    <value>컴팩트 모드</value>
+  </data>
+	<data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>작성자에게 문의하기</value>
+  </data>
+	<data name="MoreButtonDiscord.Label" xml:space="preserve">
+    <value>불화에 채팅</value>
+  </data>
+	<data name="MoreButtonGitHub.Label" xml:space="preserve">
+    <value>오픈 GitHub</value>
+  </data>
+	<data name="MoreButtonRate.Label" xml:space="preserve">
+    <value>요금 및 검토</value>
+  </data>
+	<data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>설정</value>
+  </data>
+	<data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>앰비언에 대한 URL 공유</value>
+  </data>
+	<data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>번역 추가 또는 개선</value>
+  </data>
+	<data name="OffTextBlock.Text" xml:space="preserve">
+    <value>비활성화</value>
+  </data>
+	<data name="OnTextBlock.Text" xml:space="preserve">
+    <value>사용</value>
+  </data>
+	<data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>타이머 일시 중지</value>
+  </data>
+	<data name="PlayerPauseText" xml:space="preserve">
+    <value>소리 일시 중지</value>
+  </data>
+	<data name="PlayerPlayText" xml:space="preserve">
+    <value>사운드 재생</value>
+  </data>
+	<data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>타이머 계속</value>
+  </data>
+	<data name="ReadyToPlayText" xml:space="preserve">
+    <value>사운드 선택</value>
+  </data>
+	<data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>원격</value>
+  </data>
+	<data name="SettingsText" xml:space="preserve">
+    <value>설정</value>
+  </data>
+	<data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>선택한 시간 이후에 소리가 일시 중지되는 수면 타이머를 설정하려면 여기를 클릭하십시오.</value>
+  </data>
+	<data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>선택한 시간 이후에 소리가 일시 중지되는 수면 타이머를 설정하려면 여기를 클릭하십시오.</value>
+  </data>
+	<data name="Sound-beach" xml:space="preserve">
+    <value>비치</value>
+  </data>
+	<data name="Sound-birds" xml:space="preserve">
+    <value>조류</value>
+  </data>
+	<data name="Sound-citystreet" xml:space="preserve">
+    <value>로드</value>
+  </data>
+	<data name="Sound-coffeeshop" xml:space="preserve">
+    <value>커피숍</value>
+  </data>
+	<data name="Sound-creek" xml:space="preserve">
+    <value>크릭</value>
+  </data>
+	<data name="Sound-fireplace" xml:space="preserve">
+    <value>벽난로</value>
+  </data>
+	<data name="Sound-more" xml:space="preserve">
+    <value>더 곧</value>
+  </data>
+	<data name="Sound-rain" xml:space="preserve">
+    <value>비</value>
+  </data>
+	<data name="Sound-rainforest" xml:space="preserve">
+    <value>열대우림</value>
+  </data>
+	<data name="Sound-underwater" xml:space="preserve">
+    <value>언더 워터</value>
+  </data>
+	<data name="Sound-waterfall" xml:space="preserve">
+    <value>폭포</value>
+  </data>
+	<data name="Sound-whitenoise" xml:space="preserve">
+    <value>백색 잡음</value>
+  </data>
+	<data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>소리가 로드되고 있습니다</value>
+  </data>
+	<data name="SoundUnplayable" xml:space="preserve">
+    <value>사운드를 재생할 수 없습니다</value>
+  </data>
+	<data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>타이머를 중지하고 시간을 취소</value>
+  </data>
+	<data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>사운드 볼륨 변경</value>
+  </data>
+</root>

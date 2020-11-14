@@ -343,6 +343,11 @@
   <ItemGroup>
     <Content Include="Assets\fluentui.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ko-KR\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
