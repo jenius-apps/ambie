@@ -158,9 +158,6 @@
     <Compile Include="Views\CompactPage.xaml.cs">
       <DependentUpon>CompactPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Dialogs\SettingsDialog.xaml.cs">
-      <DependentUpon>SettingsDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -288,10 +285,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CompactPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Dialogs\SettingsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

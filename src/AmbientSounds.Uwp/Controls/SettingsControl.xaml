@@ -9,6 +9,23 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="SettingTitleStyle">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="0,10,0,0" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="ThemeWarningTextStyle">
+            <Setter Property="Margin" Value="0,5,0,0" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </UserControl.Resources>
+
     <ScrollViewer>
         <StackPanel>
             <!--  Telemetry  -->
@@ -20,6 +37,15 @@
                     <TextBlock x:Uid="OnTextBlock" />
                 </ToggleSwitch.OnContent>
             </ToggleSwitch>
+
+            <TextBlock x:Uid="AppThemeTextBlock" Text="Application theme" Style="{StaticResource SettingTitleStyle}" />
+            <RadioButton x:Uid="DefaultThemeRadio" Content="Use system setting"
+                         Click="{x:Bind ViewModel.DefaultThemeRadioClicked}" IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
+            <RadioButton x:Uid="DarkThemeRadio" Content="Dark theme"
+                         Click="{x:Bind ViewModel.DarkThemeRadioClicked}" IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
+            <RadioButton x:Uid="LightThemeRadio" Content="Light theme"
+                         Click="{x:Bind ViewModel.LightThemeRadioClicked}" IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
+            <TextBlock x:Uid="ThemeWarningTextBlock" Text="Theme will be changed after restart." Name="ThemeWarning" Style="{StaticResource ThemeWarningTextStyle}" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>
