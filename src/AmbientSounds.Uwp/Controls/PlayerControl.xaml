@@ -21,14 +21,14 @@
             <Grid>
                 <!--  play  -->
                 <FontIcon
-                    FontFamily="Segoe MDL2 Assets"
-                    Glyph="&#xF5B0;"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="&#xEB21;"
                     Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}" />
 
                 <!--  pause  -->
                 <FontIcon
-                    FontFamily="Segoe MDL2 Assets"
-                    Glyph="&#xE103;"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="&#xEAF4;"
                     Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}" />
             </Grid>
         </Button>
