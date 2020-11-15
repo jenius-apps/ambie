@@ -12,24 +12,25 @@
 
     <StackPanel>
         <TextBlock
+            x:Uid="SuggestionHeader"
             HorizontalAlignment="Center"
             HorizontalTextAlignment="Center"
-            Text="Want more sounds? Send suggestions!"
             TextWrapping="WrapWholeWords" />
         <TextBox
+            x:Uid="SuggestionTextBox"
             Width="160"
             Margin="0,12,0,0"
             HorizontalAlignment="Center"
             KeyDown="{x:Bind SuggestionBox_KeyDown}"
             MaxLength="20"
-            PlaceholderText="Suggestion"
             Text="{x:Bind ViewModel.Suggestion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Grid Height="40" Margin="0,12,0,0">
             <Button
+                x:Uid="SuggestionSendButton"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Command="{x:Bind ViewModel.SendSuggestionCommand}"
-                CommandParameter="{x:Bind ViewModel.Suggestion}"
+                CommandParameter="{x:Bind ViewModel.Suggestion, Mode=OneWay}"
                 Style="{StaticResource RoundButtonStyle}"
                 Visibility="{x:Bind ViewModel.IsSendVisible, Mode=OneWay}">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB57;" />
@@ -58,9 +59,9 @@
             </Button>
 
             <TextBlock
+                x:Uid="ThankYouTextBlock"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Text="Thank you!"
                 Visibility="{x:Bind ViewModel.IsThankYouVisible, Mode=OneWay}">
                 <animations:Implicit.ShowAnimations>
                     <animations:TranslationAnimation
