@@ -39,26 +39,7 @@ namespace AmbientSounds
                 this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
             }
 
-            object themeObject = ApplicationData.Current.LocalSettings.Values["themeSetting"];
-            if (themeObject != null)
-            {
-                string theme = themeObject.ToString();
-                switch (theme)
-                {
-                    case "light":
-                        App.Current.RequestedTheme = ApplicationTheme.Light;
-                        break;
-                    case "dark":
-                        App.Current.RequestedTheme = ApplicationTheme.Dark;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                ApplicationData.Current.LocalSettings.Values["themeSetting"] = "default";
-            }
+            SetAppRequestedTheme();
         }
 
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
@@ -140,6 +121,33 @@ namespace AmbientSounds
             viewTitleBar.ButtonBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonForegroundColor = darkTheme ? Colors.LightGray : Colors.Black;
+        }
+
+        /// <summary>
+        /// Method for setting requested app theme based on user's local settings.
+        /// </summary>
+        private void SetAppRequestedTheme()
+        {
+            object themeObject = ApplicationData.Current.LocalSettings.Values["themeSetting"];
+            if (themeObject != null)
+            {
+                string theme = themeObject.ToString();
+                switch (theme)
+                {
+                    case "light":
+                        App.Current.RequestedTheme = ApplicationTheme.Light;
+                        break;
+                    case "dark":
+                        App.Current.RequestedTheme = ApplicationTheme.Dark;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                ApplicationData.Current.LocalSettings.Values["themeSetting"] = "default";
+            }
         }
 
         /// <summary>

@@ -14,13 +14,13 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
         </Style>
 
-        <Style TargetType="TextBlock" x:Key="SettingTitleStyle">
+        <Style x:Key="SettingTitleStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="16" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Margin" Value="0,10,0,0" />
         </Style>
 
-        <Style TargetType="TextBlock" x:Key="ThemeWarningTextStyle">
+        <Style x:Key="ThemeWarningTextStyle" TargetType="TextBlock">
             <Setter Property="Margin" Value="0,5,0,0" />
             <Setter Property="FontSize" Value="12" />
         </Style>
@@ -38,14 +38,30 @@
                 </ToggleSwitch.OnContent>
             </ToggleSwitch>
 
-            <TextBlock x:Uid="AppThemeTextBlock" Text="Application theme" Style="{StaticResource SettingTitleStyle}" />
-            <RadioButton x:Uid="DefaultThemeRadio" Content="Use system setting"
-                         Click="{x:Bind ViewModel.DefaultThemeRadioClicked}" IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
-            <RadioButton x:Uid="DarkThemeRadio" Content="Dark theme"
-                         Click="{x:Bind ViewModel.DarkThemeRadioClicked}" IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
-            <RadioButton x:Uid="LightThemeRadio" Content="Light theme"
-                         Click="{x:Bind ViewModel.LightThemeRadioClicked}" IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
-            <TextBlock x:Uid="ThemeWarningTextBlock" Text="Theme will be changed after restart." Name="ThemeWarning" Style="{StaticResource ThemeWarningTextStyle}" />
+            <TextBlock
+                x:Uid="AppThemeTextBlock"
+                Style="{StaticResource SettingTitleStyle}"
+                Text="Application theme" />
+            <RadioButton
+                x:Uid="DefaultThemeRadio"
+                Click="{x:Bind ViewModel.DefaultThemeRadioClicked}"
+                Content="Use system setting"
+                IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
+            <RadioButton
+                x:Uid="DarkThemeRadio"
+                Click="{x:Bind ViewModel.DarkThemeRadioClicked}"
+                Content="Dark theme"
+                IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
+            <RadioButton
+                x:Uid="LightThemeRadio"
+                Click="{x:Bind ViewModel.LightThemeRadioClicked}"
+                Content="Light theme"
+                IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
+            <TextBlock
+                Name="ThemeWarning"
+                x:Uid="ThemeWarningTextBlock"
+                Style="{StaticResource ThemeWarningTextStyle}"
+                Text="Theme will be changed after restart." />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

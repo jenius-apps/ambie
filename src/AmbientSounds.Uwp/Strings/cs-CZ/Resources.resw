@@ -261,4 +261,22 @@
   <data name="SettingsText" xml:space="preserve">
     <value>Nastavení</value>
   </data>
+  <data name="SuggestionHeader.Text" xml:space="preserve">
+    <value>Chcete více zvuků? Pošlete nám na ně návrh.</value>
+  </data>
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Klikněte zde pro poslání návrhu.</value>
+  </data>
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Poslat návrh</value>
+  </data>
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
+    <value>Klikněte zde pro poslání návrhu.</value>
+  </data>
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+    <value>Návrh</value>
+  </data>
+  <data name="ThankYouTextBlock.Text" xml:space="preserve">
+    <value>Děkujeme</value>
+  </data>
 </root>
