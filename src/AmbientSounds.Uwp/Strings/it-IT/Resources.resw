@@ -261,4 +261,22 @@
 	<data name="SettingsText" xml:space="preserve">
     <value>Impostazioni</value>
   </data>
+  <data name="SuggestionHeader.Text" xml:space="preserve">
+    <value>Si prega di inviare suggerimenti sonori!</value>
+  </data>
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+    <value>Suggerimento</value>
+  </data>
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
+    <value>Si prega di inviare suggerimenti sonori!</value>
+  </data>
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Invia suggerimento</value>
+  </data>
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Fare clic per inviare il suggerimento</value>
+  </data>
+  <data name="ThankYouTextBlock.Text" xml:space="preserve">
+    <value>Grazie</value>
+  </data>
 </root>
