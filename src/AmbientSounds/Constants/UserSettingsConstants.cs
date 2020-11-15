@@ -19,12 +19,18 @@ namespace AmbientSounds.Constants
         public const string TelemetryOn = "TelemetryOn";
 
         /// <summary>
+        /// Application theme settings key.
+        /// </summary>
+        public const string Theme = "themeSetting";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
         {
             { Volume, 80d },
-            { TelemetryOn, true }
+            { TelemetryOn, true },
+            { Theme, "default" }
         };
     }
 }

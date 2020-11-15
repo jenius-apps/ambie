@@ -1,11 +1,13 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
+using AmbientSounds.Constants;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -37,6 +39,8 @@ namespace AmbientSounds
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
                 this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
             }
+
+            SetAppRequestedTheme();
         }
 
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
@@ -118,6 +122,33 @@ namespace AmbientSounds
             viewTitleBar.ButtonBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonForegroundColor = darkTheme ? Colors.LightGray : Colors.Black;
+        }
+
+        /// <summary>
+        /// Method for setting requested app theme based on user's local settings.
+        /// </summary>
+        private void SetAppRequestedTheme()
+        {
+            object themeObject = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme];
+            if (themeObject != null)
+            {
+                string theme = themeObject.ToString();
+                switch (theme)
+                {
+                    case "light":
+                        App.Current.RequestedTheme = ApplicationTheme.Light;
+                        break;
+                    case "dark":
+                        App.Current.RequestedTheme = ApplicationTheme.Dark;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme] = "default";
+            }
         }
 
         /// <summary>
