@@ -53,3 +53,11 @@ For all pull requests, please make sure there's an issue created for it first an
 - [Images](https://unsplash.com/). Specific image attributions are in `Data.json`.
 - [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/)
 - [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
+- [AppCenter Analytics](https://appcenter.ms/)
+
+## Thank you translators!
+
+- Korean: Jasmine
+- Czech: [Michal Moudrý](https://github.com/MichalMoudry)
+- Spanish: [Leonardo González Castro](https://github.com/OnlyOnePro), [Breece W](https://github.com/BreeceW)
+- Hungarian: [Kristóf Kékesi](https://github.com/KristofKekesi)
