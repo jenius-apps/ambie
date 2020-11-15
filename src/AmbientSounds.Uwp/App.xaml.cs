@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
+using AmbientSounds.Constants;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Diagnostics;
 using System;
@@ -128,7 +129,7 @@ namespace AmbientSounds
         /// </summary>
         private void SetAppRequestedTheme()
         {
-            object themeObject = ApplicationData.Current.LocalSettings.Values["themeSetting"];
+            object themeObject = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme];
             if (themeObject != null)
             {
                 string theme = themeObject.ToString();
@@ -146,7 +147,7 @@ namespace AmbientSounds
             }
             else
             {
-                ApplicationData.Current.LocalSettings.Values["themeSetting"] = "default";
+                ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme] = "default";
             }
         }
 

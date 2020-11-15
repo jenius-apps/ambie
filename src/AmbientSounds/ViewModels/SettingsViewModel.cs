@@ -14,7 +14,7 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             _userSettings = userSettings;
-            _setting = _userSettings.Get<string>("themeSetting");
+            _setting = _userSettings.Get<string>(UserSettingsConstants.Theme);
             InitializeTheme();
         }
 
