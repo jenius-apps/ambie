@@ -149,6 +149,9 @@ namespace AmbientSounds
         {
             return new ServiceCollection()
                 .AddSingleton<SoundListViewModel>()
+                .AddTransient<SoundSuggestionViewModel>()
+                .AddTransient<SettingsViewModel>()
+                .AddTransient<IDialogService, DialogService>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
                 .AddSingleton<PlayerViewModel>()

@@ -134,15 +134,22 @@
     <Compile Include="Controls\PlayerControl.xaml.cs">
       <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SleepTimerControl.xaml.cs">
       <DependentUpon>SleepTimerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SoundGridControl.xaml.cs">
       <DependentUpon>SoundGridControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SoundSuggestionControl.xaml.cs">
+      <DependentUpon>SoundSuggestionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppCentreTelemetry.cs" />
+    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\MediaPlayerService.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
@@ -264,11 +271,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SleepTimerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SoundGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SoundSuggestionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -341,6 +356,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fluentui.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ko-KR\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

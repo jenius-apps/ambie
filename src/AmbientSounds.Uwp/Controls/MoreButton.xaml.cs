@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AmbientSounds.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Services.Store;
@@ -111,8 +113,8 @@ namespace AmbientSounds.Controls
 
         private async void SettingsClicked()
         {
-            SettingsDialog settingsDialog = new SettingsDialog();
-            await settingsDialog.ShowAsync();
+            var dialogService = App.Services.GetRequiredService<IDialogService>();
+            await dialogService.OpenSettingsAsync();
         }
     }
 }

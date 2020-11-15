@@ -123,6 +123,9 @@
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
     <value>Close compact mode</value>
   </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
@@ -177,6 +180,12 @@
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
     <value>Add or improve translations</value>
   </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>On</value>
+  </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Pause the timer</value>
   </data>
@@ -191,6 +200,12 @@
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Ready to play</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetry</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Click here to set up a sleep timer, where the sound will pause after the selected time.</value>
@@ -245,5 +260,23 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Change sound volume</value>
+  </data>
+  <data name="SuggestionHeader.Text" xml:space="preserve">
+    <value>Want more sounds? Send suggestions!</value>
+  </data>
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+    <value>Suggestion</value>
+  </data>
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
+    <value>Want more sounds? Send suggestions!</value>
+  </data>
+	<data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Send suggestion</value>
+  </data>
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Click to send the suggestion</value>
+  </data>
+  <data name="ThankYouTextBlock.Text" xml:space="preserve">
+    <value>Thank you!</value>
   </data>
 </root>

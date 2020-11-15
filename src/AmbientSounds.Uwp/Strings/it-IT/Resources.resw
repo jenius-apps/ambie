@@ -246,4 +246,22 @@
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value />
   </data>
+	<data name="CloseText" xml:space="preserve">
+    <value>Vicino</value>
+  </data>
+	<data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
+	<data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Disabili</value>
+  </data>
+	<data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Abilitato</value>
+  </data>
+	<data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetria</value>
+  </data>
+	<data name="SettingsText" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
 </root>
