@@ -20,21 +20,29 @@
 
     <Grid>
         <ScrollViewer CanContentRenderOutsideBounds="True">
-            <GridView
-                Padding="20,20,20,0"
-                animations:ReorderGridAnimation.Duration="300"
-                AutomationProperties.Name="Sounds"
-                IsItemClickEnabled="True"
-                ItemContainerStyle="{StaticResource GridViewItemExpanded}"
-                ItemTemplate="{x:Bind ItemTemplate}"
-                ItemsSource="{x:Bind ViewModel.Sounds}"
-                ScrollViewer.HorizontalScrollMode="Disabled"
-                ScrollViewer.VerticalScrollMode="Disabled"
-                SelectionMode="None">
-                <interactivity:Interaction.Behaviors>
-                    <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
-                </interactivity:Interaction.Behaviors>
-            </GridView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <GridView
+                    Padding="20,20,20,0"
+                    animations:ReorderGridAnimation.Duration="300"
+                    AutomationProperties.Name="Sounds"
+                    IsItemClickEnabled="True"
+                    ItemContainerStyle="{StaticResource GridViewItemExpanded}"
+                    ItemTemplate="{x:Bind ItemTemplate}"
+                    ItemsSource="{x:Bind ViewModel.Sounds}"
+                    ScrollViewer.HorizontalScrollMode="Disabled"
+                    ScrollViewer.VerticalScrollMode="Disabled"
+                    SelectionMode="None">
+                    <interactivity:Interaction.Behaviors>
+                        <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
+                    </interactivity:Interaction.Behaviors>
+                </GridView>
+
+                <local:SoundSuggestionControl Grid.Row="1" Margin="0,80,0,100" />
+            </Grid>
         </ScrollViewer>
 
         <muxc:ProgressRing

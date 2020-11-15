@@ -31,5 +31,19 @@ namespace AmbientSounds.Services.Uwp
                 Analytics.TrackEvent(eventName, properties);
             }
         }
+
+        /// <inheritdoc/>
+        public void SuggestSound(string soundSuggestion)
+        {
+            if (string.IsNullOrWhiteSpace(soundSuggestion))
+                return;
+
+            soundSuggestion = soundSuggestion.Trim().ToLower();
+
+            Analytics.TrackEvent("soundSuggestion", new Dictionary<string, string>
+            {
+                { "value", soundSuggestion }
+            });
+        }
     }
 }
