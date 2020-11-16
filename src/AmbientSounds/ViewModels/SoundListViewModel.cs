@@ -62,6 +62,8 @@ namespace AmbientSounds.ViewModels
             {
                 Sounds.Add(new SoundViewModel(sound, _player));
             }
+
+            _player.Initialize(soundList);
         }
 
         /// <summary>

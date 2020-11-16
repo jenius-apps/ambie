@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.Services
 {
@@ -48,6 +49,12 @@ namespace AmbientSounds.Services
         /// Pauses the current track.
         /// </summary>
         void Pause();
+
+        /// <summary>
+        /// Initializes playlist to enable gapless playback.
+        /// </summary>
+        /// <param name="sounds">List of sounds for gapless playback.</param>
+        void Initialize(IList<Sound> sounds);
     }
 
     /// <summary>
