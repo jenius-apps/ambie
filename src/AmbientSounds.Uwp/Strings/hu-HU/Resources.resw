@@ -244,16 +244,16 @@
     <value />
   </data>
   <data name="CloseText" xml:space="preserve">
-    <value>Közel</value>
+    <value>Bezárás</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>Beállítások</value>
   </data>
   <data name="OffTextBlock.Text" xml:space="preserve">
-    <value>Tiltva</value>
+    <value>Ki</value>
   </data>
   <data name="OnTextBlock.Text" xml:space="preserve">
-    <value>Engedélyezve</value>
+    <value>Be</value>
   </data>
   <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
     <value>Telemetria</value>
@@ -262,7 +262,7 @@
     <value>Beállítások</value>
   </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Kérjük, küldjön hang javaslatokat!</value>
+    <value>Több hangot szeretne? Küldjön javaslatokat!</value>
   </data>
   <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
     <value>Javaslat</value>
@@ -277,7 +277,7 @@
     <value>Kattintson ide a javaslat elküldéséhez</value>
   </data>
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Köszönöm</value>
+    <value>Köszönjük</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Téma (újraindítást igényel)</value>
@@ -289,7 +289,7 @@
     <value>Sötét</value>
   </data>
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
-    <value>Fény</value>
+    <value>Világos</value>
   </data>
   <data name="Sound-vacuum" xml:space="preserve">
     <value>Porszívó</value>
