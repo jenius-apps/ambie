@@ -20,7 +20,7 @@
 
     <Grid>
         <ScrollViewer CanContentRenderOutsideBounds="True">
-            <Grid>
+            <Grid HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
