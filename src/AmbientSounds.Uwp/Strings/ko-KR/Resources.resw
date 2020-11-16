@@ -1,216 +1,297 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<root>	
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>1.3</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
     <value>콤팩트 모드 닫기</value>
   </data>
-	<data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
     <value>콤팩트 모드 닫기</value>
   </data>
-	<data name="CloseText" xml:space="preserve">
+  <data name="CloseText" xml:space="preserve">
     <value>닫기</value>
   </data>
-	<data name="Copyright.Text" xml:space="preserve">
+  <data name="Copyright.Text" xml:space="preserve">
     <value>저작권</value>
   </data>
-	<data name="CopyrightJeniusApps.Text" xml:space="preserve">
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
     <value>저작권 Jenius Apps</value>
   </data>
-	<data name="HelloFromVancouver.Text" xml:space="preserve">
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
     <value>Hello from Vancouver</value>
   </data>
-	<data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>앺 정보 보기</value>
   </data>
-	<data name="Minutes10Button.Label" xml:space="preserve">
+  <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10분</value>
   </data>
-	<data name="Minutes15Button.Label" xml:space="preserve">
+  <data name="Minutes15Button.Label" xml:space="preserve">
     <value>15분</value>
   </data>
-	<data name="Minutes30Button.Label" xml:space="preserve">
+  <data name="Minutes30Button.Label" xml:space="preserve">
     <value>30분</value>
   </data>
-	<data name="Minutes5Button.Label" xml:space="preserve">
+  <data name="Minutes5Button.Label" xml:space="preserve">
     <value>5분</value>
   </data>
-	<data name="Minutes60Button.Label" xml:space="preserve">
+  <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60분</value>
   </data>
-	<data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>옵션 보기</value>
   </data>
-	<data name="MoreButtonCompact.Label" xml:space="preserve">
+  <data name="MoreButtonCompact.Label" xml:space="preserve">
     <value>콤팩트 모드</value>
   </data>
-	<data name="MoreButtonContact.Label" xml:space="preserve">
+  <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>개발자 연락하기</value>
   </data>
-	<data name="MoreButtonDiscord.Label" xml:space="preserve">
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
     <value>Discord에 채팅</value>
   </data>
-	<data name="MoreButtonGitHub.Label" xml:space="preserve">
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
     <value>GitHub 보기</value>
   </data>
-	<data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>리뷰하기</value>
   </data>
-	<data name="MoreButtonSettings.Label" xml:space="preserve">
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>설정</value>
   </data>
-	<data name="MoreButtonShare.Label" xml:space="preserve">
+  <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>앰비 링크 공유하기</value>
   </data>
-	<data name="MoreButtonTranslate.Label" xml:space="preserve">
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
     <value>번역 개선</value>
   </data>
-	<data name="OffTextBlock.Text" xml:space="preserve">
+  <data name="OffTextBlock.Text" xml:space="preserve">
     <value>끄기</value>
   </data>
-	<data name="OnTextBlock.Text" xml:space="preserve">
+  <data name="OnTextBlock.Text" xml:space="preserve">
     <value>켜기</value>
   </data>
-	<data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>타이머 정지</value>
   </data>
-	<data name="PlayerPauseText" xml:space="preserve">
+  <data name="PlayerPauseText" xml:space="preserve">
     <value>음악 정지</value>
   </data>
-	<data name="PlayerPlayText" xml:space="preserve">
+  <data name="PlayerPlayText" xml:space="preserve">
     <value>음악 재생</value>
   </data>
-	<data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>타이머 시작</value>
   </data>
-	<data name="ReadyToPlayText" xml:space="preserve">
+  <data name="ReadyToPlayText" xml:space="preserve">
     <value>재생 준비</value>
   </data>
-	<data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
     <value>텔레미터법</value>
   </data>
-	<data name="SettingsText" xml:space="preserve">
+  <data name="SettingsText" xml:space="preserve">
     <value>설정</value>
   </data>
-	<data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>수면 타이머 세팅하기, 정하는 시간 안에 음악이 정지됩니다.</value>
   </data>
-	<data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>수면 타이머 세팅하기, 정하는 시간 안에 음악이 정지됩니다.</value>
   </data>
-	<data name="Sound-beach" xml:space="preserve">
+  <data name="Sound-beach" xml:space="preserve">
     <value>해변</value>
   </data>
-	<data name="Sound-birds" xml:space="preserve">
+  <data name="Sound-birds" xml:space="preserve">
     <value>새소리</value>
   </data>
-	<data name="Sound-citystreet" xml:space="preserve">
+  <data name="Sound-citystreet" xml:space="preserve">
     <value>길거리</value>
   </data>
-	<data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Sound-coffeeshop" xml:space="preserve">
     <value>커피숍</value>
   </data>
-	<data name="Sound-creek" xml:space="preserve">
+  <data name="Sound-creek" xml:space="preserve">
     <value>개울</value>
   </data>
-	<data name="Sound-fireplace" xml:space="preserve">
+  <data name="Sound-fireplace" xml:space="preserve">
     <value>벽난로</value>
   </data>
-	<data name="Sound-more" xml:space="preserve">
+  <data name="Sound-more" xml:space="preserve">
     <value>업데이트 예정</value>
   </data>
-	<data name="Sound-rain" xml:space="preserve">
+  <data name="Sound-rain" xml:space="preserve">
     <value>비</value>
   </data>
-	<data name="Sound-rainforest" xml:space="preserve">
+  <data name="Sound-rainforest" xml:space="preserve">
     <value>숲</value>
   </data>
-	<data name="Sound-underwater" xml:space="preserve">
+  <data name="Sound-underwater" xml:space="preserve">
     <value>수중</value>
   </data>
-	<data name="Sound-waterfall" xml:space="preserve">
+  <data name="Sound-waterfall" xml:space="preserve">
     <value>폭포</value>
   </data>
-	<data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Sound-whitenoise" xml:space="preserve">
     <value>백색 소음</value>
   </data>
-	<data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>음악 로딩중</value>
   </data>
-	<data name="SoundUnplayable" xml:space="preserve">
+  <data name="SoundUnplayable" xml:space="preserve">
     <value>재생 할수 없음</value>
   </data>
-	<data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>타이머 종료 그리고 시간 지우기</value>
   </data>
-	<data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>음량 조절</value>
   </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
     <value>다른 소리를 원하세요? 제안해주세요!</value>
   </data>
-	<data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
     <value>제안</value>
   </data>
-	<data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
     <value>다른 소리를 원하세요? 제안해주세요!</value>
   </data>
-	<data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>제안 보내기</value>
   </data>
-	<data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
     <value>제안 보내기를 눌러주세요</value>
   </data>
-	<data name="ThankYouTextBlock.Text" xml:space="preserve">
+  <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>감사합니다!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>테마(다시 시작해야 합니다)</value>
   </data>
-	<data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>자동 번역</value>
   </data>
-	<data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>어두운</value>
   </data>
-	<data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>빛</value>
+  </data>
+  <data name="Sound-vacuum" xml:space="preserve">
+    <value>진공 청소기</value>
   </data>
 </root>

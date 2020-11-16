@@ -279,16 +279,19 @@
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>Děkujeme</value>
   </data>
-	<data name="SettingsThemeHeader.Text" xml:space="preserve">
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Téma (újraindítást igényel)</value>
   </data>
-	<data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automatikus</value>
   </data>
-	<data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>Sötét</value>
   </data>
-	<data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Fény</value>
+  </data>
+  <data name="Sound-vacuum" xml:space="preserve">
+    <value>Vysavač</value>
   </data>
 </root>

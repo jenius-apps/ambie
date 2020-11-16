@@ -243,19 +243,19 @@
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value />
   </data>
-	<data name="CloseText" xml:space="preserve">
+  <data name="CloseText" xml:space="preserve">
     <value>Cerca</value>
   </data>
-	<data name="MoreButtonSettings.Label" xml:space="preserve">
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>Configuración</value>
   </data>
-	<data name="OffTextBlock.Text" xml:space="preserve">
+  <data name="OffTextBlock.Text" xml:space="preserve">
     <value>Deshabilitado</value>
   </data>
-	<data name="OnTextBlock.Text" xml:space="preserve">
+  <data name="OnTextBlock.Text" xml:space="preserve">
     <value>Habilitado</value>
   </data>
-	<data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
     <value>Telemetría</value>
   </data>
   <data name="SettingsText" xml:space="preserve">
@@ -279,16 +279,19 @@
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>Gracias</value>
   </data>
-	<data name="SettingsThemeHeader.Text" xml:space="preserve">
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema (requiere reinicio)</value>
   </data>
-	<data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automático</value>
   </data>
-	<data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>Oscuro</value>
   </data>
-	<data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Luz</value>
+  </data>
+  <data name="Sound-vacuum" xml:space="preserve">
+    <value>Aspiradora</value>
   </data>
 </root>

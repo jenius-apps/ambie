@@ -54,6 +54,12 @@
     "Attribution": "Underwater Ambience by Kinoton -- https://freesound.org/s/393819/ -- License: Creative Commons 0. Photo by Angus Gray on Unsplash"
   },
   {
+    "Id": "vacuum",
+    "ImagePath": "ms-appx:///Assets/Images/vacuum.png",
+    "FilePath": "ms-appx:///Assets/Sounds/vacuum.mp3",
+    "Attribution": "Stofzuiger_stereo_dichtbij.wav by zanussiinfo -- https://freesound.org/s/274730/ -- License: Creative Commons 0. Photo by Lukas ter Poorten on Unsplash"
+  },
+  {
     "Id": "waterfall",
     "ImagePath": "ms-appx:///Assets/Images/waterfall.png",
     "FilePath": "ms-appx:///Assets/Sounds/waterfall.mp3",
