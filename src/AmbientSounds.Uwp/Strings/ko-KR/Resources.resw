@@ -201,4 +201,16 @@
 	<data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>감사합니다!</value>
   </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>테마(다시 시작해야 합니다)</value>
+  </data>
+	<data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>자동 번역</value>
+  </data>
+	<data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>어두운</value>
+  </data>
+	<data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>빛</value>
+  </data>
 </root>

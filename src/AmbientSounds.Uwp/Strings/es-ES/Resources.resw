@@ -279,4 +279,16 @@
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>Gracias</value>
   </data>
+	<data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>Tema (requiere reinicio)</value>
+  </data>
+	<data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>Automático</value>
+  </data>
+	<data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+	<data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>Luz</value>
+  </data>
 </root>
