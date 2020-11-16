@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -123,6 +123,9 @@
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
     <value>Cerrar modo compacto</value>
   </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Cerca</value>
+  </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
@@ -168,11 +171,20 @@
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Valóranos</value>
   </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Compartir URL para Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
     <value>Agregar o mejorar traducciones</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Deshabilitado</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Habilitado</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Pausar el temporizador</value>
@@ -188,6 +200,24 @@
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Listo para reproducir</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetría</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>Automático</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>Tema (requiere reinicio)</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>Luz</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará después del tiempo seleccionado.</value>
@@ -225,6 +255,9 @@
   <data name="Sound-underwater" xml:space="preserve">
     <value>Bajo el mar</value>
   </data>
+  <data name="Sound-vacuum" xml:space="preserve">
+    <value>Aspiradora</value>
+  </data>
   <data name="Sound-waterfall" xml:space="preserve">
     <value>Cascada</value>
   </data>
@@ -240,58 +273,25 @@
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Detener y reiniciar el temporizador</value>
   </data>
-  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>Cambiar volumen del sonido</value>
-  </data>
-  <data name="CloseText" xml:space="preserve">
-    <value>Cerca</value>
-  </data>
-  <data name="MoreButtonSettings.Label" xml:space="preserve">
-    <value>Configuración</value>
-  </data>
-  <data name="OffTextBlock.Text" xml:space="preserve">
-    <value>Deshabilitado</value>
-  </data>
-  <data name="OnTextBlock.Text" xml:space="preserve">
-    <value>Habilitado</value>
-  </data>
-  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetría</value>
-  </data>
-  <data name="SettingsText" xml:space="preserve">
-    <value>Configuración</value>
-  </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
+    <value>Por favor, envíe sugerencias de sonido!</value>
+  </data>
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Haga clic para enviar sugerencias</value>
+  </data>
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Enviar sugerencia</value>
+  </data>
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
     <value>Por favor, envíe sugerencias de sonido!</value>
   </data>
   <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
     <value>Sugerencia</value>
   </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Por favor, envíe sugerencias de sonido!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Enviar sugerencia</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Haga clic para enviar sugerencias</value>
-  </data>
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>Gracias</value>
   </data>
-  <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Tema (requiere reinicio)</value>
-  </data>
-  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
-    <value>Automático</value>
-  </data>
-  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
-    <value>Oscuro</value>
-  </data>
-  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
-    <value>Luz</value>
-  </data>
-  <data name="Sound-vacuum" xml:space="preserve">
-    <value>Aspiradora</value>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>Cambiar volumen del sonido</value>
   </data>
 </root>

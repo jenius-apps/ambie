@@ -133,7 +133,7 @@
     <value>Hola desde Vancouver</value>
   </data>
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Haga clic para ver la información de la aplicación</value>
+    <value />
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10 minutos</value>
@@ -151,7 +151,7 @@
     <value>60 minutos</value>
   </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Haga clic para ver más opciones</value>
+    <value />
   </data>
   <data name="MoreButtonCompact.Label" xml:space="preserve">
     <value>Modo compacto</value>
