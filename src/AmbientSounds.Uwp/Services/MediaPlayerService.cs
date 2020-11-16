@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using Windows.Media;
 using Windows.Media.Core;
 using Windows.Media.Playback;
@@ -25,11 +27,13 @@ namespace AmbientSounds.Services.Uwp
 
         private readonly MediaPlayer _player;
         private readonly DispatcherQueue _dispatcherQueue;
+        private readonly MediaPlaybackList _playbackList;
 
         public MediaPlayerService()
         {
             _player = new MediaPlayer { IsLoopingEnabled = true };
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+            _playbackList = new MediaPlaybackList { AutoRepeatEnabled = true };
 
             _player.PlaybackSession.PlaybackStateChanged += PlaybackSession_PlaybackStateChanged;
         }
@@ -45,7 +49,6 @@ namespace AmbientSounds.Services.Uwp
 
         /// <inheritdoc/>
         public Sound? Current { get; private set; }
-
 
         /// <inheritdoc/>
         public double Volume
@@ -76,6 +79,26 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public void Initialize(IList<Sound> sounds)
+        {
+            if (sounds == null || sounds.Count == 0)
+                return;
+
+            foreach (var s in sounds)
+            {
+                if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
+                {
+                    var mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
+                    var item = new MediaPlaybackItem(mediaSource);
+                    ApplyDisplayProperties(item, s);
+                    _playbackList.Items.Add(item);
+                }
+            }
+
+            _player.Source = _playbackList;
+        }
+
+        /// <inheritdoc/>
         public void Play(Sound s)
         {
             if (s == null || string.IsNullOrWhiteSpace(s.FilePath) || !Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
@@ -90,25 +113,9 @@ namespace AmbientSounds.Services.Uwp
             }
             else
             {
-                _player.Pause();
-
-                var mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
-                _player.Source = mediaSource;
-
-                // Set data in System Media Transport Controls
-                // This step must be done after setting the player source
-                var playbackItem = MediaPlaybackItem.FindFromMediaSource(mediaSource);
-                var props = playbackItem.GetDisplayProperties();
-                props.Type = MediaPlaybackType.Music;
-                props.MusicProperties.Title = s.Name ?? s.Id;
-                if (!string.IsNullOrWhiteSpace(s.ImagePath) && Uri.IsWellFormedUriString(s.ImagePath, UriKind.Absolute))
-                {
-                    props.Thumbnail = RandomAccessStreamReference.CreateFromUri(new Uri(s.ImagePath));
-                }
-                playbackItem.ApplyDisplayProperties(props);
-
+                var item = _playbackList.Items.FirstOrDefault(x => x.Source.Uri.AbsoluteUri == s.FilePath);
+                _playbackList.MoveTo((uint)_playbackList.Items.IndexOf(item));
                 _player.Play();
-
                 Current = s;
                 NewSoundPlayed?.Invoke(this, EventArgs.Empty);
             }
@@ -124,6 +131,21 @@ namespace AmbientSounds.Services.Uwp
         public void Pause()
         {
             _player.Pause();
+        }
+
+        /// <summary>
+        /// Set data in System Media Transport Controls.
+        /// </summary>
+        private void ApplyDisplayProperties(MediaPlaybackItem item, Sound s)
+        {
+            var props = item.GetDisplayProperties();
+            props.Type = MediaPlaybackType.Music;
+            props.MusicProperties.Title = s.Name ?? s.Id;
+            if (!string.IsNullOrWhiteSpace(s.ImagePath) && Uri.IsWellFormedUriString(s.ImagePath, UriKind.Absolute))
+            {
+                props.Thumbnail = RandomAccessStreamReference.CreateFromUri(new Uri(s.ImagePath));
+            }
+            item.ApplyDisplayProperties(props);
         }
     }
 }
