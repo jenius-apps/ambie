@@ -270,7 +270,7 @@
   <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
     <value>Want more sounds? Send suggestions!</value>
   </data>
-	<data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Send suggestion</value>
   </data>
   <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
@@ -279,17 +279,19 @@
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>Thank you!</value>
   </data>
-
-	<data name="SettingsThemeHeader.Text" xml:space="preserve">
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Theme (requires restart)</value>
   </data>
-	<data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Auto</value>
   </data>
-	<data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>Dark</value>
   </data>
-	<data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Light</value>
+  </data>
+  <data name="Sound-vacuum" xml:space="preserve">
+    <value>Vacuum</value>
   </data>
 </root>
