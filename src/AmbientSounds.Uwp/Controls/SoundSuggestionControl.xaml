@@ -12,6 +12,7 @@
 
     <StackPanel>
         <TextBlock
+            x:Name="SuggestionHeader"
             x:Uid="SuggestionHeader"
             HorizontalAlignment="Center"
             HorizontalTextAlignment="Center"
@@ -21,6 +22,7 @@
             Width="160"
             Margin="0,12,0,0"
             HorizontalAlignment="Center"
+            AutomationProperties.LabeledBy="{x:Bind SuggestionHeader}"
             KeyDown="{x:Bind SuggestionBox_KeyDown}"
             MaxLength="20"
             Text="{x:Bind ViewModel.Suggestion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
