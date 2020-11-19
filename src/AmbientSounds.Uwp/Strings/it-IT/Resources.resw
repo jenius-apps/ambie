@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Chiudere la modalità compatta</value>
+    <value>Non usare modalità compatta</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Chiudere la modalità compatta</value>
+    <value>Non usare modalità compatta</value>
   </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
@@ -154,7 +154,7 @@
     <value />
   </data>
   <data name="MoreButtonCompact.Label" xml:space="preserve">
-    <value>Modalità compatta</value>
+    <value>Usa modalità compatta</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contatta il creatore</value>
@@ -163,16 +163,16 @@
     <value>Chatta su Discord</value>
   </data>
   <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>Aprire GitHub</value>
+    <value>Apri GitHub</value>
   </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
-    <value>Tariffa e revisione</value>
+    <value>Valuta</value>
   </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Condividi URL per Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
-    <value>Migliorare le traduzioni</value>
+    <value>Migliora le traduzioni</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Sospendere il timer</value>
@@ -238,13 +238,13 @@
     <value>Impossibile riprodurre l'audio</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Arrestare il timer e cancellare l'ora</value>
+    <value>Ferma il timer e reimposta l'ora</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value />
   </data>
   <data name="CloseText" xml:space="preserve">
-    <value>Vicino</value>
+    <value>Save</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>Impostazioni</value>
@@ -262,19 +262,19 @@
     <value>Impostazioni</value>
   </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Si prega di inviare suggerimenti sonori!</value>
+    <value>Inviaci suggerimenti sonori!</value>
   </data>
   <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
     <value>Suggerimento</value>
   </data>
   <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Si prega di inviare suggerimenti sonori!</value>
+    <value>Inviaci suggerimenti sonori!</value>
   </data>
   <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Invia suggerimento</value>
+    <value>Invia</value>
   </data>
   <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Fare clic per inviare il suggerimento</value>
+    <value>Fare click per inviare il suggerimento</value>
   </data>
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>Grazie</value>
@@ -289,7 +289,7 @@
     <value>Scuro</value>
   </data>
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
-    <value>Leggero</value>
+    <value>Chiaro</value>
   </data>
   <data name="Sound-vacuum" xml:space="preserve">
     <value>Aspirapolvere</value>
