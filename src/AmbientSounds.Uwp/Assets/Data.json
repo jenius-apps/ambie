@@ -48,6 +48,12 @@
     "Attribution": "Rain Sound and Rainforest.mp3 by INNORECORDS -- https://freesound.org/s/457447/ -- License: Creative Commons 0. Photo by Jeremy Allouche on Unsplash"
   },
   {
+    "Id": "thunder",
+    "ImagePath": "ms-appx:///Assets/Images/thunder.png",
+    "FilePath": "ms-appx:///Assets/Sounds/thunder.mp3",
+    "Attribution": "thunder by hifijohn -- https://freesound.org/s/242735/ -- License: Creative Commons 0. Photo by Michał Mancewicz on Unsplash"
+  },
+  {
     "Id": "underwater",
     "ImagePath": "ms-appx:///Assets/Images/underwater.png",
     "FilePath": "ms-appx:///Assets/Sounds/underwater.mp3",
