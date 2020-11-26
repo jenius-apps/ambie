@@ -7,14 +7,19 @@ namespace AmbientSounds.ViewModels
     public class SettingsViewModel
     {
         private readonly IUserSettings _userSettings;
+        private readonly IStoreNotificationRegistrar _notifications;
+        private readonly string _theme;
+        private bool _notificationsLoading;
 
-        private readonly string _setting;
-
-        public SettingsViewModel(IUserSettings userSettings)
+        public SettingsViewModel(
+            IUserSettings userSettings,
+            IStoreNotificationRegistrar notifications)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
+            Guard.IsNotNull(notifications, nameof(notifications));
             _userSettings = userSettings;
-            _setting = _userSettings.Get<string>(UserSettingsConstants.Theme);
+            _notifications = notifications;
+            _theme = _userSettings.Get<string>(UserSettingsConstants.Theme);
             InitializeTheme();
         }
 
@@ -25,6 +30,15 @@ namespace AmbientSounds.ViewModels
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.TelemetryOn);
             set => _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
+        }
+
+        /// <summary>
+        /// Settings flag for notifications.
+        /// </summary>
+        public bool NotificationsEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.Notifications);
+            set => SetNotifications(value);
         }
 
         /// <summary>
@@ -66,14 +80,34 @@ namespace AmbientSounds.ViewModels
             _userSettings.Set(UserSettingsConstants.Theme, "light");
         }
 
+        private async void SetNotifications(bool value)
+        {
+            if (value == NotificationsEnabled || _notificationsLoading)
+            {
+                return;
+            }
+
+            _notificationsLoading = true;
+            if (value)
+            {
+                await _notifications.Register();
+            }
+            else
+            {
+                await _notifications.Unregiser();
+            }
+            _userSettings.Set(UserSettingsConstants.Notifications, value);
+            _notificationsLoading = false;
+        }
+
         /// <summary>
         /// Method for setting appropriate radio button on for each app theme.
         /// </summary>
         private void InitializeTheme()
         {
-            if (_setting != null)
+            if (_theme != null)
             {
-                switch (_setting)
+                switch (_theme)
                 {
                     case "default":
                         DefaultRadioIsChecked = true;

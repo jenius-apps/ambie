@@ -66,7 +66,7 @@ namespace AmbientSounds
         }
 
         /// <inheritdoc/>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             // Do not repeat app initialization when the Window already has content
             if (!(Window.Current.Content is Frame rootFrame))
@@ -99,6 +99,16 @@ namespace AmbientSounds
 
             AppFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
+            await new PartnerCentreNotificationRegistrar().Register();
+        }
+
+        /// <inheritdoc/>
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
+            {
+                new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
+            }
         }
 
         /// <summary>
@@ -160,6 +170,7 @@ namespace AmbientSounds
                 .AddSingleton<SoundListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<SettingsViewModel>()
+                .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IDialogService, DialogService>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
