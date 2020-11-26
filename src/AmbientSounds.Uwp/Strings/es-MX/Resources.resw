@@ -252,6 +252,9 @@
   <data name="Sound-rainforest" xml:space="preserve">
     <value>Bosque tropical</value>
   </data>
+  <data name="Sound-thunder" xml:space="preserve">
+    <value>Trueno</value>
+  </data>
   <data name="Sound-underwater" xml:space="preserve">
     <value>Bajo el mar</value>
   </data>

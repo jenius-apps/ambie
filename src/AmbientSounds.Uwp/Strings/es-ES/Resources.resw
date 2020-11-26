@@ -294,4 +294,7 @@
   <data name="Sound-vacuum" xml:space="preserve">
     <value>Aspiradora</value>
   </data>
+  <data name="Sound-thunder" xml:space="preserve">
+    <value>Trueno</value>
+  </data>
 </root>
