@@ -303,4 +303,7 @@
   <data name="Sound-fan" xml:space="preserve">
     <value>Electric fan</value>
   </data>
+  <data name="Sound-wind" xml:space="preserve">
+    <value>Wind</value>
+  </data>
 </root>

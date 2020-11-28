@@ -190,6 +190,7 @@
     <Content Include="Assets\Images\vacuum.png" />
     <Content Include="Assets\Images\waterfall.png" />
     <Content Include="Assets\Images\whitenoise.png" />
+    <Content Include="Assets\Images\wind.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -214,6 +215,7 @@
     <Content Include="Assets\Sounds\vacuum.mp3" />
     <Content Include="Assets\Sounds\waterfall.mp3" />
     <Content Include="Assets\Sounds\whitenoise.mp3" />
+    <Content Include="Assets\Sounds\wind.mp3" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
