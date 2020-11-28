@@ -300,4 +300,7 @@
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notification for new sounds</value>
   </data>
+  <data name="Sound-fan" xml:space="preserve">
+    <value>Electric fan</value>
+  </data>
 </root>

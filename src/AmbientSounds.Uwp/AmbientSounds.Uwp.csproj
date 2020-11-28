@@ -180,6 +180,7 @@
     <Content Include="Assets\Images\citystreet.png" />
     <Content Include="Assets\Images\coffeeshop.png" />
     <Content Include="Assets\Images\creek.png" />
+    <Content Include="Assets\Images\fan.png" />
     <Content Include="Assets\Images\fireplace.png" />
     <Content Include="Assets\Images\more.png" />
     <Content Include="Assets\Images\rain.png" />
@@ -204,6 +205,7 @@
     <Content Include="Assets\Sounds\citystreet.mp3" />
     <Content Include="Assets\Sounds\coffeeshop.mp3" />
     <Content Include="Assets\Sounds\creek.mp3" />
+    <Content Include="Assets\Sounds\fan.mp3" />
     <Content Include="Assets\Sounds\fireplace.mp3" />
     <Content Include="Assets\Sounds\rain.mp3" />
     <Content Include="Assets\Sounds\Rainforest.mp3" />

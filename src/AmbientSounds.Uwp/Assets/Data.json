@@ -30,6 +30,12 @@
     "Attribution": "Burbling Brook by hargissssound -- https://freesound.org/s/324591/ -- License: Creative Commons 0. Photo by Ed Paulino Photography - https://www.instagram.com/birdlifelist."
   },
   {
+    "Id": "fan",
+    "ImagePath": "ms-appx:///Assets/Images/fan.png",
+    "FilePath": "ms-appx:///Assets/Sounds/fan.mp3",
+    "Attribution": "https://www.youtube.com/watch?v=c2A2Sd16yGM. Photo by Siebe Warmoeskerken on Unsplash"
+  },
+  {
     "Id": "fireplace",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
     "FilePath": "ms-appx:///Assets/Sounds/fireplace.mp3",
