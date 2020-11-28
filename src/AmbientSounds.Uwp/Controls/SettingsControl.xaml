@@ -38,7 +38,6 @@
             <ToggleSwitch
                 x:Uid="SettingsNotificationsSwitch"
                 Margin="0,12,0,0"
-                Header="Notification for new sounds"
                 IsOn="{x:Bind ViewModel.NotificationsEnabled, Mode=TwoWay}">
                 <ToggleSwitch.OffContent>
                     <TextBlock x:Uid="OffTextBlock" />
