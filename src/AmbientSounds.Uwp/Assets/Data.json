@@ -30,6 +30,12 @@
     "Attribution": "Burbling Brook by hargissssound -- https://freesound.org/s/324591/ -- License: Creative Commons 0. Photo by Ed Paulino Photography - https://www.instagram.com/birdlifelist."
   },
   {
+    "Id": "fan",
+    "ImagePath": "ms-appx:///Assets/Images/fan.png",
+    "FilePath": "ms-appx:///Assets/Sounds/fan.mp3",
+    "Attribution": "https://www.youtube.com/watch?v=c2A2Sd16yGM. Photo by Siebe Warmoeskerken on Unsplash"
+  },
+  {
     "Id": "fireplace",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
     "FilePath": "ms-appx:///Assets/Sounds/fireplace.mp3",
@@ -76,6 +82,12 @@
     "ImagePath": "ms-appx:///Assets/Images/whitenoise.png",
     "FilePath": "ms-appx:///Assets/Sounds/whitenoise.mp3",
     "Attribution": "Brown Noise by theundecided -- https://freesound.org/s/165056/ -- License: Creative Commons 0. Photo by Pierre Bamin on Unsplash"
+  },
+  {
+    "Id": "wind",
+    "ImagePath": "ms-appx:///Assets/Images/wind.png",
+    "FilePath": "ms-appx:///Assets/Sounds/wind.mp3",
+    "Attribution": "wind-noise.wav by jorge0000 -- https://freesound.org/s/361053/ -- License: Creative Commons 0. Photo by Mila Young on Unsplash"
   },
   {
     "Id": "more",
