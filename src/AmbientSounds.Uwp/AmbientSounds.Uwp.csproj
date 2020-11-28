@@ -340,6 +340,9 @@
     <PRIResource Include="Strings\en-US\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
+    <PRIResource Include="Strings\ko-KR\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\it-IT\Resources.resw">
@@ -363,11 +366,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fluentui.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ko-KR\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\es-PR\Resources.resw" />
@@ -395,6 +393,13 @@
       <Name>Microsoft Engagement Framework</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup>
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
