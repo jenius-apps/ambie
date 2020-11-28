@@ -190,10 +190,10 @@
     <value>Pause o cronômetro</value>
   </data>
   <data name="PlayerPauseText" xml:space="preserve">
-    <value>Pausar música</value>
+    <value>Pausar som</value>
   </data>
   <data name="PlayerPlayText" xml:space="preserve">
-    <value>Tocar música</value>
+    <value>Tocar som</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Continue o cronômetro</value>
@@ -293,5 +293,11 @@
   </data>
   <data name="Sound-vacuum" xml:space="preserve">
     <value>Vácuo</value>
+  </data>
+  <data name="Sound-thunder" xml:space="preserve">
+    <value>Trovões</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Notificação para novos sons</value>
   </data>
 </root>
