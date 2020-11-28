@@ -14,6 +14,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using System.Threading.Tasks;
 
 #nullable enable
 
@@ -99,7 +100,7 @@ namespace AmbientSounds
 
             AppFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
-            await new PartnerCentreNotificationRegistrar().Register();
+            await TryRegisterNotifications();
         }
 
         /// <inheritdoc/>
@@ -108,6 +109,20 @@ namespace AmbientSounds
             if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
             {
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
+            }
+        }
+
+        private Task TryRegisterNotifications()
+        {
+            var settingsService = App.Services.GetRequiredService<IUserSettings>();
+
+            if (settingsService.Get<bool>(UserSettingsConstants.Notifications))
+            {
+                return new PartnerCentreNotificationRegistrar().Register();
+            }
+            else
+            {
+                return Task.CompletedTask;
             }
         }
 
