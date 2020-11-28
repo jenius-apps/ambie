@@ -297,4 +297,7 @@
   <data name="Sound-thunder" xml:space="preserve">
     <value>Thunder</value>
   </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Notification for new sounds</value>
+  </data>
 </root>

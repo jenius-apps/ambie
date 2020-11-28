@@ -14,6 +14,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using System.Threading.Tasks;
 
 #nullable enable
 
@@ -66,7 +67,7 @@ namespace AmbientSounds
         }
 
         /// <inheritdoc/>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             // Do not repeat app initialization when the Window already has content
             if (!(Window.Current.Content is Frame rootFrame))
@@ -99,6 +100,30 @@ namespace AmbientSounds
 
             AppFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
+            await TryRegisterNotifications();
+        }
+
+        /// <inheritdoc/>
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
+            {
+                new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
+            }
+        }
+
+        private Task TryRegisterNotifications()
+        {
+            var settingsService = App.Services.GetRequiredService<IUserSettings>();
+
+            if (settingsService.Get<bool>(UserSettingsConstants.Notifications))
+            {
+                return new PartnerCentreNotificationRegistrar().Register();
+            }
+            else
+            {
+                return Task.CompletedTask;
+            }
         }
 
         /// <summary>
@@ -160,6 +185,7 @@ namespace AmbientSounds
                 .AddSingleton<SoundListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<SettingsViewModel>()
+                .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IDialogService, DialogService>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
