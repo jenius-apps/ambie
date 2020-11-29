@@ -399,9 +399,13 @@
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-BR.xlf" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\pt-BR\Resources.resw" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
