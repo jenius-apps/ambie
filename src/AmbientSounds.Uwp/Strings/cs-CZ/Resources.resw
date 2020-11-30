@@ -192,4 +192,13 @@
   <data name="Sound-thunder" xml:space="preserve">
     <value>Hrom</value>
   </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Oznámení</value>
+  </data>
+  <data name="Sound-fan" xml:space="preserve">
+    <value>Ventilátor</value>
+  </data>
+  <data name="Sound-wind" xml:space="preserve">
+    <value>Vítr</value>
+  </data>
 </root>

@@ -248,15 +248,15 @@
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
           <source>Notification for new sounds</source>
-          <target state="new">Notification for new sounds</target>
+          <target state="translated">Messaggio di notifica</target>
         </trans-unit>
         <trans-unit id="Sound-fan" translate="yes" xml:space="preserve">
           <source>Electric fan</source>
-          <target state="new">Electric fan</target>
+          <target state="translated">Eentilatore elettrico</target>
         </trans-unit>
         <trans-unit id="Sound-wind" translate="yes" xml:space="preserve">
           <source>Wind</source>
-          <target state="new">Wind</target>
+          <target state="translated">Vento</target>
         </trans-unit>
       </group>
     </body>

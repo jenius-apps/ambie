@@ -192,4 +192,13 @@
   <data name="Sound-thunder" xml:space="preserve">
     <value>천둥</value>
   </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>알림 메시지</value>
+  </data>
+  <data name="Sound-fan" xml:space="preserve">
+    <value>선풍기</value>
+  </data>
+  <data name="Sound-wind" xml:space="preserve">
+    <value>바람</value>
+  </data>
 </root>

@@ -192,4 +192,13 @@
   <data name="Sound-thunder" xml:space="preserve">
     <value>Tro</value>
   </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Missatge de notificació</value>
+  </data>
+  <data name="Sound-fan" xml:space="preserve">
+    <value>Ventilador</value>
+  </data>
+  <data name="Sound-wind" xml:space="preserve">
+    <value>Vent</value>
+  </data>
 </root>

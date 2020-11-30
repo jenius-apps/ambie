@@ -192,4 +192,13 @@
   <data name="Sound-thunder" xml:space="preserve">
     <value>Tuono</value>
   </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Messaggio di notifica</value>
+  </data>
+  <data name="Sound-fan" xml:space="preserve">
+    <value>Eentilatore elettrico</value>
+  </data>
+  <data name="Sound-wind" xml:space="preserve">
+    <value>Vento</value>
+  </data>
 </root>
