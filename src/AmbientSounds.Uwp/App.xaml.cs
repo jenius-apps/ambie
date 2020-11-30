@@ -69,8 +69,24 @@ namespace AmbientSounds
         /// <inheritdoc/>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
+            await ActivateAsync(e.PrelaunchActivated);
+        }
+
+        /// <inheritdoc/>
+        protected override async void OnActivated(IActivatedEventArgs args)
+        {
+            if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
+            {
+                new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
+            }
+
+            await ActivateAsync(false);
+        }
+
+        private async Task ActivateAsync(bool prelaunched)
+        {
             // Do not repeat app initialization when the Window already has content
-            if (!(Window.Current.Content is Frame rootFrame))
+            if (Window.Current.Content is not Frame rootFrame)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
@@ -84,14 +100,14 @@ namespace AmbientSounds
                 _serviceProvider = ConfigureServices();
             }
 
-            if (!e.PrelaunchActivated)
+            if (prelaunched == false)
             {
                 CoreApplication.EnablePrelaunch(true);
 
                 // Navigate to the root page if one isn't loaded already
                 if (rootFrame.Content is null)
                 {
-                    rootFrame.Navigate(typeof(Views.MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(Views.MainPage));
                 }
 
                 // Ensure the current window is active
@@ -101,15 +117,6 @@ namespace AmbientSounds
             AppFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
-        }
-
-        /// <inheritdoc/>
-        protected override void OnActivated(IActivatedEventArgs args)
-        {
-            if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
-            {
-                new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
-            }
         }
 
         private Task TryRegisterNotifications()
