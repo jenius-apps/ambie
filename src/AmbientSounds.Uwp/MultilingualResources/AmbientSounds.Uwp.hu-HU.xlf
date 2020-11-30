@@ -172,7 +172,7 @@
         </trans-unit>
         <trans-unit id="Sound-underwater" translate="yes" xml:space="preserve">
           <source>Underwater</source>
-          <target state="translated">Vízalatt</target>
+          <target state="translated">Víz alatt</target>
         </trans-unit>
         <trans-unit id="Sound-waterfall" translate="yes" xml:space="preserve">
           <source>Waterfall</source>
@@ -184,7 +184,7 @@
         </trans-unit>
         <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds are loading</source>
-          <target state="translated"></target>
+          <target state="translated">Hangok betöltése</target>
         </trans-unit>
         <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
           <source>Cannot play sound</source>
@@ -196,7 +196,7 @@
         </trans-unit>
         <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Change sound volume</source>
-          <target state="translated"></target>
+          <target state="translated">Hangerő változtatása</target>
         </trans-unit>
         <trans-unit id="SuggestionHeader.Text" translate="yes" xml:space="preserve">
           <source>Want more sounds? Send suggestions!</source>
@@ -248,7 +248,7 @@
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
           <source>Notification for new sounds</source>
-          <target state="translated">Értesítési üzenet</target>
+          <target state="translated">Értesítések új hangokról</target>
         </trans-unit>
         <trans-unit id="Sound-fan" translate="yes" xml:space="preserve">
           <source>Electric fan</source>
