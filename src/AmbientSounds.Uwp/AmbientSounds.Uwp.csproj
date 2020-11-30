@@ -388,17 +388,22 @@
     </PRIResource>
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\es-CT\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
-  </ItemGroup>
-  <ItemGroup>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ca-ES.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-DO.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-ES.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-MX.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-PR.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-US.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.hu-HU.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.it-IT.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ko-KR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-BR.xlf" />
   </ItemGroup>
   <ItemGroup>
@@ -407,7 +412,9 @@
   <ItemGroup>
     <PRIResource Include="Strings\pt-BR\Resources.resw" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PRIResource Include="Strings\ca-ES\Resources.resw" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
