@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="es-US" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Close compact mode</source>
+          <target state="translated">Cerrar modo compacto</target>
+        </trans-unit>
+        <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Close compact mode</source>
+          <target state="translated">Cerrar modo compacto</target>
+        </trans-unit>
+        <trans-unit id="CloseText" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="translated">Cerca</target>
+        </trans-unit>
+        <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
+          <source>Copyright</source>
+          <target state="needs-review-translation">Copyright</target>
+        </trans-unit>
+        <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
+          <source>Copyright Jenius Apps</source>
+          <target state="needs-review-translation">Copyright Jenius Apps</target>
+        </trans-unit>
+        <trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
+          <source>Hello from Vancouver</source>
+          <target state="translated">Hola desde Vancouver</target>
+        </trans-unit>
+        <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Click to view app information</source>
+          <target state="translated">Haga clic para ver la información de la aplicación</target>
+        </trans-unit>
+        <trans-unit id="Minutes10Button.Label" translate="yes" xml:space="preserve">
+          <source>10 minutes</source>
+          <target state="translated">10 minutos</target>
+        </trans-unit>
+        <trans-unit id="Minutes15Button.Label" translate="yes" xml:space="preserve">
+          <source>15 minutes</source>
+          <target state="translated">15 minutos</target>
+        </trans-unit>
+        <trans-unit id="Minutes30Button.Label" translate="yes" xml:space="preserve">
+          <source>30 minutes</source>
+          <target state="translated">30 minutos</target>
+        </trans-unit>
+        <trans-unit id="Minutes5Button.Label" translate="yes" xml:space="preserve">
+          <source>5 minutes</source>
+          <target state="translated">5 minutos</target>
+        </trans-unit>
+        <trans-unit id="Minutes60Button.Label" translate="yes" xml:space="preserve">
+          <source>60 minutes</source>
+          <target state="translated">60 minutos</target>
+        </trans-unit>
+        <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Click to view more options</source>
+          <target state="translated">Haga clic para ver más opciones</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonCompact.Label" translate="yes" xml:space="preserve">
+          <source>Compact mode</source>
+          <target state="translated">Modo compacto</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
+          <source>Contact the creator</source>
+          <target state="translated">Contactar con el creador</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
+          <source>Chat on Discord</source>
+          <target state="translated">Chat sobre la Discord</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
+          <source>View GitHub</source>
+          <target state="translated">Ver página de GitHub</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
+          <source>Rate us</source>
+          <target state="translated">Valóranos</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Configuración</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
+          <source>Share link for Ambie</source>
+          <target state="translated">Compartir URL para Ambie</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
+          <source>Add or improve translations</source>
+          <target state="translated">Agregar o mejorar traducciones</target>
+        </trans-unit>
+        <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Off</source>
+          <target state="translated">Deshabilitado</target>
+        </trans-unit>
+        <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>On</source>
+          <target state="translated">Habilitado</target>
+        </trans-unit>
+        <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Pause the timer</source>
+          <target state="translated">Pausar el temporizador</target>
+        </trans-unit>
+        <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
+          <source>Pause sound</source>
+          <target state="translated">Pausar sonido</target>
+        </trans-unit>
+        <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
+          <source>Play sound</source>
+          <target state="translated">Reproducir sonido</target>
+        </trans-unit>
+        <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Continue the timer</source>
+          <target state="translated">Continuar el temporizador</target>
+        </trans-unit>
+        <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
+          <source>Ready to play</source>
+          <target state="translated">Listo para reproducir</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">Telemetría</target>
+        </trans-unit>
+        <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Configuración</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Click here to set up a sleep timer, where the sound will pause after the selected time.</source>
+          <target state="translated">Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará después del tiempo seleccionado.</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Click here to set up a sleep timer, where the sound will pause after the selected time.</source>
+          <target state="translated">Haz clic aquí para configurar un temporizador de dormir, donde el sonido pausará después del tiempo seleccionado.</target>
+        </trans-unit>
+        <trans-unit id="Sound-beach" translate="yes" xml:space="preserve">
+          <source>Beach</source>
+          <target state="translated">Playa</target>
+        </trans-unit>
+        <trans-unit id="Sound-birds" translate="yes" xml:space="preserve">
+          <source>Birds</source>
+          <target state="translated">Aves</target>
+        </trans-unit>
+        <trans-unit id="Sound-citystreet" translate="yes" xml:space="preserve">
+          <source>City street</source>
+          <target state="translated">Calle de la ciudad</target>
+        </trans-unit>
+        <trans-unit id="Sound-coffeeshop" translate="yes" xml:space="preserve">
+          <source>Coffee shop</source>
+          <target state="translated">Cafetería</target>
+        </trans-unit>
+        <trans-unit id="Sound-creek" translate="yes" xml:space="preserve">
+          <source>Creek</source>
+          <target state="translated">Riachuelo</target>
+        </trans-unit>
+        <trans-unit id="Sound-fireplace" translate="yes" xml:space="preserve">
+          <source>Fireplace</source>
+          <target state="translated">Hoguera</target>
+        </trans-unit>
+        <trans-unit id="Sound-more" translate="yes" xml:space="preserve">
+          <source>More coming soon</source>
+          <target state="translated">Más próximamente</target>
+        </trans-unit>
+        <trans-unit id="Sound-rain" translate="yes" xml:space="preserve">
+          <source>Rain</source>
+          <target state="translated">Lluvia</target>
+        </trans-unit>
+        <trans-unit id="Sound-rainforest" translate="yes" xml:space="preserve">
+          <source>Rainforest</source>
+          <target state="translated">Bosque tropical</target>
+        </trans-unit>
+        <trans-unit id="Sound-underwater" translate="yes" xml:space="preserve">
+          <source>Underwater</source>
+          <target state="translated">Bajo el mar</target>
+        </trans-unit>
+        <trans-unit id="Sound-waterfall" translate="yes" xml:space="preserve">
+          <source>Waterfall</source>
+          <target state="translated">Cascada</target>
+        </trans-unit>
+        <trans-unit id="Sound-whitenoise" translate="yes" xml:space="preserve">
+          <source>White noise</source>
+          <target state="translated">Ruido blanco</target>
+        </trans-unit>
+        <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sounds are loading</source>
+          <target state="translated">Sonidos se están cargando</target>
+        </trans-unit>
+        <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
+          <source>Cannot play sound</source>
+          <target state="translated">No se pudo reproducir el sonido</target>
+        </trans-unit>
+        <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Stop the timer and clear the time</source>
+          <target state="translated">Detener y reiniciar el temporizador</target>
+        </trans-unit>
+        <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Change sound volume</source>
+          <target state="translated">Cambiar volumen del sonido</target>
+        </trans-unit>
+        <trans-unit id="SuggestionHeader.Text" translate="yes" xml:space="preserve">
+          <source>Want more sounds? Send suggestions!</source>
+          <target state="translated">Por favor, envíe sugerencias de sonido!</target>
+        </trans-unit>
+        <trans-unit id="SuggestionTextBox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Suggestion</source>
+          <target state="translated">Sugerencia</target>
+        </trans-unit>
+        <trans-unit id="SuggestionTextBox.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Want more sounds? Send suggestions!</source>
+          <target state="translated">Por favor, envíe sugerencias de sonido!</target>
+        </trans-unit>
+        <trans-unit id="SuggestionSendButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Send suggestion</source>
+          <target state="translated">Enviar sugerencia</target>
+        </trans-unit>
+        <trans-unit id="SuggestionSendButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Click to send the suggestion</source>
+          <target state="translated">Haga clic para enviar sugerencias</target>
+        </trans-unit>
+        <trans-unit id="ThankYouTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Thank you!</source>
+          <target state="translated">Gracias</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
+          <source>Theme (requires restart)</source>
+          <target state="translated">Tema (requiere reinicio)</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
+          <source>Auto</source>
+          <target state="translated">Automático</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="translated">Oscuro</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="translated">Luz</target>
+        </trans-unit>
+        <trans-unit id="Sound-vacuum" translate="yes" xml:space="preserve">
+          <source>Vacuum</source>
+          <target state="translated">Aspiradora</target>
+        </trans-unit>
+        <trans-unit id="Sound-thunder" translate="yes" xml:space="preserve">
+          <source>Thunder</source>
+          <target state="translated">Trueno</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
+          <source>Notification for new sounds</source>
+          <target state="translated">Mensaje de notificación</target>
+        </trans-unit>
+        <trans-unit id="Sound-fan" translate="yes" xml:space="preserve">
+          <source>Electric fan</source>
+          <target state="translated">Ventilador</target>
+        </trans-unit>
+        <trans-unit id="Sound-wind" translate="yes" xml:space="preserve">
+          <source>Wind</source>
+          <target state="translated">Viento</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
