@@ -16,7 +16,7 @@
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="translated">Cerca</target>
+          <target state="translated">Cerrar</target>
         </trans-unit>
         <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
           <source>Copyright</source>
