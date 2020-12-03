@@ -306,4 +306,7 @@
   <data name="Sound-wind" xml:space="preserve">
     <value>Wind</value>
   </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>View catalogue</value>
+  </data>
 </root>

@@ -258,6 +258,10 @@
           <source>Wind</source>
           <target state="translated">Vent</target>
         </trans-unit>
+        <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
+          <source>View catalogue</source>
+          <target state="new">View catalogue</target>
+        </trans-unit>
       </group>
     </body>
   </file>
