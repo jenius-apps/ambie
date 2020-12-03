@@ -19,7 +19,7 @@
     <value>Cerrar modo compacto</value>
   </data>
   <data name="CloseText" xml:space="preserve">
-    <value>Cerca</value>
+    <value>Cerrar</value>
   </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>

@@ -136,7 +136,7 @@
     <value>Esőerdő</value>
   </data>
   <data name="Sound-underwater" xml:space="preserve">
-    <value>Vízalatt</value>
+    <value>Víz alatt</value>
   </data>
   <data name="Sound-waterfall" xml:space="preserve">
     <value>Vízesés</value>
@@ -145,7 +145,7 @@
     <value>Fehérzaj</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
-    <value></value>
+    <value>Hangok betöltése</value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
     <value>Nem lehet lejátszani</value>
@@ -154,7 +154,7 @@
     <value>Időzítő leállítása</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value></value>
+    <value>Hangerő változtatása</value>
   </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
     <value>Több hangot szeretne? Küldjön javaslatokat!</value>
@@ -193,7 +193,7 @@
     <value>Mennydörgés</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
-    <value>Értesítési üzenet</value>
+    <value>Értesítések új hangokról</value>
   </data>
   <data name="Sound-fan" xml:space="preserve">
     <value>Ventilátor</value>
