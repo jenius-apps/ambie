@@ -262,6 +262,10 @@
           <source>View catalogue</source>
           <target state="new">View catalogue</target>
         </trans-unit>
+        <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View catalogue</source>
+          <target state="new">View catalogue</target>
+        </trans-unit>
       </group>
     </body>
   </file>

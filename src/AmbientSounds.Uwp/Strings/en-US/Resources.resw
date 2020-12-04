@@ -309,4 +309,7 @@
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>View catalogue</value>
   </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>View catalogue</value>
+  </data>
 </root>
