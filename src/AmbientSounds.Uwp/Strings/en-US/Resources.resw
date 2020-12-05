@@ -307,9 +307,9 @@
     <value>Wind</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>View catalogue</value>
+    <value>More sounds</value>
   </data>
   <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>View catalogue</value>
+    <value>View more sounds</value>
   </data>
 </root>

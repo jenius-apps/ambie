@@ -259,12 +259,12 @@
           <target state="translated">Viento</target>
         </trans-unit>
         <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>View catalogue</source>
-          <target state="new">View catalogue</target>
+          <source>More sounds</source>
+          <target state="new">More sounds</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View catalogue</source>
-          <target state="new">View catalogue</target>
+          <source>View more sounds</source>
+          <target state="new">View more sounds</target>
         </trans-unit>
       </group>
     </body>
