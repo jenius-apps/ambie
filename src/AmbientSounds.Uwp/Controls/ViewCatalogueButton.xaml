@@ -17,7 +17,7 @@
             <TextBlock x:Uid="ViewCatalogue" />
             <FontIcon
                 Margin="8,0,0,0"
-                FontFamily="fluentui"
+                FontFamily="{StaticResource FluentUIGlyphs}"
                 Glyph="&#xE92B;" />
         </StackPanel>
     </Button>

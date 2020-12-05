@@ -41,7 +41,10 @@
                     </interactivity:Interaction.Behaviors>
                 </GridView>
 
-                <local:SoundSuggestionControl Grid.Row="1" Margin="0,80,0,100" />
+                <local:ViewCatalogueButton
+                    Grid.Row="1"
+                    Margin="0,12,24,80"
+                    HorizontalAlignment="Right" />
             </Grid>
         </ScrollViewer>
 
