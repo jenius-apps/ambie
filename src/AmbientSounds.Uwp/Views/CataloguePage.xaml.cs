@@ -56,5 +56,13 @@ namespace AmbientSounds.Views
                 }
             }
         }
+
+        private void GoBack()
+        {
+            if (App.AppFrame.CanGoBack)
+            {
+                App.AppFrame.GoBack();
+            }
+        }
     }
 }
