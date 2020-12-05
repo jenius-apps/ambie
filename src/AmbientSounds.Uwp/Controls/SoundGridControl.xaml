@@ -42,9 +42,11 @@
                 </GridView>
 
                 <local:ViewCatalogueButton
+                    x:Name="CatalogueButton"
                     Grid.Row="1"
                     Margin="0,12,24,80"
-                    HorizontalAlignment="Right" />
+                    HorizontalAlignment="Right"
+                    x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}" />
             </Grid>
         </ScrollViewer>
 

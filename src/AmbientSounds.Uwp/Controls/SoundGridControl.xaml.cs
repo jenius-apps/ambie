@@ -40,6 +40,23 @@ namespace AmbientSounds.Controls
             typeof(SoundGridControl),
             null);
 
+        /// <summary>
+        /// If true, the catalogue button will be shown.
+        /// </summary>
+        public bool ShowCatalogueButton
+        {
+            get => (bool)GetValue(ShowCatalogueButtonProperty);
+            set => SetValue(ShowCatalogueButtonProperty, value);
+        }
+
+        /// <summary>
+        /// Dependency property for showing the catalogue button. Default false.
+        /// </summary>
+        public static readonly DependencyProperty ShowCatalogueButtonProperty = DependencyProperty.Register(
+            nameof(ShowCatalogueButton),
+            typeof(bool),
+            typeof(SoundGridControl),
+            new PropertyMetadata(false));
 
         private void GridScaleUp(object sender, PointerRoutedEventArgs e)
         {

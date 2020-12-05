@@ -104,7 +104,8 @@
         <controls:SoundGridControl
             x:Name="SoundsViewer"
             Grid.Row="1"
-            ItemTemplate="{StaticResource MainPageSoundTemplate}" />
+            ItemTemplate="{StaticResource MainPageSoundTemplate}"
+            ShowCatalogueButton="True" />
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
