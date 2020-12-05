@@ -44,5 +44,7 @@
 
             <!--<local:SoundSuggestionControl Grid.Row="1" Margin="0,80,0,100" />-->
         </Grid>
+
+        <controls:CatalogueListControl Grid.Row="1" />
     </Grid>
 </Page>

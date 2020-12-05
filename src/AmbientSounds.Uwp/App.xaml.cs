@@ -190,6 +190,7 @@ namespace AmbientSounds
         {
             return new ServiceCollection()
                 .AddSingleton<SoundListViewModel>()
+                .AddSingleton<CatalogueListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
@@ -199,6 +200,7 @@ namespace AmbientSounds
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
+                .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .BuildServiceProvider();

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +24,9 @@ namespace AmbientSounds.Controls
         public CatalogueListControl()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<CatalogueListViewModel>();
         }
+
+        public CatalogueListViewModel ViewModel => (CatalogueListViewModel)this.DataContext;
     }
 }
