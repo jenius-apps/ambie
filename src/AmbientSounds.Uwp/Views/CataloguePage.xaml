@@ -30,10 +30,9 @@
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
 
                 <!--  todo automation name  -->
-                <Button Background="Transparent" Click="{x:Bind GoBack}">
+                <Button Click="{x:Bind GoBack}" Style="{StaticResource TransparentRoundButtonStyle}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
                 </Button>
-                <controls:LogoControl Margin="20,0,0,0" />
                 <TextBlock
                     Margin="20,0,0,0"
                     VerticalAlignment="Center"
@@ -45,6 +44,6 @@
             <!--<local:SoundSuggestionControl Grid.Row="1" Margin="0,80,0,100" />-->
         </Grid>
 
-        <controls:CatalogueListControl Grid.Row="1" />
+        <controls:CatalogueListControl Grid.Row="1" Margin="32,0,0,0" />
     </Grid>
 </Page>
