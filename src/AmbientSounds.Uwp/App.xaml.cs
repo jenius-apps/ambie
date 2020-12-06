@@ -199,6 +199,7 @@ namespace AmbientSounds
                 .AddTransient<ITimerService, TimerService>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
+                .AddSingleton<IDownloadManager, DownloadManager>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()

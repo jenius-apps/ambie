@@ -13,15 +13,19 @@ namespace AmbientSounds.ViewModels
     public class CatalogueListViewModel
     {
         private readonly IOnlineSoundDataProvider _dataProvider;
+        private readonly IDownloadManager _downloadManager;
         private readonly IMediaPlayerService _player;
 
         public CatalogueListViewModel(
             IOnlineSoundDataProvider dataProvider,
+            IDownloadManager downloadManager,
             IMediaPlayerService mediaPlayerService)
         {
             Guard.IsNotNull(dataProvider, nameof(dataProvider));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+            Guard.IsNotNull(downloadManager, nameof(downloadManager));
             _dataProvider = dataProvider;
+            _downloadManager = downloadManager;
             _player = mediaPlayerService;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
@@ -59,7 +63,7 @@ namespace AmbientSounds.ViewModels
 
             foreach (var sound in sounds)
             {
-                Sounds.Add(new OnlineSoundViewModel(sound));
+                Sounds.Add(new OnlineSoundViewModel(sound, _downloadManager));
             }
         }
     }

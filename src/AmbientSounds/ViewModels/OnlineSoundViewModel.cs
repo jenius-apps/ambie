@@ -1,17 +1,35 @@
 ﻿using AmbientSounds.Models;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
+using System;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
     public class OnlineSoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
+        private readonly IDownloadManager _downloadManager;
+        private readonly Progress<double> _downloadProgress;
+        private double _progressValue;
 
-        public OnlineSoundViewModel(Sound s)
+        public OnlineSoundViewModel(Sound s, IDownloadManager downloadManager)
         {
             Guard.IsNotNull(s, nameof(s));
+            Guard.IsNotNull(downloadManager, nameof(downloadManager));
             _sound = s;
+            _downloadManager = downloadManager;
+
+            _downloadProgress = new Progress<double>();
+            _downloadProgress.ProgressChanged += OnProgressChanged;
+            DownloadCommand = new AsyncRelayCommand(DownloadAsync);
+        }
+
+        private void OnProgressChanged(object sender, double e)
+        {
+            DownloadProgressValue = e;
         }
 
         /// <summary>
@@ -33,5 +51,24 @@ namespace AmbientSounds.ViewModels
         /// The path for the image to display for the current sound.
         /// </summary>
         public string ImagePath => _sound.ImagePath;
+
+        /// <summary>
+        /// This sound's download progress.
+        /// </summary>
+        public double DownloadProgressValue
+        {
+            get => _progressValue;
+            set => SetProperty(ref _progressValue, value);
+        }
+
+        /// <summary>
+        /// Command for downloading this sound.
+        /// </summary>
+        public IAsyncRelayCommand DownloadCommand { get; }
+
+        private Task DownloadAsync()
+        {
+            return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
+        }
     }
 }
