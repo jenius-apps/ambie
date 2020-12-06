@@ -7,6 +7,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -16,8 +17,71 @@
         </core:EventTriggerBehavior>
     </interactivity:Interaction.Behaviors>
 
+    <UserControl.Resources>
+        <DataTemplate x:Key="OnlineSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
+            <Grid Padding="0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-    <Grid>
-        <ListView ItemsSource="{x:Bind ViewModel.Sounds}" SelectionMode="None" />
-    </Grid>
+                <Grid
+                    Width="100"
+                    Height="100"
+                    VerticalAlignment="Top"
+                    CornerRadius="8">
+                    <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                </Grid>
+                <Grid Grid.Column="1" Margin="20,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <TextBlock
+                            FontSize="20"
+                            FontWeight="SemiBold"
+                            Text="{x:Bind Name}" />
+                        <TextBlock
+                            Grid.Row="1"
+                            IsTextSelectionEnabled="True"
+                            MaxLines="2"
+                            Text="{x:Bind Attribution}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="Wrap">
+                            <ToolTipService.ToolTip>
+                                <Grid MaxWidth="300">
+                                    <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
+                                </Grid>
+                            </ToolTipService.ToolTip>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Row="1"
+                        Margin="0,4,0,0"
+                        Orientation="Horizontal">
+                        <Button Style="{StaticResource RoundButtonStyle}">
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
+                        </Button>
+                        <Button Margin="4,0,0,0" Style="{StaticResource TransparentRoundButtonStyle}">
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <ListView
+        Padding="0,10"
+        ItemTemplate="{StaticResource OnlineSoundTemplate}"
+        ItemsSource="{x:Bind ViewModel.Sounds}"
+        ScrollViewer.CanContentRenderOutsideBounds="True"
+        SelectionMode="None">
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            </Style>
+        </ListView.ItemContainerStyle>
+    </ListView>
 </UserControl>
