@@ -60,7 +60,7 @@
                         Grid.Row="1"
                         Margin="0,4,0,0"
                         Orientation="Horizontal">
-                        <Button Style="{StaticResource RoundButtonStyle}">
+                        <Button Command="{x:Bind DownloadCommand}" Style="{StaticResource RoundButtonStyle}">
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
                         </Button>
                         <Button Margin="4,0,0,0" Style="{StaticResource TransparentRoundButtonStyle}">
