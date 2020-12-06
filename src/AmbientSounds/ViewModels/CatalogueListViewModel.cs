@@ -2,8 +2,10 @@
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -33,26 +35,31 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// The list of sounds for this page.
         /// </summary>
-        public ObservableCollection<SoundViewModel> Sounds { get; } = new();
+        public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
 
         private async Task LoadAsync()
         {
+            if (Sounds.Count > 0)
+            {
+                return;
+            }
+
             IList<Sound> sounds;
 
             try
             {
                 sounds = await _dataProvider.GetSoundsAsync();
             }
-            catch
+            catch (Exception e)
             {
                 // TODO log error
+                Debug.WriteLine(e);
                 return;
             }
 
             foreach (var sound in sounds)
             {
-                // TODO create different viewmodel
-                Sounds.Add(new SoundViewModel(sound, _player));
+                Sounds.Add(new OnlineSoundViewModel(sound));
             }
         }
     }
