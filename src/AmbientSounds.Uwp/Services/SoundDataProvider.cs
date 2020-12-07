@@ -20,13 +20,10 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync()
         {
-            StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-            StorageFile dataFile = await assets.GetFileAsync(DataFileName);
-
-            using Stream dataStream = await dataFile.OpenStreamForReadAsync();
-
-            return await JsonSerializer.DeserializeAsync<Sound[]>(dataStream);
+            var packagedSounds = await GetPackagedSoundsAsync();
+            var localSounds = await GetLocalSoundsAsync();
+            packagedSounds.AddRange(localSounds);
+            return packagedSounds;
         }
 
         /// <inheritdoc/>
@@ -37,6 +34,21 @@ namespace AmbientSounds.Services.Uwp
             StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                 LocalDataFileName,
                 CreationCollisionOption.OpenIfExists);
+
+            List<Sound> localSounds = await GetLocalSoundsAsync(localDataFile);
+            localSounds.Add(s);
+            string json = JsonSerializer.Serialize(localSounds);
+            await FileIO.WriteTextAsync(localDataFile, json);
+        }
+
+        private async Task<List<Sound>> GetLocalSoundsAsync(StorageFile localDataFile = null)
+        {
+            if (localDataFile == null)
+            {
+                localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                    LocalDataFileName,
+                    CreationCollisionOption.OpenIfExists);
+            }
 
             List<Sound> localSounds = null;
 
@@ -57,9 +69,16 @@ namespace AmbientSounds.Services.Uwp
                 localSounds = new List<Sound>();
             }
 
-            localSounds.Add(s);
-            string json = JsonSerializer.Serialize(localSounds);
-            await FileIO.WriteTextAsync(localDataFile, json);
+            return localSounds;
+        }
+
+        private async Task<List<Sound>> GetPackagedSoundsAsync()
+        {
+            StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
+            StorageFile dataFile = await assets.GetFileAsync(DataFileName);
+            using Stream dataStream = await dataFile.OpenStreamForReadAsync();
+            return await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
         }
     }
 }
