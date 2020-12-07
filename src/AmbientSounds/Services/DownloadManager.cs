@@ -13,14 +13,19 @@ namespace AmbientSounds.Services
     public class DownloadManager : IDownloadManager
     {
         private readonly ISoundDownloader _soundDownloader;
+        private readonly ISoundDataProvider _soundDataProvider;
         private readonly Queue<QueuedSound> _downloadQueue = new();
         private bool _downloading;
 
-        public DownloadManager(ISoundDownloader soundDownloader)
+        public DownloadManager(
+            ISoundDownloader soundDownloader,
+            ISoundDataProvider soundDataProvider)
         {
             Guard.IsNotNull(soundDownloader, nameof(soundDownloader));
+            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
 
             _soundDownloader = soundDownloader;
+            _soundDataProvider = soundDataProvider;
         }
 
         /// <inheritdoc/>
@@ -42,42 +47,42 @@ namespace AmbientSounds.Services
 
             while (_downloadQueue.Count > 0)
             {
-                _downloading = true;
-                var item = _downloadQueue.Dequeue();
-                var soundData = item.SoundData;
-                item.Progress.Report(0);
-
-                // download item and get new record
-                item.Progress.Report(33);
-
-                string downloadPath = "";
-
                 try
                 {
+                    _downloading = true;
+                    var item = _downloadQueue.Dequeue();
+                    var soundData = item.SoundData;
+                    item.Progress.Report(0);
+
+                    // download item and get new record
+                    item.Progress.Report(33);
+
+                    string downloadPath = "";
+
                     downloadPath = await _soundDownloader.DownloadAndSaveAsync(
                         soundData.FilePath,
                         soundData.Id + ".mp3") ?? "";
+
+                    if (string.IsNullOrWhiteSpace(downloadPath))
+                    {
+                        item.Progress.Report(-1);
+                        continue;
+                    }
+
+                    // add new record to local provider
+                    var newSoundInfo = new Sound(soundData.Id, "", soundData.Name, downloadPath, soundData.Attribution);
+                    await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
+
+                    await Task.Delay(3000);
+                    item.Progress.Report(66);
+                    await Task.Delay(3000);
+
+                    item.Progress.Report(100);
                 }
                 catch (Exception e)
                 {
                     // TODO log
                 }
-
-                if (string.IsNullOrWhiteSpace(downloadPath))
-                {
-                    item.Progress.Report(-1);
-                    continue;
-                }
-
-                // add new record to local provider
-                await Task.Delay(3000);
-                item.Progress.Report(66);
-                await Task.Delay(3000);
-
-                item.Progress.Report(100);
-
-                var result = new Sound(soundData.Id, "", soundData.Name, downloadPath, soundData.Attribution);
-
             }
 
             _downloading = false;
