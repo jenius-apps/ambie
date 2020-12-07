@@ -58,12 +58,15 @@ namespace AmbientSounds.ViewModels
             if (Sounds.Count > 0) return; // already initialized
 
             var soundList = await _provider.GetSoundsAsync();
+
+            int index = 0;
             foreach (var sound in soundList)
             {
-                Sounds.Add(new SoundViewModel(sound, _player));
+                Sounds.Add(new SoundViewModel(sound, _player, index));
+                index++;
             }
 
-            _player.Initialize(soundList);
+           await  _player.Initialize(soundList);
         }
 
         /// <summary>

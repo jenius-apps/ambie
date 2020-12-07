@@ -88,10 +88,5 @@
     "ImagePath": "ms-appx:///Assets/Images/wind.png",
     "FilePath": "ms-appx:///Assets/Sounds/wind.mp3",
     "Attribution": "wind-noise.wav by jorge0000 -- https://freesound.org/s/361053/ -- License: Creative Commons 0. Photo by Mila Young on Unsplash"
-  },
-  {
-    "Id": "more",
-    "ImagePath": "ms-appx:///Assets/Images/more.png",
-    "Attribution": "Photo by Aditya Chinchure on Unsplash"
   }
 ]

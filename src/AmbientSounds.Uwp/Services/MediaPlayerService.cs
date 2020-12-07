@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using Windows.Media;
 using Windows.Media.Core;
@@ -9,6 +8,8 @@ using Windows.Media.Playback;
 using Windows.Storage.Streams;
 using Windows.System;
 using UwpMediaPlaybackState = Windows.Media.Playback.MediaPlaybackState;
+using Windows.Storage;
+using System.Threading.Tasks;
 
 #nullable enable
 
@@ -79,29 +80,42 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public void Initialize(IList<Sound> sounds)
+        public async Task Initialize(IList<Sound> sounds)
         {
             if (sounds == null || sounds.Count == 0)
                 return;
 
             foreach (var s in sounds)
             {
+                MediaSource mediaSource;
                 if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
                 {
-                    var mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
-                    var item = new MediaPlaybackItem(mediaSource);
-                    ApplyDisplayProperties(item, s);
-                    _playbackList.Items.Add(item);
+                    // sound path is packaged and can be read as URI.
+                    mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
                 }
+                else if (s.FilePath != null && s.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
+                {
+                    // sound path is likely a file saved in local folder
+                    StorageFile file = await StorageFile.GetFileFromPathAsync(s.FilePath);
+                    mediaSource = MediaSource.CreateFromStorageFile(file);
+                }
+                else
+                {
+                    throw new InvalidOperationException("Unrecognized file path " + s.FilePath);
+                }
+
+                var item = new MediaPlaybackItem(mediaSource);
+                ApplyDisplayProperties(item, s);
+                _playbackList.Items.Add(item);
             }
 
             _player.Source = _playbackList;
         }
 
         /// <inheritdoc/>
-        public void Play(Sound s)
+        public void Play(Sound s, int index)
         {
-            if (s == null || string.IsNullOrWhiteSpace(s.FilePath) || !Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
+            if (s == null || string.IsNullOrWhiteSpace(s.FilePath))
             {
                 return;
             }
@@ -113,8 +127,8 @@ namespace AmbientSounds.Services.Uwp
             }
             else
             {
-                var item = _playbackList.Items.FirstOrDefault(x => x.Source.Uri.AbsoluteUri == s.FilePath);
-                _playbackList.MoveTo((uint)_playbackList.Items.IndexOf(item));
+                // we assume the sound list is always the same order as the playlist
+                _playbackList.MoveTo((uint)index);
                 _player.Play();
                 Current = s;
                 NewSoundPlayed?.Invoke(this, EventArgs.Empty);

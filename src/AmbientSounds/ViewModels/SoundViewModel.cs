@@ -12,12 +12,14 @@ namespace AmbientSounds.ViewModels
     {
         private readonly Sound _sound;
         private readonly IMediaPlayerService _playerService;
+        private readonly int _index;
 
-        public SoundViewModel(Sound s, IMediaPlayerService playerService)
+        public SoundViewModel(Sound s, IMediaPlayerService playerService, int index)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
 
+            _index = index;
             _sound = s;
             _playerService = playerService;
             _playerService.PlaybackStateChanged += PlayerService_PlaybackStateChanged;
@@ -58,7 +60,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public void Play()
         {
-            _playerService.Play(_sound);
+            _playerService.Play(_sound, _index);
         }
 
         private void PlayerService_PlaybackStateChanged(object sender, MediaPlaybackState e)
