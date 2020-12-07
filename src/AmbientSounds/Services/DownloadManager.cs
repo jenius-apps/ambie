@@ -70,7 +70,13 @@ namespace AmbientSounds.Services
                     }
 
                     // add new record to local provider
-                    var newSoundInfo = new Sound(soundData.Id, "", soundData.Name, downloadPath, soundData.Attribution);
+                    var newSoundInfo = new Sound(
+                        soundData.Id,
+                        soundData.ImagePath,
+                        soundData.Name,
+                        downloadPath,
+                        soundData.Attribution);
+
                     await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
 
                     await Task.Delay(3000);
