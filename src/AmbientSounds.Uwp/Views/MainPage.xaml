@@ -20,7 +20,7 @@
                     <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
                     <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
                 </GridViewItem.Resources>
-                <Grid
+                <Grid x:Name="TemplateRoot"
                     Width="280"
                     Height="160"
                     extensions:VisualExtensions.CenterPoint="140,80,0"
