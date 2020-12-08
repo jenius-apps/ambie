@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -39,6 +40,12 @@ namespace AmbientSounds.Services.Uwp
                 CreationCollisionOption.OpenIfExists);
 
             List<Sound> localSounds = await GetLocalSoundsAsync(localDataFile);
+            if (localSounds.Any(x => x.FilePath == s.FilePath))
+            {
+                // prevent duplication
+                return;
+            }
+
             localSounds.Add(s);
             string json = JsonSerializer.Serialize(localSounds);
             await FileIO.WriteTextAsync(localDataFile, json);
