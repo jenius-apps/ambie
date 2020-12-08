@@ -87,29 +87,40 @@ namespace AmbientSounds.Services.Uwp
 
             foreach (var s in sounds)
             {
-                MediaSource mediaSource;
-                if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
-                {
-                    // sound path is packaged and can be read as URI.
-                    mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
-                }
-                else if (s.FilePath != null && s.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
-                {
-                    // sound path is likely a file saved in local folder
-                    StorageFile file = await StorageFile.GetFileFromPathAsync(s.FilePath);
-                    mediaSource = MediaSource.CreateFromStorageFile(file);
-                }
-                else
-                {
-                    throw new InvalidOperationException("Unrecognized file path " + s.FilePath);
-                }
-
-                var item = new MediaPlaybackItem(mediaSource);
-                ApplyDisplayProperties(item, s);
-                _playbackList.Items.Add(item);
+                await AddToPlaylistAsync(s);
             }
 
             _player.Source = _playbackList;
+        }
+
+        /// <inheritdoc/>
+        public async Task AddToPlaylistAsync(Sound s)
+        {
+            if (s == null)
+            {
+                return;
+            }
+
+            MediaSource mediaSource;
+            if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
+            {
+                // sound path is packaged and can be read as URI.
+                mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
+            }
+            else if (s.FilePath != null && s.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
+            {
+                // sound path is likely a file saved in local folder
+                StorageFile file = await StorageFile.GetFileFromPathAsync(s.FilePath);
+                mediaSource = MediaSource.CreateFromStorageFile(file);
+            }
+            else
+            {
+                throw new InvalidOperationException("Unrecognized file path " + s.FilePath);
+            }
+
+            var item = new MediaPlaybackItem(mediaSource);
+            ApplyDisplayProperties(item, s);
+            _playbackList.Items.Add(item);
         }
 
         /// <inheritdoc/>

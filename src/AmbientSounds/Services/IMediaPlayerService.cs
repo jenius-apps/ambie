@@ -57,6 +57,12 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="sounds">List of sounds for gapless playback.</param>
         Task Initialize(IList<Sound> sounds);
+
+        /// <summary>
+        /// Adds the given soudn to the playlist.
+        /// </summary>
+        /// <param name="s">The sound to add.</param>
+        Task AddToPlaylistAsync(Sound s);
     }
 
     /// <summary>

@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,6 +10,11 @@ namespace AmbientSounds.Services
     /// </summary>
     public interface ISoundDataProvider
     {
+        /// <summary>
+        /// Local sound added.
+        /// </summary>
+        event EventHandler<Sound> LocalSoundAdded;
+
         /// <summary>
         /// Retrieves list of sound data available.
         /// </summary>

@@ -18,6 +18,9 @@ namespace AmbientSounds.Services.Uwp
         private const string LocalDataFileName = "localData.json";
 
         /// <inheritdoc/>
+        public event EventHandler<Sound> LocalSoundAdded;
+
+        /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync()
         {
             var packagedSounds = await GetPackagedSoundsAsync();
@@ -39,6 +42,7 @@ namespace AmbientSounds.Services.Uwp
             localSounds.Add(s);
             string json = JsonSerializer.Serialize(localSounds);
             await FileIO.WriteTextAsync(localDataFile, json);
+            LocalSoundAdded?.Invoke(this, s);
         }
 
         private async Task<List<Sound>> GetLocalSoundsAsync(StorageFile localDataFile = null)

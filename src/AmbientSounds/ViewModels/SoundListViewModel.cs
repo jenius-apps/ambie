@@ -33,6 +33,14 @@ namespace AmbientSounds.ViewModels
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
+
+            _provider.LocalSoundAdded += OnLocalSoundAdded;
+        }
+
+        private async void OnLocalSoundAdded(object sender, Models.Sound e)
+        {
+            Sounds.Add(new SoundViewModel(e, _player, Sounds.Count));
+            await _player.AddToPlaylistAsync(e);
         }
 
         /// <summary>
