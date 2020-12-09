@@ -224,19 +224,19 @@
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
           <source>Theme (requires restart)</source>
-          <target state="translated">Téma (újraindítást igényel)</target>
+          <target state="translated">Motiv aplikace (potřeba restartovat aplikaci)</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
-          <target state="translated">Automatikus</target>
+          <target state="translated">Automatický</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="translated">Sötét</target>
+          <target state="translated">Tmavý</target>
         </trans-unit>
         <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="translated">Fény</target>
+          <target state="translated">Světlý</target>
         </trans-unit>
         <trans-unit id="Sound-vacuum" translate="yes" xml:space="preserve">
           <source>Vacuum</source>
