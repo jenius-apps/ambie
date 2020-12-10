@@ -21,6 +21,12 @@
     <UserControl.Resources>
         <DataTemplate x:Key="OnlineSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
             <Grid Padding="0,10">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Loaded">
+                        <core:InvokeCommandAction Command="{x:Bind LoadCommand}" />
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="*" />
@@ -61,7 +67,7 @@
                         Grid.Row="1"
                         Margin="0,4,0,0"
                         Orientation="Horizontal">
-                        <Grid>
+                        <Grid x:Name="DownloadGridButton" x:Load="{x:Bind CanDownload, Mode=OneWay}">
                             <muxc:ProgressRing
                                 x:Name="DownloadProgressRing"
                                 Width="40"

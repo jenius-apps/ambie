@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Factories;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -13,20 +14,16 @@ namespace AmbientSounds.ViewModels
     public class CatalogueListViewModel
     {
         private readonly IOnlineSoundDataProvider _dataProvider;
-        private readonly IDownloadManager _downloadManager;
-        private readonly IMediaPlayerService _player;
+        private readonly ISoundVmFactory _soundVmFactory;
 
         public CatalogueListViewModel(
             IOnlineSoundDataProvider dataProvider,
-            IDownloadManager downloadManager,
-            IMediaPlayerService mediaPlayerService)
+            ISoundVmFactory soundVmFactory)
         {
             Guard.IsNotNull(dataProvider, nameof(dataProvider));
-            Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
-            Guard.IsNotNull(downloadManager, nameof(downloadManager));
+            Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
             _dataProvider = dataProvider;
-            _downloadManager = downloadManager;
-            _player = mediaPlayerService;
+            _soundVmFactory = soundVmFactory;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
         }
@@ -63,7 +60,10 @@ namespace AmbientSounds.ViewModels
 
             foreach (var sound in sounds)
             {
-                Sounds.Add(new OnlineSoundViewModel(sound, _downloadManager));
+                if (sound != null)
+                {
+                    Sounds.Add(_soundVmFactory.GetOnlineSoundVm(sound));
+                }
             }
         }
     }
