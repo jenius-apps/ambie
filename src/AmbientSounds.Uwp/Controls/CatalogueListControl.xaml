@@ -73,9 +73,11 @@
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
                             </Button>
                         </Grid>
-                        <Button Margin="4,0,0,0" Style="{StaticResource TransparentRoundButtonStyle}">
+
+                        <!--  Preview button  -->
+                        <!--<Button Margin="4,0,0,0" Style="{StaticResource TransparentRoundButtonStyle}">
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
-                        </Button>
+                        </Button>-->
                     </StackPanel>
                 </Grid>
             </Grid>
