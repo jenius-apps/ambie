@@ -7,6 +7,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -60,9 +61,18 @@
                         Grid.Row="1"
                         Margin="0,4,0,0"
                         Orientation="Horizontal">
-                        <Button Command="{x:Bind DownloadCommand}" Style="{StaticResource RoundButtonStyle}">
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
-                        </Button>
+                        <Grid>
+                            <muxc:ProgressRing
+                                x:Name="DownloadProgressRing"
+                                Width="40"
+                                Height="40"
+                                x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                IsIndeterminate="False"
+                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                            <Button Command="{x:Bind DownloadCommand}" Style="{StaticResource RoundButtonStyle}">
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
+                            </Button>
+                        </Grid>
                         <Button Margin="4,0,0,0" Style="{StaticResource TransparentRoundButtonStyle}">
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
                         </Button>

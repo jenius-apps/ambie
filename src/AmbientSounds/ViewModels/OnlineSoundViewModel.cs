@@ -58,8 +58,17 @@ namespace AmbientSounds.ViewModels
         public double DownloadProgressValue
         {
             get => _progressValue;
-            set => SetProperty(ref _progressValue, value);
+            set
+            {
+                SetProperty(ref _progressValue, value);
+                OnPropertyChanged(nameof(DownloadProgressVisible));
+            }
         }
+
+        /// <summary>
+        /// True if download progress should be visible.
+        /// </summary>
+        public bool DownloadProgressVisible => DownloadProgressValue > 0 && DownloadProgressValue < 100;
 
         /// <summary>
         /// Command for downloading this sound.
