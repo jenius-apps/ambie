@@ -61,7 +61,7 @@ namespace AmbientSounds.Services.Uwp
             }
 
             IReadOnlyList<Sound> sounds = await GetLocalSoundsAsync();
-            return sounds.Any(x => x.FilePath == s.FilePath);
+            return sounds.Any(x => x.Id == s.Id);
         }
 
         private async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(
