@@ -26,5 +26,12 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="s">The sound info to save.</param>
         Task AddLocalSoundAsync(Sound s);
+
+        /// <summary>
+        /// Checks to see if given sound
+        /// is already saved.
+        /// </summary>
+        /// <param name="s">The sound to check.</param>
+        Task<bool> IsSoundInstalledAsync(Sound s);
     }
 }

@@ -17,6 +17,7 @@ namespace AmbientSounds.Services.Uwp
     {
         private const string DataFileName = "Data.json";
         private const string LocalDataFileName = "localData.json";
+        private List<Sound> _localSoundCache;
 
         /// <inheritdoc/>
         public event EventHandler<Sound> LocalSoundAdded;
@@ -25,7 +26,7 @@ namespace AmbientSounds.Services.Uwp
         public async Task<IList<Sound>> GetSoundsAsync()
         {
             var packagedSounds = await GetPackagedSoundsAsync();
-            var localSounds = await GetLocalSoundsAsync();
+            var localSounds = await GetLocalSoundsAsync(refresh: true);
             packagedSounds.AddRange(localSounds);
             return packagedSounds;
         }
@@ -35,24 +36,37 @@ namespace AmbientSounds.Services.Uwp
         {
             Guard.IsNotNull(s, nameof(s));
 
+            bool isAlreadyInstalled = await IsSoundInstalledAsync(s);
+            if (isAlreadyInstalled)
+            {
+                return;
+            }
+
             StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                 LocalDataFileName,
                 CreationCollisionOption.OpenIfExists);
 
-            List<Sound> localSounds = await GetLocalSoundsAsync(localDataFile);
-            if (localSounds.Any(x => x.FilePath == s.FilePath))
-            {
-                // prevent duplication
-                return;
-            }
-
-            localSounds.Add(s);
-            string json = JsonSerializer.Serialize(localSounds);
+            _localSoundCache.Add(s);
+            string json = JsonSerializer.Serialize(_localSoundCache);
             await FileIO.WriteTextAsync(localDataFile, json);
             LocalSoundAdded?.Invoke(this, s);
         }
 
-        private async Task<List<Sound>> GetLocalSoundsAsync(StorageFile localDataFile = null)
+        /// <inheritdoc/>
+        public async Task<bool> IsSoundInstalledAsync(Sound s)
+        {
+            if (s == null)
+            {
+                return false;
+            }
+
+            IReadOnlyList<Sound> sounds = await GetLocalSoundsAsync();
+            return sounds.Any(x => x.FilePath == s.FilePath);
+        }
+
+        private async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(
+            StorageFile localDataFile = null,
+            bool refresh = false)
         {
             if (localDataFile == null)
             {
@@ -61,13 +75,16 @@ namespace AmbientSounds.Services.Uwp
                     CreationCollisionOption.OpenIfExists);
             }
 
-            List<Sound> localSounds = null;
+            if (_localSoundCache != null && !refresh)
+            {
+                return _localSoundCache;
+            }
 
             try
             {
                 using (Stream dataStream = await localDataFile.OpenStreamForReadAsync())
                 {
-                    localSounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+                    _localSoundCache = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
                 }
             }
             catch (Exception e)
@@ -75,12 +92,12 @@ namespace AmbientSounds.Services.Uwp
                 // TODO log
             }
 
-            if (localSounds == null)
+            if (_localSoundCache == null)
             {
-                localSounds = new List<Sound>();
+                _localSoundCache = new List<Sound>();
             }
 
-            return localSounds;
+            return _localSoundCache.AsReadOnly();
         }
 
         private async Task<List<Sound>> GetPackagedSoundsAsync()
