@@ -312,4 +312,8 @@
   <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
     <value>View more sounds</value>
   </data>
+  <data name="AvailableOffline.Text" xml:space="preserve">
+    <value>Downloaded</value>
+    <comment>The sound is downloaded and available offline</comment>
+  </data>
 </root>
