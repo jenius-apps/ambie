@@ -51,6 +51,7 @@
         </ScrollViewer>
 
         <muxc:ProgressRing
+            x:Name="SoundsLoadingRing"
             x:Uid="SoundsLoadingRing"
             Width="40"
             Height="40"

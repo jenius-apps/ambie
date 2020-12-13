@@ -34,11 +34,11 @@
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
                 </Button>
                 <TextBlock
+                    x:Uid="OnlineCatalogue"
                     Margin="20,0,0,0"
                     VerticalAlignment="Center"
                     FontFamily="Calibri"
-                    FontSize="32"
-                    Text="Online Catalogue" />
+                    FontSize="32" />
             </StackPanel>
 
             <!--<local:SoundSuggestionControl Grid.Row="1" Margin="0,80,0,100" />-->

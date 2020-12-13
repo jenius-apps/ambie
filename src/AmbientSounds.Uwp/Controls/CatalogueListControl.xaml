@@ -84,10 +84,6 @@
                             x:Name="AvailableOffline"
                             x:Uid="AvailableOffline"
                             x:Load="{x:Bind IsInstalled, Mode=OneWay}" />
-                        <!--  Preview button  -->
-                        <!--<Button Margin="4,0,0,0" Style="{StaticResource TransparentRoundButtonStyle}">
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
-                        </Button>-->
                     </StackPanel>
                 </Grid>
             </Grid>

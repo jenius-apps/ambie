@@ -266,6 +266,15 @@
           <source>View more sounds</source>
           <target state="new">View more sounds</target>
         </trans-unit>
+        <trans-unit id="AvailableOffline.Text" translate="yes" xml:space="preserve">
+          <source>Downloaded</source>
+          <target state="new">Downloaded</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is downloaded and available offline</note>
+        </trans-unit>
+        <trans-unit id="OnlineCatalogue.Text" translate="yes" xml:space="preserve">
+          <source>Online Catalogue</source>
+          <target state="new">Online Catalogue</target>
+        </trans-unit>
       </group>
     </body>
   </file>

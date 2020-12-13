@@ -316,4 +316,7 @@
     <value>Downloaded</value>
     <comment>The sound is downloaded and available offline</comment>
   </data>
+  <data name="OnlineCatalogue.Text" xml:space="preserve">
+    <value>Online Catalogue</value>
+  </data>
 </root>
