@@ -42,6 +42,7 @@ namespace AmbientSounds.ViewModels
             if (e >= 100)
             {
                 IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound);
+                DownloadProgressValue = 0;
             }
         }
 
@@ -113,7 +114,12 @@ namespace AmbientSounds.ViewModels
 
         private Task DownloadAsync()
         {
-            return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
+            if (DownloadProgressValue == 0 && CanDownload)
+            {
+                return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
+            }
+
+            return Task.CompletedTask;
         }
     }
 }
