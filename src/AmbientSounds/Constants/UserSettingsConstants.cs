@@ -24,6 +24,11 @@ namespace AmbientSounds.Constants
         public const string Theme = "themeSetting";
 
         /// <summary>
+        /// CataloguePreview settings key.
+        /// </summary>
+        public const string CataloguePreview = "CataloguePreview";
+
+        /// <summary>
         /// Settings key for notifications.
         /// </summary>
         public const string Notifications = "NotificationSetting";
@@ -36,6 +41,7 @@ namespace AmbientSounds.Constants
             { Volume, 80d },
             { TelemetryOn, true },
             { Notifications, true },
+            { CataloguePreview, false },
             { Theme, "default" }
         };
     }

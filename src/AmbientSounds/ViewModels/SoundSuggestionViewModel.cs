@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -9,13 +10,18 @@ namespace AmbientSounds.ViewModels
     public class SoundSuggestionViewModel : ObservableObject
     {
         private readonly ITelemetry _telemetry;
+        private readonly IUserSettings _userSettings;
         private string _suggestion = "";
         private bool _isThankYouVisible;
 
-        public SoundSuggestionViewModel(ITelemetry telemetry)
+        public SoundSuggestionViewModel(
+            ITelemetry telemetry,
+            IUserSettings userSettings)
         {
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
             _telemetry = telemetry;
+            _userSettings = userSettings;
 
             SendSuggestionCommand = new RelayCommand<string>(SendSuggestion);
         }
@@ -60,6 +66,10 @@ namespace AmbientSounds.ViewModels
             }
 
             IsThankYouVisible = true;
+            if (suggestion == "catalogue")
+            {
+                _userSettings.Set(UserSettingsConstants.CataloguePreview, true);
+            }
             _telemetry.SuggestSound(suggestion);
             Suggestion = "";
             await Task.Delay(1000);

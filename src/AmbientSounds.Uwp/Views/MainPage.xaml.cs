@@ -1,4 +1,6 @@
 ﻿using AmbientSounds.Animations;
+using AmbientSounds.Constants;
+using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -19,6 +21,17 @@ namespace AmbientSounds.Views
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
                 ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
+            }
+
+            TryLoadCatalogueButton();
+        }
+
+        private void TryLoadCatalogueButton()
+        {
+            var value = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.CataloguePreview];
+            if (value is bool b && b)
+            {
+                SoundsViewer.ShowCatalogueButton = true;
             }
         }
 
