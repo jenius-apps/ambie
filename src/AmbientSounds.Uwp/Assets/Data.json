@@ -1,97 +1,107 @@
 ﻿[
   {
-    "Id": "beach",
+    "Id": "9947a323-8223-4593-8a82-04d9edfd4d4a",
+    "Name": "beach",
     "ImagePath": "ms-appx:///Assets/Images/beach.png",
     "FilePath": "ms-appx:///Assets/Sounds/beach.mp3",
     "Attribution": "Sea Barcelona Beach Traffic Voices.wav by jordir -- https://freesound.org/s/360578/ -- License: Creative Commons 0. Photo by Ethan Robertson on Unsplash"
   },
   {
-    "Id": "birds",
+    "Id": "19a43ab7-c964-4ab5-90f9-26c8a17d4f34",
+    "Name": "birds",
     "ImagePath": "ms-appx:///Assets/Images/birds.png",
     "FilePath": "ms-appx:///Assets/Sounds/birds.mp3",
     "Attribution": "Spring Birds Raw (New Jersey) by hargissssound -- https://freesound.org/s/345851/ -- License: Creative Commons 0. Photo by Cathy Holewinski on Unsplash"
   },
   {
-    "Id": "citystreet",
+    "Id": "f2940c11-0510-4db5-a0ea-5cb27d453bb2",
+    "Name": "citystreet",
     "ImagePath": "ms-appx:///Assets/Images/citystreet.png",
     "FilePath": "ms-appx:///Assets/Sounds/citystreet.mp3",
     "Attribution": "City park_1(traffic, cars, people, voices, shouting).wav by o_ciz -- https://freesound.org/s/475513/ -- License: Creative Commons 0. Photo by Yin Wong on Unsplash"
   },
   {
-    "Id": "coffeeshop",
+    "Id": "17b2af89-1008-4259-b545-dc8ca4ee473f",
+    "Name": "coffeeshop",
     "ImagePath": "ms-appx:///Assets/Images/coffeeshop.png",
     "FilePath": "ms-appx:///Assets/Sounds/coffeeshop.mp3",
     "Attribution": "370973__waweee__coffee-shop-ambience_remastered.mp3 by C_Rogers -- https://freesound.org/s/453074/ -- License: Creative Commons 0. Photo by Nathan Dumlao on Unsplash"
   },
   {
-    "Id": "creek",
+    "Id": "f32edd85-871e-4349-9e45-42b14fd5449b",
+    "Name": "creek",
     "ImagePath": "ms-appx:///Assets/Images/creek.png",
     "FilePath": "ms-appx:///Assets/Sounds/creek.mp3",
     "Attribution": "Burbling Brook by hargissssound -- https://freesound.org/s/324591/ -- License: Creative Commons 0. Photo by Ed Paulino Photography - https://www.instagram.com/birdlifelist."
   },
   {
-    "Id": "fan",
+    "Id": "69673615-576f-4e2e-bd92-6b8af96828c0",
+    "Name": "fan",
     "ImagePath": "ms-appx:///Assets/Images/fan.png",
     "FilePath": "ms-appx:///Assets/Sounds/fan.mp3",
     "Attribution": "https://www.youtube.com/watch?v=c2A2Sd16yGM. Photo by Siebe Warmoeskerken on Unsplash"
   },
   {
-    "Id": "fireplace",
+    "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
+    "Name": "fireplace",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
     "FilePath": "ms-appx:///Assets/Sounds/fireplace.mp3",
     "Attribution": "13_Fire in fireplace.wav by 16FThumaF -- https://freesound.org/s/499032/ -- License: Creative Commons 0. Photo by Oxana Lyashenko on Unsplash"
   },
   {
-    "Id": "rain",
+    "Id": "61ae9b16-8254-40f4-b4ae-eff4791f6a80",
+    "Name": "rain",
     "ImagePath": "ms-appx:///Assets/Images/rain.png",
     "FilePath": "ms-appx:///Assets/Sounds/rain.mp3",
     "Attribution": "Rain heavy 1 (rural) by jmbphilmes -- https://freesound.org/s/200270/ -- License: Creative Commons 0. Photo by Priscilla Du Preez on Unsplash"
   },
   {
-    "Id": "rainforest",
+    "Id": "37988c11-b601-417b-9bb4-bb59fe939641",
+    "Name": "rainforest",
     "ImagePath": "ms-appx:///Assets/Images/rainforest.png",
     "FilePath": "ms-appx:///Assets/Sounds/Rainforest.mp3",
     "Attribution": "Rain Sound and Rainforest.mp3 by INNORECORDS -- https://freesound.org/s/457447/ -- License: Creative Commons 0. Photo by Jeremy Allouche on Unsplash"
   },
   {
-    "Id": "thunder",
+    "Id": "1628a20d-744e-4f99-b7e3-24088cba5090",
+    "Name": "thunder",
     "ImagePath": "ms-appx:///Assets/Images/thunder.png",
     "FilePath": "ms-appx:///Assets/Sounds/thunder.mp3",
     "Attribution": "thunder by hifijohn -- https://freesound.org/s/242735/ -- License: Creative Commons 0. Photo by Michał Mancewicz on Unsplash"
   },
   {
-    "Id": "underwater",
+    "Id": "f8424751-d150-41bc-b4ab-c22c41b4b339",
+    "Name": "underwater",
     "ImagePath": "ms-appx:///Assets/Images/underwater.png",
     "FilePath": "ms-appx:///Assets/Sounds/underwater.mp3",
     "Attribution": "Underwater Ambience by Kinoton -- https://freesound.org/s/393819/ -- License: Creative Commons 0. Photo by Angus Gray on Unsplash"
   },
   {
-    "Id": "vacuum",
+    "Id": "f35a10be-862d-4a6f-9198-fe4723805a2b",
+    "Name": "vacuum",
     "ImagePath": "ms-appx:///Assets/Images/vacuum.png",
     "FilePath": "ms-appx:///Assets/Sounds/vacuum.mp3",
     "Attribution": "Stofzuiger_stereo_dichtbij.wav by zanussiinfo -- https://freesound.org/s/274730/ -- License: Creative Commons 0. Photo by Lukas ter Poorten on Unsplash"
   },
   {
-    "Id": "waterfall",
+    "Id": "e0df152b-7166-402a-902d-c69d3a9f96bb",
+    "Name": "waterfall",
     "ImagePath": "ms-appx:///Assets/Images/waterfall.png",
     "FilePath": "ms-appx:///Assets/Sounds/waterfall.mp3",
     "Attribution": "River in Icelandic nature (ambience, 5 minutes) by askeseverin -- https://freesound.org/s/376202/ -- License: Creative Commons 0. Photo by Aditya Chinchure on Unsplash"
   },
   {
-    "Id": "whitenoise",
+    "Id": "aada6607-5dbe-42ff-934d-d5917e597284",
+    "Name": "whitenoise",
     "ImagePath": "ms-appx:///Assets/Images/whitenoise.png",
     "FilePath": "ms-appx:///Assets/Sounds/whitenoise.mp3",
     "Attribution": "Brown Noise by theundecided -- https://freesound.org/s/165056/ -- License: Creative Commons 0. Photo by Pierre Bamin on Unsplash"
   },
   {
-    "Id": "wind",
+    "Id": "38c73d89-6c2c-445b-8beb-52b2f72689a2",
+    "Name": "wind",
     "ImagePath": "ms-appx:///Assets/Images/wind.png",
     "FilePath": "ms-appx:///Assets/Sounds/wind.mp3",
     "Attribution": "wind-noise.wav by jorge0000 -- https://freesound.org/s/361053/ -- License: Creative Commons 0. Photo by Mila Young on Unsplash"
-  },
-  {
-    "Id": "more",
-    "ImagePath": "ms-appx:///Assets/Images/more.png",
-    "Attribution": "Photo by Aditya Chinchure on Unsplash"
   }
 ]

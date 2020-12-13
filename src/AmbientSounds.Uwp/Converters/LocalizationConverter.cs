@@ -8,7 +8,7 @@ namespace AmbientSounds.Converters
     public static class LocalizationConverter
     {
         /// <summary>
-        /// Attempts to localizes a sound's name.
+        /// Attempts to localize a sound's name.
         /// </summary>
         /// <param name="value">The <see cref="Models.Sound.Name"/> property.</param>
         /// <returns>A localized string of the sound if a localization exists.</returns>
@@ -62,6 +62,26 @@ namespace AmbientSounds.Converters
                     ? baseName + resourceLoader.GetString("PlayerPauseText")
                     : baseName + resourceLoader.GetString("PlayerPlayText");
             }
+        }
+
+        /// <summary>
+        /// Returns localized phrase for online sound object
+        /// in a list view.
+        /// </summary>
+        /// <param name="name">Name of the sound.</param>
+        /// <param name="canDownload">Whether or not the sound can be downloaded or is already downloaded.</param>
+        /// <remarks>
+        /// Generally used for AutomationProperties.Name.
+        /// </remarks>
+        public static string ConvertOnlineSoundListViewName(string name, bool canDownload)
+        {
+            var resourceLoader = ResourceLoader.GetForCurrentView();
+            var result = name + ". ";
+            result += canDownload 
+                ? resourceLoader.GetString("CanDownload") 
+                : resourceLoader.GetString("AlreadyDownloaded");
+
+            return result;
         }
     }
 }

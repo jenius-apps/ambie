@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
 {
@@ -38,7 +39,8 @@ namespace AmbientSounds.Services
         /// Starts playing a given sound.
         /// </summary>
         /// <param name="sound">The <see cref="Sound"/> instance to play.</param>
-        void Play(Sound sound);
+        /// <param name="index">Index of sound in playlist.</param>
+        void Play(Sound sound, int index);
 
         /// <summary>
         /// Plays the current track.
@@ -54,7 +56,20 @@ namespace AmbientSounds.Services
         /// Initializes playlist to enable gapless playback.
         /// </summary>
         /// <param name="sounds">List of sounds for gapless playback.</param>
-        void Initialize(IList<Sound> sounds);
+        Task Initialize(IList<Sound> sounds);
+
+        /// <summary>
+        /// Adds the given sound to the playlist.
+        /// </summary>
+        /// <param name="s">The sound to add.</param>
+        Task AddToPlaylistAsync(Sound s);
+
+        /// <summary>
+        /// Removes the sound from in the given index
+        /// from the playlist.
+        /// </summary>
+        /// <param name="index">The index of the item to remove.</param>
+        void DeleteFromPlaylist(int index);
     }
 
     /// <summary>

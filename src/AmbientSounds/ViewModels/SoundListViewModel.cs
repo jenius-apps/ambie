@@ -1,9 +1,11 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -13,6 +15,7 @@ namespace AmbientSounds.ViewModels
         private readonly IMediaPlayerService _player;
         private readonly ISoundDataProvider _provider;
         private readonly ITelemetry _telemetry;
+        private readonly ISoundVmFactory _factory;
 
         /// <summary>
         /// Default constructor. Must initialize with <see cref="LoadAsync"/>
@@ -21,18 +24,46 @@ namespace AmbientSounds.ViewModels
         public SoundListViewModel(
             IMediaPlayerService mediaPlayerService,
             ISoundDataProvider soundDataProvider,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            ISoundVmFactory soundVmFactory)
         {
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
 
             _player = mediaPlayerService;
             _provider = soundDataProvider;
             _telemetry = telemetry;
+            _factory = soundVmFactory;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
+
+            _provider.LocalSoundAdded += OnLocalSoundAdded;
+            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
+        }
+
+        private void OnLocalSoundDeleted(object sender, string id)
+        {
+            var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
+            if (forDeletion == null) return;
+            _player.DeleteFromPlaylist(forDeletion.Index);
+            Sounds.Remove(forDeletion);
+
+            int index = 0;
+            foreach (var sound in Sounds)
+            {
+                sound.Index = index;
+                index++;
+            }
+        }
+
+        private async void OnLocalSoundAdded(object sender, Models.Sound e)
+        {
+            var s = _factory.GetSoundVm(e, Sounds.Count);
+            Sounds.Add(s);
+            await _player.AddToPlaylistAsync(e);
         }
 
         /// <summary>
@@ -58,12 +89,16 @@ namespace AmbientSounds.ViewModels
             if (Sounds.Count > 0) return; // already initialized
 
             var soundList = await _provider.GetSoundsAsync();
+
+            int index = 0;
             foreach (var sound in soundList)
             {
-                Sounds.Add(new SoundViewModel(sound, _player));
+                var s = _factory.GetSoundVm(sound, index);
+                Sounds.Add(s);
+                index++;
             }
 
-            _player.Initialize(soundList);
+           await  _player.Initialize(soundList);
         }
 
         /// <summary>
@@ -79,7 +114,7 @@ namespace AmbientSounds.ViewModels
             sound.Play();
             _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
             {
-                { "id", sound.Id }
+                { "id", sound.Name ?? "" }
             });
         }
     }

@@ -306,4 +306,43 @@
   <data name="Sound-wind" xml:space="preserve">
     <value>Wind</value>
   </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>More sounds</value>
+  </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>View more sounds</value>
+  </data>
+  <data name="AvailableOffline.Text" xml:space="preserve">
+    <value>Downloaded</value>
+    <comment>The sound is downloaded and available offline</comment>
+  </data>
+  <data name="OnlineCatalogue.Text" xml:space="preserve">
+    <value>Online Catalogue</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Already downloaded</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Go back</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Can be downloaded</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Download sound</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Download sound</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Online sounds</value>
+    <comment>List of online sounds</comment>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Sounds</value>
+    <comment>List of sounds</comment>
+  </data>
 </root>

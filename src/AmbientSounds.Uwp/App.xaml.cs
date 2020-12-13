@@ -15,6 +15,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
+using System.Net.Http;
+using AmbientSounds.Factories;
 
 #nullable enable
 
@@ -188,17 +190,26 @@ namespace AmbientSounds
         /// </summary>
         private static IServiceProvider ConfigureServices()
         {
+            var client = new HttpClient();
+
             return new ServiceCollection()
+                .AddSingleton(client)
                 .AddSingleton<SoundListViewModel>()
+                .AddSingleton<CatalogueListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IDialogService, DialogService>()
+                .AddTransient<ISoundDownloader, SoundDownloader>()
+                .AddTransient<ISoundVmFactory, SoundVmFactory>()
+                .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
+                .AddSingleton<IDownloadManager, DownloadManager>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
+                .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .BuildServiceProvider();

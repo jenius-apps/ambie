@@ -258,6 +258,56 @@
           <source>Wind</source>
           <target state="translated">Szél</target>
         </trans-unit>
+        <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
+          <source>More sounds</source>
+          <target state="new">More sounds</target>
+        </trans-unit>
+        <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View more sounds</source>
+          <target state="new">View more sounds</target>
+        </trans-unit>
+        <trans-unit id="AvailableOffline.Text" translate="yes" xml:space="preserve">
+          <source>Downloaded</source>
+          <target state="new">Downloaded</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is downloaded and available offline</note>
+        </trans-unit>
+        <trans-unit id="OnlineCatalogue.Text" translate="yes" xml:space="preserve">
+          <source>Online Catalogue</source>
+          <target state="new">Online Catalogue</target>
+        </trans-unit>
+        <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Go back</source>
+          <target state="new">Go back</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
+        </trans-unit>
+        <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Download sound</source>
+          <target state="new">Download sound</target>
+        </trans-unit>
+        <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Download sound</source>
+          <target state="new">Download sound</target>
+        </trans-unit>
+        <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
+          <source>Already downloaded</source>
+          <target state="new">Already downloaded</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
+        </trans-unit>
+        <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
+          <source>Can be downloaded</source>
+          <target state="new">Can be downloaded</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
+        </trans-unit>
+        <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Online sounds</source>
+          <target state="new">Online sounds</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">List of online sounds</note>
+        </trans-unit>
+        <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sounds</source>
+          <target state="new">Sounds</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
+        </trans-unit>
       </group>
     </body>
   </file>

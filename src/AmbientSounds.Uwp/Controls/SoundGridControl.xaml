@@ -26,12 +26,12 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <GridView
+                    x:Uid="SoundsGridView"
                     Padding="20,20,20,0"
                     animations:ReorderGridAnimation.Duration="300"
-                    AutomationProperties.Name="Sounds"
                     IsItemClickEnabled="True"
                     ItemContainerStyle="{StaticResource GridViewItemExpanded}"
-                    ItemTemplate="{x:Bind ItemTemplate}"
+                    ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                     ItemsSource="{x:Bind ViewModel.Sounds}"
                     ScrollViewer.HorizontalScrollMode="Disabled"
                     ScrollViewer.VerticalScrollMode="Disabled"
@@ -41,16 +41,25 @@
                     </interactivity:Interaction.Behaviors>
                 </GridView>
 
+                <!--<local:ViewCatalogueButton
+                    x:Name="CatalogueButton"
+                    Grid.Row="1"
+                    Margin="0,12,24,80"
+                    HorizontalAlignment="Right"
+                    x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}" />-->
                 <local:SoundSuggestionControl Grid.Row="1" Margin="0,80,0,100" />
             </Grid>
         </ScrollViewer>
 
         <muxc:ProgressRing
+            x:Name="SoundsLoadingRing"
             x:Uid="SoundsLoadingRing"
             Width="40"
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            IsActive="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}" />
+            x:Load="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
+            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+            IsActive="True" />
     </Grid>
 </UserControl>
