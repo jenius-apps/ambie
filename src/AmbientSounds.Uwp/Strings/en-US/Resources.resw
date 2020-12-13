@@ -345,4 +345,7 @@
     <value>Sounds</value>
     <comment>List of sounds</comment>
   </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
 </root>

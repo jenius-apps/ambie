@@ -308,6 +308,10 @@
           <target state="new">Sounds</target>
           <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
+        <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
+          <source>Privacy policy</source>
+          <target state="new">Privacy policy</target>
+        </trans-unit>
       </group>
     </body>
   </file>

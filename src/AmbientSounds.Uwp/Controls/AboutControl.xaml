@@ -20,5 +20,9 @@
             Margin="0,4,0,0"
             HorizontalAlignment="Center"
             Text="{x:Bind Version}" />
+        <HyperlinkButton
+            x:Uid="PrivacyPolicyButton"
+            HorizontalAlignment="Center"
+            NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
     </StackPanel>
 </UserControl>

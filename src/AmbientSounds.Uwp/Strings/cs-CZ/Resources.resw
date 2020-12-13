@@ -175,16 +175,16 @@
     <value>Děkujeme</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Téma (újraindítást igényel)</value>
+    <value>Motiv aplikace (potřeba restartovat aplikaci)</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
-    <value>Automatikus</value>
+    <value>Automatický</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
-    <value>Sötét</value>
+    <value>Tmavý</value>
   </data>
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
-    <value>Fény</value>
+    <value>Světlý</value>
   </data>
   <data name="Sound-vacuum" xml:space="preserve">
     <value>Vysavač</value>
