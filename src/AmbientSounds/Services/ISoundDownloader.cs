@@ -14,6 +14,6 @@ namespace AmbientSounds.Services
         /// <param name="url">The sound's URL.</param>
         /// <param name="nameWithExt">The sound's name with extension.</param>
         /// <returns></returns>
-        Task<string?> DownloadAndSaveAsync(string url, string nameWithExt);
+        Task<string?> DownloadAndSaveAsync(string? url, string nameWithExt);
     }
 }

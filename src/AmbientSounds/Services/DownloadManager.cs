@@ -61,7 +61,7 @@ namespace AmbientSounds.Services
 
                     downloadPath = await _soundDownloader.DownloadAndSaveAsync(
                         soundData.FilePath,
-                        soundData.Id + ".mp3") ?? "";
+                        soundData.Id + soundData.FileExtension) ?? "";
 
                     if (string.IsNullOrWhiteSpace(downloadPath))
                     {
@@ -75,12 +75,15 @@ namespace AmbientSounds.Services
                     var delayTask = Task.Delay(300);
 
                     // add new record to local provider
-                    var newSoundInfo = new Sound(
-                        soundData.Id,
-                        soundData.ImagePath,
-                        soundData.Name,
-                        downloadPath,
-                        soundData.Attribution);
+                    var newSoundInfo = new Sound
+                    {
+                        Id = soundData.Id,
+                        ImagePath = soundData.ImagePath,
+                        Name = soundData.Name,
+                        FilePath = downloadPath,
+                        Attribution = soundData.Attribution,
+                        FileExtension = soundData.FileExtension
+                    };
 
                     await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
                     await delayTask;

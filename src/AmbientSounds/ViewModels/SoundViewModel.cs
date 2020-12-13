@@ -40,29 +40,29 @@ namespace AmbientSounds.ViewModels
         public int Index { get; set; }
 
         /// <summary>
-        /// The sound's Id.
+        /// The sound's GUID.
         /// </summary>
-        public string Id => _sound.Id;
+        public string? Id => _sound.Id;
 
         /// <summary>
         /// The sound's attribution.
         /// </summary>
-        public string Attribution => _sound.Attribution;
+        public string? Attribution => _sound.Attribution;
 
         /// <summary>
         /// Name of the sound.
         /// </summary>
-        public string Name => _sound.Name ?? _sound.Id;
+        public string? Name => _sound.Name;  
 
         /// <summary>
         /// The path for the image to display for the current sound.
         /// </summary>
-        public string ImagePath => _sound.ImagePath;
+        public string? ImagePath => _sound.ImagePath;
 
         /// <summary>
         /// If true, item can be deleted from local storage.
         /// </summary>
-        public bool CanDelete => !_sound.FilePath.StartsWith("ms-appx");
+        public bool CanDelete => !_sound.FilePath?.StartsWith("ms-appx") ?? false;
 
         /// <summary>
         /// Returns true if the sound cannot be played.

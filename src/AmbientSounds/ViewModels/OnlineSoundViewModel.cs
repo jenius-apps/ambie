@@ -46,24 +46,19 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// The sound's Id.
-        /// </summary>
-        public string Id => _sound.Id;
-
-        /// <summary>
         /// The sound's attribution.
         /// </summary>
-        public string Attribution => _sound.Attribution;
+        public string? Attribution => _sound.Attribution;
 
         /// <summary>
         /// Name of the sound.
         /// </summary>
-        public string Name => _sound.Name ?? _sound.Id;
+        public string? Name => _sound.Name;
 
         /// <summary>
         /// The path for the image to display for the current sound.
         /// </summary>
-        public string ImagePath => _sound.ImagePath;
+        public string? ImagePath => _sound.ImagePath;
 
         /// <summary>
         /// This sound's download progress.

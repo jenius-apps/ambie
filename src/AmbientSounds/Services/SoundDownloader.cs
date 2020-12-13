@@ -24,7 +24,7 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task<string?> DownloadAndSaveAsync(string url, string nameWithExt)
+        public async Task<string?> DownloadAndSaveAsync(string? url, string nameWithExt)
         {
             if (string.IsNullOrWhiteSpace(url) || !Uri.IsWellFormedUriString(url, UriKind.Absolute))
             {
