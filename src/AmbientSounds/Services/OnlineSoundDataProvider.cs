@@ -26,7 +26,7 @@ namespace AmbientSounds.Services
         {
             if (string.IsNullOrWhiteSpace(_url))
             {
-                throw new Exception("You forgot to add the URL for online sound data.");
+                return new List<Sound>();
             }
 
             using Stream result = await _client.GetStreamAsync(_url);
