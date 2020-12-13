@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:statetriggers="using:AmbientSounds.StateTriggers"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -52,16 +53,25 @@
                     </Grid>
                 </Grid>
                 <GridViewItem.ContextFlyout>
-                    <Flyout Placement="BottomEdgeAlignedLeft">
-                        <StackPanel Width="300">
-                            <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
-                            <TextBlock
-                                Margin="0,8,0,0"
-                                IsTextSelectionEnabled="True"
-                                Text="{x:Bind Attribution}"
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                    </Flyout>
+                    <muxc:CommandBarFlyout>
+                        <muxc:CommandBarFlyout.SecondaryCommands>
+                            <AppBarButton
+                                Command="{x:Bind DeleteCommand}"
+                                Icon="Delete"
+                                Label="Delete"
+                                Visibility="{x:Bind CanDelete}" />
+                            <AppBarElementContainer>
+                                <StackPanel Width="300" Margin="12">
+                                    <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
+                                    <TextBlock
+                                        Margin="0,8,0,0"
+                                        IsTextSelectionEnabled="True"
+                                        Text="{x:Bind Attribution}"
+                                        TextWrapping="Wrap" />
+                                </StackPanel>
+                            </AppBarElementContainer>
+                        </muxc:CommandBarFlyout.SecondaryCommands>
+                    </muxc:CommandBarFlyout>
                 </GridViewItem.ContextFlyout>
             </GridViewItem>
         </DataTemplate>
