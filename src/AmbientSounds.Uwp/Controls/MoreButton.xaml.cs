@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
@@ -65,6 +66,9 @@ namespace AmbientSounds.Controls
 
         private async void CompactOverlayClicked()
         {
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+            telemetry.TrackEvent(TelemetryConstants.Compact);
+
             // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
             preferences.CustomSize = new Windows.Foundation.Size(360, 500);

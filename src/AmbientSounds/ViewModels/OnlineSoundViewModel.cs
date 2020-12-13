@@ -1,9 +1,11 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -13,6 +15,7 @@ namespace AmbientSounds.ViewModels
         private readonly Sound _sound;
         private readonly IDownloadManager _downloadManager;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ITelemetry _telemetry;
         private readonly Progress<double> _downloadProgress;
         private double _progressValue;
         private bool _isInstalled;
@@ -20,14 +23,17 @@ namespace AmbientSounds.ViewModels
         public OnlineSoundViewModel(
             Sound s, 
             IDownloadManager downloadManager,
-            ISoundDataProvider soundDataProvider)
+            ISoundDataProvider soundDataProvider,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
             _sound = s;
             _downloadManager = downloadManager;
             _soundDataProvider = soundDataProvider;
+            _telemetry = telemetry;
 
             _downloadProgress = new Progress<double>();
             _downloadProgress.ProgressChanged += OnProgressChanged;
@@ -116,6 +122,12 @@ namespace AmbientSounds.ViewModels
         {
             if (DownloadProgressValue == 0 && CanDownload)
             {
+                _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
+                {
+                    { "name", this.Name ?? "" },
+                    { "id", _sound.Id ?? "" },
+                });
+
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
             }
 

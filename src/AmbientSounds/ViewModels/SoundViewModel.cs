@@ -1,8 +1,10 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
@@ -14,22 +16,26 @@ namespace AmbientSounds.ViewModels
         private readonly Sound _sound;
         private readonly IMediaPlayerService _playerService;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ITelemetry _telemetry;
 
         public SoundViewModel(
             Sound s,
             IMediaPlayerService playerService,
             int index,
-            ISoundDataProvider soundDataProvider)
+            ISoundDataProvider soundDataProvider,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             Index = index;
             _sound = s;
             _playerService = playerService;
             _playerService.PlaybackStateChanged += PlayerService_PlaybackStateChanged;
             _soundDataProvider = soundDataProvider;
+            _telemetry = telemetry;
 
             DeleteCommand = new RelayCommand(DeleteSound);
         }
@@ -89,6 +95,11 @@ namespace AmbientSounds.ViewModels
 
         private async void DeleteSound()
         {
+            _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
+            {
+                { "name", _sound.Name ?? "" },
+                { "id", _sound.Id ?? "" }
+            });
             await _soundDataProvider.DeleteLocalSoundAsync(_sound);
         }
 

@@ -10,6 +10,7 @@ using Windows.System;
 using UwpMediaPlaybackState = Windows.Media.Playback.MediaPlaybackState;
 using Windows.Storage;
 using System.Threading.Tasks;
+using AmbientSounds.Constants;
 
 #nullable enable
 
@@ -26,12 +27,16 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
+        private readonly ITelemetry _telemetry;
         private readonly MediaPlayer _player;
         private readonly DispatcherQueue _dispatcherQueue;
         private readonly MediaPlaybackList _playbackList;
 
-        public MediaPlayerService()
+        public MediaPlayerService(ITelemetry telemetry)
         {
+            Guard.IsNotNull(telemetry, nameof(telemetry));
+            _telemetry = telemetry;
+
             _player = new MediaPlayer { IsLoopingEnabled = true };
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
             _playbackList = new MediaPlaybackList { AutoRepeatEnabled = true };
@@ -144,14 +149,14 @@ namespace AmbientSounds.Services.Uwp
 
             if (s == Current)
             {
-                if (PlaybackState == MediaPlaybackState.Playing || PlaybackState == MediaPlaybackState.Opening) _player.Pause();
-                else _player.Play();
+                if (PlaybackState == MediaPlaybackState.Playing || PlaybackState == MediaPlaybackState.Opening) Pause();
+                else Play();
             }
             else
             {
                 // we assume the sound list is always the same order as the playlist
                 _playbackList.MoveTo((uint)index);
-                _player.Play();
+                Play();
                 Current = s;
                 NewSoundPlayed?.Invoke(this, EventArgs.Empty);
             }
@@ -161,12 +166,21 @@ namespace AmbientSounds.Services.Uwp
         public void Play()
         {
             _player.Play();
+
+            _telemetry.TrackEvent(TelemetryConstants.PlaybackStateChanged, new Dictionary<string, string>
+            {
+                { "event", "play" }
+            });
         }
 
         /// <inheritdoc/>
         public void Pause()
         {
             _player.Pause();
+            _telemetry.TrackEvent(TelemetryConstants.PlaybackStateChanged, new Dictionary<string, string>
+            {
+                { "event", "pause" }
+            });
         }
 
         /// <summary>
