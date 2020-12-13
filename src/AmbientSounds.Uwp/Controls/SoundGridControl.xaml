@@ -26,9 +26,9 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <GridView
+                    x:Uid="SoundsGridView"
                     Padding="20,20,20,0"
                     animations:ReorderGridAnimation.Duration="300"
-                    AutomationProperties.Name="Sounds"
                     IsItemClickEnabled="True"
                     ItemContainerStyle="{StaticResource GridViewItemExpanded}"
                     ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"

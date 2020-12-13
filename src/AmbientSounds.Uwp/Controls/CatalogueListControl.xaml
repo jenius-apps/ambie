@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Controls.CatalogueListControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
@@ -20,78 +21,84 @@
 
     <UserControl.Resources>
         <DataTemplate x:Key="OnlineSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
-            <Grid Padding="0,10">
-                <interactivity:Interaction.Behaviors>
-                    <core:EventTriggerBehavior EventName="Loaded">
-                        <core:InvokeCommandAction Command="{x:Bind LoadCommand}" />
-                    </core:EventTriggerBehavior>
-                </interactivity:Interaction.Behaviors>
+            <ListViewItem Padding="0,10" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, CanDownload)}">
+                <Grid>
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Loaded">
+                            <core:InvokeCommandAction Command="{x:Bind LoadCommand}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <Grid
-                    Width="100"
-                    Height="100"
-                    VerticalAlignment="Top"
-                    CornerRadius="8">
-                    <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
-                </Grid>
-                <Grid Grid.Column="1" Margin="20,0,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
-                    <StackPanel>
-                        <TextBlock
-                            FontSize="20"
-                            FontWeight="SemiBold"
-                            Text="{x:Bind Name}" />
-                        <TextBlock
+                    <Grid
+                        Width="100"
+                        Height="100"
+                        VerticalAlignment="Top"
+                        CornerRadius="8">
+                        <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="20,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="SemiBold"
+                                Text="{x:Bind Name}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                IsTextSelectionEnabled="True"
+                                MaxLines="2"
+                                Text="{x:Bind Attribution}"
+                                TextTrimming="CharacterEllipsis"
+                                TextWrapping="Wrap">
+                                <ToolTipService.ToolTip>
+                                    <Grid MaxWidth="300">
+                                        <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
+                                    </Grid>
+                                </ToolTipService.ToolTip>
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel
                             Grid.Row="1"
-                            IsTextSelectionEnabled="True"
-                            MaxLines="2"
-                            Text="{x:Bind Attribution}"
-                            TextTrimming="CharacterEllipsis"
-                            TextWrapping="Wrap">
-                            <ToolTipService.ToolTip>
-                                <Grid MaxWidth="300">
-                                    <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
-                                </Grid>
-                            </ToolTipService.ToolTip>
-                        </TextBlock>
-                    </StackPanel>
-                    <StackPanel
-                        Grid.Row="1"
-                        Margin="0,4,0,0"
-                        Orientation="Horizontal">
-                        <Grid x:Name="DownloadGridButton" x:Load="{x:Bind CanDownload, Mode=OneWay}">
-                            <muxc:ProgressRing
-                                x:Name="DownloadProgressRing"
-                                Width="40"
-                                Height="40"
-                                x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
-                                IsIndeterminate="False"
-                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
-                            <Button Command="{x:Bind DownloadCommand}" Style="{StaticResource RoundButtonStyle}">
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
-                            </Button>
-                        </Grid>
+                            Margin="0,4,0,0"
+                            Orientation="Horizontal">
+                            <Grid x:Name="DownloadGridButton" x:Load="{x:Bind CanDownload, Mode=OneWay}">
+                                <muxc:ProgressRing
+                                    x:Name="DownloadProgressRing"
+                                    Width="40"
+                                    Height="40"
+                                    x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                    IsIndeterminate="False"
+                                    Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                <Button
+                                    x:Uid="DownloadSoundButton"
+                                    Command="{x:Bind DownloadCommand}"
+                                    Style="{StaticResource RoundButtonStyle}">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
+                                </Button>
+                            </Grid>
 
-                        <TextBlock
-                            x:Name="AvailableOffline"
-                            x:Uid="AvailableOffline"
-                            x:Load="{x:Bind IsInstalled, Mode=OneWay}" />
-                    </StackPanel>
+                            <TextBlock
+                                x:Name="AvailableOffline"
+                                x:Uid="AvailableOffline"
+                                x:Load="{x:Bind IsInstalled, Mode=OneWay}" />
+                        </StackPanel>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </ListViewItem>
         </DataTemplate>
     </UserControl.Resources>
 
     <Grid>
         <ListView
+            x:Uid="OnlineSoundsList"
             Padding="0,10"
             ItemTemplate="{StaticResource OnlineSoundTemplate}"
             ItemsSource="{x:Bind ViewModel.Sounds}"

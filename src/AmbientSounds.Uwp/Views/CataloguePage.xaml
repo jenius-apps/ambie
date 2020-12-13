@@ -29,14 +29,17 @@
 
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
 
-                <!--  todo automation name  -->
-                <Button Click="{x:Bind GoBack}" Style="{StaticResource TransparentRoundButtonStyle}">
+                <Button
+                    x:Uid="BackButton"
+                    Click="{x:Bind GoBack}"
+                    Style="{StaticResource TransparentRoundButtonStyle}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
                 </Button>
                 <TextBlock
                     x:Uid="OnlineCatalogue"
                     Margin="20,0,0,0"
                     VerticalAlignment="Center"
+                    AutomationProperties.LandmarkType="Main"
                     FontFamily="Calibri"
                     FontSize="32" />
             </StackPanel>
