@@ -94,16 +94,28 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <ListView
-        Padding="0,10"
-        ItemTemplate="{StaticResource OnlineSoundTemplate}"
-        ItemsSource="{x:Bind ViewModel.Sounds}"
-        ScrollViewer.CanContentRenderOutsideBounds="True"
-        SelectionMode="None">
-        <ListView.ItemContainerStyle>
-            <Style TargetType="ListViewItem">
-                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            </Style>
-        </ListView.ItemContainerStyle>
-    </ListView>
+    <Grid>
+        <ListView
+            Padding="0,10"
+            ItemTemplate="{StaticResource OnlineSoundTemplate}"
+            ItemsSource="{x:Bind ViewModel.Sounds}"
+            ScrollViewer.CanContentRenderOutsideBounds="True"
+            SelectionMode="None">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <muxc:ProgressRing
+            x:Name="CatalogueProgressRing"
+            Width="40"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            x:Load="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
+            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+            IsActive="True" />
+    </Grid>
 </UserControl>

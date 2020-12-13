@@ -56,6 +56,8 @@
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            IsActive="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}" />
+            x:Load="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
+            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+            IsActive="True" />
     </Grid>
 </UserControl>
