@@ -41,12 +41,13 @@
                     </interactivity:Interaction.Behaviors>
                 </GridView>
 
-                <local:ViewCatalogueButton
+                <!--<local:ViewCatalogueButton
                     x:Name="CatalogueButton"
                     Grid.Row="1"
                     Margin="0,12,24,80"
                     HorizontalAlignment="Right"
-                    x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}" />
+                    x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}" />-->
+                <local:SoundSuggestionControl Grid.Row="1" Margin="0,80,0,100" />
             </Grid>
         </ScrollViewer>
 
