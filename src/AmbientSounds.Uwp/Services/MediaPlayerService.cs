@@ -124,6 +124,17 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public void DeleteFromPlaylist(int index)
+        {
+            if (index < 0 || index >= _playbackList.Items.Count)
+            {
+                return;
+            }
+
+            _playbackList.Items.RemoveAt(index);
+        }
+
+        /// <inheritdoc/>
         public void Play(Sound s, int index)
         {
             if (s == null || string.IsNullOrWhiteSpace(s.FilePath))

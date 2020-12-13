@@ -59,10 +59,17 @@ namespace AmbientSounds.Services
         Task Initialize(IList<Sound> sounds);
 
         /// <summary>
-        /// Adds the given soudn to the playlist.
+        /// Adds the given sound to the playlist.
         /// </summary>
         /// <param name="s">The sound to add.</param>
         Task AddToPlaylistAsync(Sound s);
+
+        /// <summary>
+        /// Removes the sound from in the given index
+        /// from the playlist.
+        /// </summary>
+        /// <param name="index">The index of the item to remove.</param>
+        void DeleteFromPlaylist(int index);
     }
 
     /// <summary>
