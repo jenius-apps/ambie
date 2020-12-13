@@ -69,6 +69,11 @@ namespace AmbientSounds.Services
                         continue;
                     }
 
+                    item.Progress.Report(66);
+
+                    // use minimum delay to smoothen progress UX.
+                    var delayTask = Task.Delay(300);
+
                     // add new record to local provider
                     var newSoundInfo = new Sound(
                         soundData.Id,
@@ -78,10 +83,7 @@ namespace AmbientSounds.Services
                         soundData.Attribution);
 
                     await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
-
-                    await Task.Delay(3000);
-                    item.Progress.Report(66);
-                    await Task.Delay(3000);
+                    await delayTask;
 
                     item.Progress.Report(100);
                 }
