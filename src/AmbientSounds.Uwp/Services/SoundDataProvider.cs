@@ -23,12 +23,41 @@ namespace AmbientSounds.Services.Uwp
         public event EventHandler<Sound> LocalSoundAdded;
 
         /// <inheritdoc/>
+        public event EventHandler<string> LocalSoundDeleted;
+
+        /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync()
         {
             var packagedSounds = await GetPackagedSoundsAsync();
             var localSounds = await GetLocalSoundsAsync(refresh: true);
             packagedSounds.AddRange(localSounds);
             return packagedSounds;
+        }
+
+        /// <inheritdoc/>
+        public async Task DeleteLocalSoundAsync(Sound s)
+        {
+            if (s == null || !await IsSoundInstalledAsync(s))
+            {
+                return;
+            }
+
+            // Delete from cache
+            var soundForDeletion = _localSoundCache.First(x => x.Id == s.Id);
+            _localSoundCache.Remove(soundForDeletion);
+
+            // Write changes to file
+            StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                LocalDataFileName,
+                CreationCollisionOption.OpenIfExists);
+            string json = JsonSerializer.Serialize(_localSoundCache);
+            await FileIO.WriteTextAsync(localDataFile, json);
+
+            // Delete sound file 
+            StorageFile soundFile = await StorageFile.GetFileFromPathAsync(s.FilePath);
+            await soundFile.DeleteAsync();
+
+            LocalSoundDeleted?.Invoke(this, soundForDeletion.Id);
         }
 
         /// <inheritdoc/>
