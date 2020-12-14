@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>Afslut kompakt tilstand</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Afslut kompakt tilstand</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Afslut</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>Ophavsret</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>Hej fra Vancouver</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Klik for app informationer</value>
+  </data>
+  <data name="Minutes10Button.Label" xml:space="preserve">
+    <value>10 minutter</value>
+  </data>
+  <data name="Minutes15Button.Label" xml:space="preserve">
+    <value>15 minutter</value>
+  </data>
+  <data name="Minutes30Button.Label" xml:space="preserve">
+    <value>30 minutter</value>
+  </data>
+  <data name="Minutes5Button.Label" xml:space="preserve">
+    <value>5 minutter</value>
+  </data>
+  <data name="Minutes60Button.Label" xml:space="preserve">
+    <value>60 minutter</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Klik for flere valgmuligheder</value>
+  </data>
+  <data name="MoreButtonCompact.Label" xml:space="preserve">
+    <value>Kompakt tilstand</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>Kontakt udvikleren</value>
+  </data>
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
+    <value>Chat på Discord</value>
+  </data>
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
+    <value>Se GitHub</value>
+  </data>
+  <data name="MoreButtonRate.Label" xml:space="preserve">
+    <value>Bedøm os</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Indstillinger</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>Del Ambie link</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>Tilføj eller forbedre oversættelse</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Slået fra</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Slået til</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Afbryd timeren midlertidigt</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>Pause afspilning</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>Afspil lyd</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Fortsæt timer</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>Klar til afspilning</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetri</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Indstillinger</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Klik for opsætning af sleep-timer, hvorefter afspilning stoppes</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Klik for opsætning af sleep-timer, hvorefter afspilning stoppes</value>
+  </data>
+  <data name="Sound-beach" xml:space="preserve">
+    <value>Strand</value>
+  </data>
+  <data name="Sound-birds" xml:space="preserve">
+    <value>Fugle</value>
+  </data>
+  <data name="Sound-citystreet" xml:space="preserve">
+    <value>Storby</value>
+  </data>
+  <data name="Sound-coffeeshop" xml:space="preserve">
+    <value>Kaffebar</value>
+  </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Bæk</value>
+  </data>
+  <data name="Sound-fireplace" xml:space="preserve">
+    <value>Pejs</value>
+  </data>
+  <data name="Sound-more" xml:space="preserve">
+    <value>Mere følger snart</value>
+  </data>
+  <data name="Sound-rain" xml:space="preserve">
+    <value>Regn</value>
+  </data>
+  <data name="Sound-rainforest" xml:space="preserve">
+    <value>Regnskov</value>
+  </data>
+  <data name="Sound-underwater" xml:space="preserve">
+    <value>Undervands</value>
+  </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Vandfald</value>
+  </data>
+  <data name="Sound-whitenoise" xml:space="preserve">
+    <value>Hvid støj</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>lyde loades</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>Lyd kan ikke afspilles</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Stop og reset timer</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>Juster lydstyrke</value>
+  </data>
+  <data name="SuggestionHeader.Text" xml:space="preserve">
+    <value>Ønskes flere lyde? Send forslag!</value>
+  </data>
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+    <value>Forslag</value>
+  </data>
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
+    <value>Ønskes flere lyde? Send forslag!</value>
+  </data>
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Send forslag</value>
+  </data>
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Klik for at sende forslag</value>
+  </data>
+  <data name="ThankYouTextBlock.Text" xml:space="preserve">
+    <value>Mange tak</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>Tema (kræver genstart)</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>Automatisk</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>Mørkt</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>Lyst</value>
+  </data>
+  <data name="Sound-vacuum" xml:space="preserve">
+    <value>Vakuum</value>
+  </data>
+  <data name="Sound-thunder" xml:space="preserve">
+    <value>Torden</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Notifikation ved ny lyd</value>
+  </data>
+  <data name="Sound-fan" xml:space="preserve">
+    <value>Elektrisk ventilator</value>
+  </data>
+  <data name="Sound-wind" xml:space="preserve">
+    <value>Vind</value>
+  </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>Flere lyde</value>
+  </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Se flere lyde</value>
+  </data>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>Se flere lyde</value>
+  </data>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Se flere lyde</value>
+  </data>
+  <data name="AvailableOffline.Text" xml:space="preserve">
+    <value>Downloaded</value>
+    <comment>The sound is downloaded and available offline</comment>
+  </data>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>Lyd katalog</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Allerede downloaded</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Tilbage</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Kan downloades</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Download lyd</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Download lyd</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Lyd katalog</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Lyde</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Politik for beskyttelse af personlige oplysninger</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Politik for beskyttelse af personlige oplysninger</value>
+  </data>
+</root>
