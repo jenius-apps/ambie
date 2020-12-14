@@ -64,3 +64,4 @@ For all pull requests, please make sure there's an issue created for it first an
 - Spanish: [Leonardo González Castro](https://github.com/OnlyOnePro), [Breece W](https://github.com/BreeceW)
 - Hungarian: [Kristóf Kékesi](https://github.com/KristofKekesi)
 - Portuguese [BR]: [Vinicius Rodrigues](https://github.com/Suburbanno)
+- Turkish: [Serdar Türkoğlu] (https://github.com/daswareinfach)
