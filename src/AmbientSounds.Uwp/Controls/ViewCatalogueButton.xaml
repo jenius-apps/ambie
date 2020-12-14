@@ -16,7 +16,7 @@
             x:Load="{x:Bind IconOnly}"
             Click="{x:Bind NavigateToCatalogue}"
             Style="{StaticResource TransparentRoundButtonStyle}">
-            <FontIcon FontFamily="fluentui" Glyph="&#xEAD4;" />
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD4;" />
         </Button>
         <Button
             x:Name="TextVersion"
