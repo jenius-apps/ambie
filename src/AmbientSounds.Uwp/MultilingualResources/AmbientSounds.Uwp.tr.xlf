@@ -277,8 +277,8 @@
         <trans-unit id="AvailableOffline.Text" translate="yes" xml:space="preserve">
           <source>Downloaded</source>
           <target state="translated">İndirildi</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound is downloaded and available offline</note>
           <note from="MultilingualEditor" annotates="source" priority="4">Ses indirilir ve çevrimdışı olarak kullanılabilir</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is downloaded and available offline</note>
         </trans-unit>
         <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
           <source>Sound Catalogue</source>
@@ -287,20 +287,20 @@
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>
           <target state="translated">Zaten indirildi</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
           <note from="MultilingualEditor" annotates="source" priority="4">Ses zaten indirildi</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
           <target state="translated">Geri </target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
           <note from="MultilingualEditor" annotates="source" priority="4">Önceki sayfaya geri döner</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
           <target state="translated">İndirilebilir</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
           <note from="MultilingualEditor" annotates="source" priority="4">Ses indirilebilir</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Download sound</source>
@@ -317,8 +317,8 @@
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
           <target state="translated">Sesler</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
           <note from="MultilingualEditor" annotates="source" priority="4">Seslerin listesi</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>

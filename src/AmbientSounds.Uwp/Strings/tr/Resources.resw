@@ -12,4 +12,237 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CloseText" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>Telif Hakkı</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>Telif hakkı Jenius Apps</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>Vancouver'dan Merhaba</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Uygulama bilgilerini görüntülemek için tıklayın</value>
+  </data>
+  <data name="Minutes10Button.Label" xml:space="preserve">
+    <value>10 dakika</value>
+  </data>
+  <data name="Minutes15Button.Label" xml:space="preserve">
+    <value>15 dakika</value>
+  </data>
+  <data name="Minutes30Button.Label" xml:space="preserve">
+    <value>30 dakika</value>
+  </data>
+  <data name="Minutes5Button.Label" xml:space="preserve">
+    <value>5 dakika</value>
+  </data>
+  <data name="Minutes60Button.Label" xml:space="preserve">
+    <value>60 dakika</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Daha fazla seçenek görmek için tıklayın</value>
+  </data>
+  <data name="MoreButtonCompact.Label" xml:space="preserve">
+    <value>Kompakt mod</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>İçerik oluşturucuyla iletişime geçin</value>
+  </data>
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
+    <value>Discord'da sohbet edin</value>
+  </data>
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
+    <value>GitHub Görüntüleyin</value>
+  </data>
+  <data name="MoreButtonRate.Label" xml:space="preserve">
+    <value>Bizi değerlendirin</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>Ambie için bağlantı paylaş</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>Çeviri ekleyin veya iyileştirin</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Zamanlayıcıyı duraklat</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>Sesi duraklat</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>Sesi Oynat</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Zamanlayıcıya devam et</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>Oynatmaya hazır</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetri</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</value>
+  </data>
+  <data name="Sound-beach" xml:space="preserve">
+    <value>Plaj</value>
+  </data>
+  <data name="Sound-birds" xml:space="preserve">
+    <value>Kuşlar</value>
+  </data>
+  <data name="Sound-citystreet" xml:space="preserve">
+    <value>Şehir Sokağı</value>
+  </data>
+  <data name="Sound-coffeeshop" xml:space="preserve">
+    <value>Kahve dükkanı</value>
+  </data>
+  <data name="Sound-creek" xml:space="preserve">
+    <value>Dere</value>
+  </data>
+  <data name="Sound-fireplace" xml:space="preserve">
+    <value>Şömine</value>
+  </data>
+  <data name="Sound-more" xml:space="preserve">
+    <value>Daha fazlası yakında</value>
+  </data>
+  <data name="Sound-rain" xml:space="preserve">
+    <value>Yağmur</value>
+  </data>
+  <data name="Sound-rainforest" xml:space="preserve">
+    <value>Yağmur ormanı</value>
+  </data>
+  <data name="Sound-underwater" xml:space="preserve">
+    <value>Su altı</value>
+  </data>
+  <data name="Sound-waterfall" xml:space="preserve">
+    <value>Şelale</value>
+  </data>
+  <data name="Sound-whitenoise" xml:space="preserve">
+    <value>Beyaz gürültü</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>Sesler yükleniyor</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>Ses çalınamıyor</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Zamanlayıcıyı durdurun ve zamanı sıfırlayın</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>Ses seviyesini değiştir</value>
+  </data>
+  <data name="SuggestionHeader.Text" xml:space="preserve">
+    <value>Daha fazla ses mi istiyorsunuz? Öneri gönderin!</value>
+  </data>
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+    <value>Öneri</value>
+  </data>
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
+    <value>Daha fazla ses mi istiyorsunuz? Öneri gönderin!</value>
+  </data>
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Öneri gönder</value>
+  </data>
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Öneriyi göndermek için tıklayın</value>
+  </data>
+  <data name="ThankYouTextBlock.Text" xml:space="preserve">
+    <value>Teşekkürler!</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>Tema (yeniden başlatma gerektirir)</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>Otomatik</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>Karanlık</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>Aydınlık</value>
+  </data>
+  <data name="Sound-vacuum" xml:space="preserve">
+    <value>Vakum</value>
+  </data>
+  <data name="Sound-thunder" xml:space="preserve">
+    <value>Gök gürültüsü</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Yeni sesler için bildirim</value>
+  </data>
+  <data name="Sound-fan" xml:space="preserve">
+    <value>Elektrikli fan</value>
+  </data>
+  <data name="Sound-wind" xml:space="preserve">
+    <value>Rüzgar</value>
+  </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>Daha fazla ses</value>
+  </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Daha fazla ses görüntüle</value>
+  </data>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>Daha fazla ses görüntüle</value>
+  </data>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Daha fazla ses görüntüle</value>
+  </data>
+  <data name="AvailableOffline.Text" xml:space="preserve">
+    <value>İndirildi</value>
+    <comment>The sound is downloaded and available offline</comment>
+  </data>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>Ses Kataloğu</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Zaten indirildi</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Geri </value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>İndirilebilir</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Sesi indir</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Sesi indir</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Ses kataloğu</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Sesler</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Gizlilik Politikası</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Gizlilik Politikası</value>
+  </data>
 </root>
