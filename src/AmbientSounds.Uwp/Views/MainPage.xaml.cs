@@ -32,6 +32,7 @@ namespace AmbientSounds.Views
             if (value is bool b && b)
             {
                 SoundsViewer.ShowCatalogueButton = true;
+                FindName(nameof(SoundShortcut));
             }
         }
 

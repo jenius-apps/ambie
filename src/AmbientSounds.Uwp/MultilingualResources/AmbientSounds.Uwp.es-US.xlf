@@ -271,10 +271,6 @@
           <target state="new">Downloaded</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound is downloaded and available offline</note>
         </trans-unit>
-        <trans-unit id="OnlineCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>Online Catalogue</source>
-          <target state="new">Online Catalogue</target>
-        </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
           <target state="new">Go back</target>
@@ -299,9 +295,8 @@
           <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Online sounds</source>
-          <target state="new">Online sounds</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">List of online sounds</note>
+          <source>Sound catalogue</source>
+          <target state="new">Sound catalogue</target>
         </trans-unit>
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
@@ -309,6 +304,22 @@
           <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
+          <source>Privacy policy</source>
+          <target state="new">Privacy policy</target>
+        </trans-unit>
+        <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
+          <source>Sound Catalogue</source>
+          <target state="new">Sound Catalogue</target>
+        </trans-unit>
+        <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View more sounds</source>
+          <target state="new">View more sounds</target>
+        </trans-unit>
+        <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View more sounds</source>
+          <target state="new">View more sounds</target>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
           <target state="new">Privacy policy</target>
         </trans-unit>

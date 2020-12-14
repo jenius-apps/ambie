@@ -9,16 +9,28 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Button
-        x:Uid="ViewCatalogueButton"
-        Background="Transparent"
-        Click="{x:Bind NavigateToCatalogue}">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock x:Uid="ViewCatalogue" />
-            <FontIcon
-                Margin="8,0,0,0"
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                Glyph="&#xE92B;" />
-        </StackPanel>
-    </Button>
+    <Grid>
+        <Button
+            x:Name="IconVersion"
+            x:Uid="ViewCatalogueIcon"
+            x:Load="{x:Bind IconOnly}"
+            Click="{x:Bind NavigateToCatalogue}"
+            Style="{StaticResource TransparentRoundButtonStyle}">
+            <FontIcon FontFamily="fluentui" Glyph="&#xEAD4;" />
+        </Button>
+        <Button
+            x:Name="TextVersion"
+            x:Uid="ViewCatalogueButton"
+            x:Load="{x:Bind Not(IconOnly)}"
+            Background="Transparent"
+            Click="{x:Bind NavigateToCatalogue}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Uid="ViewCatalogue" />
+                <FontIcon
+                    Margin="8,0,0,0"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="&#xE92B;" />
+            </StackPanel>
+        </Button>
+    </Grid>
 </UserControl>

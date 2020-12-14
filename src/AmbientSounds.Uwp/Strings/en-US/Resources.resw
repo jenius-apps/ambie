@@ -312,12 +312,18 @@
   <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
     <value>View more sounds</value>
   </data>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>View more sounds</value>
+  </data>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>View more sounds</value>
+  </data>
   <data name="AvailableOffline.Text" xml:space="preserve">
     <value>Downloaded</value>
     <comment>The sound is downloaded and available offline</comment>
   </data>
-  <data name="OnlineCatalogue.Text" xml:space="preserve">
-    <value>Online Catalogue</value>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>Sound Catalogue</value>
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Already downloaded</value>
@@ -338,14 +344,16 @@
     <value>Download sound</value>
   </data>
   <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Online sounds</value>
-    <comment>List of online sounds</comment>
+    <value>Sound catalogue</value>
   </data>
   <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
     <value>Sounds</value>
     <comment>List of sounds</comment>
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Privacy policy</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Privacy policy</value>
   </data>
 </root>

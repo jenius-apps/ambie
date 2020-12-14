@@ -16,6 +16,18 @@ namespace AmbientSounds.Controls
             this.InitializeComponent();
         }
 
+        public bool IconOnly
+        {
+            get => (bool)GetValue(IconOnlyProperty);
+            set => SetValue(IconOnlyProperty, value);
+        }
+
+        public static DependencyProperty IconOnlyProperty = DependencyProperty.Register(
+            nameof(IconOnly),
+            typeof(bool),
+            typeof(ViewCatalogueButton),
+            new PropertyMetadata(false));
+
         private void NavigateToCatalogue()
         {
             ITelemetry telemetry = App.Services.GetRequiredService<ITelemetry>();
@@ -25,5 +37,7 @@ namespace AmbientSounds.Controls
                 null, 
                 new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
         }
+
+        private bool Not(bool value) => !value;
     }
 }

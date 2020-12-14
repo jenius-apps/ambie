@@ -28,16 +28,19 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-
                 <Button
                     x:Uid="BackButton"
                     Click="{x:Bind GoBack}"
                     Style="{StaticResource TransparentRoundButtonStyle}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
                 </Button>
+                <FontIcon
+                    Margin="12,0,0,0"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="&#xEAD4;" />
                 <TextBlock
-                    x:Uid="OnlineCatalogue"
-                    Margin="20,0,0,0"
+                    x:Uid="SoundCatalogue"
+                    Margin="12,0,0,0"
                     VerticalAlignment="Center"
                     AutomationProperties.LandmarkType="Main"
                     FontFamily="Calibri"

@@ -107,7 +107,11 @@
                 Visibility="Collapsed" />
 
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <controls:MoreButton />
+                <controls:ViewCatalogueButton
+                    x:Name="SoundShortcut"
+                    x:Load="False"
+                    IconOnly="True" />
+                <controls:MoreButton Margin="4,0,0,0" />
             </StackPanel>
         </Grid>
 
