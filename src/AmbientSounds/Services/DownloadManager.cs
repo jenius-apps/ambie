@@ -38,6 +38,7 @@ namespace AmbientSounds.Services
                 return;
             }
 
+            progress.Report(1);
             _downloadQueue.Enqueue(new QueuedSound(s, progress));
             
             if (_downloading)
@@ -52,11 +53,7 @@ namespace AmbientSounds.Services
                     _downloading = true;
                     var item = _downloadQueue.Dequeue();
                     var soundData = item.SoundData;
-                    item.Progress.Report(0);
-
-                    // download item and get new record
                     item.Progress.Report(33);
-
                     string downloadPath = "";
 
                     downloadPath = await _soundDownloader.DownloadAndSaveAsync(
@@ -71,9 +68,6 @@ namespace AmbientSounds.Services
 
                     item.Progress.Report(66);
 
-                    // use minimum delay to smoothen progress UX.
-                    var delayTask = Task.Delay(300);
-
                     // add new record to local provider
                     var newSoundInfo = new Sound
                     {
@@ -86,8 +80,9 @@ namespace AmbientSounds.Services
                     };
 
                     await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
-                    await delayTask;
 
+                    // use delay to smoothen UX
+                    await Task.Delay(300);
                     item.Progress.Report(100);
                 }
                 catch (Exception e)
