@@ -210,10 +210,6 @@
   <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
     <value>Se flere lyde</value>
   </data>
-  <data name="AvailableOffline.Text" xml:space="preserve">
-    <value>Downloaded</value>
-    <comment>The sound is downloaded and available offline</comment>
-  </data>
   <data name="SoundCatalogue.Text" xml:space="preserve">
     <value>Lyd katalog</value>
   </data>

@@ -274,11 +274,6 @@
           <source>View more sounds</source>
           <target state="translated">Se flere lyde</target>
         </trans-unit>
-        <trans-unit id="AvailableOffline.Text" translate="yes" xml:space="preserve">
-          <source>Downloaded</source>
-          <target state="translated">Downloaded</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound is downloaded and available offline</note>
-        </trans-unit>
         <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
           <source>Sound Catalogue</source>
           <target state="translated">Lyd katalog</target>
@@ -322,6 +317,22 @@
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
           <target state="translated">Politik for beskyttelse af personlige oplysninger</target>
+        </trans-unit>
+        <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">Slet</target>
+        </trans-unit>
+        <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Delete sound</source>
+          <target state="translated">Slet lyd</target>
+        </trans-unit>
+        <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">Slet</target>
+        </trans-unit>
+        <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target state="new">Download</target>
         </trans-unit>
       </group>
     </body>
