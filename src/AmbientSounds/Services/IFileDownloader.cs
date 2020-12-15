@@ -5,7 +5,7 @@ namespace AmbientSounds.Services
     /// <summary>
     /// Interface for downloading and saving sounds.
     /// </summary>
-    public interface ISoundDownloader
+    public interface IFileDownloader
     {
         /// <summary>
         /// Downloads sound and saves it to

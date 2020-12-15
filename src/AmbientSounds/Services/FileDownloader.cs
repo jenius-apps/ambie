@@ -9,12 +9,12 @@ namespace AmbientSounds.Services
     /// <summary>
     /// Downloads and saves sounds.
     /// </summary>
-    public class SoundDownloader : ISoundDownloader
+    public class FileDownloader : IFileDownloader
     {
         private readonly HttpClient _client;
         private readonly IFileWriter _fileWriter;
 
-        public SoundDownloader(
+        public FileDownloader(
             HttpClient httpClient,
             IFileWriter fileWriter)
         {

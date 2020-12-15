@@ -12,19 +12,19 @@ namespace AmbientSounds.Services
     /// </summary>
     public class DownloadManager : IDownloadManager
     {
-        private readonly ISoundDownloader _soundDownloader;
+        private readonly IFileDownloader _fileDownloader;
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly Queue<QueuedSound> _downloadQueue = new();
         private bool _downloading;
 
         public DownloadManager(
-            ISoundDownloader soundDownloader,
+            IFileDownloader soundDownloader,
             ISoundDataProvider soundDataProvider)
         {
             Guard.IsNotNull(soundDownloader, nameof(soundDownloader));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
 
-            _soundDownloader = soundDownloader;
+            _fileDownloader = soundDownloader;
             _soundDataProvider = soundDataProvider;
         }
 
@@ -55,10 +55,10 @@ namespace AmbientSounds.Services
                     var soundData = item.SoundData;
                     item.Progress.Report(33);
 
-                    Task<string> downloadPathTask = _soundDownloader.SoundDownloadAndSaveAsync(
+                    Task<string> downloadPathTask = _fileDownloader.SoundDownloadAndSaveAsync(
                         soundData.FilePath,
                         soundData.Id + soundData.FileExtension);
-                    string localImagePath = await _soundDownloader.ImageDownloadAndSaveAsync(
+                    string localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
                         soundData.ImagePath,
                         soundData.Id ?? "");
 
