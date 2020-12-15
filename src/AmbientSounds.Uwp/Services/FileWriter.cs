@@ -12,12 +12,24 @@ namespace AmbientSounds.Services.Uwp
     public class FileWriter : IFileWriter
     {
         private const string _soundsDirName = "sounds";
+        private const string _imagesDirName = "images";
 
         /// <inheritdoc/>
-        public async Task<string> WriteSoundAsync(Stream stream, string nameWithExt)
+        public Task<string> WriteSoundAsync(Stream stream, string nameWithExt)
+        {
+            return WriteFileAsync(stream, _soundsDirName, nameWithExt);
+        }
+
+        /// <inheritdoc/>
+        public Task<string> WriteImageAsync(Stream stream, string nameWithExt)
+        {
+            return WriteFileAsync(stream, _imagesDirName, nameWithExt);
+        }
+
+        private static async Task<string> WriteFileAsync(Stream stream, string localDirName, string nameWithExt)
         {
             StorageFolder dir = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-                _soundsDirName,
+                localDirName,
                 CreationCollisionOption.OpenIfExists);
             StorageFile storageFile = await dir.CreateFileAsync(
                 nameWithExt,

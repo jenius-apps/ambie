@@ -13,7 +13,16 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="url">The sound's URL.</param>
         /// <param name="nameWithExt">The sound's name with extension.</param>
-        /// <returns></returns>
-        Task<string?> DownloadAndSaveAsync(string? url, string nameWithExt);
+        /// <returns>Local path to sound.</returns>
+        Task<string> SoundDownloadAndSaveAsync(string? url, string nameWithExt);
+
+        /// <summary>
+        /// Downloads image and saves it to
+        /// a local directory.
+        /// </summary>
+        /// <param name="url">The image's URL.</param>
+        /// <param name="name">The image's name.</param>
+        /// <returns>Local path to image.</returns>
+        Task<string> ImageDownloadAndSaveAsync(string? url, string name);
     }
 }

@@ -54,13 +54,18 @@ namespace AmbientSounds.Services
                     var item = _downloadQueue.Dequeue();
                     var soundData = item.SoundData;
                     item.Progress.Report(33);
-                    string downloadPath = "";
 
-                    downloadPath = await _soundDownloader.DownloadAndSaveAsync(
+                    Task<string> downloadPathTask = _soundDownloader.SoundDownloadAndSaveAsync(
                         soundData.FilePath,
-                        soundData.Id + soundData.FileExtension) ?? "";
+                        soundData.Id + soundData.FileExtension);
+                    string localImagePath = await _soundDownloader.ImageDownloadAndSaveAsync(
+                        soundData.ImagePath,
+                        soundData.Id ?? "");
 
-                    if (string.IsNullOrWhiteSpace(downloadPath))
+                    string localSoundPath = await downloadPathTask;
+
+                    if (string.IsNullOrWhiteSpace(localSoundPath) ||
+                        string.IsNullOrWhiteSpace(localImagePath))
                     {
                         item.Progress.Report(-1);
                         continue;
@@ -72,9 +77,9 @@ namespace AmbientSounds.Services
                     var newSoundInfo = new Sound
                     {
                         Id = soundData.Id,
-                        ImagePath = soundData.ImagePath,
+                        ImagePath = localImagePath,
                         Name = soundData.Name,
-                        FilePath = downloadPath,
+                        FilePath = localSoundPath,
                         Attribution = soundData.Attribution,
                         FileExtension = soundData.FileExtension
                     };
