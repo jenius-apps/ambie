@@ -100,7 +100,7 @@ namespace AmbientSounds.ViewModels
                 { "name", _sound.Name ?? "" },
                 { "id", _sound.Id ?? "" }
             });
-            await _soundDataProvider.DeleteLocalSoundAsync(_sound);
+            await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
         }
 
         private void PlayerService_PlaybackStateChanged(object sender, MediaPlaybackState e)

@@ -98,7 +98,10 @@
                                 x:Name="InstalledPanel"
                                 x:Load="{x:Bind IsInstalled, Mode=OneWay}"
                                 Orientation="Horizontal">
-                                <Button x:Uid="DeleteButton" Background="Transparent">
+                                <Button
+                                    x:Uid="DeleteButton"
+                                    Background="Transparent"
+                                    Command="{x:Bind DeleteCommand}">
                                     <StackPanel Orientation="Horizontal">
                                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
                                         <TextBlock

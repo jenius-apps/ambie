@@ -37,9 +37,20 @@ namespace AmbientSounds.ViewModels
 
             _downloadProgress = new Progress<double>();
             _downloadProgress.ProgressChanged += OnProgressChanged;
+            _soundDataProvider.LocalSoundDeleted += OnSoundDeleted;
 
             DownloadCommand = new AsyncRelayCommand(DownloadAsync);
             LoadCommand = new AsyncRelayCommand(LoadAsync);
+            DeleteCommand = new AsyncRelayCommand(DeleteSound);
+        }
+
+        private async void OnSoundDeleted(object sender, string id)
+        {
+            if (id == _sound.Id)
+            {
+                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id);
+                DownloadProgressValue = 0;
+            }
         }
 
         private async void OnProgressChanged(object sender, double e)
@@ -47,7 +58,7 @@ namespace AmbientSounds.ViewModels
             DownloadProgressValue = e;
             if (e >= 100)
             {
-                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound);
+                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
                 DownloadProgressValue = 0;
             }
         }
@@ -109,13 +120,28 @@ namespace AmbientSounds.ViewModels
         public IAsyncRelayCommand DownloadCommand { get; }
 
         /// <summary>
+        /// Command for deleting this sound.
+        /// </summary>
+        public IAsyncRelayCommand DeleteCommand { get; }
+
+        /// <summary>
         /// Command for loading this sound.
         /// </summary>
         public IAsyncRelayCommand LoadCommand { get; }
 
+        private async Task DeleteSound()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
+            {
+                { "name", _sound.Name ?? "" },
+                { "id", _sound.Id ?? "" },
+            });
+            await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
+        }
+
         private async Task LoadAsync()
         {
-            IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound);
+            IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
         }
 
         private Task DownloadAsync()
