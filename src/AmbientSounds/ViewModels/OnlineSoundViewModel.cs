@@ -131,7 +131,7 @@ namespace AmbientSounds.ViewModels
 
         private async Task DeleteSound()
         {
-            _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
+            _telemetry.TrackEvent(TelemetryConstants.CatalogueDeleteClicked, new Dictionary<string, string>
             {
                 { "name", _sound.Name ?? "" },
                 { "id", _sound.Id ?? "" },

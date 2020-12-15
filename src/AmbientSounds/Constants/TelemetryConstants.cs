@@ -10,6 +10,7 @@
         private const string Catalogue = "catalogue";
         public const string DownloadClicked = Catalogue + ":downloadClicked";
         public const string MoreSoundsClicked = Catalogue + ":moreSoundsClicked";
+        public const string CatalogueDeleteClicked = Catalogue + ":deleteClicked";
 
         // gallery
         private const string Gallery = "gallery";
