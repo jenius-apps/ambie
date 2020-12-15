@@ -12,19 +12,19 @@ namespace AmbientSounds.Services
     /// </summary>
     public class DownloadManager : IDownloadManager
     {
-        private readonly ISoundDownloader _soundDownloader;
+        private readonly IFileDownloader _fileDownloader;
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly Queue<QueuedSound> _downloadQueue = new();
         private bool _downloading;
 
         public DownloadManager(
-            ISoundDownloader soundDownloader,
+            IFileDownloader soundDownloader,
             ISoundDataProvider soundDataProvider)
         {
             Guard.IsNotNull(soundDownloader, nameof(soundDownloader));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
 
-            _soundDownloader = soundDownloader;
+            _fileDownloader = soundDownloader;
             _soundDataProvider = soundDataProvider;
         }
 
@@ -46,21 +46,28 @@ namespace AmbientSounds.Services
                 return;
             }
 
+            _downloading = true;
+
             while (_downloadQueue.Count > 0)
             {
+                var item = _downloadQueue.Dequeue();
+
                 try
                 {
-                    _downloading = true;
-                    var item = _downloadQueue.Dequeue();
                     var soundData = item.SoundData;
                     item.Progress.Report(33);
-                    string downloadPath = "";
 
-                    downloadPath = await _soundDownloader.DownloadAndSaveAsync(
+                    Task<string> downloadPathTask = _fileDownloader.SoundDownloadAndSaveAsync(
                         soundData.FilePath,
-                        soundData.Id + soundData.FileExtension) ?? "";
+                        soundData.Id + soundData.FileExtension);
+                    string localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
+                        soundData.ImagePath,
+                        soundData.Id ?? "");
 
-                    if (string.IsNullOrWhiteSpace(downloadPath))
+                    string localSoundPath = await downloadPathTask;
+
+                    if (string.IsNullOrWhiteSpace(localSoundPath) ||
+                        string.IsNullOrWhiteSpace(localImagePath))
                     {
                         item.Progress.Report(-1);
                         continue;
@@ -72,9 +79,9 @@ namespace AmbientSounds.Services
                     var newSoundInfo = new Sound
                     {
                         Id = soundData.Id,
-                        ImagePath = soundData.ImagePath,
+                        ImagePath = localImagePath,
                         Name = soundData.Name,
-                        FilePath = downloadPath,
+                        FilePath = localSoundPath,
                         Attribution = soundData.Attribution,
                         FileExtension = soundData.FileExtension
                     };
@@ -88,6 +95,7 @@ namespace AmbientSounds.Services
                 catch (Exception e)
                 {
                     // TODO log
+                    item.Progress.Report(0);
                 }
             }
 

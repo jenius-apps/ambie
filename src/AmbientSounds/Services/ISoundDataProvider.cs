@@ -36,13 +36,13 @@ namespace AmbientSounds.Services
         /// Deletes sound info to local list.
         /// </summary>
         /// <param name="s">The sound info to delete.</param>
-        Task DeleteLocalSoundAsync(Sound s);
+        Task DeleteLocalSoundAsync(string id);
 
         /// <summary>
         /// Checks to see if given sound
         /// is already saved.
         /// </summary>
         /// <param name="s">The sound to check.</param>
-        Task<bool> IsSoundInstalledAsync(Sound s);
+        Task<bool> IsSoundInstalledAsync(string id);
     }
 }

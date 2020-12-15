@@ -56,9 +56,9 @@
                     <muxc:CommandBarFlyout>
                         <muxc:CommandBarFlyout.SecondaryCommands>
                             <AppBarButton
+                                x:Uid="DeleteAppBarButton"
                                 Command="{x:Bind DeleteCommand}"
                                 Icon="Delete"
-                                Label="Delete"
                                 Visibility="{x:Bind CanDelete}" />
                             <AppBarElementContainer>
                                 <StackPanel Width="300" Margin="12">

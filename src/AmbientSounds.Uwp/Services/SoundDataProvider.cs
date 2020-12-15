@@ -35,15 +35,15 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task DeleteLocalSoundAsync(Sound s)
+        public async Task DeleteLocalSoundAsync(string id)
         {
-            if (s == null || !await IsSoundInstalledAsync(s))
+            if (string.IsNullOrWhiteSpace(id) || !await IsSoundInstalledAsync(id))
             {
                 return;
             }
 
             // Delete from cache
-            var soundForDeletion = _localSoundCache.First(x => x.Id == s.Id);
+            var soundForDeletion = _localSoundCache.First(x => x.Id == id);
             _localSoundCache.Remove(soundForDeletion);
 
             // Write changes to file
@@ -54,8 +54,12 @@ namespace AmbientSounds.Services.Uwp
             await FileIO.WriteTextAsync(localDataFile, json);
 
             // Delete sound file 
-            StorageFile soundFile = await StorageFile.GetFileFromPathAsync(s.FilePath);
+            StorageFile soundFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.FilePath);
             await soundFile.DeleteAsync();
+
+            // Delete image file
+            StorageFile imageFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.ImagePath);
+            await imageFile.DeleteAsync();
 
             LocalSoundDeleted?.Invoke(this, soundForDeletion.Id);
         }
@@ -65,7 +69,7 @@ namespace AmbientSounds.Services.Uwp
         {
             Guard.IsNotNull(s, nameof(s));
 
-            bool isAlreadyInstalled = await IsSoundInstalledAsync(s);
+            bool isAlreadyInstalled = await IsSoundInstalledAsync(s.Id);
             if (isAlreadyInstalled)
             {
                 return;
@@ -82,15 +86,15 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<bool> IsSoundInstalledAsync(Sound s)
+        public async Task<bool> IsSoundInstalledAsync(string id)
         {
-            if (s == null)
+            if (id == null)
             {
                 return false;
             }
 
             IReadOnlyList<Sound> sounds = await GetLocalSoundsAsync();
-            return sounds.Any(x => x.Id == s.Id);
+            return sounds.Any(x => x.Id == id);
         }
 
         private async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(

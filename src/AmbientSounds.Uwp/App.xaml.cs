@@ -200,7 +200,7 @@ namespace AmbientSounds
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IDialogService, DialogService>()
-                .AddTransient<ISoundDownloader, SoundDownloader>()
+                .AddTransient<IFileDownloader, FileDownloader>()
                 .AddTransient<ISoundVmFactory, SoundVmFactory>()
                 .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IUserSettings, LocalSettings>()
