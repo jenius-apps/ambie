@@ -207,10 +207,6 @@
   <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
     <value>Daha fazla ses görüntüle</value>
   </data>
-  <data name="AvailableOffline.Text" xml:space="preserve">
-    <value>İndirildi</value>
-    <comment>The sound is downloaded and available offline</comment>
-  </data>
   <data name="SoundCatalogue.Text" xml:space="preserve">
     <value>Ses Kataloğu</value>
   </data>

@@ -318,10 +318,6 @@
   <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
     <value>View more sounds</value>
   </data>
-  <data name="AvailableOffline.Text" xml:space="preserve">
-    <value>Downloaded</value>
-    <comment>The sound is downloaded and available offline</comment>
-  </data>
   <data name="SoundCatalogue.Text" xml:space="preserve">
     <value>Sound Catalogue</value>
   </data>
@@ -355,5 +351,17 @@
   </data>
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Privacy policy</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Delete sound</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Download</value>
   </data>
 </root>

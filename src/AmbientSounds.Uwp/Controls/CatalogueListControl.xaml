@@ -65,31 +65,50 @@
                                 </ToolTipService.ToolTip>
                             </TextBlock>
                         </StackPanel>
-                        <StackPanel
-                            Grid.Row="1"
-                            Margin="0,4,0,0"
-                            Orientation="Horizontal">
-                            <Grid x:Name="DownloadGridButton" x:Load="{x:Bind CanDownload, Mode=OneWay}">
+                        <Grid Grid.Row="1" Margin="0,4,0,0">
+                            <StackPanel
+                                x:Name="DownloadPanel"
+                                x:Load="{x:Bind CanDownload, Mode=OneWay}"
+                                Orientation="Horizontal">
+                                <Button x:Uid="DownloadSoundButton" Command="{x:Bind DownloadCommand}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon
+                                            VerticalAlignment="Center"
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            Glyph="&#xE9B9;" />
+                                        <TextBlock
+                                            x:Uid="DownloadTextBlock"
+                                            Margin="8,0,0,0"
+                                            VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button>
+
                                 <muxc:ProgressRing
                                     x:Name="DownloadProgressRing"
-                                    Width="40"
-                                    Height="40"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center"
                                     x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
                                     IsIndeterminate="False"
                                     Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
-                                <Button
-                                    x:Uid="DownloadSoundButton"
-                                    Command="{x:Bind DownloadCommand}"
-                                    Style="{StaticResource RoundButtonStyle}">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B9;" />
-                                </Button>
-                            </Grid>
+                            </StackPanel>
 
-                            <TextBlock
-                                x:Name="AvailableOffline"
-                                x:Uid="AvailableOffline"
-                                x:Load="{x:Bind IsInstalled, Mode=OneWay}" />
-                        </StackPanel>
+                            <StackPanel
+                                x:Name="InstalledPanel"
+                                x:Load="{x:Bind IsInstalled, Mode=OneWay}"
+                                Orientation="Horizontal">
+                                <Button x:Uid="DeleteButton" Background="Transparent">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
+                                        <TextBlock
+                                            x:Uid="DeleteTextBlock"
+                                            Margin="8,0,0,0"
+                                            VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
                     </Grid>
                 </Grid>
             </ListViewItem>
