@@ -65,3 +65,4 @@ For all pull requests, please make sure there's an issue created for it first an
 - Hungarian: [Kristóf Kékesi](https://github.com/KristofKekesi)
 - Portuguese [BR]: [Vinicius Rodrigues](https://github.com/Suburbanno)
 - Turkish: [Serdar Türkoğlu](https://github.com/daswareinfach)
+- Danish: [Paw Hauge Byrialsen](https://github.com/byrialsen)
