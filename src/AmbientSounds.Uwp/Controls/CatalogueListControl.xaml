@@ -21,7 +21,7 @@
 
     <UserControl.Resources>
         <DataTemplate x:Key="OnlineSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
-            <ListViewItem Padding="0,10" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, CanDownload)}">
+            <ListViewItem Padding="0,10" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, CanDownload), Mode=OneWay}">
                 <Grid>
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Loaded">
