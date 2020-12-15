@@ -46,12 +46,14 @@ namespace AmbientSounds.Services
                 return;
             }
 
+            _downloading = true;
+
             while (_downloadQueue.Count > 0)
             {
+                var item = _downloadQueue.Dequeue();
+
                 try
                 {
-                    _downloading = true;
-                    var item = _downloadQueue.Dequeue();
                     var soundData = item.SoundData;
                     item.Progress.Report(33);
 
@@ -93,6 +95,7 @@ namespace AmbientSounds.Services
                 catch (Exception e)
                 {
                     // TODO log
+                    item.Progress.Report(0);
                 }
             }
 
