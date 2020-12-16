@@ -268,71 +268,71 @@
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
-          <target state="new">Go back</target>
+          <target state="translated">Vissza</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="new">Download sound</target>
+          <target state="translated">Hang letöltése</target>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="new">Download sound</target>
+          <target state="translated">Hang letöltése</target>
         </trans-unit>
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>
-          <target state="new">Already downloaded</target>
+          <target state="translated">Már letöltött</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
-          <target state="new">Can be downloaded</target>
+          <target state="translated">Letölthető</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound catalogue</source>
-          <target state="new">Sound catalogue</target>
+          <target state="translated">Hang katalógus</target>
         </trans-unit>
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
-          <target state="new">Sounds</target>
+          <target state="translated">Hangok</target>
           <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="new">Privacy policy</target>
+          <target state="translated">Adatvédelmi irányelvek</target>
         </trans-unit>
         <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
           <source>Sound Catalogue</source>
-          <target state="new">Sound Catalogue</target>
+          <target state="translated">Hang katalógus</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">Még több hang</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">Még több hang</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="new">Privacy policy</target>
+          <target state="translated">Adatvédelmi irányelvek</target>
         </trans-unit>
         <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Delete sound</source>
-          <target state="new">Delete sound</target>
+          <target state="translated">Hang törlése</target>
         </trans-unit>
         <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Törlés</target>
         </trans-unit>
         <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated">Letöltés</target>
         </trans-unit>
         <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Törlés</target>
         </trans-unit>
       </group>
     </body>
