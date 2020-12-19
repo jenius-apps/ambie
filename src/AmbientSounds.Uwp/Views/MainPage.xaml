@@ -138,8 +138,6 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="TitleCentre.Visibility" Value="Visible" />
-                        <Setter Target="HeaderGrid.Padding" Value="88,55,88,28" />
-                        <Setter Target="SoundsViewer.Margin" Value="48,0,48,0" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
