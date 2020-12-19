@@ -201,4 +201,56 @@
   <data name="Sound-wind" xml:space="preserve">
     <value>Szél</value>
   </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Vissza</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Hang letöltése</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Hang letöltése</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Már letöltött</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Letölthető</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Hang katalógus</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Hangok</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Adatvédelmi irányelvek</value>
+  </data>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>Hang katalógus</value>
+  </data>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>Még több hang</value>
+  </data>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Még több hang</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Adatvédelmi irányelvek</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Hang törlése</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
 </root>

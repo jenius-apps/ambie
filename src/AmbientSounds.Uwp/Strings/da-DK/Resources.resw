@@ -244,4 +244,13 @@
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Politik for beskyttelse af personlige oplysninger</value>
   </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Slet lyd</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Slet</value>
+  </data>
 </root>
