@@ -178,7 +178,7 @@
     <value>Thème (nécessite un redémarrage)</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
-    <value>Auto</value>
+    <value>Automatique</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>Sombre</value>
@@ -221,7 +221,7 @@
     <comment>The sound is already downloaded</comment>
   </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Retour</value>
+    <value>Revenir en arrière</value>
     <comment>Going back to the previous page</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
