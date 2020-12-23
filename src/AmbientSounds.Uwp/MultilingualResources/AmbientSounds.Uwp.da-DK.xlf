@@ -275,8 +275,9 @@
           <target state="translated">Se flere lyde</target>
         </trans-unit>
         <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>Sound Catalogue</source>
-          <target state="translated">Lyd katalog</target>
+          <source>Sound Catalogue - Beta</source>
+          <target state="needs-review-translation">Lyd katalog</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>

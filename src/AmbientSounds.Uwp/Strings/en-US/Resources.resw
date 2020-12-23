@@ -319,7 +319,7 @@
     <value>View more sounds</value>
   </data>
   <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Sound Catalogue</value>
+    <value>Sound Catalogue - Beta</value>
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Already downloaded</value>
