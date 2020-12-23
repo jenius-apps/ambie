@@ -364,4 +364,10 @@
   <data name="DownloadTextBlock.Text" xml:space="preserve">
     <value>Download</value>
   </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Play random sound</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Play random sound</value>
+  </data>
 </root>
