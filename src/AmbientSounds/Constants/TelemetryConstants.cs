@@ -29,5 +29,6 @@
         // playback
         private const string Playback = "playback";
         public const string PlaybackStateChanged = Playback + ":stateChanged";
+        public const string PlaybackRandom = Playback + ":randomClicked";
     }
 }

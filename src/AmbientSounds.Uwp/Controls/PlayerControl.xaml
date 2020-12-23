@@ -43,5 +43,12 @@
                 Margin="0,4,0,0"
                 Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
         </StackPanel>
+        <Button
+            Margin="12,0,0,0"
+            Command="{x:Bind ViewModel.RandomCommand}"
+            Style="{StaticResource TransparentRoundButtonStyle}">
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE14B;" />
+        </Button>
+
     </StackPanel>
 </UserControl>
