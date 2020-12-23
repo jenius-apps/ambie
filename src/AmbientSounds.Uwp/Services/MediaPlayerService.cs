@@ -168,7 +168,7 @@ namespace AmbientSounds.Services.Uwp
             }
         }
 
-        public string GetCurrentTitle(MediaPlaybackItem currentItem)
+        private string GetCurrentTitle(MediaPlaybackItem currentItem)
         {
             var soundName = currentItem?.GetDisplayProperties().MusicProperties.Title;
             return soundName ?? "";
@@ -189,7 +189,7 @@ namespace AmbientSounds.Services.Uwp
             // Setting to null because
             // we can no longer track what's playing.
             // So set null so other operations can function
-            // corrently like pressing play on a tile
+            // correctly like pressing play on a tile
             // should play that track.
             Current = null;
         }
