@@ -334,6 +334,14 @@
           <source>Delete</source>
           <target state="translated">Törlés</target>
         </trans-unit>
+        <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="new">Play random sound</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="new">Play random sound</target>
+        </trans-unit>
       </group>
     </body>
   </file>
