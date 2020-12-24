@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -43,10 +44,12 @@ namespace AmbientSounds.Controls
             Window.Current.Content.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(App_PointerEvent), true);
             Window.Current.Content.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(App_PointerEvent), true);
             Window.Current.Content.AddHandler(UIElement.PointerEnteredEvent, new PointerEventHandler(App_PointerEvent), true);
-            if (IsScreensaverEnabled)
+            StartScreensaverTimer(new List<string>
             {
-                timeoutTimer.Start();
-            }
+                "https://images.unsplash.com/photo-1585495898471-0fa227b7f193?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80",
+                "https://images.unsplash.com/photo-1577899831505-233c0a599869?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2252&q=80",
+                "https://images.unsplash.com/photo-1605936995786-fa5749a143ea?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+             });
         }
 
         /// <summary>
@@ -78,6 +81,22 @@ namespace AmbientSounds.Controls
                     }
                 }
             }
+        }
+
+        private static IList<string> _images;
+        private static int _img1;
+        private static int _img2;
+
+        public static void StartScreensaverTimer(IList<string> images)
+        {
+            if (IsScreensaverEnabled)
+            {
+                timeoutTimer.Start();
+            }
+
+            _images = images;
+            _img1 = 0;
+            _img2 = 1;
         }
 
         // Triggered when there hasn't been any key or pointer events in a while
@@ -143,7 +162,6 @@ namespace AmbientSounds.Controls
                 });
             };
             this.Unloaded += ScreenSaver_Unloaded;
-            image.Source = new BitmapImage(new Uri("https://images.unsplash.com/photo-1577899831505-233c0a599869?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2252&q=80", UriKind.Absolute));
         }
 
         protected override void OnPointerMoved(PointerRoutedEventArgs e)
@@ -157,9 +175,35 @@ namespace AmbientSounds.Controls
 
         private void MoveTimer_Tick(object sender, object e)
         {
-            //var left = randomizer.NextDouble() * (this.ActualWidth - image.ActualWidth);
-            //var top = randomizer.NextDouble() * (this.ActualHeight - image.ActualHeight);
-            //image.Margin = new Thickness(left, top, 0, 0);
+            if (image.Visibility == Visibility.Visible)
+            {
+                Debug.WriteLine("image two: " + _img2);
+                image2.Source = new BitmapImage(new Uri(_images[_img2], UriKind.Absolute));
+                image.Visibility = Visibility.Collapsed;
+                image2.Visibility = Visibility.Visible;
+                CycleImageIndex(ref _img1);
+            }
+            else 
+            {
+                Debug.WriteLine("image one: " + _img2);
+                image.Source = new BitmapImage(new Uri(_images[_img1], UriKind.Absolute));
+                image2.Visibility = Visibility.Collapsed;
+                image.Visibility = Visibility.Visible;
+                CycleImageIndex(ref _img2);
+            }           
+        }
+
+        private void CycleImageIndex(ref int index)
+        {
+            index += 2;
+            if (index == _images.Count)
+            {
+                index = 0;
+            }
+            else if (index > _images.Count)
+            {
+                index = 1;
+            }
         }
 
         private void ScreenSaver_Unloaded(object sender, RoutedEventArgs e)
