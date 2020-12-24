@@ -11,9 +11,10 @@ namespace AmbientSounds.Services
     public interface IMediaPlayerService
     {
         /// <summary>
-        /// Raised whenever a new track is being played.
+        /// Raised whenever a new track is being played,
+        /// where the string is the item of the item being played.
         /// </summary>
-        event EventHandler NewSoundPlayed;
+        event EventHandler<string?> NewSoundPlayed;
 
         /// <summary>
         /// Raised whenever the current media playback state is changed.
@@ -46,6 +47,11 @@ namespace AmbientSounds.Services
         /// Plays the current track.
         /// </summary>
         void Play();
+
+        /// <summary>
+        /// Plays a random sound in the current playlist.
+        /// </summary>
+        void PlayRandom();
 
         /// <summary>
         /// Pauses the current track.

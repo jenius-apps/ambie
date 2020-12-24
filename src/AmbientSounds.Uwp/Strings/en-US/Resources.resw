@@ -319,7 +319,7 @@
     <value>View more sounds</value>
   </data>
   <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Sound Catalogue</value>
+    <value>Sound Catalogue - Beta</value>
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Already downloaded</value>
@@ -363,5 +363,11 @@
   </data>
   <data name="DownloadTextBlock.Text" xml:space="preserve">
     <value>Download</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Play random sound</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Play random sound</value>
   </data>
 </root>

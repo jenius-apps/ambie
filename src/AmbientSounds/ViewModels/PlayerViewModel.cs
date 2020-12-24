@@ -15,6 +15,7 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IMediaPlayerService _player;
         private readonly IUserSettings _userSettings;
+        private string? _soundName;
 
         public PlayerViewModel(IMediaPlayerService player, IUserSettings userSettings)
         {
@@ -27,6 +28,7 @@ namespace AmbientSounds.ViewModels
             _player.PlaybackStateChanged += PlaybackStateChanged;
 
             TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
+            RandomCommand = new RelayCommand(PlayRandom);
             Volume = userSettings.Get<double>(UserSettingsConstants.Volume);
         }
 
@@ -34,6 +36,11 @@ namespace AmbientSounds.ViewModels
         /// The <see cref="IAsyncRelayCommand"/> responsible for toggling the play state.
         /// </summary>
         public IAsyncRelayCommand TogglePlayStateCommand { get; }
+
+        /// <summary>
+        /// Command for playing a random sound.
+        /// </summary>
+        public IRelayCommand RandomCommand { get; }
 
         /// <summary>
         /// Flag for if the player is playing or is about to.
@@ -48,7 +55,11 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Name of current sound track.
         /// </summary>
-        public string? SoundName => _player?.Current?.Name;
+        public string? SoundName
+        {
+            get => _soundName;
+            set => SetProperty(ref _soundName, value);
+        }
 
         /// <summary>
         /// Volume of player. Range of 0 to 100.
@@ -76,15 +87,20 @@ namespace AmbientSounds.ViewModels
             UpdatePlayState();
         }
 
+        private void PlayRandom()
+        {
+            _player.PlayRandom();
+        }
+
         private void UpdatePlayState()
         {
             OnPropertyChanged(nameof(IsPlaying));
             OnPropertyChanged(nameof(IsPaused));
         }
 
-        private void NewSoundPlayed(object sender, EventArgs e)
+        private void NewSoundPlayed(object sender, string? soundName)
         {
-            OnPropertyChanged(nameof(SoundName));
+            SoundName = soundName;
         }
 
         private void PlaybackStateChanged(object sender, MediaPlaybackState state)

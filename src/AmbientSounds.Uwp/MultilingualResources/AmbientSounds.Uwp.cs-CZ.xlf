@@ -303,8 +303,8 @@
           <target state="new">Privacy policy</target>
         </trans-unit>
         <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>Sound Catalogue</source>
-          <target state="new">Sound Catalogue</target>
+          <source>Sound Catalogue - Beta</source>
+          <target state="new">Sound Catalogue - Beta</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
@@ -333,6 +333,14 @@
         <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Delete</source>
           <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="new">Play random sound</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="new">Play random sound</target>
         </trans-unit>
       </group>
     </body>
