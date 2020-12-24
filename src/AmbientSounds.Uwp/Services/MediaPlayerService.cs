@@ -22,7 +22,7 @@ namespace AmbientSounds.Services.Uwp
     public sealed class MediaPlayerService : IMediaPlayerService
     {
         /// <inheritdoc/>
-        public event EventHandler? NewSoundPlayed;
+        public event EventHandler<string?>? NewSoundPlayed;
 
         /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
@@ -42,6 +42,13 @@ namespace AmbientSounds.Services.Uwp
             _playbackList = new MediaPlaybackList { AutoRepeatEnabled = true };
 
             _player.PlaybackSession.PlaybackStateChanged += PlaybackSession_PlaybackStateChanged;
+            _playbackList.CurrentItemChanged += ItemChanged;
+        }
+
+        private void ItemChanged(MediaPlaybackList sender, CurrentMediaPlaybackItemChangedEventArgs args)
+        {
+            var soundName = GetCurrentTitle(args.NewItem);
+            _dispatcherQueue.TryEnqueue(() => NewSoundPlayed?.Invoke(this, soundName));
         }
 
         private void PlaybackSession_PlaybackStateChanged(MediaPlaybackSession sender, object args)
@@ -158,8 +165,33 @@ namespace AmbientSounds.Services.Uwp
                 _playbackList.MoveTo((uint)index);
                 Play();
                 Current = s;
-                NewSoundPlayed?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        private string GetCurrentTitle(MediaPlaybackItem currentItem)
+        {
+            var soundName = currentItem?.GetDisplayProperties().MusicProperties.Title;
+            return soundName ?? "";
+        }
+
+        /// <inheritdoc/>
+        public void PlayRandom()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.PlaybackRandom);
+            if (!_playbackList.ShuffleEnabled)
+            {
+                _playbackList.ShuffleEnabled = true;
+            }
+
+            _playbackList.MoveNext();
+            _player.Play();
+
+            // Setting to null because
+            // we can no longer track what's playing.
+            // So set null so other operations can function
+            // correctly like pressing play on a tile
+            // should play that track.
+            Current = null;
         }
 
         /// <inheritdoc/>

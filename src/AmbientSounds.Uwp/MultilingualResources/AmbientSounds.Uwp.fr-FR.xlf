@@ -314,6 +314,18 @@
           <source>Privacy policy</source>
           <target state="translated">Politique de confidentialité</target>
         </trans-unit>
+        <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
+          <source>Sound Catalogue - Beta</source>
+          <target state="new">Sound Catalogue - Beta</target>
+        </trans-unit>
+        <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View more sounds</source>
+          <target state="new">View more sounds</target>
+        </trans-unit>
+        <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View more sounds</source>
+          <target state="new">View more sounds</target>
+        </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
           <target state="translated">Politique de confidentialité</target>
@@ -333,6 +345,14 @@
         <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Download</source>
           <target state="translated">Télécharger</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="new">Play random sound</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="new">Play random sound</target>
         </trans-unit>
       </group>
     </body>

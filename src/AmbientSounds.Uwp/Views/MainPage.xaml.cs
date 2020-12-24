@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Animations;
 using AmbientSounds.Constants;
+using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -29,7 +30,8 @@ namespace AmbientSounds.Views
         private void TryLoadCatalogueButton()
         {
             var value = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.CataloguePreview];
-            if (value is bool b && b)
+            var cultureInfo = SystemInformation.Instance.Culture;
+            if (cultureInfo.TwoLetterISOLanguageName == "en" || (value is bool b && b))
             {
                 SoundsViewer.ShowCatalogueButton = true;
                 FindName(nameof(SoundShortcut));
