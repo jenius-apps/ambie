@@ -370,4 +370,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Play random sound</value>
   </data>
+  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+    <value>Screensaver mode</value>
+  </data>
 </root>

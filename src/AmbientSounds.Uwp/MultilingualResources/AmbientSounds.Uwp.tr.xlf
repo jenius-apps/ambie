@@ -347,6 +347,10 @@
           <source>Play random sound</source>
           <target state="new">Play random sound</target>
         </trans-unit>
+        <trans-unit id="MoreButtonScreensaver.Label" translate="yes" xml:space="preserve">
+          <source>Screensaver mode</source>
+          <target state="new">Screensaver mode</target>
+        </trans-unit>
       </group>
     </body>
   </file>

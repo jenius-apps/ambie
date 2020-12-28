@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Services.Store;
@@ -74,6 +75,17 @@ namespace AmbientSounds.Controls
             preferences.CustomSize = new Windows.Foundation.Size(360, 500);
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, preferences);
             App.AppFrame.Navigate(typeof(Views.CompactPage), null, new SuppressNavigationTransitionInfo());
+        }
+
+        private void ScreensaverClicked()
+        {
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+            telemetry.TrackEvent(TelemetryConstants.ScreensaverOpened, new Dictionary<string, string>()
+            {
+                { "trigger", "moreButton" }
+            });
+            App.AppFrame.Navigate(typeof(Views.ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+
         }
 
         private async void RateUsClicked(object sender, RoutedEventArgs e)
