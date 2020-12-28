@@ -1,11 +1,14 @@
 ﻿using AmbientSounds.Animations;
 using AmbientSounds.Constants;
+using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views
 {
@@ -17,6 +20,7 @@ namespace AmbientSounds.Views
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
 
             if (App.IsTenFoot)
             {
@@ -25,6 +29,18 @@ namespace AmbientSounds.Views
             }
 
             TryLoadCatalogueButton();
+        }
+
+        public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel.StartTimer();
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            ViewModel.StopTimer();
         }
 
         private void TryLoadCatalogueButton()
