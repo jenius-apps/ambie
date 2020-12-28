@@ -22,5 +22,13 @@ namespace AmbientSounds.Services.Uwp
         {
             ApplicationData.Current.LocalSettings.Values[settingKey] = value;
         }
+
+
+        /// <inheritdoc/>
+        public T Get<T>(string settingKey, T defaultOverride)
+        {
+            object result = ApplicationData.Current.LocalSettings.Values[settingKey];
+            return result == null ? defaultOverride : (T)result;
+        }
     }
 }
