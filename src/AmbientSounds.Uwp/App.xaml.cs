@@ -100,6 +100,8 @@ namespace AmbientSounds
 
                 // Configure the services for later use
                 _serviceProvider = ConfigureServices();
+                var navigator = App.Services.GetRequiredService<INavigator>();
+                navigator.Frame = rootFrame;
             }
 
             if (prelaunched == false)
@@ -198,6 +200,7 @@ namespace AmbientSounds
                 .AddSingleton<CatalogueListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<SettingsViewModel>()
+                .AddTransient<MainPageViewModel>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IDialogService, DialogService>()
                 .AddTransient<IFileDownloader, FileDownloader>()
@@ -205,9 +208,11 @@ namespace AmbientSounds
                 .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
+                .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
                 .AddSingleton<IDownloadManager, DownloadManager>()
+                .AddSingleton<IScreensaverService, ScreensaverService>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()

@@ -168,7 +168,9 @@
     <Compile Include="Services\FileWriter.cs" />
     <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\MediaPlayerService.cs" />
+    <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\PartnerCentreNotificationRegistrar.cs" />
+    <Compile Include="Services\ScreensaverService.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
@@ -180,6 +182,9 @@
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScreensaverPage.xaml.cs">
+      <DependentUpon>ScreensaverPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +338,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScreensaverPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
