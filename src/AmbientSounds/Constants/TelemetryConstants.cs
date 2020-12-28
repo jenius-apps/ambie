@@ -25,6 +25,7 @@
         // mode
         private const string ViewModes = "viewModes";
         public const string Compact = ViewModes + ":compact";
+        public const string ScreensaverOpened = ViewModes + ":screensaverOpened";
 
         // playback
         private const string Playback = "playback";
