@@ -14,6 +14,22 @@
     Loaded="{x:Bind ViewModel.LoadAsync}"
     Unloaded="{x:Bind ViewModel.Unload}"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Name="ImageSb1">
+            <DoubleAnimation
+                Storyboard.TargetName="image"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                To="-100"
+                Duration="00:00:35" />
+        </Storyboard>
+        <Storyboard x:Name="ImageSb2">
+            <DoubleAnimation
+                Storyboard.TargetName="image2"
+                Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                To="-100"
+                Duration="00:00:35" />
+        </Storyboard>
+    </UserControl.Resources>
 
     <Grid Background="Black">
         <muxc:ProgressRing
@@ -38,39 +54,60 @@
             </animations:Implicit.HideAnimations>
         </muxc:ProgressRing>
 
-        <Image Stretch="UniformToFill" Visibility="{x:Bind ViewModel.ImageVisible1, Mode=OneWay}">
-            <Image.Source>
-                <BitmapImage UriSource="{x:Bind ViewModel.ImageSource1, Mode=OneWay}" />
-            </Image.Source>
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation
-                    From="0"
-                    To="1.0"
-                    Duration="0:0:3" />
-            </animations:Implicit.ShowAnimations>
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation
-                    From="1.0"
-                    To="0"
-                    Duration="0:0:3" />
-            </animations:Implicit.HideAnimations>
-        </Image>
-        <Image Stretch="UniformToFill" Visibility="{x:Bind ViewModel.ImageVisible2, Mode=OneWay}">
-            <Image.Source>
-                <BitmapImage UriSource="{x:Bind ViewModel.ImageSource2, Mode=OneWay}" />
-            </Image.Source>
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation
-                    From="0"
-                    To="1.0"
-                    Duration="0:0:3" />
-            </animations:Implicit.ShowAnimations>
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation
-                    From="1.0"
-                    To="0"
-                    Duration="0:0:3" />
-            </animations:Implicit.HideAnimations>
-        </Image>
+        <Canvas>
+            <Image
+                x:Name="image"
+                Canvas.Top="-200"
+                d:Source="ms-appx:///Assets/Images/wind.png"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="None"
+                Visibility="{x:Bind ViewModel.ImageVisible1, Mode=OneWay}">
+                <Image.RenderTransform>
+                    <CompositeTransform />
+                </Image.RenderTransform>
+                <Image.Source>
+                    <BitmapImage UriSource="{x:Bind ViewModel.ImageSource1, Mode=OneWay}" />
+                </Image.Source>
+                <animations:Implicit.ShowAnimations>
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1.0"
+                        Duration="0:0:3" />
+                </animations:Implicit.ShowAnimations>
+                <animations:Implicit.HideAnimations>
+                    <animations:OpacityAnimation
+                        From="1.0"
+                        To="0"
+                        Duration="0:0:3" />
+                </animations:Implicit.HideAnimations>
+            </Image>
+            <Image
+                x:Name="image2"
+                Canvas.Top="-200"
+                d:Source="ms-appx:///Assets/Images/beach.png"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="None"
+                Visibility="{x:Bind ViewModel.ImageVisible2, Mode=OneWay}">
+                <Image.RenderTransform>
+                    <CompositeTransform />
+                </Image.RenderTransform>
+
+                <Image.Source>
+                    <BitmapImage UriSource="{x:Bind ViewModel.ImageSource2, Mode=OneWay}" />
+                </Image.Source>
+                <animations:Implicit.ShowAnimations>
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1.0"
+                        Duration="0:0:3" />
+                </animations:Implicit.ShowAnimations>
+                <animations:Implicit.HideAnimations>
+                    <animations:OpacityAnimation
+                        From="1.0"
+                        To="0"
+                        Duration="0:0:3" />
+                </animations:Implicit.HideAnimations>
+            </Image>
+        </Canvas>
     </Grid>
 </UserControl>
