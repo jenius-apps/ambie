@@ -12,11 +12,11 @@
     xmlns:statetriggers="using:AmbientSounds.StateTriggers"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    KeyDown="{x:Bind ViewModel.ResetTime}"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
     PointerMoved="{x:Bind ViewModel.ResetTime}"
     PointerPressed="{x:Bind ViewModel.ResetTime}"
     PointerReleased="{x:Bind ViewModel.ResetTime}"
+    PreviewKeyDown="{x:Bind ViewModel.ResetTime}"
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
