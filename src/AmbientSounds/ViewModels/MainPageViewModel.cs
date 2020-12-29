@@ -31,10 +31,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public void StartTimer()
         {
-            if (_mediaPlayerService.PlaybackState == MediaPlaybackState.Playing)
-            {
-                _screensaverService.StartTimer();
-            }
+            _screensaverService.StartTimer();
         }
 
         /// <summary>

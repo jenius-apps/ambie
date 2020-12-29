@@ -12,16 +12,20 @@ namespace AmbientSounds.Services.Uwp
         private readonly IUserSettings _settings;
         private readonly ITelemetry _telemetry;
         private readonly INavigator _navigator;
+        private readonly IMediaPlayerService _mediaPlayerService;
         private DispatcherTimer _screensaverTriggerTimer;
 
         public ScreensaverService(
             ITelemetry telemetry,
             IUserSettings userSettings,
-            INavigator navigator)
+            INavigator navigator,
+            IMediaPlayerService mediaPlayerService)
         {
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(navigator, nameof(navigator));
+            Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+            _mediaPlayerService = mediaPlayerService;
             _telemetry = telemetry;
             _settings = userSettings;
             _navigator = navigator;
@@ -36,7 +40,9 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void StartTimer()
         {
-            if (!IsScreensaverEnabled || _screensaverTriggerTimer?.IsEnabled == true)
+            if (!IsScreensaverEnabled 
+                || _screensaverTriggerTimer?.IsEnabled == true
+                || _mediaPlayerService.PlaybackState != MediaPlaybackState.Playing)
             {
                 return;
             }
@@ -69,6 +75,11 @@ namespace AmbientSounds.Services.Uwp
 
         private void ScreensaverTriggered(object sender, object e)
         {
+            if (DialogService.IsDialogOpen)
+            {
+                return;
+            }
+
             _telemetry.TrackEvent(TelemetryConstants.ScreensaverOpened, new Dictionary<string, string>()
             {
                 { "trigger", "timer" }
