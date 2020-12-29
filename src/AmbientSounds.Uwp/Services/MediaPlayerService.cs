@@ -31,6 +31,7 @@ namespace AmbientSounds.Services.Uwp
         private readonly MediaPlayer _player;
         private readonly DispatcherQueue _dispatcherQueue;
         private readonly MediaPlaybackList _playbackList;
+        private readonly List<Sound> _internalSoundCache = new List<Sound>();
 
         public MediaPlayerService(ITelemetry telemetry)
         {
@@ -61,7 +62,9 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public Sound? Current { get; private set; }
+        public Sound? Current => _internalSoundCache.Count == 0 
+            ? null 
+            : _internalSoundCache[(int)_playbackList.CurrentItemIndex];
 
         /// <inheritdoc/>
         public double Volume
@@ -133,6 +136,7 @@ namespace AmbientSounds.Services.Uwp
             var item = new MediaPlaybackItem(mediaSource);
             ApplyDisplayProperties(item, s);
             _playbackList.Items.Add(item);
+            _internalSoundCache.Add(s);
         }
 
         /// <inheritdoc/>
@@ -144,6 +148,7 @@ namespace AmbientSounds.Services.Uwp
             }
 
             _playbackList.Items.RemoveAt(index);
+            _internalSoundCache.RemoveAt(index);
         }
 
         /// <inheritdoc/>
@@ -154,7 +159,7 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
-            if (s == Current)
+            if (s.Id == Current?.Id)
             {
                 if (PlaybackState == MediaPlaybackState.Playing || PlaybackState == MediaPlaybackState.Opening) Pause();
                 else Play();
@@ -164,7 +169,6 @@ namespace AmbientSounds.Services.Uwp
                 // we assume the sound list is always the same order as the playlist
                 _playbackList.MoveTo((uint)index);
                 Play();
-                Current = s;
             }
         }
 
@@ -185,13 +189,6 @@ namespace AmbientSounds.Services.Uwp
 
             _playbackList.MoveNext();
             _player.Play();
-
-            // Setting to null because
-            // we can no longer track what's playing.
-            // So set null so other operations can function
-            // correctly like pressing play on a tile
-            // should play that track.
-            Current = null;
         }
 
         /// <inheritdoc/>

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"
     d:DesignHeight="300"
@@ -15,6 +16,28 @@
     mc:Ignorable="d">
 
     <Grid Background="Black">
+        <muxc:ProgressRing
+            Width="40"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
+            IsActive="{x:Bind ViewModel.Loading, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.Loading, Mode=OneWay}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation
+                    From="0"
+                    To="1.0"
+                    Duration="0:0:1" />
+            </animations:Implicit.ShowAnimations>
+            <animations:Implicit.HideAnimations>
+                <animations:OpacityAnimation
+                    From="1.0"
+                    To="0"
+                    Duration="0:0:1" />
+            </animations:Implicit.HideAnimations>
+        </muxc:ProgressRing>
+
         <Image Stretch="UniformToFill" Visibility="{x:Bind ViewModel.ImageVisible1, Mode=OneWay}">
             <Image.Source>
                 <BitmapImage UriSource="{x:Bind ViewModel.ImageSource1, Mode=OneWay}" />

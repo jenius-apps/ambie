@@ -4,7 +4,12 @@
     "Name": "beach",
     "ImagePath": "ms-appx:///Assets/Images/beach.png",
     "FilePath": "ms-appx:///Assets/Sounds/beach.mp3",
-    "Attribution": "Sea Barcelona Beach Traffic Voices.wav by jordir -- https://freesound.org/s/360578/ -- License: Creative Commons 0. Photo by Ethan Robertson on Unsplash"
+    "Attribution": "Sea Barcelona Beach Traffic Voices.wav by jordir -- https://freesound.org/s/360578/ -- License: Creative Commons 0. Photo by Ethan Robertson on Unsplash",
+    "ScreensaverImagePaths": [
+      "https://images.unsplash.com/photo-1467951381300-2e65a10e4971?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
+      "https://images.unsplash.com/photo-1520864024919-cf7e44bff54c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
+      "https://images.unsplash.com/photo-1511744548432-8037f30bf0c9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80"
+    ]
   },
   {
     "Id": "19a43ab7-c964-4ab5-90f9-26c8a17d4f34",

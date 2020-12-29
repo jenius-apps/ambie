@@ -9,31 +9,33 @@ namespace AmbientSounds.ViewModels
     public class ScreensaverViewModel : ObservableObject
     {
         private const int ImageTimeLength = 10000; // milliseconds
-        private readonly IScreensaverService _screensaverService;
         private readonly ITimerService _timerService;
+        private readonly IMediaPlayerService _mediaPlayerService;
         private IList<string> _images = new List<string>();
-        private string _imageSource1 = "https://www.bing.com";
-        private string _imageSource2 = "https://www.bing.com";
+        private string _imageSource1 = "https://localhost:8080";
+        private string _imageSource2 = "https://localhost:8080";
         private bool _imageVisible1;
         private bool _imageVisible2;
         private int _imageIndex1;
         private int _imageIndex2;
+        private bool _loading;
 
         public ScreensaverViewModel(
-            IScreensaverService screensaverService,
-            ITimerService timerService)
+            ITimerService timerService,
+            IMediaPlayerService mediaPlayerService)
         {
-            Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(timerService, nameof(timerService));
-            _screensaverService = screensaverService;
+            Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+            _mediaPlayerService = mediaPlayerService;
             _timerService = timerService;
             _timerService.Interval = ImageTimeLength;
             _timerService.IntervalElapsed += TimerIntervalElapsed;
         }
 
-        private void TimerIntervalElapsed(object sender, int e)
+        public bool Loading
         {
-            CycleImages();
+            get => _loading;
+            set => SetProperty(ref _loading, value);
         }
 
         public string ImageSource1
@@ -62,28 +64,21 @@ namespace AmbientSounds.ViewModels
 
         public async void LoadAsync()
         {
-            await Task.Delay(1);
-            //_images = await _screensaverService.GetImagePathsAsync();
-            _images = new List<string>
-            {
-                "https://images.unsplash.com/photo-1585495898471-0fa227b7f193?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80",
-                "https://images.unsplash.com/photo-1577899831505-233c0a599869?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2252&q=80",
-                "https://images.unsplash.com/photo-1605936995786-fa5749a143ea?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-             };
-
+            _images = _mediaPlayerService.Current?.ScreensaverImagePaths ?? new string[0];
             if (_images == null || _images.Count < 2)
             {
                 return;
             }
 
+            Loading = true;
             _imageIndex1 = 0;
             _imageIndex2 = 1;
             ImageSource1 = _images[_imageIndex1];
             IncrementIndex(ref _imageIndex1);
-
+            await Task.Delay(3000);
+            Loading = false;
             ImageVisible1 = true;
             ImageVisible2 = false;
-            // start roll timer
 
             _timerService.Start();
         }
@@ -91,6 +86,11 @@ namespace AmbientSounds.ViewModels
         public void Unload()
         {
             _timerService.Stop();
+        }
+
+        private void TimerIntervalElapsed(object sender, int e)
+        {
+            CycleImages();
         }
 
         private void CycleImages()

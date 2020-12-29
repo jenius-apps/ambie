@@ -83,7 +83,8 @@ namespace AmbientSounds.Services
                         Name = soundData.Name,
                         FilePath = localSoundPath,
                         Attribution = soundData.Attribution,
-                        FileExtension = soundData.FileExtension
+                        FileExtension = soundData.FileExtension,
+                        ScreensaverImagePaths = soundData.ScreensaverImagePaths
                     };
 
                     await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
