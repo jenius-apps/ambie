@@ -8,6 +8,7 @@ namespace AmbientSounds.ViewModels
 {
     public class ScreensaverViewModel : ObservableObject
     {
+        private const int ImageTimeLength = 10000; // milliseconds
         private readonly IScreensaverService _screensaverService;
         private readonly ITimerService _timerService;
         private IList<string> _images = new List<string>();
@@ -26,7 +27,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(timerService, nameof(timerService));
             _screensaverService = screensaverService;
             _timerService = timerService;
-            _timerService.Interval = 10000;
+            _timerService.Interval = ImageTimeLength;
             _timerService.IntervalElapsed += TimerIntervalElapsed;
         }
 

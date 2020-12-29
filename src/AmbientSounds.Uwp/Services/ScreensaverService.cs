@@ -8,6 +8,7 @@ namespace AmbientSounds.Services.Uwp
 {
     public class ScreensaverService : IScreensaverService
     {
+        private const int ScreensaverTimeout = 60; // seconds
         private readonly IUserSettings _settings;
         private readonly ITelemetry _telemetry;
         private readonly INavigator _navigator;
@@ -40,7 +41,7 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
-            _screensaverTriggerTimer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(5) };
+            _screensaverTriggerTimer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(ScreensaverTimeout) };
             _screensaverTriggerTimer.Tick += ScreensaverTriggered;
             _screensaverTriggerTimer.Start();
         }

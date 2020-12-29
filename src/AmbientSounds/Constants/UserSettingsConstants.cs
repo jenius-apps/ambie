@@ -46,7 +46,7 @@ namespace AmbientSounds.Constants
             { Volume, 80d },
             { TelemetryOn, true },
             { Notifications, true },
-            { EnableScreenSaver, true },
+            { EnableScreenSaver, false },
             { CataloguePreview, false },
             { Theme, "default" }
         };

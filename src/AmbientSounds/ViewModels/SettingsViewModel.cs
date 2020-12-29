@@ -8,15 +8,19 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IUserSettings _userSettings;
         private readonly IStoreNotificationRegistrar _notifications;
+        private readonly IScreensaverService _screensaverService;
         private readonly string _theme;
         private bool _notificationsLoading;
 
         public SettingsViewModel(
             IUserSettings userSettings,
+            IScreensaverService screensaverService,
             IStoreNotificationRegistrar notifications)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(notifications, nameof(notifications));
+            Guard.IsNotNull(screensaverService, nameof(screensaverService));
+            _screensaverService = screensaverService;
             _userSettings = userSettings;
             _notifications = notifications;
             _theme = _userSettings.Get<string>(UserSettingsConstants.Theme);
@@ -30,6 +34,27 @@ namespace AmbientSounds.ViewModels
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.TelemetryOn);
             set => _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
+        }
+
+        /// <summary>
+        /// Settings flag for screensaver.
+        /// </summary>
+        public bool ScreensaverEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.EnableScreenSaver);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.EnableScreenSaver, value);
+                
+                if (value)
+                {
+                    _screensaverService.StartTimer();
+                }
+                else
+                {
+                    _screensaverService.StopTimer();
+                }
+            }
         }
 
         /// <summary>
