@@ -10,10 +10,15 @@
     VerticalAlignment="Stretch"
     d:DesignHeight="300"
     d:DesignWidth="400"
+    Loaded="{x:Bind ViewModel.LoadAsync}"
+    Unloaded="{x:Bind ViewModel.Unload}"
     mc:Ignorable="d">
 
     <Grid Background="Black">
-        <Image x:Name="image" Stretch="UniformToFill">
+        <Image Stretch="UniformToFill" Visibility="{x:Bind ViewModel.ImageVisible1, Mode=OneWay}">
+            <Image.Source>
+                <BitmapImage UriSource="{x:Bind ViewModel.ImageSource1, Mode=OneWay}" />
+            </Image.Source>
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
                     From="0"
@@ -27,10 +32,10 @@
                     Duration="0:0:3" />
             </animations:Implicit.HideAnimations>
         </Image>
-        <Image
-            x:Name="image2"
-            Stretch="UniformToFill"
-            Visibility="Collapsed">
+        <Image Stretch="UniformToFill" Visibility="{x:Bind ViewModel.ImageVisible2, Mode=OneWay}">
+            <Image.Source>
+                <BitmapImage UriSource="{x:Bind ViewModel.ImageSource2, Mode=OneWay}" />
+            </Image.Source>
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
                     From="0"
@@ -44,11 +49,5 @@
                     Duration="0:0:3" />
             </animations:Implicit.HideAnimations>
         </Image>
-        <animations:Implicit.ShowAnimations>
-            <animations:OpacityAnimation
-                From="0"
-                To="1.0"
-                Duration="0:0:3" />
-        </animations:Implicit.ShowAnimations>
     </Grid>
 </UserControl>
