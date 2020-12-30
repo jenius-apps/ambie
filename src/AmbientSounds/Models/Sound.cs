@@ -34,5 +34,11 @@
         /// Copyright or attribution text.
         /// </summary>
         public string? Attribution { get; set; }
+
+        /// <summary>
+        /// The list of image paths to be used
+        /// for the screensaver.
+        /// </summary>
+        public string[]? ScreensaverImagePaths { get; set; }
     }
 }

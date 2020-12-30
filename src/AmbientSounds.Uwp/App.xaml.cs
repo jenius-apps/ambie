@@ -41,6 +41,9 @@ namespace AmbientSounds
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
                 this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+
+                // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
+                this.FocusVisualKind = FocusVisualKind.Reveal;
             }
 
             SetAppRequestedTheme();
@@ -100,6 +103,8 @@ namespace AmbientSounds
 
                 // Configure the services for later use
                 _serviceProvider = ConfigureServices();
+                var navigator = App.Services.GetRequiredService<INavigator>();
+                navigator.Frame = rootFrame;
             }
 
             if (prelaunched == false)
@@ -197,7 +202,9 @@ namespace AmbientSounds
                 .AddSingleton<SoundListViewModel>()
                 .AddSingleton<CatalogueListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
+                .AddTransient<ScreensaverViewModel>()
                 .AddTransient<SettingsViewModel>()
+                .AddTransient<MainPageViewModel>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IDialogService, DialogService>()
                 .AddTransient<IFileDownloader, FileDownloader>()
@@ -205,9 +212,11 @@ namespace AmbientSounds
                 .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
+                .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
                 .AddSingleton<IDownloadManager, DownloadManager>()
+                .AddSingleton<IScreensaverService, ScreensaverService>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()

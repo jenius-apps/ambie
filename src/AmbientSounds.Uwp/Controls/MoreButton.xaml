@@ -15,6 +15,14 @@
             <CommandBarFlyout Placement="BottomEdgeAlignedRight">
                 <CommandBarFlyout.SecondaryCommands>
                     <AppBarButton
+                        x:Uid="MoreButtonScreensaver"
+                        Click="{x:Bind ScreensaverClicked}"
+                        Visibility="{x:Bind CompactButtonVisible}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA83;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton
                         x:Uid="MoreButtonCompact"
                         Click="{x:Bind CompactOverlayClicked}"
                         Visibility="{x:Bind CompactButtonVisible}">

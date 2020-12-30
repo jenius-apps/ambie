@@ -73,5 +73,7 @@ namespace AmbientSounds.Controls
             var visual = ElementCompositionPreview.GetElementVisual(element);
             visual.Scale = new Vector3(1);
         }
+
+        private Visibility Not(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
     }
 }

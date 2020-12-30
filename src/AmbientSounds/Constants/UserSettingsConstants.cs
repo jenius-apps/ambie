@@ -34,6 +34,11 @@ namespace AmbientSounds.Constants
         public const string Notifications = "NotificationSetting";
 
         /// <summary>
+        /// If true, screen saver will be triggered automatically.
+        /// </summary>
+        public const string EnableScreenSaver = "EnableScreenSaver";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
@@ -41,6 +46,7 @@ namespace AmbientSounds.Constants
             { Volume, 80d },
             { TelemetryOn, true },
             { Notifications, true },
+            { EnableScreenSaver, false },
             { CataloguePreview, false },
             { Theme, "default" }
         };

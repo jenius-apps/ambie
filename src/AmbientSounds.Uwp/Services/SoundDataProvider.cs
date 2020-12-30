@@ -17,13 +17,21 @@ namespace AmbientSounds.Services.Uwp
     {
         private const string DataFileName = "Data.json";
         private const string LocalDataFileName = "localData.json";
+        private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private List<Sound> _localSoundCache;
+        private bool _refreshed;
 
         /// <inheritdoc/>
         public event EventHandler<Sound> LocalSoundAdded;
 
         /// <inheritdoc/>
         public event EventHandler<string> LocalSoundDeleted;
+
+        public SoundDataProvider(IOnlineSoundDataProvider onlineSoundDataProvider)
+        {
+            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
+            _onlineSoundDataProvider = onlineSoundDataProvider;
+        }
 
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync()
@@ -110,7 +118,7 @@ namespace AmbientSounds.Services.Uwp
 
             if (_localSoundCache != null && !refresh)
             {
-                return _localSoundCache;
+                return _localSoundCache.AsReadOnly();
             }
 
             try
@@ -130,6 +138,12 @@ namespace AmbientSounds.Services.Uwp
                 _localSoundCache = new List<Sound>();
             }
 
+            if (!_refreshed)
+            {
+                await RefreshLocalSoundsAsync();
+                _refreshed = true;
+            }
+
             return _localSoundCache.AsReadOnly();
         }
 
@@ -140,6 +154,40 @@ namespace AmbientSounds.Services.Uwp
             StorageFile dataFile = await assets.GetFileAsync(DataFileName);
             using Stream dataStream = await dataFile.OpenStreamForReadAsync();
             return await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+        }
+
+        /// <inheritdoc/>
+        private async Task RefreshLocalSoundsAsync()
+        {
+            if (_localSoundCache == null)
+            {
+                return;
+            }
+
+            string[] currentSoundIds = _localSoundCache.Select(x => x.Id).ToArray();
+            IList<Sound> latestData = await _onlineSoundDataProvider.GetSoundsAsync(currentSoundIds);
+            if (latestData == null || latestData.Count == 0)
+            {
+                return;
+            }
+
+            foreach (Sound cachedSound in _localSoundCache)
+            {
+                var updatedSound = latestData.FirstOrDefault(x => x.Id == cachedSound.Id);
+                if (updatedSound != null)
+                {
+                    cachedSound.Name = updatedSound.Name;
+                    cachedSound.ScreensaverImagePaths = updatedSound.ScreensaverImagePaths;
+                    cachedSound.Attribution = updatedSound.Attribution;
+                }
+            }
+
+            // Write changes to file
+            StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                LocalDataFileName,
+                CreationCollisionOption.OpenIfExists);
+            string json = JsonSerializer.Serialize(_localSoundCache);
+            await FileIO.WriteTextAsync(localDataFile, json);
         }
     }
 }

@@ -83,7 +83,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
-        public bool IsCurrentlyPlaying => _playerService.PlaybackState == MediaPlaybackState.Playing && _playerService.Current == _sound;
+        public bool IsCurrentlyPlaying => _playerService.PlaybackState == MediaPlaybackState.Playing && _playerService.Current?.Id == _sound?.Id;
 
         /// <summary>
         /// Loads this sound into the player and plays it.

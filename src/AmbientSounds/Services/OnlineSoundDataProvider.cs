@@ -1,7 +1,7 @@
 ﻿using AmbientSounds.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -31,6 +31,19 @@ namespace AmbientSounds.Services
 
             using Stream result = await _client.GetStreamAsync(_url);
             return (await JsonSerializer.DeserializeAsync<Sound[]>(result)) ?? new Sound[0];
+        }
+
+        /// <inheritdoc/>
+        public async Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds)
+        {
+            if (soundIds == null || soundIds.Count == 0)
+            {
+                return new Sound[0];
+            }
+
+            var sounds = await GetSoundsAsync();
+            return sounds?.Where(x => x.Id != null && soundIds.Contains(x.Id)).ToArray()
+                ?? new Sound[0];
         }
     }
 }

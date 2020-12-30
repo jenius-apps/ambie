@@ -22,7 +22,7 @@ namespace AmbientSounds.Services
         event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
         /// <summary>
-        /// Current the current sound track.
+        /// The current sound track.
         /// </summary>
         Sound? Current { get; }
 
