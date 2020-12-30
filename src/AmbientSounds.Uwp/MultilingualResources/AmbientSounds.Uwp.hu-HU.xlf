@@ -260,7 +260,7 @@
         </trans-unit>
         <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
           <source>More sounds</source>
-          <target state="new">More sounds</target>
+          <target state="translated">Több..</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
@@ -337,11 +337,11 @@
         </trans-unit>
         <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Véletlenszerű</target>
         </trans-unit>
         <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Véletlenszerű hang lejátszása</target>
         </trans-unit>
         <trans-unit id="MoreButtonScreensaver.Label" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
