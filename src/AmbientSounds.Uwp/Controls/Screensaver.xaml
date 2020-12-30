@@ -15,6 +15,7 @@
     Unloaded="{x:Bind ViewModel.Unload}"
     mc:Ignorable="d">
     <UserControl.Resources>
+        <Style x:Key="ScreensaverImage" TargetType="Image" />
         <Storyboard x:Name="ImageSb1">
             <DoubleAnimation
                 Storyboard.TargetName="image"
@@ -57,10 +58,8 @@
         <Canvas>
             <Image
                 x:Name="image"
-                Canvas.Top="-200"
                 d:Source="ms-appx:///Assets/Images/wind.png"
-                RenderTransformOrigin="0.5,0.5"
-                Stretch="None"
+                Style="{StaticResource ScreensaverImage}"
                 Visibility="{x:Bind ViewModel.ImageVisible1, Mode=OneWay}">
                 <Image.RenderTransform>
                     <CompositeTransform />
@@ -83,10 +82,8 @@
             </Image>
             <Image
                 x:Name="image2"
-                Canvas.Top="-200"
                 d:Source="ms-appx:///Assets/Images/beach.png"
-                RenderTransformOrigin="0.5,0.5"
-                Stretch="None"
+                Style="{StaticResource ScreensaverImage}"
                 Visibility="{x:Bind ViewModel.ImageVisible2, Mode=OneWay}">
                 <Image.RenderTransform>
                     <CompositeTransform />
