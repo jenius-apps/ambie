@@ -33,6 +33,21 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Cliquez pour voir les informations sur l'application</value>
   </data>
+  <data name="Minutes10Button.Label" xml:space="preserve">
+    <value>10 minutes</value>
+  </data>
+  <data name="Minutes15Button.Label" xml:space="preserve">
+    <value>15 minutes</value>
+  </data>
+  <data name="Minutes30Button.Label" xml:space="preserve">
+    <value>30 minutes</value>
+  </data>
+  <data name="Minutes5Button.Label" xml:space="preserve">
+    <value>5 minutes</value>
+  </data>
+  <data name="Minutes60Button.Label" xml:space="preserve">
+    <value>60 minutes</value>
+  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Cliquez pour voir plus d'options</value>
   </data>
@@ -144,6 +159,9 @@
   <data name="SuggestionHeader.Text" xml:space="preserve">
     <value>Vous voulez plus de sons? Envoyez des suggestions!</value>
   </data>
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+    <value>Suggestion</value>
+  </data>
   <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
     <value>Vous voulez plus de sons? Envoyez des suggestions!</value>
   </data>
@@ -160,7 +178,7 @@
     <value>Thème (nécessite un redémarrage)</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
-    <value>Auto</value>
+    <value>Automatique</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>Sombre</value>
@@ -196,19 +214,22 @@
     <value>Voir plus de sons</value>
   </data>
   <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Catalogue de son - Beta</value>
+    <value>Catalogue de son</value>
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
-    <value>Le son est déjà téléchargé</value>
+    <value>Déjà téléchargé</value>
     <comment>The sound is already downloaded</comment>
   </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Retournez à la page précédente</value>
+    <value>Revenir en arrière</value>
     <comment>Going back to the previous page</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
-    <value>Le son peut être téléchargé</value>
+    <value>Peut être téléchargé</value>
     <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Télécharger le son</value>
   </data>
   <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Télécharger le son</value>
@@ -217,7 +238,7 @@
     <value>Catalogue de son</value>
   </data>
   <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
-    <value>Liste des sons</value>
+    <value>Sons</value>
     <comment>List of sounds</comment>
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
@@ -237,11 +258,5 @@
   </data>
   <data name="DownloadTextBlock.Text" xml:space="preserve">
     <value>Télécharger</value>
-  </data>
-  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Lire un son aléatoire</value>
-  </data>
-  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Lire un son aléatoire</value>
   </data>
 </root>
