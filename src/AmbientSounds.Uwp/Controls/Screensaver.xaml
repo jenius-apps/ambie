@@ -38,7 +38,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
-            IsActive="{x:Bind ViewModel.Loading, Mode=OneWay}"
+            IsActive="True"
             Visibility="{x:Bind ViewModel.Loading, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
