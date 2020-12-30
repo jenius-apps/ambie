@@ -159,7 +159,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         private async Task RefreshLocalSoundsAsync()
         {
-            if (_localSoundCache == null)
+            if (_localSoundCache == null || _localSoundCache.Count == 0)
             {
                 return;
             }
