@@ -67,9 +67,6 @@ namespace AmbientSounds.Controls
 
         private async void CompactOverlayClicked()
         {
-            var telemetry = App.Services.GetRequiredService<ITelemetry>();
-            telemetry.TrackEvent(TelemetryConstants.Compact);
-
             // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
             preferences.CustomSize = new Windows.Foundation.Size(360, 500);
@@ -80,7 +77,7 @@ namespace AmbientSounds.Controls
         private void ScreensaverClicked()
         {
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
-            telemetry.TrackEvent(TelemetryConstants.ScreensaverOpened, new Dictionary<string, string>()
+            telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
             {
                 { "trigger", "moreButton" }
             });

@@ -80,7 +80,7 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
-            _telemetry.TrackEvent(TelemetryConstants.ScreensaverOpened, new Dictionary<string, string>()
+            _telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
             {
                 { "trigger", "timer" }
             });
