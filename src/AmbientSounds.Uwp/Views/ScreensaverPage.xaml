@@ -16,6 +16,7 @@
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Click="{x:Bind GoBack}"
+            RequestedTheme="Dark"
             Style="{StaticResource RoundButtonStyle}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
         </Button>

@@ -1,5 +1,6 @@
 ﻿using Windows.System;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 
 namespace AmbientSounds.Views
@@ -20,22 +21,16 @@ namespace AmbientSounds.Views
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
-            if (App.AppFrame.CanGoBack)
-            {
-                e.Handled = true;
-                App.AppFrame.GoBack();
-            }
+            e.Handled = true;
+            GoBack();
         }
 
         private void CataloguePage_KeyDown(CoreWindow sender, KeyEventArgs args)
         {
             if (args.VirtualKey == VirtualKey.Escape)
             {
-                if (App.AppFrame.CanGoBack)
-                {
-                    args.Handled = true;
-                    App.AppFrame.GoBack();
-                }
+                args.Handled = true;
+                GoBack();
             }
         }
 
@@ -44,6 +39,11 @@ namespace AmbientSounds.Views
             if (App.AppFrame.CanGoBack)
             {
                 App.AppFrame.GoBack();
+            }
+            var view = ApplicationView.GetForCurrentView();
+            if (view.IsFullScreenMode && !App.IsTenFoot)
+            {
+                view.ExitFullScreenMode();
             }
         }
     }

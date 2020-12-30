@@ -31,7 +31,7 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid Background="Black">
+    <Grid>
         <muxc:ProgressRing
             Width="40"
             Height="40"
