@@ -80,6 +80,9 @@ namespace AmbientSounds.ViewModels
             ImageVisible1 = true;
             ImageVisible2 = false;
 
+            // Preload next
+            ImageSource2 = _images[_imageIndex2];
+
             _timerService.Start();
         }
 
@@ -93,7 +96,7 @@ namespace AmbientSounds.ViewModels
             CycleImages();
         }
 
-        private void CycleImages()
+        private async void CycleImages()
         {
             if (_images == null || _images.Count < 2)
             {
@@ -102,17 +105,23 @@ namespace AmbientSounds.ViewModels
 
             if (ImageVisible1)
             {
-                ImageSource2 = _images[_imageIndex2];
                 ImageVisible1 = false;
                 ImageVisible2 = true;
                 IncrementIndex(ref _imageIndex2);
+
+                // Preload next
+                await Task.Delay(3000);
+                ImageSource1 = _images[_imageIndex1];
             }
             else
             {
-                ImageSource1 = _images[_imageIndex1];
                 ImageVisible1 = true;
                 ImageVisible2 = false;
                 IncrementIndex(ref _imageIndex1);
+
+                // Preload next
+                await Task.Delay(3000);
+                ImageSource2 = _images[_imageIndex2];
             }
         }
 
