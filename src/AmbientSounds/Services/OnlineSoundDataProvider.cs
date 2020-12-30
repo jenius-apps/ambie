@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using Microsoft.Toolkit.Diagnostics;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,12 +14,18 @@ namespace AmbientSounds.Services
     /// </summary>
     public class OnlineSoundDataProvider : IOnlineSoundDataProvider
     {
+        private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly HttpClient _client;
         private const string _url = ""; // do not commit
 
-        public OnlineSoundDataProvider()
+        public OnlineSoundDataProvider(
+            HttpClient httpClient,
+            ISystemInfoProvider systemInfoProvider)
         {
-            _client = new HttpClient();
+            Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
+            Guard.IsNotNull(httpClient, nameof(httpClient));
+            _systemInfoProvider = systemInfoProvider;
+            _client = httpClient;
         }
 
         /// <inheritdoc/>
@@ -29,7 +36,8 @@ namespace AmbientSounds.Services
                 return new List<Sound>();
             }
 
-            using Stream result = await _client.GetStreamAsync(_url);
+            var url = _url + $"?culture={_systemInfoProvider.GetCulture()}";
+            using Stream result = await _client.GetStreamAsync(url);
             return (await JsonSerializer.DeserializeAsync<Sound[]>(result)) ?? new Sound[0];
         }
 

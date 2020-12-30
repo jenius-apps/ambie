@@ -201,6 +201,9 @@
   <data name="Sound-wind" xml:space="preserve">
     <value>Szél</value>
   </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>Több..</value>
+  </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
     <value>Vissza</value>
     <comment>Going back to the previous page</comment>
@@ -252,5 +255,11 @@
   </data>
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
     <value>Törlés</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Véletlenszerű</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Véletlenszerű hang lejátszása</value>
   </data>
 </root>
