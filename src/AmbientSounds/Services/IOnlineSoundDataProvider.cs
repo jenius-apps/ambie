@@ -15,5 +15,12 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <returns>A list of <see cref="Sound"/> instances.</returns>
         Task<IList<Sound>> GetSoundsAsync();
+
+        /// <summary>
+        /// Retrieves list of sound data available online for the
+        /// given sound IDs.
+        /// </summary>
+        /// <param name="soundIds">List of sounds to get.</param>
+        Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds);
     }
 }
