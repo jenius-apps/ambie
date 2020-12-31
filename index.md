@@ -1,6 +1,6 @@
 # Welcome to Ambie
 
-Ambie is an white noise app for Xbox and Windows that is simple and elegant. 
+Ambie is a white noise app for Xbox and Windows that is simple and elegant. 
 
 ## Features
 
