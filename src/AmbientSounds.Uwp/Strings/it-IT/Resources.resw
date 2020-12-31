@@ -201,4 +201,77 @@
   <data name="Sound-wind" xml:space="preserve">
     <value>Vento</value>
   </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>Altri suoni</value>
+  </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Visualizza più suoni</value>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Torna indietro</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Scarica il suono</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Scarica il suono</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Già scaricato</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Può essere scaricato</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Catalogo del suono</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Suoni</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Politica sulla riservatezza</value>
+  </data>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>Catalogo del suono - beta</value>
+  </data>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>Visualizza più suoni</value>
+  </data>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Visualizza più suoni</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Politica sulla riservatezza</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Elimina suono</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Scarica</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Riproduci un suono casuale</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Riproduci un suono casuale</value>
+  </data>
+  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+    <value>Modalità salvaschermo</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>Salvaschermo</value>
+  </data>
+  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
+    <value>Usa una pagina scura come salvaschermo</value>
+  </data>
 </root>
