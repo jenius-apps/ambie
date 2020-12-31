@@ -24,8 +24,16 @@ namespace AmbientSounds.Views
             navigator.BackRequested += OnBackRequested;
         }
 
+        private bool ShowBackButton => !App.IsTenFoot;
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            var settings = App.Services.GetRequiredService<IUserSettings>();
+            if (!settings.Get<bool>(UserSettingsConstants.DarkScreensasver))
+            {
+                FindName(nameof(ScreensaverControl));
+            }
+
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {

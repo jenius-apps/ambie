@@ -12,5 +12,11 @@ namespace AmbientSounds.Services.Uwp
         {
             return SystemInformation.Instance.Culture.Name;
         }
+
+        /// <inheritdoc/>
+        public bool IsTenFoot()
+        {
+            return App.IsTenFoot;
+        }
     }
 }

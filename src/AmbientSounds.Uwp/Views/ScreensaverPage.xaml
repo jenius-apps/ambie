@@ -17,10 +17,11 @@
             Canvas.ZIndex="1"
             Click="{x:Bind GoBack}"
             RequestedTheme="Dark"
-            Style="{StaticResource RoundButtonStyle}">
+            Style="{StaticResource RoundButtonStyle}"
+            Visibility="{x:Bind ShowBackButton}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
         </Button>
 
-        <controls:Screensaver />
+        <controls:Screensaver x:Name="ScreensaverControl" x:Load="False" />
     </Grid>
 </Page>

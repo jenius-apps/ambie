@@ -11,5 +11,13 @@
         /// in en-US format.
         /// </summary>
         string GetCulture();
+
+        /// <summary>
+        /// Returns true is the current
+        /// device is Xbox or other device
+        /// optimized for a 10-foot viewing
+        /// distance.
+        /// </summary>
+        bool IsTenFoot();
     }
 }

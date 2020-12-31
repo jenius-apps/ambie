@@ -350,6 +350,10 @@
           <source>Screensaver</source>
           <target state="new">Screensaver</target>
         </trans-unit>
+        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
+          <source>Use a dark page as screensaver</source>
+          <target state="new">Use a dark page as screensaver</target>
+        </trans-unit>
       </group>
     </body>
   </file>

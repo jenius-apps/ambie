@@ -39,6 +39,11 @@ namespace AmbientSounds.Constants
         public const string EnableScreenSaver = "EnableScreenSaver";
 
         /// <summary>
+        /// If true, the screensaver will just be a dark, blank page.
+        /// </summary>
+        public const string DarkScreensasver = "DarkScreensaver";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
@@ -48,6 +53,7 @@ namespace AmbientSounds.Constants
             { Notifications, true },
             { EnableScreenSaver, false },
             { CataloguePreview, false },
+            { DarkScreensasver, false },
             { Theme, "default" }
         };
     }
