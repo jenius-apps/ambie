@@ -22,4 +22,4 @@ Ambie is a white noise app for Xbox and Windows that is simple and elegant.
 
 ## Support or Contact
 
-Having trouble Ambie? Contact the creator at ambie_app@outlook.com
+Having trouble with Ambie? Contact the creator at ambie_app@outlook.com
