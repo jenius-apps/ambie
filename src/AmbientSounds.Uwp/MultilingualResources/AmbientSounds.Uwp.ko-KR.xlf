@@ -260,99 +260,99 @@
         </trans-unit>
         <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
           <source>More sounds</source>
-          <target state="new">More sounds</target>
+          <target state="translated">더 많은 소리</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">더 많은 소리보기</target>
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
-          <target state="new">Go back</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">뒤로 가기</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="new">Download sound</target>
+          <target state="translated">소리 다운로드</target>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="new">Download sound</target>
+          <target state="translated">소리 다운로드</target>
         </trans-unit>
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>
-          <target state="new">Already downloaded</target>
+          <target state="translated">이미 다운로드 됨</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
-          <target state="new">Can be downloaded</target>
+          <target state="translated">다운로드 가능</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound catalogue</source>
-          <target state="new">Sound catalogue</target>
+          <target state="translated">사운드 카탈로그</target>
         </trans-unit>
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
-          <target state="new">Sounds</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">소리</target>
           <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="new">Privacy policy</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">개인정보취급방침</target>
         </trans-unit>
         <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
           <source>Sound Catalogue - Beta</source>
-          <target state="new">Sound Catalogue - Beta</target>
+          <target state="translated">사운드 카탈로그-베타</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">더 많은 소리보기</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">더 많은 소리보기</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="new">Privacy policy</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">개인정보취급방침</target>
         </trans-unit>
         <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Delete sound</source>
-          <target state="new">Delete sound</target>
+          <target state="translated">소리 삭제</target>
         </trans-unit>
         <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">삭제</target>
         </trans-unit>
         <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">다운로드</target>
         </trans-unit>
         <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">삭제</target>
         </trans-unit>
         <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">임의의 소리 재생</target>
         </trans-unit>
         <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">임의의 소리 재생</target>
         </trans-unit>
         <trans-unit id="MoreButtonScreensaver.Label" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
-          <target state="new">Screensaver mode</target>
+          <target state="translated">스크린 세이버 모드</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
           <source>Screensaver</source>
-          <target state="new">Screensaver</target>
+          <target state="translated">화면 보호기</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
           <source>Use a dark page as screensaver</source>
-          <target state="new">Use a dark page as screensaver</target>
+          <target state="translated">어두운 페이지를 화면 보호기로 사용</target>
         </trans-unit>
       </group>
     </body>
