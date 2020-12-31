@@ -201,4 +201,77 @@
   <data name="Sound-wind" xml:space="preserve">
     <value>바람</value>
   </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>더 많은 소리</value>
+  </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>더 많은 소리보기</value>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>뒤로 가기</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>소리 다운로드</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>소리 다운로드</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>이미 다운로드 됨</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>다운로드 가능</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>사운드 카탈로그</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>소리</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>개인정보취급방침</value>
+  </data>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>사운드 카탈로그-베타</value>
+  </data>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>더 많은 소리보기</value>
+  </data>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>더 많은 소리보기</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>개인정보취급방침</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>소리 삭제</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>다운로드</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>임의의 소리 재생</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>임의의 소리 재생</value>
+  </data>
+  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+    <value>스크린 세이버 모드</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>화면 보호기</value>
+  </data>
+  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
+    <value>어두운 페이지를 화면 보호기로 사용</value>
+  </data>
 </root>

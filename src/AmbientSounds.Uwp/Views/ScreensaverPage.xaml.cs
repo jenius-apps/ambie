@@ -29,7 +29,8 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var settings = App.Services.GetRequiredService<IUserSettings>();
-            if (!settings.Get<bool>(UserSettingsConstants.DarkScreensasver))
+            bool useDarkScreensaver = settings.Get<bool>(UserSettingsConstants.DarkScreensasver);
+            if (!useDarkScreensaver)
             {
                 FindName(nameof(ScreensaverControl));
             }
@@ -37,7 +38,8 @@ namespace AmbientSounds.Views
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {
-                { "name", "screensaver" }
+                { "name", "screensaver" },
+                { "darkscreensaver", useDarkScreensaver ? "true" : "false" }
             });
         }
 

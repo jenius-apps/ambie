@@ -260,99 +260,99 @@
         </trans-unit>
         <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
           <source>More sounds</source>
-          <target state="new">More sounds</target>
+          <target state="translated">Mas sonidos</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">Ver más sonidos</target>
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
-          <target state="new">Go back</target>
+          <target state="translated">Dar marcha atrás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="new">Download sound</target>
+          <target state="translated">Descargar sonido</target>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="new">Download sound</target>
+          <target state="translated">Descargar sonido</target>
         </trans-unit>
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>
-          <target state="new">Already downloaded</target>
+          <target state="translated">Ya descargado</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
-          <target state="new">Can be downloaded</target>
+          <target state="translated">Se puede descargar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound catalogue</source>
-          <target state="new">Sound catalogue</target>
+          <target state="translated">Catálogo de sonido</target>
         </trans-unit>
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
-          <target state="new">Sounds</target>
+          <target state="translated">Sonidos</target>
           <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="new">Privacy policy</target>
+          <target state="translated">Política de privacidad</target>
         </trans-unit>
         <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
           <source>Sound Catalogue - Beta</source>
-          <target state="new">Sound Catalogue - Beta</target>
+          <target state="translated">Catálogo de sonido - beta</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">Ver más sonidos</target>
         </trans-unit>
         <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">Ver más sonidos</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="new">Privacy policy</target>
+          <target state="translated">Política de privacidad</target>
         </trans-unit>
         <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Delete sound</source>
-          <target state="new">Delete sound</target>
+          <target state="translated">Eliminar sonido</target>
         </trans-unit>
         <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Eliminar</target>
         </trans-unit>
         <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated">Descargar</target>
         </trans-unit>
         <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Eliminar</target>
         </trans-unit>
         <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Reproducir sonido aleatorio</target>
         </trans-unit>
         <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Reproducir sonido aleatorio</target>
         </trans-unit>
         <trans-unit id="MoreButtonScreensaver.Label" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
-          <target state="new">Screensaver mode</target>
+          <target state="translated">Modo salvapantallas</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
           <source>Screensaver</source>
-          <target state="new">Screensaver</target>
+          <target state="translated">Salvapantallas</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
           <source>Use a dark page as screensaver</source>
-          <target state="new">Use a dark page as screensaver</target>
+          <target state="translated">Usa una página oscura como salvapantallas</target>
         </trans-unit>
       </group>
     </body>
