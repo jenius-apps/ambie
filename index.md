@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+## Welcome to Ambie
 
-You can use the [editor on GitHub](https://github.com/jenius-apps/ambie/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Ambie is an open source white noise app for Windows and Xbox that is simple and elegant. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Features
 
-### Markdown
+- List of pre-installed sounds such as beach, coffee shop, and rain.
+- Sleep timer to pause sound playback after a certain time
+- Sound catalogue to download new sounds
+- Screensaver that is triggered after some time of no movement
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Screenshots
 
-```markdown
-Syntax highlighted code block
+![](img/gallery.png)
 
-# Header 1
-## Header 2
-### Header 3
+![](img/catalogue.png)
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jenius-apps/ambie/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+![](img/screensaver.png)
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Having trouble Ambie? Contact the creator at ambie_app@outlook.com.
