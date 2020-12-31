@@ -8,6 +8,7 @@ Ambie is a white noise app for Xbox and Windows that is simple and elegant.
 - Sleep timer to pause playback after a certain time
 - Sound catalogue to download new sounds
 - Screensaver that is triggered after some time of no movement
+- Use `Compact Mode` to display a mini Ambie window.
 
 ## Gallery
 ![](img/gallery.png)
