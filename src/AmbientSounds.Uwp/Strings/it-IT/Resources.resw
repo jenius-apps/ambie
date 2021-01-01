@@ -196,7 +196,7 @@
     <value>Messaggio di notifica</value>
   </data>
   <data name="Sound-fan" xml:space="preserve">
-    <value>Eentilatore elettrico</value>
+    <value>Ventilatore elettrico</value>
   </data>
   <data name="Sound-wind" xml:space="preserve">
     <value>Vento</value>
