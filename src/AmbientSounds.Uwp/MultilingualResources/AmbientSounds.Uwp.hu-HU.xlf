@@ -264,7 +264,7 @@
         </trans-unit>
         <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more sounds</source>
-          <target state="new">View more sounds</target>
+          <target state="translated">Több hang</target>
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
@@ -345,15 +345,15 @@
         </trans-unit>
         <trans-unit id="MoreButtonScreensaver.Label" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
-          <target state="new">Screensaver mode</target>
+          <target state="translated">Képernyőkímélő</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
           <source>Screensaver</source>
-          <target state="new">Screensaver</target>
+          <target state="translated">Képernyőkímélő</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
           <source>Use a dark page as screensaver</source>
-          <target state="new">Use a dark page as screensaver</target>
+          <target state="translated">Sötét oldal használata képernyőkímélőként</target>
         </trans-unit>
       </group>
     </body>
