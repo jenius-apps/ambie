@@ -38,7 +38,11 @@ namespace AmbientSounds.Services
 
             var url = _url + $"?culture={_systemInfoProvider.GetCulture()}";
             using Stream result = await _client.GetStreamAsync(url);
-            return (await JsonSerializer.DeserializeAsync<Sound[]>(result)) ?? new Sound[0];
+            var results = await JsonSerializer.DeserializeAsync<Sound[]>(
+                result,
+                new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+            return results ?? new Sound[0];
         }
 
         /// <inheritdoc/>

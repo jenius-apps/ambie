@@ -33,9 +33,16 @@ namespace AmbientSounds.Factories
         }
 
         /// <inheritdoc/>
-        public OnlineSoundViewModel GetOnlineSoundVm(Sound s)
+        public OnlineSoundViewModel? GetOnlineSoundVm(Sound s)
         {
-            Guard.IsNotNull(s, nameof(s));
+            if (s == null ||
+                s.Id == null ||
+                s.ImagePath == null ||
+                s.FilePath == null)
+            {
+                return null;
+            }
+
             return new OnlineSoundViewModel(s, _downloadManager, _soundDataProvider, _telemetry);
         }
 
