@@ -112,10 +112,7 @@
                 Visibility="Collapsed" />
 
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <controls:ViewCatalogueButton
-                    x:Name="SoundShortcut"
-                    x:Load="False"
-                    IconOnly="True" />
+                <controls:ViewCatalogueButton IconOnly="True" />
                 <controls:MoreButton Margin="4,0,0,0" />
             </StackPanel>
         </Grid>
@@ -124,7 +121,7 @@
             x:Name="SoundsViewer"
             Grid.Row="1"
             ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            ShowCatalogueButton="False" />
+            ShowCatalogueButton="True" />
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

@@ -27,8 +27,6 @@ namespace AmbientSounds.Views
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
                 ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
             }
-
-            TryLoadCatalogueButton();
         }
 
         public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
@@ -41,17 +39,6 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             ViewModel.StopTimer();
-        }
-
-        private void TryLoadCatalogueButton()
-        {
-            var value = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.CataloguePreview];
-            var cultureInfo = SystemInformation.Instance.Culture;
-            if (cultureInfo.TwoLetterISOLanguageName == "en" || (value is bool b && b))
-            {
-                SoundsViewer.ShowCatalogueButton = true;
-                FindName(nameof(SoundShortcut));
-            }
         }
 
         private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp(sender as UIElement, 1.1f);
