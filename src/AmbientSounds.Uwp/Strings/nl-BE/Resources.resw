@@ -292,7 +292,7 @@
     <value>Melding voor nieuwe geluiden</value>
   </data>
   <data name="Sound-fan" xml:space="preserve">
-    <value>Elektrische ventilator</value>
+    <value>Ventilator</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Meer geluiden</value>
