@@ -204,6 +204,9 @@
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Több..</value>
   </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Több hang</value>
+  </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
     <value>Vissza</value>
     <comment>Going back to the previous page</comment>
@@ -261,5 +264,14 @@
   </data>
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Véletlenszerű hang lejátszása</value>
+  </data>
+  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+    <value>Képernyőkímélő</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>Képernyőkímélő</value>
+  </data>
+  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
+    <value>Sötét oldal használata képernyőkímélőként</value>
   </data>
 </root>
