@@ -379,4 +379,13 @@
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">
     <value>Use a dark page as screensaver</value>
   </data>
+  <data name="Hours2Button.Label" xml:space="preserve">
+    <value>2 hours</value>
+  </data>
+  <data name="Hours4Button.Label" xml:space="preserve">
+    <value>4 hours</value>
+  </data>
+  <data name="Hours8Button.Label" xml:space="preserve">
+    <value>8 hours</value>
+  </data>
 </root>

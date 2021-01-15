@@ -364,6 +364,18 @@
           <source>Use a dark page as screensaver</source>
           <target state="new">Use a dark page as screensaver</target>
         </trans-unit>
+        <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
+          <source>2 hours</source>
+          <target state="new">2 hours</target>
+        </trans-unit>
+        <trans-unit id="Hours4Button.Label" translate="yes" xml:space="preserve">
+          <source>4 hours</source>
+          <target state="new">4 hours</target>
+        </trans-unit>
+        <trans-unit id="Hours8Button.Label" translate="yes" xml:space="preserve">
+          <source>8 hours</source>
+          <target state="new">8 hours</target>
+        </trans-unit>
       </group>
     </body>
   </file>
