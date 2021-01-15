@@ -23,6 +23,8 @@
             </Style>
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
+
+            <GridLength x:Key="HeaderHeight">112</GridLength>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
