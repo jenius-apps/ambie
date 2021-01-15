@@ -192,9 +192,6 @@
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notifikation ved ny lyd</value>
   </data>
-  <data name="Sound-fan" xml:space="preserve">
-    <value>Elektrisk ventilator</value>
-  </data>
   <data name="Sound-wind" xml:space="preserve">
     <value>Vind</value>
   </data>

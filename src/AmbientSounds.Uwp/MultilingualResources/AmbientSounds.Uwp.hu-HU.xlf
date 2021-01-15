@@ -255,10 +255,6 @@
           <source>Notification for new sounds</source>
           <target state="translated">Értesítések új hangokról</target>
         </trans-unit>
-        <trans-unit id="Sound-fan" translate="yes" xml:space="preserve">
-          <source>Electric fan</source>
-          <target state="translated">Ventilátor</target>
-        </trans-unit>
         <trans-unit id="Sound-wind" translate="yes" xml:space="preserve">
           <source>Wind</source>
           <target state="translated">Szél</target>

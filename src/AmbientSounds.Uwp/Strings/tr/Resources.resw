@@ -189,9 +189,6 @@
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Yeni sesler için bildirim</value>
   </data>
-  <data name="Sound-fan" xml:space="preserve">
-    <value>Elektrikli fan</value>
-  </data>
   <data name="Sound-wind" xml:space="preserve">
     <value>Rüzgar</value>
   </data>

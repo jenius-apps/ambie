@@ -250,10 +250,6 @@
           <source>Notification for new sounds</source>
           <target state="new">Notification for new sounds</target>
         </trans-unit>
-        <trans-unit id="Sound-fan" translate="yes" xml:space="preserve">
-          <source>Electric fan</source>
-          <target state="new">Electric fan</target>
-        </trans-unit>
         <trans-unit id="Sound-wind" translate="yes" xml:space="preserve">
           <source>Wind</source>
           <target state="new">Wind</target>

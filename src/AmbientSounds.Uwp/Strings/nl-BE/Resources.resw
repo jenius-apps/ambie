@@ -186,9 +186,6 @@
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Melding voor nieuwe geluiden</value>
   </data>
-  <data name="Sound-fan" xml:space="preserve">
-    <value>Ventilator</value>
-  </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Meer geluiden</value>
   </data>

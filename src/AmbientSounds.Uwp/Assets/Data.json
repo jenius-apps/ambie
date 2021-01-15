@@ -60,17 +60,6 @@
     ]
   },
   {
-    "Id": "69673615-576f-4e2e-bd92-6b8af96828c0",
-    "Name": "fan",
-    "ImagePath": "ms-appx:///Assets/Images/fan.png",
-    "FilePath": "ms-appx:///Assets/Sounds/fan.mp3",
-    "Attribution": "https://www.youtube.com/watch?v=c2A2Sd16yGM. Photo by Siebe Warmoeskerken on Unsplash",
-    "ScreensaverImagePaths": [
-      "https://images.unsplash.com/photo-1547099036-45fa8caf2152?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
-      "https://images.unsplash.com/photo-1562277345-dc0e0e350eab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
-  },
-  {
     "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
     "Name": "fireplace",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",

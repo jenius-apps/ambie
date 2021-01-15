@@ -177,9 +177,6 @@
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notification pour les nouveaux sons</value>
   </data>
-  <data name="Sound-fan" xml:space="preserve">
-    <value>Ventilateur électrique</value>
-  </data>
   <data name="Sound-wind" xml:space="preserve">
     <value>Vent</value>
   </data>
