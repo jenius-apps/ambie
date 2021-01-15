@@ -31,8 +31,9 @@
           <target state="translated">Vancouver'dan Merhaba</target>
         </trans-unit>
         <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click to view app information</source>
-          <target state="translated">Uygulama bilgilerini görüntülemek için tıklayın</target>
+          <source>View app information</source>
+          <target state="needs-review-translation">Uygulama bilgilerini görüntülemek için tıklayın</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Minutes10Button.Label" translate="yes" xml:space="preserve">
           <source>10 minutes</source>
@@ -55,8 +56,9 @@
           <target state="translated">60 dakika</target>
         </trans-unit>
         <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click to view more options</source>
-          <target state="translated">Daha fazla seçenek görmek için tıklayın</target>
+          <source>View more options</source>
+          <target state="needs-review-translation">Daha fazla seçenek görmek için tıklayın</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="MoreButtonCompact.Label" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
@@ -127,12 +129,14 @@
           <target state="translated">Ayarlar</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click here to set up a sleep timer, where the sound will pause after the selected time.</source>
-          <target state="translated">Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</target>
+          <source>View sleep timer options</source>
+          <target state="needs-review-translation">Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Click here to set up a sleep timer, where the sound will pause after the selected time.</source>
-          <target state="translated">Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</target>
+          <source>View sleep timer options</source>
+          <target state="needs-review-translation">Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Sound-beach" translate="yes" xml:space="preserve">
           <source>Beach</source>
@@ -215,8 +219,9 @@
           <target state="translated">Öneri gönder</target>
         </trans-unit>
         <trans-unit id="SuggestionSendButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click to send the suggestion</source>
-          <target state="translated">Öneriyi göndermek için tıklayın</target>
+          <source>Send suggestion</source>
+          <target state="needs-review-translation">Öneriyi göndermek için tıklayın</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="ThankYouTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Thank you!</source>

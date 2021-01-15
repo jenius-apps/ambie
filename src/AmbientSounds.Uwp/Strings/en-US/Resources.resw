@@ -136,7 +136,7 @@
     <value>Hello from Vancouver</value>
   </data>
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Click to view app information</value>
+    <value>View app information</value>
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10 minutes</value>
@@ -154,7 +154,7 @@
     <value>60 minutes</value>
   </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Click to view more options</value>
+    <value>View more options</value>
   </data>
   <data name="MoreButtonCompact.Label" xml:space="preserve">
     <value>Compact mode</value>
@@ -208,10 +208,10 @@
     <value>Settings</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Click here to set up a sleep timer, where the sound will pause after the selected time.</value>
+    <value>View sleep timer options</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Click here to set up a sleep timer, where the sound will pause after the selected time.</value>
+    <value>View sleep timer options</value>
   </data>
   <data name="Sound-beach" xml:space="preserve">
     <value>Beach</value>
@@ -274,7 +274,7 @@
     <value>Send suggestion</value>
   </data>
   <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Click to send the suggestion</value>
+    <value>Send suggestion</value>
   </data>
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
     <value>Thank you!</value>

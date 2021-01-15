@@ -31,8 +31,8 @@
           <target state="new">Hello from Vancouver</target>
         </trans-unit>
         <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click to view app information</source>
-          <target state="new">Click to view app information</target>
+          <source>View app information</source>
+          <target state="new">View app information</target>
         </trans-unit>
         <trans-unit id="Minutes10Button.Label" translate="yes" xml:space="preserve">
           <source>10 minutes</source>
@@ -55,8 +55,8 @@
           <target state="new">60 minutes</target>
         </trans-unit>
         <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click to view more options</source>
-          <target state="new">Click to view more options</target>
+          <source>View more options</source>
+          <target state="new">View more options</target>
         </trans-unit>
         <trans-unit id="MoreButtonCompact.Label" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
@@ -127,12 +127,12 @@
           <target state="new">Settings</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click here to set up a sleep timer, where the sound will pause after the selected time.</source>
-          <target state="new">Click here to set up a sleep timer, where the sound will pause after the selected time.</target>
+          <source>View sleep timer options</source>
+          <target state="new">View sleep timer options</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Click here to set up a sleep timer, where the sound will pause after the selected time.</source>
-          <target state="new">Click here to set up a sleep timer, where the sound will pause after the selected time.</target>
+          <source>View sleep timer options</source>
+          <target state="new">View sleep timer options</target>
         </trans-unit>
         <trans-unit id="Sound-beach" translate="yes" xml:space="preserve">
           <source>Beach</source>
@@ -215,8 +215,8 @@
           <target state="new">Send suggestion</target>
         </trans-unit>
         <trans-unit id="SuggestionSendButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Click to send the suggestion</source>
-          <target state="new">Click to send the suggestion</target>
+          <source>Send suggestion</source>
+          <target state="new">Send suggestion</target>
         </trans-unit>
         <trans-unit id="ThankYouTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Thank you!</source>
