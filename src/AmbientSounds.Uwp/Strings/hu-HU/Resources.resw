@@ -202,7 +202,7 @@
     <value>Szél</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>Több..</value>
+    <value>Több</value>
   </data>
   <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
     <value>Több hang</value>
