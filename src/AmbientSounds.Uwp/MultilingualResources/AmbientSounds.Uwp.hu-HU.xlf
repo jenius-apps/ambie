@@ -358,15 +358,15 @@
         </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
-          <target state="new">2 hours</target>
+          <target state="translated">2 óra</target>
         </trans-unit>
         <trans-unit id="Hours4Button.Label" translate="yes" xml:space="preserve">
           <source>4 hours</source>
-          <target state="new">4 hours</target>
+          <target state="translated">4 óra</target>
         </trans-unit>
         <trans-unit id="Hours8Button.Label" translate="yes" xml:space="preserve">
           <source>8 hours</source>
-          <target state="new">8 hours</target>
+          <target state="translated">8 óra</target>
         </trans-unit>
       </group>
     </body>
