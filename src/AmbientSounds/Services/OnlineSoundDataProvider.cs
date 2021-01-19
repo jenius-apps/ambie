@@ -16,16 +16,18 @@ namespace AmbientSounds.Services
     {
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly HttpClient _client;
-        private const string _url = ""; // do not commit
+        private readonly string _url;
 
         public OnlineSoundDataProvider(
             HttpClient httpClient,
-            ISystemInfoProvider systemInfoProvider)
+            ISystemInfoProvider systemInfoProvider,
+            IAppSettings appSettings)
         {
             Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
             Guard.IsNotNull(httpClient, nameof(httpClient));
             _systemInfoProvider = systemInfoProvider;
             _client = httpClient;
+            _url = appSettings.CatalogueUrl;
         }
 
         /// <inheritdoc/>

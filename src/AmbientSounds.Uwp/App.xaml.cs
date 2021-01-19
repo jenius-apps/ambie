@@ -222,6 +222,7 @@ namespace AmbientSounds
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMediaPlayerService, MediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
+                .AddSingleton<IAppSettings, AppSettings>()
                 .BuildServiceProvider();
         }
     }

@@ -164,6 +164,7 @@
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppCentreTelemetry.cs" />
+    <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\SystemInfoProvider.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
@@ -465,6 +466,9 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\nl-BE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="appsettings.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
