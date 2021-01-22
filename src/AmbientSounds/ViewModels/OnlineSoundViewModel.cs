@@ -57,6 +57,7 @@ namespace AmbientSounds.ViewModels
             {
                 IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id);
                 DownloadProgressValue = 0;
+                IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
             }
         }
 
