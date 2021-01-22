@@ -16,7 +16,7 @@ namespace AmbientSounds.Controls
         {
             get
             {
-                var version = SystemInformation.ApplicationVersion;
+                var version = SystemInformation.Instance.ApplicationVersion;
                 return $"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
             }
         }

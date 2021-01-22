@@ -10,7 +10,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public string GetCulture()
         {
-            return SystemInformation.Culture.Name;
+            return SystemInformation.Instance.Culture.Name;
         }
 
         /// <inheritdoc/>
