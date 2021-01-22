@@ -21,5 +21,12 @@ namespace AmbientSounds.Services
         /// <param name="iapId">The <see cref="Models.Sound.IapId"/>.</param>
         /// <returns>True if the sound is purchased successfully.</returns>
         Task<bool> BuyAsync(string iapId);
+
+        /// <summary>
+        /// Retrieves the price of the item.
+        /// </summary>
+        /// <param name="iapId">The <see cref="Models.Sound.IapId"/>.</param>
+        /// <returns>The price of the item formatted like $1.99.</returns>
+        Task<string> GetPriceAsync(string iapId);
     }
 }

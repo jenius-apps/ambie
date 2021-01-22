@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels
         private double _progressValue;
         private bool _isInstalled;
         private bool _isOwned;
+        private string _price = "";
 
         public OnlineSoundViewModel(
             Sound s, 
@@ -97,6 +98,15 @@ namespace AmbientSounds.ViewModels
                 SetProperty(ref _isOwned, value);
                 OnPropertyChanged(nameof(CanBuy));
             }
+        }
+
+        /// <summary>
+        /// Price of the item if it is premium.
+        /// </summary>
+        public string Price
+        {
+            get => _price;
+            set => SetProperty(ref _price, value);
         }
 
         /// <summary>
@@ -180,7 +190,17 @@ namespace AmbientSounds.ViewModels
         private async Task LoadAsync()
         {
             IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
-            IsOwned = !_sound.IsPremium || await _iapService.IsOwnedAsync(_sound.IapId);
+
+            if (_sound.IsPremium)
+            {
+                IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
+                Price = await _iapService.GetPriceAsync(_sound.IapId);
+            }
+            else
+            {
+                // a non premium sound is treated as "owned"
+                IsOwned = true;
+            }
         }
 
         private Task DownloadAsync()

@@ -84,7 +84,7 @@
                                         <TextBlock
                                             Margin="8,0,0,0"
                                             VerticalAlignment="Center"
-                                            Text="$1.29" />
+                                            Text="{x:Bind Price, Mode=OneWay}" />
                                     </StackPanel>
                                 </Button>
 

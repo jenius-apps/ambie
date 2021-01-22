@@ -46,6 +46,13 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public async Task<string> GetPriceAsync(string iapId)
+        {
+            var addon = await GetAddOn(iapId);
+            return addon?.Price?.FormattedPrice ?? "---";
+        }
+
+        /// <inheritdoc/>
         public Task<bool> BuyAsync(string iapId)
         {
             return PurchaseAddOn(iapId);
