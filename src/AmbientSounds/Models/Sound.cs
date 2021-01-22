@@ -40,5 +40,16 @@
         /// for the screensaver.
         /// </summary>
         public string[]? ScreensaverImagePaths { get; set; }
+
+        /// <summary>
+        /// True if sound is premium.
+        /// </summary>
+        public bool IsPremium { get; set; }
+
+        /// <summary>
+        /// Id used to identify the IAP
+        /// associated with this sound.
+        /// </summary>
+        public string IapId { get; set; } = "";
     }
 }

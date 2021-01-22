@@ -16,22 +16,28 @@ namespace AmbientSounds.ViewModels
         private readonly IDownloadManager _downloadManager;
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ITelemetry _telemetry;
+        private readonly IIapService _iapService;
         private readonly Progress<double> _downloadProgress;
         private double _progressValue;
         private bool _isInstalled;
+        private bool _isOwned;
+        private string _price = "";
 
         public OnlineSoundViewModel(
             Sound s, 
             IDownloadManager downloadManager,
             ISoundDataProvider soundDataProvider,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            IIapService iapService)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(iapService, nameof(iapService));
             _sound = s;
             _downloadManager = downloadManager;
+            _iapService = iapService;
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
 
@@ -42,6 +48,7 @@ namespace AmbientSounds.ViewModels
             DownloadCommand = new AsyncRelayCommand(DownloadAsync);
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             DeleteCommand = new AsyncRelayCommand(DeleteSound);
+            BuyCommand = new AsyncRelayCommand(BuySoundAsync);
         }
 
         private async void OnSoundDeleted(object sender, string id)
@@ -50,6 +57,7 @@ namespace AmbientSounds.ViewModels
             {
                 IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id);
                 DownloadProgressValue = 0;
+                IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
             }
         }
 
@@ -79,6 +87,35 @@ namespace AmbientSounds.ViewModels
         public string? ImagePath => _sound.ImagePath;
 
         /// <summary>
+        /// If true, the sound is owned by the user
+        /// and can be downloaded. If false, the sound
+        /// must be purchased first.
+        /// </summary>
+        public bool IsOwned
+        {
+            get => _isOwned;
+            set 
+            { 
+                SetProperty(ref _isOwned, value);
+                OnPropertyChanged(nameof(CanBuy));
+            }
+        }
+
+        /// <summary>
+        /// Price of the item if it is premium.
+        /// </summary>
+        public string Price
+        {
+            get => _price;
+            set => SetProperty(ref _price, value);
+        }
+
+        /// <summary>
+        /// True if the sound can be bought.
+        /// </summary>
+        public bool CanBuy => _sound.IsPremium && !_isOwned;
+
+        /// <summary>
         /// This sound's download progress.
         /// </summary>
         public double DownloadProgressValue
@@ -105,14 +142,14 @@ namespace AmbientSounds.ViewModels
             set
             {
                 SetProperty(ref _isInstalled, value);
-                OnPropertyChanged(nameof(CanDownload));
+                OnPropertyChanged(nameof(NotInstalled));
             }
         }
 
         /// <summary>
         /// True if the item can be downloaded;
         /// </summary>
-        public bool CanDownload => !IsInstalled;
+        public bool NotInstalled => !IsInstalled;
 
         /// <summary>
         /// Command for downloading this sound.
@@ -125,9 +162,21 @@ namespace AmbientSounds.ViewModels
         public IAsyncRelayCommand DeleteCommand { get; }
 
         /// <summary>
+        /// Command for buying sound.
+        /// </summary>
+        public IAsyncRelayCommand BuyCommand { get; }
+
+        /// <summary>
         /// Command for loading this sound.
         /// </summary>
         public IAsyncRelayCommand LoadCommand { get; }
+
+        private async Task BuySoundAsync()
+        {
+            DownloadProgressValue = 50;
+            IsOwned = !_sound.IsPremium || await _iapService.BuyAsync(_sound.IapId ?? "");
+            DownloadProgressValue = 0;
+        }
 
         private async Task DeleteSound()
         {
@@ -142,11 +191,22 @@ namespace AmbientSounds.ViewModels
         private async Task LoadAsync()
         {
             IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
+
+            if (_sound.IsPremium)
+            {
+                IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
+                Price = await _iapService.GetPriceAsync(_sound.IapId);
+            }
+            else
+            {
+                // a non premium sound is treated as "owned"
+                IsOwned = true;
+            }
         }
 
         private Task DownloadAsync()
         {
-            if (DownloadProgressValue == 0 && CanDownload)
+            if (DownloadProgressValue == 0 && NotInstalled)
             {
                 _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
                 {

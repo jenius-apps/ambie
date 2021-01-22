@@ -14,19 +14,23 @@ namespace AmbientSounds.Factories
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly IMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
+        private readonly IIapService _iapService;
 
         public SoundVmFactory(
             IDownloadManager downloadManager,
             IMediaPlayerService player,
             ITelemetry telemetry,
-            ISoundDataProvider soundDataProvider)
+            ISoundDataProvider soundDataProvider,
+            IIapService iapService)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(iapService, nameof(iapService));
 
             _downloadManager = downloadManager;
+            _iapService = iapService;
             _soundDataProvider = soundDataProvider;
             _player = player;
             _telemetry = telemetry;
@@ -43,7 +47,12 @@ namespace AmbientSounds.Factories
                 return null;
             }
 
-            return new OnlineSoundViewModel(s, _downloadManager, _soundDataProvider, _telemetry);
+            return new OnlineSoundViewModel(
+                s,
+                _downloadManager,
+                _soundDataProvider,
+                _telemetry,
+                _iapService);
         }
 
         /// <inheritdoc/>
