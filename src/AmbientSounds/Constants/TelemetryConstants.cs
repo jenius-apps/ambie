@@ -11,6 +11,8 @@
         public const string DownloadClicked = Catalogue + "downloadClicked";
         public const string MoreSoundsClicked = Catalogue + "moreSoundsClicked";
         public const string CatalogueDeleteClicked = Catalogue + "deleteClicked";
+        public const string PreviewClicked = Catalogue + "previewClicked";
+        public const string BuyClicked = Catalogue + "buyClicked";
 
         // gallery
         private const string Gallery = "gallery:";

@@ -17,6 +17,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
+        private readonly IPreviewService _previewService;
         private readonly Progress<double> _downloadProgress;
         private double _progressValue;
         private bool _isInstalled;
@@ -28,6 +29,7 @@ namespace AmbientSounds.ViewModels
             IDownloadManager downloadManager,
             ISoundDataProvider soundDataProvider,
             ITelemetry telemetry,
+            IPreviewService previewService,
             IIapService iapService)
         {
             Guard.IsNotNull(s, nameof(s));
@@ -35,8 +37,10 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(iapService, nameof(iapService));
+            Guard.IsNotNull(previewService, nameof(previewService));
             _sound = s;
             _downloadManager = downloadManager;
+            _previewService = previewService;
             _iapService = iapService;
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
@@ -49,6 +53,7 @@ namespace AmbientSounds.ViewModels
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             DeleteCommand = new AsyncRelayCommand(DeleteSound);
             BuyCommand = new AsyncRelayCommand(BuySoundAsync);
+            PreviewCommand = new RelayCommand(Preview);
         }
 
         private async void OnSoundDeleted(object sender, string id)
@@ -85,6 +90,13 @@ namespace AmbientSounds.ViewModels
         /// The path for the image to display for the current sound.
         /// </summary>
         public string? ImagePath => _sound.ImagePath;
+
+        /// <summary>
+        /// Determines if the sound can be previewed.
+        /// </summary>
+        public bool CanPreview => 
+            !string.IsNullOrWhiteSpace(_sound.PreviewFilePath) && 
+            Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
         /// <summary>
         /// If true, the sound is owned by the user
@@ -171,18 +183,39 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public IAsyncRelayCommand LoadCommand { get; }
 
+        /// <summary>
+        /// Command for previewing this sound.
+        /// </summary>
+        public IRelayCommand PreviewCommand { get; }
+
+        private void Preview()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.PreviewClicked, new Dictionary<string, string>
+            {
+                { "id", _sound.Id ?? "" },
+            });
+
+            _previewService.Play(_sound.PreviewFilePath);
+        }
+
         private async Task BuySoundAsync()
         {
             DownloadProgressValue = 50;
-            IsOwned = !_sound.IsPremium || await _iapService.BuyAsync(_sound.IapId ?? "");
+            bool purchased = await _iapService.BuyAsync(_sound.IapId ?? "");
+            IsOwned = !_sound.IsPremium || purchased;
             DownloadProgressValue = 0;
+
+            _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
+            {
+                { "id", _sound.Id ?? "" },
+                { "purchased", purchased.ToString() },
+            });
         }
 
         private async Task DeleteSound()
         {
             _telemetry.TrackEvent(TelemetryConstants.CatalogueDeleteClicked, new Dictionary<string, string>
             {
-                { "name", _sound.Name ?? "" },
                 { "id", _sound.Id ?? "" },
             });
             await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
@@ -210,8 +243,7 @@ namespace AmbientSounds.ViewModels
             {
                 _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
                 {
-                    { "name", this.Name ?? "" },
-                    { "id", _sound.Id ?? "" },
+                    { "id", _sound.Id ?? "" }
                 });
 
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);

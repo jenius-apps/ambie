@@ -26,6 +26,11 @@
         public string? FilePath { get; set; }
 
         /// <summary>
+        /// Path of preview sound file.
+        /// </summary>
+        public string PreviewFilePath { get; set; } = "";
+
+        /// <summary>
         /// Extension of sound file.
         /// </summary>
         public string? FileExtension { get; set; }
