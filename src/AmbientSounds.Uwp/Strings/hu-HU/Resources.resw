@@ -280,4 +280,13 @@
   <data name="Hours8Button.Label" xml:space="preserve">
     <value>8 óra</value>
   </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Hang vásárlása</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Minta</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Minta</value>
+  </data>
 </root>
