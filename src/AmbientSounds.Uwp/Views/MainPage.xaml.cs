@@ -1,9 +1,6 @@
 ﻿using AmbientSounds.Animations;
-using AmbientSounds.Constants;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

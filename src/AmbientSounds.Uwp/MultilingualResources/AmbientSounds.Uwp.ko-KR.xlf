@@ -367,6 +367,18 @@
           <source>8 hours</source>
           <target state="new">8 hours</target>
         </trans-unit>
+        <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Purchase sound</source>
+          <target state="new">Purchase sound</target>
+        </trans-unit>
+        <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Preview sound</source>
+          <target state="new">Preview sound</target>
+        </trans-unit>
+        <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Preview sound</source>
+          <target state="new">Preview sound</target>
+        </trans-unit>
       </group>
     </body>
   </file>

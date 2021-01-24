@@ -72,21 +72,37 @@
                                 Orientation="Horizontal">
 
                                 <!--  buy button  -->
-                                <Button
-                                    x:Name="BuyButton"
+                                <StackPanel
+                                    x:Name="BuyPanel"
                                     x:Load="{x:Bind CanBuy, Mode=OneWay}"
-                                    Command="{x:Bind BuyCommand}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon
-                                            VerticalAlignment="Center"
-                                            FontFamily="{StaticResource FluentUIGlyphs}"
-                                            Glyph="&#xEB28;" />
-                                        <TextBlock
-                                            Margin="8,0,0,0"
-                                            VerticalAlignment="Center"
-                                            Text="{x:Bind Price, Mode=OneWay}" />
-                                    </StackPanel>
-                                </Button>
+                                    Orientation="Horizontal">
+                                    <Button
+                                        x:Name="BuyButton"
+                                        x:Uid="BuyButton"
+                                        x:Load="{x:Bind CanBuy, Mode=OneWay}"
+                                        Command="{x:Bind BuyCommand}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                Glyph="&#xEB28;" />
+                                            <TextBlock
+                                                Margin="8,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Text="{x:Bind Price, Mode=OneWay}" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        x:Name="PreviewButton"
+                                        x:Uid="PreviewButton"
+                                        Margin="8,0,0,0"
+                                        x:Load="{x:Bind CanPreview}"
+                                        Command="{x:Bind PreviewCommand}"
+                                        Style="{StaticResource TransparentRoundButtonStyle}">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
+                                    </Button>
+                                </StackPanel>
+
 
                                 <!--  download button  -->
                                 <Button

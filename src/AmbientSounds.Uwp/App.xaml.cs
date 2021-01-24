@@ -216,6 +216,7 @@ namespace AmbientSounds
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
+                .AddSingleton<IPreviewService, PreviewService>()
                 .AddSingleton<IIapService, StoreService>()
                 .AddSingleton<IDownloadManager, DownloadManager>()
                 .AddSingleton<IScreensaverService, ScreensaverService>()
