@@ -78,6 +78,7 @@
                                     Orientation="Horizontal">
                                     <Button
                                         x:Name="BuyButton"
+                                        x:Uid="BuyButton"
                                         x:Load="{x:Bind CanBuy, Mode=OneWay}"
                                         Command="{x:Bind BuyCommand}">
                                         <StackPanel Orientation="Horizontal">
@@ -93,6 +94,7 @@
                                     </Button>
                                     <Button
                                         x:Name="PreviewButton"
+                                        x:Uid="PreviewButton"
                                         Margin="8,0,0,0"
                                         x:Load="{x:Bind CanPreview}"
                                         Command="{x:Bind PreviewCommand}"

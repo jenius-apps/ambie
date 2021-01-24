@@ -385,4 +385,13 @@
   <data name="Hours8Button.Label" xml:space="preserve">
     <value>8 hours</value>
   </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Purchase sound</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Preview sound</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Preview sound</value>
+  </data>
 </root>
