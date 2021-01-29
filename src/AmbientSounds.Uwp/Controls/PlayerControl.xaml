@@ -36,7 +36,7 @@
             Margin="20,0,0,0"
             VerticalAlignment="Center"
             Background="Transparent">
-            <TextBlock Margin="0,8,0,0" Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(ViewModel.SoundName), Mode=OneWay}" />
+            <TextBlock Margin="0,8,0,0" Text="Master volume" />
             <Slider
                 x:Uid="VolumeSlider"
                 Width="120"
@@ -47,7 +47,8 @@
             x:Uid="RandomButton"
             Margin="12,0,0,0"
             Command="{x:Bind ViewModel.RandomCommand}"
-            Style="{StaticResource TransparentRoundButtonStyle}">
+            Style="{StaticResource TransparentRoundButtonStyle}"
+            Visibility="Collapsed">
             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE14B;" />
         </Button>
 

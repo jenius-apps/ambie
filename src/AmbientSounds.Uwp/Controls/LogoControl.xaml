@@ -13,11 +13,11 @@
 
     <Button
         x:Uid="LogoButton"
-        Width="60"
-        Height="60"
-        extensions:VisualExtensions.CenterPoint="30,30,0"
+        Width="40"
+        Height="40"
+        extensions:VisualExtensions.CenterPoint="20,20,0"
         Background="Transparent"
-        CornerRadius="30"
+        CornerRadius="20"
         PointerEntered="ScaleUp"
         PointerExited="ScaleNormal">
         <Button.Resources>

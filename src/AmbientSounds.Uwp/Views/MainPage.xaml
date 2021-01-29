@@ -84,15 +84,39 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="{StaticResource HeaderHeight}" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="{StaticResource HeaderHeight}" />
         </Grid.RowDefinitions>
+
+        <controls:LogoControl
+            Margin="40,40,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            Visibility="Visible" />
+
+        <StackPanel
+            Margin="0,40,40,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            Orientation="Horizontal">
+            <controls:SleepTimerControl />
+            <controls:ViewCatalogueButton Margin="4,0,0,0" IconOnly="True" />
+            <controls:MoreButton Margin="4,0,0,0" />
+        </StackPanel>
+
+        <controls:SoundGridControl
+            x:Name="SoundsViewer"
+            Margin="0,80,0,0"
+            ItemTemplate="{StaticResource MainPageSoundTemplate}"
+            ShowCatalogueButton="True" />
 
         <Grid
             x:Name="HeaderGrid"
+            Grid.Row="1"
             Padding="40,0"
-            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
-            Canvas.ZIndex="1">
+            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
@@ -101,27 +125,13 @@
 
             <StackPanel Orientation="Horizontal">
                 <controls:PlayerControl />
-                <controls:SleepTimerControl Margin="4,0,0,0" VerticalAlignment="Center" />
             </StackPanel>
 
-            <controls:LogoControl
-                x:Name="TitleCentre"
-                Grid.ColumnSpan="3"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Visibility="Collapsed" />
+            <controls:ActiveTrackList Grid.Column="1" Margin="12,0,0,0" />
 
-            <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <controls:ViewCatalogueButton IconOnly="True" />
-                <controls:MoreButton Margin="4,0,0,0" />
-            </StackPanel>
+
+
         </Grid>
-
-        <controls:SoundGridControl
-            x:Name="SoundsViewer"
-            Grid.Row="1"
-            ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            ShowCatalogueButton="True" />
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

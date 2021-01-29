@@ -131,6 +131,9 @@
     <Compile Include="Controls\AboutControl.xaml.cs">
       <DependentUpon>AboutControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ActiveTrackList.xaml.cs">
+      <DependentUpon>ActiveTrackList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CatalogueListControl.xaml.cs">
       <DependentUpon>CatalogueListControl.xaml</DependentUpon>
     </Compile>
@@ -286,6 +289,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\AboutControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ActiveTrackList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
