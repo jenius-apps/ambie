@@ -5,81 +5,54 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
     <ListView
         VerticalAlignment="Stretch"
+        ItemsSource="{x:Bind ViewModel.ActiveTracks}"
         ScrollViewer.HorizontalScrollBarVisibility="Auto"
         ScrollViewer.HorizontalScrollMode="Enabled"
         ScrollViewer.IsHorizontalRailEnabled="True"
         SelectionMode="None">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
+                <Grid VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
 
-        <ListViewItem VerticalAlignment="Stretch">
-            <Grid VerticalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-
-                <TextBlock
-                    MaxWidth="88"
-                    Margin="0,8,0,0"
-                    HorizontalAlignment="Left"
-                    Text="Track #1kjlkjlkjlkjkljlk"
-                    TextTrimming="CharacterEllipsis" />
-                <Slider
-                    Grid.Row="1"
-                    Width="120"
-                    Margin="0,4,0,0" />
-                <Button
-                    Grid.RowSpan="2"
-                    Margin="0,8,0,0"
-                    Padding="2"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    Background="Transparent">
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="12"
-                        Glyph="&#xE9F9;" />
-                </Button>
-            </Grid>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                <TextBlock Margin="0,8,0,0" Text="Track #1" />
-                <Slider Width="120" Margin="0,4,0,0" />
-            </StackPanel>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                <TextBlock Margin="0,8,0,0" Text="Track #1" />
-                <Slider Width="120" Margin="0,4,0,0" />
-            </StackPanel>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                <TextBlock Margin="0,8,0,0" Text="Track #1" />
-                <Slider Width="120" Margin="0,4,0,0" />
-            </StackPanel>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                <TextBlock Margin="0,8,0,0" Text="Track #1" />
-                <Slider Width="120" Margin="0,4,0,0" />
-            </StackPanel>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
-                <TextBlock Margin="0,8,0,0" Text="Track #1" />
-                <Slider Width="120" Margin="0,4,0,0" />
-            </StackPanel>
-        </ListViewItem>
+                    <TextBlock
+                        MaxWidth="88"
+                        Margin="0,8,0,0"
+                        HorizontalAlignment="Left"
+                        Text="{x:Bind Name}"
+                        TextTrimming="CharacterEllipsis" />
+                    <Slider
+                        Grid.Row="1"
+                        Width="120"
+                        Margin="0,4,0,0" />
+                    <Button
+                        Grid.RowSpan="2"
+                        Margin="0,8,0,0"
+                        Padding="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Background="Transparent">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="12"
+                            Glyph="&#xE9F9;" />
+                    </Button>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
-                <VirtualizingStackPanel Orientation="Horizontal" />
+                <VirtualizingStackPanel Orientation="{x:Bind Orientation, Mode=OneWay}" />
             </ItemsPanelTemplate>
         </ListView.ItemsPanel>
     </ListView>
