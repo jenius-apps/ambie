@@ -64,7 +64,22 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Name of the sound.
         /// </summary>
-        public string? Name => _sound.Name;  
+        public string? Name => _sound.Name;
+
+        /// <summary>
+        /// True if the sound is a mix.
+        /// </summary>
+        public bool IsMix => _sound.IsMix;
+
+        public bool IsNotMix => !IsMix;
+
+        public bool HasSecondImage => IsMix && _sound.ImagePaths.Length >= 2;
+
+        public string? SecondImagePath => HasSecondImage ? _sound.ImagePaths[1] : "http://localhost:8000";
+
+        public bool HasThirdImage => IsMix && _sound.ImagePaths.Length >= 3;
+
+        public string? ThirdImagePath => HasThirdImage ? _sound.ImagePaths[2] : "http://localhost:8000";
 
         /// <summary>
         /// The path for the image to display for the current sound.

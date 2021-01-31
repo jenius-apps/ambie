@@ -44,6 +44,33 @@
                         </ImageBrush>
                     </Grid.Background>
 
+                    <Grid x:Name="Image2" x:Load="{x:Bind HasSecondImage}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="1"
+                            Source="{x:Bind SecondImagePath}"
+                            Stretch="UniformToFill" />
+                    </Grid>
+
+                    <Grid x:Name="Image3" x:Load="{x:Bind HasThirdImage}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="1"
+                            Source="{x:Bind SecondImagePath}"
+                            Stretch="UniformToFill" />
+                        <Image
+                            Grid.Column="2"
+                            Source="{x:Bind ThirdImagePath}"
+                            Stretch="UniformToFill" />
+                    </Grid>
+
                     <FontIcon
                         Margin="12"
                         HorizontalAlignment="Left"
@@ -54,7 +81,10 @@
                         Glyph="&#xEB7D;"
                         Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}" />
 
-                    <Grid VerticalAlignment="Bottom">
+                    <Grid
+                        x:Name="NamePlate"
+                        VerticalAlignment="Bottom"
+                        x:Load="{x:Bind IsNotMix}">
                         <Grid.Background>
                             <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />
                         </Grid.Background>
@@ -75,7 +105,7 @@
                                 Command="{x:Bind DeleteCommand}"
                                 Icon="Delete"
                                 Visibility="{x:Bind CanDelete}" />
-                            <AppBarElementContainer>
+                            <AppBarElementContainer Visibility="{x:Bind IsNotMix}">
                                 <StackPanel Width="300" Margin="12">
                                     <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
                                     <TextBlock
