@@ -62,7 +62,7 @@ namespace AmbientSounds.Services.Uwp
             if (value == 0d)
             {
                 // prevent volume from being permanently zero.
-                value = 0.01d;
+                value = 0.000001d;
             }
 
             foreach (var soundId in _activeSounds.Keys)
@@ -111,6 +111,7 @@ namespace AmbientSounds.Services.Uwp
                 if (mediaSource != null)
                 {
                     var player = CreateLoopingPlayer();
+                    player.Volume *= _globalVolume;
                     player.Source = mediaSource;
                     _activeSounds.Add(s.Id, player);
                     Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? new string[0]);
@@ -180,6 +181,15 @@ namespace AmbientSounds.Services.Uwp
             }
         }
 
-        private MediaPlayer CreateLoopingPlayer() => new MediaPlayer() { IsLoopingEnabled = true };
+        private MediaPlayer CreateLoopingPlayer() 
+        {
+            var player = new MediaPlayer()
+            {
+                IsLoopingEnabled = true,
+            };
+
+            player.CommandManager.IsEnabled = false;
+            return player;
+        } 
     }
 }
