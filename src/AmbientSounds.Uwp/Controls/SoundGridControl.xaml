@@ -19,7 +19,7 @@
     </interactivity:Interaction.Behaviors>
 
     <Grid>
-        <ScrollViewer CanContentRenderOutsideBounds="True">
+        <ScrollViewer CanContentRenderOutsideBounds="False">
             <Grid HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />

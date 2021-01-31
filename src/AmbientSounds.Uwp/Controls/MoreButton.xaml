@@ -9,10 +9,10 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Button x:Uid="MoreButton" Style="{StaticResource RoundButtonStyle}">
+    <Button x:Uid="MoreButton" Style="{StaticResource TransparentRoundButtonStyle}">
         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD0;" />
         <Button.Flyout>
-            <CommandBarFlyout Placement="BottomEdgeAlignedRight">
+            <CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                 <CommandBarFlyout.SecondaryCommands>
                     <AppBarButton x:Uid="MoreButtonScreensaver" Click="{x:Bind ScreensaverClicked}">
                         <AppBarButton.Icon>

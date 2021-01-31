@@ -18,7 +18,7 @@
     </UserControl.Resources>
 
     <StackPanel Orientation="Horizontal">
-        <Button x:Uid="SleepTimerButton" Style="{StaticResource RoundButtonStyle}">
+        <Button x:Uid="SleepTimerButton" Style="{StaticResource TransparentRoundButtonStyle}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEC1E;" />
             <Button.Flyout>
                 <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
