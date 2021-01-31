@@ -124,13 +124,18 @@ namespace AmbientSounds.ViewModels
 
         private async void DeleteSound()
         {
-            _playerService.RemoveSound(_sound.Id);
+            if (!_sound.IsMix)
+            {
+                _playerService.RemoveSound(_sound.Id);
+            }
+
+            await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
+
             _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
             {
                 { "name", _sound.Name ?? "" },
                 { "id", _sound.Id ?? "" }
             });
-            await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
         }
     }
 }
