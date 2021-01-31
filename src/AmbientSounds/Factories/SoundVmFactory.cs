@@ -12,14 +12,14 @@ namespace AmbientSounds.Factories
     {
         private readonly IDownloadManager _downloadManager;
         private readonly ISoundDataProvider _soundDataProvider;
-        private readonly IMediaPlayerService _player;
+        private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
         private readonly IPreviewService _previewService;
 
         public SoundVmFactory(
             IDownloadManager downloadManager,
-            IMediaPlayerService player,
+            IMixMediaPlayerService player,
             ITelemetry telemetry,
             IPreviewService previewService,
             ISoundDataProvider soundDataProvider,

@@ -14,13 +14,13 @@ namespace AmbientSounds.ViewModels
     public class SoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
-        private readonly IMediaPlayerService _playerService;
+        private readonly IMixMediaPlayerService _playerService;
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ITelemetry _telemetry;
 
         public SoundViewModel(
             Sound s,
-            IMediaPlayerService playerService,
+            IMixMediaPlayerService playerService,
             int index,
             ISoundDataProvider soundDataProvider,
             ITelemetry telemetry)
@@ -33,13 +33,14 @@ namespace AmbientSounds.ViewModels
             Index = index;
             _sound = s;
             _playerService = playerService;
-            _playerService.PlaybackStateChanged += PlayerService_PlaybackStateChanged;
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
 
+            _playerService.SoundRemoved += OnSoundRemoved;
+
             DeleteCommand = new RelayCommand(DeleteSound);
         }
-        
+
         /// <summary>
         /// Index of this sound in the list.
         /// </summary>
@@ -83,29 +84,34 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
-        public bool IsCurrentlyPlaying => _playerService.PlaybackState == MediaPlaybackState.Playing && _playerService.Current?.Id == _sound?.Id;
+        public bool IsCurrentlyPlaying => _playerService.IsSoundPlaying(_sound);
 
         /// <summary>
         /// Loads this sound into the player and plays it.
         /// </summary>
-        public void Play()
+        public async void Play()
         {
-            _playerService.Play(_sound, Index);
+            await _playerService.ToggleSoundAsync(_sound);
+            OnPropertyChanged(nameof(IsCurrentlyPlaying));
+        }
+
+        private void OnSoundRemoved(object sender, string soundId)
+        {
+            if (Id == soundId)
+            {
+                OnPropertyChanged(nameof(IsCurrentlyPlaying));
+            }
         }
 
         private async void DeleteSound()
         {
+            _playerService.RemoveSound(_sound);
             _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
             {
                 { "name", _sound.Name ?? "" },
                 { "id", _sound.Id ?? "" }
             });
             await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
-        }
-
-        private void PlayerService_PlaybackStateChanged(object sender, MediaPlaybackState e)
-        {
-            OnPropertyChanged(nameof(IsCurrentlyPlaying));
         }
     }
 }

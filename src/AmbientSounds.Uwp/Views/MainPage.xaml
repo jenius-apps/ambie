@@ -43,6 +43,17 @@
                             </ImageBrush.ImageSource>
                         </ImageBrush>
                     </Grid.Background>
+
+                    <FontIcon
+                        Margin="12"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="32"
+                        Foreground="White"
+                        Glyph="&#xEB7D;"
+                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}" />
+
                     <Grid VerticalAlignment="Bottom">
                         <Grid.Background>
                             <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />

@@ -34,14 +34,17 @@
                     <Slider
                         Grid.Row="1"
                         Width="120"
-                        Margin="0,4,0,0" />
+                        Margin="0,4,0,0"
+                        Value="{x:Bind Volume, Mode=TwoWay}" />
                     <Button
                         Grid.RowSpan="2"
                         Margin="0,8,0,0"
                         Padding="2"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
-                        Background="Transparent">
+                        Background="Transparent"
+                        Command="{x:Bind RemoveCommand}"
+                        CommandParameter="{x:Bind Sound}">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="12"
@@ -52,7 +55,7 @@
         </ListView.ItemTemplate>
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
-                <VirtualizingStackPanel Orientation="{x:Bind Orientation, Mode=OneWay}" />
+                <VirtualizingStackPanel Orientation="Horizontal" />
             </ItemsPanelTemplate>
         </ListView.ItemsPanel>
     </ListView>
