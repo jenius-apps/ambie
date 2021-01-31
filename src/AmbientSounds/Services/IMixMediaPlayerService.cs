@@ -60,7 +60,8 @@ namespace AmbientSounds.Services
         /// will be played.
         /// </summary>
         /// <param name="s">The sound to toggle.</param>
-        Task ToggleSoundAsync(Sound s);
+        /// <param name="keepPaused">Optional. If true, an inserted sound will not be played automatically.</param>
+        Task ToggleSoundAsync(Sound s, bool keepPaused = false);
 
         /// <summary>
         /// Removes the sound

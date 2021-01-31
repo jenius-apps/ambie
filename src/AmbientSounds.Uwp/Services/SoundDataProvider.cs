@@ -34,12 +34,19 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<IList<Sound>> GetSoundsAsync()
+        public async Task<IList<Sound>> GetSoundsAsync(string[] soundIds = null)
         {
+            if (soundIds != null && _localSoundCache != null)
+            {
+                return _localSoundCache.Where(x => soundIds.Contains(x.Id)).ToArray();
+            }
+
             var packagedSounds = await GetPackagedSoundsAsync();
-            var localSounds = await GetLocalSoundsAsync(refresh: true);
+            var localSounds = await GetLocalSoundsAsync(refresh: soundIds == null);
             packagedSounds.AddRange(localSounds);
-            return packagedSounds;
+
+            if (soundIds == null) return packagedSounds;
+            else return packagedSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
         }
 
         /// <inheritdoc/>

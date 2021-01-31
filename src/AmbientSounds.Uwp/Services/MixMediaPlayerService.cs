@@ -113,7 +113,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task ToggleSoundAsync(Sound s)
+        public async Task ToggleSoundAsync(Sound s, bool keepPaused = false)
         {
             if (string.IsNullOrWhiteSpace(s?.Id))
             {
@@ -147,7 +147,9 @@ namespace AmbientSounds.Services.Uwp
                     _activeSounds.Add(s.Id, player);
                     Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? new string[0]);
                     SoundAdded?.Invoke(this, s);
-                    Play();
+
+                    if (keepPaused) Pause();
+                    else Play();
                 }
             }
         }

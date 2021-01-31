@@ -44,6 +44,11 @@ namespace AmbientSounds.Constants
         public const string MaxActive = "MaxActive";
 
         /// <summary>
+        /// Key for the list of active tracks.
+        /// </summary>
+        public const string ActiveTracks = "ActiveTracks";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
@@ -54,6 +59,7 @@ namespace AmbientSounds.Constants
             { EnableScreenSaver, false },
             { DarkScreensasver, false },
             { MaxActive, 3 },
+            { ActiveTracks, new string[0] },
             { Theme, "default" }
         };
     }

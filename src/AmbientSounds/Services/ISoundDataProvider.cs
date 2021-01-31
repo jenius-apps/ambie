@@ -23,8 +23,9 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Retrieves list of sound data available.
         /// </summary>
+        /// <param name="soundIds">Optional: fetches given sound Ids from cache.</param>
         /// <returns>A list of <see cref="Sound"/> instances.</returns>
-        Task<IList<Sound>> GetSoundsAsync();
+        Task<IList<Sound>> GetSoundsAsync(string[] soundIds = null);
 
         /// <summary>
         /// Adds sound info to local list.
