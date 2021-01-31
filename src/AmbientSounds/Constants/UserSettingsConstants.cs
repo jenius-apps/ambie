@@ -39,6 +39,11 @@ namespace AmbientSounds.Constants
         public const string DarkScreensasver = "DarkScreensaver";
 
         /// <summary>
+        /// The number of max active tracks.
+        /// </summary>
+        public const string MaxActive = "MaxActive";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
@@ -48,6 +53,7 @@ namespace AmbientSounds.Constants
             { Notifications, true },
             { EnableScreenSaver, false },
             { DarkScreensasver, false },
+            { MaxActive, 3 },
             { Theme, "default" }
         };
     }

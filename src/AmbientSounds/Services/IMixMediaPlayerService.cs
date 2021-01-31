@@ -22,6 +22,32 @@ namespace AmbientSounds.Services
         event EventHandler<string> SoundRemoved;
 
         /// <summary>
+        /// Raised when playback changes between
+        /// playing and paused.
+        /// </summary>
+        event EventHandler<MediaPlaybackState> PlaybackStateChanged;
+
+        /// <summary>
+        /// Global volume control. Max = 1. Min = 0.
+        /// </summary>
+        double GlobalVolume { get; set; }
+
+        /// <summary>
+        /// The current global state of the player.
+        /// </summary>
+        MediaPlaybackState PlaybackState { get; set; }
+
+        /// <summary>
+        /// Resumes playback.
+        /// </summary>
+        void Play();
+
+        /// <summary>
+        /// Pauses playback.
+        /// </summary>
+        void Pause();
+
+        /// <summary>
         /// If the given sound is playing,
         /// the sound will be paused and removed.
         /// If the sound was paused, the sound
@@ -34,23 +60,23 @@ namespace AmbientSounds.Services
         /// Removes the sound
         /// from being played.
         /// </summary>
-        /// <param name="s">The sound to pause and remove.</param>
-        void RemoveSound(Sound s);
+        /// <param name="soundId">The sound to pause and remove.</param>
+        void RemoveSound(string soundId);
 
         /// <summary>
         /// Returns true if the sound is active.
         /// </summary>
-        /// <param name="s">The sound to check.</param>
-        bool IsSoundPlaying(Sound s);
+        /// <param name="soundId">The sound to check.</param>
+        bool IsSoundPlaying(string soundId);
 
         /// <summary>
         /// Retrieves the volume for the given sound.
         /// </summary>
-        double GetVolume(Sound s);
+        double GetVolume(string soundId);
 
         /// <summary>
         /// Sets the volume for the given sound.
         /// </summary>
-        void SetVolume(Sound s, double value);
+        void SetVolume(string soundId, double value);
     }
 }

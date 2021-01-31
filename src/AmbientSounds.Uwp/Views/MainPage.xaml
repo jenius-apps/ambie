@@ -19,103 +19,84 @@
     PreviewKeyDown="{x:Bind ViewModel.ResetTime}"
     mc:Ignorable="d">
     <Page.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Light">
-                    <LinearGradientBrush x:Key="HeaderGradient" StartPoint="0.5,0" EndPoint="0.5,1">
-                        <GradientStop Offset="0" Color="White" />
-                        <GradientStop Offset="1" Color="Transparent" />
-                    </LinearGradientBrush>
-                </ResourceDictionary>
-                <ResourceDictionary x:Key="Dark">
-                    <LinearGradientBrush x:Key="HeaderGradient" StartPoint="0.5,0" EndPoint="0.5,1">
-                        <GradientStop Offset="0" Color="Gray" />
-                        <GradientStop Offset="1" Color="Transparent" />
-                    </LinearGradientBrush>
-                </ResourceDictionary>
-                <ResourceDictionary x:Key="HighContrast">
-                    <SolidColorBrush x:Key="HeaderGradient" Color="Transparent" />
-                </ResourceDictionary>
-            </ResourceDictionary.ThemeDictionaries>
-            <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-                <GridViewItem Margin="8" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertGridViewSoundName(IsCurrentlyPlaying, Unplayable, Name), Mode=OneWay}">
-                    <GridViewItem.Resources>
-                        <!--  These two removes the border on hover and on pressed  -->
-                        <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
-                        <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
-                    </GridViewItem.Resources>
-                    <Grid
-                        Width="280"
-                        Height="160"
-                        extensions:VisualExtensions.CenterPoint="140,80,0"
-                        CornerRadius="8"
-                        PointerEntered="GridScaleUp"
-                        PointerExited="GridScaleNormal">
-                        <animations:Implicit.Animations>
-                            <animations:ScaleAnimation Duration="0:0:0.5" />
-                        </animations:Implicit.Animations>
-                        <Grid.Background>
-                            <ImageBrush Stretch="UniformToFill">
-                                <ImageBrush.ImageSource>
-                                    <BitmapImage UriSource="{x:Bind ImagePath}" />
-                                </ImageBrush.ImageSource>
-                            </ImageBrush>
-                        </Grid.Background>
+        <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
+            <GridViewItem Margin="8" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertGridViewSoundName(IsCurrentlyPlaying, Unplayable, Name), Mode=OneWay}">
+                <GridViewItem.Resources>
+                    <!--  These two removes the border on hover and on pressed  -->
+                    <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
+                    <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
+                </GridViewItem.Resources>
+                <Grid
+                    Width="280"
+                    Height="160"
+                    extensions:VisualExtensions.CenterPoint="140,80,0"
+                    CornerRadius="8"
+                    PointerEntered="GridScaleUp"
+                    PointerExited="GridScaleNormal">
+                    <animations:Implicit.Animations>
+                        <animations:ScaleAnimation Duration="0:0:0.5" />
+                    </animations:Implicit.Animations>
+                    <Grid.Background>
+                        <ImageBrush Stretch="UniformToFill">
+                            <ImageBrush.ImageSource>
+                                <BitmapImage UriSource="{x:Bind ImagePath}" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Grid.Background>
 
-                        <FontIcon
-                            Margin="12"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            FontFamily="{StaticResource FluentUIGlyphs}"
+                    <FontIcon
+                        Margin="12"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="32"
+                        Foreground="White"
+                        Glyph="&#xEB7D;"
+                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}" />
+
+                    <Grid VerticalAlignment="Bottom">
+                        <Grid.Background>
+                            <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />
+                        </Grid.Background>
+                        <TextBlock
+                            Margin="12,0,0,4"
+                            FontFamily="Calibri"
                             FontSize="32"
                             Foreground="White"
-                            Glyph="&#xEB7D;"
-                            Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}" />
-
-                        <Grid VerticalAlignment="Bottom">
-                            <Grid.Background>
-                                <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />
-                            </Grid.Background>
-                            <TextBlock
-                                Margin="12,0,0,4"
-                                FontFamily="Calibri"
-                                FontSize="32"
-                                Foreground="White"
-                                Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(Name)}"
-                                TextWrapping="Wrap" />
-                        </Grid>
+                            Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(Name)}"
+                            TextWrapping="Wrap" />
                     </Grid>
-                    <GridViewItem.ContextFlyout>
-                        <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
-                            <muxc:CommandBarFlyout.SecondaryCommands>
-                                <AppBarButton
-                                    x:Uid="DeleteAppBarButton"
-                                    Command="{x:Bind DeleteCommand}"
-                                    Icon="Delete"
-                                    Visibility="{x:Bind CanDelete}" />
-                                <AppBarElementContainer>
-                                    <StackPanel Width="300" Margin="12">
-                                        <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
-                                        <TextBlock
-                                            Margin="0,8,0,0"
-                                            IsTextSelectionEnabled="True"
-                                            Text="{x:Bind Attribution}"
-                                            TextWrapping="Wrap" />
-                                    </StackPanel>
-                                </AppBarElementContainer>
-                            </muxc:CommandBarFlyout.SecondaryCommands>
-                        </muxc:CommandBarFlyout>
-                    </GridViewItem.ContextFlyout>
-                </GridViewItem>
-            </DataTemplate>
-        </ResourceDictionary>
+                </Grid>
+                <GridViewItem.ContextFlyout>
+                    <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
+                        <muxc:CommandBarFlyout.SecondaryCommands>
+                            <AppBarButton
+                                x:Uid="DeleteAppBarButton"
+                                Command="{x:Bind DeleteCommand}"
+                                Icon="Delete"
+                                Visibility="{x:Bind CanDelete}" />
+                            <AppBarElementContainer>
+                                <StackPanel Width="300" Margin="12">
+                                    <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
+                                    <TextBlock
+                                        Margin="0,8,0,0"
+                                        IsTextSelectionEnabled="True"
+                                        Text="{x:Bind Attribution}"
+                                        TextWrapping="Wrap" />
+                                </StackPanel>
+                            </AppBarElementContainer>
+                        </muxc:CommandBarFlyout.SecondaryCommands>
+                    </muxc:CommandBarFlyout>
+                </GridViewItem.ContextFlyout>
+            </GridViewItem>
+        </DataTemplate>
     </Page.Resources>
 
     <Grid Padding="0,32,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="{StaticResource HeaderHeight}" />
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
 
         <Grid

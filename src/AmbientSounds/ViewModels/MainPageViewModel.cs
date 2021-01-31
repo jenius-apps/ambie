@@ -6,11 +6,11 @@ namespace AmbientSounds.ViewModels
     public class MainPageViewModel
     {
         private readonly IScreensaverService _screensaverService;
-        private readonly IMediaPlayerService _mediaPlayerService;
+        private readonly IMixMediaPlayerService _mediaPlayerService;
 
         public MainPageViewModel(
             IScreensaverService screensaverService,
-            IMediaPlayerService mediaPlayerService)
+            IMixMediaPlayerService mediaPlayerService)
         {
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));

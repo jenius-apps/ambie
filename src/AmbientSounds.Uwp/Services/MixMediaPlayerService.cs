@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,18 +11,70 @@ namespace AmbientSounds.Services
 {
     public class MixMediaPlayerService : IMixMediaPlayerService
     {
+        private readonly Dictionary<string, MediaPlayer> _activeSounds = new Dictionary<string, MediaPlayer>();
+        private readonly int _maxActive;
+        private double _globalVolume;
+        private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
+
         /// <inheritdoc/>
         public event EventHandler<Sound> SoundAdded;
 
         /// <inheritdoc/>
         public event EventHandler<string> SoundRemoved;
 
-        private readonly Dictionary<string, MediaPlayer> _activeSounds = new Dictionary<string, MediaPlayer>();
+        /// <inheritdoc/>
+        public event EventHandler<MediaPlaybackState> PlaybackStateChanged;
+
+        public MixMediaPlayerService(IUserSettings userSettings)
+        {
+            _maxActive = userSettings?.Get<int>(UserSettingsConstants.MaxActive) ?? 3;
+        }
 
         /// <inheritdoc/>
-        public bool IsSoundPlaying(Sound s)
+        public double GlobalVolume
         {
-            return !string.IsNullOrWhiteSpace(s?.Id) && _activeSounds.ContainsKey(s.Id);
+            get => _globalVolume;
+            set => UpdateAllVolumes(value);
+        }
+
+        /// <inheritdoc/>
+        public MediaPlaybackState PlaybackState
+        {
+            get => _playbackState;
+            set
+            {
+                _playbackState = value;
+                PlaybackStateChanged?.Invoke(this, value);
+            }
+        }
+
+        private void UpdateAllVolumes(double value)
+        {
+            if (value < 0d || value > 1d)
+            {
+                return;
+            }
+
+            if (value == 0d)
+            {
+                // prevent volume from being permanently zero.
+                value = 0.01d;
+            }
+
+            foreach (var soundId in _activeSounds.Keys)
+            {
+                _activeSounds[soundId].Volume = GetVolume(soundId) * value;
+            }
+
+            // Must be set last since GetVolume
+            // uses the old global volume.
+            _globalVolume = value;
+        }
+
+        /// <inheritdoc/>
+        public bool IsSoundPlaying(string soundId)
+        {
+            return !string.IsNullOrWhiteSpace(soundId) && _activeSounds.ContainsKey(soundId);
         }
 
         /// <inheritdoc/>
@@ -32,11 +85,11 @@ namespace AmbientSounds.Services
                 return;
             }
 
-            if (IsSoundPlaying(s))
+            if (IsSoundPlaying(s.Id))
             {
-                RemoveSound(s);
+                RemoveSound(s.Id);
             }
-            else
+            else if (_activeSounds.Count < _maxActive)
             {
                 MediaSource mediaSource = null;
                 if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
@@ -55,47 +108,70 @@ namespace AmbientSounds.Services
                 {
                     var player = CreateLoopingPlayer();
                     player.Source = mediaSource;
-                    player.Play();
                     _activeSounds.Add(s.Id, player);
                     SoundAdded?.Invoke(this, s);
+                    Play();
                 }
             }
         }
 
         /// <inheritdoc/>
-        public void SetVolume(Sound s, double value)
+        public void SetVolume(string soundId, double value)
         {
-            if (IsSoundPlaying(s) && value <= 1d && value >= 0d)
+            if (IsSoundPlaying(soundId) && value <= 1d && value >= 0d)
             {
-                _activeSounds[s.Id].Volume = value;
+                _activeSounds[soundId].Volume = value * _globalVolume;
             }
         }
 
         /// <inheritdoc/>
-        public double GetVolume(Sound s)
+        public double GetVolume(string soundId)
         {
-            if (IsSoundPlaying(s))
+            if (IsSoundPlaying(soundId))
             {
-                return _activeSounds[s.Id].Volume;
+                return _activeSounds[soundId].Volume / _globalVolume;
             }
 
             return 0;
         }
 
-        /// <inheritdoc/>
-        public void RemoveSound(Sound s)
+        public void Play()
         {
-            if (string.IsNullOrWhiteSpace(s?.Id) || !IsSoundPlaying(s))
+            PlaybackState = MediaPlaybackState.Playing;
+            foreach (var p in _activeSounds.Values)
+            {
+                p.Play();
+            }
+        }
+
+        public void Pause()
+        {
+            PlaybackState = MediaPlaybackState.Paused;
+            foreach (var p in _activeSounds.Values)
+            {
+                p.Pause();
+            }
+        }
+
+        /// <inheritdoc/>
+        public void RemoveSound(string soundId)
+        {
+            if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId))
             {
                 return;
             }
 
-            var player = _activeSounds[s.Id];
+            var player = _activeSounds[soundId];
             player.Pause();
             player.Dispose();
-            _activeSounds[s.Id] = null;
-            _activeSounds.Remove(s.Id);
-            SoundRemoved?.Invoke(this, s.Id);
+            _activeSounds[soundId] = null;
+            _activeSounds.Remove(soundId);
+            SoundRemoved?.Invoke(this, soundId);
+
+            if (_activeSounds.Count == 0)
+            {
+                Pause();
+            }
         }
 
         private MediaPlayer CreateLoopingPlayer() => new MediaPlayer() { IsLoopingEnabled = true };

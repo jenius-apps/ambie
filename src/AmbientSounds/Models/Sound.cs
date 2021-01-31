@@ -8,22 +8,22 @@
         /// <summary>
         /// GUID.
         /// </summary>
-        public string? Id { get; set; }
+        public string Id { get; set; } = "";
 
         /// <summary>
         /// Path to image file.
         /// </summary>
-        public string? ImagePath { get; set; }
+        public string ImagePath { get; set; } = "";
 
         /// <summary>
         /// Name of sound.
         /// </summary>
-        public string? Name { get; set; }
+        public string Name { get; set; } = "";
 
         /// <summary>
         /// Path of sound file.
         /// </summary>
-        public string? FilePath { get; set; }
+        public string FilePath { get; set; } = "";
 
         /// <summary>
         /// Path of preview sound file.
@@ -33,12 +33,12 @@
         /// <summary>
         /// Extension of sound file.
         /// </summary>
-        public string? FileExtension { get; set; }
+        public string FileExtension { get; set; } = "";
 
         /// <summary>
         /// Copyright or attribution text.
         /// </summary>
-        public string? Attribution { get; set; }
+        public string Attribution { get; set; } = "";
 
         /// <summary>
         /// The list of image paths to be used

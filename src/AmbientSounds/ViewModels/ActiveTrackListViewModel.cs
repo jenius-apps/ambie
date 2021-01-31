@@ -50,7 +50,7 @@ namespace AmbientSounds.ViewModels
         {
             if (s != null)
             {
-                _player.RemoveSound(s);
+                _player.RemoveSound(s.Id);
             }
         }
 

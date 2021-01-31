@@ -33,10 +33,10 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public double Volume
         {
-            get => _player.GetVolume(Sound) * 100;
+            get => _player.GetVolume(Sound.Id) * 100;
             set
             {
-                _player.SetVolume(Sound, value / 100d);
+                _player.SetVolume(Sound.Id, value / 100d);
             }
         }
 

@@ -84,7 +84,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
-        public bool IsCurrentlyPlaying => _playerService.IsSoundPlaying(_sound);
+        public bool IsCurrentlyPlaying => _playerService.IsSoundPlaying(_sound.Id);
 
         /// <summary>
         /// Loads this sound into the player and plays it.
@@ -105,7 +105,7 @@ namespace AmbientSounds.ViewModels
 
         private async void DeleteSound()
         {
-            _playerService.RemoveSound(_sound);
+            _playerService.RemoveSound(_sound.Id);
             _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
             {
                 { "name", _sound.Name ?? "" },
