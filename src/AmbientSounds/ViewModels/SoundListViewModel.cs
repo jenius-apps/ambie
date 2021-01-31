@@ -12,7 +12,6 @@ namespace AmbientSounds.ViewModels
 {
     public class SoundListViewModel
     {
-        private readonly IMediaPlayerService _player;
         private readonly ISoundDataProvider _provider;
         private readonly ITelemetry _telemetry;
         private readonly ISoundVmFactory _factory;
@@ -22,17 +21,14 @@ namespace AmbientSounds.ViewModels
         /// immediately after creation.
         /// </summary>
         public SoundListViewModel(
-            IMediaPlayerService mediaPlayerService,
             ISoundDataProvider soundDataProvider,
             ITelemetry telemetry,
             ISoundVmFactory soundVmFactory)
         {
-            Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
 
-            _player = mediaPlayerService;
             _provider = soundDataProvider;
             _telemetry = telemetry;
             _factory = soundVmFactory;
@@ -48,7 +44,6 @@ namespace AmbientSounds.ViewModels
         {
             var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
             if (forDeletion == null) return;
-            _player.DeleteFromPlaylist(forDeletion.Index);
             Sounds.Remove(forDeletion);
 
             int index = 0;
@@ -59,11 +54,10 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private async void OnLocalSoundAdded(object sender, Models.Sound e)
+        private void OnLocalSoundAdded(object sender, Models.Sound e)
         {
             var s = _factory.GetSoundVm(e, Sounds.Count);
             Sounds.Add(s);
-            await _player.AddToPlaylistAsync(e);
         }
 
         /// <summary>
@@ -97,8 +91,6 @@ namespace AmbientSounds.ViewModels
                 Sounds.Add(s);
                 index++;
             }
-
-           await  _player.Initialize(soundList);
         }
 
         /// <summary>

@@ -223,7 +223,6 @@ namespace AmbientSounds
                 .AddSingleton<IScreensaverService, ScreensaverService>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
-                .AddSingleton<IMediaPlayerService, MediaPlayerService>()
                 .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .AddSingleton<IAppSettings, AppSettings>()

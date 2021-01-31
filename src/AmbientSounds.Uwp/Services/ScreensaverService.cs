@@ -12,14 +12,14 @@ namespace AmbientSounds.Services.Uwp
         private readonly IUserSettings _settings;
         private readonly ITelemetry _telemetry;
         private readonly INavigator _navigator;
-        private readonly IMediaPlayerService _mediaPlayerService;
+        private readonly IMixMediaPlayerService _mediaPlayerService;
         private DispatcherTimer _screensaverTriggerTimer;
 
         public ScreensaverService(
             ITelemetry telemetry,
             IUserSettings userSettings,
             INavigator navigator,
-            IMediaPlayerService mediaPlayerService)
+            IMixMediaPlayerService mediaPlayerService)
         {
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(userSettings, nameof(userSettings));

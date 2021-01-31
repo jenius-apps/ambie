@@ -11,12 +11,12 @@ namespace AmbientSounds.ViewModels
     public class SleepTimerViewModel : ObservableObject
     {
         private const int DefaultTimerInterval = 1000;
-        private readonly IMediaPlayerService _player;
+        private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly ITimerService _timer;
 
         public SleepTimerViewModel(
-            IMediaPlayerService player,
+            IMixMediaPlayerService player,
             ITimerService timer,
             ITelemetry telemetry)
         {

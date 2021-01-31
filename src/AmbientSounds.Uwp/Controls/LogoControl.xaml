@@ -37,17 +37,5 @@
         <animations:Implicit.Animations>
             <animations:ScaleAnimation Duration="0:0:0.5" />
         </animations:Implicit.Animations>
-        <animations:Implicit.ShowAnimations>
-            <animations:OpacityAnimation
-                From="0"
-                To="1.0"
-                Duration="0:0:0.3" />
-        </animations:Implicit.ShowAnimations>
-        <animations:Implicit.HideAnimations>
-            <animations:OpacityAnimation
-                From="1.0"
-                To="0"
-                Duration="0:0:0.3" />
-        </animations:Implicit.HideAnimations>
     </Button>
 </UserControl>

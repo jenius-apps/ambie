@@ -36,7 +36,7 @@ namespace AmbientSounds.ViewModels
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
 
-            _playerService.SoundRemoved += OnSoundRemoved;
+            _playerService.SoundRemoved += OnSoundPaused;
 
             DeleteCommand = new RelayCommand(DeleteSound);
         }
@@ -95,7 +95,7 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(IsCurrentlyPlaying));
         }
 
-        private void OnSoundRemoved(object sender, string soundId)
+        private void OnSoundPaused(object sender, string soundId)
         {
             if (Id == soundId)
             {

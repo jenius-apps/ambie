@@ -11,7 +11,7 @@ namespace AmbientSounds.ViewModels
     {
         private const int ImageTimeLength = 30000; // milliseconds
         private readonly ITimerService _timerService;
-        private readonly IMediaPlayerService _mediaPlayerService;
+        private readonly IMixMediaPlayerService _mediaPlayerService;
         private readonly ITelemetry _telemetry;
         private IList<string> _images = new List<string>();
         private string _imageSource1 = "https://localhost:8080";
@@ -24,7 +24,7 @@ namespace AmbientSounds.ViewModels
 
         public ScreensaverViewModel(
             ITimerService timerService,
-            IMediaPlayerService mediaPlayerService,
+            IMixMediaPlayerService mediaPlayerService,
             ITelemetry telemetry)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
@@ -71,10 +71,10 @@ namespace AmbientSounds.ViewModels
         {
             _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded, new Dictionary<string, string>
             {
-                { "sound", _mediaPlayerService.Current?.Name ?? "---" },
+                //{ "sound", _mediaPlayerService.Current?.Name ?? "---" },
             });
 
-            _images = _mediaPlayerService.Current?.ScreensaverImagePaths ?? new string[0];
+            //_images = _mediaPlayerService.Current?.ScreensaverImagePaths ?? new string[0];
             if (_images == null || _images.Count < 2)
             {
                 return;
