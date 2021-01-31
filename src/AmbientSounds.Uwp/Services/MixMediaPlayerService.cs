@@ -3,9 +3,11 @@ using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.Media;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.Storage;
+using Windows.System;
 
 namespace AmbientSounds.Services.Uwp
 {
@@ -15,6 +17,8 @@ namespace AmbientSounds.Services.Uwp
         private readonly int _maxActive;
         private double _globalVolume;
         private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
+        private readonly SystemMediaTransportControls _smtc;
+        private readonly DispatcherQueue _dispatcherQueue;
 
         /// <inheritdoc/>
         public event EventHandler<Sound> SoundAdded;
@@ -28,6 +32,28 @@ namespace AmbientSounds.Services.Uwp
         public MixMediaPlayerService(IUserSettings userSettings)
         {
             _maxActive = userSettings?.Get<int>(UserSettingsConstants.MaxActive) ?? 3;
+            _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+            _smtc = SystemMediaTransportControls.GetForCurrentView();
+            InitializeSmtc();
+        }
+
+        private void SmtcButtonPressed(SystemMediaTransportControls sender, SystemMediaTransportControlsButtonPressedEventArgs args)
+        {
+            // Note: Playing and pausing the players
+            // will not work unless we move to the UI thread.
+            // Thus we use the dispatcher queue below.
+
+            switch (args.Button)
+            {
+                case SystemMediaTransportControlsButton.Play:
+                    _dispatcherQueue.TryEnqueue(Play);
+                    break;
+                case SystemMediaTransportControlsButton.Pause:
+                    _dispatcherQueue.TryEnqueue(Pause);
+                    break;
+                default:
+                    break;
+            }
         }
 
         /// <inheritdoc/>
@@ -49,6 +75,11 @@ namespace AmbientSounds.Services.Uwp
             {
                 _playbackState = value;
                 PlaybackStateChanged?.Invoke(this, value);
+
+                if (value == MediaPlaybackState.Playing) 
+                    _smtc.PlaybackStatus = MediaPlaybackStatus.Playing;
+                else if (value == MediaPlaybackState.Paused) 
+                    _smtc.PlaybackStatus = MediaPlaybackStatus.Paused;
             }
         }
 
@@ -179,6 +210,22 @@ namespace AmbientSounds.Services.Uwp
             {
                 Pause();
             }
+        }
+
+        /// <summary>
+        /// Initializes the Sytem Media Transport Control
+        /// integration. This is required in order to
+        /// play background audio. And of course,
+        /// we also want to integrate with the OS music controls.
+        /// </summary>
+        private void InitializeSmtc()
+        {
+            // ref: https://docs.microsoft.com/en-us/windows/uwp/audio-video-camera/system-media-transport-controls
+            _smtc.IsPlayEnabled = true;
+            _smtc.IsPauseEnabled = true;
+            _smtc.IsNextEnabled = false;
+            _smtc.IsPreviousEnabled = false;
+            _smtc.ButtonPressed += SmtcButtonPressed;
         }
 
         private MediaPlayer CreateLoopingPlayer() 
