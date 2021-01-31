@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -74,7 +75,10 @@ namespace AmbientSounds.ViewModels
                 //{ "sound", _mediaPlayerService.Current?.Name ?? "---" },
             });
 
-            //_images = _mediaPlayerService.Current?.ScreensaverImagePaths ?? new string[0];
+            _images = _mediaPlayerService.Screensavers.Count == 0
+                ? new string[0]
+                : _mediaPlayerService.Screensavers.First().Value.ToList();
+
             if (_images == null || _images.Count < 2)
             {
                 return;

@@ -7,7 +7,7 @@ using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.Storage;
 
-namespace AmbientSounds.Services
+namespace AmbientSounds.Services.Uwp
 {
     public class MixMediaPlayerService : IMixMediaPlayerService
     {
@@ -29,6 +29,10 @@ namespace AmbientSounds.Services
         {
             _maxActive = userSettings?.Get<int>(UserSettingsConstants.MaxActive) ?? 3;
         }
+
+        /// <inheritdoc/>
+        public Dictionary<string, string[]> Screensavers { get; } = new Dictionary<string, string[]>();
+
 
         /// <inheritdoc/>
         public double GlobalVolume
@@ -109,6 +113,7 @@ namespace AmbientSounds.Services
                     var player = CreateLoopingPlayer();
                     player.Source = mediaSource;
                     _activeSounds.Add(s.Id, player);
+                    Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? new string[0]);
                     SoundAdded?.Invoke(this, s);
                     Play();
                 }
@@ -166,6 +171,7 @@ namespace AmbientSounds.Services
             player.Dispose();
             _activeSounds[soundId] = null;
             _activeSounds.Remove(soundId);
+            Screensavers.Remove(soundId);
             SoundRemoved?.Invoke(this, soundId);
 
             if (_activeSounds.Count == 0)

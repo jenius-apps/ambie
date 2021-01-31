@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -31,6 +32,11 @@ namespace AmbientSounds.Services
         /// Global volume control. Max = 1. Min = 0.
         /// </summary>
         double GlobalVolume { get; set; }
+
+        /// <summary>
+        /// Dictionary of screensavers for the active tracks.
+        /// </summary>
+        Dictionary<string, string[]> Screensavers { get; }
 
         /// <summary>
         /// The current global state of the player.
