@@ -213,6 +213,7 @@ namespace AmbientSounds
                 .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
+                .AddTransient<ISoundMixService, SoundMixService>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()

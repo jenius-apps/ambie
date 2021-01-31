@@ -16,6 +16,7 @@ namespace AmbientSounds.ViewModels
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
 
         public SoundViewModel(
@@ -23,15 +24,18 @@ namespace AmbientSounds.ViewModels
             IMixMediaPlayerService playerService,
             int index,
             ISoundDataProvider soundDataProvider,
+            ISoundMixService soundMixService,
             ITelemetry telemetry)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(soundMixService, nameof(soundMixService));
 
             Index = index;
             _sound = s;
+            _soundMixService = soundMixService;
             _playerService = playerService;
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
@@ -65,7 +69,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// The path for the image to display for the current sound.
         /// </summary>
-        public string? ImagePath => _sound.ImagePath;
+        public string? ImagePath => _sound.IsMix ? _sound.ImagePaths[0] : _sound.ImagePath;
 
         /// <summary>
         /// If true, item can be deleted from local storage.
@@ -92,7 +96,14 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public async void Play()
         {
-            await _playerService.ToggleSoundAsync(_sound);
+            if (!_sound.IsMix)
+            {
+                await _playerService.ToggleSoundAsync(_sound);
+            }
+            else
+            {
+                await _soundMixService.LoadMixAsync(_sound);
+            }
         }
 
         private void OnSoundPaused(object sender, string soundId)

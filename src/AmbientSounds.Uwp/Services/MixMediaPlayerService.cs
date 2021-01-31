@@ -2,6 +2,7 @@
 using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.Media;
 using Windows.Media.Core;
@@ -59,6 +60,8 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public Dictionary<string, string[]> Screensavers { get; } = new Dictionary<string, string[]>();
 
+        /// <inheritdoc/>
+        public string CurrentMixId { get; set; }
 
         /// <inheritdoc/>
         public double GlobalVolume
@@ -113,7 +116,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task ToggleSoundAsync(Sound s, bool keepPaused = false)
+        public async Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "")
         {
             if (string.IsNullOrWhiteSpace(s?.Id))
             {
@@ -141,15 +144,17 @@ namespace AmbientSounds.Services.Uwp
                 
                 if (mediaSource != null)
                 {
+                    CurrentMixId = parentMixId;
                     var player = CreateLoopingPlayer();
                     player.Volume *= _globalVolume;
                     player.Source = mediaSource;
                     _activeSounds.Add(s.Id, player);
                     Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? new string[0]);
-                    SoundAdded?.Invoke(this, s);
 
                     if (keepPaused) Pause();
                     else Play();
+
+                    SoundAdded?.Invoke(this, s);
                 }
             }
         }
@@ -193,6 +198,15 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public void RemoveAll()
+        {
+            foreach (var soundId in _activeSounds.Keys.ToList())
+            {
+                RemoveSound(soundId);
+            }
+        }
+
+        /// <inheritdoc/>
         public void RemoveSound(string soundId)
         {
             if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId))
@@ -206,12 +220,14 @@ namespace AmbientSounds.Services.Uwp
             _activeSounds[soundId] = null;
             _activeSounds.Remove(soundId);
             Screensavers.Remove(soundId);
-            SoundRemoved?.Invoke(this, soundId);
+            CurrentMixId = "";
 
             if (_activeSounds.Count == 0)
             {
                 Pause();
             }
+
+            SoundRemoved?.Invoke(this, soundId);
         }
 
         /// <summary>

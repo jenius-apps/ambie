@@ -56,5 +56,21 @@
         /// associated with this sound.
         /// </summary>
         public string IapId { get; set; } = "";
+
+        /// <summary>
+        /// If true, this sound is a custom mix.
+        /// </summary>
+        public bool IsMix { get; set; }
+
+        /// <summary>
+        /// The list of image paths to be used
+        /// for the mix.
+        /// </summary>
+        public string[] ImagePaths { get; set; } = new string[0];
+
+        /// <summary>
+        /// List of sound Ids for this mix.
+        /// </summary>
+        public string[] SoundIds { get; set; } = new string[0];
     }
 }

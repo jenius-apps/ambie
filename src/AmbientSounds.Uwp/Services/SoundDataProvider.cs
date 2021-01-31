@@ -18,7 +18,7 @@ namespace AmbientSounds.Services.Uwp
         private const string DataFileName = "Data.json";
         private const string LocalDataFileName = "localData.json";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
-        private List<Sound> _localSoundCache;
+        private List<Sound> _localSoundCache; // cache of non-packaged sounds.
         private bool _refreshed;
 
         /// <inheritdoc/>
@@ -36,11 +36,6 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(string[] soundIds = null)
         {
-            if (soundIds != null && _localSoundCache != null)
-            {
-                return _localSoundCache.Where(x => soundIds.Contains(x.Id)).ToArray();
-            }
-
             var packagedSounds = await GetPackagedSoundsAsync();
             var localSounds = await GetLocalSoundsAsync(refresh: soundIds == null);
             packagedSounds.AddRange(localSounds);

@@ -49,6 +49,11 @@ namespace AmbientSounds.Constants
         public const string ActiveTracks = "ActiveTracks";
 
         /// <summary>
+        /// Key for the active mix Id.
+        /// </summary>
+        public const string ActiveMixId = "ActiveMixId";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
@@ -60,6 +65,7 @@ namespace AmbientSounds.Constants
             { DarkScreensasver, false },
             { MaxActive, 3 },
             { ActiveTracks, new string[0] },
+            { ActiveMixId, "" },
             { Theme, "default" }
         };
     }

@@ -34,6 +34,12 @@ namespace AmbientSounds.Services
         double GlobalVolume { get; set; }
 
         /// <summary>
+        /// The ID of the current mix being played.
+        /// If a mix is not being played, this will be empty.
+        /// </summary>
+        string CurrentMixId { get; set; }
+
+        /// <summary>
         /// Dictionary of screensavers for the active tracks.
         /// </summary>
         Dictionary<string, string[]> Screensavers { get; }
@@ -61,7 +67,12 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="s">The sound to toggle.</param>
         /// <param name="keepPaused">Optional. If true, an inserted sound will not be played automatically.</param>
-        Task ToggleSoundAsync(Sound s, bool keepPaused = false);
+        Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "");
+
+        /// <summary>
+        /// Removes all active tracks.
+        /// </summary>
+        void RemoveAll();
 
         /// <summary>
         /// Removes the sound
