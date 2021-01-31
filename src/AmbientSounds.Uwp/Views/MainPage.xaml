@@ -81,10 +81,7 @@
                         Glyph="&#xEB7D;"
                         Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}" />
 
-                    <Grid
-                        x:Name="NamePlate"
-                        VerticalAlignment="Bottom"
-                        x:Load="{x:Bind IsNotMix}">
+                    <Grid VerticalAlignment="Bottom">
                         <Grid.Background>
                             <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />
                         </Grid.Background>
@@ -94,7 +91,7 @@
                             FontSize="32"
                             Foreground="White"
                             Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(Name)}"
-                            TextWrapping="Wrap" />
+                            TextTrimming="CharacterEllipsis" />
                     </Grid>
                 </Grid>
                 <GridViewItem.ContextFlyout>

@@ -14,6 +14,7 @@ namespace AmbientSounds.Services
     {
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly IMixMediaPlayerService _player;
+        private readonly string[] _namePlaceholders = new string[] { "🎵", "🎼", "🎧", "🎶" };
 
         public SoundMixService(
             ISoundDataProvider soundDataProvider,
@@ -38,13 +39,20 @@ namespace AmbientSounds.Services
             {
                 Id = Guid.NewGuid().ToString(),
                 IsMix = true,
-                Name = "🎶",
+                Name = RandomName(),
                 SoundIds = sounds.Select(x => x.Id).ToArray(),
                 ImagePaths = sounds.Select(x => x.ImagePath).ToArray()
             };
 
             await _soundDataProvider.AddLocalSoundAsync(mix);
             return mix.Id;
+        }
+
+        private string RandomName()
+        {
+            var rand = new Random();
+            var result = rand.Next(4);
+            return _namePlaceholders[result];
         }
 
         /// <inheritdoc/>
