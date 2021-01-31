@@ -8,18 +8,23 @@ namespace AmbientSounds.ViewModels
     public class ActiveTrackViewModel
     {
         private readonly IMixMediaPlayerService _player;
+        private readonly IUserSettings _userSettings;
 
         public ActiveTrackViewModel(
             Sound s,
             IRelayCommand<Sound> removeCommand,
-            IMixMediaPlayerService player)
+            IMixMediaPlayerService player,
+            IUserSettings userSettings)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(removeCommand, nameof(removeCommand));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
+            _userSettings = userSettings;
             Sound = s;
             _player = player;
             RemoveCommand = removeCommand;
+            Volume = _userSettings.Get($"{Sound.Id}:volume", 100d);
         }
 
         /// <summary>
@@ -37,6 +42,7 @@ namespace AmbientSounds.ViewModels
             set
             {
                 _player.SetVolume(Sound.Id, value / 100d);
+                _userSettings.Set($"{Sound.Id}:volume", value);
             }
         }
 

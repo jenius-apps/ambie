@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Factories;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -10,11 +11,16 @@ namespace AmbientSounds.ViewModels
     public class ActiveTrackListViewModel
     {
         private readonly IMixMediaPlayerService _player;
+        private readonly ISoundVmFactory _soundVmFactory;
 
         public ActiveTrackListViewModel(
-            IMixMediaPlayerService player)
+            IMixMediaPlayerService player,
+            ISoundVmFactory soundVmFactory)
         {
             Guard.IsNotNull(player, nameof(player));
+            Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
+
+            _soundVmFactory = soundVmFactory;
             _player = player;
 
             _player.SoundAdded += OnSoundAdded;
@@ -38,11 +44,11 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private void OnSoundAdded(object sender, Sound e)
+        private void OnSoundAdded(object sender, Sound s)
         {
-            if (!ActiveTracks.Any(x => x.Sound?.Id == e.Id))
+            if (!ActiveTracks.Any(x => x.Sound?.Id == s.Id))
             {
-                ActiveTracks.Add(new ActiveTrackViewModel(e, RemoveCommand, _player));
+                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(s, RemoveCommand));
             }
         }
 

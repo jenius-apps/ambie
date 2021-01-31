@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace AmbientSounds.Factories
 {
@@ -16,6 +17,7 @@ namespace AmbientSounds.Factories
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
         private readonly IPreviewService _previewService;
+        private readonly IUserSettings _userSettings;
 
         public SoundVmFactory(
             IDownloadManager downloadManager,
@@ -23,6 +25,7 @@ namespace AmbientSounds.Factories
             ITelemetry telemetry,
             IPreviewService previewService,
             ISoundDataProvider soundDataProvider,
+            IUserSettings userSettings,
             IIapService iapService)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
@@ -31,7 +34,9 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(previewService, nameof(previewService));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
 
+            _userSettings = userSettings;
             _downloadManager = downloadManager;
             _previewService = previewService;
             _iapService = iapService;
@@ -66,6 +71,14 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(s, nameof(s));
             Guard.IsGreaterThan(index, -1, nameof(index));
             return new SoundViewModel(s, _player, index, _soundDataProvider, _telemetry);
+        }
+
+        /// <inheritdoc/>
+        public ActiveTrackViewModel GetActiveTrackVm(Sound s, IRelayCommand<Sound> removeCommand)
+        {
+            Guard.IsNotNull(s, nameof(s));
+            Guard.IsNotNull(removeCommand, nameof(removeCommand));
+            return new ActiveTrackViewModel(s, removeCommand, _player, _userSettings);
         }
     }
 }
