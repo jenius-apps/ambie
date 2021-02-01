@@ -67,14 +67,26 @@
             </ListView.ItemsPanel>
         </ListView>
 
-        <Button
+        <StackPanel
             Grid.Column="1"
             Margin="12,0,0,0"
-            Command="{x:Bind ViewModel.SaveCommand}"
-            Style="{StaticResource TransparentRoundButtonStyle}"
-            ToolTipService.ToolTip="Save custom mix"
-            Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
-            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
-        </Button>
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Button
+                Command="{x:Bind ViewModel.SaveCommand}"
+                Style="{StaticResource TransparentRoundButtonStyle}"
+                ToolTipService.ToolTip="Save custom mix"
+                Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
+            </Button>
+
+            <Button
+                Command="{x:Bind ViewModel.ClearCommand}"
+                Style="{StaticResource TransparentRoundButtonStyle}"
+                ToolTipService.ToolTip="Clear active sounds">
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -43,8 +43,17 @@ namespace AmbientSounds.ViewModels
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             SaveCommand = new AsyncRelayCommand(SaveAsync);
+            ClearCommand = new RelayCommand(ClearAll);
         }
 
+        /// <summary>
+        /// Clears the active tracks list.
+        /// </summary>
+        public IRelayCommand ClearCommand { get; }
+
+        /// <summary>
+        /// Command for saving the sound mix.
+        /// </summary>
         public IAsyncRelayCommand SaveCommand { get; }
 
         /// <summary>
@@ -77,6 +86,17 @@ namespace AmbientSounds.ViewModels
                 {
                     await _player.ToggleSoundAsync(s, keepPaused: true, parentMixId: mixId);
                 }
+            }
+        }
+
+        private void ClearAll()
+        {
+            if (ActiveTracks.Count > 0)
+            {
+                ActiveTracks.Clear();
+                _player.RemoveAll();
+                UpdateStoredState();
+                UpdateCanSave();
             }
         }
 
