@@ -36,20 +36,21 @@
             Margin="20,0,0,0"
             VerticalAlignment="Center"
             Background="Transparent">
-            <TextBlock Margin="0,8,0,0" Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(ViewModel.SoundName), Mode=OneWay}" />
+            <TextBlock x:Uid="GlobalVolume" Margin="0,8,0,0" />
             <Slider
                 x:Uid="VolumeSlider"
                 Width="120"
                 Margin="0,4,0,0"
                 Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
         </StackPanel>
-        <Button
+        <!--<Button
             x:Uid="RandomButton"
             Margin="12,0,0,0"
             Command="{x:Bind ViewModel.RandomCommand}"
-            Style="{StaticResource TransparentRoundButtonStyle}">
+            Style="{StaticResource TransparentRoundButtonStyle}"
+            Visibility="Collapsed">
             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE14B;" />
-        </Button>
+        </Button>-->
 
     </StackPanel>
 </UserControl>

@@ -1,16 +1,19 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 
 namespace AmbientSounds.ViewModels
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : ObservableObject
     {
         private readonly IScreensaverService _screensaverService;
-        private readonly IMediaPlayerService _mediaPlayerService;
+        private readonly IMixMediaPlayerService _mediaPlayerService;
+        private bool _maxTeachingTipOpen;
 
         public MainPageViewModel(
             IScreensaverService screensaverService,
-            IMediaPlayerService mediaPlayerService)
+            IMixMediaPlayerService mediaPlayerService)
         {
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
@@ -18,6 +21,25 @@ namespace AmbientSounds.ViewModels
             _mediaPlayerService = mediaPlayerService;
 
             _mediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
+            _mediaPlayerService.MaxReached += OnMaxReached;
+        }
+
+        private void OnMaxReached(object sender, EventArgs e)
+        {
+            MaxTeachingTipOpen = true;
+        }
+
+        /// <summary>
+        /// Controls when the teaching tip is visible or not.
+        /// </summary>
+        public bool MaxTeachingTipOpen
+        {
+            get => _maxTeachingTipOpen;
+            set
+            {
+                _maxTeachingTipOpen = value;
+                OnPropertyChanged();
+            }
         }
 
         /// <summary>

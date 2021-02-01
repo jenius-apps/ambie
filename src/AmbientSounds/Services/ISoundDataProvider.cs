@@ -23,8 +23,10 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Retrieves list of sound data available.
         /// </summary>
+        /// <param name="refresh">Optional. If true, data will be refreshed from local storage.</param>
+        /// <param name="soundIds">Optional. Fetches sound with given Ids.</param>
         /// <returns>A list of <see cref="Sound"/> instances.</returns>
-        Task<IList<Sound>> GetSoundsAsync();
+        Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[] soundIds = null);
 
         /// <summary>
         /// Adds sound info to local list.
@@ -44,5 +46,12 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="s">The sound to check.</param>
         Task<bool> IsSoundInstalledAsync(string id);
+
+        /// <summary>
+        /// Refreshes the downloaded metadata with updated metadata from
+        /// the online provider. This is used to update things like names
+        /// or attribution.
+        /// </summary>
+        Task RefreshLocalSoundsMetaDataAsync();
     }
 }

@@ -78,7 +78,7 @@ namespace AmbientSounds.Services
                     // add new record to local provider
                     var newSoundInfo = new Sound
                     {
-                        Id = soundData.Id,
+                        Id = soundData.Id ?? "",
                         ImagePath = localImagePath,
                         Name = soundData.Name,
                         FilePath = localSoundPath,

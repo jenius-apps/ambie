@@ -11,12 +11,12 @@ namespace AmbientSounds.ViewModels
     public class SleepTimerViewModel : ObservableObject
     {
         private const int DefaultTimerInterval = 1000;
-        private readonly IMediaPlayerService _player;
+        private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly ITimerService _timer;
 
         public SleepTimerViewModel(
-            IMediaPlayerService player,
+            IMixMediaPlayerService player,
             ITimerService timer,
             ITelemetry telemetry)
         {
@@ -100,29 +100,17 @@ namespace AmbientSounds.ViewModels
         {
             if (_timer.Remaining > new TimeSpan(0))
             {
-                _telemetry.TrackEvent(TelemetryConstants.TimerStateChanged, new Dictionary<string, string>
-                {
-                    { "event", "play" }
-                });
                 _timer.Start();
             }
         }
 
         private void PauseTimer()
         {
-            _telemetry.TrackEvent(TelemetryConstants.TimerStateChanged, new Dictionary<string, string>
-            {
-                { "event", "pause" }
-            });
             _timer.Stop();
         }
 
         private void StopTimer()
         {
-            _telemetry.TrackEvent(TelemetryConstants.TimerStateChanged, new Dictionary<string, string>
-            {
-                { "event", "stop" }
-            });
             _timer.Stop();
             _timer.Remaining = new TimeSpan(0);
             CountdownVisible = false;

@@ -39,6 +39,21 @@ namespace AmbientSounds.Constants
         public const string DarkScreensasver = "DarkScreensaver";
 
         /// <summary>
+        /// The number of max active tracks.
+        /// </summary>
+        public const string MaxActive = "MaxActive";
+
+        /// <summary>
+        /// Key for the list of active tracks.
+        /// </summary>
+        public const string ActiveTracks = "ActiveTracks";
+
+        /// <summary>
+        /// Key for the active mix Id.
+        /// </summary>
+        public const string ActiveMixId = "ActiveMixId";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
@@ -48,6 +63,9 @@ namespace AmbientSounds.Constants
             { Notifications, true },
             { EnableScreenSaver, false },
             { DarkScreensasver, false },
+            { MaxActive, 3 },
+            { ActiveTracks, new string[0] },
+            { ActiveMixId, "" },
             { Theme, "default" }
         };
     }

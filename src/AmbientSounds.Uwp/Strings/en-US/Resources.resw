@@ -259,7 +259,10 @@
     <value>Stop the timer and clear the time</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>Change sound volume</value>
+    <value>Global volume</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Sound volume</value>
   </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
     <value>Want more sounds? Send suggestions!</value>
@@ -393,5 +396,49 @@
   </data>
   <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Preview sound</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Paused</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Playing</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>Active sounds</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Clear all active sounds</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Clear all active sounds</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Confirm save</value>
+  </data>
+  <data name="GlobalVolume.Text" xml:space="preserve">
+    <value>Global volume</value>
+  </data>
+  <data name="LimitReachedMessage.Text" xml:space="preserve">
+    <value>Remove a sound to make space for another.</value>
+  </data>
+  <data name="LimitReachedTitle.Text" xml:space="preserve">
+    <value>Limit reached!</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>Sound mix name</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Remove from active list</value>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Save custom sound mix</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Save custom sound mix (Ctrl+S)</value>
   </data>
 </root>

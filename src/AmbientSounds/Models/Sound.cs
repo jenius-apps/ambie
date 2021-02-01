@@ -8,22 +8,22 @@
         /// <summary>
         /// GUID.
         /// </summary>
-        public string? Id { get; set; }
+        public string Id { get; set; } = "";
 
         /// <summary>
         /// Path to image file.
         /// </summary>
-        public string? ImagePath { get; set; }
+        public string ImagePath { get; set; } = "";
 
         /// <summary>
         /// Name of sound.
         /// </summary>
-        public string? Name { get; set; }
+        public string Name { get; set; } = "";
 
         /// <summary>
         /// Path of sound file.
         /// </summary>
-        public string? FilePath { get; set; }
+        public string FilePath { get; set; } = "";
 
         /// <summary>
         /// Path of preview sound file.
@@ -33,12 +33,12 @@
         /// <summary>
         /// Extension of sound file.
         /// </summary>
-        public string? FileExtension { get; set; }
+        public string FileExtension { get; set; } = "";
 
         /// <summary>
         /// Copyright or attribution text.
         /// </summary>
-        public string? Attribution { get; set; }
+        public string Attribution { get; set; } = "";
 
         /// <summary>
         /// The list of image paths to be used
@@ -56,5 +56,21 @@
         /// associated with this sound.
         /// </summary>
         public string IapId { get; set; } = "";
+
+        /// <summary>
+        /// If true, this sound is a custom mix.
+        /// </summary>
+        public bool IsMix { get; set; }
+
+        /// <summary>
+        /// The list of image paths to be used
+        /// for the mix.
+        /// </summary>
+        public string[] ImagePaths { get; set; } = new string[0];
+
+        /// <summary>
+        /// List of sound Ids for this mix.
+        /// </summary>
+        public string[] SoundIds { get; set; } = new string[0];
     }
 }

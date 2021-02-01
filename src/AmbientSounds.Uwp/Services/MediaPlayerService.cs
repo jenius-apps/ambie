@@ -19,6 +19,7 @@ namespace AmbientSounds.Services.Uwp
     /// <summary>
     /// Service that controls a media player.
     /// </summary>
+    [Obsolete("Use MixMediaPlayerService instead.")]
     public sealed class MediaPlayerService : IMediaPlayerService
     {
         /// <inheritdoc/>
@@ -195,21 +196,12 @@ namespace AmbientSounds.Services.Uwp
         public void Play()
         {
             _player.Play();
-
-            _telemetry.TrackEvent(TelemetryConstants.PlaybackStateChanged, new Dictionary<string, string>
-            {
-                { "event", "play" }
-            });
         }
 
         /// <inheritdoc/>
         public void Pause()
         {
             _player.Pause();
-            _telemetry.TrackEvent(TelemetryConstants.PlaybackStateChanged, new Dictionary<string, string>
-            {
-                { "event", "pause" }
-            });
         }
 
         /// <summary>

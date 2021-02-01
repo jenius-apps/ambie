@@ -20,7 +20,10 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <GridViewItem Margin="8" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertGridViewSoundName(IsCurrentlyPlaying, Unplayable, Name), Mode=OneWay}">
+            <GridViewItem
+                Margin="8"
+                AutomationProperties.ItemStatus="{x:Bind converters:LocalizationConverter.SoundStatus(IsCurrentlyPlaying), Mode=OneWay}"
+                AutomationProperties.Name="{x:Bind Name}">
                 <GridViewItem.Resources>
                     <!--  These two removes the border on hover and on pressed  -->
                     <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
@@ -43,6 +46,44 @@
                             </ImageBrush.ImageSource>
                         </ImageBrush>
                     </Grid.Background>
+
+                    <Grid x:Name="Image2" x:Load="{x:Bind HasSecondImage}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="1"
+                            Source="{x:Bind SecondImagePath}"
+                            Stretch="UniformToFill" />
+                    </Grid>
+
+                    <Grid x:Name="Image3" x:Load="{x:Bind HasThirdImage}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="1"
+                            Source="{x:Bind SecondImagePath}"
+                            Stretch="UniformToFill" />
+                        <Image
+                            Grid.Column="2"
+                            Source="{x:Bind ThirdImagePath}"
+                            Stretch="UniformToFill" />
+                    </Grid>
+
+                    <FontIcon
+                        Margin="12"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="32"
+                        Foreground="White"
+                        Glyph="&#xEB7D;"
+                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}" />
+
                     <Grid VerticalAlignment="Bottom">
                         <Grid.Background>
                             <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />
@@ -50,22 +91,21 @@
                         <TextBlock
                             Margin="12,0,0,4"
                             FontFamily="Calibri"
-                            FontSize="36"
-                            FontWeight="SemiBold"
+                            FontSize="32"
                             Foreground="White"
                             Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(Name)}"
-                            TextWrapping="Wrap" />
+                            TextTrimming="CharacterEllipsis" />
                     </Grid>
                 </Grid>
                 <GridViewItem.ContextFlyout>
-                    <muxc:CommandBarFlyout>
+                    <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                         <muxc:CommandBarFlyout.SecondaryCommands>
                             <AppBarButton
                                 x:Uid="DeleteAppBarButton"
                                 Command="{x:Bind DeleteCommand}"
                                 Icon="Delete"
                                 Visibility="{x:Bind CanDelete}" />
-                            <AppBarElementContainer>
+                            <AppBarElementContainer Visibility="{x:Bind IsNotMix}">
                                 <StackPanel Width="300" Margin="12">
                                     <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
                                     <TextBlock
@@ -82,17 +122,47 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid>
+    <Grid Padding="0,32,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="{StaticResource HeaderHeight}" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
 
         <Grid
-            x:Name="HeaderGrid"
-            Padding="40,0"
-            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
+            Margin="40,0"
+            VerticalAlignment="Center"
             Canvas.ZIndex="1">
+            <StackPanel
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <controls:LogoControl />
+                <TextBlock
+                    Margin="8,0,0,0"
+                    FontFamily="Calibri"
+                    FontSize="32"
+                    Text="Ambie" />
+                <controls:ViewCatalogueButton Margin="8,0,0,0" IconOnly="True" />
+                <controls:SleepTimerControl Margin="4,0,0,0" />
+                <controls:MoreButton Margin="4,0,0,0" />
+            </StackPanel>
+
+            <StackPanel
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Orientation="Horizontal" />
+        </Grid>
+
+        <controls:SoundGridControl
+            Grid.Row="1"
+            ItemTemplate="{StaticResource MainPageSoundTemplate}"
+            ShowCatalogueButton="True" />
+
+        <Grid
+            Grid.Row="2"
+            Padding="40,0"
+            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
@@ -101,27 +171,41 @@
 
             <StackPanel Orientation="Horizontal">
                 <controls:PlayerControl />
-                <controls:SleepTimerControl Margin="4,0,0,0" VerticalAlignment="Center" />
             </StackPanel>
 
-            <controls:LogoControl
-                x:Name="TitleCentre"
-                Grid.ColumnSpan="3"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Visibility="Collapsed" />
+            <controls:ActiveTrackList
+                x:Name="ActiveList"
+                Grid.Column="1"
+                Margin="12,0,0,0">
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout Opened="Flyout_Opened" Placement="TopEdgeAlignedLeft">
+                        <Grid MaxWidth="300">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <controls:ViewCatalogueButton IconOnly="True" />
-                <controls:MoreButton Margin="4,0,0,0" />
-            </StackPanel>
+                            <FontIcon
+                                Margin="0,0,12,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="&#xEA7D;" />
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock
+                                    x:Uid="LimitReachedTitle"
+                                    FontWeight="SemiBold"
+                                    TextWrapping="WrapWholeWords" />
+                                <TextBlock
+                                    x:Name="LimitWarningText"
+                                    x:Uid="LimitReachedMessage"
+                                    AutomationProperties.LiveSetting="Assertive"
+                                    TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </Grid>
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+            </controls:ActiveTrackList>
         </Grid>
-
-        <controls:SoundGridControl
-            x:Name="SoundsViewer"
-            Grid.Row="1"
-            ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            ShowCatalogueButton="True" />
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

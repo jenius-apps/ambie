@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace AmbientSounds.Factories
 {
@@ -12,17 +13,21 @@ namespace AmbientSounds.Factories
     {
         private readonly IDownloadManager _downloadManager;
         private readonly ISoundDataProvider _soundDataProvider;
-        private readonly IMediaPlayerService _player;
+        private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
         private readonly IPreviewService _previewService;
+        private readonly IUserSettings _userSettings;
+        private readonly ISoundMixService _soundMixService;
 
         public SoundVmFactory(
             IDownloadManager downloadManager,
-            IMediaPlayerService player,
+            IMixMediaPlayerService player,
             ITelemetry telemetry,
             IPreviewService previewService,
             ISoundDataProvider soundDataProvider,
+            ISoundMixService soundMixService,
+            IUserSettings userSettings,
             IIapService iapService)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
@@ -31,9 +36,13 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(previewService, nameof(previewService));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
+            Guard.IsNotNull(soundMixService, nameof(soundMixService));
 
+            _userSettings = userSettings;
             _downloadManager = downloadManager;
             _previewService = previewService;
+            _soundMixService = soundMixService;
             _iapService = iapService;
             _soundDataProvider = soundDataProvider;
             _player = player;
@@ -65,7 +74,15 @@ namespace AmbientSounds.Factories
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsGreaterThan(index, -1, nameof(index));
-            return new SoundViewModel(s, _player, index, _soundDataProvider, _telemetry);
+            return new SoundViewModel(s, _player, index, _soundDataProvider, _soundMixService, _telemetry);
+        }
+
+        /// <inheritdoc/>
+        public ActiveTrackViewModel GetActiveTrackVm(Sound s, IRelayCommand<Sound> removeCommand)
+        {
+            Guard.IsNotNull(s, nameof(s));
+            Guard.IsNotNull(removeCommand, nameof(removeCommand));
+            return new ActiveTrackViewModel(s, removeCommand, _player, _userSettings);
         }
     }
 }

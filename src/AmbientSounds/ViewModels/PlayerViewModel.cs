@@ -3,7 +3,6 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -13,18 +12,16 @@ namespace AmbientSounds.ViewModels
     /// </summary>
     public class PlayerViewModel : ObservableObject
     {
-        private readonly IMediaPlayerService _player;
+        private readonly IMixMediaPlayerService _player;
         private readonly IUserSettings _userSettings;
-        private string? _soundName;
 
-        public PlayerViewModel(IMediaPlayerService player, IUserSettings userSettings)
+        public PlayerViewModel(IMixMediaPlayerService player, IUserSettings userSettings)
         {
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(userSettings, nameof(userSettings));
 
             _player = player;
             _userSettings = userSettings;
-            _player.NewSoundPlayed += NewSoundPlayed;
             _player.PlaybackStateChanged += PlaybackStateChanged;
 
             TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
@@ -53,23 +50,14 @@ namespace AmbientSounds.ViewModels
         public bool IsPaused => !IsPlaying;
 
         /// <summary>
-        /// Name of current sound track.
-        /// </summary>
-        public string? SoundName
-        {
-            get => _soundName;
-            set => SetProperty(ref _soundName, value);
-        }
-
-        /// <summary>
         /// Volume of player. Range of 0 to 100.
         /// </summary>
         public double Volume
         {
-            get => _player.Volume;
+            get => _player.GlobalVolume * 100;
             set
             {
-                _player.Volume = value;
+                _player.GlobalVolume = value / 100d;
                 _userSettings.Set(UserSettingsConstants.Volume, value);
             }
         }
@@ -89,18 +77,13 @@ namespace AmbientSounds.ViewModels
 
         private void PlayRandom()
         {
-            _player.PlayRandom();
+            //_player.PlayRandom();
         }
 
         private void UpdatePlayState()
         {
             OnPropertyChanged(nameof(IsPlaying));
             OnPropertyChanged(nameof(IsPaused));
-        }
-
-        private void NewSoundPlayed(object sender, string? soundName)
-        {
-            SoundName = soundName;
         }
 
         private void PlaybackStateChanged(object sender, MediaPlaybackState state)

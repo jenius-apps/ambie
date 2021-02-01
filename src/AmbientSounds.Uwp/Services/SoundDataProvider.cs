@@ -18,8 +18,7 @@ namespace AmbientSounds.Services.Uwp
         private const string DataFileName = "Data.json";
         private const string LocalDataFileName = "localData.json";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
-        private List<Sound> _localSoundCache;
-        private bool _refreshed;
+        private List<Sound> _localSoundCache; // cache of non-packaged sounds.
 
         /// <inheritdoc/>
         public event EventHandler<Sound> LocalSoundAdded;
@@ -34,12 +33,14 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<IList<Sound>> GetSoundsAsync()
+        public async Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[] soundIds = null)
         {
             var packagedSounds = await GetPackagedSoundsAsync();
-            var localSounds = await GetLocalSoundsAsync(refresh: true);
+            var localSounds = await GetLocalSoundsAsync(refresh: refresh);
             packagedSounds.AddRange(localSounds);
-            return packagedSounds;
+
+            if (soundIds == null) return packagedSounds;
+            else return packagedSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
         }
 
         /// <inheritdoc/>
@@ -62,12 +63,18 @@ namespace AmbientSounds.Services.Uwp
             await FileIO.WriteTextAsync(localDataFile, json);
 
             // Delete sound file 
-            StorageFile soundFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.FilePath);
-            await soundFile.DeleteAsync();
+            if (!string.IsNullOrWhiteSpace(soundForDeletion.FilePath))
+            {
+                StorageFile soundFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.FilePath);
+                await soundFile.DeleteAsync();
+            }
 
             // Delete image file
-            StorageFile imageFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.ImagePath);
-            await imageFile.DeleteAsync();
+            if (!string.IsNullOrWhiteSpace(soundForDeletion.ImagePath))
+            {
+                StorageFile imageFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.ImagePath);
+                await imageFile.DeleteAsync();
+            }
 
             LocalSoundDeleted?.Invoke(this, soundForDeletion.Id);
         }
@@ -105,59 +112,8 @@ namespace AmbientSounds.Services.Uwp
             return sounds.Any(x => x.Id == id);
         }
 
-        private async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(
-            StorageFile localDataFile = null,
-            bool refresh = false)
-        {
-            if (localDataFile == null)
-            {
-                localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                    LocalDataFileName,
-                    CreationCollisionOption.OpenIfExists);
-            }
-
-            if (_localSoundCache != null && !refresh)
-            {
-                return _localSoundCache.AsReadOnly();
-            }
-
-            try
-            {
-                using (Stream dataStream = await localDataFile.OpenStreamForReadAsync())
-                {
-                    _localSoundCache = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
-                }
-            }
-            catch (Exception e)
-            {
-                // TODO log
-            }
-
-            if (_localSoundCache == null)
-            {
-                _localSoundCache = new List<Sound>();
-            }
-
-            if (!_refreshed)
-            {
-                await RefreshLocalSoundsAsync();
-                _refreshed = true;
-            }
-
-            return _localSoundCache.AsReadOnly();
-        }
-
-        private async Task<List<Sound>> GetPackagedSoundsAsync()
-        {
-            StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-            StorageFile dataFile = await assets.GetFileAsync(DataFileName);
-            using Stream dataStream = await dataFile.OpenStreamForReadAsync();
-            return await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
-        }
-
         /// <inheritdoc/>
-        private async Task RefreshLocalSoundsAsync()
+        public async Task RefreshLocalSoundsMetaDataAsync()
         {
             if (_localSoundCache == null || _localSoundCache.Count == 0)
             {
@@ -188,6 +144,49 @@ namespace AmbientSounds.Services.Uwp
                 CreationCollisionOption.OpenIfExists);
             string json = JsonSerializer.Serialize(_localSoundCache);
             await FileIO.WriteTextAsync(localDataFile, json);
+        }
+
+        private async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(
+            StorageFile localDataFile = null,
+            bool refresh = false)
+        {
+            if (localDataFile == null)
+            {
+                localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                    LocalDataFileName,
+                    CreationCollisionOption.OpenIfExists);
+            }
+
+            if (_localSoundCache != null && !refresh)
+            {
+                return _localSoundCache.AsReadOnly();
+            }
+
+            try
+            {
+                using Stream dataStream = await localDataFile.OpenStreamForReadAsync();
+                _localSoundCache = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+            }
+            catch (Exception e)
+            {
+                // TODO log
+            }
+
+            if (_localSoundCache == null)
+            {
+                _localSoundCache = new List<Sound>();
+            }
+
+            return _localSoundCache.AsReadOnly();
+        }
+
+        private async Task<List<Sound>> GetPackagedSoundsAsync()
+        {
+            StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
+            StorageFile dataFile = await assets.GetFileAsync(DataFileName);
+            using Stream dataStream = await dataFile.OpenStreamForReadAsync();
+            return await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
         }
     }
 }

@@ -85,7 +85,7 @@
             </Button.Flyout>
         </Button>
         <TextBlock
-            Margin="12,0,0,0"
+            Margin="12,0"
             VerticalAlignment="Center"
             Text="{x:Bind ViewModel.TimeLeft, Mode=OneWay}"
             Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}" />

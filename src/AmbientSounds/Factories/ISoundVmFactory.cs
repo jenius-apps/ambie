@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.ViewModels;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace AmbientSounds.Factories
 {
@@ -22,5 +23,13 @@ namespace AmbientSounds.Factories
         /// <param name="index">The index of the sound in the list.</param>
         /// <returns>A sound viewmodel.</returns>
         SoundViewModel GetSoundVm(Sound s, int index);
+
+        /// <summary>
+        /// Creates new active track viewmodel.
+        /// </summary>
+        /// <param name="s">The related sound.</param>
+        /// <param name="removeCommand">A command that removes the active track from the active track list.</param>
+        /// <returns>An active track viewmodel.</returns>
+        ActiveTrackViewModel GetActiveTrackVm(Sound s, IRelayCommand<Sound> removeCommand);
     }
 }

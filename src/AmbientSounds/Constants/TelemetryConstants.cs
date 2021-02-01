@@ -22,11 +22,9 @@
         // timer
         private const string Timer = "timer:";
         public const string TimeSelected = Timer + "timeSelected";
-        public const string TimerStateChanged = Timer + "timerStateChanged";
 
         // playback
         private const string Playback = "playback:";
-        public const string PlaybackStateChanged = Playback + "stateChanged";
         public const string PlaybackRandom = Playback + "randomClicked";
 
         // pages
@@ -37,5 +35,11 @@
         private const string Screensaver = "screensaver:";
         public const string ScreensaverLoaded = Screensaver + "loaded";
         public const string ScreensaverTriggered = Screensaver + "triggered";
+
+        // mix
+        private const string Mix = "mix:";
+        public const string MixSaved = Mix + "saved";
+        public const string MixCleared = Mix + "cleared";
+        public const string MixRemoved = Mix + "removed";
     }
 }

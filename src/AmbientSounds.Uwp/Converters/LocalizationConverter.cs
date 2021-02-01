@@ -39,28 +39,16 @@ namespace AmbientSounds.Converters
             return isPaused ? resourceLoader.GetString("PlayerPlayText") : resourceLoader.GetString("PlayerPauseText");
         }
 
-        /// <summary>
-        /// Returns localized phrase for the sound object
-        /// in a list or grid view. Includes information
-        /// on what happens when the item is invoked.
-        /// </summary>
-        /// <remarks>
-        /// Generally used for AutomationProperties.Name.
-        /// </remarks>
-        public static string ConvertGridViewSoundName(bool isCurrentlyPlaying, bool unplayable, string name)
+        public static string SoundStatus(bool isCurrentlyPlaying)
         {
             var resourceLoader = ResourceLoader.GetForCurrentView();
-            var baseName = ConvertSoundName(name) + ", ";
-
-            if (unplayable)
+            if (isCurrentlyPlaying)
             {
-                return baseName + resourceLoader.GetString("SoundUnplayable");
+                return resourceLoader.GetString("Playing");
             }
             else
             {
-                return isCurrentlyPlaying
-                    ? baseName + resourceLoader.GetString("PlayerPauseText")
-                    : baseName + resourceLoader.GetString("PlayerPlayText");
+                return resourceLoader.GetString("Paused");
             }
         }
 
