@@ -30,6 +30,9 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
+        /// <inheritdoc/>
+        public event EventHandler MaxReached;
+
         public MixMediaPlayerService(IUserSettings userSettings)
         {
             _maxActive = userSettings?.Get<int>(UserSettingsConstants.MaxActive) ?? 3;
@@ -156,6 +159,10 @@ namespace AmbientSounds.Services.Uwp
 
                     SoundAdded?.Invoke(this, s);
                 }
+            }
+            else
+            {
+                MaxReached?.Invoke(this, EventArgs.Empty);
             }
         }
 

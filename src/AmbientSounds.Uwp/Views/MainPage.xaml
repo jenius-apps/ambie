@@ -170,10 +170,34 @@
                 <controls:PlayerControl />
             </StackPanel>
 
-            <controls:ActiveTrackList Grid.Column="1" Margin="12,0,0,0" />
+            <controls:ActiveTrackList
+                x:Name="ActiveList"
+                Grid.Column="1"
+                Margin="12,0,0,0">
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout Placement="TopEdgeAlignedLeft">
+                        <Grid MaxWidth="300">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
+                            <FontIcon
+                                Margin="0,0,12,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="&#xEA7D;" />
 
-
+                            <StackPanel Grid.Column="1">
+                                <TextBlock
+                                    FontWeight="SemiBold"
+                                    Text="Limit reached!"
+                                    TextWrapping="WrapWholeWords" />
+                                <TextBlock Text="Remove a sound to make space for another." TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </Grid>
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+            </controls:ActiveTrackList>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>

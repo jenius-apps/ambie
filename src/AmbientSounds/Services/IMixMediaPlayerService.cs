@@ -29,6 +29,12 @@ namespace AmbientSounds.Services
         event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
         /// <summary>
+        /// Raised when a sound activation was blocked
+        /// because the active sound limit was reached.
+        /// </summary>
+        event EventHandler MaxReached;
+
+        /// <summary>
         /// Global volume control. Max = 1. Min = 0.
         /// </summary>
         double GlobalVolume { get; set; }
