@@ -79,7 +79,7 @@ namespace AmbientSounds.ViewModels
         {
             var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
             var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
-            var sounds = await _soundDataProvider.GetSoundsAsync(previousActiveTrackIds);
+            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
             if (sounds != null && sounds.Count > 0)
             {
                 foreach (var s in sounds)

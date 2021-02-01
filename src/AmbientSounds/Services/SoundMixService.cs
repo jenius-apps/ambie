@@ -73,7 +73,7 @@ namespace AmbientSounds.Services
                 return;
             }
 
-            var sounds = await _soundDataProvider.GetSoundsAsync(mix.SoundIds);
+            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: mix.SoundIds);
             if (sounds != null)
             {
                 foreach (var s in sounds)
