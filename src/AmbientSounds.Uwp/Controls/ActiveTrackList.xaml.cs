@@ -33,5 +33,25 @@ namespace AmbientSounds.Controls
         {
             await ViewModel.LoadPreviousStateAsync();
         }
+
+        private void NameInput_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                ViewModel.SaveCommand.ExecuteAsync(NameInput.Text);
+                e.Handled = true;
+                SaveFlyout.Hide();
+            }
+        }
+
+        private void SaveFlyout_Closed(object sender, object e)
+        {
+            NameInput.Text = "";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFlyout.Hide();
+        }
     }
 }

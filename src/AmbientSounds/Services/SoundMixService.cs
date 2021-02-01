@@ -28,7 +28,7 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task<string> SaveMixAsync(IList<Sound> sounds)
+        public async Task<string> SaveMixAsync(IList<Sound> sounds, string name = "")
         {
             if (sounds == null || sounds.Count <= 1)
             {
@@ -39,7 +39,7 @@ namespace AmbientSounds.Services
             {
                 Id = Guid.NewGuid().ToString(),
                 IsMix = true,
-                Name = RandomName(),
+                Name = string.IsNullOrWhiteSpace(name) ? RandomName() : name.Trim(),
                 SoundIds = sounds.Select(x => x.Id).ToArray(),
                 ImagePaths = sounds.Select(x => x.ImagePath).ToArray()
             };

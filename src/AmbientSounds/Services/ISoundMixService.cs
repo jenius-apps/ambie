@@ -14,7 +14,7 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="sounds">List of sounds to save.</param>
         /// <returns>The string Id of the new sound mix.</returns>
-        Task<string> SaveMixAsync(IList<Sound> sounds);
+        Task<string> SaveMixAsync(IList<Sound> sounds, string name = "");
 
         /// <summary>
         /// Loads the given mix to the player.

@@ -42,7 +42,7 @@ namespace AmbientSounds.ViewModels
             _player.SoundRemoved += OnSoundRemoved;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
-            SaveCommand = new AsyncRelayCommand(SaveAsync);
+            SaveCommand = new AsyncRelayCommand<string>(SaveAsync);
             ClearCommand = new RelayCommand(ClearAll);
         }
 
@@ -54,7 +54,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Command for saving the sound mix.
         /// </summary>
-        public IAsyncRelayCommand SaveCommand { get; }
+        public IAsyncRelayCommand<string> SaveCommand { get; }
 
         /// <summary>
         /// Removes the sound from active list
@@ -100,14 +100,14 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private async Task SaveAsync()
+        private async Task SaveAsync(string name)
         {
             if (SaveCommand.IsRunning || !string.IsNullOrWhiteSpace(_player.CurrentMixId))
             {
                 return;
             }
 
-            var id = await _soundMixService.SaveMixAsync(ActiveTracks.Select(x => x.Sound).ToArray());
+            var id = await _soundMixService.SaveMixAsync(ActiveTracks.Select(x => x.Sound).ToArray(), name);
             _player.CurrentMixId = id;
             UpdateCanSave();
         }

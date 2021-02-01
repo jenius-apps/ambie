@@ -74,11 +74,41 @@
             VerticalAlignment="Center"
             Orientation="Vertical">
             <Button
-                Command="{x:Bind ViewModel.SaveCommand}"
                 Style="{StaticResource TransparentRoundButtonStyle}"
                 ToolTipService.ToolTip="Save custom mix"
                 Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="S" Modifiers="Control" />
+                </Button.KeyboardAccelerators>
+
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
+                <Button.Flyout>
+                    <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+                                x:Name="NameInput"
+                                Width="200"
+                                Header="Sound mix name"
+                                KeyDown="NameInput_KeyDown"
+                                MaxLength="30"
+                                PlaceholderText="Optional" />
+                            <Button
+                                Grid.Column="1"
+                                Margin="4,0,0,0"
+                                VerticalAlignment="Bottom"
+                                Background="Transparent"
+                                Click="Button_Click"
+                                Command="{x:Bind ViewModel.SaveCommand}"
+                                CommandParameter="{x:Bind NameInput.Text}">
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
+                            </Button>
+                        </Grid>
+                    </Flyout>
+                </Button.Flyout>
             </Button>
 
             <Button
