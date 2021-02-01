@@ -18,6 +18,7 @@ namespace AmbientSounds.ViewModels
         private readonly IUserSettings _userSettings;
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundMixService _soundMixService;
+        private bool _loaded;
 
         public ActiveTrackListViewModel(
             IMixMediaPlayerService player,
@@ -77,6 +78,11 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public async Task LoadPreviousStateAsync()
         {
+            if (_loaded)
+            {
+                return;
+            }
+
             var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
             var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
             var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
@@ -87,6 +93,8 @@ namespace AmbientSounds.ViewModels
                     await _player.ToggleSoundAsync(s, keepPaused: true, parentMixId: mixId);
                 }
             }
+
+            _loaded = true;
         }
 
         private void ClearAll()
