@@ -106,7 +106,8 @@ namespace AmbientSounds.ViewModels
             sound.Play();
             _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
             {
-                { "id", sound.Name ?? "" }
+                { "id", sound.Name ?? "" },
+                { "mix", sound.IsMix.ToString() }
             });
         }
     }

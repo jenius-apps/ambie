@@ -100,29 +100,17 @@ namespace AmbientSounds.ViewModels
         {
             if (_timer.Remaining > new TimeSpan(0))
             {
-                _telemetry.TrackEvent(TelemetryConstants.TimerStateChanged, new Dictionary<string, string>
-                {
-                    { "event", "play" }
-                });
                 _timer.Start();
             }
         }
 
         private void PauseTimer()
         {
-            _telemetry.TrackEvent(TelemetryConstants.TimerStateChanged, new Dictionary<string, string>
-            {
-                { "event", "pause" }
-            });
             _timer.Stop();
         }
 
         private void StopTimer()
         {
-            _telemetry.TrackEvent(TelemetryConstants.TimerStateChanged, new Dictionary<string, string>
-            {
-                { "event", "stop" }
-            });
             _timer.Stop();
             _timer.Remaining = new TimeSpan(0);
             CountdownVisible = false;
