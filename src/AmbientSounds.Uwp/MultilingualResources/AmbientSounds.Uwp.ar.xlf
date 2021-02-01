@@ -388,6 +388,54 @@
           <source>Sound volume</source>
           <target state="new">Sound volume</target>
         </trans-unit>
+        <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Active sounds</source>
+          <target state="new">Active sounds</target>
+        </trans-unit>
+        <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Clear all active sounds</source>
+          <target state="new">Clear all active sounds</target>
+        </trans-unit>
+        <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Clear all active sounds</source>
+          <target state="new">Clear all active sounds</target>
+        </trans-unit>
+        <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Confirm save</source>
+          <target state="new">Confirm save</target>
+        </trans-unit>
+        <trans-unit id="GlobalVolume.Text" translate="yes" xml:space="preserve">
+          <source>Global volume</source>
+          <target state="new">Global volume</target>
+        </trans-unit>
+        <trans-unit id="LimitReachedMessage.Text" translate="yes" xml:space="preserve">
+          <source>Remove a sound to make space for another.</source>
+          <target state="new">Remove a sound to make space for another.</target>
+        </trans-unit>
+        <trans-unit id="LimitReachedTitle.Text" translate="yes" xml:space="preserve">
+          <source>Limit reached!</source>
+          <target state="new">Limit reached!</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
+          <source>Sound mix name</source>
+          <target state="new">Sound mix name</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Optional</source>
+          <target state="new">Optional</target>
+        </trans-unit>
+        <trans-unit id="RemoveActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Remove from active list</source>
+          <target state="new">Remove from active list</target>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix</source>
+          <target state="new">Save custom sound mix</target>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix (Ctrl+S)</source>
+          <target state="new">Save custom sound mix (Ctrl+S)</target>
+        </trans-unit>
       </group>
     </body>
   </file>

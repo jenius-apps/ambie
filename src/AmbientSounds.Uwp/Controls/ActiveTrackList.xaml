@@ -18,8 +18,8 @@
         </Grid.ColumnDefinitions>
 
         <ListView
+            x:Uid="ActiveTrackListView"
             VerticalAlignment="Stretch"
-            AutomationProperties.Name="Active sounds"
             ItemsSource="{x:Bind ViewModel.ActiveTracks}"
             ScrollViewer.HorizontalScrollBarVisibility="Auto"
             ScrollViewer.HorizontalScrollMode="Enabled"
@@ -46,12 +46,12 @@
                             Margin="0,4,0,0"
                             Value="{x:Bind Volume, Mode=TwoWay}" />
                         <Button
+                            x:Uid="RemoveActiveButton"
                             Grid.RowSpan="2"
                             Margin="0,8,0,0"
                             Padding="2"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            AutomationProperties.Name="Remove from active list"
                             Background="Transparent"
                             Command="{x:Bind RemoveCommand}"
                             CommandParameter="{x:Bind Sound}">
@@ -77,9 +77,8 @@
             VerticalAlignment="Center"
             Orientation="Vertical">
             <Button
-                AutomationProperties.Name="Save custom sound mix"
+                x:Uid="SaveMixButton"
                 Style="{StaticResource TransparentRoundButtonStyle}"
-                ToolTipService.ToolTip="Save custom sound mix"
                 Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
                 <Button.KeyboardAccelerators>
                     <KeyboardAccelerator Key="S" Modifiers="Control" />
@@ -95,16 +94,15 @@
                             </Grid.ColumnDefinitions>
                             <TextBox
                                 x:Name="NameInput"
+                                x:Uid="NameInputBox"
                                 Width="200"
-                                Header="Sound mix name"
                                 KeyDown="NameInput_KeyDown"
-                                MaxLength="30"
-                                PlaceholderText="Optional" />
+                                MaxLength="30" />
                             <Button
+                                x:Uid="ConfirmSaveButton"
                                 Grid.Column="1"
                                 Margin="4,0,0,0"
                                 VerticalAlignment="Bottom"
-                                AutomationProperties.Name="Confirm save"
                                 Background="Transparent"
                                 Click="Button_Click"
                                 Command="{x:Bind ViewModel.SaveCommand}"
@@ -117,10 +115,9 @@
             </Button>
 
             <Button
-                AutomationProperties.Name="Clear all active sounds"
+                x:Uid="ClearActiveButton"
                 Command="{x:Bind ViewModel.ClearCommand}"
-                Style="{StaticResource TransparentRoundButtonStyle}"
-                ToolTipService.ToolTip="Clear all active sounds">
+                Style="{StaticResource TransparentRoundButtonStyle}">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
             </Button>
         </StackPanel>

@@ -36,7 +36,7 @@
             Margin="20,0,0,0"
             VerticalAlignment="Center"
             Background="Transparent">
-            <TextBlock Margin="0,8,0,0" Text="Global volume" />
+            <TextBlock x:Uid="GlobalVolume" Margin="0,8,0,0" />
             <Slider
                 x:Uid="VolumeSlider"
                 Width="120"

@@ -192,13 +192,13 @@
 
                             <StackPanel Grid.Column="1">
                                 <TextBlock
+                                    x:Uid="LimitReachedTitle"
                                     FontWeight="SemiBold"
-                                    Text="Limit reached!"
                                     TextWrapping="WrapWholeWords" />
                                 <TextBlock
                                     x:Name="LimitWarningText"
+                                    x:Uid="LimitReachedMessage"
                                     AutomationProperties.LiveSetting="Assertive"
-                                    Text="Remove a sound to make space for another."
                                     TextWrapping="WrapWholeWords" />
                             </StackPanel>
                         </Grid>
