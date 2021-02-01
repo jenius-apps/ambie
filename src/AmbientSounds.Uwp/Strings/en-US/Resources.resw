@@ -259,7 +259,10 @@
     <value>Stop the timer and clear the time</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>Change sound volume</value>
+    <value>Global volume</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Sound volume</value>
   </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
     <value>Want more sounds? Send suggestions!</value>
@@ -393,5 +396,13 @@
   </data>
   <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Preview sound</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Paused</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Playing</value>
+    <comment>Sound is playing</comment>
   </data>
 </root>

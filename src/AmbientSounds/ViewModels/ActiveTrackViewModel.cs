@@ -57,5 +57,10 @@ namespace AmbientSounds.ViewModels
         /// and it will pause it.
         /// </summary>
         public IRelayCommand<Sound> RemoveCommand { get; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

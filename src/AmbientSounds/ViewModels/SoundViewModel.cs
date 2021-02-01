@@ -92,11 +92,6 @@ namespace AmbientSounds.ViewModels
         public bool CanDelete => !_sound.FilePath?.StartsWith("ms-appx") ?? false;
 
         /// <summary>
-        /// Returns true if the sound cannot be played.
-        /// </summary>
-        public bool Unplayable => string.IsNullOrWhiteSpace(_sound.FilePath);
-
-        /// <summary>
         /// Command for deleting this sound.
         /// </summary>
         public IRelayCommand DeleteCommand { get; }

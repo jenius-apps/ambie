@@ -20,7 +20,10 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <GridViewItem Margin="8" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertGridViewSoundName(IsCurrentlyPlaying, Unplayable, Name), Mode=OneWay}">
+            <GridViewItem
+                Margin="8"
+                AutomationProperties.ItemStatus="{x:Bind converters:LocalizationConverter.SoundStatus(IsCurrentlyPlaying), Mode=OneWay}"
+                AutomationProperties.Name="{x:Bind Name}">
                 <GridViewItem.Resources>
                     <!--  These two removes the border on hover and on pressed  -->
                     <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
@@ -175,7 +178,7 @@
                 Grid.Column="1"
                 Margin="12,0,0,0">
                 <FlyoutBase.AttachedFlyout>
-                    <Flyout Placement="TopEdgeAlignedLeft">
+                    <Flyout Opened="Flyout_Opened" Placement="TopEdgeAlignedLeft">
                         <Grid MaxWidth="300">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
@@ -192,7 +195,11 @@
                                     FontWeight="SemiBold"
                                     Text="Limit reached!"
                                     TextWrapping="WrapWholeWords" />
-                                <TextBlock Text="Remove a sound to make space for another." TextWrapping="WrapWholeWords" />
+                                <TextBlock
+                                    x:Name="LimitWarningText"
+                                    AutomationProperties.LiveSetting="Assertive"
+                                    Text="Remove a sound to make space for another."
+                                    TextWrapping="WrapWholeWords" />
                             </StackPanel>
                         </Grid>
                     </Flyout>

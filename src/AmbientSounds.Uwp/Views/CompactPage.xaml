@@ -13,7 +13,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="CompactPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <GridViewItem Margin="4" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertGridViewSoundName(IsCurrentlyPlaying, Unplayable, Name), Mode=OneWay}">
+            <GridViewItem Margin="4" AutomationProperties.Name="{x:Bind Name}">
                 <GridViewItem.Resources>
                     <!--  These two removes the border on hover and on pressed  -->
                     <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />

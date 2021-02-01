@@ -199,8 +199,9 @@
           <target state="translated">Zastavit časovač a vymazat čas</target>
         </trans-unit>
         <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Change sound volume</source>
-          <target state="translated">Změnit hlasitost zvuku</target>
+          <source>Global volume</source>
+          <target state="needs-review-translation">Změnit hlasitost zvuku</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="SuggestionHeader.Text" translate="yes" xml:space="preserve">
           <source>Want more sounds? Send suggestions!</source>
@@ -378,6 +379,20 @@
         <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
           <target state="new">Preview sound</target>
+        </trans-unit>
+        <trans-unit id="Paused" translate="yes" xml:space="preserve">
+          <source>Paused</source>
+          <target state="new">Paused</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
+        </trans-unit>
+        <trans-unit id="Playing" translate="yes" xml:space="preserve">
+          <source>Playing</source>
+          <target state="new">Playing</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
+        </trans-unit>
+        <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sound volume</source>
+          <target state="new">Sound volume</target>
         </trans-unit>
       </group>
     </body>
