@@ -24,7 +24,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <GridView
                     x:Uid="SoundsGridView"
@@ -45,14 +44,9 @@
                 <local:ViewCatalogueButton
                     x:Name="CatalogueButton"
                     Grid.Row="1"
-                    Margin="0,12,24,80"
+                    Margin="0,12,24,20"
                     HorizontalAlignment="Right"
                     x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}"
-                    Visibility="{x:Bind Not(ViewModel.LoadCommand.IsRunning), Mode=OneWay}" />
-
-                <local:SoundSuggestionControl
-                    Grid.Row="2"
-                    Margin="0,80,0,100"
                     Visibility="{x:Bind Not(ViewModel.LoadCommand.IsRunning), Mode=OneWay}" />
             </Grid>
         </ScrollViewer>
