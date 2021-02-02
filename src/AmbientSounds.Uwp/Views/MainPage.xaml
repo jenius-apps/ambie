@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:statetriggers="using:AmbientSounds.StateTriggers"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
@@ -21,7 +22,7 @@
     <Page.Resources>
         <AcrylicBrush
             x:Key="BackgroundAcrylicBrush"
-            TintColor="{ThemeResource SystemChromeMediumLowColor}"
+            TintColor="Black"
             TintOpacity="0.2" />
 
 
@@ -58,10 +59,9 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Image
-                            Grid.Column="1"
-                            Source="{x:Bind SecondImagePath}"
-                            Stretch="UniformToFill" />
+                        <toolkit:DropShadowPanel Grid.Column="1" BlurRadius="50">
+                            <Image Source="{x:Bind SecondImagePath}" Stretch="UniformToFill" />
+                        </toolkit:DropShadowPanel>
                     </Grid>
 
                     <Grid x:Name="Image3" x:Load="{x:Bind HasThirdImage}">
@@ -70,14 +70,12 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Image
-                            Grid.Column="1"
-                            Source="{x:Bind SecondImagePath}"
-                            Stretch="UniformToFill" />
-                        <Image
-                            Grid.Column="2"
-                            Source="{x:Bind ThirdImagePath}"
-                            Stretch="UniformToFill" />
+                        <toolkit:DropShadowPanel Grid.Column="1" BlurRadius="50">
+                            <Image Source="{x:Bind SecondImagePath}" Stretch="UniformToFill" />
+                        </toolkit:DropShadowPanel>
+                        <toolkit:DropShadowPanel Grid.Column="2" BlurRadius="50">
+                            <Image Source="{x:Bind ThirdImagePath}" Stretch="UniformToFill" />
+                        </toolkit:DropShadowPanel>
                     </Grid>
 
                     <Grid
