@@ -19,6 +19,12 @@
     PreviewKeyDown="{x:Bind ViewModel.ResetTime}"
     mc:Ignorable="d">
     <Page.Resources>
+        <AcrylicBrush
+            x:Key="BackgroundAcrylicBrush"
+            TintColor="{ThemeResource SystemChromeMediumLowColor}"
+            TintOpacity="0.2" />
+
+
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
             <GridViewItem
                 Margin="8"
@@ -74,20 +80,23 @@
                             Stretch="UniformToFill" />
                     </Grid>
 
-                    <FontIcon
-                        Margin="12"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="32"
-                        Foreground="White"
-                        Glyph="&#xEB7D;"
-                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}" />
+                    <Grid
+                        Margin="0,0,0,40"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="{StaticResource BackgroundAcrylicBrush}"
+                        CornerRadius="30"
+                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
+                        <FontIcon
+                            Margin="12"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="32"
+                            Foreground="White"
+                            Glyph="&#xEB7D;" />
+                    </Grid>
 
-                    <Grid VerticalAlignment="Bottom">
-                        <Grid.Background>
-                            <AcrylicBrush TintColor="{ThemeResource SystemChromeMediumLowColor}" TintOpacity="0.2" />
-                        </Grid.Background>
+
+                    <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
                         <TextBlock
                             Margin="12,0,0,4"
                             FontFamily="Calibri"
