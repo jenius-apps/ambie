@@ -63,6 +63,11 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="IsFocusEngagementEnabled" Value="True" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Horizontal" />
@@ -106,7 +111,7 @@
                                 Background="Transparent"
                                 Click="Button_Click"
                                 Command="{x:Bind ViewModel.SaveCommand}"
-                                CommandParameter="{x:Bind NameInput.Text}">
+                                CommandParameter="{x:Bind NameInput.Text, Mode=OneWay}">
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
                             </Button>
                         </Grid>
