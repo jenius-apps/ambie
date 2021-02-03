@@ -20,7 +20,7 @@
         </trans-unit>
         <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
           <source>Copyright</source>
-          <target state="needs-review-translation">Copyright</target>
+          <target state="needs-review-translation">Szerzői jog</target>
         </trans-unit>
         <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
           <source>Copyright Jenius Apps</source>
@@ -70,7 +70,7 @@
         </trans-unit>
         <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
           <source>Chat on Discord</source>
-          <target state="translated">Beszélgetés Discordon</target>
+          <target state="translated">Discord</target>
         </trans-unit>
         <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
           <source>View GitHub</source>
@@ -383,65 +383,65 @@
         </trans-unit>
         <trans-unit id="Paused" translate="yes" xml:space="preserve">
           <source>Paused</source>
-          <target state="new">Paused</target>
+          <target state="translated">Megállítva</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
         </trans-unit>
         <trans-unit id="Playing" translate="yes" xml:space="preserve">
           <source>Playing</source>
-          <target state="new">Playing</target>
+          <target state="translated">Lejátszás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
         </trans-unit>
         <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound volume</source>
-          <target state="new">Sound volume</target>
+          <target state="translated">Hangerő</target>
         </trans-unit>
         <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Active sounds</source>
-          <target state="new">Active sounds</target>
+          <target state="translated">Aktív hangok</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="new">Clear all active sounds</target>
+          <target state="translated">Aktív hangok törlése</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="new">Clear all active sounds</target>
+          <target state="translated">Aktív hangok törlése</target>
         </trans-unit>
         <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Confirm save</source>
-          <target state="new">Confirm save</target>
+          <target state="translated">Mentés megerősítése</target>
         </trans-unit>
         <trans-unit id="GlobalVolume.Text" translate="yes" xml:space="preserve">
           <source>Global volume</source>
-          <target state="new">Global volume</target>
+          <target state="translated">Fő hangerő</target>
         </trans-unit>
         <trans-unit id="LimitReachedMessage.Text" translate="yes" xml:space="preserve">
           <source>Remove a sound to make space for another.</source>
-          <target state="new">Remove a sound to make space for another.</target>
+          <target state="translated">Távolítson el egy hangot, hogy helyet készítsen egy másiknak.</target>
         </trans-unit>
         <trans-unit id="LimitReachedTitle.Text" translate="yes" xml:space="preserve">
           <source>Limit reached!</source>
-          <target state="new">Limit reached!</target>
+          <target state="translated">Maximális hang mennyiség!</target>
         </trans-unit>
         <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
           <source>Sound mix name</source>
-          <target state="new">Sound mix name</target>
+          <target state="translated">Válogatás neve</target>
         </trans-unit>
         <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Optional</source>
-          <target state="new">Optional</target>
+          <target state="translated">Lehetséges</target>
         </trans-unit>
         <trans-unit id="RemoveActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Remove from active list</source>
-          <target state="new">Remove from active list</target>
+          <target state="translated">Eltávolítás az aktív hangokból</target>
         </trans-unit>
         <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Save custom sound mix</source>
-          <target state="new">Save custom sound mix</target>
+          <target state="translated">Saját válogatás mentése</target>
         </trans-unit>
         <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Save custom sound mix (Ctrl+S)</source>
-          <target state="new">Save custom sound mix (Ctrl+S)</target>
+          <target state="translated">Saját válogatás mentése (Ctrl+S)</target>
         </trans-unit>
       </group>
     </body>
