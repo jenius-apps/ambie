@@ -7,6 +7,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -50,6 +51,8 @@ namespace AmbientSounds.ViewModels
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             SaveCommand = new AsyncRelayCommand<string>(SaveAsync);
             ClearCommand = new RelayCommand(ClearAll);
+
+            ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
         }
 
         /// <summary>
@@ -77,6 +80,11 @@ namespace AmbientSounds.ViewModels
         /// List of active sounds being played.
         /// </summary>
         public ObservableCollection<ActiveTrackViewModel> ActiveTracks { get; } = new();
+
+        /// <summary>
+        /// Determines if the clear button is visible.
+        /// </summary>
+        public bool IsClearVisible => ActiveTracks.Count > 0;
 
         /// <summary>
         /// Loads prevoius state of the active track list.
@@ -143,6 +151,11 @@ namespace AmbientSounds.ViewModels
             var ids = ActiveTracks.Select(x => x.Sound.Id).ToArray();
             _userSettings.SetAndSerialize(UserSettingsConstants.ActiveTracks, ids);
             _userSettings.Set(UserSettingsConstants.ActiveMixId, _player.CurrentMixId);
+        }
+
+        private void ActiveTracks_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(IsClearVisible));
         }
 
         private void OnSoundRemoved(object sender, string soundId)
