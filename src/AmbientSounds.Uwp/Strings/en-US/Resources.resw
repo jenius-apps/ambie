@@ -441,4 +441,13 @@
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Save custom sound mix (Ctrl+S)</value>
   </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Rename</value>
+  </data>
 </root>

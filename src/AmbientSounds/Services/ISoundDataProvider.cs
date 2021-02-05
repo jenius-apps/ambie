@@ -41,6 +41,12 @@ namespace AmbientSounds.Services
         Task DeleteLocalSoundAsync(string id);
 
         /// <summary>
+        /// Updates the given sounds in cache and in storage.
+        /// </summary>
+        /// <param name="sounds">The sounds to update.</param>
+        Task UpdateLocalSoundAsync(IList<Sound> sounds);
+
+        /// <summary>
         /// Checks to see if given sound
         /// is already saved.
         /// </summary>

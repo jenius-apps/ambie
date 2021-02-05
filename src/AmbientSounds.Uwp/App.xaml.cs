@@ -214,6 +214,7 @@ namespace AmbientSounds
                 .AddTransient<IUserSettings, LocalSettings>()
                 .AddTransient<ITimerService, TimerService>()
                 .AddTransient<ISoundMixService, SoundMixService>()
+                .AddTransient<IRenamer, Renamer>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
