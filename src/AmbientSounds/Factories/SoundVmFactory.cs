@@ -19,6 +19,7 @@ namespace AmbientSounds.Factories
         private readonly IPreviewService _previewService;
         private readonly IUserSettings _userSettings;
         private readonly ISoundMixService _soundMixService;
+        private readonly IRenamer _renamer;
 
         public SoundVmFactory(
             IDownloadManager downloadManager,
@@ -28,7 +29,8 @@ namespace AmbientSounds.Factories
             ISoundDataProvider soundDataProvider,
             ISoundMixService soundMixService,
             IUserSettings userSettings,
-            IIapService iapService)
+            IIapService iapService,
+            IRenamer renamer)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
@@ -38,6 +40,7 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(previewService, nameof(previewService));
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
+            Guard.IsNotNull(renamer, nameof(renamer));
 
             _userSettings = userSettings;
             _downloadManager = downloadManager;
@@ -46,6 +49,7 @@ namespace AmbientSounds.Factories
             _iapService = iapService;
             _soundDataProvider = soundDataProvider;
             _player = player;
+            _renamer = renamer;
             _telemetry = telemetry;
         }
 
@@ -74,7 +78,7 @@ namespace AmbientSounds.Factories
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsGreaterThan(index, -1, nameof(index));
-            return new SoundViewModel(s, _player, index, _soundDataProvider, _soundMixService, _telemetry);
+            return new SoundViewModel(s, _player, index, _soundDataProvider, _soundMixService, _telemetry, _renamer);
         }
 
         /// <inheritdoc/>

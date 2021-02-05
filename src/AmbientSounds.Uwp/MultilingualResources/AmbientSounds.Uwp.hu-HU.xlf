@@ -443,6 +443,18 @@
           <source>Save custom sound mix (Ctrl+S)</source>
           <target state="translated">Saját válogatás mentése (Ctrl+S)</target>
         </trans-unit>
+        <trans-unit id="CancelText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+        </trans-unit>
+        <trans-unit id="RenameText" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="new">Rename</target>
+        </trans-unit>
+        <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="new">Rename</target>
+        </trans-unit>
       </group>
     </body>
   </file>

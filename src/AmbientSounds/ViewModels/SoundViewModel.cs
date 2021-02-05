@@ -5,6 +5,7 @@ using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
@@ -18,6 +19,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
+        private readonly IRenamer _renamer;
 
         public SoundViewModel(
             Sound s,
@@ -25,13 +27,15 @@ namespace AmbientSounds.ViewModels
             int index,
             ISoundDataProvider soundDataProvider,
             ISoundMixService soundMixService,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            IRenamer renamer)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
+            Guard.IsNotNull(renamer, nameof(renamer));
 
             Index = index;
             _sound = s;
@@ -39,11 +43,13 @@ namespace AmbientSounds.ViewModels
             _playerService = playerService;
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
+            _renamer = renamer;
 
             _playerService.SoundRemoved += OnSoundPaused;
             _playerService.SoundAdded += OnSoundPlayed;
 
             DeleteCommand = new RelayCommand(DeleteSound);
+            RenameCommand = new AsyncRelayCommand(RenameAsync);
         }
 
         /// <summary>
@@ -96,6 +102,8 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public IRelayCommand DeleteCommand { get; }
 
+        public IAsyncRelayCommand RenameCommand { get; }
+
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
@@ -113,6 +121,16 @@ namespace AmbientSounds.ViewModels
             else
             {
                 await _soundMixService.LoadMixAsync(_sound);
+            }
+        }
+
+        private async Task RenameAsync()
+        {
+            bool renamed = await _renamer.RenameAsync(_sound);
+
+            if (renamed)
+            {
+                OnPropertyChanged(nameof(Name));
             }
         }
 

@@ -22,7 +22,7 @@
     <value>Bezárás</value>
   </data>
   <data name="Copyright.Text" xml:space="preserve">
-    <value>Copyright</value>
+    <value>Szerzői jog</value>
   </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
     <value>Copyright Jenius Apps</value>
@@ -58,7 +58,7 @@
     <value>Fejlesztő elérése</value>
   </data>
   <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Beszélgetés Discordon</value>
+    <value>Discord</value>
   </data>
   <data name="MoreButtonGitHub.Label" xml:space="preserve">
     <value>GitHub</value>
@@ -288,5 +288,52 @@
   </data>
   <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Minta</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Megállítva</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Lejátszás</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Hangerő</value>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>Aktív hangok</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Aktív hangok törlése</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aktív hangok törlése</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Mentés megerősítése</value>
+  </data>
+  <data name="GlobalVolume.Text" xml:space="preserve">
+    <value>Fő hangerő</value>
+  </data>
+  <data name="LimitReachedMessage.Text" xml:space="preserve">
+    <value>Távolítson el egy hangot, hogy helyet készítsen egy másiknak.</value>
+  </data>
+  <data name="LimitReachedTitle.Text" xml:space="preserve">
+    <value>Maximális hang mennyiség!</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>Válogatás neve</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>Lehetséges</value>
+  </data>
+  <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Eltávolítás az aktív hangokból</value>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Saját válogatás mentése</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Saját válogatás mentése (Ctrl+S)</value>
   </data>
 </root>

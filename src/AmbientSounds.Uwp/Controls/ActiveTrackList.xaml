@@ -122,7 +122,8 @@
             <Button
                 x:Uid="ClearActiveButton"
                 Command="{x:Bind ViewModel.ClearCommand}"
-                Style="{StaticResource TransparentRoundButtonStyle}">
+                Style="{StaticResource TransparentRoundButtonStyle}"
+                Visibility="{x:Bind ViewModel.IsClearVisible, Mode=OneWay}">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
             </Button>
         </StackPanel>
