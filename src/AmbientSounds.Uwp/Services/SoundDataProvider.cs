@@ -44,6 +44,26 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public Task UpdateLocalSoundAsync(IList<Sound> sounds)
+        {
+            if (sounds == null || sounds.Count == 0)
+            {
+                return Task.CompletedTask;
+            }
+
+            foreach (var s in sounds)
+            {
+                if (_localSoundCache.Any(x => x.Id == s.Id))
+                {
+                    var item = _localSoundCache.First(x => x.Id == s.Id);
+                    item.Name = s.Name;
+                }
+            }
+
+            return WriteCacheAsync();
+        }
+
+        /// <inheritdoc/>
         public async Task DeleteLocalSoundAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id) || !await IsSoundInstalledAsync(id))
@@ -56,11 +76,7 @@ namespace AmbientSounds.Services.Uwp
             _localSoundCache.Remove(soundForDeletion);
 
             // Write changes to file
-            StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                LocalDataFileName,
-                CreationCollisionOption.OpenIfExists);
-            string json = JsonSerializer.Serialize(_localSoundCache);
-            await FileIO.WriteTextAsync(localDataFile, json);
+            await WriteCacheAsync();
 
             // Delete sound file 
             if (!string.IsNullOrWhiteSpace(soundForDeletion.FilePath))
@@ -90,13 +106,8 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
-            StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                LocalDataFileName,
-                CreationCollisionOption.OpenIfExists);
-
             _localSoundCache.Add(s);
-            string json = JsonSerializer.Serialize(_localSoundCache);
-            await FileIO.WriteTextAsync(localDataFile, json);
+            await WriteCacheAsync();
             LocalSoundAdded?.Invoke(this, s);
         }
 
@@ -139,6 +150,11 @@ namespace AmbientSounds.Services.Uwp
             }
 
             // Write changes to file
+            await WriteCacheAsync();
+        }
+
+        private async Task WriteCacheAsync()
+        {
             StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                 LocalDataFileName,
                 CreationCollisionOption.OpenIfExists);
