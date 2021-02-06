@@ -70,14 +70,18 @@ namespace AmbientSounds.ViewModels
 
         public async void LoadAsync()
         {
-            _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded, new Dictionary<string, string>
-            {
-                //{ "sound", _mediaPlayerService.Current?.Name ?? "---" },
-            });
+            _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
 
-            _images = _mediaPlayerService.Screensavers.Count == 0
-                ? new string[0]
-                : _mediaPlayerService.Screensavers.First().Value.ToList();
+            if (_mediaPlayerService.Screensavers.Count > 0)
+            {
+                var images = new List<string>();
+                foreach (var list in _mediaPlayerService.Screensavers.Values)
+                {
+                    images.AddRange(list);
+                }
+
+                _images = images;
+            }
 
             if (_images == null || _images.Count < 2)
             {
