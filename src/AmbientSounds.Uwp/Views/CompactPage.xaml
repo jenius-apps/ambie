@@ -46,7 +46,7 @@
                             FontSize="18"
                             FontWeight="SemiBold"
                             Foreground="White"
-                            Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(Name)}"
+                            Text="{x:Bind Name}"
                             TextWrapping="Wrap" />
                     </Grid>
                 </Grid>

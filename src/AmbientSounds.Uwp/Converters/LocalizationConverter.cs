@@ -7,6 +7,8 @@ namespace AmbientSounds.Converters
     /// </summary>
     public static class LocalizationConverter
     {
+        private static ResourceLoader _loader;
+
         /// <summary>
         /// Attempts to localize a sound's name.
         /// </summary>
@@ -14,17 +16,18 @@ namespace AmbientSounds.Converters
         /// <returns>A localized string of the sound if a localization exists.</returns>
         public static string ConvertSoundName(string value)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
+            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
+
             if (value is string soundName)
             {
-                var translatedName = resourceLoader.GetString("Sound-" + soundName);
+                var translatedName = _loader.GetString("Sound-" + soundName);
                 return string.IsNullOrWhiteSpace(translatedName)
                     ? soundName
                     : translatedName;
             }
             else
             {
-                return resourceLoader.GetString("ReadyToPlayText");
+                return value;
             }
         }
 
@@ -35,20 +38,20 @@ namespace AmbientSounds.Converters
         /// <param name="isPaused">Current state of the player.</param>
         public static string ConvertPlayerButtonState(bool isPaused)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
-            return isPaused ? resourceLoader.GetString("PlayerPlayText") : resourceLoader.GetString("PlayerPauseText");
+            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
+            return isPaused ? _loader.GetString("PlayerPlayText") : _loader.GetString("PlayerPauseText");
         }
 
         public static string SoundStatus(bool isCurrentlyPlaying)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
+            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
             if (isCurrentlyPlaying)
             {
-                return resourceLoader.GetString("Playing");
+                return _loader.GetString("Playing");
             }
             else
             {
-                return resourceLoader.GetString("Paused");
+                return _loader.GetString("Paused");
             }
         }
 
@@ -63,11 +66,11 @@ namespace AmbientSounds.Converters
         /// </remarks>
         public static string ConvertOnlineSoundListViewName(string name, bool canDownload)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
+            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
             var result = name + ". ";
             result += canDownload 
-                ? resourceLoader.GetString("CanDownload") 
-                : resourceLoader.GetString("AlreadyDownloaded");
+                ? _loader.GetString("CanDownload") 
+                : _loader.GetString("AlreadyDownloaded");
 
             return result;
         }

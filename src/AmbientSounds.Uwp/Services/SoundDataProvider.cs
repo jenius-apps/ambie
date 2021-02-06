@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Converters;
+using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -202,7 +203,14 @@ namespace AmbientSounds.Services.Uwp
             StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
             StorageFile dataFile = await assets.GetFileAsync(DataFileName);
             using Stream dataStream = await dataFile.OpenStreamForReadAsync();
-            return await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+            var sounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+
+            foreach (var s in sounds)
+            {
+                s.Name = LocalizationConverter.ConvertSoundName(s.Name);
+            }
+
+            return sounds;
         }
     }
 }
