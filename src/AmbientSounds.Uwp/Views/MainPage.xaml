@@ -100,7 +100,7 @@
                             FontFamily="Calibri"
                             FontSize="32"
                             Foreground="White"
-                            Text="{x:Bind converters:LocalizationConverter.ConvertSoundName(Name), Mode=OneWay}"
+                            Text="{x:Bind Name, Mode=OneWay}"
                             TextTrimming="CharacterEllipsis" />
                     </Grid>
                 </Grid>
