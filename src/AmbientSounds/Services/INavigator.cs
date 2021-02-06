@@ -15,5 +15,10 @@
         /// Navigates to the screensaver.
         /// </summary>
         void ToScreensaver();
+
+        /// <summary>
+        /// Navigates to the compact page.
+        /// </summary>
+        void ToCompact();
     }
 }

@@ -51,9 +51,6 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>옵션 보기</value>
   </data>
-  <data name="MoreButtonCompact.Label" xml:space="preserve">
-    <value>콤팩트 모드</value>
-  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>개발자 연락하기</value>
   </data>

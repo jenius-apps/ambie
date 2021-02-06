@@ -19,14 +19,6 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA83;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton
-                        x:Uid="MoreButtonCompact"
-                        Click="{x:Bind CompactOverlayClicked}"
-                        Visibility="{x:Bind CompactButtonVisible}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB1E;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
                     <AppBarButton x:Uid="MoreButtonShare" Click="{x:Bind ShareClicked}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB60;" />

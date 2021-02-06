@@ -38,40 +38,9 @@ namespace AmbientSounds.Controls
             };
         }
 
-        /// <summary>
-        /// If true, the compact mode button is visible.
-        /// Default is true.
-        /// </summary>
-        public bool ShowCompactMode
-        {
-            get => (bool)GetValue(ShowCompactModeProperty);
-            set => SetValue(ShowCompactModeProperty, value);
-        }
-
-        /// <summary>
-        /// Dependency property for <see cref="ShowCompactMode"/>.
-        /// Default is true.
-        /// </summary>
-        public static readonly DependencyProperty ShowCompactModeProperty = DependencyProperty.Register(
-            nameof(ShowCompactMode),
-            typeof(bool),
-            typeof(MoreButton),
-            new PropertyMetadata(true));
-
-        private bool CompactButtonVisible => !App.IsTenFoot && ShowCompactMode;
-
         private void ShareClicked()
         {
             DataTransferManager.ShowShareUI();
-        }
-
-        private async void CompactOverlayClicked()
-        {
-            // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
-            var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            preferences.CustomSize = new Windows.Foundation.Size(360, 500);
-            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, preferences);
-            App.AppFrame.Navigate(typeof(Views.CompactPage), null, new SuppressNavigationTransitionInfo());
         }
 
         private void ScreensaverClicked()

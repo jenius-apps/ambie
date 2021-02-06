@@ -60,10 +60,6 @@
           <target state="needs-review-translation">Klik om meer opties te zien</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
-        <trans-unit id="MoreButtonCompact.Label" translate="yes" xml:space="preserve">
-          <source>Compact mode</source>
-          <target state="translated">Compact modus</target>
-        </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
           <target state="translated">Contacteer de maker</target>
@@ -453,6 +449,10 @@
         <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Rename</source>
           <target state="new">Rename</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Compact mode</source>
+          <target state="new">Compact mode</target>
         </trans-unit>
       </group>
     </body>

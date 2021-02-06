@@ -51,9 +51,6 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value></value>
   </data>
-  <data name="MoreButtonCompact.Label" xml:space="preserve">
-    <value>Modo compacto</value>
-  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contactar con el creador</value>
   </data>
