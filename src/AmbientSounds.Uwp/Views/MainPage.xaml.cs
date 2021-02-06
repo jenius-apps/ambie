@@ -53,7 +53,7 @@ namespace AmbientSounds.Views
             ViewModel.PropertyChanged -= OnPropertyChanged;
         }
 
-        private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp(sender as UIElement, 1.1f);
+        private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp(sender as UIElement, 1.1f, e.Pointer);
 
         private void GridScaleNormal(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleNormal(sender as UIElement);
 
