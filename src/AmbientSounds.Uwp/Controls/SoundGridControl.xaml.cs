@@ -31,7 +31,7 @@ namespace AmbientSounds.Controls
         }
 
         /// <summary>
-        /// Dependency property for <see cref="ShowCompactMode"/>.
+        /// Dependency property for <see cref="ItemTemplate"/>.
         /// Default is true.
         /// </summary>
         public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(

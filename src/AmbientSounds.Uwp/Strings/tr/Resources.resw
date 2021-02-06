@@ -45,9 +45,6 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Daha fazla seçenek görmek için tıklayın</value>
   </data>
-  <data name="MoreButtonCompact.Label" xml:space="preserve">
-    <value>Kompakt mod</value>
-  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>İçerik oluşturucuyla iletişime geçin</value>
   </data>

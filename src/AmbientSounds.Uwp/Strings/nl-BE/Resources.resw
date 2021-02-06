@@ -45,9 +45,6 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Klik om meer opties te zien</value>
   </data>
-  <data name="MoreButtonCompact.Label" xml:space="preserve">
-    <value>Compact modus</value>
-  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contacteer de maker</value>
   </data>

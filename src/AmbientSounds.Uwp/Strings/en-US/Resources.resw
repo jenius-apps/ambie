@@ -156,7 +156,7 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>View more options</value>
   </data>
-  <data name="MoreButtonCompact.Label" xml:space="preserve">
+  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
     <value>Compact mode</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">

@@ -58,10 +58,6 @@
           <source>View more options</source>
           <target state="new">View more options</target>
         </trans-unit>
-        <trans-unit id="MoreButtonCompact.Label" translate="yes" xml:space="preserve">
-          <source>Compact mode</source>
-          <target state="new">Compact mode</target>
-        </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
           <target state="new">Contact the creator</target>
@@ -447,6 +443,10 @@
         <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Rename</source>
           <target state="new">Rename</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Compact mode</source>
+          <target state="new">Compact mode</target>
         </trans-unit>
       </group>
     </body>
