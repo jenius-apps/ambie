@@ -20,12 +20,6 @@
     PreviewKeyDown="{x:Bind ViewModel.ResetTime}"
     mc:Ignorable="d">
     <Page.Resources>
-        <AcrylicBrush
-            x:Key="BackgroundAcrylicBrush"
-            TintColor="Black"
-            TintOpacity="0.2" />
-
-
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
             <GridViewItem
                 Margin="8"
@@ -86,7 +80,7 @@
                         CornerRadius="30"
                         Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
                         <FontIcon
-                            Margin="12"
+                            Margin="8"
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="32"
                             Foreground="White"
@@ -219,27 +213,5 @@
                 </FlyoutBase.AttachedFlyout>
             </controls:ActiveTrackList>
         </Grid>
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="TitleCentre.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <statetriggers:TenFootTrigger />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="TitleCentre.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

@@ -22,6 +22,11 @@
                 <Setter Property="Background" Value="Transparent" />
             </Style>
 
+            <AcrylicBrush
+                x:Key="BackgroundAcrylicBrush"
+                TintColor="Black"
+                TintOpacity="0.2" />
+
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
 
             <GridLength x:Key="HeaderHeight">112</GridLength>
