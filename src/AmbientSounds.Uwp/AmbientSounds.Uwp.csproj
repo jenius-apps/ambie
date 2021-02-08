@@ -466,6 +466,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ca-ES.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.da-DK.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.de-DE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-DO.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-ES.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-MX.xlf" />
@@ -504,6 +505,9 @@
     <PRIResource Include="appsettings.resw">
       <SubType>Designer</SubType>
     </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\de-DE\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
