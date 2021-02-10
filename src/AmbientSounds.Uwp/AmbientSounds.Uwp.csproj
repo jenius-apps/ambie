@@ -155,6 +155,9 @@
     <Compile Include="Controls\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ShareMixButton.xaml.cs">
+      <DependentUpon>ShareMixButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SleepTimerControl.xaml.cs">
       <DependentUpon>SleepTimerControl.xaml</DependentUpon>
     </Compile>
@@ -328,6 +331,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ShareMixButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

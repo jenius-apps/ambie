@@ -450,4 +450,10 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Rename</value>
   </data>
+  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Share sound mix link</value>
+  </data>
+  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Share sound mix link</value>
+  </data>
 </root>

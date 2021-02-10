@@ -448,6 +448,14 @@
           <source>Compact mode</source>
           <target state="new">Compact mode</target>
         </trans-unit>
+        <trans-unit id="ShareMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Share sound mix link</source>
+          <target state="new">Share sound mix link</target>
+        </trans-unit>
+        <trans-unit id="ShareMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Share sound mix link</source>
+          <target state="new">Share sound mix link</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -216,6 +216,7 @@ namespace AmbientSounds
                 .AddTransient<ISoundVmFactory, SoundVmFactory>()
                 .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IUserSettings, LocalSettings>()
+                .AddTransient<IShareLinkBuilder, ShareLinkBuilder>()
                 .AddTransient<ITimerService, TimerService>()
                 .AddTransient<ISoundMixService, SoundMixService>()
                 .AddTransient<IRenamer, Renamer>()

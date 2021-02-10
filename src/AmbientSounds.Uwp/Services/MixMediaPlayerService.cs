@@ -214,6 +214,12 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public IList<string> GetActiveIds()
+        {
+            return _activeSounds.Keys.ToArray();
+        }
+
+        /// <inheritdoc/>
         public void RemoveSound(string soundId)
         {
             if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId))
