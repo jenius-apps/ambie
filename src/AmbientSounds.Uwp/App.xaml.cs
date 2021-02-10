@@ -84,6 +84,10 @@ namespace AmbientSounds
             {
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
             }
+            else if (args.Kind == ActivationKind.Protocol && args is ProtocolActivatedEventArgs e)
+            {
+
+            }
 
             await ActivateAsync(false);
         }
