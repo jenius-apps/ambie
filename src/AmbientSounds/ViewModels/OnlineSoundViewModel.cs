@@ -77,6 +77,12 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
+        /// Gets or sets the location within the application of this viewmodel.
+        /// This is used for telemetry purposes.
+        /// </summary>
+        public string TelemetryLocation { get; set; } = "catalogue";
+
+        /// <summary>
         /// The sound's attribution.
         /// </summary>
         public string? Attribution => _sound.Attribution;
@@ -214,6 +220,7 @@ namespace AmbientSounds.ViewModels
             {
                 { "id", _sound.Id ?? "" },
                 { "purchased", purchased.ToString() },
+                { "location", TelemetryLocation }
             });
         }
 
@@ -248,7 +255,8 @@ namespace AmbientSounds.ViewModels
             {
                 _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
                 {
-                    { "id", _sound.Id ?? "" }
+                    { "id", _sound.Id ?? "" },
+                    { "location", TelemetryLocation }
                 });
 
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);

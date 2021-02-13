@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Uwp", "src\Am
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds", "src\AmbientSounds\AmbientSounds.csproj", "{E8943DA1-AFDD-4C4B-A216-05AF46142CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Web", "src\AmbientSounds.Web\AmbientSounds.Web.csproj", "{7816F10F-CF63-4E0E-8186-D51E146EDE2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds.Web", "src\AmbientSounds.Web\AmbientSounds.Web.csproj", "{7816F10F-CF63-4E0E-8186-D51E146EDE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
