@@ -41,5 +41,10 @@
         public const string MixSaved = Mix + "saved";
         public const string MixCleared = Mix + "cleared";
         public const string MixRemoved = Mix + "removed";
+
+        // sharing
+        private const string Share = "share:";
+        public const string ShareClicked = Share + "clicked";
+        public const string ShareReceived = Share + "received"; 
     }
 }

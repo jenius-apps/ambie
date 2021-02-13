@@ -2,6 +2,7 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ShareResultsViewModel
+    public class ShareResultsViewModel : ObservableObject
     {
         private readonly IOnlineSoundDataProvider _onlineDataProvider;
         private readonly ISoundDataProvider _localDataProvider;
         private readonly ISoundVmFactory _soundVmFactory;
+        private bool _loading;
 
         public ShareResultsViewModel(
             IOnlineSoundDataProvider dataProvider,
@@ -35,16 +37,26 @@ namespace AmbientSounds.ViewModels
         public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
 
         /// <summary>
+        /// Determines if the Sound list data is still loading.
+        /// </summary>
+        public bool Loading
+        {
+            get => _loading;
+            set => SetProperty(ref _loading, value);
+        }
+
+        /// <summary>
         /// Loads the given list of items into the sound collection.
         /// </summary>
         /// <param name="soundIds">The list of sounds to load into the collection.</param>
         public async Task LoadAsync(IList<string> soundIds)
         {
-            if (soundIds == null || soundIds.Count == 0)
+            if (soundIds == null || soundIds.Count == 0 || Loading)
             {
                 return;
             }
 
+            Loading = true;
             List<Sound> onlineSounds;
 
             // fetch online sounds
@@ -55,6 +67,7 @@ namespace AmbientSounds.ViewModels
             }
             catch
             {
+                Loading = false;
                 // todo log
                 return;
             }
@@ -83,6 +96,8 @@ namespace AmbientSounds.ViewModels
                     Sounds.Add(vm);
                 }
             }
+
+            Loading = false;
         }
     }
 }

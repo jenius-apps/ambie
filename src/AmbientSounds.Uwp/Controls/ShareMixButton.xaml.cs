@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Windows.ApplicationModel.DataTransfer;
@@ -28,6 +29,8 @@ namespace AmbientSounds.Controls
 
         private void OpenShareMenu(object sender, RoutedEventArgs e)
         {
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+            telemetry.TrackEvent(TelemetryConstants.ShareClicked);
             DataTransferManager.ShowShareUI();
         }
     }
