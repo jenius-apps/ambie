@@ -216,10 +216,10 @@ namespace AmbientSounds.Services.Uwp
                     s.Name = LocalizationConverter.ConvertSoundName(s.Name);
                 }
 
-                _packagedSoundCache = sounds.ToList();
+                _packagedSoundCache = sounds;
             }
 
-            return _packagedSoundCache;
+            return _packagedSoundCache.ToList();
         }
     }
 }
