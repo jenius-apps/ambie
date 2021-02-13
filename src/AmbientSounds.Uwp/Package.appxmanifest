@@ -60,6 +60,9 @@
             <uap:DisplayName>Ambie</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>
+		<uap:Extension Category="windows.appService">
+			<uap:AppService Name="InProcessAppService" />
+		</uap:Extension>
       </Extensions>
     </Application>
   </Applications>
