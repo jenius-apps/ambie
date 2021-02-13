@@ -19,5 +19,8 @@ namespace AmbientSounds.Services.Uwp
 
         /// <inheritdoc/>
         public string TelemetryApiKey { get; }
+
+        /// <inheritdoc/>
+        public bool LoadPreviousState { get; set; } = true;
     }
 }

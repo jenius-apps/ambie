@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
+        private readonly bool _loadPreviousState;
         private bool _loaded;
 
         public ActiveTrackListViewModel(
@@ -29,7 +30,8 @@ namespace AmbientSounds.ViewModels
             IUserSettings userSettings,
             ITelemetry telemetry,
             ISoundMixService soundMixService,
-            ISoundDataProvider soundDataProvider)
+            ISoundDataProvider soundDataProvider,
+            IAppSettings appSettings)
         {
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
@@ -37,7 +39,9 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(appSettings, nameof(appSettings));
 
+            _loadPreviousState = appSettings.LoadPreviousState;
             _telemetry = telemetry;
             _soundMixService = soundMixService;
             _soundDataProvider = soundDataProvider;
@@ -91,7 +95,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public async Task LoadPreviousStateAsync()
         {
-            if (_loaded)
+            if (_loaded || !_loadPreviousState)
             {
                 return;
             }

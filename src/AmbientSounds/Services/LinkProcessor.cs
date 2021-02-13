@@ -30,6 +30,10 @@ namespace AmbientSounds.Services
 
             var queryString = HttpUtility.ParseQueryString(uri.Query);
             var sounds = queryString["sounds"] ?? "";
+            if (string.IsNullOrWhiteSpace(sounds))
+            {
+                return;
+            }
             string[] list = sounds.Split(',');
 
             for (int x = 0; x < list.Length; x++)

@@ -14,5 +14,11 @@
         /// API key for telemetry.
         /// </summary>
         string TelemetryApiKey { get; }
+
+        /// <summary>
+        /// Determines if previous state should be loaded.
+        /// Default true.
+        /// </summary>
+        public bool LoadPreviousState { get; set; }
     }
 }
