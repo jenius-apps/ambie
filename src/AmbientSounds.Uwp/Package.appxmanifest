@@ -49,6 +49,11 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true" xmlns:a="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"  BackgroundColor="black"/>
       </uap:VisualElements>
       <Extensions>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="ambie-app.azurewebsites.net" />
+          </uap3:AppUriHandler>
+        </uap3:Extension>
         <uap:Extension Category="windows.protocol">
           <uap:Protocol Name="ambie">
             <uap:Logo>Assets\logo.png</uap:Logo>
