@@ -190,10 +190,10 @@
     <value>Pause the timer</value>
   </data>
   <data name="PlayerPauseText" xml:space="preserve">
-    <value>Pause sound</value>
+    <value>Pause</value>
   </data>
   <data name="PlayerPlayText" xml:space="preserve">
-    <value>Play sound</value>
+    <value>Play</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Continue the timer</value>
@@ -455,5 +455,11 @@
   </data>
   <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Share sound mix link</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Missing sounds</value>
+  </data>
+  <data name="ShareResultsMessage.Text" xml:space="preserve">
+    <value>You're missing some sounds! Download them here. Press play whenever you're ready.</value>
   </data>
 </root>

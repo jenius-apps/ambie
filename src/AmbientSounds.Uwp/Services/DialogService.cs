@@ -78,9 +78,9 @@ namespace AmbientSounds.Services.Uwp
 
             var dialog = new ContentDialog()
             {
-                Title = resources.GetString("DownloadMissingSounds"),
+                Title = resources.GetString("MissingSoundsTitle"),
                 CloseButtonText = resources.GetString("CancelText"),
-                PrimaryButtonText = resources.GetString("Play"),
+                PrimaryButtonText = resources.GetString("PlayerPlayText"),
                 Content = content
             };
 
