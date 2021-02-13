@@ -55,7 +55,7 @@
           </uap3:AppUriHandler>
         </uap3:Extension>
         <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="ambie">
+          <uap:Protocol Name="ambie-app">
             <uap:Logo>Assets\logo.png</uap:Logo>
             <uap:DisplayName>Ambie</uap:DisplayName>
           </uap:Protocol>
