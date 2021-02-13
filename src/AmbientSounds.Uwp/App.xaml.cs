@@ -215,6 +215,7 @@ namespace AmbientSounds
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<MainPageViewModel>()
+                .AddTransient<ShareResultsViewModel>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<ISystemInfoProvider, SystemInfoProvider>()
                 .AddTransient<IDialogService, DialogService>()

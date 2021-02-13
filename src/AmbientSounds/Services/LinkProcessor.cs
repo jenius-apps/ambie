@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 
 namespace AmbientSounds.Services
@@ -12,12 +14,17 @@ namespace AmbientSounds.Services
     public class LinkProcessor : ILinkProcessor
     {
         private readonly ISoundMixService _soundMixService;
+        private readonly IDialogService _dialogService;
 
-        public LinkProcessor(ISoundMixService soundMixService)
+        public LinkProcessor(
+            ISoundMixService soundMixService,
+            IDialogService dialogService)
         {
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
 
             _soundMixService = soundMixService;
+            _dialogService = dialogService;
         }
 
         /// <inheritdoc/>
@@ -51,7 +58,14 @@ namespace AmbientSounds.Services
 
             if (!allLoaded)
             {
-                // trigger dialog
+                // show the share result to the user and let them download missing sounds.
+                IList<string> soundIdsToPlay = await _dialogService.OpenShareResultsAsync(list);
+
+                if (soundIdsToPlay != null && soundIdsToPlay.Count > 0)
+                {
+                    tempSoundMix.SoundIds = soundIdsToPlay.ToArray();
+                    await _soundMixService.LoadMixAsync(tempSoundMix);
+                }
             }
         }
     }

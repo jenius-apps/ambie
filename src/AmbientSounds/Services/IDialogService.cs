@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
 {
@@ -19,5 +20,14 @@ namespace AmbientSounds.Services
         /// <param name="currentName">The current name use to pre-populate the field.</param>
         /// <returns>The raw value from the input text field. This can be the same as the currentName value.</returns>
         Task<string> RenameAsync(string currentName);
+
+        /// <summary>
+        /// Open dialog that shows the results of
+        /// clicking on a share link.
+        /// </summary>
+        /// <param name="soundIds">List of Ids to preview.</param>
+        /// <returns>List of sound Ids that are installed and user wants to play.
+        /// Empty list if operation was cancelled.</returns>
+        Task<IList<string>> OpenShareResultsAsync(IList<string> soundIds);
     }
 }

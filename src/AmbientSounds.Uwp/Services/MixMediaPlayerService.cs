@@ -140,9 +140,17 @@ namespace AmbientSounds.Services.Uwp
                 }
                 else if (s.FilePath != null && s.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
                 {
-                    // sound path is a file saved in local folder
-                    StorageFile file = await StorageFile.GetFileFromPathAsync(s.FilePath);
-                    mediaSource = MediaSource.CreateFromStorageFile(file);
+                    try
+                    {
+                        // sound path is a file saved in local folder
+                        StorageFile file = await StorageFile.GetFileFromPathAsync(s.FilePath);
+                        mediaSource = MediaSource.CreateFromStorageFile(file);
+                    }
+                    catch
+                    {
+                        // todo log
+                        return;
+                    }
                 }
                 
                 if (mediaSource != null)
