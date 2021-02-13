@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -16,10 +17,14 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock x:Uid="ShareResultsMessage" TextWrapping="WrapWholeWords" MaxWidth="360" />
+        <TextBlock
+            x:Uid="ShareResultsMessage"
+            MaxWidth="360"
+            TextWrapping="WrapWholeWords" />
 
         <ListView
-            Grid.Row="1" Margin="0,12,0,0"
+            Grid.Row="1"
+            Margin="0,12,0,0"
             ItemsSource="{x:Bind ViewModel.Sounds}"
             SelectionMode="None">
             <ListView.ItemContainerStyle>
@@ -29,7 +34,7 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:OnlineSoundViewModel">
-                    <Grid>
+                    <Grid Margin="0,2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="80" />
@@ -69,6 +74,11 @@
                                         FontFamily="{StaticResource FluentUIGlyphs}"
                                         Glyph="&#xE9B9;" />
                                 </Button>
+                                <muxc:ProgressRing
+                                    x:Name="DownloadProgressRing"
+                                    Width="40"
+                                    Height="40"
+                                    x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}" />
                             </Grid>
                         </Grid>
                     </Grid>
