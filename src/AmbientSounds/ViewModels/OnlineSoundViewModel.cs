@@ -87,6 +87,11 @@ namespace AmbientSounds.ViewModels
         public string? Name => _sound.Name;
 
         /// <summary>
+        /// Id of the sound.
+        /// </summary>
+        public string Id => _sound.Id;
+
+        /// <summary>
         /// The path for the image to display for the current sound.
         /// </summary>
         public string? ImagePath => _sound.ImagePath;

@@ -13,12 +13,52 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
+        <Button
+            x:Uid="SaveMixButton"
+            Style="{StaticResource TransparentRoundButtonStyle}"
+            Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator Key="S" Modifiers="Control" />
+            </Button.KeyboardAccelerators>
+
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
+            <Button.Flyout>
+                <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox
+                            x:Name="NameInput"
+                            x:Uid="NameInputBox"
+                            Width="200"
+                            KeyDown="NameInput_KeyDown"
+                            MaxLength="30" />
+                        <Button
+                            x:Uid="ConfirmSaveButton"
+                            Grid.Column="1"
+                            Margin="4,0,0,0"
+                            VerticalAlignment="Bottom"
+                            Background="Transparent"
+                            Click="Button_Click"
+                            Command="{x:Bind ViewModel.SaveCommand}"
+                            CommandParameter="{x:Bind NameInput.Text, Mode=OneWay}">
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
+                        </Button>
+                    </Grid>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
         <ListView
             x:Uid="ActiveTrackListView"
+            Grid.Column="1"
             VerticalAlignment="Stretch"
             ItemsSource="{x:Bind ViewModel.ActiveTracks}"
             ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -76,48 +116,13 @@
         </ListView>
 
         <StackPanel
-            Grid.Column="1"
-            Margin="12,0,0,0"
+            Grid.Column="2"
+            Margin="4,0,0,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             Orientation="Vertical">
-            <Button
-                x:Uid="SaveMixButton"
-                Style="{StaticResource TransparentRoundButtonStyle}"
-                Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
-                <Button.KeyboardAccelerators>
-                    <KeyboardAccelerator Key="S" Modifiers="Control" />
-                </Button.KeyboardAccelerators>
 
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
-                <Button.Flyout>
-                    <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox
-                                x:Name="NameInput"
-                                x:Uid="NameInputBox"
-                                Width="200"
-                                KeyDown="NameInput_KeyDown"
-                                MaxLength="30" />
-                            <Button
-                                x:Uid="ConfirmSaveButton"
-                                Grid.Column="1"
-                                Margin="4,0,0,0"
-                                VerticalAlignment="Bottom"
-                                Background="Transparent"
-                                Click="Button_Click"
-                                Command="{x:Bind ViewModel.SaveCommand}"
-                                CommandParameter="{x:Bind NameInput.Text, Mode=OneWay}">
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
-                            </Button>
-                        </Grid>
-                    </Flyout>
-                </Button.Flyout>
-            </Button>
+            <local:ShareMixButton Visibility="{x:Bind ViewModel.IsClearVisible, Mode=OneWay}" />
 
             <Button
                 x:Uid="ClearActiveButton"

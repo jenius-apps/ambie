@@ -80,15 +80,25 @@ namespace AmbientSounds
         /// <inheritdoc/>
         protected override async void OnActivated(IActivatedEventArgs args)
         {
+
             if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
             {
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
+                await ActivateAsync(false);
             }
-
-            await ActivateAsync(false);
+            else if (args.Kind == ActivationKind.Protocol && args is ProtocolActivatedEventArgs e)
+            {
+                // Ensure that the app does not try to load
+                // previous state of active sounds. This prevents
+                // conflicts with processing the url and loading
+                // sounds from the url.
+                await ActivateAsync(false, new AppSettings { LoadPreviousState = false });
+                var processor = App.Services.GetRequiredService<ILinkProcessor>();
+                processor.Process(e.Uri);
+            }
         }
 
-        private async Task ActivateAsync(bool prelaunched)
+        private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null)
         {
             // Do not repeat app initialization when the Window already has content
             if (Window.Current.Content is not Frame rootFrame)
@@ -102,7 +112,7 @@ namespace AmbientSounds
                 Window.Current.Content = rootFrame;
 
                 // Configure the services for later use
-                _serviceProvider = ConfigureServices();
+                _serviceProvider = ConfigureServices(appsettings);
                 var navigator = App.Services.GetRequiredService<INavigator>();
                 navigator.Frame = rootFrame;
             }
@@ -193,7 +203,7 @@ namespace AmbientSounds
         /// <summary>
         /// Configures a new <see cref="IServiceProvider"/> instance with the required services.
         /// </summary>
-        private static IServiceProvider ConfigureServices()
+        private static IServiceProvider ConfigureServices(IAppSettings? appsettings = null)
         {
             var client = new HttpClient();
 
@@ -205,6 +215,7 @@ namespace AmbientSounds
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<MainPageViewModel>()
+                .AddTransient<ShareResultsViewModel>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<ISystemInfoProvider, SystemInfoProvider>()
                 .AddTransient<IDialogService, DialogService>()
@@ -212,9 +223,11 @@ namespace AmbientSounds
                 .AddTransient<ISoundVmFactory, SoundVmFactory>()
                 .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IUserSettings, LocalSettings>()
+                .AddTransient<IShareLinkBuilder, ShareLinkBuilder>()
                 .AddTransient<ITimerService, TimerService>()
                 .AddTransient<ISoundMixService, SoundMixService>()
                 .AddTransient<IRenamer, Renamer>()
+                .AddTransient<ILinkProcessor, LinkProcessor>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
@@ -227,7 +240,7 @@ namespace AmbientSounds
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
-                .AddSingleton<IAppSettings, AppSettings>()
+                .AddSingleton<IAppSettings>(appsettings ?? new AppSettings())
                 .BuildServiceProvider();
         }
     }

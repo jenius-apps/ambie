@@ -1,0 +1,72 @@
+﻿using AmbientSounds.Models;
+using Microsoft.Toolkit.Diagnostics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace AmbientSounds.Services
+{
+    /// <summary>
+    /// Class for deciphering url and performing
+    /// its actions.
+    /// </summary>
+    public class LinkProcessor : ILinkProcessor
+    {
+        private readonly ISoundMixService _soundMixService;
+        private readonly IDialogService _dialogService;
+
+        public LinkProcessor(
+            ISoundMixService soundMixService,
+            IDialogService dialogService)
+        {
+            Guard.IsNotNull(soundMixService, nameof(soundMixService));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
+
+            _soundMixService = soundMixService;
+            _dialogService = dialogService;
+        }
+
+        /// <inheritdoc/>
+        public async void Process(Uri uri)
+        {
+            if (uri?.Query == null)
+            {
+                return;
+            }
+
+            var queryString = HttpUtility.ParseQueryString(uri.Query);
+            var sounds = queryString["sounds"] ?? "";
+            if (string.IsNullOrWhiteSpace(sounds))
+            {
+                return;
+            }
+            string[] list = sounds.Split(',');
+
+            for (int x = 0; x < list.Length; x++)
+            {
+                list[x] = GuidEncoder.Decode(list[x]).ToString();
+            }
+
+            Sound tempSoundMix = new()
+            {
+                SoundIds = list,
+                IsMix = true
+            };
+
+            var allLoaded = await _soundMixService.LoadMixAsync(tempSoundMix);
+
+            if (!allLoaded)
+            {
+                // show the share result to the user and let them download missing sounds.
+                IList<string> soundIdsToPlay = await _dialogService.OpenShareResultsAsync(list);
+
+                if (soundIdsToPlay != null && soundIdsToPlay.Count > 0)
+                {
+                    tempSoundMix.SoundIds = soundIdsToPlay.ToArray();
+                    await _soundMixService.LoadMixAsync(tempSoundMix);
+                }
+            }
+        }
+    }
+}

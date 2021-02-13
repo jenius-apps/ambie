@@ -1,5 +1,7 @@
 ﻿using AmbientSounds.Controls;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Controls;
@@ -60,6 +62,34 @@ namespace AmbientSounds.Services.Uwp
             IsDialogOpen = false;
 
             return result == ContentDialogResult.Primary || enterClicked ? inputBoxControl.Input : currentName;
+        }
+
+        /// <inheritdoc/>
+        public async Task<IList<string>> OpenShareResultsAsync(IList<string> soundIds)
+        {
+            if (IsDialogOpen || soundIds == null || soundIds.Count == 0) 
+                return new List<string>();
+
+            IsDialogOpen = true;
+            var resources = ResourceLoader.GetForCurrentView();
+
+            var content = new ShareResultsControl();
+            content.LoadSoundsAsync(soundIds);
+
+            var dialog = new ContentDialog()
+            {
+                Title = resources.GetString("MissingSoundsTitle"),
+                CloseButtonText = resources.GetString("CancelText"),
+                PrimaryButtonText = resources.GetString("PlayerPlayText"),
+                Content = content
+            };
+
+            var result = await dialog.ShowAsync();
+            IsDialogOpen = false;
+
+            return result == ContentDialogResult.Primary
+                ? content.ViewModel.Sounds.Where(x => x.IsInstalled).Select(x => x.Id).ToList()
+                : new List<string>();
         }
     }
 }

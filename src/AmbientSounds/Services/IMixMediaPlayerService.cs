@@ -102,5 +102,10 @@ namespace AmbientSounds.Services
         /// Sets the volume for the given sound.
         /// </summary>
         void SetVolume(string soundId, double value);
+
+        /// <summary>
+        /// Returns list of active sound Ids.
+        /// </summary>
+        IList<string> GetActiveIds();
     }
 }

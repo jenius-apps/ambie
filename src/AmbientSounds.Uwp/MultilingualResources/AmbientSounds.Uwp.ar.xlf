@@ -99,12 +99,12 @@
           <target state="new">Pause the timer</target>
         </trans-unit>
         <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
-          <source>Pause sound</source>
-          <target state="new">Pause sound</target>
+          <source>Pause</source>
+          <target state="new">Pause</target>
         </trans-unit>
         <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
-          <source>Play sound</source>
-          <target state="new">Play sound</target>
+          <source>Play</source>
+          <target state="new">Play</target>
         </trans-unit>
         <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Continue the timer</source>
@@ -447,6 +447,22 @@
         <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
           <target state="new">Compact mode</target>
+        </trans-unit>
+        <trans-unit id="ShareMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Share sound mix link</source>
+          <target state="new">Share sound mix link</target>
+        </trans-unit>
+        <trans-unit id="ShareMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Share sound mix link</source>
+          <target state="new">Share sound mix link</target>
+        </trans-unit>
+        <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
+          <source>Missing sounds</source>
+          <target state="new">Missing sounds</target>
+        </trans-unit>
+        <trans-unit id="ShareResultsMessage.Text" translate="yes" xml:space="preserve">
+          <source>You're missing some sounds! Download them here. Press play whenever you're ready.</source>
+          <target state="new">You're missing some sounds! Download them here. Press play whenever you're ready.</target>
         </trans-unit>
       </group>
     </body>

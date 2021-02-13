@@ -20,6 +20,6 @@ namespace AmbientSounds.Services
         /// Loads the given mix to the player.
         /// </summary>
         /// <param name="mix">The mix to play.</param>
-        Task LoadMixAsync(Sound mix);
+        Task<bool> LoadMixAsync(Sound mix);
     }
 }

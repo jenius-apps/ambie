@@ -11,7 +11,7 @@
   <Identity
     Name="90134f50-d8e6-4406-abc4-57d19471dbd5"
     Publisher="CN=0B44CA61-7898-42FE-825C-ADA43BC01A93"
-    Version="1.2.2.0" />
+    Version="1.2.3.0" />
 
   <mp:PhoneIdentity PhoneProductId="90134f50-d8e6-4406-abc4-57d19471dbd5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -48,6 +48,19 @@
         </uap:DefaultTile >
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true" xmlns:a="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"  BackgroundColor="black"/>
       </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="ambie-app.azurewebsites.net" />
+          </uap3:AppUriHandler>
+        </uap3:Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="ambie-app">
+            <uap:Logo>Assets\logo.png</uap:Logo>
+            <uap:DisplayName>Ambie</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
 
