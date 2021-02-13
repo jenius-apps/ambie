@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Uwp", "src\AmbientSounds.Uwp\AmbientSounds.Uwp.csproj", "{B0BA021E-FA43-4921-A25A-0004A43F7C40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds", "src\AmbientSounds\AmbientSounds.csproj", "{E8943DA1-AFDD-4C4B-A216-05AF46142CAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds", "src\AmbientSounds\AmbientSounds.csproj", "{E8943DA1-AFDD-4C4B-A216-05AF46142CAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Web", "src\AmbientSounds.Web\AmbientSounds.Web.csproj", "{7816F10F-CF63-4E0E-8186-D51E146EDE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,26 @@ Global
 		{E8943DA1-AFDD-4C4B-A216-05AF46142CAB}.Release|x64.Build.0 = Release|Any CPU
 		{E8943DA1-AFDD-4C4B-A216-05AF46142CAB}.Release|x86.ActiveCfg = Release|Any CPU
 		{E8943DA1-AFDD-4C4B-A216-05AF46142CAB}.Release|x86.Build.0 = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|x64.Build.0 = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Debug|x86.Build.0 = Debug|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|ARM.Build.0 = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|ARM64.Build.0 = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|x64.ActiveCfg = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|x64.Build.0 = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|x86.ActiveCfg = Release|Any CPU
+		{7816F10F-CF63-4E0E-8186-D51E146EDE2F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
