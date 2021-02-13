@@ -20,6 +20,7 @@ namespace AmbientSounds.Services.Uwp
         private const string LocalDataFileName = "localData.json";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private List<Sound> _localSoundCache; // cache of non-packaged sounds.
+        private List<Sound> _packagedSoundCache;
 
         /// <inheritdoc/>
         public event EventHandler<Sound> LocalSoundAdded;
@@ -120,6 +121,9 @@ namespace AmbientSounds.Services.Uwp
                 return false;
             }
 
+            var packagedSounds = await GetPackagedSoundsAsync();
+            if (packagedSounds.Any(x => x.Id == id)) return true;
+
             IReadOnlyList<Sound> sounds = await GetLocalSoundsAsync();
             return sounds.Any(x => x.Id == id);
         }
@@ -199,18 +203,23 @@ namespace AmbientSounds.Services.Uwp
 
         private async Task<List<Sound>> GetPackagedSoundsAsync()
         {
-            StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-            StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-            StorageFile dataFile = await assets.GetFileAsync(DataFileName);
-            using Stream dataStream = await dataFile.OpenStreamForReadAsync();
-            var sounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
-
-            foreach (var s in sounds)
+            if (_packagedSoundCache == null)
             {
-                s.Name = LocalizationConverter.ConvertSoundName(s.Name);
+                StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+                StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
+                StorageFile dataFile = await assets.GetFileAsync(DataFileName);
+                using Stream dataStream = await dataFile.OpenStreamForReadAsync();
+                var sounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+
+                foreach (var s in sounds)
+                {
+                    s.Name = LocalizationConverter.ConvertSoundName(s.Name);
+                }
+
+                _packagedSoundCache = sounds.ToList();
             }
 
-            return sounds;
+            return _packagedSoundCache;
         }
     }
 }
