@@ -56,9 +56,9 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task LoadMixAsync(Sound mix)
+        public async Task<bool> LoadMixAsync(Sound mix)
         {
-            if (!mix.IsMix) return;
+            if (mix?.SoundIds == null || !mix.IsMix) return false;
 
             // save instance of id
             // since RemoveAll will reset the id.
@@ -68,19 +68,24 @@ namespace AmbientSounds.Services
             // if the mix we're trying to play was
             // the same as the previous, return now
             // since we don't want to play it again.
-            if (previousMixId == mix.Id)
+            if (!string.IsNullOrWhiteSpace(previousMixId) && 
+                previousMixId == mix.Id)
             {
-                return;
+                return false;
             }
 
             var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: mix.SoundIds);
-            if (sounds != null)
+            if (sounds != null && sounds.Count == mix.SoundIds.Length)
             {
                 foreach (var s in sounds)
                 {
                     await _player.ToggleSoundAsync(s, parentMixId: mix.Id);
                 }
+
+                return true;
             }
+
+            return false;
         }
     }
 }

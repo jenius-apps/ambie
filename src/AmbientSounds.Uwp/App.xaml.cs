@@ -80,16 +80,17 @@ namespace AmbientSounds
         /// <inheritdoc/>
         protected override async void OnActivated(IActivatedEventArgs args)
         {
+            await ActivateAsync(false);
+
             if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
             {
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
             }
             else if (args.Kind == ActivationKind.Protocol && args is ProtocolActivatedEventArgs e)
             {
-
+                var processor = App.Services.GetRequiredService<ILinkProcessor>();
+                processor.Process(e.Uri);
             }
-
-            await ActivateAsync(false);
         }
 
         private async Task ActivateAsync(bool prelaunched)
@@ -220,6 +221,7 @@ namespace AmbientSounds
                 .AddTransient<ITimerService, TimerService>()
                 .AddTransient<ISoundMixService, SoundMixService>()
                 .AddTransient<IRenamer, Renamer>()
+                .AddTransient<ILinkProcessor, LinkProcessor>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<PlayerViewModel>()
                 .AddSingleton<SleepTimerViewModel>()
