@@ -41,7 +41,10 @@ namespace AmbientSounds.Web
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                ServeUnknownFileTypes = true,
+            });
 
             app.UseRouting();
 
