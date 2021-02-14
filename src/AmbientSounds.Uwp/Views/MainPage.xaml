@@ -158,7 +158,9 @@
             <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Orientation="Horizontal" />
+                Orientation="Horizontal">
+                <controls:AccountControl />
+            </StackPanel>
         </Grid>
 
         <controls:SoundGridControl
