@@ -119,15 +119,12 @@ namespace AmbientSounds
         private async void OnAppServiceRequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
         {
             AppServiceDeferral messageDeferral = args.GetDeferral();
-            ValueSet message = args.Request.Message;
-            string text = message["Request"] as string;
-
-            if ("Value" == text)
+            var controller = App.Services.GetService<AppServiceController>();
+            if (controller != null)
             {
-                ValueSet returnMessage = new ValueSet();
-                returnMessage.Add("Response", "True");
-                await args.Request.SendResponseAsync(returnMessage);
+                await controller.ProcessRequest(args.Request);
             }
+
             messageDeferral.Complete();
         }
 
@@ -259,6 +256,7 @@ namespace AmbientSounds
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<MainPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
+                .AddSingleton<AppServiceController>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<ISystemInfoProvider, SystemInfoProvider>()
                 .AddTransient<IDialogService, DialogService>()
