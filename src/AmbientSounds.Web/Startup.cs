@@ -44,6 +44,7 @@ namespace AmbientSounds.Web
             app.UseStaticFiles(new StaticFileOptions
             {
                 ServeUnknownFileTypes = true,
+                DefaultContentType = "application/json",
             });
 
             app.UseRouting();
