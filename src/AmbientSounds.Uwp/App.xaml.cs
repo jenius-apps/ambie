@@ -124,6 +124,12 @@ namespace AmbientSounds
             {
                 await controller.ProcessRequest(args.Request);
             }
+            else
+            {
+                var message = new ValueSet();
+                message.Add("result", "Fail. Launch Ambie in the foreground to use its app services.");
+                await args.Request.SendResponseAsync(message);
+            }
 
             messageDeferral.Complete();
         }
@@ -247,7 +253,7 @@ namespace AmbientSounds
         {
             var client = new HttpClient();
 
-            return new ServiceCollection()
+            var provider = new ServiceCollection()
                 .AddSingleton(client)
                 .AddSingleton<SoundListViewModel>()
                 .AddSingleton<CatalogueListViewModel>()
@@ -283,6 +289,11 @@ namespace AmbientSounds
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .AddSingleton<IAppSettings>(appsettings ?? new AppSettings())
                 .BuildServiceProvider();
+
+            // preload appservice controller to ensure its
+            // dispatcher queue loads properly on the ui thread.
+            provider.GetService<AppServiceController>();
+            return provider;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace AmbientSounds.Services
                         _dispatcherQueue.TryEnqueue(_player.Pause);
                         result = "Ok";
                         break;
-                    case "play":
+                    case "resume":
                         _dispatcherQueue.TryEnqueue(_player.Play);
                         result = "Ok";
                         break;
@@ -43,9 +43,21 @@ namespace AmbientSounds.Services
                         break;
                 }
             }
+            else if (message["state"] is string state)
+            {
+                switch (state)
+                {
+                    case "playback":
+                        result = _player.PlaybackState.ToString();
+                        break;
+                    case "volume":
+                        result = _player.GlobalVolume.ToString();
+                        break;
+                }
+            }
             else
             {
-                result = "No command found";
+                result = "No valid keys found";
             }
 
             ValueSet returnMessage = new ValueSet();
