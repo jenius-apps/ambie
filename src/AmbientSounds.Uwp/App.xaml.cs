@@ -17,6 +17,9 @@ using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using System.Net.Http;
 using AmbientSounds.Factories;
+using Windows.ApplicationModel.AppService;
+using Windows.ApplicationModel.Background;
+using Windows.Foundation.Collections;
 
 #nullable enable
 
@@ -29,6 +32,8 @@ namespace AmbientSounds
     {
         private static readonly bool _isTenFootPc = false;
         private IServiceProvider? _serviceProvider;
+        private AppServiceConnection _appServiceConnection;
+        private BackgroundTaskDeferral _appServiceDeferral;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -96,6 +101,47 @@ namespace AmbientSounds
                 var processor = App.Services.GetRequiredService<ILinkProcessor>();
                 processor.Process(e.Uri);
             }
+        }
+
+        protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
+        {
+            base.OnBackgroundActivated(args);
+            if (args.TaskInstance.TriggerDetails is AppServiceTriggerDetails appService)
+            {
+                _appServiceDeferral = args.TaskInstance.GetDeferral();
+                args.TaskInstance.Canceled += OnAppServicesCanceled;
+                _appServiceConnection = appService.AppServiceConnection;
+                _appServiceConnection.RequestReceived += OnAppServiceRequestReceived;
+                _appServiceConnection.ServiceClosed += AppServiceConnection_ServiceClosed;
+            }
+        }
+
+        private async void OnAppServiceRequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
+        {
+            AppServiceDeferral messageDeferral = args.GetDeferral();
+            var controller = App.Services.GetService<AppServiceController>();
+            if (controller != null)
+            {
+                await controller.ProcessRequest(args.Request);
+            }
+            else
+            {
+                var message = new ValueSet();
+                message.Add("result", "Fail. Launch Ambie in the foreground to use its app services.");
+                await args.Request.SendResponseAsync(message);
+            }
+
+            messageDeferral.Complete();
+        }
+
+        private void OnAppServicesCanceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
+        {
+            _appServiceDeferral.Complete();
+        }
+
+        private void AppServiceConnection_ServiceClosed(AppServiceConnection sender, AppServiceClosedEventArgs args)
+        {
+            _appServiceDeferral.Complete();
         }
 
         private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null)
@@ -207,7 +253,7 @@ namespace AmbientSounds
         {
             var client = new HttpClient();
 
-            return new ServiceCollection()
+            var provider = new ServiceCollection()
                 .AddSingleton(client)
                 .AddSingleton<SoundListViewModel>()
                 .AddSingleton<CatalogueListViewModel>()
@@ -216,6 +262,7 @@ namespace AmbientSounds
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<MainPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
+                .AddSingleton<AppServiceController>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<ISystemInfoProvider, SystemInfoProvider>()
                 .AddTransient<IDialogService, DialogService>()
@@ -242,6 +289,11 @@ namespace AmbientSounds
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .AddSingleton<IAppSettings>(appsettings ?? new AppSettings())
                 .BuildServiceProvider();
+
+            // preload appservice controller to ensure its
+            // dispatcher queue loads properly on the ui thread.
+            provider.GetService<AppServiceController>();
+            return provider;
         }
     }
 }

@@ -179,6 +179,7 @@
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppCentreTelemetry.cs" />
+    <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\MixMediaPlayerService.cs" />
     <Compile Include="Services\PreviewService.cs" />
