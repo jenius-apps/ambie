@@ -19,6 +19,11 @@
         /// Determines if previous state should be loaded.
         /// Default true.
         /// </summary>
-        public bool LoadPreviousState { get; set; }
+        bool LoadPreviousState { get; set; }
+
+        /// <summary>
+        /// The Client ID used for logging into a Microsoft Account.
+        /// </summary>
+        string MsaClientId { get; set; }
     }
 }
