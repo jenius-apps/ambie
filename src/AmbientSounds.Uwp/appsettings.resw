@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CatalogueUrl" xml:space="preserve">
-    <value />
+	<data name="CatalogueUrl" xml:space="preserve">
+    <value></value>
   </data>
-  <data name="TelemetryApiKey" xml:space="preserve">
+	<data name="MsaClientId" xml:space="preserve">
+    <value></value>
+  </data>
+	<data name="TelemetryApiKey" xml:space="preserve">
     <value />
   </data>
 </root>
