@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Security.Authentication.Web.Core;
 using Windows.Security.Credentials;
+using Windows.Storage.Streams;
+using Windows.System;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace AmbientSounds.Controls
 {
@@ -26,7 +19,10 @@ namespace AmbientSounds.Controls
         public AccountControl()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<AccountControlViewModel>();
         }
+
+        public AccountControlViewModel ViewModel => (AccountControlViewModel)this.DataContext;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -36,6 +32,7 @@ namespace AmbientSounds.Controls
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             AccountsSettingsPane.GetForCurrentView().AccountCommandsRequested += OnAccountCommandsRequested;
+            ViewModel.Load();
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
@@ -56,6 +53,7 @@ namespace AmbientSounds.Controls
 
         const string MicrosoftAccountProviderId = "https://login.microsoft.com";
         const string ConsumerAuthority = "consumers";
+        //const string AccountScopeRequested = "wl.basic"; // wl.basic is a Live API scope used to get the user's profile picture.
         const string AccountScopeRequested = "User.Read"; // user.read is a graph scope. this ensure the token works for graph.
         const string AccountClientId = ""; // NeedToUseAppSettingsForThis
 
@@ -97,7 +95,18 @@ namespace AmbientSounds.Controls
 
                     var name = webTokenRequestResult.ResponseData[0].WebAccount.UserName;
                     var token = webTokenRequestResult.ResponseData[0].Token;
-                    var picture = await webTokenRequestResult.ResponseData[0].WebAccount.GetPictureAsync(WebAccountPictureSize.Size64x64);
+                    ViewModel.SignedIn = true;
+                    ViewModel.FullName = name;
+
+                    var u = webTokenRequestResult.ResponseData[0].WebAccount.WebAccountProvider.User;
+                    var streamReference = await u.GetPictureAsync(UserPictureSize.Size64x64);
+                    if (streamReference != null)
+                    {
+                        IRandomAccessStream stream = await streamReference.OpenReadAsync();
+                        BitmapImage bitmapImage = new BitmapImage();
+                        bitmapImage.SetSource(stream);
+                        Avatar.ProfilePicture = bitmapImage;
+                    }
                 }
 
 
