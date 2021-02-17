@@ -10,17 +10,16 @@
     d:DesignHeight="300"
     d:DesignWidth="400"
     Loaded="OnLoaded"
-    Unloaded="OnUnloaded"
     mc:Ignorable="d">
 
     <Grid>
         <Button
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Click="Button_Click"
+            Command="{x:Bind ViewModel.SignInCommand}"
             Style="{StaticResource TransparentRoundButtonStyle}"
             Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.SignedIn), Mode=OneWay}">
-            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFD;" />
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
         </Button>
 
         <Button
@@ -29,13 +28,24 @@
             VerticalAlignment="Center"
             Style="{StaticResource TransparentRoundButtonStyle}"
             Visibility="{x:Bind ViewModel.SignedIn, Mode=OneWay}">
-            <PersonPicture
-                x:Name="Avatar"
-                Width="30"
-                Height="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                DisplayName="{x:Bind ViewModel.FullName, Mode=OneWay}" />
+            <Grid>
+                <PersonPicture
+                    x:Name="Avatar"
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    DisplayName="{x:Bind ViewModel.FullName, Mode=OneWay}"
+                    Visibility="{x:Bind ViewModel.IsProfilePathValid, Mode=OneWay}">
+                    <PersonPicture.ProfilePicture>
+                        <BitmapImage UriSource="{x:Bind ViewModel.ProfilePath, Mode=OneWay}" />
+                    </PersonPicture.ProfilePicture>
+                </PersonPicture>
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="&#xEAFD;"
+                    Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.IsProfilePathValid), Mode=OneWay}" />
+            </Grid>
         </Button>
 
         <winui:ProgressRing

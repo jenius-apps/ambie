@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -11,13 +12,19 @@ namespace AmbientSounds.ViewModels
         private bool _signedIn;
         private bool _loading;
         private string _fullName = "";
+        private string _profilePath = "";
 
         public AccountControlViewModel(IAccountManager accountManager)
         {
             Guard.IsNotNull(accountManager, nameof(accountManager));
 
             _accountManager = accountManager;
+
+            _accountManager.SignInUpdated += OnSignInUpdated;
+            SignInCommand = new RelayCommand(SignIn);
         }
+
+        public IRelayCommand SignInCommand { get; }
 
         /// <summary>
         /// Full display name of the user.
@@ -27,6 +34,24 @@ namespace AmbientSounds.ViewModels
             get => _fullName;
             set => SetProperty(ref _fullName, value);
         }
+
+        /// <summary>
+        /// Path to user's profile image.
+        /// </summary>
+        public string ProfilePath
+        {
+            get => string.IsNullOrWhiteSpace(_profilePath) ? "http://localhost:8000" : _profilePath;
+            set 
+            {
+                SetProperty(ref _profilePath, value);
+                OnPropertyChanged(nameof(IsProfilePathValid));
+            } 
+        }
+
+        /// <summary>
+        /// Determines if the profile picture path is a valid string.
+        /// </summary>
+        public bool IsProfilePathValid => !string.IsNullOrWhiteSpace(_profilePath);
 
         /// <summary>
         /// Determines if the user is signed in or not.
@@ -55,17 +80,37 @@ namespace AmbientSounds.ViewModels
 
             Loading = true;
 
-            SignedIn = await _accountManager.IsSignedInAsync();
-            await Task.Delay(3000);
+            var isSignedIn = await _accountManager.IsSignedInAsync();
+            await UpdatePictureAsync(isSignedIn);
 
-            if (SignedIn)
-            {
-                // var user = await _accountManager.GetUserAsync();
-                // FullName = user.DisplayName;
-                FullName = "Daniel Paulino";
-            }
+            SignedIn = isSignedIn;
 
             Loading = false;
+        }
+
+        private async void OnSignInUpdated(object sender, bool isSignedIn)
+        {
+            await UpdatePictureAsync(isSignedIn);
+            SignedIn = isSignedIn;
+        }
+
+        private async Task UpdatePictureAsync(bool isSignedIn)
+        {
+            ProfilePath = "";
+
+            if (isSignedIn)
+            {
+                var path = await _accountManager.GetPictureAsync();
+                if (!string.IsNullOrWhiteSpace(path))
+                {
+                    ProfilePath = path;
+                }
+            }
+        }
+
+        private void SignIn()
+        {
+            _accountManager.RequestSignIn();
         }
     }
 }

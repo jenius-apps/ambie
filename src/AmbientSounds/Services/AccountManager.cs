@@ -1,7 +1,5 @@
 ﻿using Microsoft.Toolkit.Diagnostics;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -13,11 +11,20 @@ namespace AmbientSounds.Services
     {
         private readonly IMsaAuthClient _authClient;
 
+        public event EventHandler<bool>? SignInUpdated;
+
         public AccountManager(IMsaAuthClient authClient)
         {
             Guard.IsNotNull(authClient, nameof(authClient));
 
             _authClient = authClient;
+            _authClient.InteractiveSignInCompleted += OnSignInCompleted;
+        }
+
+        private async void OnSignInCompleted(object sender, EventArgs e)
+        {
+            var isSignedIn = await IsSignedInAsync();
+            SignInUpdated?.Invoke(this, isSignedIn);
         }
 
         /// <inheritdoc/>
@@ -25,6 +32,27 @@ namespace AmbientSounds.Services
         {
             var token = await _authClient.GetTokenSilentAsync();
             return !string.IsNullOrWhiteSpace(token);
+        }
+
+        /// <inheritdoc/>
+        public void RequestSignIn()
+        {
+            _authClient.RequestInteractiveSignIn();
+        }
+
+        /// <inheritdoc/>
+        public async Task<string> GetPictureAsync()
+        {
+            try
+            {
+                return await _authClient.GetPictureAsync();
+            }
+            catch
+            {
+                // GetPictureAsync can fail if the user declines
+                // giving permission to access user picture data.
+                return "";
+            }
         }
     }
 }
