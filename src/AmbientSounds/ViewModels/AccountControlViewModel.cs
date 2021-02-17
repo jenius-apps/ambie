@@ -22,9 +22,12 @@ namespace AmbientSounds.ViewModels
 
             _accountManager.SignInUpdated += OnSignInUpdated;
             SignInCommand = new RelayCommand(SignIn);
+            SignOutCommand = new AsyncRelayCommand(SignOutAsync);
         }
 
         public IRelayCommand SignInCommand { get; }
+
+        public IAsyncRelayCommand SignOutCommand { get; }
 
         /// <summary>
         /// Full display name of the user.
@@ -86,6 +89,11 @@ namespace AmbientSounds.ViewModels
             SignedIn = isSignedIn;
 
             Loading = false;
+        }
+
+        private async Task SignOutAsync()
+        {
+            await _accountManager.SignOutAsync();
         }
 
         private async void OnSignInUpdated(object sender, bool isSignedIn)

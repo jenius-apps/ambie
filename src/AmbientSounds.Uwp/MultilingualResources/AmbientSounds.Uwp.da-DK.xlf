@@ -473,6 +473,10 @@
           <source>You're missing some sounds! Download them here. Press play whenever you're ready.</source>
           <target state="new">You're missing some sounds! Download them here. Press play whenever you're ready.</target>
         </trans-unit>
+        <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sign out</source>
+          <target state="new">Sign out</target>
+        </trans-unit>
       </group>
     </body>
   </file>

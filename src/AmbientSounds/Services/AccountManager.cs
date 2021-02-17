@@ -11,6 +11,7 @@ namespace AmbientSounds.Services
     {
         private readonly IMsaAuthClient _authClient;
 
+        /// <inheritdoc/>
         public event EventHandler<bool>? SignInUpdated;
 
         public AccountManager(IMsaAuthClient authClient)
@@ -21,10 +22,11 @@ namespace AmbientSounds.Services
             _authClient.InteractiveSignInCompleted += OnSignInCompleted;
         }
 
-        private async void OnSignInCompleted(object sender, EventArgs e)
+        /// <inheritdoc/>
+        public async Task SignOutAsync()
         {
-            var isSignedIn = await IsSignedInAsync();
-            SignInUpdated?.Invoke(this, isSignedIn);
+            await _authClient.SignOutAsync();
+            SignInUpdated?.Invoke(this, false);
         }
 
         /// <inheritdoc/>
@@ -53,6 +55,12 @@ namespace AmbientSounds.Services
                 // giving permission to access user picture data.
                 return "";
             }
+        }
+
+        private async void OnSignInCompleted(object sender, EventArgs e)
+        {
+            var isSignedIn = await IsSignedInAsync();
+            SignInUpdated?.Invoke(this, isSignedIn);
         }
     }
 }

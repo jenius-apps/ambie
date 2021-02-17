@@ -46,6 +46,17 @@
                     Glyph="&#xEAFD;"
                     Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.IsProfilePathValid), Mode=OneWay}" />
             </Grid>
+            <Button.Flyout>
+                <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
+                    <winui:CommandBarFlyout.SecondaryCommands>
+                        <AppBarButton x:Uid="SignOutAppBarButton" Command="{x:Bind ViewModel.SignOutCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9CD;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                    </winui:CommandBarFlyout.SecondaryCommands>
+                </winui:CommandBarFlyout>
+            </Button.Flyout>
         </Button>
 
         <winui:ProgressRing

@@ -33,5 +33,10 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <returns>URI path to user's profile picture. Null if not signed in.</returns>
         Task<string> GetPictureAsync();
+
+        /// <summary>
+        /// Signs out the user.
+        /// </summary>
+        Task SignOutAsync();
     }
 }

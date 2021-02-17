@@ -43,6 +43,20 @@ namespace AmbientSounds.Services.Uwp
         }
 
 		/// <inheritdoc/>
+		public async Task SignOutAsync()
+        {
+			var result = await SilentAuthAsync();
+			ClearStoredInfo();
+
+			if (result == null)
+            {
+				return;
+            }
+
+			await result.ResponseData[0].WebAccount.SignOutAsync(_clientId);
+        }
+
+		/// <inheritdoc/>
 		public async Task<string> GetPictureAsync()
         {
 			var result = await SilentAuthAsync();
@@ -140,8 +154,7 @@ namespace AmbientSounds.Services.Uwp
 
 		private async Task RequestTokenAndSaveAccount(WebAccountProvider Provider, string Scope, string ClientID)
 		{
-			_userSettings.Set(UserSettingsConstants.CurrentUserId, "");
-			_userSettings.Set(UserSettingsConstants.CurrentUserProviderId, "");
+			ClearStoredInfo();
 
 			try
 			{
@@ -161,5 +174,11 @@ namespace AmbientSounds.Services.Uwp
 
 			InteractiveSignInCompleted?.Invoke(this, EventArgs.Empty);
 		}
-    }
+
+		private void ClearStoredInfo()
+        {
+			_userSettings.Set(UserSettingsConstants.CurrentUserId, "");
+			_userSettings.Set(UserSettingsConstants.CurrentUserProviderId, "");
+		}
+	}
 }

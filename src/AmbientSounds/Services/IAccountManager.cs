@@ -30,6 +30,11 @@ namespace AmbientSounds.Services
         void RequestSignIn();
 
         /// <summary>
+        /// Signs out the user.
+        /// </summary>
+        Task SignOutAsync();
+
+        /// <summary>
         /// Retrieves the path to the user's picture.
         /// </summary>
         /// <returns>Path to user's picture.</returns>

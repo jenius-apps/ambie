@@ -462,4 +462,7 @@
   <data name="ShareResultsMessage.Text" xml:space="preserve">
     <value>You're missing some sounds! Download them here. Press play whenever you're ready.</value>
   </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
 </root>
