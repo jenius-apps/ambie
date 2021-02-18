@@ -21,7 +21,7 @@ namespace AmbientSounds.Services.Uwp
     {
         private const string MicrosoftAccountProviderId = "https://login.microsoft.com";
         private const string ConsumerAuthority = "consumers";
-		private const string Scope = "User.Read";
+		private const string Scope = "User.Read Files.ReadWrite.AppFolder";
 		private const string PictureFileName = "profile.png";
 		private readonly IUserSettings _userSettings;
 		private readonly IFileWriter _fileWriter;

@@ -39,6 +39,7 @@ steps:
       [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw
       $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueUrl']").Value = "$(CatalogueUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='TelemetryApiKey']").Value = "$(TelemetryApiKey)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='MsaClientId']").Value = "$(MsaClientId)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 
