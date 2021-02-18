@@ -468,4 +468,16 @@
   <data name="SignInDescriptionText" xml:space="preserve">
     <value>This will enable sound gallery sync across your devices.</value>
   </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>View account options</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>View account options</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
 </root>

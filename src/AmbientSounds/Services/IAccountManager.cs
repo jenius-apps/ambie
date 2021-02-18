@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -35,9 +36,9 @@ namespace AmbientSounds.Services
         Task SignOutAsync();
 
         /// <summary>
-        /// Retrieves the path to the user's picture.
+        /// Retrieves the user's data.
         /// </summary>
-        /// <returns>Path to user's picture.</returns>
-        Task<string> GetPictureAsync();
+        /// <returns>The user's data.</returns>
+        Task<Person> GetPersonDataAsync();
     }
 }

@@ -481,6 +481,22 @@
           <source>This will enable sound gallery sync across your devices.</source>
           <target state="new">This will enable sound gallery sync across your devices.</target>
         </trans-unit>
+        <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="new">View account options</target>
+        </trans-unit>
+        <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="new">View account options</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="new">Sign in</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="new">Sign in</target>
+        </trans-unit>
       </group>
     </body>
   </file>

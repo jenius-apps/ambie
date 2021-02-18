@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Diagnostics;
+﻿using AmbientSounds.Models;
+using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Threading.Tasks;
 
@@ -43,17 +44,17 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task<string> GetPictureAsync()
+        public async Task<Person> GetPersonDataAsync()
         {
             try
             {
-                return await _authClient.GetPictureAsync();
+                return await _authClient.GetPersonDataAsync();
             }
             catch
             {
                 // GetPictureAsync can fail if the user declines
                 // giving permission to access user picture data.
-                return "";
+                return new Person();
             }
         }
 

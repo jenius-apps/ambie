@@ -14,6 +14,7 @@
 
     <Grid>
         <Button
+            x:Uid="SignInButton"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Command="{x:Bind ViewModel.SignInCommand}"
@@ -23,6 +24,7 @@
         </Button>
 
         <Button
+            x:Uid="AccountOptionsButton"
             Padding="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -35,7 +37,6 @@
                     Height="30"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    DisplayName="{x:Bind ViewModel.FullName, Mode=OneWay}"
                     Visibility="{x:Bind ViewModel.IsProfilePathValid, Mode=OneWay}">
                     <PersonPicture.ProfilePicture>
                         <BitmapImage UriSource="{x:Bind ViewModel.ProfilePath, Mode=OneWay}" />
@@ -49,6 +50,13 @@
             <Button.Flyout>
                 <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
                     <winui:CommandBarFlyout.SecondaryCommands>
+                        <AppBarElementContainer IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}">
+                            <StackPanel Padding="12">
+                                <TextBlock Text="{x:Bind ViewModel.FirstName, Mode=OneWay}" />
+                                <TextBlock Margin="0,4,0,0" Text="{x:Bind ViewModel.Email, Mode=OneWay}" />
+                            </StackPanel>
+                        </AppBarElementContainer>
+                        <AppBarSeparator Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
                         <AppBarButton x:Uid="SignOutAppBarButton" Command="{x:Bind ViewModel.SignOutCommand}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9CD;" />

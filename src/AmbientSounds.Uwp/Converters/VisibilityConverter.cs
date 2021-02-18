@@ -22,5 +22,16 @@ namespace AmbientSounds.Converters
         {
             return value == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
         }
+
+        /// <summary>
+        /// Returns visible if string is not empty. 
+        /// False, otherwise.
+        /// </summary>
+        public static Visibility IfStringNotEmpty(this string value)
+        {
+            return string.IsNullOrWhiteSpace(value)
+                ? Visibility.Collapsed
+                : Visibility.Visible;
+        }
     }
 }

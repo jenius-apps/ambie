@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.IO;
@@ -58,22 +59,33 @@ namespace AmbientSounds.Services.Uwp
         }
 
 		/// <inheritdoc/>
-		public async Task<string> GetPictureAsync()
+		public async Task<Person> GetPersonDataAsync()
         {
+			var person = new Person();
 			var result = await SilentAuthAsync();
 
 			if (result != null && result.ResponseStatus == WebTokenRequestStatus.Success)
             {
                 var u = result.ResponseData[0].WebAccount.WebAccountProvider.User;
-                var streamReference = await u.GetPictureAsync(UserPictureSize.Size64x64);
+
+				string[] desiredProperties = new string[]
+				{
+					KnownUserProperties.FirstName,
+					KnownUserProperties.AccountName,
+				};
+				var values = await u.GetPropertiesAsync(desiredProperties);
+				person.Firstname = values[KnownUserProperties.FirstName] as string;
+				person.Email = values[KnownUserProperties.AccountName] as string;
+
+				var streamReference = await u.GetPictureAsync(UserPictureSize.Size64x64);
                 if (streamReference != null)
                 {
                     IRandomAccessStream stream = await streamReference.OpenReadAsync();
-					return await _fileWriter.WriteBitmapAsync(stream.AsStream(), PictureFileName);
+					person.PicturePath = await _fileWriter.WriteBitmapAsync(stream.AsStream(), PictureFileName);
                 }
             }
 
-			return "";
+			return person;
 		}
 
 		/// <inheritdoc/>

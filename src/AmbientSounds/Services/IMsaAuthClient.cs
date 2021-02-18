@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -28,11 +29,12 @@ namespace AmbientSounds.Services
         void RequestInteractiveSignIn();
 
         /// <summary>
-        /// Attempts to retrieve the signed-in user's picture and returns
-        /// a valid URI path. Return null of not signed in.
+        /// Attempts to retrieve the signed-in user's data and returns
+        /// it.
         /// </summary>
-        /// <returns>URI path to user's profile picture. Null if not signed in.</returns>
-        Task<string> GetPictureAsync();
+        /// <returns>If sign in and permission is successful, returns a populated 
+        /// Person object. If unsuccessful, returns an default person object.</returns>
+        Task<Person> GetPersonDataAsync();
 
         /// <summary>
         /// Signs out the user.

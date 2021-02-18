@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
@@ -14,8 +15,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private bool _signedIn;
         private bool _loading;
-        private string _fullName = "";
-        private string _profilePath = "";
+        private Person? _person;
 
         public AccountControlViewModel(
             IAccountManager accountManager,
@@ -36,32 +36,40 @@ namespace AmbientSounds.ViewModels
 
         public IAsyncRelayCommand SignOutCommand { get; }
 
-        /// <summary>
-        /// Full display name of the user.
-        /// </summary>
-        public string FullName
+        public Person? Person
         {
-            get => _fullName;
-            set => SetProperty(ref _fullName, value);
+            get => _person;
+            set 
+            {
+                SetProperty(ref _person, value);
+                OnPropertyChanged(nameof(ProfilePath));
+                OnPropertyChanged(nameof(IsProfilePathValid));
+                OnPropertyChanged(nameof(FirstName));
+                OnPropertyChanged(nameof(Email));
+            }
         }
+
+        /// <summary>
+        /// First name of the user.
+        /// </summary>
+        public string FirstName => _person?.Firstname ?? "";
+
+        /// <summary>
+        /// Email of the user.
+        /// </summary>
+        public string Email => _person?.Email ?? "";
 
         /// <summary>
         /// Path to user's profile image.
         /// </summary>
-        public string ProfilePath
-        {
-            get => string.IsNullOrWhiteSpace(_profilePath) ? "http://localhost:8000" : _profilePath;
-            set 
-            {
-                SetProperty(ref _profilePath, value);
-                OnPropertyChanged(nameof(IsProfilePathValid));
-            } 
-        }
-
+        public string ProfilePath => Person == null || string.IsNullOrWhiteSpace(Person.PicturePath) 
+            ? "http://localhost:8000" 
+            : Person.PicturePath;
+       
         /// <summary>
         /// Determines if the profile picture path is a valid string.
         /// </summary>
-        public bool IsProfilePathValid => !string.IsNullOrWhiteSpace(_profilePath);
+        public bool IsProfilePathValid => !string.IsNullOrWhiteSpace(Person?.PicturePath);
 
         /// <summary>
         /// Determines if the user is signed in or not.
@@ -121,15 +129,11 @@ namespace AmbientSounds.ViewModels
 
         private async Task UpdatePictureAsync(bool isSignedIn)
         {
-            ProfilePath = "";
+            Person = null;
 
             if (isSignedIn)
             {
-                var path = await _accountManager.GetPictureAsync();
-                if (!string.IsNullOrWhiteSpace(path))
-                {
-                    ProfilePath = path;
-                }
+                Person = await _accountManager.GetPersonDataAsync();
             }
         }
 
