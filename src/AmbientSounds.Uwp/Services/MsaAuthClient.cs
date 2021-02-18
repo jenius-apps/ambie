@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Security.Authentication.Web.Core;
 using Windows.Security.Credentials;
 using Windows.Storage.Streams;
@@ -130,8 +131,13 @@ namespace AmbientSounds.Services.Uwp
 		{
 			AccountsSettingsPaneEventDeferral deferral = args.GetDeferral();
 			await AddWebAccountProvider(args);
-			//AddLinksAndDescription(args);
-			deferral.Complete();
+            AddLinksAndDescription(args);
+            deferral.Complete();
+		}
+
+		private void AddLinksAndDescription(AccountsSettingsPaneCommandsRequestedEventArgs e)
+        {
+			e.HeaderText = ResourceLoader.GetForCurrentView().GetString("SignInDescriptionText");
 		}
 
 		private async Task AddWebAccountProvider(AccountsSettingsPaneCommandsRequestedEventArgs args)

@@ -476,6 +476,10 @@
           <source>Sign out</source>
           <target state="new">Sign out</target>
         </trans-unit>
+        <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
+          <source>This will enable sound gallery sync across your devices.</source>
+          <target state="new">This will enable sound gallery sync across your devices.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

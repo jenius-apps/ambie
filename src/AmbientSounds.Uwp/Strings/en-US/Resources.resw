@@ -465,4 +465,7 @@
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Sign out</value>
   </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>This will enable sound gallery sync across your devices.</value>
+  </data>
 </root>
