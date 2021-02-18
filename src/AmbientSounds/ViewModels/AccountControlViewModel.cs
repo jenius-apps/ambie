@@ -1,7 +1,9 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -9,16 +11,21 @@ namespace AmbientSounds.ViewModels
     public class AccountControlViewModel : ObservableObject
     {
         private readonly IAccountManager _accountManager;
+        private readonly ITelemetry _telemetry;
         private bool _signedIn;
         private bool _loading;
         private string _fullName = "";
         private string _profilePath = "";
 
-        public AccountControlViewModel(IAccountManager accountManager)
+        public AccountControlViewModel(
+            IAccountManager accountManager,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(accountManager, nameof(accountManager));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _accountManager = accountManager;
+            _telemetry = telemetry;
 
             _accountManager.SignInUpdated += OnSignInUpdated;
             SignInCommand = new RelayCommand(SignIn);
@@ -76,7 +83,7 @@ namespace AmbientSounds.ViewModels
 
         public async void Load()
         {
-            if (Loading)
+            if (Loading || _signedIn)
             {
                 return;
             }
@@ -88,18 +95,28 @@ namespace AmbientSounds.ViewModels
 
             SignedIn = isSignedIn;
 
+            if (isSignedIn)
+            {
+                _telemetry.TrackEvent(TelemetryConstants.SilentSuccessful);
+            }
+
             Loading = false;
         }
 
         private async Task SignOutAsync()
         {
             await _accountManager.SignOutAsync();
+            _telemetry.TrackEvent(TelemetryConstants.SignOutClicked);
         }
 
         private async void OnSignInUpdated(object sender, bool isSignedIn)
         {
             await UpdatePictureAsync(isSignedIn);
             SignedIn = isSignedIn;
+            _telemetry.TrackEvent(TelemetryConstants.SignInCompleted, new Dictionary<string, string>
+            {
+                { "isSignedIn", isSignedIn.ToString() }
+            });
         }
 
         private async Task UpdatePictureAsync(bool isSignedIn)
@@ -119,6 +136,7 @@ namespace AmbientSounds.ViewModels
         private void SignIn()
         {
             _accountManager.RequestSignIn();
+            _telemetry.TrackEvent(TelemetryConstants.SignInTriggered);
         }
     }
 }
