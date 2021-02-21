@@ -98,7 +98,16 @@ namespace AmbientSounds.Services
             };
 
             var serialized = JsonSerializer.Serialize(syncData);
-            await _cloudFileWriter.WriteFileAsync(_cloudSyncFileUrl, serialized, token, default);
+
+            try
+            {
+                await _cloudFileWriter.WriteFileAsync(_cloudSyncFileUrl, serialized, token, default);
+            }
+            catch
+            {
+                // todo log
+            }
+
             Syncing = false;
         }
     }
