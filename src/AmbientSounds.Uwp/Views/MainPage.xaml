@@ -159,7 +159,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Orientation="Horizontal">
-                <controls:AccountControl />
+                <controls:AccountControl x:Name="AccountButton" x:Load="{x:Bind IsTenFoot}" />
             </StackPanel>
         </Grid>
 

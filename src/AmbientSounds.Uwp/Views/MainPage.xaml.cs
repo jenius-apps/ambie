@@ -39,6 +39,8 @@ namespace AmbientSounds.Views
 
         public bool IsCompactVisible => !App.IsTenFoot;
 
+        public bool IsTenFoot => App.IsTenFoot;
+
         public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
