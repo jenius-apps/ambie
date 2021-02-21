@@ -24,6 +24,12 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
+        public Task<string?> GetTokenAsync()
+        {
+            return _authClient.GetTokenSilentAsync();
+        }
+
+        /// <inheritdoc/>
         public async Task SignOutAsync()
         {
             await _authClient.SignOutAsync();

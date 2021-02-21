@@ -13,21 +13,28 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
+        private readonly ISyncEngine _syncEngine;
         private bool _signedIn;
         private bool _loading;
         private Person? _person;
 
         public AccountControlViewModel(
             IAccountManager accountManager,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            ISyncEngine syncEngine)
         {
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(syncEngine, nameof(syncEngine));
 
             _accountManager = accountManager;
             _telemetry = telemetry;
+            _syncEngine = syncEngine;
 
             _accountManager.SignInUpdated += OnSignInUpdated;
+            _syncEngine.SyncStarted += OnSyncStarted;
+            _syncEngine.SyncCompleted += OnSyncCompleted;
+
             SignInCommand = new RelayCommand(SignIn);
             SignOutCommand = new AsyncRelayCommand(SignOutAsync);
         }
@@ -109,6 +116,16 @@ namespace AmbientSounds.ViewModels
             }
 
             Loading = false;
+        }
+
+        private void OnSyncCompleted(object sender, System.EventArgs e)
+        {
+            Loading = false;
+        }
+
+        private void OnSyncStarted(object sender, System.EventArgs e)
+        {
+            Loading = true;
         }
 
         private async Task SignOutAsync()

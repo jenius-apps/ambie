@@ -16,11 +16,11 @@ namespace AmbientSounds.Services
         event EventHandler InteractiveSignInCompleted;
 
         /// <summary>
-        /// Attempts to sign in silently and retrieve at token.
+        /// Attempts to sign in silently and retrieve a token.
         /// Returns null if silent auth was unsuccessful.
         /// </summary>
         /// <returns>A token if sign in was successful, and null if not.</returns>
-        Task<string> GetTokenSilentAsync();
+        Task<string?> GetTokenSilentAsync();
 
         /// <summary>
         /// Attempts to sign in and retrieve at token. User will be prompted.

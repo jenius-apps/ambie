@@ -24,6 +24,11 @@ namespace AmbientSounds.Services
         Task<bool> IsSignedInAsync();
 
         /// <summary>
+        /// If signed in, then this will return the token. Else, null is returned.
+        /// </summary>
+        Task<string?> GetTokenAsync();
+
+        /// <summary>
         /// Signs the user in. This will launch several prompts to the user
         /// to perform the sign in process. Result will be communicated
         /// by <see cref="SignInUpdated"/>.

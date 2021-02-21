@@ -17,6 +17,9 @@ namespace AmbientSounds.Services
         private readonly Queue<QueuedSound> _downloadQueue = new();
         private bool _downloading;
 
+        /// <inheritdoc/>
+        public event EventHandler? DownloadsCompleted;
+
         public DownloadManager(
             IFileDownloader soundDownloader,
             ISoundDataProvider soundDataProvider)
@@ -100,6 +103,7 @@ namespace AmbientSounds.Services
                 }
             }
 
+            DownloadsCompleted?.Invoke(this, EventArgs.Empty);
             _downloading = false;
         }
     }
