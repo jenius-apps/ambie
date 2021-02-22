@@ -60,6 +60,15 @@ namespace AmbientSounds.Services
             _downloadManager.DownloadsCompleted += OnDownloadsCompleted;
             _soundDataProvider.LocalSoundDeleted += OnLocalSoundDeleted;
             _soundDataProvider.LocalSoundAdded += OnLocalSoundAdded;
+            _accountManager.SignInUpdated += OnSignInUpdated;
+        }
+
+        private async void OnSignInUpdated(object sender, bool isSignedIn)
+        {
+            if (isSignedIn)
+            {
+                await SyncDown();
+            }
         }
 
         private void OnLocalSoundAdded(object sender, Sound e)
