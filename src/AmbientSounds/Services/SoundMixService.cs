@@ -48,13 +48,6 @@ namespace AmbientSounds.Services
             return mix.Id;
         }
 
-        private string RandomName()
-        {
-            var rand = new Random();
-            var result = rand.Next(4);
-            return _namePlaceholders[result];
-        }
-
         /// <inheritdoc/>
         public async Task<bool> LoadMixAsync(Sound mix)
         {
@@ -86,6 +79,48 @@ namespace AmbientSounds.Services
             }
 
             return false;
+        }
+
+        /// <inheritdoc/>
+        public async Task ReconstructMixesAsync(IList<Sound> dehydratedMixes)
+        {
+            if (dehydratedMixes == null || dehydratedMixes.Count == 0)
+            {
+                return;
+            }
+
+            var allSounds = await _soundDataProvider.GetSoundsAsync();
+            var allSoundIds = allSounds.Select(x => x.Id);
+
+            foreach (var soundMix in dehydratedMixes)
+            {
+                if (allSoundIds.Contains(soundMix.Id) || 
+                    soundMix.SoundIds == null || 
+                    soundMix.SoundIds.Length == 0)
+                {
+                    continue;
+                }
+
+                var soundsForThisMix = allSounds.Where(x => soundMix.SoundIds.Contains(x.Id)).ToList();
+
+                var hydratedMix = new Sound()
+                {
+                    Id = soundMix.Id,
+                    Name = soundMix.Name,
+                    IsMix = true,
+                    SoundIds = soundsForThisMix.Select(x => x.Id).ToArray(),
+                    ImagePaths = soundsForThisMix.Select(x => x.ImagePath).ToArray()
+                };
+
+                await _soundDataProvider.AddLocalSoundAsync(hydratedMix);
+            }
+        }
+
+        private string RandomName()
+        {
+            var rand = new Random();
+            var result = rand.Next(4);
+            return _namePlaceholders[result];
         }
     }
 }

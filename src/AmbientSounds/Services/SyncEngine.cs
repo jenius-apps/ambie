@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace AmbientSounds.Services
         private readonly IDownloadManager _downloadManager;
         private readonly IAccountManager _accountManager;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+        private readonly ISoundMixService _soundMixService;
         private readonly string _cloudSyncFileUrl;
         private bool _syncing;
 
@@ -30,12 +33,16 @@ namespace AmbientSounds.Services
             IDownloadManager downloadManager,
             IAccountManager accountManager,
             ISoundDataProvider soundDataProvider,
-            IAppSettings appSettings)
+            IOnlineSoundDataProvider onlineSoundDataProvider,
+            IAppSettings appSettings,
+            ISoundMixService soundMixService)
         {
             Guard.IsNotNull(cloudFileWriter, nameof(cloudFileWriter));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
+            Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(appSettings, nameof(appSettings));
             Guard.IsNotNullOrEmpty(appSettings.CloudSyncFileUrl, nameof(appSettings.CloudSyncFileUrl));
 
@@ -43,6 +50,8 @@ namespace AmbientSounds.Services
             _cloudFileWriter = cloudFileWriter;
             _downloadManager = downloadManager;
             _soundDataProvider = soundDataProvider;
+            _onlineSoundDataProvider = onlineSoundDataProvider;
+            _soundMixService = soundMixService;
             _cloudSyncFileUrl = appSettings.CloudSyncFileUrl;
 
             _downloadManager.DownloadsCompleted += OnDownloadsCompleted;
@@ -65,27 +74,83 @@ namespace AmbientSounds.Services
             {
                 await SyncUp();
             }
-            else
-            {
-                // TODO create mix
-            }
         }
 
         /// <inheritdoc/>
-        public async Task SyncUp()
+        public async Task SyncDown()
         {
-            if (Syncing || !(await _accountManager.IsSignedInAsync()))
+            string? token = await _accountManager.GetTokenAsync();
+            if (Syncing || token == null || string.IsNullOrWhiteSpace(token))
             {
                 return;
             }
 
             Syncing = true;
-            string? token = await _accountManager.GetTokenAsync();
-            if (token == null || string.IsNullOrWhiteSpace(token))
+            SyncData? data;
+
+            try
+            {
+                string serialized = await _cloudFileWriter.ReadFileAsync(_cloudSyncFileUrl, token, default);
+                data = JsonSerializer.Deserialize<SyncData>(serialized);
+            }
+            catch
+            {
+                data = null;
+            }
+
+            if (data?.InstalledSoundIds == null || data.InstalledSoundIds.Length == 0)
             {
                 Syncing = false;
                 return;
             }
+
+            var soundMixIds = data.SoundMixes?.Select(x => x.Id).ToList() ?? new List<string>();
+            IList<Sound> installedSounds = await _soundDataProvider.GetLocalSoundsAsync();
+            var installedIds = installedSounds.Select(x => x.Id);
+            var soundIdsToDownload = new List<string>();
+
+            foreach (var id in data.InstalledSoundIds)
+            {
+                if (!string.IsNullOrWhiteSpace(id) && 
+                    !installedIds.Contains(id) &&
+                    !soundMixIds.Contains(id)) // don't try to download a custom sound mix id.
+                {
+                    soundIdsToDownload.Add(id);
+                }
+            }
+
+            if (soundIdsToDownload.Count > 0)
+            {
+                // download sounds
+                IList<Sound> soundsToDownload = await _onlineSoundDataProvider.GetSoundsAsync(soundIdsToDownload);
+
+                var tasks = new List<Task>();
+                foreach (var s in soundsToDownload)
+                {
+                    var task = _downloadManager.QueueAndDownloadAsync(s, new Progress<double>());
+                    tasks.Add(task);
+                }
+                await Task.WhenAll(tasks);
+            }
+
+            if (data.SoundMixes != null && data.SoundMixes.Length > 0)
+            {
+                await _soundMixService.ReconstructMixesAsync(data.SoundMixes);
+            }
+
+            Syncing = false;
+        }
+
+        /// <inheritdoc/>
+        public async Task SyncUp()
+        {
+            string? token = await _accountManager.GetTokenAsync();
+            if (Syncing || token == null || string.IsNullOrWhiteSpace(token))
+            {
+                return;
+            }
+
+            Syncing = true;
 
             var localSounds = await _soundDataProvider.GetLocalSoundsAsync();
             var syncData = new SyncData
