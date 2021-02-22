@@ -37,11 +37,14 @@ namespace AmbientSounds.ViewModels
 
             SignInCommand = new RelayCommand(SignIn);
             SignOutCommand = new AsyncRelayCommand(SignOutAsync);
+            SyncCommand = new AsyncRelayCommand(SyncAsync);
         }
 
         public IRelayCommand SignInCommand { get; }
 
         public IAsyncRelayCommand SignOutCommand { get; }
+
+        public IAsyncRelayCommand SyncCommand { get; }
 
         public Person? Person
         {
@@ -152,6 +155,11 @@ namespace AmbientSounds.ViewModels
             {
                 Person = await _accountManager.GetPersonDataAsync();
             }
+        }
+
+        private async Task SyncAsync()
+        {
+            await _syncEngine.SyncDown();
         }
 
         private void SignIn()

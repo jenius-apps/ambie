@@ -57,6 +57,11 @@
                             </StackPanel>
                         </AppBarElementContainer>
                         <AppBarSeparator Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
+                        <AppBarButton x:Uid="SyncAppBarButton" Command="{x:Bind ViewModel.SyncCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE932;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                         <AppBarButton x:Uid="SignOutAppBarButton" Command="{x:Bind ViewModel.SignOutCommand}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9CD;" />

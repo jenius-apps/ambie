@@ -480,4 +480,7 @@
   <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Sign in</value>
   </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>Sync</value>
+  </data>
 </root>
