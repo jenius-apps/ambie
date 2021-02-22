@@ -150,6 +150,7 @@ namespace AmbientSounds.Services
             if (data?.InstalledSoundIds == null || data.InstalledSoundIds.Length == 0)
             {
                 Syncing = false;
+                await SyncUp();
                 return;
             }
 
