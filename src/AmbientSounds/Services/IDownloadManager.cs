@@ -10,6 +10,11 @@ namespace AmbientSounds.Services
     public interface IDownloadManager
     {
         /// <summary>
+        /// Raised when the download queue is emptied.
+        /// </summary>
+        event EventHandler? DownloadsCompleted;
+
+        /// <summary>
         /// Adds sound to download queue and starts
         /// download.
         /// </summary>

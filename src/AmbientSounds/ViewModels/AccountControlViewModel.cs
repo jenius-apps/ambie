@@ -13,28 +13,38 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
+        private readonly ISyncEngine _syncEngine;
         private bool _signedIn;
         private bool _loading;
         private Person? _person;
 
         public AccountControlViewModel(
             IAccountManager accountManager,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            ISyncEngine syncEngine)
         {
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(syncEngine, nameof(syncEngine));
 
             _accountManager = accountManager;
             _telemetry = telemetry;
+            _syncEngine = syncEngine;
 
             _accountManager.SignInUpdated += OnSignInUpdated;
+            _syncEngine.SyncStarted += OnSyncStarted;
+            _syncEngine.SyncCompleted += OnSyncCompleted;
+
             SignInCommand = new RelayCommand(SignIn);
             SignOutCommand = new AsyncRelayCommand(SignOutAsync);
+            SyncCommand = new AsyncRelayCommand(SyncAsync);
         }
 
         public IRelayCommand SignInCommand { get; }
 
         public IAsyncRelayCommand SignOutCommand { get; }
+
+        public IAsyncRelayCommand SyncCommand { get; }
 
         public Person? Person
         {
@@ -111,6 +121,16 @@ namespace AmbientSounds.ViewModels
             Loading = false;
         }
 
+        private void OnSyncCompleted(object sender, System.EventArgs e)
+        {
+            Loading = false;
+        }
+
+        private void OnSyncStarted(object sender, System.EventArgs e)
+        {
+            Loading = true;
+        }
+
         private async Task SignOutAsync()
         {
             await _accountManager.SignOutAsync();
@@ -135,6 +155,12 @@ namespace AmbientSounds.ViewModels
             {
                 Person = await _accountManager.GetPersonDataAsync();
             }
+        }
+
+        private async Task SyncAsync()
+        {
+            await _syncEngine.SyncDown();
+            _telemetry.TrackEvent(TelemetryConstants.SyncManual);
         }
 
         private void SignIn()

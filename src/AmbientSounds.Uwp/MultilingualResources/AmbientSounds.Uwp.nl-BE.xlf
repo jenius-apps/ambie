@@ -496,6 +496,10 @@
           <source>Sign in</source>
           <target state="new">Sign in</target>
         </trans-unit>
+        <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sync</source>
+          <target state="new">Sync</target>
+        </trans-unit>
       </group>
     </body>
   </file>

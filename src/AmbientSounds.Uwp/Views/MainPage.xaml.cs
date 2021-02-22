@@ -37,7 +37,7 @@ namespace AmbientSounds.Views
             }
         }
 
-        public bool IsCompactVisible => !App.IsTenFoot;
+        public bool IsNotTenFoot => !App.IsTenFoot;
 
         public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
 

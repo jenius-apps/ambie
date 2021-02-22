@@ -25,5 +25,10 @@
         /// The Client ID used for logging into a Microsoft Account.
         /// </summary>
         string MsaClientId { get; set; }
+
+        /// <summary>
+        /// The URL for the cloud sync file.
+        /// </summary>
+        string CloudSyncFileUrl { get; set; }
     }
 }
