@@ -20,9 +20,9 @@ namespace AmbientSounds.Services
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly string _cloudSyncFileUrl;
-        private readonly Queue<string> _deletionQueue;
+        private readonly Queue<string> _dataChangeQueue;
         private bool _syncing;
-        private bool _processingDeletions;
+        private bool _processingDataChange;
 
         /// <inheritdoc/>
         public event EventHandler? SyncStarted;
@@ -55,15 +55,24 @@ namespace AmbientSounds.Services
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _soundMixService = soundMixService;
             _cloudSyncFileUrl = appSettings.CloudSyncFileUrl;
-            _deletionQueue = new Queue<string>();
+            _dataChangeQueue = new Queue<string>();
 
             _downloadManager.DownloadsCompleted += OnDownloadsCompleted;
             _soundDataProvider.LocalSoundDeleted += OnLocalSoundDeleted;
+            _soundDataProvider.LocalSoundAdded += OnLocalSoundAdded;
+        }
+
+        private void OnLocalSoundAdded(object sender, Sound e)
+        {
+            if (e.IsMix)
+            {
+                ProcessDataChangeAsync(e.Id);
+            }
         }
 
         private void OnLocalSoundDeleted(object sender, string e)
         {
-            ProcessDeletionsAsync(e);
+            ProcessDataChangeAsync(e);
         }
 
         private bool Syncing
@@ -77,29 +86,35 @@ namespace AmbientSounds.Services
             }
         }
 
-        private async void ProcessDeletionsAsync(string soundIdForDeletion)
+        /// <summary>
+        /// Helper method for syncing up any changes made
+        /// to the local sound list. Changes we care about are
+        /// any deleted sound or sound mixes, and newly created sound mixes.
+        /// </summary>
+        /// <param name="soundIdAddedOrDeleted">Id of the added or deleted sound.</param>
+        private async void ProcessDataChangeAsync(string soundIdAddedOrDeleted)
         {
-            if (_deletionQueue.Contains(soundIdForDeletion))
+            if (_dataChangeQueue.Contains(soundIdAddedOrDeleted))
             {
                 return;
             }
 
-            _deletionQueue.Enqueue(soundIdForDeletion);
+            _dataChangeQueue.Enqueue(soundIdAddedOrDeleted);
 
-            if (_processingDeletions)
+            if (_processingDataChange)
             {
                 return;
             }
 
-            _processingDeletions = true;
+            _processingDataChange = true;
 
-            while (_deletionQueue.Count > 0)
+            while (_dataChangeQueue.Count > 0)
             {
-                _deletionQueue.Clear();
+                _dataChangeQueue.Clear();
                 await SyncUp();
             }
 
-            _processingDeletions = false;
+            _processingDataChange = false;
         }
 
         private async void OnDownloadsCompleted(object sender, EventArgs e)
