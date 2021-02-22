@@ -20,7 +20,9 @@ namespace AmbientSounds.Services
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly string _cloudSyncFileUrl;
+        private readonly Queue<string> _deletionQueue;
         private bool _syncing;
+        private bool _processingDeletions;
 
         /// <inheritdoc/>
         public event EventHandler? SyncStarted;
@@ -53,8 +55,15 @@ namespace AmbientSounds.Services
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _soundMixService = soundMixService;
             _cloudSyncFileUrl = appSettings.CloudSyncFileUrl;
+            _deletionQueue = new Queue<string>();
 
             _downloadManager.DownloadsCompleted += OnDownloadsCompleted;
+            _soundDataProvider.LocalSoundDeleted += OnLocalSoundDeleted;
+        }
+
+        private void OnLocalSoundDeleted(object sender, string e)
+        {
+            ProcessDeletionsAsync(e);
         }
 
         private bool Syncing
@@ -66,6 +75,31 @@ namespace AmbientSounds.Services
                 if (value) SyncStarted?.Invoke(this, EventArgs.Empty);
                 else SyncCompleted?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        private async void ProcessDeletionsAsync(string soundIdForDeletion)
+        {
+            if (_deletionQueue.Contains(soundIdForDeletion))
+            {
+                return;
+            }
+
+            _deletionQueue.Enqueue(soundIdForDeletion);
+
+            if (_processingDeletions)
+            {
+                return;
+            }
+
+            _processingDeletions = true;
+
+            while (_deletionQueue.Count > 0)
+            {
+                _deletionQueue.Clear();
+                await SyncUp();
+            }
+
+            _processingDeletions = false;
         }
 
         private async void OnDownloadsCompleted(object sender, EventArgs e)
