@@ -53,5 +53,11 @@
         public const string SignOutClicked = Signin + "signedOut";
         public const string SilentSuccessful = Signin + "silentSuccessful";
         public const string SignInCompleted = Signin + "signinCompleted";
+
+        // sync
+        private const string Sync = "sync:";
+        public const string SyncManual = Sync + "manual";
+        public const string SyncDown = Sync + "down";
+        public const string SyncUp = Sync + "up";
     }
 }

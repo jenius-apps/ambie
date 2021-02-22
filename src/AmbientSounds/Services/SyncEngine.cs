@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace AmbientSounds.Services
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
+        private readonly ITelemetry _telemetry;
         private readonly string _cloudSyncFileUrl;
         private readonly Queue<string> _dataChangeQueue;
         private bool _syncing;
@@ -37,7 +39,8 @@ namespace AmbientSounds.Services
             ISoundDataProvider soundDataProvider,
             IOnlineSoundDataProvider onlineSoundDataProvider,
             IAppSettings appSettings,
-            ISoundMixService soundMixService)
+            ISoundMixService soundMixService,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(cloudFileWriter, nameof(cloudFileWriter));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
@@ -46,6 +49,7 @@ namespace AmbientSounds.Services
             Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(appSettings, nameof(appSettings));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNullOrEmpty(appSettings.CloudSyncFileUrl, nameof(appSettings.CloudSyncFileUrl));
 
             _accountManager = accountManager;
@@ -54,6 +58,7 @@ namespace AmbientSounds.Services
             _soundDataProvider = soundDataProvider;
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _soundMixService = soundMixService;
+            _telemetry = telemetry;
             _cloudSyncFileUrl = appSettings.CloudSyncFileUrl;
             _dataChangeQueue = new Queue<string>();
 
@@ -197,6 +202,12 @@ namespace AmbientSounds.Services
                 await _soundMixService.ReconstructMixesAsync(data.SoundMixes);
             }
 
+            _telemetry.TrackEvent(TelemetryConstants.SyncDown, new Dictionary<string, string>
+            {
+                { "downloadcount", soundIdsToDownload.Count.ToString() },
+                { "mixcount", data.SoundMixes?.Length.ToString() ?? "0" }
+            });
+
             Syncing = false;
         }
 
@@ -231,6 +242,8 @@ namespace AmbientSounds.Services
             {
                 // todo log
             }
+
+            _telemetry.TrackEvent(TelemetryConstants.SyncUp);
 
             Syncing = false;
         }

@@ -160,6 +160,7 @@ namespace AmbientSounds.ViewModels
         private async Task SyncAsync()
         {
             await _syncEngine.SyncDown();
+            _telemetry.TrackEvent(TelemetryConstants.SyncManual);
         }
 
         private void SignIn()
