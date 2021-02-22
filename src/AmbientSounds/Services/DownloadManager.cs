@@ -14,6 +14,7 @@ namespace AmbientSounds.Services
     {
         private readonly IFileDownloader _fileDownloader;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly IIapService _iapService;
         private readonly Queue<QueuedSound> _downloadQueue = new();
         private bool _downloading;
 
@@ -22,13 +23,16 @@ namespace AmbientSounds.Services
 
         public DownloadManager(
             IFileDownloader soundDownloader,
-            ISoundDataProvider soundDataProvider)
+            ISoundDataProvider soundDataProvider,
+            IIapService iapService)
         {
             Guard.IsNotNull(soundDownloader, nameof(soundDownloader));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(iapService, nameof(iapService));
 
             _fileDownloader = soundDownloader;
             _soundDataProvider = soundDataProvider;
+            _iapService = iapService;
         }
 
         /// <inheritdoc/>
@@ -58,6 +62,17 @@ namespace AmbientSounds.Services
                 try
                 {
                     var soundData = item.SoundData;
+
+                    // Confirm the sound is purchased if it's premium.
+                    if (soundData.IsPremium)
+                    {
+                        var isOwned = await _iapService.IsOwnedAsync(soundData.IapId);
+                        if (!isOwned)
+                        {
+                            throw new Exception("User hasn't purchased access to the sound. " + soundData.IapId);
+                        }
+                    }
+
                     item.Progress.Report(33);
 
                     Task<string> downloadPathTask = _fileDownloader.SoundDownloadAndSaveAsync(
