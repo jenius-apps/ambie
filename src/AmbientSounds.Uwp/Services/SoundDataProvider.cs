@@ -38,11 +38,18 @@ namespace AmbientSounds.Services.Uwp
         public async Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[] soundIds = null)
         {
             var packagedSounds = await GetPackagedSoundsAsync();
-            var localSounds = await GetLocalSoundsAsync(refresh: refresh);
+            var localSounds = await GetLocalSoundsInternalAsync(refresh: refresh);
             packagedSounds.AddRange(localSounds);
 
             if (soundIds == null) return packagedSounds;
             else return packagedSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
+        }
+
+        /// <inheritdoc/>
+        public async Task<IList<Sound>> GetLocalSoundsAsync()
+        {
+            var localSounds = await GetLocalSoundsInternalAsync();
+            return localSounds.ToList();
         }
 
         /// <inheritdoc/>
@@ -124,7 +131,7 @@ namespace AmbientSounds.Services.Uwp
             var packagedSounds = await GetPackagedSoundsAsync();
             if (packagedSounds.Any(x => x.Id == id)) return true;
 
-            IReadOnlyList<Sound> sounds = await GetLocalSoundsAsync();
+            IReadOnlyList<Sound> sounds = await GetLocalSoundsInternalAsync();
             return sounds.Any(x => x.Id == id);
         }
 
@@ -167,7 +174,7 @@ namespace AmbientSounds.Services.Uwp
             await FileIO.WriteTextAsync(localDataFile, json);
         }
 
-        private async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(
+        private async Task<IReadOnlyList<Sound>> GetLocalSoundsInternalAsync(
             StorageFile localDataFile = null,
             bool refresh = false)
         {

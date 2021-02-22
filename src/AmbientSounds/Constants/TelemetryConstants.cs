@@ -45,6 +45,19 @@
         // sharing
         private const string Share = "share:";
         public const string ShareClicked = Share + "clicked";
-        public const string ShareReceived = Share + "received"; 
+        public const string ShareReceived = Share + "received";
+
+        // Sign in
+        private const string Signin = "signin:";
+        public const string SignInTriggered = Signin + "triggered";
+        public const string SignOutClicked = Signin + "signedOut";
+        public const string SilentSuccessful = Signin + "silentSuccessful";
+        public const string SignInCompleted = Signin + "signinCompleted";
+
+        // sync
+        private const string Sync = "sync:";
+        public const string SyncManual = Sync + "manual";
+        public const string SyncDown = Sync + "down";
+        public const string SyncUp = Sync + "up";
     }
 }

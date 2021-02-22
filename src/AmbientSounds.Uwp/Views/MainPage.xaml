@@ -151,14 +151,16 @@
                     Text="Ambie" />
                 <controls:ViewCatalogueButton Margin="8,0,0,0" IconOnly="True" />
                 <controls:SleepTimerControl Margin="4,0,0,0" />
-                <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsCompactVisible}" />
+                <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
                 <controls:MoreButton Margin="4,0,0,0" />
             </StackPanel>
 
             <StackPanel
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Orientation="Horizontal" />
+                Orientation="Horizontal">
+                <controls:AccountControl x:Name="AccountButton" x:Load="{x:Bind IsNotTenFoot}" />
+            </StackPanel>
         </Grid>
 
         <controls:SoundGridControl

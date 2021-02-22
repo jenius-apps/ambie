@@ -12,6 +12,8 @@ namespace AmbientSounds.Services.Uwp
             var resourceLoader = ResourceLoader.GetForCurrentView("appsettings");
             CatalogueUrl = resourceLoader.GetString(nameof(CatalogueUrl));
             TelemetryApiKey = resourceLoader.GetString(nameof(TelemetryApiKey));
+            MsaClientId = resourceLoader.GetString(nameof(MsaClientId));
+            CloudSyncFileUrl = resourceLoader.GetString(nameof(CloudSyncFileUrl));
         }
 
         /// <inheritdoc/>
@@ -22,5 +24,11 @@ namespace AmbientSounds.Services.Uwp
 
         /// <inheritdoc/>
         public bool LoadPreviousState { get; set; } = true;
+
+        /// <inheritdoc/>
+        public string MsaClientId { get; set; }
+
+        /// <inheritdoc/>
+        public string CloudSyncFileUrl { get; set; }
     }
 }
