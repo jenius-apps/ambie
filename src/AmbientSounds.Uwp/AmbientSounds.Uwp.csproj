@@ -465,22 +465,6 @@
     <Content Include="Assets\fluentui.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\es-PR\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es-MX\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es-US\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es-DO\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
-  </ItemGroup>
-  <ItemGroup>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
     </SDKReference>
@@ -491,11 +475,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.da-DK.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.de-DE.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-DO.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-ES.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-MX.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-PR.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-US.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.hu-HU.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.it-IT.xlf" />
@@ -532,6 +512,12 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Strings\es-DO\" />
+    <Folder Include="Strings\es-MX\" />
+    <Folder Include="Strings\es-PR\" />
+    <Folder Include="Strings\es-US\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
