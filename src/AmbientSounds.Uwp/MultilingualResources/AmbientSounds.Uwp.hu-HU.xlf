@@ -443,63 +443,63 @@
         </trans-unit>
         <trans-unit id="CancelText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">Mégse</target>
         </trans-unit>
         <trans-unit id="RenameText" translate="yes" xml:space="preserve">
           <source>Rename</source>
-          <target state="new">Rename</target>
+          <target state="translated">Átnevezés</target>
         </trans-unit>
         <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Rename</source>
-          <target state="new">Rename</target>
+          <target state="translated">Átnevezéd</target>
         </trans-unit>
         <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
-          <target state="new">Compact mode</target>
+          <target state="translated">Kompakt mód</target>
         </trans-unit>
         <trans-unit id="ShareMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Share sound mix link</source>
-          <target state="new">Share sound mix link</target>
+          <target state="translated">Lista megosztása linkkel</target>
         </trans-unit>
         <trans-unit id="ShareMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Share sound mix link</source>
-          <target state="new">Share sound mix link</target>
+          <target state="translated">Lista megosztása linkkel</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
-          <target state="new">Missing sounds</target>
+          <target state="translated">Hiányzó hangok</target>
         </trans-unit>
         <trans-unit id="ShareResultsMessage.Text" translate="yes" xml:space="preserve">
           <source>You're missing some sounds! Download them here. Press play whenever you're ready.</source>
-          <target state="new">You're missing some sounds! Download them here. Press play whenever you're ready.</target>
+          <target state="translated">Hiányzik pár hang, letöltheti őket innen.</target>
         </trans-unit>
         <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sign out</source>
-          <target state="new">Sign out</target>
+          <target state="translated">Kijelentkezés</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="new">This will enable sound gallery sync across your devices.</target>
+          <target state="translated">Megosztott Hang Katalógus az eszközein.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="new">View account options</target>
+          <target state="translated">Fiók részletei</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="new">View account options</target>
+          <target state="translated">Fiók részletei</target>
         </trans-unit>
         <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="new">Sign in</target>
+          <target state="translated">Bejelentkezés</target>
         </trans-unit>
         <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="new">Sign in</target>
+          <target state="translated">Bejelentkezés</target>
         </trans-unit>
         <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sync</source>
-          <target state="new">Sync</target>
+          <target state="translated">Szinkronizálás</target>
         </trans-unit>
       </group>
     </body>
