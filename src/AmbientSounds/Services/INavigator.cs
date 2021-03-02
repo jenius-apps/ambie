@@ -20,5 +20,10 @@
         /// Navigates to the compact page.
         /// </summary>
         void ToCompact();
+
+        /// <summary>
+        /// Navigates to the upload page.
+        /// </summary>
+        void ToUploadPage();
     }
 }

@@ -22,6 +22,12 @@
                 <Setter Property="Background" Value="Transparent" />
             </Style>
 
+            <Style x:Key="PageHeaderTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Calibri" />
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+
             <AcrylicBrush
                 x:Key="BackgroundAcrylicBrush"
                 TintColor="Black"
