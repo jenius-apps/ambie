@@ -333,4 +333,49 @@
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Saját válogatás mentése (Ctrl+S)</value>
   </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Átnevezés</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Átnevezéd</value>
+  </data>
+  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+    <value>Kompakt mód</value>
+  </data>
+  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Lista megosztása linkkel</value>
+  </data>
+  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Lista megosztása linkkel</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Hiányzó hangok</value>
+  </data>
+  <data name="ShareResultsMessage.Text" xml:space="preserve">
+    <value>Hiányzik pár hang, letöltheti őket innen.</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Megosztott Hang Katalógus az eszközein.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Fiók részletei</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Fiók részletei</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>Szinkronizálás</value>
+  </data>
 </root>
