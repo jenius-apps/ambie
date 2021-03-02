@@ -176,6 +176,9 @@
     <Compile Include="Controls\ToggleCompactButton.xaml.cs">
       <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UploadedSoundsList.xaml.cs">
+      <DependentUpon>UploadedSoundsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ViewCatalogueButton.xaml.cs">
       <DependentUpon>ViewCatalogueButton.xaml</DependentUpon>
     </Compile>
@@ -374,6 +377,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\UploadedSoundsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ViewCatalogueButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -422,6 +429,9 @@
       <Version>7.0.0-preview4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>7.0.0-preview4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
       <Version>7.0.0-preview4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">

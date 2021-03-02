@@ -22,5 +22,13 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="soundIds">List of sounds to get.</param>
         Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds);
+
+        /// <summary>
+        /// Retrieves list of sounds uploaded by the user to
+        /// the Ambie catalogue.
+        /// </summary>
+        /// <param name="accesstoken">An JWT access token required for the API.</param>
+        /// <returns>List of sounds uploaded by the user to the Ambie Catalogue.</returns>
+        Task<IList<Sound>> GetUserSoundsAsync(string accesstoken);
     }
 }

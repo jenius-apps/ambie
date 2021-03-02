@@ -59,5 +59,41 @@ namespace AmbientSounds.Services
             return sounds?.Where(x => x.Id != null && soundIds.Contains(x.Id)).ToArray()
                 ?? new Sound[0];
         }
+
+        /// <inheritdoc/>
+        public async Task<IList<Sound>> GetUserSoundsAsync(string accesstoken)
+        {
+            if (string.IsNullOrWhiteSpace(accesstoken))
+            {
+                return new Sound[0];
+            }
+
+            await Task.Delay(1);
+
+            return new Sound[]
+            {
+                new Sound
+                {
+                    Id = "1",
+                    Name = "test",
+                    Attribution = "copyright me",
+                    ImagePath = "https://www.telegraph.co.uk/content/dam/travel/Spark/dominican-republic/cayo-levantado-beach.jpg?imwidth=450"
+                },
+                new Sound
+                {
+                    Id = "1",
+                    Name = "test",
+                    Attribution = "copyright me",
+                    ImagePath = "https://www.telegraph.co.uk/content/dam/travel/Spark/dominican-republic/cayo-levantado-beach.jpg?imwidth=450"
+                },
+                new Sound
+                {
+                    Id = "1",
+                    Name = "test",
+                    Attribution = "copyright me",
+                    ImagePath = "https://www.telegraph.co.uk/content/dam/travel/Spark/dominican-republic/cayo-levantado-beach.jpg?imwidth=450"
+                },
+            };
+        }
     }
 }

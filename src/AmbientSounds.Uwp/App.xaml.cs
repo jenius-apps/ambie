@@ -282,6 +282,7 @@ namespace AmbientSounds
                 .AddSingleton<SleepTimerViewModel>()
                 .AddSingleton<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>()
+                .AddSingleton<UploadedSoundsListViewModel>()
                 .AddSingleton<ISyncEngine, SyncEngine>()
                 .AddSingleton<IAccountManager, AccountManager>()
                 .AddSingleton<IPreviewService, PreviewService>()
