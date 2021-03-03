@@ -20,7 +20,7 @@
     </interactivity:Interaction.Behaviors>
 
     <UserControl.Resources>
-        <DataTemplate x:Key="UploadedSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
+        <DataTemplate x:Key="UploadedSoundTemplate" x:DataType="viewmodels:UploadedSoundViewModel">
             <ListViewItem Padding="0,10" AutomationProperties.Name="{x:Bind Name}">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -67,7 +67,7 @@
 
     <Grid>
         <ListView
-            x:Uid="OnlineSoundsList"
+            x:Uid="UploadedSoundsList"
             Padding="32,10"
             ItemTemplate="{StaticResource UploadedSoundTemplate}"
             ItemsSource="{x:Bind ViewModel.UploadedSounds}"

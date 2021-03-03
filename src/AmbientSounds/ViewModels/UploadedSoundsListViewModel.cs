@@ -1,12 +1,8 @@
 ﻿using AmbientSounds.Factories;
-using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -35,16 +31,16 @@ namespace AmbientSounds.ViewModels
 
         public IAsyncRelayCommand LoadCommand { get; }
 
-        public ObservableCollection<OnlineSoundViewModel> UploadedSounds = new();
+        public ObservableCollection<UploadedSoundViewModel> UploadedSounds = new();
 
         private async Task LoadAsync()
         {
             // fetch user token
-            string token = await _accountManager.GetTokenAsync() ?? "";
+            string token = await _accountManager.GetTokenAsync() ?? "foobar";
             if (string.IsNullOrWhiteSpace(token))
             {
-                // not signed in
-                return;
+                // TODO return once we are properly able to get token.
+                //return;
             }
 
             // fetch the user's uploaded sounds
@@ -56,11 +52,8 @@ namespace AmbientSounds.ViewModels
 
             foreach (var s in sounds)
             {
-                var vm = _soundVmFactory.GetOnlineSoundVm(s);
-                if (vm != null)
-                {
-                    UploadedSounds.Add(vm);
-                }
+                var vm = _soundVmFactory.GetUploadedSoundVm(s);
+                UploadedSounds.Add(vm);
             }
         }
     }

@@ -74,6 +74,13 @@ namespace AmbientSounds.Factories
         }
 
         /// <inheritdoc/>
+        public UploadedSoundViewModel GetUploadedSoundVm(Sound s)
+        {
+            Guard.IsNotNull(s, nameof(s));
+            return new UploadedSoundViewModel(s);
+        }
+
+        /// <inheritdoc/>
         public SoundViewModel GetSoundVm(Sound s, int index)
         {
             Guard.IsNotNull(s, nameof(s));
