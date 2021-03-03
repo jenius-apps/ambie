@@ -501,6 +501,18 @@
           <source>Sync</source>
           <target state="new">Sync</target>
         </trans-unit>
+        <trans-unit id="MoreButtonUpload.Label" translate="yes" xml:space="preserve">
+          <source>Upload sounds</source>
+          <target state="new">Upload sounds</target>
+        </trans-unit>
+        <trans-unit id="UploadedSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Uploaded sounds</source>
+          <target state="new">Uploaded sounds</target>
+        </trans-unit>
+        <trans-unit id="UploadPortal.Text" translate="yes" xml:space="preserve">
+          <source>Upload Portal - Beta</source>
+          <target state="new">Upload Portal - Beta</target>
+        </trans-unit>
       </group>
     </body>
   </file>

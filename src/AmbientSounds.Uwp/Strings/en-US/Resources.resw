@@ -483,4 +483,13 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sync</value>
   </data>
+  <data name="MoreButtonUpload.Label" xml:space="preserve">
+    <value>Upload sounds</value>
+  </data>
+  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Uploaded sounds</value>
+  </data>
+  <data name="UploadPortal.Text" xml:space="preserve">
+    <value>Upload Portal - Beta</value>
+  </data>
 </root>
