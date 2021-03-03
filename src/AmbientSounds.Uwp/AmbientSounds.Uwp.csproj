@@ -530,12 +530,7 @@
   <ItemGroup>
     <PRIResource Include="Strings\de-DE\Resources.resw" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Strings\es-DO\" />
-    <Folder Include="Strings\es-MX\" />
-    <Folder Include="Strings\es-PR\" />
-    <Folder Include="Strings\es-US\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
