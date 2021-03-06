@@ -260,6 +260,7 @@ namespace AmbientSounds
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<SettingsViewModel>()
+                .AddTransient<UploadFormViewModel>()
                 .AddTransient<MainPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
                 .AddSingleton<AppServiceController>()

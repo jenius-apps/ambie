@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,7 +26,10 @@ namespace AmbientSounds.Controls
         public UploadForm()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<UploadFormViewModel>();
         }
+
+        public UploadFormViewModel ViewModel => (UploadFormViewModel)this.DataContext;
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {

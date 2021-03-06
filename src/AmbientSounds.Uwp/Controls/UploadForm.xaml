@@ -29,21 +29,28 @@
             </Button>
         </Grid>
 
-        <TextBox Margin="0,12,0,0" Header="{x:Bind strings:Resources.Name}" />
+        <TextBox
+            Margin="0,12,0,0"
+            Header="{x:Bind strings:Resources.Name}"
+            Text="{x:Bind ViewModel.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <TextBox Margin="0,12,0,0" Header="{x:Bind strings:Resources.Attribution}" />
+        <TextBox
+            Margin="0,12,0,0"
+            Header="{x:Bind strings:Resources.Attribution}"
+            Text="{x:Bind ViewModel.Attribution, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBox
             x:Uid="ImageUrlBox"
             Margin="0,12,0,0"
-            Header="{x:Bind strings:Resources.ImageUrl}" />
+            Header="{x:Bind strings:Resources.ImageUrl}"
+            Text="{x:Bind ViewModel.ImageUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <Grid Margin="0,12,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox Header="{x:Bind strings:Resources.PathToSound}" />
+            <TextBox Header="{x:Bind strings:Resources.PathToSound}" Text="{x:Bind ViewModel.SoundPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Button
                 Grid.Column="1"
                 Height="33"
@@ -59,6 +66,7 @@
         <Button
             Margin="0,24,0,0"
             HorizontalAlignment="Stretch"
+            Command="{x:Bind ViewModel.SubmitCommand}"
             Content="{x:Bind strings:Resources.UploadSubmitButton}" />
         <HyperlinkButton
             Margin="0,12,0,0"
