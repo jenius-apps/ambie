@@ -20,7 +20,7 @@ namespace AmbientSounds.Converters
 
             if (value is string soundName)
             {
-                var translatedName = _loader.GetString("Sound-" + soundName);
+                var translatedName = _loader.GetString("Sound" + soundName);
                 return string.IsNullOrWhiteSpace(translatedName)
                     ? soundName
                     : translatedName;
