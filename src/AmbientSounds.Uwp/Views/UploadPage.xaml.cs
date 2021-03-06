@@ -32,5 +32,15 @@ namespace AmbientSounds.Views
                 App.AppFrame.GoBack();
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainSplitView.IsPaneOpen = true;
+        }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainSplitView.IsPaneOpen = false;
+        }
     }
 }

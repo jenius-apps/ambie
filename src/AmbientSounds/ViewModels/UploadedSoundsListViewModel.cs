@@ -35,6 +35,8 @@ namespace AmbientSounds.ViewModels
 
         private async Task LoadAsync()
         {
+            UploadedSounds.Clear();
+
             // fetch user token
             string token = await _accountManager.GetTokenAsync() ?? "foobar";
             if (string.IsNullOrWhiteSpace(token))

@@ -9,29 +9,96 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid Padding="0,32,0,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <SplitView
+        x:Name="MainSplitView"
+        DisplayMode="Inline"
+        PaneBackground="{ThemeResource SystemControlAcrylicWindowBrush}"
+        PanePlacement="Left">
+        <SplitView.Pane>
+            <StackPanel Margin="20,42,20,20">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Uid="NewSoundText" Style="{StaticResource PageHeaderTextStyle}" />
 
-        <StackPanel Margin="40,0" Orientation="Horizontal">
-            <Button
-                x:Uid="BackButton"
-                Click="{x:Bind GoBack}"
-                Style="{StaticResource TransparentRoundButtonStyle}">
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
-            </Button>
-            <FontIcon
-                Margin="12,0,0,0"
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                Glyph="&#xE9B8;" />
-            <TextBlock
-                x:Uid="UploadPortal"
-                Margin="12,0,0,0"
-                Style="{StaticResource PageHeaderTextStyle}" />
-        </StackPanel>
+                    <Button
+                        x:Uid="CancelButton"
+                        Grid.Column="1"
+                        Margin="8,0,0,0"
+                        Click="HyperlinkButton_Click"
+                        Style="{StaticResource TransparentRoundButtonStyle}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
+                    </Button>
+                </Grid>
 
-        <controls:UploadedSoundsList Grid.Row="1" />
-    </Grid>
+                <TextBox x:Uid="NameBox" Margin="0,12,0,0" />
+
+                <TextBox x:Uid="AttributionBox" Margin="0,12,0,0" />
+
+                <TextBox x:Uid="ImageUrlBox" Margin="0,12,0,0" />
+
+                <Grid Margin="0,12,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Uid="PathToSoundBox" />
+                    <Button
+                        x:Uid="BrowseButton"
+                        Grid.Column="1"
+                        Height="33"
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Bottom" />
+                </Grid>
+
+                <Button
+                    x:Uid="UploadSubmitButton"
+                    Margin="0,24,0,0"
+                    HorizontalAlignment="Stretch" />
+                <HyperlinkButton
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Center"
+                    Click="HyperlinkButton_Click"
+                    Content="Cancel" />
+
+            </StackPanel>
+        </SplitView.Pane>
+
+        <Grid Padding="0,32,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Margin="40,0" Orientation="Horizontal">
+                <Button
+                    x:Uid="BackButton"
+                    Click="{x:Bind GoBack}"
+                    Style="{StaticResource TransparentRoundButtonStyle}">
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
+                </Button>
+                <FontIcon
+                    Margin="12,0,0,0"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="&#xE9B8;" />
+                <TextBlock
+                    x:Uid="UploadPortal"
+                    Margin="12,0,0,0"
+                    Style="{StaticResource PageHeaderTextStyle}" />
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Margin="40,16,0,0"
+                Orientation="Horizontal">
+                <Button Click="Button_Click" Content="Upload new sound" />
+                <Button Margin="8,0,0,0" Content="Refresh" />
+            </StackPanel>
+
+            <controls:UploadedSoundsList Grid.Row="2" Margin="8,20,0,0" />
+        </Grid>
+    </SplitView>
 </Page>
