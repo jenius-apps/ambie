@@ -24,11 +24,6 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB60;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonUpload" Click="{x:Bind UploadClicked}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B8;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
                     <AppBarButton x:Uid="MoreButtonRate" Click="{x:Bind RateUsClicked}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEBF7;" />

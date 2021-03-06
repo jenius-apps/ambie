@@ -43,11 +43,6 @@ namespace AmbientSounds.Controls
             DataTransferManager.ShowShareUI();
         }
 
-        private void UploadClicked()
-        {
-            App.Services.GetRequiredService<INavigator>().ToUploadPage();
-        }
-
         private void ScreensaverClicked()
         {
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
