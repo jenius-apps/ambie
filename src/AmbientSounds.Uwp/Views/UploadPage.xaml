@@ -15,55 +15,7 @@
         PaneBackground="{ThemeResource SystemControlAcrylicWindowBrush}"
         PanePlacement="Left">
         <SplitView.Pane>
-            <StackPanel Margin="20,42,20,20">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Uid="NewSoundText" Style="{StaticResource PageHeaderTextStyle}" />
-
-                    <Button
-                        x:Uid="CancelButton"
-                        Grid.Column="1"
-                        Margin="8,0,0,0"
-                        Click="HyperlinkButton_Click"
-                        Style="{StaticResource TransparentRoundButtonStyle}">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
-                    </Button>
-                </Grid>
-
-                <TextBox x:Uid="NameBox" Margin="0,12,0,0" />
-
-                <TextBox x:Uid="AttributionBox" Margin="0,12,0,0" />
-
-                <TextBox x:Uid="ImageUrlBox" Margin="0,12,0,0" />
-
-                <Grid Margin="0,12,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:Uid="PathToSoundBox" />
-                    <Button
-                        x:Uid="BrowseButton"
-                        Grid.Column="1"
-                        Height="33"
-                        Margin="8,0,0,0"
-                        VerticalAlignment="Bottom" />
-                </Grid>
-
-                <Button
-                    x:Uid="UploadSubmitButton"
-                    Margin="0,24,0,0"
-                    HorizontalAlignment="Stretch" />
-                <HyperlinkButton
-                    Margin="0,12,0,0"
-                    HorizontalAlignment="Center"
-                    Click="HyperlinkButton_Click"
-                    Content="Cancel" />
-
-            </StackPanel>
+            <controls:UploadForm Margin="20,42,20,20" CancelClicked="HyperlinkButton_Click" />
         </SplitView.Pane>
 
         <Grid Padding="0,32,0,0">
