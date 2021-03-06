@@ -90,6 +90,42 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Cliquez ici pour configurer une minuterie de mise en veille, où le son se mettra en pause après l'heure sélectionnée.</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Plage</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>Oiseaux</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>Rue de ville</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>Café</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>Ruisseau</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>Cheminée</value>
+  </data>
+  <data name="Soundmore" xml:space="preserve">
+    <value>D’autres seront disponibles prochainement</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>Pluie</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>Forêt tropicale</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>Sous l'eau</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>Chute d'eau</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>Bruit blanc</value>
+  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>Les sons se chargent</value>
   </data>
@@ -129,8 +165,17 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Clair</value>
   </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>Aspirateur</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>Tonnerre</value>
+  </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notification pour les nouveaux sons</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>Vent</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Plus de sons</value>

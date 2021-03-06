@@ -99,6 +99,42 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Klik hier om een timer in te stellen, waarbij het geluid zal pauzeren na de geselecteerde tijd.</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Strand</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>Vogels</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>Straat in de stad</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>Koffieshop</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>Kreek</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>Open haard</value>
+  </data>
+  <data name="Soundmore" xml:space="preserve">
+    <value>Binnenkort meer</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>Regen</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>Regenwoud</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>Onder water</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>Waterval</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>Witte ruis</value>
+  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>Geluiden worden geladen</value>
   </data>
@@ -137,6 +173,12 @@
   </data>
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Licht</value>
+  </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>Vacuüm</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>Donder</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Melding voor nieuwe geluiden</value>

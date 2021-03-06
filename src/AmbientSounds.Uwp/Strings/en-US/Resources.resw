@@ -213,7 +213,7 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>View sleep timer options</value>
   </data>
-  <data name="SoundBeach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Beach</value>
   </data>
   <data name="Soundbirds" xml:space="preserve">

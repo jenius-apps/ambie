@@ -108,6 +108,42 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Ver opciones del temporizador</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Playa</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>Aves</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>Calle urbana</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>Cafetería</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>Riachuelo</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>Hoguera</value>
+  </data>
+  <data name="Soundmore" xml:space="preserve">
+    <value>Más próximamente</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>Lluvia</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>Bosque tropical</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>Bajo el mar</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>Cascada</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>Ruido blanco</value>
+  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>Se están cargando los sonidos</value>
   </data>
@@ -150,8 +186,17 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Claro</value>
   </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>Aspiradora</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>Trueno</value>
+  </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notificaciones de nuevos sonidos</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>Viento</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Más sonidos</value>

@@ -203,6 +203,11 @@
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
+    <Compile Include="Strings\en-US\Resources.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resw</DependentUpon>
+    </Compile>
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
@@ -453,6 +458,8 @@
   <ItemGroup>
     <PRIResource Include="Strings\en-US\Resources.resw">
       <SubType>Designer</SubType>
+      <Generator>ReswPlusGenerator</Generator>
+      <LastGenOutput>Resources.generated.cs</LastGenOutput>
     </PRIResource>
     <PRIResource Include="Strings\ko-KR\Resources.resw">
       <SubType>Designer</SubType>
@@ -487,7 +494,6 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ar.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ca-ES.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.da-DK.xlf" />
@@ -511,9 +517,6 @@
     <PRIResource Include="Strings\ca-ES\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\ar\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
     <PRIResource Include="Strings\tr\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
@@ -530,7 +533,9 @@
   <ItemGroup>
     <PRIResource Include="Strings\de-DE\Resources.resw" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Strings\ar\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

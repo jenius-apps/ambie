@@ -192,4 +192,7 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Vítr</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Pláže</value>
+  </data>
 </root>

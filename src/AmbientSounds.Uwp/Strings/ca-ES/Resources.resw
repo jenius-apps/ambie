@@ -192,4 +192,7 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Vent</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Beach</value>
+  </data>
 </root>

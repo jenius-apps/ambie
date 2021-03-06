@@ -105,6 +105,42 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>수면 타이머 세팅하기, 정하는 시간 안에 음악이 정지됩니다.</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>해변</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>새소리</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>길거리</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>커피숍</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>개울</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>벽난로</value>
+  </data>
+  <data name="Soundmore" xml:space="preserve">
+    <value>업데이트 예정</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>비</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>숲</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>수중</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>폭포</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>백색 소음</value>
+  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>음악 로딩중</value>
   </data>
@@ -147,8 +183,17 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>빛</value>
   </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>진공 청소기</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>천둥</value>
+  </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>알림 메시지</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>바람</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>더 많은 소리</value>

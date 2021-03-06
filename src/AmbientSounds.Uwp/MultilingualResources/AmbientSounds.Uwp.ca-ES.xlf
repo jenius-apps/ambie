@@ -508,9 +508,9 @@
           <source>Upload Portal - Beta</source>
           <target state="new">Upload Portal - Beta</target>
         </trans-unit>
-        <trans-unit id="SoundBeach" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
           <source>Beach</source>
-          <target state="new">Beach</target>
+          <target state="translated">Beach</target>
         </trans-unit>
       </group>
     </body>

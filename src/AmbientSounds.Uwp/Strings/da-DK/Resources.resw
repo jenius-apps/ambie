@@ -244,4 +244,7 @@
   <data name="DeleteTextBlock.Text" xml:space="preserve">
     <value>Slet</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Stranden</value>
+  </data>
 </root>

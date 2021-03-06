@@ -105,6 +105,42 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Fare clic qui per impostare un timer di sospensione, in cui il suono verrà messo in pausa dopo l'ora selezionata.</value>
   </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Spiaggia</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>Uccelli</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>Strada</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>Caffè</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>Torrente</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>Camino</value>
+  </data>
+  <data name="Soundmore" xml:space="preserve">
+    <value>Altri in arrivo</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>Pioggia</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>Foresta pluviale</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>Subacquea</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>Cascata</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>Rumore bianco</value>
+  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value></value>
   </data>
@@ -147,8 +183,17 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Chiaro</value>
   </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>Aspirapolvere</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>Tuono</value>
+  </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Messaggio di notifica</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>Vento</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Altri suoni</value>
