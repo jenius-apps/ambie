@@ -105,42 +105,6 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
-    <value>Part</value>
-  </data>
-  <data name="Sound-birds" xml:space="preserve">
-    <value>Madarak</value>
-  </data>
-  <data name="Sound-citystreet" xml:space="preserve">
-    <value>Városi utca</value>
-  </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
-    <value>Kávéház</value>
-  </data>
-  <data name="Sound-creek" xml:space="preserve">
-    <value>Patak</value>
-  </data>
-  <data name="Sound-fireplace" xml:space="preserve">
-    <value>Kandalló</value>
-  </data>
-  <data name="Sound-more" xml:space="preserve">
-    <value>Hamarosan</value>
-  </data>
-  <data name="Sound-rain" xml:space="preserve">
-    <value>Eső</value>
-  </data>
-  <data name="Sound-rainforest" xml:space="preserve">
-    <value>Esőerdő</value>
-  </data>
-  <data name="Sound-underwater" xml:space="preserve">
-    <value>Víz alatt</value>
-  </data>
-  <data name="Sound-waterfall" xml:space="preserve">
-    <value>Vízesés</value>
-  </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
-    <value>Fehérzaj</value>
-  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>Hangok betöltése</value>
   </data>
@@ -183,17 +147,8 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Világos</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
-    <value>Porszívó</value>
-  </data>
-  <data name="Sound-thunder" xml:space="preserve">
-    <value>Mennydörgés</value>
-  </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Értesítések új hangokról</value>
-  </data>
-  <data name="Sound-wind" xml:space="preserve">
-    <value>Szél</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Több</value>

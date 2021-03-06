@@ -136,51 +136,51 @@
           <source>View sleep timer options</source>
           <target state="translated">Optionen des Sleep-Timers anzeigen</target>
         </trans-unit>
-        <trans-unit id="Sound-beach" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
           <source>Beach</source>
           <target state="translated">Strand</target>
         </trans-unit>
-        <trans-unit id="Sound-birds" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
           <source>Birds</source>
           <target state="translated">Vögel</target>
         </trans-unit>
-        <trans-unit id="Sound-citystreet" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
           <source>City street</source>
           <target state="translated">Straße</target>
         </trans-unit>
-        <trans-unit id="Sound-coffeeshop" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
           <source>Coffee shop</source>
           <target state="translated">Café</target>
         </trans-unit>
-        <trans-unit id="Sound-creek" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
           <source>Creek</source>
           <target state="translated">Bach</target>
         </trans-unit>
-        <trans-unit id="Sound-fireplace" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
           <source>Fireplace</source>
           <target state="translated">Kamin</target>
         </trans-unit>
-        <trans-unit id="Sound-more" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundmore" translate="yes" xml:space="preserve">
           <source>More coming soon</source>
           <target state="translated">Demnächst mehr</target>
         </trans-unit>
-        <trans-unit id="Sound-rain" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
           <target state="translated">Regen</target>
         </trans-unit>
-        <trans-unit id="Sound-rainforest" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
           <source>Rainforest</source>
           <target state="translated">Regenwald</target>
         </trans-unit>
-        <trans-unit id="Sound-underwater" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
           <source>Underwater</source>
           <target state="translated">Unterwasser</target>
         </trans-unit>
-        <trans-unit id="Sound-waterfall" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
           <source>Waterfall</source>
           <target state="translated">Wasserfall</target>
         </trans-unit>
-        <trans-unit id="Sound-whitenoise" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
           <source>White noise</source>
           <target state="translated">Weißes Rauschen</target>
         </trans-unit>
@@ -244,11 +244,11 @@
           <source>Light</source>
           <target state="translated">Hell</target>
         </trans-unit>
-        <trans-unit id="Sound-vacuum" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
           <source>Vacuum</source>
           <target state="translated">Vakuum</target>
         </trans-unit>
-        <trans-unit id="Sound-thunder" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
           <source>Thunder</source>
           <target state="translated">Donner</target>
         </trans-unit>
@@ -256,7 +256,7 @@
           <source>Notification for new sounds</source>
           <target state="translated">Benachrichtigung für neue Töne</target>
         </trans-unit>
-        <trans-unit id="Sound-wind" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
           <source>Wind</source>
           <target state="translated">Wind</target>
         </trans-unit>

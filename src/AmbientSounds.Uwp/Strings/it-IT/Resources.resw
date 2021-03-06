@@ -105,42 +105,6 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Fare clic qui per impostare un timer di sospensione, in cui il suono verrà messo in pausa dopo l'ora selezionata.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
-    <value>Spiaggia</value>
-  </data>
-  <data name="Sound-birds" xml:space="preserve">
-    <value>Uccelli</value>
-  </data>
-  <data name="Sound-citystreet" xml:space="preserve">
-    <value>Strada</value>
-  </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
-    <value>Caffè</value>
-  </data>
-  <data name="Sound-creek" xml:space="preserve">
-    <value>Torrente</value>
-  </data>
-  <data name="Sound-fireplace" xml:space="preserve">
-    <value>Camino</value>
-  </data>
-  <data name="Sound-more" xml:space="preserve">
-    <value>Altri in arrivo</value>
-  </data>
-  <data name="Sound-rain" xml:space="preserve">
-    <value>Pioggia</value>
-  </data>
-  <data name="Sound-rainforest" xml:space="preserve">
-    <value>Foresta pluviale</value>
-  </data>
-  <data name="Sound-underwater" xml:space="preserve">
-    <value>Subacquea</value>
-  </data>
-  <data name="Sound-waterfall" xml:space="preserve">
-    <value>Cascata</value>
-  </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
-    <value>Rumore bianco</value>
-  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value></value>
   </data>
@@ -183,17 +147,8 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Chiaro</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
-    <value>Aspirapolvere</value>
-  </data>
-  <data name="Sound-thunder" xml:space="preserve">
-    <value>Tuono</value>
-  </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Messaggio di notifica</value>
-  </data>
-  <data name="Sound-wind" xml:space="preserve">
-    <value>Vento</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Altri suoni</value>

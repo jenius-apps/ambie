@@ -108,42 +108,6 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Ver opciones del temporizador</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
-    <value>Playa</value>
-  </data>
-  <data name="Sound-birds" xml:space="preserve">
-    <value>Aves</value>
-  </data>
-  <data name="Sound-citystreet" xml:space="preserve">
-    <value>Calle urbana</value>
-  </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
-    <value>Cafetería</value>
-  </data>
-  <data name="Sound-creek" xml:space="preserve">
-    <value>Riachuelo</value>
-  </data>
-  <data name="Sound-fireplace" xml:space="preserve">
-    <value>Hoguera</value>
-  </data>
-  <data name="Sound-more" xml:space="preserve">
-    <value>Más próximamente</value>
-  </data>
-  <data name="Sound-rain" xml:space="preserve">
-    <value>Lluvia</value>
-  </data>
-  <data name="Sound-rainforest" xml:space="preserve">
-    <value>Bosque tropical</value>
-  </data>
-  <data name="Sound-underwater" xml:space="preserve">
-    <value>Bajo el mar</value>
-  </data>
-  <data name="Sound-waterfall" xml:space="preserve">
-    <value>Cascada</value>
-  </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
-    <value>Ruido blanco</value>
-  </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>Se están cargando los sonidos</value>
   </data>
@@ -186,17 +150,8 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Claro</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
-    <value>Aspiradora</value>
-  </data>
-  <data name="Sound-thunder" xml:space="preserve">
-    <value>Trueno</value>
-  </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notificaciones de nuevos sonidos</value>
-  </data>
-  <data name="Sound-wind" xml:space="preserve">
-    <value>Viento</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
     <value>Más sonidos</value>

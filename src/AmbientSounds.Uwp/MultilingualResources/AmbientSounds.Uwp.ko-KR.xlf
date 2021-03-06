@@ -136,51 +136,51 @@
           <target state="needs-review-translation">수면 타이머 세팅하기, 정하는 시간 안에 음악이 정지됩니다.</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
-        <trans-unit id="Sound-beach" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
           <source>Beach</source>
           <target state="translated">해변</target>
         </trans-unit>
-        <trans-unit id="Sound-birds" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
           <source>Birds</source>
           <target state="translated">새소리</target>
         </trans-unit>
-        <trans-unit id="Sound-citystreet" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
           <source>City street</source>
           <target state="translated">길거리</target>
         </trans-unit>
-        <trans-unit id="Sound-coffeeshop" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
           <source>Coffee shop</source>
           <target state="translated">커피숍</target>
         </trans-unit>
-        <trans-unit id="Sound-creek" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
           <source>Creek</source>
           <target state="translated">개울</target>
         </trans-unit>
-        <trans-unit id="Sound-fireplace" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
           <source>Fireplace</source>
           <target state="translated">벽난로</target>
         </trans-unit>
-        <trans-unit id="Sound-more" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundmore" translate="yes" xml:space="preserve">
           <source>More coming soon</source>
           <target state="translated">업데이트 예정</target>
         </trans-unit>
-        <trans-unit id="Sound-rain" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
           <target state="translated">비</target>
         </trans-unit>
-        <trans-unit id="Sound-rainforest" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
           <source>Rainforest</source>
           <target state="translated">숲</target>
         </trans-unit>
-        <trans-unit id="Sound-underwater" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
           <source>Underwater</source>
           <target state="translated">수중</target>
         </trans-unit>
-        <trans-unit id="Sound-waterfall" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
           <source>Waterfall</source>
           <target state="translated">폭포</target>
         </trans-unit>
-        <trans-unit id="Sound-whitenoise" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
           <source>White noise</source>
           <target state="translated">백색 소음</target>
         </trans-unit>
@@ -242,11 +242,11 @@
           <source>Light</source>
           <target state="translated">빛</target>
         </trans-unit>
-        <trans-unit id="Sound-vacuum" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
           <source>Vacuum</source>
           <target state="translated">진공 청소기</target>
         </trans-unit>
-        <trans-unit id="Sound-thunder" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
           <source>Thunder</source>
           <target state="translated">천둥</target>
         </trans-unit>
@@ -254,7 +254,7 @@
           <source>Notification for new sounds</source>
           <target state="translated">알림 메시지</target>
         </trans-unit>
-        <trans-unit id="Sound-wind" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
           <source>Wind</source>
           <target state="translated">바람</target>
         </trans-unit>
