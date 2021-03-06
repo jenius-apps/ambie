@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -15,47 +16,55 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBlock x:Uid="NewSoundText" Style="{StaticResource PageHeaderTextStyle}" />
+            <TextBlock Style="{StaticResource PageHeaderTextStyle}" Text="{x:Bind strings:Resources.NewSound}" />
 
             <Button
-                x:Uid="CancelButton"
                 Grid.Column="1"
                 Margin="8,0,0,0"
+                AutomationProperties.Name="{x:Bind strings:Resources.CancelText}"
                 Click="HyperlinkButton_Click"
-                Style="{StaticResource TransparentRoundButtonStyle}">
+                Style="{StaticResource TransparentRoundButtonStyle}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.CancelText}">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
             </Button>
         </Grid>
 
-        <TextBox x:Uid="NameBox" Margin="0,12,0,0" />
+        <TextBox Margin="0,12,0,0" Header="{x:Bind strings:Resources.Name}" />
 
-        <TextBox x:Uid="AttributionBox" Margin="0,12,0,0" />
+        <TextBox Margin="0,12,0,0" Header="{x:Bind strings:Resources.Attribution}" />
 
-        <TextBox x:Uid="ImageUrlBox" Margin="0,12,0,0" />
+        <TextBox
+            x:Uid="ImageUrlBox"
+            Margin="0,12,0,0"
+            Header="{x:Bind strings:Resources.ImageUrl}" />
 
         <Grid Margin="0,12,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Uid="PathToSoundBox" />
+            <TextBox Header="{x:Bind strings:Resources.PathToSound}" />
             <Button
-                x:Uid="BrowseButton"
                 Grid.Column="1"
                 Height="33"
                 Margin="8,0,0,0"
-                VerticalAlignment="Bottom" />
+                VerticalAlignment="Bottom"
+                AutomationProperties.Name="{x:Bind strings:Resources.BrowseText}"
+                Background="Transparent"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.BrowseText}">
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA5A;" />
+            </Button>
         </Grid>
 
         <Button
-            x:Uid="UploadSubmitButton"
             Margin="0,24,0,0"
-            HorizontalAlignment="Stretch" />
+            HorizontalAlignment="Stretch"
+            Content="{x:Bind strings:Resources.UploadSubmitButton}" />
         <HyperlinkButton
             Margin="0,12,0,0"
             HorizontalAlignment="Center"
             Click="HyperlinkButton_Click"
-            Content="Cancel" />
+            Content="{x:Bind strings:Resources.CancelText}" />
 
     </StackPanel>
 </UserControl>

@@ -512,6 +512,34 @@
           <source>Beach</source>
           <target state="translated">Beach</target>
         </trans-unit>
+        <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
+          <source>Browse</source>
+          <target state="new">Browse</target>
+        </trans-unit>
+        <trans-unit id="ImageUrl" translate="yes" xml:space="preserve">
+          <source>Image URL</source>
+          <target state="new">Image URL</target>
+        </trans-unit>
+        <trans-unit id="PathToSound" translate="yes" xml:space="preserve">
+          <source>Path to sound</source>
+          <target state="new">Path to sound</target>
+        </trans-unit>
+        <trans-unit id="UploadSubmitButton" translate="yes" xml:space="preserve">
+          <source>Submit for review</source>
+          <target state="new">Submit for review</target>
+        </trans-unit>
+        <trans-unit id="Attribution" translate="yes" xml:space="preserve">
+          <source>Attribution</source>
+          <target state="new">Attribution</target>
+        </trans-unit>
+        <trans-unit id="Name" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="NewSound" translate="yes" xml:space="preserve">
+          <source>New sound</source>
+          <target state="new">New sound</target>
+        </trans-unit>
       </group>
     </body>
   </file>

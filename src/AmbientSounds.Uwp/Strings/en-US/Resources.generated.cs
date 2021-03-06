@@ -391,6 +391,97 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Attribution
+        /// <summary>
+        ///   Looks up a localized string similar to: Attribution
+        /// </summary>
+        public static string Attribution
+        {
+            get
+            {
+                return _resourceLoader.GetString("Attribution");
+            }
+        }
+        #endregion
+
+        #region BrowseText
+        /// <summary>
+        ///   Looks up a localized string similar to: Browse
+        /// </summary>
+        public static string BrowseText
+        {
+            get
+            {
+                return _resourceLoader.GetString("BrowseText");
+            }
+        }
+        #endregion
+
+        #region ImageUrl
+        /// <summary>
+        ///   Looks up a localized string similar to: Image URL
+        /// </summary>
+        public static string ImageUrl
+        {
+            get
+            {
+                return _resourceLoader.GetString("ImageUrl");
+            }
+        }
+        #endregion
+
+        #region Name
+        /// <summary>
+        ///   Looks up a localized string similar to: Name
+        /// </summary>
+        public static string Name
+        {
+            get
+            {
+                return _resourceLoader.GetString("Name");
+            }
+        }
+        #endregion
+
+        #region NewSound
+        /// <summary>
+        ///   Looks up a localized string similar to: New sound
+        /// </summary>
+        public static string NewSound
+        {
+            get
+            {
+                return _resourceLoader.GetString("NewSound");
+            }
+        }
+        #endregion
+
+        #region PathToSound
+        /// <summary>
+        ///   Looks up a localized string similar to: Path to sound
+        /// </summary>
+        public static string PathToSound
+        {
+            get
+            {
+                return _resourceLoader.GetString("PathToSound");
+            }
+        }
+        #endregion
+
+        #region UploadSubmitButton
+        /// <summary>
+        ///   Looks up a localized string similar to: Submit for review
+        /// </summary>
+        public static string UploadSubmitButton
+        {
+            get
+            {
+                return _resourceLoader.GetString("UploadSubmitButton");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -431,6 +522,13 @@ namespace AmbientSounds.Strings{
             RenameText,
             MissingSoundsTitle,
             SignInDescriptionText,
+            Attribution,
+            BrowseText,
+            ImageUrl,
+            Name,
+            NewSound,
+            PathToSound,
+            UploadSubmitButton,
         }
 
         private static ResourceLoader _resourceLoader;

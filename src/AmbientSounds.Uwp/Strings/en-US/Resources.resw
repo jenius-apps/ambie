@@ -492,4 +492,25 @@
   <data name="UploadPortal.Text" xml:space="preserve">
     <value>Upload Portal - Beta</value>
   </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Attribution</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>Image URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>New sound</value>
+  </data>
+  <data name="PathToSound" xml:space="preserve">
+    <value>Path to sound</value>
+  </data>
+  <data name="UploadSubmitButton" xml:space="preserve">
+    <value>Submit for review</value>
+  </data>
 </root>
