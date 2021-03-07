@@ -50,7 +50,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <TextBox Header="{x:Bind strings:Resources.PathToSound}" Text="{x:Bind ViewModel.SoundPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Header="{x:Bind strings:Resources.PathToSound}"
+                IsReadOnly="True"
+                Text="{x:Bind ViewModel.SoundPath, Mode=OneWay}" />
             <Button
                 Grid.Column="1"
                 Height="33"
@@ -58,6 +61,7 @@
                 VerticalAlignment="Bottom"
                 AutomationProperties.Name="{x:Bind strings:Resources.BrowseText}"
                 Background="Transparent"
+                Command="{x:Bind ViewModel.PickSoundCommand}"
                 ToolTipService.ToolTip="{x:Bind strings:Resources.BrowseText}">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA5A;" />
             </Button>

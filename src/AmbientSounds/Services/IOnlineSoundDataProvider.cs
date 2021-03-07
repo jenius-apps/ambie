@@ -27,7 +27,7 @@ namespace AmbientSounds.Services
         /// Retrieves list of sounds uploaded by the user to
         /// the Ambie catalogue.
         /// </summary>
-        /// <param name="accesstoken">An JWT access token required for the API.</param>
+        /// <param name="accesstoken">A JWT access token required for the API.</param>
         /// <returns>List of sounds uploaded by the user to the Ambie Catalogue.</returns>
         Task<IList<Sound>> GetUserSoundsAsync(string accesstoken);
     }
