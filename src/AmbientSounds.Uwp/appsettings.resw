@@ -129,4 +129,7 @@
   <data name="TelemetryApiKey" xml:space="preserve">
     <value />
   </data>
+  <data name="UploadUrl" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

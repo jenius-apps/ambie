@@ -14,6 +14,7 @@ namespace AmbientSounds.Services.Uwp
             TelemetryApiKey = resourceLoader.GetString(nameof(TelemetryApiKey));
             MsaClientId = resourceLoader.GetString(nameof(MsaClientId));
             CloudSyncFileUrl = resourceLoader.GetString(nameof(CloudSyncFileUrl));
+            UploadUrl = resourceLoader.GetString(nameof(UploadUrl));
         }
 
         /// <inheritdoc/>
@@ -30,5 +31,8 @@ namespace AmbientSounds.Services.Uwp
 
         /// <inheritdoc/>
         public string CloudSyncFileUrl { get; set; }
+
+        /// <inheritdoc/>
+        public string UploadUrl { get; set; }
     }
 }

@@ -30,5 +30,10 @@
         /// The URL for the cloud sync file.
         /// </summary>
         string CloudSyncFileUrl { get; set; }
+
+        /// <summary>
+        /// The URL for uploading a sound file.
+        /// </summary>
+        string UploadUrl { get; set; }
     }
 }
