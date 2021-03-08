@@ -54,13 +54,17 @@ namespace AmbientSounds.Services
                 throw new Exception($"Get bytes failed: {s.FilePath}");
             }
 
+            // Clear filepath because we don't want
+            // to upload the local file path.
+            s.FilePath = "";
             var soundFileContent = new ByteArrayContent(bytes);
 
             using (var msg = new HttpRequestMessage(HttpMethod.Post, _uploadUrl))
             {
                 msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accesstoken);
                 var content = new MultipartFormDataContent();
-                content.Add(new StringContent(JsonSerializer.Serialize(s), Encoding.UTF8, "application/json"), "soundData");
+                var serialized = JsonSerializer.Serialize(s);
+                content.Add(new StringContent(serialized, Encoding.UTF8, "application/json"), "soundData");
                 content.Add(soundFileContent, "soundFile", s.Name);
                 msg.Content = content;
 

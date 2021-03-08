@@ -72,5 +72,10 @@
         /// List of sound Ids for this mix.
         /// </summary>
         public string[] SoundIds { get; set; } = new string[0];
+
+        /// <summary>
+        /// Username of the person who uploaded the sound file.
+        /// </summary>
+        public string UploadedBy { get; set; } = "";
     }
 }
