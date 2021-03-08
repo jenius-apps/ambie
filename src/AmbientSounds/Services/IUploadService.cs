@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -8,6 +9,11 @@ namespace AmbientSounds.Services
     /// </summary>
     public interface IUploadService
     {
+        /// <summary>
+        /// Sound that was uploaded.
+        /// </summary>
+        event EventHandler<Sound>? SoundUploaded;
+
         /// <summary>
         /// Uploads the given sound to the catalogue.
         /// </summary>

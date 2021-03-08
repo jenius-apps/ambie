@@ -19,6 +19,9 @@ namespace AmbientSounds.Services
         private readonly IAccountManager _accountManager;
         private readonly IFilePicker _filePicker;
 
+        /// <inheritdocs/>
+        public event EventHandler<Sound>? SoundUploaded;
+
         public UploadService(
             HttpClient httpClient,
             IAppSettings appSettings,
@@ -62,6 +65,7 @@ namespace AmbientSounds.Services
                 msg.Content = content;
 
                 await _client.SendAsync(msg);
+                SoundUploaded?.Invoke(this, s);
             }
         }
     }
