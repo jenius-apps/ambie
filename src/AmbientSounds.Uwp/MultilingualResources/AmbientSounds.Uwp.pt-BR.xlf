@@ -477,8 +477,8 @@
           <target state="new">Sign out</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices.</source>
-          <target state="new">This will enable sound gallery sync across your devices.</target>
+          <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
+          <target state="new">This will enable sound gallery sync across your devices. And you can upload sounds.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
