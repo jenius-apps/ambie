@@ -38,11 +38,10 @@ namespace AmbientSounds.ViewModels
             UploadedSounds.Clear();
 
             // fetch user token
-            string token = await _accountManager.GetTokenAsync() ?? "foobar";
-            if (string.IsNullOrWhiteSpace(token))
+            string? token = await _accountManager.GetCatalogueTokenAsync();
+            if (token == null)
             {
-                // TODO return once we are properly able to get token.
-                //return;
+                return;
             }
 
             // fetch the user's uploaded sounds

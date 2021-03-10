@@ -278,7 +278,7 @@ namespace AmbientSounds
                 .AddTransient<ILinkProcessor, LinkProcessor>()
                 .AddTransient<IUploadService, UploadService>()
                 .AddTransient<IFilePicker, FilePicker>()
-                .AddTransient<IMsaAuthClient, MsaAuthClient>()
+                .AddTransient<IMsaAuthClient, MsalClient>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()
                 .AddSingleton<PlayerViewModel>()

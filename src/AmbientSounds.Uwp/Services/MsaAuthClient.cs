@@ -11,12 +11,15 @@ using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.ApplicationSettings;
 
+# nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
     /// Class for signing into a Microsoft account and retrieving
     /// an auth token.
     /// </summary>
+	[Obsolete("Replaced with MsalClient", true)]
     public class MsaAuthClient : IMsaAuthClient
     {
         private const string MicrosoftAccountProviderId = "https://login.microsoft.com";
@@ -28,7 +31,7 @@ namespace AmbientSounds.Services.Uwp
 		private readonly string _clientId;
 
 		/// <inheritdoc/>
-		public event EventHandler InteractiveSignInCompleted;
+		public event EventHandler? InteractiveSignInCompleted;
 
         public MsaAuthClient(
 			IUserSettings userSettings,
@@ -74,8 +77,8 @@ namespace AmbientSounds.Services.Uwp
 					KnownUserProperties.AccountName,
 				};
 				var values = await u.GetPropertiesAsync(desiredProperties);
-				person.Firstname = values[KnownUserProperties.FirstName] as string;
-				person.Email = values[KnownUserProperties.AccountName] as string;
+				person.Firstname = values[KnownUserProperties.FirstName] as string ?? "";
+				person.Email = values[KnownUserProperties.AccountName] as string ?? "";
 
 				var streamReference = await u.GetPictureAsync(UserPictureSize.Size64x64);
                 if (streamReference != null)
@@ -89,7 +92,7 @@ namespace AmbientSounds.Services.Uwp
 		}
 
 		/// <inheritdoc/>
-		public async Task<string> GetTokenSilentAsync()
+		public async Task<string?> GetTokenSilentAsync(string[] scopes)
 		{
 			var result = await SilentAuthAsync();
 
@@ -101,7 +104,7 @@ namespace AmbientSounds.Services.Uwp
 			return null;
 		}
 
-		private async Task<WebTokenRequestResult> SilentAuthAsync()
+		private async Task<WebTokenRequestResult?> SilentAuthAsync()
         {
 			// Ref: https://docs.microsoft.com/en-us/windows/uwp/security/web-account-manager#store-the-account-for-future-use
 
@@ -128,7 +131,7 @@ namespace AmbientSounds.Services.Uwp
 		}
 
 		/// <inheritdoc/>
-		public void RequestInteractiveSignIn()
+		public void RequestInteractiveSignIn(string[] scopes, string[]? extraScopes = null)
         {
 			// Ref for this method and all the related private methods below
 			// https://github.com/microsoft/Windows-universal-samples/blob/master/Samples/WebAccountManagement/cs/SingleMicrosoftAccountScenario.xaml.cs

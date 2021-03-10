@@ -142,7 +142,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task SyncDown()
         {
-            string? token = await _accountManager.GetTokenAsync();
+            string? token = await _accountManager.GetGraphTokenAsync();
             if (Syncing || token == null || string.IsNullOrWhiteSpace(token))
             {
                 return;
@@ -214,7 +214,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task SyncUp()
         {
-            string? token = await _accountManager.GetTokenAsync();
+            string? token = await _accountManager.GetGraphTokenAsync();
             if (Syncing || token == null || string.IsNullOrWhiteSpace(token))
             {
                 return;

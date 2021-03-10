@@ -42,7 +42,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task UploadAsync(Sound s)
         {
-            var accesstoken = await _accountManager.GetTokenAsync();
+            var accesstoken = await _accountManager.GetCatalogueTokenAsync();
             if (s == null || string.IsNullOrWhiteSpace(accesstoken))
             {
                 return;
