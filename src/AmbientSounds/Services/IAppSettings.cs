@@ -6,6 +6,11 @@
     public interface IAppSettings
     {
         /// <summary>
+        /// The URL to access the user's uploaded sounds.
+        /// </summary>
+        string MySoundsUrl { get; }
+
+        /// <summary>
         /// URL to access the catalogue.
         /// </summary>
         string CatalogueUrl { get; }

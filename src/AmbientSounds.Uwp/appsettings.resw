@@ -132,4 +132,7 @@
   <data name="UploadUrl" xml:space="preserve">
     <value></value>
   </data>
+  <data name="MySoundsUrl" xml:space="preserve">
+    <value />
+  </data>
 </root>

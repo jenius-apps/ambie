@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace AmbientSounds.Services
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly HttpClient _client;
         private readonly string _url;
+        private readonly string _mySoundsUrl;
 
         public OnlineSoundDataProvider(
             HttpClient httpClient,
@@ -28,6 +30,7 @@ namespace AmbientSounds.Services
             _systemInfoProvider = systemInfoProvider;
             _client = httpClient;
             _url = appSettings.CatalogueUrl;
+            _mySoundsUrl = appSettings.MySoundsUrl;
         }
 
         /// <inheritdoc/>
@@ -68,8 +71,15 @@ namespace AmbientSounds.Services
                 return new Sound[0];
             }
 
-            // TODO perform actual fetch.
-            return await GetSoundsAsync();
+            using var msg = new HttpRequestMessage(HttpMethod.Get, _mySoundsUrl);
+            msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accesstoken);
+            var response = await _client.SendAsync(msg);
+            using Stream result = await response.Content.ReadAsStreamAsync();
+            var results = await JsonSerializer.DeserializeAsync<Sound[]>(
+                result,
+                new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+            return results ?? new Sound[0];
         }
     }
 }
