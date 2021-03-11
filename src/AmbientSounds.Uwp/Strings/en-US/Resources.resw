@@ -513,4 +513,19 @@
   <data name="UploadSubmitButton" xml:space="preserve">
     <value>Submit for review</value>
   </data>
+  <data name="PublishStateNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PublishStatePublished" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="PublishStateRejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="PublishStateUnderReview" xml:space="preserve">
+    <value>Under review</value>
+  </data>
+  <data name="PublishStateUnpublished" xml:space="preserve">
+    <value>Unpublished</value>
+  </data>
 </root>

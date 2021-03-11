@@ -482,6 +482,71 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region PublishStateNone
+        /// <summary>
+        ///   Looks up a localized string similar to: None
+        /// </summary>
+        public static string PublishStateNone
+        {
+            get
+            {
+                return _resourceLoader.GetString("PublishStateNone");
+            }
+        }
+        #endregion
+
+        #region PublishStatePublished
+        /// <summary>
+        ///   Looks up a localized string similar to: Published
+        /// </summary>
+        public static string PublishStatePublished
+        {
+            get
+            {
+                return _resourceLoader.GetString("PublishStatePublished");
+            }
+        }
+        #endregion
+
+        #region PublishStateRejected
+        /// <summary>
+        ///   Looks up a localized string similar to: Rejected
+        /// </summary>
+        public static string PublishStateRejected
+        {
+            get
+            {
+                return _resourceLoader.GetString("PublishStateRejected");
+            }
+        }
+        #endregion
+
+        #region PublishStateUnderReview
+        /// <summary>
+        ///   Looks up a localized string similar to: Under review
+        /// </summary>
+        public static string PublishStateUnderReview
+        {
+            get
+            {
+                return _resourceLoader.GetString("PublishStateUnderReview");
+            }
+        }
+        #endregion
+
+        #region PublishStateUnpublished
+        /// <summary>
+        ///   Looks up a localized string similar to: Unpublished
+        /// </summary>
+        public static string PublishStateUnpublished
+        {
+            get
+            {
+                return _resourceLoader.GetString("PublishStateUnpublished");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -529,6 +594,11 @@ namespace AmbientSounds.Strings{
             NewSound,
             PathToSound,
             UploadSubmitButton,
+            PublishStateNone,
+            PublishStatePublished,
+            PublishStateRejected,
+            PublishStateUnderReview,
+            PublishStateUnpublished,
         }
 
         private static ResourceLoader _resourceLoader;

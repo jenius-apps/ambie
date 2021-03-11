@@ -36,5 +36,18 @@ namespace AmbientSounds.ViewModels
         /// The path for the image to display for the current sound.
         /// </summary>
         public string? ImagePath => _sound.ImagePath;
+
+        public PublishState PublishState => GetPublishEnum(_sound.PublishState);
+
+        private PublishState GetPublishEnum(string publishState)
+        {
+            if (string.IsNullOrWhiteSpace(publishState))
+            {
+                return PublishState.None;
+            }
+
+            var success = Enum.TryParse(publishState, out PublishState result);
+            return success ? result : PublishState.None;
+        }
     }
 }

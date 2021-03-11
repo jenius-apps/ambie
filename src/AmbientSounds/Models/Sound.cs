@@ -77,5 +77,20 @@
         /// Username of the person who uploaded the sound file.
         /// </summary>
         public string UploadedBy { get; set; } = "";
+
+        /// <summary>
+        /// The state of the sound's publication in the catalogue.
+        /// This is the string version of PublishState enum.
+        /// </summary>
+        public string PublishState { get; set; } = "";
+    }
+
+    public enum PublishState
+    {
+        None,
+        UnderReview,
+        Published,
+        Unpublished,
+        Rejected
     }
 }

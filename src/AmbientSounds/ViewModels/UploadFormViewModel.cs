@@ -87,6 +87,7 @@ namespace AmbientSounds.ViewModels
                 Attribution = Attribution,
                 ImagePath = ImageUrl,
                 FilePath = SoundPath,
+                PublishState = PublishState.UnderReview.ToString(),
                 FileExtension = System.IO.Path.GetExtension(SoundPath)
             };
 

@@ -541,6 +541,26 @@
           <source>New sound</source>
           <target state="new">New sound</target>
         </trans-unit>
+        <trans-unit id="PublishStateNone" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="PublishStatePublished" translate="yes" xml:space="preserve">
+          <source>Published</source>
+          <target state="new">Published</target>
+        </trans-unit>
+        <trans-unit id="PublishStateRejected" translate="yes" xml:space="preserve">
+          <source>Rejected</source>
+          <target state="new">Rejected</target>
+        </trans-unit>
+        <trans-unit id="PublishStateUnderReview" translate="yes" xml:space="preserve">
+          <source>Under review</source>
+          <target state="new">Under review</target>
+        </trans-unit>
+        <trans-unit id="PublishStateUnpublished" translate="yes" xml:space="preserve">
+          <source>Unpublished</source>
+          <target state="new">Unpublished</target>
+        </trans-unit>
       </group>
     </body>
   </file>
