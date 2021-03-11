@@ -276,7 +276,7 @@ namespace AmbientSounds
                 .AddTransient<ISoundMixService, SoundMixService>()
                 .AddTransient<IRenamer, Renamer>()
                 .AddTransient<ILinkProcessor, LinkProcessor>()
-                .AddTransient<IUploadService, UploadService>()
+                .AddSingleton<IUploadService, UploadService>()
                 .AddTransient<IFilePicker, FilePicker>()
                 .AddTransient<IMsaAuthClient, MsalClient>()
                 .AddSingleton<INavigator, Navigator>()

@@ -8,49 +8,73 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+    <Grid>
+        <SplitView
+            x:Name="MainSplitView"
+            DisplayMode="Overlay"
+            IsPaneOpen="False"
+            PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
+            PanePlacement="Right">
+            <SplitView.Pane>
+                <controls:UploadForm Margin="20,42,20,20" CancelClicked="HyperlinkButton_Click" />
+            </SplitView.Pane>
 
-    <SplitView
-        x:Name="MainSplitView"
-        DisplayMode="Inline"
-        PaneBackground="{ThemeResource SystemControlAcrylicWindowBrush}"
-        PanePlacement="Left">
-        <SplitView.Pane>
-            <controls:UploadForm Margin="20,42,20,20" CancelClicked="HyperlinkButton_Click" />
-        </SplitView.Pane>
+            <Grid Padding="0,32,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-        <Grid Padding="0,32,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+                <StackPanel Margin="40,0" Orientation="Horizontal">
+                    <Button
+                        x:Uid="BackButton"
+                        Click="{x:Bind GoBack}"
+                        Style="{StaticResource TransparentRoundButtonStyle}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
+                    </Button>
+                    <FontIcon
+                        Margin="12,0,0,0"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        Glyph="&#xE9B8;" />
+                    <TextBlock
+                        x:Uid="UploadPortal"
+                        Margin="12,0,0,0"
+                        Style="{StaticResource PageHeaderTextStyle}" />
+                </StackPanel>
 
-            <StackPanel Margin="40,0" Orientation="Horizontal">
-                <Button
-                    x:Uid="BackButton"
-                    Click="{x:Bind GoBack}"
-                    Style="{StaticResource TransparentRoundButtonStyle}">
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
-                </Button>
-                <FontIcon
-                    Margin="12,0,0,0"
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    Glyph="&#xE9B8;" />
-                <TextBlock
-                    x:Uid="UploadPortal"
-                    Margin="12,0,0,0"
-                    Style="{StaticResource PageHeaderTextStyle}" />
-            </StackPanel>
+                <StackPanel
+                    Grid.Row="1"
+                    Margin="40,16,0,0"
+                    Orientation="Horizontal">
+                    <Button Click="RefreshClicked" Content="Refresh" />
+                    <Button
+                        x:Name="OpenUploadPane"
+                        Margin="8,0,0,0"
+                        Click="Button_Click"
+                        Content="Upload new sound" />
+                </StackPanel>
 
-            <StackPanel
-                Grid.Row="1"
-                Margin="40,16,0,0"
-                Orientation="Horizontal">
-                <Button Click="Button_Click" Content="Upload new sound" />
-                <Button Margin="8,0,0,0" Content="Refresh" />
-            </StackPanel>
-
-            <controls:UploadedSoundsList Grid.Row="2" Margin="8,20,0,0" />
-        </Grid>
-    </SplitView>
+                <controls:UploadedSoundsList
+                    x:Name="MySoundsList"
+                    Grid.Row="2"
+                    Margin="8,20,0,0" />
+            </Grid>
+        </SplitView>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainSplitView.DisplayMode" Value="Inline" />
+                        <Setter Target="MainSplitView.IsPaneOpen" Value="True" />
+                        <Setter Target="OpenUploadPane.Visibility" Value="Collapsed" />
+                        <Setter Target="MainSplitView.PaneBackground" Value="{ThemeResource SystemControlAcrylicWindowBrush}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
 </Page>

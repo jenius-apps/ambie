@@ -19,6 +19,7 @@ namespace AmbientSounds.ViewModels
         private string _attribution = "";
         private string _imageUrl = "";
         private string _soundPath = "";
+        private bool _uploading;
 
         public UploadFormViewModel(
             IUploadService uploadService,
@@ -59,6 +60,12 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _imageUrl, value);
         }
 
+        public bool Uploading
+        {
+            get => _uploading;
+            set => SetProperty(ref _uploading, value);
+        }
+
         public string SoundPath
         {
             get => _soundPath;
@@ -68,11 +75,12 @@ namespace AmbientSounds.ViewModels
         private async Task SubmitAsync()
         {
             bool isSignedIn = await _accountManager.IsSignedInAsync();
-            if (!isSignedIn || !CanUpload())
+            if (!isSignedIn || !CanUpload() || Uploading)
             {
                 return;
             }
 
+            Uploading = true;
             var s = new Sound
             {
                 Name = Name,
@@ -90,6 +98,8 @@ namespace AmbientSounds.ViewModels
             {
                 // TODO handle in UI
             }
+
+            Uploading = false;
         }
 
         private async Task PickSoundFileAsync()

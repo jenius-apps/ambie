@@ -12,20 +12,25 @@ namespace AmbientSounds.ViewModels
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IAccountManager _accountManager;
         private readonly ISoundVmFactory _soundVmFactory;
+        private readonly IUploadService _uploadService;
 
         public UploadedSoundsListViewModel(
             IOnlineSoundDataProvider onlineSoundDataProvider,
             IAccountManager accountManager,
-            ISoundVmFactory soundVmFactory)
+            ISoundVmFactory soundVmFactory,
+            IUploadService uploadService)
         {
             Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
+            Guard.IsNotNull(uploadService, nameof(uploadService));
 
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _accountManager = accountManager;
             _soundVmFactory = soundVmFactory;
+            _uploadService = uploadService;
 
+            _uploadService.SoundUploaded += OnSoundUploaded;
             LoadCommand = new AsyncRelayCommand(LoadAsync);
         }
 
@@ -56,6 +61,11 @@ namespace AmbientSounds.ViewModels
                 var vm = _soundVmFactory.GetUploadedSoundVm(s);
                 UploadedSounds.Add(vm);
             }
+        }
+
+        private async void OnSoundUploaded(object sender, Models.Sound e)
+        {
+            await LoadAsync();
         }
     }
 }

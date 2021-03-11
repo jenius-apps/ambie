@@ -6,6 +6,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -17,16 +18,6 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBlock Style="{StaticResource PageHeaderTextStyle}" Text="{x:Bind strings:Resources.NewSound}" />
-
-            <Button
-                Grid.Column="1"
-                Margin="8,0,0,0"
-                AutomationProperties.Name="{x:Bind strings:Resources.CancelText}"
-                Click="HyperlinkButton_Click"
-                Style="{StaticResource TransparentRoundButtonStyle}"
-                ToolTipService.ToolTip="{x:Bind strings:Resources.CancelText}">
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
-            </Button>
         </Grid>
 
         <TextBox
@@ -72,11 +63,15 @@
             HorizontalAlignment="Stretch"
             Command="{x:Bind ViewModel.SubmitCommand}"
             Content="{x:Bind strings:Resources.UploadSubmitButton}" />
-        <HyperlinkButton
-            Margin="0,12,0,0"
+
+        <winui:ProgressRing
+            Width="40"
+            Height="40"
+            Margin="0,24,0,0"
             HorizontalAlignment="Center"
-            Click="HyperlinkButton_Click"
-            Content="{x:Bind strings:Resources.CancelText}" />
+            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+            IsActive="{x:Bind ViewModel.Uploading, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.Uploading, Mode=OneWay}" />
 
     </StackPanel>
 </UserControl>
