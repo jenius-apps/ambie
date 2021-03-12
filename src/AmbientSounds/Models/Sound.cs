@@ -1,5 +1,9 @@
-﻿namespace AmbientSounds.Models
+﻿using System;
+
+namespace AmbientSounds.Models
 {
+    public record QueuedSound(Sound SoundData, IProgress<double> Progress);
+
     /// <summary>
     /// A sound object.
     /// </summary>

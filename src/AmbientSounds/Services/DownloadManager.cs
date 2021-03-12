@@ -122,6 +122,4 @@ namespace AmbientSounds.Services
             _downloading = false;
         }
     }
-
-    public record QueuedSound(Sound SoundData, IProgress<double> Progress);
 }
