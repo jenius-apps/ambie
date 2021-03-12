@@ -573,6 +573,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SignIn
+        /// <summary>
+        ///   Looks up a localized string similar to: Sign in
+        /// </summary>
+        public static string SignIn
+        {
+            get
+            {
+                return _resourceLoader.GetString("SignIn");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -627,6 +640,7 @@ namespace AmbientSounds.Strings{
             PublishStateUnpublished,
             Refresh,
             UploadPlaceholderMessage,
+            SignIn,
         }
 
         private static ResourceLoader _resourceLoader;

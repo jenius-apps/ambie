@@ -535,4 +535,7 @@
   <data name="UploadPlaceholderMessage" xml:space="preserve">
     <value>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</value>
   </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
 </root>

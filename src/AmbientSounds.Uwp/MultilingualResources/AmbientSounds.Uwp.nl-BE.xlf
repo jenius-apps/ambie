@@ -569,6 +569,10 @@
           <source>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</source>
           <target state="new">Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</target>
         </trans-unit>
+        <trans-unit id="SignIn" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="new">Sign in</target>
+        </trans-unit>
       </group>
     </body>
   </file>
