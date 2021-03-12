@@ -1,13 +1,16 @@
 ﻿using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class UploadedSoundsListViewModel
+    public class UploadedSoundsListViewModel : ObservableObject
     {
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IAccountManager _accountManager;
@@ -32,11 +35,15 @@ namespace AmbientSounds.ViewModels
 
             _uploadService.SoundUploaded += OnSoundUploaded;
             LoadCommand = new AsyncRelayCommand(LoadAsync);
+            UploadedSounds.CollectionChanged += OnCollectionChanged;
+            LoadCommand.PropertyChanged += OnLoadCommandPropChanged;
         }
 
         public IAsyncRelayCommand LoadCommand { get; }
 
         public ObservableCollection<UploadedSoundViewModel> UploadedSounds = new();
+
+        public bool IsEmptyPlaceholderVisible => UploadedSounds.Count == 0 && !LoadCommand.IsRunning;
 
         private async Task LoadAsync()
         {
@@ -66,6 +73,19 @@ namespace AmbientSounds.ViewModels
         private async void OnSoundUploaded(object sender, Models.Sound e)
         {
             await LoadAsync();
+        }
+
+        private void OnLoadCommandPropChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(LoadCommand.IsRunning))
+            {
+                OnPropertyChanged(nameof(IsEmptyPlaceholderVisible));
+            }
+        }
+
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(IsEmptyPlaceholderVisible));
         }
     }
 }

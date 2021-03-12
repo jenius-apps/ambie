@@ -472,7 +472,7 @@ namespace AmbientSounds.Strings{
 
         #region UploadSubmitButton
         /// <summary>
-        ///   Looks up a localized string similar to: Submit for review
+        ///   Looks up a localized string similar to: Upload sound
         /// </summary>
         public static string UploadSubmitButton
         {
@@ -547,6 +547,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Refresh
+        /// <summary>
+        ///   Looks up a localized string similar to: Refresh
+        /// </summary>
+        public static string Refresh
+        {
+            get
+            {
+                return _resourceLoader.GetString("Refresh");
+            }
+        }
+        #endregion
+
+        #region UploadPlaceholderMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Upload relaxing sounds into Ambie's catalogue and have others listen to your work!
+        /// </summary>
+        public static string UploadPlaceholderMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("UploadPlaceholderMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -599,6 +625,8 @@ namespace AmbientSounds.Strings{
             PublishStateRejected,
             PublishStateUnderReview,
             PublishStateUnpublished,
+            Refresh,
+            UploadPlaceholderMessage,
         }
 
         private static ResourceLoader _resourceLoader;

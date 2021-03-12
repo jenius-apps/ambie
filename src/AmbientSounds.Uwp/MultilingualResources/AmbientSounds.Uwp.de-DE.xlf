@@ -519,8 +519,8 @@
           <target state="new">Path to sound</target>
         </trans-unit>
         <trans-unit id="UploadSubmitButton" translate="yes" xml:space="preserve">
-          <source>Submit for review</source>
-          <target state="new">Submit for review</target>
+          <source>Upload sound</source>
+          <target state="new">Upload sound</target>
         </trans-unit>
         <trans-unit id="Attribution" translate="yes" xml:space="preserve">
           <source>Attribution</source>
@@ -553,6 +553,15 @@
         <trans-unit id="PublishStateUnpublished" translate="yes" xml:space="preserve">
           <source>Unpublished</source>
           <target state="new">Unpublished</target>
+        </trans-unit>
+        <trans-unit id="Refresh" translate="yes" xml:space="preserve">
+          <source>Refresh</source>
+          <target state="new">Refresh</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
+        </trans-unit>
+        <trans-unit id="UploadPlaceholderMessage" translate="yes" xml:space="preserve">
+          <source>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</source>
+          <target state="new">Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</target>
         </trans-unit>
       </group>
     </body>

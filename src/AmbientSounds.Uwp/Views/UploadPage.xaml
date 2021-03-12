@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
     <Grid>
@@ -47,12 +48,16 @@
                     Grid.Row="1"
                     Margin="40,16,0,0"
                     Orientation="Horizontal">
-                    <Button Click="RefreshClicked" Content="Refresh" />
+                    <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.Refresh}"
+                        Click="RefreshClicked"
+                        Content="{x:Bind strings:Resources.Refresh}" />
                     <Button
                         x:Name="OpenUploadPane"
                         Margin="8,0,0,0"
+                        AutomationProperties.Name="{x:Bind strings:Resources.UploadSubmitButton}"
                         Click="Button_Click"
-                        Content="Upload new sound" />
+                        Content="{x:Bind strings:Resources.UploadSubmitButton}" />
                 </StackPanel>
 
                 <controls:UploadedSoundsList

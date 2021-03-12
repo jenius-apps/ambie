@@ -8,8 +8,8 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
-    xmlns:wct="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -74,6 +74,20 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
+
+        <StackPanel
+            Margin="0,0,0,80"
+            VerticalAlignment="Center"
+            Visibility="{x:Bind ViewModel.IsEmptyPlaceholderVisible, Mode=OneWay}">
+            <Image Height="240" Source="ms-appx:///Assets/undraw_going_up_ttm5.png" />
+            <TextBlock
+                MaxWidth="240"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Center"
+                HorizontalTextAlignment="Center"
+                Text="{x:Bind strings:Resources.UploadPlaceholderMessage}"
+                TextWrapping="WrapWholeWords" />
+        </StackPanel>
 
         <winui:ProgressRing
             x:Name="CatalogueProgressRing"

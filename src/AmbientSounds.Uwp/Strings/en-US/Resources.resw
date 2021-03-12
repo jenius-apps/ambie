@@ -511,7 +511,7 @@
     <value>Path to sound</value>
   </data>
   <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Submit for review</value>
+    <value>Upload sound</value>
   </data>
   <data name="PublishStateNone" xml:space="preserve">
     <value>None</value>
@@ -527,5 +527,12 @@
   </data>
   <data name="PublishStateUnpublished" xml:space="preserve">
     <value>Unpublished</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="UploadPlaceholderMessage" xml:space="preserve">
+    <value>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</value>
   </data>
 </root>
