@@ -538,4 +538,7 @@
   <data name="SignIn" xml:space="preserve">
     <value>Sign in</value>
   </data>
+  <data name="UploadTermsMessage" xml:space="preserve">
+    <value>By uploading a sound, you agree to our Terms of Use</value>
+  </data>
 </root>

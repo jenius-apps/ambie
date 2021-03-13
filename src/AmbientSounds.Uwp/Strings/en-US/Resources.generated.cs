@@ -586,6 +586,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region UploadTermsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: By uploading a sound, you agree to our Terms of Use
+        /// </summary>
+        public static string UploadTermsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("UploadTermsMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -641,6 +654,7 @@ namespace AmbientSounds.Strings{
             Refresh,
             UploadPlaceholderMessage,
             SignIn,
+            UploadTermsMessage,
         }
 
         private static ResourceLoader _resourceLoader;
