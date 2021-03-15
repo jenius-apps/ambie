@@ -539,12 +539,24 @@
     <value>Sign in</value>
   </data>
   <data name="UploadTermsMessage" xml:space="preserve">
-    <value>By uploading a sound, you agree to our Terms of Use</value>
+    <value>I agree to the Terms of Use</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Are you sure?</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="DonateUrl" xml:space="preserve">
+    <value>Donation URL</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="UploadPermissionsMessage" xml:space="preserve">
+    <value>I created this sound or I have permission to upload it</value>
   </data>
 </root>

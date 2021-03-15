@@ -17,7 +17,7 @@
             PaneBackground="{ThemeResource SystemControlPageBackgroundChromeLowBrush}"
             PanePlacement="Right">
             <SplitView.Pane>
-                <controls:UploadForm Margin="20,42,20,20" CancelClicked="HyperlinkButton_Click" />
+                <controls:UploadForm Margin="0,42,0,20" CancelClicked="HyperlinkButton_Click" />
             </SplitView.Pane>
 
             <Grid Padding="0,32,0,0">

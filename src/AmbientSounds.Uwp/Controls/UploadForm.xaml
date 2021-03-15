@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Controls.UploadForm"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:convert="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -11,73 +12,102 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="20,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
+
             <TextBlock Style="{StaticResource PageHeaderTextStyle}" Text="{x:Bind strings:Resources.NewSound}" />
-        </Grid>
 
-        <TextBox
-            Margin="0,12,0,0"
-            Header="{x:Bind strings:Resources.Name}"
-            Text="{x:Bind ViewModel.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-        <TextBox
-            Margin="0,12,0,0"
-            Header="{x:Bind strings:Resources.Attribution}"
-            Text="{x:Bind ViewModel.Attribution, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-        <TextBox
-            x:Uid="ImageUrlBox"
-            Margin="0,12,0,0"
-            Header="{x:Bind strings:Resources.ImageUrl}"
-            Text="{x:Bind ViewModel.ImageUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-        <Grid Margin="0,12,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <TextBox
-                Header="{x:Bind strings:Resources.PathToSound}"
-                IsReadOnly="True"
-                Text="{x:Bind ViewModel.SoundPath, Mode=OneWay}" />
-            <Button
+            <winui:ProgressRing
                 Grid.Column="1"
-                Height="33"
-                Margin="8,0,0,0"
-                VerticalAlignment="Bottom"
-                AutomationProperties.Name="{x:Bind strings:Resources.BrowseText}"
-                Background="Transparent"
-                Command="{x:Bind ViewModel.PickSoundCommand}"
-                ToolTipService.ToolTip="{x:Bind strings:Resources.BrowseText}">
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA5A;" />
-            </Button>
+                Width="20"
+                Height="20"
+                VerticalAlignment="Center"
+                Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                IsActive="{x:Bind ViewModel.Uploading, Mode=OneWay}"
+                Visibility="{x:Bind ViewModel.Uploading, Mode=OneWay}" />
         </Grid>
 
-        <Button
-            Margin="0,24,0,0"
-            HorizontalAlignment="Stretch"
-            Command="{x:Bind ViewModel.SubmitCommand}"
-            Content="{x:Bind strings:Resources.UploadSubmitButton}" />
+        <ScrollViewer
+            Grid.Row="1"
+            Margin="0,12,0,0"
+            Padding="20,0">
+            <StackPanel>
+                <TextBox
+                    Header="{x:Bind strings:Resources.Name}"
+                    PlaceholderText="{x:Bind strings:Resources.Required}"
+                    Text="{x:Bind ViewModel.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <TextBlock Margin="0,12,0,0" TextWrapping="WrapWholeWords">
-            <Hyperlink NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md">
-                <Run Text="{x:Bind strings:Resources.UploadTermsMessage}" />
-            </Hyperlink>
-        </TextBlock>
+                <TextBox
+                    Margin="0,12,0,0"
+                    Header="{x:Bind strings:Resources.Attribution}"
+                    PlaceholderText="{x:Bind strings:Resources.Required}"
+                    Text="{x:Bind ViewModel.Attribution, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <winui:ProgressRing
-            Width="40"
-            Height="40"
-            Margin="0,24,0,0"
-            HorizontalAlignment="Center"
-            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-            IsActive="{x:Bind ViewModel.Uploading, Mode=OneWay}"
-            Visibility="{x:Bind ViewModel.Uploading, Mode=OneWay}" />
+                <TextBox
+                    Margin="0,12,0,0"
+                    Header="{x:Bind strings:Resources.ImageUrl}"
+                    PlaceholderText="{x:Bind strings:Resources.Required}"
+                    Text="{x:Bind ViewModel.ImageUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-    </StackPanel>
+                <TextBox
+                    Margin="0,12,0,0"
+                    Header="{x:Bind strings:Resources.DonateUrl}"
+                    PlaceholderText="{x:Bind strings:Resources.Optional}"
+                    Text="{x:Bind ViewModel.DonateUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+
+                <Grid Margin="0,12,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                        Header="{x:Bind strings:Resources.PathToSound}"
+                        IsReadOnly="True"
+                        PlaceholderText="{x:Bind strings:Resources.Required}"
+                        Text="{x:Bind ViewModel.SoundPath, Mode=OneWay}" />
+                    <Button
+                        Grid.Column="1"
+                        Height="33"
+                        Margin="8,0,0,0"
+                        VerticalAlignment="Bottom"
+                        AutomationProperties.Name="{x:Bind strings:Resources.BrowseText}"
+                        Background="Transparent"
+                        Command="{x:Bind ViewModel.PickSoundCommand}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.BrowseText}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA5A;" />
+                    </Button>
+                </Grid>
+
+                <CheckBox
+                    Margin="0,24,0,0"
+                    Content="{x:Bind strings:Resources.UploadPermissionsMessage}"
+                    IsChecked="{x:Bind ViewModel.Rule1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <CheckBox Margin="0,12,0,0" IsChecked="{x:Bind ViewModel.Rule2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBlock TextWrapping="WrapWholeWords">
+                        <Hyperlink NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md">
+                            <Run Text="{x:Bind strings:Resources.UploadTermsMessage}" />
+                        </Hyperlink>
+                    </TextBlock>
+                </CheckBox>
+
+                <Button
+                    Margin="0,24,0,0"
+                    HorizontalAlignment="Stretch"
+                    Command="{x:Bind ViewModel.SubmitCommand}"
+                    Content="{x:Bind strings:Resources.UploadSubmitButton}"
+                    IsEnabled="{x:Bind ViewModel.IsUploadButtonEnabled, Mode=OneWay}" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </UserControl>

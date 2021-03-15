@@ -78,9 +78,19 @@ namespace AmbientSounds.Models
         public string[] SoundIds { get; set; } = new string[0];
 
         /// <summary>
-        /// Username of the person who uploaded the sound file.
+        /// Unique user ID of the person who uploaded the sound file.
         /// </summary>
         public string UploadedBy { get; set; } = "";
+
+        /// <summary>
+        /// Visible username of the person who uploaded the sound file.
+        /// </summary>
+        public string UploadUsername { get; set; } = "";
+
+        /// <summary>
+        /// List of donation links to be displayed.
+        /// </summary>
+        public string[] SponsorLinks { get; set; } = new string[0];
 
         /// <summary>
         /// The state of the sound's publication in the catalogue.

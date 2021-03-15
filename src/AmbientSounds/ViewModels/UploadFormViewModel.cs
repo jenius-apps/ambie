@@ -19,7 +19,10 @@ namespace AmbientSounds.ViewModels
         private string _attribution = "";
         private string _imageUrl = "";
         private string _soundPath = "";
+        private string _donateUrl = "";
         private bool _uploading;
+        private bool _rule1;
+        private bool _rule2;
 
         public UploadFormViewModel(
             IUploadService uploadService,
@@ -45,19 +48,37 @@ namespace AmbientSounds.ViewModels
         public string Name
         {
             get => _name;
-            set => SetProperty(ref _name, value);
+            set
+            {
+                SetProperty(ref _name, value);
+                OnPropertyChanged(nameof(IsUploadButtonEnabled));
+            }
         }
 
         public string Attribution
         {
             get => _attribution;
-            set => SetProperty(ref _attribution, value);
+            set
+            {
+                SetProperty(ref _attribution, value);
+                OnPropertyChanged(nameof(IsUploadButtonEnabled));
+            }
         }
 
         public string ImageUrl
         {
             get => _imageUrl;
-            set => SetProperty(ref _imageUrl, value);
+            set 
+            {
+                SetProperty(ref _imageUrl, value);
+                OnPropertyChanged(nameof(IsUploadButtonEnabled));
+            }
+        }
+
+        public string DonateUrl
+        {
+            get => _donateUrl;
+            set => SetProperty(ref _donateUrl, value);
         }
 
         public bool Uploading
@@ -69,8 +90,34 @@ namespace AmbientSounds.ViewModels
         public string SoundPath
         {
             get => _soundPath;
-            set => SetProperty(ref _soundPath, value);
+            set
+            {
+                SetProperty(ref _soundPath, value);
+                OnPropertyChanged(nameof(IsUploadButtonEnabled));
+            }
         }
+
+        public bool Rule1
+        {
+            get => _rule1;
+            set
+            {
+                SetProperty(ref _rule1, value);
+                OnPropertyChanged(nameof(IsUploadButtonEnabled));
+            }
+        }
+
+        public bool Rule2
+        {
+            get => _rule2;
+            set
+            {
+                SetProperty(ref _rule2, value);
+                OnPropertyChanged(nameof(IsUploadButtonEnabled));
+            }
+        }
+
+        public bool IsUploadButtonEnabled => !SubmitCommand.IsRunning && CanUpload() && Rule1 && Rule2;
 
         private async Task SubmitAsync()
         {
@@ -88,6 +135,7 @@ namespace AmbientSounds.ViewModels
                 ImagePath = ImageUrl,
                 FilePath = SoundPath,
                 PublishState = PublishState.UnderReview.ToString(),
+                SponsorLinks = new string[] { DonateUrl },
                 FileExtension = System.IO.Path.GetExtension(SoundPath)
             };
 

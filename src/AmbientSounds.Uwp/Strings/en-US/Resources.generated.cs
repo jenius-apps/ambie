@@ -589,7 +589,7 @@ namespace AmbientSounds.Strings{
 
         #region UploadTermsMessage
         /// <summary>
-        ///   Looks up a localized string similar to: By uploading a sound, you agree to our Terms of Use
+        ///   Looks up a localized string similar to: I agree to the Terms of Use
         /// </summary>
         public static string UploadTermsMessage
         {
@@ -622,6 +622,58 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("Yes");
+            }
+        }
+        #endregion
+
+        #region DonateUrl
+        /// <summary>
+        ///   Looks up a localized string similar to: Donation URL
+        /// </summary>
+        public static string DonateUrl
+        {
+            get
+            {
+                return _resourceLoader.GetString("DonateUrl");
+            }
+        }
+        #endregion
+
+        #region Optional
+        /// <summary>
+        ///   Looks up a localized string similar to: Optional
+        /// </summary>
+        public static string Optional
+        {
+            get
+            {
+                return _resourceLoader.GetString("Optional");
+            }
+        }
+        #endregion
+
+        #region Required
+        /// <summary>
+        ///   Looks up a localized string similar to: Required
+        /// </summary>
+        public static string Required
+        {
+            get
+            {
+                return _resourceLoader.GetString("Required");
+            }
+        }
+        #endregion
+
+        #region UploadPermissionsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: I created this sound or I have permission to upload it
+        /// </summary>
+        public static string UploadPermissionsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("UploadPermissionsMessage");
             }
         }
         #endregion
@@ -683,6 +735,10 @@ namespace AmbientSounds.Strings{
             UploadTermsMessage,
             AreYouSure,
             Yes,
+            DonateUrl,
+            Optional,
+            Required,
+            UploadPermissionsMessage,
         }
 
         private static ResourceLoader _resourceLoader;
