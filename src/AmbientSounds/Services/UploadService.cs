@@ -15,12 +15,16 @@ namespace AmbientSounds.Services
     public class UploadService : IUploadService
     {
         private readonly string _uploadUrl;
+        private readonly string _mySoundsUrl;
         private readonly HttpClient _client;
         private readonly IAccountManager _accountManager;
         private readonly IFilePicker _filePicker;
 
         /// <inheritdocs/>
         public event EventHandler<Sound>? SoundUploaded;
+
+        /// <inheritdocs/>
+        public event EventHandler<string>? SoundDeleted;
 
         public UploadService(
             HttpClient httpClient,
@@ -34,9 +38,41 @@ namespace AmbientSounds.Services
             Guard.IsNotNull(filePicker, nameof(filePicker));
 
             _uploadUrl = appSettings.UploadUrl;
+            _mySoundsUrl = appSettings.MySoundsUrl;
             _accountManager = accountManager;
             _client = httpClient;
             _filePicker = filePicker;
+        }
+
+        /// <inheritdoc/>
+        public async Task<bool> DeleteAsync(string id)
+        {
+            var accesstoken = await _accountManager.GetCatalogueTokenAsync();
+            if (id == null || 
+                string.IsNullOrWhiteSpace(accesstoken))
+            {
+                return false;
+            }
+
+            try
+            {
+                var url = _mySoundsUrl + $"/{id}";
+
+                using var msg = new HttpRequestMessage(HttpMethod.Delete, url);
+                msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accesstoken);
+                var response = await _client.SendAsync(msg);
+                if (response.IsSuccessStatusCode)
+                {
+                    SoundDeleted?.Invoke(this, id);
+                }
+
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                // TODO log
+                return false;
+            }
         }
 
         /// <inheritdoc/>

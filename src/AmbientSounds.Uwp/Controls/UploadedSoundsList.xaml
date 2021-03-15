@@ -54,6 +54,27 @@
                                 TextWrapping="Wrap" />
                             <TextBlock Text="{x:Bind convert:LocalizationConverter.ConvertPublishState(PublishState)}" />
                         </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Button x:Uid="DeleteButton" IsEnabled="{x:Bind convert:VisibilityConverter.Invert(DeleteCommand.IsRunning), Mode=OneWay}">
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
+                                <Button.Flyout>
+                                    <Flyout
+                                        Closed="DeleteFlyout_Closed"
+                                        Opened="DeleteFlyout_Opened"
+                                        Placement="Right">
+                                        <StackPanel>
+                                            <TextBlock Text="{x:Bind strings:Resources.AreYouSure}" />
+                                            <Button
+                                                Margin="0,4,0,0"
+                                                HorizontalAlignment="Stretch"
+                                                Click="CloseDeleteFlyout"
+                                                Command="{x:Bind DeleteCommand}"
+                                                Content="{x:Bind strings:Resources.Yes}" />
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+                        </StackPanel>
                     </Grid>
                 </Grid>
             </ListViewItem>

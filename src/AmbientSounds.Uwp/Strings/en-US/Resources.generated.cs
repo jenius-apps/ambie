@@ -599,6 +599,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AreYouSure
+        /// <summary>
+        ///   Looks up a localized string similar to: Are you sure?
+        /// </summary>
+        public static string AreYouSure
+        {
+            get
+            {
+                return _resourceLoader.GetString("AreYouSure");
+            }
+        }
+        #endregion
+
+        #region Yes
+        /// <summary>
+        ///   Looks up a localized string similar to: Yes
+        /// </summary>
+        public static string Yes
+        {
+            get
+            {
+                return _resourceLoader.GetString("Yes");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -655,6 +681,8 @@ namespace AmbientSounds.Strings{
             UploadPlaceholderMessage,
             SignIn,
             UploadTermsMessage,
+            AreYouSure,
+            Yes,
         }
 
         private static ResourceLoader _resourceLoader;

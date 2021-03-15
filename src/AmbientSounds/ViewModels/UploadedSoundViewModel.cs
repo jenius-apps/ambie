@@ -1,21 +1,33 @@
 ﻿using AmbientSounds.Models;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
     public class UploadedSoundViewModel
     {
         private readonly Sound _sound;
+        private readonly IUploadService _uploadService;
 
         public UploadedSoundViewModel(
-            Sound s)
+            Sound s,
+            IUploadService uploadService)
         {
             Guard.IsNotNull(s, nameof(s));
+            Guard.IsNotNull(uploadService, nameof(uploadService));
+
             _sound = s;
+            _uploadService = uploadService;
+
+            DeleteCommand = new AsyncRelayCommand(DeleteAsync);
         }
+
+        public IAsyncRelayCommand DeleteCommand { get; }
 
         /// <summary>
         /// The sound's attribution.
@@ -38,6 +50,11 @@ namespace AmbientSounds.ViewModels
         public string? ImagePath => _sound.ImagePath;
 
         public PublishState PublishState => GetPublishEnum(_sound.PublishState);
+
+        private Task DeleteAsync()
+        {
+            return _uploadService.DeleteAsync(Id);
+        }
 
         private PublishState GetPublishEnum(string publishState)
         {

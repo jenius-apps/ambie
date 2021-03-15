@@ -3,9 +3,11 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -34,6 +36,7 @@ namespace AmbientSounds.ViewModels
             _uploadService = uploadService;
 
             _uploadService.SoundUploaded += OnSoundUploaded;
+            _uploadService.SoundDeleted += OnSoundDeleted;
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             UploadedSounds.CollectionChanged += OnCollectionChanged;
             LoadCommand.PropertyChanged += OnLoadCommandPropChanged;
@@ -86,6 +89,15 @@ namespace AmbientSounds.ViewModels
         private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             OnPropertyChanged(nameof(IsEmptyPlaceholderVisible));
+        }
+
+        private void OnSoundDeleted(object sender, string soundId)
+        {
+            var forDeletion = UploadedSounds.FirstOrDefault(x => x.Id == soundId);
+            if (forDeletion != null)
+            {
+                UploadedSounds.Remove(forDeletion);
+            }
         }
     }
 }

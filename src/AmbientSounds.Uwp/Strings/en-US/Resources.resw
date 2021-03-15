@@ -541,4 +541,10 @@
   <data name="UploadTermsMessage" xml:space="preserve">
     <value>By uploading a sound, you agree to our Terms of Use</value>
   </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
 </root>
