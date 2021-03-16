@@ -15,6 +15,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly ISyncEngine _syncEngine;
         private readonly INavigator _navigator;
+        private readonly ISystemInfoProvider _systemInfoProvider;
         private bool _signedIn;
         private bool _loading;
         private Person? _person;
@@ -23,13 +24,16 @@ namespace AmbientSounds.ViewModels
             IAccountManager accountManager,
             ITelemetry telemetry,
             ISyncEngine syncEngine,
+            ISystemInfoProvider systemInfoProvider,
             INavigator navigator)
         {
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(syncEngine, nameof(syncEngine));
             Guard.IsNotNull(navigator, nameof(navigator));
+            Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
 
+            _systemInfoProvider = systemInfoProvider;
             _accountManager = accountManager;
             _telemetry = telemetry;
             _syncEngine = syncEngine;
@@ -65,6 +69,12 @@ namespace AmbientSounds.ViewModels
                 OnPropertyChanged(nameof(Email));
             }
         }
+
+        /// <summary>
+        /// Determines if the app is in Ten Foot PC or Xbox mode.
+        /// Used to determine if upload button should be displayed or not.
+        /// </summary>
+        public bool IsNotTenFoot => !_systemInfoProvider.IsTenFoot();
 
         /// <summary>
         /// First name of the user.

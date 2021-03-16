@@ -76,8 +76,11 @@
                                 <TextBlock Margin="0,4,0,0" Text="{x:Bind ViewModel.Email, Mode=OneWay}" />
                             </StackPanel>
                         </AppBarElementContainer>
-                        <AppBarSeparator Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
-                        <AppBarButton x:Uid="MoreButtonUpload" Command="{x:Bind ViewModel.OpenUploadPageCommand}">
+                        <AppBarSeparator IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
+                        <AppBarButton
+                            x:Uid="MoreButtonUpload"
+                            Command="{x:Bind ViewModel.OpenUploadPageCommand}"
+                            Visibility="{x:Bind ViewModel.IsNotTenFoot}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B8;" />
                             </AppBarButton.Icon>
