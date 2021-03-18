@@ -34,6 +34,27 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
+        public async Task<string> GetDownloadLinkAsync(Sound s)
+        {
+            if (s == null)
+            {
+                return "";
+            }
+
+            var url = $"{_url}/{s.Id}/file?userId={s.UploadedBy}";
+
+            try
+            {
+                var result = await _client.GetStringAsync(url);
+                return result;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync()
         {
             if (string.IsNullOrWhiteSpace(_url))
