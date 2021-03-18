@@ -21,6 +21,18 @@
     </interactivity:Interaction.Behaviors>
 
     <UserControl.Resources>
+        <Style x:Key="PublishStateEllipse" TargetType="Ellipse">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <Style x:Key="PublishStateIcon" TargetType="FontIcon">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="{StaticResource FluentUIGlyphs}" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
         <DataTemplate x:Key="UploadedSoundTemplate" x:DataType="viewmodels:UploadedSoundViewModel">
             <ListViewItem Padding="0,10" AutomationProperties.Name="{x:Bind Name}">
                 <Grid>
@@ -31,8 +43,7 @@
 
                     <Grid
                         Width="100"
-                        Height="100"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Stretch"
                         CornerRadius="8">
                         <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
                     </Grid>
@@ -48,13 +59,29 @@
                                 Text="{x:Bind Name}" />
                             <TextBlock
                                 IsTextSelectionEnabled="True"
-                                MaxLines="2"
                                 Text="{x:Bind Attribution}"
-                                TextTrimming="CharacterEllipsis"
-                                TextWrapping="Wrap" />
-                            <TextBlock Text="{x:Bind convert:LocalizationConverter.ConvertPublishState(PublishState)}" />
+                                TextTrimming="CharacterEllipsis" />
+                            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                                <Grid Visibility="{x:Bind IsPublished}">
+                                    <Ellipse Fill="ForestGreen" Style="{StaticResource PublishStateEllipse}" />
+                                    <FontIcon Glyph="&#xE9A1;" Style="{StaticResource PublishStateIcon}" />
+                                </Grid>
+                                <Grid Visibility="{x:Bind IsRejected}">
+                                    <Ellipse Fill="DarkRed" Style="{StaticResource PublishStateEllipse}" />
+                                    <FontIcon Glyph="&#xE9F9;" Style="{StaticResource PublishStateIcon}" />
+                                </Grid>
+                                <Grid Visibility="{x:Bind IsPending}">
+                                    <Ellipse Fill="DodgerBlue" Style="{StaticResource PublishStateEllipse}" />
+                                    <FontIcon Glyph="&#xEA8D;" Style="{StaticResource PublishStateIcon}" />
+                                </Grid>
+
+                                <TextBlock Margin="12,0,0,0" Text="{x:Bind convert:LocalizationConverter.ConvertPublishState(PublishState)}" />
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <StackPanel
+                            Grid.Row="1"
+                            Margin="0,12,0,0"
+                            Orientation="Horizontal">
                             <Button x:Uid="DeleteButton" IsEnabled="{x:Bind convert:VisibilityConverter.Invert(DeleteCommand.IsRunning), Mode=OneWay}">
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
                                 <Button.Flyout>

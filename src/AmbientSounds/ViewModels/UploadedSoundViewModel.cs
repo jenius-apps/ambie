@@ -51,6 +51,12 @@ namespace AmbientSounds.ViewModels
 
         public PublishState PublishState => GetPublishEnum(_sound.PublishState);
 
+        public bool IsPublished => PublishState == PublishState.Published;
+
+        public bool IsPending => !IsPublished && !IsRejected;
+
+        public bool IsRejected => PublishState == PublishState.Rejected;
+
         private Task DeleteAsync()
         {
             return _uploadService.DeleteAsync(Id);
