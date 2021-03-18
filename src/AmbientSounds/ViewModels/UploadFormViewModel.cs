@@ -135,7 +135,7 @@ namespace AmbientSounds.ViewModels
                 ImagePath = ImageUrl,
                 FilePath = SoundPath,
                 PublishState = PublishState.UnderReview.ToString(),
-                SponsorLinks = new string[] { DonateUrl },
+                SponsorLinks = string.IsNullOrWhiteSpace(DonateUrl) ? new string[0] : new string[] { DonateUrl },
                 FileExtension = System.IO.Path.GetExtension(SoundPath)
             };
 
