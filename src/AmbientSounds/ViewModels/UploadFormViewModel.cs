@@ -84,7 +84,11 @@ namespace AmbientSounds.ViewModels
         public bool Uploading
         {
             get => _uploading;
-            set => SetProperty(ref _uploading, value);
+            set
+            {
+                SetProperty(ref _uploading, value);
+                OnPropertyChanged(nameof(IsUploadButtonEnabled));
+            }
         }
 
         public string SoundPath
@@ -117,7 +121,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        public bool IsUploadButtonEnabled => !SubmitCommand.IsRunning && CanUpload() && Rule1 && Rule2;
+        public bool IsUploadButtonEnabled => !Uploading && CanUpload() && Rule1 && Rule2;
 
         private async Task SubmitAsync()
         {

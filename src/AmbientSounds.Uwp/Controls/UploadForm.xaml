@@ -25,15 +25,6 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Style="{StaticResource PageHeaderTextStyle}" Text="{x:Bind strings:Resources.NewSound}" />
-
-            <winui:ProgressRing
-                Grid.Column="1"
-                Width="20"
-                Height="20"
-                VerticalAlignment="Center"
-                Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-                IsActive="{x:Bind ViewModel.Uploading, Mode=OneWay}"
-                Visibility="{x:Bind ViewModel.Uploading, Mode=OneWay}" />
         </Grid>
 
         <ScrollViewer
@@ -102,11 +93,26 @@
                 </CheckBox>
 
                 <Button
+                    Height="36"
                     Margin="0,24,0,0"
                     HorizontalAlignment="Stretch"
                     Command="{x:Bind ViewModel.SubmitCommand}"
-                    Content="{x:Bind strings:Resources.UploadSubmitButton}"
-                    IsEnabled="{x:Bind ViewModel.IsUploadButtonEnabled, Mode=OneWay}" />
+                    IsEnabled="{x:Bind ViewModel.IsUploadButtonEnabled, Mode=OneWay}">
+                    <Grid>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{x:Bind strings:Resources.UploadSubmitButton}"
+                            Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.Uploading), Mode=OneWay}" />
+                        <winui:ProgressRing
+                            Width="20"
+                            Height="20"
+                            VerticalAlignment="Center"
+                            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                            IsActive="{x:Bind ViewModel.Uploading, Mode=OneWay}"
+                            Visibility="{x:Bind ViewModel.Uploading, Mode=OneWay}" />
+                    </Grid>
+                </Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>

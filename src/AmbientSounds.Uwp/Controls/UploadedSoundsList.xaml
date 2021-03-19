@@ -72,7 +72,7 @@
                                 </Grid>
                                 <Grid Visibility="{x:Bind IsPending}">
                                     <Ellipse Fill="DodgerBlue" Style="{StaticResource PublishStateEllipse}" />
-                                    <FontIcon Glyph="&#xEA8D;" Style="{StaticResource PublishStateIcon}" />
+                                    <FontIcon Glyph="&#xEA8B;" Style="{StaticResource PublishStateIcon}" />
                                 </Grid>
 
                                 <TextBlock Margin="12,0,0,0" Text="{x:Bind convert:LocalizationConverter.ConvertPublishState(PublishState)}" />
