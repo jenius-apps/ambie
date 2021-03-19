@@ -11,6 +11,13 @@ namespace AmbientSounds.Services
     public interface IOnlineSoundDataProvider
     {
         /// <summary>
+        /// Retrieves the sound download link for
+        /// the specified sound data.
+        /// </summary>
+        /// <returns>URL to download the sound file.</returns>
+        Task<string> GetDownloadLinkAsync(Sound s);
+
+        /// <summary>
         /// Retrieves list of sound data available online.
         /// </summary>
         /// <returns>A list of <see cref="Sound"/> instances.</returns>
@@ -22,5 +29,13 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="soundIds">List of sounds to get.</param>
         Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds);
+
+        /// <summary>
+        /// Retrieves list of sounds uploaded by the user to
+        /// the Ambie catalogue.
+        /// </summary>
+        /// <param name="accesstoken">A JWT access token required for the API.</param>
+        /// <returns>List of sounds uploaded by the user to the Ambie Catalogue.</returns>
+        Task<IList<Sound>> GetUserSoundsAsync(string accesstoken);
     }
 }

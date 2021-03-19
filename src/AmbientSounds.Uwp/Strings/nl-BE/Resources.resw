@@ -99,40 +99,40 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Klik hier om een timer in te stellen, waarbij het geluid zal pauzeren na de geselecteerde tijd.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Strand</value>
   </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Vogels</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>Straat in de stad</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Koffieshop</value>
   </data>
-  <data name="Sound-creek" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
     <value>Kreek</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Open haard</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>Binnenkort meer</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Regen</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Regenwoud</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Onder water</value>
   </data>
-  <data name="Sound-waterfall" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
     <value>Waterval</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>Witte ruis</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
@@ -174,10 +174,10 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Licht</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
+  <data name="Soundvacuum" xml:space="preserve">
     <value>Vacuüm</value>
   </data>
-  <data name="Sound-thunder" xml:space="preserve">
+  <data name="Soundthunder" xml:space="preserve">
     <value>Donder</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">

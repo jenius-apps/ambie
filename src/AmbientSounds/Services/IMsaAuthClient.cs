@@ -13,20 +13,23 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Fires when sign in process completes.
         /// </summary>
-        event EventHandler InteractiveSignInCompleted;
+        event EventHandler? InteractiveSignInCompleted;
 
         /// <summary>
-        /// Attempts to sign in silently and retrieve a token.
+        /// Attempts to sign in silently and retrieve a token
+        /// for the given scopes.
         /// Returns null if silent auth was unsuccessful.
         /// </summary>
         /// <returns>A token if sign in was successful, and null if not.</returns>
-        Task<string?> GetTokenSilentAsync();
+        Task<string?> GetTokenSilentAsync(string[] scopes);
 
         /// <summary>
         /// Attempts to sign in and retrieve at token. User will be prompted.
         /// Result will be communicated via <see cref="InteractiveSignInCompleted"/>.
         /// </summary>
-        void RequestInteractiveSignIn();
+        void RequestInteractiveSignIn(
+            string[] scopes,
+            string[]? extraScopes = null);
 
         /// <summary>
         /// Attempts to retrieve the signed-in user's data and returns

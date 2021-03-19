@@ -18,6 +18,10 @@ You agree that all materials, products, and services provided by this app is the
 
 You agree that any Ambie Original purchases from the Sound Catalogue provide you access to the sound for offline usage inside of Ambie only. You do not own the sound. You agree to not extract Ambie Original sounds outside of Ambie. Usage of the sound outside of Ambie (such as in your projects or business) requires explicit consent from the sound's owner. Please contact us at jenius_apps@outlook.com if you wish to contact the sound owner.
 
+## Ambie Catalogue uploads
+
+You agree that all sounds you upload to Ambie Catalogue are sounds you created, you own, or you have the rights and permissions to upload that sound to our Catalogue. Upon uploading the sound and successful review, you agree that it will become downloadable by other Ambie users for offline usage. We do not own your sound after uploading. We reserve the right to remove your sound from the Catalogue at any time for any reason. By uploading your sound, you understand the risk that users may find a way to extract your sound outside of Ambie and use it outside the app. We are not liable for any damages, loss of revenue, or breaches of your rights.
+
 ## Indemnification
 
 You agree to indemnify Jenius Apps and its affiliates and hold Jenius Apps harmless against legal claims and demands that may arise from your use or misuse of our services. We reserve the right to select our own legal consel.

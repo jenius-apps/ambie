@@ -8,6 +8,11 @@ namespace AmbientSounds.Converters
     public static class VisibilityConverter
     {
         /// <summary>
+        /// Inverts the bool.
+        /// </summary>
+        public static bool Invert(this bool value) => !value;
+
+        /// <summary>
         /// Inverts the given bool to a visibility.
         /// </summary>
         public static Visibility InvertBool(this bool value)

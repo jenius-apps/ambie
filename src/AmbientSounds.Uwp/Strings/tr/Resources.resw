@@ -99,40 +99,40 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Seçilen süreden sonra sesin duracağı bir uyku zamanlayıcısı ayarlamak için buraya tıklayın.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Plaj</value>
   </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Kuşlar</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>Şehir Sokağı</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Kahve dükkanı</value>
   </data>
-  <data name="Sound-creek" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
     <value>Dere</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Şömine</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>Daha fazlası yakında</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Yağmur</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Yağmur ormanı</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Su altı</value>
   </data>
-  <data name="Sound-waterfall" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
     <value>Şelale</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>Beyaz gürültü</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
@@ -177,16 +177,16 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Aydınlık</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
+  <data name="Soundvacuum" xml:space="preserve">
     <value>Vakum</value>
   </data>
-  <data name="Sound-thunder" xml:space="preserve">
+  <data name="Soundthunder" xml:space="preserve">
     <value>Gök gürültüsü</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Yeni sesler için bildirim</value>
   </data>
-  <data name="Sound-wind" xml:space="preserve">
+  <data name="Soundwind" xml:space="preserve">
     <value>Rüzgar</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">

@@ -24,9 +24,14 @@ namespace AmbientSounds.Services
         Task<bool> IsSignedInAsync();
 
         /// <summary>
-        /// If signed in, then this will return the token. Else, null is returned.
+        /// If signed in, silently retrieves an access token for the graph/onedrive api.
         /// </summary>
-        Task<string?> GetTokenAsync();
+        Task<string?> GetGraphTokenAsync();
+
+        /// <summary>
+        /// If signed in, silently retrieves an access token for the catalogue api.
+        /// </summary>
+        Task<string?> GetCatalogueTokenAsync();
 
         /// <summary>
         /// Signs the user in. This will launch several prompts to the user

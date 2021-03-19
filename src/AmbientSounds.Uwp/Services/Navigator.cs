@@ -35,5 +35,14 @@ namespace AmbientSounds.Services.Uwp
                 f.Navigate(typeof(CompactPage), null, new SuppressNavigationTransitionInfo());
             }
         }
+
+        /// <inheritdoc/>
+        public void ToUploadPage()
+        {
+            if (Frame is Frame f)
+            {
+                f.Navigate(typeof(UploadPage), null, new DrillInNavigationTransitionInfo());
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Threading.Tasks;
@@ -11,22 +12,34 @@ namespace AmbientSounds.Services
     public class AccountManager : IAccountManager
     {
         private readonly IMsaAuthClient _authClient;
+        private readonly string[] _catalogueScope;
 
         /// <inheritdoc/>
         public event EventHandler<bool>? SignInUpdated;
 
-        public AccountManager(IMsaAuthClient authClient)
+        public AccountManager(
+            IMsaAuthClient authClient,
+            IAppSettings appSettings)
         {
             Guard.IsNotNull(authClient, nameof(authClient));
+            Guard.IsNotNull(appSettings, nameof(appSettings));
 
             _authClient = authClient;
+            _catalogueScope = new string[] { appSettings.CatalogueScope };
+
             _authClient.InteractiveSignInCompleted += OnSignInCompleted;
         }
 
         /// <inheritdoc/>
-        public Task<string?> GetTokenAsync()
+        public Task<string?> GetGraphTokenAsync()
         {
-            return _authClient.GetTokenSilentAsync();
+            return _authClient.GetTokenSilentAsync(MsalConstants.GraphScopes);
+        }
+
+        /// <inheritdoc/>
+        public Task<string?> GetCatalogueTokenAsync()
+        {
+            return _authClient.GetTokenSilentAsync(_catalogueScope);
         }
 
         /// <inheritdoc/>
@@ -39,14 +52,19 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task<bool> IsSignedInAsync()
         {
-            var token = await _authClient.GetTokenSilentAsync();
+            var token = await GetGraphTokenAsync();
             return !string.IsNullOrWhiteSpace(token);
         }
 
         /// <inheritdoc/>
         public void RequestSignIn()
         {
-            _authClient.RequestInteractiveSignIn();
+            // Cannot combine graph and catalogue scopes
+            // because together they cause an "incompatible scopes"
+            // error when signing in.
+            _authClient.RequestInteractiveSignIn(
+                MsalConstants.GraphScopes,
+                _catalogueScope);
         }
 
         /// <inheritdoc/>
@@ -58,7 +76,7 @@ namespace AmbientSounds.Services
             }
             catch
             {
-                // GetPictureAsync can fail if the user declines
+                // GetPersonDataAsync can fail if the user declines
                 // giving permission to access user picture data.
                 return new Person();
             }

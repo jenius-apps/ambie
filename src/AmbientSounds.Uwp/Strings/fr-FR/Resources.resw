@@ -90,40 +90,40 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Cliquez ici pour configurer une minuterie de mise en veille, où le son se mettra en pause après l'heure sélectionnée.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Plage</value>
   </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Oiseaux</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>Rue de ville</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Café</value>
   </data>
-  <data name="Sound-creek" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
     <value>Ruisseau</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Cheminée</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>D’autres seront disponibles prochainement</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Pluie</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Forêt tropicale</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Sous l'eau</value>
   </data>
-  <data name="Sound-waterfall" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
     <value>Chute d'eau</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>Bruit blanc</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
@@ -165,16 +165,16 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Clair</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
+  <data name="Soundvacuum" xml:space="preserve">
     <value>Aspirateur</value>
   </data>
-  <data name="Sound-thunder" xml:space="preserve">
+  <data name="Soundthunder" xml:space="preserve">
     <value>Tonnerre</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notification pour les nouveaux sons</value>
   </data>
-  <data name="Sound-wind" xml:space="preserve">
+  <data name="Soundwind" xml:space="preserve">
     <value>Vent</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">

@@ -6,6 +6,11 @@
     public interface IAppSettings
     {
         /// <summary>
+        /// The URL to access the user's uploaded sounds.
+        /// </summary>
+        string MySoundsUrl { get; }
+
+        /// <summary>
         /// URL to access the catalogue.
         /// </summary>
         string CatalogueUrl { get; }
@@ -30,5 +35,15 @@
         /// The URL for the cloud sync file.
         /// </summary>
         string CloudSyncFileUrl { get; set; }
+
+        /// <summary>
+        /// The URL for uploading a sound file.
+        /// </summary>
+        string UploadUrl { get; set; }
+
+        /// <summary>
+        /// The API scope for catalogue access.
+        /// </summary>
+        string CatalogueScope { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace AmbientSounds.Services
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly HttpClient _client;
         private readonly string _url;
+        private readonly string _mySoundsUrl;
 
         public OnlineSoundDataProvider(
             HttpClient httpClient,
@@ -28,6 +30,28 @@ namespace AmbientSounds.Services
             _systemInfoProvider = systemInfoProvider;
             _client = httpClient;
             _url = appSettings.CatalogueUrl;
+            _mySoundsUrl = appSettings.MySoundsUrl;
+        }
+
+        /// <inheritdoc/>
+        public async Task<string> GetDownloadLinkAsync(Sound s)
+        {
+            if (s == null)
+            {
+                return "";
+            }
+
+            var url = $"{_url}/{s.Id}/file?userId={s.UploadedBy}";
+
+            try
+            {
+                var result = await _client.GetStringAsync(url);
+                return result;
+            }
+            catch
+            {
+                return "";
+            }
         }
 
         /// <inheritdoc/>
@@ -58,6 +82,33 @@ namespace AmbientSounds.Services
             var sounds = await GetSoundsAsync();
             return sounds?.Where(x => x.Id != null && soundIds.Contains(x.Id)).ToArray()
                 ?? new Sound[0];
+        }
+
+        /// <inheritdoc/>
+        public async Task<IList<Sound>> GetUserSoundsAsync(string accesstoken)
+        {
+            if (string.IsNullOrWhiteSpace(accesstoken))
+            {
+                return new Sound[0];
+            }
+
+            using var msg = new HttpRequestMessage(HttpMethod.Get, _mySoundsUrl);
+            msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accesstoken);
+            var response = await _client.SendAsync(msg);
+            using Stream result = await response.Content.ReadAsStreamAsync();
+
+            try
+            {
+                var results = await JsonSerializer.DeserializeAsync<Sound[]>(
+                    result,
+                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+                return results ?? new Sound[0];
+            }
+            catch
+            {
+                return new Sound[0];
+            }
         }
     }
 }

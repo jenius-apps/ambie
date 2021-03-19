@@ -105,40 +105,40 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Part</value>
   </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Madarak</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>Városi utca</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Kávéház</value>
   </data>
-  <data name="Sound-creek" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
     <value>Patak</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Kandalló</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>Hamarosan</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Eső</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Esőerdő</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Víz alatt</value>
   </data>
-  <data name="Sound-waterfall" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
     <value>Vízesés</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>Fehérzaj</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
@@ -183,16 +183,16 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Világos</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
+  <data name="Soundvacuum" xml:space="preserve">
     <value>Porszívó</value>
   </data>
-  <data name="Sound-thunder" xml:space="preserve">
+  <data name="Soundthunder" xml:space="preserve">
     <value>Mennydörgés</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Értesítések új hangokról</value>
   </data>
-  <data name="Sound-wind" xml:space="preserve">
+  <data name="Soundwind" xml:space="preserve">
     <value>Szél</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
@@ -332,5 +332,50 @@
   </data>
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Saját válogatás mentése (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Átnevezés</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Átnevezéd</value>
+  </data>
+  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+    <value>Kompakt mód</value>
+  </data>
+  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Lista megosztása linkkel</value>
+  </data>
+  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Lista megosztása linkkel</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Hiányzó hangok</value>
+  </data>
+  <data name="ShareResultsMessage.Text" xml:space="preserve">
+    <value>Hiányzik pár hang, letöltheti őket innen.</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Megosztott Hang Katalógus az eszközein.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Fiók részletei</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Fiók részletei</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>Szinkronizálás</value>
   </data>
 </root>

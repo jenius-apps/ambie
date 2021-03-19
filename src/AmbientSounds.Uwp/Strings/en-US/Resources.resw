@@ -213,40 +213,40 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>View sleep timer options</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Beach</value>
   </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Birds</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>City street</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Coffee shop</value>
   </data>
-  <data name="Sound-creek" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
     <value>Creek</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Fireplace</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>More coming soon</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Rain</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Rainforest</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Underwater</value>
   </data>
-  <data name="Sound-waterfall" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
     <value>Waterfall</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>White noise</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
@@ -294,16 +294,16 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Light</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
+  <data name="Soundvacuum" xml:space="preserve">
     <value>Vacuum</value>
   </data>
-  <data name="Sound-thunder" xml:space="preserve">
+  <data name="Soundthunder" xml:space="preserve">
     <value>Thunder</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notification for new sounds</value>
   </data>
-  <data name="Sound-wind" xml:space="preserve">
+  <data name="Soundwind" xml:space="preserve">
     <value>Wind</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
@@ -466,7 +466,7 @@
     <value>Sign out</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>This will enable sound gallery sync across your devices.</value>
+    <value>This will enable sound gallery sync across your devices. And you can upload sounds.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>View account options</value>
@@ -482,5 +482,81 @@
   </data>
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sync</value>
+  </data>
+  <data name="MoreButtonUpload.Label" xml:space="preserve">
+    <value>Upload sounds</value>
+  </data>
+  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Uploaded sounds</value>
+  </data>
+  <data name="UploadPortal.Text" xml:space="preserve">
+    <value>Upload Portal - Beta</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Attribution</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>Image URL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>New sound</value>
+  </data>
+  <data name="PathToSound" xml:space="preserve">
+    <value>Path to sound</value>
+  </data>
+  <data name="UploadSubmitButton" xml:space="preserve">
+    <value>Upload sound</value>
+  </data>
+  <data name="PublishStateNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PublishStatePublished" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="PublishStateRejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="PublishStateUnderReview" xml:space="preserve">
+    <value>Under review</value>
+  </data>
+  <data name="PublishStateUnpublished" xml:space="preserve">
+    <value>Unpublished</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="UploadPlaceholderMessage" xml:space="preserve">
+    <value>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="UploadTermsMessage" xml:space="preserve">
+    <value>I agree to the Terms of Use</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DonateUrl" xml:space="preserve">
+    <value>Donation URL</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Optional</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="UploadPermissionsMessage" xml:space="preserve">
+    <value>I created this sound or I have permission to upload it</value>
   </data>
 </root>

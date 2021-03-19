@@ -102,40 +102,37 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Klik for opsætning af sleep-timer, hvorefter afspilning stoppes</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
-    <value>Strand</value>
-  </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Fugle</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>Storby</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Kaffebar</value>
   </data>
-  <data name="Sound-creek" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
     <value>Bæk</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Pejs</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>Mere følger snart</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Regn</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Regnskov</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Undervands</value>
   </data>
-  <data name="Sound-waterfall" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
     <value>Vandfald</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>Hvid støj</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
@@ -180,16 +177,16 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Lyst</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
+  <data name="Soundvacuum" xml:space="preserve">
     <value>Vakuum</value>
   </data>
-  <data name="Sound-thunder" xml:space="preserve">
+  <data name="Soundthunder" xml:space="preserve">
     <value>Torden</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notifikation ved ny lyd</value>
   </data>
-  <data name="Sound-wind" xml:space="preserve">
+  <data name="Soundwind" xml:space="preserve">
     <value>Vind</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
@@ -246,5 +243,8 @@
   </data>
   <data name="DeleteTextBlock.Text" xml:space="preserve">
     <value>Slet</value>
+  </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Stranden</value>
   </data>
 </root>

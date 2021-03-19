@@ -14,6 +14,8 @@ namespace AmbientSounds.ViewModels
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
         private readonly ISyncEngine _syncEngine;
+        private readonly INavigator _navigator;
+        private readonly ISystemInfoProvider _systemInfoProvider;
         private bool _signedIn;
         private bool _loading;
         private Person? _person;
@@ -21,26 +23,35 @@ namespace AmbientSounds.ViewModels
         public AccountControlViewModel(
             IAccountManager accountManager,
             ITelemetry telemetry,
-            ISyncEngine syncEngine)
+            ISyncEngine syncEngine,
+            ISystemInfoProvider systemInfoProvider,
+            INavigator navigator)
         {
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(syncEngine, nameof(syncEngine));
+            Guard.IsNotNull(navigator, nameof(navigator));
+            Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
 
+            _systemInfoProvider = systemInfoProvider;
             _accountManager = accountManager;
             _telemetry = telemetry;
             _syncEngine = syncEngine;
+            _navigator = navigator;
 
             _accountManager.SignInUpdated += OnSignInUpdated;
             _syncEngine.SyncStarted += OnSyncStarted;
             _syncEngine.SyncCompleted += OnSyncCompleted;
 
             SignInCommand = new RelayCommand(SignIn);
+            OpenUploadPageCommand = new RelayCommand(UploadClicked);
             SignOutCommand = new AsyncRelayCommand(SignOutAsync);
             SyncCommand = new AsyncRelayCommand(SyncAsync);
         }
 
         public IRelayCommand SignInCommand { get; }
+
+        public IRelayCommand OpenUploadPageCommand { get; }
 
         public IAsyncRelayCommand SignOutCommand { get; }
 
@@ -58,6 +69,12 @@ namespace AmbientSounds.ViewModels
                 OnPropertyChanged(nameof(Email));
             }
         }
+
+        /// <summary>
+        /// Determines if the app is in Ten Foot PC or Xbox mode.
+        /// Used to determine if upload button should be displayed or not.
+        /// </summary>
+        public bool IsNotTenFoot => !_systemInfoProvider.IsTenFoot();
 
         /// <summary>
         /// First name of the user.
@@ -155,6 +172,11 @@ namespace AmbientSounds.ViewModels
             {
                 Person = await _accountManager.GetPersonDataAsync();
             }
+        }
+
+        private void UploadClicked()
+        {
+            _navigator.ToUploadPage();
         }
 
         private async Task SyncAsync()
