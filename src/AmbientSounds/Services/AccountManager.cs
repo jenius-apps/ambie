@@ -12,15 +12,21 @@ namespace AmbientSounds.Services
     public class AccountManager : IAccountManager
     {
         private readonly IMsaAuthClient _authClient;
+        private readonly string[] _catalogueScope;
 
         /// <inheritdoc/>
         public event EventHandler<bool>? SignInUpdated;
 
-        public AccountManager(IMsaAuthClient authClient)
+        public AccountManager(
+            IMsaAuthClient authClient,
+            IAppSettings appSettings)
         {
             Guard.IsNotNull(authClient, nameof(authClient));
+            Guard.IsNotNull(appSettings, nameof(appSettings));
 
             _authClient = authClient;
+            _catalogueScope = new string[] { appSettings.CatalogueScope };
+
             _authClient.InteractiveSignInCompleted += OnSignInCompleted;
         }
 
@@ -33,7 +39,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public Task<string?> GetCatalogueTokenAsync()
         {
-            return _authClient.GetTokenSilentAsync(MsalConstants.CatalogueScopes);
+            return _authClient.GetTokenSilentAsync(_catalogueScope);
         }
 
         /// <inheritdoc/>
@@ -58,7 +64,7 @@ namespace AmbientSounds.Services
             // error when signing in.
             _authClient.RequestInteractiveSignIn(
                 MsalConstants.GraphScopes,
-                MsalConstants.CatalogueScopes);
+                _catalogueScope);
         }
 
         /// <inheritdoc/>

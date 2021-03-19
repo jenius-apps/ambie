@@ -40,5 +40,10 @@
         /// The URL for uploading a sound file.
         /// </summary>
         string UploadUrl { get; set; }
+
+        /// <summary>
+        /// The API scope for catalogue access.
+        /// </summary>
+        string CatalogueScope { get; set; }
     }
 }

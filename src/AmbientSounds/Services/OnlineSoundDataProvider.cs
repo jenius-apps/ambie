@@ -96,11 +96,19 @@ namespace AmbientSounds.Services
             msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accesstoken);
             var response = await _client.SendAsync(msg);
             using Stream result = await response.Content.ReadAsStreamAsync();
-            var results = await JsonSerializer.DeserializeAsync<Sound[]>(
-                result,
-                new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-            return results ?? new Sound[0];
+            try
+            {
+                var results = await JsonSerializer.DeserializeAsync<Sound[]>(
+                    result,
+                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+                return results ?? new Sound[0];
+            }
+            catch
+            {
+                return new Sound[0];
+            }
         }
     }
 }

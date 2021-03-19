@@ -127,12 +127,15 @@
     <value></value>
   </data>
   <data name="TelemetryApiKey" xml:space="preserve">
-    <value />
+    <value></value>
   </data>
   <data name="UploadUrl" xml:space="preserve">
     <value></value>
   </data>
   <data name="MySoundsUrl" xml:space="preserve">
-    <value />
+    <value></value>
+  </data>
+  <data name="CatalogueScope" xml:space="preserve">
+    <value></value>
   </data>
 </root>
