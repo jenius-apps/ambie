@@ -15,7 +15,6 @@ namespace AmbientSounds.Controls
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<SettingsViewModel>();
 
-
             ViewModel.AvailableLanugages.Clear();//Probably unncessary.
             ViewModel.AvailableLanugages.AddRange(ApplicationLanguages.Languages);//Looks like only the languages supported by both the OS and application are listed here.
         }

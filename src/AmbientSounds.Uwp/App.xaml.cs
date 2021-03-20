@@ -167,7 +167,6 @@ namespace AmbientSounds
 
             SetPreferredLanguage();
 
-
             if (prelaunched == false)
             {
                 CoreApplication.EnablePrelaunch(true);
@@ -236,12 +235,10 @@ namespace AmbientSounds
             if (settingsService.Get<bool>(UserSettingsConstants.OverrideLanguage) && !ApplicationLanguages.PrimaryLanguageOverride.Equals(settingsService.Get<string>(UserSettingsConstants.PreferredLanguage)))
             {
                 ApplicationLanguages.PrimaryLanguageOverride = settingsService.Get<string>(UserSettingsConstants.PreferredLanguage);
-                //ApplicationLanguages.PrimaryLanguageOverride = settingsService.Get<string>(UserSettingsConstants.PreferredLanguage);
             }
             else //lets reset it back as previous set value will be persistent.
             {
-                ApplicationLanguages.PrimaryLanguageOverride = string.Empty;//not sure if there is a better way.
-                //ApplicationLanguages.PrimaryLanguageOverride = ApplicationLanguages.Languages[0];
+                ApplicationLanguages.PrimaryLanguageOverride = string.Empty;//not sure if there is a better way. something like ApplicationLanguages.Languages[0] which probably returns the language we set as primary language override.
             }
         }
 

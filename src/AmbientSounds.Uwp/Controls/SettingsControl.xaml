@@ -99,10 +99,6 @@
                 Margin="0,12,0,0"
                 SelectedItem="{x:Bind ViewModel.PreferredLanguage, Mode=TwoWay}"
                 ItemsSource="{x:Bind ViewModel.AvailableLanugages}"/>
-            <!--<ComboBox 
-                Margin="0,12,0,0"
-                SelectedItem="{x:Bind ViewModel.PreferredLanguage, Mode=TwoWay}"
-                ItemsSource="{x:Bind ViewModel.AvailableLanugages}"/>-->
 
         </StackPanel>
     </ScrollViewer>
