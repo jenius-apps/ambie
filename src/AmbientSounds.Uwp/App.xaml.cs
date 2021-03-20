@@ -20,6 +20,7 @@ using AmbientSounds.Factories;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 
 #nullable enable
 
@@ -146,6 +147,7 @@ namespace AmbientSounds
 
         private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null)
         {
+
             // Do not repeat app initialization when the Window already has content
             if (Window.Current.Content is not Frame rootFrame)
             {
@@ -162,6 +164,9 @@ namespace AmbientSounds
                 var navigator = App.Services.GetRequiredService<INavigator>();
                 navigator.Frame = rootFrame;
             }
+
+            SetPreferredLanguage();
+
 
             if (prelaunched == false)
             {
@@ -217,6 +222,22 @@ namespace AmbientSounds
             viewTitleBar.ButtonBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonForegroundColor = darkTheme ? Colors.LightGray : Colors.Black;
+        }
+
+        /// <summary>
+        /// Set preferred language to override default one - only if override is turned on.
+        /// </summary>
+        private void SetPreferredLanguage()
+        {
+            var settingsService = App.Services.GetRequiredService<IUserSettings>();
+
+            if (settingsService.Get<bool>(UserSettingsConstants.OverrideLanguage))
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = settingsService.Get<string>(UserSettingsConstants.PreferredLanguage);
+            }
+            else
+            {
+            }
         }
 
         /// <summary>

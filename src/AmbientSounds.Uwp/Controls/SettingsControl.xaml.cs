@@ -15,5 +15,10 @@ namespace AmbientSounds.Controls
         }
 
         public SettingsViewModel ViewModel => (SettingsViewModel)this.DataContext;
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -595,6 +595,14 @@
           <source>I created this sound or I have permission to upload it</source>
           <target state="new">I created this sound or I have permission to upload it</target>
         </trans-unit>
+        <trans-unit id="PreferredLanguageRestartRequired.Text" translate="yes" xml:space="preserve">
+          <source>Preferred language (requires restart)</source>
+          <target state="new">Preferred language (requires restart)</target>
+        </trans-unit>
+        <trans-unit id="SettingsLanguageOverrideSwitch.Header" translate="yes" xml:space="preserve">
+          <source>Override default language</source>
+          <target state="new">Override default language</target>
+        </trans-unit>
       </group>
     </body>
   </file>

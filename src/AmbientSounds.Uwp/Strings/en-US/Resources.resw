@@ -559,4 +559,10 @@
   <data name="UploadPermissionsMessage" xml:space="preserve">
     <value>I created this sound or I have permission to upload it</value>
   </data>
+  <data name="PreferredLanguageRestartRequired.Text" xml:space="preserve">
+    <value>Preferred language (requires restart)</value>
+  </data>
+  <data name="SettingsLanguageOverrideSwitch.Header" xml:space="preserve">
+    <value>Override default language (requires restart)</value>
+  </data>
 </root>

@@ -78,6 +78,38 @@
                 x:Uid="SettingsThemeLightRadio"
                 Click="{x:Bind ViewModel.LightThemeRadioClicked}"
                 IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
+
+
+
+            <!--  Language Override  -->
+            <!--<TextBlock x:Uid="OverrideDefaultLanguage" Style="{StaticResource SettingTitleStyle}" />-->
+            <ToggleSwitch
+                x:Uid="SettingsLanguageOverrideSwitch"
+                Margin="0,12,0,0"
+                IsOn="{x:Bind ViewModel.OverrideLanguage, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+            
+            <TextBlock x:Uid="PreferredLanguageRestartRequired" Style="{StaticResource SettingTitleStyle}" />
+            <ComboBox 
+                Margin="0,12,0,0"
+                SelectedItem="{x:Bind ViewModel.PreferredLanguage, Mode=TwoWay}"
+                ItemsSource="{x:Bind ViewModel.AvailableLanugages}" SelectionChanged="ComboBox_SelectionChanged"/>
+
+            <!--<ComboBox
+                Margin="0,12,0,0"
+                SelectedItem="{x:Bind ViewModel.PreferredLanguage, Mode=TwoWay}"
+                ItemsSource="{x:Bind ViewModel.AvailableLanugages}" SelectionChanged="{x:Bind ViewModel.PreferredLanguageChanged}"/>-->
+
+
+
+
+
         </StackPanel>
     </ScrollViewer>
 </UserControl>

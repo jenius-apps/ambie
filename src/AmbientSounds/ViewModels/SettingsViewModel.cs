@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
@@ -12,6 +13,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly string _theme;
         private bool _notificationsLoading;
+        private readonly string _preferredLanguage;
 
         public SettingsViewModel(
             IUserSettings userSettings,
@@ -61,6 +63,33 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+
+        /// <summary>
+        /// Settings flag for screensaver.
+        /// </summary>
+        public bool OverrideLanguage
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.OverrideLanguage);
+            set => _userSettings.Set(UserSettingsConstants.OverrideLanguage, value);
+        }
+
+        /// <summary>
+        /// Settings flag for screensaver.
+        /// </summary>
+        public string PreferredLanguage
+        {
+            get => _userSettings.Get<string>(UserSettingsConstants.PreferredLanguage);
+            set => _userSettings.Set(UserSettingsConstants.PreferredLanguage, value);
+        }
+
+
+        //Todo - save it somewhere else?
+        public List<string> AvailableLanugages
+        {
+            get => new List<string>() { "en-Us", "cs-CZ", "da-DK", "de-DE", "es-ES", "fr-FR", "hu-HU", "it-IT", "ko-KR", "nl-BE", "pt-BR", "tr" };
+        }
+
+
         /// <summary>
         /// Settings flag for dark screensaver.
         /// </summary>
@@ -108,6 +137,16 @@ namespace AmbientSounds.ViewModels
         public void DefaultThemeRadioClicked()
         {
             _userSettings.Set(UserSettingsConstants.Theme, "default");
+        }
+
+
+        /// <summary>
+        /// Event handler for PreferredLanguage Change Event.
+        /// </summary>
+        public void PreferredLanguageChanged()
+        {
+            //Probably wouldn't require it if selecteditem binding works as desired.
+            //SelectedLanguageChanged
         }
 
         /// <summary>
