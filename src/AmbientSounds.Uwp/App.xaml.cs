@@ -25,7 +25,7 @@ using Windows.Globalization;
 #nullable enable
 
 namespace AmbientSounds
-{
+{ 
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
