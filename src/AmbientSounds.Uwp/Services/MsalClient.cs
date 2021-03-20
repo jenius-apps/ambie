@@ -7,6 +7,7 @@ using Microsoft.Identity.Client;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 #nullable enable
 
@@ -21,6 +22,7 @@ namespace AmbientSounds.Services.Uwp
         private readonly IPublicClientApplication _msalSdkClient;
         private readonly HttpClient _httpClient;
         private readonly IFileWriter _fileWriter;
+        private readonly ITelemetry _telemetry;
 
         /// <inheritdoc/>
         public event EventHandler? InteractiveSignInCompleted;
@@ -28,15 +30,18 @@ namespace AmbientSounds.Services.Uwp
         public MsalClient(
             IAppSettings appSettings,
             IFileWriter fileWriter,
-            HttpClient httpClient)
+            HttpClient httpClient,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(appSettings, nameof(appSettings));
             Guard.IsNotNull(fileWriter, nameof(fileWriter));
             Guard.IsNotNull(httpClient, nameof(httpClient));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _clientId = appSettings.MsaClientId;
             _fileWriter = fileWriter;
             _httpClient = httpClient;
+            _telemetry = telemetry;
             _msalSdkClient = PublicClientApplicationBuilder
                 .Create(_clientId)
                 .WithAuthority(Authority)
@@ -93,18 +98,28 @@ namespace AmbientSounds.Services.Uwp
             {
                 var accounts = await _msalSdkClient.GetAccountsAsync();
                 var firstAccount = accounts.FirstOrDefault();
-                var authResult = await _msalSdkClient 
+                var authResult = await _msalSdkClient
                     .AcquireTokenSilent(scopes, firstAccount)
                     .ExecuteAsync();
                 return authResult.AccessToken;
             }
-            catch (Exception e)
+            catch (MsalException e) when (e.ErrorCode == "user_null")
             {
-                return "";
+               // this is fine
             }
+            catch (MsalException e)
+            {
+                _telemetry.TrackError(e, new Dictionary<string, string>
+                {
+                    { "trace", e.StackTrace },
+                    { "scopes", string.Join(",", scopes) }
+                });
+            }
+
+            return "";
         }
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
         public async void  RequestInteractiveSignIn(
             string[] scopes,
             string[]? extraScopes = null)
@@ -118,15 +133,24 @@ namespace AmbientSounds.Services.Uwp
                 }
 
                 var authResult = await builder.ExecuteAsync();
-                
+
                 if (!string.IsNullOrWhiteSpace(authResult.AccessToken))
                 {
                     InteractiveSignInCompleted?.Invoke(this, EventArgs.Empty);
                 }
             }
-            catch (Exception e)
+            catch (MsalException e) when (e.ErrorCode == "authentication_canceled")
             {
-
+                // this is fine
+            }
+            catch (MsalException e)
+            {
+                _telemetry.TrackError(e, new Dictionary<string, string>
+                {
+                    { "trace", e.StackTrace },
+                    { "scopes", string.Join(",", scopes) },
+                    { "extraScopes", string.Join(",", extraScopes ?? new string[0]) }
+                });
             }
         }
 

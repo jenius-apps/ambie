@@ -6,7 +6,7 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"

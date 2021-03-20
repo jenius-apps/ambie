@@ -1,7 +1,9 @@
 ﻿using AmbientSounds.Constants;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Toolkit.Diagnostics;
+using System;
 using System.Collections.Generic;
 using Windows.Globalization;
 
@@ -21,7 +23,13 @@ namespace AmbientSounds.Services.Uwp
             Guard.IsNotNull(userSettings, nameof(userSettings));
             _userSettings = userSettings;
             AppCenter.SetCountryCode(new GeographicRegion().CodeTwoLetter);
-            AppCenter.Start(appSettings.TelemetryApiKey, typeof(Analytics));
+            AppCenter.Start(appSettings.TelemetryApiKey, typeof(Analytics), typeof(Crashes));
+        }
+
+        /// <inheritdoc/>
+        public void TrackError(Exception e, IDictionary<string, string> properties = null)
+        {
+            Crashes.TrackError(e, properties);
         }
 
         /// <inheritdoc/>

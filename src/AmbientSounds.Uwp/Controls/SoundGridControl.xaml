@@ -28,7 +28,7 @@
                 <GridView
                     x:Uid="SoundsGridView"
                     Padding="20,20,20,0"
-                    animations:ReorderGridAnimation.Duration="300"
+                    animations:ItemsReorderAnimation.Duration="0:0:0.3"
                     IsItemClickEnabled="True"
                     ItemContainerStyle="{StaticResource GridViewItemExpanded}"
                     ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
