@@ -231,12 +231,17 @@ namespace AmbientSounds
         {
             var settingsService = App.Services.GetRequiredService<IUserSettings>();
 
-            if (settingsService.Get<bool>(UserSettingsConstants.OverrideLanguage))
+            //It appears that the primarylanguageoverride is persistent over sessions. Doc says not to set it in every session. https://docs.microsoft.com/en-us/uwp/api/windows.globalization.applicationlanguages.primarylanguageoverride?view=winrt-19041
+            //reoverride only if it's not already set to the correct value. Not sure why doc doesn't want us to override every time - probably it keeps on adding that language as the most preferred language even if its already there (e.g. 1st and 2nd primary language override will become en-US) or some other performance issue.
+            if (settingsService.Get<bool>(UserSettingsConstants.OverrideLanguage) && !ApplicationLanguages.PrimaryLanguageOverride.Equals(settingsService.Get<string>(UserSettingsConstants.PreferredLanguage)))
             {
                 ApplicationLanguages.PrimaryLanguageOverride = settingsService.Get<string>(UserSettingsConstants.PreferredLanguage);
+                //ApplicationLanguages.PrimaryLanguageOverride = settingsService.Get<string>(UserSettingsConstants.PreferredLanguage);
             }
-            else
+            else //lets reset it back as previous set value will be persistent.
             {
+                ApplicationLanguages.PrimaryLanguageOverride = string.Empty;//not sure if there is a better way.
+                //ApplicationLanguages.PrimaryLanguageOverride = ApplicationLanguages.Languages[0];
             }
         }
 

@@ -606,8 +606,8 @@
           <target state="new">Preferred language (requires restart)</target>
         </trans-unit>
         <trans-unit id="SettingsLanguageOverrideSwitch.Header" translate="yes" xml:space="preserve">
-          <source>Override default language</source>
-          <target state="new">Override default language</target>
+          <source>Override default language (requires restart)</source>
+          <target state="new">Override default language (requires restart)</target>
         </trans-unit>
       </group>
     </body>

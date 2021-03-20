@@ -65,7 +65,7 @@ namespace AmbientSounds.ViewModels
 
 
         /// <summary>
-        /// Settings flag for screensaver.
+        /// Settings flag for language override.
         /// </summary>
         public bool OverrideLanguage
         {
@@ -74,7 +74,7 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// Settings flag for screensaver.
+        /// Settings flag for preferred language.
         /// </summary>
         public string PreferredLanguage
         {
@@ -83,11 +83,8 @@ namespace AmbientSounds.ViewModels
         }
 
 
-        //Todo - save it somewhere else?
-        public List<string> AvailableLanugages
-        {
-            get => new List<string>() { "ar", "ca-ES", "cs-CZ", "da-DK", "de-DE", "en-Us", "es-ES", "fr-FR", "hu-HU", "it-IT", "ko-KR", "nl-BE", "pt-BR", "tr" };
-        }
+        public List<string> AvailableLanugages { get; set; } = new List<string>();//code behind will add common (OS and APP) languages here.
+
 
 
         /// <summary>
@@ -139,15 +136,6 @@ namespace AmbientSounds.ViewModels
             _userSettings.Set(UserSettingsConstants.Theme, "default");
         }
 
-
-        /// <summary>
-        /// Event handler for PreferredLanguage Change Event.
-        /// </summary>
-        public void PreferredLanguageChanged()
-        {
-            //Probably wouldn't require it if selecteditem binding works as desired.
-            //SelectedLanguageChanged
-        }
 
         /// <summary>
         /// Event handler for RadioButton (light theme) click event.

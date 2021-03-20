@@ -82,7 +82,6 @@
 
 
             <!--  Language Override  -->
-            <!--<TextBlock x:Uid="OverrideDefaultLanguage" Style="{StaticResource SettingTitleStyle}" />-->
             <ToggleSwitch
                 x:Uid="SettingsLanguageOverrideSwitch"
                 Margin="0,12,0,0"
@@ -99,16 +98,11 @@
             <ComboBox 
                 Margin="0,12,0,0"
                 SelectedItem="{x:Bind ViewModel.PreferredLanguage, Mode=TwoWay}"
-                ItemsSource="{x:Bind ViewModel.AvailableLanugages}" SelectionChanged="ComboBox_SelectionChanged"/>
-
-            <!--<ComboBox
+                ItemsSource="{x:Bind ViewModel.AvailableLanugages}"/>
+            <!--<ComboBox 
                 Margin="0,12,0,0"
                 SelectedItem="{x:Bind ViewModel.PreferredLanguage, Mode=TwoWay}"
-                ItemsSource="{x:Bind ViewModel.AvailableLanugages}" SelectionChanged="{x:Bind ViewModel.PreferredLanguageChanged}"/>-->
-
-
-
-
+                ItemsSource="{x:Bind ViewModel.AvailableLanugages}"/>-->
 
         </StackPanel>
     </ScrollViewer>
