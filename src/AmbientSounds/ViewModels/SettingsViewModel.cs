@@ -86,7 +86,7 @@ namespace AmbientSounds.ViewModels
         //Todo - save it somewhere else?
         public List<string> AvailableLanugages
         {
-            get => new List<string>() { "en-Us", "cs-CZ", "da-DK", "de-DE", "es-ES", "fr-FR", "hu-HU", "it-IT", "ko-KR", "nl-BE", "pt-BR", "tr" };
+            get => new List<string>() { "ar", "ca-ES", "cs-CZ", "da-DK", "de-DE", "en-Us", "es-ES", "fr-FR", "hu-HU", "it-IT", "ko-KR", "nl-BE", "pt-BR", "tr" };
         }
 
 
