@@ -610,6 +610,10 @@
           <source>That's a big file! Try again with a file smaller than {0} MB.</source>
           <target state="new">That's a big file! Try again with a file smaller than {0} MB.</target>
         </trans-unit>
+        <trans-unit id="ErrorUploadCount" translate="yes" xml:space="preserve">
+          <source>You're at the limit! You can only have {0} sounds.</source>
+          <target state="new">You're at the limit! You can only have {0} sounds.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

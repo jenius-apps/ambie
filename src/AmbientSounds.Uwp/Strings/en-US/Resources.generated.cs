@@ -690,6 +690,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ErrorUploadCount
+        /// <summary>
+        ///   Looks up a localized string similar to: You're at the limit! You can only have {0} sounds.
+        /// </summary>
+        public static string ErrorUploadCount
+        {
+            get
+            {
+                return _resourceLoader.GetString("ErrorUploadCount");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -753,6 +766,7 @@ namespace AmbientSounds.Strings{
             Required,
             UploadPermissionsMessage,
             ErrorBigFile,
+            ErrorUploadCount,
         }
 
         private static ResourceLoader _resourceLoader;

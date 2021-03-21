@@ -8,8 +8,10 @@
     {
         // Threshold values
         public const double SizeLimit = 25;
+        public const double UploadLimit = 3;
 
         // IDs
         public const string BigFileId = "big_file";
+        public const string UploadLimitId = "upload_count";
     }
 }

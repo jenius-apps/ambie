@@ -6,6 +6,11 @@
     /// </summary>
     public class ErrorViewModel
     {
+        public ErrorViewModel(string errorId)
+        {
+            ErrorId = errorId;
+        }
+
         /// <summary>
         /// An internal ID to quickly identity what type of error this.
         /// Not to be displayed.

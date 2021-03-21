@@ -17,6 +17,7 @@ namespace AmbientSounds.ViewModels
         private readonly IUploadService _uploadService;
         private readonly IAccountManager _accountManager;
         private readonly IFilePicker _filePicker;
+        private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private string _name = "";
         private string _attribution = "";
         private string _imageUrl = "";
@@ -26,22 +27,33 @@ namespace AmbientSounds.ViewModels
         private bool _rule1;
         private bool _rule2;
         private bool _fileTooBig;
+        private bool _uploadLimitReached;
 
         public UploadFormViewModel(
             IUploadService uploadService,
             IAccountManager accountManager,
-            IFilePicker filePicker)
+            IFilePicker filePicker,
+            IOnlineSoundDataProvider onlineSoundDataProvider)
         {
             Guard.IsNotNull(uploadService, nameof(uploadService));
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(filePicker, nameof(filePicker));
+            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
 
             _uploadService = uploadService;
             _accountManager = accountManager;
             _filePicker = filePicker;
+            _onlineSoundDataProvider = onlineSoundDataProvider;
 
             SubmitCommand = new AsyncRelayCommand(SubmitAsync);
             PickSoundCommand = new AsyncRelayCommand(PickSoundFileAsync);
+
+            // We assume the user sounds are fetched every
+            // time there's a change in the user sounds list.
+            // We're piggy-backing off of the fetch call to avoid
+            // calling that fetch endpoint in this vm and to avoid
+            // the need for caching.
+            _onlineSoundDataProvider.UserSoundsFetched += OnUserSoundsFetched;
         }
 
         public ObservableCollection<ErrorViewModel> Errors { get; } = new();
@@ -170,21 +182,35 @@ namespace AmbientSounds.ViewModels
 
             if (new ByteSize(sizeInBytes) > ByteSize.FromMegaBytes(ErrorConstants.SizeLimit))
             {
-                _fileTooBig = true;
-                Errors.Add(new ErrorViewModel()
+                if (!_fileTooBig)
                 {
-                    ErrorId = ErrorConstants.BigFileId,
-                });
+                    // Only add the error if it was not set before.
+                    _fileTooBig = true;
+                    Errors.Add(new ErrorViewModel(ErrorConstants.BigFileId));
+                }
             }
             else
             {
                 _fileTooBig = false;
-                var errorToRemove = Errors.FirstOrDefault(x => x.ErrorId == ErrorConstants.BigFileId);
+                RemoveError(Errors, ErrorConstants.BigFileId);
+            }
+        }
 
-                if (errorToRemove != null)
+        private void OnUserSoundsFetched(object sender, int userSoundsCount)
+        {
+            if (userSoundsCount >= ErrorConstants.UploadLimit)
+            {
+                if (!_uploadLimitReached)
                 {
-                    Errors.Remove(errorToRemove);
+                    // Only add the error if it was not set before.
+                    _uploadLimitReached = true;
+                    Errors.Add(new ErrorViewModel(ErrorConstants.UploadLimitId));
                 }
+            }
+            else
+            {
+                _uploadLimitReached = false;
+                RemoveError(Errors, ErrorConstants.UploadLimitId);
             }
         }
 
@@ -195,7 +221,20 @@ namespace AmbientSounds.ViewModels
                 Uri.IsWellFormedUriString(ImageUrl, UriKind.Absolute) &&
                 !string.IsNullOrWhiteSpace(Attribution) &&
                 !string.IsNullOrWhiteSpace(Name) &&
-                !_fileTooBig;
+                !_fileTooBig &&
+                !_uploadLimitReached;
+        }
+
+        /// <summary>
+        /// Helper for removing errors.
+        /// </summary>
+        private static void RemoveError(ObservableCollection<ErrorViewModel> errors, string id)
+        {
+            var errorToRemove = errors.FirstOrDefault(x => x.ErrorId == id);
+            if (errorToRemove != null)
+            {
+                errors.Remove(errorToRemove);
+            }
         }
     }
 }

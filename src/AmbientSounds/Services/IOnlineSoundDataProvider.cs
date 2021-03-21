@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,6 +11,12 @@ namespace AmbientSounds.Services
     /// </summary>
     public interface IOnlineSoundDataProvider
     {
+        /// <summary>
+        /// Raised when user sounds are fetched. Includes
+        /// the number of sounds found.
+        /// </summary>
+        public event EventHandler<int>? UserSoundsFetched;
+
         /// <summary>
         /// Retrieves the sound download link for
         /// the specified sound data.

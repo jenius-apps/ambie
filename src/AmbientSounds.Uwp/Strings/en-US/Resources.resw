@@ -562,4 +562,7 @@
   <data name="ErrorBigFile" xml:space="preserve">
     <value>That's a big file! Try again with a file smaller than {0} MB.</value>
   </data>
+  <data name="ErrorUploadCount" xml:space="preserve">
+    <value>You're at the limit! You can only have {0} sounds.</value>
+  </data>
 </root>

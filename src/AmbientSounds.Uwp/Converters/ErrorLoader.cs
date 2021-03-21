@@ -11,12 +11,23 @@ namespace AmbientSounds.Converters
     {
         public static string GetMessage(this string errorId)
         {
-            if (errorId == ErrorConstants.BigFileId)
+            var result = "";
+            switch (errorId)
             {
-                return string.Format(Resources.ErrorBigFile, ErrorConstants.SizeLimit);
+                case ErrorConstants.BigFileId:
+                    result = Resources.ErrorBigFile.FormatHelper(ErrorConstants.SizeLimit.ToString());
+                    break;
+                case ErrorConstants.UploadLimitId:
+                    result = Resources.ErrorUploadCount.FormatHelper(ErrorConstants.UploadLimit.ToString());
+                    break;
+                default:
+                    break;
             }
 
-            return "";
+            return result;
         }
+
+        private static string FormatHelper(this string template, string arg)
+            => string.Format(template, arg);
     }
 }
