@@ -15,6 +15,13 @@ namespace AmbientSounds.Services
         Task<string> OpenPickerAsync();
 
         /// <summary>
+        /// Opens the file picker and returns the path to the
+        /// user selected item.
+        /// </summary>
+        /// <returns>Path to the selected file. Or returns empty string is cancelled. And includes size in bytes.</returns>
+        Task<(string, ulong)> OpenPickerAndGetSizeAsync();
+
+        /// <summary>
         /// Returns the bytes of the cached given file path.
         /// Returns null of the file path was not found in cache.
         /// </summary>
