@@ -677,6 +677,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ErrorBigFile
+        /// <summary>
+        ///   Looks up a localized string similar to: That's a big file! Try again with a file smaller than {0} MB.
+        /// </summary>
+        public static string ErrorBigFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("ErrorBigFile");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -739,6 +752,7 @@ namespace AmbientSounds.Strings{
             Optional,
             Required,
             UploadPermissionsMessage,
+            ErrorBigFile,
         }
 
         private static ResourceLoader _resourceLoader;

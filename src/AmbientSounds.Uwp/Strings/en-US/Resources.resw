@@ -559,4 +559,7 @@
   <data name="UploadPermissionsMessage" xml:space="preserve">
     <value>I created this sound or I have permission to upload it</value>
   </data>
+  <data name="ErrorBigFile" xml:space="preserve">
+    <value>That's a big file! Try again with a file smaller than {0} MB.</value>
+  </data>
 </root>

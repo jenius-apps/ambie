@@ -1,11 +1,13 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
+using ByteSizeLib;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -23,6 +25,7 @@ namespace AmbientSounds.ViewModels
         private bool _uploading;
         private bool _rule1;
         private bool _rule2;
+        private bool _fileTooBig;
 
         public UploadFormViewModel(
             IUploadService uploadService,
@@ -40,6 +43,8 @@ namespace AmbientSounds.ViewModels
             SubmitCommand = new AsyncRelayCommand(SubmitAsync);
             PickSoundCommand = new AsyncRelayCommand(PickSoundFileAsync);
         }
+
+        public ObservableCollection<ErrorViewModel> Errors { get; } = new();
 
         public IAsyncRelayCommand SubmitCommand { get; }
 
@@ -157,10 +162,29 @@ namespace AmbientSounds.ViewModels
 
         private async Task PickSoundFileAsync()
         {
-            var result = await _filePicker.OpenPickerAsync();
-            if (!string.IsNullOrWhiteSpace(result))
+            (string path, ulong sizeInBytes) = await _filePicker.OpenPickerAndGetSizeAsync();
+            if (!string.IsNullOrWhiteSpace(path))
             {
-                SoundPath = result;
+                SoundPath = path;
+            }
+
+            if (new ByteSize(sizeInBytes) > ByteSize.FromMegaBytes(ErrorConstants.SizeLimit))
+            {
+                _fileTooBig = true;
+                Errors.Add(new ErrorViewModel()
+                {
+                    ErrorId = ErrorConstants.BigFileId,
+                });
+            }
+            else
+            {
+                _fileTooBig = false;
+                var errorToRemove = Errors.FirstOrDefault(x => x.ErrorId == ErrorConstants.BigFileId);
+
+                if (errorToRemove != null)
+                {
+                    Errors.Remove(errorToRemove);
+                }
             }
         }
 
@@ -170,7 +194,8 @@ namespace AmbientSounds.ViewModels
                 !string.IsNullOrWhiteSpace(ImageUrl) &&
                 Uri.IsWellFormedUriString(ImageUrl, UriKind.Absolute) &&
                 !string.IsNullOrWhiteSpace(Attribution) &&
-                !string.IsNullOrWhiteSpace(Name);
+                !string.IsNullOrWhiteSpace(Name) &&
+                !_fileTooBig;
         }
     }
 }

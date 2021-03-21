@@ -603,6 +603,10 @@
           <source>I created this sound or I have permission to upload it</source>
           <target state="new">I created this sound or I have permission to upload it</target>
         </trans-unit>
+        <trans-unit id="ErrorBigFile" translate="yes" xml:space="preserve">
+          <source>That's a big file! Try again with a file smaller than {0} MB.</source>
+          <target state="new">That's a big file! Try again with a file smaller than {0} MB.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

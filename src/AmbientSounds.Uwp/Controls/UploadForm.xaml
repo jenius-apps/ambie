@@ -7,10 +7,28 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="ErrorTemplate" x:DataType="viewmodels:ErrorViewModel">
+            <winui:InfoBar
+                IsClosable="False"
+                IsIconVisible="False"
+                IsOpen="True"
+                Message="{x:Bind convert:ErrorLoader.GetMessage(ErrorId)}"
+                Severity="Error">
+                <winui:InfoBar.Transitions>
+                    <TransitionCollection>
+                        <AddDeleteThemeTransition />
+                    </TransitionCollection>
+                </winui:InfoBar.Transitions>
+            </winui:InfoBar>
+        </DataTemplate>
+    </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -113,6 +131,11 @@
                             Visibility="{x:Bind ViewModel.Uploading, Mode=OneWay}" />
                     </Grid>
                 </Button>
+
+                <winui:ItemsRepeater
+                    Margin="0,12,0,0"
+                    ItemTemplate="{StaticResource ErrorTemplate}"
+                    ItemsSource="{x:Bind ViewModel.Errors}" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
