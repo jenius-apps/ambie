@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,9 @@ namespace AmbientSounds.Services
         private readonly HttpClient _client;
         private readonly string _url;
         private readonly string _mySoundsUrl;
+
+        /// <inheritdoc/>
+        public event EventHandler<int>? UserSoundsFetched;
 
         public OnlineSoundDataProvider(
             HttpClient httpClient,
@@ -103,10 +107,12 @@ namespace AmbientSounds.Services
                     result,
                     new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
+                UserSoundsFetched?.Invoke(this, results?.Length ?? 0);
                 return results ?? new Sound[0];
             }
             catch
             {
+                UserSoundsFetched?.Invoke(this, 0);
                 return new Sound[0];
             }
         }

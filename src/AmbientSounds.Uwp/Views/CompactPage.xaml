@@ -75,7 +75,7 @@
 
         <Grid
             Padding="20,32,20,4"
-            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
+            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
             Canvas.ZIndex="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
@@ -100,7 +100,7 @@
         <Grid
             Grid.Row="2"
             Padding="20,8"
-            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
             <controls:PlayerControl HorizontalAlignment="Center" />
         </Grid>
     </Grid>

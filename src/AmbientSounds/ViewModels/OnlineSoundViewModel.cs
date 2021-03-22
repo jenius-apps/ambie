@@ -6,6 +6,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -101,6 +102,21 @@ namespace AmbientSounds.ViewModels
         /// The path for the image to display for the current sound.
         /// </summary>
         public string? ImagePath => _sound.ImagePath;
+
+        /// <summary>
+        /// Array of sponsor links provided by sound author
+        /// to be displayed on screen if the links are valid.
+        /// </summary>
+        public string[] ValidSponsorLinks => AreLinksValid
+            ? _sound.SponsorLinks.Where(x => Uri.IsWellFormedUriString(x, UriKind.Absolute)).ToArray()
+            : new string[0];
+
+        /// <summary>
+        /// Determines if it's safe to display the links.
+        /// </summary>
+        public bool AreLinksValid => _sound.SponsorLinks != null && 
+            _sound.SponsorLinks.Length > 0 && 
+            _sound.SponsorLinks.Any(x => Uri.IsWellFormedUriString(x, UriKind.Absolute));
 
         /// <summary>
         /// Determines if the sound can be previewed.

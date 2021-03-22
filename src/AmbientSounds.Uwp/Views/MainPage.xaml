@@ -132,7 +132,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="{StaticResource HeaderHeight}" />
         </Grid.RowDefinitions>
 
         <Grid
@@ -171,7 +171,7 @@
         <Grid
             Grid.Row="2"
             Padding="40,0"
-            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />

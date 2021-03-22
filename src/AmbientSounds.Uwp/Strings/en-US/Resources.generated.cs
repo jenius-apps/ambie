@@ -677,6 +677,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ErrorBigFile
+        /// <summary>
+        ///   Looks up a localized string similar to: That's a big file! Try again with a file smaller than {0} MB.
+        /// </summary>
+        public static string ErrorBigFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("ErrorBigFile");
+            }
+        }
+        #endregion
+
+        #region ErrorUploadCount
+        /// <summary>
+        ///   Looks up a localized string similar to: You're at the limit! You can only have {0} sounds.
+        /// </summary>
+        public static string ErrorUploadCount
+        {
+            get
+            {
+                return _resourceLoader.GetString("ErrorUploadCount");
+            }
+        }
+        #endregion
+
+        #region Donate
+        /// <summary>
+        ///   Looks up a localized string similar to: Donate
+        /// </summary>
+        public static string Donate
+        {
+            get
+            {
+                return _resourceLoader.GetString("Donate");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -739,6 +778,9 @@ namespace AmbientSounds.Strings{
             Optional,
             Required,
             UploadPermissionsMessage,
+            ErrorBigFile,
+            ErrorUploadCount,
+            Donate,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -24,7 +24,7 @@
             <Button.Flyout>
                 <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
                     <winui:CommandBarFlyout.SecondaryCommands>
-                        <!--<AppBarElementContainer IsTabStop="True">
+                        <AppBarElementContainer IsTabStop="True">
                             <StackPanel Padding="12">
                                 <TextBlock
                                     MaxWidth="240"
@@ -32,7 +32,7 @@
                                     TextWrapping="WrapWholeWords" />
                             </StackPanel>
                         </AppBarElementContainer>
-                        <AppBarSeparator />-->
+                        <AppBarSeparator />
                         <AppBarButton Command="{x:Bind ViewModel.SignInCommand}" Label="{x:Bind strings:Resources.SignIn}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
@@ -77,14 +77,14 @@
                             </StackPanel>
                         </AppBarElementContainer>
                         <AppBarSeparator IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
-                        <!--<AppBarButton
+                        <AppBarButton
                             x:Uid="MoreButtonUpload"
                             Command="{x:Bind ViewModel.OpenUploadPageCommand}"
                             Visibility="{x:Bind ViewModel.IsNotTenFoot}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B8;" />
                             </AppBarButton.Icon>
-                        </AppBarButton>-->
+                        </AppBarButton>
                         <AppBarButton x:Uid="SyncAppBarButton" Command="{x:Bind ViewModel.SyncCommand}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE932;" />
