@@ -703,6 +703,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Donate
+        /// <summary>
+        ///   Looks up a localized string similar to: Donate
+        /// </summary>
+        public static string Donate
+        {
+            get
+            {
+                return _resourceLoader.GetString("Donate");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -767,6 +780,7 @@ namespace AmbientSounds.Strings{
             UploadPermissionsMessage,
             ErrorBigFile,
             ErrorUploadCount,
+            Donate,
         }
 
         private static ResourceLoader _resourceLoader;

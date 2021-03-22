@@ -565,4 +565,7 @@
   <data name="ErrorUploadCount" xml:space="preserve">
     <value>You're at the limit! You can only have {0} sounds.</value>
   </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donate</value>
+  </data>
 </root>
