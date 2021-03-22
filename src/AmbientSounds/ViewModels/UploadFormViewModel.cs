@@ -6,8 +6,10 @@ using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -18,6 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly IAccountManager _accountManager;
         private readonly IFilePicker _filePicker;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+        private readonly ITelemetry _telemetry;
         private string _name = "";
         private string _attribution = "";
         private string _imageUrl = "";
@@ -33,13 +36,16 @@ namespace AmbientSounds.ViewModels
             IUploadService uploadService,
             IAccountManager accountManager,
             IFilePicker filePicker,
+            ITelemetry telemetry,
             IOnlineSoundDataProvider onlineSoundDataProvider)
         {
             Guard.IsNotNull(uploadService, nameof(uploadService));
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(filePicker, nameof(filePicker));
             Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
+            _telemetry = telemetry;
             _uploadService = uploadService;
             _accountManager = accountManager;
             _filePicker = filePicker;
@@ -48,12 +54,21 @@ namespace AmbientSounds.ViewModels
             SubmitCommand = new AsyncRelayCommand(SubmitAsync);
             PickSoundCommand = new AsyncRelayCommand(PickSoundFileAsync);
 
-            // We assume the user sounds are fetched every
-            // time there's a change in the user sounds list.
-            // We're piggy-backing off of the fetch call to avoid
-            // calling that fetch endpoint in this vm and to avoid
-            // the need for caching.
-            _onlineSoundDataProvider.UserSoundsFetched += OnUserSoundsFetched;
+            _onlineSoundDataProvider.UserSoundsFetched += CheckUserListcount;
+            _uploadService.SoundDeleted += OnUserSoundDeleted;
+        }
+
+        private async void OnUserSoundDeleted(object sender, string e)
+        {
+            var token = await _accountManager.GetCatalogueTokenAsync();
+            if (token != null)
+            {
+                var sounds = await _onlineSoundDataProvider.GetUserSoundsAsync(token);
+                if (sounds != null)
+                {
+                    CheckUserListcount(this, sounds.Count);
+                }
+            }
         }
 
         public ObservableCollection<ErrorViewModel> Errors { get; } = new();
@@ -160,13 +175,22 @@ namespace AmbientSounds.ViewModels
                 FileExtension = System.IO.Path.GetExtension(SoundPath)
             };
 
+            RemoveError(Errors, ErrorConstants.CustomId);
+
             try
             {
                 await _uploadService.UploadAsync(s);
             }
             catch (Exception e)
             {
-                // TODO handle in UI
+                Errors.Add(new ErrorViewModel(
+                    ErrorConstants.CustomId,
+                    e.Message + Environment.NewLine + e.InnerException?.Message));
+
+                _telemetry.TrackError(e, new Dictionary<string, string>
+                {
+                    { "soundObject", JsonSerializer.Serialize(s) }
+                });
             }
 
             Uploading = false;
@@ -196,7 +220,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private void OnUserSoundsFetched(object sender, int userSoundsCount)
+        private void CheckUserListcount(object sender, int userSoundsCount)
         {
             if (userSoundsCount >= ErrorConstants.UploadLimit)
             {

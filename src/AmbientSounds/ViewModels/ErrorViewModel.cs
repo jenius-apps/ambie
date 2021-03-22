@@ -6,9 +6,10 @@
     /// </summary>
     public class ErrorViewModel
     {
-        public ErrorViewModel(string errorId)
+        public ErrorViewModel(string errorId, string customMessage = "")
         {
             ErrorId = errorId;
+            ErrorMessage = customMessage;
         }
 
         /// <summary>

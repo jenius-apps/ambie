@@ -13,5 +13,6 @@
         // IDs
         public const string BigFileId = "big_file";
         public const string UploadLimitId = "upload_count";
+        public const string CustomId = "custom_message";
     }
 }

@@ -162,7 +162,7 @@
                                 Orientation="Horizontal">
                                 <muxc:DropDownButton AutomationProperties.Name="{x:Bind strings:Resources.Donate}" Visibility="{x:Bind AreLinksValid}">
                                     <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE00B;" />
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA7C;" />
                                         <TextBlock Margin="8,0" Text="{x:Bind strings:Resources.Donate}" />
                                     </StackPanel>
                                     <Button.Flyout>

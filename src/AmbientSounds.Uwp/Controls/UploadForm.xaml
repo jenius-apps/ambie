@@ -20,7 +20,7 @@
                 IsClosable="False"
                 IsIconVisible="False"
                 IsOpen="True"
-                Message="{x:Bind convert:ErrorLoader.GetMessage(ErrorId)}"
+                Message="{x:Bind convert:ErrorLoader.GetMessage(ErrorId, ErrorMessage)}"
                 Severity="Error">
                 <winui:InfoBar.Transitions>
                     <TransitionCollection>

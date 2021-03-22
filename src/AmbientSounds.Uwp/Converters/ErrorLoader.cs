@@ -9,7 +9,7 @@ namespace AmbientSounds.Converters
     /// </summary>
     public static class ErrorLoader
     {
-        public static string GetMessage(this string errorId)
+        public static string GetMessage(this string errorId, string customMessage = null)
         {
             var result = "";
             switch (errorId)
@@ -19,6 +19,9 @@ namespace AmbientSounds.Converters
                     break;
                 case ErrorConstants.UploadLimitId:
                     result = Resources.ErrorUploadCount.FormatHelper(ErrorConstants.UploadLimit.ToString());
+                    break;
+                case ErrorConstants.CustomId:
+                    result = customMessage ?? "";
                     break;
                 default:
                     break;
