@@ -616,6 +616,22 @@
           <source>Follow us on Twitter</source>
           <target state="new">Follow us on Twitter</target>
         </trans-unit>
+        <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
+          <source>Dismiss</source>
+          <target state="new">Dismiss</target>
+        </trans-unit>
+        <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
+          <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
+          <target state="new">Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</target>
+        </trans-unit>
+        <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
+          <source>Hello and welcome!</source>
+          <target state="new">Hello and welcome!</target>
+        </trans-unit>
+        <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
+          <source>Pin to taskbar</source>
+          <target state="new">Pin to taskbar</target>
+        </trans-unit>
       </group>
     </body>
   </file>

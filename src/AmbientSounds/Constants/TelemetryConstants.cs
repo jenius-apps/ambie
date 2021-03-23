@@ -67,5 +67,10 @@
         public const string UploadTermsOfUseClicked = Upload + "termsClicked";
         public const string UploadRefreshClicked = Upload + "refreshClicked";
         public const string UploadFilePicked = Upload + "filePicked";
+
+        // pin
+        private const string Oobe = "oobe:";
+        public const string PinnedToTaskbar = Oobe + "pinnedToTaskbar";
+        public const string LaunchMessageShown = Oobe + "launchMessageShown";
     }
 }

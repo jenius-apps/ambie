@@ -742,6 +742,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Dismiss
+        /// <summary>
+        ///   Looks up a localized string similar to: Dismiss
+        /// </summary>
+        public static string Dismiss
+        {
+            get
+            {
+                return _resourceLoader.GetString("Dismiss");
+            }
+        }
+        #endregion
+
+        #region FirstLaunchMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝
+        /// </summary>
+        public static string FirstLaunchMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FirstLaunchMessage");
+            }
+        }
+        #endregion
+
+        #region HelloAndWelcome
+        /// <summary>
+        ///   Looks up a localized string similar to: Hello and welcome!
+        /// </summary>
+        public static string HelloAndWelcome
+        {
+            get
+            {
+                return _resourceLoader.GetString("HelloAndWelcome");
+            }
+        }
+        #endregion
+
+        #region PinToTaskbar
+        /// <summary>
+        ///   Looks up a localized string similar to: Pin to taskbar
+        /// </summary>
+        public static string PinToTaskbar
+        {
+            get
+            {
+                return _resourceLoader.GetString("PinToTaskbar");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -809,6 +861,10 @@ namespace AmbientSounds.Strings{
             Donate,
             TermsOfUse,
             FollowTwitter,
+            Dismiss,
+            FirstLaunchMessage,
+            HelloAndWelcome,
+            PinToTaskbar,
         }
 
         private static ResourceLoader _resourceLoader;
