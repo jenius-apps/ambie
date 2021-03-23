@@ -568,4 +568,22 @@
   <data name="Donate" xml:space="preserve">
     <value>Donate</value>
   </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Terms of Use</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Follow us on Twitter</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Hello and welcome!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Pin to taskbar</value>
+  </data>
 </root>

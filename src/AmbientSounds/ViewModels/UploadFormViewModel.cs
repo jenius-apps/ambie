@@ -155,6 +155,11 @@ namespace AmbientSounds.ViewModels
 
         public bool IsUploadButtonEnabled => !Uploading && CanUpload() && Rule1 && Rule2;
 
+        public void TermsClicked()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.UploadTermsOfUseClicked);
+        }
+
         private async Task SubmitAsync()
         {
             bool isSignedIn = await _accountManager.IsSignedInAsync();
@@ -193,6 +198,7 @@ namespace AmbientSounds.ViewModels
                 });
             }
 
+            _telemetry.TrackEvent(TelemetryConstants.UploadClicked);
             Uploading = false;
         }
 
@@ -204,7 +210,8 @@ namespace AmbientSounds.ViewModels
                 SoundPath = path;
             }
 
-            if (new ByteSize(sizeInBytes) > ByteSize.FromMegaBytes(ErrorConstants.SizeLimit))
+            var size = new ByteSize(sizeInBytes);
+            if (size > ByteSize.FromMegaBytes(ErrorConstants.SizeLimit))
             {
                 if (!_fileTooBig)
                 {
@@ -218,6 +225,11 @@ namespace AmbientSounds.ViewModels
                 _fileTooBig = false;
                 RemoveError(Errors, ErrorConstants.BigFileId);
             }
+
+            _telemetry.TrackEvent(TelemetryConstants.UploadFilePicked, new Dictionary<string, string>
+            {
+                { "size", Math.Round(size.MegaBytes).ToString() }
+            });
         }
 
         private void CheckUserListcount(object sender, int userSoundsCount)

@@ -1,5 +1,10 @@
-﻿using Windows.UI.Xaml;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views
 {
@@ -11,6 +16,15 @@ namespace AmbientSounds.Views
         public UploadPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+            telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
+            {
+                { "name", "uploadPage" },
+            });
         }
 
         private void GoBack()
@@ -26,14 +40,11 @@ namespace AmbientSounds.Views
             MainSplitView.IsPaneOpen = true;
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainSplitView.IsPaneOpen = false;
-        }
-
         private void RefreshClicked(object sender, RoutedEventArgs e)
         {
             MySoundsList.Refresh();
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+            telemetry.TrackEvent(TelemetryConstants.UploadRefreshClicked);
         }
     }
 }

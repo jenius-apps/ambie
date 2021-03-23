@@ -13,7 +13,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="{StaticResource HeaderHeight}" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid
@@ -46,36 +45,7 @@
                     FontFamily="Calibri"
                     FontSize="32" />
             </StackPanel>
-
-            <Button
-                x:Name="MoreSoundsButton"
-                x:Uid="ViewCatalogueButton"
-                Grid.Column="2"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Visibility="Collapsed">
-                <TextBlock x:Uid="ViewCatalogue" Text="More sounds" />
-                <Button.Flyout>
-                    <Flyout>
-                        <controls:SoundSuggestionControl Margin="20" />
-                    </Flyout>
-                </Button.Flyout>
-            </Button>
         </Grid>
-
         <controls:CatalogueListControl Grid.Row="1" />
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MoreSoundsButton.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
