@@ -52,14 +52,13 @@
         </ScrollViewer>
 
         <muxc:ProgressRing
-            x:Name="SoundsLoadingRing"
             x:Uid="SoundsLoadingRing"
             Width="40"
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            x:Load="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
             Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-            IsActive="True" />
+            IsActive="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}" />
     </Grid>
 </UserControl>
