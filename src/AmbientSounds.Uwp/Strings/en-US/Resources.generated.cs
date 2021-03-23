@@ -716,6 +716,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region TermsOfUse
+        /// <summary>
+        ///   Looks up a localized string similar to: Terms of Use
+        /// </summary>
+        public static string TermsOfUse
+        {
+            get
+            {
+                return _resourceLoader.GetString("TermsOfUse");
+            }
+        }
+        #endregion
+
+        #region FollowTwitter
+        /// <summary>
+        ///   Looks up a localized string similar to: Follow us on Twitter
+        /// </summary>
+        public static string FollowTwitter
+        {
+            get
+            {
+                return _resourceLoader.GetString("FollowTwitter");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -781,6 +807,8 @@ namespace AmbientSounds.Strings{
             ErrorBigFile,
             ErrorUploadCount,
             Donate,
+            TermsOfUse,
+            FollowTwitter,
         }
 
         private static ResourceLoader _resourceLoader;

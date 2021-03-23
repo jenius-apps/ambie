@@ -568,4 +568,10 @@
   <data name="Donate" xml:space="preserve">
     <value>Donate</value>
   </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Terms of Use</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Follow us on Twitter</value>
+  </data>
 </root>
