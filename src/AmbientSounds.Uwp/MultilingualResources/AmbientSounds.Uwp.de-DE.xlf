@@ -603,6 +603,18 @@
           <source>You're at the limit! You can only have {0} sounds.</source>
           <target state="new">You're at the limit! You can only have {0} sounds.</target>
         </trans-unit>
+        <trans-unit id="Donate" translate="yes" xml:space="preserve">
+          <source>Donate</source>
+          <target state="new">Donate</target>
+        </trans-unit>
+        <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
+          <source>Terms of Use</source>
+          <target state="new">Terms of Use</target>
+        </trans-unit>
+        <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
+          <source>Follow us on Twitter</source>
+          <target state="new">Follow us on Twitter</target>
+        </trans-unit>
       </group>
     </body>
   </file>
