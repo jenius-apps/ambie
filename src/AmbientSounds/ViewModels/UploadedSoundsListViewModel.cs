@@ -1,9 +1,9 @@
-﻿using AmbientSounds.Factories;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -18,18 +18,22 @@ namespace AmbientSounds.ViewModels
         private readonly IAccountManager _accountManager;
         private readonly ISoundVmFactory _soundVmFactory;
         private readonly IUploadService _uploadService;
+        private readonly ITelemetry _telemetry;
 
         public UploadedSoundsListViewModel(
             IOnlineSoundDataProvider onlineSoundDataProvider,
             IAccountManager accountManager,
             ISoundVmFactory soundVmFactory,
+            ITelemetry telemetry,
             IUploadService uploadService)
         {
             Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
             Guard.IsNotNull(uploadService, nameof(uploadService));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
+            _telemetry = telemetry;
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _accountManager = accountManager;
             _soundVmFactory = soundVmFactory;
@@ -97,6 +101,7 @@ namespace AmbientSounds.ViewModels
             if (forDeletion != null)
             {
                 UploadedSounds.Remove(forDeletion);
+                _telemetry.TrackEvent(TelemetryConstants.UserSoundDeleted);
             }
         }
     }

@@ -59,5 +59,13 @@
         public const string SyncManual = Sync + "manual";
         public const string SyncDown = Sync + "down";
         public const string SyncUp = Sync + "up";
+
+        // upload
+        private const string Upload = "upload:";
+        public const string UploadClicked = Upload + "clicked";
+        public const string UserSoundDeleted = Upload + "soundDeleted";
+        public const string UploadTermsOfUseClicked = Upload + "termsClicked";
+        public const string UploadRefreshClicked = Upload + "refreshClicked";
+        public const string UploadFilePicked = Upload + "filePicked";
     }
 }
