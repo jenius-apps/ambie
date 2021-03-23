@@ -40,11 +40,6 @@ namespace AmbientSounds.Views
             MainSplitView.IsPaneOpen = true;
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainSplitView.IsPaneOpen = false;
-        }
-
         private void RefreshClicked(object sender, RoutedEventArgs e)
         {
             MySoundsList.Refresh();
