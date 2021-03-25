@@ -1,11 +1,15 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
+using ByteSizeLib;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -15,6 +19,8 @@ namespace AmbientSounds.ViewModels
         private readonly IUploadService _uploadService;
         private readonly IAccountManager _accountManager;
         private readonly IFilePicker _filePicker;
+        private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+        private readonly ITelemetry _telemetry;
         private string _name = "";
         private string _attribution = "";
         private string _imageUrl = "";
@@ -23,23 +29,49 @@ namespace AmbientSounds.ViewModels
         private bool _uploading;
         private bool _rule1;
         private bool _rule2;
+        private bool _fileTooBig;
+        private bool _uploadLimitReached;
 
         public UploadFormViewModel(
             IUploadService uploadService,
             IAccountManager accountManager,
-            IFilePicker filePicker)
+            IFilePicker filePicker,
+            ITelemetry telemetry,
+            IOnlineSoundDataProvider onlineSoundDataProvider)
         {
             Guard.IsNotNull(uploadService, nameof(uploadService));
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(filePicker, nameof(filePicker));
+            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
+            _telemetry = telemetry;
             _uploadService = uploadService;
             _accountManager = accountManager;
             _filePicker = filePicker;
+            _onlineSoundDataProvider = onlineSoundDataProvider;
 
             SubmitCommand = new AsyncRelayCommand(SubmitAsync);
             PickSoundCommand = new AsyncRelayCommand(PickSoundFileAsync);
+
+            _onlineSoundDataProvider.UserSoundsFetched += CheckUserListcount;
+            _uploadService.SoundDeleted += OnUserSoundDeleted;
         }
+
+        private async void OnUserSoundDeleted(object sender, string e)
+        {
+            var token = await _accountManager.GetCatalogueTokenAsync();
+            if (token != null)
+            {
+                var sounds = await _onlineSoundDataProvider.GetUserSoundsAsync(token);
+                if (sounds != null)
+                {
+                    CheckUserListcount(this, sounds.Count);
+                }
+            }
+        }
+
+        public ObservableCollection<ErrorViewModel> Errors { get; } = new();
 
         public IAsyncRelayCommand SubmitCommand { get; }
 
@@ -123,6 +155,11 @@ namespace AmbientSounds.ViewModels
 
         public bool IsUploadButtonEnabled => !Uploading && CanUpload() && Rule1 && Rule2;
 
+        public void TermsClicked()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.UploadTermsOfUseClicked);
+        }
+
         private async Task SubmitAsync()
         {
             bool isSignedIn = await _accountManager.IsSignedInAsync();
@@ -143,24 +180,73 @@ namespace AmbientSounds.ViewModels
                 FileExtension = System.IO.Path.GetExtension(SoundPath)
             };
 
+            RemoveError(Errors, ErrorConstants.CustomId);
+
             try
             {
                 await _uploadService.UploadAsync(s);
             }
             catch (Exception e)
             {
-                // TODO handle in UI
+                Errors.Add(new ErrorViewModel(
+                    ErrorConstants.CustomId,
+                    e.Message + Environment.NewLine + e.InnerException?.Message));
+
+                _telemetry.TrackError(e, new Dictionary<string, string>
+                {
+                    { "soundObject", JsonSerializer.Serialize(s) }
+                });
             }
 
+            _telemetry.TrackEvent(TelemetryConstants.UploadClicked);
             Uploading = false;
         }
 
         private async Task PickSoundFileAsync()
         {
-            var result = await _filePicker.OpenPickerAsync();
-            if (!string.IsNullOrWhiteSpace(result))
+            (string path, ulong sizeInBytes) = await _filePicker.OpenPickerAndGetSizeAsync();
+            if (!string.IsNullOrWhiteSpace(path))
             {
-                SoundPath = result;
+                SoundPath = path;
+            }
+
+            var size = new ByteSize(sizeInBytes);
+            if (size > ByteSize.FromMegaBytes(ErrorConstants.SizeLimit))
+            {
+                if (!_fileTooBig)
+                {
+                    // Only add the error if it was not set before.
+                    _fileTooBig = true;
+                    Errors.Add(new ErrorViewModel(ErrorConstants.BigFileId));
+                }
+            }
+            else
+            {
+                _fileTooBig = false;
+                RemoveError(Errors, ErrorConstants.BigFileId);
+            }
+
+            _telemetry.TrackEvent(TelemetryConstants.UploadFilePicked, new Dictionary<string, string>
+            {
+                { "size", Math.Round(size.MegaBytes).ToString() }
+            });
+        }
+
+        private void CheckUserListcount(object sender, int userSoundsCount)
+        {
+            if (userSoundsCount >= ErrorConstants.UploadLimit)
+            {
+                if (!_uploadLimitReached)
+                {
+                    // Only add the error if it was not set before.
+                    _uploadLimitReached = true;
+                    Errors.Add(new ErrorViewModel(ErrorConstants.UploadLimitId));
+                }
+            }
+            else
+            {
+                _uploadLimitReached = false;
+                RemoveError(Errors, ErrorConstants.UploadLimitId);
             }
         }
 
@@ -170,7 +256,21 @@ namespace AmbientSounds.ViewModels
                 !string.IsNullOrWhiteSpace(ImageUrl) &&
                 Uri.IsWellFormedUriString(ImageUrl, UriKind.Absolute) &&
                 !string.IsNullOrWhiteSpace(Attribution) &&
-                !string.IsNullOrWhiteSpace(Name);
+                !string.IsNullOrWhiteSpace(Name) &&
+                !_fileTooBig &&
+                !_uploadLimitReached;
+        }
+
+        /// <summary>
+        /// Helper for removing errors.
+        /// </summary>
+        private static void RemoveError(ObservableCollection<ErrorViewModel> errors, string id)
+        {
+            var errorToRemove = errors.FirstOrDefault(x => x.ErrorId == id);
+            if (errorToRemove != null)
+            {
+                errors.Remove(errorToRemove);
+            }
         }
     }
 }

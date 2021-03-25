@@ -3,8 +3,12 @@ using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.Helpers;
+using System;
 using System.ComponentModel;
 using Windows.Globalization;
+using Windows.Foundation.Metadata;
+using Windows.UI.Shell;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Automation.Peers;
@@ -63,6 +67,11 @@ namespace AmbientSounds.Views
         {
             ViewModel.StartTimer();
             ViewModel.PropertyChanged += OnPropertyChanged;
+
+            if (e.NavigationMode == NavigationMode.New)
+            {
+                TryShowPinTeachingTip();
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -71,15 +80,48 @@ namespace AmbientSounds.Views
             ViewModel.PropertyChanged -= OnPropertyChanged;
         }
 
-        private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp(sender as UIElement, 1.1f, e.Pointer);
+        private void GridScaleUp(object sender, PointerRoutedEventArgs e) 
+            => SoundItemAnimations.ItemScaleUp(sender as UIElement, 1.1f, e.Pointer);
 
-        private void GridScaleNormal(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleNormal(sender as UIElement);
+        private void GridScaleNormal(object sender, PointerRoutedEventArgs e) 
+            => SoundItemAnimations.ItemScaleNormal(sender as UIElement);
 
         private void Flyout_Opened(object sender, object e)
         {
             // Ref: https://thinkrethink.net/2019/02/18/wpf-liferegionchanged-automationpeer-status-changes-announced/
             var peer = FrameworkElementAutomationPeer.FromElement(LimitWarningText);
             peer.RaiseAutomationEvent(AutomationEvents.LiveRegionChanged);
+        }
+
+        private async void TryShowPinTeachingTip()
+        {
+            var tbmgr = TaskbarManager.GetDefault();
+            var isPinned = await tbmgr.IsCurrentAppPinnedAsync();
+
+            if (SystemInformation.Instance.IsFirstRun &&
+                ApiInformation.IsTypePresent("Windows.UI.Shell.TaskbarManager") &&
+                tbmgr.IsPinningAllowed &&
+                !isPinned)
+            {
+                PinTeachingTip.IsOpen = true;
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.LaunchMessageShown);
+            }
+        }
+
+        private async void PinTeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
+        {
+            sender.IsOpen = false;
+
+            var tbmgr = TaskbarManager.GetDefault();
+            var isPinned = await tbmgr.IsCurrentAppPinnedAsync();
+
+            if (ApiInformation.IsTypePresent("Windows.UI.Shell.TaskbarManager") &&
+                tbmgr.IsPinningAllowed &&
+                !isPinned)
+            {
+                await tbmgr.RequestPinCurrentAppAsync();
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.PinnedToTaskbar);
+            }
         }
     }
 }

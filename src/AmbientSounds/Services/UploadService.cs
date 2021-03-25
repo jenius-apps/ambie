@@ -20,10 +20,10 @@ namespace AmbientSounds.Services
         private readonly IAccountManager _accountManager;
         private readonly IFilePicker _filePicker;
 
-        /// <inheritdocs/>
+        /// <inheritdoc/>
         public event EventHandler<Sound>? SoundUploaded;
 
-        /// <inheritdocs/>
+        /// <inheritdoc/>
         public event EventHandler<string>? SoundDeleted;
 
         public UploadService(

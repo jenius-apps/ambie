@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.AccessCache;
+using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 
 namespace AmbientSounds.Services.Uwp
@@ -18,6 +19,28 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<string> OpenPickerAsync()
         {
+            var file = await OpenPickerAndGetFileAsync();
+
+            return file == null
+                ? ""
+                : file.Path;
+        }
+
+        /// <inheritdoc/>
+        public async Task<(string, ulong)> OpenPickerAndGetSizeAsync()
+        {
+            var file = await OpenPickerAndGetFileAsync();
+            if (file == null)
+            {
+                return ("", 0);
+            }
+
+            BasicProperties basicProperties = await file.GetBasicPropertiesAsync();
+            return (file.Path, basicProperties.Size);
+        }
+
+        private async Task<StorageFile> OpenPickerAndGetFileAsync()
+        {
             var picker = new FileOpenPicker
             {
                 ViewMode = PickerViewMode.List,
@@ -30,10 +53,10 @@ namespace AmbientSounds.Services.Uwp
             if (file != null)
             {
                 StorageApplicationPermissions.FutureAccessList.AddOrReplace(UploadFileKey, file);
-                return file.Path;
+                return file;
             }
 
-           return "";
+            return null;
         }
 
         /// <inheritdoc/>

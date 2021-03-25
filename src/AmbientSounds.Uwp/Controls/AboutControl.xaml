@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -24,5 +25,13 @@
             x:Uid="PrivacyPolicyButton"
             HorizontalAlignment="Center"
             NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
+        <HyperlinkButton
+            HorizontalAlignment="Center"
+            Content="{x:Bind strings:Resources.TermsOfUse}"
+            NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
+        <HyperlinkButton
+            HorizontalAlignment="Center"
+            Content="{x:Bind strings:Resources.FollowTwitter}"
+            NavigateUri="https://twitter.com/ambie_app" />
     </StackPanel>
 </UserControl>

@@ -28,6 +28,7 @@
 
         <Style x:Key="PublishStateIcon" TargetType="FontIcon">
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="FontFamily" Value="{StaticResource FluentUIGlyphs}" />
             <Setter Property="FontSize" Value="14" />

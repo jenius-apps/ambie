@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:statetriggers="using:AmbientSounds.StateTriggers"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -132,7 +133,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="100" />
+            <RowDefinition Height="{StaticResource HeaderHeight}" />
         </Grid.RowDefinitions>
 
         <Grid
@@ -171,7 +172,7 @@
         <Grid
             Grid.Row="2"
             Padding="40,0"
-            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
@@ -215,5 +216,14 @@
                 </FlyoutBase.AttachedFlyout>
             </controls:ActiveTrackList>
         </Grid>
+
+        <muxc:TeachingTip
+            x:Name="PinTeachingTip"
+            Title="{x:Bind strings:Resources.HelloAndWelcome}"
+            ActionButtonClick="PinTeachingTip_ActionButtonClick"
+            ActionButtonContent="{x:Bind strings:Resources.PinToTaskbar}"
+            CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
+            PreferredPlacement="BottomRight"
+            Subtitle="{x:Bind strings:Resources.FirstLaunchMessage}" />
     </Grid>
 </Page>

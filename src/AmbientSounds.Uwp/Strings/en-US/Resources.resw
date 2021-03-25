@@ -559,10 +559,36 @@
   <data name="UploadPermissionsMessage" xml:space="preserve">
     <value>I created this sound or I have permission to upload it</value>
   </data>
-  <data name="PreferredLanguageRestartRequired.Text" xml:space="preserve">
+    <data name="PreferredLanguageRestartRequired.Text" xml:space="preserve">
     <value>Preferred language (requires restart)</value>
   </data>
   <data name="SettingsLanguageOverrideSwitch.Header" xml:space="preserve">
     <value>Override default language (requires restart)</value>
+      <data name="ErrorBigFile" xml:space="preserve">
+    <value>That's a big file! Try again with a file smaller than {0} MB.</value>
+  </data>
+  <data name="ErrorUploadCount" xml:space="preserve">
+    <value>You're at the limit! You can only have {0} sounds.</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Terms of Use</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Follow us on Twitter</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Dismiss</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Hello and welcome!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Pin to taskbar</value>
   </data>
 </root>

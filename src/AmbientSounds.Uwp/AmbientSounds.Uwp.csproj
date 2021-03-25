@@ -185,6 +185,7 @@
     <Compile Include="Controls\ViewCatalogueButton.xaml.cs">
       <DependentUpon>ViewCatalogueButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ErrorLoader.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -555,9 +556,7 @@
   <ItemGroup>
     <PRIResource Include="Strings\de-DE\Resources.resw" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Strings\ar\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
