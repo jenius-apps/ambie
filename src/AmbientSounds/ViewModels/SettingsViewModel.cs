@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
@@ -12,6 +13,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly string _theme;
         private bool _notificationsLoading;
+        private readonly string _preferredLanguage;
 
         public SettingsViewModel(
             IUserSettings userSettings,
@@ -61,6 +63,30 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+
+        /// <summary>
+        /// Settings flag for language override.
+        /// </summary>
+        public bool OverrideLanguage
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.OverrideLanguage);
+            set => _userSettings.Set(UserSettingsConstants.OverrideLanguage, value);
+        }
+
+        /// <summary>
+        /// Settings flag for preferred language.
+        /// </summary>
+        public string PreferredLanguage
+        {
+            get => _userSettings.Get<string>(UserSettingsConstants.PreferredLanguage);
+            set => _userSettings.Set(UserSettingsConstants.PreferredLanguage, value);
+        }
+
+
+        public List<string> AvailableLanugages { get; set; } = new List<string>();//code behind will add common (OS and APP) languages here.
+
+
+
         /// <summary>
         /// Settings flag for dark screensaver.
         /// </summary>
@@ -109,6 +135,7 @@ namespace AmbientSounds.ViewModels
         {
             _userSettings.Set(UserSettingsConstants.Theme, "default");
         }
+
 
         /// <summary>
         /// Event handler for RadioButton (light theme) click event.

@@ -20,11 +20,12 @@ using AmbientSounds.Factories;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 
 #nullable enable
 
 namespace AmbientSounds
-{
+{ 
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -146,6 +147,7 @@ namespace AmbientSounds
 
         private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null)
         {
+
             // Do not repeat app initialization when the Window already has content
             if (Window.Current.Content is not Frame rootFrame)
             {
@@ -162,6 +164,8 @@ namespace AmbientSounds
                 var navigator = App.Services.GetRequiredService<INavigator>();
                 navigator.Frame = rootFrame;
             }
+
+            SetPreferredLanguage();
 
             if (prelaunched == false)
             {
@@ -217,6 +221,25 @@ namespace AmbientSounds
             viewTitleBar.ButtonBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonForegroundColor = darkTheme ? Colors.LightGray : Colors.Black;
+        }
+
+        /// <summary>
+        /// Set preferred language to override default one - only if override is turned on.
+        /// </summary>
+        private void SetPreferredLanguage()
+        {
+            var settingsService = App.Services.GetRequiredService<IUserSettings>();
+
+            //It appears that the primarylanguageoverride is persistent over sessions. Doc says not to set it in every session. https://docs.microsoft.com/en-us/uwp/api/windows.globalization.applicationlanguages.primarylanguageoverride?view=winrt-19041
+            //reoverride only if it's not already set to the correct value. Not sure why doc doesn't want us to override every time - probably it keeps on adding that language as the most preferred language even if its already there (e.g. 1st and 2nd primary language override will become en-US) or some other performance issue.
+            if (settingsService.Get<bool>(UserSettingsConstants.OverrideLanguage) && !ApplicationLanguages.PrimaryLanguageOverride.Equals(settingsService.Get<string>(UserSettingsConstants.PreferredLanguage)))
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = settingsService.Get<string>(UserSettingsConstants.PreferredLanguage);
+            }
+            else //lets reset it back as previous set value will be persistent.
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = string.Empty;//not sure if there is a better way. something like ApplicationLanguages.Languages[0] which probably returns the language we set as primary language override.
+            }
         }
 
         /// <summary>

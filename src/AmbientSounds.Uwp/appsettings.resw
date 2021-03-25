@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CatalogueUrl" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="MsaClientId" xml:space="preserve">
-    <value></value>
+    <value>00000000-0000-0000-0000-000000000000</value>
   </data>
   <data name="CloudSyncFileUrl" xml:space="preserve">
-    <value></value>
+    <value>http://localhost</value>
   </data>
   <data name="TelemetryApiKey" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="UploadUrl" xml:space="preserve">
-    <value></value>
+    <value>http://localhost</value>
   </data>
   <data name="MySoundsUrl" xml:space="preserve">
-    <value></value>
+    <value>http://localhost</value>
   </data>
   <data name="CatalogueScope" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
 </root>

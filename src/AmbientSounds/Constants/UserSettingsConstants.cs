@@ -64,6 +64,16 @@ namespace AmbientSounds.Constants
         public const string CurrentUserId = "CurrentUserId";
 
         /// <summary>
+        /// Key used to fetch the stored language override option.
+        /// </summary>
+        public const string OverrideLanguage = "OverrideLanguage";
+
+        /// <summary>
+        /// Key used to fetch the stored language that will override the default language.
+        /// </summary>
+        public const string PreferredLanguage = "PreferredLanguage";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
@@ -78,7 +88,9 @@ namespace AmbientSounds.Constants
             { ActiveMixId, "" },
             { CurrentUserId, "" },
             { CurrentUserProviderId, "" },
-            { Theme, "default" }
+            { Theme, "default" },
+            { OverrideLanguage, false },
+            { PreferredLanguage, "en-US"}
         };
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.ComponentModel;
+using Windows.Globalization;
 using Windows.Foundation.Metadata;
 using Windows.UI.Shell;
 using Windows.UI.ViewManagement;
@@ -32,6 +33,21 @@ namespace AmbientSounds.Views
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
                 ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
+            }
+        }
+
+        /// <summary>
+        /// Updates the language without having to restart. Need to subscribe to the settings changed and execute it here.
+        /// </summary>
+        private void SwitchLanguageWithoutRestart()
+        {
+            var settingsService = App.Services.GetRequiredService<IUserSettings>();
+            if (settingsService.Get<bool>(UserSettingsConstants.OverrideLanguage))
+            {
+                ApplicationLanguages.PrimaryLanguageOverride = settingsService.Get<string>(UserSettingsConstants.PreferredLanguage);
+                Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().Reset();
+                Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
+                Frame.Navigate(this.GetType());
             }
         }
 
