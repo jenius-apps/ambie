@@ -237,6 +237,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Backgrounds\aurora.jpg" />
+    <Content Include="Assets\Backgrounds\beach.jpg" />
+    <Content Include="Assets\Backgrounds\flowers.jpg" />
     <Content Include="Assets\Backgrounds\sandDunes.jpg" />
     <Content Include="Assets\Images\beach.png" />
     <Content Include="Assets\Images\birds.png" />
