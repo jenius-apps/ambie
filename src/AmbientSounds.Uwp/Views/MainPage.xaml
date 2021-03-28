@@ -151,7 +151,7 @@
         </Image>
         <Rectangle
             Grid.RowSpan="3"
-            Fill="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
+            Fill="{ThemeResource BackgroundImageAcrylicOverlayBrush}"
             Stretch="UniformToFill" />
 
         <Grid
