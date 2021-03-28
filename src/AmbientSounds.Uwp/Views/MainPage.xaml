@@ -137,6 +137,13 @@
     </Page.Resources>
 
     <Grid Padding="0,32,0,0">
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill">
+                <ImageBrush.ImageSource>
+                    <BitmapImage UriSource="ms-appx:///Assets/Backgrounds/sandDunes.jpg" />
+                </ImageBrush.ImageSource>
+            </ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="400" />
