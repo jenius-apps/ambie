@@ -228,11 +228,6 @@
                 </FlyoutBase.AttachedFlyout>
             </controls:ActiveTrackList>
 
-            <Grid.Transitions>
-                <TransitionCollection>
-                    <RepositionThemeTransition />
-                </TransitionCollection>
-            </Grid.Transitions>
         </Grid>
 
         <controls:SoundGridControl
