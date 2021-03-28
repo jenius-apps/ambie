@@ -33,9 +33,9 @@
                 </GridViewItem.Resources>
                 <Grid
                     x:Name="RootGrid"
-                    Width="280"
-                    Height="160"
-                    extensions:VisualExtensions.CenterPoint="140,80,0"
+                    Width="120"
+                    Height="120"
+                    extensions:VisualExtensions.CenterPoint="60,60,0"
                     CornerRadius="8"
                     PointerEntered="GridScaleUp"
                     PointerExited="GridScaleNormal">
@@ -81,7 +81,7 @@
                     </Grid>
 
                     <Grid
-                        Margin="0,0,0,40"
+                        Margin="0,0,0,20"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource BackgroundAcrylicBrush}"
@@ -90,7 +90,7 @@
                         <FontIcon
                             Margin="8"
                             FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="32"
+                            FontSize="28"
                             Foreground="White"
                             Glyph="&#xEB7D;" />
                     </Grid>
@@ -100,7 +100,7 @@
                         <TextBlock
                             Margin="12,0,0,4"
                             FontFamily="Calibri"
-                            FontSize="32"
+                            FontSize="20"
                             Foreground="White"
                             Text="{x:Bind Name, Mode=OneWay}"
                             TextTrimming="CharacterEllipsis" />
@@ -180,7 +180,7 @@
 
         <Grid
             Grid.Row="1"
-            Margin="40,0"
+            Margin="32,0"
             VerticalAlignment="Center">
             <controls:ActiveTrackList x:Name="ActiveList" HorizontalAlignment="Center">
                 <FlyoutBase.AttachedFlyout>
