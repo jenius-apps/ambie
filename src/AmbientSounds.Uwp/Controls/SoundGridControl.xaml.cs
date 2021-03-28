@@ -79,15 +79,43 @@ namespace AmbientSounds.Controls
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (sender is ListViewBase l && 
+            if (sender is ListViewBase l &&
                 e.ClickedItem is SoundViewModel vm &&
-                !vm.IsCurrentlyPlaying &&
                 App.AppFrame.CurrentSourcePageType == typeof(Views.MainPage))
             {
-                l.PrepareConnectedAnimation(
-                    AnimationConstants.TrackListItemLoad,
-                    e.ClickedItem,
-                    "RootGrid");
+                if (!vm.IsMix && !vm.IsCurrentlyPlaying)
+                {
+                    l.PrepareConnectedAnimation(
+                        AnimationConstants.TrackListItemLoad,
+                        e.ClickedItem,
+                        "RootGrid");
+                }
+                else if (vm.IsMix)
+                {
+                    l.PrepareConnectedAnimation(
+                        AnimationConstants.TrackListItemLoad,
+                        e.ClickedItem,
+                        "RootGrid");
+
+                    if (vm.HasSecondImage)
+                    {
+                        l.PrepareConnectedAnimation(
+                        AnimationConstants.TrackListItem2Load,
+                        e.ClickedItem,
+                        "Image2");
+                    }
+                    else if (vm.HasThirdImage)
+                    {
+                        l.PrepareConnectedAnimation(
+                            AnimationConstants.TrackListItem2Load,
+                            e.ClickedItem,
+                            "SecondImage");
+                        l.PrepareConnectedAnimation(
+                            AnimationConstants.TrackListItem3Load,
+                            e.ClickedItem,
+                            "ThirdImage");
+                    }
+                }
             }
         }
     }

@@ -7,5 +7,7 @@
     public class AnimationConstants
     {
         public const string TrackListItemLoad = "TrackListItemLoadAnimation";
+        public const string TrackListItem2Load = "TrackListItem2LoadAnimation";
+        public const string TrackListItem3Load = "TrackListItem3LoadAnimation";
     }
 }

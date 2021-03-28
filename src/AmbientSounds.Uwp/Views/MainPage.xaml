@@ -66,10 +66,16 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <toolkit:DropShadowPanel Grid.Column="1" BlurRadius="50">
+                        <toolkit:DropShadowPanel
+                            x:Name="SecondImage"
+                            Grid.Column="1"
+                            BlurRadius="50">
                             <Image Source="{x:Bind SecondImagePath}" Stretch="UniformToFill" />
                         </toolkit:DropShadowPanel>
-                        <toolkit:DropShadowPanel Grid.Column="2" BlurRadius="50">
+                        <toolkit:DropShadowPanel
+                            x:Name="ThirdImage"
+                            Grid.Column="2"
+                            BlurRadius="50">
                             <Image Source="{x:Bind ThirdImagePath}" Stretch="UniformToFill" />
                         </toolkit:DropShadowPanel>
                     </Grid>
