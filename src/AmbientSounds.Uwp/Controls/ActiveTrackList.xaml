@@ -59,6 +59,7 @@
                                 <Image
                                     Width="120"
                                     Height="120"
+                                    PointerPressed="RemoveOnMiddleClick"
                                     Source="{x:Bind ImagePath}"
                                     Stretch="UniformToFill" />
                             </Grid>

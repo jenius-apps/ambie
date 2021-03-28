@@ -3,8 +3,10 @@ using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Specialized;
+using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -101,5 +103,17 @@ namespace AmbientSounds.Controls
             SaveFlyout.Hide();
         }
 
+        private void RemoveOnMiddleClick(object sender, PointerRoutedEventArgs e)
+        {
+            if (sender is Image fe && fe.DataContext is ActiveTrackViewModel vm)
+            {
+                var pointer = e.GetCurrentPoint(fe);
+                if (pointer.Properties.PointerUpdateKind == PointerUpdateKind.MiddleButtonPressed)
+                {
+                    vm.RemoveCommand.Execute(vm.Sound);
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }
