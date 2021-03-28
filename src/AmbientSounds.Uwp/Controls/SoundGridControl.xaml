@@ -30,6 +30,7 @@
                     Padding="20,20,20,0"
                     animations:ItemsReorderAnimation.Duration="0:0:0.3"
                     IsItemClickEnabled="True"
+                    ItemClick="{x:Bind GridView_ItemClick}"
                     ItemContainerStyle="{StaticResource GridViewItemExpanded}"
                     ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                     ItemsSource="{x:Bind ViewModel.Sounds}"

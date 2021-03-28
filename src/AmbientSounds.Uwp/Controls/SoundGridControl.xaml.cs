@@ -1,4 +1,5 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Numerics;
 using Windows.UI.Xaml;
@@ -75,5 +76,19 @@ namespace AmbientSounds.Controls
         }
 
         private Visibility Not(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
+
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (sender is ListViewBase l && 
+                e.ClickedItem is SoundViewModel vm &&
+                !vm.IsCurrentlyPlaying &&
+                App.AppFrame.CurrentSourcePageType == typeof(Views.MainPage))
+            {
+                l.PrepareConnectedAnimation(
+                    AnimationConstants.TrackListItemLoad,
+                    e.ClickedItem,
+                    "RootGrid");
+            }
+        }
     }
 }

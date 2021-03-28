@@ -10,6 +10,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400"
     Loaded="{x:Bind UserControl_Loaded}"
+    Unloaded="{x:Bind OnUnloaded}"
     mc:Ignorable="d">
 
     <Grid>
@@ -19,6 +20,7 @@
         </Grid.RowDefinitions>
 
         <ListView
+            x:Name="TrackList"
             x:Uid="ActiveTrackListView"
             VerticalAlignment="Stretch"
             ItemsSource="{x:Bind ViewModel.ActiveTracks}"
@@ -28,7 +30,7 @@
             SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                    <Grid VerticalAlignment="Center">
+                    <Grid x:Name="ImagePanel" VerticalAlignment="Center">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />

@@ -1,7 +1,11 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Specialized;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -32,6 +36,30 @@ namespace AmbientSounds.Controls
         private async void UserControl_Loaded()
         {
             await ViewModel.LoadPreviousStateAsync();
+            ViewModel.ActiveTracks.CollectionChanged += OnCollectedChanged;
+        }
+
+        private void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            ViewModel.ActiveTracks.CollectionChanged -= OnCollectedChanged;
+        }
+
+        private async void OnCollectedChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                var item = e.NewItems[0];
+                TrackList.ScrollIntoView(item);
+                var animation = ConnectedAnimationService
+                    .GetForCurrentView()
+                    .GetAnimation(AnimationConstants.TrackListItemLoad);
+
+                if (animation != null)
+                {
+                    await TrackList.TryStartConnectedAnimationAsync(
+                        animation, item, "ImagePanel");
+                }
+            }
         }
 
         private void NameInput_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
@@ -53,5 +81,6 @@ namespace AmbientSounds.Controls
         {
             SaveFlyout.Hide();
         }
+
     }
 }

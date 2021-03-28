@@ -32,6 +32,7 @@
                     <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
                 </GridViewItem.Resources>
                 <Grid
+                    x:Name="RootGrid"
                     Width="280"
                     Height="160"
                     extensions:VisualExtensions.CenterPoint="140,80,0"
