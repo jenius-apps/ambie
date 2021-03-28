@@ -164,10 +164,19 @@
             </StackPanel>
         </Grid>
 
-        <controls:SoundGridControl
-            Grid.Row="1"
-            ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            ShowCatalogueButton="True" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <controls:ActiveTrackList HorizontalAlignment="Center" />
+
+            <controls:SoundGridControl
+                Grid.Row="1"
+                ItemTemplate="{StaticResource MainPageSoundTemplate}"
+                ShowCatalogueButton="True" />
+        </Grid>
 
         <Grid
             Grid.Row="2"
@@ -186,7 +195,8 @@
             <controls:ActiveTrackList
                 x:Name="ActiveList"
                 Grid.Column="1"
-                Margin="12,0,0,0">
+                Margin="12,0,0,0"
+                Visibility="Collapsed">
                 <FlyoutBase.AttachedFlyout>
                     <Flyout Opened="Flyout_Opened" Placement="TopEdgeAlignedLeft">
                         <Grid MaxWidth="300">

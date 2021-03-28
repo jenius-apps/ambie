@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -71,24 +72,13 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
 
-                        <TextBlock
-                            MaxWidth="88"
-                            Margin="0,8,0,0"
-                            HorizontalAlignment="Left"
-                            Text="{x:Bind Name}"
-                            TextTrimming="CharacterEllipsis" />
-                        <Slider
-                            x:Uid="VolumeSliderSound"
-                            Grid.Row="1"
-                            Width="120"
-                            Margin="0,4,0,0"
-                            Value="{x:Bind Volume, Mode=TwoWay}" />
                         <Button
                             x:Uid="RemoveActiveButton"
-                            Grid.RowSpan="2"
-                            Margin="0,8,0,0"
+                            Margin="0,0,0,8"
                             Padding="2"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
@@ -100,6 +90,35 @@
                                 FontSize="12"
                                 Glyph="&#xE9F9;" />
                         </Button>
+
+                        <toolkit:DropShadowPanel
+                            Grid.Row="1"
+                            BlurRadius="20"
+                            OffsetY="5"
+                            ShadowOpacity="0.2">
+                            <Grid CornerRadius="8">
+                                <Image
+                                    Width="160"
+                                    Height="160"
+                                    Source="{x:Bind ImagePath}"
+                                    Stretch="UniformToFill" />
+                            </Grid>
+                        </toolkit:DropShadowPanel>
+
+                        <TextBlock
+                            Grid.Row="2"
+                            MaxWidth="88"
+                            Margin="0,8,0,0"
+                            HorizontalAlignment="Center"
+                            Text="{x:Bind Name}"
+                            TextTrimming="CharacterEllipsis" />
+
+                        <Slider
+                            x:Uid="VolumeSliderSound"
+                            Grid.Row="3"
+                            Width="120"
+                            Margin="0,4,0,0"
+                            Value="{x:Bind Volume, Mode=TwoWay}" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
