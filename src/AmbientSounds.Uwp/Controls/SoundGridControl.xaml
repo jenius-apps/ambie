@@ -41,6 +41,11 @@
                     <interactivity:Interaction.Behaviors>
                         <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
                     </interactivity:Interaction.Behaviors>
+                    <GridView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition IsStaggeringEnabled="True" />
+                        </TransitionCollection>
+                    </GridView.ItemContainerTransitions>
                 </GridView>
 
                 <local:ViewCatalogueButton
