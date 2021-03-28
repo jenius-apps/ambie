@@ -205,6 +205,11 @@
                     <Setter Property="IsFocusEngagementEnabled" Value="True" />
                 </Style>
             </ListView.ItemContainerStyle>
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
         </ListView>
 
         <muxc:ProgressRing

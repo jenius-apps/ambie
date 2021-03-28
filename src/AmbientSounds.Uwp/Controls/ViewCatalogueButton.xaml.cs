@@ -45,7 +45,7 @@ namespace AmbientSounds.Controls
             App.AppFrame.Navigate(
                 typeof(Views.CataloguePage),
                 null,
-                new SuppressNavigationTransitionInfo());
+                new DrillInNavigationTransitionInfo());
         }
 
         private bool Not(bool value) => !value;

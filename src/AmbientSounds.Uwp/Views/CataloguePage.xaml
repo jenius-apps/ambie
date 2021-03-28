@@ -16,11 +16,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <toolkit:ImageEx
-            Grid.RowSpan="2"
-            IsCacheEnabled="True"
-            Source="ms-appx:///Assets/Backgrounds/sandDunes.jpg"
-            Stretch="UniformToFill" />
         <Rectangle
             Grid.RowSpan="2"
             Fill="{ThemeResource BackgroundImageAcrylicOverlayBrush}"
