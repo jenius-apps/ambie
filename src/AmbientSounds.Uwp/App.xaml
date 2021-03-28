@@ -2,7 +2,8 @@
     x:Class="AmbientSounds.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:AmbientSounds.Converters">
+    xmlns:converters="using:AmbientSounds.Converters"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -33,6 +34,12 @@
                 FallbackColor="Gray"
                 TintColor="Black"
                 TintOpacity="0.2" />
+
+            <Style x:Key="SoundItemShadow" TargetType="toolkit:DropShadowPanel">
+                <Setter Property="BlurRadius" Value="15" />
+                <Setter Property="OffsetY" Value="2" />
+                <Setter Property="ShadowOpacity" Value="0.15" />
+            </Style>
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
 

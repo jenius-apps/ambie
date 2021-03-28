@@ -54,11 +54,7 @@
                                 Glyph="&#xE9F9;" />
                         </Button>
 
-                        <toolkit:DropShadowPanel
-                            Grid.Row="1"
-                            BlurRadius="20"
-                            OffsetY="5"
-                            ShadowOpacity="0.2">
+                        <toolkit:DropShadowPanel Grid.Row="1" Style="{StaticResource SoundItemShadow}">
                             <Grid CornerRadius="8">
                                 <Image
                                     Width="120"

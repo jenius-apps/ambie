@@ -30,11 +30,7 @@
                     <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
                 </GridViewItem.Resources>
 
-                <toolkit:DropShadowPanel
-                    x:Name="RootGrid"
-                    BlurRadius="20"
-                    OffsetY="5"
-                    ShadowOpacity="0.2">
+                <toolkit:DropShadowPanel x:Name="RootGrid" Style="{StaticResource SoundItemShadow}">
                     <Grid
                         Width="120"
                         Height="120"
