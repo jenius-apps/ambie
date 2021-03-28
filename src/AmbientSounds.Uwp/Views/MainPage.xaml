@@ -146,7 +146,7 @@
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
-            <RowDefinition Height="400" />
+            <RowDefinition x:Name="ActiveTracksRow" Height="280" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -226,5 +226,34 @@
             CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.FirstLaunchMessage}" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ActiveTracksRow.Height" Value="300" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="1000" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ActiveTracksRow.Height" Value="400" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="1200" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ActiveTracksRow.Height" Value="500" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

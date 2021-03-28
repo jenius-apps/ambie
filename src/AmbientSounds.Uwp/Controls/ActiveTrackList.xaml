@@ -61,8 +61,8 @@
                             ShadowOpacity="0.2">
                             <Grid CornerRadius="8">
                                 <Image
-                                    Width="160"
-                                    Height="160"
+                                    Width="120"
+                                    Height="120"
                                     Source="{x:Bind ImagePath}"
                                     Stretch="UniformToFill" />
                             </Grid>
@@ -79,8 +79,9 @@
                         <Slider
                             x:Uid="VolumeSliderSound"
                             Grid.Row="3"
-                            Width="120"
-                            Margin="0,4,0,0"
+                            Width="100"
+                            Margin="0,0,0,0"
+                            HorizontalAlignment="Center"
                             Value="{x:Bind Volume, Mode=TwoWay}" />
                     </Grid>
                 </DataTemplate>
@@ -99,8 +100,7 @@
 
         <StackPanel
             Grid.Row="1"
-            Margin="0,12,0,0"
-            Padding="4"
+            Margin="0,4,0,0"
             HorizontalAlignment="Center"
             Background="{ThemeResource SystemControlAcrylicElementBrush}"
             CornerRadius="20"

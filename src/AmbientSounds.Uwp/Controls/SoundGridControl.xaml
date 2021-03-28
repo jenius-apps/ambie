@@ -27,7 +27,7 @@
                 </Grid.RowDefinitions>
                 <GridView
                     x:Uid="SoundsGridView"
-                    Padding="20,20,20,0"
+                    Padding="20,0"
                     animations:ItemsReorderAnimation.Duration="0:0:0.3"
                     IsItemClickEnabled="True"
                     ItemClick="{x:Bind GridView_ItemClick}"
