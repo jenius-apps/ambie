@@ -44,7 +44,7 @@
                         <Grid.Background>
                             <ImageBrush Stretch="UniformToFill">
                                 <ImageBrush.ImageSource>
-                                    <BitmapImage UriSource="{x:Bind ImagePath}" />
+                                    <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ImagePath}" />
                                 </ImageBrush.ImageSource>
                             </ImageBrush>
                         </Grid.Background>
@@ -55,7 +55,11 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <toolkit:DropShadowPanel Grid.Column="1" BlurRadius="50">
-                                <Image Source="{x:Bind SecondImagePath}" Stretch="UniformToFill" />
+                                <Image Stretch="UniformToFill">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind SecondImagePath}" />
+                                    </Image.Source>
+                                </Image>
                             </toolkit:DropShadowPanel>
                         </Grid>
 
@@ -69,13 +73,21 @@
                                 x:Name="SecondImage"
                                 Grid.Column="1"
                                 BlurRadius="50">
-                                <Image Source="{x:Bind SecondImagePath}" Stretch="UniformToFill" />
+                                <Image Stretch="UniformToFill">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind SecondImagePath}" />
+                                    </Image.Source>
+                                </Image>
                             </toolkit:DropShadowPanel>
                             <toolkit:DropShadowPanel
                                 x:Name="ThirdImage"
                                 Grid.Column="2"
                                 BlurRadius="50">
-                                <Image Source="{x:Bind ThirdImagePath}" Stretch="UniformToFill" />
+                                <Image Stretch="UniformToFill">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ThirdImagePath}" />
+                                    </Image.Source>
+                                </Image>
                             </toolkit:DropShadowPanel>
                         </Grid>
 
@@ -144,11 +156,11 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Image Grid.RowSpan="3" Stretch="UniformToFill">
-            <Image.Source>
-                <BitmapImage UriSource="ms-appx:///Assets/Backgrounds/sandDunes.jpg" />
-            </Image.Source>
-        </Image>
+        <toolkit:ImageEx
+            Grid.RowSpan="3"
+            IsCacheEnabled="True"
+            Source="ms-appx:///Assets/Backgrounds/sandDunes.jpg"
+            Stretch="UniformToFill" />
         <Rectangle
             Grid.RowSpan="3"
             Fill="{ThemeResource BackgroundImageAcrylicOverlayBrush}"
