@@ -180,7 +180,10 @@
                     FontFamily="Calibri"
                     FontSize="32"
                     Text="Ambie" />
-                <controls:ViewCatalogueButton Margin="8,0,0,0" IconOnly="True" />
+                <controls:ViewCatalogueButton
+                    x:Name="CatalogueButton"
+                    Margin="8,0,0,0"
+                    IconOnly="True" />
                 <controls:SleepTimerControl Margin="4,0,0,0" />
                 <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
                 <controls:MoreButton Margin="4,0,0,0" />

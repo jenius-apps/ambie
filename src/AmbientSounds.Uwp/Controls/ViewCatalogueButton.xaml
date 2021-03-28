@@ -14,7 +14,7 @@
             x:Name="IconVersion"
             x:Uid="ViewCatalogueIcon"
             x:Load="{x:Bind IconOnly}"
-            Click="{x:Bind NavigateToCatalogue}"
+            Click="{x:Bind IconNavigateToCatalogue}"
             Style="{StaticResource TransparentRoundButtonStyle}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD4;" />
         </Button>

@@ -44,10 +44,12 @@
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
                 </Button>
                 <FontIcon
+                    x:Name="CatalogueIcon"
                     Margin="12,0,0,0"
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     Glyph="&#xEAD4;" />
                 <TextBlock
+                    x:Name="CatalogueTitle"
                     x:Uid="SoundCatalogue"
                     Margin="12,0,0,0"
                     VerticalAlignment="Center"

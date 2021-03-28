@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
@@ -28,14 +29,23 @@ namespace AmbientSounds.Controls
             typeof(ViewCatalogueButton),
             new PropertyMetadata(false));
 
+        private void IconNavigateToCatalogue()
+        {
+            ConnectedAnimationService
+                .GetForCurrentView()
+                .PrepareToAnimate(AnimationConstants.CatalogueForward, IconVersion);
+
+            NavigateToCatalogue();
+        }
+
         private void NavigateToCatalogue()
         {
             ITelemetry telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.MoreSoundsClicked);
             App.AppFrame.Navigate(
-                typeof(Views.CataloguePage), 
-                null, 
-                new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+                typeof(Views.CataloguePage),
+                null,
+                new SuppressNavigationTransitionInfo());
         }
 
         private bool Not(bool value) => !value;
