@@ -9,11 +9,9 @@
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:statetriggers="using:AmbientSounds.StateTriggers"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
     PointerMoved="{x:Bind ViewModel.ResetTime}"
     PointerPressed="{x:Bind ViewModel.ResetTime}"
@@ -31,74 +29,96 @@
                     <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
                     <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
                 </GridViewItem.Resources>
-                <Grid
-                    Width="280"
-                    Height="160"
-                    extensions:VisualExtensions.CenterPoint="140,80,0"
-                    CornerRadius="8"
-                    PointerEntered="GridScaleUp"
-                    PointerExited="GridScaleNormal">
-                    <animations:Implicit.Animations>
-                        <animations:ScaleAnimation Duration="0:0:0.5" />
-                    </animations:Implicit.Animations>
-                    <Grid.Background>
-                        <ImageBrush Stretch="UniformToFill">
-                            <ImageBrush.ImageSource>
-                                <BitmapImage UriSource="{x:Bind ImagePath}" />
-                            </ImageBrush.ImageSource>
-                        </ImageBrush>
-                    </Grid.Background>
 
-                    <Grid x:Name="Image2" x:Load="{x:Bind HasSecondImage}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <toolkit:DropShadowPanel Grid.Column="1" BlurRadius="50">
-                            <Image Source="{x:Bind SecondImagePath}" Stretch="UniformToFill" />
-                        </toolkit:DropShadowPanel>
-                    </Grid>
-
-                    <Grid x:Name="Image3" x:Load="{x:Bind HasThirdImage}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <toolkit:DropShadowPanel Grid.Column="1" BlurRadius="50">
-                            <Image Source="{x:Bind SecondImagePath}" Stretch="UniformToFill" />
-                        </toolkit:DropShadowPanel>
-                        <toolkit:DropShadowPanel Grid.Column="2" BlurRadius="50">
-                            <Image Source="{x:Bind ThirdImagePath}" Stretch="UniformToFill" />
-                        </toolkit:DropShadowPanel>
-                    </Grid>
-
+                <toolkit:DropShadowPanel x:Name="RootGrid" Style="{StaticResource SoundItemShadow}">
                     <Grid
-                        Margin="0,0,0,40"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="{StaticResource BackgroundAcrylicBrush}"
-                        CornerRadius="30"
-                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
-                        <FontIcon
-                            Margin="8"
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="32"
-                            Foreground="White"
-                            Glyph="&#xEB7D;" />
-                    </Grid>
+                        Width="120"
+                        Height="120"
+                        extensions:VisualExtensions.CenterPoint="60,60,0"
+                        CornerRadius="8"
+                        PointerEntered="GridScaleUp"
+                        PointerExited="GridScaleNormal">
+                        <animations:Implicit.Animations>
+                            <animations:ScaleAnimation Duration="0:0:0.5" />
+                        </animations:Implicit.Animations>
+                        <Grid.Background>
+                            <ImageBrush Stretch="UniformToFill">
+                                <ImageBrush.ImageSource>
+                                    <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ImagePath}" />
+                                </ImageBrush.ImageSource>
+                            </ImageBrush>
+                        </Grid.Background>
+
+                        <Grid x:Name="Image2" x:Load="{x:Bind HasSecondImage}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <toolkit:DropShadowPanel Grid.Column="1" BlurRadius="50">
+                                <Image Stretch="UniformToFill">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind SecondImagePath}" />
+                                    </Image.Source>
+                                </Image>
+                            </toolkit:DropShadowPanel>
+                        </Grid>
+
+                        <Grid x:Name="Image3" x:Load="{x:Bind HasThirdImage}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <toolkit:DropShadowPanel
+                                x:Name="SecondImage"
+                                Grid.Column="1"
+                                BlurRadius="50">
+                                <Image Stretch="UniformToFill">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind SecondImagePath}" />
+                                    </Image.Source>
+                                </Image>
+                            </toolkit:DropShadowPanel>
+                            <toolkit:DropShadowPanel
+                                x:Name="ThirdImage"
+                                Grid.Column="2"
+                                BlurRadius="50">
+                                <Image Stretch="UniformToFill">
+                                    <Image.Source>
+                                        <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ThirdImagePath}" />
+                                    </Image.Source>
+                                </Image>
+                            </toolkit:DropShadowPanel>
+                        </Grid>
+
+                        <Grid
+                            Margin="0,0,0,20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="{StaticResource BackgroundAcrylicBrush}"
+                            CornerRadius="30"
+                            Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
+                            <FontIcon
+                                Margin="8"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="28"
+                                Foreground="White"
+                                Glyph="&#xEB7D;" />
+                        </Grid>
 
 
-                    <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
-                        <TextBlock
-                            Margin="12,0,0,4"
-                            FontFamily="Calibri"
-                            FontSize="32"
-                            Foreground="White"
-                            Text="{x:Bind Name, Mode=OneWay}"
-                            TextTrimming="CharacterEllipsis" />
+                        <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
+                            <TextBlock
+                                Margin="12,0,0,4"
+                                FontFamily="Calibri"
+                                FontSize="20"
+                                Foreground="White"
+                                Text="{x:Bind Name, Mode=OneWay}"
+                                TextTrimming="CharacterEllipsis" />
+                        </Grid>
                     </Grid>
-                </Grid>
+                </toolkit:DropShadowPanel>
+
                 <GridViewItem.ContextFlyout>
                     <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                         <muxc:CommandBarFlyout.SecondaryCommands>
@@ -129,15 +149,25 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid Padding="0,32,0,0">
+    <Grid Padding="0,0,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
+            <RowDefinition Height="92" />
+            <RowDefinition x:Name="ActiveTracksRow" Height="280" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="{StaticResource HeaderHeight}" />
         </Grid.RowDefinitions>
 
+        <toolkit:ImageEx
+            Grid.RowSpan="3"
+            IsCacheEnabled="True"
+            Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
+            Stretch="UniformToFill" />
+        <Rectangle
+            Grid.RowSpan="3"
+            Fill="{ThemeResource BackgroundImageAcrylicOverlayBrush}"
+            Stretch="UniformToFill" />
+
         <Grid
-            Margin="40,0"
+            Margin="40,32,40,0"
             VerticalAlignment="Center"
             Canvas.ZIndex="1">
             <StackPanel
@@ -150,7 +180,10 @@
                     FontFamily="Calibri"
                     FontSize="32"
                     Text="Ambie" />
-                <controls:ViewCatalogueButton Margin="8,0,0,0" IconOnly="True" />
+                <controls:ViewCatalogueButton
+                    x:Name="CatalogueButton"
+                    Margin="8,0,0,0"
+                    IconOnly="True" />
                 <controls:SleepTimerControl Margin="4,0,0,0" />
                 <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
                 <controls:MoreButton Margin="4,0,0,0" />
@@ -164,31 +197,13 @@
             </StackPanel>
         </Grid>
 
-        <controls:SoundGridControl
-            Grid.Row="1"
-            ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            ShowCatalogueButton="True" />
-
         <Grid
-            Grid.Row="2"
-            Padding="40,0"
-            Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-
-            <StackPanel Orientation="Horizontal">
-                <controls:PlayerControl />
-            </StackPanel>
-
-            <controls:ActiveTrackList
-                x:Name="ActiveList"
-                Grid.Column="1"
-                Margin="12,0,0,0">
+            Grid.Row="1"
+            Margin="32,0"
+            VerticalAlignment="Center">
+            <controls:ActiveTrackList x:Name="ActiveList" HorizontalAlignment="Center">
                 <FlyoutBase.AttachedFlyout>
-                    <Flyout Opened="Flyout_Opened" Placement="TopEdgeAlignedLeft">
+                    <Flyout Opened="Flyout_Opened" Placement="Bottom">
                         <Grid MaxWidth="300">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
@@ -215,7 +230,13 @@
                     </Flyout>
                 </FlyoutBase.AttachedFlyout>
             </controls:ActiveTrackList>
+
         </Grid>
+
+        <controls:SoundGridControl
+            Grid.Row="2"
+            ItemTemplate="{StaticResource MainPageSoundTemplate}"
+            ShowCatalogueButton="True" />
 
         <muxc:TeachingTip
             x:Name="PinTeachingTip"
@@ -225,5 +246,34 @@
             CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.FirstLaunchMessage}" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ActiveTracksRow.Height" Value="300" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="1000" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ActiveTracksRow.Height" Value="400" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowHeight="1200" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ActiveTracksRow.Height" Value="500" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

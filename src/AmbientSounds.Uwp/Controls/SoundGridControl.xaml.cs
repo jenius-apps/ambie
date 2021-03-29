@@ -1,4 +1,5 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Numerics;
 using Windows.UI.Xaml;
@@ -75,5 +76,47 @@ namespace AmbientSounds.Controls
         }
 
         private Visibility Not(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
+
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (sender is ListViewBase l &&
+                e.ClickedItem is SoundViewModel vm &&
+                App.AppFrame.CurrentSourcePageType == typeof(Views.MainPage))
+            {
+                if (!vm.IsMix && !vm.IsCurrentlyPlaying)
+                {
+                    l.PrepareConnectedAnimation(
+                        AnimationConstants.TrackListItemLoad,
+                        e.ClickedItem,
+                        "RootGrid");
+                }
+                else if (vm.IsMix)
+                {
+                    l.PrepareConnectedAnimation(
+                        AnimationConstants.TrackListItemLoad,
+                        e.ClickedItem,
+                        "RootGrid");
+
+                    if (vm.HasSecondImage)
+                    {
+                        l.PrepareConnectedAnimation(
+                        AnimationConstants.TrackListItem2Load,
+                        e.ClickedItem,
+                        "Image2");
+                    }
+                    else if (vm.HasThirdImage)
+                    {
+                        l.PrepareConnectedAnimation(
+                            AnimationConstants.TrackListItem2Load,
+                            e.ClickedItem,
+                            "SecondImage");
+                        l.PrepareConnectedAnimation(
+                            AnimationConstants.TrackListItem3Load,
+                            e.ClickedItem,
+                            "ThirdImage");
+                    }
+                }
+            }
+        }
     }
 }

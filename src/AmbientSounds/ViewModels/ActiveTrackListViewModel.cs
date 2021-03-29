@@ -81,6 +81,11 @@ namespace AmbientSounds.ViewModels
         public bool CanSave => string.IsNullOrWhiteSpace(_player.CurrentMixId) && ActiveTracks.Count > 1;
 
         /// <summary>
+        /// Determines if the item is a sound mix.
+        /// </summary>
+        public bool IsMix => !string.IsNullOrWhiteSpace(_player.CurrentMixId);
+
+        /// <summary>
         /// List of active sounds being played.
         /// </summary>
         public ObservableCollection<ActiveTrackViewModel> ActiveTracks { get; } = new();

@@ -9,6 +9,11 @@ namespace AmbientSounds.Constants
     public class UserSettingsConstants
     {
         /// <summary>
+        /// Key to remember the user's background image.
+        /// </summary>
+        public const string BackgroundImage = "BackgroundImage";
+
+        /// <summary>
         /// Volume settings key.
         /// </summary>
         public const string Volume = "LastUsedVolume";
@@ -78,7 +83,8 @@ namespace AmbientSounds.Constants
             { ActiveMixId, "" },
             { CurrentUserId, "" },
             { CurrentUserProviderId, "" },
-            { Theme, "default" }
+            { Theme, "default" },
+            { BackgroundImage, "ms-appx:///Assets/Backgrounds/sandDunes.jpg" }
         };
     }
 }

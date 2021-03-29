@@ -1,4 +1,6 @@
-﻿namespace AmbientSounds.Services
+﻿using System.Threading.Tasks;
+
+namespace AmbientSounds.Services
 {
     /// <summary>
     /// Interface for getting system information
@@ -19,5 +21,11 @@
         /// distance.
         /// </summary>
         bool IsTenFoot();
+
+        /// <summary>
+        /// Retrieves list of paths for background images
+        /// available in the device.
+        /// </summary>
+        Task<string[]> GetAvailableBackgroundsAsync();
     }
 }

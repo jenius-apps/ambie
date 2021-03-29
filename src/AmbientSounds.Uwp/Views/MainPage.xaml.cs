@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views
@@ -56,12 +57,26 @@ namespace AmbientSounds.Views
             {
                 TryShowPinTeachingTip();
             }
+
+            TryStartPageAnimations();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             ViewModel.StopTimer();
             ViewModel.PropertyChanged -= OnPropertyChanged;
+        }
+
+        private void TryStartPageAnimations()
+        {
+            var animation = ConnectedAnimationService
+                .GetForCurrentView()
+                .GetAnimation(AnimationConstants.CatalogueBack);
+
+            if (animation != null)
+            {
+                animation.TryStart(CatalogueButton);
+            }
         }
 
         private void GridScaleUp(object sender, PointerRoutedEventArgs e) 

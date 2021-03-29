@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using System;
 
 namespace AmbientSounds.Services
 {
@@ -8,6 +9,11 @@ namespace AmbientSounds.Services
     /// </summary>
     public interface IUserSettings
     {
+        /// <summary>
+        /// Raised when a settings is set.
+        /// </summary>
+        event EventHandler<string> SettingSet;
+
         /// <summary>
         /// Saves settings into persistent local
         /// storage.

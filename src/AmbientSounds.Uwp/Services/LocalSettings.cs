@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using System;
 using System.Text.Json;
 using Windows.Storage;
 
@@ -12,6 +13,9 @@ namespace AmbientSounds.Services.Uwp
     public class LocalSettings : IUserSettings
     {
         /// <inheritdoc/>
+        public event EventHandler<string> SettingSet;
+
+        /// <inheritdoc/>
         public T Get<T>(string settingKey)
         {
             object result = ApplicationData.Current.LocalSettings.Values[settingKey];
@@ -22,6 +26,7 @@ namespace AmbientSounds.Services.Uwp
         public void Set<T>(string settingKey, T value)
         {
             ApplicationData.Current.LocalSettings.Values[settingKey] = value;
+            SettingSet?.Invoke(this, settingKey);
         }
 
         /// <inheritdoc/>
