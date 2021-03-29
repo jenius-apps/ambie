@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace AmbientSounds.ViewModels
 {
@@ -29,7 +31,24 @@ namespace AmbientSounds.ViewModels
             _notifications = notifications;
             _theme = _userSettings.Get<string>(UserSettingsConstants.Theme);
             InitializeTheme();
+
+            ImagePaths.Add("ms-appx:///Assets/Backgrounds/sandDunes.jpg");
+            ImagePaths.Add("ms-appx:///Assets/Backgrounds/beach.jpg");
+            ImagePaths.Add("ms-appx:///Assets/Backgrounds/aurora.jpg");
+            ImagePaths.Add("ms-appx:///Assets/Backgrounds/flowers.jpg");
+
+            SelectImageCommand = new RelayCommand<string>(SelectImage);
         }
+
+        /// <summary>
+        /// Command for selecting the background image.
+        /// </summary>
+        public IRelayCommand<string> SelectImageCommand { get; }
+
+        /// <summary>
+        /// Paths to available background images.
+        /// </summary>
+        public ObservableCollection<string> ImagePaths = new();
 
         /// <summary>
         /// Settings flag for telemetry.
@@ -116,6 +135,11 @@ namespace AmbientSounds.ViewModels
         public void LightThemeRadioClicked()
         {
             _userSettings.Set(UserSettingsConstants.Theme, "light");
+        }
+
+        private void SelectImage(string? imagePath)
+        {
+            _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
         }
 
         private async void SetNotifications(bool value)

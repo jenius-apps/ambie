@@ -2,7 +2,9 @@
     x:Class="AmbientSounds.Controls.SettingsControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="300"
@@ -21,6 +23,29 @@
 
     <ScrollViewer>
         <StackPanel>
+            <GridView
+                IsItemClickEnabled="True"
+                ItemsSource="{x:Bind ViewModel.ImagePaths}"
+                SelectionMode="None">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Image Height="60">
+                            <Image.Source>
+                                <BitmapImage UriSource="{Binding}" />
+                            </Image.Source>
+                        </Image>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <interactivity:Interaction.Behaviors>
+                    <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectImageCommand}" />
+                </interactivity:Interaction.Behaviors>
+                <GridView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True" />
+                    </TransitionCollection>
+                </GridView.ItemContainerTransitions>
+            </GridView>
+
             <!--  Telemetry  -->
             <ToggleSwitch
                 x:Uid="SettingsTelemetrySwitch"

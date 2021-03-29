@@ -159,7 +159,7 @@
         <toolkit:ImageEx
             Grid.RowSpan="3"
             IsCacheEnabled="True"
-            Source="ms-appx:///Assets/Backgrounds/sandDunes.jpg"
+            Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
             Stretch="UniformToFill" />
         <Rectangle
             Grid.RowSpan="3"
