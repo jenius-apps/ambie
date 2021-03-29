@@ -27,18 +27,27 @@
                 IsItemClickEnabled="True"
                 ItemsSource="{x:Bind ViewModel.ImagePaths}"
                 SelectionMode="None">
-                <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="x:String">
-                        <Image Height="60">
-                            <Image.Source>
-                                <BitmapImage UriSource="{Binding}" />
-                            </Image.Source>
-                        </Image>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
                 <interactivity:Interaction.Behaviors>
                     <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectImageCommand}" />
+                    <core:EventTriggerBehavior EventName="Loaded">
+                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
+                    </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
+
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Grid
+                            Width="80"
+                            Height="60"
+                            CornerRadius="8">
+                            <Image Stretch="UniformToFill">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelHeight="60" UriSource="{Binding}" />
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
                 <GridView.ItemContainerTransitions>
                     <TransitionCollection>
                         <EntranceThemeTransition IsStaggeringEnabled="True" />

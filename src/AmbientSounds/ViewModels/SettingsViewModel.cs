@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
@@ -32,12 +33,8 @@ namespace AmbientSounds.ViewModels
             _theme = _userSettings.Get<string>(UserSettingsConstants.Theme);
             InitializeTheme();
 
-            ImagePaths.Add("ms-appx:///Assets/Backgrounds/sandDunes.jpg");
-            ImagePaths.Add("ms-appx:///Assets/Backgrounds/beach.jpg");
-            ImagePaths.Add("ms-appx:///Assets/Backgrounds/aurora.jpg");
-            ImagePaths.Add("ms-appx:///Assets/Backgrounds/flowers.jpg");
-
             SelectImageCommand = new RelayCommand<string>(SelectImage);
+            LoadImagesCommand = new AsyncRelayCommand(LoadImagesAsync);
         }
 
         /// <summary>
@@ -46,9 +43,14 @@ namespace AmbientSounds.ViewModels
         public IRelayCommand<string> SelectImageCommand { get; }
 
         /// <summary>
+        /// Command for loading the background images.
+        /// </summary>
+        public IAsyncRelayCommand LoadImagesCommand { get; }
+
+        /// <summary>
         /// Paths to available background images.
         /// </summary>
-        public ObservableCollection<string> ImagePaths = new();
+        public ObservableCollection<string> ImagePaths { get; } = new();
 
         /// <summary>
         /// Settings flag for telemetry.
@@ -140,6 +142,20 @@ namespace AmbientSounds.ViewModels
         private void SelectImage(string? imagePath)
         {
             _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
+        }
+
+        private async Task LoadImagesAsync()
+        {
+            if (ImagePaths.Count > 0)
+            {
+                return;
+            }
+
+            string[] paths = await _systemInfoProvider.GetAvailableBackgroundsAsync();
+            foreach (var p in paths)
+            {
+                ImagePaths.Add(p);
+            }
         }
 
         private async void SetNotifications(bool value)
