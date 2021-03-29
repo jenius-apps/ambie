@@ -99,7 +99,7 @@
             Grid.Row="1"
             Margin="0,4,0,0"
             HorizontalAlignment="Center"
-            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
             CornerRadius="20"
             Orientation="Horizontal"
             Visibility="{x:Bind ViewModel.IsClearVisible, Mode=OneWay}">
