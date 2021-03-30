@@ -23,6 +23,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly bool _loadPreviousState;
         private bool _loaded;
+        private readonly Queue<Sound> _addQueue = new Queue<Sound>();
 
         public ActiveTrackListViewModel(
             IMixMediaPlayerService player,
@@ -178,16 +179,21 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private void OnSoundAdded(object sender, Sound s)
+        private async void OnSoundAdded(object sender, Sound s)
         {
             if (!ActiveTracks.Any(x => x.Sound?.Id == s.Id))
             {
                 ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(s, RemoveCommand));
                 UpdateStoredState();
                 UpdateCanSave();
+
+                // Required to fix animation issue.
+                // It seems this allows the UI to update sooner
+                // so that if a Mix is being loaded, all sounds
+                // are animated asynchronously.
+                await Task.Delay(1); 
             }
         }
-
         private void UpdateCanSave() => OnPropertyChanged(nameof(CanSave));
 
         private void RemoveSound(Sound s)
