@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,10 @@ namespace AmbientSounds.Services.Uwp
         private readonly DispatcherQueue _dispatcherQueue;
 
         /// <inheritdoc/>
-        public event EventHandler<Sound> SoundAdded;
+        public event EventHandler<SoundPlayedArgs> SoundAdded;
 
         /// <inheritdoc/>
-        public event EventHandler<string> SoundRemoved;
+        public event EventHandler<SoundPausedArgs> SoundRemoved;
 
         /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState> PlaybackStateChanged;
@@ -165,7 +166,7 @@ namespace AmbientSounds.Services.Uwp
                     if (keepPaused) Pause();
                     else Play();
 
-                    SoundAdded?.Invoke(this, s);
+                    SoundAdded?.Invoke(this, new SoundPlayedArgs(s, parentMixId));
                 }
             }
             else
@@ -238,9 +239,16 @@ namespace AmbientSounds.Services.Uwp
             var player = _activeSounds[soundId];
             player.Pause();
             player.Dispose();
+
             _activeSounds[soundId] = null;
             _activeSounds.Remove(soundId);
             Screensavers.Remove(soundId);
+
+            // Any time we remove a sound,
+            // we are guaranteed to "destruct"
+            // the previous active mix, so we clear
+            // the mix id.
+            var previousParentMixId = CurrentMixId;
             CurrentMixId = "";
 
             if (_activeSounds.Count == 0)
@@ -248,7 +256,7 @@ namespace AmbientSounds.Services.Uwp
                 Pause();
             }
 
-            SoundRemoved?.Invoke(this, soundId);
+            SoundRemoved?.Invoke(this, new SoundPausedArgs(soundId, previousParentMixId));
         }
 
         /// <summary>

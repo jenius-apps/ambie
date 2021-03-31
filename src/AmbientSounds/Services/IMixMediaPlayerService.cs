@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Events;
+using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,13 +15,12 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Sound is added.
         /// </summary>
-        event EventHandler<Sound> SoundAdded;
+        event EventHandler<SoundPlayedArgs> SoundAdded;
 
         /// <summary>
-        /// Sound was removed. String is
-        /// the sound's ID.
+        /// Sound was removed.
         /// </summary>
-        event EventHandler<string> SoundRemoved;
+        event EventHandler<SoundPausedArgs> SoundRemoved;
 
         /// <summary>
         /// Raised when playback changes between

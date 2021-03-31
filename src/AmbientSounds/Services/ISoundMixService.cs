@@ -10,6 +10,12 @@ namespace AmbientSounds.Services
     public interface ISoundMixService
     {
         /// <summary>
+        /// Returns true if the given mix ID
+        /// is currently playing.
+        /// </summary>
+        bool IsMixPlaying(string mixId);
+
+        /// <summary>
         /// Saves the list of sounds into a new sound mix.
         /// </summary>
         /// <param name="sounds">List of sounds to save.</param>

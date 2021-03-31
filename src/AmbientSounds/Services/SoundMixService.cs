@@ -28,6 +28,12 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
+        public bool IsMixPlaying(string mixId)
+        {
+            return _player.CurrentMixId == mixId;
+        }
+
+        /// <inheritdoc/>
         public async Task<string> SaveMixAsync(IList<Sound> sounds, string name = "")
         {
             if (sounds == null || sounds.Count <= 1)
@@ -56,7 +62,6 @@ namespace AmbientSounds.Services
             // save instance of id
             // since RemoveAll will reset the id.
             var previousMixId = _player.CurrentMixId;
-            _player.RemoveAll();
 
             // if the mix we're trying to play was
             // the same as the previous, return now
@@ -66,6 +71,8 @@ namespace AmbientSounds.Services
             {
                 return false;
             }
+
+            _player.RemoveAll();
 
             var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: mix.SoundIds);
             if (sounds != null && sounds.Count == mix.SoundIds.Length)

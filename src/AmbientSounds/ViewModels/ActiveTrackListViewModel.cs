@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
@@ -168,9 +169,9 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(IsClearVisible));
         }
 
-        private void OnSoundRemoved(object sender, string soundId)
+        private void OnSoundRemoved(object sender, SoundPausedArgs args)
         {
-            var sound = ActiveTracks.FirstOrDefault(x => x.Sound?.Id == soundId);
+            var sound = ActiveTracks.FirstOrDefault(x => x.Sound?.Id == args.SoundId);
             if (sound != null)
             {
                 ActiveTracks.Remove(sound);
@@ -179,11 +180,11 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private async void OnSoundAdded(object sender, Sound s)
+        private async void OnSoundAdded(object sender, SoundPlayedArgs args)
         {
-            if (!ActiveTracks.Any(x => x.Sound?.Id == s.Id))
+            if (!ActiveTracks.Any(x => x.Sound?.Id == args.Sound.Id))
             {
-                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(s, RemoveCommand));
+                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(args.Sound, RemoveCommand));
                 UpdateStoredState();
                 UpdateCanSave();
 

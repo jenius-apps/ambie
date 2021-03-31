@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
@@ -107,13 +108,18 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
-        public bool IsCurrentlyPlaying => _playerService.IsSoundPlaying(_sound.Id);
+        public bool IsCurrentlyPlaying => string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
+            ? _playerService.IsSoundPlaying(_sound.Id)
+            : _soundMixService.IsMixPlaying(_sound.Id);
 
         /// <summary>
         /// Loads this sound into the player and plays it.
         /// </summary>
         public async void Play()
         {
+            if (IsCurrentlyPlaying)
+                return;
+
             if (!_sound.IsMix)
             {
                 await _playerService.ToggleSoundAsync(_sound);
@@ -134,17 +140,17 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private void OnSoundPaused(object sender, string soundId)
+        private void OnSoundPaused(object sender, SoundPausedArgs args)
         {
-            if (Id == soundId)
+            if (Id == args.SoundId || Id == args.ParentMixId)
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
             }
         }
 
-        private void OnSoundPlayed(object sender, Sound s)
+        private void OnSoundPlayed(object sender, SoundPlayedArgs args)
         {
-            if (s?.Id == _sound.Id)
+            if (args.ParentMixId == _sound.Id || args.Sound.Id == _sound.Id)
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
             }
