@@ -81,16 +81,17 @@ namespace AmbientSounds.Controls
         {
             if (sender is ListViewBase l &&
                 e.ClickedItem is SoundViewModel vm &&
+                ! vm.IsCurrentlyPlaying &&
                 App.AppFrame.CurrentSourcePageType == typeof(Views.MainPage))
             {
-                if (!vm.IsMix && !vm.IsCurrentlyPlaying)
+                if (!vm.IsMix)
                 {
                     l.PrepareConnectedAnimation(
                         AnimationConstants.TrackListItemLoad,
                         e.ClickedItem,
                         "RootGrid");
                 }
-                else if (vm.IsMix)
+                else
                 {
                     l.PrepareConnectedAnimation(
                         AnimationConstants.TrackListItemLoad,
