@@ -7,7 +7,7 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
     mc:Ignorable="d">
 
     <Grid>
@@ -15,11 +15,6 @@
             <RowDefinition Height="92" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <Rectangle
-            Grid.RowSpan="2"
-            Fill="{ThemeResource BackgroundImageAcrylicOverlayBrush}"
-            Stretch="UniformToFill" />
 
         <Grid
             x:Name="HeaderGrid"

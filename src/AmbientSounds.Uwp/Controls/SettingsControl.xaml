@@ -23,7 +23,7 @@
 
     <ScrollViewer>
         <StackPanel>
-            <GridView
+            <!--<GridView
                 IsItemClickEnabled="True"
                 ItemsSource="{x:Bind ViewModel.ImagePaths}"
                 SelectionMode="None">
@@ -53,7 +53,7 @@
                         <EntranceThemeTransition IsStaggeringEnabled="True" />
                     </TransitionCollection>
                 </GridView.ItemContainerTransitions>
-            </GridView>
+            </GridView>-->
 
             <!--  Telemetry  -->
             <ToggleSwitch

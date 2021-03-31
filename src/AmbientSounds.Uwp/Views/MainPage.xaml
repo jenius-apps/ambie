@@ -12,6 +12,7 @@
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
     PointerMoved="{x:Bind ViewModel.ResetTime}"
     PointerPressed="{x:Bind ViewModel.ResetTime}"
@@ -156,15 +157,16 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <toolkit:ImageEx
+        <!--<toolkit:ImageEx
             Grid.RowSpan="3"
             IsCacheEnabled="True"
             Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
-            Stretch="UniformToFill" />
+            Stretch="UniformToFill"
+            Visibility="Collapsed" />
         <Rectangle
             Grid.RowSpan="3"
             Fill="{ThemeResource BackgroundImageAcrylicOverlayBrush}"
-            Stretch="UniformToFill" />
+            Stretch="UniformToFill" />-->
 
         <Grid
             Margin="40,32,40,0"
