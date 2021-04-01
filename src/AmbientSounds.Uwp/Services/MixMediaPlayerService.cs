@@ -16,6 +16,7 @@ namespace AmbientSounds.Services.Uwp
     public class MixMediaPlayerService : IMixMediaPlayerService
     {
         private readonly Dictionary<string, MediaPlayer> _activeSounds = new Dictionary<string, MediaPlayer>();
+        private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new Dictionary<string, DateTimeOffset>();
         private readonly int _maxActive;
         private double _globalVolume;
         private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
@@ -129,9 +130,18 @@ namespace AmbientSounds.Services.Uwp
 
             if (IsSoundPlaying(s.Id))
             {
-                RemoveSound(s.Id);
+                return;
             }
-            else if (_activeSounds.Count < _maxActive)
+
+            if (_activeSounds.Count >= _maxActive)
+            {
+                // remove sound
+                var oldestTime = _activeSoundDateTimes.Min(x => x.Value);
+                var oldestSoundId = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
+                RemoveSound(oldestSoundId);
+            }
+            
+            if (_activeSounds.Count < _maxActive)
             {
                 MediaSource mediaSource = null;
                 if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
@@ -161,6 +171,7 @@ namespace AmbientSounds.Services.Uwp
                     player.Volume *= _globalVolume;
                     player.Source = mediaSource;
                     _activeSounds.Add(s.Id, player);
+                    _activeSoundDateTimes.Add(s.Id, DateTimeOffset.Now);
                     Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? new string[0]);
 
                     if (keepPaused) Pause();
@@ -168,10 +179,6 @@ namespace AmbientSounds.Services.Uwp
 
                     SoundAdded?.Invoke(this, new SoundPlayedArgs(s, parentMixId));
                 }
-            }
-            else
-            {
-                MaxReached?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -242,6 +249,7 @@ namespace AmbientSounds.Services.Uwp
 
             _activeSounds[soundId] = null;
             _activeSounds.Remove(soundId);
+            _activeSoundDateTimes.Remove(soundId);
             Screensavers.Remove(soundId);
 
             // Any time we remove a sound,
