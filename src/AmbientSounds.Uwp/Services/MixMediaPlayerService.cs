@@ -30,6 +30,9 @@ namespace AmbientSounds.Services.Uwp
         public event EventHandler<SoundPausedArgs> SoundRemoved;
 
         /// <inheritdoc/>
+        public event EventHandler<MixPlayedArgs> MixPlayed;
+
+        /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
         /// <inheritdoc/>
@@ -89,6 +92,18 @@ namespace AmbientSounds.Services.Uwp
                 else if (value == MediaPlaybackState.Paused) 
                     _smtc.PlaybackStatus = MediaPlaybackStatus.Paused;
             }
+        }
+
+        /// <inheritdoc/>
+        public void SetMixId(string mixId)
+        {
+            if (string.IsNullOrWhiteSpace(mixId))
+            {
+                return;
+            }
+
+            CurrentMixId = mixId;
+            MixPlayed?.Invoke(this, new MixPlayedArgs(mixId, _activeSounds.Keys.ToArray()));
         }
 
         private void UpdateAllVolumes(double value)

@@ -23,6 +23,11 @@ namespace AmbientSounds.Services
         event EventHandler<SoundPausedArgs> SoundRemoved;
 
         /// <summary>
+        /// Mix was played.
+        /// </summary>
+        event EventHandler<MixPlayedArgs> MixPlayed;
+
+        /// <summary>
         /// Raised when playback changes between
         /// playing and paused.
         /// </summary>
@@ -74,6 +79,14 @@ namespace AmbientSounds.Services
         /// <param name="s">The sound to toggle.</param>
         /// <param name="keepPaused">Optional. If true, an inserted sound will not be played automatically.</param>
         Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "");
+
+        /// <summary>
+        /// Updates the <see cref="CurrentMixId"/>
+        /// and raises an event indicating the mix is
+        /// now playing.
+        /// </summary>
+        /// <param name="mixId">Id of sound mix.</param>
+        void SetMixId(string mixId);
 
         /// <summary>
         /// Removes all active tracks.

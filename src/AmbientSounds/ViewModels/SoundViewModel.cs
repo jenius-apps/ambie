@@ -5,6 +5,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -48,6 +49,7 @@ namespace AmbientSounds.ViewModels
 
             _playerService.SoundRemoved += OnSoundPaused;
             _playerService.SoundAdded += OnSoundPlayed;
+            _playerService.MixPlayed += OnMixPlayed;
 
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
@@ -140,12 +142,17 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private void OnSoundPaused(object sender, SoundPausedArgs args)
+        private void OnMixPlayed(object sender, MixPlayedArgs args)
         {
-            if (Id == args.SoundId || Id == args.ParentMixId)
+            if (args.MixId == _sound.Id || args.SoundIds.Contains(_sound.Id))
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
             }
+        }
+
+        private void OnSoundPaused(object sender, SoundPausedArgs args)
+        {
+            OnPropertyChanged(nameof(IsCurrentlyPlaying));
         }
 
         private void OnSoundPlayed(object sender, SoundPlayedArgs args)

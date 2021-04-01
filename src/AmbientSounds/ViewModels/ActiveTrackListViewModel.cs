@@ -148,7 +148,7 @@ namespace AmbientSounds.ViewModels
 
             var soundIds = ActiveTracks.Select(x => x.Sound).ToArray();
             var id = await _soundMixService.SaveMixAsync(soundIds, name);
-            _player.CurrentMixId = id;
+            _player.SetMixId(id);
             UpdateCanSave();
 
             _telemetry.TrackEvent(TelemetryConstants.MixSaved, new Dictionary<string, string>
