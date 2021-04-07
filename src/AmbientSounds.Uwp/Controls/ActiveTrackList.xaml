@@ -6,7 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -19,6 +21,28 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.RowSpan="2"
+            VerticalAlignment="Center"
+            ui:VisualExtensions.NormalizedCenterPoint="0.5"
+            Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
+            <Image Height="200" Source="ms-appx:///Assets/undraw_press_play_bx2d.png" />
+
+            <animations:Implicit.ShowAnimations>
+                <animations:ScaleAnimation
+                    Delay="0:0:0.1"
+                    From="0.80"
+                    To="1"
+                    Duration="0:0:0.5" />
+                <animations:OpacityAnimation
+                    Delay="0:0:0.1"
+                    From="0"
+                    To="1"
+                    Duration="0:0:0.3" />
+            </animations:Implicit.ShowAnimations>
+        </StackPanel>
+
 
         <ListView
             x:Name="TrackList"

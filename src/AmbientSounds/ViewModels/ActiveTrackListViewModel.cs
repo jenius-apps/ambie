@@ -98,6 +98,11 @@ namespace AmbientSounds.ViewModels
         public bool IsClearVisible => ActiveTracks.Count > 0;
 
         /// <summary>
+        /// Determines if the placeholder is visible.
+        /// </summary>
+        public bool IsPlaceholderVisible => ActiveTracks.Count == 0;
+
+        /// <summary>
         /// Loads prevoius state of the active track list.
         /// </summary>
         public async Task LoadPreviousStateAsync()
@@ -167,6 +172,7 @@ namespace AmbientSounds.ViewModels
         private void ActiveTracks_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             OnPropertyChanged(nameof(IsClearVisible));
+            OnPropertyChanged(nameof(IsPlaceholderVisible));
         }
 
         private void OnSoundRemoved(object sender, SoundPausedArgs args)

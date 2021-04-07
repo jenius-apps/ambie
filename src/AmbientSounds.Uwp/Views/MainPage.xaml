@@ -232,7 +232,6 @@
                     </Flyout>
                 </FlyoutBase.AttachedFlyout>
             </controls:ActiveTrackList>
-
         </Grid>
 
         <controls:SoundGridControl
