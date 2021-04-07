@@ -203,7 +203,6 @@
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
     <Compile Include="Services\LocalSettings.cs" />
-    <Compile Include="Services\MediaPlayerService.cs" />
     <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\PartnerCentreNotificationRegistrar.cs" />
     <Compile Include="Services\ScreensaverService.cs" />
