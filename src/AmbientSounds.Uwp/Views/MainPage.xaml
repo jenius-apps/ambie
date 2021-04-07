@@ -232,12 +232,19 @@
                     </Flyout>
                 </FlyoutBase.AttachedFlyout>
             </controls:ActiveTrackList>
+            <animations:Implicit.Animations>
+                <animations:OffsetAnimation Duration="0:0:1" />
+            </animations:Implicit.Animations>
         </Grid>
 
         <controls:SoundGridControl
             Grid.Row="2"
             ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            ShowCatalogueButton="True" />
+            ShowCatalogueButton="True">
+            <animations:Implicit.Animations>
+                <animations:OffsetAnimation Duration="0:0:1" />
+            </animations:Implicit.Animations>
+        </controls:SoundGridControl>
 
         <muxc:TeachingTip
             x:Name="PinTeachingTip"
