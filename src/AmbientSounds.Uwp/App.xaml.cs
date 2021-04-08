@@ -20,6 +20,7 @@ using AmbientSounds.Factories;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation.Collections;
+using Windows.ApplicationModel;
 
 #nullable enable
 
@@ -32,8 +33,9 @@ namespace AmbientSounds
     {
         private static readonly bool _isTenFootPc = false;
         private IServiceProvider? _serviceProvider;
-        private AppServiceConnection _appServiceConnection;
-        private BackgroundTaskDeferral _appServiceDeferral;
+        private AppServiceConnection? _appServiceConnection;
+        private BackgroundTaskDeferral? _appServiceDeferral;
+        private static PlayerTelemetryTracker? _playerTracker;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -41,6 +43,7 @@ namespace AmbientSounds
         public App()
         {
             this.InitializeComponent();
+            this.Suspending += OnSuspension;
 
             if (IsTenFoot)
             {
@@ -52,6 +55,13 @@ namespace AmbientSounds
             }
 
             SetAppRequestedTheme();
+        }
+
+        private void OnSuspension(object sender, SuspendingEventArgs e)
+        {
+            var deferral = e.SuspendingOperation.GetDeferral();
+            _playerTracker?.TrackDuration(DateTimeOffset.Now);
+            deferral.Complete();
         }
 
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
@@ -136,12 +146,12 @@ namespace AmbientSounds
 
         private void OnAppServicesCanceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
         {
-            _appServiceDeferral.Complete();
+            _appServiceDeferral?.Complete();
         }
 
         private void AppServiceConnection_ServiceClosed(AppServiceConnection sender, AppServiceClosedEventArgs args)
         {
-            _appServiceDeferral.Complete();
+            _appServiceDeferral?.Complete();
         }
 
         private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null)
@@ -286,6 +296,7 @@ namespace AmbientSounds
                 .AddSingleton<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>()
                 .AddSingleton<UploadedSoundsListViewModel>()
+                .AddSingleton<PlayerTelemetryTracker>()
                 .AddSingleton<ISyncEngine, SyncEngine>()
                 .AddSingleton<IAccountManager, AccountManager>()
                 .AddSingleton<IPreviewService, PreviewService>()
@@ -302,6 +313,7 @@ namespace AmbientSounds
             // preload appservice controller to ensure its
             // dispatcher queue loads properly on the ui thread.
             provider.GetService<AppServiceController>();
+            _playerTracker = provider.GetRequiredService<PlayerTelemetryTracker>();
             return provider;
         }
     }

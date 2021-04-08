@@ -26,6 +26,7 @@
         // playback
         private const string Playback = "playback:";
         public const string PlaybackRandom = Playback + "randomClicked";
+        public const string PlaybackTime = Playback + "time";
 
         // pages
         private const string Page = "page:";
