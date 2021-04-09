@@ -586,4 +586,7 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Pin to taskbar</value>
   </data>
+  <data name="PerformanceMode" xml:space="preserve">
+    <value>Performance mode (requires restart)</value>
+  </data>
 </root>

@@ -62,6 +62,15 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
+        /// Settings flag for performance mode.
+        /// </summary>
+        public bool PerformanceModeEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.PerformanceMode);
+            set => _userSettings.Set(UserSettingsConstants.PerformanceMode, value);
+        }
+
+        /// <summary>
         /// Settings flag for screensaver.
         /// </summary>
         public bool ScreensaverEnabled

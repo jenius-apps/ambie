@@ -794,6 +794,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region PerformanceMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Performance mode (requires restart)
+        /// </summary>
+        public static string PerformanceMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("PerformanceMode");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -865,6 +878,7 @@ namespace AmbientSounds.Strings{
             FirstLaunchMessage,
             HelloAndWelcome,
             PinToTaskbar,
+            PerformanceMode,
         }
 
         private static ResourceLoader _resourceLoader;

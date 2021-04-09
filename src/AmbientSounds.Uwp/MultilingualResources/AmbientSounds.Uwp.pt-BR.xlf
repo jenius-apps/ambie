@@ -637,6 +637,10 @@
           <source>Pin to taskbar</source>
           <target state="new">Pin to taskbar</target>
         </trans-unit>
+        <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
+          <source>Performance mode (requires restart)</source>
+          <target state="new">Performance mode (requires restart)</target>
+        </trans-unit>
       </group>
     </body>
   </file>
