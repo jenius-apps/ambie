@@ -7,6 +7,7 @@ using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -40,6 +41,15 @@ namespace AmbientSounds.Views
             });
 
             TryStartPageAnimations();
+
+            if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.PerformanceMode))
+            {
+                SolidColorBrush mycolor = App.Current.Resources["FallbackBackgroundBrush"] as SolidColorBrush;
+                if (mycolor != null)
+                {
+                    this.Background = mycolor;
+                }
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

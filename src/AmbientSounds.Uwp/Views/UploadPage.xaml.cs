@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views
@@ -25,6 +26,15 @@ namespace AmbientSounds.Views
             {
                 { "name", "uploadPage" },
             });
+
+            if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.PerformanceMode))
+            {
+                SolidColorBrush mycolor = App.Current.Resources["FallbackBackgroundBrush"] as SolidColorBrush;
+                if (mycolor != null)
+                {
+                    this.Background = mycolor;
+                }
+            }
         }
 
         private void GoBack()
