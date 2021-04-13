@@ -613,35 +613,35 @@
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>
-          <target state="new">Donate</target>
+          <target state="translated">Támogatás</target>
         </trans-unit>
         <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
           <source>Terms of Use</source>
-          <target state="new">Terms of Use</target>
+          <target state="translated">Használati feltételek</target>
         </trans-unit>
         <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
           <source>Follow us on Twitter</source>
-          <target state="new">Follow us on Twitter</target>
+          <target state="translated">Kövessen minket Twitteren</target>
         </trans-unit>
         <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
           <source>Dismiss</source>
-          <target state="new">Dismiss</target>
+          <target state="translated">Elvetés</target>
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="new">Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</target>
+          <target state="translated">Köszönjük, hogy az Ambie-t használja. A legjobb felhasználói élményért fontolja meg az Ambie kitűzését a tálcára! Élvezze a nyugtató ittlétét 🏝</target>
         </trans-unit>
         <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
           <source>Hello and welcome!</source>
-          <target state="new">Hello and welcome!</target>
+          <target state="translated">Üdvözöljük!</target>
         </trans-unit>
         <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
           <source>Pin to taskbar</source>
-          <target state="new">Pin to taskbar</target>
+          <target state="translated">Rögzítés a tálcára</target>
         </trans-unit>
         <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
           <source>Performance mode (requires restart)</source>
-          <target state="new">Performance mode (requires restart)</target>
+          <target state="translated">Teljesítmény mód (újraindítást igényel)</target>
         </trans-unit>
       </group>
     </body>
