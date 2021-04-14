@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="de-DE" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
@@ -8,11 +8,11 @@
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="new">Schließe Kompakt-Modus</target>
+          <target state="new">Kompakt-Modus verlassen</target>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="new">Schließe Kompakt-Modus</target>
+          <target state="new">Kompakt-Modus verlassen</target>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
@@ -32,7 +32,7 @@
         </trans-unit>
         <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View app information</source>
-          <target state="new">Anzeigen von App-Informationen</target>
+          <target state="new">App-Informationen</target>
         </trans-unit>
         <trans-unit id="Minutes10Button.Label" translate="yes" xml:space="preserve">
           <source>10 minutes</source>
@@ -56,7 +56,7 @@
         </trans-unit>
         <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more options</source>
-          <target state="new">Weitere Optionen anzeigen</target>
+          <target state="new">Weitere Optionen</target>
         </trans-unit>
         <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
@@ -64,7 +64,7 @@
         </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
-          <target state="new">Kontaktieren Sie den Ersteller</target>
+          <target state="new">Entwickler kontaktieren</target>
         </trans-unit>
         <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
           <source>Chat on Discord</source>
@@ -84,11 +84,11 @@
         </trans-unit>
         <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
           <source>Share link for Ambie</source>
-          <target state="new">Link teilen für Ambie</target>
+          <target state="new">Link für Ambie teilen </target>
         </trans-unit>
         <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
           <source>Add or improve translations</source>
-          <target state="new">Hinzufügen oder Verbessern von Übersetzungen</target>
+          <target state="new">Übersetzungen hinzufügen oder verbessern</target>
         </trans-unit>
         <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Off</source>
@@ -128,11 +128,11 @@
         </trans-unit>
         <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View sleep timer options</source>
-          <target state="new">Optionen des Sleep-Timers anzeigen</target>
+          <target state="new">Sleep-Timer Optionen anzeigen</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View sleep timer options</source>
-          <target state="new">Optionen des Sleep-Timers anzeigen</target>
+          <target state="new">Sleep-Timer Optionen anzeigen</target>
         </trans-unit>
         <trans-unit id="Sound-beach" translate="yes" xml:space="preserve">
           <source>Beach</source>
@@ -192,7 +192,7 @@
         </trans-unit>
         <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Stop the timer and clear the time</source>
-          <target state="new">Stoppe Timer und lösche Zeit</target>
+          <target state="new">Timer stoppen und Zeit zurücksetzen</target>
         </trans-unit>
         <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Global volume</source>
@@ -352,7 +352,7 @@
         </trans-unit>
         <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
           <source>Use a dark page as screensaver</source>
-          <target state="new">Dunkle Seite als Bildschirmschoner verwenden</target>
+          <target state="new">Leere Seite als Bildschirmschoner verwenden</target>
         </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
@@ -394,11 +394,11 @@
         </trans-unit>
         <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="new">Alle aktiven Töne löschen</target>
+          <target state="new">Alle aktiven Töne entfernen</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="new">Alle aktiven Töne löschen</target>
+          <target state="new">Alle aktiven Töne entfernen</target>
         </trans-unit>
         <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Confirm save</source>
