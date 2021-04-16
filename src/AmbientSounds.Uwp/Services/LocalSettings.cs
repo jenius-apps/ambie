@@ -19,7 +19,7 @@ namespace AmbientSounds.Services.Uwp
         public T Get<T>(string settingKey)
         {
             object result = ApplicationData.Current.LocalSettings.Values[settingKey];
-            return result == null ? (T)UserSettingsConstants.Defaults[settingKey] : (T)result;
+            return result is null ? (T)UserSettingsConstants.Defaults[settingKey] : (T)result;
         }
 
         /// <inheritdoc/>
@@ -54,7 +54,7 @@ namespace AmbientSounds.Services.Uwp
         public T Get<T>(string settingKey, T defaultOverride)
         {
             object result = ApplicationData.Current.LocalSettings.Values[settingKey];
-            return result == null ? defaultOverride : (T)result;
+            return result is null ? defaultOverride : (T)result;
         }
     }
 }

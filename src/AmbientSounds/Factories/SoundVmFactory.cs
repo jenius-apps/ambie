@@ -60,10 +60,10 @@ namespace AmbientSounds.Factories
         /// <inheritdoc/>
         public OnlineSoundViewModel? GetOnlineSoundVm(Sound s)
         {
-            if (s == null ||
-                s.Id == null ||
-                s.ImagePath == null ||
-                s.FilePath == null)
+            if (s is null ||
+                s.Id is null ||
+                s.ImagePath is null ||
+                s.FilePath is null)
             {
                 return null;
             }

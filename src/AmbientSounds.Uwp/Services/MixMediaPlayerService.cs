@@ -164,7 +164,7 @@ namespace AmbientSounds.Services.Uwp
                     // sound path is packaged and can be read as URI.
                     mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
                 }
-                else if (s.FilePath != null && s.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
+                else if (s.FilePath is not null && s.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
                 {
                     try
                     {
@@ -179,7 +179,7 @@ namespace AmbientSounds.Services.Uwp
                     }
                 }
                 
-                if (mediaSource != null)
+                if (mediaSource is not null)
                 {
                     CurrentMixId = parentMixId;
                     var player = CreateLoopingPlayer();

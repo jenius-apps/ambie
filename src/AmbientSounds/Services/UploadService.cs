@@ -48,7 +48,7 @@ namespace AmbientSounds.Services
         public async Task<bool> DeleteAsync(string id)
         {
             var accesstoken = await _accountManager.GetCatalogueTokenAsync();
-            if (id == null || 
+            if (id is null || 
                 string.IsNullOrWhiteSpace(accesstoken))
             {
                 return false;
@@ -79,13 +79,13 @@ namespace AmbientSounds.Services
         public async Task UploadAsync(Sound s)
         {
             var accesstoken = await _accountManager.GetCatalogueTokenAsync();
-            if (s == null || string.IsNullOrWhiteSpace(accesstoken))
+            if (s is null || string.IsNullOrWhiteSpace(accesstoken))
             {
                 return;
             }
 
             byte[] bytes = await _filePicker.GetCachedBytesAsync(s.FilePath);
-            if (bytes == null)
+            if (bytes is null)
             {
                 throw new Exception($"Get bytes failed: {s.FilePath}");
             }

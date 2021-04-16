@@ -43,7 +43,7 @@ namespace AmbientSounds.ViewModels
         private void OnLocalSoundDeleted(object sender, string id)
         {
             var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
-            if (forDeletion == null) return;
+            if (forDeletion is null) return;
             Sounds.Remove(forDeletion);
 
             int index = 0;

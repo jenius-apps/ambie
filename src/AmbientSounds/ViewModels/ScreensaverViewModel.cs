@@ -89,13 +89,13 @@ namespace AmbientSounds.ViewModels
                 _images = images;
             }
 
-            if (_images == null || _images.Count < 2)
+            if (_images is null || _images.Count < 2)
             {
                 var firstSound = (await _soundDataProvider.GetSoundsAsync(refresh: false)).FirstOrDefault();
                 _images = firstSound?.ScreensaverImagePaths ?? new string[0];
             }
 
-            if (_images == null || _images.Count < 2)
+            if (_images is null || _images.Count < 2)
             {
                 return;
             }
@@ -128,7 +128,7 @@ namespace AmbientSounds.ViewModels
 
         private async void CycleImages()
         {
-            if (_images == null || _images.Count < 2)
+            if (_images is null || _images.Count < 2)
             {
                 return;
             }
@@ -157,7 +157,7 @@ namespace AmbientSounds.ViewModels
 
         private void IncrementIndex(ref int index)
         {
-            if (_images == null || _images.Count < 2)
+            if (_images is null || _images.Count < 2)
             {
                 return;
             }

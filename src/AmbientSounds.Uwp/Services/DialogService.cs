@@ -92,7 +92,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<IList<string>> OpenShareResultsAsync(IList<string> soundIds)
         {
-            if (IsDialogOpen || soundIds == null || soundIds.Count == 0) 
+            if (IsDialogOpen || soundIds is null || soundIds.Count == 0) 
                 return new List<string>();
 
             IsDialogOpen = true;

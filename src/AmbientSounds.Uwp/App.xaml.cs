@@ -131,7 +131,7 @@ namespace AmbientSounds
         {
             AppServiceDeferral messageDeferral = args.GetDeferral();
             var controller = App.Services.GetService<AppServiceController>();
-            if (controller != null)
+            if (controller is not null)
             {
                 await controller.ProcessRequest(args.Request);
             }
@@ -250,7 +250,7 @@ namespace AmbientSounds
         private void SetAppRequestedTheme()
         {
             object themeObject = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme];
-            if (themeObject != null && AppFrame != null)
+            if (themeObject is not null && AppFrame is not null)
             {
                 string theme = themeObject.ToString();
                 switch (theme)

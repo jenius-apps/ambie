@@ -73,7 +73,7 @@ namespace AmbientSounds.Converters
         /// </remarks>
         public static string ConvertOnlineSoundListViewName(string name, bool canDownload)
         {
-            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
+            if (_loader is null) _loader = ResourceLoader.GetForCurrentView();
             var result = name + ". ";
             result += canDownload 
                 ? _loader.GetString("CanDownload") 
@@ -84,7 +84,7 @@ namespace AmbientSounds.Converters
 
         private static void InitializeLoader()
         {
-            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
+            if (_loader is null) _loader = ResourceLoader.GetForCurrentView();
         }
     }
 }

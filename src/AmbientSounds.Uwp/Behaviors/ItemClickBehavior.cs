@@ -35,7 +35,7 @@ namespace Microsoft.Xaml.Interactions.Core
         /// <param name="e">The <see cref="ItemClickEventArgs"/> instance with the clicked item</param>
         private void HandleItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!(Command is ICommand command)) return;
+            if (Command is not ICommand command) return;
             if (!command.CanExecute(e.ClickedItem)) return;
 
             command.Execute(e.ClickedItem);
@@ -46,7 +46,7 @@ namespace Microsoft.Xaml.Interactions.Core
         {
             base.OnAttached();
 
-            if (AssociatedObject != null) AssociatedObject.ItemClick += HandleItemClick;
+            if (AssociatedObject is not null) AssociatedObject.ItemClick += HandleItemClick;
         }
 
         /// <inheritdoc/>
@@ -54,7 +54,7 @@ namespace Microsoft.Xaml.Interactions.Core
         {
             base.OnDetaching();
 
-            if (AssociatedObject != null) AssociatedObject.ItemClick -= HandleItemClick;
+            if (AssociatedObject is not null) AssociatedObject.ItemClick -= HandleItemClick;
         }
     }
 }

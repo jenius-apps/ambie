@@ -67,7 +67,7 @@ namespace AmbientSounds.ViewModels
             foreach (var sound in sounds)
             {
                 var vm = _soundVmFactory.GetOnlineSoundVm(sound);
-                if (vm != null)
+                if (vm is not null)
                 {
                     Sounds.Add(vm);
                 }

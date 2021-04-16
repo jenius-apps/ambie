@@ -89,7 +89,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Path to user's profile image.
         /// </summary>
-        public string ProfilePath => Person == null || string.IsNullOrWhiteSpace(Person.PicturePath) 
+        public string ProfilePath => Person is null || string.IsNullOrWhiteSpace(Person.PicturePath) 
             ? "http://localhost:8000" 
             : Person.PicturePath;
        

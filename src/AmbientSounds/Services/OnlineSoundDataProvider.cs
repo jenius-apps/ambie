@@ -40,7 +40,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task<string> GetDownloadLinkAsync(Sound s)
         {
-            if (s == null)
+            if (s is null)
             {
                 return "";
             }
@@ -78,13 +78,13 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds)
         {
-            if (soundIds == null || soundIds.Count == 0)
+            if (soundIds is null || soundIds.Count == 0)
             {
                 return new Sound[0];
             }
 
             var sounds = await GetSoundsAsync();
-            return sounds?.Where(x => x.Id != null && soundIds.Contains(x.Id)).ToArray()
+            return sounds?.Where(x => x.Id is not null && soundIds.Contains(x.Id)).ToArray()
                 ?? new Sound[0];
         }
 

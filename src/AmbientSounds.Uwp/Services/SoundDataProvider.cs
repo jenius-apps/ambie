@@ -41,7 +41,7 @@ namespace AmbientSounds.Services.Uwp
             var localSounds = await GetLocalSoundsInternalAsync(refresh: refresh);
             packagedSounds.AddRange(localSounds);
 
-            if (soundIds == null) return packagedSounds;
+            if (soundIds is null) return packagedSounds;
             else return packagedSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
         }
 
@@ -55,7 +55,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public Task UpdateLocalSoundAsync(IList<Sound> sounds)
         {
-            if (sounds == null || sounds.Count == 0)
+            if (sounds is null || sounds.Count == 0)
             {
                 return Task.CompletedTask;
             }
@@ -123,7 +123,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<bool> IsSoundInstalledAsync(string id)
         {
-            if (id == null)
+            if (id is null)
             {
                 return false;
             }
@@ -138,14 +138,14 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task RefreshLocalSoundsMetaDataAsync()
         {
-            if (_localSoundCache == null || _localSoundCache.Count == 0)
+            if (_localSoundCache is null || _localSoundCache.Count == 0)
             {
                 return;
             }
 
             string[] currentSoundIds = _localSoundCache.Select(x => x.Id).ToArray();
             IList<Sound> latestData = await _onlineSoundDataProvider.GetSoundsAsync(currentSoundIds);
-            if (latestData == null || latestData.Count == 0)
+            if (latestData is null || latestData.Count == 0)
             {
                 return;
             }
@@ -153,7 +153,7 @@ namespace AmbientSounds.Services.Uwp
             foreach (Sound cachedSound in _localSoundCache)
             {
                 var updatedSound = latestData.FirstOrDefault(x => x.Id == cachedSound.Id);
-                if (updatedSound != null)
+                if (updatedSound is not null)
                 {
                     cachedSound.Name = updatedSound.Name;
                     cachedSound.ScreensaverImagePaths = updatedSound.ScreensaverImagePaths;
@@ -178,14 +178,14 @@ namespace AmbientSounds.Services.Uwp
             StorageFile localDataFile = null,
             bool refresh = false)
         {
-            if (localDataFile == null)
+            if (localDataFile is null)
             {
                 localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                     LocalDataFileName,
                     CreationCollisionOption.OpenIfExists);
             }
 
-            if (_localSoundCache != null && !refresh)
+            if (_localSoundCache is not null && !refresh)
             {
                 return _localSoundCache.AsReadOnly();
             }
@@ -200,7 +200,7 @@ namespace AmbientSounds.Services.Uwp
                 // TODO log
             }
 
-            if (_localSoundCache == null)
+            if (_localSoundCache is null)
             {
                 _localSoundCache = new List<Sound>();
             }
@@ -210,7 +210,7 @@ namespace AmbientSounds.Services.Uwp
 
         private async Task<List<Sound>> GetPackagedSoundsAsync()
         {
-            if (_packagedSoundCache == null)
+            if (_packagedSoundCache is null)
             {
                 StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
                 StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");

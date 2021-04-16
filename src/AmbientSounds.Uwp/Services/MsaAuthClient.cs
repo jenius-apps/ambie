@@ -53,7 +53,7 @@ namespace AmbientSounds.Services.Uwp
 			var result = await SilentAuthAsync();
 			ClearStoredInfo();
 
-			if (result == null)
+			if (result is null)
             {
 				return;
             }
@@ -67,7 +67,7 @@ namespace AmbientSounds.Services.Uwp
 			var person = new Person();
 			var result = await SilentAuthAsync();
 
-			if (result != null && result.ResponseStatus == WebTokenRequestStatus.Success)
+			if (result is not null && result.ResponseStatus == WebTokenRequestStatus.Success)
             {
                 var u = result.ResponseData[0].WebAccount.WebAccountProvider.User;
 
@@ -81,7 +81,7 @@ namespace AmbientSounds.Services.Uwp
 				person.Email = values[KnownUserProperties.AccountName] as string ?? "";
 
 				var streamReference = await u.GetPictureAsync(UserPictureSize.Size64x64);
-                if (streamReference != null)
+                if (streamReference is not null)
                 {
                     IRandomAccessStream stream = await streamReference.OpenReadAsync();
 					person.PicturePath = await _fileWriter.WriteBitmapAsync(stream.AsStream(), PictureFileName);
@@ -96,7 +96,7 @@ namespace AmbientSounds.Services.Uwp
 		{
 			var result = await SilentAuthAsync();
 
-			if (result != null && result.ResponseStatus == WebTokenRequestStatus.Success)
+			if (result is not null && result.ResponseStatus == WebTokenRequestStatus.Success)
             {
 				return result.ResponseData[0].Token;
             }

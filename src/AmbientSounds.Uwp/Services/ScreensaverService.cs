@@ -55,7 +55,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void StopTimer()
         {
-            if (_screensaverTriggerTimer != null)
+            if (_screensaverTriggerTimer is not null)
             {
                 _screensaverTriggerTimer.Stop();
                 _screensaverTriggerTimer.Tick -= ScreensaverTriggered;
@@ -66,7 +66,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void ResetScreensaverTimeout()
         {
-            if (_screensaverTriggerTimer != null)
+            if (_screensaverTriggerTimer is not null)
             {
                 _screensaverTriggerTimer.Stop();
                 _screensaverTriggerTimer.Start();

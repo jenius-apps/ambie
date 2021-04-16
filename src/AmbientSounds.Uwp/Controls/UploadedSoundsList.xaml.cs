@@ -25,7 +25,7 @@ namespace AmbientSounds.Controls
 
         private void CloseDeleteFlyout(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (_activeFlyout != null)
+            if (_activeFlyout is not null)
             {
                 _activeFlyout.Hide();
             }

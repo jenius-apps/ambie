@@ -42,8 +42,8 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task QueueAndDownloadAsync(Sound s, IProgress<double> progress)
         {
-            if (s == null ||
-                progress == null ||
+            if (s is null ||
+                progress is null ||
                 _downloadQueue.Any(x => s.Equals(x.SoundData)))
             {
                 return;

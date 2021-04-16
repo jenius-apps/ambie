@@ -114,7 +114,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Determines if it's safe to display the links.
         /// </summary>
-        public bool AreLinksValid => _sound.SponsorLinks != null && 
+        public bool AreLinksValid => _sound.SponsorLinks is not null && 
             _sound.SponsorLinks.Length > 0 && 
             _sound.SponsorLinks.Any(x => Uri.IsWellFormedUriString(x, UriKind.Absolute));
 

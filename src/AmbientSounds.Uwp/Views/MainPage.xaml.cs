@@ -68,7 +68,7 @@ namespace AmbientSounds.Views
                 .GetForCurrentView()
                 .GetAnimation(AnimationConstants.CatalogueBack);
 
-            if (animation != null)
+            if (animation is not null)
             {
                 animation.TryStart(CatalogueButton);
             }

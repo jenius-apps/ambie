@@ -56,7 +56,7 @@ namespace AmbientSounds.Views
                 .GetForCurrentView()
                 .GetAnimation(AnimationConstants.CatalogueForward);
 
-            if (animation != null)
+            if (animation is not null)
             {
                 animation.TryStart(CatalogueIcon, new UIElement[] { CatalogueTitle });
             }

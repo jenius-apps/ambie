@@ -75,7 +75,7 @@ namespace AmbientSounds.Services.Uwp
                 var content = await profileResponse.Content.ReadAsStringAsync();
                 var data = JObject.Parse(content);
 
-                if (data != null)
+                if (data is not null)
                 {
                     person.Email = data["userPrincipalName"].ToString();
                     person.Firstname = data["givenName"].ToString();
@@ -127,7 +127,7 @@ namespace AmbientSounds.Services.Uwp
             try
             {
                 var builder = _msalSdkClient.AcquireTokenInteractive(scopes);
-                if (extraScopes != null)
+                if (extraScopes is not null)
                 {
                     builder = builder.WithExtraScopesToConsent(extraScopes);
                 }

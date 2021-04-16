@@ -56,7 +56,7 @@ namespace AmbientSounds.Controls
                     .GetForCurrentView()
                     .GetAnimation(AnimationConstants.TrackListItemLoad);
 
-                if (animation != null)
+                if (animation is not null)
                 {
                     await TrackList.TryStartConnectedAnimationAsync(
                         animation, item, "ImagePanel");
@@ -75,7 +75,7 @@ namespace AmbientSounds.Controls
                     .GetForCurrentView()
                     .GetAnimation(animationString);
 
-                if (animation != null)
+                if (animation is not null)
                 {
                     await TrackList.TryStartConnectedAnimationAsync(
                         animation, item, "ImagePanel");

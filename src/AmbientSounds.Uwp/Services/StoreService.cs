@@ -23,11 +23,11 @@ namespace AmbientSounds.Services.Uwp
                 return false;
             }
 
-            if (_context == null)
+            if (_context is null)
                 _context = StoreContext.GetDefault();
 
             StoreAppLicense appLicense = await _context.GetAppLicenseAsync();
-            if (appLicense == null)
+            if (appLicense is null)
             {
                 return false;
             }
@@ -66,12 +66,12 @@ namespace AmbientSounds.Services.Uwp
             }
 
             var addOnProduct = await GetAddOn(id);
-            if (addOnProduct == null)
+            if (addOnProduct is null)
                 return false;
 
             /// Attempt purchase
             var result = await addOnProduct.RequestPurchaseAsync();
-            if (result == null)
+            if (result is null)
                 return false;
 
             bool purchased = false;
@@ -102,12 +102,12 @@ namespace AmbientSounds.Services.Uwp
                 return null;
             }
 
-            if (_context == null)
+            if (_context is null)
                 _context = StoreContext.GetDefault();
 
             /// Get all add-ons for this app.
             var result = await _context.GetAssociatedStoreProductsAsync(new string[] { "Durable", "Consumable" });
-            if (result.ExtendedError != null)
+            if (result.ExtendedError is not null)
             {
                 return null;
             }

@@ -35,7 +35,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async void Process(Uri uri)
         {
-            if (uri?.Query == null)
+            if (uri?.Query is null)
             {
                 return;
             }
@@ -68,14 +68,14 @@ namespace AmbientSounds.Services
                 // show the share result to the user and let them download missing sounds.
                 IList<string> soundIdsToPlay = await _dialogService.OpenShareResultsAsync(list);
 
-                if (soundIdsToPlay != null && soundIdsToPlay.Count > 0)
+                if (soundIdsToPlay is not null && soundIdsToPlay.Count > 0)
                 {
                     manuallyPlayed = true;
                     tempSoundMix.SoundIds = soundIdsToPlay.ToArray();
                     await _soundMixService.LoadMixAsync(tempSoundMix);
                 }
 
-                tracksplayed = soundIdsToPlay != null ? soundIdsToPlay.Count : 0;
+                tracksplayed = soundIdsToPlay is not null ? soundIdsToPlay.Count : 0;
             }
 
             _telemetry.TrackEvent(TelemetryConstants.ShareReceived, new Dictionary<string, string>()
