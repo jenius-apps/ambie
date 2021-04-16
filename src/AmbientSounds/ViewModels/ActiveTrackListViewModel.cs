@@ -24,7 +24,6 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly bool _loadPreviousState;
         private bool _loaded;
-        private readonly Queue<Sound> _addQueue = new Queue<Sound>();
 
         public ActiveTrackListViewModel(
             IMixMediaPlayerService player,
@@ -144,9 +143,11 @@ namespace AmbientSounds.ViewModels
             });
         }
 
-        private async Task SaveAsync(string name)
+        private async Task SaveAsync(string? name)
         {
-            if (SaveCommand.IsRunning || !string.IsNullOrWhiteSpace(_player.CurrentMixId))
+            if (name is null ||
+                SaveCommand.IsRunning ||
+                !string.IsNullOrWhiteSpace(_player.CurrentMixId))
             {
                 return;
             }
@@ -203,7 +204,7 @@ namespace AmbientSounds.ViewModels
         }
         private void UpdateCanSave() => OnPropertyChanged(nameof(CanSave));
 
-        private void RemoveSound(Sound s)
+        private void RemoveSound(Sound? s)
         {
             if (s != null)
             {

@@ -11,7 +11,7 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Tracks handled exceptions.
         /// </summary>
-        void TrackError(Exception e, IDictionary<string, string> properties = null);
+        void TrackError(Exception e, IDictionary<string, string>? properties = null);
 
         /// <summary>
         /// Tracks the given event and its properties.

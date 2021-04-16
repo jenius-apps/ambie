@@ -32,7 +32,7 @@ namespace AmbientSounds.Services
         /// <param name="localDirName">Optional. The name of the subdirectory to place the file in. 
         /// If null or empty, then the root local directory will be used.</param>
         /// <returns></returns>
-        Task<string> WriteFileAsync(Stream stream, string nameWithExt, string localDirName = null);
+        Task<string> WriteFileAsync(Stream stream, string nameWithExt, string? localDirName = null);
 
         /// <summary>
         /// Encodes and writes a bitmap image to the local directory.
