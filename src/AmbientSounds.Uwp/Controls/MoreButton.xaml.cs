@@ -12,7 +12,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+#nullable enable
 
 namespace AmbientSounds.Controls
 {
@@ -50,7 +50,7 @@ namespace AmbientSounds.Controls
             {
                 { "trigger", "moreButton" }
             });
-            App.AppFrame.Navigate(typeof(Views.ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+            App.AppFrame!.Navigate(typeof(Views.ScreensaverPage), null, new DrillInNavigationTransitionInfo());
             var view = ApplicationView.GetForCurrentView();
             if (!view.IsFullScreenMode && !App.IsTenFoot)
             {

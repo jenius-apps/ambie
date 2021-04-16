@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+#nullable enable
 
 namespace AmbientSounds.Controls
 {
@@ -83,7 +83,7 @@ namespace AmbientSounds.Controls
             }
         }
 
-        private void NameInput_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private void NameInput_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {

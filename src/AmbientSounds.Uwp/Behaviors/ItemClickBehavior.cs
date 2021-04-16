@@ -3,6 +3,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Microsoft.Xaml.Interactivity;
 
+#nullable enable
+
 namespace Microsoft.Xaml.Interactions.Core
 {
     /// <summary>
@@ -13,9 +15,9 @@ namespace Microsoft.Xaml.Interactions.Core
         /// <summary>
         /// Gets or sets the <see cref="ICommand"/> instance to invoke when the current behavior is triggered
         /// </summary>
-        public ICommand Command
+        public ICommand? Command
         {
-            get => (ICommand)GetValue(CommandProperty);
+            get => (ICommand?)GetValue(CommandProperty);
             set => SetValue(CommandProperty, value);
         }
 
@@ -46,7 +48,10 @@ namespace Microsoft.Xaml.Interactions.Core
         {
             base.OnAttached();
 
-            if (AssociatedObject is not null) AssociatedObject.ItemClick += HandleItemClick;
+            if (AssociatedObject is not null)
+            {
+                AssociatedObject.ItemClick += HandleItemClick;
+            }
         }
 
         /// <inheritdoc/>
@@ -54,7 +59,10 @@ namespace Microsoft.Xaml.Interactions.Core
         {
             base.OnDetaching();
 
-            if (AssociatedObject is not null) AssociatedObject.ItemClick -= HandleItemClick;
+            if (AssociatedObject is not null)
+            {
+                AssociatedObject.ItemClick -= HandleItemClick;
+            }
         }
     }
 }

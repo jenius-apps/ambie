@@ -4,6 +4,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 
+#nullable enable
+
 namespace AmbientSounds.Animations
 {
     /// <summary>

@@ -1,13 +1,10 @@
 ﻿using AmbientSounds.Animations;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System.Numerics;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Hosting;
-using Windows.UI.Xaml.Input;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+#nullable enable
 
 namespace AmbientSounds.Controls
 {
@@ -25,9 +22,9 @@ namespace AmbientSounds.Controls
         /// If true, the compact mode button is visible.
         /// Default is true.
         /// </summary>
-        public DataTemplate ItemTemplate
+        public DataTemplate? ItemTemplate
         {
-            get => (DataTemplate)GetValue(ItemTemplateProperty);
+            get => (DataTemplate?)GetValue(ItemTemplateProperty);
             set => SetValue(ItemTemplateProperty, value);
         }
 
@@ -59,30 +56,14 @@ namespace AmbientSounds.Controls
             typeof(SoundGridControl),
             new PropertyMetadata(false));
 
-        private void GridScaleUp(object sender, PointerRoutedEventArgs e)
-        {
-            // Source for the scaling: https://github.com/windows-toolkit/WindowsCommunityToolkit/blob/master/Microsoft.Toolkit.Uwp.SampleApp/SamplePages/Implicit%20Animations/ImplicitAnimationsPage.xaml.cs
-            // Search for "Scale Element".
-            var element = sender as UIElement;
-            var visual = ElementCompositionPreview.GetElementVisual(element);
-            visual.Scale = new Vector3(1.1f, 1.1f, 1);
-        }
-
-        private void GridScaleNormal(object sender, PointerRoutedEventArgs e)
-        {
-            var element = sender as UIElement;
-            var visual = ElementCompositionPreview.GetElementVisual(element);
-            visual.Scale = new Vector3(1);
-        }
-
         private Visibility Not(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (sender is ListViewBase l &&
                 e.ClickedItem is SoundViewModel vm &&
-                ! vm.IsCurrentlyPlaying &&
-                App.AppFrame.CurrentSourcePageType == typeof(Views.MainPage))
+                !vm.IsCurrentlyPlaying &&
+                App.AppFrame!.CurrentSourcePageType == typeof(Views.MainPage))
             {
                 if (!vm.IsMix)
                 {
