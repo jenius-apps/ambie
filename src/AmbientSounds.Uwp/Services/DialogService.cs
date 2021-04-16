@@ -115,7 +115,7 @@ namespace AmbientSounds.Services.Uwp
             IsDialogOpen = false;
 
             return result == ContentDialogResult.Primary
-                ? content.ViewModel.Sounds.Where(x => x.IsInstalled).Select(x => x.Id).ToList()
+                ? content.ViewModel.Sounds.Where(static x => x.IsInstalled).Select(static x => x.Id).ToList()
                 : new List<string>();
         }
     }

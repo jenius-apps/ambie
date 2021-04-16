@@ -153,7 +153,7 @@ namespace AmbientSounds.Services.Uwp
             if (_activeSounds.Count >= _maxActive)
             {
                 // remove sound
-                var oldestTime = _activeSoundDateTimes.Min(x => x.Value);
+                var oldestTime = _activeSoundDateTimes.Min(static x => x.Value);
                 var oldestSoundId = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
                 RemoveSound(oldestSoundId);
             }

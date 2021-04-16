@@ -225,10 +225,10 @@ namespace AmbientSounds.Services
             var localSounds = await _soundDataProvider.GetLocalSoundsAsync();
             var syncData = new SyncData
             {
-                InstalledSoundIds = localSounds.Select(x => x.Id).ToArray(),
+                InstalledSoundIds = localSounds.Select(static x => x.Id).ToArray(),
                 SoundMixes = localSounds
-                    .Where(x => x.IsMix == true)
-                    .Select(mix => new Sound { Name = mix.Name, Id = mix.Id, SoundIds = mix.SoundIds })
+                    .Where(static x => x.IsMix)
+                    .Select(static mix => new Sound { Name = mix.Name, Id = mix.Id, SoundIds = mix.SoundIds })
                     .ToArray()
             };
 

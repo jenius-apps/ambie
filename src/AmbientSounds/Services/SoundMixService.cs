@@ -46,8 +46,8 @@ namespace AmbientSounds.Services
                 Id = Guid.NewGuid().ToString(),
                 IsMix = true,
                 Name = string.IsNullOrWhiteSpace(name) ? RandomName() : name.Trim(),
-                SoundIds = sounds.Select(x => x.Id).ToArray(),
-                ImagePaths = sounds.Select(x => x.ImagePath).ToArray()
+                SoundIds = sounds.Select(static x => x.Id).ToArray(),
+                ImagePaths = sounds.Select(static x => x.ImagePath).ToArray()
             };
 
             await _soundDataProvider.AddLocalSoundAsync(mix);
@@ -98,7 +98,7 @@ namespace AmbientSounds.Services
             }
 
             var allSounds = await _soundDataProvider.GetSoundsAsync();
-            var allSoundIds = allSounds.Select(x => x.Id);
+            var allSoundIds = allSounds.Select(static x => x.Id);
 
             foreach (var soundMix in dehydratedMixes)
             {
@@ -116,8 +116,8 @@ namespace AmbientSounds.Services
                     Id = soundMix.Id,
                     Name = soundMix.Name,
                     IsMix = true,
-                    SoundIds = soundsForThisMix.Select(x => x.Id).ToArray(),
-                    ImagePaths = soundsForThisMix.Select(x => x.ImagePath).ToArray()
+                    SoundIds = soundsForThisMix.Select(static x => x.Id).ToArray(),
+                    ImagePaths = soundsForThisMix.Select(static x => x.ImagePath).ToArray()
                 };
 
                 await _soundDataProvider.AddLocalSoundAsync(hydratedMix);

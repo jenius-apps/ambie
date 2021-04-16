@@ -152,7 +152,7 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            var soundIds = ActiveTracks.Select(x => x.Sound).ToArray();
+            var soundIds = ActiveTracks.Select(static x => x.Sound).ToArray();
             var id = await _soundMixService.SaveMixAsync(soundIds, name);
             _player.SetMixId(id);
             UpdateCanSave();
@@ -165,7 +165,7 @@ namespace AmbientSounds.ViewModels
 
         private void UpdateStoredState()
         {
-            var ids = ActiveTracks.Select(x => x.Sound.Id).ToArray();
+            var ids = ActiveTracks.Select(static x => x.Sound.Id).ToArray();
             _userSettings.SetAndSerialize(UserSettingsConstants.ActiveTracks, ids);
             _userSettings.Set(UserSettingsConstants.ActiveMixId, _player.CurrentMixId);
         }

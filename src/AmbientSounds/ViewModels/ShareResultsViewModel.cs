@@ -75,10 +75,10 @@ namespace AmbientSounds.ViewModels
             // fetch local sounds
             if (onlineSounds.Count < soundIds.Count)
             {
-                var onlineSoundIds = onlineSounds.Select(o => o.Id);
+                var onlineSoundIds = onlineSounds.Select(static o => o.Id);
                 var localSoundIds = soundIds.Where(localId => !onlineSoundIds.Contains(localId)).ToArray();
                 var localSounds = await _localDataProvider.GetSoundsAsync(soundIds: localSoundIds);
-                if (localSounds is not null && localSounds.Count > 0)
+                if (localSounds is { Count: > 0 })
                 {
                     foreach (var l in localSounds)
                     {
