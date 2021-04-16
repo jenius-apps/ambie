@@ -1,5 +1,8 @@
-﻿using AmbientSounds.Models;
+﻿using System.Diagnostics.CodeAnalysis;
+using AmbientSounds.Models;
 using Windows.ApplicationModel.Resources;
+
+#nullable enable
 
 namespace AmbientSounds.Converters
 {
@@ -8,7 +11,7 @@ namespace AmbientSounds.Converters
     /// </summary>
     public static class LocalizationConverter
     {
-        private static ResourceLoader _loader;
+        private static ResourceLoader? _loader;
 
         public static string ConvertPublishState(PublishState publishState)
         {
@@ -82,6 +85,7 @@ namespace AmbientSounds.Converters
             return result;
         }
 
+        [MemberNotNull(nameof(_loader))]
         private static void InitializeLoader()
         {
             if (_loader is null) _loader = ResourceLoader.GetForCurrentView();

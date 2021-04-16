@@ -45,7 +45,5 @@ namespace AmbientSounds.Controls
             INavigator navigator = App.Services.GetRequiredService<INavigator>();
             navigator.ToCatalogue();
         }
-
-        private bool Not(bool value) => !value;
     }
 }

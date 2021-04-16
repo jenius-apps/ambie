@@ -128,6 +128,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Attributes\MemberNotNullAttribute.cs" />
     <Compile Include="Behaviors\ItemClickBehavior.cs" />
     <Compile Include="Controls\AboutControl.xaml.cs">
       <DependentUpon>AboutControl.xaml</DependentUpon>

@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Strings;
 
+#nullable enable
+
 namespace AmbientSounds.Converters
 {
     /// <summary>
@@ -9,7 +11,7 @@ namespace AmbientSounds.Converters
     /// </summary>
     public static class ErrorLoader
     {
-        public static string GetMessage(this string errorId, string customMessage = null)
+        public static string GetMessage(this string errorId, string? customMessage = null)
         {
             var result = "";
             switch (errorId)

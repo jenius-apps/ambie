@@ -56,8 +56,6 @@ namespace AmbientSounds.Controls
             typeof(SoundGridControl),
             new PropertyMetadata(false));
 
-        private Visibility Not(bool value) => value ? Visibility.Collapsed : Visibility.Visible;
-
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (sender is ListViewBase l &&
