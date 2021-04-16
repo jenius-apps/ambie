@@ -3,6 +3,8 @@ using System;
 using System.Text.Json;
 using Windows.Storage;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -13,7 +15,7 @@ namespace AmbientSounds.Services.Uwp
     public class LocalSettings : IUserSettings
     {
         /// <inheritdoc/>
-        public event EventHandler<string> SettingSet;
+        public event EventHandler<string>? SettingSet;
 
         /// <inheritdoc/>
         public T Get<T>(string settingKey)
@@ -30,13 +32,12 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public T GetAndDeserialize<T>(string settingKey)
+        public T? GetAndDeserialize<T>(string settingKey)
         {
             object result = ApplicationData.Current.LocalSettings.Values[settingKey];
             if (result is string serialized)
             {
-                var deserialized = JsonSerializer.Deserialize<T>(serialized);
-                return deserialized;
+                return JsonSerializer.Deserialize<T>(serialized);
             }
 
             return (T)UserSettingsConstants.Defaults[settingKey];

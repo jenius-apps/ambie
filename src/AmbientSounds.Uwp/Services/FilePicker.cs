@@ -6,6 +6,8 @@ using Windows.Storage.AccessCache;
 using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -39,7 +41,7 @@ namespace AmbientSounds.Services.Uwp
             return (file.Path, basicProperties.Size);
         }
 
-        private async Task<StorageFile> OpenPickerAndGetFileAsync()
+        private async Task<StorageFile?> OpenPickerAndGetFileAsync()
         {
             var picker = new FileOpenPicker
             {
@@ -60,7 +62,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<byte[]> GetCachedBytesAsync(string filePath)
+        public async Task<byte[]?> GetCachedBytesAsync(string filePath)
         {
             StorageFile file = await StorageApplicationPermissions.FutureAccessList.GetFileAsync(UploadFileKey);
             if (file is not null && file.Path == filePath)

@@ -15,7 +15,7 @@ namespace AmbientSounds.Services.Uwp
 {
     public class MsalClient : IMsaAuthClient
     {
-		private const string PictureFileName = "profile.png";
+        private const string PictureFileName = "profile.png";
         private const string RedirectUri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
         private const string Authority = "https://login.microsoftonline.com/common";
         private readonly string _clientId;
@@ -49,7 +49,7 @@ namespace AmbientSounds.Services.Uwp
                 .Build();
         }
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
         public async Task<Person> GetPersonDataAsync()
         {
             var graphToken = await GetTokenSilentAsync(new string[] { "User.Read" });

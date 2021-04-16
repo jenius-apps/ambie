@@ -31,6 +31,6 @@ namespace AmbientSounds.Services
         /// </remarks>
         /// <param name="filePath">Path to file whose bytes to retrieve.</param>
         /// <returns>Bytes of cached file, or null if file path was not found in cache.</returns>
-        Task<byte[]> GetCachedBytesAsync(string filePath);
+        Task<byte[]?> GetCachedBytesAsync(string filePath);
     }
 }

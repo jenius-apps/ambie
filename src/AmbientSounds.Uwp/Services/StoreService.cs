@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Windows.Services.Store;
 using Microsoft.Toolkit.Uwp.Connectivity;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -12,8 +14,8 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class StoreService : IIapService
     {
-        private static Dictionary<string, StoreProduct> _productsCache = new Dictionary<string, StoreProduct>();
-        private static StoreContext _context = null;
+        private static Dictionary<string, StoreProduct> _productsCache = new();
+        private static StoreContext? _context;
 
         /// <inheritdoc/>
         public async Task<bool> IsOwnedAsync(string iapId)
@@ -90,7 +92,7 @@ namespace AmbientSounds.Services.Uwp
             return purchased;
         }
 
-        private static async Task<StoreProduct> GetAddOn(string id)
+        private static async Task<StoreProduct?> GetAddOn(string id)
         {
             if (_productsCache.ContainsKey(id))
             {

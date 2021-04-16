@@ -4,6 +4,8 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -12,7 +14,7 @@ namespace AmbientSounds.Services.Uwp
     public class Navigator : INavigator
     {
         /// <inheritdoc/>
-        public object Frame { get; set; }
+        public object? Frame { get; set; }
 
         /// <inheritdoc/>
         public void GoBack()

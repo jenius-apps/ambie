@@ -2,6 +2,8 @@
 using System.Timers;
 using Windows.System;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -10,7 +12,7 @@ namespace AmbientSounds.Services.Uwp
     public class TimerService : ITimerService
     {
         /// <inheritdoc/>
-        public event EventHandler<int> IntervalElapsed;
+        public event EventHandler<int>? IntervalElapsed;
 
         private readonly Timer _timer;
         private readonly DispatcherQueue _dispatcherQueue;

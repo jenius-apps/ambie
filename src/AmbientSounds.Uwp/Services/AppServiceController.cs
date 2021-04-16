@@ -5,6 +5,8 @@ using Windows.ApplicationModel.AppService;
 using Windows.Foundation.Collections;
 using Windows.System;
 
+#nullable enable
+
 namespace AmbientSounds.Services
 {
     public class AppServiceController
@@ -60,7 +62,7 @@ namespace AmbientSounds.Services
                 result = "No valid keys found";
             }
 
-            ValueSet returnMessage = new ValueSet();
+            ValueSet returnMessage = new();
             returnMessage.Add("result", result);
             await request.SendResponseAsync(returnMessage);
         }

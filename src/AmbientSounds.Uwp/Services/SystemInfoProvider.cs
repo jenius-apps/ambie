@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>

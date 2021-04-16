@@ -9,6 +9,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Windows.Storage;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -19,14 +21,14 @@ namespace AmbientSounds.Services.Uwp
         private const string DataFileName = "Data.json";
         private const string LocalDataFileName = "localData.json";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
-        private List<Sound> _localSoundCache; // cache of non-packaged sounds.
-        private List<Sound> _packagedSoundCache;
+        private List<Sound>? _localSoundCache; // cache of non-packaged sounds.
+        private List<Sound>? _packagedSoundCache;
 
         /// <inheritdoc/>
-        public event EventHandler<Sound> LocalSoundAdded;
+        public event EventHandler<Sound>? LocalSoundAdded;
 
         /// <inheritdoc/>
-        public event EventHandler<string> LocalSoundDeleted;
+        public event EventHandler<string>? LocalSoundDeleted;
 
         public SoundDataProvider(IOnlineSoundDataProvider onlineSoundDataProvider)
         {
@@ -35,7 +37,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[] soundIds = null)
+        public async Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[]? soundIds = null)
         {
             var packagedSounds = await GetPackagedSoundsAsync();
             var localSounds = await GetLocalSoundsInternalAsync(refresh: refresh);
@@ -80,6 +82,9 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
+            // TODO: throw or just ignore?
+            Guard.IsNotNull(_localSoundCache, nameof(_localSoundCache));
+
             // Delete from cache
             var soundForDeletion = _localSoundCache.First(x => x.Id == id);
             _localSoundCache.Remove(soundForDeletion);
@@ -114,6 +119,9 @@ namespace AmbientSounds.Services.Uwp
             {
                 return;
             }
+
+            // TODO: throw or just ignore?
+            Guard.IsNotNull(_localSoundCache, nameof(_localSoundCache));
 
             _localSoundCache.Add(s);
             await WriteCacheAsync();
@@ -175,7 +183,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         private async Task<IReadOnlyList<Sound>> GetLocalSoundsInternalAsync(
-            StorageFile localDataFile = null,
+            StorageFile? localDataFile = null,
             bool refresh = false)
         {
             if (localDataFile is null)
@@ -217,6 +225,11 @@ namespace AmbientSounds.Services.Uwp
                 StorageFile dataFile = await assets.GetFileAsync(DataFileName);
                 using Stream dataStream = await dataFile.OpenStreamForReadAsync();
                 var sounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+
+                // TODO: throw or just ignore?
+                // A null sound means the serialization failed, but since this was a local asset it likely
+                // is something we want to detect as soon as possible with a hard crash, before a release?
+                Guard.IsNotNull(sounds, nameof(sounds));
 
                 foreach (var s in sounds)
                 {

@@ -11,12 +11,14 @@ using Windows.Media.Playback;
 using Windows.Storage;
 using Windows.System;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     public class MixMediaPlayerService : IMixMediaPlayerService
     {
-        private readonly Dictionary<string, MediaPlayer> _activeSounds = new Dictionary<string, MediaPlayer>();
-        private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new Dictionary<string, DateTimeOffset>();
+        private readonly Dictionary<string, MediaPlayer> _activeSounds = new();
+        private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new();
         private readonly int _maxActive;
         private double _globalVolume;
         private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
@@ -24,19 +26,19 @@ namespace AmbientSounds.Services.Uwp
         private readonly DispatcherQueue _dispatcherQueue;
 
         /// <inheritdoc/>
-        public event EventHandler<SoundPlayedArgs> SoundAdded;
+        public event EventHandler<SoundPlayedArgs>? SoundAdded;
 
         /// <inheritdoc/>
-        public event EventHandler<SoundPausedArgs> SoundRemoved;
+        public event EventHandler<SoundPausedArgs>? SoundRemoved;
 
         /// <inheritdoc/>
-        public event EventHandler<MixPlayedArgs> MixPlayed;
+        public event EventHandler<MixPlayedArgs>? MixPlayed;
 
         /// <inheritdoc/>
-        public event EventHandler<MediaPlaybackState> PlaybackStateChanged;
+        public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
         /// <inheritdoc/>
-        public event EventHandler MaxReached;
+        public event EventHandler? MaxReached;
 
         public MixMediaPlayerService(IUserSettings userSettings)
         {
@@ -66,10 +68,10 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public Dictionary<string, string[]> Screensavers { get; } = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> Screensavers { get; } = new();
 
         /// <inheritdoc/>
-        public string CurrentMixId { get; set; }
+        public string CurrentMixId { get; set; } = "";
 
         /// <inheritdoc/>
         public double GlobalVolume
@@ -143,7 +145,7 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
-            if (IsSoundPlaying(s.Id))
+            if (IsSoundPlaying(s!.Id))
             {
                 return;
             }
@@ -158,7 +160,7 @@ namespace AmbientSounds.Services.Uwp
             
             if (_activeSounds.Count < _maxActive)
             {
-                MediaSource mediaSource = null;
+                MediaSource? mediaSource = null;
                 if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
                 {
                     // sound path is packaged and can be read as URI.
@@ -262,7 +264,7 @@ namespace AmbientSounds.Services.Uwp
             player.Pause();
             player.Dispose();
 
-            _activeSounds[soundId] = null;
+            _activeSounds[soundId] = null!;
             _activeSounds.Remove(soundId);
             _activeSoundDateTimes.Remove(soundId);
             Screensavers.Remove(soundId);
@@ -298,7 +300,7 @@ namespace AmbientSounds.Services.Uwp
             _smtc.ButtonPressed += SmtcButtonPressed;
         }
 
-        private MediaPlayer CreateLoopingPlayer() 
+        private MediaPlayer CreateLoopingPlayer()
         {
             var player = new MediaPlayer()
             {

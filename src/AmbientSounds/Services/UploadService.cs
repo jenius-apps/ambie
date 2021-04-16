@@ -84,7 +84,7 @@ namespace AmbientSounds.Services
                 return;
             }
 
-            byte[] bytes = await _filePicker.GetCachedBytesAsync(s.FilePath);
+            byte[]? bytes = await _filePicker.GetCachedBytesAsync(s.FilePath);
             if (bytes is null)
             {
                 throw new Exception($"Get bytes failed: {s.FilePath}");
