@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+#nullable enable
 
 namespace AmbientSounds.Views
 {
@@ -37,11 +37,11 @@ namespace AmbientSounds.Views
         {
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);
-            App.AppFrame.GoBack();
+            App.AppFrame!.GoBack();
         }
 
-        private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp(sender as UIElement, 1.1f, e.Pointer);
+        private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp((UIElement)sender , 1.1f, e.Pointer);
 
-        private void GridScaleNormal(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleNormal(sender as UIElement);
+        private void GridScaleNormal(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
     }
 }

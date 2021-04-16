@@ -327,7 +327,7 @@ namespace AmbientSounds
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
-                .AddSingleton<IAppSettings>(appsettings ?? new AppSettings())
+                .AddSingleton(appsettings ?? new AppSettings())
                 .BuildServiceProvider();
 
             // preload appservice controller to ensure its

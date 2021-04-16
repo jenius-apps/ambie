@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
+#nullable enable
+
 namespace AmbientSounds.Views
 {
     /// <summary>
@@ -75,10 +77,10 @@ namespace AmbientSounds.Views
         }
 
         private void GridScaleUp(object sender, PointerRoutedEventArgs e) 
-            => SoundItemAnimations.ItemScaleUp(sender as UIElement, 1.1f, e.Pointer);
+            => SoundItemAnimations.ItemScaleUp((UIElement)sender, 1.1f, e.Pointer);
 
         private void GridScaleNormal(object sender, PointerRoutedEventArgs e) 
-            => SoundItemAnimations.ItemScaleNormal(sender as UIElement);
+            => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
 
         private void Flyout_Opened(object sender, object e)
         {

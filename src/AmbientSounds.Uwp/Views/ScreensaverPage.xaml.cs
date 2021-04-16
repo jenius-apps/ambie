@@ -8,6 +8,8 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
+#nullable enable
+
 namespace AmbientSounds.Views
 {
     public sealed partial class ScreensaverPage : Page
@@ -60,7 +62,7 @@ namespace AmbientSounds.Views
 
         private void GoBack()
         {
-            if (App.AppFrame.CanGoBack)
+            if (App.AppFrame!.CanGoBack)
             {
                 App.AppFrame.GoBack();
             }

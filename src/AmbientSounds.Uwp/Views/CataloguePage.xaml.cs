@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
+#nullable enable
+
 namespace AmbientSounds.Views
 {
     public sealed partial class CataloguePage : Page
@@ -70,7 +72,7 @@ namespace AmbientSounds.Views
 
         private void CataloguePage_KeyDown(CoreWindow sender, KeyEventArgs args)
         {
-            if (args.VirtualKey == VirtualKey.Escape)
+            if (args.VirtualKey == VirtualKey.Escape && App.AppFrame!.CanGoBack)
             {
                 ViewModel.GoBack();
                 args.Handled = true;
