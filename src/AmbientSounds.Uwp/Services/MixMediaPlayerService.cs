@@ -189,7 +189,7 @@ namespace AmbientSounds.Services.Uwp
                     player.Source = mediaSource;
                     _activeSounds.Add(s.Id, player);
                     _activeSoundDateTimes.Add(s.Id, DateTimeOffset.Now);
-                    Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? new string[0]);
+                    Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? Array.Empty<string>());
 
                     if (keepPaused) Pause();
                     else Play();

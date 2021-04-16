@@ -149,7 +149,7 @@ namespace AmbientSounds.Services.Uwp
                 {
                     { "trace", e.StackTrace },
                     { "scopes", string.Join(",", scopes) },
-                    { "extraScopes", string.Join(",", extraScopes ?? new string[0]) }
+                    { "extraScopes", string.Join(",", extraScopes ?? Array.Empty<string>()) }
                 });
             }
         }

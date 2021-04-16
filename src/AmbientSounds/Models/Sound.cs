@@ -70,12 +70,12 @@ namespace AmbientSounds.Models
         /// The list of image paths to be used
         /// for the mix.
         /// </summary>
-        public string[] ImagePaths { get; set; } = new string[0];
+        public string[] ImagePaths { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// List of sound Ids for this mix.
         /// </summary>
-        public string[] SoundIds { get; set; } = new string[0];
+        public string[] SoundIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// Unique user ID of the person who uploaded the sound file.
@@ -90,7 +90,7 @@ namespace AmbientSounds.Models
         /// <summary>
         /// List of donation links to be displayed.
         /// </summary>
-        public string[] SponsorLinks { get; set; } = new string[0];
+        public string[] SponsorLinks { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// The state of the sound's publication in the catalogue.

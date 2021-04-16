@@ -48,7 +48,7 @@ namespace AmbientSounds.Services.Uwp
 
         private void TimerIntervalElapsed(object sender, object e)
         {
-            Remaining -= new TimeSpan(0, 0, 0, 0, Interval);
+            Remaining -= TimeSpan.FromMilliseconds(Interval);
             _dispatcherQueue.TryEnqueue(() => IntervalElapsed?.Invoke(sender, Interval));
         }
     }

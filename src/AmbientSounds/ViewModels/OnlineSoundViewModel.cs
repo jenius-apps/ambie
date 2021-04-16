@@ -109,7 +109,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public string[] ValidSponsorLinks => AreLinksValid
             ? _sound.SponsorLinks.Where(x => Uri.IsWellFormedUriString(x, UriKind.Absolute)).ToArray()
-            : new string[0];
+            : Array.Empty<string>();
 
         /// <summary>
         /// Determines if it's safe to display the links.

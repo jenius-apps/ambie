@@ -72,20 +72,20 @@ namespace AmbientSounds.Services
                 result,
                 new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-            return results ?? new Sound[0];
+            return results ?? Array.Empty<Sound>();
         }
 
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds)
         {
-            if (soundIds is null || soundIds.Count == 0)
+            if (soundIds is not { Count: > 0 })
             {
-                return new Sound[0];
+                return Array.Empty<Sound>();
             }
 
             var sounds = await GetSoundsAsync();
             return sounds?.Where(x => x.Id is not null && soundIds.Contains(x.Id)).ToArray()
-                ?? new Sound[0];
+                ?? Array.Empty<Sound>();
         }
 
         /// <inheritdoc/>
@@ -93,7 +93,7 @@ namespace AmbientSounds.Services
         {
             if (string.IsNullOrWhiteSpace(accesstoken))
             {
-                return new Sound[0];
+                return Array.Empty<Sound>();
             }
 
             using var msg = new HttpRequestMessage(HttpMethod.Get, _mySoundsUrl);
@@ -108,12 +108,12 @@ namespace AmbientSounds.Services
                     new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
                 UserSoundsFetched?.Invoke(this, results?.Length ?? 0);
-                return results ?? new Sound[0];
+                return results ?? Array.Empty<Sound>();
             }
             catch
             {
                 UserSoundsFetched?.Invoke(this, 0);
-                return new Sound[0];
+                return Array.Empty<Sound>();
             }
         }
     }
