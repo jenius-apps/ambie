@@ -12,7 +12,7 @@
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="translated">Закрыть компактный режим</target>
+          <target state="translated">Вернуться в нормальный режим</target>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
@@ -24,7 +24,7 @@
         </trans-unit>
         <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
           <source>Copyright Jenius Apps</source>
-          <target state="translated">Авторские права Jenius Apps</target>
+          <target state="translated">Авторские права: Jenius Apps</target>
         </trans-unit>
         <trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
           <source>Hello from Vancouver</source>
@@ -76,7 +76,7 @@
         </trans-unit>
         <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
           <source>Rate us</source>
-          <target state="translated">Оценить</target>
+          <target state="translated">Оценить программу</target>
         </trans-unit>
         <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
@@ -92,11 +92,11 @@
         </trans-unit>
         <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Off</source>
-          <target state="translated">Выкл</target>
+          <target state="translated">Выключено</target>
         </trans-unit>
         <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
           <source>On</source>
-          <target state="translated">Вкл</target>
+          <target state="translated">Включено</target>
         </trans-unit>
         <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Pause the timer</source>
@@ -168,7 +168,7 @@
         </trans-unit>
         <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
           <source>Rainforest</source>
-          <target state="translated">Джунгли</target>
+          <target state="translated">Лес и дождь</target>
         </trans-unit>
         <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
           <source>Underwater</source>
@@ -228,7 +228,7 @@
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
           <source>Theme (requires restart)</source>
-          <target state="translated">Тема (требуется рестарт)</target>
+          <target state="translated">Тема (требуется перезапуск)</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
@@ -312,7 +312,7 @@
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="new">Privacy policy</target>
+          <target state="translated">Политика конфиденциальности</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
@@ -352,7 +352,7 @@
         </trans-unit>
         <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
           <source>Use a dark page as screensaver</source>
-          <target state="translated">Пустая страница как скринсейвер</target>
+          <target state="translated">Скринсейвер в виде пустой страницы</target>
         </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
@@ -470,7 +470,7 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
-          <target state="new">This will enable sound gallery sync across your devices. And you can upload sounds.</target>
+          <target state="translated">Это позволит синхронизировать каталог звуков между вашими устройствами. И ещё вы сможете загружать свои звуки.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
@@ -563,7 +563,7 @@
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="translated">Подписать</target>
+          <target state="translated">Войти</target>
         </trans-unit>
         <trans-unit id="UploadTermsMessage" translate="yes" xml:space="preserve">
           <source>I agree to the Terms of Use</source>
@@ -631,7 +631,7 @@
         </trans-unit>
         <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
           <source>Performance mode (requires restart)</source>
-          <target state="translated">Производительный режим (требуется перезагрузка)</target>
+          <target state="translated">Производительный режим (требуется перезапуск)</target>
         </trans-unit>
       </group>
     </body>

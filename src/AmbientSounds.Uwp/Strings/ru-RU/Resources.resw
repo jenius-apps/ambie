@@ -16,7 +16,7 @@
     <value>Закрыть компактный режим</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Закрыть компактный режим</value>
+    <value>Вернуться в нормальный режим</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Закрыть</value>
@@ -25,7 +25,7 @@
     <value>Авторские права</value>
   </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
-    <value>Авторские права Jenius Apps</value>
+    <value>Авторские права: Jenius Apps</value>
   </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
     <value>Привет из Ванкувера</value>
@@ -64,7 +64,7 @@
     <value>Проект в GitHub</value>
   </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
-    <value>Оценить</value>
+    <value>Оценить программу</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>Настройки</value>
@@ -76,10 +76,10 @@
     <value>Добавить или улучшить перевод</value>
   </data>
   <data name="OffTextBlock.Text" xml:space="preserve">
-    <value>Выкл</value>
+    <value>Выключено</value>
   </data>
   <data name="OnTextBlock.Text" xml:space="preserve">
-    <value>Вкл</value>
+    <value>Включено</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Поставить таймер на паузу</value>
@@ -133,7 +133,7 @@
     <value>Дождь</value>
   </data>
   <data name="Soundrainforest" xml:space="preserve">
-    <value>Джунгли</value>
+    <value>Лес и дождь</value>
   </data>
   <data name="Soundunderwater" xml:space="preserve">
     <value>Под водой</value>
@@ -178,7 +178,7 @@
     <value>Спасибо!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Тема (требуется рестарт)</value>
+    <value>Тема (требуется перезапуск)</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Авто</value>
@@ -241,6 +241,9 @@
     <value>Звуки</value>
     <comment>List of sounds</comment>
   </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Политика конфиденциальности</value>
+  </data>
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Privacy policy</value>
   </data>
@@ -269,7 +272,7 @@
     <value>Скринсейвер</value>
   </data>
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Пустая страница как скринсейвер</value>
+    <value>Скринсейвер в виде пустой страницы</value>
   </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 часа</value>
@@ -357,6 +360,9 @@
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Выйти</value>
   </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Это позволит синхронизировать каталог звуков между вашими устройствами. И ещё вы сможете загружать свои звуки.</value>
+  </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>Посмотреть настройки аккаунта</value>
   </data>
@@ -425,7 +431,7 @@
     <value>Загрузить рекласирующие звуки в каталог Ambie и поделиться своей работой с другими!</value>
   </data>
   <data name="SignIn" xml:space="preserve">
-    <value>Подписать</value>
+    <value>Войти</value>
   </data>
   <data name="UploadTermsMessage" xml:space="preserve">
     <value>Я согласен с данным соглашением</value>
@@ -476,6 +482,6 @@
     <value>Закрепить в панели задач</value>
   </data>
   <data name="PerformanceMode" xml:space="preserve">
-    <value>Производительный режим (требуется перезагрузка)</value>
+    <value>Производительный режим (требуется перезапуск)</value>
   </data>
 </root>
