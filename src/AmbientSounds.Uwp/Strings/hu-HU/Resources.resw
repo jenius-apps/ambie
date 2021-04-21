@@ -457,4 +457,28 @@
   <data name="ErrorUploadCount" xml:space="preserve">
     <value>Elérted a maximumot! Csak {0} hangja lehet.</value>
   </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Támogatás</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Használati feltételek</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Kövessen minket Twitteren</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Elvetés</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Köszönjük, hogy az Ambie-t használja. A legjobb felhasználói élményért fontolja meg az Ambie kitűzését a tálcára! Élvezze a nyugtató ittlétét 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Üdvözöljük!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Rögzítés a tálcára</value>
+  </data>
+  <data name="PerformanceMode" xml:space="preserve">
+    <value>Teljesítmény mód (újraindítást igényel)</value>
+  </data>
 </root>
