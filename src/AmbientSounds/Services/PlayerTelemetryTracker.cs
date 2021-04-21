@@ -12,7 +12,6 @@ namespace AmbientSounds.Services
     {
         private readonly IMixMediaPlayerService _mixMediaPlayerService;
         private readonly ITelemetry _telemetry;
-        private DateTimeOffset _playStart;
         private MediaPlaybackState _currentState;
 
         public PlayerTelemetryTracker(
@@ -27,6 +26,13 @@ namespace AmbientSounds.Services
 
             _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackchanged;
         }
+
+        /// <summary>
+        /// The last recorded time when 
+        /// media playback state
+        /// changed to playing.
+        /// </summary>
+        public DateTimeOffset PlayStart { get; private set; }
 
         /// <summary>
         /// Converts diff to telemetry-friendly rounded
@@ -76,14 +82,15 @@ namespace AmbientSounds.Services
         /// Tracks duration between given pause time
         /// and the internally stored start time.
         /// </summary>
-        public void TrackDuration(DateTimeOffset pauseTime)
+        /// <returns>The string formatted duration that was calculated.</returns>
+        public string TrackDuration(DateTimeOffset pauseTime)
         {
-            if (pauseTime < _playStart)
+            if (pauseTime < PlayStart || PlayStart == default)
             {
-                return;
+                return string.Empty;
             }
 
-            string roundedDiff = GetRoundedDiff(pauseTime - _playStart);
+            string roundedDiff = GetRoundedDiff(pauseTime - PlayStart);
 
             if (!string.IsNullOrWhiteSpace(roundedDiff))
             {
@@ -92,23 +99,28 @@ namespace AmbientSounds.Services
                     { "time", roundedDiff }
                 });
             }
+
+            return roundedDiff;
         }
 
-        private void OnPlaybackchanged(object sender, MediaPlaybackState newState)
+        public void HandleNewState(MediaPlaybackState newState)
         {
             if (_currentState != newState)
             {
                 if (newState == MediaPlaybackState.Playing)
                 {
-                    _playStart = DateTimeOffset.Now;
+                    PlayStart = DateTimeOffset.Now;
                 }
                 else if (newState == MediaPlaybackState.Paused)
                 {
                     TrackDuration(DateTimeOffset.Now);
+                    PlayStart = default; // reset
                 }
 
                 _currentState = newState;
             }
         }
+
+        private void OnPlaybackchanged(object sender, MediaPlaybackState newState) => HandleNewState(newState);
     }
 }
