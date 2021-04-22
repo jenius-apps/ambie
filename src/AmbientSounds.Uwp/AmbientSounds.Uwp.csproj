@@ -239,6 +239,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Backgrounds\blisslike.png" />
+    <Content Include="Assets\Backgrounds\gradient.png" />
+    <Content Include="Assets\Backgrounds\water.png" />
+    <Content Include="Assets\Backgrounds\sand.png" />
     <Content Include="Assets\Backgrounds\znone.png" />
     <Content Include="Assets\Backgrounds\rosyhill.png" />
     <Content Include="Assets\Images\beach.png" />
