@@ -270,6 +270,7 @@ namespace AmbientSounds
                 .AddTransient<SettingsViewModel>()
                 .AddSingleton<UploadFormViewModel>()
                 .AddSingleton<CataloguePageViewModel>()
+                .AddSingleton<UploadPageViewModel>()
                 .AddSingleton<MainPageViewModel>()
                 .AddSingleton<ShellPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()

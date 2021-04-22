@@ -41,15 +41,6 @@ namespace AmbientSounds.Views
             });
 
             TryStartPageAnimations();
-
-            if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.PerformanceMode))
-            {
-                SolidColorBrush mycolor = App.Current.Resources["FallbackBackgroundBrush"] as SolidColorBrush;
-                if (mycolor != null)
-                {
-                    this.Background = mycolor;
-                }
-            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
