@@ -267,7 +267,7 @@ namespace AmbientSounds
                 .AddSingleton<CatalogueListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<ScreensaverViewModel>()
-                .AddTransient<SettingsViewModel>()
+                .AddSingleton<SettingsViewModel>()
                 .AddSingleton<UploadFormViewModel>()
                 .AddSingleton<CataloguePageViewModel>()
                 .AddSingleton<UploadPageViewModel>()
