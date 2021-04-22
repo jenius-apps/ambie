@@ -86,11 +86,11 @@ namespace AmbientSounds.Constants
             { PerformanceMode, false },
             { MaxActive, 3 },
             { ActiveTracks, new string[0] },
-            { ActiveMixId, "" },
-            { CurrentUserId, "" },
-            { CurrentUserProviderId, "" },
+            { ActiveMixId, string.Empty },
+            { CurrentUserId, string.Empty },
+            { CurrentUserProviderId, string.Empty },
             { Theme, "default" },
-            { BackgroundImage, "ms-appx:///Assets/Backgrounds/znone.png" }
+            { BackgroundImage, string.Empty }
         };
     }
 }
