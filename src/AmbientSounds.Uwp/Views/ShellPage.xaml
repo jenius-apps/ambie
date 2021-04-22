@@ -13,13 +13,13 @@
     <Grid>
         <toolkit:ImageEx
             x:Name="BackgroundImage"
-            x:Load="{x:Bind c:VisibilityConverter.Invert(ViewModel.PerformanceModeOn), Mode=OneWay}"
+            x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
             IsCacheEnabled="True"
             Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
             Stretch="UniformToFill" />
         <Rectangle
             x:Name="ImageMask"
-            x:Load="{x:Bind c:VisibilityConverter.Invert(ViewModel.PerformanceModeOn), Mode=OneWay}"
+            x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
             Fill="{ThemeResource FallbackBackgroundBrush}"
             Opacity="0.3"
             Stretch="UniformToFill" />

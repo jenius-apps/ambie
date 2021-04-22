@@ -90,7 +90,7 @@ namespace AmbientSounds.Constants
             { CurrentUserId, "" },
             { CurrentUserProviderId, "" },
             { Theme, "default" },
-            { BackgroundImage, "ms-appx:///Assets/Backgrounds/sandDunes.jpg" }
+            { BackgroundImage, "ms-appx:///Assets/Backgrounds/znone.png" }
         };
     }
 }

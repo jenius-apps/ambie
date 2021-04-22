@@ -150,6 +150,11 @@ namespace AmbientSounds.ViewModels
 
         private void SelectImage(string? imagePath)
         {
+            if (imagePath?.Contains("none.png") == true)
+            {
+                imagePath = string.Empty;
+            }
+
             _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
         }
 

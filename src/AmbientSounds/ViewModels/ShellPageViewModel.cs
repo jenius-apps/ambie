@@ -26,15 +26,25 @@ namespace AmbientSounds.ViewModels
         public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage);
 
         /// <summary>
+        /// Determines if the background image should be shown.
+        /// </summary>
+        public bool ShowBackgroundImage => !PerformanceModeOn && !string.IsNullOrWhiteSpace(BackgroundImagePath);
+
+        /// <summary>
         /// Determines if performance mode is on.
         /// </summary>
-        public bool PerformanceModeOn => _userSettings.Get<bool>(UserSettingsConstants.PerformanceMode);
+        private bool PerformanceModeOn => _userSettings.Get<bool>(UserSettingsConstants.PerformanceMode);
 
         private void OnSettingSet(object sender, string settingsKey)
         {
             if (settingsKey == UserSettingsConstants.BackgroundImage)
             {
+                OnPropertyChanged(nameof(ShowBackgroundImage));
                 OnPropertyChanged(nameof(BackgroundImagePath));
+            }
+            else if (settingsKey == UserSettingsConstants.PerformanceMode)
+            {
+                OnPropertyChanged(nameof(ShowBackgroundImage));
             }
         }
     }

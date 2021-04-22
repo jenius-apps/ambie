@@ -242,6 +242,7 @@
     <Content Include="Assets\Backgrounds\aurora.jpg" />
     <Content Include="Assets\Backgrounds\beach.jpg" />
     <Content Include="Assets\Backgrounds\flowers.jpg" />
+    <Content Include="Assets\Backgrounds\znone.png" />
     <Content Include="Assets\Backgrounds\rosyhill.png" />
     <Content Include="Assets\Backgrounds\sandDunes.jpg" />
     <Content Include="Assets\Images\beach.png" />

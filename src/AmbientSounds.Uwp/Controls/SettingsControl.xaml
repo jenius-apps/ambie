@@ -25,10 +25,12 @@
     <ScrollViewer>
         <StackPanel>
             <GridView
-                Width="252"
+                Width="312"
                 HorizontalAlignment="Left"
                 IsItemClickEnabled="True"
                 ItemsSource="{x:Bind ViewModel.ImagePaths}"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollMode="Disabled"
                 SelectionMode="None">
                 <interactivity:Interaction.Behaviors>
                     <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectImageCommand}" />
@@ -40,7 +42,7 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="x:String">
                         <Grid
-                            Width="80"
+                            Width="100"
                             Height="60"
                             CornerRadius="8">
                             <Image Stretch="UniformToFill">
