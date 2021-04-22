@@ -29,12 +29,6 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
-
-            if (App.IsTenFoot)
-            {
-                // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
-                ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
-            }
         }
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)

@@ -169,8 +169,6 @@ namespace AmbientSounds
 
                 // Configure the services for later use
                 _serviceProvider = ConfigureServices(appsettings);
-                var navigator = App.Services.GetRequiredService<INavigator>();
-                navigator.Frame = rootFrame;
             }
 
             if (prelaunched == false)
@@ -180,7 +178,7 @@ namespace AmbientSounds
                 // Navigate to the root page if one isn't loaded already
                 if (rootFrame.Content is null)
                 {
-                    rootFrame.Navigate(typeof(Views.MainPage));
+                    rootFrame.Navigate(typeof(Views.ShellPage));
                 }
 
                 // Ensure the current window is active
@@ -271,7 +269,9 @@ namespace AmbientSounds
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddSingleton<UploadFormViewModel>()
-                .AddTransient<MainPageViewModel>()
+                .AddSingleton<CataloguePageViewModel>()
+                .AddSingleton<MainPageViewModel>()
+                .AddSingleton<ShellPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
                 .AddSingleton<AppServiceController>()
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()

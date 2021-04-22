@@ -15,11 +15,29 @@ namespace AmbientSounds.Services.Uwp
         public object Frame { get; set; }
 
         /// <inheritdoc/>
+        public void GoBack()
+        {
+            if (Frame is Frame f && f.CanGoBack)
+            {
+                f.GoBack();
+            }
+        }
+
+        /// <inheritdoc/>
         public void ToScreensaver()
         {
             if (Frame is Frame f)
             {
                 f.Navigate(typeof(ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+            }
+        }
+
+        /// <inheritdoc/>
+        public void ToCatalogue()
+        {
+            if (Frame is Frame f)
+            {
+                f.Navigate(typeof(CataloguePage), null, new SuppressNavigationTransitionInfo());
             }
         }
 

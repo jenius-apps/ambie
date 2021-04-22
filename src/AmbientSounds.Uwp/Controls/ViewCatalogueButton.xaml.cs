@@ -42,10 +42,8 @@ namespace AmbientSounds.Controls
         {
             ITelemetry telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.MoreSoundsClicked);
-            App.AppFrame.Navigate(
-                typeof(Views.CataloguePage),
-                null,
-                new SuppressNavigationTransitionInfo());
+            INavigator navigator = App.Services.GetRequiredService<INavigator>();
+            navigator.ToCatalogue();
         }
 
         private bool Not(bool value) => !value;

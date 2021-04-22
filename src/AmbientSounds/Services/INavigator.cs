@@ -25,5 +25,15 @@
         /// Navigates to the upload page.
         /// </summary>
         void ToUploadPage();
+
+        /// <summary>
+        /// Navigates to the catalogue page.
+        /// </summary>
+        void ToCatalogue();
+
+        /// <summary>
+        /// Attempts to navigate back.
+        /// </summary>
+        void GoBack();
     }
 }
