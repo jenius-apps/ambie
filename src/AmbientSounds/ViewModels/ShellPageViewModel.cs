@@ -25,6 +25,11 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage);
 
+        /// <summary>
+        /// Determines if performance mode is on.
+        /// </summary>
+        public bool PerformanceModeOn => _userSettings.Get<bool>(UserSettingsConstants.PerformanceMode);
+
         private void OnSettingSet(object sender, string settingsKey)
         {
             if (settingsKey == UserSettingsConstants.BackgroundImage)
