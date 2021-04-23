@@ -1,19 +1,19 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SettingsViewModel
+    public class SettingsViewModel : ObservableObject
     {
         private readonly IUserSettings _userSettings;
         private readonly IStoreNotificationRegistrar _notifications;
         private readonly IScreensaverService _screensaverService;
         private readonly ISystemInfoProvider _systemInfoProvider;
-        private readonly string _theme;
         private bool _notificationsLoading;
 
         public SettingsViewModel(
@@ -30,8 +30,6 @@ namespace AmbientSounds.ViewModels
             _screensaverService = screensaverService;
             _userSettings = userSettings;
             _notifications = notifications;
-            _theme = _userSettings.Get<string>(UserSettingsConstants.Theme);
-            InitializeTheme();
 
             SelectImageCommand = new RelayCommand<string>(SelectImage);
             LoadImagesCommand = new AsyncRelayCommand(LoadImagesAsync);
@@ -110,26 +108,41 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
+        /// The current theme.
+        /// </summary>
+        public string CurrentTheme
+        {
+            get => _userSettings.Get<string>(UserSettingsConstants.Theme);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.Theme, value);
+                OnPropertyChanged(nameof(DefaultRadioIsChecked));
+                OnPropertyChanged(nameof(DarkRadioIsChecked));
+                OnPropertyChanged(nameof(LightRadioIsChecked));
+            }
+        }
+
+        /// <summary>
         /// Property for setting IsChecked property of RadioButton for default app theme.
         /// </summary>
-        public bool DefaultRadioIsChecked { get; set; }
+        public bool DefaultRadioIsChecked => !DarkRadioIsChecked && !LightRadioIsChecked;
 
         /// <summary>
         /// Property for setting IsChecked property of RadioButton for dark app theme.
         /// </summary>
-        public bool DarkRadioIsChecked { get; set; }
+        public bool DarkRadioIsChecked => CurrentTheme == "dark";
 
         /// <summary>
         /// Property for setting IsChecked property of RadioButton for light app theme.
         /// </summary>
-        public bool LightRadioIsChecked { get; set; }
+        public bool LightRadioIsChecked => CurrentTheme == "light";
 
         /// <summary>
         /// Event handler for RadioButton (dark theme) click event.
         /// </summary>
         public void DarkThemeRadioClicked()
         {
-            _userSettings.Set(UserSettingsConstants.Theme, "dark");
+            CurrentTheme = "dark";
         }
 
         /// <summary>
@@ -137,7 +150,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public void DefaultThemeRadioClicked()
         {
-            _userSettings.Set(UserSettingsConstants.Theme, "default");
+            CurrentTheme = "default";
         }
 
         /// <summary>
@@ -145,7 +158,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public void LightThemeRadioClicked()
         {
-            _userSettings.Set(UserSettingsConstants.Theme, "light");
+            CurrentTheme = "light";
         }
 
         private void SelectImage(string? imagePath)
@@ -190,30 +203,6 @@ namespace AmbientSounds.ViewModels
             }
             _userSettings.Set(UserSettingsConstants.Notifications, value);
             _notificationsLoading = false;
-        }
-
-        /// <summary>
-        /// Method for setting appropriate radio button on for each app theme.
-        /// </summary>
-        private void InitializeTheme()
-        {
-            if (_theme != null)
-            {
-                switch (_theme)
-                {
-                    case "default":
-                        DefaultRadioIsChecked = true;
-                        break;
-                    case "light":
-                        LightRadioIsChecked = true;
-                        break;
-                    case "dark":
-                        DarkRadioIsChecked = true;
-                        break;
-                    default:
-                        break;
-                }
-            }
         }
     }
 }
