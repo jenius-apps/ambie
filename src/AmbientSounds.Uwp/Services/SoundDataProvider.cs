@@ -226,12 +226,7 @@ namespace AmbientSounds.Services.Uwp
                 using Stream dataStream = await dataFile.OpenStreamForReadAsync();
                 var sounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
 
-                // TODO: throw or just ignore?
-                // A null sound means the serialization failed, but since this was a local asset it likely
-                // is something we want to detect as soon as possible with a hard crash, before a release?
-                Guard.IsNotNull(sounds, nameof(sounds));
-
-                foreach (var s in sounds)
+                foreach (var s in sounds!)
                 {
                     s.Name = LocalizationConverter.ConvertSoundName(s.Name);
                 }
