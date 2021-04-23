@@ -227,8 +227,8 @@
           <target state="translated">Grazie</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
-          <source>Theme (requires restart)</source>
-          <target state="translated">Tema (richiede il riavvio)</target>
+          <source>Theme</source>
+          <target state="translated">Tema</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
@@ -638,8 +638,8 @@
           <target state="new">Pin to taskbar</target>
         </trans-unit>
         <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
-          <source>Performance mode (requires restart)</source>
-          <target state="new">Performance mode (requires restart)</target>
+          <source>Performance mode</source>
+          <target state="new">Performance mode</target>
         </trans-unit>
       </group>
     </body>

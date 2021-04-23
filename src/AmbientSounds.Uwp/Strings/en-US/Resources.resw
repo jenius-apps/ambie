@@ -283,7 +283,7 @@
     <value>Thank you!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Theme (requires restart)</value>
+    <value>Theme</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Auto</value>
@@ -587,6 +587,6 @@
     <value>Pin to taskbar</value>
   </data>
   <data name="PerformanceMode" xml:space="preserve">
-    <value>Performance mode (requires restart)</value>
+    <value>Performance mode</value>
   </data>
 </root>

@@ -154,7 +154,7 @@
     <value>Merci!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Thème (nécessite un redémarrage)</value>
+    <value>Thème</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Auto</value>

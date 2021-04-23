@@ -797,7 +797,7 @@ namespace AmbientSounds.Strings{
 
         #region PerformanceMode
         /// <summary>
-        ///   Looks up a localized string similar to: Performance mode (requires restart)
+        ///   Looks up a localized string similar to: Performance mode
         /// </summary>
         public static string PerformanceMode
         {
