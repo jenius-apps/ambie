@@ -36,6 +36,7 @@ namespace AmbientSounds
         private AppServiceConnection? _appServiceConnection;
         private BackgroundTaskDeferral? _appServiceDeferral;
         private static PlayerTelemetryTracker? _playerTracker;
+        private IUserSettings? _userSettings;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -169,6 +170,9 @@ namespace AmbientSounds
 
                 // Configure the services for later use
                 _serviceProvider = ConfigureServices(appsettings);
+                rootFrame.ActualThemeChanged += OnActualThemeChanged;
+                _userSettings = Services.GetRequiredService<IUserSettings>();
+                _userSettings.SettingSet += OnSettingSet;
             }
 
             if (prelaunched == false)
@@ -188,6 +192,19 @@ namespace AmbientSounds
             AppFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
+        }
+
+        private void OnSettingSet(object sender, string key)
+        {
+            if (key == UserSettingsConstants.Theme)
+            {
+                SetAppRequestedTheme();
+            }
+        }
+
+        private void OnActualThemeChanged(FrameworkElement sender, object args)
+        {
+            CustomizeTitleBar(sender.ActualTheme == ElementTheme.Dark);
         }
 
         private Task TryRegisterNotifications()
@@ -233,18 +250,19 @@ namespace AmbientSounds
         private void SetAppRequestedTheme()
         {
             object themeObject = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme];
-            if (themeObject != null)
+            if (themeObject != null && AppFrame != null)
             {
                 string theme = themeObject.ToString();
                 switch (theme)
                 {
                     case "light":
-                        App.Current.RequestedTheme = ApplicationTheme.Light;
+                        AppFrame.RequestedTheme = ElementTheme.Light;
                         break;
                     case "dark":
-                        App.Current.RequestedTheme = ApplicationTheme.Dark;
+                        AppFrame.RequestedTheme = ElementTheme.Dark;
                         break;
                     default:
+                        AppFrame.RequestedTheme = ElementTheme.Default;
                         break;
                 }
             }

@@ -1,4 +1,7 @@
-﻿using AmbientSounds.Controls;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Controls;
+using AmbientSounds.Converters;
+using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,15 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class DialogService : IDialogService
     {
+        private readonly IUserSettings _userSettings;
+
+        public DialogService(IUserSettings userSettings)
+        {
+            Guard.IsNotNull(userSettings, nameof(userSettings));
+
+            _userSettings = userSettings;
+        }
+
         /// <summary>
         /// UWP apps crash if more than one content dialog
         /// is opened at the same time. This flag
@@ -31,12 +43,25 @@ namespace AmbientSounds.Services.Uwp
             var resources = ResourceLoader.GetForCurrentView();
             var dialog = new ContentDialog()
             {
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
                 Title = resources.GetString("SettingsText"),
                 CloseButtonText = resources.GetString("CloseText"),
                 Content = new SettingsControl()
             };
+
+            void OnSettingsSet(object sender, string key)
+            {
+                if (key == UserSettingsConstants.Theme)
+                {
+                    dialog.RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme();
+                }
+            }
+
+            _userSettings.SettingSet += OnSettingsSet;
             await dialog.ShowAsync();
+            _userSettings.SettingSet -= OnSettingsSet;
             IsDialogOpen = false;
+
         }
 
         /// <inheritdoc/>
