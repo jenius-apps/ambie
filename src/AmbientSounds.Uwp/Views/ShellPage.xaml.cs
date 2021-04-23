@@ -1,20 +1,10 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.ComponentModel;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views
@@ -43,7 +33,34 @@ namespace AmbientSounds.Views
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.Frame = MainFrame;
 
+            UpdateBackground();
+            ViewModel.PropertyChanged += OnVmPropChanged;
             MainFrame.Navigate(typeof(MainPage));
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            ViewModel.PropertyChanged -= OnVmPropChanged;
+        }
+
+        private void OnVmPropChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ShellPageViewModel.ShowBackgroundImage))
+            {
+                UpdateBackground();
+            }
+        }
+
+        private void UpdateBackground()
+        {
+            if (!ViewModel.ShowBackgroundImage && ViewModel.TransparencyOn)
+            {
+                VisualStateManager.GoToState(this, nameof(TransparencyOnState), true);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, nameof(NormalState), true);
+            }
         }
     }
 }

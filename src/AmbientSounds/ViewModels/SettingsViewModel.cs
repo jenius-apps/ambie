@@ -10,6 +10,7 @@ namespace AmbientSounds.ViewModels
 {
     public class SettingsViewModel : ObservableObject
     {
+        private const string NoneImageName = "znone.png";
         private readonly IUserSettings _userSettings;
         private readonly IStoreNotificationRegistrar _notifications;
         private readonly IScreensaverService _screensaverService;
@@ -60,13 +61,18 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// Settings flag for performance mode.
+        /// Settings flag for transparency.
         /// </summary>
-        public bool PerformanceModeEnabled
+        public bool TransparencyOn
         {
-            get => _userSettings.Get<bool>(UserSettingsConstants.PerformanceMode);
-            set => _userSettings.Set(UserSettingsConstants.PerformanceMode, value);
+            get => _userSettings.Get<bool>(UserSettingsConstants.Transparency);
+            set => _userSettings.Set(UserSettingsConstants.Transparency, value);
         }
+
+        /// <summary>
+        /// Determines if the transparency toggle is enabled.
+        /// </summary>
+        public bool TransparencyToggleEnabled => string.IsNullOrWhiteSpace(_userSettings.Get<string>(UserSettingsConstants.BackgroundImage));
 
         /// <summary>
         /// Settings flag for screensaver.
@@ -163,12 +169,13 @@ namespace AmbientSounds.ViewModels
 
         private void SelectImage(string? imagePath)
         {
-            if (imagePath?.Contains("none.png") == true)
+            if (imagePath?.Contains(NoneImageName) == true)
             {
                 imagePath = string.Empty;
             }
 
             _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
+            OnPropertyChanged(nameof(TransparencyToggleEnabled));
         }
 
         private async Task LoadImagesAsync()

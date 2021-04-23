@@ -7,9 +7,9 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    x:Name="RootPage"
     Background="{ThemeResource FallbackBackgroundBrush}"
     mc:Ignorable="d">
-
     <Grid>
         <toolkit:ImageEx
             x:Name="BackgroundImage"
@@ -25,5 +25,16 @@
             Stretch="UniformToFill" />
 
         <Frame x:Name="MainFrame" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NormalState" />
+                <VisualState x:Name="TransparencyOnState">
+                    <VisualState.Setters>
+                        <Setter Target="RootPage.Background" Value="{ThemeResource SystemControlAcrylicWindowBrush}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

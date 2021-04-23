@@ -72,7 +72,7 @@ namespace AmbientSounds.Constants
         /// <summary>
         /// Key used to store performance boolean state.
         /// </summary>
-        public const string PerformanceMode = "PerformanceMode";
+        public const string Transparency = "Transparency";
 
         /// <summary>
         ///  Settings defaults.
@@ -84,7 +84,7 @@ namespace AmbientSounds.Constants
             { Notifications, true },
             { EnableScreenSaver, false },
             { DarkScreensasver, false },
-            { PerformanceMode, false },
+            { Transparency, true },
             { MaxActive, 3 },
             { ActiveTracks, Array.Empty<string>() },
             { ActiveMixId, string.Empty },

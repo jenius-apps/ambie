@@ -24,8 +24,10 @@
 
     <ScrollViewer>
         <StackPanel>
+            <TextBlock x:Uid="SettingsThemeHeader" Style="{StaticResource SettingTitleStyle}" />
             <GridView
                 Width="312"
+                Margin="0,4,0,0"
                 HorizontalAlignment="Left"
                 IsItemClickEnabled="True"
                 ItemsSource="{x:Bind ViewModel.ImagePaths}"
@@ -60,11 +62,10 @@
                 </GridView.ItemContainerTransitions>
             </GridView>
 
-            <!--  Telemetry  -->
             <ToggleSwitch
-                x:Uid="SettingsTelemetrySwitch"
-                Margin="0,12,0,0"
-                IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
+                Header="{x:Bind strings:Resources.Transparency}"
+                IsEnabled="{x:Bind ViewModel.TransparencyToggleEnabled, Mode=OneWay}"
+                IsOn="{x:Bind ViewModel.TransparencyOn, Mode=TwoWay}">
                 <ToggleSwitch.OffContent>
                     <TextBlock x:Uid="OffTextBlock" />
                 </ToggleSwitch.OffContent>
@@ -73,11 +74,25 @@
                 </ToggleSwitch.OnContent>
             </ToggleSwitch>
 
-            <!--  performance mode  -->
+            <RadioButton
+                x:Uid="SettingsThemeDefaultRadio"
+                Margin="0,4,0,0"
+                Click="{x:Bind ViewModel.DefaultThemeRadioClicked}"
+                IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
+            <RadioButton
+                x:Uid="SettingsThemeDarkRadio"
+                Click="{x:Bind ViewModel.DarkThemeRadioClicked}"
+                IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
+            <RadioButton
+                x:Uid="SettingsThemeLightRadio"
+                Click="{x:Bind ViewModel.LightThemeRadioClicked}"
+                IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
+
+            <!--  Telemetry  -->
             <ToggleSwitch
+                x:Uid="SettingsTelemetrySwitch"
                 Margin="0,12,0,0"
-                Header="{x:Bind strings:Resources.PerformanceMode}"
-                IsOn="{x:Bind ViewModel.PerformanceModeEnabled, Mode=TwoWay}">
+                IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
                 <ToggleSwitch.OffContent>
                     <TextBlock x:Uid="OffTextBlock" />
                 </ToggleSwitch.OffContent>
@@ -117,19 +132,6 @@
                 Margin="0,12,0,0"
                 IsChecked="{x:Bind ViewModel.DarkScreensaverEnabled, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="SettingsThemeHeader" Style="{StaticResource SettingTitleStyle}" />
-            <RadioButton
-                x:Uid="SettingsThemeDefaultRadio"
-                Click="{x:Bind ViewModel.DefaultThemeRadioClicked}"
-                IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
-            <RadioButton
-                x:Uid="SettingsThemeDarkRadio"
-                Click="{x:Bind ViewModel.DarkThemeRadioClicked}"
-                IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
-            <RadioButton
-                x:Uid="SettingsThemeLightRadio"
-                Click="{x:Bind ViewModel.LightThemeRadioClicked}"
-                IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

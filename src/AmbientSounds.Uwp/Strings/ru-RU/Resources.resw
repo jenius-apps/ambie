@@ -481,7 +481,4 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Закрепить в панели задач</value>
   </data>
-  <data name="PerformanceMode" xml:space="preserve">
-    <value>Производительный режим</value>
-  </data>
 </root>

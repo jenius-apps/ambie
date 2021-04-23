@@ -478,7 +478,4 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Rögzítés a tálcára</value>
   </data>
-  <data name="PerformanceMode" xml:space="preserve">
-    <value>Teljesítmény mód</value>
-  </data>
 </root>

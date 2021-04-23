@@ -638,9 +638,9 @@
           <source>Pin to taskbar</source>
           <target state="new">Pin to taskbar</target>
         </trans-unit>
-        <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
-          <source>Performance mode</source>
-          <target state="new">Performance mode</target>
+        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
+          <source>Transparency</source>
+          <target state="new">Transparency</target>
         </trans-unit>
       </group>
     </body>
