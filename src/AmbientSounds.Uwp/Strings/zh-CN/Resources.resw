@@ -178,7 +178,7 @@
     <value>非常感谢！</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>主题（需要重启应用）</value>
+    <value>主题</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>自动</value>

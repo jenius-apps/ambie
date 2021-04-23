@@ -15,25 +15,30 @@ namespace AmbientSounds.ViewModels
         private readonly IStoreNotificationRegistrar _notifications;
         private readonly IScreensaverService _screensaverService;
         private readonly ISystemInfoProvider _systemInfoProvider;
+        private readonly IImagePicker _imagePicker;
         private bool _notificationsLoading;
 
         public SettingsViewModel(
             IUserSettings userSettings,
             IScreensaverService screensaverService,
             ISystemInfoProvider systemInfoProvider,
-            IStoreNotificationRegistrar notifications)
+            IStoreNotificationRegistrar notifications,
+            IImagePicker imagePicker)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(notifications, nameof(notifications));
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
+            Guard.IsNotNull(imagePicker, nameof(imagePicker));
             _systemInfoProvider = systemInfoProvider;
             _screensaverService = screensaverService;
             _userSettings = userSettings;
             _notifications = notifications;
+            _imagePicker = imagePicker;
 
             SelectImageCommand = new RelayCommand<string>(SelectImage);
             LoadImagesCommand = new AsyncRelayCommand(LoadImagesAsync);
+            BrowseCommand = new AsyncRelayCommand(BrowseForImageAsync);
         }
 
         /// <summary>
@@ -45,6 +50,11 @@ namespace AmbientSounds.ViewModels
         /// Command for loading the background images.
         /// </summary>
         public IAsyncRelayCommand LoadImagesCommand { get; }
+
+        /// <summary>
+        /// Command for opening a file picker to select a custom image.
+        /// </summary>
+        public IAsyncRelayCommand BrowseCommand { get; }
 
         /// <summary>
         /// Paths to available background images.
@@ -190,6 +200,17 @@ namespace AmbientSounds.ViewModels
             {
                 ImagePaths.Add(p);
             }
+        }
+
+        private async Task BrowseForImageAsync()
+        {
+            string? imagePath = await _imagePicker.BrowseAsync();
+            if (imagePath == null)
+            {
+                return;
+            }
+
+            SelectImage(imagePath);
         }
 
         private async void SetNotifications(bool value)

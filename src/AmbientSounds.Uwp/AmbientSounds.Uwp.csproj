@@ -195,6 +195,7 @@
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\FilePicker.cs" />
+    <Compile Include="Services\ImagePicker.cs" />
     <Compile Include="Services\MixMediaPlayerService.cs" />
     <Compile Include="Services\MsaAuthClient.cs" />
     <Compile Include="Services\MsalClient.cs" />

@@ -62,7 +62,13 @@
                 </GridView.ItemContainerTransitions>
             </GridView>
 
+            <Button
+                HorizontalAlignment="Stretch"
+                Command="{x:Bind ViewModel.BrowseCommand}"
+                Content="{x:Bind strings:Resources.BrowseText}" />
+
             <ToggleSwitch
+                Margin="0,12,0,0"
                 Header="{x:Bind strings:Resources.Transparency}"
                 IsEnabled="{x:Bind ViewModel.TransparencyToggleEnabled, Mode=OneWay}"
                 IsOn="{x:Bind ViewModel.TransparencyOn, Mode=TwoWay}">
