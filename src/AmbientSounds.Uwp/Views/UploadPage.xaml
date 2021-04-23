@@ -7,6 +7,7 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    Background="{ThemeResource FallbackBackgroundBrush}"
     mc:Ignorable="d">
     <Grid>
         <SplitView
