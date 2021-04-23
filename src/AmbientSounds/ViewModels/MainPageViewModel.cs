@@ -1,5 +1,4 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Services;
+﻿using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
@@ -10,34 +9,22 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IScreensaverService _screensaverService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
-        private readonly IUserSettings _userSettings;
         private bool _maxTeachingTipOpen;
 
         public MainPageViewModel(
             IScreensaverService screensaverService,
-            IMixMediaPlayerService mediaPlayerService,
-            IUserSettings userSettings)
+            IMixMediaPlayerService mediaPlayerService)
         {
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
-            Guard.IsNotNull(userSettings, nameof(userSettings));
 
-            _userSettings = userSettings;
             _screensaverService = screensaverService;
             _mediaPlayerService = mediaPlayerService;
 
             _mediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
             _mediaPlayerService.MaxReached += OnMaxReached;
-            _userSettings.SettingSet += OnSettingSet;
         }
 
-        private void OnSettingSet(object sender, string settingsKey)
-        {
-            if (settingsKey == UserSettingsConstants.BackgroundImage)
-            {
-                OnPropertyChanged(nameof(BackgroundImagePath));
-            }
-        }
 
         private void OnMaxReached(object sender, EventArgs e)
         {
@@ -56,11 +43,6 @@ namespace AmbientSounds.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        /// <summary>
-        /// Path to background image.
-        /// </summary>
-        public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage);
 
         /// <summary>
         /// Resets the screensaver timer's timout.

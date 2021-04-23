@@ -178,7 +178,7 @@
     <value>Спасибо!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Тема (требуется перезапуск)</value>
+    <value>Тема</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Авто</value>
@@ -480,8 +480,5 @@
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Закрепить в панели задач</value>
-  </data>
-  <data name="PerformanceMode" xml:space="preserve">
-    <value>Производительный режим (требуется перезапуск)</value>
   </data>
 </root>

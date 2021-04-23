@@ -29,12 +29,6 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
-
-            if (App.IsTenFoot)
-            {
-                // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
-                ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
-            }
         }
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -60,15 +54,6 @@ namespace AmbientSounds.Views
             }
 
             TryStartPageAnimations();
-
-            if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.PerformanceMode))
-            {
-                SolidColorBrush mycolor = App.Current.Resources["FallbackBackgroundBrush"] as SolidColorBrush;
-                if (mycolor != null)
-                {
-                    this.Background = mycolor;
-                }
-            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

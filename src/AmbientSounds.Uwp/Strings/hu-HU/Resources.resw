@@ -172,7 +172,7 @@
     <value>Köszönjük</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Téma (újraindítást igényel)</value>
+    <value>Téma</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automatikus</value>
@@ -477,8 +477,5 @@
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Rögzítés a tálcára</value>
-  </data>
-  <data name="PerformanceMode" xml:space="preserve">
-    <value>Teljesítmény mód (újraindítást igényel)</value>
   </data>
 </root>

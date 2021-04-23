@@ -7,7 +7,6 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
     mc:Ignorable="d">
 
     <Grid>
@@ -29,7 +28,7 @@
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                 <Button
                     x:Uid="BackButton"
-                    Click="{x:Bind GoBack}"
+                    Click="{x:Bind ViewModel.GoBack}"
                     Style="{StaticResource TransparentRoundButtonStyle}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
                 </Button>

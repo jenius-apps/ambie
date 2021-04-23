@@ -188,12 +188,14 @@
     </Compile>
     <Compile Include="Converters\ErrorLoader.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
+    <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppCentreTelemetry.cs" />
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\FilePicker.cs" />
+    <Compile Include="Services\ImagePicker.cs" />
     <Compile Include="Services\MixMediaPlayerService.cs" />
     <Compile Include="Services\MsaAuthClient.cs" />
     <Compile Include="Services\MsalClient.cs" />
@@ -226,6 +228,9 @@
     <Compile Include="Views\ScreensaverPage.xaml.cs">
       <DependentUpon>ScreensaverPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShellPage.xaml.cs">
+      <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UploadPage.xaml.cs">
       <DependentUpon>UploadPage.xaml</DependentUpon>
     </Compile>
@@ -236,10 +241,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Backgrounds\aurora.jpg" />
-    <Content Include="Assets\Backgrounds\beach.jpg" />
-    <Content Include="Assets\Backgrounds\flowers.jpg" />
-    <Content Include="Assets\Backgrounds\sandDunes.jpg" />
+    <Content Include="Assets\Backgrounds\blisslike.png" />
+    <Content Include="Assets\Backgrounds\gradient.png" />
+    <Content Include="Assets\Backgrounds\water.png" />
+    <Content Include="Assets\Backgrounds\sand.png" />
+    <Content Include="Assets\Backgrounds\znone.png" />
+    <Content Include="Assets\Backgrounds\rosyhill.png" />
     <Content Include="Assets\Images\beach.png" />
     <Content Include="Assets\Images\birds.png" />
     <Content Include="Assets\Images\citystreet.png" />
@@ -419,6 +426,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ScreensaverPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShellPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

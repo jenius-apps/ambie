@@ -1,23 +1,23 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class UploadPage : Page
     {
         public UploadPage()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<UploadPageViewModel>();
         }
+
+        public UploadPageViewModel ViewModel => (UploadPageViewModel)this.DataContext;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -26,23 +26,6 @@ namespace AmbientSounds.Views
             {
                 { "name", "uploadPage" },
             });
-
-            if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.PerformanceMode))
-            {
-                SolidColorBrush mycolor = App.Current.Resources["FallbackBackgroundBrush"] as SolidColorBrush;
-                if (mycolor != null)
-                {
-                    this.Background = mycolor;
-                }
-            }
-        }
-
-        private void GoBack()
-        {
-            if (App.AppFrame.CanGoBack)
-            {
-                App.AppFrame.GoBack();
-            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

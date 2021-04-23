@@ -172,7 +172,7 @@
     <value>Obrigado!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Tema (requer reinicialização)</value>
+    <value>Tema</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automático</value>

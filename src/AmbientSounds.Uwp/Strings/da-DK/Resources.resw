@@ -166,7 +166,7 @@
     <value>Mange tak</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Tema (kræver genstart)</value>
+    <value>Tema</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automatisk</value>

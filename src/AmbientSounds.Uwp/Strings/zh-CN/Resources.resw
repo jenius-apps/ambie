@@ -178,7 +178,7 @@
     <value>非常感谢！</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>主题（需要重启应用）</value>
+    <value>主题</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>自动</value>
@@ -480,8 +480,5 @@
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
     <value>固定到任务栏</value>
-  </data>
-  <data name="PerformanceMode" xml:space="preserve">
-    <value>性能模式（需要重启）</value>
   </data>
 </root>

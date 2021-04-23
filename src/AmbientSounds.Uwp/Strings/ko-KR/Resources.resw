@@ -172,7 +172,7 @@
     <value>감사합니다!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>테마(다시 시작해야 합니다)</value>
+    <value>테마</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>자동 번역</value>

@@ -169,7 +169,7 @@
     <value>Děkujeme</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Motiv aplikace (potřeba restartovat aplikaci)</value>
+    <value>Motiv aplikace</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automatický</value>

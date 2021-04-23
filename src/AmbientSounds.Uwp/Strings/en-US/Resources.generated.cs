@@ -795,15 +795,15 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region PerformanceMode
+        #region Transparency
         /// <summary>
-        ///   Looks up a localized string similar to: Performance mode (requires restart)
+        ///   Looks up a localized string similar to: Transparency
         /// </summary>
-        public static string PerformanceMode
+        public static string Transparency
         {
             get
             {
-                return _resourceLoader.GetString("PerformanceMode");
+                return _resourceLoader.GetString("Transparency");
             }
         }
         #endregion
@@ -878,7 +878,7 @@ namespace AmbientSounds.Strings{
             FirstLaunchMessage,
             HelloAndWelcome,
             PinToTaskbar,
-            PerformanceMode,
+            Transparency,
         }
 
         private static ResourceLoader _resourceLoader;

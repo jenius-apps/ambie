@@ -166,7 +166,7 @@
     <value>Dank u!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Thema (opnieuw opstarten vereist)</value>
+    <value>Thema</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>Donker</value>

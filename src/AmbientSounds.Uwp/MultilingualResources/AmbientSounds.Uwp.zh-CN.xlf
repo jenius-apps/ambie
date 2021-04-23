@@ -227,8 +227,8 @@
           <target state="translated">非常感谢！</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
-          <source>Theme (requires restart)</source>
-          <target state="translated">主题（需要重启应用）</target>
+          <source>Theme</source>
+          <target state="translated">主题</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
@@ -629,9 +629,9 @@
           <source>Pin to taskbar</source>
           <target state="translated">固定到任务栏</target>
         </trans-unit>
-        <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
-          <source>Performance mode (requires restart)</source>
-          <target state="translated">性能模式（需要重启）</target>
+        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
+          <source>Transparency</source>
+          <target state="new">Transparency</target>
         </trans-unit>
       </group>
     </body>

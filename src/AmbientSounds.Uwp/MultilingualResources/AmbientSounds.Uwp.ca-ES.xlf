@@ -223,8 +223,8 @@
           <target state="translated">Gràcies</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
-          <source>Theme (requires restart)</source>
-          <target state="translated">Tema (requereix reiniciar)</target>
+          <source>Theme</source>
+          <target state="translated">Tema</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
@@ -637,9 +637,9 @@
           <source>Pin to taskbar</source>
           <target state="new">Pin to taskbar</target>
         </trans-unit>
-        <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
-          <source>Performance mode (requires restart)</source>
-          <target state="new">Performance mode (requires restart)</target>
+        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
+          <source>Transparency</source>
+          <target state="new">Transparency</target>
         </trans-unit>
       </group>
     </body>

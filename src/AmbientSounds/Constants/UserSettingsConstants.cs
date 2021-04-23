@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.Constants
 {
@@ -11,7 +12,7 @@ namespace AmbientSounds.Constants
         /// <summary>
         /// Key to remember the user's background image.
         /// </summary>
-        public const string BackgroundImage = "BackgroundImage";
+        public const string BackgroundImage = "BackgroundImagePath";
 
         /// <summary>
         /// Volume settings key.
@@ -71,7 +72,7 @@ namespace AmbientSounds.Constants
         /// <summary>
         /// Key used to store performance boolean state.
         /// </summary>
-        public const string PerformanceMode = "PerformanceMode";
+        public const string Transparency = "Transparency";
 
         /// <summary>
         ///  Settings defaults.
@@ -83,14 +84,14 @@ namespace AmbientSounds.Constants
             { Notifications, true },
             { EnableScreenSaver, false },
             { DarkScreensasver, false },
-            { PerformanceMode, false },
+            { Transparency, true },
             { MaxActive, 3 },
-            { ActiveTracks, new string[0] },
-            { ActiveMixId, "" },
-            { CurrentUserId, "" },
-            { CurrentUserProviderId, "" },
+            { ActiveTracks, Array.Empty<string>() },
+            { ActiveMixId, string.Empty },
+            { CurrentUserId, string.Empty },
+            { CurrentUserProviderId, string.Empty },
             { Theme, "default" },
-            { BackgroundImage, "ms-appx:///Assets/Backgrounds/sandDunes.jpg" }
+            { BackgroundImage, string.Empty }
         };
     }
 }
