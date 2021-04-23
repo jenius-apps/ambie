@@ -481,7 +481,4 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>固定到任务栏</value>
   </data>
-  <data name="PerformanceMode" xml:space="preserve">
-    <value>性能模式（需要重启）</value>
-  </data>
 </root>
