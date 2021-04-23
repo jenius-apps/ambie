@@ -78,7 +78,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds)
         {
-            if (soundIds is not { Count: > 0 })
+            if (soundIds is null || soundIds.Count == 0)
             {
                 return Array.Empty<Sound>();
             }

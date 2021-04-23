@@ -90,13 +90,13 @@ namespace AmbientSounds.ViewModels
                 _images = images;
             }
 
-            if (_images is not { Count: >= 2 })
+            if (_images is null || _images.Count < 2)
             {
                 var firstSound = (await _soundDataProvider.GetSoundsAsync(refresh: false)).FirstOrDefault();
                 _images = firstSound?.ScreensaverImagePaths ?? Array.Empty<string>();
             }
 
-            if (_images is not { Count: >= 2 })
+            if (_images is null || _images.Count < 2)
             {
                 return;
             }
