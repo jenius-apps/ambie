@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -16,6 +17,7 @@ namespace AmbientSounds.ViewModels
         private readonly IScreensaverService _screensaverService;
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly IImagePicker _imagePicker;
+        private readonly ITelemetry _telemetry;
         private bool _notificationsLoading;
 
         public SettingsViewModel(
@@ -23,18 +25,21 @@ namespace AmbientSounds.ViewModels
             IScreensaverService screensaverService,
             ISystemInfoProvider systemInfoProvider,
             IStoreNotificationRegistrar notifications,
-            IImagePicker imagePicker)
+            IImagePicker imagePicker,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(notifications, nameof(notifications));
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
             Guard.IsNotNull(imagePicker, nameof(imagePicker));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
             _systemInfoProvider = systemInfoProvider;
             _screensaverService = screensaverService;
             _userSettings = userSettings;
             _notifications = notifications;
             _imagePicker = imagePicker;
+            _telemetry = telemetry;
 
             SelectImageCommand = new RelayCommand<string>(SelectImage);
             LoadImagesCommand = new AsyncRelayCommand(LoadImagesAsync);
@@ -186,6 +191,14 @@ namespace AmbientSounds.ViewModels
 
             _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
             OnPropertyChanged(nameof(TransparencyToggleEnabled));
+
+            if (imagePath != null)
+            {
+                _telemetry.TrackEvent(TelemetryConstants.BackgroundChanged, new Dictionary<string, string>
+                {
+                    { "path", imagePath.Contains("ms-appx") ? imagePath : "custom" }
+                });
+            }
         }
 
         private async Task LoadImagesAsync()
