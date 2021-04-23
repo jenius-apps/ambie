@@ -321,6 +321,21 @@
   <data name="LimitReachedTitle.Text" xml:space="preserve">
     <value>到达上限！</value>
   </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>混音列表名称</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>可选</value>
+  </data>
+  <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>从正在播放列表移除</value>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>保存自定义混音列表</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>保存自定义混音列表 (Ctrl+S)</value>
+  </data>
   <data name="CancelText" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -330,8 +345,23 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>重命名</value>
   </data>
+  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>分享混音列表链接</value>
+  </data>
+  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>分享混音列表链接</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>丢失的音效</value>
+  </data>
+  <data name="ShareResultsMessage.Text" xml:space="preserve">
+    <value>部分音效丢失！在此处下载这些音效，然后点击播放按钮来播放。</value>
+  </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>注销</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>登录来在多个设备间同步你的音效库，或上传音效。</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>查看账户选项</value>
