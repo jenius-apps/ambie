@@ -13,469 +13,475 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Kompakt mód bezárása</value>
+    <value>关闭简洁模式</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Kompakt mód bezárása</value>
+    <value>关闭简洁模式</value>
   </data>
   <data name="CloseText" xml:space="preserve">
-    <value>Bezárás</value>
+    <value>关闭</value>
   </data>
   <data name="Copyright.Text" xml:space="preserve">
-    <value>Szerzői jog</value>
+    <value>版权所有</value>
   </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
-    <value>Copyright Jenius Apps</value>
+    <value>版权所有 Jenius Apps</value>
   </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
-    <value>Hello Vancouverből</value>
+    <value>来自温哥华的问候</value>
   </data>
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
-    <value></value>
+    <value>查看 App 信息</value>
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 perc</value>
+    <value>10 分钟</value>
   </data>
   <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 perc</value>
+    <value>15 分钟</value>
   </data>
   <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 perc</value>
+    <value>30 分钟</value>
   </data>
   <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 perc</value>
+    <value>5 分钟</value>
   </data>
   <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 perc</value>
+    <value>60 分钟</value>
   </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
-    <value></value>
+    <value>查看更多选项</value>
+  </data>
+  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+    <value>简洁模式</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
-    <value>Fejlesztő elérése</value>
+    <value>联系开发者</value>
   </data>
   <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Discord</value>
+    <value>在 Discord 上讨论</value>
   </data>
   <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>GitHub</value>
+    <value>查看 GitHub</value>
   </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
-    <value>Ambie értékelése</value>
+    <value>评价本应用</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
-    <value>Beállítások</value>
+    <value>设置</value>
   </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
-    <value>Ambie megosztása linkkel</value>
+    <value>分享 Ambie 链接</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
-    <value>Fordítás hozzáadása vagy fejlesztése</value>
+    <value>添加或改善翻译</value>
   </data>
   <data name="OffTextBlock.Text" xml:space="preserve">
-    <value>Ki</value>
+    <value>关</value>
   </data>
   <data name="OnTextBlock.Text" xml:space="preserve">
-    <value>Be</value>
+    <value>开</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Időzítő leállítása</value>
+    <value>暂停计时器</value>
   </data>
   <data name="PlayerPauseText" xml:space="preserve">
-    <value>Leállítás</value>
+    <value>暂停</value>
   </data>
   <data name="PlayerPlayText" xml:space="preserve">
-    <value>Elindítás</value>
+    <value>播放</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Időzítő folytatása</value>
+    <value>恢复计时器</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
-    <value>Kész a lejátszásra</value>
+    <value>可以播放</value>
   </data>
   <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>Telemetria</value>
+    <value>遥测</value>
   </data>
   <data name="SettingsText" xml:space="preserve">
-    <value>Beállítások</value>
+    <value>设置</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</value>
+    <value>查看睡眠定时器选项</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</value>
+    <value>查看睡眠定时器选项</value>
   </data>
   <data name="Soundbeach" xml:space="preserve">
-    <value>Part</value>
+    <value>海滩</value>
   </data>
   <data name="Soundbirds" xml:space="preserve">
-    <value>Madarak</value>
+    <value>鸟啼</value>
   </data>
   <data name="Soundcitystreet" xml:space="preserve">
-    <value>Városi utca</value>
+    <value>城镇街道</value>
   </data>
   <data name="Soundcoffeeshop" xml:space="preserve">
-    <value>Kávéház</value>
+    <value>咖啡馆</value>
   </data>
   <data name="Soundcreek" xml:space="preserve">
-    <value>Patak</value>
+    <value>溪水</value>
   </data>
   <data name="Soundfireplace" xml:space="preserve">
-    <value>Kandalló</value>
+    <value>壁炉</value>
   </data>
   <data name="Soundmore" xml:space="preserve">
-    <value>Hamarosan</value>
+    <value>更多音效即将推出</value>
   </data>
   <data name="Soundrain" xml:space="preserve">
-    <value>Eső</value>
+    <value>雨露</value>
   </data>
   <data name="Soundrainforest" xml:space="preserve">
-    <value>Esőerdő</value>
+    <value>雨林</value>
   </data>
   <data name="Soundunderwater" xml:space="preserve">
-    <value>Víz alatt</value>
+    <value>水下</value>
   </data>
   <data name="Soundwaterfall" xml:space="preserve">
-    <value>Vízesés</value>
+    <value>瀑布</value>
   </data>
   <data name="Soundwhitenoise" xml:space="preserve">
-    <value>Fehérzaj</value>
+    <value>白噪声</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
-    <value>Hangok betöltése</value>
+    <value>正在加载音效</value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
-    <value>Nem lehet lejátszani</value>
+    <value>无法播放音效</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Időzítő leállítása</value>
+    <value>停止计时器并清空计时</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>Hangerő változtatása</value>
+    <value>全局音量</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>音效音量</value>
   </data>
   <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Több hangot szeretne? Küldjön javaslatokat!</value>
+    <value>想要更多音效？请发送建议！</value>
   </data>
   <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Javaslat</value>
+    <value>建议</value>
   </data>
   <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Több hangot szeretne? Küldjön javaslatokat!</value>
+    <value>想要更多音效？请发送建议！</value>
   </data>
   <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Javaslat küldése</value>
+    <value>发送建议</value>
   </data>
   <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Kattintson ide a javaslat elküldéséhez</value>
+    <value>发送建议</value>
   </data>
   <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Köszönjük</value>
+    <value>非常感谢！</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Téma</value>
+    <value>主题（需要重启应用）</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
-    <value>Automatikus</value>
+    <value>自动</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
-    <value>Sötét</value>
+    <value>黑暗</value>
   </data>
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
-    <value>Világos</value>
+    <value>明亮</value>
   </data>
   <data name="Soundvacuum" xml:space="preserve">
-    <value>Porszívó</value>
+    <value>吸尘器</value>
   </data>
   <data name="Soundthunder" xml:space="preserve">
-    <value>Mennydörgés</value>
+    <value>雷鸣</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
-    <value>Értesítések új hangokról</value>
+    <value>新音效提示</value>
   </data>
   <data name="Soundwind" xml:space="preserve">
-    <value>Szél</value>
+    <value>风声</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>Több</value>
+    <value>更多音效</value>
   </data>
   <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Több hang</value>
+    <value>查看更多音效</value>
   </data>
-  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Vissza</value>
-    <comment>Going back to the previous page</comment>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>查看更多音效</value>
   </data>
-  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Hang letöltése</value>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>查看更多音效</value>
   </data>
-  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Hang letöltése</value>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>音效目录 - Beta</value>
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
-    <value>Már letöltött</value>
+    <value>已下载</value>
     <comment>The sound is already downloaded</comment>
   </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>返回</value>
+    <comment>Going back to the previous page</comment>
+  </data>
   <data name="CanDownload" xml:space="preserve">
-    <value>Letölthető</value>
+    <value>可以下载</value>
     <comment>The sound can be downloaded</comment>
   </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>下载音效</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>下载音效</value>
+  </data>
   <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Hang katalógus</value>
+    <value>音效目录</value>
   </data>
   <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
-    <value>Hangok</value>
+    <value>音效</value>
     <comment>List of sounds</comment>
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
-    <value>Adatvédelmi irányelvek</value>
-  </data>
-  <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Hang katalógus</value>
-  </data>
-  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
-    <value>Még több hang</value>
-  </data>
-  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Még több hang</value>
+    <value>隐私政策</value>
   </data>
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Adatvédelmi irányelvek</value>
-  </data>
-  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Hang törlése</value>
-  </data>
-  <data name="DeleteTextBlock.Text" xml:space="preserve">
-    <value>Törlés</value>
-  </data>
-  <data name="DownloadTextBlock.Text" xml:space="preserve">
-    <value>Letöltés</value>
+    <value>隐私政策</value>
   </data>
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
-    <value>Törlés</value>
+    <value>删除</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>删除音效</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>下载</value>
   </data>
   <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Véletlenszerű</value>
+    <value>播放随机音效</value>
   </data>
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Véletlenszerű hang lejátszása</value>
+    <value>播放随机音效</value>
   </data>
   <data name="MoreButtonScreensaver.Label" xml:space="preserve">
-    <value>Képernyőkímélő</value>
+    <value>屏保模式</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
-    <value>Képernyőkímélő</value>
+    <value>屏保</value>
   </data>
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Sötét oldal használata képernyőkímélőként</value>
+    <value>使用暗色页面作为屏保</value>
   </data>
   <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 óra</value>
+    <value>2 小时</value>
   </data>
   <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 óra</value>
+    <value>4 小时</value>
   </data>
   <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 óra</value>
+    <value>8 小时</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Hang vásárlása</value>
+    <value>购买音效</value>
   </data>
   <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Minta</value>
+    <value>预览音效</value>
   </data>
   <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Minta</value>
+    <value>预览音效</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Megállítva</value>
+    <value>已暂停</value>
     <comment>Sound is paused</comment>
   </data>
   <data name="Playing" xml:space="preserve">
-    <value>Lejátszás</value>
+    <value>正在播放</value>
     <comment>Sound is playing</comment>
   </data>
-  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>Hangerő</value>
-  </data>
   <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
-    <value>Aktív hangok</value>
+    <value>播放中的音效</value>
   </data>
   <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Aktív hangok törlése</value>
+    <value>清除所有播放中的音效</value>
   </data>
   <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Aktív hangok törlése</value>
+    <value>清除所有播放中的音效</value>
   </data>
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Mentés megerősítése</value>
+    <value>确认保存</value>
   </data>
   <data name="GlobalVolume.Text" xml:space="preserve">
-    <value>Fő hangerő</value>
+    <value>全局音量</value>
   </data>
   <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Távolítson el egy hangot, hogy helyet készítsen egy másiknak.</value>
+    <value>删除一个音效以留出空间</value>
   </data>
   <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Maximális hang mennyiség!</value>
+    <value>到达上限！</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
-    <value>Válogatás neve</value>
+    <value>混音列表名称</value>
   </data>
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
-    <value>Lehetséges</value>
+    <value>可选</value>
   </data>
   <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Eltávolítás az aktív hangokból</value>
+    <value>从正在播放列表移除</value>
   </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Saját válogatás mentése</value>
+    <value>保存自定义混音列表</value>
   </data>
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Saját válogatás mentése (Ctrl+S)</value>
+    <value>保存自定义混音列表 (Ctrl+S)</value>
   </data>
   <data name="CancelText" xml:space="preserve">
-    <value>Mégse</value>
+    <value>取消</value>
   </data>
   <data name="RenameText" xml:space="preserve">
-    <value>Átnevezés</value>
+    <value>重命名</value>
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
-    <value>Átnevezés</value>
-  </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
-    <value>Kompakt mód</value>
+    <value>重命名</value>
   </data>
   <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Lista megosztása linkkel</value>
+    <value>分享混音列表链接</value>
   </data>
   <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Lista megosztása linkkel</value>
+    <value>分享混音列表链接</value>
   </data>
   <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Hiányzó hangok</value>
+    <value>丢失的音效</value>
   </data>
   <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Hiányzik pár hang, letöltheti őket innen.</value>
+    <value>部分音效丢失！在此处下载这些音效，然后点击播放按钮来播放。</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
-    <value>Kijelentkezés</value>
+    <value>注销</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>Megosztott Hang Katalógus az eszközein.</value>
+    <value>登录来在多个设备间同步你的音效库，或上传音效。</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Fiók részletei</value>
+    <value>查看账户选项</value>
   </data>
   <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Fiók részletei</value>
+    <value>查看账户选项</value>
   </data>
   <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Bejelentkezés</value>
+    <value>登录</value>
   </data>
   <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Bejelentkezés</value>
+    <value>登录</value>
   </data>
   <data name="SyncAppBarButton.Label" xml:space="preserve">
-    <value>Szinkronizálás</value>
+    <value>同步</value>
   </data>
   <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Hangok feltöltése</value>
+    <value>上传音效</value>
   </data>
   <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Feltöltött hangok</value>
+    <value>已上传音效</value>
   </data>
-  <data name="BrowseText" xml:space="preserve">
-    <value>Keresés</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>Kép URL címe</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Hang elérési útja</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Hang feltöltése</value>
+  <data name="UploadPortal.Text" xml:space="preserve">
+    <value>上传中心 - Beta</value>
   </data>
   <data name="Attribution" xml:space="preserve">
-    <value>Cimkék</value>
+    <value>版权归属</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>浏览</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>图片 URL</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Név</value>
+    <value>名称</value>
   </data>
   <data name="NewSound" xml:space="preserve">
-    <value>Új hang</value>
+    <value>新建音效</value>
+  </data>
+  <data name="PathToSound" xml:space="preserve">
+    <value>音效路径</value>
+  </data>
+  <data name="UploadSubmitButton" xml:space="preserve">
+    <value>上传音效</value>
   </data>
   <data name="PublishStateNone" xml:space="preserve">
-    <value>Semmi</value>
+    <value>无</value>
   </data>
   <data name="PublishStatePublished" xml:space="preserve">
-    <value>Közzétéve</value>
+    <value>已发布</value>
   </data>
   <data name="PublishStateRejected" xml:space="preserve">
-    <value>Elutasítva</value>
+    <value>已驳回</value>
   </data>
   <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Felülvizsgálat alatt</value>
+    <value>正在审核</value>
   </data>
   <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Nem közzétett</value>
+    <value>未发布</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Frissítés</value>
+    <value>刷新</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
   <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Töltsön fel nyugtató hangokat az Ambie katalógusába, hogy mások is meghallgathasság.</value>
+    <value>将放松音效上传至 Ambie 音效目录，让更多人聆听你的作品！</value>
   </data>
   <data name="SignIn" xml:space="preserve">
-    <value>Bejelentkezés</value>
+    <value>登录</value>
   </data>
   <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Elfogadom a használati feltételeket</value>
+    <value>我同意使用条款</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Biztos benne?</value>
+    <value>是否确定？</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Igen</value>
+    <value>是</value>
   </data>
   <data name="DonateUrl" xml:space="preserve">
-    <value>Támogatás URL címe</value>
+    <value>捐赠 URL</value>
   </data>
   <data name="Optional" xml:space="preserve">
-    <value>Választható</value>
+    <value>可选</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>Kötelező</value>
+    <value>必要</value>
   </data>
   <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Én készítettem a hangot, vagy van engedélyem feltölteni</value>
+    <value>我创作了该音效，或我获得允许上传该音效</value>
   </data>
   <data name="ErrorBigFile" xml:space="preserve">
-    <value>Túl nagy fájl! Próbálja meg újra egy {0} MB-nál kisebb fájllal.</value>
+    <value>文件体积过大！请尝试选择小于 {0} MB 大小的文件。</value>
   </data>
   <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Elérted a maximumot! Csak {0} hangja lehet.</value>
+    <value>已到达上限！你尽可拥有 {0} 个音效。</value>
   </data>
   <data name="Donate" xml:space="preserve">
-    <value>Támogatás</value>
+    <value>捐赠</value>
   </data>
   <data name="TermsOfUse" xml:space="preserve">
-    <value>Használati feltételek</value>
+    <value>使用条款</value>
   </data>
   <data name="FollowTwitter" xml:space="preserve">
-    <value>Kövessen minket Twitteren</value>
+    <value>在 Twitter 上关注我们</value>
   </data>
   <data name="Dismiss" xml:space="preserve">
-    <value>Elvetés</value>
+    <value>关闭</value>
   </data>
   <data name="FirstLaunchMessage" xml:space="preserve">
-    <value>Köszönjük, hogy az Ambie-t használja. A legjobb felhasználói élményért fontolja meg az Ambie kitűzését a tálcára! Élvezze a nyugtató ittlétét 🏝</value>
+    <value>感谢使用 Ambie。将 Ambie 固定在任务栏上可以获得更好的使用体验！开始享受音效放松自己吧！ 🏝</value>
   </data>
   <data name="HelloAndWelcome" xml:space="preserve">
-    <value>Üdvözöljük!</value>
+    <value>欢迎使用！</value>
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
-    <value>Rögzítés a tálcára</value>
+    <value>固定到任务栏</value>
+  </data>
+  <data name="PerformanceMode" xml:space="preserve">
+    <value>性能模式（需要重启）</value>
   </data>
 </root>

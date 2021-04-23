@@ -548,6 +548,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-BR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ru-RU.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.tr.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.zh-CN.xlf" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
@@ -577,6 +578,9 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\ru-RU\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
