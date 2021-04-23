@@ -24,7 +24,6 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly bool _loadPreviousState;
         private bool _loaded;
-        private readonly Queue<Sound> _addQueue = new Queue<Sound>();
 
         public ActiveTrackListViewModel(
             IMixMediaPlayerService player,
@@ -115,7 +114,7 @@ namespace AmbientSounds.ViewModels
             var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
             var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
             var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
-            if (sounds != null && sounds.Count > 0)
+            if (sounds is not null && sounds.Count > 0)
             {
                 foreach (var s in sounds)
                 {
@@ -144,14 +143,16 @@ namespace AmbientSounds.ViewModels
             });
         }
 
-        private async Task SaveAsync(string name)
+        private async Task SaveAsync(string? name)
         {
-            if (SaveCommand.IsRunning || !string.IsNullOrWhiteSpace(_player.CurrentMixId))
+            if (name is null ||
+                SaveCommand.IsRunning ||
+                !string.IsNullOrWhiteSpace(_player.CurrentMixId))
             {
                 return;
             }
 
-            var soundIds = ActiveTracks.Select(x => x.Sound).ToArray();
+            var soundIds = ActiveTracks.Select(static x => x.Sound).ToArray();
             var id = await _soundMixService.SaveMixAsync(soundIds, name);
             _player.SetMixId(id);
             UpdateCanSave();
@@ -164,7 +165,7 @@ namespace AmbientSounds.ViewModels
 
         private void UpdateStoredState()
         {
-            var ids = ActiveTracks.Select(x => x.Sound.Id).ToArray();
+            var ids = ActiveTracks.Select(static x => x.Sound.Id).ToArray();
             _userSettings.SetAndSerialize(UserSettingsConstants.ActiveTracks, ids);
             _userSettings.Set(UserSettingsConstants.ActiveMixId, _player.CurrentMixId);
         }
@@ -178,7 +179,7 @@ namespace AmbientSounds.ViewModels
         private void OnSoundRemoved(object sender, SoundPausedArgs args)
         {
             var sound = ActiveTracks.FirstOrDefault(x => x.Sound?.Id == args.SoundId);
-            if (sound != null)
+            if (sound is not null)
             {
                 ActiveTracks.Remove(sound);
                 UpdateStoredState();
@@ -203,9 +204,9 @@ namespace AmbientSounds.ViewModels
         }
         private void UpdateCanSave() => OnPropertyChanged(nameof(CanSave));
 
-        private void RemoveSound(Sound s)
+        private void RemoveSound(Sound? s)
         {
-            if (s != null)
+            if (s is not null)
             {
                 _player.RemoveSound(s.Id);
                 _telemetry.TrackEvent(TelemetryConstants.MixRemoved);

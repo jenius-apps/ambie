@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
+#nullable enable
+
 namespace AmbientSounds.Controls
 {
     public sealed partial class ToggleCompactButton : UserControl

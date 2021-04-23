@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -30,7 +32,7 @@ namespace AmbientSounds.Services.Uwp
             StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
             StorageFolder backgrounds = await assets.GetFolderAsync("Backgrounds");
             var images = await backgrounds.GetFilesAsync();
-            return images.Select(x => $"ms-appx:///Assets/Backgrounds/{x.Name}").ToArray();
+            return images.Select(static x => $"ms-appx:///Assets/Backgrounds/{x.Name}").ToArray();
         }
     }
 }

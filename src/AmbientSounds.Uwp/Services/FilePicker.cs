@@ -6,6 +6,8 @@ using Windows.Storage.AccessCache;
 using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -21,7 +23,7 @@ namespace AmbientSounds.Services.Uwp
         {
             var file = await OpenPickerAndGetFileAsync();
 
-            return file == null
+            return file is null
                 ? ""
                 : file.Path;
         }
@@ -30,7 +32,7 @@ namespace AmbientSounds.Services.Uwp
         public async Task<(string, ulong)> OpenPickerAndGetSizeAsync()
         {
             var file = await OpenPickerAndGetFileAsync();
-            if (file == null)
+            if (file is null)
             {
                 return ("", 0);
             }
@@ -39,7 +41,7 @@ namespace AmbientSounds.Services.Uwp
             return (file.Path, basicProperties.Size);
         }
 
-        private async Task<StorageFile> OpenPickerAndGetFileAsync()
+        private async Task<StorageFile?> OpenPickerAndGetFileAsync()
         {
             var picker = new FileOpenPicker
             {
@@ -50,7 +52,7 @@ namespace AmbientSounds.Services.Uwp
             picker.FileTypeFilter.Add(".wav");
 
             var file = await picker.PickSingleFileAsync();
-            if (file != null)
+            if (file is not null)
             {
                 StorageApplicationPermissions.FutureAccessList.AddOrReplace(UploadFileKey, file);
                 return file;
@@ -60,10 +62,10 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<byte[]> GetCachedBytesAsync(string filePath)
+        public async Task<byte[]?> GetCachedBytesAsync(string filePath)
         {
             StorageFile file = await StorageApplicationPermissions.FutureAccessList.GetFileAsync(UploadFileKey);
-            if (file != null && file.Path == filePath)
+            if (file is not null && file.Path == filePath)
             {
                 byte[] result;
                 using Stream stream = await file.OpenStreamForReadAsync();

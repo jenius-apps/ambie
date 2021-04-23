@@ -9,6 +9,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:converters="using:AmbientSounds.Converters"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -54,7 +55,7 @@
                     Margin="0,12,24,20"
                     HorizontalAlignment="Right"
                     x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}"
-                    Visibility="{x:Bind Not(ViewModel.LoadCommand.IsRunning), Mode=OneWay}" />
+                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.LoadCommand.IsRunning), Mode=OneWay}" />
             </Grid>
         </ScrollViewer>
 

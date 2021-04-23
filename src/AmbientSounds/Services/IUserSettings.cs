@@ -47,7 +47,7 @@ namespace AmbientSounds.Services
         /// <typeparam name="T">Type of the value.</typeparam>
         /// <param name="settingKey">The settings key, generally found in <see cref="UserSettingsConstants"/>.</param>
         /// <returns>The desired value or returns the default.</returns>
-        T GetAndDeserialize<T>(string settingKey);
+        T? GetAndDeserialize<T>(string settingKey);
 
         /// <summary>
         /// Saves settings into persistent local storage

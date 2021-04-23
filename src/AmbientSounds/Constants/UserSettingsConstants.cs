@@ -4,10 +4,9 @@ using System.Collections.Generic;
 namespace AmbientSounds.Constants
 {
     /// <summary>
-    /// Class of key constants
-    /// for user settings.
+    /// Class of key constants for user settings.
     /// </summary>
-    public class UserSettingsConstants
+    public static class UserSettingsConstants
     {
         /// <summary>
         /// Key to remember the user's background image.
@@ -77,7 +76,7 @@ namespace AmbientSounds.Constants
         /// <summary>
         ///  Settings defaults.
         /// </summary>
-        public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
+        public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
         {
             { Volume, 80d },
             { TelemetryOn, true },

@@ -61,10 +61,10 @@ namespace AmbientSounds.ViewModels
         private async void OnUserSoundDeleted(object sender, string e)
         {
             var token = await _accountManager.GetCatalogueTokenAsync();
-            if (token != null)
+            if (token is not null)
             {
                 var sounds = await _onlineSoundDataProvider.GetUserSoundsAsync(token);
-                if (sounds != null)
+                if (sounds is not null)
                 {
                     CheckUserListcount(this, sounds.Count);
                 }
@@ -176,7 +176,7 @@ namespace AmbientSounds.ViewModels
                 ImagePath = ImageUrl,
                 FilePath = SoundPath,
                 PublishState = PublishState.UnderReview.ToString(),
-                SponsorLinks = string.IsNullOrWhiteSpace(DonateUrl) ? new string[0] : new string[] { DonateUrl },
+                SponsorLinks = string.IsNullOrWhiteSpace(DonateUrl) ? Array.Empty<string>() : new string[] { DonateUrl },
                 FileExtension = System.IO.Path.GetExtension(SoundPath)
             };
 
@@ -267,7 +267,7 @@ namespace AmbientSounds.ViewModels
         private static void RemoveError(ObservableCollection<ErrorViewModel> errors, string id)
         {
             var errorToRemove = errors.FirstOrDefault(x => x.ErrorId == id);
-            if (errorToRemove != null)
+            if (errorToRemove is not null)
             {
                 errors.Remove(errorToRemove);
             }

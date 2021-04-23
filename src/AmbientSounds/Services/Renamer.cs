@@ -27,7 +27,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task<bool> RenameAsync(Sound sound)
         {
-            if (sound == null)
+            if (sound is null)
             {
                 return false;
             }

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     public class ScreensaverService : IScreensaverService
@@ -13,7 +15,7 @@ namespace AmbientSounds.Services.Uwp
         private readonly ITelemetry _telemetry;
         private readonly INavigator _navigator;
         private readonly IMixMediaPlayerService _mediaPlayerService;
-        private DispatcherTimer _screensaverTriggerTimer;
+        private DispatcherTimer? _screensaverTriggerTimer;
 
         public ScreensaverService(
             ITelemetry telemetry,
@@ -55,7 +57,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void StopTimer()
         {
-            if (_screensaverTriggerTimer != null)
+            if (_screensaverTriggerTimer is not null)
             {
                 _screensaverTriggerTimer.Stop();
                 _screensaverTriggerTimer.Tick -= ScreensaverTriggered;
@@ -66,7 +68,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void ResetScreensaverTimeout()
         {
-            if (_screensaverTriggerTimer != null)
+            if (_screensaverTriggerTimer is not null)
             {
                 _screensaverTriggerTimer.Stop();
                 _screensaverTriggerTimer.Start();

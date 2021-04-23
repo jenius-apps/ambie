@@ -2,11 +2,13 @@
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml.Controls;
 
+#nullable enable
+
 namespace AmbientSounds.Controls
 {
     public sealed partial class UploadedSoundsList : UserControl
     {
-        private Flyout _activeFlyout;
+        private Flyout? _activeFlyout;
 
         public UploadedSoundsList()
         {
@@ -25,11 +27,7 @@ namespace AmbientSounds.Controls
 
         private void CloseDeleteFlyout(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (_activeFlyout != null)
-            {
-                _activeFlyout.Hide();
-            }
-
+            _activeFlyout?.Hide();
             _activeFlyout = null;
         }
 

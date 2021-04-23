@@ -36,7 +36,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task<string> SaveMixAsync(IList<Sound> sounds, string name = "")
         {
-            if (sounds == null || sounds.Count <= 1)
+            if (sounds is null || sounds.Count <= 1)
             {
                 return "";
             }
@@ -46,8 +46,8 @@ namespace AmbientSounds.Services
                 Id = Guid.NewGuid().ToString(),
                 IsMix = true,
                 Name = string.IsNullOrWhiteSpace(name) ? RandomName() : name.Trim(),
-                SoundIds = sounds.Select(x => x.Id).ToArray(),
-                ImagePaths = sounds.Select(x => x.ImagePath).ToArray()
+                SoundIds = sounds.Select(static x => x.Id).ToArray(),
+                ImagePaths = sounds.Select(static x => x.ImagePath).ToArray()
             };
 
             await _soundDataProvider.AddLocalSoundAsync(mix);
@@ -57,7 +57,7 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task<bool> LoadMixAsync(Sound mix)
         {
-            if (mix?.SoundIds == null || !mix.IsMix) return false;
+            if (mix?.SoundIds is null || !mix.IsMix) return false;
 
             // save instance of id
             // since RemoveAll will reset the id.
@@ -75,7 +75,7 @@ namespace AmbientSounds.Services
             _player.RemoveAll();
 
             var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: mix.SoundIds);
-            if (sounds != null && sounds.Count == mix.SoundIds.Length)
+            if (sounds is not null && sounds.Count == mix.SoundIds.Length)
             {
                 foreach (var soundId in mix.SoundIds)
                 {
@@ -92,18 +92,18 @@ namespace AmbientSounds.Services
         /// <inheritdoc/>
         public async Task ReconstructMixesAsync(IList<Sound> dehydratedMixes)
         {
-            if (dehydratedMixes == null || dehydratedMixes.Count == 0)
+            if (dehydratedMixes is null || dehydratedMixes.Count == 0)
             {
                 return;
             }
 
             var allSounds = await _soundDataProvider.GetSoundsAsync();
-            var allSoundIds = allSounds.Select(x => x.Id);
+            var allSoundIds = allSounds.Select(static x => x.Id);
 
             foreach (var soundMix in dehydratedMixes)
             {
                 if (allSoundIds.Contains(soundMix.Id) || 
-                    soundMix.SoundIds == null || 
+                    soundMix.SoundIds is null || 
                     soundMix.SoundIds.Length == 0)
                 {
                     continue;
@@ -116,8 +116,8 @@ namespace AmbientSounds.Services
                     Id = soundMix.Id,
                     Name = soundMix.Name,
                     IsMix = true,
-                    SoundIds = soundsForThisMix.Select(x => x.Id).ToArray(),
-                    ImagePaths = soundsForThisMix.Select(x => x.ImagePath).ToArray()
+                    SoundIds = soundsForThisMix.Select(static x => x.Id).ToArray(),
+                    ImagePaths = soundsForThisMix.Select(static x => x.ImagePath).ToArray()
                 };
 
                 await _soundDataProvider.AddLocalSoundAsync(hydratedMix);

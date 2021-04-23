@@ -6,7 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+#nullable enable
 
 namespace AmbientSounds.Controls
 {
@@ -45,7 +45,5 @@ namespace AmbientSounds.Controls
             INavigator navigator = App.Services.GetRequiredService<INavigator>();
             navigator.ToCatalogue();
         }
-
-        private bool Not(bool value) => !value;
     }
 }

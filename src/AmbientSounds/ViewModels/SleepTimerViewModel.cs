@@ -90,7 +90,7 @@ namespace AmbientSounds.ViewModels
                 { "length", minutes.ToString() }
             });
 
-            _timer.Remaining = new TimeSpan(0, minutes, 0);
+            _timer.Remaining = TimeSpan.FromMinutes(minutes);
             OnPropertyChanged(nameof(TimeLeft));
             CountdownVisible = true;
             _timer.Start();
@@ -98,7 +98,7 @@ namespace AmbientSounds.ViewModels
 
         private void PlayTimer()
         {
-            if (_timer.Remaining > new TimeSpan(0))
+            if (_timer.Remaining > TimeSpan.Zero)
             {
                 _timer.Start();
             }
@@ -112,14 +112,14 @@ namespace AmbientSounds.ViewModels
         private void StopTimer()
         {
             _timer.Stop();
-            _timer.Remaining = new TimeSpan(0);
+            _timer.Remaining = TimeSpan.Zero;
             CountdownVisible = false;
         }
 
         private void TimerElapsed(object sender, int intervalInMs)
         {
             OnPropertyChanged(nameof(TimeLeft));
-            if (_timer.Remaining < new TimeSpan(0, 0, 1))
+            if (_timer.Remaining < TimeSpan.FromSeconds(1))
             {
                 StopTimer();
                 _player.Pause();

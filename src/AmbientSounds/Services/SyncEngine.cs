@@ -143,7 +143,7 @@ namespace AmbientSounds.Services
         public async Task SyncDown()
         {
             string? token = await _accountManager.GetGraphTokenAsync();
-            if (Syncing || token == null || string.IsNullOrWhiteSpace(token))
+            if (Syncing || token is null || string.IsNullOrWhiteSpace(token))
             {
                 return;
             }
@@ -161,7 +161,7 @@ namespace AmbientSounds.Services
                 data = null;
             }
 
-            if (data?.InstalledSoundIds == null || data.InstalledSoundIds.Length == 0)
+            if (data?.InstalledSoundIds is null || data.InstalledSoundIds.Length == 0)
             {
                 Syncing = false;
                 await SyncUp();
@@ -197,7 +197,7 @@ namespace AmbientSounds.Services
                 await Task.WhenAll(tasks);
             }
 
-            if (data.SoundMixes != null && data.SoundMixes.Length > 0)
+            if (data.SoundMixes is not null && data.SoundMixes.Length > 0)
             {
                 await _soundMixService.ReconstructMixesAsync(data.SoundMixes);
             }
@@ -215,7 +215,7 @@ namespace AmbientSounds.Services
         public async Task SyncUp()
         {
             string? token = await _accountManager.GetGraphTokenAsync();
-            if (Syncing || token == null || string.IsNullOrWhiteSpace(token))
+            if (Syncing || token is null || string.IsNullOrWhiteSpace(token))
             {
                 return;
             }
@@ -225,10 +225,10 @@ namespace AmbientSounds.Services
             var localSounds = await _soundDataProvider.GetLocalSoundsAsync();
             var syncData = new SyncData
             {
-                InstalledSoundIds = localSounds.Select(x => x.Id).ToArray(),
+                InstalledSoundIds = localSounds.Select(static x => x.Id).ToArray(),
                 SoundMixes = localSounds
-                    .Where(x => x.IsMix == true)
-                    .Select(mix => new Sound { Name = mix.Name, Id = mix.Id, SoundIds = mix.SoundIds })
+                    .Where(static x => x.IsMix)
+                    .Select(static mix => new Sound { Name = mix.Name, Id = mix.Id, SoundIds = mix.SoundIds })
                     .ToArray()
             };
 

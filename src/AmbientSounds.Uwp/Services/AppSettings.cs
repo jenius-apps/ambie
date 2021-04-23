@@ -1,5 +1,7 @@
 ﻿using Windows.ApplicationModel.Resources;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>

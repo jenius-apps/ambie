@@ -7,6 +7,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
+#nullable enable
+
 namespace AmbientSounds.Views
 {
     public sealed partial class UploadPage : Page

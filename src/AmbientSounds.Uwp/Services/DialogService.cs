@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Controls;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -36,7 +38,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task OpenSettingsAsync()
         {
-            if (IsDialogOpen) 
+            if (IsDialogOpen)
                 return;
 
             IsDialogOpen = true;
@@ -92,7 +94,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<IList<string>> OpenShareResultsAsync(IList<string> soundIds)
         {
-            if (IsDialogOpen || soundIds == null || soundIds.Count == 0) 
+            if (IsDialogOpen || soundIds is not { Count: > 0 }) 
                 return new List<string>();
 
             IsDialogOpen = true;
@@ -113,7 +115,7 @@ namespace AmbientSounds.Services.Uwp
             IsDialogOpen = false;
 
             return result == ContentDialogResult.Primary
-                ? content.ViewModel.Sounds.Where(x => x.IsInstalled).Select(x => x.Id).ToList()
+                ? content.ViewModel.Sounds.Where(static x => x.IsInstalled).Select(static x => x.Id).ToList()
                 : new List<string>();
         }
     }

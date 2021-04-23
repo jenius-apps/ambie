@@ -108,15 +108,15 @@ namespace AmbientSounds.ViewModels
         /// to be displayed on screen if the links are valid.
         /// </summary>
         public string[] ValidSponsorLinks => AreLinksValid
-            ? _sound.SponsorLinks.Where(x => Uri.IsWellFormedUriString(x, UriKind.Absolute)).ToArray()
-            : new string[0];
+            ? _sound.SponsorLinks.Where(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute)).ToArray()
+            : Array.Empty<string>();
 
         /// <summary>
         /// Determines if it's safe to display the links.
         /// </summary>
-        public bool AreLinksValid => _sound.SponsorLinks != null && 
+        public bool AreLinksValid => _sound.SponsorLinks is not null && 
             _sound.SponsorLinks.Length > 0 && 
-            _sound.SponsorLinks.Any(x => Uri.IsWellFormedUriString(x, UriKind.Absolute));
+            _sound.SponsorLinks.Any(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute));
 
         /// <summary>
         /// Determines if the sound can be previewed.

@@ -58,14 +58,14 @@ namespace AmbientSounds.ViewModels
 
             // fetch user token
             string? token = await _accountManager.GetCatalogueTokenAsync();
-            if (token == null)
+            if (token is null)
             {
                 return;
             }
 
             // fetch the user's uploaded sounds
             var sounds = await _onlineSoundDataProvider.GetUserSoundsAsync(token);
-            if (sounds == null || sounds.Count == 0)
+            if (sounds is null || sounds.Count == 0)
             {
                 return;
             }
@@ -98,7 +98,7 @@ namespace AmbientSounds.ViewModels
         private void OnSoundDeleted(object sender, string soundId)
         {
             var forDeletion = UploadedSounds.FirstOrDefault(x => x.Id == soundId);
-            if (forDeletion != null)
+            if (forDeletion is not null)
             {
                 UploadedSounds.Remove(forDeletion);
                 _telemetry.TrackEvent(TelemetryConstants.UserSoundDeleted);

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Windows.Services.Store;
 using Microsoft.Toolkit.Uwp.Connectivity;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -12,8 +14,8 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class StoreService : IIapService
     {
-        private static Dictionary<string, StoreProduct> _productsCache = new Dictionary<string, StoreProduct>();
-        private static StoreContext _context = null;
+        private static Dictionary<string, StoreProduct> _productsCache = new();
+        private static StoreContext? _context;
 
         /// <inheritdoc/>
         public async Task<bool> IsOwnedAsync(string iapId)
@@ -23,11 +25,11 @@ namespace AmbientSounds.Services.Uwp
                 return false;
             }
 
-            if (_context == null)
+            if (_context is null)
                 _context = StoreContext.GetDefault();
 
             StoreAppLicense appLicense = await _context.GetAppLicenseAsync();
-            if (appLicense == null)
+            if (appLicense is null)
             {
                 return false;
             }
@@ -66,12 +68,12 @@ namespace AmbientSounds.Services.Uwp
             }
 
             var addOnProduct = await GetAddOn(id);
-            if (addOnProduct == null)
+            if (addOnProduct is null)
                 return false;
 
             /// Attempt purchase
             var result = await addOnProduct.RequestPurchaseAsync();
-            if (result == null)
+            if (result is null)
                 return false;
 
             bool purchased = false;
@@ -90,7 +92,7 @@ namespace AmbientSounds.Services.Uwp
             return purchased;
         }
 
-        private static async Task<StoreProduct> GetAddOn(string id)
+        private static async Task<StoreProduct?> GetAddOn(string id)
         {
             if (_productsCache.ContainsKey(id))
             {
@@ -102,12 +104,12 @@ namespace AmbientSounds.Services.Uwp
                 return null;
             }
 
-            if (_context == null)
+            if (_context is null)
                 _context = StoreContext.GetDefault();
 
             /// Get all add-ons for this app.
             var result = await _context.GetAssociatedStoreProductsAsync(new string[] { "Durable", "Consumable" });
-            if (result.ExtendedError != null)
+            if (result.ExtendedError is not null)
             {
                 return null;
             }

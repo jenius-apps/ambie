@@ -9,6 +9,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Windows.Storage;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -19,14 +21,14 @@ namespace AmbientSounds.Services.Uwp
         private const string DataFileName = "Data.json";
         private const string LocalDataFileName = "localData.json";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
-        private List<Sound> _localSoundCache; // cache of non-packaged sounds.
-        private List<Sound> _packagedSoundCache;
+        private List<Sound>? _localSoundCache; // cache of non-packaged sounds.
+        private List<Sound>? _packagedSoundCache;
 
         /// <inheritdoc/>
-        public event EventHandler<Sound> LocalSoundAdded;
+        public event EventHandler<Sound>? LocalSoundAdded;
 
         /// <inheritdoc/>
-        public event EventHandler<string> LocalSoundDeleted;
+        public event EventHandler<string>? LocalSoundDeleted;
 
         public SoundDataProvider(IOnlineSoundDataProvider onlineSoundDataProvider)
         {
@@ -35,13 +37,13 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[] soundIds = null)
+        public async Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[]? soundIds = null)
         {
             var packagedSounds = await GetPackagedSoundsAsync();
             var localSounds = await GetLocalSoundsInternalAsync(refresh: refresh);
             packagedSounds.AddRange(localSounds);
 
-            if (soundIds == null) return packagedSounds;
+            if (soundIds is null) return packagedSounds;
             else return packagedSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
         }
 
@@ -55,7 +57,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public Task UpdateLocalSoundAsync(IList<Sound> sounds)
         {
-            if (sounds == null || sounds.Count == 0)
+            if (sounds is null || sounds.Count == 0)
             {
                 return Task.CompletedTask;
             }
@@ -79,6 +81,9 @@ namespace AmbientSounds.Services.Uwp
             {
                 return;
             }
+
+            // TODO: throw or just ignore?
+            Guard.IsNotNull(_localSoundCache, nameof(_localSoundCache));
 
             // Delete from cache
             var soundForDeletion = _localSoundCache.First(x => x.Id == id);
@@ -115,6 +120,9 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
+            // TODO: throw or just ignore?
+            Guard.IsNotNull(_localSoundCache, nameof(_localSoundCache));
+
             _localSoundCache.Add(s);
             await WriteCacheAsync();
             LocalSoundAdded?.Invoke(this, s);
@@ -123,7 +131,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<bool> IsSoundInstalledAsync(string id)
         {
-            if (id == null)
+            if (id is null)
             {
                 return false;
             }
@@ -138,14 +146,14 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task RefreshLocalSoundsMetaDataAsync()
         {
-            if (_localSoundCache == null || _localSoundCache.Count == 0)
+            if (_localSoundCache is not { Count: > 0 })
             {
                 return;
             }
 
-            string[] currentSoundIds = _localSoundCache.Select(x => x.Id).ToArray();
+            string[] currentSoundIds = _localSoundCache.Select(static x => x.Id).ToArray();
             IList<Sound> latestData = await _onlineSoundDataProvider.GetSoundsAsync(currentSoundIds);
-            if (latestData == null || latestData.Count == 0)
+            if (latestData is not { Count: > 0 })
             {
                 return;
             }
@@ -153,7 +161,7 @@ namespace AmbientSounds.Services.Uwp
             foreach (Sound cachedSound in _localSoundCache)
             {
                 var updatedSound = latestData.FirstOrDefault(x => x.Id == cachedSound.Id);
-                if (updatedSound != null)
+                if (updatedSound is not null)
                 {
                     cachedSound.Name = updatedSound.Name;
                     cachedSound.ScreensaverImagePaths = updatedSound.ScreensaverImagePaths;
@@ -175,17 +183,17 @@ namespace AmbientSounds.Services.Uwp
         }
 
         private async Task<IReadOnlyList<Sound>> GetLocalSoundsInternalAsync(
-            StorageFile localDataFile = null,
+            StorageFile? localDataFile = null,
             bool refresh = false)
         {
-            if (localDataFile == null)
+            if (localDataFile is null)
             {
                 localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                     LocalDataFileName,
                     CreationCollisionOption.OpenIfExists);
             }
 
-            if (_localSoundCache != null && !refresh)
+            if (_localSoundCache is not null && !refresh)
             {
                 return _localSoundCache.AsReadOnly();
             }
@@ -200,7 +208,7 @@ namespace AmbientSounds.Services.Uwp
                 // TODO log
             }
 
-            if (_localSoundCache == null)
+            if (_localSoundCache is null)
             {
                 _localSoundCache = new List<Sound>();
             }
@@ -210,7 +218,7 @@ namespace AmbientSounds.Services.Uwp
 
         private async Task<List<Sound>> GetPackagedSoundsAsync()
         {
-            if (_packagedSoundCache == null)
+            if (_packagedSoundCache is null)
             {
                 StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
                 StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
@@ -218,7 +226,7 @@ namespace AmbientSounds.Services.Uwp
                 using Stream dataStream = await dataFile.OpenStreamForReadAsync();
                 var sounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
 
-                foreach (var s in sounds)
+                foreach (var s in sounds!)
                 {
                     s.Name = LocalizationConverter.ConvertSoundName(s.Name);
                 }

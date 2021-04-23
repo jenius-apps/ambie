@@ -900,7 +900,7 @@ namespace AmbientSounds.Strings{
             {
                 res = _resourceLoader.GetString(Key.ToString());
             }
-            return Converter == null ? res : Converter.Convert(res, typeof(String), ConverterParameter, null);
+            return Converter is null ? res : Converter.Convert(res, typeof(String), ConverterParameter, null);
         }
     }
 } //AmbientSounds.Strings

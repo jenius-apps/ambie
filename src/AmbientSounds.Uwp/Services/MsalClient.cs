@@ -15,7 +15,7 @@ namespace AmbientSounds.Services.Uwp
 {
     public class MsalClient : IMsaAuthClient
     {
-		private const string PictureFileName = "profile.png";
+        private const string PictureFileName = "profile.png";
         private const string RedirectUri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
         private const string Authority = "https://login.microsoftonline.com/common";
         private readonly string _clientId;
@@ -49,7 +49,7 @@ namespace AmbientSounds.Services.Uwp
                 .Build();
         }
 
-		/// <inheritdoc/>
+        /// <inheritdoc/>
         public async Task<Person> GetPersonDataAsync()
         {
             var graphToken = await GetTokenSilentAsync(new string[] { "User.Read" });
@@ -75,7 +75,7 @@ namespace AmbientSounds.Services.Uwp
                 var content = await profileResponse.Content.ReadAsStringAsync();
                 var data = JObject.Parse(content);
 
-                if (data != null)
+                if (data is not null)
                 {
                     person.Email = data["userPrincipalName"].ToString();
                     person.Firstname = data["givenName"].ToString();
@@ -127,7 +127,7 @@ namespace AmbientSounds.Services.Uwp
             try
             {
                 var builder = _msalSdkClient.AcquireTokenInteractive(scopes);
-                if (extraScopes != null)
+                if (extraScopes is not null)
                 {
                     builder = builder.WithExtraScopesToConsent(extraScopes);
                 }
@@ -149,7 +149,7 @@ namespace AmbientSounds.Services.Uwp
                 {
                     { "trace", e.StackTrace },
                     { "scopes", string.Join(",", scopes) },
-                    { "extraScopes", string.Join(",", extraScopes ?? new string[0]) }
+                    { "extraScopes", string.Join(",", extraScopes ?? Array.Empty<string>()) }
                 });
             }
         }

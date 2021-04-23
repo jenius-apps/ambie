@@ -1,5 +1,7 @@
 ﻿using Windows.UI.Xaml;
 
+#nullable enable
+
 namespace AmbientSounds.Converters
 {
     /// <summary>
@@ -32,7 +34,7 @@ namespace AmbientSounds.Converters
         /// Returns visible if string is not empty. 
         /// False, otherwise.
         /// </summary>
-        public static Visibility IfStringNotEmpty(this string value)
+        public static Visibility IfStringNotEmpty(this string? value)
         {
             return string.IsNullOrWhiteSpace(value)
                 ? Visibility.Collapsed

@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using Windows.Globalization;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -27,13 +29,13 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public void TrackError(Exception e, IDictionary<string, string> properties = null)
+        public void TrackError(Exception e, IDictionary<string, string>? properties = null)
         {
             Crashes.TrackError(e, properties);
         }
 
         /// <inheritdoc/>
-        public void TrackEvent(string eventName, IDictionary<string, string> properties = null)
+        public void TrackEvent(string eventName, IDictionary<string, string>? properties = null)
         {
             if (_userSettings.Get<bool>(UserSettingsConstants.TelemetryOn))
             {

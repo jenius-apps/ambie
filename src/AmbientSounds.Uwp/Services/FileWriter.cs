@@ -5,6 +5,8 @@ using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -28,7 +30,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<string> WriteFileAsync(Stream stream, string nameWithExt, string localDirName = null)
+        public async Task<string> WriteFileAsync(Stream stream, string nameWithExt, string? localDirName = null)
         {
             StorageFolder dir;
 
