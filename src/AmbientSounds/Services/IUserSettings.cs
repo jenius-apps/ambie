@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using System;
 
 namespace AmbientSounds.Services
 {
@@ -8,6 +9,11 @@ namespace AmbientSounds.Services
     /// </summary>
     public interface IUserSettings
     {
+        /// <summary>
+        /// Raised when a settings is set.
+        /// </summary>
+        event EventHandler<string> SettingSet;
+
         /// <summary>
         /// Saves settings into persistent local
         /// storage.
@@ -41,7 +47,7 @@ namespace AmbientSounds.Services
         /// <typeparam name="T">Type of the value.</typeparam>
         /// <param name="settingKey">The settings key, generally found in <see cref="UserSettingsConstants"/>.</param>
         /// <returns>The desired value or returns the default.</returns>
-        T GetAndDeserialize<T>(string settingKey);
+        T? GetAndDeserialize<T>(string settingKey);
 
         /// <summary>
         /// Saves settings into persistent local storage

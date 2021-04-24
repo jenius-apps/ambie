@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
@@ -21,6 +22,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
+        private readonly bool _loadPreviousState;
         private bool _loaded;
 
         public ActiveTrackListViewModel(
@@ -29,7 +31,8 @@ namespace AmbientSounds.ViewModels
             IUserSettings userSettings,
             ITelemetry telemetry,
             ISoundMixService soundMixService,
-            ISoundDataProvider soundDataProvider)
+            ISoundDataProvider soundDataProvider,
+            IAppSettings appSettings)
         {
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
@@ -37,7 +40,9 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(appSettings, nameof(appSettings));
 
+            _loadPreviousState = appSettings.LoadPreviousState;
             _telemetry = telemetry;
             _soundMixService = soundMixService;
             _soundDataProvider = soundDataProvider;
@@ -77,6 +82,11 @@ namespace AmbientSounds.ViewModels
         public bool CanSave => string.IsNullOrWhiteSpace(_player.CurrentMixId) && ActiveTracks.Count > 1;
 
         /// <summary>
+        /// Determines if the item is a sound mix.
+        /// </summary>
+        public bool IsMix => !string.IsNullOrWhiteSpace(_player.CurrentMixId);
+
+        /// <summary>
         /// List of active sounds being played.
         /// </summary>
         public ObservableCollection<ActiveTrackViewModel> ActiveTracks { get; } = new();
@@ -87,11 +97,16 @@ namespace AmbientSounds.ViewModels
         public bool IsClearVisible => ActiveTracks.Count > 0;
 
         /// <summary>
+        /// Determines if the placeholder is visible.
+        /// </summary>
+        public bool IsPlaceholderVisible => ActiveTracks.Count == 0;
+
+        /// <summary>
         /// Loads prevoius state of the active track list.
         /// </summary>
         public async Task LoadPreviousStateAsync()
         {
-            if (_loaded)
+            if (_loaded || !_loadPreviousState)
             {
                 return;
             }
@@ -99,7 +114,7 @@ namespace AmbientSounds.ViewModels
             var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
             var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
             var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
-            if (sounds != null && sounds.Count > 0)
+            if (sounds is not null && sounds.Count > 0)
             {
                 foreach (var s in sounds)
                 {
@@ -128,16 +143,18 @@ namespace AmbientSounds.ViewModels
             });
         }
 
-        private async Task SaveAsync(string name)
+        private async Task SaveAsync(string? name)
         {
-            if (SaveCommand.IsRunning || !string.IsNullOrWhiteSpace(_player.CurrentMixId))
+            if (name is null ||
+                SaveCommand.IsRunning ||
+                !string.IsNullOrWhiteSpace(_player.CurrentMixId))
             {
                 return;
             }
 
-            var soundIds = ActiveTracks.Select(x => x.Sound).ToArray();
+            var soundIds = ActiveTracks.Select(static x => x.Sound).ToArray();
             var id = await _soundMixService.SaveMixAsync(soundIds, name);
-            _player.CurrentMixId = id;
+            _player.SetMixId(id);
             UpdateCanSave();
 
             _telemetry.TrackEvent(TelemetryConstants.MixSaved, new Dictionary<string, string>
@@ -148,7 +165,7 @@ namespace AmbientSounds.ViewModels
 
         private void UpdateStoredState()
         {
-            var ids = ActiveTracks.Select(x => x.Sound.Id).ToArray();
+            var ids = ActiveTracks.Select(static x => x.Sound.Id).ToArray();
             _userSettings.SetAndSerialize(UserSettingsConstants.ActiveTracks, ids);
             _userSettings.Set(UserSettingsConstants.ActiveMixId, _player.CurrentMixId);
         }
@@ -156,12 +173,13 @@ namespace AmbientSounds.ViewModels
         private void ActiveTracks_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             OnPropertyChanged(nameof(IsClearVisible));
+            OnPropertyChanged(nameof(IsPlaceholderVisible));
         }
 
-        private void OnSoundRemoved(object sender, string soundId)
+        private void OnSoundRemoved(object sender, SoundPausedArgs args)
         {
-            var sound = ActiveTracks.FirstOrDefault(x => x.Sound?.Id == soundId);
-            if (sound != null)
+            var sound = ActiveTracks.FirstOrDefault(x => x.Sound?.Id == args.SoundId);
+            if (sound is not null)
             {
                 ActiveTracks.Remove(sound);
                 UpdateStoredState();
@@ -169,21 +187,26 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private void OnSoundAdded(object sender, Sound s)
+        private async void OnSoundAdded(object sender, SoundPlayedArgs args)
         {
-            if (!ActiveTracks.Any(x => x.Sound?.Id == s.Id))
+            if (!ActiveTracks.Any(x => x.Sound?.Id == args.Sound.Id))
             {
-                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(s, RemoveCommand));
+                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(args.Sound, RemoveCommand));
                 UpdateStoredState();
                 UpdateCanSave();
+
+                // Required to fix animation issue.
+                // It seems this allows the UI to update sooner
+                // so that if a Mix is being loaded, all sounds
+                // are animated asynchronously.
+                await Task.Delay(1); 
             }
         }
-
         private void UpdateCanSave() => OnPropertyChanged(nameof(CanSave));
 
-        private void RemoveSound(Sound s)
+        private void RemoveSound(Sound? s)
         {
-            if (s != null)
+            if (s is not null)
             {
                 _player.RemoveSound(s.Id);
                 _telemetry.TrackEvent(TelemetryConstants.MixRemoved);

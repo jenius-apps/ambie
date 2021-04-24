@@ -52,6 +52,11 @@ namespace AmbientSounds.ViewModels
         public string Name => Sound.Name ?? "";
 
         /// <summary>
+        /// Image for the sound.
+        /// </summary>
+        public string ImagePath => Sound.ImagePath;
+
+        /// <summary>
         /// This command will remove
         /// this sound from the active tracks list
         /// and it will pause it.

@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITimerService _timerService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
         private readonly ITelemetry _telemetry;
+        private readonly ISoundDataProvider _soundDataProvider;
         private IList<string> _images = new List<string>();
         private string _imageSource1 = "https://localhost:8080";
         private string _imageSource2 = "https://localhost:8080";
@@ -26,15 +28,20 @@ namespace AmbientSounds.ViewModels
         public ScreensaverViewModel(
             ITimerService timerService,
             IMixMediaPlayerService mediaPlayerService,
+            ISoundDataProvider soundDataProvider,
             ITelemetry telemetry)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+
             _telemetry = telemetry;
             _mediaPlayerService = mediaPlayerService;
             _timerService = timerService;
+            _soundDataProvider = soundDataProvider;
             _timerService.Interval = ImageTimeLength;
+
             _timerService.IntervalElapsed += TimerIntervalElapsed;
         }
 
@@ -83,7 +90,13 @@ namespace AmbientSounds.ViewModels
                 _images = images;
             }
 
-            if (_images == null || _images.Count < 2)
+            if (_images is null || _images.Count < 2)
+            {
+                var firstSound = (await _soundDataProvider.GetSoundsAsync(refresh: false)).FirstOrDefault();
+                _images = firstSound?.ScreensaverImagePaths ?? Array.Empty<string>();
+            }
+
+            if (_images is null || _images.Count < 2)
             {
                 return;
             }
@@ -116,7 +129,7 @@ namespace AmbientSounds.ViewModels
 
         private async void CycleImages()
         {
-            if (_images == null || _images.Count < 2)
+            if (_images is null || _images.Count < 2)
             {
                 return;
             }
@@ -145,7 +158,7 @@ namespace AmbientSounds.ViewModels
 
         private void IncrementIndex(ref int index)
         {
-            if (_images == null || _images.Count < 2)
+            if (_images is null || _images.Count < 2)
             {
                 return;
             }

@@ -9,6 +9,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:converters="using:AmbientSounds.Converters"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -27,9 +28,11 @@
                 </Grid.RowDefinitions>
                 <GridView
                     x:Uid="SoundsGridView"
-                    Padding="20,20,20,0"
-                    animations:ReorderGridAnimation.Duration="300"
+                    MaxWidth="800"
+                    Padding="20,0"
+                    animations:ItemsReorderAnimation.Duration="0:0:0.3"
                     IsItemClickEnabled="True"
+                    ItemClick="{x:Bind GridView_ItemClick}"
                     ItemContainerStyle="{StaticResource GridViewItemExpanded}"
                     ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                     ItemsSource="{x:Bind ViewModel.Sounds}"
@@ -39,6 +42,11 @@
                     <interactivity:Interaction.Behaviors>
                         <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
                     </interactivity:Interaction.Behaviors>
+                    <GridView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition IsStaggeringEnabled="True" />
+                        </TransitionCollection>
+                    </GridView.ItemContainerTransitions>
                 </GridView>
 
                 <local:ViewCatalogueButton
@@ -47,19 +55,18 @@
                     Margin="0,12,24,20"
                     HorizontalAlignment="Right"
                     x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}"
-                    Visibility="{x:Bind Not(ViewModel.LoadCommand.IsRunning), Mode=OneWay}" />
+                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.LoadCommand.IsRunning), Mode=OneWay}" />
             </Grid>
         </ScrollViewer>
 
         <muxc:ProgressRing
-            x:Name="SoundsLoadingRing"
             x:Uid="SoundsLoadingRing"
             Width="40"
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            x:Load="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
             Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-            IsActive="True" />
+            IsActive="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}" />
     </Grid>
 </UserControl>

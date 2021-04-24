@@ -6,6 +6,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -77,6 +78,12 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
+        /// Gets or sets the location within the application of this viewmodel.
+        /// This is used for telemetry purposes.
+        /// </summary>
+        public string TelemetryLocation { get; set; } = "catalogue";
+
+        /// <summary>
         /// The sound's attribution.
         /// </summary>
         public string? Attribution => _sound.Attribution;
@@ -87,9 +94,29 @@ namespace AmbientSounds.ViewModels
         public string? Name => _sound.Name;
 
         /// <summary>
+        /// Id of the sound.
+        /// </summary>
+        public string Id => _sound.Id;
+
+        /// <summary>
         /// The path for the image to display for the current sound.
         /// </summary>
         public string? ImagePath => _sound.ImagePath;
+
+        /// <summary>
+        /// Array of sponsor links provided by sound author
+        /// to be displayed on screen if the links are valid.
+        /// </summary>
+        public string[] ValidSponsorLinks => AreLinksValid
+            ? _sound.SponsorLinks.Where(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute)).ToArray()
+            : Array.Empty<string>();
+
+        /// <summary>
+        /// Determines if it's safe to display the links.
+        /// </summary>
+        public bool AreLinksValid => _sound.SponsorLinks is not null && 
+            _sound.SponsorLinks.Length > 0 && 
+            _sound.SponsorLinks.Any(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute));
 
         /// <summary>
         /// Determines if the sound can be previewed.
@@ -209,6 +236,7 @@ namespace AmbientSounds.ViewModels
             {
                 { "id", _sound.Id ?? "" },
                 { "purchased", purchased.ToString() },
+                { "location", TelemetryLocation }
             });
         }
 
@@ -243,7 +271,8 @@ namespace AmbientSounds.ViewModels
             {
                 _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
                 {
-                    { "id", _sound.Id ?? "" }
+                    { "id", _sound.Id ?? "" },
+                    { "location", TelemetryLocation }
                 });
 
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);

@@ -9,6 +9,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -66,6 +67,10 @@
                             </TextBlock>
                         </StackPanel>
                         <Grid Grid.Row="1" Margin="0,4,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
                             <StackPanel
                                 x:Name="DownloadPanel"
                                 x:Load="{x:Bind NotInstalled, Mode=OneWay}"
@@ -149,6 +154,36 @@
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
+
+                            <StackPanel
+                                x:Name="AlwaysVisiblePanel"
+                                Grid.Column="1"
+                                Margin="8,0,0,0"
+                                Orientation="Horizontal">
+                                <muxc:DropDownButton AutomationProperties.Name="{x:Bind strings:Resources.Donate}" Visibility="{x:Bind AreLinksValid}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA7C;" />
+                                        <TextBlock Margin="8,0" Text="{x:Bind strings:Resources.Donate}" />
+                                    </StackPanel>
+                                    <Button.Flyout>
+                                        <Flyout Placement="Bottom">
+                                            <muxc:ItemsRepeater ItemsSource="{x:Bind ValidSponsorLinks}">
+                                                <muxc:ItemsRepeater.ItemTemplate>
+                                                    <DataTemplate x:DataType="x:String">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAE8;" />
+                                                            <HyperlinkButton
+                                                                Margin="8,0,0,0"
+                                                                Content="{x:Bind}"
+                                                                NavigateUri="{x:Bind}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </muxc:ItemsRepeater.ItemTemplate>
+                                            </muxc:ItemsRepeater>
+                                        </Flyout>
+                                    </Button.Flyout>
+                                </muxc:DropDownButton>
+                            </StackPanel>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -170,6 +205,11 @@
                     <Setter Property="IsFocusEngagementEnabled" Value="True" />
                 </Style>
             </ListView.ItemContainerStyle>
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
         </ListView>
 
         <muxc:ProgressRing

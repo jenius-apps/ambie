@@ -1,5 +1,9 @@
-﻿namespace AmbientSounds.Models
+﻿using System;
+
+namespace AmbientSounds.Models
 {
+    public record QueuedSound(Sound SoundData, IProgress<double> Progress);
+
     /// <summary>
     /// A sound object.
     /// </summary>
@@ -66,11 +70,41 @@
         /// The list of image paths to be used
         /// for the mix.
         /// </summary>
-        public string[] ImagePaths { get; set; } = new string[0];
+        public string[] ImagePaths { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// List of sound Ids for this mix.
         /// </summary>
-        public string[] SoundIds { get; set; } = new string[0];
+        public string[] SoundIds { get; set; } = Array.Empty<string>();
+
+        /// <summary>
+        /// Unique user ID of the person who uploaded the sound file.
+        /// </summary>
+        public string UploadedBy { get; set; } = "";
+
+        /// <summary>
+        /// Visible username of the person who uploaded the sound file.
+        /// </summary>
+        public string UploadUsername { get; set; } = "";
+
+        /// <summary>
+        /// List of donation links to be displayed.
+        /// </summary>
+        public string[] SponsorLinks { get; set; } = Array.Empty<string>();
+
+        /// <summary>
+        /// The state of the sound's publication in the catalogue.
+        /// This is the string version of PublishState enum.
+        /// </summary>
+        public string PublishState { get; set; } = "";
+    }
+
+    public enum PublishState
+    {
+        None,
+        UnderReview,
+        Published,
+        Unpublished,
+        Rejected
     }
 }

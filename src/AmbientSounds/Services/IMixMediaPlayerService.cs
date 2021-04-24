@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Events;
+using AmbientSounds.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,13 +15,17 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Sound is added.
         /// </summary>
-        event EventHandler<Sound> SoundAdded;
+        event EventHandler<SoundPlayedArgs> SoundAdded;
 
         /// <summary>
-        /// Sound was removed. String is
-        /// the sound's ID.
+        /// Sound was removed.
         /// </summary>
-        event EventHandler<string> SoundRemoved;
+        event EventHandler<SoundPausedArgs> SoundRemoved;
+
+        /// <summary>
+        /// Mix was played.
+        /// </summary>
+        event EventHandler<MixPlayedArgs> MixPlayed;
 
         /// <summary>
         /// Raised when playback changes between
@@ -76,6 +81,14 @@ namespace AmbientSounds.Services
         Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "");
 
         /// <summary>
+        /// Updates the <see cref="CurrentMixId"/>
+        /// and raises an event indicating the mix is
+        /// now playing.
+        /// </summary>
+        /// <param name="mixId">Id of sound mix.</param>
+        void SetMixId(string mixId);
+
+        /// <summary>
         /// Removes all active tracks.
         /// </summary>
         void RemoveAll();
@@ -102,5 +115,10 @@ namespace AmbientSounds.Services
         /// Sets the volume for the given sound.
         /// </summary>
         void SetVolume(string soundId, double value);
+
+        /// <summary>
+        /// Returns list of active sound Ids.
+        /// </summary>
+        IList<string> GetActiveIds();
     }
 }

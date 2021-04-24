@@ -460,7 +460,7 @@
           <source>Missing sounds</source>
           <target state="translated">Fehlende Töne</target>
         </trans-unit>
-        <trans-unit id="ShareResultsMessage.Text" translate="yes" xml:space="preserve">
+          <trans-unit id="ShareResultsMessage.Text" translate="yes" xml:space="preserve">
           <source>You're missing some sounds! Download them here. Press play whenever you're ready.</source>
           <target state="new">Es fehlen Ihnen einige Töne! Lade Sie sie hier herunter. Drücken Sie Wiedergabe, wann immer Sie bereit sind.</target>
         </trans-unit>
@@ -555,7 +555,6 @@
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
           <target state="translated">Aktualisieren</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
         <trans-unit id="UploadPlaceholderMessage" translate="yes" xml:space="preserve">
           <source>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</source>
@@ -599,7 +598,7 @@
         </trans-unit>
         <trans-unit id="ErrorUploadCount" translate="yes" xml:space="preserve">
           <source>You're at the limit! You can only have {0} sounds.</source>
-          <target state="translated">Sie sind am Limit! Sie können nur {0} Töne haben.</target>
+          <target state="translated">Sie haben das Limit erreicht! Sie können nur {0} Töne nutzen.</target>
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>
@@ -632,6 +631,10 @@
         <trans-unit id="PerformanceMode" translate="yes" xml:space="preserve">
           <source>Performance mode (requires restart)</source>
           <target state="translated">Leistungsmodus (Neustart erforderlich)</target>
+        </trans-unit>
+        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
+          <source>Transparency</source>
+          <target state="translated">Transparenz</target>
         </trans-unit>
       </group>
     </body>

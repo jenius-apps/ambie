@@ -1,24 +1,28 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using Windows.System;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+#nullable enable
 
 namespace AmbientSounds.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class CataloguePage : Page
     {
         public CataloguePage()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<CataloguePageViewModel>();
+
             var coreWindow = CoreWindow.GetForCurrentThread();
             coreWindow.KeyDown -= CataloguePage_KeyDown;
             coreWindow.KeyDown += CataloguePage_KeyDown;
@@ -28,6 +32,8 @@ namespace AmbientSounds.Views
             navigator.BackRequested += OnBackRequested;
         }
 
+        public CataloguePageViewModel ViewModel => (CataloguePageViewModel)this.DataContext;
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
@@ -35,34 +41,41 @@ namespace AmbientSounds.Views
             {
                 { "name", "catalogue" }
             });
+
+            TryStartPageAnimations();
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            ConnectedAnimationService
+                .GetForCurrentView()
+                .PrepareToAnimate(AnimationConstants.CatalogueBack, CatalogueIcon);
+        }
+
+        private void TryStartPageAnimations()
+        {
+            var animation = ConnectedAnimationService
+                .GetForCurrentView()
+                .GetAnimation(AnimationConstants.CatalogueForward);
+
+            if (animation is not null)
+            {
+                animation.TryStart(CatalogueIcon, new UIElement[] { CatalogueTitle });
+            }
         }
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
         {
-            if (App.AppFrame.CanGoBack)
-            {
-                e.Handled = true;
-                App.AppFrame.GoBack();
-            }
+            ViewModel.GoBack();
+            e.Handled = true;
         }
 
         private void CataloguePage_KeyDown(CoreWindow sender, KeyEventArgs args)
         {
-            if (args.VirtualKey == VirtualKey.Escape)
+            if (args.VirtualKey == VirtualKey.Escape && App.AppFrame!.CanGoBack)
             {
-                if (App.AppFrame.CanGoBack)
-                {
-                    args.Handled = true;
-                    App.AppFrame.GoBack();
-                }
-            }
-        }
-
-        private void GoBack()
-        {
-            if (App.AppFrame.CanGoBack)
-            {
-                App.AppFrame.GoBack();
+                ViewModel.GoBack();
+                args.Handled = true;
             }
         }
     }

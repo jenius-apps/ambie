@@ -123,13 +123,18 @@
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\AnimationConstants.cs" />
     <Compile Include="Animations\SoundItemAnimations.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Attributes\MemberNotNullAttribute.cs" />
     <Compile Include="Behaviors\ItemClickBehavior.cs" />
     <Compile Include="Controls\AboutControl.xaml.cs">
       <DependentUpon>AboutControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AccountControl.xaml.cs">
+      <DependentUpon>AccountControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ActiveTrackList.xaml.cs">
       <DependentUpon>ActiveTrackList.xaml</DependentUpon>
@@ -155,6 +160,12 @@
     <Compile Include="Controls\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ShareMixButton.xaml.cs">
+      <DependentUpon>ShareMixButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ShareResultsControl.xaml.cs">
+      <DependentUpon>ShareResultsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SleepTimerControl.xaml.cs">
       <DependentUpon>SleepTimerControl.xaml</DependentUpon>
     </Compile>
@@ -167,27 +178,45 @@
     <Compile Include="Controls\ToggleCompactButton.xaml.cs">
       <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UploadedSoundsList.xaml.cs">
+      <DependentUpon>UploadedSoundsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UploadForm.xaml.cs">
+      <DependentUpon>UploadForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ViewCatalogueButton.xaml.cs">
       <DependentUpon>ViewCatalogueButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ErrorLoader.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
+    <Compile Include="Converters\ThemeConverter.cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppCentreTelemetry.cs" />
+    <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
+    <Compile Include="Services\FilePicker.cs" />
+    <Compile Include="Services\ImagePicker.cs" />
     <Compile Include="Services\MixMediaPlayerService.cs" />
+    <Compile Include="Services\MsaAuthClient.cs" />
+    <Compile Include="Services\MsalClient.cs" />
     <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\SystemInfoProvider.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
     <Compile Include="Services\LocalSettings.cs" />
-    <Compile Include="Services\MediaPlayerService.cs" />
     <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\PartnerCentreNotificationRegistrar.cs" />
     <Compile Include="Services\ScreensaverService.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
+    <Compile Include="Strings\en-US\Resources.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resw</DependentUpon>
+    </Compile>
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
@@ -200,6 +229,12 @@
     <Compile Include="Views\ScreensaverPage.xaml.cs">
       <DependentUpon>ScreensaverPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShellPage.xaml.cs">
+      <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UploadPage.xaml.cs">
+      <DependentUpon>UploadPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -207,6 +242,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Backgrounds\blisslike.png" />
+    <Content Include="Assets\Backgrounds\gradient.png" />
+    <Content Include="Assets\Backgrounds\water.png" />
+    <Content Include="Assets\Backgrounds\sand.png" />
+    <Content Include="Assets\Backgrounds\znone.png" />
+    <Content Include="Assets\Backgrounds\rosyhill.png" />
     <Content Include="Assets\Images\beach.png" />
     <Content Include="Assets\Images\birds.png" />
     <Content Include="Assets\Images\citystreet.png" />
@@ -278,6 +319,8 @@
     <Content Include="Assets\StoreLogo.scale-150.png" />
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\undraw_going_up_ttm5.png" />
+    <Content Include="Assets\undraw_press_play_bx2d.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
@@ -296,6 +339,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\AboutControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AccountControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -331,6 +378,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ShareMixButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ShareResultsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SleepTimerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -344,6 +399,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ToggleCompactButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UploadedSoundsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UploadForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -367,37 +430,57 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ShellPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UploadPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>4.0.0</Version>
+      <Version>4.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>4.2.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>5.0.0-rc.2.20475.5</Version>
+      <Version>5.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Identity.Client">
+      <Version>4.29.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.10</Version>
+      <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Services.Store.Engagement">
       <Version>10.1901.28001</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp">
-      <Version>7.0.0-preview4</Version>
+      <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Connectivity">
-      <Version>7.0.0-preview4</Version>
+      <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
-      <Version>7.0.0-preview4</Version>
+      <Version>7.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Behaviors">
+      <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>7.0.0-preview4</Version>
+      <Version>7.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
+      <Version>7.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Media">
+      <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.5.0</Version>
-    </PackageReference>
-    <PackageReference Include="System.Text.Json">
-      <Version>5.0.0-rc.2.20475.5</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +495,8 @@
   <ItemGroup>
     <PRIResource Include="Strings\en-US\Resources.resw">
       <SubType>Designer</SubType>
+      <Generator>ReswPlusGenerator</Generator>
+      <LastGenOutput>Resources.generated.cs</LastGenOutput>
     </PRIResource>
     <PRIResource Include="Strings\ko-KR\Resources.resw">
       <SubType>Designer</SubType>
@@ -441,44 +526,25 @@
     <Content Include="Assets\fluentui.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\es-PR\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es-MX\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es-US\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es-DO\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
-  </ItemGroup>
-  <ItemGroup>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ar.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ca-ES.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.da-DK.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.de-DE.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-DO.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-ES.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-MX.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-PR.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-US.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.hu-HU.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.it-IT.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ko-KR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.nl-BE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-BR.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ru-RU.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.tr.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.zh-CN.xlf" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
@@ -488,9 +554,6 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\ca-ES\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ar\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\tr\Resources.resw" />
@@ -508,6 +571,12 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\de-DE\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ru-RU\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -105,40 +105,40 @@
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Part</value>
   </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Madarak</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>Városi utca</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Kávéház</value>
   </data>
-  <data name="Sound-creek" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
     <value>Patak</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Kandalló</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>Hamarosan</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Eső</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Esőerdő</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Víz alatt</value>
   </data>
-  <data name="Sound-waterfall" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
     <value>Vízesés</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>Fehérzaj</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
@@ -172,7 +172,7 @@
     <value>Köszönjük</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Téma (újraindítást igényel)</value>
+    <value>Téma</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automatikus</value>
@@ -183,16 +183,16 @@
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
     <value>Világos</value>
   </data>
-  <data name="Sound-vacuum" xml:space="preserve">
+  <data name="Soundvacuum" xml:space="preserve">
     <value>Porszívó</value>
   </data>
-  <data name="Sound-thunder" xml:space="preserve">
+  <data name="Soundthunder" xml:space="preserve">
     <value>Mennydörgés</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Értesítések új hangokról</value>
   </data>
-  <data name="Sound-wind" xml:space="preserve">
+  <data name="Soundwind" xml:space="preserve">
     <value>Szél</value>
   </data>
   <data name="ViewCatalogue.Text" xml:space="preserve">
@@ -332,5 +332,150 @@
   </data>
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Saját válogatás mentése (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Átnevezés</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Átnevezés</value>
+  </data>
+  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+    <value>Kompakt mód</value>
+  </data>
+  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Lista megosztása linkkel</value>
+  </data>
+  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Lista megosztása linkkel</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Hiányzó hangok</value>
+  </data>
+  <data name="ShareResultsMessage.Text" xml:space="preserve">
+    <value>Hiányzik pár hang, letöltheti őket innen.</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Kijelentkezés</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Megosztott Hang Katalógus az eszközein.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Fiók részletei</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Fiók részletei</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>Szinkronizálás</value>
+  </data>
+  <data name="MoreButtonUpload.Label" xml:space="preserve">
+    <value>Hangok feltöltése</value>
+  </data>
+  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Feltöltött hangok</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>Kép URL címe</value>
+  </data>
+  <data name="PathToSound" xml:space="preserve">
+    <value>Hang elérési útja</value>
+  </data>
+  <data name="UploadSubmitButton" xml:space="preserve">
+    <value>Hang feltöltése</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Cimkék</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>Új hang</value>
+  </data>
+  <data name="PublishStateNone" xml:space="preserve">
+    <value>Semmi</value>
+  </data>
+  <data name="PublishStatePublished" xml:space="preserve">
+    <value>Közzétéve</value>
+  </data>
+  <data name="PublishStateRejected" xml:space="preserve">
+    <value>Elutasítva</value>
+  </data>
+  <data name="PublishStateUnderReview" xml:space="preserve">
+    <value>Felülvizsgálat alatt</value>
+  </data>
+  <data name="PublishStateUnpublished" xml:space="preserve">
+    <value>Nem közzétett</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Frissítés</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="UploadPlaceholderMessage" xml:space="preserve">
+    <value>Töltsön fel nyugtató hangokat az Ambie katalógusába, hogy mások is meghallgathasság.</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Bejelentkezés</value>
+  </data>
+  <data name="UploadTermsMessage" xml:space="preserve">
+    <value>Elfogadom a használati feltételeket</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Biztos benne?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="DonateUrl" xml:space="preserve">
+    <value>Támogatás URL címe</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Választható</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Kötelező</value>
+  </data>
+  <data name="UploadPermissionsMessage" xml:space="preserve">
+    <value>Én készítettem a hangot, vagy van engedélyem feltölteni</value>
+  </data>
+  <data name="ErrorBigFile" xml:space="preserve">
+    <value>Túl nagy fájl! Próbálja meg újra egy {0} MB-nál kisebb fájllal.</value>
+  </data>
+  <data name="ErrorUploadCount" xml:space="preserve">
+    <value>Elérted a maximumot! Csak {0} hangja lehet.</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Támogatás</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Használati feltételek</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Kövessen minket Twitteren</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Elvetés</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Köszönjük, hogy az Ambie-t használja. A legjobb felhasználói élményért fontolja meg az Ambie kitűzését a tálcára! Élvezze a nyugtató ittlétét 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Üdvözöljük!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Rögzítés a tálcára</value>
   </data>
 </root>

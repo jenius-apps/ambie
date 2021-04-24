@@ -101,12 +101,14 @@
           <target state="translated">Időzítő leállítása</target>
         </trans-unit>
         <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
-          <source>Pause sound</source>
-          <target state="translated">Leállítás</target>
+          <source>Pause</source>
+          <target state="needs-review-translation">Leállítás</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
-          <source>Play sound</source>
-          <target state="translated">Elindítás</target>
+          <source>Play</source>
+          <target state="needs-review-translation">Elindítás</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Continue the timer</source>
@@ -134,51 +136,51 @@
           <target state="needs-review-translation">Alvási időzítő beállítása. A hangok abbamaradnak az idő lejárta után.</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
-        <trans-unit id="Sound-beach" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
           <source>Beach</source>
           <target state="translated">Part</target>
         </trans-unit>
-        <trans-unit id="Sound-birds" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
           <source>Birds</source>
           <target state="translated">Madarak</target>
         </trans-unit>
-        <trans-unit id="Sound-citystreet" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
           <source>City street</source>
           <target state="translated">Városi utca</target>
         </trans-unit>
-        <trans-unit id="Sound-coffeeshop" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
           <source>Coffee shop</source>
           <target state="translated">Kávéház</target>
         </trans-unit>
-        <trans-unit id="Sound-creek" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
           <source>Creek</source>
           <target state="translated">Patak</target>
         </trans-unit>
-        <trans-unit id="Sound-fireplace" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
           <source>Fireplace</source>
           <target state="translated">Kandalló</target>
         </trans-unit>
-        <trans-unit id="Sound-more" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundmore" translate="yes" xml:space="preserve">
           <source>More coming soon</source>
           <target state="translated">Hamarosan</target>
         </trans-unit>
-        <trans-unit id="Sound-rain" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
           <target state="translated">Eső</target>
         </trans-unit>
-        <trans-unit id="Sound-rainforest" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
           <source>Rainforest</source>
           <target state="translated">Esőerdő</target>
         </trans-unit>
-        <trans-unit id="Sound-underwater" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
           <source>Underwater</source>
           <target state="translated">Víz alatt</target>
         </trans-unit>
-        <trans-unit id="Sound-waterfall" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
           <source>Waterfall</source>
           <target state="translated">Vízesés</target>
         </trans-unit>
-        <trans-unit id="Sound-whitenoise" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
           <source>White noise</source>
           <target state="translated">Fehérzaj</target>
         </trans-unit>
@@ -225,8 +227,8 @@
           <target state="translated">Köszönjük</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
-          <source>Theme (requires restart)</source>
-          <target state="translated">Téma (újraindítást igényel)</target>
+          <source>Theme</source>
+          <target state="translated">Téma</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
@@ -240,11 +242,11 @@
           <source>Light</source>
           <target state="translated">Világos</target>
         </trans-unit>
-        <trans-unit id="Sound-vacuum" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
           <source>Vacuum</source>
           <target state="translated">Porszívó</target>
         </trans-unit>
-        <trans-unit id="Sound-thunder" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
           <source>Thunder</source>
           <target state="translated">Mennydörgés</target>
         </trans-unit>
@@ -252,7 +254,7 @@
           <source>Notification for new sounds</source>
           <target state="translated">Értesítések új hangokról</target>
         </trans-unit>
-        <trans-unit id="Sound-wind" translate="yes" xml:space="preserve">
+        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
           <source>Wind</source>
           <target state="translated">Szél</target>
         </trans-unit>
@@ -441,19 +443,205 @@
         </trans-unit>
         <trans-unit id="CancelText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">Mégse</target>
         </trans-unit>
         <trans-unit id="RenameText" translate="yes" xml:space="preserve">
           <source>Rename</source>
-          <target state="new">Rename</target>
+          <target state="translated">Átnevezés</target>
         </trans-unit>
         <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Rename</source>
-          <target state="new">Rename</target>
+          <target state="translated">Átnevezés</target>
         </trans-unit>
         <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
-          <target state="new">Compact mode</target>
+          <target state="translated">Kompakt mód</target>
+        </trans-unit>
+        <trans-unit id="ShareMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Share sound mix link</source>
+          <target state="translated">Lista megosztása linkkel</target>
+        </trans-unit>
+        <trans-unit id="ShareMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Share sound mix link</source>
+          <target state="translated">Lista megosztása linkkel</target>
+        </trans-unit>
+        <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
+          <source>Missing sounds</source>
+          <target state="translated">Hiányzó hangok</target>
+        </trans-unit>
+        <trans-unit id="ShareResultsMessage.Text" translate="yes" xml:space="preserve">
+          <source>You're missing some sounds! Download them here. Press play whenever you're ready.</source>
+          <target state="translated">Hiányzik pár hang, letöltheti őket innen.</target>
+        </trans-unit>
+        <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sign out</source>
+          <target state="translated">Kijelentkezés</target>
+        </trans-unit>
+        <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
+          <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
+          <target state="needs-review-translation">Megosztott Hang Katalógus az eszközein.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="translated">Fiók részletei</target>
+        </trans-unit>
+        <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="translated">Fiók részletei</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">Bejelentkezés</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">Bejelentkezés</target>
+        </trans-unit>
+        <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sync</source>
+          <target state="translated">Szinkronizálás</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonUpload.Label" translate="yes" xml:space="preserve">
+          <source>Upload sounds</source>
+          <target state="translated">Hangok feltöltése</target>
+        </trans-unit>
+        <trans-unit id="UploadedSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Uploaded sounds</source>
+          <target state="translated">Feltöltött hangok</target>
+        </trans-unit>
+        <trans-unit id="UploadPortal.Text" translate="yes" xml:space="preserve">
+          <source>Upload Portal - Beta</source>
+          <target state="new">Upload Portal - Beta</target>
+        </trans-unit>
+        <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
+          <source>Browse</source>
+          <target state="translated">Keresés</target>
+        </trans-unit>
+        <trans-unit id="ImageUrl" translate="yes" xml:space="preserve">
+          <source>Image URL</source>
+          <target state="translated">Kép URL címe</target>
+        </trans-unit>
+        <trans-unit id="PathToSound" translate="yes" xml:space="preserve">
+          <source>Path to sound</source>
+          <target state="translated">Hang elérési útja</target>
+        </trans-unit>
+        <trans-unit id="UploadSubmitButton" translate="yes" xml:space="preserve">
+          <source>Upload sound</source>
+          <target state="translated">Hang feltöltése</target>
+        </trans-unit>
+        <trans-unit id="Attribution" translate="yes" xml:space="preserve">
+          <source>Attribution</source>
+          <target state="translated">Cimkék</target>
+        </trans-unit>
+        <trans-unit id="Name" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">Név</target>
+        </trans-unit>
+        <trans-unit id="NewSound" translate="yes" xml:space="preserve">
+          <source>New sound</source>
+          <target state="translated">Új hang</target>
+        </trans-unit>
+        <trans-unit id="PublishStateNone" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Semmi</target>
+        </trans-unit>
+        <trans-unit id="PublishStatePublished" translate="yes" xml:space="preserve">
+          <source>Published</source>
+          <target state="translated">Közzétéve</target>
+        </trans-unit>
+        <trans-unit id="PublishStateRejected" translate="yes" xml:space="preserve">
+          <source>Rejected</source>
+          <target state="translated">Elutasítva</target>
+        </trans-unit>
+        <trans-unit id="PublishStateUnderReview" translate="yes" xml:space="preserve">
+          <source>Under review</source>
+          <target state="translated">Felülvizsgálat alatt</target>
+        </trans-unit>
+        <trans-unit id="PublishStateUnpublished" translate="yes" xml:space="preserve">
+          <source>Unpublished</source>
+          <target state="translated">Nem közzétett</target>
+        </trans-unit>
+        <trans-unit id="Refresh" translate="yes" xml:space="preserve">
+          <source>Refresh</source>
+          <target state="translated">Frissítés</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
+        </trans-unit>
+        <trans-unit id="UploadPlaceholderMessage" translate="yes" xml:space="preserve">
+          <source>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</source>
+          <target state="translated">Töltsön fel nyugtató hangokat az Ambie katalógusába, hogy mások is meghallgathasság.</target>
+        </trans-unit>
+        <trans-unit id="SignIn" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">Bejelentkezés</target>
+        </trans-unit>
+        <trans-unit id="UploadTermsMessage" translate="yes" xml:space="preserve">
+          <source>I agree to the Terms of Use</source>
+          <target state="translated">Elfogadom a használati feltételeket</target>
+        </trans-unit>
+        <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
+          <source>Are you sure?</source>
+          <target state="translated">Biztos benne?</target>
+        </trans-unit>
+        <trans-unit id="Yes" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">Igen</target>
+        </trans-unit>
+        <trans-unit id="DonateUrl" translate="yes" xml:space="preserve">
+          <source>Donation URL</source>
+          <target state="translated">Támogatás URL címe</target>
+        </trans-unit>
+        <trans-unit id="Optional" translate="yes" xml:space="preserve">
+          <source>Optional</source>
+          <target state="translated">Választható</target>
+        </trans-unit>
+        <trans-unit id="Required" translate="yes" xml:space="preserve">
+          <source>Required</source>
+          <target state="translated">Kötelező</target>
+        </trans-unit>
+        <trans-unit id="UploadPermissionsMessage" translate="yes" xml:space="preserve">
+          <source>I created this sound or I have permission to upload it</source>
+          <target state="translated">Én készítettem a hangot, vagy van engedélyem feltölteni</target>
+        </trans-unit>
+        <trans-unit id="ErrorBigFile" translate="yes" xml:space="preserve">
+          <source>That's a big file! Try again with a file smaller than {0} MB.</source>
+          <target state="translated">Túl nagy fájl! Próbálja meg újra egy {0} MB-nál kisebb fájllal.</target>
+        </trans-unit>
+        <trans-unit id="ErrorUploadCount" translate="yes" xml:space="preserve">
+          <source>You're at the limit! You can only have {0} sounds.</source>
+          <target state="translated">Elérted a maximumot! Csak {0} hangja lehet.</target>
+        </trans-unit>
+        <trans-unit id="Donate" translate="yes" xml:space="preserve">
+          <source>Donate</source>
+          <target state="translated">Támogatás</target>
+        </trans-unit>
+        <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
+          <source>Terms of Use</source>
+          <target state="translated">Használati feltételek</target>
+        </trans-unit>
+        <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
+          <source>Follow us on Twitter</source>
+          <target state="translated">Kövessen minket Twitteren</target>
+        </trans-unit>
+        <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
+          <source>Dismiss</source>
+          <target state="translated">Elvetés</target>
+        </trans-unit>
+        <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
+          <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
+          <target state="translated">Köszönjük, hogy az Ambie-t használja. A legjobb felhasználói élményért fontolja meg az Ambie kitűzését a tálcára! Élvezze a nyugtató ittlétét 🏝</target>
+        </trans-unit>
+        <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
+          <source>Hello and welcome!</source>
+          <target state="translated">Üdvözöljük!</target>
+        </trans-unit>
+        <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
+          <source>Pin to taskbar</source>
+          <target state="translated">Rögzítés a tálcára</target>
+        </trans-unit>
+        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
+          <source>Transparency</source>
+          <target state="new">Transparency</target>
         </trans-unit>
       </group>
     </body>

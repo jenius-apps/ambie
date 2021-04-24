@@ -6,20 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="{StaticResource HeaderHeight}" />
+            <RowDefinition Height="92" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid
             x:Name="HeaderGrid"
-            Padding="40,0"
-            Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
+            Margin="40,32,40,0"
             Canvas.ZIndex="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
@@ -30,15 +28,17 @@
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                 <Button
                     x:Uid="BackButton"
-                    Click="{x:Bind GoBack}"
+                    Click="{x:Bind ViewModel.GoBack}"
                     Style="{StaticResource TransparentRoundButtonStyle}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
                 </Button>
                 <FontIcon
+                    x:Name="CatalogueIcon"
                     Margin="12,0,0,0"
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     Glyph="&#xEAD4;" />
                 <TextBlock
+                    x:Name="CatalogueTitle"
                     x:Uid="SoundCatalogue"
                     Margin="12,0,0,0"
                     VerticalAlignment="Center"
@@ -46,36 +46,7 @@
                     FontFamily="Calibri"
                     FontSize="32" />
             </StackPanel>
-
-            <Button
-                x:Name="MoreSoundsButton"
-                x:Uid="ViewCatalogueButton"
-                Grid.Column="2"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Visibility="Collapsed">
-                <TextBlock x:Uid="ViewCatalogue" Text="More sounds" />
-                <Button.Flyout>
-                    <Flyout>
-                        <controls:SoundSuggestionControl Margin="20" />
-                    </Flyout>
-                </Button.Flyout>
-            </Button>
         </Grid>
-
         <controls:CatalogueListControl Grid.Row="1" />
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MoreSoundsButton.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.Constants
 {
     /// <summary>
-    /// Class of key constants
-    /// for user settings.
+    /// Class of key constants for user settings.
     /// </summary>
-    public class UserSettingsConstants
+    public static class UserSettingsConstants
     {
+        /// <summary>
+        /// Key to remember the user's background image.
+        /// </summary>
+        public const string BackgroundImage = "BackgroundImagePath";
+
         /// <summary>
         /// Volume settings key.
         /// </summary>
@@ -54,19 +59,38 @@ namespace AmbientSounds.Constants
         public const string ActiveMixId = "ActiveMixId";
 
         /// <summary>
+        /// Key used to fetch the stored auth provider Id. This is used for signing into the MSA account silently.
+        /// </summary>
+        public const string CurrentUserProviderId = "CurrentUserProviderId";
+
+        /// <summary>
+        /// Key used to fetch the stored user Id. This is used for signing into the MSA account silently.
+        /// </summary>
+        public const string CurrentUserId = "CurrentUserId";
+
+        /// <summary>
+        /// Key used to store performance boolean state.
+        /// </summary>
+        public const string Transparency = "Transparency";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
-        public static readonly Dictionary<string, object> Defaults = new Dictionary<string, object>()
+        public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
         {
             { Volume, 80d },
             { TelemetryOn, true },
             { Notifications, true },
             { EnableScreenSaver, false },
             { DarkScreensasver, false },
+            { Transparency, true },
             { MaxActive, 3 },
-            { ActiveTracks, new string[0] },
-            { ActiveMixId, "" },
-            { Theme, "default" }
+            { ActiveTracks, Array.Empty<string>() },
+            { ActiveMixId, string.Empty },
+            { CurrentUserId, string.Empty },
+            { CurrentUserProviderId, string.Empty },
+            { Theme, "default" },
+            { BackgroundImage, string.Empty }
         };
     }
 }

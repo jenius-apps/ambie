@@ -67,3 +67,5 @@ For all pull requests, please make sure there's an issue created for it first an
 - Turkish: [Serdar Türkoğlu](https://github.com/daswareinfach)
 - Danish: [Paw Hauge Byrialsen](https://github.com/byrialsen)
 - Dutch: [Christof Becu](https://github.com/ChristofBecu)
+- Russian: [Dmitry Gorbushin](https://github.com/Gorbushin)
+

@@ -4,6 +4,8 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -12,7 +14,16 @@ namespace AmbientSounds.Services.Uwp
     public class Navigator : INavigator
     {
         /// <inheritdoc/>
-        public object Frame { get; set; }
+        public object? Frame { get; set; }
+
+        /// <inheritdoc/>
+        public void GoBack()
+        {
+            if (Frame is Frame f && f.CanGoBack)
+            {
+                f.GoBack();
+            }
+        }
 
         /// <inheritdoc/>
         public void ToScreensaver()
@@ -20,6 +31,15 @@ namespace AmbientSounds.Services.Uwp
             if (Frame is Frame f)
             {
                 f.Navigate(typeof(ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+            }
+        }
+
+        /// <inheritdoc/>
+        public void ToCatalogue()
+        {
+            if (Frame is Frame f)
+            {
+                f.Navigate(typeof(CataloguePage), null, new SuppressNavigationTransitionInfo());
             }
         }
 
@@ -33,6 +53,15 @@ namespace AmbientSounds.Services.Uwp
                 preferences.CustomSize = new Windows.Foundation.Size(360, 500);
                 await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, preferences);
                 f.Navigate(typeof(CompactPage), null, new SuppressNavigationTransitionInfo());
+            }
+        }
+
+        /// <inheritdoc/>
+        public void ToUploadPage()
+        {
+            if (Frame is Frame f)
+            {
+                f.Navigate(typeof(UploadPage), null, new DrillInNavigationTransitionInfo());
             }
         }
     }

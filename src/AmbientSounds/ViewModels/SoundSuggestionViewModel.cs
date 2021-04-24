@@ -52,7 +52,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public IRelayCommand<string> SendSuggestionCommand { get; }
 
-        private async void SendSuggestion(string suggestion)
+        private async void SendSuggestion(string? suggestion)
         {
             if (string.IsNullOrWhiteSpace(suggestion) || IsThankYouVisible)
             {
@@ -60,7 +60,7 @@ namespace AmbientSounds.ViewModels
             }
 
             IsThankYouVisible = true;
-            _telemetry.SuggestSound(suggestion);
+            _telemetry.SuggestSound(suggestion!);
             Suggestion = "";
             await Task.Delay(1000);
             IsThankYouVisible = false;

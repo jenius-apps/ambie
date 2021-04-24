@@ -10,6 +10,12 @@ namespace AmbientSounds.Services
     public interface ISoundMixService
     {
         /// <summary>
+        /// Returns true if the given mix ID
+        /// is currently playing.
+        /// </summary>
+        bool IsMixPlaying(string mixId);
+
+        /// <summary>
         /// Saves the list of sounds into a new sound mix.
         /// </summary>
         /// <param name="sounds">List of sounds to save.</param>
@@ -17,9 +23,16 @@ namespace AmbientSounds.Services
         Task<string> SaveMixAsync(IList<Sound> sounds, string name = "");
 
         /// <summary>
+        /// Reconstructs the given sound mixes and adds them to
+        /// the installed sound list.
+        /// </summary>
+        /// <param name="dehydratedMixes">List of sound mixes that just have an Id, name, and list of sound Ids populated.</param>
+        Task ReconstructMixesAsync(IList<Sound> dehydratedMixes);
+
+        /// <summary>
         /// Loads the given mix to the player.
         /// </summary>
         /// <param name="mix">The mix to play.</param>
-        Task LoadMixAsync(Sound mix);
+        Task<bool> LoadMixAsync(Sound mix);
     }
 }

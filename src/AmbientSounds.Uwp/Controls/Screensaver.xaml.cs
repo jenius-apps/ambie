@@ -4,6 +4,8 @@ using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
+#nullable enable
+
 namespace AmbientSounds.Controls
 {
     public sealed partial class Screensaver : UserControl
@@ -15,6 +17,8 @@ namespace AmbientSounds.Controls
             ViewModel.PropertyChanging += PropertyChanging;
             this.SizeChanged += OnSizeChanged;
         }
+
+        public ScreensaverViewModel ViewModel => (ScreensaverViewModel)this.DataContext;
 
         private void OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -53,7 +57,5 @@ namespace AmbientSounds.Controls
                 }
             }
         }
-
-        public ScreensaverViewModel ViewModel => (ScreensaverViewModel)this.DataContext;
     }
 }

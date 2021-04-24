@@ -1,5 +1,7 @@
 ﻿using Windows.UI.Xaml;
 
+#nullable enable
+
 namespace AmbientSounds.StateTriggers
 {
     /// <summary>

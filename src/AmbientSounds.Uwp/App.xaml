@@ -2,12 +2,40 @@
     x:Class="AmbientSounds.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:AmbientSounds.Converters">
+    xmlns:Windows10version1903="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 8)"
+    xmlns:converters="using:AmbientSounds.Converters"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
             </ResourceDictionary.MergedDictionaries>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
+                    <AcrylicBrush
+                        x:Key="BackgroundImageAcrylicOverlayBrush"
+                        Windows10version1903:TintLuminosityOpacity="0.5"
+                        FallbackColor="Transparent"
+                        TintColor="White"
+                        TintOpacity="0.1" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
+                    <AcrylicBrush
+                        x:Key="BackgroundImageAcrylicOverlayBrush"
+                        Windows10version1903:TintLuminosityOpacity="0.5"
+                        FallbackColor="Transparent"
+                        TintColor="#1e1e1e"
+                        TintOpacity="0.1" />
+
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemColorWindowColor}" />
+                    <SolidColorBrush x:Key="BackgroundImageAcrylicOverlayBrush" Color="{ThemeResource SystemColorWindowColor}" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
 
             <Style x:Key="RoundButtonStyle" TargetType="Button">
                 <Setter Property="Width" Value="40" />
@@ -22,14 +50,27 @@
                 <Setter Property="Background" Value="Transparent" />
             </Style>
 
+            <Style x:Key="PageHeaderTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Calibri" />
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+
             <AcrylicBrush
                 x:Key="BackgroundAcrylicBrush"
+                FallbackColor="Gray"
                 TintColor="Black"
                 TintOpacity="0.2" />
 
+            <Style x:Key="SoundItemShadow" TargetType="toolkit:DropShadowPanel">
+                <Setter Property="BlurRadius" Value="15" />
+                <Setter Property="OffsetY" Value="2" />
+                <Setter Property="ShadowOpacity" Value="0.15" />
+            </Style>
+
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
 
-            <GridLength x:Key="HeaderHeight">112</GridLength>
+            <GridLength x:Key="HeaderHeight">88</GridLength>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

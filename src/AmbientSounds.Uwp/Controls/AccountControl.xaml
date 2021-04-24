@@ -1,0 +1,111 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.AccountControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:convert="using:AmbientSounds.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    Loaded="OnLoaded"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Button
+            x:Uid="SignInButton"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Style="{StaticResource TransparentRoundButtonStyle}"
+            Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.SignedIn), Mode=OneWay}">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
+            <Button.Flyout>
+                <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
+                    <winui:CommandBarFlyout.SecondaryCommands>
+                        <AppBarElementContainer IsTabStop="True">
+                            <StackPanel Padding="12">
+                                <TextBlock
+                                    MaxWidth="240"
+                                    Text="{x:Bind strings:Resources.SignInDescriptionText}"
+                                    TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </AppBarElementContainer>
+                        <AppBarSeparator />
+                        <AppBarButton Command="{x:Bind ViewModel.SignInCommand}" Label="{x:Bind strings:Resources.SignIn}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                    </winui:CommandBarFlyout.SecondaryCommands>
+                </winui:CommandBarFlyout>
+            </Button.Flyout>
+        </Button>
+
+        <Button
+            x:Uid="AccountOptionsButton"
+            Padding="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Style="{StaticResource TransparentRoundButtonStyle}"
+            Visibility="{x:Bind ViewModel.SignedIn, Mode=OneWay}">
+            <Grid>
+                <PersonPicture
+                    x:Name="Avatar"
+                    Width="30"
+                    Height="30"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Visibility="{x:Bind ViewModel.IsProfilePathValid, Mode=OneWay}">
+                    <PersonPicture.ProfilePicture>
+                        <BitmapImage UriSource="{x:Bind ViewModel.ProfilePath, Mode=OneWay}" />
+                    </PersonPicture.ProfilePicture>
+                </PersonPicture>
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="&#xEAFD;"
+                    Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.IsProfilePathValid), Mode=OneWay}" />
+            </Grid>
+            <Button.Flyout>
+                <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
+                    <winui:CommandBarFlyout.SecondaryCommands>
+                        <AppBarElementContainer IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}">
+                            <StackPanel Padding="12">
+                                <TextBlock Text="{x:Bind ViewModel.FirstName, Mode=OneWay}" />
+                                <TextBlock Margin="0,4,0,0" Text="{x:Bind ViewModel.Email, Mode=OneWay}" />
+                            </StackPanel>
+                        </AppBarElementContainer>
+                        <AppBarSeparator IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
+                        <AppBarButton
+                            x:Uid="MoreButtonUpload"
+                            Command="{x:Bind ViewModel.OpenUploadPageCommand}"
+                            Visibility="{x:Bind ViewModel.IsNotTenFoot}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B8;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarButton x:Uid="SyncAppBarButton" Command="{x:Bind ViewModel.SyncCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE932;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarButton x:Uid="SignOutAppBarButton" Command="{x:Bind ViewModel.SignOutCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9CD;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                    </winui:CommandBarFlyout.SecondaryCommands>
+                </winui:CommandBarFlyout>
+            </Button.Flyout>
+        </Button>
+
+        <winui:ProgressRing
+            x:Name="LoadingRing"
+            Width="40"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            x:Load="{x:Bind ViewModel.Loading, Mode=OneWay}" />
+    </Grid>
+</UserControl>

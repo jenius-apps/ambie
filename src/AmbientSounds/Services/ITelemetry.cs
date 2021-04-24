@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.Services
 {
@@ -7,6 +8,11 @@ namespace AmbientSounds.Services
     /// </summary>
     public interface ITelemetry
     {
+        /// <summary>
+        /// Tracks handled exceptions.
+        /// </summary>
+        void TrackError(Exception e, IDictionary<string, string>? properties = null);
+
         /// <summary>
         /// Tracks the given event and its properties.
         /// </summary>

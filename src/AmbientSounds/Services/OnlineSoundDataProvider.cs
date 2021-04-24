@@ -1,9 +1,11 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -17,6 +19,10 @@ namespace AmbientSounds.Services
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly HttpClient _client;
         private readonly string _url;
+        private readonly string _mySoundsUrl;
+
+        /// <inheritdoc/>
+        public event EventHandler<int>? UserSoundsFetched;
 
         public OnlineSoundDataProvider(
             HttpClient httpClient,
@@ -28,6 +34,28 @@ namespace AmbientSounds.Services
             _systemInfoProvider = systemInfoProvider;
             _client = httpClient;
             _url = appSettings.CatalogueUrl;
+            _mySoundsUrl = appSettings.MySoundsUrl;
+        }
+
+        /// <inheritdoc/>
+        public async Task<string> GetDownloadLinkAsync(Sound s)
+        {
+            if (s is null)
+            {
+                return "";
+            }
+
+            var url = $"{_url}/{s.Id}/file?userId={s.UploadedBy}";
+
+            try
+            {
+                var result = await _client.GetStringAsync(url);
+                return result;
+            }
+            catch
+            {
+                return "";
+            }
         }
 
         /// <inheritdoc/>
@@ -44,20 +72,49 @@ namespace AmbientSounds.Services
                 result,
                 new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-            return results ?? new Sound[0];
+            return results ?? Array.Empty<Sound>();
         }
 
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds)
         {
-            if (soundIds == null || soundIds.Count == 0)
+            if (soundIds is null || soundIds.Count == 0)
             {
-                return new Sound[0];
+                return Array.Empty<Sound>();
             }
 
             var sounds = await GetSoundsAsync();
-            return sounds?.Where(x => x.Id != null && soundIds.Contains(x.Id)).ToArray()
-                ?? new Sound[0];
+            return sounds?.Where(x => x.Id is not null && soundIds.Contains(x.Id)).ToArray()
+                ?? Array.Empty<Sound>();
+        }
+
+        /// <inheritdoc/>
+        public async Task<IList<Sound>> GetUserSoundsAsync(string accesstoken)
+        {
+            if (string.IsNullOrWhiteSpace(accesstoken))
+            {
+                return Array.Empty<Sound>();
+            }
+
+            using var msg = new HttpRequestMessage(HttpMethod.Get, _mySoundsUrl);
+            msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accesstoken);
+            var response = await _client.SendAsync(msg);
+            using Stream result = await response.Content.ReadAsStreamAsync();
+
+            try
+            {
+                var results = await JsonSerializer.DeserializeAsync<Sound[]>(
+                    result,
+                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+                UserSoundsFetched?.Invoke(this, results?.Length ?? 0);
+                return results ?? Array.Empty<Sound>();
+            }
+            catch
+            {
+                UserSoundsFetched?.Invoke(this, 0);
+                return Array.Empty<Sound>();
+            }
         }
     }
 }

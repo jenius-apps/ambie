@@ -26,7 +26,12 @@ namespace AmbientSounds.Services
         /// <param name="refresh">Optional. If true, data will be refreshed from local storage.</param>
         /// <param name="soundIds">Optional. Fetches sound with given Ids.</param>
         /// <returns>A list of <see cref="Sound"/> instances.</returns>
-        Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[] soundIds = null);
+        Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[]? soundIds = null);
+
+        /// <summary>
+        /// Retrieves list of cached local sounds.
+        /// </summary>
+        Task<IList<Sound>> GetLocalSoundsAsync();
 
         /// <summary>
         /// Adds sound info to local list.

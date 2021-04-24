@@ -1,0 +1,12 @@
+﻿@page
+@model AmbientSounds.Web.Pages.PlayModel
+@{
+    ViewData["Title"] = "Play";
+    string pathAndQuery = Request.Path + Request.QueryString;
+    string redirectLink = "ambie-app://" + pathAndQuery;
+    Response.Redirect(redirectLink);
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Make sure you have Ambie installed. <a href="https://www.microsoft.com/en-us/p/ambie-white-noise/9p07xnm5chp0">Download from here if you don't have it yet</a>.</p>
+<button onclick="window.location.href = '@redirectLink';">Click to launch Ambie</button>

@@ -1,11 +1,12 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
+#nullable enable
 
 namespace AmbientSounds.Controls
 {
@@ -28,16 +29,21 @@ namespace AmbientSounds.Controls
             typeof(ViewCatalogueButton),
             new PropertyMetadata(false));
 
+        private void IconNavigateToCatalogue()
+        {
+            ConnectedAnimationService
+                .GetForCurrentView()
+                .PrepareToAnimate(AnimationConstants.CatalogueForward, IconVersion);
+
+            NavigateToCatalogue();
+        }
+
         private void NavigateToCatalogue()
         {
             ITelemetry telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.MoreSoundsClicked);
-            App.AppFrame.Navigate(
-                typeof(Views.CataloguePage), 
-                null, 
-                new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            INavigator navigator = App.Services.GetRequiredService<INavigator>();
+            navigator.ToCatalogue();
         }
-
-        private bool Not(bool value) => !value;
     }
 }

@@ -9,7 +9,7 @@
         /// The frame that can navigate. This must be set before
         /// any method is called.
         /// </summary>
-        object Frame { get; set; }
+        object? Frame { get; set; }
 
         /// <summary>
         /// Navigates to the screensaver.
@@ -20,5 +20,20 @@
         /// Navigates to the compact page.
         /// </summary>
         void ToCompact();
+
+        /// <summary>
+        /// Navigates to the upload page.
+        /// </summary>
+        void ToUploadPage();
+
+        /// <summary>
+        /// Navigates to the catalogue page.
+        /// </summary>
+        void ToCatalogue();
+
+        /// <summary>
+        /// Attempts to navigate back.
+        /// </summary>
+        void GoBack();
     }
 }

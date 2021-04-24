@@ -20,6 +20,7 @@ namespace AmbientSounds.Factories
         private readonly IUserSettings _userSettings;
         private readonly ISoundMixService _soundMixService;
         private readonly IRenamer _renamer;
+        private readonly IUploadService _uploadService;
 
         public SoundVmFactory(
             IDownloadManager downloadManager,
@@ -30,6 +31,7 @@ namespace AmbientSounds.Factories
             ISoundMixService soundMixService,
             IUserSettings userSettings,
             IIapService iapService,
+            IUploadService uploadService,
             IRenamer renamer)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
@@ -41,6 +43,7 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(renamer, nameof(renamer));
+            Guard.IsNotNull(uploadService, nameof(uploadService));
 
             _userSettings = userSettings;
             _downloadManager = downloadManager;
@@ -51,15 +54,16 @@ namespace AmbientSounds.Factories
             _player = player;
             _renamer = renamer;
             _telemetry = telemetry;
+            _uploadService = uploadService;
         }
 
         /// <inheritdoc/>
         public OnlineSoundViewModel? GetOnlineSoundVm(Sound s)
         {
-            if (s == null ||
-                s.Id == null ||
-                s.ImagePath == null ||
-                s.FilePath == null)
+            if (s is null ||
+                s.Id is null ||
+                s.ImagePath is null ||
+                s.FilePath is null)
             {
                 return null;
             }
@@ -71,6 +75,13 @@ namespace AmbientSounds.Factories
                 _telemetry,
                 _previewService,
                 _iapService);
+        }
+
+        /// <inheritdoc/>
+        public UploadedSoundViewModel GetUploadedSoundVm(Sound s)
+        {
+            Guard.IsNotNull(s, nameof(s));
+            return new UploadedSoundViewModel(s, _uploadService);
         }
 
         /// <inheritdoc/>

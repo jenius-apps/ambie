@@ -17,12 +17,14 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+
             _screensaverService = screensaverService;
             _mediaPlayerService = mediaPlayerService;
 
             _mediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
             _mediaPlayerService.MaxReached += OnMaxReached;
         }
+
 
         private void OnMaxReached(object sender, EventArgs e)
         {

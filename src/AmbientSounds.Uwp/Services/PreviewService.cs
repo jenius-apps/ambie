@@ -2,6 +2,8 @@
 using Windows.Media.Core;
 using Windows.Media.Playback;
 
+#nullable enable
+
 namespace AmbientSounds.Services.Uwp
 {
     /// <summary>
@@ -11,7 +13,7 @@ namespace AmbientSounds.Services.Uwp
     public class PreviewService : IPreviewService
     {
         private readonly MediaPlayer _player;
-        private string _current;
+        private string? _current;
 
         public PreviewService()
         {

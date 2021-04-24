@@ -14,25 +14,36 @@ namespace AmbientSounds.Services
     {
         private readonly IFileDownloader _fileDownloader;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+        private readonly IIapService _iapService;
         private readonly Queue<QueuedSound> _downloadQueue = new();
         private bool _downloading;
 
+        /// <inheritdoc/>
+        public event EventHandler? DownloadsCompleted;
+
         public DownloadManager(
             IFileDownloader soundDownloader,
-            ISoundDataProvider soundDataProvider)
+            ISoundDataProvider soundDataProvider,
+            IOnlineSoundDataProvider onlineSoundDataProvider,
+            IIapService iapService)
         {
             Guard.IsNotNull(soundDownloader, nameof(soundDownloader));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
+            Guard.IsNotNull(iapService, nameof(iapService));
 
             _fileDownloader = soundDownloader;
             _soundDataProvider = soundDataProvider;
+            _onlineSoundDataProvider = onlineSoundDataProvider;
+            _iapService = iapService;
         }
 
         /// <inheritdoc/>
         public async Task QueueAndDownloadAsync(Sound s, IProgress<double> progress)
         {
-            if (s == null ||
-                progress == null ||
+            if (s is null ||
+                progress is null ||
                 _downloadQueue.Any(x => s.Equals(x.SoundData)))
             {
                 return;
@@ -50,15 +61,33 @@ namespace AmbientSounds.Services
 
             while (_downloadQueue.Count > 0)
             {
-                var item = _downloadQueue.Dequeue();
+                QueuedSound item = _downloadQueue.Dequeue();
 
                 try
                 {
-                    var soundData = item.SoundData;
+                    Sound soundData = item.SoundData;
+
+                    // Confirm the sound is purchased if it's premium.
+                    if (soundData.IsPremium)
+                    {
+                        var isOwned = await _iapService.IsOwnedAsync(soundData.IapId);
+                        if (!isOwned)
+                        {
+                            throw new Exception("User hasn't purchased access to the sound. " + soundData.IapId);
+                        }
+                    }
+
                     item.Progress.Report(33);
 
+                    string downloadUrl = await _onlineSoundDataProvider.GetDownloadLinkAsync(soundData);
+                    if (string.IsNullOrWhiteSpace(downloadUrl))
+                    {
+                        item.Progress.Report(-1);
+                        continue;
+                    }
+
                     Task<string> downloadPathTask = _fileDownloader.SoundDownloadAndSaveAsync(
-                        soundData.FilePath,
+                        downloadUrl,
                         soundData.Id + soundData.FileExtension);
                     string localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
                         soundData.ImagePath,
@@ -100,9 +129,8 @@ namespace AmbientSounds.Services
                 }
             }
 
+            DownloadsCompleted?.Invoke(this, EventArgs.Empty);
             _downloading = false;
         }
     }
-
-    public record QueuedSound(Sound SoundData, IProgress<double> Progress);
 }

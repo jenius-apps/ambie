@@ -1,9 +1,11 @@
 ﻿using System.Numerics;
+using Microsoft.Toolkit.Uwp.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
+
+#nullable enable
 
 namespace AmbientSounds.Controls
 {
@@ -23,16 +25,18 @@ namespace AmbientSounds.Controls
         {
             // Source for the scaling: https://github.com/windows-toolkit/WindowsCommunityToolkit/blob/master/Microsoft.Toolkit.Uwp.SampleApp/SamplePages/Implicit%20Animations/ImplicitAnimationsPage.xaml.cs
             // Search for "Scale Element".
-            var element = sender as UIElement;
-            var visual = ElementCompositionPreview.GetElementVisual(element);
-            visual.Scale = new Vector3(1.3f, 1.3f, 1);
+            if (sender is UIElement element)
+            {
+                element.GetVisual().Scale = new Vector3(1.3f, 1.3f, 1);
+            }
         }
 
         private void ScaleNormal(object sender, PointerRoutedEventArgs e)
         {
-            var element = sender as UIElement;
-            var visual = ElementCompositionPreview.GetElementVisual(element);
-            visual.Scale = new Vector3(1);
+            if (sender is UIElement element)
+            {
+                element.GetVisual().Scale = Vector3.One;
+            }
         }
     }
 }

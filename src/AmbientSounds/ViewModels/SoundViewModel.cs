@@ -1,9 +1,11 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -47,6 +49,7 @@ namespace AmbientSounds.ViewModels
 
             _playerService.SoundRemoved += OnSoundPaused;
             _playerService.SoundAdded += OnSoundPlayed;
+            _playerService.MixPlayed += OnMixPlayed;
 
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
@@ -79,13 +82,13 @@ namespace AmbientSounds.ViewModels
 
         public bool IsNotMix => !IsMix;
 
-        public bool HasSecondImage => IsMix && _sound.ImagePaths.Length >= 2;
+        public bool HasSecondImage => IsMix && _sound.ImagePaths.Length == 2;
 
-        public string? SecondImagePath => HasSecondImage ? _sound.ImagePaths[1] : "http://localhost:8000";
+        public string? SecondImagePath => _sound.ImagePaths.Length >= 2 ? _sound.ImagePaths[1] : "http://localhost:8000";
 
-        public bool HasThirdImage => IsMix && _sound.ImagePaths.Length >= 3;
+        public bool HasThirdImage => IsMix && _sound.ImagePaths.Length == 3;
 
-        public string? ThirdImagePath => HasThirdImage ? _sound.ImagePaths[2] : "http://localhost:8000";
+        public string? ThirdImagePath => _sound.ImagePaths.Length >= 3 ? _sound.ImagePaths[2] : "http://localhost:8000";
 
         /// <summary>
         /// The path for the image to display for the current sound.
@@ -107,13 +110,18 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
-        public bool IsCurrentlyPlaying => _playerService.IsSoundPlaying(_sound.Id);
+        public bool IsCurrentlyPlaying => string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
+            ? _playerService.IsSoundPlaying(_sound.Id)
+            : _soundMixService.IsMixPlaying(_sound.Id);
 
         /// <summary>
         /// Loads this sound into the player and plays it.
         /// </summary>
         public async void Play()
         {
+            if (IsCurrentlyPlaying)
+                return;
+
             if (!_sound.IsMix)
             {
                 await _playerService.ToggleSoundAsync(_sound);
@@ -134,17 +142,22 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private void OnSoundPaused(object sender, string soundId)
+        private void OnMixPlayed(object sender, MixPlayedArgs args)
         {
-            if (Id == soundId)
+            if (args.MixId == _sound.Id || args.SoundIds.Contains(_sound.Id))
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
             }
         }
 
-        private void OnSoundPlayed(object sender, Sound s)
+        private void OnSoundPaused(object sender, SoundPausedArgs args)
         {
-            if (s?.Id == _sound.Id)
+            OnPropertyChanged(nameof(IsCurrentlyPlaying));
+        }
+
+        private void OnSoundPlayed(object sender, SoundPlayedArgs args)
+        {
+            if (args.ParentMixId == _sound.Id || args.Sound.Id == _sound.Id)
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
             }
