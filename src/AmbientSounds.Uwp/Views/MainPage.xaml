@@ -152,7 +152,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="92" />
-            <RowDefinition x:Name="ActiveTracksRow" Height="260" />
+            <RowDefinition x:Name="ActiveTracksRow" Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -225,6 +225,7 @@
         <controls:SoundGridControl
             x:Name="SoundGallery"
             Grid.Row="2"
+            Margin="0,12,0,0"
             ItemTemplate="{StaticResource MainPageSoundTemplate}"
             ShowCatalogueButton="True">
             <animations:Implicit.Animations>
@@ -248,7 +249,7 @@
                         <AdaptiveTrigger MinWindowHeight="800" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ActiveTracksRow.Height" Value="280" />
+                        <Setter Target="ActiveTracksRow.Height" Value="360" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -256,7 +257,7 @@
                         <AdaptiveTrigger MinWindowHeight="1000" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ActiveTracksRow.Height" Value="360" />
+                        <Setter Target="ActiveTracksRow.Height" Value="440" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -264,7 +265,7 @@
                         <AdaptiveTrigger MinWindowHeight="1200" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ActiveTracksRow.Height" Value="460" />
+                        <Setter Target="ActiveTracksRow.Height" Value="520" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
