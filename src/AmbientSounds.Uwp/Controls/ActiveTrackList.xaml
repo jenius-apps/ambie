@@ -84,7 +84,8 @@
                                         VerticalAlignment="Top"
                                         Background="Transparent"
                                         Command="{x:Bind RemoveCommand}"
-                                        CommandParameter="{x:Bind Sound}">
+                                        CommandParameter="{x:Bind Sound}"
+                                        Foreground="White">
                                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
                                     </Button>
                                 </Grid>
