@@ -149,17 +149,14 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid Padding="0,0,0,0">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="92" />
-            <RowDefinition x:Name="ActiveTracksRow" Height="280" />
+            <RowDefinition x:Name="ActiveTracksRow" Height="260" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid
-            Margin="40,32,40,0"
-            VerticalAlignment="Center"
-            Canvas.ZIndex="1">
+        <Grid Margin="40,32,40,0" VerticalAlignment="Center">
             <StackPanel
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -250,7 +247,7 @@
                         <AdaptiveTrigger MinWindowHeight="800" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ActiveTracksRow.Height" Value="300" />
+                        <Setter Target="ActiveTracksRow.Height" Value="280" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -258,7 +255,7 @@
                         <AdaptiveTrigger MinWindowHeight="1000" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ActiveTracksRow.Height" Value="400" />
+                        <Setter Target="ActiveTracksRow.Height" Value="360" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -266,7 +263,7 @@
                         <AdaptiveTrigger MinWindowHeight="1200" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ActiveTracksRow.Height" Value="500" />
+                        <Setter Target="ActiveTracksRow.Height" Value="460" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

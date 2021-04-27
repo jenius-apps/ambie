@@ -63,21 +63,6 @@
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
 
-                        <Button
-                            x:Uid="RemoveActiveButton"
-                            Margin="0,0,0,8"
-                            Padding="2"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            Background="Transparent"
-                            Command="{x:Bind RemoveCommand}"
-                            CommandParameter="{x:Bind Sound}">
-                            <FontIcon
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                FontSize="12"
-                                Glyph="&#xE9F9;" />
-                        </Button>
-
                         <toolkit:DropShadowPanel Grid.Row="1" Style="{StaticResource SoundItemShadow}">
                             <Grid CornerRadius="8">
                                 <Image
@@ -86,16 +71,35 @@
                                     PointerPressed="RemoveOnMiddleClick"
                                     Source="{x:Bind ImagePath}"
                                     Stretch="UniformToFill" />
+                                <Grid
+                                    Margin="2"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Background="{StaticResource BackgroundAcrylicBrush}"
+                                    CornerRadius="8">
+                                    <Button
+                                        x:Uid="RemoveActiveButton"
+                                        Padding="2"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Background="Transparent"
+                                        Command="{x:Bind RemoveCommand}"
+                                        CommandParameter="{x:Bind Sound}">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
+                                    </Button>
+                                </Grid>
+                                <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
+                                    <TextBlock
+                                        Margin="12,0,0,4"
+                                        FontFamily="Calibri"
+                                        FontSize="20"
+                                        Foreground="White"
+                                        Text="{x:Bind Name}"
+                                        TextTrimming="CharacterEllipsis" />
+                                </Grid>
+
                             </Grid>
                         </toolkit:DropShadowPanel>
-
-                        <TextBlock
-                            Grid.Row="2"
-                            MaxWidth="88"
-                            Margin="0,8,0,0"
-                            HorizontalAlignment="Center"
-                            Text="{x:Bind Name}"
-                            TextTrimming="CharacterEllipsis" />
 
                         <Slider
                             x:Uid="VolumeSliderSound"
