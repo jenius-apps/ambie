@@ -37,7 +37,8 @@ namespace AmbientSounds.Views
         {
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);
-            App.AppFrame!.GoBack();
+            var navigator = App.Services.GetRequiredService<INavigator>();
+            navigator.GoBack();
         }
 
         private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp((UIElement)sender , 1.1f, e.Pointer);
