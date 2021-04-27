@@ -223,6 +223,7 @@
         </Grid>
 
         <controls:SoundGridControl
+            x:Name="SoundGallery"
             Grid.Row="2"
             ItemTemplate="{StaticResource MainPageSoundTemplate}"
             ShowCatalogueButton="True">
@@ -264,6 +265,24 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="ActiveTracksRow.Height" Value="460" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1000" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SoundGallery.ItemGridMaxWidth" Value="800" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SoundGallery.ItemGridMaxWidth" Value="1200" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
