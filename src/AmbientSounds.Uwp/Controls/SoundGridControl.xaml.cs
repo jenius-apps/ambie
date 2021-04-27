@@ -61,7 +61,7 @@ namespace AmbientSounds.Controls
             if (sender is ListViewBase l &&
                 e.ClickedItem is SoundViewModel vm &&
                 !vm.IsCurrentlyPlaying &&
-                App.AppFrame!.CurrentSourcePageType == typeof(Views.MainPage))
+                App.AppFrame!.CurrentSourcePageType == typeof(Views.ShellPage))
             {
                 if (!vm.IsMix)
                 {
