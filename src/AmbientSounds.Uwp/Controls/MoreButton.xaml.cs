@@ -50,7 +50,9 @@ namespace AmbientSounds.Controls
             {
                 { "trigger", "moreButton" }
             });
-            App.AppFrame!.Navigate(typeof(Views.ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+
+            var navigator = App.Services.GetRequiredService<INavigator>();
+            navigator.ToScreensaver();
             var view = ApplicationView.GetForCurrentView();
             if (!view.IsFullScreenMode && !App.IsTenFoot)
             {

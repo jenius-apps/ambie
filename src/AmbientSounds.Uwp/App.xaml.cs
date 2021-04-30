@@ -37,6 +37,7 @@ namespace AmbientSounds
         private BackgroundTaskDeferral? _appServiceDeferral;
         private static PlayerTelemetryTracker? _playerTracker;
         private IUserSettings? _userSettings;
+        private static Frame? AppFrame;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -66,8 +67,6 @@ namespace AmbientSounds
         }
 
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
-
-        public static Frame? AppFrame { get; private set; }
 
         /// <summary>
         /// Gets the <see cref="IServiceProvider"/> instance for the current application instance.
@@ -190,6 +189,7 @@ namespace AmbientSounds
             }
 
             AppFrame = rootFrame;
+            Services.GetRequiredService<INavigator>().RootFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
         }

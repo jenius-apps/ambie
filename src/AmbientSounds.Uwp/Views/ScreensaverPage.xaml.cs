@@ -17,13 +17,6 @@ namespace AmbientSounds.Views
         public ScreensaverPage()
         {
             this.InitializeComponent();
-            var coreWindow = CoreWindow.GetForCurrentThread();
-            coreWindow.KeyDown -= CataloguePage_KeyDown;
-            coreWindow.KeyDown += CataloguePage_KeyDown;
-
-            var navigator = SystemNavigationManager.GetForCurrentView();
-            navigator.BackRequested -= OnBackRequested;
-            navigator.BackRequested += OnBackRequested;
         }
 
         private bool ShowBackButton => !App.IsTenFoot;
@@ -43,6 +36,19 @@ namespace AmbientSounds.Views
                 { "name", "screensaver" },
                 { "darkscreensaver", useDarkScreensaver ? "true" : "false" }
             });
+
+            var coreWindow = CoreWindow.GetForCurrentThread();
+            coreWindow.KeyDown += CataloguePage_KeyDown;
+            var navigator = SystemNavigationManager.GetForCurrentView();
+            navigator.BackRequested += OnBackRequested;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            var coreWindow = CoreWindow.GetForCurrentThread();
+            coreWindow.KeyDown -= CataloguePage_KeyDown;
+            var navigator = SystemNavigationManager.GetForCurrentView();
+            navigator.BackRequested -= OnBackRequested;
         }
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
@@ -55,17 +61,16 @@ namespace AmbientSounds.Views
         {
             if (args.VirtualKey == VirtualKey.Escape)
             {
-                args.Handled = true;
                 GoBack();
+                args.Handled = true;
             }
         }
 
         private void GoBack()
         {
-            if (App.AppFrame!.CanGoBack)
-            {
-                App.AppFrame.GoBack();
-            }
+            var navigator = App.Services.GetRequiredService<INavigator>();
+            navigator.GoBack(nameof(ScreensaverPage));
+
             var view = ApplicationView.GetForCurrentView();
             if (view.IsFullScreenMode && !App.IsTenFoot)
             {

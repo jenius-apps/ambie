@@ -6,7 +6,12 @@
     public interface INavigator
     {
         /// <summary>
-        /// The frame that can navigate. This must be set before
+        /// The root frame of the app.
+        /// </summary>
+        object? RootFrame { get; set; }
+
+        /// <summary>
+        /// The inner frame that can navigate. This must be set before
         /// any method is called.
         /// </summary>
         object? Frame { get; set; }
@@ -34,6 +39,10 @@
         /// <summary>
         /// Attempts to navigate back.
         /// </summary>
-        void GoBack();
+        /// <param name="sourcePage">Optional. If provided,
+        /// then specific go back functionality may be applied.
+        /// For example, if ScreensaverPage is provided, the 
+        /// RootFrame is used for GoBack.</param>
+        void GoBack(string? sourcePage = null);
     }
 }

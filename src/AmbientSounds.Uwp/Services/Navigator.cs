@@ -13,13 +13,28 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class Navigator : INavigator
     {
+        public object? RootFrame { get; set; }
+
         /// <inheritdoc/>
         public object? Frame { get; set; }
 
         /// <inheritdoc/>
-        public void GoBack()
+        public void GoBack(string? sourcePage = null)
         {
-            if (Frame is Frame f && f.CanGoBack)
+            switch (sourcePage)
+            {
+                case nameof(ScreensaverPage):
+                    GoBackSafely(RootFrame);
+                    break;
+                default:
+                    GoBackSafely(Frame);
+                    break;
+            }
+        }
+
+        private void GoBackSafely(object? frame)
+        {
+            if (frame is Frame f && f.CanGoBack)
             {
                 f.GoBack();
             }
@@ -28,7 +43,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void ToScreensaver()
         {
-            if (Frame is Frame f)
+            if (RootFrame is Frame f)
             {
                 f.Navigate(typeof(ScreensaverPage), null, new DrillInNavigationTransitionInfo());
             }

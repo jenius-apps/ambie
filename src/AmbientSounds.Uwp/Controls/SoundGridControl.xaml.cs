@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Animations;
+using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
@@ -77,10 +78,17 @@ namespace AmbientSounds.Controls
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            var navigator = App.Services.GetRequiredService<INavigator>();
+
+            // The frame check in the if statement
+            // below is to prevent a crash in Compact
+            // mode when the user clicks a sound.
+
             if (sender is ListViewBase l &&
                 e.ClickedItem is SoundViewModel vm &&
                 !vm.IsCurrentlyPlaying &&
-                App.AppFrame!.CurrentSourcePageType == typeof(Views.ShellPage))
+                navigator.Frame is Frame f &&
+                f.CurrentSourcePageType == typeof(Views.MainPage))
             {
                 if (!vm.IsMix)
                 {

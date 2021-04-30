@@ -23,13 +23,6 @@ namespace AmbientSounds.Views
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<CataloguePageViewModel>();
 
-            var coreWindow = CoreWindow.GetForCurrentThread();
-            coreWindow.KeyDown -= CataloguePage_KeyDown;
-            coreWindow.KeyDown += CataloguePage_KeyDown;
-
-            var navigator = SystemNavigationManager.GetForCurrentView();
-            navigator.BackRequested -= OnBackRequested;
-            navigator.BackRequested += OnBackRequested;
         }
 
         public CataloguePageViewModel ViewModel => (CataloguePageViewModel)this.DataContext;
@@ -43,6 +36,12 @@ namespace AmbientSounds.Views
             });
 
             TryStartPageAnimations();
+
+            var coreWindow = CoreWindow.GetForCurrentThread();
+            coreWindow.KeyDown += CataloguePage_KeyDown;
+
+            var navigator = SystemNavigationManager.GetForCurrentView();
+            navigator.BackRequested += OnBackRequested;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -50,6 +49,12 @@ namespace AmbientSounds.Views
             ConnectedAnimationService
                 .GetForCurrentView()
                 .PrepareToAnimate(AnimationConstants.CatalogueBack, CatalogueIcon);
+
+            var coreWindow = CoreWindow.GetForCurrentThread();
+            coreWindow.KeyDown -= CataloguePage_KeyDown;
+
+            var navigator = SystemNavigationManager.GetForCurrentView();
+            navigator.BackRequested -= OnBackRequested;
         }
 
         private void TryStartPageAnimations()
@@ -72,7 +77,7 @@ namespace AmbientSounds.Views
 
         private void CataloguePage_KeyDown(CoreWindow sender, KeyEventArgs args)
         {
-            if (args.VirtualKey == VirtualKey.Escape && App.AppFrame!.CanGoBack)
+            if (args.VirtualKey == VirtualKey.Escape)
             {
                 ViewModel.GoBack();
                 args.Handled = true;
