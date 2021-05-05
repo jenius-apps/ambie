@@ -8,19 +8,26 @@ Ambie is a white noise app for Xbox and Windows that is simple and elegant.
 ## Features
 
 - List of pre-installed sounds such as beach, coffee shop, and rain
+- Includes a growing catalogue of sounds to download
 - Sleep timer to pause playback after a certain time
-- Sound catalogue to download new sounds
+- Personalize your space with custom backgrounds
 - Screensaver that is triggered after some time of no movement
-- Use `Compact Mode` to display a mini Ambie window.
+- Use `Compact Mode` to display a mini Ambie window
 
-## Gallery
+## Home
 ![](img/gallery.png)
+
+## Personalize
+![](img/personalize.png)
 
 ## Catalogue
 ![](img/catalogue.png)
 
 ## Screensaver
 ![](img/screensaver.png)
+
+## Compatibility
+![](img/compatibility.png)
 
 ---
 
