@@ -43,7 +43,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void ToScreensaver()
         {
-            if (RootFrame is Frame f)
+            if (RootFrame is Frame f && f.CurrentSourcePageType != typeof(ScreensaverPage))
             {
                 f.Navigate(typeof(ScreensaverPage), null, new DrillInNavigationTransitionInfo());
             }

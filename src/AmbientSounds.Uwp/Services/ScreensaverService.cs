@@ -77,6 +77,7 @@ namespace AmbientSounds.Services.Uwp
 
         private void ScreensaverTriggered(object sender, object e)
         {
+            // Don't navigate if a dialog is open. UX is jarring.
             if (DialogService.IsDialogOpen)
             {
                 return;
@@ -87,6 +88,10 @@ namespace AmbientSounds.Services.Uwp
                 { "trigger", "timer" }
             });
             _navigator.ToScreensaver();
+
+            // Once we navigate to the screensaver,
+            // stop timer to avoid navigating to the screensaver again.
+            StopTimer();
         }
     }
 }
