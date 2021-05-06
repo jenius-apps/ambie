@@ -21,6 +21,7 @@ using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation.Collections;
 using Windows.ApplicationModel;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 #nullable enable
 
@@ -98,8 +99,21 @@ namespace AmbientSounds
 
             if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
             {
-                new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
-                await ActivateAsync(false);
+                // Expected toast argument format: key1=value1;key2=value2
+                ToastArguments toastArgs = ToastArguments.Parse(toastActivationArgs.Argument);
+
+                if (toastArgs.Contains("action") && 
+                    toastArgs["action"] == "play" && 
+                    toastArgs.Contains("soundId"))
+                {
+                    await ActivateAsync(false, new AppSettings { LoadPreviousState = false });
+                    var processor = App.Services.GetRequiredService<ILinkProcessor>();
+                    processor.Process(toastArgs["soundId"]);
+                }
+                else
+                {
+                    await ActivateAsync(false);
+                }
             }
             else if (args.Kind == ActivationKind.Protocol && args is ProtocolActivatedEventArgs e)
             {

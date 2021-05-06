@@ -32,6 +32,22 @@ namespace AmbientSounds.Services
             _dialogService = dialogService;
         }
 
+        public async void Process(string soundId)
+        {
+            if (string.IsNullOrWhiteSpace(soundId))
+            {
+                return;
+            }
+
+            Sound tempSoundMix = new()
+            {
+                SoundIds = new[] { soundId },
+                IsMix = true
+            };
+
+            await _soundMixService.LoadMixAsync(tempSoundMix);
+        }
+
         /// <inheritdoc/>
         public async void Process(Uri uri)
         {

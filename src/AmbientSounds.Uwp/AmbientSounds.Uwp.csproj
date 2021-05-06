@@ -464,6 +464,9 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp.Connectivity">
       <Version>7.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>7.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
       <Version>7.0.1</Version>
     </PackageReference>

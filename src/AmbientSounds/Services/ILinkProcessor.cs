@@ -13,5 +13,7 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="uri"></param>
         void Process(Uri uri);
+
+        void Process(string soundId);
     }
 }
