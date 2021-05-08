@@ -4,6 +4,7 @@ using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.ComponentModel;
 using Windows.Foundation.Metadata;
@@ -118,6 +119,16 @@ namespace AmbientSounds.Views
                 await tbmgr.RequestPinCurrentAppAsync();
                 App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.PinnedToTaskbar);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new ToastContentBuilder()   
+                .AddButton("Play", ToastActivationType.Foreground, "action=play;soundId=9947a323-8223-4593-8a82-04d9edfd4d4a")
+                .AddButton("Dismiss", ToastActivationType.Background, "Dismiss")
+                .AddText("Andrew sent you a picture")
+                .AddText("Check this out, The Enchantments in Washington!")
+                .Show(); 
         }
     }
 }
