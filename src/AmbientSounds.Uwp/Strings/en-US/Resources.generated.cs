@@ -807,6 +807,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Preview
+        /// <summary>
+        ///   Looks up a localized string similar to: Preview
+        /// </summary>
+        public static string Preview
+        {
+            get
+            {
+                return _resourceLoader.GetString("Preview");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -879,6 +892,7 @@ namespace AmbientSounds.Strings{
             HelloAndWelcome,
             PinToTaskbar,
             Transparency,
+            Preview,
         }
 
         private static ResourceLoader _resourceLoader;
@@ -900,7 +914,7 @@ namespace AmbientSounds.Strings{
             {
                 res = _resourceLoader.GetString(Key.ToString());
             }
-            return Converter is null ? res : Converter.Convert(res, typeof(String), ConverterParameter, null);
+            return Converter == null ? res : Converter.Convert(res, typeof(String), ConverterParameter, null);
         }
     }
 } //AmbientSounds.Strings

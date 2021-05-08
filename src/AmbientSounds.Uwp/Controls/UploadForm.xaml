@@ -131,7 +131,7 @@
 
                 <TextBlock
                     Margin="0,24,0,0"
-                    Text="Preview"
+                    Text="{x:Bind strings:Resources.Preview}"
                     Visibility="{x:Bind ViewModel.PreviewVisible, Mode=OneWay}" />
                 <Grid Margin="0,4,0,0" Visibility="{x:Bind ViewModel.PreviewVisible, Mode=OneWay}">
                     <Grid.ColumnDefinitions>

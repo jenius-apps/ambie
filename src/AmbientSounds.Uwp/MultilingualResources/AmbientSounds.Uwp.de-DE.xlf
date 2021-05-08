@@ -634,6 +634,10 @@
           <source>Transparency</source>
           <target state="translated">Transparenz</target>
         </trans-unit>
+        <trans-unit id="Preview" translate="yes" xml:space="preserve">
+          <source>Preview</source>
+          <target state="new">Preview</target>
+        </trans-unit>
       </group>
     </body>
   </file>
