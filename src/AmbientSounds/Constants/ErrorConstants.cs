@@ -8,7 +8,7 @@
     {
         // Threshold values
         public const double SizeLimit = 25;
-        public const double UploadLimit = 3;
+        public const double UploadLimit = double.MaxValue;
 
         // IDs
         public const string BigFileId = "big_file";

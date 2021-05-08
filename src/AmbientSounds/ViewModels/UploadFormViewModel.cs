@@ -28,7 +28,6 @@ namespace AmbientSounds.ViewModels
         private string _donateUrl = "";
         private bool _uploading;
         private bool _rule1;
-        private bool _rule2;
         private bool _fileTooBig;
         private bool _uploadLimitReached;
 
@@ -84,6 +83,7 @@ namespace AmbientSounds.ViewModels
             {
                 SetProperty(ref _name, value);
                 OnPropertyChanged(nameof(IsUploadButtonEnabled));
+                OnPropertyChanged(nameof(PreviewVisible));
             }
         }
 
@@ -94,6 +94,7 @@ namespace AmbientSounds.ViewModels
             {
                 SetProperty(ref _attribution, value);
                 OnPropertyChanged(nameof(IsUploadButtonEnabled));
+                OnPropertyChanged(nameof(PreviewVisible));
             }
         }
 
@@ -104,6 +105,7 @@ namespace AmbientSounds.ViewModels
             {
                 SetProperty(ref _imageUrl, value);
                 OnPropertyChanged(nameof(IsUploadButtonEnabled));
+                OnPropertyChanged(nameof(PreviewVisible));
             }
         }
 
@@ -143,17 +145,12 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        public bool Rule2
-        {
-            get => _rule2;
-            set
-            {
-                SetProperty(ref _rule2, value);
-                OnPropertyChanged(nameof(IsUploadButtonEnabled));
-            }
-        }
+        public bool PreviewVisible => 
+            !string.IsNullOrWhiteSpace(ImageUrl) ||
+            !string.IsNullOrWhiteSpace(Attribution) ||
+            !string.IsNullOrWhiteSpace(Name);
 
-        public bool IsUploadButtonEnabled => !Uploading && CanUpload() && Rule1 && Rule2;
+        public bool IsUploadButtonEnabled => !Uploading && CanUpload() && Rule1;
 
         public void TermsClicked()
         {

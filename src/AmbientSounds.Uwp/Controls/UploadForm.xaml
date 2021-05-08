@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Controls.UploadForm"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:convert="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
@@ -68,11 +69,11 @@
                     PlaceholderText="{x:Bind strings:Resources.Required}"
                     Text="{x:Bind ViewModel.ImageUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                <TextBox
+                <!--<TextBox
                     Margin="0,12,0,0"
                     Header="{x:Bind strings:Resources.DonateUrl}"
                     PlaceholderText="{x:Bind strings:Resources.Optional}"
-                    Text="{x:Bind ViewModel.DonateUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{x:Bind ViewModel.DonateUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
 
 
                 <Grid Margin="0,12,0,0">
@@ -98,12 +99,7 @@
                     </Button>
                 </Grid>
 
-                <CheckBox
-                    Margin="0,24,0,0"
-                    Content="{x:Bind strings:Resources.UploadPermissionsMessage}"
-                    IsChecked="{x:Bind ViewModel.Rule1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                <CheckBox Margin="0,12,0,0" IsChecked="{x:Bind ViewModel.Rule2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <CheckBox Margin="0,12,0,0" IsChecked="{x:Bind ViewModel.Rule1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <TextBlock TextWrapping="WrapWholeWords">
                         <Hyperlink Click="{x:Bind ViewModel.TermsClicked}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md">
                             <Run Text="{x:Bind strings:Resources.UploadTermsMessage}" />
@@ -113,7 +109,7 @@
 
                 <Button
                     Height="36"
-                    Margin="0,24,0,0"
+                    Margin="0,12,0,0"
                     HorizontalAlignment="Stretch"
                     Command="{x:Bind ViewModel.SubmitCommand}"
                     IsEnabled="{x:Bind ViewModel.IsUploadButtonEnabled, Mode=OneWay}">
@@ -132,6 +128,34 @@
                             Visibility="{x:Bind ViewModel.Uploading, Mode=OneWay}" />
                     </Grid>
                 </Button>
+
+                <TextBlock
+                    Margin="0,24,0,0"
+                    Text="Preview"
+                    Visibility="{x:Bind ViewModel.PreviewVisible, Mode=OneWay}" />
+                <Grid Margin="0,4,0,0" Visibility="{x:Bind ViewModel.PreviewVisible, Mode=OneWay}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid
+                        Width="80"
+                        VerticalAlignment="Stretch"
+                        CornerRadius="8">
+                        <controls:ImageEx Source="{x:Bind ViewModel.ImageUrl, Mode=OneWay}" Stretch="UniformToFill" />
+                    </Grid>
+                    <StackPanel Grid.Column="1" Margin="4,0,0,0">
+                        <TextBlock
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Text="{x:Bind ViewModel.Name, Mode=OneWay}"
+                            TextTrimming="CharacterEllipsis" />
+                        <TextBlock
+                            IsTextSelectionEnabled="True"
+                            Text="{x:Bind ViewModel.Attribution, Mode=OneWay}"
+                            TextTrimming="CharacterEllipsis" />
+                    </StackPanel>
+                </Grid>
 
                 <winui:ItemsRepeater
                     Margin="0,12,0,0"
