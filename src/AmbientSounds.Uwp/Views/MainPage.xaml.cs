@@ -72,7 +72,7 @@ namespace AmbientSounds.Views
 
             if (animation is not null)
             {
-                animation.TryStart(CatalogueButton);
+                animation.TryStart(HomeBackplate);
             }
         }
 
@@ -118,6 +118,16 @@ namespace AmbientSounds.Views
                 await tbmgr.RequestPinCurrentAppAsync();
                 App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.PinnedToTaskbar);
             }
+        }
+
+        private void GoToCatalogue(object sender, RoutedEventArgs e)
+        {
+            var animation = ConnectedAnimationService
+                .GetForCurrentView()
+                .PrepareToAnimate(AnimationConstants.CatalogueForward, HomeBackplate);
+            animation.Configuration = new DirectConnectedAnimationConfiguration();
+
+            ViewModel.ToCatalogue();
         }
     }
 }

@@ -820,6 +820,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Catalogue
+        /// <summary>
+        ///   Looks up a localized string similar to: Catalogue
+        /// </summary>
+        public static string Catalogue
+        {
+            get
+            {
+                return _resourceLoader.GetString("Catalogue");
+            }
+        }
+        #endregion
+
+        #region Home
+        /// <summary>
+        ///   Looks up a localized string similar to: Home
+        /// </summary>
+        public static string Home
+        {
+            get
+            {
+                return _resourceLoader.GetString("Home");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -893,6 +919,8 @@ namespace AmbientSounds.Strings{
             PinToTaskbar,
             Transparency,
             Preview,
+            Catalogue,
+            Home,
         }
 
         private static ResourceLoader _resourceLoader;

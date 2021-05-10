@@ -9,17 +9,21 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IScreensaverService _screensaverService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
+        private readonly INavigator _navigator;
         private bool _maxTeachingTipOpen;
 
         public MainPageViewModel(
             IScreensaverService screensaverService,
-            IMixMediaPlayerService mediaPlayerService)
+            IMixMediaPlayerService mediaPlayerService,
+            INavigator navigator)
         {
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+            Guard.IsNotNull(navigator, nameof(navigator));
 
             _screensaverService = screensaverService;
             _mediaPlayerService = mediaPlayerService;
+            _navigator = navigator;
 
             _mediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
             _mediaPlayerService.MaxReached += OnMaxReached;
@@ -57,6 +61,8 @@ namespace AmbientSounds.ViewModels
         {
             _screensaverService.StartTimer();
         }
+
+        public void ToCatalogue() => _navigator.ToCatalogue();
 
         /// <summary>
         /// Stops the screensaver timer.

@@ -15,7 +15,7 @@
         x:Uid="LogoButton"
         Width="40"
         Height="40"
-        extensions:VisualExtensions.CenterPoint="20,20,0"
+        extensions:VisualExtensions.NormalizedCenterPoint="0.5"
         Background="Transparent"
         CornerRadius="20"
         PointerEntered="ScaleUp"

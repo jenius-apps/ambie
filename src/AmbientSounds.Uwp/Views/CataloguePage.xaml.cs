@@ -6,9 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -46,9 +44,10 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            ConnectedAnimationService
+            var animation = ConnectedAnimationService
                 .GetForCurrentView()
-                .PrepareToAnimate(AnimationConstants.CatalogueBack, CatalogueIcon);
+                .PrepareToAnimate(AnimationConstants.CatalogueBack, CatalogueBackplate);
+            animation.Configuration = new DirectConnectedAnimationConfiguration();
 
             var coreWindow = CoreWindow.GetForCurrentThread();
             coreWindow.KeyDown -= CataloguePage_KeyDown;
@@ -65,7 +64,7 @@ namespace AmbientSounds.Views
 
             if (animation is not null)
             {
-                animation.TryStart(CatalogueIcon, new UIElement[] { CatalogueTitle });
+                animation.TryStart(CatalogueBackplate);
             }
         }
 

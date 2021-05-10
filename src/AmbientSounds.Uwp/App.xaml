@@ -14,6 +14,7 @@
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
+                    <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FF1F1F1F" />
                     <AcrylicBrush
                         x:Key="BackgroundImageAcrylicOverlayBrush"
                         Windows10version1903:TintLuminosityOpacity="0.5"
@@ -23,6 +24,7 @@
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
+                    <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FFE6E6E6" />
                     <AcrylicBrush
                         x:Key="BackgroundImageAcrylicOverlayBrush"
                         Windows10version1903:TintLuminosityOpacity="0.5"
@@ -33,6 +35,7 @@
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemColorWindowColor}" />
+                    <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="BackgroundImageAcrylicOverlayBrush" Color="{ThemeResource SystemColorWindowColor}" />
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>

@@ -11,6 +11,7 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
     PointerMoved="{x:Bind ViewModel.ResetTime}"
@@ -156,31 +157,63 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Margin="40,32,40,0" VerticalAlignment="Center">
-            <StackPanel
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Orientation="Horizontal">
-                <controls:LogoControl />
-                <TextBlock
-                    Margin="8,0,0,0"
-                    FontFamily="Calibri"
-                    FontSize="32"
-                    Text="Ambie" />
-                <controls:ViewCatalogueButton
-                    x:Name="CatalogueButton"
-                    Margin="8,0,0,0"
-                    IconOnly="True" />
-                <controls:SleepTimerControl Margin="4,0,0,0" />
-                <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
-                <controls:MoreButton Margin="4,0,0,0" />
-            </StackPanel>
+        <Grid Margin="20,32,40,0" VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Left">
+                <Rectangle
+                    Height="40"
+                    HorizontalAlignment="Stretch"
+                    Fill="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
+                    RadiusX="20"
+                    RadiusY="20" />
+                <StackPanel Orientation="Horizontal">
+                    <Grid
+                        x:Name="HomeBackplate"
+                        Height="48"
+                        Padding="20,0"
+                        Background="{ThemeResource FallbackBackgroundOppositeBrush}"
+                        CornerRadius="24">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                            Text="{x:Bind strings:Resources.Home}" />
+                    </Grid>
+                    <Button
+                        Height="40"
+                        Margin="4,0,0,0"
+                        Padding="12,0"
+                        Background="Transparent"
+                        Click="{x:Bind GoToCatalogue}"
+                        Content="{x:Bind strings:Resources.Catalogue}"
+                        CornerRadius="20" />
+                </StackPanel>
+            </Grid>
 
             <StackPanel
                 HorizontalAlignment="Right"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Orientation="Horizontal">
-                <controls:AccountControl x:Name="AccountButton" x:Load="{x:Bind IsNotTenFoot}" />
+                <controls:SleepTimerControl />
+                <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
+                <controls:MoreButton Margin="4,0,0,0" />
+                <controls:AccountControl
+                    x:Name="AccountButton"
+                    Margin="4,0,0,0"
+                    x:Load="{x:Bind IsNotTenFoot}" />
+
+                <animations:Implicit.ShowAnimations>
+                    <animations:ScaleAnimation
+                        Delay="0:0:0.1"
+                        From="0.90"
+                        To="1"
+                        Duration="0:0:0.5" />
+                    <animations:OpacityAnimation
+                        Delay="0:0:0.1"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                </animations:Implicit.ShowAnimations>
             </StackPanel>
         </Grid>
 

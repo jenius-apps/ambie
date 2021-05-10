@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
@@ -17,35 +18,40 @@
 
         <Grid
             x:Name="HeaderGrid"
-            Margin="40,32,40,0"
+            Margin="20,32,40,0"
             Canvas.ZIndex="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
 
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                <Button
-                    x:Uid="BackButton"
-                    Click="{x:Bind ViewModel.GoBack}"
-                    Style="{StaticResource TransparentRoundButtonStyle}">
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
-                </Button>
-                <FontIcon
-                    x:Name="CatalogueIcon"
-                    Margin="12,0,0,0"
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    Glyph="&#xEAD4;" />
-                <TextBlock
-                    x:Name="CatalogueTitle"
-                    x:Uid="SoundCatalogue"
-                    Margin="12,0,0,0"
-                    VerticalAlignment="Center"
-                    AutomationProperties.LandmarkType="Main"
-                    FontFamily="Calibri"
-                    FontSize="32" />
-            </StackPanel>
+            <Grid HorizontalAlignment="Left">
+                <Rectangle
+                    Height="40"
+                    HorizontalAlignment="Stretch"
+                    Fill="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}"
+                    RadiusX="20"
+                    RadiusY="20" />
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Height="40"
+                        Padding="12,0"
+                        Background="Transparent"
+                        Click="{x:Bind ViewModel.GoBack}"
+                        Content="{x:Bind strings:Resources.Home}"
+                        CornerRadius="20" />
+                    <Grid
+                        x:Name="CatalogueBackplate"
+                        Height="48"
+                        Margin="4,0,0,0"
+                        Padding="20,0"
+                        Background="{ThemeResource FallbackBackgroundOppositeBrush}"
+                        CornerRadius="24">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                            Text="{x:Bind strings:Resources.Catalogue}" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
         </Grid>
         <controls:CatalogueListControl Grid.Row="1" />
     </Grid>
