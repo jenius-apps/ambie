@@ -195,4 +195,10 @@
   <data name="Soundbeach" xml:space="preserve">
     <value>Beach</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catàleg</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Inicial</value>
+  </data>
 </root>

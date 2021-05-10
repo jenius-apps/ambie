@@ -378,4 +378,10 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sincronización</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catálogo</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Hogar</value>
+  </data>
 </root>

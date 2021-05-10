@@ -268,4 +268,10 @@
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">
     <value>어두운 페이지를 화면 보호기로 사용</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>카탈로그</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>집</value>
+  </data>
 </root>

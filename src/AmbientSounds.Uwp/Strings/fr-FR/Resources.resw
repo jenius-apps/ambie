@@ -238,4 +238,10 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Lire un son aléatoire</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catalogue</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>D'accueil</value>
+  </data>
 </root>

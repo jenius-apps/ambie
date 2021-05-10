@@ -247,4 +247,10 @@
   <data name="Soundbeach" xml:space="preserve">
     <value>Stranden</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Katalog</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Hjem</value>
+  </data>
 </root>

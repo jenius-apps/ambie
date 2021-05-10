@@ -235,4 +235,10 @@
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Gizlilik Politikası</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Katalog</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Ev</value>
+  </data>
 </root>

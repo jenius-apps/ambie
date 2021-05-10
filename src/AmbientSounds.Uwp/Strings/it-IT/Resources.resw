@@ -268,4 +268,10 @@
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">
     <value>Usa una pagina scura come salvaschermo</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catalogo</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Casa</value>
+  </data>
 </root>

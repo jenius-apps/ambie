@@ -481,4 +481,10 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>固定到任务栏</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>目录</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>家</value>
+  </data>
 </root>

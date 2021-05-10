@@ -478,4 +478,10 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Rögzítés a tálcára</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Katalógus</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Honlap</value>
+  </data>
 </root>

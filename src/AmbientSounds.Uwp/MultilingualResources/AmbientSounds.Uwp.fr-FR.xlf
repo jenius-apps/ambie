@@ -647,11 +647,11 @@
         </trans-unit>
         <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
           <source>Catalogue</source>
-          <target state="new">Catalogue</target>
+          <target state="translated">Catalogue</target>
         </trans-unit>
         <trans-unit id="Home" translate="yes" xml:space="preserve">
           <source>Home</source>
-          <target state="new">Home</target>
+          <target state="translated">D'accueil</target>
         </trans-unit>
       </group>
     </body>

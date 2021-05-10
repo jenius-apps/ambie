@@ -195,4 +195,10 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Vento</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catálogo</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Casa</value>
+  </data>
 </root>

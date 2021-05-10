@@ -481,4 +481,10 @@
   <data name="Transparency" xml:space="preserve">
     <value>Transparenz</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Katalog</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Startseite</value>
+  </data>
 </root>

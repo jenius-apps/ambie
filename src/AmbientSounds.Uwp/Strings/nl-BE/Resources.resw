@@ -250,4 +250,10 @@
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">
     <value>Gebruik een donkere pagina als screensaver</value>
   </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Catalogus</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Thuis</value>
+  </data>
 </root>
