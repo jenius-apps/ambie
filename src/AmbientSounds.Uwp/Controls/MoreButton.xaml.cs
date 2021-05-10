@@ -52,12 +52,12 @@ namespace AmbientSounds.Controls
             });
 
             var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.ToScreensaver();
             var view = ApplicationView.GetForCurrentView();
             if (!view.IsFullScreenMode && !App.IsTenFoot)
             {
                 view.TryEnterFullScreenMode();
             }
+            navigator.ToScreensaver();
         }
 
         private async void RateUsClicked(object sender, RoutedEventArgs e)
