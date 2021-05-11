@@ -21,6 +21,12 @@
                         FallbackColor="Transparent"
                         TintColor="White"
                         TintOpacity="0.1" />
+                    <AcrylicBrush
+                        x:Key="AcrylicBackplateBrush"
+                        Windows10version1903:TintLuminosityOpacity="0.5"
+                        FallbackColor="White"
+                        TintColor="Gray"
+                        TintOpacity="0.1" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
@@ -31,12 +37,19 @@
                         FallbackColor="Transparent"
                         TintColor="#1e1e1e"
                         TintOpacity="0.1" />
+                    <AcrylicBrush
+                        x:Key="AcrylicBackplateBrush"
+                        Windows10version1903:TintLuminosityOpacity="0.5"
+                        FallbackColor="White"
+                        TintColor="Gray"
+                        TintOpacity="0.1" />
 
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="BackgroundImageAcrylicOverlayBrush" Color="{ThemeResource SystemColorWindowColor}" />
+                    <SolidColorBrush x:Key="AcrylicBackplateBrush" Color="{ThemeResource SystemColorWindowColor}" />
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
