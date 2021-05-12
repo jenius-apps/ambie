@@ -69,13 +69,6 @@ namespace AmbientSounds.Views
         private void GoBack()
         {
             var navigator = App.Services.GetRequiredService<INavigator>();
-
-            var view = ApplicationView.GetForCurrentView();
-            if (view.IsFullScreenMode && !App.IsTenFoot)
-            {
-                view.ExitFullScreenMode();
-            }
-
             navigator.GoBack(nameof(ScreensaverPage));
         }
     }
