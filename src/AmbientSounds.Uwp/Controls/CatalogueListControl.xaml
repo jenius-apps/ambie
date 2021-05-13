@@ -47,12 +47,6 @@
                     <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
                     <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
                 </GridViewItem.Resources>
-                <ToolTipService.ToolTip>
-                    <Grid MaxWidth="300">
-                        <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
-                    </Grid>
-                </ToolTipService.ToolTip>
-
 
                 <toolkit:DropShadowPanel x:Name="RootGrid" Style="{StaticResource SoundItemShadow}">
                     <Grid
@@ -92,7 +86,13 @@
                                 MaxLines="2"
                                 Text="{x:Bind Name, Mode=OneWay}"
                                 TextTrimming="CharacterEllipsis"
-                                TextWrapping="Wrap" />
+                                TextWrapping="Wrap">
+                                <ToolTipService.ToolTip>
+                                    <Grid MaxWidth="300">
+                                        <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
+                                    </Grid>
+                                </ToolTipService.ToolTip>
+                            </TextBlock>
                         </Grid>
 
                         <Grid
@@ -215,12 +215,16 @@
                 Margin="12,12,4,24"
                 HorizontalAlignment="Center"
                 ani:ItemsReorderAnimation.Duration="0:0:0.3"
-                ItemContainerStyle="{StaticResource GridViewItemExpanded}"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
                 ScrollViewer.HorizontalScrollMode="Disabled"
                 ScrollViewer.VerticalScrollMode="Disabled"
                 SelectionMode="None">
+                <GridView.ItemContainerStyle>
+                    <Style BasedOn="{StaticResource GridViewItemExpanded}" TargetType="GridViewItem">
+                        <Setter Property="IsFocusEngagementEnabled" Value="True" />
+                    </Style>
+                </GridView.ItemContainerStyle>
                 <GridView.ItemContainerTransitions>
                     <TransitionCollection>
                         <EntranceThemeTransition IsStaggeringEnabled="True" />
