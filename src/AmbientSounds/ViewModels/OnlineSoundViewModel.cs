@@ -63,7 +63,9 @@ namespace AmbientSounds.ViewModels
             {
                 IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id);
                 DownloadProgressValue = 0;
-                IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
+
+                // Note: a non-premium sound is treated as "owned"
+                IsOwned = _sound.IsPremium ? await _iapService.IsOwnedAsync(_sound.IapId) : true;
             }
         }
 
@@ -137,8 +139,14 @@ namespace AmbientSounds.ViewModels
             { 
                 SetProperty(ref _isOwned, value);
                 OnPropertyChanged(nameof(CanBuy));
+                OnPropertyChanged(nameof(DownloadButtonVisible));
             }
         }
+
+        /// <summary>
+        /// Determines if the download button is visible.
+        /// </summary>
+        public bool DownloadButtonVisible => IsOwned && !DownloadProgressVisible;
 
         /// <summary>
         /// Price of the item if it is premium.
@@ -164,6 +172,7 @@ namespace AmbientSounds.ViewModels
             {
                 SetProperty(ref _progressValue, value);
                 OnPropertyChanged(nameof(DownloadProgressVisible));
+                OnPropertyChanged(nameof(DownloadButtonVisible));
             }
         }
 

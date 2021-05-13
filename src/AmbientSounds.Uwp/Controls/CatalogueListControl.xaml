@@ -102,10 +102,10 @@
                             VerticalAlignment="Bottom">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <StackPanel
                                 x:Name="DownloadPanel"
+                                Height="36"
                                 x:Load="{x:Bind NotInstalled, Mode=OneWay}"
                                 Orientation="Horizontal">
 
@@ -140,7 +140,7 @@
                                     x:Uid="DownloadSoundButton"
                                     Command="{x:Bind DownloadCommand}"
                                     Style="{StaticResource ActionButtonStyle}"
-                                    Visibility="{x:Bind IsOwned, Mode=OneWay}">
+                                    Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                     <StackPanel Orientation="Horizontal">
                                         <FontIcon
                                             VerticalAlignment="Center"
@@ -155,9 +155,9 @@
                                     x:Name="DownloadProgressRing"
                                     Width="20"
                                     Height="20"
-                                    Margin="8,0,0,0"
                                     VerticalAlignment="Center"
-                                    x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}" />
+                                    x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                    Foreground="White" />
                             </StackPanel>
 
                             <StackPanel
