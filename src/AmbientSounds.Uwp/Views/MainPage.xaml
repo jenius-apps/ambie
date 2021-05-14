@@ -157,7 +157,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Margin="20,32,40,0" VerticalAlignment="Center">
+        <Grid Margin="40,32,40,0" VerticalAlignment="Center">
             <Grid HorizontalAlignment="Left">
                 <Rectangle
                     Height="40"

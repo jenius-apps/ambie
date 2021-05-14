@@ -18,7 +18,7 @@
 
         <Grid
             x:Name="HeaderGrid"
-            Margin="20,32,40,0"
+            Margin="40,32,40,0"
             Canvas.ZIndex="1">
 
             <Grid HorizontalAlignment="Left">

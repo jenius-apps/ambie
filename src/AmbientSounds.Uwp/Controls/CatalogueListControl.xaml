@@ -212,7 +212,7 @@
     <Grid>
         <ScrollViewer>
             <GridView
-                Margin="12,12,4,24"
+                Margin="32,12,32,24"
                 HorizontalAlignment="Center"
                 ani:ItemsReorderAnimation.Duration="0:0:0.3"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
