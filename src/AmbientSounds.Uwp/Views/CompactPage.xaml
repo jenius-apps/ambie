@@ -55,7 +55,6 @@
                     <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
                         <TextBlock
                             Margin="8,0,0,2"
-                            FontFamily="Calibri"
                             FontSize="16"
                             Foreground="White"
                             Text="{x:Bind Name}"

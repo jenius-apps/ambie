@@ -111,8 +111,7 @@
                         <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
                             <TextBlock
                                 Margin="12,0,0,4"
-                                FontFamily="Calibri"
-                                FontSize="20"
+                                FontSize="16"
                                 Foreground="White"
                                 Text="{x:Bind Name, Mode=OneWay}"
                                 TextTrimming="CharacterEllipsis" />
