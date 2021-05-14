@@ -24,7 +24,7 @@
                     <AcrylicBrush
                         x:Key="AcrylicBackplateBrush"
                         Windows10version1903:TintLuminosityOpacity="0.5"
-                        FallbackColor="White"
+                        FallbackColor="Gray"
                         TintColor="Gray"
                         TintOpacity="0.1" />
                 </ResourceDictionary>
@@ -40,7 +40,7 @@
                     <AcrylicBrush
                         x:Key="AcrylicBackplateBrush"
                         Windows10version1903:TintLuminosityOpacity="0.5"
-                        FallbackColor="White"
+                        FallbackColor="Gray"
                         TintColor="Gray"
                         TintOpacity="0.1" />
 
