@@ -340,6 +340,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region GlobalVolume
+        /// <summary>
+        ///   Looks up a localized string similar to: Global volume
+        /// </summary>
+        public static string GlobalVolume
+        {
+            get
+            {
+                return _resourceLoader.GetString("GlobalVolume");
+            }
+        }
+        #endregion
+
         #region CancelText
         /// <summary>
         ///   Looks up a localized string similar to: Cancel
@@ -882,6 +895,7 @@ namespace AmbientSounds.Strings{
             CanDownload,
             Paused,
             Playing,
+            GlobalVolume,
             CancelText,
             RenameText,
             MissingSoundsTitle,

@@ -405,7 +405,7 @@
           <source>Confirm save</source>
           <target state="new">Confirm save</target>
         </trans-unit>
-        <trans-unit id="GlobalVolume.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
           <source>Global volume</source>
           <target state="new">Global volume</target>
         </trans-unit>

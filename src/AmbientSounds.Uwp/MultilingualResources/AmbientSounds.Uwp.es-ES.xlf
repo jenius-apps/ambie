@@ -406,7 +406,7 @@
           <source>Confirm save</source>
           <target state="translated">Confirmar guardado</target>
         </trans-unit>
-        <trans-unit id="GlobalVolume.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
           <source>Global volume</source>
           <target state="translated">Volumen general</target>
         </trans-unit>

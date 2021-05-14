@@ -309,7 +309,7 @@
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
     <value>Mentés megerősítése</value>
   </data>
-  <data name="GlobalVolume.Text" xml:space="preserve">
+  <data name="GlobalVolume" xml:space="preserve">
     <value>Fő hangerő</value>
   </data>
   <data name="LimitReachedMessage.Text" xml:space="preserve">

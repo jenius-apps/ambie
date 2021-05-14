@@ -417,7 +417,7 @@
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
     <value>Confirm save</value>
   </data>
-  <data name="GlobalVolume.Text" xml:space="preserve">
+  <data name="GlobalVolume" xml:space="preserve">
     <value>Global volume</value>
   </data>
   <data name="LimitReachedMessage.Text" xml:space="preserve">

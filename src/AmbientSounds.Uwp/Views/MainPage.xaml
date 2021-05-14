@@ -181,6 +181,7 @@
                         Height="40"
                         Margin="4,0,0,0"
                         Padding="12,0"
+                        AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
                         Background="Transparent"
                         Click="{x:Bind GoToCatalogue}"
                         Content="{x:Bind strings:Resources.Catalogue}"

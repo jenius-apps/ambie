@@ -404,7 +404,7 @@
           <source>Confirm save</source>
           <target state="translated">确认保存</target>
         </trans-unit>
-        <trans-unit id="GlobalVolume.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
           <source>Global volume</source>
           <target state="translated">全局音量</target>
         </trans-unit>
