@@ -62,25 +62,20 @@
                         </Grid.Background>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Rectangle Grid.RowSpan="2">
+                        <Rectangle Grid.RowSpan="3">
                             <Rectangle.Fill>
                                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Offset="0" Color="#e0000000" />
-                                    <GradientStop Offset="1" Color="#60000000" />
+                                    <GradientStop Offset="0" Color="#00000000" />
+                                    <GradientStop Offset="1" Color="#e0000000" />
                                 </LinearGradientBrush>
                             </Rectangle.Fill>
                         </Rectangle>
 
-                        <Grid Grid.Row="0" Padding="12">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
+                        <Grid Grid.Row="1" Margin="12,0">
                             <TextBlock
-                                Grid.Row="0"
-                                FontSize="16"
                                 FontWeight="SemiBold"
                                 Foreground="White"
                                 MaxLines="2"
@@ -96,13 +91,9 @@
                         </Grid>
 
                         <Grid
-                            Grid.Row="1"
-                            Margin="12"
-                            HorizontalAlignment="Center"
+                            Grid.Row="2"
+                            Margin="12,4,12,12"
                             VerticalAlignment="Bottom">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
                             <StackPanel
                                 x:Name="DownloadPanel"
                                 Height="36"
