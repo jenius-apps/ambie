@@ -64,7 +64,10 @@
                         </Grid.RowDefinitions>
 
                         <toolkit:DropShadowPanel Grid.Row="1" Style="{StaticResource SoundItemShadow}">
-                            <Grid CornerRadius="8">
+                            <Grid
+                                Width="120"
+                                Height="120"
+                                CornerRadius="8">
                                 <Image
                                     Width="120"
                                     Height="120"
@@ -96,7 +99,8 @@
                                         FontSize="20"
                                         Foreground="White"
                                         Text="{x:Bind Name}"
-                                        TextTrimming="CharacterEllipsis" />
+                                        TextTrimming="CharacterEllipsis"
+                                        ToolTipService.ToolTip="{x:Bind Name}" />
                                 </Grid>
 
                             </Grid>
