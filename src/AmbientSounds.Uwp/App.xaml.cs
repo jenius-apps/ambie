@@ -55,8 +55,6 @@ namespace AmbientSounds
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
                 this.FocusVisualKind = FocusVisualKind.Reveal;
             }
-
-            SetAppRequestedTheme();
         }
 
         private void OnSuspension(object sender, SuspendingEventArgs e)
@@ -189,6 +187,7 @@ namespace AmbientSounds
             }
 
             AppFrame = rootFrame;
+            SetAppRequestedTheme();
             Services.GetRequiredService<INavigator>().RootFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
@@ -249,6 +248,8 @@ namespace AmbientSounds
         /// </summary>
         private void SetAppRequestedTheme()
         {
+            // Note: this method must run after AppFrame has been assigned.
+
             object themeObject = ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme];
             if (themeObject is not null && AppFrame is not null)
             {
