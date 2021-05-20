@@ -20,43 +20,30 @@
     </interactivity:Interaction.Behaviors>
 
     <Grid>
-        <ScrollViewer CanContentRenderOutsideBounds="False">
-            <Grid HorizontalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-                <GridView
-                    x:Uid="SoundsGridView"
-                    MaxWidth="{x:Bind ItemGridMaxWidth, Mode=OneWay}"
-                    Padding="20,0"
-                    animations:ItemsReorderAnimation.Duration="0:0:0.3"
-                    IsItemClickEnabled="True"
-                    ItemClick="{x:Bind GridView_ItemClick}"
-                    ItemContainerStyle="{StaticResource GridViewItemExpanded}"
-                    ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
-                    ItemsSource="{x:Bind ViewModel.Sounds}"
-                    ScrollViewer.HorizontalScrollMode="Disabled"
-                    ScrollViewer.VerticalScrollMode="Disabled"
-                    SelectionMode="None">
-                    <interactivity:Interaction.Behaviors>
-                        <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
-                    </interactivity:Interaction.Behaviors>
-                    <GridView.ItemContainerTransitions>
-                        <TransitionCollection>
-                            <EntranceThemeTransition IsStaggeringEnabled="True" />
-                        </TransitionCollection>
-                    </GridView.ItemContainerTransitions>
-                </GridView>
-
-                <local:ViewCatalogueButton
-                    x:Name="CatalogueButton"
-                    Grid.Row="1"
-                    Margin="0,12,24,20"
-                    HorizontalAlignment="Right"
-                    x:Load="{x:Bind ShowCatalogueButton, Mode=OneWay}"
-                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.LoadCommand.IsRunning), Mode=OneWay}" />
-            </Grid>
+        <ScrollViewer>
+            <GridView
+                x:Uid="SoundsGridView"
+                MaxWidth="{x:Bind ItemGridMaxWidth, Mode=OneWay}"
+                Padding="20,0"
+                HorizontalAlignment="Center"
+                animations:ItemsReorderAnimation.Duration="0:0:0.3"
+                IsItemClickEnabled="True"
+                ItemClick="{x:Bind GridView_ItemClick}"
+                ItemContainerStyle="{StaticResource GridViewItemExpanded}"
+                ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
+                ItemsSource="{x:Bind ViewModel.Sounds}"
+                ScrollViewer.HorizontalScrollMode="Disabled"
+                ScrollViewer.VerticalScrollMode="Disabled"
+                SelectionMode="None">
+                <interactivity:Interaction.Behaviors>
+                    <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
+                </interactivity:Interaction.Behaviors>
+                <GridView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True" />
+                    </TransitionCollection>
+                </GridView.ItemContainerTransitions>
+            </GridView>
         </ScrollViewer>
 
         <muxc:ProgressRing
