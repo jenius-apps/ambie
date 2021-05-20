@@ -63,6 +63,6 @@ namespace AmbientSounds.Services
         /// the online provider. This is used to update things like names
         /// or attribution.
         /// </summary>
-        Task RefreshLocalSoundsMetaDataAsync();
+        Task RefreshLocalSoundsMetaDataAsync(IList<Sound> latestSoundMetaData);
     }
 }

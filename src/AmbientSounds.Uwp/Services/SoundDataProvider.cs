@@ -144,7 +144,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task RefreshLocalSoundsMetaDataAsync()
+        public async Task RefreshLocalSoundsMetaDataAsync(IList<Sound> latestData)
         {
             if (_localSoundCache is not { Count: > 0 })
             {
@@ -152,7 +152,6 @@ namespace AmbientSounds.Services.Uwp
             }
 
             string[] currentSoundIds = _localSoundCache.Select(static x => x.Id).ToArray();
-            IList<Sound> latestData = await _onlineSoundDataProvider.GetSoundsAsync(currentSoundIds);
             if (latestData is not { Count: > 0 })
             {
                 return;
