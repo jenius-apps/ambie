@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using Windows.System;
 using Windows.UI.Core;
-using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -25,7 +25,11 @@ namespace AmbientSounds.Views
         {
             var settings = App.Services.GetRequiredService<IUserSettings>();
             bool useDarkScreensaver = settings.Get<bool>(UserSettingsConstants.DarkScreensasver);
-            if (!useDarkScreensaver)
+            if (useDarkScreensaver)
+            {
+                VisualStateManager.GoToState(this, nameof(DarkScreensaverState), false);
+            }
+            else
             {
                 FindName(nameof(ScreensaverControl));
             }
