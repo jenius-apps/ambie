@@ -258,14 +258,6 @@
           <source>Wind</source>
           <target state="translated">Vento</target>
         </trans-unit>
-        <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>More sounds</source>
-          <target state="translated">Altri suoni</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="translated">Visualizza più suoni</target>
-        </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
           <target state="translated">Torna indietro</target>
@@ -301,18 +293,6 @@
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
           <target state="translated">Politica sulla riservatezza</target>
-        </trans-unit>
-        <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>Sound Catalogue - Beta</source>
-          <target state="translated">Catalogo del suono - beta</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="translated">Visualizza più suoni</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="translated">Visualizza più suoni</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>

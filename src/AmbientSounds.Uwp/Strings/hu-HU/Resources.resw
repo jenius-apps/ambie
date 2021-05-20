@@ -195,12 +195,6 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Szél</value>
   </data>
-  <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>Több</value>
-  </data>
-  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Több hang</value>
-  </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
     <value>Vissza</value>
     <comment>Going back to the previous page</comment>
@@ -228,15 +222,6 @@
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
     <value>Adatvédelmi irányelvek</value>
-  </data>
-  <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Hang katalógus</value>
-  </data>
-  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
-    <value>Még több hang</value>
-  </data>
-  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Még több hang</value>
   </data>
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Adatvédelmi irányelvek</value>

@@ -201,21 +201,6 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Ветер</value>
   </data>
-  <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>Больше звуков</value>
-  </data>
-  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Посмотреть больше звуков</value>
-  </data>
-  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
-    <value>Посмотреть больше звуков</value>
-  </data>
-  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Посмотреть больше звуков</value>
-  </data>
-  <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Каталог звуков - Бета-версия</value>
-  </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Уже загружен</value>
     <comment>The sound is already downloaded</comment>

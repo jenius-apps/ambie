@@ -258,14 +258,6 @@
           <source>Wind</source>
           <target state="translated">Szél</target>
         </trans-unit>
-        <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>More sounds</source>
-          <target state="translated">Több</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="translated">Több hang</target>
-        </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
           <target state="translated">Vissza</target>
@@ -301,19 +293,6 @@
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
           <target state="translated">Adatvédelmi irányelvek</target>
-        </trans-unit>
-        <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>Sound Catalogue - Beta</source>
-          <target state="needs-review-translation">Hang katalógus</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="translated">Még több hang</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="translated">Még több hang</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>

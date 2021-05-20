@@ -122,6 +122,8 @@ namespace AmbientSounds.Views
 
         private void GoToCatalogue(object sender, RoutedEventArgs e)
         {
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.MoreSoundsClicked);
+
             var animation = ConnectedAnimationService
                 .GetForCurrentView()
                 .PrepareToAnimate(AnimationConstants.CatalogueForward, HomeBackplate);

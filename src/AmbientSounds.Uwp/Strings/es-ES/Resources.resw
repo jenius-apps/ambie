@@ -198,12 +198,6 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Viento</value>
   </data>
-  <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>Más sonidos</value>
-  </data>
-  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ver más sonidos</value>
-  </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
     <value>Retroceder</value>
     <comment>Going back to the previous page</comment>
@@ -231,15 +225,6 @@
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
     <value>Política de privacidad</value>
-  </data>
-  <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Catálogo de sonidos - beta</value>
-  </data>
-  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
-    <value>Ver más sonidos</value>
-  </data>
-  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Ver más sonidos</value>
   </data>
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Política de privacidad</value>

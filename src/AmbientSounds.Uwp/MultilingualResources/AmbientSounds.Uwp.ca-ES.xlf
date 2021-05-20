@@ -254,14 +254,6 @@
           <source>Wind</source>
           <target state="translated">Vent</target>
         </trans-unit>
-        <trans-unit id="ViewCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>More sounds</source>
-          <target state="new">More sounds</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="new">View more sounds</target>
-        </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
           <target state="new">Go back</target>
@@ -297,18 +289,6 @@
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
           <target state="new">Privacy policy</target>
-        </trans-unit>
-        <trans-unit id="SoundCatalogue.Text" translate="yes" xml:space="preserve">
-          <source>Sound Catalogue - Beta</source>
-          <target state="new">Sound Catalogue - Beta</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueIcon.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="new">View more sounds</target>
-        </trans-unit>
-        <trans-unit id="ViewCatalogueIcon.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>View more sounds</source>
-          <target state="new">View more sounds</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>

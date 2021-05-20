@@ -184,9 +184,6 @@
     <Compile Include="Controls\UploadForm.xaml.cs">
       <DependentUpon>UploadForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ViewCatalogueButton.xaml.cs">
-      <DependentUpon>ViewCatalogueButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Converters\ErrorLoader.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
@@ -407,10 +404,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\UploadForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ViewCatalogueButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

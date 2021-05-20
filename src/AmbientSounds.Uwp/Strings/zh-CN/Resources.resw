@@ -201,21 +201,6 @@
   <data name="Soundwind" xml:space="preserve">
     <value>风声</value>
   </data>
-  <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>更多音效</value>
-  </data>
-  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>查看更多音效</value>
-  </data>
-  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
-    <value>查看更多音效</value>
-  </data>
-  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
-    <value>查看更多音效</value>
-  </data>
-  <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>音效目录 - Beta</value>
-  </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>已下载</value>
     <comment>The sound is already downloaded</comment>

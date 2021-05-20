@@ -189,21 +189,6 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Rüzgar</value>
   </data>
-  <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>Daha fazla ses</value>
-  </data>
-  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Daha fazla ses görüntüle</value>
-  </data>
-  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
-    <value>Daha fazla ses görüntüle</value>
-  </data>
-  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Daha fazla ses görüntüle</value>
-  </data>
-  <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Ses Kataloğu</value>
-  </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Zaten indirildi</value>
     <comment>The sound is already downloaded</comment>

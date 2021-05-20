@@ -306,21 +306,6 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Wind</value>
   </data>
-  <data name="ViewCatalogue.Text" xml:space="preserve">
-    <value>More sounds</value>
-  </data>
-  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
-    <value>View more sounds</value>
-  </data>
-  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
-    <value>View more sounds</value>
-  </data>
-  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
-    <value>View more sounds</value>
-  </data>
-  <data name="SoundCatalogue.Text" xml:space="preserve">
-    <value>Sound Catalogue - Beta</value>
-  </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Already downloaded</value>
     <comment>The sound is already downloaded</comment>
