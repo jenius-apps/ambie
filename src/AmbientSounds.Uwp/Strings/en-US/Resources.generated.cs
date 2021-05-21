@@ -859,6 +859,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ScreensaverOn
+        /// <summary>
+        ///   Looks up a localized string similar to: Auto launch after 1 min
+        /// </summary>
+        public static string ScreensaverOn
+        {
+            get
+            {
+                return _resourceLoader.GetString("ScreensaverOn");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -935,6 +948,7 @@ namespace AmbientSounds.Strings{
             Preview,
             Catalogue,
             Home,
+            ScreensaverOn,
         }
 
         private static ResourceLoader _resourceLoader;

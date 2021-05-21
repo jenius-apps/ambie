@@ -129,7 +129,7 @@
                     <TextBlock x:Uid="OffTextBlock" />
                 </ToggleSwitch.OffContent>
                 <ToggleSwitch.OnContent>
-                    <TextBlock x:Uid="OnTextBlock" />
+                    <TextBlock Text="{x:Bind strings:Resources.ScreensaverOn}" />
                 </ToggleSwitch.OnContent>
             </ToggleSwitch>
 
