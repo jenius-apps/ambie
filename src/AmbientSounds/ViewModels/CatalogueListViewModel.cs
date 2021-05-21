@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class CatalogueListViewModel
+    public class CatalogueListViewModel : IDisposable
     {
         private readonly IOnlineSoundDataProvider _dataProvider;
         private readonly ISoundDataProvider _soundDataProvider;
@@ -42,6 +42,17 @@ namespace AmbientSounds.ViewModels
         /// The list of sounds for this page.
         /// </summary>
         public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
+
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            foreach (var s in Sounds)
+            {
+                s.Dispose();
+            }
+
+            Sounds.Clear();
+        }
 
         private async Task LoadAsync()
         {

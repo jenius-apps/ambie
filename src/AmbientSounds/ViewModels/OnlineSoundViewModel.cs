@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class OnlineSoundViewModel : ObservableObject
+    public class OnlineSoundViewModel : ObservableObject, IDisposable
     {
         private readonly Sound _sound;
         private readonly IDownloadManager _downloadManager;
@@ -288,6 +288,13 @@ namespace AmbientSounds.ViewModels
             }
 
             return Task.CompletedTask;
+        }
+
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            _downloadProgress.ProgressChanged -= OnProgressChanged;
+            _soundDataProvider.LocalSoundDeleted -= OnSoundDeleted;
         }
     }
 }

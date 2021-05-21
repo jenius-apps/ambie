@@ -12,6 +12,10 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<CatalogueListViewModel>();
+            this.Unloaded += (_, _) =>
+            {
+                ViewModel.Dispose();
+            };
         }
 
         public CatalogueListViewModel ViewModel => (CatalogueListViewModel)this.DataContext;
