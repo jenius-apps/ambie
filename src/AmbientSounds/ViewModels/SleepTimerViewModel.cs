@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SleepTimerViewModel : ObservableObject
+    public class SleepTimerViewModel : ObservableObject, IDisposable
     {
         private const int DefaultTimerInterval = 1000;
         private readonly IMixMediaPlayerService _player;
@@ -28,13 +28,13 @@ namespace AmbientSounds.ViewModels
             _timer = timer;
             _telemetry = telemetry;
             _timer.Interval = DefaultTimerInterval;
-            _timer.IntervalElapsed += TimerElapsed;
 
             TimerStartCommand = new RelayCommand<int>(StartTimer);
             TimerPlayCommand = new RelayCommand(PlayTimer);
             TimerPauseCommand = new RelayCommand(PauseTimer);
             TimerStopCommand = new RelayCommand(StopTimer);
 
+            _timer.IntervalElapsed += TimerElapsed;
             _player.PlaybackStateChanged += OnPlaybackStateChanged;
         }
         
@@ -124,6 +124,12 @@ namespace AmbientSounds.ViewModels
                 StopTimer();
                 _player.Pause();
             }
+        }
+
+        public void Dispose()
+        {
+            _timer.IntervalElapsed -= TimerElapsed;
+            _player.PlaybackStateChanged -= OnPlaybackStateChanged;
         }
     }
 }

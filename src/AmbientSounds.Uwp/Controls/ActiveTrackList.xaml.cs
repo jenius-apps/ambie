@@ -44,6 +44,7 @@ namespace AmbientSounds.Controls
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
             ViewModel.ActiveTracks.CollectionChanged -= OnCollectedChanged;
+            ViewModel.Dispose();
         }
 
         private async void OnCollectedChanged(object sender, NotifyCollectionChangedEventArgs e)

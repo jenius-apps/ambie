@@ -3,6 +3,7 @@ using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SoundListViewModel
+    public class SoundListViewModel : IDisposable
     {
         private readonly ISoundDataProvider _provider;
         private readonly ITelemetry _telemetry;
@@ -109,6 +110,19 @@ namespace AmbientSounds.ViewModels
                 { "id", sound.Name ?? "" },
                 { "mix", sound.IsMix.ToString() }
             });
+        }
+
+        public void Dispose()
+        {
+            _provider.LocalSoundAdded -= OnLocalSoundAdded;
+            _provider.LocalSoundDeleted -= OnLocalSoundDeleted;
+
+            foreach (var s in Sounds)
+            {
+                s.Dispose();
+            }
+
+            Sounds.Clear();
         }
     }
 }

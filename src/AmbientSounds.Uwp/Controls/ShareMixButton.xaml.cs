@@ -17,6 +17,8 @@ namespace AmbientSounds.Controls
             this.InitializeComponent();
             DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
             dataTransferManager.DataRequested += DataTransferManager_DataRequested;
+            this.Unloaded += (_, _) => { dataTransferManager.DataRequested -= DataTransferManager_DataRequested; };
+
         }
 
         private void DataTransferManager_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)

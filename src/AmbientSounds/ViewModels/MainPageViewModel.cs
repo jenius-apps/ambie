@@ -5,7 +5,7 @@ using System;
 
 namespace AmbientSounds.ViewModels
 {
-    public class MainPageViewModel : ObservableObject
+    public class MainPageViewModel : ObservableObject, IDisposable
     {
         private readonly IScreensaverService _screensaverService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
@@ -79,6 +79,12 @@ namespace AmbientSounds.ViewModels
             {
                 _screensaverService.StopTimer();
             }
+        }
+
+        public void Dispose()
+        {
+            _mediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
+            _mediaPlayerService.MaxReached -= OnMaxReached;
         }
     }
 }

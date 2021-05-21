@@ -138,14 +138,14 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "")
+        public async Task ToggleSoundAsync(Sound sound, bool keepPaused = false, string parentMixId = "")
         {
-            if (string.IsNullOrWhiteSpace(s?.Id))
+            if (string.IsNullOrWhiteSpace(sound?.Id))
             {
                 return;
             }
 
-            if (IsSoundPlaying(s!.Id))
+            if (IsSoundPlaying(sound!.Id))
             {
                 return;
             }
@@ -161,17 +161,17 @@ namespace AmbientSounds.Services.Uwp
             if (_activeSounds.Count < _maxActive)
             {
                 MediaSource? mediaSource = null;
-                if (Uri.IsWellFormedUriString(s.FilePath, UriKind.Absolute))
+                if (Uri.IsWellFormedUriString(sound.FilePath, UriKind.Absolute))
                 {
                     // sound path is packaged and can be read as URI.
-                    mediaSource = MediaSource.CreateFromUri(new Uri(s.FilePath));
+                    mediaSource = MediaSource.CreateFromUri(new Uri(sound.FilePath));
                 }
-                else if (s.FilePath is not null && s.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
+                else if (sound.FilePath is not null && sound.FilePath.Contains(ApplicationData.Current.LocalFolder.Path))
                 {
                     try
                     {
                         // sound path is a file saved in local folder
-                        StorageFile file = await StorageFile.GetFileFromPathAsync(s.FilePath);
+                        StorageFile file = await StorageFile.GetFileFromPathAsync(sound.FilePath);
                         mediaSource = MediaSource.CreateFromStorageFile(file);
                     }
                     catch
@@ -187,14 +187,14 @@ namespace AmbientSounds.Services.Uwp
                     var player = CreateLoopingPlayer();
                     player.Volume *= _globalVolume;
                     player.Source = mediaSource;
-                    _activeSounds.Add(s.Id, player);
-                    _activeSoundDateTimes.Add(s.Id, DateTimeOffset.Now);
-                    Screensavers.Add(s.Id, s.ScreensaverImagePaths ?? Array.Empty<string>());
+                    _activeSounds.Add(sound.Id, player);
+                    _activeSoundDateTimes.Add(sound.Id, DateTimeOffset.Now);
+                    Screensavers.Add(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
 
                     if (keepPaused) Pause();
                     else Play();
 
-                    SoundAdded?.Invoke(this, new SoundPlayedArgs(s, parentMixId));
+                    SoundAdded?.Invoke(this, new SoundPlayedArgs(sound, parentMixId));
                 }
             }
         }

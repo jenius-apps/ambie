@@ -4,12 +4,13 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class AccountControlViewModel : ObservableObject
+    public class AccountControlViewModel : ObservableObject, IDisposable
     {
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
@@ -189,6 +190,13 @@ namespace AmbientSounds.ViewModels
         {
             _accountManager.RequestSignIn();
             _telemetry.TrackEvent(TelemetryConstants.SignInTriggered);
+        }
+
+        public void Dispose()
+        {
+            _accountManager.SignInUpdated -= OnSignInUpdated;
+            _syncEngine.SyncStarted -= OnSyncStarted;
+            _syncEngine.SyncCompleted -= OnSyncCompleted;
         }
     }
 }

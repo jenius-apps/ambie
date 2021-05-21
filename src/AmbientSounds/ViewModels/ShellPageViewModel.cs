@@ -2,13 +2,14 @@
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 
 namespace AmbientSounds.ViewModels
 {
     /// <summary>
     /// ViewModel for the shell page.
     /// </summary>
-    public class ShellPageViewModel : ObservableObject
+    public class ShellPageViewModel : ObservableObject, IDisposable
     {
         private readonly IUserSettings _userSettings;
 
@@ -34,6 +35,11 @@ namespace AmbientSounds.ViewModels
         /// Determines if transparency is on.
         /// </summary>
         public bool TransparencyOn => _userSettings.Get<bool>(UserSettingsConstants.Transparency);
+
+        public void Dispose()
+        {
+            _userSettings.SettingSet -= OnSettingSet;
+        }
 
         private void OnSettingSet(object sender, string settingsKey)
         {

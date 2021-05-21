@@ -6,6 +6,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ActiveTrackListViewModel : ObservableObject
+    public class ActiveTrackListViewModel : ObservableObject, IDisposable
     {
         private readonly IMixMediaPlayerService _player;
         private readonly ISoundVmFactory _soundVmFactory;
@@ -52,12 +53,11 @@ namespace AmbientSounds.ViewModels
 
             _player.SoundAdded += OnSoundAdded;
             _player.SoundRemoved += OnSoundRemoved;
+            ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             SaveCommand = new AsyncRelayCommand<string>(SaveAsync);
             ClearCommand = new RelayCommand(ClearAll);
-
-            ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
         }
 
         /// <summary>
@@ -211,6 +211,13 @@ namespace AmbientSounds.ViewModels
                 _player.RemoveSound(s.Id);
                 _telemetry.TrackEvent(TelemetryConstants.MixRemoved);
             }
+        }
+
+        public void Dispose()
+        {
+            _player.SoundAdded -= OnSoundAdded;
+            _player.SoundRemoved -= OnSoundRemoved;
+            ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
         }
     }
 }

@@ -4,6 +4,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class UploadedSoundsListViewModel : ObservableObject
+    public class UploadedSoundsListViewModel : ObservableObject, IDisposable
     {
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IAccountManager _accountManager;
@@ -39,9 +40,10 @@ namespace AmbientSounds.ViewModels
             _soundVmFactory = soundVmFactory;
             _uploadService = uploadService;
 
+            LoadCommand = new AsyncRelayCommand(LoadAsync);
+
             _uploadService.SoundUploaded += OnSoundUploaded;
             _uploadService.SoundDeleted += OnSoundDeleted;
-            LoadCommand = new AsyncRelayCommand(LoadAsync);
             UploadedSounds.CollectionChanged += OnCollectionChanged;
             LoadCommand.PropertyChanged += OnLoadCommandPropChanged;
         }
@@ -103,6 +105,15 @@ namespace AmbientSounds.ViewModels
                 UploadedSounds.Remove(forDeletion);
                 _telemetry.TrackEvent(TelemetryConstants.UserSoundDeleted);
             }
+        }
+
+        public void Dispose()
+        {
+            _uploadService.SoundUploaded -= OnSoundUploaded;
+            _uploadService.SoundDeleted -= OnSoundDeleted;
+            UploadedSounds.CollectionChanged -= OnCollectionChanged;
+            LoadCommand.PropertyChanged -= OnLoadCommandPropChanged;
+            UploadedSounds.Clear();
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class UploadFormViewModel : ObservableObject
+    public class UploadFormViewModel : ObservableObject, IDisposable
     {
         private readonly IUploadService _uploadService;
         private readonly IAccountManager _accountManager;
@@ -268,6 +268,12 @@ namespace AmbientSounds.ViewModels
             {
                 errors.Remove(errorToRemove);
             }
+        }
+
+        public void Dispose()
+        {
+            _onlineSoundDataProvider.UserSoundsFetched -= CheckUserListcount;
+            _uploadService.SoundDeleted -= OnUserSoundDeleted;
         }
     }
 }

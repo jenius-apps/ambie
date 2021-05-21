@@ -8,13 +8,14 @@ using Microsoft.Toolkit.Mvvm.Input;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace AmbientSounds.ViewModels
 {
     /// <summary>
     /// View model for a sound object.
     /// </summary>
-    public class SoundViewModel : ObservableObject
+    public class SoundViewModel : ObservableObject, IDisposable
     {
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
@@ -177,6 +178,13 @@ namespace AmbientSounds.ViewModels
                 { "name", _sound.Name ?? "" },
                 { "id", _sound.Id ?? "" }
             });
+        }
+
+        public void Dispose()
+        {
+            _playerService.SoundRemoved -= OnSoundPaused;
+            _playerService.SoundAdded -= OnSoundPlayed;
+            _playerService.MixPlayed -= OnMixPlayed;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace AmbientSounds.Services
     /// <summary>
     /// Class for the central hub for dealing with accounts.
     /// </summary>
-    public class AccountManager : IAccountManager
+    public class AccountManager : IAccountManager, IDisposable
     {
         private readonly IMsaAuthClient _authClient;
         private readonly string[] _catalogueScope;
@@ -86,6 +86,11 @@ namespace AmbientSounds.Services
         {
             var isSignedIn = await IsSignedInAsync();
             SignInUpdated?.Invoke(this, isSignedIn);
+        }
+
+        public void Dispose()
+        {
+            _authClient.InteractiveSignInCompleted -= OnSignInCompleted;
         }
     }
 }

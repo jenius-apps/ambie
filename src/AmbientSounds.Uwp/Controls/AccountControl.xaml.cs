@@ -13,6 +13,7 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<AccountControlViewModel>();
+            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
         }
 
         public AccountControlViewModel ViewModel => (AccountControlViewModel)this.DataContext;

@@ -12,7 +12,7 @@ namespace AmbientSounds.Services
     /// <summary>
     /// Class that orchestrates data synchronization.
     /// </summary>
-    public class SyncEngine : ISyncEngine
+    public class SyncEngine : ISyncEngine, IDisposable
     {
         private readonly ICloudFileWriter _cloudFileWriter;
         private readonly IDownloadManager _downloadManager;
@@ -246,6 +246,14 @@ namespace AmbientSounds.Services
             _telemetry.TrackEvent(TelemetryConstants.SyncUp);
 
             Syncing = false;
+        }
+
+        public void Dispose()
+        {
+            _downloadManager.DownloadsCompleted -= OnDownloadsCompleted;
+            _soundDataProvider.LocalSoundDeleted -= OnLocalSoundDeleted;
+            _soundDataProvider.LocalSoundAdded -= OnLocalSoundAdded;
+            _accountManager.SignInUpdated -= OnSignInUpdated;
         }
     }
 }

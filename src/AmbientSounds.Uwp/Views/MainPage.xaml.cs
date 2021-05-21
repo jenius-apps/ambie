@@ -31,6 +31,7 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
+            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
         }
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)

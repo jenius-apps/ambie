@@ -18,6 +18,7 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
+            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
 
             if (App.IsTenFoot)
             {
