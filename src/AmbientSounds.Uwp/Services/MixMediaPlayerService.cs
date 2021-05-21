@@ -17,7 +17,7 @@ namespace AmbientSounds.Services.Uwp
 {
     public class MixMediaPlayerService : IMixMediaPlayerService
     {
-        private readonly Dictionary<string, MediaPlayer> _activeSounds = new();
+        private readonly Dictionary<string, MediaPlayer> _activePlayers = new();
         private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new();
         private readonly int _maxActive;
         private double _globalVolume;
@@ -36,9 +36,6 @@ namespace AmbientSounds.Services.Uwp
 
         /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
-
-        /// <inheritdoc/>
-        public event EventHandler? MaxReached;
 
         public MixMediaPlayerService(IUserSettings userSettings)
         {
@@ -105,7 +102,7 @@ namespace AmbientSounds.Services.Uwp
             }
 
             CurrentMixId = mixId;
-            MixPlayed?.Invoke(this, new MixPlayedArgs(mixId, _activeSounds.Keys.ToArray()));
+            MixPlayed?.Invoke(this, new MixPlayedArgs(mixId, _activePlayers.Keys.ToArray()));
         }
 
         private void UpdateAllVolumes(double value)
@@ -121,9 +118,9 @@ namespace AmbientSounds.Services.Uwp
                 value = 0.000001d;
             }
 
-            foreach (var soundId in _activeSounds.Keys)
+            foreach (var soundId in _activePlayers.Keys)
             {
-                _activeSounds[soundId].Volume = GetVolume(soundId) * value;
+                _activePlayers[soundId].Volume = GetVolume(soundId) * value;
             }
 
             // Must be set last since GetVolume
@@ -134,8 +131,11 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public bool IsSoundPlaying(string soundId)
         {
-            return !string.IsNullOrWhiteSpace(soundId) && _activeSounds.ContainsKey(soundId);
+            return !string.IsNullOrWhiteSpace(soundId) && _activePlayers.ContainsKey(soundId);
         }
+
+        /// <inheritdoc/>
+        public string[] GetSoundIds() => _activePlayers.Keys.ToArray();
 
         /// <inheritdoc/>
         public async Task ToggleSoundAsync(Sound sound, bool keepPaused = false, string parentMixId = "")
@@ -150,7 +150,7 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
-            if (_activeSounds.Count >= _maxActive)
+            if (_activePlayers.Count >= _maxActive)
             {
                 // remove sound
                 var oldestTime = _activeSoundDateTimes.Min(static x => x.Value);
@@ -158,7 +158,7 @@ namespace AmbientSounds.Services.Uwp
                 RemoveSound(oldestSoundId);
             }
             
-            if (_activeSounds.Count < _maxActive)
+            if (_activePlayers.Count < _maxActive)
             {
                 MediaSource? mediaSource = null;
                 if (Uri.IsWellFormedUriString(sound.FilePath, UriKind.Absolute))
@@ -187,7 +187,7 @@ namespace AmbientSounds.Services.Uwp
                     var player = CreateLoopingPlayer();
                     player.Volume *= _globalVolume;
                     player.Source = mediaSource;
-                    _activeSounds.Add(sound.Id, player);
+                    _activePlayers.Add(sound.Id, player);
                     _activeSoundDateTimes.Add(sound.Id, DateTimeOffset.Now);
                     Screensavers.Add(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
 
@@ -204,7 +204,7 @@ namespace AmbientSounds.Services.Uwp
         {
             if (IsSoundPlaying(soundId) && value <= 1d && value >= 0d)
             {
-                _activeSounds[soundId].Volume = value * _globalVolume;
+                _activePlayers[soundId].Volume = value * _globalVolume;
             }
         }
 
@@ -213,7 +213,7 @@ namespace AmbientSounds.Services.Uwp
         {
             if (IsSoundPlaying(soundId))
             {
-                return _activeSounds[soundId].Volume / _globalVolume;
+                return _activePlayers[soundId].Volume / _globalVolume;
             }
 
             return 0;
@@ -222,7 +222,7 @@ namespace AmbientSounds.Services.Uwp
         public void Play()
         {
             PlaybackState = MediaPlaybackState.Playing;
-            foreach (var p in _activeSounds.Values)
+            foreach (var p in _activePlayers.Values)
             {
                 p.Play();
             }
@@ -231,7 +231,7 @@ namespace AmbientSounds.Services.Uwp
         public void Pause()
         {
             PlaybackState = MediaPlaybackState.Paused;
-            foreach (var p in _activeSounds.Values)
+            foreach (var p in _activePlayers.Values)
             {
                 p.Pause();
             }
@@ -240,7 +240,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void RemoveAll()
         {
-            foreach (var soundId in _activeSounds.Keys.ToList())
+            foreach (var soundId in _activePlayers.Keys.ToList())
             {
                 RemoveSound(soundId);
             }
@@ -249,7 +249,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public IList<string> GetActiveIds()
         {
-            return _activeSounds.Keys.ToArray();
+            return _activePlayers.Keys.ToArray();
         }
 
         /// <inheritdoc/>
@@ -260,12 +260,12 @@ namespace AmbientSounds.Services.Uwp
                 return;
             }
 
-            var player = _activeSounds[soundId];
+            var player = _activePlayers[soundId];
             player.Pause();
             player.Dispose();
 
-            _activeSounds[soundId] = null!;
-            _activeSounds.Remove(soundId);
+            _activePlayers[soundId] = null!;
+            _activePlayers.Remove(soundId);
             _activeSoundDateTimes.Remove(soundId);
             Screensavers.Remove(soundId);
 
@@ -276,7 +276,7 @@ namespace AmbientSounds.Services.Uwp
             var previousParentMixId = CurrentMixId;
             CurrentMixId = "";
 
-            if (_activeSounds.Count == 0)
+            if (_activePlayers.Count == 0)
             {
                 Pause();
             }

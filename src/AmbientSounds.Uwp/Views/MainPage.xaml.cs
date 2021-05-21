@@ -5,16 +5,11 @@ using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
-using System.ComponentModel;
 using Windows.Foundation.Metadata;
 using Windows.UI.Shell;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -34,14 +29,6 @@ namespace AmbientSounds.Views
             this.Unloaded += (_, _) => { ViewModel.Dispose(); };
         }
 
-        private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(ViewModel.MaxTeachingTipOpen))
-            {
-                FlyoutBase.ShowAttachedFlyout(ActiveList);
-            }
-        }
-
         public bool IsNotTenFoot => !App.IsTenFoot;
 
         public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
@@ -49,7 +36,6 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel.StartTimer();
-            ViewModel.PropertyChanged += OnPropertyChanged;
 
             if (e.NavigationMode == NavigationMode.New)
             {
@@ -62,7 +48,6 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             ViewModel.StopTimer();
-            ViewModel.PropertyChanged -= OnPropertyChanged;
         }
 
         private void TryStartPageAnimations()
@@ -83,12 +68,6 @@ namespace AmbientSounds.Views
         private void GridScaleNormal(object sender, PointerRoutedEventArgs e) 
             => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
 
-        private void Flyout_Opened(object sender, object e)
-        {
-            // Ref: https://thinkrethink.net/2019/02/18/wpf-liferegionchanged-automationpeer-status-changes-announced/
-            var peer = FrameworkElementAutomationPeer.FromElement(LimitWarningText);
-            peer.RaiseAutomationEvent(AutomationEvents.LiveRegionChanged);
-        }
 
         private async void TryShowPinTeachingTip()
         {

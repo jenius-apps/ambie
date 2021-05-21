@@ -10,7 +10,6 @@ namespace AmbientSounds.ViewModels
         private readonly IScreensaverService _screensaverService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
         private readonly INavigator _navigator;
-        private bool _maxTeachingTipOpen;
 
         public MainPageViewModel(
             IScreensaverService screensaverService,
@@ -26,26 +25,6 @@ namespace AmbientSounds.ViewModels
             _navigator = navigator;
 
             _mediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
-            _mediaPlayerService.MaxReached += OnMaxReached;
-        }
-
-
-        private void OnMaxReached(object sender, EventArgs e)
-        {
-            MaxTeachingTipOpen = true;
-        }
-
-        /// <summary>
-        /// Controls when the teaching tip is visible or not.
-        /// </summary>
-        public bool MaxTeachingTipOpen
-        {
-            get => _maxTeachingTipOpen;
-            set
-            {
-                _maxTeachingTipOpen = value;
-                OnPropertyChanged();
-            }
         }
 
         /// <summary>
@@ -84,7 +63,6 @@ namespace AmbientSounds.ViewModels
         public void Dispose()
         {
             _mediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
-            _mediaPlayerService.MaxReached -= OnMaxReached;
         }
     }
 }

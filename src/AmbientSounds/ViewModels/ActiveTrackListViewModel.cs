@@ -111,14 +111,29 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
-            var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
-            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
-            if (sounds is not null && sounds.Count > 0)
+            string[] soundIds = _player.GetSoundIds();
+            if (soundIds is { Length: > 0 })
             {
-                foreach (var s in sounds)
+                var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: soundIds);
+                if (sounds is { Count: > 0 })
                 {
-                    await _player.ToggleSoundAsync(s, keepPaused: true, parentMixId: mixId);
+                    foreach (var s in sounds)
+                    {
+                        await AddSoundTrackAsync(s);
+                    }
+                }
+            }
+            else
+            {
+                var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
+                var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
+                var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
+                if (sounds is not null && sounds.Count > 0)
+                {
+                    foreach (var s in sounds)
+                    {
+                        await _player.ToggleSoundAsync(s, keepPaused: true, parentMixId: mixId);
+                    }
                 }
             }
 
@@ -189,9 +204,17 @@ namespace AmbientSounds.ViewModels
 
         private async void OnSoundAdded(object sender, SoundPlayedArgs args)
         {
-            if (!ActiveTracks.Any(x => x.Sound?.Id == args.Sound.Id))
+            if (args?.Sound is not null)
             {
-                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(args.Sound, RemoveCommand));
+                await AddSoundTrackAsync(args.Sound);
+            }
+        }
+
+        private Task AddSoundTrackAsync(Sound sound)
+        {
+            if (!ActiveTracks.Any(x => x.Sound?.Id == sound.Id))
+            {
+                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(sound, RemoveCommand));
                 UpdateStoredState();
                 UpdateCanSave();
 
@@ -199,9 +222,12 @@ namespace AmbientSounds.ViewModels
                 // It seems this allows the UI to update sooner
                 // so that if a Mix is being loaded, all sounds
                 // are animated asynchronously.
-                await Task.Delay(1); 
+                return Task.Delay(1);
             }
+
+            return Task.CompletedTask;
         }
+
         private void UpdateCanSave() => OnPropertyChanged(nameof(CanSave));
 
         private void RemoveSound(Sound? s)

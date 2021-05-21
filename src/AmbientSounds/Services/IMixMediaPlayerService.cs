@@ -34,12 +34,6 @@ namespace AmbientSounds.Services
         event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
         /// <summary>
-        /// Raised when a sound activation was blocked
-        /// because the active sound limit was reached.
-        /// </summary>
-        event EventHandler MaxReached;
-
-        /// <summary>
         /// Global volume control. Max = 1. Min = 0.
         /// </summary>
         double GlobalVolume { get; set; }
@@ -69,6 +63,11 @@ namespace AmbientSounds.Services
         /// Pauses playback.
         /// </summary>
         void Pause();
+
+        /// <summary>
+        /// Returns the sound ids currently paused or playing.
+        /// </summary>
+        string[] GetSoundIds();
 
         /// <summary>
         /// If the given sound is playing,

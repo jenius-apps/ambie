@@ -221,35 +221,7 @@
             Grid.Row="1"
             Margin="32,0"
             VerticalAlignment="Center">
-            <controls:ActiveTrackList x:Name="ActiveList" HorizontalAlignment="Center">
-                <FlyoutBase.AttachedFlyout>
-                    <Flyout Opened="Flyout_Opened" Placement="Bottom">
-                        <Grid MaxWidth="300">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <FontIcon
-                                Margin="0,0,12,0"
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                Glyph="&#xEA7D;" />
-
-                            <StackPanel Grid.Column="1">
-                                <TextBlock
-                                    x:Uid="LimitReachedTitle"
-                                    FontWeight="SemiBold"
-                                    TextWrapping="WrapWholeWords" />
-                                <TextBlock
-                                    x:Name="LimitWarningText"
-                                    x:Uid="LimitReachedMessage"
-                                    AutomationProperties.LiveSetting="Assertive"
-                                    TextWrapping="WrapWholeWords" />
-                            </StackPanel>
-                        </Grid>
-                    </Flyout>
-                </FlyoutBase.AttachedFlyout>
-            </controls:ActiveTrackList>
+            <controls:ActiveTrackList x:Name="ActiveList" HorizontalAlignment="Center" />
             <animations:Implicit.Animations>
                 <animations:OffsetAnimation Duration="0:0:1" />
             </animations:Implicit.Animations>
