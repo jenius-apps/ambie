@@ -179,6 +179,7 @@
     <Compile Include="Controls\ToggleCompactButton.xaml.cs">
       <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Controls\UploadedSoundsList.xaml.cs">
       <DependentUpon>UploadedSoundsList.xaml</DependentUpon>
     </Compile>

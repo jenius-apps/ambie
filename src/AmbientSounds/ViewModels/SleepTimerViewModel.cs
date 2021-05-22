@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SleepTimerViewModel : ObservableObject, IDisposable
+    public class SleepTimerViewModel : ObservableObject
     {
         private const int DefaultTimerInterval = 1000;
         private readonly IMixMediaPlayerService _player;

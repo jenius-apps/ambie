@@ -71,7 +71,7 @@
                                 <Image
                                     Width="120"
                                     Height="120"
-                                    PointerPressed="RemoveOnMiddleClick"
+                                    PointerPressed="{x:Bind local:UIHelper.RemoveOnMiddleClick}"
                                     Source="{x:Bind ImagePath}"
                                     Stretch="UniformToFill" />
                                 <Grid

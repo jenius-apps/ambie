@@ -45,6 +45,8 @@ namespace AmbientSounds.Controls
         {
             ViewModel.ActiveTracks.CollectionChanged -= OnCollectedChanged;
             ViewModel.Dispose();
+            this.Bindings.StopTracking();
+            this.DataContext = null;
         }
 
         private async void OnCollectedChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -102,19 +104,6 @@ namespace AmbientSounds.Controls
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SaveFlyout.Hide();
-        }
-
-        private void RemoveOnMiddleClick(object sender, PointerRoutedEventArgs e)
-        {
-            if (sender is Image fe && fe.DataContext is ActiveTrackViewModel vm)
-            {
-                var pointer = e.GetCurrentPoint(fe);
-                if (pointer.Properties.PointerUpdateKind == PointerUpdateKind.MiddleButtonPressed)
-                {
-                    vm.RemoveCommand.Execute(vm.Sound);
-                    e.Handled = true;
-                }
-            }
         }
     }
 }

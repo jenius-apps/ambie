@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ActiveTrackListViewModel : ObservableObject, IDisposable
+    public class ActiveTrackListViewModel : ObservableObject
     {
         private readonly IMixMediaPlayerService _player;
         private readonly ISoundVmFactory _soundVmFactory;
