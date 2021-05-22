@@ -12,8 +12,6 @@
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    Loaded="{x:Bind UserControl_Loaded}"
-    Unloaded="{x:Bind OnUnloaded}"
     mc:Ignorable="d">
 
     <Grid>

@@ -11,7 +11,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// View model for a player user control.
     /// </summary>
-    public class PlayerViewModel : ObservableObject, IDisposable
+    public class PlayerViewModel : ObservableObject
     {
         private readonly IMixMediaPlayerService _player;
         private readonly IUserSettings _userSettings;

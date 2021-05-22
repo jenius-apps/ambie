@@ -28,14 +28,24 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
 
-            DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
-            dataTransferManager.DataRequested += (DataTransferManager sender, DataRequestedEventArgs args) =>
-            {
-                DataRequest request = args.Request;
-                request.Data.SetWebLink(new Uri(StorePage));
-                request.Data.Properties.Title = StorePage;
-                request.Data.Properties.Description = "Ambie";
-            };
+            var dtm = DataTransferManager.GetForCurrentView();
+            dtm.DataRequested += OnDataRequested;
+
+            this.Unloaded += OnUnloaded;
+        }
+
+        private void OnDataRequested(DataTransferManager sender, DataRequestedEventArgs args)
+        {
+            DataRequest request = args.Request;
+            request.Data.SetWebLink(new Uri(StorePage));
+            request.Data.Properties.Title = StorePage;
+            request.Data.Properties.Description = "Ambie";
+        }
+
+        private void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            var dtm = DataTransferManager.GetForCurrentView();
+            dtm.DataRequested -= OnDataRequested;
         }
 
         private void ShareClicked()

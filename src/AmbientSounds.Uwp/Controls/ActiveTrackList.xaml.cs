@@ -19,23 +19,13 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ActiveTrackListViewModel>();
+            this.Unloaded += OnUnloaded;
+            this.Loaded += UserControl_Loaded;
         }
 
         public ActiveTrackListViewModel ViewModel => (ActiveTrackListViewModel)this.DataContext;
 
-        public Orientation Orientation
-        {
-            get => (Orientation)GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
-        }
-
-        public readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-            nameof(Orientation),
-            typeof(Orientation),
-            typeof(ActiveTrackList),
-            new PropertyMetadata(Orientation.Horizontal));
-
-        private async void UserControl_Loaded()
+        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             await ViewModel.LoadPreviousStateAsync();
             ViewModel.ActiveTracks.CollectionChanged += OnCollectedChanged;
@@ -45,8 +35,6 @@ namespace AmbientSounds.Controls
         {
             ViewModel.ActiveTracks.CollectionChanged -= OnCollectedChanged;
             ViewModel.Dispose();
-            this.Bindings.StopTracking();
-            this.DataContext = null;
         }
 
         private async void OnCollectedChanged(object sender, NotifyCollectionChangedEventArgs e)
