@@ -241,9 +241,10 @@ namespace AmbientSounds.ViewModels
 
         public void Dispose()
         {
+            ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
             _player.SoundAdded -= OnSoundAdded;
             _player.SoundRemoved -= OnSoundRemoved;
-            ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
+            ActiveTracks.Clear();
         }
     }
 }
