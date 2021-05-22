@@ -13,15 +13,10 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<SleepTimerViewModel>();
-            this.Unloaded += OnUnloaded;
-        }
-
-        private void OnUnloaded(object sender, RoutedEventArgs e)
-        {
-            ViewModel.Dispose(); 
-            this.DataContext = null;
-            this.Unloaded -= OnUnloaded;
-            this.Bindings.StopTracking();
+            this.Unloaded += (_, _) =>
+            {
+                ViewModel.Dispose();
+            };
         }
 
         public SleepTimerViewModel ViewModel => (SleepTimerViewModel)this.DataContext;
