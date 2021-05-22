@@ -18,9 +18,9 @@ namespace AmbientSounds.Controls
 
         public AccountControlViewModel ViewModel => (AccountControlViewModel)this.DataContext;
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private async void OnLoaded(object sender, RoutedEventArgs e)
         {
-            ViewModel.Load();
+            await ViewModel.LoadAsync();
         }
     }
 }

@@ -4,13 +4,12 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class AccountControlViewModel : ObservableObject, IDisposable
+    public class AccountControlViewModel : ObservableObject
     {
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
@@ -117,7 +116,7 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _loading, value);
         }
 
-        public async void Load()
+        public async Task LoadAsync()
         {
             if (Loading || _signedIn)
             {
