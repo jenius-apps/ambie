@@ -5,6 +5,7 @@ using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
+using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
 using Windows.UI.Shell;
 using Windows.UI.Xaml;
@@ -33,13 +34,13 @@ namespace AmbientSounds.Views
 
         public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel.StartTimer();
 
             if (e.NavigationMode == NavigationMode.New)
             {
-                TryShowPinTeachingTip();
+                await TryShowPinTeachingTip();
             }
 
             TryStartPageAnimations();
@@ -69,7 +70,7 @@ namespace AmbientSounds.Views
             => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
 
 
-        private async void TryShowPinTeachingTip()
+        private async Task TryShowPinTeachingTip()
         {
             var tbmgr = TaskbarManager.GetDefault();
             var isPinned = await tbmgr.IsCurrentAppPinnedAsync();
