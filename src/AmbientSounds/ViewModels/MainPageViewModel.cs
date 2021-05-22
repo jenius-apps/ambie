@@ -5,7 +5,7 @@ using System;
 
 namespace AmbientSounds.ViewModels
 {
-    public class MainPageViewModel : ObservableObject, IDisposable
+    public class MainPageViewModel : ObservableObject
     {
         private readonly IScreensaverService _screensaverService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
