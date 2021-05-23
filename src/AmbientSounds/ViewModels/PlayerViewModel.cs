@@ -93,6 +93,10 @@ namespace AmbientSounds.ViewModels
         public void Initialize()
         {
             _player.PlaybackStateChanged += PlaybackStateChanged;
+
+            // Required to update the binding
+            // when returning to main page (because main is cached).
+            OnPropertyChanged(nameof(Volume));
         }
 
         public void Dispose()
