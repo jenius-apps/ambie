@@ -85,11 +85,10 @@ namespace AmbientSounds.Factories
         }
 
         /// <inheritdoc/>
-        public SoundViewModel GetSoundVm(Sound s, int index)
+        public SoundViewModel GetSoundVm(Sound s)
         {
             Guard.IsNotNull(s, nameof(s));
-            Guard.IsGreaterThan(index, -1, nameof(index));
-            return new SoundViewModel(s, _player, index, _soundDataProvider, _soundMixService, _telemetry, _renamer);
+            return new SoundViewModel(s, _player, _soundDataProvider, _soundMixService, _telemetry, _renamer);
         }
 
         /// <inheritdoc/>

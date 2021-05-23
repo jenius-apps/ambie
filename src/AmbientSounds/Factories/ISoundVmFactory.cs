@@ -27,9 +27,8 @@ namespace AmbientSounds.Factories
         /// Creates new sound viewmodel.
         /// </summary>
         /// <param name="s">The sound to associate with the viewmodel.</param>
-        /// <param name="index">The index of the sound in the list.</param>
         /// <returns>A sound viewmodel.</returns>
-        SoundViewModel GetSoundVm(Sound s, int index);
+        SoundViewModel GetSoundVm(Sound s);
 
         /// <summary>
         /// Creates new active track viewmodel.

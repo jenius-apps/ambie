@@ -43,18 +43,11 @@ namespace AmbientSounds.ViewModels
             var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
             if (forDeletion is null) return;
             Sounds.Remove(forDeletion);
-
-            int index = 0;
-            foreach (var sound in Sounds)
-            {
-                sound.Index = index;
-                index++;
-            }
         }
 
         private void OnLocalSoundAdded(object sender, Models.Sound e)
         {
-            var s = _factory.GetSoundVm(e, Sounds.Count);
+            var s = _factory.GetSoundVm(e);
             Sounds.Add(s);
         }
 
@@ -85,12 +78,10 @@ namespace AmbientSounds.ViewModels
 
             var soundList = await _provider.GetSoundsAsync();
 
-            int index = 0;
             foreach (var sound in soundList)
             {
-                var s = _factory.GetSoundVm(sound, index);
+                var s = _factory.GetSoundVm(sound);
                 Sounds.Add(s);
-                index++;
             }
         }
 
