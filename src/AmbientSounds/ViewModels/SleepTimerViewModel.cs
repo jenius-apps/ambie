@@ -33,9 +33,6 @@ namespace AmbientSounds.ViewModels
             TimerPlayCommand = new RelayCommand(PlayTimer);
             TimerPauseCommand = new RelayCommand(PauseTimer);
             TimerStopCommand = new RelayCommand(StopTimer);
-
-            _timer.IntervalElapsed += TimerElapsed;
-            _player.PlaybackStateChanged += OnPlaybackStateChanged;
         }
         
         private void OnPlaybackStateChanged(object sender, MediaPlaybackState e)
@@ -124,6 +121,12 @@ namespace AmbientSounds.ViewModels
                 StopTimer();
                 _player.Pause();
             }
+        }
+
+        public void Initialize()
+        {
+            _timer.IntervalElapsed += TimerElapsed;
+            _player.PlaybackStateChanged += OnPlaybackStateChanged;
         }
 
         public void Dispose()

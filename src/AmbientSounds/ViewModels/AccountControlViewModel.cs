@@ -39,10 +39,6 @@ namespace AmbientSounds.ViewModels
             _syncEngine = syncEngine;
             _navigator = navigator;
 
-            _accountManager.SignInUpdated += OnSignInUpdated;
-            _syncEngine.SyncStarted += OnSyncStarted;
-            _syncEngine.SyncCompleted += OnSyncCompleted;
-
             SignInCommand = new RelayCommand(SignIn);
             OpenUploadPageCommand = new RelayCommand(UploadClicked);
             SignOutCommand = new AsyncRelayCommand(SignOutAsync);
@@ -118,6 +114,11 @@ namespace AmbientSounds.ViewModels
 
         public async Task LoadAsync()
         {
+            _accountManager.SignInUpdated += OnSignInUpdated;
+            _syncEngine.SyncStarted += OnSyncStarted;
+            _syncEngine.SyncCompleted += OnSyncCompleted;
+
+
             if (Loading || _signedIn)
             {
                 return;

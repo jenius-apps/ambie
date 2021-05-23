@@ -12,6 +12,7 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<PlayerViewModel>();
+            this.Loaded += (_, _) => { ViewModel.Initialize(); };
             this.Unloaded += (_, _) => { ViewModel.Dispose(); };
         }
 

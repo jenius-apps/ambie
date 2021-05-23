@@ -36,9 +36,6 @@ namespace AmbientSounds.ViewModels
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
-
-            _provider.LocalSoundAdded += OnLocalSoundAdded;
-            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
         }
 
         private void OnLocalSoundDeleted(object sender, string id)
@@ -81,6 +78,9 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private async Task LoadAsync()
         {
+            _provider.LocalSoundAdded += OnLocalSoundAdded;
+            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
+
             if (Sounds.Count > 0) return; // already initialized
 
             var soundList = await _provider.GetSoundsAsync();

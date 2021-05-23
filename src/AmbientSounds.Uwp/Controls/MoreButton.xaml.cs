@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Services.Store;
 using Windows.System;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Animation;
 
 #nullable enable
 
@@ -27,11 +25,20 @@ namespace AmbientSounds.Controls
         public MoreButton()
         {
             this.InitializeComponent();
+            this.Loaded += OnLoaded;
+            this.Unloaded += OnUnloaded;
+        }
 
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
             var dtm = DataTransferManager.GetForCurrentView();
             dtm.DataRequested += OnDataRequested;
+        }
 
-            this.Unloaded += OnUnloaded;
+        private void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            var dtm = DataTransferManager.GetForCurrentView();
+            dtm.DataRequested -= OnDataRequested;
         }
 
         private void OnDataRequested(DataTransferManager sender, DataRequestedEventArgs args)
@@ -40,12 +47,6 @@ namespace AmbientSounds.Controls
             request.Data.SetWebLink(new Uri(StorePage));
             request.Data.Properties.Title = StorePage;
             request.Data.Properties.Description = "Ambie";
-        }
-
-        private void OnUnloaded(object sender, RoutedEventArgs e)
-        {
-            var dtm = DataTransferManager.GetForCurrentView();
-            dtm.DataRequested -= OnDataRequested;
         }
 
         private void ShareClicked()

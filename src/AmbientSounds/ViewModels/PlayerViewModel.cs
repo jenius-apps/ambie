@@ -3,7 +3,6 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -23,7 +22,6 @@ namespace AmbientSounds.ViewModels
 
             _player = player;
             _userSettings = userSettings;
-            _player.PlaybackStateChanged += PlaybackStateChanged;
 
             TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
             RandomCommand = new RelayCommand(PlayRandom);
@@ -90,6 +88,11 @@ namespace AmbientSounds.ViewModels
         private void PlaybackStateChanged(object sender, MediaPlaybackState state)
         {
             UpdatePlayState();
+        }
+
+        public void Initialize()
+        {
+            _player.PlaybackStateChanged += PlaybackStateChanged;
         }
 
         public void Dispose()

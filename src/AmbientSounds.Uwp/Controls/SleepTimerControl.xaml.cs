@@ -13,6 +13,10 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<SleepTimerViewModel>();
+            this.Loaded += (_, _) =>
+            {
+                ViewModel.Initialize();
+            };
             this.Unloaded += (_, _) =>
             {
                 ViewModel.Dispose();

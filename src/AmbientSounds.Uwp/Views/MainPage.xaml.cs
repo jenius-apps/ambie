@@ -27,7 +27,6 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
-            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
         }
 
         public bool IsNotTenFoot => !App.IsTenFoot;
@@ -36,6 +35,7 @@ namespace AmbientSounds.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            ViewModel.Initialize();
             ViewModel.StartTimer();
 
             if (e.NavigationMode == NavigationMode.New)
@@ -49,6 +49,7 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             ViewModel.StopTimer();
+            ViewModel.Dispose();
         }
 
         private void TryStartPageAnimations()

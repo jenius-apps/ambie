@@ -51,10 +51,6 @@ namespace AmbientSounds.ViewModels
             _soundVmFactory = soundVmFactory;
             _player = player;
 
-            _player.SoundAdded += OnSoundAdded;
-            _player.SoundRemoved += OnSoundRemoved;
-            ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
-
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             SaveCommand = new AsyncRelayCommand<string>(SaveAsync);
             ClearCommand = new RelayCommand(ClearAll);
@@ -106,6 +102,10 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public async Task LoadPreviousStateAsync()
         {
+            _player.SoundAdded += OnSoundAdded;
+            _player.SoundRemoved += OnSoundRemoved;
+            ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
+
             if (_loaded || !_loadPreviousState)
             {
                 return;
