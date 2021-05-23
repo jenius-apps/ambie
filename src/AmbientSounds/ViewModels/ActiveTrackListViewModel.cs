@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ActiveTrackListViewModel : ObservableObject, IDisposable
+    public class ActiveTrackListViewModel : ObservableObject
     {
         private readonly IMixMediaPlayerService _player;
         private readonly ISoundVmFactory _soundVmFactory;
@@ -50,10 +50,6 @@ namespace AmbientSounds.ViewModels
             _userSettings = userSettings;
             _soundVmFactory = soundVmFactory;
             _player = player;
-
-            _player.SoundAdded += OnSoundAdded;
-            _player.SoundRemoved += OnSoundRemoved;
-            ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             SaveCommand = new AsyncRelayCommand<string>(SaveAsync);
@@ -94,19 +90,23 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Determines if the clear button is visible.
         /// </summary>
-        public bool IsClearVisible => ActiveTracks.Count > 0;
+        public bool IsClearVisible => ActiveTracks.Count > 0 && _loaded;
 
         /// <summary>
         /// Determines if the placeholder is visible.
         /// </summary>
-        public bool IsPlaceholderVisible => ActiveTracks.Count == 0;
+        public bool IsPlaceholderVisible => ActiveTracks.Count == 0 && _loaded;
 
         /// <summary>
         /// Loads prevoius state of the active track list.
         /// </summary>
         public async Task LoadPreviousStateAsync()
         {
-            if (_loaded || !_loadPreviousState)
+            _player.SoundAdded += OnSoundAdded;
+            _player.SoundRemoved += OnSoundRemoved;
+            ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
+
+            if (ActiveTracks.Count > 0 || !_loadPreviousState)
             {
                 return;
             }
@@ -138,6 +138,8 @@ namespace AmbientSounds.ViewModels
             }
 
             _loaded = true;
+            OnPropertyChanged(nameof(IsClearVisible));
+            OnPropertyChanged(nameof(IsPlaceholderVisible));
         }
 
         private void ClearAll()
@@ -241,9 +243,10 @@ namespace AmbientSounds.ViewModels
 
         public void Dispose()
         {
+            ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
             _player.SoundAdded -= OnSoundAdded;
             _player.SoundRemoved -= OnSoundRemoved;
-            ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
+            ActiveTracks.Clear();
         }
     }
 }

@@ -5,6 +5,7 @@ using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
+using System.Threading.Tasks;
 using Windows.Foundation.Metadata;
 using Windows.UI.Shell;
 using Windows.UI.Xaml;
@@ -26,20 +27,20 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<MainPageViewModel>();
-            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
         }
 
         public bool IsNotTenFoot => !App.IsTenFoot;
 
         public MainPageViewModel ViewModel => (MainPageViewModel)this.DataContext;
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            ViewModel.Initialize();
             ViewModel.StartTimer();
 
             if (e.NavigationMode == NavigationMode.New)
             {
-                TryShowPinTeachingTip();
+                await TryShowPinTeachingTip();
             }
 
             TryStartPageAnimations();
@@ -48,6 +49,7 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             ViewModel.StopTimer();
+            ViewModel.Dispose();
         }
 
         private void TryStartPageAnimations()
@@ -62,14 +64,7 @@ namespace AmbientSounds.Views
             }
         }
 
-        private void GridScaleUp(object sender, PointerRoutedEventArgs e) 
-            => SoundItemAnimations.ItemScaleUp((UIElement)sender, 1.1f, e.Pointer);
-
-        private void GridScaleNormal(object sender, PointerRoutedEventArgs e) 
-            => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
-
-
-        private async void TryShowPinTeachingTip()
+        private async Task TryShowPinTeachingTip()
         {
             var tbmgr = TaskbarManager.GetDefault();
             var isPinned = await tbmgr.IsCurrentAppPinnedAsync();

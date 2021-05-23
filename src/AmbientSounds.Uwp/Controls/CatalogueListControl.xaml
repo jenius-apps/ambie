@@ -4,23 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:converters="using:AmbientSounds.Converters"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <interactivity:Interaction.Behaviors>
-        <core:EventTriggerBehavior EventName="Loaded">
-            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
-        </core:EventTriggerBehavior>
-    </interactivity:Interaction.Behaviors>
 
     <UserControl.Resources>
         <Style
@@ -31,140 +23,134 @@
         </Style>
 
         <DataTemplate x:Key="OnlineSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
-            <GridViewItem Margin="6" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
-                <interactivity:Interaction.Behaviors>
-                    <core:EventTriggerBehavior EventName="Loaded">
-                        <core:InvokeCommandAction Command="{x:Bind LoadCommand}" />
-                    </core:EventTriggerBehavior>
-                </interactivity:Interaction.Behaviors>
-                <GridViewItem.Resources>
-                    <!--  These two removes the border on hover and on pressed  -->
-                    <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
-                    <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
-
+            <Grid AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
+                <Grid.Resources>
                     <!--  override keys so that the buttons on the cards are white in both dark and light theme  -->
                     <SolidColorBrush x:Key="ButtonForeground" Color="White" />
                     <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
                     <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
-                </GridViewItem.Resources>
+                </Grid.Resources>
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        Delay="0:0:0.5"
+                        From="0"
+                        To="1"
+                        Duration="0:0:1" />
+                </ani:Implicit.ShowAnimations>
 
-                <toolkit:DropShadowPanel x:Name="RootGrid" Style="{StaticResource SoundItemShadow}">
+                <Grid
+                    x:Name="ImageGrid"
+                    Width="171"
+                    Height="240"
+                    CornerRadius="8">
+                    <Grid.Background>
+                        <ImageBrush Stretch="UniformToFill" />
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Rectangle Grid.RowSpan="3">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#00000000" />
+                                <GradientStop Offset="1" Color="#e0000000" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <Grid Grid.Row="1" Margin="12,0">
+                        <TextBlock
+                            FontWeight="SemiBold"
+                            Foreground="White"
+                            MaxLines="2"
+                            Text="{x:Bind Name, Mode=OneWay}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="Wrap">
+                            <ToolTipService.ToolTip>
+                                <Grid MaxWidth="300">
+                                    <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
+                                </Grid>
+                            </ToolTipService.ToolTip>
+                        </TextBlock>
+                    </Grid>
+
                     <Grid
-                        Width="171"
-                        Height="240"
-                        CornerRadius="8">
-                        <Grid.Background>
-                            <ImageBrush Stretch="UniformToFill">
-                                <ImageBrush.ImageSource>
-                                    <BitmapImage DecodePixelHeight="240" UriSource="{x:Bind ImagePath}" />
-                                </ImageBrush.ImageSource>
-                            </ImageBrush>
-                        </Grid.Background>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Rectangle Grid.RowSpan="3">
-                            <Rectangle.Fill>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Offset="0" Color="#00000000" />
-                                    <GradientStop Offset="1" Color="#e0000000" />
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
+                        Grid.Row="2"
+                        Height="36"
+                        Margin="12,4,12,12"
+                        VerticalAlignment="Bottom">
+                        <StackPanel
+                            x:Name="DownloadPanel"
+                            x:Load="{x:Bind NotInstalled, Mode=OneWay}"
+                            Orientation="Horizontal">
 
-                        <Grid Grid.Row="1" Margin="12,0">
-                            <TextBlock
-                                FontWeight="SemiBold"
-                                Foreground="White"
-                                MaxLines="2"
-                                Text="{x:Bind Name, Mode=OneWay}"
-                                TextTrimming="CharacterEllipsis"
-                                TextWrapping="Wrap">
-                                <ToolTipService.ToolTip>
-                                    <Grid MaxWidth="300">
-                                        <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
-                                    </Grid>
-                                </ToolTipService.ToolTip>
-                            </TextBlock>
-                        </Grid>
-
-                        <Grid
-                            Grid.Row="2"
-                            Margin="12,4,12,12"
-                            VerticalAlignment="Bottom">
+                            <!--  buy button  -->
                             <StackPanel
-                                x:Name="DownloadPanel"
-                                Height="36"
-                                x:Load="{x:Bind NotInstalled, Mode=OneWay}"
+                                x:Name="BuyPanel"
+                                x:Load="{x:Bind CanBuy, Mode=OneWay}"
                                 Orientation="Horizontal">
-
-                                <!--  buy button  -->
-                                <StackPanel
-                                    x:Name="BuyPanel"
+                                <Button
+                                    x:Name="BuyButton"
+                                    x:Uid="BuyButton"
+                                    VerticalAlignment="Stretch"
                                     x:Load="{x:Bind CanBuy, Mode=OneWay}"
-                                    Orientation="Horizontal">
-                                    <Button
-                                        x:Name="BuyButton"
-                                        x:Uid="BuyButton"
-                                        VerticalAlignment="Stretch"
-                                        x:Load="{x:Bind CanBuy, Mode=OneWay}"
-                                        Command="{x:Bind BuyCommand}"
-                                        Style="{StaticResource ActionButtonStyle}">
-                                        <TextBlock Text="{x:Bind Price, Mode=OneWay}" />
-                                    </Button>
-                                    <Button
-                                        x:Name="PreviewButton"
-                                        x:Uid="PreviewButton"
-                                        Margin="8,0,0,0"
-                                        x:Load="{x:Bind CanPreview}"
-                                        Command="{x:Bind PreviewCommand}"
-                                        Style="{StaticResource ActionButtonStyle}">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
-                                    </Button>
-                                </StackPanel>
-
-
-                                <!--  download button  -->
-                                <Button
-                                    x:Uid="DownloadSoundButton"
-                                    Command="{x:Bind DownloadCommand}"
-                                    Style="{StaticResource ActionButtonStyle}"
-                                    Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon
-                                            VerticalAlignment="Center"
-                                            FontFamily="{StaticResource FluentUIGlyphs}"
-                                            Glyph="&#xE9B9;" />
-                                    </StackPanel>
-                                </Button>
-
-                                <!--  TODO update httpclient to better measure progress. Until then, we use indeterminate progress ring  -->
-                                <!--  IsIndeterminate="False" Value="{x:Bind DownloadProgressValue, Mode=OneWay}"  -->
-                                <muxc:ProgressRing
-                                    x:Name="DownloadProgressRing"
-                                    Width="20"
-                                    Height="20"
-                                    VerticalAlignment="Center"
-                                    x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
-                                    Foreground="White" />
-                            </StackPanel>
-
-                            <StackPanel
-                                x:Name="InstalledPanel"
-                                x:Load="{x:Bind IsInstalled, Mode=OneWay}"
-                                Orientation="Horizontal">
-                                <Button
-                                    x:Uid="DeleteButton"
-                                    Command="{x:Bind DeleteCommand}"
+                                    Command="{x:Bind BuyCommand}"
                                     Style="{StaticResource ActionButtonStyle}">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
+                                    <TextBlock Text="{x:Bind Price, Mode=OneWay}" />
+                                </Button>
+                                <Button
+                                    x:Name="PreviewButton"
+                                    x:Uid="PreviewButton"
+                                    Margin="8,0,0,0"
+                                    x:Load="{x:Bind CanPreview}"
+                                    Command="{x:Bind PreviewCommand}"
+                                    Style="{StaticResource ActionButtonStyle}">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
                                 </Button>
                             </StackPanel>
 
-                            <!--  Re-enable once we're ready for sponsor links  -->
-                            <!--<StackPanel
+
+                            <!--  download button  -->
+                            <Button
+                                x:Uid="DownloadSoundButton"
+                                Command="{x:Bind DownloadCommand}"
+                                Style="{StaticResource ActionButtonStyle}"
+                                Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        Glyph="&#xE9B9;" />
+                                </StackPanel>
+                            </Button>
+
+                            <!--  TODO update httpclient to better measure progress. Until then, we use indeterminate progress ring  -->
+                            <!--  IsIndeterminate="False" Value="{x:Bind DownloadProgressValue, Mode=OneWay}"  -->
+                            <muxc:ProgressRing
+                                x:Name="DownloadProgressRing"
+                                Width="20"
+                                Height="20"
+                                VerticalAlignment="Center"
+                                x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                Foreground="White" />
+                        </StackPanel>
+
+                        <StackPanel
+                            x:Name="InstalledPanel"
+                            x:Load="{x:Bind IsInstalled, Mode=OneWay}"
+                            Orientation="Horizontal">
+                            <Button
+                                x:Uid="DeleteButton"
+                                Command="{x:Bind DeleteCommand}"
+                                Style="{StaticResource ActionButtonStyle}">
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
+                            </Button>
+                        </StackPanel>
+
+                        <!--  Re-enable once we're ready for sponsor links  -->
+                        <!--<StackPanel
                                 x:Name="AlwaysVisiblePanel"
                                 Grid.Column="1"
                                 Margin="8,0,0,0"
@@ -193,35 +179,26 @@
                                     </Button.Flyout>
                                 </muxc:DropDownButton>
                             </StackPanel>-->
-                        </Grid>
                     </Grid>
-                </toolkit:DropShadowPanel>
-            </GridViewItem>
+                </Grid>
+            </Grid>
         </DataTemplate>
+
+        <muxc:UniformGridLayout
+            x:Name="UniformGridLayout"
+            MinColumnSpacing="12"
+            MinRowSpacing="12" />
     </UserControl.Resources>
 
     <Grid>
-        <ScrollViewer>
-            <GridView
-                Margin="32,12,32,24"
-                HorizontalAlignment="Center"
-                ani:ItemsReorderAnimation.Duration="0:0:0.3"
+        <ScrollViewer Padding="44,0,44,0">
+            <muxc:ItemsRepeater
+                Margin="0,0,0,20"
+                ElementClearing="ItemsRepeater_ElementClearing"
+                ElementPrepared="ItemsRepeater_ElementPrepared"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
-                ScrollViewer.HorizontalScrollMode="Disabled"
-                ScrollViewer.VerticalScrollMode="Disabled"
-                SelectionMode="None">
-                <GridView.ItemContainerStyle>
-                    <Style BasedOn="{StaticResource GridViewItemExpanded}" TargetType="GridViewItem">
-                        <Setter Property="IsFocusEngagementEnabled" Value="True" />
-                    </Style>
-                </GridView.ItemContainerStyle>
-                <GridView.ItemContainerTransitions>
-                    <TransitionCollection>
-                        <EntranceThemeTransition IsStaggeringEnabled="True" />
-                    </TransitionCollection>
-                </GridView.ItemContainerTransitions>
-            </GridView>
+                Layout="{StaticResource UniformGridLayout}" />
         </ScrollViewer>
 
         <muxc:ProgressRing
@@ -230,7 +207,7 @@
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            x:Load="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
+            x:Load="{x:Bind ViewModel.Loading, Mode=OneWay}"
             Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
             IsActive="True" />
     </Grid>

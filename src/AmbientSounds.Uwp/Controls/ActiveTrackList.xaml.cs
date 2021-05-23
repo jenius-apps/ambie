@@ -19,23 +19,13 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ActiveTrackListViewModel>();
+            this.Unloaded += OnUnloaded;
+            this.Loaded += UserControl_Loaded;
         }
 
         public ActiveTrackListViewModel ViewModel => (ActiveTrackListViewModel)this.DataContext;
 
-        public Orientation Orientation
-        {
-            get => (Orientation)GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
-        }
-
-        public readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-            nameof(Orientation),
-            typeof(Orientation),
-            typeof(ActiveTrackList),
-            new PropertyMetadata(Orientation.Horizontal));
-
-        private async void UserControl_Loaded()
+        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             await ViewModel.LoadPreviousStateAsync();
             ViewModel.ActiveTracks.CollectionChanged += OnCollectedChanged;
@@ -102,19 +92,6 @@ namespace AmbientSounds.Controls
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SaveFlyout.Hide();
-        }
-
-        private void RemoveOnMiddleClick(object sender, PointerRoutedEventArgs e)
-        {
-            if (sender is Image fe && fe.DataContext is ActiveTrackViewModel vm)
-            {
-                var pointer = e.GetCurrentPoint(fe);
-                if (pointer.Properties.PointerUpdateKind == PointerUpdateKind.MiddleButtonPressed)
-                {
-                    vm.RemoveCommand.Execute(vm.Sound);
-                    e.Handled = true;
-                }
-            }
         }
     }
 }

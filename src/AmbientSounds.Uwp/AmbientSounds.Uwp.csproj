@@ -179,6 +179,7 @@
     <Compile Include="Controls\ToggleCompactButton.xaml.cs">
       <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Controls\UploadedSoundsList.xaml.cs">
       <DependentUpon>UploadedSoundsList.xaml</DependentUpon>
     </Compile>
@@ -196,7 +197,6 @@
     <Compile Include="Services\FilePicker.cs" />
     <Compile Include="Services\ImagePicker.cs" />
     <Compile Include="Services\MixMediaPlayerService.cs" />
-    <Compile Include="Services\MsaAuthClient.cs" />
     <Compile Include="Services\MsalClient.cs" />
     <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Services\StoreService.cs" />

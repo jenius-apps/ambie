@@ -12,6 +12,7 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<UploadFormViewModel>();
+            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
         }
 
         public UploadFormViewModel ViewModel => (UploadFormViewModel)this.DataContext;

@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Grid>
@@ -54,6 +55,6 @@
             </Grid>
 
         </Grid>
-        <controls:CatalogueListControl Grid.Row="1" />
+        <controls:CatalogueListControl Grid.Row="1" Margin="0,12,0,0" />
     </Grid>
 </Page>

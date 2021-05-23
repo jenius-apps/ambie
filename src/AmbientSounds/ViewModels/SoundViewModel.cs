@@ -15,7 +15,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// View model for a sound object.
     /// </summary>
-    public class SoundViewModel : ObservableObject, IDisposable
+    public class SoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
@@ -27,7 +27,6 @@ namespace AmbientSounds.ViewModels
         public SoundViewModel(
             Sound s,
             IMixMediaPlayerService playerService,
-            int index,
             ISoundDataProvider soundDataProvider,
             ISoundMixService soundMixService,
             ITelemetry telemetry,
@@ -40,7 +39,6 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(renamer, nameof(renamer));
 
-            Index = index;
             _sound = s;
             _soundMixService = soundMixService;
             _playerService = playerService;
@@ -55,11 +53,6 @@ namespace AmbientSounds.ViewModels
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
         }
-
-        /// <summary>
-        /// Index of this sound in the list.
-        /// </summary>
-        public int Index { get; set; }
 
         /// <summary>
         /// The sound's GUID.

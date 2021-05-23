@@ -13,6 +13,7 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    NavigationCacheMode="Enabled"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
     PointerMoved="{x:Bind ViewModel.ResetTime}"
     PointerPressed="{x:Bind ViewModel.ResetTime}"
@@ -35,10 +36,10 @@
                     <Grid
                         Width="120"
                         Height="120"
-                        extensions:VisualExtensions.CenterPoint="60,60,0"
+                        extensions:VisualExtensions.NormalizedCenterPoint="0.5"
                         CornerRadius="8"
-                        PointerEntered="GridScaleUp"
-                        PointerExited="GridScaleNormal">
+                        PointerEntered="{x:Bind controls:UIHelper.GridScaleUp}"
+                        PointerExited="{x:Bind controls:UIHelper.GridScaleNormal}">
                         <animations:Implicit.Animations>
                             <animations:ScaleAnimation Duration="0:0:0.5" />
                         </animations:Implicit.Animations>

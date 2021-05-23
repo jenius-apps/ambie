@@ -2,7 +2,7 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,11 +11,12 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class CatalogueListViewModel : IDisposable
+    public class CatalogueListViewModel : ObservableObject
     {
         private readonly IOnlineSoundDataProvider _dataProvider;
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundVmFactory _soundVmFactory;
+        private bool _loading;
 
         public CatalogueListViewModel(
             IOnlineSoundDataProvider dataProvider,
@@ -29,19 +30,18 @@ namespace AmbientSounds.ViewModels
             _soundDataProvider = soundDataProvider;
             _dataProvider = dataProvider;
             _soundVmFactory = soundVmFactory;
-
-            LoadCommand = new AsyncRelayCommand(LoadAsync);
         }
-
-        /// <summary>
-        /// The <see cref="IAsyncRelayCommand"/> responsible for loading the viewmodel data.
-        /// </summary>
-        public IAsyncRelayCommand LoadCommand { get; }
 
         /// <summary>
         /// The list of sounds for this page.
         /// </summary>
         public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
+
+        public bool Loading
+        {
+            get => _loading;
+            set => SetProperty(ref _loading, value);
+        }
 
         /// <inheritdoc/>
         public void Dispose()
@@ -54,13 +54,14 @@ namespace AmbientSounds.ViewModels
             Sounds.Clear();
         }
 
-        private async Task LoadAsync()
+        public async Task InitializeAsync()
         {
-            if (Sounds.Count > 0)
+            if (Sounds.Count > 0 || Loading)
             {
                 return;
             }
 
+            Loading = true;
             IList<Sound> sounds;
 
             try
@@ -72,17 +73,25 @@ namespace AmbientSounds.ViewModels
             {
                 // TODO log error
                 Debug.WriteLine(e);
+                Loading = false;
                 return;
             }
+
+            List<Task> tasks = new();
 
             foreach (var sound in sounds)
             {
                 var vm = _soundVmFactory.GetOnlineSoundVm(sound);
                 if (vm is not null)
                 {
+                    tasks.Add(vm.LoadCommand.ExecuteAsync(null));
                     Sounds.Add(vm);
                 }
             }
+
+            await Task.WhenAll(tasks);
+
+            Loading = false;
         }
     }
 }

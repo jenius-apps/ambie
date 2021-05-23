@@ -19,7 +19,6 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<CataloguePageViewModel>();
-
         }
 
         public CataloguePageViewModel ViewModel => (CataloguePageViewModel)this.DataContext;

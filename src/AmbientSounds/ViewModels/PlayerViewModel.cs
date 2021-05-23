@@ -3,7 +3,6 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -11,7 +10,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// View model for a player user control.
     /// </summary>
-    public class PlayerViewModel : ObservableObject, IDisposable
+    public class PlayerViewModel : ObservableObject
     {
         private readonly IMixMediaPlayerService _player;
         private readonly IUserSettings _userSettings;
@@ -23,7 +22,6 @@ namespace AmbientSounds.ViewModels
 
             _player = player;
             _userSettings = userSettings;
-            _player.PlaybackStateChanged += PlaybackStateChanged;
 
             TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
             RandomCommand = new RelayCommand(PlayRandom);
@@ -90,6 +88,15 @@ namespace AmbientSounds.ViewModels
         private void PlaybackStateChanged(object sender, MediaPlaybackState state)
         {
             UpdatePlayState();
+        }
+
+        public void Initialize()
+        {
+            _player.PlaybackStateChanged += PlaybackStateChanged;
+
+            // Required to update the binding
+            // when returning to main page (because main is cached).
+            OnPropertyChanged(nameof(Volume));
         }
 
         public void Dispose()

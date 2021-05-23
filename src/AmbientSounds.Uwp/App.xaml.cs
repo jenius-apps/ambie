@@ -282,7 +282,7 @@ namespace AmbientSounds
 
             var provider = new ServiceCollection()
                 .AddSingleton(client)
-                // if viewmodel, then always transient because we want the bindings to be released.
+                // if viewmodel, then always transient unless otherwise stated
                 .AddTransient<SoundListViewModel>()
                 .AddTransient<CatalogueListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
@@ -294,8 +294,8 @@ namespace AmbientSounds
                 .AddTransient<MainPageViewModel>()
                 .AddTransient<ShellPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
-                .AddTransient<PlayerViewModel>()
-                .AddTransient<SleepTimerViewModel>()
+                .AddSingleton<PlayerViewModel>() // shared in main and compact pages
+                .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddTransient<AccountControlViewModel>()
                 .AddTransient<UploadedSoundsListViewModel>()

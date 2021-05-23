@@ -12,7 +12,7 @@ namespace AmbientSounds.Services
     /// <summary>
     /// Class that orchestrates data synchronization.
     /// </summary>
-    public class SyncEngine : ISyncEngine, IDisposable
+    public class SyncEngine : ISyncEngine
     {
         private readonly ICloudFileWriter _cloudFileWriter;
         private readonly IDownloadManager _downloadManager;

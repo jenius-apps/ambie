@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class UploadFormViewModel : ObservableObject, IDisposable
+    public class UploadFormViewModel : ObservableObject
     {
         private readonly IUploadService _uploadService;
         private readonly IAccountManager _accountManager;

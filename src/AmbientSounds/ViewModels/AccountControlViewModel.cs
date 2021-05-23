@@ -4,13 +4,12 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class AccountControlViewModel : ObservableObject, IDisposable
+    public class AccountControlViewModel : ObservableObject
     {
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
@@ -39,10 +38,6 @@ namespace AmbientSounds.ViewModels
             _telemetry = telemetry;
             _syncEngine = syncEngine;
             _navigator = navigator;
-
-            _accountManager.SignInUpdated += OnSignInUpdated;
-            _syncEngine.SyncStarted += OnSyncStarted;
-            _syncEngine.SyncCompleted += OnSyncCompleted;
 
             SignInCommand = new RelayCommand(SignIn);
             OpenUploadPageCommand = new RelayCommand(UploadClicked);
@@ -117,8 +112,13 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _loading, value);
         }
 
-        public async void Load()
+        public async Task LoadAsync()
         {
+            _accountManager.SignInUpdated += OnSignInUpdated;
+            _syncEngine.SyncStarted += OnSyncStarted;
+            _syncEngine.SyncCompleted += OnSyncCompleted;
+
+
             if (Loading || _signedIn)
             {
                 return;

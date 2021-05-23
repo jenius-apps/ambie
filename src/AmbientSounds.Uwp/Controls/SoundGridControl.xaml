@@ -13,11 +13,6 @@
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <interactivity:Interaction.Behaviors>
-        <core:EventTriggerBehavior EventName="Loaded">
-            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
-        </core:EventTriggerBehavior>
-    </interactivity:Interaction.Behaviors>
 
     <Grid>
         <ScrollViewer>
@@ -38,11 +33,6 @@
                 <interactivity:Interaction.Behaviors>
                     <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
                 </interactivity:Interaction.Behaviors>
-                <GridView.ItemContainerTransitions>
-                    <TransitionCollection>
-                        <EntranceThemeTransition IsStaggeringEnabled="True" />
-                    </TransitionCollection>
-                </GridView.ItemContainerTransitions>
             </GridView>
         </ScrollViewer>
 

@@ -40,9 +40,5 @@ namespace AmbientSounds.Views
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.GoBack();
         }
-
-        private void GridScaleUp(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleUp((UIElement)sender , 1.1f, e.Pointer);
-
-        private void GridScaleNormal(object sender, PointerRoutedEventArgs e) => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
     }
 }

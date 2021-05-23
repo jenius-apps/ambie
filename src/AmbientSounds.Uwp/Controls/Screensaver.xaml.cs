@@ -14,8 +14,16 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ScreensaverViewModel>();
-            this.Loaded += (_, _) => { ViewModel.PropertyChanging += PropertyChanging; };
-            this.Unloaded += (_, _) => { ViewModel.Dispose(); ViewModel.PropertyChanging -= PropertyChanging; };
+            this.Loaded += (_, _) => 
+            {
+                ViewModel.Initialize();
+                ViewModel.PropertyChanging += PropertyChanging; 
+            };
+            this.Unloaded += (_, _) => 
+            { 
+                ViewModel.Dispose();
+                ViewModel.PropertyChanging -= PropertyChanging; 
+            };
             this.SizeChanged += OnSizeChanged;
         }
 

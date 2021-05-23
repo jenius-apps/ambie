@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SoundListViewModel : IDisposable
+    public class SoundListViewModel
     {
         private readonly ISoundDataProvider _provider;
         private readonly ITelemetry _telemetry;
@@ -36,9 +36,6 @@ namespace AmbientSounds.ViewModels
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
-
-            _provider.LocalSoundAdded += OnLocalSoundAdded;
-            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
         }
 
         private void OnLocalSoundDeleted(object sender, string id)
@@ -46,18 +43,11 @@ namespace AmbientSounds.ViewModels
             var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
             if (forDeletion is null) return;
             Sounds.Remove(forDeletion);
-
-            int index = 0;
-            foreach (var sound in Sounds)
-            {
-                sound.Index = index;
-                index++;
-            }
         }
 
         private void OnLocalSoundAdded(object sender, Models.Sound e)
         {
-            var s = _factory.GetSoundVm(e, Sounds.Count);
+            var s = _factory.GetSoundVm(e);
             Sounds.Add(s);
         }
 
@@ -81,16 +71,17 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private async Task LoadAsync()
         {
+            _provider.LocalSoundAdded += OnLocalSoundAdded;
+            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
+
             if (Sounds.Count > 0) return; // already initialized
 
             var soundList = await _provider.GetSoundsAsync();
 
-            int index = 0;
             foreach (var sound in soundList)
             {
-                var s = _factory.GetSoundVm(sound, index);
+                var s = _factory.GetSoundVm(sound);
                 Sounds.Add(s);
-                index++;
             }
         }
 
