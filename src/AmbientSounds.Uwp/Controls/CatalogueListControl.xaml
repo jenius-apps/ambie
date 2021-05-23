@@ -4,23 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:converters="using:AmbientSounds.Converters"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <interactivity:Interaction.Behaviors>
-        <core:EventTriggerBehavior EventName="Loaded">
-            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
-        </core:EventTriggerBehavior>
-    </interactivity:Interaction.Behaviors>
 
     <UserControl.Resources>
         <Style
@@ -32,11 +24,6 @@
 
         <DataTemplate x:Key="OnlineSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
             <GridViewItem Margin="6" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
-                <interactivity:Interaction.Behaviors>
-                    <core:EventTriggerBehavior EventName="Loaded">
-                        <core:InvokeCommandAction Command="{x:Bind LoadCommand}" />
-                    </core:EventTriggerBehavior>
-                </interactivity:Interaction.Behaviors>
                 <GridViewItem.Resources>
                     <!--  These two removes the border on hover and on pressed  -->
                     <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
@@ -216,11 +203,6 @@
                         <Setter Property="IsFocusEngagementEnabled" Value="True" />
                     </Style>
                 </GridView.ItemContainerStyle>
-                <GridView.ItemContainerTransitions>
-                    <TransitionCollection>
-                        <EntranceThemeTransition IsStaggeringEnabled="True" />
-                    </TransitionCollection>
-                </GridView.ItemContainerTransitions>
             </GridView>
         </ScrollViewer>
 
@@ -230,7 +212,7 @@
             Height="40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            x:Load="{x:Bind ViewModel.LoadCommand.IsRunning, Mode=OneWay}"
+            x:Load="{x:Bind ViewModel.Loading, Mode=OneWay}"
             Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
             IsActive="True" />
     </Grid>
