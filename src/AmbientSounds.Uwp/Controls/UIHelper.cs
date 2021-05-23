@@ -1,10 +1,7 @@
-﻿using AmbientSounds.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.ViewModels;
 using Windows.UI.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -24,5 +21,11 @@ namespace AmbientSounds.Controls
                 }
             }
         }
+
+        public static void GridScaleUp(object sender, PointerRoutedEventArgs e)
+            => SoundItemAnimations.ItemScaleUp((UIElement)sender, 1.1f, e.Pointer);
+
+        public static void GridScaleNormal(object sender, PointerRoutedEventArgs e)
+            => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
     }
 }
