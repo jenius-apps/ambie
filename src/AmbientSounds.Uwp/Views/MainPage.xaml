@@ -35,7 +35,7 @@
                     <Grid
                         Width="120"
                         Height="120"
-                        extensions:VisualExtensions.CenterPoint="60,60,0"
+                        extensions:VisualExtensions.NormalizedCenterPoint="0.5"
                         CornerRadius="8"
                         PointerEntered="{x:Bind controls:UIHelper.GridScaleUp}"
                         PointerExited="{x:Bind controls:UIHelper.GridScaleNormal}">
