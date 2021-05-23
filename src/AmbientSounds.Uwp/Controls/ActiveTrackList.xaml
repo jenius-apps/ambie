@@ -16,7 +16,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="153" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
@@ -135,10 +135,12 @@
             Visibility="{x:Bind ViewModel.IsClearVisible, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
+                    Delay="0:0:0.3"
                     From="0"
                     To="1.0"
                     Duration="0:0:1" />
                 <animations:TranslationAnimation
+                    Delay="0:0:0.3"
                     From="0,24,0"
                     To="0"
                     Duration="0:0:1" />

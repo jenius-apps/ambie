@@ -90,12 +90,12 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Determines if the clear button is visible.
         /// </summary>
-        public bool IsClearVisible => ActiveTracks.Count > 0;
+        public bool IsClearVisible => ActiveTracks.Count > 0 && _loaded;
 
         /// <summary>
         /// Determines if the placeholder is visible.
         /// </summary>
-        public bool IsPlaceholderVisible => ActiveTracks.Count == 0;
+        public bool IsPlaceholderVisible => ActiveTracks.Count == 0 && _loaded;
 
         /// <summary>
         /// Loads prevoius state of the active track list.
@@ -106,7 +106,7 @@ namespace AmbientSounds.ViewModels
             _player.SoundRemoved += OnSoundRemoved;
             ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
 
-            if (_loaded || !_loadPreviousState)
+            if (ActiveTracks.Count > 0 || !_loadPreviousState)
             {
                 return;
             }
@@ -138,6 +138,8 @@ namespace AmbientSounds.ViewModels
             }
 
             _loaded = true;
+            OnPropertyChanged(nameof(IsClearVisible));
+            OnPropertyChanged(nameof(IsPlaceholderVisible));
         }
 
         private void ClearAll()
