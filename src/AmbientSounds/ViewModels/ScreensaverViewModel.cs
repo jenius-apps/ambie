@@ -41,8 +41,6 @@ namespace AmbientSounds.ViewModels
             _timerService = timerService;
             _soundDataProvider = soundDataProvider;
             _timerService.Interval = ImageTimeLength;
-
-            _timerService.IntervalElapsed += TimerIntervalElapsed;
         }
 
         public bool Loading
@@ -172,6 +170,11 @@ namespace AmbientSounds.ViewModels
             {
                 index = 1;
             }
+        }
+
+        public void Initialize()
+        {
+            _timerService.IntervalElapsed += TimerIntervalElapsed;
         }
 
         public void Dispose()
