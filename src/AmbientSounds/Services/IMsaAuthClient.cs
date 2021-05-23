@@ -27,7 +27,7 @@ namespace AmbientSounds.Services
         /// Attempts to sign in and retrieve at token. User will be prompted.
         /// Result will be communicated via <see cref="InteractiveSignInCompleted"/>.
         /// </summary>
-        void RequestInteractiveSignIn(
+        Task RequestInteractiveSignIn(
             string[] scopes,
             string[]? extraScopes = null);
 

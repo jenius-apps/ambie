@@ -39,13 +39,13 @@ namespace AmbientSounds.ViewModels
             _syncEngine = syncEngine;
             _navigator = navigator;
 
-            SignInCommand = new RelayCommand(SignIn);
+            SignInCommand = new AsyncRelayCommand(SignIn);
             OpenUploadPageCommand = new RelayCommand(UploadClicked);
             SignOutCommand = new AsyncRelayCommand(SignOutAsync);
             SyncCommand = new AsyncRelayCommand(SyncAsync);
         }
 
-        public IRelayCommand SignInCommand { get; }
+        public IAsyncRelayCommand SignInCommand { get; }
 
         public IRelayCommand OpenUploadPageCommand { get; }
 
@@ -186,9 +186,9 @@ namespace AmbientSounds.ViewModels
             _telemetry.TrackEvent(TelemetryConstants.SyncManual);
         }
 
-        private void SignIn()
+        private async Task SignIn()
         {
-            _accountManager.RequestSignIn();
+            await _accountManager.RequestSignIn();
             _telemetry.TrackEvent(TelemetryConstants.SignInTriggered);
         }
 
