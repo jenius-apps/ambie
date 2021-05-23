@@ -55,6 +55,6 @@
             </Grid>
 
         </Grid>
-        <controls:CatalogueListControl Grid.Row="1" />
+        <controls:CatalogueListControl Grid.Row="1" Margin="0,12,0,0" />
     </Grid>
 </Page>

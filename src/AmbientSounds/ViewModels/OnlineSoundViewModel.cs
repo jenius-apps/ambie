@@ -103,7 +103,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// The path for the image to display for the current sound.
         /// </summary>
-        public string? ImagePath => _sound.ImagePath;
+        public string ImagePath => _sound.ImagePath;
 
         /// <summary>
         /// Array of sponsor links provided by sound author
