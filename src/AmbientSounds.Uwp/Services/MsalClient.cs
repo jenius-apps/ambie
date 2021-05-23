@@ -8,6 +8,8 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using Microsoft.Identity.Client.Extensibility;
+using Windows.System;
 
 #nullable enable
 
@@ -23,6 +25,7 @@ namespace AmbientSounds.Services.Uwp
         private readonly HttpClient _httpClient;
         private readonly IFileWriter _fileWriter;
         private readonly ITelemetry _telemetry;
+        private readonly ICustomWebUi _customWebUi;
 
         /// <inheritdoc/>
         public event EventHandler? InteractiveSignInCompleted;
@@ -31,17 +34,20 @@ namespace AmbientSounds.Services.Uwp
             IAppSettings appSettings,
             IFileWriter fileWriter,
             HttpClient httpClient,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            ICustomWebUi customWebUi)
         {
             Guard.IsNotNull(appSettings, nameof(appSettings));
             Guard.IsNotNull(fileWriter, nameof(fileWriter));
             Guard.IsNotNull(httpClient, nameof(httpClient));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(customWebUi, nameof(customWebUi));
 
             _clientId = appSettings.MsaClientId;
             _fileWriter = fileWriter;
             _httpClient = httpClient;
             _telemetry = telemetry;
+            _customWebUi = customWebUi;
             _msalSdkClient = PublicClientApplicationBuilder
                 .Create(_clientId)
                 .WithAuthority(Authority)
@@ -120,13 +126,19 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async void  RequestInteractiveSignIn(
+        public async Task RequestInteractiveSignIn(
             string[] scopes,
             string[]? extraScopes = null)
         {
             try
             {
-                var builder = _msalSdkClient.AcquireTokenInteractive(scopes);
+                var builder = _msalSdkClient
+                    .AcquireTokenInteractive(scopes)
+                    // Use custom web ui because built-in
+                    // used by MSAL crashes on ARM devices.
+                    // And the proposed workaround, WAM, doesn't work on xbox.
+                    .WithCustomWebUi(_customWebUi);
+
                 if (extraScopes is not null)
                 {
                     builder = builder.WithExtraScopesToConsent(extraScopes);

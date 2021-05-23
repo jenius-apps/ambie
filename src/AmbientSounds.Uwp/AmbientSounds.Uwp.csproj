@@ -140,6 +140,9 @@
     <Compile Include="Controls\ActiveTrackList.xaml.cs">
       <DependentUpon>ActiveTrackList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AuthDialog.xaml.cs">
+      <DependentUpon>AuthDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CatalogueListControl.xaml.cs">
       <DependentUpon>CatalogueListControl.xaml</DependentUpon>
     </Compile>
@@ -194,6 +197,8 @@
     <Compile Include="Services\AppCentreTelemetry.cs" />
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
+    <Compile Include="Services\CustomAuthUiService.cs" />
+    <Compile Include="Services\DispatcherExtensions.cs" />
     <Compile Include="Services\FilePicker.cs" />
     <Compile Include="Services\ImagePicker.cs" />
     <Compile Include="Services\MixMediaPlayerService.cs" />
@@ -345,6 +350,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ActiveTrackList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AuthDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

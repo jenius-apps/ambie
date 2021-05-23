@@ -24,20 +24,20 @@
             <Button.Flyout>
                 <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
                     <winui:CommandBarFlyout.SecondaryCommands>
+                        <AppBarButton Command="{x:Bind ViewModel.SignInCommand}" Label="{x:Bind strings:Resources.SignIn}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarSeparator IsTabStop="True" />
                         <AppBarElementContainer IsTabStop="True">
-                            <StackPanel Padding="12">
+                            <StackPanel Padding="12,4,12,12">
                                 <TextBlock
                                     MaxWidth="240"
                                     Text="{x:Bind strings:Resources.SignInDescriptionText}"
                                     TextWrapping="WrapWholeWords" />
                             </StackPanel>
                         </AppBarElementContainer>
-                        <AppBarSeparator />
-                        <AppBarButton Command="{x:Bind ViewModel.SignInCommand}" Label="{x:Bind strings:Resources.SignIn}">
-                            <AppBarButton.Icon>
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
-                            </AppBarButton.Icon>
-                        </AppBarButton>
                     </winui:CommandBarFlyout.SecondaryCommands>
                 </winui:CommandBarFlyout>
             </Button.Flyout>
@@ -70,13 +70,6 @@
             <Button.Flyout>
                 <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
                     <winui:CommandBarFlyout.SecondaryCommands>
-                        <AppBarElementContainer IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}">
-                            <StackPanel Padding="12">
-                                <TextBlock Text="{x:Bind ViewModel.FirstName, Mode=OneWay}" />
-                                <TextBlock Margin="0,4,0,0" Text="{x:Bind ViewModel.Email, Mode=OneWay}" />
-                            </StackPanel>
-                        </AppBarElementContainer>
-                        <AppBarSeparator IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
                         <AppBarButton
                             x:Uid="MoreButtonUpload"
                             Command="{x:Bind ViewModel.OpenUploadPageCommand}"
@@ -95,6 +88,13 @@
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9CD;" />
                             </AppBarButton.Icon>
                         </AppBarButton>
+                        <AppBarSeparator IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}" />
+                        <AppBarElementContainer IsTabStop="True" Visibility="{x:Bind convert:VisibilityConverter.IfStringNotEmpty(ViewModel.Email), Mode=OneWay}">
+                            <StackPanel Padding="12">
+                                <TextBlock Text="{x:Bind ViewModel.FirstName, Mode=OneWay}" />
+                                <TextBlock Margin="0,4,0,0" Text="{x:Bind ViewModel.Email, Mode=OneWay}" />
+                            </StackPanel>
+                        </AppBarElementContainer>
                     </winui:CommandBarFlyout.SecondaryCommands>
                 </winui:CommandBarFlyout>
             </Button.Flyout>

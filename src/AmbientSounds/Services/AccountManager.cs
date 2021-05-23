@@ -57,12 +57,12 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public void RequestSignIn()
+        public Task RequestSignIn()
         {
             // Cannot combine graph and catalogue scopes
             // because together they cause an "incompatible scopes"
             // error when signing in.
-            _authClient.RequestInteractiveSignIn(
+            return _authClient.RequestInteractiveSignIn(
                 MsalConstants.GraphScopes,
                 _catalogueScope);
         }

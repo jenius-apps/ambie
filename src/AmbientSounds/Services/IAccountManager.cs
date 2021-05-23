@@ -38,7 +38,7 @@ namespace AmbientSounds.Services
         /// to perform the sign in process. Result will be communicated
         /// by <see cref="SignInUpdated"/>.
         /// </summary>
-        void RequestSignIn();
+        Task RequestSignIn();
 
         /// <summary>
         /// Signs out the user.

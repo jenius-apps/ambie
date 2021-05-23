@@ -1,0 +1,58 @@
+﻿<ContentDialog
+    x:Class="AmbientSounds.Controls.AuthDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    Loaded="ContentDialog_Loaded"
+    SizeChanged="ContentDialog_SizeChanged"
+    mc:Ignorable="d">
+
+    <!--
+        Source: Timo Partl
+        https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/1901#issuecomment-700596294
+    -->
+
+    <ContentDialog.Resources>
+        <Thickness x:Key="ContentDialogPadding">0,0,0,0</Thickness>
+        <Thickness x:Key="ContentDialogCommandSpaceMargin">8,8,8,8</Thickness>
+        <Style BasedOn="{StaticResource ButtonRevealStyle}" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin" Value="8" />
+                <Setter Property="Grid.Row" Value="1" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+            </Style.Setters>
+        </Style>
+    </ContentDialog.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <WebView
+            x:Name="webView"
+            Grid.ColumnSpan="2"
+            MaxWidth="{StaticResource ContentDialogMaxWidth}"
+            NavigationFailed="WebView_NavigationFailed"
+            NavigationStarting="WebView_NavigationStarting"
+            UnsupportedUriSchemeIdentified="WebView_UnsupportedUriSchemeIdentified" />
+        <Button
+            Margin="8,8,4,8"
+            Click="BackBtn_Click"
+            Visibility="{x:Bind webView.CanGoBack, Mode=OneWay}">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
+        </Button>
+        <Button
+            Grid.Column="1"
+            Margin="4,8,8,8"
+            Click="CloseBtn_Click"
+            Content="{x:Bind strings:Resources.CancelText}" />
+    </Grid>
+</ContentDialog>

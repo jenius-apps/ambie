@@ -21,6 +21,7 @@ using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation.Collections;
 using Windows.ApplicationModel;
+using Microsoft.Identity.Client.Extensibility;
 
 #nullable enable
 
@@ -300,12 +301,13 @@ namespace AmbientSounds
                 .AddTransient<AccountControlViewModel>()
                 .AddTransient<UploadedSoundsListViewModel>()
                 .AddSingleton<AppServiceController>()
-                // if no dependences, then transient unless otherwise stated.
+                // no dependences, so transient unless otherwise stated.
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<ISystemInfoProvider, SystemInfoProvider>()
                 .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IImagePicker, ImagePicker>()
                 .AddTransient<IFilePicker, FilePicker>()
+                .AddTransient<ICustomWebUi, CustomAuthUiService>()
                 // exposes events or has deps, so singleton.
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
