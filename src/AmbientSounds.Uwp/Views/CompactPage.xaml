@@ -24,8 +24,8 @@
                     Height="80"
                     extensions:VisualExtensions.CenterPoint="70,40,0"
                     CornerRadius="4"
-                    PointerEntered="GridScaleUp"
-                    PointerExited="GridScaleNormal">
+                    PointerEntered="{x:Bind controls:UIHelper.GridScaleUp}"
+                    PointerExited="{x:Bind controls:UIHelper.GridScaleNormal}">
                     <animations:Implicit.Animations>
                         <animations:ScaleAnimation Duration="0:0:0.5" />
                     </animations:Implicit.Animations>
