@@ -198,10 +198,7 @@
                 <controls:SleepTimerControl />
                 <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
                 <controls:MoreButton Margin="4,0,0,0" />
-                <controls:AccountControl
-                    x:Name="AccountButton"
-                    Margin="4,0,0,0"
-                    x:Load="{x:Bind IsNotTenFoot}" />
+                <controls:AccountControl Margin="4,0,0,0" />
 
                 <animations:Implicit.ShowAnimations>
                     <animations:ScaleAnimation
