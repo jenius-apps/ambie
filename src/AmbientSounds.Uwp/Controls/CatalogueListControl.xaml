@@ -23,17 +23,20 @@
         </Style>
 
         <DataTemplate x:Key="OnlineSoundTemplate" x:DataType="viewmodels:OnlineSoundViewModel">
-            <GridViewItem Margin="6" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
-                <GridViewItem.Resources>
-                    <!--  These two removes the border on hover and on pressed  -->
-                    <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
-                    <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
-
+            <Grid Margin="6" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
+                <Grid.Resources>
                     <!--  override keys so that the buttons on the cards are white in both dark and light theme  -->
                     <SolidColorBrush x:Key="ButtonForeground" Color="White" />
                     <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
                     <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
-                </GridViewItem.Resources>
+                </Grid.Resources>
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        Delay="0:0:0.5"
+                        From="0"
+                        To="1"
+                        Duration="0:0:1" />
+                </ani:Implicit.ShowAnimations>
 
                 <toolkit:DropShadowPanel x:Name="RootGrid" Style="{StaticResource SoundItemShadow}">
                     <Grid
@@ -183,27 +186,29 @@
                         </Grid>
                     </Grid>
                 </toolkit:DropShadowPanel>
-            </GridViewItem>
+            </Grid>
         </DataTemplate>
+
+        <muxc:UniformGridLayout
+            x:Name="UniformGridLayout"
+            MinColumnSpacing="0"
+            MinRowSpacing="0" />
     </UserControl.Resources>
 
     <Grid>
         <ScrollViewer>
-            <GridView
-                Margin="32,12,32,24"
-                HorizontalAlignment="Center"
-                ani:ItemsReorderAnimation.Duration="0:0:0.3"
+            <muxc:ItemsRepeater
+                Margin="36,12,36,24"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
-                ScrollViewer.HorizontalScrollMode="Disabled"
-                ScrollViewer.VerticalScrollMode="Disabled"
-                SelectionMode="None">
-                <GridView.ItemContainerStyle>
-                    <Style BasedOn="{StaticResource GridViewItemExpanded}" TargetType="GridViewItem">
-                        <Setter Property="IsFocusEngagementEnabled" Value="True" />
-                    </Style>
-                </GridView.ItemContainerStyle>
-            </GridView>
+                Layout="{StaticResource UniformGridLayout}">
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.5" />
+                </ani:Implicit.ShowAnimations>
+            </muxc:ItemsRepeater>
         </ScrollViewer>
 
         <muxc:ProgressRing
