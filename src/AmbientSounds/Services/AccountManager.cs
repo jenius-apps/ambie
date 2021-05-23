@@ -9,7 +9,7 @@ namespace AmbientSounds.Services
     /// <summary>
     /// Class for the central hub for dealing with accounts.
     /// </summary>
-    public class AccountManager : IAccountManager, IDisposable
+    public class AccountManager : IAccountManager
     {
         private readonly IMsaAuthClient _authClient;
         private readonly string[] _catalogueScope;

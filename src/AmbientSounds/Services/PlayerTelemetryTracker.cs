@@ -8,7 +8,7 @@ namespace AmbientSounds.Services
     /// <summary>
     /// Tracks telemetry for mix media player.
     /// </summary>
-    public class PlayerTelemetryTracker : IDisposable
+    public class PlayerTelemetryTracker
     {
         private readonly IMixMediaPlayerService _mixMediaPlayerService;
         private readonly ITelemetry _telemetry;
