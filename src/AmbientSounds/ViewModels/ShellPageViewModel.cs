@@ -9,7 +9,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// ViewModel for the shell page.
     /// </summary>
-    public class ShellPageViewModel : ObservableObject, IDisposable
+    public class ShellPageViewModel : ObservableObject
     {
         private readonly IUserSettings _userSettings;
 

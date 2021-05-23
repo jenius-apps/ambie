@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SoundListViewModel : IDisposable
+    public class SoundListViewModel
     {
         private readonly ISoundDataProvider _provider;
         private readonly ITelemetry _telemetry;

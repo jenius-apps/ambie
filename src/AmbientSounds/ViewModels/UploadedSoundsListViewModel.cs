@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class UploadedSoundsListViewModel : ObservableObject, IDisposable
+    public class UploadedSoundsListViewModel : ObservableObject
     {
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IAccountManager _accountManager;

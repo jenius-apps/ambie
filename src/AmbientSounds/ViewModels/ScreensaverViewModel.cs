@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ScreensaverViewModel : ObservableObject, IDisposable
+    public class ScreensaverViewModel : ObservableObject
     {
         private const int ImageTimeLength = 30000; // milliseconds
         private readonly ITimerService _timerService;

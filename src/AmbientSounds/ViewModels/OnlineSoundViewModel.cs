@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class OnlineSoundViewModel : ObservableObject, IDisposable
+    public class OnlineSoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
         private readonly IDownloadManager _downloadManager;

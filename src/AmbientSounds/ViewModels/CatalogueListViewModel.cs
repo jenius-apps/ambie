@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class CatalogueListViewModel : IDisposable
+    public class CatalogueListViewModel
     {
         private readonly IOnlineSoundDataProvider _dataProvider;
         private readonly ISoundDataProvider _soundDataProvider;

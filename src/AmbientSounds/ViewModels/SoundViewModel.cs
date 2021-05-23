@@ -15,7 +15,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// View model for a sound object.
     /// </summary>
-    public class SoundViewModel : ObservableObject, IDisposable
+    public class SoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
