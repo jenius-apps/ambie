@@ -872,6 +872,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SelectSoundsPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Mix and match up to 3 sounds
+        /// </summary>
+        public static string SelectSoundsPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("SelectSoundsPlaceholder");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -949,6 +962,7 @@ namespace AmbientSounds.Strings{
             Catalogue,
             Home,
             ScreensaverOn,
+            SelectSoundsPlaceholder,
         }
 
         private static ResourceLoader _resourceLoader;

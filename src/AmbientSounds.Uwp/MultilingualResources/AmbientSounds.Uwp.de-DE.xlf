@@ -630,6 +630,10 @@
           <source>Auto launch after 1 min</source>
           <target state="new">Auto launch after 1 min</target>
         </trans-unit>
+        <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 3 sounds</source>
+          <target state="new">Mix and match up to 3 sounds</target>
+        </trans-unit>
       </group>
     </body>
   </file>
