@@ -16,99 +16,113 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="153" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel
-            Grid.RowSpan="2"
-            VerticalAlignment="Center"
-            ui:VisualExtensions.NormalizedCenterPoint="0.5"
-            Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
-            <Image Height="200" Source="ms-appx:///Assets/undraw_press_play_bx2d.png" />
+        <Grid HorizontalAlignment="Left">
+            <StackPanel
+                HorizontalAlignment="Center"
+                Background="{ThemeResource AcrylicBackplateBrush}"
+                CornerRadius="20"
+                Orientation="Horizontal"
+                Visibility="{x:Bind ViewModel.IsClearVisible, Mode=OneWay}">
 
-            <animations:Implicit.ShowAnimations>
-                <animations:ScaleAnimation
-                    Delay="0:0:0.1"
-                    From="0.80"
-                    To="1"
-                    Duration="0:0:0.5" />
-                <animations:OpacityAnimation
-                    Delay="0:0:0.1"
-                    From="0"
-                    To="1"
-                    Duration="0:0:0.3" />
-            </animations:Implicit.ShowAnimations>
-        </StackPanel>
+                <local:PlayerControl />
 
+                <Button
+                    x:Uid="ClearActiveButton"
+                    Margin="12,0,0,0"
+                    Command="{x:Bind ViewModel.ClearCommand}"
+                    Style="{StaticResource TransparentRoundButtonStyle}">
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
+                </Button>
+
+                <Button
+                    x:Uid="SaveMixButton"
+                    Margin="12,0,0,0"
+                    Style="{StaticResource TransparentRoundButtonStyle}"
+                    Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
+                    <Button.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="S" Modifiers="Control" />
+                    </Button.KeyboardAccelerators>
+
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
+                    <Button.Flyout>
+                        <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox
+                                    x:Name="NameInput"
+                                    x:Uid="NameInputBox"
+                                    Width="200"
+                                    KeyDown="NameInput_KeyDown"
+                                    MaxLength="30" />
+                                <Button
+                                    x:Uid="ConfirmSaveButton"
+                                    Grid.Column="1"
+                                    Margin="4,0,0,0"
+                                    VerticalAlignment="Bottom"
+                                    Background="Transparent"
+                                    Click="Button_Click"
+                                    Command="{x:Bind ViewModel.SaveCommand}"
+                                    CommandParameter="{x:Bind NameInput.Text, Mode=OneWay}">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
+                                </Button>
+                            </Grid>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+            </StackPanel>
+        </Grid>
 
         <ListView
             x:Name="TrackList"
             x:Uid="ActiveTrackListView"
-            VerticalAlignment="Stretch"
+            Grid.Row="1"
+            Margin="0,20,0,0"
             ItemsSource="{x:Bind ViewModel.ActiveTracks}"
-            ScrollViewer.HorizontalScrollBarVisibility="Auto"
-            ScrollViewer.HorizontalScrollMode="Enabled"
-            ScrollViewer.IsHorizontalRailEnabled="True"
             SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                    <Grid x:Name="ImagePanel" VerticalAlignment="Center">
+                    <Grid x:Name="ImagePanel" Margin="0,0,0,8">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
 
-                        <toolkit:DropShadowPanel Grid.Row="1" Style="{StaticResource SoundItemShadow}">
-                            <Grid
-                                Width="120"
-                                Height="120"
-                                CornerRadius="8">
-                                <Image
-                                    Width="120"
-                                    Height="120"
-                                    PointerPressed="{x:Bind local:UIHelper.RemoveOnMiddleClick}"
-                                    Source="{x:Bind ImagePath}"
-                                    Stretch="UniformToFill" />
-                                <Grid
-                                    Margin="2"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Top"
-                                    Background="{StaticResource BackgroundAcrylicBrush}"
-                                    CornerRadius="8">
-                                    <Button
-                                        x:Uid="RemoveActiveButton"
-                                        Padding="2"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Top"
-                                        Background="Transparent"
-                                        Command="{x:Bind RemoveCommand}"
-                                        CommandParameter="{x:Bind Sound}"
-                                        Foreground="White">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
-                                    </Button>
-                                </Grid>
-                                <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
-                                    <TextBlock
-                                        Margin="12,0,0,4"
-                                        FontSize="16"
-                                        Foreground="White"
-                                        Text="{x:Bind Name}"
-                                        TextTrimming="CharacterEllipsis"
-                                        ToolTipService.ToolTip="{x:Bind Name}" />
-                                </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
 
-                            </Grid>
-                        </toolkit:DropShadowPanel>
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                Text="{x:Bind Name}"
+                                TextTrimming="CharacterEllipsis"
+                                ToolTipService.ToolTip="{x:Bind Name}" />
+                            <Button
+                                x:Uid="RemoveActiveButton"
+                                Grid.Column="1"
+                                Padding="2"
+                                Background="Transparent"
+                                Command="{x:Bind RemoveCommand}"
+                                CommandParameter="{x:Bind Sound}">
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="12"
+                                    Glyph="&#xE9F9;" />
+                            </Button>
+                        </Grid>
 
                         <Slider
                             x:Uid="VolumeSliderSound"
-                            Grid.Row="3"
-                            Width="100"
-                            Margin="0,0,0,0"
-                            HorizontalAlignment="Center"
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch"
                             Value="{x:Bind Volume, Mode=TwoWay}" />
                     </Grid>
                 </DataTemplate>
@@ -116,85 +130,10 @@
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="IsFocusEngagementEnabled" Value="True" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                 </Style>
             </ListView.ItemContainerStyle>
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
         </ListView>
-
-        <StackPanel
-            Grid.Row="1"
-            Margin="0,4,0,0"
-            HorizontalAlignment="Center"
-            Background="{ThemeResource AcrylicBackplateBrush}"
-            CornerRadius="20"
-            Orientation="Horizontal"
-            Visibility="{x:Bind ViewModel.IsClearVisible, Mode=OneWay}">
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation
-                    Delay="0:0:0.3"
-                    From="0"
-                    To="1.0"
-                    Duration="0:0:1" />
-                <animations:TranslationAnimation
-                    Delay="0:0:0.3"
-                    From="0,24,0"
-                    To="0"
-                    Duration="0:0:1" />
-            </animations:Implicit.ShowAnimations>
-
-            <local:PlayerControl />
-
-            <Button
-                x:Uid="ClearActiveButton"
-                Margin="12,0,0,0"
-                Command="{x:Bind ViewModel.ClearCommand}"
-                Style="{StaticResource TransparentRoundButtonStyle}">
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
-            </Button>
-
-            <Button
-                x:Uid="SaveMixButton"
-                Margin="12,0,0,0"
-                Style="{StaticResource TransparentRoundButtonStyle}"
-                Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
-                <Button.KeyboardAccelerators>
-                    <KeyboardAccelerator Key="S" Modifiers="Control" />
-                </Button.KeyboardAccelerators>
-
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
-                <Button.Flyout>
-                    <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox
-                                x:Name="NameInput"
-                                x:Uid="NameInputBox"
-                                Width="200"
-                                KeyDown="NameInput_KeyDown"
-                                MaxLength="30" />
-                            <Button
-                                x:Uid="ConfirmSaveButton"
-                                Grid.Column="1"
-                                Margin="4,0,0,0"
-                                VerticalAlignment="Bottom"
-                                Background="Transparent"
-                                Click="Button_Click"
-                                Command="{x:Bind ViewModel.SaveCommand}"
-                                CommandParameter="{x:Bind NameInput.Text, Mode=OneWay}">
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
-                            </Button>
-                        </Grid>
-                    </Flyout>
-                </Button.Flyout>
-            </Button>
-        </StackPanel>
 
         <!--<local:ShareMixButton Visibility="{x:Bind ViewModel.IsClearVisible, Mode=OneWay}" />-->
 

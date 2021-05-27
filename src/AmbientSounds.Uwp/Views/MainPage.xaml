@@ -148,7 +148,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="92" />
-            <RowDefinition x:Name="ActiveTracksRow" Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -210,26 +209,30 @@
             </StackPanel>
         </Grid>
 
-        <Grid
-            Grid.Row="1"
-            Margin="32,0"
-            VerticalAlignment="Center">
-            <controls:ActiveTrackList x:Name="ActiveList" HorizontalAlignment="Center" />
-            <animations:Implicit.Animations>
-                <animations:OffsetAnimation Duration="0:0:1" />
-            </animations:Implicit.Animations>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="40,0,0,0">
+                <controls:ActiveTrackList x:Name="ActiveList" />
+                <animations:Implicit.Animations>
+                    <animations:OffsetAnimation Duration="0:0:1" />
+                </animations:Implicit.Animations>
+            </Grid>
+
+            <controls:SoundGridControl
+                x:Name="SoundGallery"
+                Grid.Column="1"
+                Margin="0,12,0,0"
+                ItemTemplate="{StaticResource MainPageSoundTemplate}">
+                <animations:Implicit.Animations>
+                    <animations:OffsetAnimation Duration="0:0:1" />
+                </animations:Implicit.Animations>
+            </controls:SoundGridControl>
         </Grid>
 
-        <controls:SoundGridControl
-            x:Name="SoundGallery"
-            Grid.Row="2"
-            Margin="0,12,0,0"
-            ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            ShowCatalogueButton="True">
-            <animations:Implicit.Animations>
-                <animations:OffsetAnimation Duration="0:0:1" />
-            </animations:Implicit.Animations>
-        </controls:SoundGridControl>
 
         <muxc:TeachingTip
             x:Name="PinTeachingTip"
