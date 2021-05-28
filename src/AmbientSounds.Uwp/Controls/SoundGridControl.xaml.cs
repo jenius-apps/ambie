@@ -77,55 +77,5 @@ namespace AmbientSounds.Controls
             typeof(bool),
             typeof(SoundGridControl),
             new PropertyMetadata(false));
-
-        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var navigator = App.Services.GetRequiredService<INavigator>();
-
-            // The frame check in the if statement
-            // below is to prevent a crash in Compact
-            // mode when the user clicks a sound.
-
-            if (sender is ListViewBase l &&
-                e.ClickedItem is SoundViewModel vm &&
-                !vm.IsCurrentlyPlaying &&
-                navigator.Frame is Frame f &&
-                f.CurrentSourcePageType == typeof(Views.MainPage))
-            {
-                if (!vm.IsMix)
-                {
-                    l.PrepareConnectedAnimation(
-                        AnimationConstants.TrackListItemLoad,
-                        e.ClickedItem,
-                        "RootGrid");
-                }
-                else
-                {
-                    l.PrepareConnectedAnimation(
-                        AnimationConstants.TrackListItemLoad,
-                        e.ClickedItem,
-                        "RootGrid");
-
-                    if (vm.HasSecondImage)
-                    {
-                        l.PrepareConnectedAnimation(
-                        AnimationConstants.TrackListItem2Load,
-                        e.ClickedItem,
-                        "Image2");
-                    }
-                    else if (vm.HasThirdImage)
-                    {
-                        l.PrepareConnectedAnimation(
-                            AnimationConstants.TrackListItem2Load,
-                            e.ClickedItem,
-                            "SecondImage");
-                        l.PrepareConnectedAnimation(
-                            AnimationConstants.TrackListItem3Load,
-                            e.ClickedItem,
-                            "ThirdImage");
-                    }
-                }
-            }
-        }
     }
 }

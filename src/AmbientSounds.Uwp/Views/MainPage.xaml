@@ -233,7 +233,6 @@
             </controls:SoundGridControl>
         </Grid>
 
-
         <muxc:TeachingTip
             x:Name="PinTeachingTip"
             Title="{x:Bind strings:Resources.HelloAndWelcome}"

@@ -28,51 +28,13 @@ namespace AmbientSounds.Controls
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             await ViewModel.LoadPreviousStateAsync();
-            ViewModel.ActiveTracks.CollectionChanged += OnCollectedChanged;
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
-            ViewModel.ActiveTracks.CollectionChanged -= OnCollectedChanged;
             ViewModel.Dispose();
         }
 
-        private async void OnCollectedChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add && !ViewModel.IsMix)
-            {
-                var item = e.NewItems[0];
-                TrackList.ScrollIntoView(item);
-                var animation = ConnectedAnimationService
-                    .GetForCurrentView()
-                    .GetAnimation(AnimationConstants.TrackListItemLoad);
-
-                if (animation is not null)
-                {
-                    await TrackList.TryStartConnectedAnimationAsync(
-                        animation, item, "ImagePanel");
-                }
-            }
-            else if (e.Action == NotifyCollectionChangedAction.Add && ViewModel.IsMix)
-            {
-                var item = e.NewItems[0];
-                string animationString;
-
-                if (e.NewStartingIndex == 0) animationString = AnimationConstants.TrackListItemLoad;
-                else if (e.NewStartingIndex == 1) animationString = AnimationConstants.TrackListItem2Load;
-                else animationString = AnimationConstants.TrackListItem3Load;
-
-                var animation = ConnectedAnimationService
-                    .GetForCurrentView()
-                    .GetAnimation(animationString);
-
-                if (animation is not null)
-                {
-                    await TrackList.TryStartConnectedAnimationAsync(
-                        animation, item, "ImagePanel");
-                }
-            }
-        }
 
         private void NameInput_KeyDown(object sender, KeyRoutedEventArgs e)
         {
