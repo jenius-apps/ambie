@@ -14,25 +14,21 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <muxc:UniformGridLayout
+            x:Name="UniformGridLayout"
+            MinColumnSpacing="12"
+            MinRowSpacing="12" />
+    </UserControl.Resources>
+
     <Grid>
         <ScrollViewer>
-            <GridView
+            <muxc:ItemsRepeater
                 x:Uid="SoundsGridView"
-                MaxWidth="{x:Bind ItemGridMaxWidth, Mode=OneWay}"
-                Padding="20,0"
-                HorizontalAlignment="Center"
-                animations:ItemsReorderAnimation.Duration="0:0:0.3"
-                IsItemClickEnabled="True"
-                ItemContainerStyle="{StaticResource GridViewItemExpanded}"
+                Margin="0,0,20,20"
                 ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
-                ScrollViewer.HorizontalScrollMode="Disabled"
-                ScrollViewer.VerticalScrollMode="Disabled"
-                SelectionMode="None">
-                <interactivity:Interaction.Behaviors>
-                    <core:ItemClickBehavior Command="{x:Bind ViewModel.PlaySoundCommand}" />
-                </interactivity:Interaction.Behaviors>
-            </GridView>
+                Layout="{StaticResource UniformGridLayout}" />
         </ScrollViewer>
 
         <muxc:ProgressRing

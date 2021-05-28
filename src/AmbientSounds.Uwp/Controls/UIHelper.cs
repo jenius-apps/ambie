@@ -29,6 +29,24 @@ namespace AmbientSounds.Controls
         public static void GridScaleNormal(object sender, PointerRoutedEventArgs e)
             => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
 
+        public static void ScaleUpChildImage(object sender, PointerRoutedEventArgs e)
+        {
+            if (sender is UIElement parent)
+            {
+                Grid element = parent.FindControl<Grid>("ImageGrid");
+                GridScaleUp(element, e);
+            }
+        }
+
+        public static void ScaleNormalChildImage(object sender, PointerRoutedEventArgs e)
+        {
+            if (sender is UIElement parent)
+            {
+                Grid element = parent.FindControl<Grid>("ImageGrid");
+                GridScaleNormal(element, e);
+            }
+        }
+
         public static T FindControl<T>(this UIElement parent, string ControlName) where T : FrameworkElement
         {
             // Source: https://stackoverflow.com/a/58091583/10953422

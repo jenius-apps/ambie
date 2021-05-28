@@ -52,6 +52,7 @@ namespace AmbientSounds.ViewModels
 
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
+            PlayCommand = new AsyncRelayCommand(PlayAsync);
         }
 
         /// <summary>
@@ -101,6 +102,8 @@ namespace AmbientSounds.ViewModels
 
         public IAsyncRelayCommand RenameCommand { get; }
 
+        public IAsyncRelayCommand PlayCommand { get; }
+
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
@@ -111,12 +114,12 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Loads this sound into the player and plays it.
         /// </summary>
-        public async void Play()
+        private async Task PlayAsync()
         {
             if (IsCurrentlyPlaying)
                 return;
 
-            if (!_sound.IsMix)
+            if (!IsMix)
             {
                 await _playerService.ToggleSoundAsync(_sound);
             }
@@ -124,6 +127,12 @@ namespace AmbientSounds.ViewModels
             {
                 await _soundMixService.LoadMixAsync(_sound);
             }
+
+            _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
+            {
+                { "id", Name ?? "" },
+                { "mix", IsMix.ToString() }
+            });
         }
 
         private async Task RenameAsync()

@@ -1,10 +1,7 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Factories;
+﻿using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,7 +32,6 @@ namespace AmbientSounds.ViewModels
             _factory = soundVmFactory;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
-            PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
         }
 
         private void OnLocalSoundDeleted(object sender, string id)
@@ -55,11 +51,6 @@ namespace AmbientSounds.ViewModels
         /// The <see cref="IAsyncRelayCommand"/> responsible for loading the viewmodel data.
         /// </summary>
         public IAsyncRelayCommand LoadCommand { get; }
-
-        /// <summary>
-        /// The <see cref="IRelayCommand{T}"/> responsible for playing a selected sound.
-        /// </summary>
-        public IRelayCommand<SoundViewModel> PlaySoundCommand { get; }
 
         /// <summary>
         /// The list of sounds for this page.
@@ -83,24 +74,6 @@ namespace AmbientSounds.ViewModels
                 var s = _factory.GetSoundVm(sound);
                 Sounds.Add(s);
             }
-        }
-
-        /// <summary>
-        /// Loads the clicked sound into the player and plays it.
-        /// </summary>
-        private void PlaySound(SoundViewModel? sound)
-        {
-            if (sound is null)
-            {
-                return;
-            }
-
-            sound.Play();
-            _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
-            {
-                { "id", sound.Name ?? "" },
-                { "mix", sound.IsMix.ToString() }
-            });
         }
 
         public void Dispose()

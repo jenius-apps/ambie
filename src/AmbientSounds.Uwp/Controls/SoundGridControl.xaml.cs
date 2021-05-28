@@ -40,42 +40,5 @@ namespace AmbientSounds.Controls
             typeof(bool),
             typeof(SoundGridControl),
             null);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public double ItemGridMaxWidth
-        {
-            get => (double)GetValue(ItemGridMaxWidthProperty);
-            set => SetValue(ItemGridMaxWidthProperty, value);
-        }
-
-        /// <summary>
-        /// Dependency property for <see cref="ItemGridMaxWidth"/>.
-        /// Default is true.
-        /// </summary>
-        public static readonly DependencyProperty ItemGridMaxWidthProperty = DependencyProperty.Register(
-            nameof(ItemGridMaxWidth),
-            typeof(double),
-            typeof(SoundGridControl),
-            new PropertyMetadata(double.MaxValue));
-
-        /// <summary>
-        /// If true, the catalogue button will be shown.
-        /// </summary>
-        public bool ShowCatalogueButton
-        {
-            get => (bool)GetValue(ShowCatalogueButtonProperty);
-            set => SetValue(ShowCatalogueButtonProperty, value);
-        }
-
-        /// <summary>
-        /// Dependency property for showing the catalogue button. Default false.
-        /// </summary>
-        public static readonly DependencyProperty ShowCatalogueButtonProperty = DependencyProperty.Register(
-            nameof(ShowCatalogueButton),
-            typeof(bool),
-            typeof(SoundGridControl),
-            new PropertyMetadata(false));
     }
 }
