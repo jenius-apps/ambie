@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     NavigationCacheMode="Enabled"
@@ -22,142 +23,161 @@
     <Page.Resources>
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
             <!--  todo need to reimplement automation name and item status.  -->
-            <Grid
-                Width="171"
-                Height="240"
-                CornerRadius="8"
-                PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildImage}"
-                PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
-                PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
-                PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildImage}">
-                <interactivity:Interaction.Behaviors>
-                    <core:EventTriggerBehavior EventName="Tapped">
-                        <core:InvokeCommandAction Command="{x:Bind PlayCommand}" />
-                    </core:EventTriggerBehavior>
-                </interactivity:Interaction.Behaviors>
-
-
-                <Grid x:Name="ImageGrid" ui:VisualExtensions.NormalizedCenterPoint="0.5">
-                    <ani:Implicit.Animations>
-                        <ani:ScaleAnimation Duration="0:0:0.5" />
-                    </ani:Implicit.Animations>
-
-                    <Grid>
-                        <Grid.Background>
-                            <ImageBrush Stretch="UniformToFill">
-                                <ImageBrush.ImageSource>
-                                    <BitmapImage
-                                        DecodePixelHeight="240"
-                                        DecodePixelType="Logical"
-                                        UriSource="{x:Bind ImagePath}" />
-                                </ImageBrush.ImageSource>
-                            </ImageBrush>
-                        </Grid.Background>
-                    </Grid>
-
-                    <Grid x:Name="Image2" x:Load="{x:Bind HasSecondImage, Mode=OneWay}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Image Grid.Row="1" Stretch="UniformToFill">
-                            <Image.Source>
-                                <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind SecondImagePath, Mode=OneWay}" />
-                            </Image.Source>
-                        </Image>
-                    </Grid>
-
-                    <Grid x:Name="Image3" x:Load="{x:Bind HasThirdImage, Mode=OneWay}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Image Grid.Row="1" Stretch="UniformToFill">
-                            <Image.Source>
-                                <BitmapImage
-                                    DecodePixelHeight="80"
-                                    DecodePixelType="Logical"
-                                    UriSource="{x:Bind SecondImagePath, Mode=OneWay}" />
-                            </Image.Source>
-                        </Image>
-                        <Image Grid.Row="2" Stretch="UniformToFill">
-                            <Image.Source>
-                                <BitmapImage
-                                    DecodePixelHeight="80"
-                                    DecodePixelType="Logical"
-                                    UriSource="{x:Bind ThirdImagePath, Mode=OneWay}" />
-                            </Image.Source>
-                        </Image>
-                    </Grid>
-                </Grid>
-
-                <Rectangle>
-                    <Rectangle.Fill>
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Offset="0" Color="#00000000" />
-                            <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ColourHue), Mode=OneWay}" />
-                        </LinearGradientBrush>
-                    </Rectangle.Fill>
-                </Rectangle>
-
-
-                <Grid
-                    Margin="0,0,0,20"
+            <Grid>
+                <toolkit:DropShadowPanel
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="{StaticResource BackgroundAcrylicBrush}"
-                    CornerRadius="30"
-                    Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
-                    <FontIcon
-                        Margin="8"
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="28"
-                        Foreground="White"
-                        Glyph="&#xEB7D;" />
+                    BlurRadius="4"
+                    OffsetY="1"
+                    ShadowOpacity="0.4">
+                    <Rectangle
+                        Width="170"
+                        Height="240"
+                        Fill="Black"
+                        RadiusX="8"
+                        RadiusY="8"
+                        Stretch="Fill" />
+                </toolkit:DropShadowPanel>
+
+                <Grid
+                    Width="171"
+                    Height="240"
+                    Margin="4"
+                    CornerRadius="8"
+                    PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildImage}"
+                    PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
+                    PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
+                    PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildImage}">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Tapped">
+                            <core:InvokeCommandAction Command="{x:Bind PlayCommand}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+
+
+
+                    <Grid x:Name="ImageGrid" ui:VisualExtensions.NormalizedCenterPoint="0.5">
+                        <ani:Implicit.Animations>
+                            <ani:ScaleAnimation Duration="0:0:0.5" />
+                        </ani:Implicit.Animations>
+
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush Stretch="UniformToFill">
+                                    <ImageBrush.ImageSource>
+                                        <BitmapImage
+                                            DecodePixelHeight="240"
+                                            DecodePixelType="Logical"
+                                            UriSource="{x:Bind ImagePath}" />
+                                    </ImageBrush.ImageSource>
+                                </ImageBrush>
+                            </Grid.Background>
+                        </Grid>
+
+                        <Grid x:Name="Image2" x:Load="{x:Bind HasSecondImage, Mode=OneWay}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="1" Stretch="UniformToFill">
+                                <Image.Source>
+                                    <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind SecondImagePath, Mode=OneWay}" />
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+
+                        <Grid x:Name="Image3" x:Load="{x:Bind HasThirdImage, Mode=OneWay}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="1" Stretch="UniformToFill">
+                                <Image.Source>
+                                    <BitmapImage
+                                        DecodePixelHeight="80"
+                                        DecodePixelType="Logical"
+                                        UriSource="{x:Bind SecondImagePath, Mode=OneWay}" />
+                                </Image.Source>
+                            </Image>
+                            <Image Grid.Row="2" Stretch="UniformToFill">
+                                <Image.Source>
+                                    <BitmapImage
+                                        DecodePixelHeight="80"
+                                        DecodePixelType="Logical"
+                                        UriSource="{x:Bind ThirdImagePath, Mode=OneWay}" />
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+                    </Grid>
+
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#00000000" />
+                                <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ColourHue), Mode=OneWay}" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+
+                    <Grid
+                        Margin="0,0,0,20"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="{StaticResource BackgroundAcrylicBrush}"
+                        CornerRadius="30"
+                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
+                        <FontIcon
+                            Margin="8"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="28"
+                            Foreground="White"
+                            Glyph="&#xEB7D;" />
+                    </Grid>
+
+
+                    <Grid Margin="12" VerticalAlignment="Bottom">
+                        <TextBlock
+                            Foreground="White"
+                            Text="{x:Bind Name, Mode=OneWay}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="Wrap">
+                            <ToolTipService.ToolTip>
+                                <Grid MaxWidth="300">
+                                    <TextBlock Text="{x:Bind Attribution, Mode=OneWay}" TextWrapping="Wrap" />
+                                </Grid>
+                            </ToolTipService.ToolTip>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid.ContextFlyout>
+                        <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
+                            <muxc:CommandBarFlyout.SecondaryCommands>
+                                <AppBarButton
+                                    x:Uid="DeleteAppBarButton"
+                                    Command="{x:Bind DeleteCommand}"
+                                    Icon="Delete"
+                                    Visibility="{x:Bind CanDelete, Mode=OneWay}" />
+                                <AppBarButton
+                                    x:Uid="RenameAppBarButton"
+                                    Command="{x:Bind RenameCommand}"
+                                    Icon="Rename"
+                                    Visibility="{x:Bind IsMix, Mode=OneWay}" />
+                                <AppBarElementContainer Visibility="{x:Bind IsNotMix, Mode=OneWay}">
+                                    <StackPanel Width="300" Margin="12">
+                                        <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
+                                        <TextBlock
+                                            Margin="0,8,0,0"
+                                            IsTextSelectionEnabled="True"
+                                            Text="{x:Bind Attribution, Mode=OneWay}"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </AppBarElementContainer>
+                            </muxc:CommandBarFlyout.SecondaryCommands>
+                        </muxc:CommandBarFlyout>
+                    </Grid.ContextFlyout>
                 </Grid>
-
-
-                <Grid Margin="12" VerticalAlignment="Bottom">
-                    <TextBlock
-                        Foreground="White"
-                        Text="{x:Bind Name, Mode=OneWay}"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap">
-                        <ToolTipService.ToolTip>
-                            <Grid MaxWidth="300">
-                                <TextBlock Text="{x:Bind Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                            </Grid>
-                        </ToolTipService.ToolTip>
-                    </TextBlock>
-                </Grid>
-
-                <Grid.ContextFlyout>
-                    <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
-                        <muxc:CommandBarFlyout.SecondaryCommands>
-                            <AppBarButton
-                                x:Uid="DeleteAppBarButton"
-                                Command="{x:Bind DeleteCommand}"
-                                Icon="Delete"
-                                Visibility="{x:Bind CanDelete, Mode=OneWay}" />
-                            <AppBarButton
-                                x:Uid="RenameAppBarButton"
-                                Command="{x:Bind RenameCommand}"
-                                Icon="Rename"
-                                Visibility="{x:Bind IsMix, Mode=OneWay}" />
-                            <AppBarElementContainer Visibility="{x:Bind IsNotMix, Mode=OneWay}">
-                                <StackPanel Width="300" Margin="12">
-                                    <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
-                                    <TextBlock
-                                        Margin="0,8,0,0"
-                                        IsTextSelectionEnabled="True"
-                                        Text="{x:Bind Attribution, Mode=OneWay}"
-                                        TextWrapping="Wrap" />
-                                </StackPanel>
-                            </AppBarElementContainer>
-                        </muxc:CommandBarFlyout.SecondaryCommands>
-                    </muxc:CommandBarFlyout>
-                </Grid.ContextFlyout>
             </Grid>
         </DataTemplate>
     </Page.Resources>
