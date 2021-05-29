@@ -17,8 +17,8 @@
     <UserControl.Resources>
         <muxc:UniformGridLayout
             x:Name="UniformGridLayout"
-            MinColumnSpacing="8"
-            MinRowSpacing="8" />
+            MinColumnSpacing="12"
+            MinRowSpacing="12" />
     </UserControl.Resources>
 
     <Grid>

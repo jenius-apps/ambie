@@ -26,12 +26,11 @@
             <Grid>
                 <toolkit:DropShadowPanel
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
                     BlurRadius="4"
                     OffsetY="1"
                     ShadowOpacity="0.4">
                     <Rectangle
-                        Width="170"
+                        Width="168"
                         Height="240"
                         Fill="Black"
                         RadiusX="8"
@@ -40,9 +39,8 @@
                 </toolkit:DropShadowPanel>
 
                 <Grid
-                    Width="171"
+                    Width="172"
                     Height="240"
-                    Margin="4"
                     CornerRadius="8"
                     PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildImage}"
                     PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
