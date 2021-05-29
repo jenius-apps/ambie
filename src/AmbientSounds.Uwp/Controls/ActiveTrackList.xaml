@@ -12,6 +12,11 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <!--  Makes save button disabled background transparent.  -->
+        <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
+    </UserControl.Resources>
+
     <Grid
         Height="300"
         Padding="20"
@@ -37,8 +42,8 @@
             <Button
                 x:Uid="SaveMixButton"
                 Margin="12,0,0,0"
-                Style="{StaticResource TransparentRoundButtonStyle}"
-                Visibility="{x:Bind ViewModel.CanSave, Mode=OneWay}">
+                IsEnabled="{x:Bind ViewModel.CanSave, Mode=OneWay}"
+                Style="{StaticResource TransparentRoundButtonStyle}">
                 <Button.KeyboardAccelerators>
                     <KeyboardAccelerator Key="S" Modifiers="Control" />
                 </Button.KeyboardAccelerators>
@@ -125,6 +130,7 @@
 
         <TextBlock
             Grid.Row="1"
+            MaxWidth="120"
             VerticalAlignment="Center"
             Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
             TextAlignment="Center"
