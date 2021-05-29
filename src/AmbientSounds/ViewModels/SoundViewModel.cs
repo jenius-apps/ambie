@@ -77,6 +77,8 @@ namespace AmbientSounds.ViewModels
 
         public bool IsNotMix => !IsMix;
 
+        public string ColourHue => _sound.ColourHue;
+
         public bool HasSecondImage => IsMix && _sound.ImagePaths.Length == 2;
 
         public string? SecondImagePath => _sound.ImagePaths.Length >= 2 ? _sound.ImagePaths[1] : "http://localhost:8000";

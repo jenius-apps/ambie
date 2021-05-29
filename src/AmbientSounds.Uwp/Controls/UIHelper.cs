@@ -1,5 +1,7 @@
 ﻿using AmbientSounds.Animations;
 using AmbientSounds.ViewModels;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Windows.UI;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -21,6 +23,16 @@ namespace AmbientSounds.Controls
                     e.Handled = true;
                 }
             }
+        }
+
+        public static Color ToColour(string colourString)
+        {
+            if (string.IsNullOrEmpty(colourString))
+            {
+                colourString = "#e0000000";
+            }
+
+            return colourString.ToColor();
         }
 
         public static void GridScaleUp(object sender, PointerRoutedEventArgs e)
