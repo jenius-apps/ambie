@@ -238,7 +238,6 @@ namespace AmbientSounds.ViewModels
             ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
             _player.SoundAdded -= OnSoundAdded;
             _player.SoundRemoved -= OnSoundRemoved;
-            ActiveTracks.Clear();
         }
     }
 }

@@ -80,11 +80,11 @@
         </StackPanel>
 
         <winui:ItemsRepeater
-            x:Name="TrackList"
             x:Uid="ActiveTrackListView"
             Grid.Row="1"
             Margin="0,24,0,0"
-            ItemsSource="{x:Bind ViewModel.ActiveTracks}">
+            ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
+            Loaded="{x:Bind OnListLoaded}">
             <winui:ItemsRepeater.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
                     <Grid Margin="0,0,0,16">
