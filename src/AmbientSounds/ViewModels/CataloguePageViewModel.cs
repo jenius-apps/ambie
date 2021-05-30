@@ -1,12 +1,13 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace AmbientSounds.ViewModels
 {
     /// <summary>
     /// ViewModel representing the catalogue page.
     /// </summary>
-    public class CataloguePageViewModel
+    public class CataloguePageViewModel : ObservableObject
     {
         private readonly INavigator _navigator;
 

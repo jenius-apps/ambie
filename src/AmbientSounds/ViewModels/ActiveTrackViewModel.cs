@@ -1,11 +1,12 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ActiveTrackViewModel
+    public class ActiveTrackViewModel : ObservableObject
     {
         private readonly IMixMediaPlayerService _player;
         private readonly IUserSettings _userSettings;
