@@ -66,7 +66,15 @@ namespace AmbientSounds.ViewModels
             _provider.LocalSoundAdded += OnLocalSoundAdded;
             _provider.LocalSoundDeleted += OnLocalSoundDeleted;
 
-            if (Sounds.Count > 0) return; // already initialized
+            if (Sounds.Count > 0)
+            {
+                foreach (var sound in Sounds)
+                {
+                    // ensure viewmodels are initialized.
+                    sound.Initialize();
+                }
+                return;
+            }
 
             var soundList = await _provider.GetSoundsAsync();
 
@@ -86,8 +94,6 @@ namespace AmbientSounds.ViewModels
             {
                 s.Dispose();
             }
-
-            Sounds.Clear();
         }
     }
 }

@@ -284,7 +284,7 @@ namespace AmbientSounds
             var provider = new ServiceCollection()
                 .AddSingleton(client)
                 // if viewmodel, then always transient unless otherwise stated
-                .AddTransient<SoundListViewModel>()
+                .AddSingleton<SoundListViewModel>() // shared in main and compact pages
                 .AddTransient<CatalogueListViewModel>()
                 .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<ScreensaverViewModel>()

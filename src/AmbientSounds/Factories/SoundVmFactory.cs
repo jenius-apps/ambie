@@ -88,7 +88,9 @@ namespace AmbientSounds.Factories
         public SoundViewModel GetSoundVm(Sound s)
         {
             Guard.IsNotNull(s, nameof(s));
-            return new SoundViewModel(s, _player, _soundDataProvider, _soundMixService, _telemetry, _renamer);
+            var vm = new SoundViewModel(s, _player, _soundDataProvider, _soundMixService, _telemetry, _renamer);
+            vm.Initialize();
+            return vm;
         }
 
         /// <inheritdoc/>

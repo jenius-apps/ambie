@@ -23,7 +23,15 @@
     <Page.Resources>
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
             <!--  todo need to reimplement automation name and item status.  -->
-            <Grid>
+            <Grid x:Name="Root">
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        Delay="0:0:0.5"
+                        From="0"
+                        To="1"
+                        Duration="0:0:1" />
+                </ani:Implicit.ShowAnimations>
+
                 <toolkit:DropShadowPanel
                     HorizontalAlignment="Center"
                     BlurRadius="4"

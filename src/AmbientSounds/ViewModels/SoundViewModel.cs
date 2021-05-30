@@ -46,10 +46,6 @@ namespace AmbientSounds.ViewModels
             _telemetry = telemetry;
             _renamer = renamer;
 
-            _playerService.SoundRemoved += OnSoundPaused;
-            _playerService.SoundAdded += OnSoundPlayed;
-            _playerService.MixPlayed += OnMixPlayed;
-
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
             PlayCommand = new AsyncRelayCommand(PlayAsync);
@@ -112,6 +108,13 @@ namespace AmbientSounds.ViewModels
         public bool IsCurrentlyPlaying => string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
             ? _playerService.IsSoundPlaying(_sound.Id)
             : _soundMixService.IsMixPlaying(_sound.Id);
+
+        public void Initialize()
+        {
+            _playerService.SoundRemoved += OnSoundPaused;
+            _playerService.SoundAdded += OnSoundPlayed;
+            _playerService.MixPlayed += OnMixPlayed;
+        }
 
         /// <summary>
         /// Loads this sound into the player and plays it.
