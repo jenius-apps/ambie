@@ -1,7 +1,7 @@
 # Ambie - Privacy Policy 
 
 ## How We Collect and Use Information 
-
+ 
 ### Telemetry 
 Ambie collects anonymous, aggregate telemetry. You can view Ambie's open source repository on GitHub to see all the areas where the app tracks telemetry. Examples include the number of times a sound is played or downloaded from the catalogue. This information is not personally identifiable. Telemetry is used to understand what parts of Ambie is being used or not used to help guide future work. This data is not used for marketing or sales. This data is not sent to any third party. 
 
