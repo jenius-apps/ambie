@@ -39,7 +39,7 @@
             ToolTipService.ToolTip="{x:Bind strings:Resources.GlobalVolume}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind GetDynamicIcon(ViewModel.Volume), Mode=OneWay}" />
             <Button.Flyout>
-                <Flyout Placement="Top">
+                <Flyout Placement="Bottom">
                     <StackPanel Margin="4" Background="Transparent">
                         <TextBlock HorizontalAlignment="Center" Text="{x:Bind strings:Resources.GlobalVolume}" />
                         <Slider
