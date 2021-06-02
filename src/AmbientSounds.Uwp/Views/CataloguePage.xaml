@@ -26,7 +26,7 @@
                 <Rectangle
                     Height="40"
                     HorizontalAlignment="Stretch"
-                    Fill="{ThemeResource AcrylicBackplateBrush}"
+                    Fill="{ThemeResource CardBackgroundBrush}"
                     RadiusX="20"
                     RadiusY="20" />
                 <StackPanel Orientation="Horizontal">

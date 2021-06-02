@@ -27,6 +27,7 @@
                         FallbackColor="Gray"
                         TintColor="Gray"
                         TintOpacity="0.1" />
+                    <SolidColorBrush x:Key="CardBackgroundBrush" Color="White" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
@@ -43,13 +44,14 @@
                         FallbackColor="Gray"
                         TintColor="Gray"
                         TintOpacity="0.1" />
-
+                    <SolidColorBrush x:Key="CardBackgroundBrush" Color="#2b2b2b" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="BackgroundImageAcrylicOverlayBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="AcrylicBackplateBrush" Color="{ThemeResource SystemColorWindowColor}" />
+                    <SolidColorBrush x:Key="CardBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
@@ -77,10 +79,10 @@
                 TintColor="Black"
                 TintOpacity="0.2" />
 
-            <Style x:Key="SoundItemShadow" TargetType="toolkit:DropShadowPanel">
-                <Setter Property="BlurRadius" Value="15" />
-                <Setter Property="OffsetY" Value="2" />
-                <Setter Property="ShadowOpacity" Value="0.15" />
+            <Style x:Key="SubtleShadow" TargetType="toolkit:DropShadowPanel">
+                <Setter Property="BlurRadius" Value="4" />
+                <Setter Property="OffsetY" Value="1" />
+                <Setter Property="ShadowOpacity" Value="0.4" />
             </Style>
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>

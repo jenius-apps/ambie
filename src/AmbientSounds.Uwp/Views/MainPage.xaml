@@ -32,11 +32,7 @@
                         Duration="0:0:1" />
                 </ani:Implicit.ShowAnimations>
 
-                <toolkit:DropShadowPanel
-                    HorizontalAlignment="Center"
-                    BlurRadius="4"
-                    OffsetY="1"
-                    ShadowOpacity="0.4">
+                <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
                     <Rectangle
                         Width="168"
                         Height="240"
@@ -199,7 +195,7 @@
                 <Rectangle
                     Height="40"
                     HorizontalAlignment="Stretch"
-                    Fill="{ThemeResource AcrylicBackplateBrush}"
+                    Fill="{ThemeResource CardBackgroundBrush}"
                     RadiusX="20"
                     RadiusY="20" />
                 <StackPanel Orientation="Horizontal">
@@ -252,18 +248,13 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Padding="40,0,0,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Grid Margin="40,0,0,0">
-                <controls:ActiveTrackList x:Name="ActiveList" VerticalAlignment="Top" />
-                <ani:Implicit.Animations>
-                    <ani:OffsetAnimation Duration="0:0:1" />
-                </ani:Implicit.Animations>
-            </Grid>
+            <controls:ActiveTrackList VerticalAlignment="Top" />
 
             <controls:SoundGridControl
                 x:Name="SoundGallery"
