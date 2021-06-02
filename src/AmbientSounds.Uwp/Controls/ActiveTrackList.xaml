@@ -23,8 +23,8 @@
     <Grid>
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
-                Width="238"
-                Height="299"
+                Width="240"
+                Height="{x:Bind MainGrid.Height, Mode=OneWay}"
                 Fill="{ThemeResource CardBackgroundBrush}"
                 RadiusX="8"
                 RadiusY="8"
@@ -32,17 +32,20 @@
         </toolkit:DropShadowPanel>
 
         <Grid
+            x:Name="MainGrid"
             Width="240"
-            Height="300"
-            Padding="20"
-            Background="{ThemeResource CardBackgroundBrush}"
+            Padding="0"
             CornerRadius="8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <StackPanel
+                x:Name="ControlsPanel"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
 
                 <local:PlayerControl />
 
@@ -94,82 +97,104 @@
                 </Button>
             </StackPanel>
 
-            <winui:ItemsRepeater
-                x:Uid="ActiveTrackListView"
+            <Grid
                 Grid.Row="1"
                 Margin="0,24,0,0"
-                ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
-                Loaded="{x:Bind OnListLoaded}">
-                <winui:ItemsRepeater.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                        <Grid Margin="0,0,0,16">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
+                Visibility="{x:Bind ShowList, Mode=OneWay}">
+                <winui:ItemsRepeater
+                    x:Uid="ActiveTrackListView"
+                    ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
+                    Loaded="{x:Bind OnListLoaded}">
+                    <winui:ItemsRepeater.ItemTemplate>
+                        <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
+                            <Grid Margin="0,0,0,16">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
 
-                                <TextBlock
-                                    VerticalAlignment="Center"
-                                    Text="{x:Bind Name, Mode=OneWay}"
-                                    TextTrimming="CharacterEllipsis"
-                                    ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
-                                <Button
-                                    x:Uid="RemoveActiveButton"
-                                    Grid.Column="1"
-                                    Padding="2"
-                                    Background="Transparent"
-                                    Command="{x:Bind RemoveCommand, Mode=OneWay}"
-                                    CommandParameter="{x:Bind Sound, Mode=OneWay}">
-                                    <FontIcon
-                                        FontFamily="{StaticResource FluentUIGlyphs}"
-                                        FontSize="12"
-                                        Glyph="&#xE9F9;" />
-                                </Button>
+                                    <TextBlock
+                                        VerticalAlignment="Center"
+                                        Text="{x:Bind Name, Mode=OneWay}"
+                                        TextTrimming="CharacterEllipsis"
+                                        ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
+                                    <Button
+                                        x:Uid="RemoveActiveButton"
+                                        Grid.Column="1"
+                                        Padding="2"
+                                        Background="Transparent"
+                                        Command="{x:Bind RemoveCommand, Mode=OneWay}"
+                                        CommandParameter="{x:Bind Sound, Mode=OneWay}">
+                                        <FontIcon
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            FontSize="12"
+                                            Glyph="&#xE9F9;" />
+                                    </Button>
+                                </Grid>
+
+                                <Slider
+                                    x:Uid="VolumeSliderSound"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Stretch"
+                                    Value="{x:Bind Volume, Mode=TwoWay}" />
                             </Grid>
-
-                            <Slider
-                                x:Uid="VolumeSliderSound"
-                                Grid.Row="1"
-                                HorizontalAlignment="Stretch"
-                                Value="{x:Bind Volume, Mode=TwoWay}" />
-                        </Grid>
-                    </DataTemplate>
-                </winui:ItemsRepeater.ItemTemplate>
-            </winui:ItemsRepeater>
+                        </DataTemplate>
+                    </winui:ItemsRepeater.ItemTemplate>
+                </winui:ItemsRepeater>
 
 
-            <StackPanel
-                Grid.Row="1"
-                VerticalAlignment="Center"
-                ui:VisualExtensions.NormalizedCenterPoint="0.5"
-                Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
-                <ani:Implicit.ShowAnimations>
-                    <ani:ScaleAnimation
-                        Delay="0:0:0.1"
-                        From="0.90"
-                        To="1"
-                        Duration="0:0:0.5" />
-                    <ani:OpacityAnimation
-                        Delay="0:0:0.1"
-                        From="0"
-                        To="1"
-                        Duration="0:0:0.3" />
-                </ani:Implicit.ShowAnimations>
+                <StackPanel
+                    Grid.Row="1"
+                    VerticalAlignment="Center"
+                    ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                    Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:ScaleAnimation
+                            Delay="0:0:0.1"
+                            From="0.90"
+                            To="1"
+                            Duration="0:0:0.5" />
+                        <ani:OpacityAnimation
+                            Delay="0:0:0.1"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
 
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD4;" />
-                <TextBlock
-                    MaxWidth="120"
-                    Margin="0,4,0,0"
-                    Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
-                    TextAlignment="Center"
-                    TextWrapping="Wrap" />
-            </StackPanel>
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD4;" />
+                    <TextBlock
+                        MaxWidth="120"
+                        Margin="0,4,0,0"
+                        Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
         </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="ShowListState">
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Height" Value="300" />
+                        <Setter Target="MainGrid.Padding" Value="20" />
+                        <Setter Target="ControlsPanel.(Grid.Row)" Value="0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="HideListState">
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Height" Value="60" />
+                        <Setter Target="MainGrid.Padding" Value="0" />
+                        <Setter Target="ControlsPanel.(Grid.Row)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

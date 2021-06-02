@@ -249,17 +249,26 @@
         </Grid>
 
         <Grid Grid.Row="1" Padding="40,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <controls:ActiveTrackList VerticalAlignment="Top" />
+            <controls:ActiveTrackList
+                x:Name="TrackList"
+                Grid.Column="1"
+                VerticalAlignment="Top"
+                ShowList="False" />
 
             <controls:SoundGridControl
                 x:Name="SoundGallery"
+                Grid.Row="1"
                 Grid.Column="1"
-                Margin="12,0,0,0"
+                Margin="0,12,0,0"
                 ItemTemplate="{StaticResource MainPageSoundTemplate}" />
         </Grid>
 
@@ -271,5 +280,24 @@
             CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.FirstLaunchMessage}" />
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowLayout" />
+                <VisualState x:Name="WideLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="670" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SoundGallery.(Grid.Column)" Value="1" />
+                        <Setter Target="SoundGallery.Margin" Value="12,0,0,0" />
+                        <Setter Target="TrackList.(Grid.Row)" Value="1" />
+                        <Setter Target="TrackList.(Grid.Column)" Value="0" />
+                        <Setter Target="TrackList.ShowList" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
