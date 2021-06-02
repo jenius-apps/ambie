@@ -21,6 +21,52 @@
     PreviewKeyDown="{x:Bind ViewModel.ResetTime}"
     mc:Ignorable="d">
     <Page.Resources>
+        <DataTemplate x:Key="NarrowSoundTemplate" x:DataType="viewmodels:SoundViewModel">
+            <Grid Padding="8" CornerRadius="4">
+                <Grid.Background>
+                    <SolidColorBrush Color="{x:Bind controls:UIHelper.ToColour(ColourHue), Mode=OneWay}" />
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        Delay="0:0:0.5"
+                        From="0"
+                        To="1"
+                        Duration="0:0:1" />
+                </ani:Implicit.ShowAnimations>
+
+                <Button Command="{x:Bind PlayCommand}" Style="{StaticResource TransparentRoundButtonStyle}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        Foreground="White"
+                        Glyph="&#xEB21;" />
+                </Button>
+
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="12,0,12,0"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Text="{x:Bind Name}"
+                    TextTrimming="CharacterEllipsis" />
+
+                <Grid
+                    Grid.Column="2"
+                    Margin="0,0,8,0"
+                    Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
+                    <FontIcon
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        Foreground="White"
+                        Glyph="&#xEB7D;" />
+                </Grid>
+            </Grid>
+        </DataTemplate>
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
             <!--  todo need to reimplement automation name and item status.  -->
             <Grid x:Name="Root">
@@ -269,7 +315,8 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="0,12,0,0"
-                ItemTemplate="{StaticResource MainPageSoundTemplate}" />
+                ItemTemplate="{StaticResource NarrowSoundTemplate}"
+                Layout="{StaticResource VerticalStackLayout}" />
         </Grid>
 
         <muxc:TeachingTip
@@ -292,6 +339,8 @@
                     <VisualState.Setters>
                         <Setter Target="SoundGallery.(Grid.Column)" Value="1" />
                         <Setter Target="SoundGallery.Margin" Value="12,0,0,0" />
+                        <Setter Target="SoundGallery.ItemTemplate" Value="{StaticResource MainPageSoundTemplate}" />
+                        <Setter Target="SoundGallery.Layout" Value="{StaticResource UniformGridLayout}" />
                         <Setter Target="TrackList.(Grid.Row)" Value="1" />
                         <Setter Target="TrackList.(Grid.Column)" Value="0" />
                         <Setter Target="TrackList.ShowList" Value="True" />

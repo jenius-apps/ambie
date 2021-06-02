@@ -183,11 +183,6 @@
                 </Grid>
             </Grid>
         </DataTemplate>
-
-        <muxc:UniformGridLayout
-            x:Name="UniformGridLayout"
-            MinColumnSpacing="12"
-            MinRowSpacing="12" />
     </UserControl.Resources>
 
     <Grid>

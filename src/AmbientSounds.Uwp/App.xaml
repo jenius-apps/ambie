@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Windows10version1903="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 8)"
     xmlns:converters="using:AmbientSounds.Converters"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
     <Application.Resources>
         <ResourceDictionary>
@@ -88,6 +89,16 @@
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
 
             <GridLength x:Key="HeaderHeight">88</GridLength>
+
+            <muxc:UniformGridLayout
+                x:Name="UniformGridLayout"
+                MinColumnSpacing="12"
+                MinRowSpacing="12" />
+
+            <muxc:StackLayout
+                x:Name="VerticalStackLayout"
+                Orientation="Vertical"
+                Spacing="12" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

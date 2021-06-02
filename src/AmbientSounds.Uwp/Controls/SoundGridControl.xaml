@@ -14,13 +14,6 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <muxc:UniformGridLayout
-            x:Name="UniformGridLayout"
-            MinColumnSpacing="12"
-            MinRowSpacing="12" />
-    </UserControl.Resources>
-
     <Grid>
         <ScrollViewer>
             <muxc:ItemsRepeater
@@ -28,7 +21,7 @@
                 Margin="0,0,20,20"
                 ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
-                Layout="{StaticResource UniformGridLayout}" />
+                Layout="{x:Bind Layout, Mode=OneWay}" />
         </ScrollViewer>
 
         <muxc:ProgressRing
