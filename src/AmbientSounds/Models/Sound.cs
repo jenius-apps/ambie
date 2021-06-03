@@ -100,8 +100,9 @@ namespace AmbientSounds.Models
 
         /// <summary>
         /// Colour to use to decorate the sound images.
+        /// Supports RGB and ARGB.
         /// </summary>
-        public string ColourHue { get; set; } = string.Empty;
+        public string ColourHex { get; set; } = string.Empty;
     }
 
     public enum PublishState

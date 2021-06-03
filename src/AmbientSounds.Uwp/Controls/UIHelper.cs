@@ -25,14 +25,14 @@ namespace AmbientSounds.Controls
             }
         }
 
-        public static Color ToColour(string colourString)
+        public static Color ToColour(string colourHex)
         {
-            if (string.IsNullOrEmpty(colourString))
+            if (string.IsNullOrEmpty(colourHex))
             {
-                colourString = "#e0000000";
+                colourHex = "#e0000000";
             }
 
-            return colourString.ToColor();
+            return colourHex.ToColor();
         }
 
         public static void GridScaleUp(object sender, PointerRoutedEventArgs e)

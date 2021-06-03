@@ -73,7 +73,7 @@ namespace AmbientSounds.ViewModels
 
         public bool IsNotMix => !IsMix;
 
-        public string ColourHue => _sound.ColourHue;
+        public string ColourHex => _sound.ColourHex;
 
         public bool HasSecondImage => IsMix && _sound.ImagePaths.Length == 2;
 

@@ -24,7 +24,7 @@
         <DataTemplate x:Key="NarrowSoundTemplate" x:DataType="viewmodels:SoundViewModel">
             <Grid Padding="8" CornerRadius="4">
                 <Grid.Background>
-                    <SolidColorBrush Color="{x:Bind controls:UIHelper.ToColour(ColourHue), Mode=OneWay}" />
+                    <SolidColorBrush Color="{x:Bind controls:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -163,7 +163,7 @@
                         <Rectangle.Fill>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="0" Color="#00000000" />
-                                <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ColourHue), Mode=OneWay}" />
+                                <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
                             </LinearGradientBrush>
                         </Rectangle.Fill>
                     </Rectangle>
