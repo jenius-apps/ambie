@@ -404,10 +404,6 @@
           <source>Optional</source>
           <target state="translated">可选</target>
         </trans-unit>
-        <trans-unit id="RemoveActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Remove from active list</source>
-          <target state="translated">从正在播放列表移除</target>
-        </trans-unit>
         <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Save custom sound mix</source>
           <target state="translated">保存自定义混音列表</target>
@@ -632,6 +628,11 @@
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
           <target state="new">Mix and match up to 3 sounds</target>
+        </trans-unit>
+        <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
+          <source>Remove {0} from active list</source>
+          <target state="new">Remove {0} from active list</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
         </trans-unit>
       </group>
     </body>

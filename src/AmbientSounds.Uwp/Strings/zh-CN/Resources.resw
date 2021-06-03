@@ -312,9 +312,6 @@
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>可选</value>
   </data>
-  <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>从正在播放列表移除</value>
-  </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
     <value>保存自定义混音列表</value>
   </data>

@@ -1,6 +1,5 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -80,6 +79,11 @@ namespace AmbientSounds.Controls
         private async void OnListLoaded(object sender, RoutedEventArgs e)
         {
             await ViewModel.LoadPreviousStateAsync();
+        }
+
+        public static string FormatDeleteMessage(string soundName)
+        {
+            return string.Format(Strings.Resources.RemoveActiveButton, soundName);
         }
     }
 }

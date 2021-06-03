@@ -417,8 +417,9 @@
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>Optional</value>
   </data>
-  <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Remove from active list</value>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>Remove {0} from active list</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
   </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
     <value>Save custom sound mix</value>

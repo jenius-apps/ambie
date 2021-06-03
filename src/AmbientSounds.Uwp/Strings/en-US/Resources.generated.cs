@@ -353,6 +353,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region RemoveActiveButton
+        /// <summary>
+        ///   Looks up a localized string similar to: Remove {0} from active list
+        /// </summary>
+        public static string RemoveActiveButton
+        {
+            get
+            {
+                return _resourceLoader.GetString("RemoveActiveButton");
+            }
+        }
+        #endregion
+
         #region CancelText
         /// <summary>
         ///   Looks up a localized string similar to: Cancel
@@ -922,6 +935,7 @@ namespace AmbientSounds.Strings{
             Paused,
             Playing,
             GlobalVolume,
+            RemoveActiveButton,
             CancelText,
             RenameText,
             MissingSoundsTitle,

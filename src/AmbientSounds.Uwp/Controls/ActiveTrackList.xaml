@@ -104,7 +104,8 @@
                 <winui:ItemsRepeater
                     x:Uid="ActiveTrackListView"
                     ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
-                    Loaded="{x:Bind OnListLoaded}">
+                    Loaded="{x:Bind OnListLoaded}"
+                    TabFocusNavigation="Local">
                     <winui:ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
                             <Grid Margin="0,0,0,16">
@@ -125,9 +126,9 @@
                                         TextTrimming="CharacterEllipsis"
                                         ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
                                     <Button
-                                        x:Uid="RemoveActiveButton"
                                         Grid.Column="1"
                                         Padding="2"
+                                        AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
                                         Background="Transparent"
                                         Command="{x:Bind RemoveCommand, Mode=OneWay}"
                                         CommandParameter="{x:Bind Sound, Mode=OneWay}">
