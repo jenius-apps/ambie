@@ -23,6 +23,12 @@ namespace AmbientSounds.Controls
             typeof(SoundGridControl),
             null);
 
+        public static readonly DependencyProperty InnerMarginProperty = DependencyProperty.Register(
+            nameof(InnerMargin),
+            typeof(Thickness),
+            typeof(SoundGridControl),
+            new PropertyMetadata(new Thickness(0, 0, 0, 0)));
+
         public SoundGridControl()
         {
             this.InitializeComponent();
@@ -47,6 +53,12 @@ namespace AmbientSounds.Controls
         {
             get => (DataTemplate?)GetValue(ItemTemplateProperty);
             set => SetValue(ItemTemplateProperty, value);
+        }
+
+        public Thickness InnerMargin
+        {
+            get => (Thickness)GetValue(InnerMarginProperty);
+            set => SetValue(InnerMarginProperty, value);
         }
     }
 }

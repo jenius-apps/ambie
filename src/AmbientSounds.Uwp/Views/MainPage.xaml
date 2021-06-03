@@ -230,13 +230,16 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid RowSpacing="12">
+    <Grid
+        x:Name="RootGrid"
+        Margin="0,32,0,0"
+        RowSpacing="12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Padding="40,32,40,0">
+        <Grid x:Name="HeaderGrid" Margin="16,0">
             <Grid HorizontalAlignment="Left">
                 <Rectangle
                     Height="40"
@@ -294,7 +297,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Padding="40,0,0,0">
+        <Grid x:Name="ContentGrid" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -314,7 +317,8 @@
                 x:Name="SoundGallery"
                 Grid.Row="1"
                 Grid.Column="1"
-                Margin="0,12,0,0"
+                Margin="0,16,0,0"
+                InnerMargin="16,0,16,16"
                 ItemTemplate="{StaticResource NarrowSoundTemplate}"
                 Layout="{StaticResource VerticalStackLayout}" />
         </Grid>
@@ -344,6 +348,10 @@
                         <Setter Target="TrackList.(Grid.Row)" Value="1" />
                         <Setter Target="TrackList.(Grid.Column)" Value="0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
+                        <Setter Target="HeaderGrid.Margin" Value="40,0" />
+                        <Setter Target="SoundGallery.Margin" Value="0,0,0,0" />
+                        <Setter Target="SoundGallery.InnerMargin" Value="12,0,40,32" />
+                        <Setter Target="ContentGrid.Margin" Value="40,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
