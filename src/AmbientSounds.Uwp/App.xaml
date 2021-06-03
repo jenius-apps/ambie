@@ -92,13 +92,13 @@
 
             <muxc:UniformGridLayout
                 x:Name="UniformGridLayout"
-                MinColumnSpacing="12"
-                MinRowSpacing="12" />
+                MinColumnSpacing="8"
+                MinRowSpacing="8" />
 
             <muxc:StackLayout
                 x:Name="VerticalStackLayout"
                 Orientation="Vertical"
-                Spacing="12" />
+                Spacing="4" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
