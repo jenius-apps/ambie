@@ -70,15 +70,19 @@ namespace AmbientSounds.ViewModels
             {
                 foreach (var sound in Sounds)
                 {
-                    // ensure viewmodels are initialized.
+                    // Ensure viewmodels are initialized.
                     sound.Initialize();
                 }
-                return;
             }
 
             var soundList = await _provider.GetSoundsAsync();
+            if (soundList is null)
+            {
+                return;
+            }
 
-            foreach (var sound in soundList)
+            var existingIds = Sounds.Select(s => s.Id);
+            foreach (var sound in soundList.Where(x => !existingIds.Contains(x.Id)))
             {
                 var s = _factory.GetSoundVm(sound);
                 Sounds.Add(s);
