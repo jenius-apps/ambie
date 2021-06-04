@@ -12,56 +12,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
     <Page.Resources>
-        <DataTemplate x:Key="CompactPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <GridViewItem Margin="4" AutomationProperties.Name="{x:Bind Name}">
-                <GridViewItem.Resources>
-                    <!--  These two removes the border on hover and on pressed  -->
-                    <SolidColorBrush x:Key="SystemControlHighlightListLowBrush" Color="Transparent" />
-                    <SolidColorBrush x:Key="SystemControlHighlightListMediumBrush" Color="Transparent" />
-                </GridViewItem.Resources>
-                <Grid
-                    Width="140"
-                    Height="80"
-                    extensions:VisualExtensions.CenterPoint="70,40,0"
-                    CornerRadius="4"
-                    PointerEntered="{x:Bind controls:UIHelper.GridScaleUp}"
-                    PointerExited="{x:Bind controls:UIHelper.GridScaleNormal}">
-                    <animations:Implicit.Animations>
-                        <animations:ScaleAnimation Duration="0:0:0.5" />
-                    </animations:Implicit.Animations>
-                    <Grid.Background>
-                        <ImageBrush Stretch="UniformToFill">
-                            <ImageBrush.ImageSource>
-                                <BitmapImage UriSource="{x:Bind ImagePath}" />
-                            </ImageBrush.ImageSource>
-                        </ImageBrush>
-                    </Grid.Background>
-
-                    <Grid
-                        Margin="0,0,0,20"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="{StaticResource BackgroundAcrylicBrush}"
-                        CornerRadius="20"
-                        Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
-                        <FontIcon
-                            Margin="10"
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="18"
-                            Foreground="White"
-                            Glyph="&#xEB7D;" />
-                    </Grid>
-
-                    <Grid VerticalAlignment="Bottom" Background="{StaticResource BackgroundAcrylicBrush}">
-                        <TextBlock
-                            Margin="8,0,0,2"
-                            FontSize="16"
-                            Foreground="White"
-                            Text="{x:Bind Name}"
-                            TextWrapping="Wrap" />
-                    </Grid>
-                </Grid>
-            </GridViewItem>
+        <DataTemplate x:Key="NarrowSoundTemplate" x:DataType="viewmodels:SoundViewModel">
+            <!--
+                The control below gets its viewmodel/datacontext
+                via the itemRepeater's OnElementPrepared event.
+            -->
+            <controls:SoundListItem />
         </DataTemplate>
     </Page.Resources>
 
@@ -94,7 +50,11 @@
             </StackPanel>
         </Grid>
 
-        <controls:SoundGridControl Grid.Row="1" ItemTemplate="{StaticResource CompactPageSoundTemplate}" />
+        <controls:SoundGridControl
+            Grid.Row="1"
+            InnerMargin="12"
+            ItemTemplate="{StaticResource NarrowSoundTemplate}"
+            Layout="{StaticResource VerticalStackLayout}" />
 
         <Grid
             Grid.Row="2"

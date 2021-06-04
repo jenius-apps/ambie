@@ -17,13 +17,6 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <ani:Implicit.ShowAnimations>
-            <ani:OpacityAnimation
-                Delay="0:0:0.5"
-                From="0"
-                To="1"
-                Duration="0:0:1" />
-        </ani:Implicit.ShowAnimations>
 
         <Button Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}" Style="{StaticResource TransparentRoundButtonStyle}">
             <FontIcon
