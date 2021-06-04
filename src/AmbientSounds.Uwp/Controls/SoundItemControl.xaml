@@ -50,7 +50,7 @@
             PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildImage}">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
-                    <core:InvokeCommandAction Command="{x:Bind ViewModel.PlayCommand}" />
+                    <core:InvokeCommandAction Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}" />
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
 
@@ -68,7 +68,7 @@
                                 <BitmapImage
                                     DecodePixelHeight="240"
                                     DecodePixelType="Logical"
-                                    UriSource="{x:Bind ViewModel.ImagePath}" />
+                                    UriSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" />
                             </ImageBrush.ImageSource>
                         </ImageBrush>
                     </Grid.Background>
@@ -156,12 +156,12 @@
                     <muxc:CommandBarFlyout.SecondaryCommands>
                         <AppBarButton
                             x:Uid="DeleteAppBarButton"
-                            Command="{x:Bind ViewModel.DeleteCommand}"
+                            Command="{x:Bind ViewModel.DeleteCommand, Mode=OneWay}"
                             Icon="Delete"
                             Visibility="{x:Bind ViewModel.CanDelete, Mode=OneWay}" />
                         <AppBarButton
                             x:Uid="RenameAppBarButton"
-                            Command="{x:Bind ViewModel.RenameCommand}"
+                            Command="{x:Bind ViewModel.RenameCommand, Mode=OneWay}"
                             Icon="Rename"
                             Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
                         <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
