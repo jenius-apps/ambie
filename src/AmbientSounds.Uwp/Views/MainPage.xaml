@@ -4,13 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:strings="using:AmbientSounds.Strings"
-    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
@@ -21,50 +18,11 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="NarrowSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <Grid Padding="8" CornerRadius="4">
-                <Grid.Background>
-                    <SolidColorBrush Color="{x:Bind controls:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <ani:Implicit.ShowAnimations>
-                    <ani:OpacityAnimation
-                        Delay="0:0:0.5"
-                        From="0"
-                        To="1"
-                        Duration="0:0:1" />
-                </ani:Implicit.ShowAnimations>
-
-                <Button Command="{x:Bind PlayCommand}" Style="{StaticResource TransparentRoundButtonStyle}">
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        Foreground="White"
-                        Glyph="&#xEB21;" />
-                </Button>
-
-                <TextBlock
-                    Grid.Column="1"
-                    Margin="12,0,12,0"
-                    VerticalAlignment="Center"
-                    Foreground="White"
-                    Text="{x:Bind Name}"
-                    TextTrimming="CharacterEllipsis" />
-
-                <Grid
-                    Grid.Column="2"
-                    Margin="0,0,8,0"
-                    Visibility="{x:Bind IsCurrentlyPlaying, Mode=OneWay}">
-                    <FontIcon
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        Foreground="White"
-                        Glyph="&#xEB7D;" />
-                </Grid>
-            </Grid>
+            <!--
+                The control below gets its viewmodel/datacontext
+                via the itemRepeater's OnElementPrepared event.
+            -->
+            <controls:SoundListItem />
         </DataTemplate>
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
             <!--

@@ -64,10 +64,16 @@ namespace AmbientSounds.Controls
             MUXC.ItemsRepeater sender,
             MUXC.ItemsRepeaterElementPreparedEventArgs args)
         {
-            if (args.Element is SoundItemControl c && 
-                sender.DataContext is SoundListViewModel listVm)
+            if (sender.DataContext is SoundListViewModel listVm)
             {
-                c.ViewModel = listVm.Sounds[args.Index];
+                if (args.Element is SoundItemControl c)
+                {
+                    c.ViewModel = listVm.Sounds[args.Index];
+                }
+                else if (args.Element is SoundListItem l)
+                {
+                    l.ViewModel = listVm.Sounds[args.Index];
+                }
             }
         }
     }
