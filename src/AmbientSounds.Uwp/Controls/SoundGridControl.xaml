@@ -14,9 +14,11 @@
             <muxc:ItemsRepeater
                 x:Uid="SoundsGridView"
                 Margin="{x:Bind InnerMargin, Mode=OneWay}"
+                ElementPrepared="{x:Bind OnElementPrepared}"
                 ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
-                Layout="{x:Bind Layout, Mode=OneWay}" />
+                Layout="{x:Bind Layout, Mode=OneWay}"
+                TabFocusNavigation="Once" />
         </ScrollViewer>
 
         <muxc:ProgressRing

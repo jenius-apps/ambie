@@ -1,9 +1,8 @@
-﻿using AmbientSounds.Animations;
-using AmbientSounds.Services;
-using AmbientSounds.ViewModels;
+﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using MUXC = Microsoft.UI.Xaml.Controls;
 
 #nullable enable
 
@@ -19,7 +18,7 @@ namespace AmbientSounds.Controls
 
         public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
             nameof(Layout),
-            typeof(Microsoft.UI.Xaml.Controls.Layout),
+            typeof(MUXC.Layout),
             typeof(SoundGridControl),
             null);
 
@@ -39,9 +38,9 @@ namespace AmbientSounds.Controls
 
         public SoundListViewModel ViewModel => (SoundListViewModel)this.DataContext;
 
-        public Microsoft.UI.Xaml.Controls.Layout? Layout
+        public MUXC.Layout? Layout
         {
-            get => (Microsoft.UI.Xaml.Controls.Layout?)GetValue(LayoutProperty);
+            get => (MUXC.Layout?)GetValue(LayoutProperty);
             set => SetValue(LayoutProperty, value);
         }
 
@@ -59,6 +58,17 @@ namespace AmbientSounds.Controls
         {
             get => (Thickness)GetValue(InnerMarginProperty);
             set => SetValue(InnerMarginProperty, value);
+        }
+
+        private void OnElementPrepared(
+            MUXC.ItemsRepeater sender,
+            MUXC.ItemsRepeaterElementPreparedEventArgs args)
+        {
+            if (args.Element is SoundItemControl c && 
+                sender.DataContext is SoundListViewModel listVm)
+            {
+                c.ViewModel = listVm.Sounds[args.Index];
+            }
         }
     }
 }

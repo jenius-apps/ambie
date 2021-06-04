@@ -176,6 +176,9 @@
     <Compile Include="Controls\SoundGridControl.xaml.cs">
       <DependentUpon>SoundGridControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SoundItemControl.xaml.cs">
+      <DependentUpon>SoundItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SoundSuggestionControl.xaml.cs">
       <DependentUpon>SoundSuggestionControl.xaml</DependentUpon>
     </Compile>
@@ -398,6 +401,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SoundGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SoundItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,202 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.SoundItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    GettingFocus="{x:Bind OnGettingFocus}"
+    IsTabStop="True"
+    LosingFocus="{x:Bind OnLosingFocus}"
+    mc:Ignorable="d">
+
+    <!--  TODO: Add automation property name, index, and item status on focus  -->
+
+    <Grid x:Name="Root">
+        <ani:Implicit.ShowAnimations>
+            <ani:OpacityAnimation
+                Delay="0:0:0.5"
+                From="0"
+                To="1"
+                Duration="0:0:1" />
+        </ani:Implicit.ShowAnimations>
+
+        <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
+            <Rectangle
+                Width="168"
+                Height="240"
+                Fill="Black"
+                RadiusX="8"
+                RadiusY="8"
+                Stretch="Fill" />
+        </toolkit:DropShadowPanel>
+
+        <Grid
+            Width="172"
+            Height="240"
+            CornerRadius="8"
+            PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildImage}"
+            PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
+            PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
+            PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildImage}">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Tapped">
+                    <core:InvokeCommandAction Command="{x:Bind ViewModel.PlayCommand}" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+
+
+
+            <Grid x:Name="ImageGrid" ui:VisualExtensions.NormalizedCenterPoint="0.5">
+                <ani:Implicit.Animations>
+                    <ani:ScaleAnimation Duration="0:0:0.5" />
+                </ani:Implicit.Animations>
+
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush Stretch="UniformToFill">
+                            <ImageBrush.ImageSource>
+                                <BitmapImage
+                                    DecodePixelHeight="240"
+                                    DecodePixelType="Logical"
+                                    UriSource="{x:Bind ViewModel.ImagePath}" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Grid.Background>
+                </Grid>
+
+                <Grid x:Name="Image2" x:Load="{x:Bind ViewModel.HasSecondImage, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="1" Stretch="UniformToFill">
+                        <Image.Source>
+                            <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+
+                <Grid x:Name="Image3" x:Load="{x:Bind ViewModel.HasThirdImage, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="1" Stretch="UniformToFill">
+                        <Image.Source>
+                            <BitmapImage
+                                DecodePixelHeight="80"
+                                DecodePixelType="Logical"
+                                UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
+                        </Image.Source>
+                    </Image>
+                    <Image Grid.Row="2" Stretch="UniformToFill">
+                        <Image.Source>
+                            <BitmapImage
+                                DecodePixelHeight="80"
+                                DecodePixelType="Logical"
+                                UriSource="{x:Bind ViewModel.ThirdImagePath, Mode=OneWay}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Grid>
+
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="#00000000" />
+                        <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ViewModel.ColourHex), Mode=OneWay}" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+
+            <Grid
+                Margin="0,0,0,20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="{StaticResource BackgroundAcrylicBrush}"
+                CornerRadius="30"
+                Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
+                <FontIcon
+                    Margin="8"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="28"
+                    Foreground="White"
+                    Glyph="&#xEB7D;" />
+            </Grid>
+
+
+            <Grid Margin="12" VerticalAlignment="Bottom">
+                <TextBlock
+                    Foreground="White"
+                    Text="{x:Bind ViewModel.Name, Mode=OneWay}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="Wrap">
+                    <ToolTipService.ToolTip>
+                        <Grid MaxWidth="300">
+                            <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
+                        </Grid>
+                    </ToolTipService.ToolTip>
+                </TextBlock>
+            </Grid>
+
+            <Grid.ContextFlyout>
+                <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
+                    <muxc:CommandBarFlyout.SecondaryCommands>
+                        <AppBarButton
+                            x:Uid="DeleteAppBarButton"
+                            Command="{x:Bind ViewModel.DeleteCommand}"
+                            Icon="Delete"
+                            Visibility="{x:Bind ViewModel.CanDelete, Mode=OneWay}" />
+                        <AppBarButton
+                            x:Uid="RenameAppBarButton"
+                            Command="{x:Bind ViewModel.RenameCommand}"
+                            Icon="Rename"
+                            Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
+                        <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
+                            <StackPanel Width="300" Margin="12">
+                                <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
+                                <TextBlock
+                                    Margin="0,8,0,0"
+                                    IsTextSelectionEnabled="True"
+                                    Text="{x:Bind ViewModel.Attribution, Mode=OneWay}"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </AppBarElementContainer>
+                    </muxc:CommandBarFlyout.SecondaryCommands>
+                </muxc:CommandBarFlyout>
+            </Grid.ContextFlyout>
+        </Grid>
+
+        <Rectangle
+            x:Name="FocusVisualBlack"
+            IsHitTestVisible="False"
+            RadiusX="8"
+            RadiusY="8"
+            Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}"
+            StrokeThickness="2"
+            Visibility="Collapsed" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="FocusStates">
+                <VisualState x:Name="Focused">
+                    <VisualState.Setters>
+                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Unfocused" />
+                <VisualState x:Name="PointerFocused" />
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</UserControl>
