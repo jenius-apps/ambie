@@ -95,6 +95,8 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public string? Name => _sound.Name;
 
+        public string ColourHex => _sound.ColourHex;
+
         /// <summary>
         /// Id of the sound.
         /// </summary>
