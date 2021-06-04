@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -66,19 +67,35 @@ namespace AmbientSounds.ViewModels
             _provider.LocalSoundAdded += OnLocalSoundAdded;
             _provider.LocalSoundDeleted += OnLocalSoundDeleted;
 
+            var soundList = await _provider.GetSoundsAsync();
+            if (soundList is null || soundList.Count == 0)
+            {
+                Sounds.Clear();
+                return;
+            }
+
+            var localIds = soundList.Select(s => s.Id);
+            var forDeletion = new List<SoundViewModel>();
+
             if (Sounds.Count > 0)
             {
-                foreach (var sound in Sounds)
+                foreach (var soundVm in Sounds)
                 {
-                    // Ensure viewmodels are initialized.
-                    sound.Initialize();
+                    if (!localIds.Contains(soundVm.Id))
+                    {
+                        forDeletion.Add(soundVm);
+                    }
+                    else
+                    {
+                        // Ensure viewmodels are initialized.
+                        soundVm.Initialize();
+                    }
                 }
             }
 
-            var soundList = await _provider.GetSoundsAsync();
-            if (soundList is null)
+            foreach (var soundVm in forDeletion)
             {
-                return;
+                Sounds.Remove(soundVm);
             }
 
             var existingIds = Sounds.Select(s => s.Id);
