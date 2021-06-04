@@ -41,12 +41,14 @@ namespace AmbientSounds.ViewModels
             var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
             if (forDeletion is null) return;
             Sounds.Remove(forDeletion);
+            UpdateItemPositions();
         }
 
         private void OnLocalSoundAdded(object sender, Models.Sound e)
         {
             var s = _factory.GetSoundVm(e);
             Sounds.Add(s);
+            UpdateItemPositions();
         }
 
         /// <summary>
@@ -104,6 +106,8 @@ namespace AmbientSounds.ViewModels
                 var s = _factory.GetSoundVm(sound);
                 Sounds.Add(s);
             }
+
+            UpdateItemPositions();
         }
 
         public void Dispose()
@@ -114,6 +118,19 @@ namespace AmbientSounds.ViewModels
             foreach (var s in Sounds)
             {
                 s.Dispose();
+            }
+        }
+
+        private void UpdateItemPositions()
+        {
+            // required for a11y purposes.
+            int index = 1;
+            var size = Sounds.Count;
+            foreach (var soundVm in Sounds)
+            {
+                soundVm.Position = index;
+                soundVm.SetSize = size;
+                index++;
             }
         }
     }

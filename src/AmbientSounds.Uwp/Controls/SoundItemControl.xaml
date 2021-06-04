@@ -15,6 +15,8 @@
     AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
     AutomationProperties.LocalizedControlType="button"
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
+    AutomationProperties.PositionInSet="{x:Bind ViewModel.Position, Mode=OneWay}"
+    AutomationProperties.SizeOfSet="{x:Bind ViewModel.SetSize, Mode=OneWay}"
     GettingFocus="{x:Bind OnGettingFocus}"
     IsTabStop="True"
     KeyDown="{x:Bind OnControlKeyDown}"

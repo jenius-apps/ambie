@@ -23,6 +23,8 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
         private readonly IRenamer _renamer;
+        private int _position;
+        private int _setSize;
 
         public SoundViewModel(
             Sound s,
@@ -49,6 +51,18 @@ namespace AmbientSounds.ViewModels
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
             PlayCommand = new AsyncRelayCommand(PlayAsync);
+        }
+
+        public int Position
+        {
+            get => _position;
+            set => SetProperty(ref _position, value);
+        }
+
+        public int SetSize
+        {
+            get => _setSize;
+            set => SetProperty(ref _setSize, value);
         }
 
         /// <summary>
