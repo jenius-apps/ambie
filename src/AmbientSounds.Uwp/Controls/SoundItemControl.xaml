@@ -7,18 +7,19 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:loc="using:AmbientSounds.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
+    AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
+    AutomationProperties.LocalizedControlType="button"
+    AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
     GettingFocus="{x:Bind OnGettingFocus}"
     IsTabStop="True"
+    KeyDown="{x:Bind OnControlKeyDown}"
     LosingFocus="{x:Bind OnLosingFocus}"
     mc:Ignorable="d">
-
-    <!--  TODO: Add automation property name, index, and item status on focus  -->
 
     <Grid x:Name="Root">
         <ani:Implicit.ShowAnimations>
@@ -179,6 +180,15 @@
         </Grid>
 
         <Rectangle
+            x:Name="FocusVisualWhite"
+            IsHitTestVisible="False"
+            RadiusX="8"
+            RadiusY="8"
+            Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}"
+            StrokeThickness="4"
+            Visibility="Collapsed" />
+
+        <Rectangle
             x:Name="FocusVisualBlack"
             IsHitTestVisible="False"
             RadiusX="8"
@@ -192,6 +202,7 @@
                 <VisualState x:Name="Focused">
                     <VisualState.Setters>
                         <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
+                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Unfocused" />

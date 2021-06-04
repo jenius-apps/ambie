@@ -10,15 +10,7 @@ namespace AmbientSounds.Controls
             nameof(ViewModel),
             typeof(SoundViewModel),
             typeof(SoundItemControl),
-            new PropertyMetadata(null, OnViewModelChanged));
-
-        private static void OnViewModelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is SoundItemControl c)
-            {
-                c.Update();
-            }
-        }
+            new PropertyMetadata(null));
 
         public SoundItemControl()
         {
@@ -29,11 +21,6 @@ namespace AmbientSounds.Controls
         {
             get => (SoundViewModel)GetValue(ViewModelProperty);
             set => SetValue(ViewModelProperty, value);
-        }
-        
-        private void Update()
-        {
-            this.Bindings.Update();
         }
 
         private void OnGettingFocus(UIElement sender, Windows.UI.Xaml.Input.GettingFocusEventArgs args)
@@ -51,6 +38,17 @@ namespace AmbientSounds.Controls
         private void OnLosingFocus(UIElement sender, Windows.UI.Xaml.Input.LosingFocusEventArgs args)
         {
             VisualStateManager.GoToState(this, nameof(Unfocused), false);
+        }
+
+        private async void OnControlKeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter || 
+                e.Key == Windows.System.VirtualKey.Space ||
+                e.Key == Windows.System.VirtualKey.GamepadA)
+            {
+                e.Handled = true;
+                await ViewModel.PlayCommand.ExecuteAsync(null);
+            }
         }
     }
 }
