@@ -50,7 +50,7 @@ namespace AmbientSounds.Controls
                 {
                     brush.ImageSource = new BitmapImage
                     {
-                        DecodePixelHeight = 240,
+                        DecodePixelHeight = 208, // Same as ImageCardHeight in App.xaml
                         UriSource = new System.Uri(dataContext.ImagePath)
                     };
                 }

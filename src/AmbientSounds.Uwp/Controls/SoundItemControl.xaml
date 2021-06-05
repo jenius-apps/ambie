@@ -34,8 +34,8 @@
 
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
-                Width="168"
-                Height="240"
+                Width="{StaticResource ImageCardShadowWidth}"
+                Height="{StaticResource ImageCardHeight}"
                 Fill="Black"
                 RadiusX="8"
                 RadiusY="8"
@@ -43,8 +43,8 @@
         </toolkit:DropShadowPanel>
 
         <Grid
-            Width="172"
-            Height="240"
+            Width="{StaticResource ImageCardWidth}"
+            Height="{StaticResource ImageCardHeight}"
             CornerRadius="8"
             PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildImage}"
             PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"

@@ -40,8 +40,8 @@
 
                 <Grid
                     x:Name="ImageGrid"
-                    Width="171"
-                    Height="240"
+                    Width="{StaticResource ImageCardWidth}"
+                    Height="{StaticResource ImageCardHeight}"
                     CornerRadius="8">
                     <Grid.Background>
                         <ImageBrush Stretch="UniformToFill" />
@@ -189,6 +189,7 @@
         <ScrollViewer>
             <muxc:ItemsRepeater
                 Margin="{x:Bind InnerMargin, Mode=OneWay}"
+                HorizontalAlignment="Center"
                 ElementClearing="ItemsRepeater_ElementClearing"
                 ElementPrepared="ItemsRepeater_ElementPrepared"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
