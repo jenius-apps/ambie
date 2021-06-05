@@ -35,14 +35,14 @@
 
     <Grid
         x:Name="RootGrid"
-        Margin="0,32,0,0"
+        Margin="{StaticResource TopPageMargin}"
         RowSpacing="12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid x:Name="HeaderGrid" Margin="16,0">
+        <Grid x:Name="HeaderGrid" Margin="{StaticResource NarrowPageMargin}">
             <Grid HorizontalAlignment="Left">
                 <Rectangle
                     Height="40"
@@ -141,7 +141,7 @@
                 <VisualState x:Name="NarrowLayout" />
                 <VisualState x:Name="WideLayout">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="670" />
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideWindowBreakpoint}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="SoundGallery.(Grid.Column)" Value="1" />
@@ -151,7 +151,7 @@
                         <Setter Target="TrackList.(Grid.Row)" Value="1" />
                         <Setter Target="TrackList.(Grid.Column)" Value="0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
-                        <Setter Target="HeaderGrid.Margin" Value="40,0" />
+                        <Setter Target="HeaderGrid.Margin" Value="{StaticResource WidePageMargin}" />
                         <Setter Target="SoundGallery.Margin" Value="0,0,0,0" />
                         <Setter Target="SoundGallery.InnerMargin" Value="8,0,40,32" />
                         <Setter Target="ContentGrid.Margin" Value="40,0,0,0" />

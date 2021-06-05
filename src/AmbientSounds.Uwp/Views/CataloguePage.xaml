@@ -11,7 +11,7 @@
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Margin="{StaticResource TopPageMargin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -19,7 +19,7 @@
 
         <Grid
             x:Name="HeaderGrid"
-            Margin="40,32,40,0"
+            Margin="{StaticResource NarrowPageMargin}"
             Canvas.ZIndex="1">
 
             <Grid HorizontalAlignment="Left">
@@ -55,6 +55,26 @@
             </Grid>
 
         </Grid>
-        <controls:CatalogueListControl Grid.Row="1" Margin="0,12,0,0" />
+
+        <controls:CatalogueListControl
+            x:Name="CatalogueList"
+            Grid.Row="1"
+            Margin="0,12,0,0"
+            InnerMargin="16,0,16,16" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowLayout" />
+                <VisualState x:Name="WideLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideWindowBreakpoint}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HeaderGrid.Margin" Value="{StaticResource WidePageMargin}" />
+                        <Setter Target="CatalogueList.InnerMargin" Value="40,0,40,32" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

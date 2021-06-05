@@ -87,8 +87,10 @@
             </Style>
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
-
-            <GridLength x:Key="HeaderHeight">88</GridLength>
+            <x:Double x:Key="WideWindowBreakpoint">670</x:Double>
+            <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
+            <Thickness x:Key="WidePageMargin">40,0</Thickness>
+            <Thickness x:Key="TopPageMargin">0,32,0,0</Thickness>
 
             <muxc:UniformGridLayout
                 x:Name="UniformGridLayout"

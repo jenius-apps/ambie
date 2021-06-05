@@ -186,9 +186,9 @@
     </UserControl.Resources>
 
     <Grid>
-        <ScrollViewer Padding="44,0,44,0">
+        <ScrollViewer>
             <muxc:ItemsRepeater
-                Margin="0,0,0,20"
+                Margin="{x:Bind InnerMargin, Mode=OneWay}"
                 ElementClearing="ItemsRepeater_ElementClearing"
                 ElementPrepared="ItemsRepeater_ElementPrepared"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
