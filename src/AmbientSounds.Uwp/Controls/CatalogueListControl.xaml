@@ -38,6 +38,16 @@
                         Duration="0:0:1" />
                 </ani:Implicit.ShowAnimations>
 
+                <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
+                    <Rectangle
+                        Width="{StaticResource ImageCardShadowWidth}"
+                        Height="{StaticResource ImageCardHeight}"
+                        Fill="Black"
+                        RadiusX="8"
+                        RadiusY="8"
+                        Stretch="Fill" />
+                </toolkit:DropShadowPanel>
+
                 <Grid
                     x:Name="ImageGrid"
                     Width="{StaticResource ImageCardWidth}"
@@ -79,7 +89,7 @@
                     <Grid
                         Grid.Row="2"
                         Height="36"
-                        Margin="12,4,12,12"
+                        Margin="8,4"
                         VerticalAlignment="Bottom">
                         <StackPanel
                             x:Name="DownloadPanel"
