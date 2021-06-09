@@ -60,6 +60,7 @@ namespace AmbientSounds.Controls
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             _userSettings.SettingSet += OnSettingSet;
+            UpdateBackgroundState();
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
