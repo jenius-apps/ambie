@@ -23,7 +23,7 @@
     <Grid>
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
-                Width="240"
+                Width="220"
                 Height="{x:Bind MainGrid.Height, Mode=OneWay}"
                 Fill="{ThemeResource CardBackgroundBrush}"
                 RadiusX="8"
@@ -33,7 +33,7 @@
 
         <Grid
             x:Name="MainGrid"
-            Width="240"
+            Width="220"
             Padding="0"
             CornerRadius="8">
             <Grid.RowDefinitions>
@@ -99,7 +99,7 @@
 
             <Grid
                 Grid.Row="1"
-                Margin="0,24,0,0"
+                Margin="8,24,8,0"
                 Visibility="{x:Bind ShowList, Mode=OneWay}">
                 <winui:ItemsRepeater
                     x:Uid="ActiveTrackListView"
@@ -184,7 +184,7 @@
                 <VisualState x:Name="ShowListState">
                     <VisualState.Setters>
                         <Setter Target="MainGrid.Height" Value="300" />
-                        <Setter Target="MainGrid.Padding" Value="20" />
+                        <Setter Target="MainGrid.Padding" Value="12" />
                         <Setter Target="ControlsPanel.(Grid.Row)" Value="0" />
                     </VisualState.Setters>
                 </VisualState>
