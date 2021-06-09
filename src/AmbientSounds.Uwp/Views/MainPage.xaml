@@ -85,7 +85,6 @@
                 VerticalAlignment="Center"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Orientation="Horizontal">
-                <controls:SleepTimerControl />
                 <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
                 <controls:MoreButton Margin="4,0,0,0" />
                 <controls:AccountControl Margin="4,0,0,0" />
@@ -118,13 +117,23 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <controls:ActiveTrackList
-                x:Name="TrackList"
+            <Grid
+                x:Name="SideBar"
                 Grid.Column="1"
                 Margin="16,0"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                ShowList="False" />
+                VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <controls:ActiveTrackList x:Name="TrackList" ShowList="False" />
+                <controls:SleepTimerControl
+                    x:Name="SleepTimer"
+                    Grid.Row="1"
+                    Margin="0,8,0,0"
+                    Visibility="Collapsed" />
+            </Grid>
 
             <controls:SoundGridControl
                 x:Name="SoundGallery"
@@ -157,14 +166,15 @@
                         <Setter Target="SoundGallery.Margin" Value="12,0,0,0" />
                         <Setter Target="SoundGallery.ItemTemplate" Value="{StaticResource MainPageSoundTemplate}" />
                         <Setter Target="SoundGallery.Layout" Value="{StaticResource UniformGridLayout}" />
-                        <Setter Target="TrackList.(Grid.Row)" Value="1" />
-                        <Setter Target="TrackList.(Grid.Column)" Value="0" />
+                        <Setter Target="SideBar.(Grid.Row)" Value="1" />
+                        <Setter Target="SideBar.(Grid.Column)" Value="0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
-                        <Setter Target="TrackList.Margin" Value="0" />
+                        <Setter Target="SideBar.Margin" Value="0" />
                         <Setter Target="HeaderGrid.Padding" Value="{StaticResource WidePageMargin}" />
                         <Setter Target="SoundGallery.Margin" Value="0,0,0,0" />
                         <Setter Target="SoundGallery.InnerMargin" Value="8,0,40,32" />
                         <Setter Target="ContentGrid.Padding" Value="40,24,0,0" />
+                        <Setter Target="SleepTimer.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
