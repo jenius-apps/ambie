@@ -17,12 +17,6 @@
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="#e9e9e9" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FF1F1F1F" />
                     <AcrylicBrush
-                        x:Key="BackgroundImageAcrylicOverlayBrush"
-                        Windows10version1903:TintLuminosityOpacity="0.5"
-                        FallbackColor="Transparent"
-                        TintColor="White"
-                        TintOpacity="0.1" />
-                    <AcrylicBrush
                         x:Key="AcrylicBackplateBrush"
                         Windows10version1903:TintLuminosityOpacity="0.5"
                         FallbackColor="Gray"
@@ -35,12 +29,6 @@
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FFE6E6E6" />
                     <AcrylicBrush
-                        x:Key="BackgroundImageAcrylicOverlayBrush"
-                        Windows10version1903:TintLuminosityOpacity="0.5"
-                        FallbackColor="Transparent"
-                        TintColor="#1e1e1e"
-                        TintOpacity="0.1" />
-                    <AcrylicBrush
                         x:Key="AcrylicBackplateBrush"
                         Windows10version1903:TintLuminosityOpacity="0.5"
                         FallbackColor="Gray"
@@ -52,7 +40,6 @@
                 <ResourceDictionary x:Key="HighContrast">
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="{StaticResource SystemColorWindowColor}" />
-                    <SolidColorBrush x:Key="BackgroundImageAcrylicOverlayBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="AcrylicBackplateBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
