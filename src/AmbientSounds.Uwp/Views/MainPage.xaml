@@ -33,16 +33,16 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid
-        x:Name="RootGrid"
-        Margin="{StaticResource TopPageMargin}"
-        RowSpacing="12">
+    <Grid x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <Grid x:Name="HeaderGrid" Margin="{StaticResource NarrowPageMargin}">
+        <Rectangle Fill="{ThemeResource AcrylicBackplateBrush}" Stretch="Fill" />
+        <Grid
+            x:Name="HeaderGrid"
+            Margin="0,32,0,12"
+            Padding="{StaticResource NarrowPageMargin}">
             <Grid HorizontalAlignment="Left">
                 <Rectangle
                     Height="40"
@@ -103,8 +103,7 @@
         <Grid
             x:Name="ContentGrid"
             Grid.Row="1"
-            Padding="0,12,0,0"
-            Background="{ThemeResource ContentBackgroundBrush}">
+            Padding="0,12,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -141,7 +140,6 @@
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.FirstLaunchMessage}" />
 
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="NarrowLayout" />
@@ -158,7 +156,7 @@
                         <Setter Target="TrackList.(Grid.Column)" Value="0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
                         <Setter Target="TrackList.Margin" Value="0" />
-                        <Setter Target="HeaderGrid.Margin" Value="{StaticResource WidePageMargin}" />
+                        <Setter Target="HeaderGrid.Padding" Value="{StaticResource WidePageMargin}" />
                         <Setter Target="SoundGallery.Margin" Value="0,0,0,0" />
                         <Setter Target="SoundGallery.InnerMargin" Value="8,0,40,32" />
                         <Setter Target="ContentGrid.Padding" Value="40,24,0,0" />
