@@ -1,4 +1,6 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,6 +12,8 @@ namespace AmbientSounds.Controls
 {
     public sealed partial class ActiveTrackList : UserControl
     {
+        private readonly IUserSettings _userSettings;
+
         public static readonly DependencyProperty ShowListProperty = DependencyProperty.Register(
             nameof(ShowList),
             typeof(bool),
@@ -20,6 +24,8 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ActiveTrackListViewModel>();
+            _userSettings = App.Services.GetRequiredService<IUserSettings>();
+            this.Loaded += OnLoaded;
             this.Unloaded += OnUnloaded;
         }
 
@@ -51,8 +57,14 @@ namespace AmbientSounds.Controls
             }
         }
 
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _userSettings.SettingSet += OnSettingSet;
+        }
+
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
+            _userSettings.SettingSet -= OnSettingSet;
             ViewModel.Dispose();
         }
 
@@ -79,6 +91,23 @@ namespace AmbientSounds.Controls
         private async void OnListLoaded(object sender, RoutedEventArgs e)
         {
             await ViewModel.LoadPreviousStateAsync();
+        }
+
+        private void OnSettingSet(object sender, string settingKey)
+        {
+            if (settingKey == UserSettingsConstants.BackgroundImage)
+            {
+                UpdateBackgroundState();
+            }
+        }
+
+        private void UpdateBackgroundState()
+        {
+            bool backgroundImageActive = !string.IsNullOrEmpty(_userSettings.Get<string>(UserSettingsConstants.BackgroundImage));
+            VisualStateManager.GoToState(
+                this,
+                backgroundImageActive ? nameof(ImageBackgroundState) : nameof(RegularBackgroundState),
+                false);
         }
 
         public static string FormatDeleteMessage(string soundName)

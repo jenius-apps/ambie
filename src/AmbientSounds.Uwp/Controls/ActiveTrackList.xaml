@@ -21,15 +21,14 @@
     </UserControl.Resources>
 
     <Grid>
-        <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
-            <Rectangle
-                Width="220"
-                Height="{x:Bind MainGrid.Height, Mode=OneWay}"
-                Fill="{ThemeResource CardBackgroundBrush}"
-                RadiusX="8"
-                RadiusY="8"
-                Stretch="Fill" />
-        </toolkit:DropShadowPanel>
+        <Border
+            x:Name="BorderBackplate"
+            Width="220"
+            Height="{x:Bind MainGrid.Height, Mode=OneWay}"
+            Background="{ThemeResource AcrylicBackplateBrush}"
+            BorderBrush="{ThemeResource CardStrokeBrush}"
+            BorderThickness="1"
+            CornerRadius="8" />
 
         <Grid
             x:Name="MainGrid"
@@ -193,6 +192,14 @@
                         <Setter Target="MainGrid.Height" Value="60" />
                         <Setter Target="MainGrid.Padding" Value="0" />
                         <Setter Target="ControlsPanel.(Grid.Row)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState x:Name="RegularBackgroundState" />
+                <VisualState x:Name="ImageBackgroundState">
+                    <VisualState.Setters>
+                        <Setter Target="BorderBackplate.BorderBrush" Value="Transparent" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

@@ -47,12 +47,13 @@
             Margin="0,32,0,12"
             Padding="{StaticResource NarrowPageMargin}">
             <Grid HorizontalAlignment="Left">
-                <Rectangle
+                <Border
                     Height="40"
                     HorizontalAlignment="Stretch"
-                    Fill="{ThemeResource CardBackgroundBrush}"
-                    RadiusX="20"
-                    RadiusY="20" />
+                    Background="{ThemeResource CardBackgroundBrush}"
+                    BorderBrush="{ThemeResource CardStrokeBrush}"
+                    BorderThickness="1"
+                    CornerRadius="20" />
                 <StackPanel Orientation="Horizontal">
                     <Grid
                         x:Name="HomeBackplate"
