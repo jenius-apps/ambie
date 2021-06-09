@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     x:Name="RootPage"
-    Background="{ThemeResource FallbackBackgroundBrush}"
+    Background="{ThemeResource ContentBackgroundBrush}"
     mc:Ignorable="d">
     <Grid>
         <toolkit:ImageEx
@@ -16,12 +16,6 @@
             x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
             IsCacheEnabled="True"
             Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
-            Stretch="UniformToFill" />
-        <Rectangle
-            x:Name="ImageMask"
-            x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
-            Fill="{ThemeResource FallbackBackgroundBrush}"
-            Opacity="0.3"
             Stretch="UniformToFill" />
 
         <Frame x:Name="MainFrame" />
@@ -38,16 +32,5 @@
                 FontSize="12"
                 Text="Ambie" />
         </StackPanel>
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="NormalState" />
-                <VisualState x:Name="TransparencyOnState">
-                    <VisualState.Setters>
-                        <Setter Target="RootPage.Background" Value="{ThemeResource SystemControlAcrylicWindowBrush}" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
