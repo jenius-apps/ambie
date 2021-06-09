@@ -18,9 +18,9 @@
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FF1F1F1F" />
                     <AcrylicBrush
                         x:Key="AcrylicBackplateBrush"
-                        Windows10version1903:TintLuminosityOpacity="0.5"
-                        FallbackColor="Gray"
-                        TintColor="Gray"
+                        Windows10version1903:TintLuminosityOpacity="0.8"
+                        FallbackColor="#e9e9e9"
+                        TintColor="#e9e9e9"
                         TintOpacity="0.1" />
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="#e9e9e9" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="White" />
@@ -30,9 +30,9 @@
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FFE6E6E6" />
                     <AcrylicBrush
                         x:Key="AcrylicBackplateBrush"
-                        Windows10version1903:TintLuminosityOpacity="0.5"
-                        FallbackColor="Gray"
-                        TintColor="Gray"
+                        Windows10version1903:TintLuminosityOpacity="0.8"
+                        FallbackColor="{StaticResource SystemChromeMediumColor}"
+                        TintColor="{StaticResource SystemChromeMediumColor}"
                         TintOpacity="0.1" />
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="#111111" />
