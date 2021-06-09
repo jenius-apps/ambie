@@ -199,7 +199,6 @@
         <ScrollViewer>
             <muxc:ItemsRepeater
                 Margin="{x:Bind InnerMargin, Mode=OneWay}"
-                HorizontalAlignment="Center"
                 ElementClearing="ItemsRepeater_ElementClearing"
                 ElementPrepared="ItemsRepeater_ElementPrepared"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
