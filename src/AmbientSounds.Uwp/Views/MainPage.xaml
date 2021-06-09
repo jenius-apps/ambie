@@ -48,6 +48,7 @@
             Padding="{StaticResource NarrowPageMargin}">
             <Grid HorizontalAlignment="Left">
                 <Border
+                    x:Name="ToggleBackplate"
                     Height="40"
                     HorizontalAlignment="Stretch"
                     Background="{ThemeResource CardBackgroundBrush}"
@@ -172,6 +173,7 @@
                 <VisualState x:Name="ImageBackgroundState">
                     <VisualState.Setters>
                         <Setter Target="HeaderBackplate.Fill" Value="{ThemeResource AcrylicBackplateBrush}" />
+                        <Setter Target="ToggleBackplate.Background" Value="Transparent" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
