@@ -87,16 +87,6 @@
             <x:Double x:Key="ImageCardHeight">208</x:Double>
             <x:Double x:Key="ImageCardWidth">148</x:Double>
             <x:Double x:Key="ImageCardShadowWidth">144</x:Double>
-
-            <muxc:UniformGridLayout
-                x:Name="UniformGridLayout"
-                MinColumnSpacing="8"
-                MinRowSpacing="8" />
-
-            <muxc:StackLayout
-                x:Name="VerticalStackLayout"
-                Orientation="Vertical"
-                Spacing="4" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

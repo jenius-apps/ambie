@@ -15,6 +15,11 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
+        <muxc:UniformGridLayout
+            x:Name="UniformLayout"
+            MinColumnSpacing="8"
+            MinRowSpacing="8" />
+
         <Style
             x:Key="ActionButtonStyle"
             BasedOn="{StaticResource DefaultButtonStyle}"
@@ -202,7 +207,7 @@
                 ElementPrepared="ItemsRepeater_ElementPrepared"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
-                Layout="{StaticResource UniformGridLayout}" />
+                Layout="{StaticResource UniformLayout}" />
         </ScrollViewer>
 
         <muxc:ProgressRing

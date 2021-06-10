@@ -32,6 +32,16 @@
             -->
             <controls:SoundItemControl />
         </DataTemplate>
+
+        <muxc:StackLayout
+            x:Name="VerticalStackLayout"
+            Orientation="Vertical"
+            Spacing="4" />
+
+        <muxc:UniformGridLayout
+            x:Name="UniformLayout"
+            MinColumnSpacing="8"
+            MinRowSpacing="8" />
     </Page.Resources>
 
     <Grid x:Name="RootGrid">
@@ -178,7 +188,7 @@
                         <Setter Target="SoundGallery.(Grid.Column)" Value="1" />
                         <Setter Target="SoundGallery.Margin" Value="12,0,0,0" />
                         <Setter Target="SoundGallery.ItemTemplate" Value="{StaticResource MainPageSoundTemplate}" />
-                        <Setter Target="SoundGallery.Layout" Value="{StaticResource UniformGridLayout}" />
+                        <Setter Target="SoundGallery.Layout" Value="{StaticResource UniformLayout}" />
                         <Setter Target="SideBar.(Grid.Row)" Value="1" />
                         <Setter Target="SideBar.(Grid.Column)" Value="0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
