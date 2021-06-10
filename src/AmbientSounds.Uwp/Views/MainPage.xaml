@@ -92,6 +92,13 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Orientation="Horizontal">
                 <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
+                <Button
+                    Margin="4,0,0,0"
+                    AutomationProperties.Name="{x:Bind strings:Resources.ThemeSettings}"
+                    Click="{x:Bind ViewModel.OpenThemeSettings}"
+                    Style="{StaticResource TransparentRoundButtonStyle}">
+                    <FontIcon FontFamily="fluentui" Glyph="&#xE9C0;" />
+                </Button>
                 <controls:MoreButton Margin="4,0,0,0" />
                 <controls:AccountControl Margin="4,0,0,0" />
 

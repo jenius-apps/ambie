@@ -185,6 +185,9 @@
     <Compile Include="Controls\SoundSuggestionControl.xaml.cs">
       <DependentUpon>SoundSuggestionControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ThemeSettings.xaml.cs">
+      <DependentUpon>ThemeSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ToggleCompactButton.xaml.cs">
       <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
     </Compile>
@@ -416,6 +419,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SoundSuggestionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ThemeSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
