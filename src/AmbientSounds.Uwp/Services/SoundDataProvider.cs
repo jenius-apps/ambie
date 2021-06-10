@@ -158,6 +158,7 @@ namespace AmbientSounds.Services.Uwp
                     cachedSound.Name = updatedSound.Name;
                     cachedSound.ScreensaverImagePaths = updatedSound.ScreensaverImagePaths;
                     cachedSound.Attribution = updatedSound.Attribution;
+                    cachedSound.ColourHex = updatedSound.ColourHex;
                 }
             }
 
