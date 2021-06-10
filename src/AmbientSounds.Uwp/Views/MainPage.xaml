@@ -51,9 +51,7 @@
                     x:Name="ToggleBackplate"
                     Height="40"
                     HorizontalAlignment="Stretch"
-                    Background="{ThemeResource CardBackgroundBrush}"
-                    BorderBrush="{ThemeResource CardStrokeBrush}"
-                    BorderThickness="1"
+                    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                     CornerRadius="20" />
                 <StackPanel Orientation="Horizontal">
                     <Grid
@@ -183,7 +181,6 @@
                 <VisualState x:Name="ImageBackgroundState">
                     <VisualState.Setters>
                         <Setter Target="HeaderBackplate.Fill" Value="{ThemeResource AcrylicBackplateBrush}" />
-                        <Setter Target="ToggleBackplate.Background" Value="Transparent" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
