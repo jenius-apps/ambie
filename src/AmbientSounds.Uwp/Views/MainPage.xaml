@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     PointerEntered="{x:Bind ViewModel.ResetTime}"
@@ -54,17 +55,25 @@
                     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                     CornerRadius="20" />
                 <StackPanel Orientation="Horizontal">
-                    <Grid
-                        x:Name="HomeBackplate"
-                        Height="48"
-                        Padding="20,0"
-                        Background="{ThemeResource FallbackBackgroundOppositeBrush}"
-                        CornerRadius="24">
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            FontWeight="SemiBold"
-                            Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                            Text="{x:Bind strings:Resources.Home}" />
+                    <Grid x:Name="HomeBackplate">
+                        <toolkit:DropShadowPanel CornerRadius="24" Style="{StaticResource SubtleShadow}">
+                            <Rectangle
+                                Width="{Binding ElementName=HomeTextGrid, Path=ActualWidth}"
+                                Height="48"
+                                Fill="{ThemeResource FallbackBackgroundOppositeBrush}"
+                                RadiusX="24"
+                                RadiusY="24" />
+                        </toolkit:DropShadowPanel>
+                        <Grid
+                            x:Name="HomeTextGrid"
+                            Height="48"
+                            Padding="20,0">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontWeight="SemiBold"
+                                Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                Text="{x:Bind strings:Resources.Home}" />
+                        </Grid>
                     </Grid>
                     <Button
                         Height="40"

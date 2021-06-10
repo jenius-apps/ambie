@@ -23,7 +23,7 @@
                         TintColor="#e9e9e9"
                         TintOpacity="0.1" />
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="#e9e9e9" />
-                    <SolidColorBrush x:Key="CardStrokeBrush" Color="LightGray" />
+                    <SolidColorBrush x:Key="CardStrokeBrush" Color="#d1d1d1" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="White" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
