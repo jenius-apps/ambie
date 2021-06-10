@@ -49,14 +49,13 @@
             Padding="{StaticResource NarrowPageMargin}">
             <Grid HorizontalAlignment="Left">
                 <Border
-                    x:Name="ToggleBackplate"
                     Height="40"
                     HorizontalAlignment="Stretch"
                     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                     CornerRadius="20" />
                 <StackPanel Orientation="Horizontal">
                     <Grid x:Name="HomeBackplate">
-                        <toolkit:DropShadowPanel CornerRadius="24" Style="{StaticResource SubtleShadow}">
+                        <toolkit:DropShadowPanel Style="{StaticResource SubtleShadow}">
                             <Rectangle
                                 Width="{Binding ElementName=HomeTextGrid, Path=ActualWidth}"
                                 Height="48"
