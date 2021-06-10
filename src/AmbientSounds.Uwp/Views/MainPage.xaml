@@ -107,7 +107,7 @@
                     AutomationProperties.Name="{x:Bind strings:Resources.ThemeSettings}"
                     Click="{x:Bind ViewModel.OpenThemeSettings}"
                     Style="{StaticResource TransparentRoundButtonStyle}">
-                    <FontIcon FontFamily="fluentui" Glyph="&#xE9C0;" />
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C0;" />
                 </Button>
                 <controls:MoreButton Margin="4,0,0,0" />
                 <controls:AccountControl Margin="4,0,0,0" />
