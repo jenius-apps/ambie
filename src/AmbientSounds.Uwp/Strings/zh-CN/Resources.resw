@@ -464,7 +464,7 @@
     <value>固定到任务栏</value>
   </data>
   <data name="Transparency" xml:space="preserve">
-    <value>透明界面</value>
+    <value>界面透明</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>预览</value>
@@ -477,6 +477,13 @@
   </data>
   <data name="ScreensaverOn" xml:space="preserve">
     <value>1 分钟后自动启用</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>选择至多 3 个音效进行混音</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>从播放列表中移除 {0}</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
   </data>
   <data name="ThemeSettings" xml:space="preserve">
     <value>主题设置</value>
