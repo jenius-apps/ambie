@@ -898,6 +898,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ThemeSettings
+        /// <summary>
+        ///   Looks up a localized string similar to: Theme settings
+        /// </summary>
+        public static string ThemeSettings
+        {
+            get
+            {
+                return _resourceLoader.GetString("ThemeSettings");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -977,6 +990,7 @@ namespace AmbientSounds.Strings{
             Home,
             ScreensaverOn,
             SelectSoundsPlaceholder,
+            ThemeSettings,
         }
 
         private static ResourceLoader _resourceLoader;
