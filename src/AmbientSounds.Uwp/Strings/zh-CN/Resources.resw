@@ -463,10 +463,22 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>固定到任务栏</value>
   </data>
+  <data name="Transparency" xml:space="preserve">
+    <value>透明界面</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>预览</value>
+  </data>
   <data name="Catalogue" xml:space="preserve">
     <value>目录</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>家</value>
+    <value>主页</value>
+  </data>
+  <data name="ScreensaverOn" xml:space="preserve">
+    <value>1 分钟后自动启用</value>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>主题设置</value>
   </data>
 </root>
