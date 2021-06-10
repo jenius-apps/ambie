@@ -69,11 +69,6 @@ namespace AmbientSounds.Constants
         public const string CurrentUserId = "CurrentUserId";
 
         /// <summary>
-        /// Key used to store performance boolean state.
-        /// </summary>
-        public const string Transparency = "Transparency";
-
-        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -83,7 +78,6 @@ namespace AmbientSounds.Constants
             { Notifications, true },
             { EnableScreenSaver, false },
             { DarkScreensasver, false },
-            { Transparency, true },
             { MaxActive, 3 },
             { ActiveTracks, Array.Empty<string>() },
             { ActiveMixId, string.Empty },
