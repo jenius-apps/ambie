@@ -3,9 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:AmbientSounds.Controls"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -15,6 +15,11 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
+        <muxc:UniformGridLayout
+            x:Name="UniformLayout"
+            MinColumnSpacing="8"
+            MinRowSpacing="8" />
+
         <Style
             x:Key="ActionButtonStyle"
             BasedOn="{StaticResource DefaultButtonStyle}"
@@ -38,10 +43,20 @@
                         Duration="0:0:1" />
                 </ani:Implicit.ShowAnimations>
 
+                <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
+                    <Rectangle
+                        Width="{StaticResource ImageCardShadowWidth}"
+                        Height="{StaticResource ImageCardHeight}"
+                        Fill="Black"
+                        RadiusX="8"
+                        RadiusY="8"
+                        Stretch="Fill" />
+                </toolkit:DropShadowPanel>
+
                 <Grid
                     x:Name="ImageGrid"
-                    Width="171"
-                    Height="240"
+                    Width="{StaticResource ImageCardWidth}"
+                    Height="{StaticResource ImageCardHeight}"
                     CornerRadius="8">
                     <Grid.Background>
                         <ImageBrush Stretch="UniformToFill" />
@@ -55,14 +70,13 @@
                         <Rectangle.Fill>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Offset="0" Color="#00000000" />
-                                <GradientStop Offset="1" Color="#e0000000" />
+                                <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
                             </LinearGradientBrush>
                         </Rectangle.Fill>
                     </Rectangle>
 
                     <Grid Grid.Row="1" Margin="12,0">
                         <TextBlock
-                            FontWeight="SemiBold"
                             Foreground="White"
                             MaxLines="2"
                             Text="{x:Bind Name, Mode=OneWay}"
@@ -70,7 +84,7 @@
                             TextWrapping="Wrap">
                             <ToolTipService.ToolTip>
                                 <Grid MaxWidth="300">
-                                    <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
+                                    <TextBlock Text="{x:Bind Attribution, Mode=OneWay}" TextWrapping="Wrap" />
                                 </Grid>
                             </ToolTipService.ToolTip>
                         </TextBlock>
@@ -79,7 +93,7 @@
                     <Grid
                         Grid.Row="2"
                         Height="36"
-                        Margin="12,4,12,12"
+                        Margin="8,4"
                         VerticalAlignment="Bottom">
                         <StackPanel
                             x:Name="DownloadPanel"
@@ -96,7 +110,7 @@
                                     x:Uid="BuyButton"
                                     VerticalAlignment="Stretch"
                                     x:Load="{x:Bind CanBuy, Mode=OneWay}"
-                                    Command="{x:Bind BuyCommand}"
+                                    Command="{x:Bind BuyCommand, Mode=OneWay}"
                                     Style="{StaticResource ActionButtonStyle}">
                                     <TextBlock Text="{x:Bind Price, Mode=OneWay}" />
                                 </Button>
@@ -104,8 +118,8 @@
                                     x:Name="PreviewButton"
                                     x:Uid="PreviewButton"
                                     Margin="8,0,0,0"
-                                    x:Load="{x:Bind CanPreview}"
-                                    Command="{x:Bind PreviewCommand}"
+                                    x:Load="{x:Bind CanPreview, Mode=OneWay}"
+                                    Command="{x:Bind PreviewCommand, Mode=OneWay}"
                                     Style="{StaticResource ActionButtonStyle}">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
                                 </Button>
@@ -115,7 +129,7 @@
                             <!--  download button  -->
                             <Button
                                 x:Uid="DownloadSoundButton"
-                                Command="{x:Bind DownloadCommand}"
+                                Command="{x:Bind DownloadCommand, Mode=OneWay}"
                                 Style="{StaticResource ActionButtonStyle}"
                                 Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                 <StackPanel Orientation="Horizontal">
@@ -143,7 +157,7 @@
                             Orientation="Horizontal">
                             <Button
                                 x:Uid="DeleteButton"
-                                Command="{x:Bind DeleteCommand}"
+                                Command="{x:Bind DeleteCommand, Mode=OneWay}"
                                 Style="{StaticResource ActionButtonStyle}">
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
                             </Button>
@@ -183,22 +197,17 @@
                 </Grid>
             </Grid>
         </DataTemplate>
-
-        <muxc:UniformGridLayout
-            x:Name="UniformGridLayout"
-            MinColumnSpacing="12"
-            MinRowSpacing="12" />
     </UserControl.Resources>
 
     <Grid>
-        <ScrollViewer Padding="44,0,44,0">
+        <ScrollViewer>
             <muxc:ItemsRepeater
-                Margin="0,0,0,20"
+                Margin="{x:Bind InnerMargin, Mode=OneWay}"
                 ElementClearing="ItemsRepeater_ElementClearing"
                 ElementPrepared="ItemsRepeater_ElementPrepared"
                 ItemTemplate="{StaticResource OnlineSoundTemplate}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
-                Layout="{StaticResource UniformGridLayout}" />
+                Layout="{StaticResource UniformLayout}" />
         </ScrollViewer>
 
         <muxc:ProgressRing

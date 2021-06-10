@@ -1,13 +1,10 @@
-﻿using AmbientSounds.Animations;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Specialized;
-using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Animation;
 
 #nullable enable
 
@@ -15,63 +12,61 @@ namespace AmbientSounds.Controls
 {
     public sealed partial class ActiveTrackList : UserControl
     {
+        private readonly IUserSettings _userSettings;
+
+        public static readonly DependencyProperty ShowListProperty = DependencyProperty.Register(
+            nameof(ShowList),
+            typeof(bool),
+            typeof(ActiveTrackList),
+            new PropertyMetadata(true, OnShowListChanged));
+
         public ActiveTrackList()
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ActiveTrackListViewModel>();
+            _userSettings = App.Services.GetRequiredService<IUserSettings>();
+            this.Loaded += OnLoaded;
             this.Unloaded += OnUnloaded;
-            this.Loaded += UserControl_Loaded;
+        }
+
+        public bool ShowList
+        {
+            get => (bool)GetValue(ShowListProperty);
+            set => SetValue(ShowListProperty, value);
         }
 
         public ActiveTrackListViewModel ViewModel => (ActiveTrackListViewModel)this.DataContext;
 
-        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private static void OnShowListChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            await ViewModel.LoadPreviousStateAsync();
-            ViewModel.ActiveTracks.CollectionChanged += OnCollectedChanged;
+            if (d is ActiveTrackList atl)
+            {
+                atl.UpdateStates();
+            }
+        }
+
+        private void UpdateStates()
+        {
+            if (ShowList)
+            {
+                VisualStateManager.GoToState(this, nameof(ShowListState), false);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, nameof(HideListState), false);
+            }
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _userSettings.SettingSet += OnSettingSet;
+            UpdateBackgroundState();
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
-            ViewModel.ActiveTracks.CollectionChanged -= OnCollectedChanged;
+            _userSettings.SettingSet -= OnSettingSet;
             ViewModel.Dispose();
-        }
-
-        private async void OnCollectedChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add && !ViewModel.IsMix)
-            {
-                var item = e.NewItems[0];
-                TrackList.ScrollIntoView(item);
-                var animation = ConnectedAnimationService
-                    .GetForCurrentView()
-                    .GetAnimation(AnimationConstants.TrackListItemLoad);
-
-                if (animation is not null)
-                {
-                    await TrackList.TryStartConnectedAnimationAsync(
-                        animation, item, "ImagePanel");
-                }
-            }
-            else if (e.Action == NotifyCollectionChangedAction.Add && ViewModel.IsMix)
-            {
-                var item = e.NewItems[0];
-                string animationString;
-
-                if (e.NewStartingIndex == 0) animationString = AnimationConstants.TrackListItemLoad;
-                else if (e.NewStartingIndex == 1) animationString = AnimationConstants.TrackListItem2Load;
-                else animationString = AnimationConstants.TrackListItem3Load;
-
-                var animation = ConnectedAnimationService
-                    .GetForCurrentView()
-                    .GetAnimation(animationString);
-
-                if (animation is not null)
-                {
-                    await TrackList.TryStartConnectedAnimationAsync(
-                        animation, item, "ImagePanel");
-                }
-            }
         }
 
         private void NameInput_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -92,6 +87,33 @@ namespace AmbientSounds.Controls
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SaveFlyout.Hide();
+        }
+
+        private async void OnListLoaded(object sender, RoutedEventArgs e)
+        {
+            await ViewModel.LoadPreviousStateAsync();
+        }
+
+        private void OnSettingSet(object sender, string settingKey)
+        {
+            if (settingKey == UserSettingsConstants.BackgroundImage)
+            {
+                UpdateBackgroundState();
+            }
+        }
+
+        private void UpdateBackgroundState()
+        {
+            bool backgroundImageActive = !string.IsNullOrEmpty(_userSettings.Get<string>(UserSettingsConstants.BackgroundImage));
+            VisualStateManager.GoToState(
+                this,
+                backgroundImageActive ? nameof(ImageBackgroundState) : nameof(RegularBackgroundState),
+                false);
+        }
+
+        public static string FormatDeleteMessage(string soundName)
+        {
+            return string.Format(Strings.Resources.RemoveActiveButton, soundName);
         }
     }
 }

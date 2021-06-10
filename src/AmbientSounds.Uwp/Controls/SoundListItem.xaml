@@ -1,0 +1,48 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.SoundListItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="8" CornerRadius="4">
+        <Grid.Background>
+            <SolidColorBrush Color="{x:Bind local:UIHelper.ToColour(ViewModel.ColourHex), Mode=OneWay}" />
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Button Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}" Style="{StaticResource TransparentRoundButtonStyle}">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                Foreground="White"
+                Glyph="&#xEB21;" />
+        </Button>
+
+        <TextBlock
+            Grid.Column="1"
+            Margin="12,0,12,0"
+            VerticalAlignment="Center"
+            Foreground="White"
+            Text="{x:Bind ViewModel.Name, Mode=OneWay}"
+            TextTrimming="CharacterEllipsis" />
+
+        <Grid
+            Grid.Column="2"
+            Margin="0,0,8,0"
+            Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
+            <FontIcon
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                Foreground="White"
+                Glyph="&#xEB7D;" />
+        </Grid>
+    </Grid>
+</UserControl>

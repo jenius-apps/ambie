@@ -70,14 +70,14 @@
             <Button.Flyout>
                 <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
                     <winui:CommandBarFlyout.SecondaryCommands>
-                        <AppBarButton
+                        <!--<AppBarButton
                             x:Uid="MoreButtonUpload"
                             Command="{x:Bind ViewModel.OpenUploadPageCommand}"
                             Visibility="{x:Bind ViewModel.IsNotTenFoot}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B8;" />
                             </AppBarButton.Icon>
-                        </AppBarButton>
+                        </AppBarButton>-->
                         <AppBarButton x:Uid="SyncAppBarButton" Command="{x:Bind ViewModel.SyncCommand}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE932;" />

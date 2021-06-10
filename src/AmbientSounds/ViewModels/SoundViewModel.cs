@@ -23,6 +23,8 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
         private readonly IRenamer _renamer;
+        private int _position;
+        private int _setSize;
 
         public SoundViewModel(
             Sound s,
@@ -46,12 +48,21 @@ namespace AmbientSounds.ViewModels
             _telemetry = telemetry;
             _renamer = renamer;
 
-            _playerService.SoundRemoved += OnSoundPaused;
-            _playerService.SoundAdded += OnSoundPlayed;
-            _playerService.MixPlayed += OnMixPlayed;
-
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
+            PlayCommand = new AsyncRelayCommand(PlayAsync);
+        }
+
+        public int Position
+        {
+            get => _position;
+            set => SetProperty(ref _position, value);
+        }
+
+        public int SetSize
+        {
+            get => _setSize;
+            set => SetProperty(ref _setSize, value);
         }
 
         /// <summary>
@@ -75,6 +86,8 @@ namespace AmbientSounds.ViewModels
         public bool IsMix => _sound.IsMix;
 
         public bool IsNotMix => !IsMix;
+
+        public string ColourHex => _sound.ColourHex;
 
         public bool HasSecondImage => IsMix && _sound.ImagePaths.Length == 2;
 
@@ -101,6 +114,8 @@ namespace AmbientSounds.ViewModels
 
         public IAsyncRelayCommand RenameCommand { get; }
 
+        public IAsyncRelayCommand PlayCommand { get; }
+
         /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
@@ -108,15 +123,22 @@ namespace AmbientSounds.ViewModels
             ? _playerService.IsSoundPlaying(_sound.Id)
             : _soundMixService.IsMixPlaying(_sound.Id);
 
+        public void Initialize()
+        {
+            _playerService.SoundRemoved += OnSoundPaused;
+            _playerService.SoundAdded += OnSoundPlayed;
+            _playerService.MixPlayed += OnMixPlayed;
+        }
+
         /// <summary>
         /// Loads this sound into the player and plays it.
         /// </summary>
-        public async void Play()
+        private async Task PlayAsync()
         {
             if (IsCurrentlyPlaying)
                 return;
 
-            if (!_sound.IsMix)
+            if (!IsMix)
             {
                 await _playerService.ToggleSoundAsync(_sound);
             }
@@ -124,6 +146,12 @@ namespace AmbientSounds.ViewModels
             {
                 await _soundMixService.LoadMixAsync(_sound);
             }
+
+            _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
+            {
+                { "id", Name ?? "" },
+                { "mix", IsMix.ToString() }
+            });
         }
 
         private async Task RenameAsync()

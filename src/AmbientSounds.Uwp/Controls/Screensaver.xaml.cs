@@ -20,7 +20,9 @@ namespace AmbientSounds.Controls
                 ViewModel.PropertyChanging += PropertyChanging; 
             };
             this.Unloaded += (_, _) => 
-            { 
+            {
+                ImageSb1.Stop();
+                ImageSb2.Stop();
                 ViewModel.Dispose();
                 ViewModel.PropertyChanging -= PropertyChanging; 
             };

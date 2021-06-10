@@ -97,6 +97,12 @@ namespace AmbientSounds.Models
         /// This is the string version of PublishState enum.
         /// </summary>
         public string PublishState { get; set; } = "";
+
+        /// <summary>
+        /// Colour to use to decorate the sound images.
+        /// Supports RGB and ARGB.
+        /// </summary>
+        public string ColourHex { get; set; } = string.Empty;
     }
 
     public enum PublishState

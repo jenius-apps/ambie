@@ -119,7 +119,7 @@ namespace AmbientSounds.ViewModels
                 {
                     foreach (var s in sounds)
                     {
-                        await AddSoundTrackAsync(s);
+                        AddSoundTrack(s);
                     }
                 }
             }
@@ -204,30 +204,22 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        private async void OnSoundAdded(object sender, SoundPlayedArgs args)
+        private void OnSoundAdded(object sender, SoundPlayedArgs args)
         {
             if (args?.Sound is not null)
             {
-                await AddSoundTrackAsync(args.Sound);
+                AddSoundTrack(args.Sound);
             }
         }
 
-        private Task AddSoundTrackAsync(Sound sound)
+        private void AddSoundTrack(Sound sound)
         {
             if (!ActiveTracks.Any(x => x.Sound?.Id == sound.Id))
             {
                 ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(sound, RemoveCommand));
                 UpdateStoredState();
                 UpdateCanSave();
-
-                // Required to fix animation issue.
-                // It seems this allows the UI to update sooner
-                // so that if a Mix is being loaded, all sounds
-                // are animated asynchronously.
-                return Task.Delay(1);
             }
-
-            return Task.CompletedTask;
         }
 
         private void UpdateCanSave() => OnPropertyChanged(nameof(CanSave));
@@ -246,7 +238,6 @@ namespace AmbientSounds.ViewModels
             ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
             _player.SoundAdded -= OnSoundAdded;
             _player.SoundRemoved -= OnSoundRemoved;
-            ActiveTracks.Clear();
         }
     }
 }

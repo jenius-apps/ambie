@@ -312,9 +312,6 @@
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>Opcional</value>
   </data>
-  <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Quitar de la lista de activos</value>
-  </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
     <value>Guardar mezcla personalizada de sonidos</value>
   </data>

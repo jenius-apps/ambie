@@ -1,9 +1,8 @@
-﻿using AmbientSounds.Animations;
-using AmbientSounds.Services;
-using AmbientSounds.ViewModels;
+﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using MUXC = Microsoft.UI.Xaml.Controls;
 
 #nullable enable
 
@@ -11,6 +10,24 @@ namespace AmbientSounds.Controls
 {
     public sealed partial class SoundGridControl : UserControl
     {
+        public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(
+            nameof(ItemTemplate),
+            typeof(DataTemplate),
+            typeof(SoundGridControl),
+            null);
+
+        public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
+            nameof(Layout),
+            typeof(MUXC.Layout),
+            typeof(SoundGridControl),
+            null);
+
+        public static readonly DependencyProperty InnerMarginProperty = DependencyProperty.Register(
+            nameof(InnerMargin),
+            typeof(Thickness),
+            typeof(SoundGridControl),
+            new PropertyMetadata(new Thickness(0, 0, 0, 0)));
+
         public SoundGridControl()
         {
             this.InitializeComponent();
@@ -20,6 +37,12 @@ namespace AmbientSounds.Controls
         }
 
         public SoundListViewModel ViewModel => (SoundListViewModel)this.DataContext;
+
+        public MUXC.Layout? Layout
+        {
+            get => (MUXC.Layout?)GetValue(LayoutProperty);
+            set => SetValue(LayoutProperty, value);
+        }
 
         /// <summary>
         /// If true, the compact mode button is visible.
@@ -31,99 +54,25 @@ namespace AmbientSounds.Controls
             set => SetValue(ItemTemplateProperty, value);
         }
 
-        /// <summary>
-        /// Dependency property for <see cref="ItemTemplate"/>.
-        /// Default is true.
-        /// </summary>
-        public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(
-            nameof(ItemTemplate),
-            typeof(bool),
-            typeof(SoundGridControl),
-            null);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public double ItemGridMaxWidth
+        public Thickness InnerMargin
         {
-            get => (double)GetValue(ItemGridMaxWidthProperty);
-            set => SetValue(ItemGridMaxWidthProperty, value);
+            get => (Thickness)GetValue(InnerMarginProperty);
+            set => SetValue(InnerMarginProperty, value);
         }
 
-        /// <summary>
-        /// Dependency property for <see cref="ItemGridMaxWidth"/>.
-        /// Default is true.
-        /// </summary>
-        public static readonly DependencyProperty ItemGridMaxWidthProperty = DependencyProperty.Register(
-            nameof(ItemGridMaxWidth),
-            typeof(double),
-            typeof(SoundGridControl),
-            new PropertyMetadata(double.MaxValue));
-
-        /// <summary>
-        /// If true, the catalogue button will be shown.
-        /// </summary>
-        public bool ShowCatalogueButton
+        private void OnElementPrepared(
+            MUXC.ItemsRepeater sender,
+            MUXC.ItemsRepeaterElementPreparedEventArgs args)
         {
-            get => (bool)GetValue(ShowCatalogueButtonProperty);
-            set => SetValue(ShowCatalogueButtonProperty, value);
-        }
-
-        /// <summary>
-        /// Dependency property for showing the catalogue button. Default false.
-        /// </summary>
-        public static readonly DependencyProperty ShowCatalogueButtonProperty = DependencyProperty.Register(
-            nameof(ShowCatalogueButton),
-            typeof(bool),
-            typeof(SoundGridControl),
-            new PropertyMetadata(false));
-
-        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            var navigator = App.Services.GetRequiredService<INavigator>();
-
-            // The frame check in the if statement
-            // below is to prevent a crash in Compact
-            // mode when the user clicks a sound.
-
-            if (sender is ListViewBase l &&
-                e.ClickedItem is SoundViewModel vm &&
-                !vm.IsCurrentlyPlaying &&
-                navigator.Frame is Frame f &&
-                f.CurrentSourcePageType == typeof(Views.MainPage))
+            if (sender.DataContext is SoundListViewModel listVm)
             {
-                if (!vm.IsMix)
+                if (args.Element is SoundItemControl c)
                 {
-                    l.PrepareConnectedAnimation(
-                        AnimationConstants.TrackListItemLoad,
-                        e.ClickedItem,
-                        "RootGrid");
+                    c.ViewModel = listVm.Sounds[args.Index];
                 }
-                else
+                else if (args.Element is SoundListItem l)
                 {
-                    l.PrepareConnectedAnimation(
-                        AnimationConstants.TrackListItemLoad,
-                        e.ClickedItem,
-                        "RootGrid");
-
-                    if (vm.HasSecondImage)
-                    {
-                        l.PrepareConnectedAnimation(
-                        AnimationConstants.TrackListItem2Load,
-                        e.ClickedItem,
-                        "Image2");
-                    }
-                    else if (vm.HasThirdImage)
-                    {
-                        l.PrepareConnectedAnimation(
-                            AnimationConstants.TrackListItem2Load,
-                            e.ClickedItem,
-                            "SecondImage");
-                        l.PrepareConnectedAnimation(
-                            AnimationConstants.TrackListItem3Load,
-                            e.ClickedItem,
-                            "ThirdImage");
-                    }
+                    l.ViewModel = listVm.Sounds[args.Index];
                 }
             }
         }

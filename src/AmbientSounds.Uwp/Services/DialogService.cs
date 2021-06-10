@@ -67,6 +67,36 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public async Task OpenThemeSettingsAsync()
+        {
+            if (IsDialogOpen)
+                return;
+
+            IsDialogOpen = true;
+            var resources = ResourceLoader.GetForCurrentView();
+            var dialog = new ContentDialog()
+            {
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+                Title = resources.GetString("SettingsText"),
+                CloseButtonText = resources.GetString("CloseText"),
+                Content = new ThemeSettings()
+            };
+
+            void OnSettingsSet(object sender, string key)
+            {
+                if (key == UserSettingsConstants.Theme)
+                {
+                    dialog.RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme();
+                }
+            }
+
+            _userSettings.SettingSet += OnSettingsSet;
+            await dialog.ShowAsync();
+            _userSettings.SettingSet -= OnSettingsSet;
+            IsDialogOpen = false;
+        }
+
+        /// <inheritdoc/>
         public async Task<string> RenameAsync(string currentName)
         {
             if (IsDialogOpen)

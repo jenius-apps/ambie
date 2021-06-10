@@ -10,19 +10,23 @@ namespace AmbientSounds.ViewModels
         private readonly IScreensaverService _screensaverService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
         private readonly INavigator _navigator;
+        private readonly IDialogService _dialogService;
 
         public MainPageViewModel(
             IScreensaverService screensaverService,
             IMixMediaPlayerService mediaPlayerService,
-            INavigator navigator)
+            INavigator navigator,
+            IDialogService dialogService)
         {
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
             Guard.IsNotNull(navigator, nameof(navigator));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
 
             _screensaverService = screensaverService;
             _mediaPlayerService = mediaPlayerService;
             _navigator = navigator;
+            _dialogService = dialogService;
         }
 
         /// <summary>
@@ -67,5 +71,7 @@ namespace AmbientSounds.ViewModels
         {
             _mediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
         }
+
+        public async void OpenThemeSettings() => await _dialogService.OpenThemeSettingsAsync();
     }
 }

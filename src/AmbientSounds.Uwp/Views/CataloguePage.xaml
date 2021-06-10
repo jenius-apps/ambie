@@ -13,22 +13,26 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="92" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <Rectangle
+            x:Name="HeaderBackplate"
+            Fill="{ThemeResource SystemControlAcrylicWindowBrush}"
+            Stretch="Fill" />
+
         <Grid
             x:Name="HeaderGrid"
-            Margin="40,32,40,0"
-            Canvas.ZIndex="1">
+            Margin="0,32,0,12"
+            Padding="{StaticResource NarrowPageMargin}">
 
             <Grid HorizontalAlignment="Left">
-                <Rectangle
+                <Border
                     Height="40"
                     HorizontalAlignment="Stretch"
-                    Fill="{ThemeResource AcrylicBackplateBrush}"
-                    RadiusX="20"
-                    RadiusY="20" />
+                    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                    CornerRadius="20" />
                 <StackPanel Orientation="Horizontal">
                     <Button
                         Height="40"
@@ -38,23 +42,57 @@
                         Click="{x:Bind ViewModel.GoBack}"
                         Content="{x:Bind strings:Resources.Home}"
                         CornerRadius="20" />
-                    <Grid
-                        x:Name="CatalogueBackplate"
-                        Height="48"
-                        Margin="4,0,0,0"
-                        Padding="20,0"
-                        Background="{ThemeResource FallbackBackgroundOppositeBrush}"
-                        CornerRadius="24">
-                        <TextBlock
-                            VerticalAlignment="Center"
-                            FontWeight="SemiBold"
-                            Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                            Text="{x:Bind strings:Resources.Catalogue}" />
+                    <Grid x:Name="CatalogueBackplate" Margin="4,0,0,0">
+                        <toolkit:DropShadowPanel Style="{StaticResource SubtleShadow}">
+                            <Rectangle
+                                Width="{Binding ElementName=CatalogueTextGrid, Path=ActualWidth}"
+                                Height="48"
+                                Fill="{ThemeResource FallbackBackgroundOppositeBrush}"
+                                RadiusX="24"
+                                RadiusY="24" />
+                        </toolkit:DropShadowPanel>
+                        <Grid
+                            x:Name="CatalogueTextGrid"
+                            Height="48"
+                            Padding="20,0">
+                            <TextBlock
+                                VerticalAlignment="Center"
+                                FontWeight="SemiBold"
+                                Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                                Text="{x:Bind strings:Resources.Catalogue}" />
+                        </Grid>
                     </Grid>
                 </StackPanel>
             </Grid>
 
         </Grid>
-        <controls:CatalogueListControl Grid.Row="1" Margin="0,12,0,0" />
+
+        <controls:CatalogueListControl
+            x:Name="CatalogueList"
+            Grid.Row="1"
+            InnerMargin="16,24,16,16" />
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowLayout" />
+                <VisualState x:Name="WideLayout">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideWindowBreakpoint}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HeaderGrid.Padding" Value="{StaticResource WidePageMargin}" />
+                        <Setter Target="CatalogueList.InnerMargin" Value="40,24,40,32" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState x:Name="RegularBackgroundState" />
+                <VisualState x:Name="ImageBackgroundState">
+                    <VisualState.Setters>
+                        <Setter Target="HeaderBackplate.Fill" Value="{ThemeResource AcrylicBackplateBrush}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

@@ -1,5 +1,7 @@
 ﻿using AmbientSounds.Animations;
 using AmbientSounds.ViewModels;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Windows.UI;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -23,11 +25,39 @@ namespace AmbientSounds.Controls
             }
         }
 
+        public static Color ToColour(string colourHex)
+        {
+            if (string.IsNullOrEmpty(colourHex))
+            {
+                colourHex = "#e0000000";
+            }
+
+            return colourHex.ToColor();
+        }
+
         public static void GridScaleUp(object sender, PointerRoutedEventArgs e)
             => SoundItemAnimations.ItemScaleUp((UIElement)sender, 1.1f, e.Pointer);
 
         public static void GridScaleNormal(object sender, PointerRoutedEventArgs e)
             => SoundItemAnimations.ItemScaleNormal((UIElement)sender);
+
+        public static void ScaleUpChildImage(object sender, PointerRoutedEventArgs e)
+        {
+            if (sender is UIElement parent)
+            {
+                Grid element = parent.FindControl<Grid>("ImageGrid");
+                GridScaleUp(element, e);
+            }
+        }
+
+        public static void ScaleNormalChildImage(object sender, PointerRoutedEventArgs e)
+        {
+            if (sender is UIElement parent)
+            {
+                Grid element = parent.FindControl<Grid>("ImageGrid");
+                GridScaleNormal(element, e);
+            }
+        }
 
         public static T FindControl<T>(this UIElement parent, string ControlName) where T : FrameworkElement
         {

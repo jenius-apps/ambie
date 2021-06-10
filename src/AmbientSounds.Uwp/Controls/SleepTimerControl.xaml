@@ -6,8 +6,6 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -17,28 +15,22 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel Orientation="Horizontal">
+    <Grid
+        x:Name="RootGrid"
+        Padding="4"
+        Background="{ThemeResource CardBackgroundBrush}"
+        BorderBrush="{ThemeResource CardStrokeBrush}"
+        BorderThickness="1"
+        CornerRadius="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
         <Button x:Uid="SleepTimerButton" Style="{StaticResource TransparentRoundButtonStyle}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEBFE;" />
             <Button.Flyout>
                 <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
-                    <muxc:CommandBarFlyout.PrimaryCommands>
-                        <AppBarButton x:Uid="PlayTimerButton" Command="{x:Bind ViewModel.TimerPlayCommand}">
-                            <AppBarButton.Icon>
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB21;" />
-                            </AppBarButton.Icon>
-                        </AppBarButton>
-                        <AppBarButton x:Uid="PauseTimerButton" Command="{x:Bind ViewModel.TimerPauseCommand}">
-                            <AppBarButton.Icon>
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAF4;" />
-                            </AppBarButton.Icon>
-                        </AppBarButton>
-                        <AppBarButton x:Uid="StopTimerButton" Command="{x:Bind ViewModel.TimerStopCommand}">
-                            <AppBarButton.Icon>
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB8A;" />
-                            </AppBarButton.Icon>
-                        </AppBarButton>
-                    </muxc:CommandBarFlyout.PrimaryCommands>
                     <muxc:CommandBarFlyout.SecondaryCommands>
                         <AppBarButton x:Uid="Minutes30Button" Command="{x:Bind ViewModel.TimerStartCommand}">
                             <AppBarButton.Icon>
@@ -85,9 +77,40 @@
             </Button.Flyout>
         </Button>
         <TextBlock
-            Margin="12,0"
+            Grid.Column="1"
+            Margin="8,0"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Text="{x:Bind ViewModel.TimeLeft, Mode=OneWay}"
-            Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}" />
-    </StackPanel>
+            Text="{x:Bind ViewModel.TimeLeft, Mode=OneWay}" />
+
+        <Grid Grid.Column="2" MinWidth="40">
+            <Button
+                AutomationProperties.Name="{x:Bind PlayTimerAutomationName}"
+                Command="{x:Bind ViewModel.TimerPlayCommand}"
+                Style="{StaticResource TransparentRoundButtonStyle}"
+                Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB21;" />
+            </Button>
+            <Button
+                AutomationProperties.Name="{x:Bind StopTimerAutomationName}"
+                Command="{x:Bind ViewModel.TimerStopCommand}"
+                Style="{StaticResource TransparentRoundButtonStyle}"
+                Visibility="{x:Bind ViewModel.StopVisible, Mode=OneWay}">
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB8A;" />
+            </Button>
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="RegularBackgroundState" />
+                <VisualState x:Name="ImageBackgroundState">
+                    <VisualState.Setters>
+                        <Setter Target="RootGrid.BorderThickness" Value="0" />
+                        <Setter Target="RootGrid.BorderBrush" Value="Transparent" />
+                        <Setter Target="RootGrid.Background" Value="{ThemeResource AcrylicBackplateBrush}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
 </UserControl>

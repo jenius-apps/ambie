@@ -10,10 +10,12 @@ namespace AmbientSounds.ViewModels
 {
     public class SleepTimerViewModel : ObservableObject
     {
-        private const int DefaultTimerInterval = 1000;
+        private const int DefaultTimerInterval = 1000; // ms
         private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly ITimerService _timer;
+        private bool _canPlay;
+        private bool _canStop;
 
         public SleepTimerViewModel(
             IMixMediaPlayerService player,
@@ -63,6 +65,18 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public IRelayCommand TimerStopCommand { get; }
 
+        public bool StopVisible
+        {
+            get => _canStop;
+            set => SetProperty(ref _canStop, value);
+        }
+
+        public bool PlayVisible
+        {
+            get => _canPlay;
+            set => SetProperty(ref _canPlay, value);
+        }
+
         /// <summary>
         /// Determines if the sleep timer's countdown
         /// is visible.
@@ -91,6 +105,8 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(TimeLeft));
             CountdownVisible = true;
             _timer.Start();
+            StopVisible = true;
+            PlayVisible = false;
         }
 
         private void PlayTimer()
@@ -98,19 +114,30 @@ namespace AmbientSounds.ViewModels
             if (_timer.Remaining > TimeSpan.Zero)
             {
                 _timer.Start();
+                StopVisible = true;
+                PlayVisible = false;
             }
         }
 
         private void PauseTimer()
         {
             _timer.Stop();
+            StopVisible = false;
+
+            if (_timer.Remaining > TimeSpan.Zero)
+            {
+                PlayVisible = true;
+            }
         }
 
         private void StopTimer()
         {
             _timer.Stop();
             _timer.Remaining = TimeSpan.Zero;
+            OnPropertyChanged(nameof(TimeLeft));
             CountdownVisible = false;
+            StopVisible = false;
+            PlayVisible = false;
         }
 
         private void TimerElapsed(object sender, int intervalInMs)

@@ -58,6 +58,7 @@ namespace AmbientSounds.ViewModels
             {
                 _player.GlobalVolume = value / 100d;
                 _userSettings.Set(UserSettingsConstants.Volume, value);
+                OnPropertyChanged();
             }
         }
 

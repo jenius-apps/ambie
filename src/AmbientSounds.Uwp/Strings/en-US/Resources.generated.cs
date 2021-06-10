@@ -353,6 +353,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region RemoveActiveButton
+        /// <summary>
+        ///   Looks up a localized string similar to: Remove {0} from active list
+        /// </summary>
+        public static string RemoveActiveButton
+        {
+            get
+            {
+                return _resourceLoader.GetString("RemoveActiveButton");
+            }
+        }
+        #endregion
+
         #region CancelText
         /// <summary>
         ///   Looks up a localized string similar to: Cancel
@@ -872,6 +885,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SelectSoundsPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Mix and match up to 3 sounds
+        /// </summary>
+        public static string SelectSoundsPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("SelectSoundsPlaceholder");
+            }
+        }
+        #endregion
+
+        #region ThemeSettings
+        /// <summary>
+        ///   Looks up a localized string similar to: Theme settings
+        /// </summary>
+        public static string ThemeSettings
+        {
+            get
+            {
+                return _resourceLoader.GetString("ThemeSettings");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -909,6 +948,7 @@ namespace AmbientSounds.Strings{
             Paused,
             Playing,
             GlobalVolume,
+            RemoveActiveButton,
             CancelText,
             RenameText,
             MissingSoundsTitle,
@@ -949,6 +989,8 @@ namespace AmbientSounds.Strings{
             Catalogue,
             Home,
             ScreensaverOn,
+            SelectSoundsPlaceholder,
+            ThemeSettings,
         }
 
         private static ResourceLoader _resourceLoader;

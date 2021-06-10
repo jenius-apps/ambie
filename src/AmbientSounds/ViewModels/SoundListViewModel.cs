@@ -1,9 +1,8 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Factories;
+﻿using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SoundListViewModel
+    public class SoundListViewModel : ObservableObject
     {
         private readonly ISoundDataProvider _provider;
         private readonly ITelemetry _telemetry;
@@ -35,7 +34,6 @@ namespace AmbientSounds.ViewModels
             _factory = soundVmFactory;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
-            PlaySoundCommand = new RelayCommand<SoundViewModel>(PlaySound);
         }
 
         private void OnLocalSoundDeleted(object sender, string id)
@@ -43,23 +41,20 @@ namespace AmbientSounds.ViewModels
             var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
             if (forDeletion is null) return;
             Sounds.Remove(forDeletion);
+            UpdateItemPositions();
         }
 
         private void OnLocalSoundAdded(object sender, Models.Sound e)
         {
             var s = _factory.GetSoundVm(e);
             Sounds.Add(s);
+            UpdateItemPositions();
         }
 
         /// <summary>
         /// The <see cref="IAsyncRelayCommand"/> responsible for loading the viewmodel data.
         /// </summary>
         public IAsyncRelayCommand LoadCommand { get; }
-
-        /// <summary>
-        /// The <see cref="IRelayCommand{T}"/> responsible for playing a selected sound.
-        /// </summary>
-        public IRelayCommand<SoundViewModel> PlaySoundCommand { get; }
 
         /// <summary>
         /// The list of sounds for this page.
@@ -74,33 +69,45 @@ namespace AmbientSounds.ViewModels
             _provider.LocalSoundAdded += OnLocalSoundAdded;
             _provider.LocalSoundDeleted += OnLocalSoundDeleted;
 
-            if (Sounds.Count > 0) return; // already initialized
-
             var soundList = await _provider.GetSoundsAsync();
+            if (soundList is null || soundList.Count == 0)
+            {
+                Sounds.Clear();
+                return;
+            }
 
-            foreach (var sound in soundList)
+            var localIds = soundList.Select(s => s.Id);
+            var forDeletion = new List<SoundViewModel>();
+
+            if (Sounds.Count > 0)
+            {
+                foreach (var soundVm in Sounds)
+                {
+                    if (!localIds.Contains(soundVm.Id))
+                    {
+                        forDeletion.Add(soundVm);
+                    }
+                    else
+                    {
+                        // Ensure viewmodels are initialized.
+                        soundVm.Initialize();
+                    }
+                }
+            }
+
+            foreach (var soundVm in forDeletion)
+            {
+                Sounds.Remove(soundVm);
+            }
+
+            var existingIds = Sounds.Select(s => s.Id);
+            foreach (var sound in soundList.Where(x => !existingIds.Contains(x.Id)))
             {
                 var s = _factory.GetSoundVm(sound);
                 Sounds.Add(s);
             }
-        }
 
-        /// <summary>
-        /// Loads the clicked sound into the player and plays it.
-        /// </summary>
-        private void PlaySound(SoundViewModel? sound)
-        {
-            if (sound is null)
-            {
-                return;
-            }
-
-            sound.Play();
-            _telemetry.TrackEvent(TelemetryConstants.SoundClicked, new Dictionary<string, string>
-            {
-                { "id", sound.Name ?? "" },
-                { "mix", sound.IsMix.ToString() }
-            });
+            UpdateItemPositions();
         }
 
         public void Dispose()
@@ -112,8 +119,19 @@ namespace AmbientSounds.ViewModels
             {
                 s.Dispose();
             }
+        }
 
-            Sounds.Clear();
+        private void UpdateItemPositions()
+        {
+            // required for a11y purposes.
+            int index = 1;
+            var size = Sounds.Count;
+            foreach (var soundVm in Sounds)
+            {
+                soundVm.Position = index;
+                soundVm.SetSize = size;
+                index++;
+            }
         }
     }
 }

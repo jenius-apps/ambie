@@ -309,9 +309,6 @@
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>Lehetséges</value>
   </data>
-  <data name="RemoveActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Eltávolítás az aktív hangokból</value>
-  </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
     <value>Saját válogatás mentése</value>
   </data>
