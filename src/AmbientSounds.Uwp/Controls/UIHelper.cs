@@ -29,7 +29,7 @@ namespace AmbientSounds.Controls
         {
             if (string.IsNullOrEmpty(colourHex))
             {
-                colourHex = "#e0000000";
+                colourHex = "#1F1F1F";
             }
 
             return colourHex.ToColor();
