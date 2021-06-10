@@ -84,7 +84,7 @@
                             TextWrapping="Wrap">
                             <ToolTipService.ToolTip>
                                 <Grid MaxWidth="300">
-                                    <TextBlock Text="{x:Bind Attribution}" TextWrapping="Wrap" />
+                                    <TextBlock Text="{x:Bind Attribution, Mode=OneWay}" TextWrapping="Wrap" />
                                 </Grid>
                             </ToolTipService.ToolTip>
                         </TextBlock>
@@ -110,7 +110,7 @@
                                     x:Uid="BuyButton"
                                     VerticalAlignment="Stretch"
                                     x:Load="{x:Bind CanBuy, Mode=OneWay}"
-                                    Command="{x:Bind BuyCommand}"
+                                    Command="{x:Bind BuyCommand, Mode=OneWay}"
                                     Style="{StaticResource ActionButtonStyle}">
                                     <TextBlock Text="{x:Bind Price, Mode=OneWay}" />
                                 </Button>
@@ -118,8 +118,8 @@
                                     x:Name="PreviewButton"
                                     x:Uid="PreviewButton"
                                     Margin="8,0,0,0"
-                                    x:Load="{x:Bind CanPreview}"
-                                    Command="{x:Bind PreviewCommand}"
+                                    x:Load="{x:Bind CanPreview, Mode=OneWay}"
+                                    Command="{x:Bind PreviewCommand, Mode=OneWay}"
                                     Style="{StaticResource ActionButtonStyle}">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB7D;" />
                                 </Button>
@@ -129,7 +129,7 @@
                             <!--  download button  -->
                             <Button
                                 x:Uid="DownloadSoundButton"
-                                Command="{x:Bind DownloadCommand}"
+                                Command="{x:Bind DownloadCommand, Mode=OneWay}"
                                 Style="{StaticResource ActionButtonStyle}"
                                 Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                 <StackPanel Orientation="Horizontal">
@@ -157,7 +157,7 @@
                             Orientation="Horizontal">
                             <Button
                                 x:Uid="DeleteButton"
-                                Command="{x:Bind DeleteCommand}"
+                                Command="{x:Bind DeleteCommand, Mode=OneWay}"
                                 Style="{StaticResource ActionButtonStyle}">
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
                             </Button>
