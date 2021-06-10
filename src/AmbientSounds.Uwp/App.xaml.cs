@@ -299,7 +299,7 @@ namespace AmbientSounds
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
                 .AddTransient<ActiveTrackListViewModel>()
-                .AddTransient<AccountControlViewModel>()
+                .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddTransient<UploadedSoundsListViewModel>()
                 .AddSingleton<AppServiceController>()
                 // no dependences, so transient unless otherwise stated.
