@@ -487,7 +487,7 @@
         </trans-unit>
         <trans-unit id="UploadPortal.Text" translate="yes" xml:space="preserve">
           <source>Upload Portal - Beta</source>
-          <target state="new">Upload Portal - Beta</target>
+          <target state="translated">Hang feltöltő - Béta</target>
         </trans-unit>
         <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
           <source>Browse</source>
@@ -616,11 +616,11 @@
         </trans-unit>
         <trans-unit id="Transparency" translate="yes" xml:space="preserve">
           <source>Transparency</source>
-          <target state="new">Transparency</target>
+          <target state="translated">Áttetszőség</target>
         </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
-          <target state="new">Preview</target>
+          <target state="translated">Előnézet</target>
         </trans-unit>
         <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
           <source>Catalogue</source>
@@ -632,20 +632,20 @@
         </trans-unit>
         <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
           <source>Auto launch after 1 min</source>
-          <target state="new">Auto launch after 1 min</target>
+          <target state="translated">Automatikus indítás 1 perc után</target>
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
-          <target state="new">Mix and match up to 3 sounds</target>
+          <target state="translated">Keverje a hangokat maximum 3 elemig</target>
         </trans-unit>
         <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
           <source>Remove {0} from active list</source>
-          <target state="new">Remove {0} from active list</target>
+          <target state="translated">{0} eltávolítása az aktív hangok közül</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
         </trans-unit>
         <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
           <source>Theme settings</source>
-          <target state="new">Theme settings</target>
+          <target state="translated">Téma beállítások</target>
         </trans-unit>
       </group>
     </body>
