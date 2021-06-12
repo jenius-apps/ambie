@@ -302,14 +302,10 @@ namespace AmbientSounds
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddTransient<UploadedSoundsListViewModel>()
                 .AddSingleton<AppServiceController>()
-                // no dependences, so transient unless otherwise stated.
+                // object tree is all transient
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
-                .AddTransient<ISystemInfoProvider, SystemInfoProvider>()
-                .AddTransient<IFileWriter, FileWriter>()
                 .AddTransient<IImagePicker, ImagePicker>()
-                .AddTransient<IFilePicker, FilePicker>()
-                .AddTransient<ICustomWebUi, CustomAuthUiService>()
-                // exposes events or has deps, so singleton.
+                // exposes events or object tree has singleton, so singleton.
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
@@ -319,7 +315,10 @@ namespace AmbientSounds
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
                 .AddSingleton<ILinkProcessor, LinkProcessor>()
+                .AddSingleton<IFileWriter, FileWriter>()
                 .AddSingleton<IUploadService, UploadService>()
+                .AddSingleton<IFilePicker, FilePicker>()
+                .AddSingleton<ICustomWebUi, CustomAuthUiService>()
                 .AddSingleton<IMsaAuthClient, MsalClient>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()
@@ -332,6 +331,7 @@ namespace AmbientSounds
                 .AddSingleton<IScreensaverService, ScreensaverService>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
+                .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .AddSingleton(appsettings ?? new AppSettings())
