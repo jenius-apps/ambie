@@ -366,6 +366,9 @@
   <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
     <value>Feltöltött hangok</value>
   </data>
+  <data name="UploadPortal.Text" xml:space="preserve">
+    <value>Hang feltöltő - Béta</value>
+  </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Keresés</value>
   </data>
@@ -460,10 +463,29 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Rögzítés a tálcára</value>
   </data>
+  <data name="Transparency" xml:space="preserve">
+    <value>Áttetszőség</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Előnézet</value>
+  </data>
   <data name="Catalogue" xml:space="preserve">
     <value>Katalógus</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Honlap</value>
+  </data>
+  <data name="ScreensaverOn" xml:space="preserve">
+    <value>Automatikus indítás 1 perc után</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>Keverje a hangokat maximum 3 elemig</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>{0} eltávolítása az aktív hangok közül</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>Téma beállítások</value>
   </data>
 </root>
