@@ -14,7 +14,7 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class StoreService : IIapService
     {
-        private static Dictionary<string, StoreProduct> _productsCache = new();
+        private static readonly Dictionary<string, StoreProduct> _productsCache = new();
         private static StoreContext? _context;
 
         /// <inheritdoc/>
@@ -34,12 +34,17 @@ namespace AmbientSounds.Services.Uwp
                 return false;
             }
 
-            /// Check if user has an active license for given add-on id.
             foreach (var addOnLicense in appLicense.AddOnLicenses)
             {
-                var license = addOnLicense.Value;
+                StoreLicense license = addOnLicense.Value;
                 if (license.InAppOfferToken == iapId && license.IsActive)
                 {
+                    // Handle add-on scenario
+                    return true;
+                }
+                else if (license.SkuStoreId.StartsWith(iapId) && license.IsActive)
+                {
+                    // Handle subscription scenario
                     return true;
                 }
             }
@@ -116,10 +121,17 @@ namespace AmbientSounds.Services.Uwp
 
             foreach (var item in result.Products)
             {
-                var product = item.Value;
+                StoreProduct product = item.Value;
 
                 if (product.InAppOfferToken == id)
                 {
+                    // gets add-on
+                    _productsCache.TryAdd(id, product);
+                    return product;
+                }
+                else if (product.StoreId == id)
+                {
+                    // gets subscription
                     _productsCache.TryAdd(id, product);
                     return product;
                 }
