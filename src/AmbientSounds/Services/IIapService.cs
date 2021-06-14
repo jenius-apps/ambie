@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
 {
@@ -8,6 +9,12 @@ namespace AmbientSounds.Services
     /// </summary>
     public interface IIapService
     {
+        /// <summary>
+        /// A product was successfully purchased. Payload is
+        /// the ID of the IAP add-on or subscription.
+        /// </summary>
+        event EventHandler<string>? ProductPurchased;
+
         /// <summary>
         /// Check if the sound is already owned.
         /// </summary>
