@@ -34,5 +34,11 @@ namespace AmbientSounds.Services
         /// <returns>List of sound Ids that are installed and user wants to play.
         /// Empty list if operation was cancelled.</returns>
         Task<IList<string>> OpenShareResultsAsync(IList<string> soundIds);
+
+        /// <summary>
+        /// Opens the premium dialog where users can purchase
+        /// ambie plus.
+        /// </summary>
+        Task OpenPremiumAsync();
     }
 }

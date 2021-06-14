@@ -12,6 +12,11 @@ namespace AmbientSounds.Controls
 {
     public static class UIHelper
     {
+        public static Visibility InvertVisibility(bool isVisible)
+        {
+            return isVisible ? Visibility.Collapsed : Visibility.Visible;
+        }
+
         public static void RemoveOnMiddleClick(object sender, PointerRoutedEventArgs e)
         {
             if (sender is Image fe && fe.DataContext is ActiveTrackViewModel vm)

@@ -148,5 +148,26 @@ namespace AmbientSounds.Services.Uwp
                 ? content.ViewModel.Sounds.Where(static x => x.IsInstalled).Select(static x => x.Id).ToList()
                 : new List<string>();
         }
+
+        /// <inheritdoc/>
+        public async Task OpenPremiumAsync()
+        {
+            if (IsDialogOpen)
+            {
+                return;
+            }
+
+            IsDialogOpen = true;
+            var content = new PremiumControl();
+            var dialog = new ContentDialog()
+            {
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+                Content = content
+            };
+
+            content.CloseRequested += (s, e) => dialog.Hide();
+            await dialog.ShowAsync();
+            IsDialogOpen = false;
+        }
     }
 }
