@@ -19,6 +19,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
         private readonly IPreviewService _previewService;
+        private readonly IDialogService _dialogService;
         private readonly Progress<double> _downloadProgress;
         private double _progressValue;
         private bool _isInstalled;
@@ -31,7 +32,8 @@ namespace AmbientSounds.ViewModels
             ISoundDataProvider soundDataProvider,
             ITelemetry telemetry,
             IPreviewService previewService,
-            IIapService iapService)
+            IIapService iapService,
+            IDialogService dialogService)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
@@ -39,22 +41,35 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(previewService, nameof(previewService));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
             _sound = s;
             _downloadManager = downloadManager;
             _previewService = previewService;
             _iapService = iapService;
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
+            _dialogService = dialogService;
 
             _downloadProgress = new Progress<double>();
             _downloadProgress.ProgressChanged += OnProgressChanged;
             _soundDataProvider.LocalSoundDeleted += OnSoundDeleted;
+            _iapService.ProductPurchased += OnProductPurchased;
 
             DownloadCommand = new AsyncRelayCommand(DownloadAsync);
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             DeleteCommand = new AsyncRelayCommand(DeleteSound);
             BuyCommand = new AsyncRelayCommand(BuySoundAsync);
             PreviewCommand = new RelayCommand(Preview);
+        }
+
+        private async void OnProductPurchased(object sender, string iapId)
+        {
+            if (!_sound.IsPremium || _sound.IapId != iapId)
+            {
+                return;
+            }
+
+            IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
         }
 
         private async void OnSoundDeleted(object sender, string id)
@@ -238,16 +253,12 @@ namespace AmbientSounds.ViewModels
 
         private async Task BuySoundAsync()
         {
-            DownloadProgressValue = 50;
-            bool purchased = await _iapService.BuyAsync(_sound.IapId ?? "");
-            IsOwned = !_sound.IsPremium || purchased;
-            DownloadProgressValue = 0;
+            await _dialogService.OpenPremiumAsync();
 
             _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
             {
-                { "id", _sound.Id ?? "" },
-                { "purchased", purchased.ToString() },
-                { "location", TelemetryLocation }
+                { "id", _sound.Id },
+                { "name", _sound.Name }
             });
         }
 
@@ -263,17 +274,28 @@ namespace AmbientSounds.ViewModels
         private async Task LoadAsync()
         {
             IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
+            bool isOwned;
 
             if (_sound.IsPremium)
             {
-                IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
+                isOwned = await _iapService.IsOwnedAsync(_sound.IapId);
                 Price = await _iapService.GetPriceAsync(_sound.IapId);
+
+                if (!isOwned && _sound.IapId != IapConstants.MsStoreAmbiePlusId)
+                {
+                    // Handle case that user is subscribed to ambie plus,
+                    // but they don't own the individual add-on for some old premium sounds.
+                    // We should let them download the sound as long as they have ambie plus.
+                    isOwned = await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
+                }
             }
             else
             {
                 // a non premium sound is treated as "owned"
-                IsOwned = true;
+                isOwned = true;
             }
+
+            IsOwned = isOwned;
         }
 
         private Task DownloadAsync()
@@ -295,6 +317,7 @@ namespace AmbientSounds.ViewModels
         /// <inheritdoc/>
         public void Dispose()
         {
+            _iapService.ProductPurchased -= OnProductPurchased;
             _downloadProgress.ProgressChanged -= OnProgressChanged;
             _soundDataProvider.LocalSoundDeleted -= OnSoundDeleted;
         }
