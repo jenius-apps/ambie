@@ -11,7 +11,7 @@
     <AssemblyName>AmbientSounds.Uwp</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -564,6 +564,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.nl-BE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-BR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ru-RU.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ta.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.tr.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.zh-CN.xlf" />
   </ItemGroup>
@@ -601,6 +602,9 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\ja-JP\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ta\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
