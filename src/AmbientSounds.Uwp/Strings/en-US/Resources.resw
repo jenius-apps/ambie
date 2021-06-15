@@ -593,4 +593,21 @@
   <data name="ThemeSettings" xml:space="preserve">
     <value>Theme settings</value>
   </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} per month</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>Access premium, high quality sounds!</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>Growing catalogue!</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>Support development!</value>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>Thank you for subscribing!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
 </root>
