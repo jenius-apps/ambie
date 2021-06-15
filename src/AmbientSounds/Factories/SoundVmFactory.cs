@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -97,7 +98,15 @@ namespace AmbientSounds.Factories
         public SoundViewModel GetSoundVm(Sound s)
         {
             Guard.IsNotNull(s, nameof(s));
-            var vm = new SoundViewModel(s, _player, _soundDataProvider, _soundMixService, _telemetry, _renamer);
+            var vm = new SoundViewModel(
+                s,
+                _player,
+                _soundDataProvider,
+                _soundMixService,
+                _telemetry,
+                _renamer,
+                _serviceProvider.GetRequiredService<IDialogService>(),
+                _serviceProvider.GetRequiredService<IIapService>());
             vm.Initialize();
             return vm;
         }
