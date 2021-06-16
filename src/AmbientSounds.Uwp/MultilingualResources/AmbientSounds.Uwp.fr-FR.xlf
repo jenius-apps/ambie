@@ -640,7 +640,7 @@
         <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
           <source>Remove {0} from active list</source>
           <target state="translated">Retirer {0} de la liste d'écoute active</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Retirer un son de la liste d'écoute active. Le paramètre correspond au nom du son à effacer.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
         </trans-unit>
         <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
           <source>Theme settings</source>
