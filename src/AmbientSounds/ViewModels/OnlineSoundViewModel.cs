@@ -179,6 +179,8 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public bool CanBuy => _sound.IsPremium && !_isOwned;
 
+        public bool PlusBadgeVisible => _sound.IsPremium;
+
         /// <summary>
         /// This sound's download progress.
         /// </summary>

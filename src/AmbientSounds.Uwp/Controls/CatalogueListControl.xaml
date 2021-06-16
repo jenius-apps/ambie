@@ -87,6 +87,13 @@
                                     </Rectangle.Fill>
                                 </Rectangle>
 
+                                <controls:PlusBadge
+                                    x:Name="Badge"
+                                    Margin="12,12,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    x:Load="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
+
                                 <Grid Grid.Row="1" Margin="12,0">
                                     <TextBlock
                                         Foreground="White"
