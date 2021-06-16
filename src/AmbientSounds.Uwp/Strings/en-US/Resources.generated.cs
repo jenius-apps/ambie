@@ -911,6 +911,71 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region PricePerMonth
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} per month
+        /// </summary>
+        public static string PricePerMonth
+        {
+            get
+            {
+                return _resourceLoader.GetString("PricePerMonth");
+            }
+        }
+        #endregion
+
+        #region SubscriptionText1
+        /// <summary>
+        ///   Looks up a localized string similar to: Access premium, high quality sounds!
+        /// </summary>
+        public static string SubscriptionText1
+        {
+            get
+            {
+                return _resourceLoader.GetString("SubscriptionText1");
+            }
+        }
+        #endregion
+
+        #region SubscriptionText2
+        /// <summary>
+        ///   Looks up a localized string similar to: Growing catalogue!
+        /// </summary>
+        public static string SubscriptionText2
+        {
+            get
+            {
+                return _resourceLoader.GetString("SubscriptionText2");
+            }
+        }
+        #endregion
+
+        #region SubscriptionText3
+        /// <summary>
+        ///   Looks up a localized string similar to: Support development!
+        /// </summary>
+        public static string SubscriptionText3
+        {
+            get
+            {
+                return _resourceLoader.GetString("SubscriptionText3");
+            }
+        }
+        #endregion
+
+        #region ThankYouForSub
+        /// <summary>
+        ///   Looks up a localized string similar to: Thank you for subscribing!
+        /// </summary>
+        public static string ThankYouForSub
+        {
+            get
+            {
+                return _resourceLoader.GetString("ThankYouForSub");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -991,6 +1056,11 @@ namespace AmbientSounds.Strings{
             ScreensaverOn,
             SelectSoundsPlaceholder,
             ThemeSettings,
+            PricePerMonth,
+            SubscriptionText1,
+            SubscriptionText2,
+            SubscriptionText3,
+            ThankYouForSub,
         }
 
         private static ResourceLoader _resourceLoader;

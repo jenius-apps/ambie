@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.PlusBadge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <LinearGradientBrush x:Key="BadgeBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop Offset="0" Color="#539AFF" />
+                        <GradientStop Offset="1" Color="#53BEFF" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="BadgeBrush" Color="{ThemeResource SystemColorWindowColor}" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Width="44" Height="24">
+        <Rectangle
+            Fill="{ThemeResource BadgeBrush}"
+            RadiusX="4"
+            RadiusY="4"
+            Stretch="Fill" />
+
+        <!--  No need to translate this since it's a brand  -->
+        <TextBlock
+            Margin="0,0,0,2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            AutomationProperties.AccessibilityView="Raw"
+            Foreground="White"
+            Text="Plus" />
+    </Grid>
+</UserControl>
