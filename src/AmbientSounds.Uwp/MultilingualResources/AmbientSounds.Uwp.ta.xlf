@@ -638,6 +638,28 @@
           <source>Theme settings</source>
           <target state="translated">கருப்பொருள் அமைப்புகள்</target>
         </trans-unit>
+        <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
+          <source>{0} per month</source>
+          <target state="translated">மாதத்திற்கு {0}</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
+        </trans-unit>
+        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
+          <source>Access premium, high quality sounds!</source>
+          <target state="translated">பிரீமியம், உயர் தர ஒலிகளை அணுகலாம்!</target>
+        </trans-unit>
+        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
+          <source>Growing catalogue!</source>
+          <target state="translated">வளர்ந்து வரும் பட்டியல்!</target>
+        </trans-unit>
+        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
+          <source>Support development!</source>
+          <target state="translated">உருவாக்கத்தை ஆதரவளி!</target>
+        </trans-unit>
+        <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
+          <source>Thank you for subscribing!</source>
+          <target state="translated">சந்தாசேர்ந்ததற்கு நன்றி!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
+        </trans-unit>
       </group>
     </body>
   </file>
