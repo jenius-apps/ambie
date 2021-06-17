@@ -1,8 +1,10 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 
 namespace AmbientSounds.Factories
 {
@@ -21,6 +23,7 @@ namespace AmbientSounds.Factories
         private readonly ISoundMixService _soundMixService;
         private readonly IRenamer _renamer;
         private readonly IUploadService _uploadService;
+        private readonly IServiceProvider _serviceProvider;
 
         public SoundVmFactory(
             IDownloadManager downloadManager,
@@ -32,7 +35,8 @@ namespace AmbientSounds.Factories
             IUserSettings userSettings,
             IIapService iapService,
             IUploadService uploadService,
-            IRenamer renamer)
+            IRenamer renamer,
+            IServiceProvider serviceProvider)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
@@ -44,6 +48,7 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(renamer, nameof(renamer));
             Guard.IsNotNull(uploadService, nameof(uploadService));
+            Guard.IsNotNull(serviceProvider, nameof(serviceProvider));
 
             _userSettings = userSettings;
             _downloadManager = downloadManager;
@@ -55,6 +60,7 @@ namespace AmbientSounds.Factories
             _renamer = renamer;
             _telemetry = telemetry;
             _uploadService = uploadService;
+            _serviceProvider = serviceProvider;
         }
 
         /// <inheritdoc/>
@@ -68,13 +74,17 @@ namespace AmbientSounds.Factories
                 return null;
             }
 
+            var dialogService = _serviceProvider.GetService(typeof(IDialogService)) as IDialogService;
+            Guard.IsNotNull(dialogService, nameof(dialogService));
+
             return new OnlineSoundViewModel(
                 s,
                 _downloadManager,
                 _soundDataProvider,
                 _telemetry,
                 _previewService,
-                _iapService);
+                _iapService,
+                dialogService);
         }
 
         /// <inheritdoc/>
@@ -88,7 +98,15 @@ namespace AmbientSounds.Factories
         public SoundViewModel GetSoundVm(Sound s)
         {
             Guard.IsNotNull(s, nameof(s));
-            var vm = new SoundViewModel(s, _player, _soundDataProvider, _soundMixService, _telemetry, _renamer);
+            var vm = new SoundViewModel(
+                s,
+                _player,
+                _soundDataProvider,
+                _soundMixService,
+                _telemetry,
+                _renamer,
+                _serviceProvider.GetRequiredService<IDialogService>(),
+                _serviceProvider.GetRequiredService<IIapService>());
             vm.Initialize();
             return vm;
         }

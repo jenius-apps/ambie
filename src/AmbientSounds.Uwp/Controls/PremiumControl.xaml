@@ -1,0 +1,85 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.PremiumControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources />
+
+    <StackPanel MaxWidth="300">
+        <!--  Note: Ambie Plus is the brand name, so it doesn't need to be translated  -->
+        <TextBlock
+            Margin="0,0,0,20"
+            FontSize="20"
+            Text="Ambie Plus" />
+
+        <ItemsControl ItemsSource="{x:Bind SubscriptionTexts}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid Margin="0,0,0,4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Margin="0,0,4,0"
+                            AutomationProperties.AccessibilityView="Raw"
+                            Text="✔" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Text="{x:Bind}"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Grid Margin="0,24,0,0">
+            <Button
+                Height="40"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutomationProperties.Name="{x:Bind Price}"
+                Click="{x:Bind OnPurchaseClicked}"
+                Loaded="{x:Bind OnPurchaseButtonLoaded}"
+                Style="{ThemeResource AccentButtonStyle}"
+                Visibility="{x:Bind local:UIHelper.InvertVisibility(ThanksTextVisible)}">
+                <Grid>
+                    <TextBlock Text="{x:Bind Price}" Visibility="{x:Bind local:UIHelper.InvertVisibility(ButtonLoading)}" />
+                    <winui:ProgressRing
+                        Width="20"
+                        Height="20"
+                        Foreground="White"
+                        IsActive="{x:Bind ButtonLoading}"
+                        Visibility="{x:Bind ButtonLoading}" />
+                </Grid>
+            </Button>
+
+            <StackPanel Visibility="{x:Bind ThanksTextVisible}">
+                <TextBlock
+                    AutomationProperties.AccessibilityView="Raw"
+                    Text="😍 🎉 🥳 "
+                    TextAlignment="Center" />
+                <TextBlock
+                    MaxWidth="240"
+                    VerticalAlignment="Center"
+                    Text="{x:Bind strings:Resources.ThankYouForSub}"
+                    TextAlignment="Center"
+                    TextWrapping="WrapWholeWords" />
+            </StackPanel>
+        </Grid>
+        <HyperlinkButton
+            HorizontalAlignment="Center"
+            AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
+            Click="CloseClick"
+            Content="{x:Bind strings:Resources.CloseText}" />
+    </StackPanel>
+</UserControl>

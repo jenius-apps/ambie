@@ -23,6 +23,8 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
         private readonly IRenamer _renamer;
+        private readonly IDialogService _dialogService;
+        private readonly IIapService _iapService;
         private int _position;
         private int _setSize;
 
@@ -32,7 +34,9 @@ namespace AmbientSounds.ViewModels
             ISoundDataProvider soundDataProvider,
             ISoundMixService soundMixService,
             ITelemetry telemetry,
-            IRenamer renamer)
+            IRenamer renamer,
+            IDialogService dialogService,
+            IIapService iapService)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
@@ -40,6 +44,8 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(renamer, nameof(renamer));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
+            Guard.IsNotNull(iapService, nameof(iapService));
 
             _sound = s;
             _soundMixService = soundMixService;
@@ -47,6 +53,8 @@ namespace AmbientSounds.ViewModels
             _soundDataProvider = soundDataProvider;
             _telemetry = telemetry;
             _renamer = renamer;
+            _dialogService = dialogService;
+            _iapService = iapService;
 
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
@@ -69,6 +77,11 @@ namespace AmbientSounds.ViewModels
         /// The sound's GUID.
         /// </summary>
         public string? Id => _sound.Id;
+
+        /// <summary>
+        /// Determines if the plus badge is visible.
+        /// </summary>
+        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId;
 
         /// <summary>
         /// The sound's attribution.
@@ -136,7 +149,19 @@ namespace AmbientSounds.ViewModels
         private async Task PlayAsync()
         {
             if (IsCurrentlyPlaying)
+            {
                 return;
+            }
+
+            if (_sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId)
+            {
+                var owned = await _iapService.IsOwnedAsync(_sound.IapId);
+                if (!owned)
+                {
+                    await _dialogService.OpenPremiumAsync();
+                    return;
+                }
+            }
 
             if (!IsMix)
             {

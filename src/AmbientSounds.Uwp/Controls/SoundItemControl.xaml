@@ -139,8 +139,20 @@
             </Grid>
 
 
-            <Grid Margin="12" VerticalAlignment="Bottom">
+            <Grid Margin="12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <controls:PlusBadge
+                    x:Name="Badge"
+                    HorizontalAlignment="Left"
+                    x:Load="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
+
                 <TextBlock
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom"
                     Foreground="White"
                     Text="{x:Bind ViewModel.Name, Mode=OneWay}"
                     TextTrimming="CharacterEllipsis"

@@ -14,12 +14,21 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class StoreService : IIapService
     {
-        private static Dictionary<string, StoreProduct> _productsCache = new();
+        private static readonly Dictionary<string, StoreProduct> _productsCache = new();
+        private static readonly Dictionary<string, bool> _ownershipCache = new();
         private static StoreContext? _context;
+
+        /// <inheritdoc/>
+        public event EventHandler<string>? ProductPurchased;
 
         /// <inheritdoc/>
         public async Task<bool> IsOwnedAsync(string iapId)
         {
+            if (_ownershipCache.TryGetValue(iapId, out bool isOwned))
+            {
+                return isOwned;
+            }
+
             if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
             {
                 return false;
@@ -34,16 +43,18 @@ namespace AmbientSounds.Services.Uwp
                 return false;
             }
 
-            /// Check if user has an active license for given add-on id.
             foreach (var addOnLicense in appLicense.AddOnLicenses)
             {
-                var license = addOnLicense.Value;
+                StoreLicense license = addOnLicense.Value;
                 if (license.InAppOfferToken == iapId && license.IsActive)
                 {
+                    // Handle add-on scenario
+                    _ownershipCache.TryAdd(iapId, true);
                     return true;
                 }
             }
 
+            _ownershipCache.TryAdd(iapId, false);
             return false;
         }
 
@@ -55,41 +66,45 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public Task<bool> BuyAsync(string iapId)
+        public async Task<bool> BuyAsync(string iapId)
         {
-            return PurchaseAddOn(iapId);
+            StorePurchaseStatus result = await PurchaseAddOn(iapId);
+
+            if (result == StorePurchaseStatus.Succeeded || result == StorePurchaseStatus.AlreadyPurchased)
+            {
+                _ownershipCache[iapId] = true;
+            }
+
+            if (result == StorePurchaseStatus.Succeeded)
+            {
+                ProductPurchased?.Invoke(this, iapId);
+            }
+
+            return result switch
+            {
+                StorePurchaseStatus.Succeeded => true,
+                StorePurchaseStatus.AlreadyPurchased => true,
+                _ => false
+            };
         }
 
-        private static async Task<bool> PurchaseAddOn(string id)
+        private static async Task<StorePurchaseStatus> PurchaseAddOn(string id)
         {
             if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
             {
-                return false;
+                return StorePurchaseStatus.NetworkError;
             }
 
             var addOnProduct = await GetAddOn(id);
             if (addOnProduct is null)
-                return false;
+                return StorePurchaseStatus.ServerError;
 
             /// Attempt purchase
             var result = await addOnProduct.RequestPurchaseAsync();
             if (result is null)
-                return false;
+                return StorePurchaseStatus.ServerError;
 
-            bool purchased = false;
-            switch (result.Status)
-            {
-                case StorePurchaseStatus.NotPurchased:
-                case StorePurchaseStatus.ServerError:
-                case StorePurchaseStatus.NetworkError:
-                    break;
-                case StorePurchaseStatus.Succeeded:
-                case StorePurchaseStatus.AlreadyPurchased:
-                    purchased = true;
-                    break;
-            }
-
-            return purchased;
+            return result.Status;
         }
 
         private static async Task<StoreProduct?> GetAddOn(string id)
@@ -116,10 +131,11 @@ namespace AmbientSounds.Services.Uwp
 
             foreach (var item in result.Products)
             {
-                var product = item.Value;
+                StoreProduct product = item.Value;
 
                 if (product.InAppOfferToken == id)
                 {
+                    // gets add-on
                     _productsCache.TryAdd(id, product);
                     return product;
                 }
