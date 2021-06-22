@@ -192,6 +192,7 @@ namespace AmbientSounds
             Services.GetRequiredService<INavigator>().RootFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
+            await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
         }
 
         private void OnSettingSet(object sender, string key)
@@ -327,7 +328,7 @@ namespace AmbientSounds
                 .AddSingleton<IAccountManager, AccountManager>()
                 .AddSingleton<IPreviewService, PreviewService>()
                 .AddSingleton<IIapService, StoreService>()
-                .AddSingleton<IDownloadManager, DownloadManager>()
+                .AddSingleton<IDownloadManager, WindowsDownloadManager>()
                 .AddSingleton<IScreensaverService, ScreensaverService>()
                 .AddSingleton<ITelemetry, AppCentreTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()

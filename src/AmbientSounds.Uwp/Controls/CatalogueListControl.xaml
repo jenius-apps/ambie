@@ -156,7 +156,9 @@
                                             Height="20"
                                             VerticalAlignment="Center"
                                             x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
-                                            Foreground="White" />
+                                            Foreground="White"
+                                            IsIndeterminate="False"
+                                            Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
                                     </StackPanel>
 
                                     <StackPanel
