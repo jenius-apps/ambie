@@ -148,16 +148,14 @@
                                             </StackPanel>
                                         </Button>
 
-                                        <!--  TODO update httpclient to better measure progress. Until then, we use indeterminate progress ring  -->
-                                        <!--  IsIndeterminate="False" Value="{x:Bind DownloadProgressValue, Mode=OneWay}"  -->
                                         <muxc:ProgressRing
-                                            x:Name="DownloadProgressRing"
                                             Width="20"
                                             Height="20"
+                                            Margin="8,0,0,0"
                                             VerticalAlignment="Center"
-                                            x:Load="{x:Bind DownloadProgressVisible, Mode=OneWay}"
                                             Foreground="White"
                                             IsIndeterminate="False"
+                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
                                             Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
                                     </StackPanel>
 
