@@ -212,6 +212,7 @@
     <Compile Include="Services\AppCentreTelemetry.cs" />
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
+    <Compile Include="Services\BackgroundDownloadService.cs" />
     <Compile Include="Services\CustomAuthUiService.cs" />
     <Compile Include="Services\DispatcherExtensions.cs" />
     <Compile Include="Services\FilePicker.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="Services\ScreensaverService.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
+    <Compile Include="Services\WindowsDownloadManager.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
     <Compile Include="Strings\en-US\Resources.generated.cs">
       <AutoGen>True</AutoGen>
