@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Networking.BackgroundTransfer;
 using Windows.Storage;
 using Windows.System;
 using Windows.Web;
+
+#nullable enable
 
 namespace AmbientSounds.Services.Uwp
 {
@@ -20,8 +21,8 @@ namespace AmbientSounds.Services.Uwp
 
         private readonly DispatcherQueue _dispatcherQueue;
         private readonly Dictionary<string, IProgress<double>> _activeProgress = new Dictionary<string, IProgress<double>>();
-        private CancellationTokenSource _cts;
-        private Dictionary<Guid, DownloadOperation> _activeDownloads;
+        private CancellationTokenSource? _cts;
+        private Dictionary<string, DownloadOperation>? _activeDownloads;
 
         public BackgroundDownloadService()
         {
@@ -29,24 +30,13 @@ namespace AmbientSounds.Services.Uwp
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
         }
 
-        /// <summary>
-        /// Pause an active download acquired via ActiveDownloads IReadOnlyList
-        /// </summary>
-        /// <param name="download"></param>
-        public void PauseActiveDownload(DownloadOperation download) => PauseActiveDownload(download.Guid);
-        public void PauseActiveDownload(Guid guid)
-        {
-            _activeDownloads?[guid]?.Pause();
-        }
+        public bool IsDownloadActive(string destinationPath) => _activeDownloads?.ContainsKey(destinationPath) ?? false;
 
-        /// <summary>
-        /// Resume an active download acquired via ActiveDownloads IReadOnlyList
-        /// </summary>
-        /// <param name="download"></param>
-        public void ResumeActiveDownload(DownloadOperation download) => ResumeActiveDownload(download.Guid);
-        public void ResumeActiveDownload(Guid guid)
+        public IProgress<double>? GetProgress(string destinationPath)
         {
-            _activeDownloads?[guid]?.Resume();
+            return _activeProgress.ContainsKey(destinationPath)
+                ? _activeProgress[destinationPath]
+                : null;
         }
 
         /// <summary>
@@ -55,13 +45,13 @@ namespace AmbientSounds.Services.Uwp
         /// <param name="download"></param>
         public void CancelAllActiveDownloads()
         {
-            _cts.Cancel();
-            _cts.Dispose();
+            _cts?.Cancel();
+            _cts?.Dispose();
 
             // Re-create the CancellationTokenSource and activeDownloads for future downloads.
             _cts = new CancellationTokenSource();
-            _activeDownloads.Clear();
-            _activeDownloads = new Dictionary<Guid, DownloadOperation>();
+            _activeDownloads?.Clear();
+            _activeDownloads = new Dictionary<string, DownloadOperation>();
         }
 
         /// <summary>
@@ -70,9 +60,9 @@ namespace AmbientSounds.Services.Uwp
         /// <returns></returns>
         public async Task DiscoverActiveDownloadsAsync()
         {
-            _activeDownloads = new Dictionary<Guid, DownloadOperation>();
+            _activeDownloads = new Dictionary<string, DownloadOperation>();
 
-            IReadOnlyList<DownloadOperation> downloads = null;
+            IReadOnlyList<DownloadOperation>? downloads = null;
             try
             {
                 downloads = await BackgroundDownloader.GetCurrentDownloadsAsync();
@@ -113,7 +103,7 @@ namespace AmbientSounds.Services.Uwp
         public async void StartDownload(
             StorageFile destinationFile,
             string url,
-            IProgress<double> progress = null,
+            IProgress<double>? progress = null,
             BackgroundTransferPriority priority = BackgroundTransferPriority.Default)
         {
             if (!Uri.TryCreate(url, UriKind.Absolute, out Uri source))
@@ -135,21 +125,31 @@ namespace AmbientSounds.Services.Uwp
 
         private void DownloadProgress(DownloadOperation download)
         {
-            double percent = 100;
-            if (download.Progress.TotalBytesToReceive > 0)
+            string resultFilePath = download.ResultFile.Path;
+            if (download.Progress.TotalBytesToReceive > 0 && 
+                _activeProgress.ContainsKey(resultFilePath))
             {
-                percent = download.Progress.BytesReceived * 100 / download.Progress.TotalBytesToReceive;
-                Debug.WriteLine(percent);
-                _dispatcherQueue.TryEnqueue(() => _activeProgress[download.ResultFile.Path].Report(percent));
+                double percent = download.Progress.BytesReceived * 100 / download.Progress.TotalBytesToReceive;
+                _dispatcherQueue.TryEnqueue(() => _activeProgress[resultFilePath].Report(percent));
             }
         }
 
         private async Task HandleDownloadAsync(DownloadOperation download, bool start)
         {
+            if (_cts is null)
+            {
+                _cts = new CancellationTokenSource();
+            }
+
+            if (_activeDownloads is null)
+            {
+                _activeDownloads = new Dictionary<string, DownloadOperation>();
+            }
+
             try
             {
                 // Store the download so we can pause/resume.
-                _activeDownloads.Add(download.Guid, download);
+                _activeDownloads.Add(download.ResultFile.Path, download);
 
                 Progress<DownloadOperation> progressCallback = new Progress<DownloadOperation>(DownloadProgress);
                 if (start)
@@ -178,7 +178,7 @@ namespace AmbientSounds.Services.Uwp
             }
             finally
             {
-                _activeDownloads.Remove(download.Guid);
+                _activeDownloads.Remove(download.ResultFile.Path);
                 _activeProgress.Remove(download.ResultFile.Path);
             }
         }
@@ -192,7 +192,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public void Dispose()
         {
-            if (_cts != null)
+            if (_cts is not null)
             {
                 _cts.Dispose();
                 _cts = null;
