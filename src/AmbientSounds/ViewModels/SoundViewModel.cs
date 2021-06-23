@@ -25,8 +25,12 @@ namespace AmbientSounds.ViewModels
         private readonly IRenamer _renamer;
         private readonly IDialogService _dialogService;
         private readonly IIapService _iapService;
+        private readonly IDownloadManager _downloadManager;
+        private Progress<double>? _downloadProgress;
         private int _position;
         private int _setSize;
+        private bool _downloadActive;
+        private double _downloadProgressValue;
 
         public SoundViewModel(
             Sound s,
@@ -36,7 +40,8 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             IRenamer renamer,
             IDialogService dialogService,
-            IIapService iapService)
+            IIapService iapService,
+            IDownloadManager downloadManager)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
@@ -46,6 +51,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(renamer, nameof(renamer));
             Guard.IsNotNull(dialogService, nameof(dialogService));
             Guard.IsNotNull(iapService, nameof(iapService));
+            Guard.IsNotNull(downloadManager, nameof(downloadManager));
 
             _sound = s;
             _soundMixService = soundMixService;
@@ -55,6 +61,7 @@ namespace AmbientSounds.ViewModels
             _renamer = renamer;
             _dialogService = dialogService;
             _iapService = iapService;
+            _downloadManager = downloadManager;
 
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
@@ -136,11 +143,58 @@ namespace AmbientSounds.ViewModels
             ? _playerService.IsSoundPlaying(_sound.Id)
             : _soundMixService.IsMixPlaying(_sound.Id);
 
+        public bool DownloadActive
+        {
+            get => _downloadActive;
+            set => SetProperty(ref _downloadActive, value);
+        }
+
+        public double DownloadProgressValue
+        {
+            get => _downloadProgressValue;
+            set => SetProperty(ref _downloadProgressValue, value);
+        }
+
         public void Initialize()
         {
             _playerService.SoundRemoved += OnSoundPaused;
             _playerService.SoundAdded += OnSoundPlayed;
             _playerService.MixPlayed += OnMixPlayed;
+
+            DownloadActive = _downloadManager.IsDownloadActive(_sound);
+            if (DownloadActive)
+            {
+                var progress = _downloadManager.GetProgress(_sound);
+                if (progress is not null)
+                {
+                    RegisterProgress(progress);
+                }
+            }
+
+        }
+
+        private void RegisterProgress(IProgress<double> progress)
+        {
+            if (progress is Progress<double> p)
+            {
+                if (_downloadProgress is not null)
+                {
+                    _downloadProgress.ProgressChanged -= OnProgressChanged;
+                }
+
+                _downloadProgress = p;
+                _downloadProgress.ProgressChanged += OnProgressChanged;
+            }
+        }
+
+        private void OnProgressChanged(object sender, double e)
+        {
+            DownloadProgressValue = e;
+            if (e >= 100)
+            {
+                DownloadActive = false;
+                DownloadProgressValue = 0;
+            }
         }
 
         /// <summary>
@@ -148,7 +202,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private async Task PlayAsync()
         {
-            if (IsCurrentlyPlaying)
+            if (IsCurrentlyPlaying || DownloadActive)
             {
                 return;
             }
@@ -231,6 +285,11 @@ namespace AmbientSounds.ViewModels
             _playerService.SoundRemoved -= OnSoundPaused;
             _playerService.SoundAdded -= OnSoundPlayed;
             _playerService.MixPlayed -= OnMixPlayed;
+
+            if (_downloadProgress is not null)
+            {
+                _downloadProgress.ProgressChanged -= OnProgressChanged;
+            }
         }
     }
 }

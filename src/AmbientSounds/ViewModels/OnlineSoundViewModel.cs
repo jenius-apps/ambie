@@ -20,7 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly IIapService _iapService;
         private readonly IPreviewService _previewService;
         private readonly IDialogService _dialogService;
-        private readonly Progress<double> _downloadProgress;
+        private Progress<double> _downloadProgress;
         private double _progressValue;
         private bool _isInstalled;
         private bool _isOwned;
@@ -275,9 +275,21 @@ namespace AmbientSounds.ViewModels
 
         private async Task LoadAsync()
         {
-            IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
-            bool isOwned;
+            if (_downloadManager.IsDownloadActive(_sound))
+            {
+                var progress = _downloadManager.GetProgress(_sound);
+                if (progress is not null)
+                {
+                    RegisterProgress(progress);
+                }
+            }
+            else
+            {
+                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
+            }
 
+            // Determine ownership
+            bool isOwned;
             if (_sound.IsPremium)
             {
                 isOwned = await _iapService.IsOwnedAsync(_sound.IapId);
@@ -314,6 +326,20 @@ namespace AmbientSounds.ViewModels
             }
 
             return Task.CompletedTask;
+        }
+
+        private void RegisterProgress(IProgress<double> progress)
+        {
+            if (progress is Progress<double> p)
+            {
+                if (_downloadProgress is not null)
+                {
+                    _downloadProgress.ProgressChanged -= OnProgressChanged;
+                }
+
+                _downloadProgress = p;
+                _downloadProgress.ProgressChanged += OnProgressChanged;
+            }
         }
 
         /// <inheritdoc/>

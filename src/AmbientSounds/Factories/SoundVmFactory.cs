@@ -106,7 +106,8 @@ namespace AmbientSounds.Factories
                 _telemetry,
                 _renamer,
                 _serviceProvider.GetRequiredService<IDialogService>(),
-                _serviceProvider.GetRequiredService<IIapService>());
+                _serviceProvider.GetRequiredService<IIapService>(),
+                _serviceProvider.GetRequiredService<IDownloadManager>());
             vm.Initialize();
             return vm;
         }
