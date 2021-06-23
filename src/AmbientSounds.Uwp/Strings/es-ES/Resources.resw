@@ -360,10 +360,67 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sincronización</value>
   </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Donar</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Condiciones de uso</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Síguenos en Twitter</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Despedir</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your stay 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>¡Bienvenido!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Anclar a Taskbar</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Vista previa</value>
+  </data>
   <data name="Catalogue" xml:space="preserve">
     <value>Catálogo</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Hogar</value>
+  </data>
+  <data name="ScreensaverOn" xml:space="preserve">
+    <value>Lanzamiento después de 1 minuto</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>Mezcla 3 sonidos</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>Eliminar {0} de la lista activa</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>Configuración del tema</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} por mes</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>¡Gracias por suscribirse!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>¡Accede a sonidos premium y de alta calidad!</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>¡Creciente catálogo!</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>¡Apóyanos!</value>
   </data>
 </root>
