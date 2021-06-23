@@ -126,11 +126,16 @@ namespace AmbientSounds.Services.Uwp
         private void DownloadProgress(DownloadOperation download)
         {
             string resultFilePath = download.ResultFile.Path;
-            if (download.Progress.TotalBytesToReceive > 0 && 
-                _activeProgress.ContainsKey(resultFilePath))
+            if (download.Progress.TotalBytesToReceive > 0)
             {
                 double percent = download.Progress.BytesReceived * 100 / download.Progress.TotalBytesToReceive;
-                _dispatcherQueue.TryEnqueue(() => _activeProgress[resultFilePath].Report(percent));
+                _dispatcherQueue.TryEnqueue(() => 
+                {
+                    if (_activeProgress.ContainsKey(resultFilePath))
+                    {
+                        _activeProgress[resultFilePath].Report(percent);
+                    }
+                });
             }
         }
 

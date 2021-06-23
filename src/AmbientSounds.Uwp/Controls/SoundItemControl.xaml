@@ -56,8 +56,6 @@
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
 
-
-
             <Grid x:Name="ImageGrid" ui:VisualExtensions.NormalizedCenterPoint="0.5">
                 <ani:Implicit.Animations>
                     <ani:ScaleAnimation Duration="0:0:0.5" />
@@ -122,6 +120,16 @@
                 </Rectangle.Fill>
             </Rectangle>
 
+            <muxc:ProgressRing
+                x:Name="DownloadProgressRing"
+                Width="20"
+                Height="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                x:Load="{x:Bind ViewModel.DownloadActive, Mode=OneWay}"
+                Foreground="White"
+                IsIndeterminate="False"
+                Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
 
             <Grid
                 Margin="0,0,0,20"
