@@ -135,5 +135,15 @@ namespace AmbientSounds.Services
             DownloadsCompleted?.Invoke(this, EventArgs.Empty);
             _downloading = false;
         }
+
+        public bool IsDownloadActive(Sound s)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IProgress<double>? GetProgress(Sound s)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

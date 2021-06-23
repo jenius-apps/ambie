@@ -1,8 +1,11 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
+
+#nullable enable
 
 namespace AmbientSounds.Services.Uwp
 {
@@ -12,11 +15,12 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class WindowsDownloadManager : IDownloadManager
     {
+        private const string SoundsDirectory = "sounds";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IFileDownloader _fileDownloader;
         private readonly ISoundDataProvider _soundDataProvider;
 
-        public event EventHandler DownloadsCompleted;
+        public event EventHandler? DownloadsCompleted;
 
         public WindowsDownloadManager(
             IFileDownloader fileDownloader,
@@ -30,6 +34,20 @@ namespace AmbientSounds.Services.Uwp
             _fileDownloader = fileDownloader;
             _soundDataProvider = soundDataProvider;
             _onlineSoundDataProvider = onlineSoundDataProvider;
+        }
+
+        /// <inheritdoc/>
+        public bool IsDownloadActive(Sound s)
+        {
+            string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
+            return BackgroundDownloadService.Instance.IsDownloadActive(destinationPath);
+        }
+
+        /// <inheritdoc/>
+        public IProgress<double>? GetProgress(Sound s)
+        {
+            string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
+            return BackgroundDownloadService.Instance.GetProgress(destinationPath);
         }
 
         /// <inheritdoc/>
@@ -48,7 +66,7 @@ namespace AmbientSounds.Services.Uwp
                 s.Id);
 
             StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                $"sounds\\{s.Id + s.FileExtension}",
+                $"{SoundsDirectory}\\{s.Id + s.FileExtension}",
                 CreationCollisionOption.ReplaceExisting);
 
             BackgroundDownloadService.Instance.StartDownload(
@@ -72,6 +90,11 @@ namespace AmbientSounds.Services.Uwp
 
             await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
             DownloadsCompleted?.Invoke(this, EventArgs.Empty);
+        }
+
+        private string GetDestinationPath(string soundFileName)
+        {
+            return Path.Combine(ApplicationData.Current.LocalFolder.Path, SoundsDirectory, soundFileName);
         }
     }
 }
