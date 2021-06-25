@@ -62,7 +62,7 @@ namespace AmbientSounds.Services.Uwp
         {
             _activeDownloads = new Dictionary<string, DownloadOperation>();
 
-            IReadOnlyList<DownloadOperation>? downloads = null;
+            IReadOnlyList<DownloadOperation>? downloads;
             try
             {
                 downloads = await BackgroundDownloader.GetCurrentDownloadsAsync();
@@ -154,7 +154,7 @@ namespace AmbientSounds.Services.Uwp
             try
             {
                 // Store the download so we can pause/resume.
-                _activeDownloads.Add(download.ResultFile.Path, download);
+                _activeDownloads.TryAdd(download.ResultFile.Path, download);
 
                 Progress<DownloadOperation> progressCallback = new Progress<DownloadOperation>(DownloadProgress);
                 if (start)

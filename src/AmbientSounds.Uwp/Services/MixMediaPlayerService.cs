@@ -187,9 +187,9 @@ namespace AmbientSounds.Services.Uwp
                     var player = CreateLoopingPlayer();
                     player.Volume *= _globalVolume;
                     player.Source = mediaSource;
-                    _activePlayers.Add(sound.Id, player);
-                    _activeSoundDateTimes.Add(sound.Id, DateTimeOffset.Now);
-                    Screensavers.Add(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
+                    _activePlayers.TryAdd(sound.Id, player);
+                    _activeSoundDateTimes.TryAdd(sound.Id, DateTimeOffset.Now);
+                    Screensavers.TryAdd(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
 
                     if (keepPaused) Pause();
                     else Play();
