@@ -1,8 +1,11 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using Windows.Devices.Input;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
+using MUXC = Microsoft.UI.Xaml.Controls;
 
 #nullable enable
 
@@ -13,6 +16,11 @@ namespace AmbientSounds.Animations
     /// </summary>
     public static class SoundItemAnimations
     {
+        /// <summary>
+        /// The duration for the items reorder animations, in milliseconds.
+        /// </summary>
+        private const int ReorderAnimationDuration = 250;
+
         /// <summary>
         /// Scales item up equally in x and y axes according to given scale.
         /// </summary>
@@ -41,6 +49,31 @@ namespace AmbientSounds.Animations
         {
             var visual = ElementCompositionPreview.GetElementVisual(sender);
             visual.Scale = new Vector3(1);
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="ImplicitAnimationCollection"/> instance to animate the visual of items within a <see cref="MUXC.ItemsRepeater"/> control.
+        /// </summary>
+        /// <param name="itemsRepeater">The input <see cref="MUXC.ItemsRepeater"/> to create the animation for.</param>
+        /// <returns>A new <see cref="ImplicitAnimationCollection"/> instance to animate items within <paramref name="itemsRepeater"/>.</returns>
+        public static ImplicitAnimationCollection CreateReorderAnimationCollection(MUXC.ItemsRepeater itemsRepeater)
+        {
+            Compositor compositor = ElementCompositionPreview.GetElementVisual(itemsRepeater).Compositor;
+            Vector3KeyFrameAnimation offsetAnimation = compositor.CreateVector3KeyFrameAnimation();
+
+            offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            offsetAnimation.Duration = TimeSpan.FromMilliseconds(ReorderAnimationDuration);
+            offsetAnimation.Target = nameof(Visual.Offset);
+
+            CompositionAnimationGroup animationGroup = compositor.CreateAnimationGroup();
+
+            animationGroup.Add(offsetAnimation);
+
+            ImplicitAnimationCollection animationCollection = compositor.CreateImplicitAnimationCollection();
+
+            animationCollection[nameof(Visual.Offset)] = animationGroup;
+
+            return animationCollection;
         }
     }
 }

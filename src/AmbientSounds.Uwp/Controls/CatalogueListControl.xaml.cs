@@ -1,5 +1,8 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Animations;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.UI;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -18,6 +21,11 @@ namespace AmbientSounds.Controls
             typeof(CatalogueListControl),
             new PropertyMetadata(new Thickness(0, 0, 0, 0)));
 
+        /// <summary>
+        /// The <see cref="ImplicitAnimationCollection"/> instance to animate items being reordered.
+        /// </summary>
+        private readonly ImplicitAnimationCollection _reorderAnimationCollection;
+
         public CatalogueListControl()
         {
             this.InitializeComponent();
@@ -30,6 +38,8 @@ namespace AmbientSounds.Controls
             {
                 ViewModel.Dispose();
             };
+
+            _reorderAnimationCollection = SoundItemAnimations.CreateReorderAnimationCollection(SoundItemsRepeater);
         }
 
         public Thickness InnerMargin
@@ -40,10 +50,15 @@ namespace AmbientSounds.Controls
 
         public CatalogueListViewModel ViewModel => (CatalogueListViewModel)this.DataContext;
 
-        private void ItemsRepeater_ElementPrepared(WinUI.ItemsRepeater sender, WinUI.ItemsRepeaterElementPreparedEventArgs args)
+        private void ItemsRepeater_ElementPrepared(
+            WinUI.ItemsRepeater sender,
+            WinUI.ItemsRepeaterElementPreparedEventArgs args)
         {
             if (args.Element is Grid g && g.DataContext is CatalogueListViewModel vm)
             {
+                // Setup reorder animation
+                g.GetVisual().ImplicitAnimations = _reorderAnimationCollection;
+
                 var dataContext = vm.Sounds[args.Index];
                 var imageGrid = g.FindControl<Grid>("ImageGrid");
                 if (imageGrid.Background is ImageBrush brush)
@@ -57,7 +72,9 @@ namespace AmbientSounds.Controls
             }
         }
 
-        private void ItemsRepeater_ElementClearing(WinUI.ItemsRepeater sender, WinUI.ItemsRepeaterElementClearingEventArgs args)
+        private void ItemsRepeater_ElementClearing(
+            WinUI.ItemsRepeater sender,
+            WinUI.ItemsRepeaterElementClearingEventArgs args)
         {
             if (args.Element is Grid g)
             {
