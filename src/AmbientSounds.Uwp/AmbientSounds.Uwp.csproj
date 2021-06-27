@@ -152,6 +152,9 @@
     <Compile Include="Controls\MoreButton.xaml.cs">
       <DependentUpon>MoreButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NoPaddingDialog.xaml.cs">
+      <DependentUpon>NoPaddingDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PlayerControl.xaml.cs">
       <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
@@ -262,6 +265,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ambie_plus_banner.png" />
     <Content Include="Assets\Backgrounds\blisslike.png" />
     <Content Include="Assets\Backgrounds\gradient.png" />
     <Content Include="Assets\Backgrounds\water.png" />
@@ -382,6 +386,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MoreButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NoPaddingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

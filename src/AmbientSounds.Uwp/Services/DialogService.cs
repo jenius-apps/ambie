@@ -159,7 +159,7 @@ namespace AmbientSounds.Services.Uwp
 
             IsDialogOpen = true;
             var content = new PremiumControl();
-            var dialog = new ContentDialog()
+            var dialog = new NoPaddingDialog()
             {
                 RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
                 Content = content

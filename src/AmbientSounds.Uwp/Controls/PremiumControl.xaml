@@ -7,20 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    d:DesignHeight="300"
-    d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <UserControl.Resources />
+    <StackPanel Margin="0,0,0,20">
+        <Image Width="400" Source="ms-appx:///Assets/ambie_plus_banner.png" />
 
-    <StackPanel MaxWidth="300">
         <!--  Note: Ambie Plus is the brand name, so it doesn't need to be translated  -->
         <TextBlock
-            Margin="0,0,0,20"
+            MaxWidth="300"
+            Margin="0,20,0,20"
             FontSize="20"
             Text="Ambie Plus" />
 
-        <ItemsControl ItemsSource="{x:Bind SubscriptionTexts}">
+        <ItemsControl MaxWidth="300" ItemsSource="{x:Bind SubscriptionTexts}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="x:String">
                     <Grid Margin="0,0,0,4">
@@ -42,7 +41,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Grid Margin="0,24,0,0">
+        <Grid MaxWidth="300" Margin="0,24,0,0">
             <Button
                 Height="40"
                 HorizontalAlignment="Stretch"
