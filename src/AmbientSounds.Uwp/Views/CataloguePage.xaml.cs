@@ -42,13 +42,18 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            var navigator = SystemNavigationManager.GetForCurrentView();
+            navigator.BackRequested -= OnBackRequested;
+        }
+
+        private void GoBack()
+        {
             var animation = ConnectedAnimationService
                 .GetForCurrentView()
                 .PrepareToAnimate(AnimationConstants.CatalogueBack, CatalogueBackplate);
-            animation.Configuration = new DirectConnectedAnimationConfiguration();
+                animation.Configuration = new DirectConnectedAnimationConfiguration();
 
-            var navigator = SystemNavigationManager.GetForCurrentView();
-            navigator.BackRequested -= OnBackRequested;
+            ViewModel.GoBack();
         }
 
         private void UpdateBackgroundState()
