@@ -488,4 +488,21 @@
   <data name="ThemeSettings" xml:space="preserve">
     <value>主题设置</value>
   </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>每月 {0} </value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>感谢您的订阅！</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>享用高级优质音效！</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>促进音效库的扩充！</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>支持我们的开发！</value>
+  </data>
 </root>
