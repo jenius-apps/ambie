@@ -13,6 +13,7 @@
         <ScrollViewer>
             <muxc:ItemsRepeater
                 x:Uid="SoundsGridView"
+                x:Name="SoundsGridView"
                 Margin="{x:Bind InnerMargin, Mode=OneWay}"
                 ElementPrepared="{x:Bind OnElementPrepared}"
                 ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
