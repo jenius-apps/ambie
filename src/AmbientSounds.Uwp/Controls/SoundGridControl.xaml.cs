@@ -34,7 +34,7 @@ namespace AmbientSounds.Controls
         /// <summary>
         /// The <see cref="ImplicitAnimationCollection"/> instance to animate items being reordered.
         /// </summary>
-        private readonly ImplicitAnimationCollection _reorderAnimationCollection;
+        //private readonly ImplicitAnimationCollection _reorderAnimationCollection;
 
         public SoundGridControl()
         {
@@ -43,7 +43,7 @@ namespace AmbientSounds.Controls
             this.Loaded += async (_, _) => { await ViewModel.LoadCommand.ExecuteAsync(null); };
             this.Unloaded += (_, _) => { ViewModel.Dispose(); };
 
-            _reorderAnimationCollection = SoundItemAnimations.CreateReorderAnimationCollection(SoundsGridView);
+            //_reorderAnimationCollection = SoundItemAnimations.CreateReorderAnimationCollection(SoundsGridView);
         }
 
         public SoundListViewModel ViewModel => (SoundListViewModel)this.DataContext;
@@ -76,10 +76,11 @@ namespace AmbientSounds.Controls
         {
             if (sender.DataContext is SoundListViewModel listVm)
             {
-                if (args.Element is UIElement element)
-                {
-                    element.GetVisual().ImplicitAnimations = _reorderAnimationCollection;
-                }
+                // TODO: disabling until the "fly in from top left" bug is fixed in IR
+                //if (args.Element is UIElement element)
+                //{
+                //    element.GetVisual().ImplicitAnimations = _reorderAnimationCollection;
+                //}
 
                 if (args.Element is SoundItemControl c)
                 {

@@ -24,7 +24,7 @@ namespace AmbientSounds.Controls
         /// <summary>
         /// The <see cref="ImplicitAnimationCollection"/> instance to animate items being reordered.
         /// </summary>
-        private readonly ImplicitAnimationCollection _reorderAnimationCollection;
+        //private readonly ImplicitAnimationCollection _reorderAnimationCollection;
 
         public CatalogueListControl()
         {
@@ -39,7 +39,7 @@ namespace AmbientSounds.Controls
                 ViewModel.Dispose();
             };
 
-            _reorderAnimationCollection = SoundItemAnimations.CreateReorderAnimationCollection(SoundItemsRepeater);
+            //_reorderAnimationCollection = SoundItemAnimations.CreateReorderAnimationCollection(SoundItemsRepeater);
         }
 
         public Thickness InnerMargin
@@ -56,8 +56,9 @@ namespace AmbientSounds.Controls
         {
             if (args.Element is Grid g && g.DataContext is CatalogueListViewModel vm)
             {
+                // TODO: disabling until the "fly in from top left" bug is fixed in IR
                 // Setup reorder animation
-                g.GetVisual().ImplicitAnimations = _reorderAnimationCollection;
+                //g.GetVisual().ImplicitAnimations = _reorderAnimationCollection;
 
                 var dataContext = vm.Sounds[args.Index];
                 var imageGrid = g.FindControl<Grid>("ImageGrid");
