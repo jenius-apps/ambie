@@ -78,7 +78,10 @@ namespace AmbientSounds.Controls
             {
                 if (args.Element is UIElement element)
                 {
-                    element.GetVisual().ImplicitAnimations = _reorderAnimationCollection;
+                    Visual visual = ElementCompositionPreview.GetElementVisual(element);
+
+                    visual.ImplicitAnimations = _reorderAnimationCollection;
+                    visual.Opacity = 1;
                 }
 
                 if (args.Element is SoundItemControl c)
@@ -90,6 +93,61 @@ namespace AmbientSounds.Controls
                     l.ViewModel = listVm.Sounds[args.Index];
                 }
             }
+        }
+
+        private void SoundsGridView_ElementClearing(
+            MUXC.ItemsRepeater sender,
+            MUXC.ItemsRepeaterElementClearingEventArgs args)
+        {
+            if (args.Element is UIElement element)
+            {
+                Visual visual = ElementCompositionPreview.GetElementVisual(element);
+
+                visual.ImplicitAnimations = null;
+                visual.Opacity = 0;
+            }
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="ImplicitAnimationCollection"/> instance to animate the visual of items within a <see cref="MUXC.ItemsRepeater"/> control.
+        /// </summary>
+        /// <param name="itemsRepeater">The input <see cref="MUXC.ItemsRepeater"/> to create the animation for.</param>
+        /// <returns>A new <see cref="ImplicitAnimationCollection"/> instance to animate items within <paramref name="itemsRepeater"/>.</returns>
+        private static ImplicitAnimationCollection CreateReorderAnimationCollection(MUXC.ItemsRepeater itemsRepeater)
+        {
+            Compositor compositor = ElementCompositionPreview.GetElementVisual(itemsRepeater).Compositor;
+
+            CompositionAnimationGroup offsetAnimationGroup = compositor.CreateAnimationGroup();
+            Vector3KeyFrameAnimation offsetAnimation = compositor.CreateVector3KeyFrameAnimation();
+
+            offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            offsetAnimation.Duration = TimeSpan.FromMilliseconds(ReorderAnimationDuration);
+            offsetAnimation.Target = nameof(Visual.Offset);
+
+            offsetAnimationGroup.Add(offsetAnimation);
+
+            CompositionAnimationGroup opacityAnimationGroup = compositor.CreateAnimationGroup();
+            ScalarKeyFrameAnimation opacityAnimation = compositor.CreateScalarKeyFrameAnimation();
+
+            // Note: this is a temporary workaround to hide the initial incorrect offset animation caused by the
+            // ItemsRepeater control seemingly move items around from an undefined starting point when they're
+            // added back to the visual tree. This animation snaps the opacity to the final value (set from 0 to
+            // 1 when items are loaded) right before the final keyframe, which results in items remaining invisible
+            // for the entire duration of the animation. Since the length is the same as that of the visual animation,
+            // and then two values are set at roughly the same time, this effectively hides away the other animation.
+            opacityAnimation.InsertExpressionKeyFrame(0.999f, "this.StartingValue");
+            opacityAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            opacityAnimation.Duration = TimeSpan.FromMilliseconds(ReorderAnimationDuration);
+            opacityAnimation.Target = nameof(Visual.Opacity);
+
+            opacityAnimationGroup.Add(opacityAnimation);
+
+            ImplicitAnimationCollection animationCollection = compositor.CreateImplicitAnimationCollection();
+
+            animationCollection[nameof(Visual.Offset)] = offsetAnimationGroup;
+            animationCollection[nameof(Visual.Opacity)] = opacityAnimationGroup;
+
+            return animationCollection;
         }
     }
 }
