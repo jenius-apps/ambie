@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -46,7 +47,7 @@ namespace AmbientSounds.Views
             }
         }
 
-        private async void CloseCompactClicked()
+        private async void CloseCompactClicked(object sender, RoutedEventArgs e)
         {
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);

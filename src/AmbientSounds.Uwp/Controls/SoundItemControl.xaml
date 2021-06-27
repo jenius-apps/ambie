@@ -17,10 +17,10 @@
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
     AutomationProperties.PositionInSet="{x:Bind ViewModel.Position, Mode=OneWay}"
     AutomationProperties.SizeOfSet="{x:Bind ViewModel.SetSize, Mode=OneWay}"
-    GettingFocus="{x:Bind OnGettingFocus}"
+    GettingFocus="OnGettingFocus"
     IsTabStop="True"
-    KeyDown="{x:Bind OnControlKeyDown}"
-    LosingFocus="{x:Bind OnLosingFocus}"
+    KeyDown="OnControlKeyDown"
+    LosingFocus="OnLosingFocus"
     mc:Ignorable="d">
 
     <Grid x:Name="Root">

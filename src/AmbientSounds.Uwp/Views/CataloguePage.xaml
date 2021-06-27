@@ -39,7 +39,7 @@
                         Padding="12,0"
                         AutomationProperties.Name="{x:Bind strings:Resources.Home}"
                         Background="Transparent"
-                        Click="{x:Bind GoBack}"
+                        Click="GoBack"
                         Content="{x:Bind strings:Resources.Home}"
                         CornerRadius="20" />
                     <Grid x:Name="CatalogueBackplate" Margin="4,0,0,0">

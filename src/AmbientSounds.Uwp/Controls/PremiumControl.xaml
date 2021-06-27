@@ -47,8 +47,8 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 AutomationProperties.Name="{x:Bind Price}"
-                Click="{x:Bind OnPurchaseClicked}"
-                Loaded="{x:Bind OnPurchaseButtonLoaded}"
+                Click="OnPurchaseClicked"
+                Loaded="OnPurchaseButtonLoaded"
                 Style="{ThemeResource AccentButtonStyle}"
                 Visibility="{x:Bind local:UIHelper.InvertVisibility(ThanksTextVisible)}">
                 <Grid>

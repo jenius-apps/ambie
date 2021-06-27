@@ -75,5 +75,10 @@ namespace AmbientSounds.Views
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.GoBack(nameof(ScreensaverPage));
         }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            GoBack();
+        }
     }
 }

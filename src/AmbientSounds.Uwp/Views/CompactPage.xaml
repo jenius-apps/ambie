@@ -54,7 +54,7 @@
             <Button
                 x:Uid="CloseCompactMode"
                 Grid.Column="2"
-                Click="{x:Bind CloseCompactClicked}"
+                Click="CloseCompactClicked"
                 Style="{StaticResource TransparentRoundButtonStyle}">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB1E;" />
             </Button>

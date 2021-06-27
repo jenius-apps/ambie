@@ -90,7 +90,7 @@
                         Padding="12,0"
                         AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
                         Background="Transparent"
-                        Click="{x:Bind GoToCatalogue}"
+                        Click="GoToCatalogue"
                         Content="{x:Bind strings:Resources.Catalogue}"
                         CornerRadius="20" />
                 </StackPanel>

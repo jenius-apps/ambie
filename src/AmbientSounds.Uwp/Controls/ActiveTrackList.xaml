@@ -103,7 +103,7 @@
                 <winui:ItemsRepeater
                     x:Uid="ActiveTrackListView"
                     ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
-                    Loaded="{x:Bind OnListLoaded}"
+                    Loaded="OnListLoaded"
                     TabFocusNavigation="Local">
                     <winui:ItemsRepeater.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">

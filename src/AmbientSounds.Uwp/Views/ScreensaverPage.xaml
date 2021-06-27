@@ -16,7 +16,7 @@
             Margin="40,28,0,0"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
-            Click="{x:Bind GoBack}"
+            Click="GoBack"
             RequestedTheme="Dark"
             Style="{StaticResource RoundButtonStyle}"
             Visibility="{x:Bind ShowBackButton}">

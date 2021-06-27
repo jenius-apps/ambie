@@ -46,7 +46,7 @@ namespace AmbientSounds.Views
             navigator.BackRequested -= OnBackRequested;
         }
 
-        private void GoBack()
+        private void GoBack(object sender, RoutedEventArgs e)
         {
             var animation = ConnectedAnimationService
                 .GetForCurrentView()

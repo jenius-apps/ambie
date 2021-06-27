@@ -23,7 +23,7 @@
             Margin="0,12,0,0"
             HorizontalAlignment="Center"
             AutomationProperties.LabeledBy="{x:Bind SuggestionHeader}"
-            KeyDown="{x:Bind SuggestionBox_KeyDown}"
+            KeyDown="SuggestionBox_KeyDown"
             MaxLength="20"
             Text="{x:Bind ViewModel.Suggestion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <Grid Height="40" Margin="0,12,0,0">

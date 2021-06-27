@@ -12,10 +12,10 @@
     <Grid>
         <ScrollViewer>
             <muxc:ItemsRepeater
-                x:Uid="SoundsGridView"
                 x:Name="SoundsGridView"
+                x:Uid="SoundsGridView"
                 Margin="{x:Bind InnerMargin, Mode=OneWay}"
-                ElementPrepared="{x:Bind OnElementPrepared}"
+                ElementPrepared="OnElementPrepared"
                 ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
                 Layout="{x:Bind Layout, Mode=OneWay}"

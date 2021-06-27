@@ -49,12 +49,12 @@ namespace AmbientSounds.Controls
             request.Data.Properties.Description = "Ambie";
         }
 
-        private void ShareClicked()
+        private void ShareClicked(object sender, RoutedEventArgs e)
         {
             DataTransferManager.ShowShareUI();
         }
 
-        private void ScreensaverClicked()
+        private void ScreensaverClicked(object sender, RoutedEventArgs e)
         {
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
@@ -72,22 +72,22 @@ namespace AmbientSounds.Controls
             await storeContext.RequestRateAndReviewAppAsync();
         }
 
-        private async void DiscordClicked()
+        private async void DiscordClicked(object sender, RoutedEventArgs e)
         {
             await LaunchAsync(UwpDiscord);
         }
 
-        private async void ContactClicked()
+        private async void ContactClicked(object sender, RoutedEventArgs e)
         {
             await LaunchAsync(Contact);
         }
 
-        private async void GithubClicked()
+        private async void GithubClicked(object sender, RoutedEventArgs e)
         {
             await LaunchAsync(Github);
         }
 
-        private async void TranslationClicked()
+        private async void TranslationClicked(object sender, RoutedEventArgs e)
         {
             await LaunchAsync(Translations);
         }
@@ -104,7 +104,7 @@ namespace AmbientSounds.Controls
             catch { }
         }
 
-        private async void SettingsClicked()
+        private async void SettingsClicked(object sender, RoutedEventArgs e)
         {
             var dialogService = App.Services.GetRequiredService<IDialogService>();
             await dialogService.OpenSettingsAsync();
