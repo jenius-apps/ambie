@@ -16,6 +16,7 @@
                 x:Uid="SoundsGridView"
                 Margin="{x:Bind InnerMargin, Mode=OneWay}"
                 ElementPrepared="OnElementPrepared"
+                ElementClearing="SoundsGridView_ElementClearing"
                 ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                 ItemsSource="{x:Bind ViewModel.Sounds}"
                 Layout="{x:Bind Layout, Mode=OneWay}"
