@@ -47,13 +47,13 @@
                                 <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
                                 <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
                             </Grid.Resources>
-                            <!--<ani:Implicit.ShowAnimations>
+                            <ani:Implicit.ShowAnimations>
                                 <ani:OpacityAnimation
                                     Delay="0:0:0.5"
                                     From="0"
                                     To="1"
                                     Duration="0:0:1" />
-                            </ani:Implicit.ShowAnimations>-->
+                            </ani:Implicit.ShowAnimations>
 
                             <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
                                 <Rectangle
