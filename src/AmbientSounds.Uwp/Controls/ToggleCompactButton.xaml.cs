@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -14,6 +15,8 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
         }
+
+        private string ToolTip => ResourceLoader.GetForCurrentView().GetString("MoreButtonCompact/AutomationProperties/Name");
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

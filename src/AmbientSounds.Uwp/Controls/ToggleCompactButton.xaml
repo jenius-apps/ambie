@@ -10,9 +10,11 @@
     mc:Ignorable="d">
 
     <Button
+        x:Name="CompactButton"
         x:Uid="MoreButtonCompact"
         Click="Button_Click"
-        Style="{StaticResource TransparentRoundButtonStyle}">
+        Style="{StaticResource TransparentRoundButtonStyle}"
+        ToolTipService.ToolTip="{x:Bind ToolTip}">
         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB1E;" />
     </Button>
 </UserControl>

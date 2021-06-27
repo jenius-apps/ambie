@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -42,12 +41,11 @@ namespace AmbientSounds.Services.Uwp
                 return;
 
             IsDialogOpen = true;
-            var resources = ResourceLoader.GetForCurrentView();
             var dialog = new ContentDialog()
             {
                 RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Title = resources.GetString("SettingsText"),
-                CloseButtonText = resources.GetString("CloseText"),
+                Title = Strings.Resources.SettingsText,
+                CloseButtonText = Strings.Resources.CloseText,
                 Content = new SettingsControl()
             };
 
@@ -73,12 +71,11 @@ namespace AmbientSounds.Services.Uwp
                 return;
 
             IsDialogOpen = true;
-            var resources = ResourceLoader.GetForCurrentView();
             var dialog = new ContentDialog()
             {
                 RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Title = resources.GetString("SettingsText"),
-                CloseButtonText = resources.GetString("CloseText"),
+                Title = Strings.Resources.ThemeSettings,
+                CloseButtonText = Strings.Resources.CloseText,
                 Content = new ThemeSettings()
             };
 
@@ -103,14 +100,13 @@ namespace AmbientSounds.Services.Uwp
                 return currentName;
 
             IsDialogOpen = true;
-            var resources = ResourceLoader.GetForCurrentView();
             var inputBoxControl = new RenameInputBox() { Input = currentName };
             bool enterClicked = false;
             var dialog = new ContentDialog()
             {
-                Title = resources.GetString("RenameText"),
-                CloseButtonText = resources.GetString("CancelText"),
-                PrimaryButtonText = resources.GetString("RenameText"),
+                Title = Strings.Resources.RenameText,
+                CloseButtonText = Strings.Resources.CancelText,
+                PrimaryButtonText = Strings.Resources.RenameText,
                 Content = inputBoxControl
             };
             inputBoxControl.EnterClicked += (s, e) => { dialog.Hide(); enterClicked = true; };
@@ -128,16 +124,15 @@ namespace AmbientSounds.Services.Uwp
                 return new List<string>();
 
             IsDialogOpen = true;
-            var resources = ResourceLoader.GetForCurrentView();
 
             var content = new ShareResultsControl();
             content.LoadSoundsAsync(soundIds);
 
             var dialog = new ContentDialog()
             {
-                Title = resources.GetString("MissingSoundsTitle"),
-                CloseButtonText = resources.GetString("CancelText"),
-                PrimaryButtonText = resources.GetString("PlayerPlayText"),
+                Title = Strings.Resources.MissingSoundsTitle,
+                CloseButtonText = Strings.Resources.CancelText,
+                PrimaryButtonText = Strings.Resources.PlayerPlayText,
                 Content = content
             };
 

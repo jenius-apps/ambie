@@ -106,7 +106,8 @@
                     Margin="4,0,0,0"
                     AutomationProperties.Name="{x:Bind strings:Resources.ThemeSettings}"
                     Click="{x:Bind ViewModel.OpenThemeSettings}"
-                    Style="{StaticResource TransparentRoundButtonStyle}">
+                    Style="{StaticResource TransparentRoundButtonStyle}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.ThemeSettings}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C0;" />
                 </Button>
                 <controls:MoreButton Margin="4,0,0,0" />
