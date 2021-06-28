@@ -1,12 +1,20 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
+using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
-using AmbientSounds.Constants;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Client.Extensibility;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.AppService;
+using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
+using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -14,14 +22,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using System.Threading.Tasks;
-using System.Net.Http;
-using AmbientSounds.Factories;
-using Windows.ApplicationModel.AppService;
-using Windows.ApplicationModel.Background;
-using Windows.Foundation.Collections;
-using Windows.ApplicationModel;
-using Microsoft.Identity.Client.Extensibility;
 
 #nullable enable
 
@@ -310,9 +310,9 @@ namespace AmbientSounds
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
-                .AddSingleton<IUserSettings, LocalSettings>() 
+                .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<IShareLinkBuilder, ShareLinkBuilder>()
-                .AddSingleton<ITimerService, TimerService>()
+                .AddTransient<ITimerService, TimerService>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
                 .AddSingleton<ILinkProcessor, LinkProcessor>()
