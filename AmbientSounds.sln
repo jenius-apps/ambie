@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds", "src\Ambien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds.Web", "src\AmbientSounds.Web\AmbientSounds.Web.csproj", "{7816F10F-CF63-4E0E-8186-D51E146EDE2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds.Tests", "AmbientSounds.Tests\AmbientSounds.Tests.csproj", "{190FE594-FDCE-4707-B01C-EE7C39C541F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Tests", "AmbientSounds.Tests\AmbientSounds.Tests.csproj", "{190FE594-FDCE-4707-B01C-EE7C39C541F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,8 +26,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B0BA021E-FA43-4921-A25A-0004A43F7C40}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{B0BA021E-FA43-4921-A25A-0004A43F7C40}.Debug|Any CPU.Build.0 = Debug|x86
-		{B0BA021E-FA43-4921-A25A-0004A43F7C40}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{B0BA021E-FA43-4921-A25A-0004A43F7C40}.Debug|ARM.ActiveCfg = Debug|ARM
 		{B0BA021E-FA43-4921-A25A-0004A43F7C40}.Debug|ARM.Build.0 = Debug|ARM
 		{B0BA021E-FA43-4921-A25A-0004A43F7C40}.Debug|ARM.Deploy.0 = Debug|ARM
