@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -10,6 +11,7 @@ namespace AmbientSounds.Controls
     public sealed partial class PremiumControl : UserControl
     {
         private readonly IIapService _iapService;
+        private readonly ITelemetry _telemetry;
 
         public event EventHandler CloseRequested;
 
@@ -17,6 +19,7 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             _iapService = App.Services.GetRequiredService<IIapService>();
+            _telemetry = App.Services.GetRequiredService<ITelemetry>();
             SubscriptionTexts = new string[]
             {
                 Strings.Resources.SubscriptionText1,
@@ -40,6 +43,10 @@ namespace AmbientSounds.Controls
 
             bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId);
             ThanksTextVisible = purchaseSuccessful;
+            _telemetry.TrackEvent(TelemetryConstants.SubscribeClicked, new Dictionary<string, string>() 
+            {
+                { "purchased", purchaseSuccessful.ToString() }
+            });
 
             ButtonLoading = false;
             this.Bindings.Update();

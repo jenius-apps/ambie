@@ -13,6 +13,7 @@
         public const string CatalogueDeleteClicked = Catalogue + "deleteClicked";
         public const string PreviewClicked = Catalogue + "previewClicked";
         public const string BuyClicked = Catalogue + "buyClicked";
+        public const string SubscribeClicked = Catalogue + "subscribeClicked";
 
         // gallery
         private const string Gallery = "gallery:";
