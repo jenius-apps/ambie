@@ -306,13 +306,15 @@ namespace AmbientSounds
                 // object tree is all transient
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IImagePicker, ImagePicker>()
+                // Must be transient because this is basically
+                // a timer factory.
+                .AddTransient<ITimerService, TimerService>()
                 // exposes events or object tree has singleton, so singleton.
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<IShareLinkBuilder, ShareLinkBuilder>()
-                .AddTransient<ITimerService, TimerService>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
                 .AddSingleton<ILinkProcessor, LinkProcessor>()
