@@ -202,8 +202,14 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private async Task PlayAsync()
         {
-            if (IsCurrentlyPlaying || DownloadActive)
+            if (DownloadActive)
             {
+                return;
+            }
+
+            if (IsCurrentlyPlaying)
+            {
+                _playerService.RemoveSound(_sound.Id);
                 return;
             }
 
