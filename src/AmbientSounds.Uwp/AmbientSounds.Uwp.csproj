@@ -581,6 +581,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.de-DE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-ES.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.hr-HR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.hu-HU.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.it-IT.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ja-JP.xlf" />
@@ -630,6 +631,9 @@
   <ItemGroup>
     <PRIResource Include="Strings\ta\Resources.resw" />
   </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\hr-HR\Resources.resw" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
@@ -638,7 +642,7 @@
   <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.PriResources.targets')" Label="MultilingualAppToolkit">
     <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
