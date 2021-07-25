@@ -85,7 +85,7 @@
     <value>Pozastavit zvuk</value>
   </data>
   <data name="PlayerPlayText" xml:space="preserve">
-    <value>Spustit zvuk</value>
+    <value>Přehrát zvuk</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Spustit časovač</value>
@@ -184,7 +184,7 @@
     <value>Vysavač</value>
   </data>
   <data name="Soundthunder" xml:space="preserve">
-    <value>Hrom</value>
+    <value>Bouřka</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Oznámení</value>
@@ -192,13 +192,280 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Vítr</value>
   </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Vrátit se zpět</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Stáhnout zvuk</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Stáhnout zvuk</value>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Může být stáhnut</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Katalog zvuků</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Zvuky</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Zásady ochrany osobních údajů</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Zásady ochrany osobních údajů</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Smazat zvuk</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Smazat</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Stáhnout</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Smazat</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Přehrát náhodný zvuk</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Přehrát náhodný zvuk</value>
+  </data>
+  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+    <value>Spořič obrazovky</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>Spořič obrazovky</value>
+  </data>
+  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
+    <value>Použít tmavou stránku jako spořič obrazovky</value>
+  </data>
+  <data name="Hours2Button.Label" xml:space="preserve">
+    <value>2 hodiny</value>
+  </data>
+  <data name="Hours4Button.Label" xml:space="preserve">
+    <value>4 hodiny</value>
+  </data>
+  <data name="Hours8Button.Label" xml:space="preserve">
+    <value>8 hodin</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Nakoupit zvuk</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Přehrát ukázku zvuku</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Přehrát ukázku zvuku</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Zastaven</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Přehrává se</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Hlasitost zvuku</value>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>Aktivní zvuky</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Vymazat všechny aktivní zvuky</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vyprázdnit seznam aktivních zvuků</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Potvrdit uložení</value>
+  </data>
+  <data name="LimitReachedMessage.Text" xml:space="preserve">
+    <value>Odstraňte zvuk za účelem vytvoření místa pro jiný zvuk.</value>
+  </data>
+  <data name="LimitReachedTitle.Text" xml:space="preserve">
+    <value>Dosáhli jste limitu!</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>Název zvukového mixu</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>Volitelné</value>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Uložit vlastní zvukový mix</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Uložit vlastní zvukový mix (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Zrušit</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Přejmenovat</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Přejmenovat</value>
+  </data>
+  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+    <value>Kompaktní režim</value>
+  </data>
+  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Sdílet odkaz na mix zvuku</value>
+  </data>
+  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Sdílet odkaz na zvukový mix</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Chybějící zvuky</value>
+  </data>
+  <data name="ShareResultsMessage.Text" xml:space="preserve">
+    <value>Chybí vám nějaké zvuky! Můžete si je stáhnout zde, a pak si je můžete přehrát až budete připraveni.</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Odhlásit se</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Tohle vám umožní synchronizovat zvukovou galerii napříč vámi využívanými zařízeními. A také můžete nahrát vlastní zvuky.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Zobrazit možnosti účtu</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Zobrazit možnosti účtu</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Přihlásit se</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Přihlásit se</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>Synchronizovat</value>
+  </data>
+  <data name="MoreButtonUpload.Label" xml:space="preserve">
+    <value>Nahrát zvuky</value>
+  </data>
+  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Nahrané zvuky</value>
+  </data>
   <data name="Soundbeach" xml:space="preserve">
     <value>Pláže</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Procházet</value>
+  </data>
+  <data name="ImageUrl" xml:space="preserve">
+    <value>URL obrázku</value>
+  </data>
+  <data name="PathToSound" xml:space="preserve">
+    <value>Cesta ke zvuku</value>
+  </data>
+  <data name="UploadSubmitButton" xml:space="preserve">
+    <value>Nahrát zvuk</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>Nový zvuk</value>
+  </data>
+  <data name="PublishStateUnderReview" xml:space="preserve">
+    <value>Probíhá revize</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Aktualizovat</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="UploadPlaceholderMessage" xml:space="preserve">
+    <value>Nahrajte relaxující zvuky do katalogu Ambie a umožněte ostatním poslouchat vaše zvuky!</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Přihlásit se</value>
+  </data>
+  <data name="UploadTermsMessage" xml:space="preserve">
+    <value>Souhlasím s podmínkami použití</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Jste si jistí?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ano</value>
+  </data>
+  <data name="DonateUrl" xml:space="preserve">
+    <value>URL pro darování</value>
+  </data>
+  <data name="UploadPermissionsMessage" xml:space="preserve">
+    <value>Vytvořil jsem tento zvuk nebo mám povolení ho nahrát</value>
+  </data>
+  <data name="ErrorBigFile" xml:space="preserve">
+    <value>Nahráli jste příliš velký soubor! Zkuste znovu se souborem, který je menší než {0} MB.</value>
+  </data>
+  <data name="ErrorUploadCount" xml:space="preserve">
+    <value>Dosáhli jste limitu! Můžete mít jen {0} zvuků.</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Darovat</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Podmínky použití</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Sledujte nás na Twitteru</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Děkujeme za vyzkoušení Ambie. Pro snazší používání si můžete tuto aplikaci připnout na hlavní panel! Doufáme, že si užijete váš relaxující pobyt 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Zdravíme a vítejte!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Připnout na hlavní panel</value>
+  </data>
+  <data name="Transparency" xml:space="preserve">
+    <value>Transparentnost</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Náhled</value>
   </data>
   <data name="Catalogue" xml:space="preserve">
     <value>Katalog</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Domov</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>Mixujte a spojujte až 3 zvuky</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>Odstranit {0} z listu aktivních zvuků</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>Nastavení motivu aplikace</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} každý měsíc</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>Děkujeme za předplacení!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>Získejte přístup k prémiovým zvukům s vysokou kvalitou!</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>Rostoucí katalog!</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>Podpořte vývoj!</value>
   </data>
 </root>
