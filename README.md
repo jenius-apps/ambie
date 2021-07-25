@@ -2,10 +2,9 @@
 <img src="https://raw.githubusercontent.com/jenius-apps/ambie/main/images/logo_transparent.png" width="250">
 
 
-A modern Windows app that plays soothing tones to help you be healthier, happier, and more relaxed.
+### A modern Windows app that plays soothing tones to help you be healthier, happier, and more relaxed.
 
-
-Download from store: https://www.microsoft.com/store/productId/9P07XNM5CHP0
+<a href="https://www.microsoft.com/store/productId/9P07XNM5CHP0"> <img src="https://camo.githubusercontent.com/3710844608ef5f15f9a7b5b33989ab74369d49b2f39a457632b092d12e48a8c2/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f662f66372f4765745f69745f66726f6d5f4d6963726f736f66745f42616467652e737667" width="200px" height="100px"></a>
 
 Chat about Ambie on Discord: https://discord.gg/b9z3BeXk3D
 
