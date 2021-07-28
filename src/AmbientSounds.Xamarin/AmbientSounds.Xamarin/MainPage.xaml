@@ -3,33 +3,11 @@
     x:Class="AmbientSounds.Xamarin.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Name="RootPage"
-    BackgroundColor="Blue">
+    xmlns:views="clr-namespace:AmbientSounds.Xamarin.Views"
+    x:Name="RootPage">
 
     <TabbedPage.Children>
-        <ContentPage Title="Home" BackgroundColor="Transparent">
-            <StackLayout Margin="0,40,0,0">
-                <Label
-                    Padding="30,10,30,10"
-                    FontSize="Title"
-                    Text="Start asfd now" />
-                <Label
-                    Padding="30,0,30,0"
-                    FontSize="16"
-                    Text="Make changeskjhkjh to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" />
-                <Label Padding="30,24,30,0" FontSize="16">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at " />
-                                <Span FontAttributes="Bold" Text="https://aka.ms/xamarin-quickstart" />
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </StackLayout>
-
-        </ContentPage>
+        <views:HomePage Title="Home" />
         <ContentPage Title="Catalogue" />
     </TabbedPage.Children>
 </TabbedPage>
