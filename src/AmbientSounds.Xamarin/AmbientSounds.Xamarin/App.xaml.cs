@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AmbientSounds.Services;
+using AmbientSounds.Services.Xamarin;
+using AmbientSounds.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +18,7 @@ namespace AmbientSounds.Xamarin
 
         protected override void OnStart()
         {
+            RegisterDependencies();
         }
 
         protected override void OnSleep()
@@ -27,6 +31,8 @@ namespace AmbientSounds.Xamarin
 
         private void RegisterDependencies()
         {
+            DependencyService.Register<ShellPageViewModel>();
+            DependencyService.Register<IUserSettings, UserSettings>();
         }
     }
 }

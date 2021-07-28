@@ -3,7 +3,8 @@
     x:Class="AmbientSounds.Xamarin.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="Blue">
+    BackgroundColor="Blue"
+    BindingContext="{x:Reference ViewModel}">
 
     <TabbedPage.Children>
         <ContentPage Title="Home" BackgroundColor="Transparent">

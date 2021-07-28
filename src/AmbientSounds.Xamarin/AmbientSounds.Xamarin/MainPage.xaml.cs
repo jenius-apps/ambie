@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace AmbientSounds.Xamarin
         public MainPage()
         {
             InitializeComponent();
+            ViewModel = DependencyService.Resolve<ShellPageViewModel>();
         }
+
+        public ShellPageViewModel ViewModel { get; }
     }
 }
