@@ -24,5 +24,9 @@ namespace AmbientSounds.Xamarin
         protected override void OnResume()
         {
         }
+
+        private void RegisterDependencies()
+        {
+        }
     }
 }
