@@ -14,9 +14,9 @@ namespace AmbientSounds.Xamarin
         public MainPage()
         {
             InitializeComponent();
-            ViewModel = DependencyService.Resolve<ShellPageViewModel>();
+            BindingContext = DependencyService.Resolve<ShellPageViewModel>();
         }
 
-        public ShellPageViewModel ViewModel { get; }
+        public ShellPageViewModel ViewModel => (ShellPageViewModel)BindingContext;
     }
 }
