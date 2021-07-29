@@ -453,8 +453,8 @@
           <target state="new">Sign out</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
-          <target state="new">This will enable sound gallery sync across your devices. And you can upload sounds.</target>
+          <source>This will enable sound gallery sync across your devices.</source>
+          <target state="new">This will enable sound gallery sync across your devices.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
@@ -667,6 +667,14 @@
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development!</source>
           <target state="new">Support development!</target>
+        </trans-unit>
+        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
+          <source>Hello again 👋🏽</source>
+          <target state="new">Hello again 👋🏽</target>
+        </trans-unit>
+        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
+          <source>Enjoying Ambie? Please consider rating us!</source>
+          <target state="new">Enjoying Ambie? Please consider rating us!</target>
         </trans-unit>
       </group>
     </body>

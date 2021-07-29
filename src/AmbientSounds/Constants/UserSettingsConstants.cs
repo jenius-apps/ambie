@@ -9,6 +9,12 @@ namespace AmbientSounds.Constants
     public static class UserSettingsConstants
     {
         /// <summary>
+        /// Key to remember if the user has rated the app
+        /// for this installation.
+        /// </summary>
+        public const string HasRated = "HasRated";
+
+        /// <summary>
         /// Key to remember the user's background image.
         /// </summary>
         public const string BackgroundImage = "BackgroundImagePath";
@@ -84,7 +90,8 @@ namespace AmbientSounds.Constants
             { CurrentUserId, string.Empty },
             { CurrentUserProviderId, string.Empty },
             { Theme, "default" },
-            { BackgroundImage, string.Empty }
+            { BackgroundImage, string.Empty },
+            { HasRated, false }
         };
     }
 }

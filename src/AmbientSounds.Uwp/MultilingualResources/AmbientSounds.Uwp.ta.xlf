@@ -381,8 +381,9 @@
           <target state="translated">வெளியேறு</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
-          <target state="translated">இது உங்கள் எல்லா சாதனங்களிலும் ஒலி தொகுப்பை ஒத்திசையும். மற்றும் நீங்கள் ஒலிகளைப் பதிவேற்றம் செய்யலாம். </target>
+          <source>This will enable sound gallery sync across your devices.</source>
+          <target state="needs-review-translation">இது உங்கள் எல்லா சாதனங்களிலும் ஒலி தொகுப்பை ஒத்திசையும். மற்றும் நீங்கள் ஒலிகளைப் பதிவேற்றம் செய்யலாம். </target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
@@ -659,6 +660,14 @@
           <source>Thank you for subscribing!</source>
           <target state="translated">சந்தாசேர்ந்ததற்கு நன்றி!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
+        </trans-unit>
+        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
+          <source>Hello again 👋🏽</source>
+          <target state="new">Hello again 👋🏽</target>
+        </trans-unit>
+        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
+          <source>Enjoying Ambie? Please consider rating us!</source>
+          <target state="new">Enjoying Ambie? Please consider rating us!</target>
         </trans-unit>
       </group>
     </body>

@@ -407,7 +407,7 @@ namespace AmbientSounds.Strings{
 
         #region SignInDescriptionText
         /// <summary>
-        ///   Looks up a localized string similar to: This will enable sound gallery sync across your devices. And you can upload sounds.
+        ///   Looks up a localized string similar to: This will enable sound gallery sync across your devices.
         /// </summary>
         public static string SignInDescriptionText
         {
@@ -976,6 +976,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region HelloAgain
+        /// <summary>
+        ///   Looks up a localized string similar to: Hello again 👋🏽
+        /// </summary>
+        public static string HelloAgain
+        {
+            get
+            {
+                return _resourceLoader.GetString("HelloAgain");
+            }
+        }
+        #endregion
+
+        #region RateUsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Enjoying Ambie? Please consider rating us!
+        /// </summary>
+        public static string RateUsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("RateUsMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1061,6 +1087,8 @@ namespace AmbientSounds.Strings{
             SubscriptionText2,
             SubscriptionText3,
             ThankYouForSub,
+            HelloAgain,
+            RateUsMessage,
         }
 
         private static ResourceLoader _resourceLoader;

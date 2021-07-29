@@ -452,7 +452,7 @@
     <value>Sign out</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>This will enable sound gallery sync across your devices. And you can upload sounds.</value>
+    <value>This will enable sound gallery sync across your devices.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>View account options</value>
@@ -609,5 +609,11 @@
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Thank you for subscribing!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Hello again 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Enjoying Ambie? Please consider rating us!</value>
   </data>
 </root>

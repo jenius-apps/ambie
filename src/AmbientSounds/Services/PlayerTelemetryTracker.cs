@@ -2,6 +2,7 @@
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AmbientSounds.Services
 {
@@ -59,17 +60,13 @@ namespace AmbientSounds.Services
                 {
                     roundedDiff = $"{((int)Math.Round(diff.TotalMinutes / 10.0)) * 10} min";
                 }
-                else if (diff <= TimeSpan.FromHours(8))
+                else if (diff < TimeSpan.FromDays(2))
                 {
                     roundedDiff = $"{Math.Round(diff.TotalHours)} hrs";
                 }
-                else if (diff < TimeSpan.FromDays(1))
-                {
-                    roundedDiff = "<24 hrs";
-                }
                 else
                 {
-                    roundedDiff = ">24 hrs";
+                    roundedDiff = ">48 hrs";
                 }
 
                 return roundedDiff;
@@ -91,12 +88,14 @@ namespace AmbientSounds.Services
             }
 
             string roundedDiff = GetRoundedDiff(pauseTime - PlayStart);
+            string ids = string.Join(",", _mixMediaPlayerService.GetActiveIds().OrderBy(static x => x));
 
             if (!string.IsNullOrWhiteSpace(roundedDiff))
             {
                 _telemetry.TrackEvent(TelemetryConstants.PlaybackTime, new Dictionary<string, string>
                 {
-                    { "time", roundedDiff }
+                    { "time", roundedDiff },
+                    { "ids",  ids }
                 });
             }
 

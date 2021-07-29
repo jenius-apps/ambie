@@ -447,7 +447,7 @@
           <target state="translated">Cerrar sesión</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
+          <source>This will enable sound gallery sync across your devices.</source>
           <target state="needs-review-translation">Esto habilitará la sincronización de la galería de sonidos entre dispositivos.</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
@@ -662,6 +662,14 @@
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development!</source>
           <target state="translated">¡Apóyanos!</target>
+        </trans-unit>
+        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
+          <source>Hello again 👋🏽</source>
+          <target state="translated">Hola de nuevo 👋🏽</target>
+        </trans-unit>
+        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
+          <source>Enjoying Ambie? Please consider rating us!</source>
+          <target state="translated">¿Disfrutando de Ambie? ¡Considere calificarnos!</target>
         </trans-unit>
       </group>
     </body>
