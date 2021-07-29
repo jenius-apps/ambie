@@ -14,8 +14,7 @@ namespace AmbientSounds.Services
 
         public AppCenterTelemetry(
             IUserSettings userSettings,
-            IAppSettings appSettings,
-            ISystemInfoProvider systemInfoProvider)
+            IAppSettings appSettings)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             _userSettings = userSettings;
