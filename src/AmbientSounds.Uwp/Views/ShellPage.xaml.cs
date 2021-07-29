@@ -43,6 +43,7 @@ namespace AmbientSounds.Views
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
+            ViewModel.IsRatingMessageVisible = false;
             var storeContext = StoreContext.GetDefault();
             await storeContext.RequestRateAndReviewAppAsync();
             App.Services.GetRequiredService<IUserSettings>().Set(
