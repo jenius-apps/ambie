@@ -3,6 +3,7 @@ using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
+using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client.Extensibility;
 using Microsoft.Toolkit.Diagnostics;
@@ -15,6 +16,7 @@ using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -332,13 +334,17 @@ namespace AmbientSounds
                 .AddSingleton<IIapService, StoreService>()
                 .AddSingleton<IDownloadManager, WindowsDownloadManager>()
                 .AddSingleton<IScreensaverService, ScreensaverService>()
-                .AddSingleton<ITelemetry, AppCentreTelemetry>()
+                .AddSingleton<ITelemetry, AppCenterTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
                 .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .AddSingleton(appsettings ?? new AppSettings())
                 .BuildServiceProvider(true);
+
+            // preload telemetry to ensure country code is set.
+            provider.GetService<ITelemetry>();
+            AppCenter.SetCountryCode(new GeographicRegion().CodeTwoLetter);
 
             // preload appservice controller to ensure its
             // dispatcher queue loads properly on the ui thread.

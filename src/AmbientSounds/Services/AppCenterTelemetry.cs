@@ -5,26 +5,21 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
-using Windows.Globalization;
 
-#nullable enable
-
-namespace AmbientSounds.Services.Uwp
+namespace AmbientSounds.Services
 {
-    /// <summary>
-    /// Telemetry service for app centre.
-    /// </summary>
-    public class AppCentreTelemetry : ITelemetry
+    public class AppCenterTelemetry : ITelemetry
     {
         private readonly IUserSettings _userSettings;
 
-        public AppCentreTelemetry(
+        public AppCenterTelemetry(
             IUserSettings userSettings,
-            IAppSettings appSettings)
+            IAppSettings appSettings,
+            ISystemInfoProvider systemInfoProvider)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             _userSettings = userSettings;
-            AppCenter.SetCountryCode(new GeographicRegion().CodeTwoLetter);
+
             AppCenter.Start(appSettings.TelemetryApiKey, typeof(Analytics), typeof(Crashes));
         }
 
