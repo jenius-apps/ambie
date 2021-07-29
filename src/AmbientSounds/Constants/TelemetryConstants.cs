@@ -74,6 +74,8 @@
         private const string Oobe = "oobe:";
         public const string PinnedToTaskbar = Oobe + "pinnedToTaskbar";
         public const string LaunchMessageShown = Oobe + "launchMessageShown";
+        public const string RatingMessageShown = Oobe + "ratingMessageShown";
+        public const string OobeRateUsClicked = Oobe + "rateUsClicked";
 
         // theme
         private const string Theme = "theme:";

@@ -48,6 +48,7 @@ namespace AmbientSounds.Views
             App.Services.GetRequiredService<IUserSettings>().Set(
                 UserSettingsConstants.HasRated,
                 true);
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsClicked);
         }
     }
 }

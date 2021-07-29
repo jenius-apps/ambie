@@ -12,16 +12,22 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IUserSettings _userSettings;
         private readonly ITimerService _ratingTimer;
+        private readonly ITelemetry _telemetry;
         private bool _isRatingMessageVisible;
 
         public ShellPageViewModel(
             IUserSettings userSettings,
-            ITimerService timer)
+            ITimerService timer,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
+
             _userSettings = userSettings;
             _ratingTimer = timer;
+            _telemetry = telemetry;
+
             _userSettings.SettingSet += OnSettingSet;
 
             if (!_userSettings.Get<bool>(UserSettingsConstants.HasRated))
@@ -61,6 +67,7 @@ namespace AmbientSounds.ViewModels
             _ratingTimer.Stop();
             _ratingTimer.IntervalElapsed -= OnIntervalLapsed;
             IsRatingMessageVisible = true;
+            _telemetry.TrackEvent(TelemetryConstants.RatingMessageShown);
         }
 
         private void OnSettingSet(object sender, string settingsKey)
