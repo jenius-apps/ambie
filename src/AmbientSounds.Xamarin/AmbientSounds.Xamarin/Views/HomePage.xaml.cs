@@ -10,6 +10,7 @@ namespace AmbientSounds.Xamarin.Views
         public HomePage()
         {
             InitializeComponent();
+            BindingContext = DependencyService.Resolve<MainPageViewModel>();
         }
     }
 }

@@ -33,6 +33,10 @@ namespace AmbientSounds.Xamarin
         {
             DependencyService.Register<ShellPageViewModel>();
             DependencyService.Register<IUserSettings, UserSettings>();
+            DependencyService.Register<IScreensaverService, ScreensaverService>();
+            DependencyService.Register<INavigator, Navigator>();
+            DependencyService.Register<IDialogService, ModalService>();
+            DependencyService.Register<IMixMediaPlayerService, MixMediaPlayer>();
         }
     }
 }
