@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.Services.Xamarin;
 using AmbientSounds.ViewModels;
+using AmbientSounds.Xamarin.Native;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,6 +38,8 @@ namespace AmbientSounds.Xamarin
             DependencyService.Register<INavigator, Navigator>();
             DependencyService.Register<IDialogService, ModalService>();
             DependencyService.Register<IMixMediaPlayerService, MixMediaPlayer>();
+            DependencyService.Register<ITelemetry, AppCenterTelemetry>();
+            DependencyService.Register<IAppSettings, AppSettings>();
         }
     }
 }
