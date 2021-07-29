@@ -445,8 +445,9 @@
           <target state="translated">Выйти</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
-          <target state="translated">Это позволит синхронизировать каталог звуков между вашими устройствами. И ещё вы сможете загружать свои звуки.</target>
+          <source>This will enable sound gallery sync across your devices.</source>
+          <target state="needs-review-translation">Это позволит синхронизировать каталог звуков между вашими устройствами. И ещё вы сможете загружать свои звуки.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>

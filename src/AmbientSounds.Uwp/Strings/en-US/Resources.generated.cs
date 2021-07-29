@@ -407,7 +407,7 @@ namespace AmbientSounds.Strings{
 
         #region SignInDescriptionText
         /// <summary>
-        ///   Looks up a localized string similar to: This will enable sound gallery sync across your devices. And you can upload sounds.
+        ///   Looks up a localized string similar to: This will enable sound gallery sync across your devices.
         /// </summary>
         public static string SignInDescriptionText
         {

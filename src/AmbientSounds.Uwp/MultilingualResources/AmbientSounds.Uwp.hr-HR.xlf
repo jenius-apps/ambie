@@ -450,8 +450,9 @@
           <target state="translated">Odjava</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices. And you can upload sounds.</source>
-          <target state="translated">Ovo će omogučiti sinkronizaciju vaše galerije zvukova na svim uređajima. Možete spremati zvukove prema svim vašim uređajima.</target>
+          <source>This will enable sound gallery sync across your devices.</source>
+          <target state="needs-review-translation">Ovo će omogučiti sinkronizaciju vaše galerije zvukova na svim uređajima. Možete spremati zvukove prema svim vašim uređajima.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
