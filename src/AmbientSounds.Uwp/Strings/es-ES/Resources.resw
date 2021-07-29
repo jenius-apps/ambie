@@ -423,4 +423,10 @@
   <data name="SubscriptionText3" xml:space="preserve">
     <value>¡Apóyanos!</value>
   </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Hola de nuevo 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>¿Disfrutando de Ambie? ¡Considere calificarnos!</value>
+  </data>
 </root>

@@ -663,6 +663,14 @@
           <source>Support development!</source>
           <target state="translated">¡Apóyanos!</target>
         </trans-unit>
+        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
+          <source>Hello again 👋🏽</source>
+          <target state="translated">Hola de nuevo 👋🏽</target>
+        </trans-unit>
+        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
+          <source>Enjoying Ambie? Please consider rating us!</source>
+          <target state="translated">¿Disfrutando de Ambie? ¡Considere calificarnos!</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -2,7 +2,6 @@
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System;
 
 namespace AmbientSounds.ViewModels
 {
@@ -12,13 +11,34 @@ namespace AmbientSounds.ViewModels
     public class ShellPageViewModel : ObservableObject
     {
         private readonly IUserSettings _userSettings;
+        private readonly ITimerService _ratingTimer;
+        private bool _isRatingMessageVisible;
 
         public ShellPageViewModel(
-            IUserSettings userSettings)
+            IUserSettings userSettings,
+            ITimerService timer)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
+            Guard.IsNotNull(timer, nameof(timer));
             _userSettings = userSettings;
+            _ratingTimer = timer;
             _userSettings.SettingSet += OnSettingSet;
+
+            if (!_userSettings.Get<bool>(UserSettingsConstants.HasRated))
+            {
+                _ratingTimer.Interval = 1800000; // 30 minutes
+                _ratingTimer.IntervalElapsed += OnIntervalLapsed;
+                _ratingTimer.Start();
+            }
+        }
+
+        /// <summary>
+        /// Determines if the rating message is visible.
+        /// </summary>
+        public bool IsRatingMessageVisible
+        {
+            get => _isRatingMessageVisible;
+            set => SetProperty(ref _isRatingMessageVisible, value);
         }
 
         /// <summary>
@@ -34,6 +54,13 @@ namespace AmbientSounds.ViewModels
         public void Dispose()
         {
             _userSettings.SettingSet -= OnSettingSet;
+        }
+
+        private void OnIntervalLapsed(object sender, int e)
+        {
+            _ratingTimer.Stop();
+            _ratingTimer.IntervalElapsed -= OnIntervalLapsed;
+            IsRatingMessageVisible = true;
         }
 
         private void OnSettingSet(object sender, string settingsKey)

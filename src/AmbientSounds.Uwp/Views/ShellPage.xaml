@@ -6,7 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
     Background="{ThemeResource ContentBackgroundBrush}"
     mc:Ignorable="d">
@@ -32,5 +34,14 @@
                 FontSize="12"
                 Text="Ambie" />
         </StackPanel>
+
+        <winui:TeachingTip
+            Title="{x:Bind strings:Resources.HelloAgain}"
+            ActionButtonClick="TeachingTip_ActionButtonClick"
+            ActionButtonContent="{x:Bind RateUs}"
+            CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
+            IsOpen="{x:Bind ViewModel.IsRatingMessageVisible, Mode=OneWay}"
+            PreferredPlacement="BottomRight"
+            Subtitle="{x:Bind strings:Resources.RateUsMessage}" />
     </Grid>
 </Page>

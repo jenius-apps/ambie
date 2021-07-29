@@ -610,4 +610,10 @@
     <value>Thank you for subscribing!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Hello again 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Enjoying Ambie? Please consider rating us!</value>
+  </data>
 </root>

@@ -660,6 +660,14 @@
           <source>Support development!</source>
           <target state="translated">支持我们的开发！</target>
         </trans-unit>
+        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
+          <source>Hello again 👋🏽</source>
+          <target state="new">Hello again 👋🏽</target>
+        </trans-unit>
+        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
+          <source>Enjoying Ambie? Please consider rating us!</source>
+          <target state="new">Enjoying Ambie? Please consider rating us!</target>
+        </trans-unit>
       </group>
     </body>
   </file>
