@@ -34,6 +34,7 @@ namespace AmbientSounds.ViewModels
 
             var lastDismissDateTime = _userSettings.GetAndDeserialize<DateTime>(UserSettingsConstants.RatingDismissed);
             if (!systemInfoProvider.IsFirstRun() &&
+                !systemInfoProvider.IsTenFoot() &&
                 !_userSettings.Get<bool>(UserSettingsConstants.HasRated) &&
                 lastDismissDateTime.AddDays(7) <= DateTime.UtcNow)
             {
