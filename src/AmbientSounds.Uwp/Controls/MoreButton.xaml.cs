@@ -29,6 +29,8 @@ namespace AmbientSounds.Controls
             this.Unloaded += OnUnloaded;
         }
 
+        private bool CanShowOnPc => !App.IsTenFoot;
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             var dtm = DataTransferManager.GetForCurrentView();

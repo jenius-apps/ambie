@@ -20,7 +20,10 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA83;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonShare" Click="ShareClicked">
+                    <AppBarButton
+                        x:Uid="MoreButtonShare"
+                        Click="ShareClicked"
+                        Visibility="{x:Bind CanShowOnPc}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB60;" />
                         </AppBarButton.Icon>
@@ -30,22 +33,34 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEBF7;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonDiscord" Click="DiscordClicked">
+                    <AppBarButton
+                        x:Uid="MoreButtonDiscord"
+                        Click="DiscordClicked"
+                        Visibility="{x:Bind CanShowOnPc}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C5;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonGitHub" Click="GithubClicked">
+                    <AppBarButton
+                        x:Uid="MoreButtonGitHub"
+                        Click="GithubClicked"
+                        Visibility="{x:Bind CanShowOnPc}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE943;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonTranslate" Click="TranslationClicked">
+                    <AppBarButton
+                        x:Uid="MoreButtonTranslate"
+                        Click="TranslationClicked"
+                        Visibility="{x:Bind CanShowOnPc}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF2B7;" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonContact" Click="ContactClicked">
+                    <AppBarButton
+                        x:Uid="MoreButtonContact"
+                        Click="ContactClicked"
+                        Visibility="{x:Bind CanShowOnPc}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAB4;" />
                         </AppBarButton.Icon>
