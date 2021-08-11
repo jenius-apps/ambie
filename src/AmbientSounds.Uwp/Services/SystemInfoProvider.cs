@@ -14,6 +14,12 @@ namespace AmbientSounds.Services.Uwp
     public class SystemInfoProvider : ISystemInfoProvider
     {
         /// <inheritdoc/>
+        public bool IsFirstRun()
+        {
+            return SystemInformation.Instance.IsFirstRun;
+        }
+
+        /// <inheritdoc/>
         public string GetCulture()
         {
             return SystemInformation.Instance.Culture.Name;

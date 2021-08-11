@@ -76,6 +76,7 @@
         public const string LaunchMessageShown = Oobe + "launchMessageShown";
         public const string RatingMessageShown = Oobe + "ratingMessageShown";
         public const string OobeRateUsClicked = Oobe + "rateUsClicked";
+        public const string OobeRateUsDismissed = Oobe + "rateUsDismissed";
 
         // theme
         private const string Theme = "theme:";

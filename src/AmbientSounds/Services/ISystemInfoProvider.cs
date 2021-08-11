@@ -27,5 +27,12 @@ namespace AmbientSounds.Services
         /// available in the device.
         /// </summary>
         Task<string[]> GetAvailableBackgroundsAsync();
+
+        /// <summary>
+        /// Returns true if the current
+        /// session is the first time this app
+        /// was run since being installed.
+        /// </summary>
+        bool IsFirstRun();
     }
 }

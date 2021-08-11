@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 
 namespace AmbientSounds.ViewModels
 {
@@ -18,7 +19,8 @@ namespace AmbientSounds.ViewModels
         public ShellPageViewModel(
             IUserSettings userSettings,
             ITimerService timer,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            ISystemInfoProvider systemInfoProvider)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
@@ -30,7 +32,10 @@ namespace AmbientSounds.ViewModels
 
             _userSettings.SettingSet += OnSettingSet;
 
-            if (!_userSettings.Get<bool>(UserSettingsConstants.HasRated))
+            var lastDismissDateTime = _userSettings.GetAndDeserialize<DateTime>(UserSettingsConstants.RatingDismissed);
+            if (!systemInfoProvider.IsFirstRun() &&
+                !_userSettings.Get<bool>(UserSettingsConstants.HasRated) &&
+                lastDismissDateTime.AddDays(7) <= DateTime.UtcNow)
             {
                 _ratingTimer.Interval = 1800000; // 30 minutes
                 _ratingTimer.IntervalElapsed += OnIntervalLapsed;

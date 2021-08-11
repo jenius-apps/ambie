@@ -51,5 +51,14 @@ namespace AmbientSounds.Views
                 true);
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsClicked);
         }
+
+        private void TeachingTip_CloseButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
+        {
+            ViewModel.IsRatingMessageVisible = false;
+            App.Services.GetRequiredService<IUserSettings>().SetAndSerialize(
+                UserSettingsConstants.RatingDismissed,
+                DateTime.UtcNow);
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
+        }
     }
 }

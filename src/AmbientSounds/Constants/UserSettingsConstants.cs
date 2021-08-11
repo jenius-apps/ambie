@@ -15,6 +15,11 @@ namespace AmbientSounds.Constants
         public const string HasRated = "HasRated";
 
         /// <summary>
+        /// Key to remember the UTC date that the user dismissed the rating prompt.
+        /// </summary>
+        public const string RatingDismissed = "RatingDismissed";
+
+        /// <summary>
         /// Key to remember the user's background image.
         /// </summary>
         public const string BackgroundImage = "BackgroundImagePath";
@@ -91,7 +96,8 @@ namespace AmbientSounds.Constants
             { CurrentUserProviderId, string.Empty },
             { Theme, "default" },
             { BackgroundImage, string.Empty },
-            { HasRated, false }
+            { HasRated, false },
+            { RatingDismissed, DateTime.MinValue }
         };
     }
 }

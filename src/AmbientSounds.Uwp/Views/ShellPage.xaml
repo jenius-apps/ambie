@@ -39,6 +39,7 @@
             Title="{x:Bind strings:Resources.HelloAgain}"
             ActionButtonClick="TeachingTip_ActionButtonClick"
             ActionButtonContent="{x:Bind RateUs}"
+            CloseButtonClick="TeachingTip_CloseButtonClick"
             CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
             IsOpen="{x:Bind ViewModel.IsRatingMessageVisible, Mode=OneWay}"
             PreferredPlacement="BottomRight"
