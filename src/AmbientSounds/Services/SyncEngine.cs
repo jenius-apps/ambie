@@ -188,13 +188,13 @@ namespace AmbientSounds.Services
                 // download sounds
                 IList<Sound> soundsToDownload = await _onlineSoundDataProvider.GetSoundsAsync(soundIdsToDownload);
 
-                var tasks = new List<Task>();
                 foreach (var s in soundsToDownload)
                 {
-                    var task = _downloadManager.QueueAndDownloadAsync(s, new Progress<double>());
-                    tasks.Add(task);
+                    if (s != null)
+                    {
+                        await _downloadManager.QueueAndDownloadAsync(s, new Progress<double>());
+                    }
                 }
-                await Task.WhenAll(tasks);
             }
 
             if (data.SoundMixes is not null && data.SoundMixes.Length > 0)
