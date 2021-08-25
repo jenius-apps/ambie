@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:loc="using:AmbientSounds.Converters"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -18,7 +19,13 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Button Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}" Style="{StaticResource TransparentRoundButtonStyle}">
+        <Button
+            AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
+            AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
+            AutomationProperties.PositionInSet="{x:Bind ViewModel.Position, Mode=OneWay}"
+            AutomationProperties.SizeOfSet="{x:Bind ViewModel.SetSize, Mode=OneWay}"
+            Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}"
+            Style="{StaticResource TransparentRoundButtonStyle}">
             <FontIcon
                 FontFamily="{StaticResource FluentUIGlyphs}"
                 Foreground="White"
