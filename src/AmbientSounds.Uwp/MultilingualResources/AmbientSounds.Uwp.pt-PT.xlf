@@ -466,7 +466,7 @@
         </trans-unit>
         <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sync</source>
-          <target state="translated">Sicronizar</target>
+          <target state="translated">Sincronizar</target>
         </trans-unit>
         <trans-unit id="MoreButtonUpload.Label" translate="yes" xml:space="preserve">
           <source>Upload sounds</source>
@@ -567,7 +567,7 @@
         </trans-unit>
         <trans-unit id="UploadPermissionsMessage" translate="yes" xml:space="preserve">
           <source>I created this sound or I have permission to upload it</source>
-          <target state="translated">Eu crei este som ou eu tenho permissão para carregá-lo</target>
+          <target state="translated">Eu criei este som ou eu tenho permissão para carregá-lo</target>
         </trans-unit>
         <trans-unit id="ErrorBigFile" translate="yes" xml:space="preserve">
           <source>That's a big file! Try again with a file smaller than {0} MB.</source>
@@ -623,7 +623,7 @@
         </trans-unit>
         <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
           <source>Auto launch after 1 min</source>
-          <target state="translated">Início automático após 1 min.</target>
+          <target state="translated">Início automático após 1 min</target>
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
