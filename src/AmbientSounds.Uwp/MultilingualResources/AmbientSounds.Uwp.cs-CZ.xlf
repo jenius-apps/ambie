@@ -592,7 +592,7 @@
         </trans-unit>
         <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
           <source>Dismiss</source>
-          <target state="new">Dismiss</target>
+          <target state="translated">Zavřít</target>
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
@@ -624,7 +624,7 @@
         </trans-unit>
         <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
           <source>Auto launch after 1 min</source>
-          <target state="new">Auto launch after 1 min</target>
+          <target state="translated">Automaticky spustit po jedné minutě</target>
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
@@ -663,11 +663,11 @@
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
-          <target state="new">Hello again 👋🏽</target>
+          <target state="translated">Znovu zdravíme 👋🏽</target>
         </trans-unit>
         <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
           <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="new">Enjoying Ambie? Please consider rating us!</target>
+          <target state="translated">Líbí se vám Ambie? Prosíme ohodnoťte nás!</target>
         </trans-unit>
       </group>
     </body>
