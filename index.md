@@ -2,9 +2,6 @@
 
 [![](https://img.shields.io/badge/Windows%2010-Download-brightgreen)](https://www.microsoft.com/store/productId/9P07XNM5CHP0) [![](https://img.shields.io/github/v/release/jenius-apps/ambie?label=Manual%20Install)](https://github.com/jenius-apps/ambie/releases) [![GitHub stars](https://img.shields.io/github/stars/jenius-apps/ambie?style=social)](https://github.com/jenius-apps/ambie) [![Twitter Follow](https://img.shields.io/twitter/follow/ambie_app?style=social)](https://twitter.com/ambie_app)
 
-
-Ambie is a white noise app for Xbox and Windows that is simple and elegant. 
-
 ## Features
 
 - List of pre-installed sounds such as beach, coffee shop, and rain
@@ -29,8 +26,6 @@ Ambie is a white noise app for Xbox and Windows that is simple and elegant.
 ## Compatibility
 ![](img/compatibility.png)
 
----
-
 ## Support or Contact
 
-Having trouble with Ambie? Contact the creator at ambie_app@outlook.com
+Having trouble with Ambie? Contact the creator at ambie_app@outlook.com or [submit a GitHub issue](https://github.com/jenius-apps/ambie/issues/new).
