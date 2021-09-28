@@ -17,6 +17,7 @@ using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
+using Windows.Graphics.Display;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -185,7 +186,7 @@ namespace AmbientSounds
                     rootFrame.Navigate(typeof(Views.ShellPage));
                 }
 
-                // Ensure the current window is active
+                SetMinSize();
                 Window.Current.Activate();
             }
 
@@ -195,6 +196,14 @@ namespace AmbientSounds
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
             await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
+        }
+
+        private void SetMinSize()
+        {
+            // Note: needs to be run sometime before Window.Current.Activate()
+            var scale = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+                new Windows.Foundation.Size(260 * scale, 500 * scale));
         }
 
         private void OnSettingSet(object sender, string key)
