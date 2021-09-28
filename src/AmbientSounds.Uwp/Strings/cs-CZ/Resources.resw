@@ -420,6 +420,9 @@
   <data name="FollowTwitter" xml:space="preserve">
     <value>Sledujte nás na Twitteru</value>
   </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
   <data name="FirstLaunchMessage" xml:space="preserve">
     <value>Děkujeme za vyzkoušení Ambie. Pro snazší používání si můžete tuto aplikaci připnout na hlavní panel! Doufáme, že si užijete váš relaxující pobyt 🏝</value>
   </data>
@@ -440,6 +443,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Domov</value>
+  </data>
+  <data name="ScreensaverOn" xml:space="preserve">
+    <value>Automaticky spustit po jedné minutě</value>
   </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mixujte a spojujte až 3 zvuky</value>
@@ -467,5 +473,11 @@
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
     <value>Podpořte vývoj!</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Znovu zdravíme 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Líbí se vám Ambie? Prosíme ohodnoťte nás!</value>
   </data>
 </root>
