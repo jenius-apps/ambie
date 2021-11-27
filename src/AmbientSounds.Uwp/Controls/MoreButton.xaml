@@ -70,6 +70,15 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
+                    <AppBarButton
+                        x:Name="ComputeSharpTestButton"
+                        Click="ComputeSharpTestClicked"
+                        Label="ComputeSharp test"
+                        Visibility="Collapsed">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80A;" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
                 </winui:CommandBarFlyout.SecondaryCommands>
             </winui:CommandBarFlyout>
         </Button.Flyout>

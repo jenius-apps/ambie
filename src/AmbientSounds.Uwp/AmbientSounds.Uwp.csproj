@@ -18,7 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>10.0</LangVersion>
     <UseDotNetNativeSharedAssemblyFrameworkPackage>false</UseDotNetNativeSharedAssemblyFrameworkPackage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -223,6 +223,7 @@
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
     <Compile Include="Services\WindowsDownloadManager.cs" />
+    <Compile Include="Shaders\ColorfulInfinity.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
     <Compile Include="Strings\en-US\Resources.generated.cs">
       <AutoGen>True</AutoGen>
@@ -234,6 +235,9 @@
     </Compile>
     <Compile Include="Views\CompactPage.xaml.cs">
       <DependentUpon>CompactPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComputeSharpTestPage.xaml.cs">
+      <DependentUpon>ComputeSharpTestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -443,6 +447,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ComputeSharpTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -459,6 +467,9 @@
   <ItemGroup>
     <PackageReference Include="JeniusApps.Common.Uwp">
       <Version>0.0.2-preview</Version>
+    </PackageReference>
+    <PackageReference Include="ComputeSharp.Uwp">
+      <Version>2.0.0-alpha.8</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.5.0</Version>
