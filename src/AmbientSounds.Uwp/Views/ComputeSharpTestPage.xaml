@@ -8,5 +8,5 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <uwp:ComputeShaderPanel x:Name="ShaderPanel" />
+    <uwp:AnimatedComputeShaderPanel x:Name="ShaderPanel" />
 </Page>

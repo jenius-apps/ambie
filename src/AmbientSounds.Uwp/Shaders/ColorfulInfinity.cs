@@ -9,7 +9,7 @@ namespace AmbientSounds.Shaders;
 /// <para>License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.</para>
 /// </summary>
 [AutoConstructor]
-[EmbeddedBytecode(8, 8, 1)]
+[EmbeddedBytecode(DispatchAxis.XY)]
 internal readonly partial struct ColorfulInfinity : IPixelShader<float4>
 {
     /// <summary>
