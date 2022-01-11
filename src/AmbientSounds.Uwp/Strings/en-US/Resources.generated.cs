@@ -912,6 +912,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region SettingsResumeOnLaunch
+        /// <summary>
+        ///   Looks up a localized string similar to: Auto resume when Ambie opens
+        /// </summary>
+        public static string SettingsResumeOnLaunch
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsResumeOnLaunch");
+            }
+        }
+        #endregion
+
         #region PricePerMonth
         /// <summary>
         ///   Looks up a localized string similar to: {0} per month
@@ -1082,6 +1095,7 @@ namespace AmbientSounds.Strings{
             ScreensaverOn,
             SelectSoundsPlaceholder,
             ThemeSettings,
+            SettingsResumeOnLaunch,
             PricePerMonth,
             SubscriptionText1,
             SubscriptionText2,

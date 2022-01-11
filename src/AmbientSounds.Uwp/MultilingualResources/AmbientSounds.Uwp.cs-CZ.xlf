@@ -669,6 +669,10 @@
           <source>Enjoying Ambie? Please consider rating us!</source>
           <target state="translated">Líbí se vám Ambie? Prosíme ohodnoťte nás!</target>
         </trans-unit>
+        <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
+          <source>Auto resume when Ambie opens</source>
+          <target state="new">Auto resume when Ambie opens</target>
+        </trans-unit>
       </group>
     </body>
   </file>
