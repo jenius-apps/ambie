@@ -80,6 +80,12 @@ namespace AmbientSounds.Constants
         public const string CurrentUserId = "CurrentUserId";
 
         /// <summary>
+        /// Used to remember if Ambie should resume playing sounds immediately
+        /// after launching.
+        /// </summary>
+        public const string ResumeOnLaunchKey = "ResumeOnLaunch";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -97,7 +103,8 @@ namespace AmbientSounds.Constants
             { Theme, "default" },
             { BackgroundImage, string.Empty },
             { HasRated, false },
-            { RatingDismissed, DateTime.MinValue }
+            { RatingDismissed, DateTime.MinValue },
+            { ResumeOnLaunchKey, false }
         };
     }
 }

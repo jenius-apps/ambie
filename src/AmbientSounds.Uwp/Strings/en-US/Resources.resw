@@ -593,6 +593,9 @@
   <data name="ThemeSettings" xml:space="preserve">
     <value>Theme settings</value>
   </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Auto resume when Ambie opens</value>
+  </data>
   <data name="PricePerMonth" xml:space="preserve">
     <value>{0} per month</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>

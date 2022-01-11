@@ -114,6 +114,8 @@ namespace AmbientSounds.ViewModels
             string[] soundIds = _player.GetSoundIds();
             if (soundIds is { Length: > 0 })
             {
+                // This case is when the track list is returning to view because of a page navigation.
+
                 var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: soundIds);
                 if (sounds is { Count: > 0 })
                 {
@@ -125,6 +127,8 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
+                // This case is when the app is being launched.
+
                 var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
                 var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
                 var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
@@ -134,6 +138,14 @@ namespace AmbientSounds.ViewModels
                     {
                         await _player.ToggleSoundAsync(s, keepPaused: true, parentMixId: mixId);
                     }
+                }
+
+                // Since this is when the app is launching, try to resume automatically
+                // after populating the track list.
+                if (_userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey))
+                {
+                    _player.Play();
+                    _telemetry.TrackEvent(TelemetryConstants.PlaybackAutoResume);
                 }
             }
 

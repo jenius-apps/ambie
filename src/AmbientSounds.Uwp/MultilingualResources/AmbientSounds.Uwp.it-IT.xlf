@@ -677,6 +677,10 @@
           <source>Enjoying Ambie? Please consider rating us!</source>
           <target state="new">Enjoying Ambie? Please consider rating us!</target>
         </trans-unit>
+        <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
+          <source>Auto resume when Ambie opens</source>
+          <target state="new">Auto resume when Ambie opens</target>
+        </trans-unit>
       </group>
     </body>
   </file>
