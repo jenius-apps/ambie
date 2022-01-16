@@ -196,7 +196,7 @@ namespace AmbientSounds.Services.Uwp
                 using Stream dataStream = await localDataFile.OpenStreamForReadAsync();
                 _localSoundCache = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // TODO log
             }

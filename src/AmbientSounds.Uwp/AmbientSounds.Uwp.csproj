@@ -305,7 +305,7 @@
     <Content Include="Assets\Sounds\thunder.mp3" />
     <Content Include="Assets\Sounds\underwater.mp3" />
     <Content Include="Assets\Sounds\waterfall.mp3" />
-    <Content Include="Assets\Sounds\whitenoise.mp3" />
+    <Content Include="Assets\Sounds\whitenoise.wav" />
     <Content Include="Assets\Sounds\wind.mp3" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />

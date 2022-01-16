@@ -142,7 +142,7 @@
     "Name": "whitenoise",
     "ColourHex": "#5e5b49",
     "ImagePath": "ms-appx:///Assets/Images/whitenoise.png",
-    "FilePath": "ms-appx:///Assets/Sounds/whitenoise.mp3",
+    "FilePath": "ms-appx:///Assets/Sounds/whitenoise.wav",
     "Attribution": "Brown Noise by theundecided -- https://freesound.org/s/165056/ -- License: Creative Commons 0. Photo by Pierre Bamin on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1580243117731-a108c2953e2c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
