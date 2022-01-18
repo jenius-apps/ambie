@@ -13,7 +13,7 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
 
-            ShaderPanel.ShaderRunner = new ShaderRunner<ColorfulInfinity>(static time => new ColorfulInfinity((float)time.TotalSeconds / 4f));
+            ShaderPanel.ShaderRunner = new ShaderRunner<ColorfulInfinity>(static time => new ColorfulInfinity((float)time.TotalSeconds / 16f));
         }
     }
 }
