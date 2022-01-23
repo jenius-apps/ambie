@@ -50,6 +50,16 @@
                 </ToggleSwitch.OnContent>
             </ToggleSwitch>
 
+            <!--  Disable smtc  -->
+            <ToggleSwitch Header="{x:Bind strings:Resources.SettingsDisableSmtc}" IsOn="{x:Bind ViewModel.SmtcDisabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+
             <!--  screensaver  -->
             <ToggleSwitch x:Uid="SettingsScreensaverSwitch" IsOn="{x:Bind ViewModel.ScreensaverEnabled, Mode=TwoWay}">
                 <ToggleSwitch.OffContent>

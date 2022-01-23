@@ -86,6 +86,12 @@ namespace AmbientSounds.Constants
         public const string ResumeOnLaunchKey = "ResumeOnLaunch";
 
         /// <summary>
+        /// User to remember if Ambie should integrate with
+        /// OS media controls
+        /// </summary>
+        public const string DisableSmtcSupportKey = "DisableSmtcSupportKey";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -104,7 +110,8 @@ namespace AmbientSounds.Constants
             { BackgroundImage, string.Empty },
             { HasRated, false },
             { RatingDismissed, DateTime.MinValue },
-            { ResumeOnLaunchKey, false }
+            { ResumeOnLaunchKey, false },
+            { DisableSmtcSupportKey, false }
         };
     }
 }

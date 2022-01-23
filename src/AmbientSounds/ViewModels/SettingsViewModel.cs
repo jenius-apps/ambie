@@ -73,12 +73,27 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// Settings flag for dark screensaver.
+        /// Settings flag for resume on launch.
         /// </summary>
         public bool ResumeOnLaunchEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey);
             set => _userSettings.Set(UserSettingsConstants.ResumeOnLaunchKey, value);
+        }
+
+        /// <summary>
+        /// Settings flag for resume on launch.
+        /// </summary>
+        public bool SmtcDisabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.DisableSmtcSupportKey);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.DisableSmtcSupportKey, value);
+                _telemetry.TrackEvent(value
+                    ? TelemetryConstants.SmtcDisabled
+                    : TelemetryConstants.SmtcEnabled);
+            }
         }
 
         /// <summary>

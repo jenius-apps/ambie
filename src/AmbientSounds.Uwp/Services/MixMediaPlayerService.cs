@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
 using AmbientSounds.Models;
+using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,10 +40,15 @@ namespace AmbientSounds.Services.Uwp
 
         public MixMediaPlayerService(IUserSettings userSettings)
         {
-            _maxActive = userSettings?.Get<int>(UserSettingsConstants.MaxActive) ?? 3;
+            Guard.IsNotNull(userSettings, nameof(userSettings));
+            _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
             _smtc = SystemMediaTransportControls.GetForCurrentView();
-            InitializeSmtc();
+            if (!userSettings.Get<bool>(UserSettingsConstants.DisableSmtcSupportKey))
+            {
+                InitializeSmtc();
+            }
         }
 
         private void SmtcButtonPressed(SystemMediaTransportControls sender, SystemMediaTransportControlsButtonPressedEventArgs args)

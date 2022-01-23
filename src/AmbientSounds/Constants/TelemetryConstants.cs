@@ -82,5 +82,10 @@
         // theme
         private const string Theme = "theme:";
         public const string BackgroundChanged = Theme + "backgroundChanged";
+
+        // settings
+        private const string Settings = "settings:";
+        public const string SmtcDisabled = Settings + "smtcDisabled";
+        public const string SmtcEnabled = Settings + "smtcEnabled";
     }
 }
