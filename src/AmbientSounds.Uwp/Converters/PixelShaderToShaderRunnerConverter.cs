@@ -27,7 +27,7 @@ public static class PixelShaderToShaderRunnerConverter
         static IShaderRunner Create<T>()
             where T : struct, IPixelShader<float4>
         {
-            return new ShaderRunner<T>(time => (T)Activator.CreateInstance(typeof(T), (float)time.TotalSeconds));
+            return new ShaderRunner<T>(time => (T)Activator.CreateInstance(typeof(T), (float)(time.TotalSeconds / 8.0)));
         }
 
         MethodInfo createMethod = new Func<IShaderRunner>(Create<ColorfulInfinity>).Method;
