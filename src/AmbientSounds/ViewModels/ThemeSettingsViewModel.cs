@@ -1,10 +1,12 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.Shaders;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -56,7 +58,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Paths to available background images.
         /// </summary>
-        public ObservableCollection<string> ImagePaths { get; } = new();
+        public ObservableCollection<object> BackgroundItems { get; } = new();
 
         /// <summary>
         /// The current theme.
@@ -67,6 +69,7 @@ namespace AmbientSounds.ViewModels
             set
             {
                 _userSettings.Set(UserSettingsConstants.Theme, value);
+
                 OnPropertyChanged(nameof(DefaultRadioIsChecked));
                 OnPropertyChanged(nameof(DarkRadioIsChecked));
                 OnPropertyChanged(nameof(LightRadioIsChecked));
@@ -114,16 +117,24 @@ namespace AmbientSounds.ViewModels
 
         private async Task LoadImagesAsync()
         {
-            if (ImagePaths.Count > 0)
+            if (BackgroundItems.Count > 0)
             {
                 return;
             }
 
             string[] paths = await _systemInfoProvider.GetAvailableBackgroundsAsync();
-            foreach (var p in paths)
+
+            // Images
+            foreach (var p in paths.Where(path => !path.Contains(NoneImageName)))
             {
-                ImagePaths.Add(p);
+                BackgroundItems.Add(p);
             }
+
+            // Anmimated backgrounds
+            BackgroundItems.Add(typeof(ColorfulInfinity));
+
+            // Empty image
+            BackgroundItems.Add(paths.Single(path => path.Contains(NoneImageName)));
         }
 
         private async Task BrowseForImageAsync()

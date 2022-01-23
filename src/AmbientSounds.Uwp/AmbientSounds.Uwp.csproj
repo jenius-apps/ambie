@@ -198,6 +198,8 @@
     <Compile Include="Controls\VideosMenu.xaml.cs">
       <DependentUpon>VideosMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\PixelShaderToShaderRunnerConverter.cs" />
+    <Compile Include="Converters\ErrorLoader.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
@@ -223,13 +225,13 @@
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
     <Compile Include="Services\WindowsDownloadManager.cs" />
-    <Compile Include="Shaders\ColorfulInfinity.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
     <Compile Include="Strings\en-US\Resources.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resw</DependentUpon>
     </Compile>
+    <Compile Include="TemplateSelectors\BackgroundItemTemplateSelector.cs" />
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
