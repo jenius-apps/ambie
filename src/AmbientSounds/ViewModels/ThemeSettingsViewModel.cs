@@ -132,6 +132,8 @@ namespace AmbientSounds.ViewModels
 
             // Anmimated backgrounds
             BackgroundItems.Add(typeof(ColorfulInfinity));
+            BackgroundItems.Add(typeof(Octagrams));
+            BackgroundItems.Add(typeof(ProteanClouds));
 
             // Empty image
             BackgroundItems.Add(paths.Single(path => path.Contains(NoneImageName)));
