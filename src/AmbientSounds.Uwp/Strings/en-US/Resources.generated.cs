@@ -1015,6 +1015,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsDisableSmtc
+        /// <summary>
+        ///   Looks up a localized string similar to: Prevent Ambie from integrating with Windows media controls (Restart required)
+        /// </summary>
+        public static string SettingsDisableSmtc
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsDisableSmtc");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1103,6 +1116,7 @@ namespace AmbientSounds.Strings{
             ThankYouForSub,
             HelloAgain,
             RateUsMessage,
+            SettingsDisableSmtc,
         }
 
         private static ResourceLoader _resourceLoader;
