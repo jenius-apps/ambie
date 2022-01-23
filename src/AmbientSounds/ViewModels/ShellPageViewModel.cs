@@ -59,9 +59,19 @@ namespace AmbientSounds.ViewModels
         public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage);
 
         /// <summary>
+        /// The type of animated background.
+        /// </summary>
+        public string AnimatedBackgroundType => _userSettings.Get<string>(UserSettingsConstants.AnimatedBackgroundType);
+
+        /// <summary>
         /// Determines if the background image should be shown.
         /// </summary>
         public bool ShowBackgroundImage => !string.IsNullOrWhiteSpace(BackgroundImagePath);
+
+        /// <summary>
+        /// Determines if the animated background should be shown.
+        /// </summary>
+        public bool ShowAnimatedBackground => !string.IsNullOrWhiteSpace(AnimatedBackgroundType);
 
         public void Dispose()
         {
@@ -82,6 +92,11 @@ namespace AmbientSounds.ViewModels
             {
                 OnPropertyChanged(nameof(ShowBackgroundImage));
                 OnPropertyChanged(nameof(BackgroundImagePath));
+            }
+            else if (settingsKey == UserSettingsConstants.AnimatedBackgroundType)
+            {
+                OnPropertyChanged(nameof(ShowAnimatedBackground));
+                OnPropertyChanged(nameof(AnimatedBackgroundType));
             }
         }
     }

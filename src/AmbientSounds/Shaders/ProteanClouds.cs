@@ -10,7 +10,7 @@ namespace AmbientSounds.Shaders;
 /// </summary>
 [AutoConstructor]
 [EmbeddedBytecode(DispatchAxis.XY)]
-internal readonly partial struct ProteanClouds : IPixelShader<float4>
+public readonly partial struct ProteanClouds : IPixelShader<float4>
 {
     /// <summary>
     /// The current time Hlsl.Since the start of the application.

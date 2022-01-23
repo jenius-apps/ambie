@@ -25,6 +25,11 @@ namespace AmbientSounds.Constants
         public const string BackgroundImage = "BackgroundImagePath";
 
         /// <summary>
+        /// Key to remember the user's animated background.
+        /// </summary>
+        public const string AnimatedBackgroundType = "AnimatedBackgroundType";
+
+        /// <summary>
         /// Volume settings key.
         /// </summary>
         public const string Volume = "LastUsedVolume";

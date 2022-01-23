@@ -27,9 +27,9 @@
                 ScrollViewer.VerticalScrollMode="Disabled"
                 SelectionMode="None">
                 <interactivity:Interaction.Behaviors>
-                    <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectImageCommand}" />
+                    <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectBackgroundItemCommand}" />
                     <core:EventTriggerBehavior EventName="Loaded">
-                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
+                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadBackgroundItemsCommand}" />
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
                 <GridView.ItemTemplateSelector>

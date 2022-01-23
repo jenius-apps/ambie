@@ -9,7 +9,7 @@ namespace AmbientSounds.Shaders;
 /// </summary>
 [AutoConstructor]
 [EmbeddedBytecode(DispatchAxis.XY)]
-internal readonly partial struct Octagrams : IPixelShader<float4>
+public readonly partial struct Octagrams : IPixelShader<float4>
 {
     /// <summary>
     /// The current time since the start of the application.

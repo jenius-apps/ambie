@@ -1,13 +1,14 @@
-﻿using AmbientSounds.Constants;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.Shaders;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
@@ -35,20 +36,20 @@ namespace AmbientSounds.ViewModels
             _imagePicker = imagePicker;
             _telemetry = telemetry;
 
-            SelectImageCommand = new RelayCommand<string>(SelectImage);
-            LoadImagesCommand = new AsyncRelayCommand(LoadImagesAsync);
+            SelectBackgroundItemCommand = new RelayCommand<object>(SelectBackgroundItem);
+            LoadBackgroundItemsCommand = new AsyncRelayCommand(LoadBackgroundItemsAsync);
             BrowseCommand = new AsyncRelayCommand(BrowseForImageAsync);
         }
 
         /// <summary>
         /// Command for selecting the background image.
         /// </summary>
-        public IRelayCommand<string> SelectImageCommand { get; }
+        public IRelayCommand<string> SelectBackgroundItemCommand { get; }
 
         /// <summary>
         /// Command for loading the background images.
         /// </summary>
-        public IAsyncRelayCommand LoadImagesCommand { get; }
+        public IAsyncRelayCommand LoadBackgroundItemsCommand { get; }
 
         /// <summary>
         /// Command for opening a file picker to select a custom image.
@@ -115,7 +116,7 @@ namespace AmbientSounds.ViewModels
             CurrentTheme = "light";
         }
 
-        private async Task LoadImagesAsync()
+        private async Task LoadBackgroundItemsAsync()
         {
             if (BackgroundItems.Count > 0)
             {
@@ -147,23 +148,34 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            SelectImage(imagePath);
+            SelectBackgroundItem(imagePath);
         }
 
-        private void SelectImage(string? imagePath)
+        private void SelectBackgroundItem(object? selectedItem)
         {
-            if (imagePath?.Contains(NoneImageName) == true)
+            if (selectedItem is string imagePath)
             {
-                imagePath = string.Empty;
-            }
+                if (imagePath.Contains(NoneImageName) == true)
+                {
+                    imagePath = string.Empty;
+                }
 
-            _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
+                _userSettings.Set(UserSettingsConstants.AnimatedBackgroundType, string.Empty);
+                _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
 
-            if (imagePath != null)
-            {
                 _telemetry.TrackEvent(TelemetryConstants.BackgroundChanged, new Dictionary<string, string>
                 {
                     { "path", imagePath.Contains("ms-appx") ? imagePath : "custom" }
+                });
+            }
+            else if (selectedItem is Type shaderType)
+            {
+                _userSettings.Set(UserSettingsConstants.AnimatedBackgroundType, shaderType.Name);
+                _userSettings.Set(UserSettingsConstants.BackgroundImage, string.Empty);
+
+                _telemetry.TrackEvent(TelemetryConstants.BackgroundChanged, new Dictionary<string, string>
+                {
+                    { "type", shaderType.FullName }
                 });
             }
         }
