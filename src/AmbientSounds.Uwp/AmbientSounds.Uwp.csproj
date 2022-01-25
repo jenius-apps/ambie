@@ -566,6 +566,11 @@
     </PRIResource>
   </ItemGroup>
   <ItemGroup>
+	<PRIResource Include="Strings\sv-SE\Resources.resw">
+	  <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Assets\fluentui.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -589,6 +594,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-BR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-PT.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ru-RU.xlf" />
+	<XliffResource Include="MultilingualResources\AmbientSounds.Uwp.sv-SE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ta.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.tr.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.zh-CN.xlf" />
