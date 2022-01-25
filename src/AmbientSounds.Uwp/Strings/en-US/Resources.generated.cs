@@ -1018,7 +1018,7 @@ namespace AmbientSounds.Strings{
 
         #region SettingsDisableSmtc
         /// <summary>
-        ///   Looks up a localized string similar to: Prevent Ambie from integrating with Windows media controls (Restart required)
+        ///   Looks up a localized string similar to: Prevent Ambie from integrating with Windows media controls
         /// </summary>
         public static string SettingsDisableSmtc
         {

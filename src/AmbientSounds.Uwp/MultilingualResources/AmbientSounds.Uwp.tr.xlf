@@ -685,8 +685,8 @@
           <target state="new">Auto resume when Ambie opens</target>
         </trans-unit>
         <trans-unit id="SettingsDisableSmtc" translate="yes" xml:space="preserve">
-          <source>Prevent Ambie from integrating with Windows media controls (Restart required)</source>
-          <target state="new">Prevent Ambie from integrating with Windows media controls (Restart required)</target>
+          <source>Prevent Ambie from integrating with Windows media controls</source>
+          <target state="new">Prevent Ambie from integrating with Windows media controls</target>
         </trans-unit>
       </group>
     </body>

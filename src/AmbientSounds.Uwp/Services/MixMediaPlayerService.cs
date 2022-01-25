@@ -25,6 +25,7 @@ namespace AmbientSounds.Services.Uwp
         private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
         private readonly SystemMediaTransportControls _smtc;
         private readonly DispatcherQueue _dispatcherQueue;
+        private readonly IUserSettings _userSettings;
 
         /// <inheritdoc/>
         public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -41,18 +42,23 @@ namespace AmbientSounds.Services.Uwp
         public MixMediaPlayerService(IUserSettings userSettings)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
+            _userSettings = userSettings;
             _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
             _smtc = SystemMediaTransportControls.GetForCurrentView();
-            if (!userSettings.Get<bool>(UserSettingsConstants.DisableSmtcSupportKey))
-            {
-                InitializeSmtc();
-            }
+            InitializeSmtc();
         }
 
         private void SmtcButtonPressed(SystemMediaTransportControls sender, SystemMediaTransportControlsButtonPressedEventArgs args)
         {
+            if (_userSettings.Get<bool>(UserSettingsConstants.DisableSmtcSupportKey))
+            {
+                // If user disabled media controls,
+                // then don't handle any smtc button presses.
+                return;
+            }
+
             // Note: Playing and pausing the players
             // will not work unless we move to the UI thread.
             // Thus we use the dispatcher queue below.

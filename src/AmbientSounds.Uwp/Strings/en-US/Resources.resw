@@ -620,6 +620,6 @@
     <value>Enjoying Ambie? Please consider rating us!</value>
   </data>
   <data name="SettingsDisableSmtc" xml:space="preserve">
-    <value>Prevent Ambie from integrating with Windows media controls (Restart required)</value>
+    <value>Prevent Ambie from integrating with Windows media controls</value>
   </data>
 </root>
