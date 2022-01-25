@@ -125,9 +125,17 @@ namespace AmbientSounds.ViewModels
             }
 
             Loading = true;
+            bool isSignedIn;
 
-            var isSignedIn = await _accountManager.IsSignedInAsync();
-            await UpdatePictureAsync(isSignedIn);
+            try
+            {
+                isSignedIn = await _accountManager.IsSignedInAsync();
+                await UpdatePictureAsync(isSignedIn);
+            }
+            catch
+            {
+                isSignedIn = false;
+            }
 
             SignedIn = isSignedIn;
 
