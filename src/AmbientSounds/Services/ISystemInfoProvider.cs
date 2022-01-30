@@ -15,6 +15,11 @@ namespace AmbientSounds.Services
         string GetCulture();
 
         /// <summary>
+        /// Returns true is the current device is a Desktop.
+        /// </summary>
+        bool IsDesktop();
+
+        /// <summary>
         /// Returns true is the current
         /// device is Xbox or other device
         /// optimized for a 10-foot viewing

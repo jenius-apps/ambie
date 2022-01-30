@@ -72,6 +72,8 @@ namespace AmbientSounds
             deferral.Complete();
         }
 
+        public static bool IsDesktop => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Desktop";
+
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
 
         /// <summary>

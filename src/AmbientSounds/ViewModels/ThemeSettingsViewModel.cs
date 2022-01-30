@@ -131,10 +131,13 @@ namespace AmbientSounds.ViewModels
                 BackgroundItems.Add(p);
             }
 
-            // Anmimated backgrounds
-            BackgroundItems.Add(typeof(ColorfulInfinity));
-            BackgroundItems.Add(typeof(Octagrams));
-            BackgroundItems.Add(typeof(ProteanClouds));
+            if (_systemInfoProvider.IsDesktop())
+            {
+                // Animated backgrounds
+                BackgroundItems.Add(typeof(ColorfulInfinity));
+                BackgroundItems.Add(typeof(Octagrams));
+                BackgroundItems.Add(typeof(ProteanClouds));
+            }
 
             // Empty image
             BackgroundItems.Add(paths.Single(path => path.Contains(NoneImageName)));
