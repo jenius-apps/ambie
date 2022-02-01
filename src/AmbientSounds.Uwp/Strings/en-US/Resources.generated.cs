@@ -158,19 +158,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region Soundmore
-        /// <summary>
-        ///   Looks up a localized string similar to: More coming soon
-        /// </summary>
-        public static string Soundmore
-        {
-            get
-            {
-                return _resourceLoader.GetString("Soundmore");
-            }
-        }
-        #endregion
-
         #region Soundrain
         /// <summary>
         ///   Looks up a localized string similar to: Rain
@@ -392,19 +379,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region MissingSoundsTitle
-        /// <summary>
-        ///   Looks up a localized string similar to: Missing sounds
-        /// </summary>
-        public static string MissingSoundsTitle
-        {
-            get
-            {
-                return _resourceLoader.GetString("MissingSoundsTitle");
-            }
-        }
-        #endregion
-
         #region SignInDescriptionText
         /// <summary>
         ///   Looks up a localized string similar to: This will enable sound gallery sync across your devices.
@@ -444,19 +418,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region ImageUrl
-        /// <summary>
-        ///   Looks up a localized string similar to: Image URL
-        /// </summary>
-        public static string ImageUrl
-        {
-            get
-            {
-                return _resourceLoader.GetString("ImageUrl");
-            }
-        }
-        #endregion
-
         #region Name
         /// <summary>
         ///   Looks up a localized string similar to: Name
@@ -483,97 +444,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region PathToSound
-        /// <summary>
-        ///   Looks up a localized string similar to: Path to sound
-        /// </summary>
-        public static string PathToSound
-        {
-            get
-            {
-                return _resourceLoader.GetString("PathToSound");
-            }
-        }
-        #endregion
-
-        #region UploadSubmitButton
-        /// <summary>
-        ///   Looks up a localized string similar to: Upload sound
-        /// </summary>
-        public static string UploadSubmitButton
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadSubmitButton");
-            }
-        }
-        #endregion
-
-        #region PublishStateNone
-        /// <summary>
-        ///   Looks up a localized string similar to: None
-        /// </summary>
-        public static string PublishStateNone
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateNone");
-            }
-        }
-        #endregion
-
-        #region PublishStatePublished
-        /// <summary>
-        ///   Looks up a localized string similar to: Published
-        /// </summary>
-        public static string PublishStatePublished
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStatePublished");
-            }
-        }
-        #endregion
-
-        #region PublishStateRejected
-        /// <summary>
-        ///   Looks up a localized string similar to: Rejected
-        /// </summary>
-        public static string PublishStateRejected
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateRejected");
-            }
-        }
-        #endregion
-
-        #region PublishStateUnderReview
-        /// <summary>
-        ///   Looks up a localized string similar to: Under review
-        /// </summary>
-        public static string PublishStateUnderReview
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateUnderReview");
-            }
-        }
-        #endregion
-
-        #region PublishStateUnpublished
-        /// <summary>
-        ///   Looks up a localized string similar to: Unpublished
-        /// </summary>
-        public static string PublishStateUnpublished
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateUnpublished");
-            }
-        }
-        #endregion
-
         #region Refresh
         /// <summary>
         ///   Looks up a localized string similar to: Refresh
@@ -587,19 +457,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region UploadPlaceholderMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: Upload relaxing sounds into Ambie's catalogue and have others listen to your work!
-        /// </summary>
-        public static string UploadPlaceholderMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadPlaceholderMessage");
-            }
-        }
-        #endregion
-
         #region SignIn
         /// <summary>
         ///   Looks up a localized string similar to: Sign in
@@ -609,19 +466,6 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("SignIn");
-            }
-        }
-        #endregion
-
-        #region UploadTermsMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: I agree to the Terms of Use
-        /// </summary>
-        public static string UploadTermsMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadTermsMessage");
             }
         }
         #endregion
@@ -652,19 +496,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region DonateUrl
-        /// <summary>
-        ///   Looks up a localized string similar to: Donation URL
-        /// </summary>
-        public static string DonateUrl
-        {
-            get
-            {
-                return _resourceLoader.GetString("DonateUrl");
-            }
-        }
-        #endregion
-
         #region Optional
         /// <summary>
         ///   Looks up a localized string similar to: Optional
@@ -687,45 +518,6 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("Required");
-            }
-        }
-        #endregion
-
-        #region UploadPermissionsMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: I created this sound or I have permission to upload it
-        /// </summary>
-        public static string UploadPermissionsMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadPermissionsMessage");
-            }
-        }
-        #endregion
-
-        #region ErrorBigFile
-        /// <summary>
-        ///   Looks up a localized string similar to: That's a big file! Try again with a file smaller than {0} MB.
-        /// </summary>
-        public static string ErrorBigFile
-        {
-            get
-            {
-                return _resourceLoader.GetString("ErrorBigFile");
-            }
-        }
-        #endregion
-
-        #region ErrorUploadCount
-        /// <summary>
-        ///   Looks up a localized string similar to: You're at the limit! You can only have {0} sounds.
-        /// </summary>
-        public static string ErrorUploadCount
-        {
-            get
-            {
-                return _resourceLoader.GetString("ErrorUploadCount");
             }
         }
         #endregion
@@ -1050,7 +842,6 @@ namespace AmbientSounds.Strings{
             Soundcoffeeshop,
             Soundcreek,
             Soundfireplace,
-            Soundmore,
             Soundrain,
             Soundrainforest,
             Soundunderwater,
@@ -1068,32 +859,17 @@ namespace AmbientSounds.Strings{
             RemoveActiveButton,
             CancelText,
             RenameText,
-            MissingSoundsTitle,
             SignInDescriptionText,
             Attribution,
             BrowseText,
-            ImageUrl,
             Name,
             NewSound,
-            PathToSound,
-            UploadSubmitButton,
-            PublishStateNone,
-            PublishStatePublished,
-            PublishStateRejected,
-            PublishStateUnderReview,
-            PublishStateUnpublished,
             Refresh,
-            UploadPlaceholderMessage,
             SignIn,
-            UploadTermsMessage,
             AreYouSure,
             Yes,
-            DonateUrl,
             Optional,
             Required,
-            UploadPermissionsMessage,
-            ErrorBigFile,
-            ErrorUploadCount,
             Donate,
             TermsOfUse,
             FollowTwitter,

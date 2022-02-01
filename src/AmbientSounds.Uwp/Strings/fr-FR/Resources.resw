@@ -108,9 +108,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Cheminée</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Plus à venir prochainement</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Pluie</value>
   </data>
@@ -137,24 +134,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Volume général</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Vous voulez plus de sons ? Envoyez des suggestions !</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Suggestion</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Vous voulez plus de sons ? Envoyez des suggestions !</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Envoyer une suggestion</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Envoyer la suggestion</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Merci !</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Thème</value>
@@ -282,12 +261,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Volume général</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Retirer un son pour faire de la place.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Limite atteinte !</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Nom du mélange de sons</value>
   </data>
@@ -312,18 +285,6 @@
   <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
     <value>Mode compact</value>
   </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Partager le lien de ce mélange de sons</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Partager le lien de ce mélange de sons</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Sons manquants</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Il vous manque quelques sons ! Vous pouvez les télécharger ici, et les jouer dès que vous êtes prêt.e.</value>
-  </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Se déconnecter</value>
   </data>
@@ -345,26 +306,8 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Synchroniser</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Publier des sons</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Sons publiés</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Portail de publication - Bêta</value>
-  </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Parcourir</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>URL de l'image</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Chemin vers le son</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Publier le son</value>
   </data>
   <data name="Attribution" xml:space="preserve">
     <value>Attribution</value>
@@ -375,33 +318,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Nouveau son</value>
   </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Aucun</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Publié</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Rejeté</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>En cours de vérification</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Dépublié</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Actualiser</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Publiez des sons relaxants dans le catalogue d'Ambie et faîtes écouter votre travail à la communauté !</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Se connecter</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Je consens aux Conditions d'Utilisation</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Êtes vous sûr.e ?</value>
@@ -409,23 +331,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Oui</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>Lien de donation</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Optionel</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Requis</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>J'ai créé ce son ou je possède les droits de publication</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Ce fichier est plutôt conséquent ! Essayez de nouveau avec un média de taille inférieure à {0} MB.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Vous avez atteint la limite maximale de {0} sons et ne pouvez en publier davantage.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Faire un don</value>

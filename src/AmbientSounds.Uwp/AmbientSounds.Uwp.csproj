@@ -173,9 +173,6 @@
     <Compile Include="Controls\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ShareMixButton.xaml.cs">
-      <DependentUpon>ShareMixButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ShareResultsControl.xaml.cs">
       <DependentUpon>ShareResultsControl.xaml</DependentUpon>
     </Compile>
@@ -191,9 +188,6 @@
     <Compile Include="Controls\SoundListItem.xaml.cs">
       <DependentUpon>SoundListItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SoundSuggestionControl.xaml.cs">
-      <DependentUpon>SoundSuggestionControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ThemeSettings.xaml.cs">
       <DependentUpon>ThemeSettings.xaml</DependentUpon>
     </Compile>
@@ -201,13 +195,6 @@
       <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\UIHelper.cs" />
-    <Compile Include="Controls\UploadedSoundsList.xaml.cs">
-      <DependentUpon>UploadedSoundsList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UploadForm.xaml.cs">
-      <DependentUpon>UploadForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Converters\ErrorLoader.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
@@ -253,9 +240,6 @@
     </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UploadPage.xaml.cs">
-      <DependentUpon>UploadPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -416,10 +400,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ShareMixButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\ShareResultsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -440,23 +420,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SoundSuggestionControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\ThemeSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ToggleCompactButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\UploadedSoundsList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\UploadForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -477,10 +445,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShellPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UploadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -566,8 +530,8 @@
     </PRIResource>
   </ItemGroup>
   <ItemGroup>
-	<PRIResource Include="Strings\sv-SE\Resources.resw">
-	  <SubType>Designer</SubType>
+    <PRIResource Include="Strings\sv-SE\Resources.resw">
+      <SubType>Designer</SubType>
     </PRIResource>
   </ItemGroup>
   <ItemGroup>
@@ -594,7 +558,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-BR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-PT.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ru-RU.xlf" />
-	<XliffResource Include="MultilingualResources\AmbientSounds.Uwp.sv-SE.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.sv-SE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ta.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.tr.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.zh-CN.xlf" />

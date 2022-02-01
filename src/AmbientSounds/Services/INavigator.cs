@@ -27,11 +27,6 @@
         void ToCompact();
 
         /// <summary>
-        /// Navigates to the upload page.
-        /// </summary>
-        void ToUploadPage();
-
-        /// <summary>
         /// Navigates to the catalogue page.
         /// </summary>
         void ToCatalogue();

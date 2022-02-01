@@ -126,9 +126,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Hoguera</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Más próximamente</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Lluvia</value>
   </data>
@@ -155,24 +152,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Volumen general</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>¿Quieres más sonidos? ¡Envía tus sugerencias!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Sugerencia</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>¿Quieres más sonidos? ¡Envía tus sugerencias!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Enviar sugerencia</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Enviar sugerencias</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>¡Gracias!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema</value>
@@ -300,12 +279,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Volumen general</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Quitar un sonido para usar otro.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>¡Se alcanzó el límite!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Nombre de la mezcla</value>
   </data>
@@ -326,18 +299,6 @@
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Renombrar</value>
-  </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Compartir enlace de mezcla de sonidos</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Compartir enlace de mezcla de sonidos</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Sonidos faltantes</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>¡Te faltan algunos sonidos! Descárgalos desde aquí. Presiona "Reproducir" cuando estés listo.</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Cerrar sesión</value>

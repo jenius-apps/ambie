@@ -27,15 +27,6 @@ namespace AmbientSounds.Services
         Task<string> RenameAsync(string currentName);
 
         /// <summary>
-        /// Open dialog that shows the results of
-        /// clicking on a share link.
-        /// </summary>
-        /// <param name="soundIds">List of Ids to preview.</param>
-        /// <returns>List of sound Ids that are installed and user wants to play.
-        /// Empty list if operation was cancelled.</returns>
-        Task<IList<string>> OpenShareResultsAsync(IList<string> soundIds);
-
-        /// <summary>
         /// Opens the premium dialog where users can purchase
         /// ambie plus.
         /// </summary>

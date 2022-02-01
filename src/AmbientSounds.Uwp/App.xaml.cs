@@ -103,16 +103,6 @@ namespace AmbientSounds
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
                 await ActivateAsync(false);
             }
-            else if (args.Kind == ActivationKind.Protocol && args is ProtocolActivatedEventArgs e)
-            {
-                // Ensure that the app does not try to load
-                // previous state of active sounds. This prevents
-                // conflicts with processing the url and loading
-                // sounds from the url.
-                await ActivateAsync(false, new AppSettings { LoadPreviousState = false });
-                var processor = App.Services.GetRequiredService<ILinkProcessor>();
-                processor.Process(e.Uri);
-            }
         }
 
         protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
@@ -298,13 +288,10 @@ namespace AmbientSounds
                 // if viewmodel, then always transient unless otherwise stated
                 .AddSingleton<SoundListViewModel>() // shared in main and compact pages
                 .AddTransient<CatalogueListViewModel>()
-                .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<ThemeSettingsViewModel>()
-                .AddTransient<UploadFormViewModel>()
                 .AddTransient<CataloguePageViewModel>()
-                .AddTransient<UploadPageViewModel>()
                 .AddTransient<MainPageViewModel>()
                 .AddTransient<ShellPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
@@ -312,7 +299,6 @@ namespace AmbientSounds
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
-                .AddTransient<UploadedSoundsListViewModel>()
                 .AddSingleton<AppServiceController>()
                 // object tree is all transient
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
@@ -325,12 +311,9 @@ namespace AmbientSounds
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
                 .AddSingleton<IUserSettings, LocalSettings>()
-                .AddSingleton<IShareLinkBuilder, ShareLinkBuilder>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
-                .AddSingleton<ILinkProcessor, LinkProcessor>()
                 .AddSingleton<IFileWriter, FileWriter>()
-                .AddSingleton<IUploadService, UploadService>()
                 .AddSingleton<IFilePicker, FilePicker>()
                 .AddSingleton<ICustomWebUi, CustomAuthUiService>()
                 .AddSingleton<IMsaAuthClient, MsalClient>()

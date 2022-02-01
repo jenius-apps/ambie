@@ -120,9 +120,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Krb</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Více již brzy</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Déšť</value>
   </data>
@@ -149,24 +146,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Změnit hlasitost zvuku</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Chcete více zvuků? Pošlete nám na ně návrh.</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Návrh</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Chcete více zvuků? Pošlete nám na ně návrh.</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Poslat návrh</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Klikněte zde pro poslání návrhu.</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Děkujeme</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Motiv aplikace</value>
@@ -287,12 +266,6 @@
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
     <value>Potvrdit uložení</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Odstraňte zvuk za účelem vytvoření místa pro jiný zvuk.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Dosáhli jste limitu!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Název zvukového mixu</value>
   </data>
@@ -317,18 +290,6 @@
   <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
     <value>Kompaktní režim</value>
   </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Sdílet odkaz na mix zvuku</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sdílet odkaz na zvukový mix</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Chybějící zvuky</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Chybí vám nějaké zvuky! Můžete si je stáhnout zde, a pak si je můžete přehrát až budete připraveni.</value>
-  </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Odhlásit se</value>
   </data>
@@ -350,26 +311,11 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Synchronizovat</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Nahrát zvuky</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Nahrané zvuky</value>
-  </data>
   <data name="Soundbeach" xml:space="preserve">
     <value>Pláže</value>
   </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Procházet</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>URL obrázku</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Cesta ke zvuku</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Nahrát zvuk</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Jméno</value>
@@ -377,39 +323,18 @@
   <data name="NewSound" xml:space="preserve">
     <value>Nový zvuk</value>
   </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Probíhá revize</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Aktualizovat</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Nahrajte relaxující zvuky do katalogu Ambie a umožněte ostatním poslouchat vaše zvuky!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Přihlásit se</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Souhlasím s podmínkami použití</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Jste si jistí?</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Ano</value>
-  </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>URL pro darování</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Vytvořil jsem tento zvuk nebo mám povolení ho nahrát</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Nahráli jste příliš velký soubor! Zkuste znovu se souborem, který je menší než {0} MB.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Dosáhli jste limitu! Můžete mít jen {0} zvuků.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Darovat</value>

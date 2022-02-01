@@ -120,9 +120,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Llar de foc</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Més properament</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Pluja</value>
   </data>
@@ -149,24 +146,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Canviar el volum del so</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Si us plau, envia suggeriments de so!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Suggeriment</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Si us plau, envia suggeriments de so!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Enviar suggeriment</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Fes clic per enviar suggeriments</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Gràcies</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema</value>

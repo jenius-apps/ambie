@@ -117,9 +117,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Pejs</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Mere følger snart</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Regn</value>
   </data>
@@ -146,24 +143,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Juster lydstyrke</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Ønskes flere lyde? Send forslag!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Forslag</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Ønskes flere lyde? Send forslag!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Send forslag</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Klik for at sende forslag</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Mange tak</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema</value>

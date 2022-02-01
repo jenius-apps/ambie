@@ -126,9 +126,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Камин</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>More coming soon</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Дождь</value>
   </data>
@@ -158,24 +155,6 @@
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
     <value>Громкость звука</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Хотите больше звуков? Присылайте ваши предложения!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Предложение</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Хотите больше звуков? Присылайте ваши предложения!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Прислать предложение</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Прислать предложение</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Спасибо!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Тема</value>
@@ -300,12 +279,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Общая громкость</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Удалить звук, чтобы освободить место для другого.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Достигнут лимит!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Имя звукового микса</value>
   </data>
@@ -326,18 +299,6 @@
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Переименовать</value>
-  </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Поделиться ссылкой на звковой микс</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Поделиться ссылкой на звковой микс</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Звуки отсутствуют</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>У вас отсутствуют некоторые звуки! Скачать их здесь. Нажмите Воспр., когда будете готовы.</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Выйти</value>
@@ -360,23 +321,11 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Синхронизировать</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Загрузить звуки</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Загруженные звуки</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Портал загрузок - Бета-версия</value>
-  </data>
   <data name="Attribution" xml:space="preserve">
     <value>Аттрибуты</value>
   </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Просмотреть</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>URL картинки</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
@@ -384,39 +333,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Новый звук</value>
   </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Путь к звуковому файлу</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Загрузить звук</value>
-  </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Нет</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Опубликовано</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Отклонено</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>На рассмотрении</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Не опубликовано</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Обновить</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Загрузить рекласирующие звуки в каталог Ambie и поделиться своей работой с другими!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Войти</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Я согласен с данным соглашением</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Вы уверены?</value>
@@ -424,23 +346,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>Ссылка для донатов</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Опционально</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Обязательно</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Я создал этот звуковой файл и я обладаю правами на его загрузку</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Файл слишком большой! Попробуйте файл размером меньше {0} MB.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Вы достигли лимита! Вы можете загрузить только {0} звуков.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Донаты</value>

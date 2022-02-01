@@ -126,9 +126,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Eldstad</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Mer kommer snart</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Regn</value>
   </data>
@@ -158,24 +155,6 @@
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
     <value>Ljudvolym</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Vill du ha fler ljud? Skicka förslag!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Förslag</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Vill du ha fler ljud? Skicka förslag!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Skicka förslag</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Skicka förslag</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Tack!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema</value>
@@ -300,12 +279,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Global volym</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Radera ett ljud för att göra plats åt ett annat.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Gränsen nådd!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Namn på ljudmix</value>
   </data>
@@ -331,18 +304,6 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Döp om</value>
   </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Dela ljudmixlänk</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Dela ljudmixlänk</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Saknade ljud</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Du saknar några ljud! Ladda ner dem här. Tryck på play när du är redo.</value>
-  </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Logga ut</value>
   </data>
@@ -364,23 +325,11 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Synkronisera</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Ladda upp ljud</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Nedladdade ljud</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Ladda upp Portal - Beta</value>
-  </data>
   <data name="Attribution" xml:space="preserve">
     <value>Tillskrivning</value>
   </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Bläddra</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>Bild URL</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Namn</value>
@@ -388,39 +337,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Nytt ljud</value>
   </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Vägen till ljud</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Ladda upp ljud</value>
-  </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Igen</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Publiceras</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Avvisade</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Under granskning</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Opublicerad</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Uppdatera</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Ladda upp avkopplande till Ambies katalog och låt andra lyssna på ditt arbete!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Logga in</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Jag godkänner användarvillkoren</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Är du säker?</value>
@@ -428,23 +350,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>Donation URL</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Frivillig</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Nödvändig</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Jag skapade det här ljudet eller så har jag tillåtelse att ladda upp det</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Det är en stor fil! Försök igen med en fil som är mindre än {0} MB.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Du är vid gränsen! Du kan bara ha {0} ljud.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Donera</value>

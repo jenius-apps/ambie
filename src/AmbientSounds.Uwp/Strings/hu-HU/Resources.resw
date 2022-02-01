@@ -123,9 +123,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Kandalló</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Hamarosan</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Eső</value>
   </data>
@@ -152,24 +149,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Hangerő változtatása</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Több hangot szeretne? Küldjön javaslatokat!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Javaslat</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Több hangot szeretne? Küldjön javaslatokat!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Javaslat küldése</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Kattintson ide a javaslat elküldéséhez</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Köszönjük</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Téma</value>
@@ -297,12 +276,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Fő hangerő</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Távolítson el egy hangot, hogy helyet készítsen egy másiknak.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Maximális hang mennyiség!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Válogatás neve</value>
   </data>
@@ -327,18 +300,6 @@
   <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
     <value>Kompakt mód</value>
   </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Lista megosztása linkkel</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Lista megosztása linkkel</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Hiányzó hangok</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Hiányzik pár hang, letöltheti őket innen.</value>
-  </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Kijelentkezés</value>
   </data>
@@ -360,26 +321,8 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Szinkronizálás</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Hangok feltöltése</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Feltöltött hangok</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Hang feltöltő - Béta</value>
-  </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Keresés</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>Kép URL címe</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Hang elérési útja</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Hang feltöltése</value>
   </data>
   <data name="Attribution" xml:space="preserve">
     <value>Cimkék</value>
@@ -390,33 +333,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Új hang</value>
   </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Semmi</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Közzétéve</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Elutasítva</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Felülvizsgálat alatt</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Nem közzétett</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Frissítés</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Töltsön fel nyugtató hangokat az Ambie katalógusába, hogy mások is meghallgathasság.</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Bejelentkezés</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Elfogadom a használati feltételeket</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Biztos benne?</value>
@@ -424,23 +346,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Igen</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>Támogatás URL címe</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Választható</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Kötelező</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Én készítettem a hangot, vagy van engedélyem feltölteni</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Túl nagy fájl! Próbálja meg újra egy {0} MB-nál kisebb fájllal.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Elérted a maximumot! Csak {0} hangja lehet.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Támogatás</value>

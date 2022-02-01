@@ -123,24 +123,6 @@
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
     <value>ஒலியளவு</value>
   </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>மேலும் ஒலிகள் வேண்டுமா? பரிந்துரை அனுப்புங்கள்!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>பரிந்துரை</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>மேலும் ஒலிகள் வேண்டுமா? பரிந்துரை அனுப்புங்கள்!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>பரிந்துரையை அனுப்பு</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>பரிந்துரையை அனுப்பு</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>நன்றி!</value>
-  </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>கருப்பொருள்</value>
   </data>
@@ -252,12 +234,6 @@
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
     <value>சேமிப்பை உறுதிசெய்</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>மற்றொரு ஒலிக்கு இடத்தை உருவாக்க ஒரு ஒலியை அகற்றவும்.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>எல்லை முடிந்தது!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>ஒலி கலவையின் பெயர்</value>
   </data>
@@ -278,18 +254,6 @@
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>மறுபெயரிடு</value>
-  </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>ஒலி கலவை இணைப்பைப் பகிர்</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>ஒலி கலவை இணைப்பைப் பகிர்</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>காணாத ஒலிகள்</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>நீங்கள் சில ஒலிகளைத் தவறிவிட்டீர்கள்! அவற்றை இங்கே பதிவிறக்கவும். நீங்கள் தயாராக இருக்கும்பொது இயக்கு பொத்தானை அழுத்தவும்.</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>வெளியேறு</value>
@@ -330,9 +294,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>நெருப்பிடம்</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>மேலும் விரைவில் வரும்</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>மழை</value>
   </data>
@@ -364,23 +325,11 @@
     <value>இயக்கப்படும் பட்டியலில் இருந்து {0} ஐ அகற்று</value>
     <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>ஒலிகளைப் பதிவேற்று</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>பதிவேற்றபட்ட ஒலிகள்</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>பதிவேற்றம் பக்கம் - முன்னோட்டம்</value>
-  </data>
   <data name="Attribution" xml:space="preserve">
     <value>பண்புக்கூறு</value>
   </data>
   <data name="BrowseText" xml:space="preserve">
     <value>உலாவு</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>படிம இணைப்பு</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>பெயர்</value>
@@ -388,39 +337,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>புதிய ஒலி</value>
   </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>ஒலி கோப்பின் இருப்பிடம்</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>ஒலியைப் பதிவேற்று</value>
-  </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>எதுவுமில்லை</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>வெளியிடப்பட்டது</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>மறுக்கப்பட்டது</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>மதிப்பாய்வில்</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>வெளியிடவில்லை</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>புதுப்பி</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Ambie இன் பட்டியலில் ஓய்வெடுக்கும் ஒலிகளைப் பதிவேற்றி, மற்றவர்கள் உங்கள் படைப்பைக் கேட்க வையுங்கள்!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>உள்நுழை</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>பயன்பாட்டு விதிமுறைகளை நான் ஒப்புக்கொள்கிறேன்</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>நிச்சயமாகவா?</value>
@@ -428,23 +350,11 @@
   <data name="Yes" xml:space="preserve">
     <value>ஆம்</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>தானம் இணைப்பு</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>விருப்பப்படியானவை</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>தேவையானவை</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>நான் இந்த ஒலியை உருவாக்கினேன் அல்லது எனக்குப் பதிவேற்ற அனுமதி உள்ளது</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>அது மிகவும் பெரியக் கோப்பு! {0} MBஐ விட சிறிய கோப்புடன் மீண்டும் முயற்சிக்கவும்.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>நீங்கள் வரம்பில் இருக்கிறீர்கள்! நீங்கள் {0} ஒலிகளை மட்டுமே கொண்டிருக்க முடியும்.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>தானமளி</value>

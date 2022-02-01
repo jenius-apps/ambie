@@ -160,10 +160,6 @@
           <source>Fireplace</source>
           <target state="translated">Kandalló</target>
         </trans-unit>
-        <trans-unit id="Soundmore" translate="yes" xml:space="preserve">
-          <source>More coming soon</source>
-          <target state="translated">Hamarosan</target>
-        </trans-unit>
         <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
           <target state="translated">Eső</target>
@@ -200,31 +196,6 @@
           <source>Global volume</source>
           <target state="needs-review-translation">Hangerő változtatása</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SuggestionHeader.Text" translate="yes" xml:space="preserve">
-          <source>Want more sounds? Send suggestions!</source>
-          <target state="translated">Több hangot szeretne? Küldjön javaslatokat!</target>
-        </trans-unit>
-        <trans-unit id="SuggestionTextBox.PlaceholderText" translate="yes" xml:space="preserve">
-          <source>Suggestion</source>
-          <target state="translated">Javaslat</target>
-        </trans-unit>
-        <trans-unit id="SuggestionTextBox.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Want more sounds? Send suggestions!</source>
-          <target state="translated">Több hangot szeretne? Küldjön javaslatokat!</target>
-        </trans-unit>
-        <trans-unit id="SuggestionSendButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Send suggestion</source>
-          <target state="translated">Javaslat küldése</target>
-        </trans-unit>
-        <trans-unit id="SuggestionSendButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Send suggestion</source>
-          <target state="needs-review-translation">Kattintson ide a javaslat elküldéséhez</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="ThankYouTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Thank you!</source>
-          <target state="translated">Köszönjük</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
@@ -392,14 +363,6 @@
           <source>Global volume</source>
           <target state="translated">Fő hangerő</target>
         </trans-unit>
-        <trans-unit id="LimitReachedMessage.Text" translate="yes" xml:space="preserve">
-          <source>Remove a sound to make space for another.</source>
-          <target state="translated">Távolítson el egy hangot, hogy helyet készítsen egy másiknak.</target>
-        </trans-unit>
-        <trans-unit id="LimitReachedTitle.Text" translate="yes" xml:space="preserve">
-          <source>Limit reached!</source>
-          <target state="translated">Maximális hang mennyiség!</target>
-        </trans-unit>
         <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
           <source>Sound mix name</source>
           <target state="translated">Válogatás neve</target>
@@ -432,22 +395,6 @@
           <source>Compact mode</source>
           <target state="translated">Kompakt mód</target>
         </trans-unit>
-        <trans-unit id="ShareMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Share sound mix link</source>
-          <target state="translated">Lista megosztása linkkel</target>
-        </trans-unit>
-        <trans-unit id="ShareMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Share sound mix link</source>
-          <target state="translated">Lista megosztása linkkel</target>
-        </trans-unit>
-        <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
-          <source>Missing sounds</source>
-          <target state="translated">Hiányzó hangok</target>
-        </trans-unit>
-        <trans-unit id="ShareResultsMessage.Text" translate="yes" xml:space="preserve">
-          <source>You're missing some sounds! Download them here. Press play whenever you're ready.</source>
-          <target state="translated">Hiányzik pár hang, letöltheti őket innen.</target>
-        </trans-unit>
         <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sign out</source>
           <target state="translated">Kijelentkezés</target>
@@ -477,33 +424,9 @@
           <source>Sync</source>
           <target state="translated">Szinkronizálás</target>
         </trans-unit>
-        <trans-unit id="MoreButtonUpload.Label" translate="yes" xml:space="preserve">
-          <source>Upload sounds</source>
-          <target state="translated">Hangok feltöltése</target>
-        </trans-unit>
-        <trans-unit id="UploadedSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Uploaded sounds</source>
-          <target state="translated">Feltöltött hangok</target>
-        </trans-unit>
-        <trans-unit id="UploadPortal.Text" translate="yes" xml:space="preserve">
-          <source>Upload Portal - Beta</source>
-          <target state="translated">Hang feltöltő - Béta</target>
-        </trans-unit>
         <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
           <source>Browse</source>
           <target state="translated">Keresés</target>
-        </trans-unit>
-        <trans-unit id="ImageUrl" translate="yes" xml:space="preserve">
-          <source>Image URL</source>
-          <target state="translated">Kép URL címe</target>
-        </trans-unit>
-        <trans-unit id="PathToSound" translate="yes" xml:space="preserve">
-          <source>Path to sound</source>
-          <target state="translated">Hang elérési útja</target>
-        </trans-unit>
-        <trans-unit id="UploadSubmitButton" translate="yes" xml:space="preserve">
-          <source>Upload sound</source>
-          <target state="translated">Hang feltöltése</target>
         </trans-unit>
         <trans-unit id="Attribution" translate="yes" xml:space="preserve">
           <source>Attribution</source>
@@ -517,42 +440,14 @@
           <source>New sound</source>
           <target state="translated">Új hang</target>
         </trans-unit>
-        <trans-unit id="PublishStateNone" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">Semmi</target>
-        </trans-unit>
-        <trans-unit id="PublishStatePublished" translate="yes" xml:space="preserve">
-          <source>Published</source>
-          <target state="translated">Közzétéve</target>
-        </trans-unit>
-        <trans-unit id="PublishStateRejected" translate="yes" xml:space="preserve">
-          <source>Rejected</source>
-          <target state="translated">Elutasítva</target>
-        </trans-unit>
-        <trans-unit id="PublishStateUnderReview" translate="yes" xml:space="preserve">
-          <source>Under review</source>
-          <target state="translated">Felülvizsgálat alatt</target>
-        </trans-unit>
-        <trans-unit id="PublishStateUnpublished" translate="yes" xml:space="preserve">
-          <source>Unpublished</source>
-          <target state="translated">Nem közzétett</target>
-        </trans-unit>
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
           <target state="translated">Frissítés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
-        <trans-unit id="UploadPlaceholderMessage" translate="yes" xml:space="preserve">
-          <source>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</source>
-          <target state="translated">Töltsön fel nyugtató hangokat az Ambie katalógusába, hogy mások is meghallgathasság.</target>
-        </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign in</source>
           <target state="translated">Bejelentkezés</target>
-        </trans-unit>
-        <trans-unit id="UploadTermsMessage" translate="yes" xml:space="preserve">
-          <source>I agree to the Terms of Use</source>
-          <target state="translated">Elfogadom a használati feltételeket</target>
         </trans-unit>
         <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
           <source>Are you sure?</source>
@@ -562,10 +457,6 @@
           <source>Yes</source>
           <target state="translated">Igen</target>
         </trans-unit>
-        <trans-unit id="DonateUrl" translate="yes" xml:space="preserve">
-          <source>Donation URL</source>
-          <target state="translated">Támogatás URL címe</target>
-        </trans-unit>
         <trans-unit id="Optional" translate="yes" xml:space="preserve">
           <source>Optional</source>
           <target state="translated">Választható</target>
@@ -573,18 +464,6 @@
         <trans-unit id="Required" translate="yes" xml:space="preserve">
           <source>Required</source>
           <target state="translated">Kötelező</target>
-        </trans-unit>
-        <trans-unit id="UploadPermissionsMessage" translate="yes" xml:space="preserve">
-          <source>I created this sound or I have permission to upload it</source>
-          <target state="translated">Én készítettem a hangot, vagy van engedélyem feltölteni</target>
-        </trans-unit>
-        <trans-unit id="ErrorBigFile" translate="yes" xml:space="preserve">
-          <source>That's a big file! Try again with a file smaller than {0} MB.</source>
-          <target state="translated">Túl nagy fájl! Próbálja meg újra egy {0} MB-nál kisebb fájllal.</target>
-        </trans-unit>
-        <trans-unit id="ErrorUploadCount" translate="yes" xml:space="preserve">
-          <source>You're at the limit! You can only have {0} sounds.</source>
-          <target state="translated">Elérted a maximumot! Csak {0} hangja lehet.</target>
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>

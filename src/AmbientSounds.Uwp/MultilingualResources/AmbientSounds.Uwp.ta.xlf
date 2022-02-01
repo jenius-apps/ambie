@@ -154,30 +154,6 @@
           <source>Sound volume</source>
           <target state="translated">ஒலியளவு</target>
         </trans-unit>
-        <trans-unit id="SuggestionHeader.Text" translate="yes" xml:space="preserve">
-          <source>Want more sounds? Send suggestions!</source>
-          <target state="translated">மேலும் ஒலிகள் வேண்டுமா? பரிந்துரை அனுப்புங்கள்!</target>
-        </trans-unit>
-        <trans-unit id="SuggestionTextBox.PlaceholderText" translate="yes" xml:space="preserve">
-          <source>Suggestion</source>
-          <target state="translated">பரிந்துரை</target>
-        </trans-unit>
-        <trans-unit id="SuggestionTextBox.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Want more sounds? Send suggestions!</source>
-          <target state="translated">மேலும் ஒலிகள் வேண்டுமா? பரிந்துரை அனுப்புங்கள்!</target>
-        </trans-unit>
-        <trans-unit id="SuggestionSendButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Send suggestion</source>
-          <target state="translated">பரிந்துரையை அனுப்பு</target>
-        </trans-unit>
-        <trans-unit id="SuggestionSendButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Send suggestion</source>
-          <target state="translated">பரிந்துரையை அனுப்பு</target>
-        </trans-unit>
-        <trans-unit id="ThankYouTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Thank you!</source>
-          <target state="translated">நன்றி!</target>
-        </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
           <target state="translated">கருப்பொருள்</target>
@@ -324,14 +300,6 @@
           <source>Confirm save</source>
           <target state="translated">சேமிப்பை உறுதிசெய்</target>
         </trans-unit>
-        <trans-unit id="LimitReachedMessage.Text" translate="yes" xml:space="preserve">
-          <source>Remove a sound to make space for another.</source>
-          <target state="translated">மற்றொரு ஒலிக்கு இடத்தை உருவாக்க ஒரு ஒலியை அகற்றவும்.</target>
-        </trans-unit>
-        <trans-unit id="LimitReachedTitle.Text" translate="yes" xml:space="preserve">
-          <source>Limit reached!</source>
-          <target state="translated">எல்லை முடிந்தது!</target>
-        </trans-unit>
         <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
           <source>Sound mix name</source>
           <target state="translated">ஒலி கலவையின் பெயர்</target>
@@ -359,22 +327,6 @@
         <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Rename</source>
           <target state="translated">மறுபெயரிடு</target>
-        </trans-unit>
-        <trans-unit id="ShareMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Share sound mix link</source>
-          <target state="translated">ஒலி கலவை இணைப்பைப் பகிர்</target>
-        </trans-unit>
-        <trans-unit id="ShareMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Share sound mix link</source>
-          <target state="translated">ஒலி கலவை இணைப்பைப் பகிர்</target>
-        </trans-unit>
-        <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
-          <source>Missing sounds</source>
-          <target state="translated">காணாத ஒலிகள்</target>
-        </trans-unit>
-        <trans-unit id="ShareResultsMessage.Text" translate="yes" xml:space="preserve">
-          <source>You're missing some sounds! Download them here. Press play whenever you're ready.</source>
-          <target state="translated">நீங்கள் சில ஒலிகளைத் தவறிவிட்டீர்கள்! அவற்றை இங்கே பதிவிறக்கவும். நீங்கள் தயாராக இருக்கும்பொது இயக்கு பொத்தானை அழுத்தவும்.</target>
         </trans-unit>
         <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sign out</source>
@@ -429,10 +381,6 @@
           <source>Fireplace</source>
           <target state="translated">நெருப்பிடம்</target>
         </trans-unit>
-        <trans-unit id="Soundmore" translate="yes" xml:space="preserve">
-          <source>More coming soon</source>
-          <target state="translated">மேலும் விரைவில் வரும்</target>
-        </trans-unit>
         <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
           <target state="translated">மழை</target>
@@ -474,18 +422,6 @@
           <target state="translated">இயக்கப்படும் பட்டியலில் இருந்து {0} ஐ அகற்று</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
         </trans-unit>
-        <trans-unit id="MoreButtonUpload.Label" translate="yes" xml:space="preserve">
-          <source>Upload sounds</source>
-          <target state="translated">ஒலிகளைப் பதிவேற்று</target>
-        </trans-unit>
-        <trans-unit id="UploadedSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Uploaded sounds</source>
-          <target state="translated">பதிவேற்றபட்ட ஒலிகள்</target>
-        </trans-unit>
-        <trans-unit id="UploadPortal.Text" translate="yes" xml:space="preserve">
-          <source>Upload Portal - Beta</source>
-          <target state="translated">பதிவேற்றம் பக்கம் - முன்னோட்டம்</target>
-        </trans-unit>
         <trans-unit id="Attribution" translate="yes" xml:space="preserve">
           <source>Attribution</source>
           <target state="translated">பண்புக்கூறு</target>
@@ -493,10 +429,6 @@
         <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
           <source>Browse</source>
           <target state="translated">உலாவு</target>
-        </trans-unit>
-        <trans-unit id="ImageUrl" translate="yes" xml:space="preserve">
-          <source>Image URL</source>
-          <target state="translated">படிம இணைப்பு</target>
         </trans-unit>
         <trans-unit id="Name" translate="yes" xml:space="preserve">
           <source>Name</source>
@@ -506,50 +438,14 @@
           <source>New sound</source>
           <target state="translated">புதிய ஒலி</target>
         </trans-unit>
-        <trans-unit id="PathToSound" translate="yes" xml:space="preserve">
-          <source>Path to sound</source>
-          <target state="translated">ஒலி கோப்பின் இருப்பிடம்</target>
-        </trans-unit>
-        <trans-unit id="UploadSubmitButton" translate="yes" xml:space="preserve">
-          <source>Upload sound</source>
-          <target state="translated">ஒலியைப் பதிவேற்று</target>
-        </trans-unit>
-        <trans-unit id="PublishStateNone" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">எதுவுமில்லை</target>
-        </trans-unit>
-        <trans-unit id="PublishStatePublished" translate="yes" xml:space="preserve">
-          <source>Published</source>
-          <target state="translated">வெளியிடப்பட்டது</target>
-        </trans-unit>
-        <trans-unit id="PublishStateRejected" translate="yes" xml:space="preserve">
-          <source>Rejected</source>
-          <target state="translated">மறுக்கப்பட்டது</target>
-        </trans-unit>
-        <trans-unit id="PublishStateUnderReview" translate="yes" xml:space="preserve">
-          <source>Under review</source>
-          <target state="translated">மதிப்பாய்வில்</target>
-        </trans-unit>
-        <trans-unit id="PublishStateUnpublished" translate="yes" xml:space="preserve">
-          <source>Unpublished</source>
-          <target state="translated">வெளியிடவில்லை</target>
-        </trans-unit>
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
           <target state="translated">புதுப்பி</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
-        <trans-unit id="UploadPlaceholderMessage" translate="yes" xml:space="preserve">
-          <source>Upload relaxing sounds into Ambie's catalogue and have others listen to your work!</source>
-          <target state="translated">Ambie இன் பட்டியலில் ஓய்வெடுக்கும் ஒலிகளைப் பதிவேற்றி, மற்றவர்கள் உங்கள் படைப்பைக் கேட்க வையுங்கள்!</target>
-        </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign in</source>
           <target state="translated">உள்நுழை</target>
-        </trans-unit>
-        <trans-unit id="UploadTermsMessage" translate="yes" xml:space="preserve">
-          <source>I agree to the Terms of Use</source>
-          <target state="translated">பயன்பாட்டு விதிமுறைகளை நான் ஒப்புக்கொள்கிறேன்</target>
         </trans-unit>
         <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
           <source>Are you sure?</source>
@@ -559,10 +455,6 @@
           <source>Yes</source>
           <target state="translated">ஆம்</target>
         </trans-unit>
-        <trans-unit id="DonateUrl" translate="yes" xml:space="preserve">
-          <source>Donation URL</source>
-          <target state="translated">தானம் இணைப்பு</target>
-        </trans-unit>
         <trans-unit id="Optional" translate="yes" xml:space="preserve">
           <source>Optional</source>
           <target state="translated">விருப்பப்படியானவை</target>
@@ -570,18 +462,6 @@
         <trans-unit id="Required" translate="yes" xml:space="preserve">
           <source>Required</source>
           <target state="translated">தேவையானவை</target>
-        </trans-unit>
-        <trans-unit id="UploadPermissionsMessage" translate="yes" xml:space="preserve">
-          <source>I created this sound or I have permission to upload it</source>
-          <target state="translated">நான் இந்த ஒலியை உருவாக்கினேன் அல்லது எனக்குப் பதிவேற்ற அனுமதி உள்ளது</target>
-        </trans-unit>
-        <trans-unit id="ErrorBigFile" translate="yes" xml:space="preserve">
-          <source>That's a big file! Try again with a file smaller than {0} MB.</source>
-          <target state="translated">அது மிகவும் பெரியக் கோப்பு! {0} MBஐ விட சிறிய கோப்புடன் மீண்டும் முயற்சிக்கவும்.</target>
-        </trans-unit>
-        <trans-unit id="ErrorUploadCount" translate="yes" xml:space="preserve">
-          <source>You're at the limit! You can only have {0} sounds.</source>
-          <target state="translated">நீங்கள் வரம்பில் இருக்கிறீர்கள்! நீங்கள் {0} ஒலிகளை மட்டுமே கொண்டிருக்க முடியும்.</target>
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>

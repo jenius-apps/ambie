@@ -17,13 +17,6 @@ namespace AmbientSounds.Factories
         OnlineSoundViewModel? GetOnlineSoundVm(Sound s);
 
         /// <summary>
-        /// Creates a new uploaded sound viewmodel.
-        /// </summary>
-        /// <param name="s">The sound to associate with the viewmodel.</param>
-        /// <returns>An uploaded sound viewmodel.</returns>
-        UploadedSoundViewModel GetUploadedSoundVm(Sound s);
-
-        /// <summary>
         /// Creates new sound viewmodel.
         /// </summary>
         /// <param name="s">The sound to associate with the viewmodel.</param>

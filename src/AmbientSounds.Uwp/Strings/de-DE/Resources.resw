@@ -126,9 +126,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Kamin</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Demnächst mehr</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Regen</value>
   </data>
@@ -158,24 +155,6 @@
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
     <value>Klang Lautstärke</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Wollen Sie mehr Klänge? Senden Sie Vorschläge!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Vorschlag</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Wollen Sie mehr Klänge? Senden Sie Vorschläge!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Vorschlag senden</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Vorschlag senden</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Vielen Dank!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Thema</value>
@@ -300,12 +279,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Gesamtlautstärke</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Entferne Klang, um Platz für einen anderen zu schaffen.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Limit erreicht!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Name der Klangmischung</value>
   </data>
@@ -326,18 +299,6 @@
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Umbenennen</value>
-  </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Klangmischung teilen</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Klangmischung teilen</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Fehlende Klänge</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Es fehlen Ihnen einige Klänge! Lade Sie sie hier herunter. Drücken Sie Wiedergabe, wann immer Sie bereit sind.</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Abmelden</value>
@@ -360,26 +321,8 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sync</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Klänge hochladen</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Hochgeladene Klänge</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Upload Portal - Beta</value>
-  </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Durchsuchen</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>Bild URL</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Pfad zum Klang</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Klang hochladen</value>
   </data>
   <data name="Attribution" xml:space="preserve">
     <value>Zuschreibung</value>
@@ -390,33 +333,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Neuer Klang</value>
   </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Nichts</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Veröffentlicht</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Abgelehnt</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Wird geprüft</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Unveröffentlicht</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Aktualisieren</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Laden Sie entspannende Klänge in den Ambie-Katalog hoch und lassen Sie andere Ihre Arbeit hören!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Anmelden</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Ich stimme den Nutzungsbedingungen zu</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Sind Sie sicher?</value>
@@ -424,23 +346,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>Spenden-URL</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Optional</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Erforderlich</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Ich habe diesen Klang erstellt oder ich habe die Erlaubnis, es hochzuladen</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Das ist eine große Datei! Versuchen Sie es erneut mit einer Datei, die kleiner als {0} MB ist.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Sie haben das Limit erreicht! Sie können nur {0} Klänge nutzen.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Spenden</value>

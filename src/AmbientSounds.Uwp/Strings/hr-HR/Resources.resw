@@ -126,9 +126,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Kamin</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Više uskoro</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Kiša</value>
   </data>
@@ -158,24 +155,6 @@
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
     <value>Glasnoća zvuka</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Želite više zvukova? Pošaljite prijedloge!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Prijedlog</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Želite više zvukova? Pošaljite prijedloge!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Pošalji prijedlog</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Pošalji prijedlog</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Hvala vam!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema</value>
@@ -300,12 +279,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Glavna glasnoća</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Uklonite zvuk kako bi napravili mjesta za novi.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Dosegnuto je ograničenje!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Naziv zvučnog miksa</value>
   </data>
@@ -331,18 +304,6 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Preimenuj</value>
   </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Podijeli poveznicu zvučnog miksa</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Podijeli poveznicu zvučnog miksa</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Nedostajući zvukovi</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Nedostaju vam neki zvukovi! Preuzmite ih ovdje. Pokrenite reprodukciju kad god ste spremni.</value>
-  </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Odjava</value>
   </data>
@@ -364,23 +325,11 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sinkronizacija</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Uploadaj zvukove</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Uploadani zvukovi</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Upload Portal - U beti</value>
-  </data>
   <data name="Attribution" xml:space="preserve">
     <value>Atribucija</value>
   </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Pregled</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>URL slike</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Naziv</value>
@@ -388,39 +337,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Novi zvuk</value>
   </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Putanja do zvuka</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Uploadaj zvuk</value>
-  </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Nema</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Objavljeno</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Odbijeno</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>U pregledu</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Neobjavljeno</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Osvježi</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Prenesite osvježavajuće zvukove u Ambiejev katalog i omogućite drugima da čuju vaše stvaralaštvo!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Prijava</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Pristajem na prava korištenja</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Jeste li sigurni?</value>
@@ -428,23 +350,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Da</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>URL za donacije</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Neobavezno</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Obavezno</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Stvorio / stvorila sam ovaj zvuk ili imam ovlastštenje za objavu</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>To je jako velika datoteka! Molimo vas pokušajte opet s datotekom manjom od {0} MB.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Dostigli ste ograničenje! Možete imati samo {0} zvukova.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Doniraj</value>

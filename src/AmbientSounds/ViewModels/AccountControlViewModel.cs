@@ -40,14 +40,11 @@ namespace AmbientSounds.ViewModels
             _navigator = navigator;
 
             SignInCommand = new AsyncRelayCommand(SignIn);
-            OpenUploadPageCommand = new RelayCommand(UploadClicked);
             SignOutCommand = new AsyncRelayCommand(SignOutAsync);
             SyncCommand = new AsyncRelayCommand(SyncAsync);
         }
 
         public IAsyncRelayCommand SignInCommand { get; }
-
-        public IRelayCommand OpenUploadPageCommand { get; }
 
         public IAsyncRelayCommand SignOutCommand { get; }
 
@@ -181,11 +178,6 @@ namespace AmbientSounds.ViewModels
             {
                 Person = await _accountManager.GetPersonDataAsync();
             }
-        }
-
-        private void UploadClicked()
-        {
-            _navigator.ToUploadPage();
         }
 
         private async Task SyncAsync()

@@ -22,7 +22,6 @@ namespace AmbientSounds.Factories
         private readonly IUserSettings _userSettings;
         private readonly ISoundMixService _soundMixService;
         private readonly IRenamer _renamer;
-        private readonly IUploadService _uploadService;
         private readonly IServiceProvider _serviceProvider;
 
         public SoundVmFactory(
@@ -34,7 +33,6 @@ namespace AmbientSounds.Factories
             ISoundMixService soundMixService,
             IUserSettings userSettings,
             IIapService iapService,
-            IUploadService uploadService,
             IRenamer renamer,
             IServiceProvider serviceProvider)
         {
@@ -47,7 +45,6 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(renamer, nameof(renamer));
-            Guard.IsNotNull(uploadService, nameof(uploadService));
             Guard.IsNotNull(serviceProvider, nameof(serviceProvider));
 
             _userSettings = userSettings;
@@ -59,7 +56,6 @@ namespace AmbientSounds.Factories
             _player = player;
             _renamer = renamer;
             _telemetry = telemetry;
-            _uploadService = uploadService;
             _serviceProvider = serviceProvider;
         }
 
@@ -85,13 +81,6 @@ namespace AmbientSounds.Factories
                 _previewService,
                 _iapService,
                 dialogService);
-        }
-
-        /// <inheritdoc/>
-        public UploadedSoundViewModel GetUploadedSoundVm(Sound s)
-        {
-            Guard.IsNotNull(s, nameof(s));
-            return new UploadedSoundViewModel(s, _uploadService);
         }
 
         /// <inheritdoc/>

@@ -12,4 +12,419 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>コンパクトモードを終了する</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>コンパクトモードを終了する</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>出口</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>著作権</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>著作権 Jenius Apps</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>バンクーバーからこんにちは</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="Minutes10Button.Label" xml:space="preserve">
+    <value>10分</value>
+  </data>
+  <data name="Minutes15Button.Label" xml:space="preserve">
+    <value>15分</value>
+  </data>
+  <data name="Minutes30Button.Label" xml:space="preserve">
+    <value>30分</value>
+  </data>
+  <data name="Minutes5Button.Label" xml:space="preserve">
+    <value>5分</value>
+  </data>
+  <data name="Minutes60Button.Label" xml:space="preserve">
+    <value>60分</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>その他のオプション</value>
+  </data>
+  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+    <value>コンパクトモード</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>作成者に問い合わせる</value>
+  </data>
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
+    <value>Discord でチャット</value>
+  </data>
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
+    <value>GitHub を表示</value>
+  </data>
+  <data name="MoreButtonRate.Label" xml:space="preserve">
+    <value>私たちを評価する</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>共有</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>翻訳の向上</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>休止</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>休止</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>再生</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>続ける</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>プレイする準備ができました</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>テレメトリー</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>その他のオプション</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>その他のオプション</value>
+  </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>浜</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>鳥類</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>通り</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>喫茶店</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>入り江</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>暖炉</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>雨</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>森</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>水中</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>滝</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>ホワイトノイズ</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>積載</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>サウンドを再生できない</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>停止タイマー</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>容積</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>容積</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>テーマ</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>暗い</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>光</value>
+  </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>真空</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>雷</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>新しいサウンドの通知</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>風</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>既にダウンロード済み</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>戻ってください</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>ダウンロード可能</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>音楽をダウンロードする</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>音楽をダウンロードする</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>音楽カタログ</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>音</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>プライバシーポリシー</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>プライバシーポリシー</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>音楽を削除する</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>ランダムな音楽を再生する</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>ランダムな音楽を再生する</value>
+  </data>
+  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+    <value>スクリーンセーバーモード</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>スクリーンセーバー</value>
+  </data>
+  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
+    <value>暗いページをスクリーンセーバーとして使用する</value>
+  </data>
+  <data name="Hours2Button.Label" xml:space="preserve">
+    <value>2時間</value>
+  </data>
+  <data name="Hours4Button.Label" xml:space="preserve">
+    <value>4時間</value>
+  </data>
+  <data name="Hours8Button.Label" xml:space="preserve">
+    <value>8時間</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>音楽を購入する</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>音楽をプレビューする</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>音楽をプレビューする</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>一時 停止</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>遊んで</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>音楽再生</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>音楽を停止する</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>音楽を停止する</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>保存の確認</value>
+  </data>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>容積</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>音楽名</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>随意</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>「{0}」を止める</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>カスタム音楽を保存</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>カスタム音楽を保存 (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>改名する</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>改名する</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>サインアウト</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>デバイス間で音楽の同期を有効にします。</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>View account options</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>View account options</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>サインイン</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>サインイン</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>同期</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>帰属</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>ブラウズ</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>新しい音楽</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>積み直す</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>サインイン</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>確かですか。</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>随意</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>必須</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>寄付する</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>利用規約</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>ツイッターでフォローする</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>解任する</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>アンビーを試してくれてありがとう。最高の体験を得るために、タスクバーにピン留めしてみてください!</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>ようこそ！</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>ピン 留め</value>
+  </data>
+  <data name="Transparency" xml:space="preserve">
+    <value>透明性</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>カタログ</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>家</value>
+  </data>
+  <data name="ScreensaverOn" xml:space="preserve">
+    <value>1分後に起動</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>3つの音楽を選択</value>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>テーマの設定</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>月額{0}</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>購入していただきありがとうございます!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>高品質の音楽を取得</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>成長カタログ</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>サポート開発</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>こんにちは再び</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>アンビーは好きですか?私たちを評価してください!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>アンビーが開いたら再開する</value>
+  </data>
+  <data name="SettingsDisableSmtc" xml:space="preserve">
+    <value>アンビーが Windows メディア コントロールと統合できないようにする</value>
+  </data>
 </root>
