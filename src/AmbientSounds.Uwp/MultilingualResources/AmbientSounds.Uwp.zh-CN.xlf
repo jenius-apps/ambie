@@ -394,8 +394,7 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="needs-review-translation">登录来在多个设备间同步你的音效库，或上传音效。</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">登录以便在多个设备间同步你的音效库。</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
@@ -543,19 +542,19 @@
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
-          <target state="new">Hello again 👋🏽</target>
+          <target state="translated">嗨！又见面了！👋🏽</target>
         </trans-unit>
         <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
           <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="new">Enjoying Ambie? Please consider rating us!</target>
+          <target state="translated">喜欢 Ambie 吗？请考虑为我们评分！</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
           <source>Auto resume when Ambie opens</source>
-          <target state="new">Auto resume when Ambie opens</target>
+          <target state="translated">打开 Ambie 时自动恢复播放</target>
         </trans-unit>
         <trans-unit id="SettingsDisableSmtc" translate="yes" xml:space="preserve">
           <source>Prevent Ambie from integrating with Windows media controls</source>
-          <target state="new">Prevent Ambie from integrating with Windows media controls</target>
+          <target state="translated">不将 Ambie 集成到 Windows 系统媒体控件</target>
         </trans-unit>
       </group>
     </body>
