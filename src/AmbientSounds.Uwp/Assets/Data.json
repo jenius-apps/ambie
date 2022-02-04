@@ -4,7 +4,7 @@
     "Name": "beach",
     "ColourHex": "#c59758",
     "ImagePath": "ms-appx:///Assets/Images/beach.png",
-    "FilePath": "ms-appx:///Assets/Sounds/beach.mp3",
+    "FilePath": "ms-appx:///Assets/Sounds/beach.wav",
     "Attribution": "Sea Barcelona Beach Traffic Voices.wav by jordir -- https://freesound.org/s/360578/ -- License: Creative Commons 0. Photo by Ethan Robertson on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -38,7 +38,7 @@
       "https://images.unsplash.com/photo-1534885018726-f7d345782f0f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80"
     ]
   },
-  {
+    {
     "Id": "17b2af89-1008-4259-b545-dc8ca4ee473f",
     "Name": "coffeeshop",
     "ColourHex": "#636252",
