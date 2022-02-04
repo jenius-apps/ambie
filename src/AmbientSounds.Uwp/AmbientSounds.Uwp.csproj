@@ -280,7 +280,7 @@
     <Content Include="Assets\SmallTile.scale-400.png" />
     <Content Include="Assets\Sounds\beach.mp3" />
     <Content Include="Assets\Sounds\birds.mp3" />
-    <Content Include="Assets\Sounds\citystreet.mp3" />
+    <Content Include="Assets\Sounds\citystreet.wav" />
     <Content Include="Assets\Sounds\coffeeshop.mp3" />
     <Content Include="Assets\Sounds\creek.mp3" />
     <Content Include="Assets\Sounds\fireplace.mp3" />

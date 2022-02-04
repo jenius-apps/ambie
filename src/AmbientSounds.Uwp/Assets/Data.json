@@ -30,7 +30,7 @@
     "Name": "citystreet",
     "ColourHex": "#a2775c",
     "ImagePath": "ms-appx:///Assets/Images/citystreet.png",
-    "FilePath": "ms-appx:///Assets/Sounds/citystreet.mp3",
+    "FilePath": "ms-appx:///Assets/Sounds/citystreet.wav",
     "Attribution": "City park_1(traffic, cars, people, voices, shouting).wav by o_ciz -- https://freesound.org/s/475513/ -- License: Creative Commons 0. Photo by Yin Wong on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1490555057042-39428536226a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
