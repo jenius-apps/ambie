@@ -81,7 +81,7 @@
     "Name": "rain",
     "ColourHex": "#334337",
     "ImagePath": "ms-appx:///Assets/Images/rain.png",
-    "FilePath": "ms-appx:///Assets/Sounds/rain.mp3",
+    "FilePath": "ms-appx:///Assets/Sounds/rain.wav",
     "Attribution": "Rain heavy 1 (rural) by jmbphilmes -- https://freesound.org/s/200270/ -- License: Creative Commons 0. Photo by Priscilla Du Preez on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1428592953211-077101b2021b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",

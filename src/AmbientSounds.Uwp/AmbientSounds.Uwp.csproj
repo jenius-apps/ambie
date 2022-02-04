@@ -284,7 +284,7 @@
     <Content Include="Assets\Sounds\coffeeshop.mp3" />
     <Content Include="Assets\Sounds\creek.mp3" />
     <Content Include="Assets\Sounds\fireplace.mp3" />
-    <Content Include="Assets\Sounds\rain.mp3" />
+    <Content Include="Assets\Sounds\rain.wav" />
     <Content Include="Assets\Sounds\Rainforest.mp3" />
     <Content Include="Assets\Sounds\thunder.mp3" />
     <Content Include="Assets\Sounds\underwater.mp3" />
