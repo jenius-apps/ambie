@@ -304,7 +304,7 @@
     <value>注销</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>登录来在多个设备间同步你的音效库，或上传音效。</value>
+    <value>登录以便在多个设备间同步你的音效库。</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>查看账户选项</value>
@@ -414,5 +414,17 @@
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
     <value>支持我们的开发！</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>嗨！又见面了！👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>喜欢 Ambie 吗？请考虑为我们评分！</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>打开 Ambie 时自动恢复播放</value>
+  </data>
+  <data name="SettingsDisableSmtc" xml:space="preserve">
+    <value>不将 Ambie 集成到 Windows 系统媒体控件</value>
   </data>
 </root>
