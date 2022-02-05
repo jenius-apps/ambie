@@ -288,7 +288,7 @@
     <Content Include="Assets\Sounds\Rainforest.mp3" />
     <Content Include="Assets\Sounds\thunder.mp3" />
     <Content Include="Assets\Sounds\underwater.mp3" />
-    <Content Include="Assets\Sounds\waterfall.mp3" />
+    <Content Include="Assets\Sounds\waterfall.wav" />
     <Content Include="Assets\Sounds\whitenoise.wav" />
     <Content Include="Assets\Sounds\wind.mp3" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
