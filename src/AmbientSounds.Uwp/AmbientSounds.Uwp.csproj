@@ -290,7 +290,7 @@
     <Content Include="Assets\Sounds\underwater.wav" />
     <Content Include="Assets\Sounds\waterfall.wav" />
     <Content Include="Assets\Sounds\whitenoise.wav" />
-    <Content Include="Assets\Sounds\wind.mp3" />
+    <Content Include="Assets\Sounds\wind.wav" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
