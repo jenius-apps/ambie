@@ -69,7 +69,7 @@
     "Name": "fireplace",
     "ColourHex": "#442f12",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
-    "FilePath": "ms-appx:///Assets/Sounds/fireplace.mp3",
+    "FilePath": "ms-appx:///Assets/Sounds/fireplace.wav",
     "Attribution": "13_Fire in fireplace.wav by 16FThumaF -- https://freesound.org/s/499032/ -- License: Creative Commons 0. Photo by Oxana Lyashenko on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1543393470-b2c833b98dce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
