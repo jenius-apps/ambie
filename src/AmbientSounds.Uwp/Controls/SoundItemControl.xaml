@@ -24,6 +24,19 @@
     mc:Ignorable="d">
 
     <Grid x:Name="Root">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="FocusStates">
+                <VisualState x:Name="Focused">
+                    <VisualState.Setters>
+                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
+                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Unfocused" />
+                <VisualState x:Name="PointerFocused" />
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <ani:Implicit.ShowAnimations>
             <ani:OpacityAnimation
                 Delay="0:0:0.5"
@@ -68,6 +81,7 @@
                                 <BitmapImage
                                     DecodePixelHeight="240"
                                     DecodePixelType="Logical"
+                                    ImageFailed="BitmapImage_ImageFailed"
                                     UriSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" />
                             </ImageBrush.ImageSource>
                         </ImageBrush>
@@ -81,7 +95,10 @@
                     </Grid.RowDefinitions>
                     <Image Grid.Row="1" Stretch="UniformToFill">
                         <Image.Source>
-                            <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
+                            <BitmapImage
+                                DecodePixelHeight="120"
+                                ImageFailed="BitmapImage_ImageFailed"
+                                UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
                 </Grid>
@@ -97,6 +114,7 @@
                             <BitmapImage
                                 DecodePixelHeight="80"
                                 DecodePixelType="Logical"
+                                ImageFailed="BitmapImage_ImageFailed"
                                 UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
@@ -105,6 +123,7 @@
                             <BitmapImage
                                 DecodePixelHeight="80"
                                 DecodePixelType="Logical"
+                                ImageFailed="BitmapImage_ImageFailed"
                                 UriSource="{x:Bind ViewModel.ThirdImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
@@ -218,18 +237,5 @@
             Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}"
             StrokeThickness="2"
             Visibility="Collapsed" />
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="FocusStates">
-                <VisualState x:Name="Focused">
-                    <VisualState.Setters>
-                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
-                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Unfocused" />
-                <VisualState x:Name="PointerFocused" />
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

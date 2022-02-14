@@ -79,7 +79,6 @@
                 <Setter Property="ShadowOpacity" Value="0.4" />
             </Style>
 
-            <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
             <x:Double x:Key="WideWindowBreakpoint">670</x:Double>
             <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
@@ -87,6 +86,10 @@
             <x:Double x:Key="ImageCardHeight">208</x:Double>
             <x:Double x:Key="ImageCardWidth">148</x:Double>
             <x:Double x:Key="ImageCardShadowWidth">144</x:Double>
+
+            <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
+            <x:String x:Key="GlyphSettings">&#xEB5D;</x:String>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

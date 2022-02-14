@@ -87,5 +87,8 @@
         private const string Settings = "settings:";
         public const string SmtcDisabled = Settings + "smtcDisabled";
         public const string SmtcEnabled = Settings + "smtcEnabled";
+
+        public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
+        public const string MissingSoundsCanceled = "missingSoundsCanceled";
     }
 }

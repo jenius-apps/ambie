@@ -33,6 +33,29 @@ namespace AmbientSounds.Services.Uwp
         public static bool IsDialogOpen;
 
         /// <inheritdoc/>
+        public async Task<bool> MissingSoundsDialogAsync()
+        {
+            if (IsDialogOpen)
+            {
+                return false;
+            }
+
+            IsDialogOpen = true;
+            var dialog = new ContentDialog()
+            {
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+                Title = Strings.Resources.MissingSoundsTitle,
+                PrimaryButtonText = Strings.Resources.DownloadText,
+                CloseButtonText = Strings.Resources.CancelText,
+                Content = Strings.Resources.MissingSoundsMessage
+            };
+
+            var result = await dialog.ShowAsync();
+            IsDialogOpen = false;
+            return result == ContentDialogResult.Primary;
+        }
+
+        /// <inheritdoc/>
         public async Task OpenSettingsAsync()
         {
             if (IsDialogOpen)

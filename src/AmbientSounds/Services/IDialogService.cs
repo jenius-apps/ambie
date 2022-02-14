@@ -31,5 +31,12 @@ namespace AmbientSounds.Services
         /// ambie plus.
         /// </summary>
         Task OpenPremiumAsync();
+
+        /// <summary>
+        /// Opens dialog regarding missing sounds.
+        /// Returns true if user chooses to
+        /// download missing sounds.
+        /// </summary>
+        Task<bool> MissingSoundsDialogAsync();
     }
 }

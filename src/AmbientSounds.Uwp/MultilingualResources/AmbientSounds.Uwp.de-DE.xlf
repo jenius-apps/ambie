@@ -556,6 +556,18 @@
           <source>Prevent Ambie from integrating with Windows media controls</source>
           <target state="new">Prevent Ambie from integrating with Windows media controls</target>
         </trans-unit>
+        <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target state="new">Download</target>
+        </trans-unit>
+        <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
+          <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
+          <target state="new">We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</target>
+        </trans-unit>
+        <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
+          <source>Missing sounds</source>
+          <target state="new">Missing sounds</target>
+        </trans-unit>
       </group>
     </body>
   </file>

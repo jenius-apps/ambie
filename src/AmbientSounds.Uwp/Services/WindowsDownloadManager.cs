@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -48,6 +49,26 @@ namespace AmbientSounds.Services.Uwp
         {
             string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
             return BackgroundDownloadService.Instance.GetProgress(destinationPath);
+        }
+
+        /// <inheritdoc/>
+        public async Task QueueAndDownloadAsync(IList<string> onlineSoundIds)
+        {
+            if (onlineSoundIds is null || onlineSoundIds.Count == 0)
+            {
+                return;
+            }
+
+            var sounds = await _onlineSoundDataProvider.GetSoundsAsync(onlineSoundIds);
+            if (sounds is null)
+            {
+                return;
+            }
+
+            foreach (var s in sounds)
+            {
+                _ = QueueAndDownloadAsync(s, new Progress<double>());
+            }
         }
 
         /// <inheritdoc/>

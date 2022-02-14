@@ -80,6 +80,8 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _setSize, value);
         }
 
+        public IAsyncRelayCommand<IList<string>>? MixUnavailableCommand { get; set; }
+
         /// <summary>
         /// The sound's GUID.
         /// </summary>
@@ -229,6 +231,16 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
+                IEnumerable<string> unavailable = await _soundMixService.GetUnavailableSoundsAsync(_sound);
+                if (unavailable.Any())
+                {
+                    if (MixUnavailableCommand is not null)
+                    {
+                        await MixUnavailableCommand.ExecuteAsync(unavailable.ToArray());
+                    }
+                    return;
+                }
+
                 await _soundMixService.LoadMixAsync(_sound);
             }
 
