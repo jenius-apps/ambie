@@ -24,6 +24,19 @@
     mc:Ignorable="d">
 
     <Grid x:Name="Root">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="FocusStates">
+                <VisualState x:Name="Focused">
+                    <VisualState.Setters>
+                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
+                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Unfocused" />
+                <VisualState x:Name="PointerFocused" />
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <ani:Implicit.ShowAnimations>
             <ani:OpacityAnimation
                 Delay="0:0:0.5"
@@ -218,18 +231,5 @@
             Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}"
             StrokeThickness="2"
             Visibility="Collapsed" />
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="FocusStates">
-                <VisualState x:Name="Focused">
-                    <VisualState.Setters>
-                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
-                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Unfocused" />
-                <VisualState x:Name="PointerFocused" />
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>
