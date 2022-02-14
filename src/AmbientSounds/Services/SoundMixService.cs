@@ -55,6 +55,24 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
+        public async Task<IEnumerable<string>> GetUnavailableSoundsAsync(Sound mix)
+        {
+            if (mix?.SoundIds is null || !mix.IsMix)
+            {
+                return Enumerable.Empty<string>();
+            }
+
+            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: mix.SoundIds);
+            if (sounds is null)
+            {
+                return Enumerable.Empty<string>();
+            }
+
+            var availableIds = sounds.Select(x => x.Id);
+            return mix.SoundIds.Where(id => !availableIds.Contains(id));
+        }
+
+        /// <inheritdoc/>
         public async Task<bool> LoadMixAsync(Sound mix)
         {
             if (mix?.SoundIds is null || !mix.IsMix) return false;
@@ -66,7 +84,7 @@ namespace AmbientSounds.Services
             // if the mix we're trying to play was
             // the same as the previous, return now
             // since we don't want to play it again.
-            if (!string.IsNullOrWhiteSpace(previousMixId) && 
+            if (!string.IsNullOrWhiteSpace(previousMixId) &&
                 previousMixId == mix.Id)
             {
                 return false;

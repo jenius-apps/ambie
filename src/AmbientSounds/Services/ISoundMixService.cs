@@ -34,5 +34,13 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="mix">The mix to play.</param>
         Task<bool> LoadMixAsync(Sound mix);
+
+        /// <summary>
+        /// Returns enumerable
+        /// of sound IDs that aren't available.
+        /// Null or mpty if no unavailable sounds
+        /// are found.
+        /// </summary>
+        Task<IEnumerable<string>> GetUnavailableSoundsAsync(Sound mix);
     }
 }
