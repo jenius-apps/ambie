@@ -820,6 +820,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region DownloadText
+        /// <summary>
+        ///   Looks up a localized string similar to: Download
+        /// </summary>
+        public static string DownloadText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DownloadText");
+            }
+        }
+        #endregion
+
+        #region MissingSoundsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?
+        /// </summary>
+        public static string MissingSoundsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingSoundsMessage");
+            }
+        }
+        #endregion
+
+        #region MissingSoundsTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Missing sounds
+        /// </summary>
+        public static string MissingSoundsTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingSoundsTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -893,6 +932,9 @@ namespace AmbientSounds.Strings{
             HelloAgain,
             RateUsMessage,
             SettingsDisableSmtc,
+            DownloadText,
+            MissingSoundsMessage,
+            MissingSoundsTitle,
         }
 
         private static ResourceLoader _resourceLoader;

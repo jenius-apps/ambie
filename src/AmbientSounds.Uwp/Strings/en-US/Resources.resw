@@ -532,4 +532,13 @@
   <data name="SettingsDisableSmtc" xml:space="preserve">
     <value>Prevent Ambie from integrating with Windows media controls</value>
   </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Missing sounds</value>
+  </data>
 </root>
