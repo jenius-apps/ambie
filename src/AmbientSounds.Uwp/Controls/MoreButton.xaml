@@ -67,7 +67,7 @@
                     </AppBarButton>
                     <AppBarButton x:Uid="MoreButtonSettings" Click="SettingsClicked">
                         <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB5D;" />
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
                 </winui:CommandBarFlyout.SecondaryCommands>
