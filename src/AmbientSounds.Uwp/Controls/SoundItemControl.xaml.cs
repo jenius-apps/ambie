@@ -1,6 +1,9 @@
 ﻿using AmbientSounds.ViewModels;
+using System;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace AmbientSounds.Controls
 {
@@ -42,12 +45,18 @@ namespace AmbientSounds.Controls
 
         private async void OnControlKeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter || 
-                e.Key == Windows.System.VirtualKey.Space ||
-                e.Key == Windows.System.VirtualKey.GamepadA)
+            if (e.Key is VirtualKey.Enter or VirtualKey.Space or VirtualKey.GamepadA)
             {
                 e.Handled = true;
                 await ViewModel.PlayCommand.ExecuteAsync(null);
+            }
+        }
+
+        private void BitmapImage_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            if (sender is BitmapImage img)
+            {
+                img.UriSource = new Uri("http://localhost");
             }
         }
     }

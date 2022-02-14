@@ -81,6 +81,7 @@
                                 <BitmapImage
                                     DecodePixelHeight="240"
                                     DecodePixelType="Logical"
+                                    ImageFailed="BitmapImage_ImageFailed"
                                     UriSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" />
                             </ImageBrush.ImageSource>
                         </ImageBrush>
@@ -94,7 +95,10 @@
                     </Grid.RowDefinitions>
                     <Image Grid.Row="1" Stretch="UniformToFill">
                         <Image.Source>
-                            <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
+                            <BitmapImage
+                                DecodePixelHeight="120"
+                                ImageFailed="BitmapImage_ImageFailed"
+                                UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
                 </Grid>
@@ -110,6 +114,7 @@
                             <BitmapImage
                                 DecodePixelHeight="80"
                                 DecodePixelType="Logical"
+                                ImageFailed="BitmapImage_ImageFailed"
                                 UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
@@ -118,6 +123,7 @@
                             <BitmapImage
                                 DecodePixelHeight="80"
                                 DecodePixelType="Logical"
+                                ImageFailed="BitmapImage_ImageFailed"
                                 UriSource="{x:Bind ViewModel.ThirdImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
