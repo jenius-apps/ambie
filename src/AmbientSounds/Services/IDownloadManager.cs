@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -21,6 +22,13 @@ namespace AmbientSounds.Services
         /// <param name="s">The sound to download.</param>
         /// <param name="progress">Progress of download.</param>
         Task QueueAndDownloadAsync(Sound s, IProgress<double> progress);
+
+        /// <summary>
+        /// Adds sound to download queue and starts
+        /// download.
+        /// </summary>
+        /// <param name="s">The ID of sounds to download.</param>
+        Task QueueAndDownloadAsync(IList<string> onlineSoundIds);
 
         /// <summary>
         /// Returns true if a download is active
