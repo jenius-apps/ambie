@@ -541,4 +541,7 @@
   <data name="MissingSoundsTitle" xml:space="preserve">
     <value>Missing sounds</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
 </root>

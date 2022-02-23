@@ -859,6 +859,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Default
+        /// <summary>
+        ///   Looks up a localized string similar to: Default
+        /// </summary>
+        public static string Default
+        {
+            get
+            {
+                return _resourceLoader.GetString("Default");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -935,6 +948,7 @@ namespace AmbientSounds.Strings{
             DownloadText,
             MissingSoundsMessage,
             MissingSoundsTitle,
+            Default,
         }
 
         private static ResourceLoader _resourceLoader;

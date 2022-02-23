@@ -3,6 +3,8 @@ using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Tools;
+using JeniusApps.Common.Tools.Uwp;
 using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client.Extensibility;
@@ -289,6 +291,7 @@ namespace AmbientSounds
                 .AddSingleton<SoundListViewModel>() // shared in main and compact pages
                 .AddTransient<CatalogueListViewModel>()
                 .AddTransient<ScreensaverViewModel>()
+                .AddTransient<ScreensaverPageViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<ThemeSettingsViewModel>()
                 .AddTransient<CataloguePageViewModel>()
@@ -313,6 +316,7 @@ namespace AmbientSounds
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
+                .AddSingleton<ILocalizer, ReswLocalizer>()
                 .AddSingleton<IFileWriter, FileWriter>()
                 .AddSingleton<IFilePicker, FilePicker>()
                 .AddSingleton<ICustomWebUi, CustomAuthUiService>()

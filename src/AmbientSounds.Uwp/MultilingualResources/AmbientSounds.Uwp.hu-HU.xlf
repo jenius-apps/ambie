@@ -576,6 +576,10 @@
           <source>Missing sounds</source>
           <target state="new">Missing sounds</target>
         </trans-unit>
+        <trans-unit id="Default" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="new">Default</target>
+        </trans-unit>
       </group>
     </body>
   </file>

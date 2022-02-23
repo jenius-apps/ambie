@@ -11,20 +11,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Button
-            x:Uid="BackButton"
-            Margin="40,28,0,0"
-            VerticalAlignment="Top"
-            Canvas.ZIndex="1"
-            Click="GoBack"
-            RequestedTheme="Dark"
-            Style="{StaticResource RoundButtonStyle}"
-            Visibility="{x:Bind ShowBackButton}">
-            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
-        </Button>
-
-        <controls:Screensaver x:Name="ScreensaverControl" x:Load="False" />
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="DarkScreensaverState">
@@ -35,5 +21,37 @@
                 <VisualState x:Name="Normal" />
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+        <Button
+            x:Uid="BackButton"
+            Margin="40,40,0,0"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            Click="GoBack"
+            RequestedTheme="Dark"
+            Style="{StaticResource RoundButtonStyle}"
+            Visibility="{x:Bind ShowBackButton}">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
+        </Button>
+
+        <Button
+            Margin="0,40,40,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            RequestedTheme="Dark"
+            Style="{StaticResource RoundButtonStyle}"
+            Visibility="{x:Bind ViewModel.SettingsButtonVisible, Mode=OneWay}">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+            <Button.Flyout>
+                <!--  Contents of this is set in code behind  -->
+                <MenuFlyout x:Name="SettingsFlyout" Placement="Bottom" />
+            </Button.Flyout>
+        </Button>
+
+        <MediaPlayerElement AutoPlay="True" Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
+
+        <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+
     </Grid>
 </Page>

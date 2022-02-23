@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using Windows.System;
@@ -17,11 +18,15 @@ namespace AmbientSounds.Views
         public ScreensaverPage()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<ScreensaverPageViewModel>();
+            ViewModel.Loaded += OnViewModelLoaded;
         }
+
+        public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
 
         private bool ShowBackButton => !App.IsTenFoot;
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var settings = App.Services.GetRequiredService<IUserSettings>();
             bool useDarkScreensaver = settings.Get<bool>(UserSettingsConstants.DarkScreensasver);
@@ -31,7 +36,7 @@ namespace AmbientSounds.Views
             }
             else
             {
-                FindName(nameof(ScreensaverControl));
+                await ViewModel.InitializeAsync();
             }
 
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
@@ -45,14 +50,57 @@ namespace AmbientSounds.Views
             coreWindow.KeyDown += CataloguePage_KeyDown;
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested += OnBackRequested;
+
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            ViewModel.Loaded -= OnViewModelLoaded;
+
             var coreWindow = CoreWindow.GetForCurrentThread();
             coreWindow.KeyDown -= CataloguePage_KeyDown;
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested -= OnBackRequested;
+
+            SettingsFlyout?.Items?.Clear();
+        }
+
+        private void OnViewModelLoaded(object sender, System.EventArgs e)
+        {
+            if (!ViewModel.SettingsButtonVisible)
+            {
+                return;
+            }
+
+            foreach (var item in ViewModel.MenuItems)
+            {
+                var menuItem = new ToggleMenuFlyoutItem
+                {
+                    DataContext = item,
+                    Text = item.Text,
+                    IsChecked = item == ViewModel.CurrentSelection
+                };
+                menuItem.Click += OnMenuItemClicked;
+
+                SettingsFlyout.Items.Add(menuItem);
+            }
+        }
+
+        private void OnMenuItemClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is ToggleMenuFlyoutItem toggleItem &&
+                toggleItem.DataContext is ToggleMenuItem dc)
+            {
+                foreach (var item in SettingsFlyout.Items)
+                {
+                    if (item is ToggleMenuFlyoutItem menuItem)
+                    {
+                        menuItem.IsChecked = menuItem == toggleItem;
+                    }
+                }
+
+                dc.Command.Execute(dc.CommandParameter);
+            }
         }
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
