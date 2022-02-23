@@ -2,7 +2,10 @@
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Windows.Media.Core;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -20,6 +23,7 @@ namespace AmbientSounds.Views
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ScreensaverPageViewModel>();
             ViewModel.Loaded += OnViewModelLoaded;
+            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
         public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
@@ -56,6 +60,7 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             ViewModel.Loaded -= OnViewModelLoaded;
+            ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
 
             var coreWindow = CoreWindow.GetForCurrentThread();
             coreWindow.KeyDown -= CataloguePage_KeyDown;
@@ -63,6 +68,15 @@ namespace AmbientSounds.Views
             navigator.BackRequested -= OnBackRequested;
 
             SettingsFlyout?.Items?.Clear();
+        }
+
+        private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ViewModel.VideoSource))
+            {
+                VideoPlayer.MediaPlayer.IsLoopingEnabled = true;
+                VideoPlayer.MediaPlayer.Source = MediaSource.CreateFromUri(ViewModel.VideoSource);
+            }
         }
 
         private void OnViewModelLoaded(object sender, System.EventArgs e)

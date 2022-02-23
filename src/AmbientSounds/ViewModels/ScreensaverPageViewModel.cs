@@ -15,7 +15,7 @@ namespace AmbientSounds.ViewModels
         private const string DefaultId = "default";
         private const string DefaultVideoSource = "http://localhost";
         private readonly ILocalizer _localizer;
-        private string _videoSource = DefaultVideoSource;
+        private Uri _videoSource = new Uri(DefaultVideoSource);
         private bool _settingsButtonVisible;
         private bool _loading;
         private bool _slideshowVisible;
@@ -36,7 +36,7 @@ namespace AmbientSounds.ViewModels
 
         public ToggleMenuItem? CurrentSelection { get; set; }
 
-        public string VideoSource
+        public Uri VideoSource
         {
             get => _videoSource;
             set
@@ -46,7 +46,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        public bool VideoPlayerVisible => !string.IsNullOrEmpty(VideoSource) && VideoSource != DefaultVideoSource;
+        public bool VideoPlayerVisible => VideoSource.AbsoluteUri != DefaultVideoSource;
 
         public bool SlideshowVisible
         {
@@ -71,7 +71,7 @@ namespace AmbientSounds.ViewModels
             Loading = true;
             await Task.Delay(1);
 
-            // TODO Get list of available videos
+            // TODO Get list of available videos online
 
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
             MenuItems.Add(new ToggleMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId));
@@ -98,13 +98,13 @@ namespace AmbientSounds.ViewModels
 
             if (screensaverId == "default")
             {
-                VideoSource = DefaultVideoSource;
+                VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = true;
             }
             else
             {
                 SlideshowVisible = false;
-                // VideoSource = await _videoService.GetPathAsync(screensaverId);
+                //VideoSource = await _videoService.GetPathAsync(screensaverId);
             }
 
             CurrentSelection = MenuItems.FirstOrDefault(x => x.Id == screensaverId);

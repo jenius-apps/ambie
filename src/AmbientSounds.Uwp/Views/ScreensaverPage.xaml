@@ -49,7 +49,10 @@
             </Button.Flyout>
         </Button>
 
-        <MediaPlayerElement AutoPlay="True" Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
+        <MediaPlayerElement
+            x:Name="VideoPlayer"
+            AutoPlay="True"
+            Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
