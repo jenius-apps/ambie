@@ -1,8 +1,11 @@
-﻿using JeniusApps.Common.Tools;
+﻿using AmbientSounds.Models;
+using AmbientSounds.Services;
+using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +18,7 @@ namespace AmbientSounds.ViewModels
         private const string DefaultId = "default";
         private const string DefaultVideoSource = "http://localhost";
         private readonly ILocalizer _localizer;
+        private readonly IVideoService _videoService;
         private Uri _videoSource = new Uri(DefaultVideoSource);
         private bool _settingsButtonVisible;
         private bool _loading;
@@ -26,10 +30,14 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public event EventHandler? Loaded;
 
-        public ScreensaverPageViewModel(ILocalizer localizer)
+        public ScreensaverPageViewModel(
+            ILocalizer localizer,
+            IVideoService videoService)
         {
             Guard.IsNotNull(localizer, nameof(localizer));
+            Guard.IsNotNull(videoService, nameof(videoService));
             _localizer = localizer;
+            _videoService = videoService;
         }
 
         public ObservableCollection<ToggleMenuItem> MenuItems { get; } = new();
@@ -69,16 +77,18 @@ namespace AmbientSounds.ViewModels
         public async Task InitializeAsync()
         {
             Loading = true;
-            await Task.Delay(1);
 
-            // TODO Get list of available videos online
-
+            IReadOnlyList<Video> videos = await _videoService.GetVideosAsync();
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
             MenuItems.Add(new ToggleMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId));
 
+            foreach (var v in videos)
+            {
+                MenuItems.Add(new ToggleMenuItem(v.Id, v.Name, screensaverCommand, v.Id));
+            }
+
             if (MenuItems.Count > 1)
             {
-                // Ensure CurrentSelection is set properly
                 await ChangeScreensaverTo(DefaultId);
                 SettingsButtonVisible = true;
             }
@@ -96,15 +106,32 @@ namespace AmbientSounds.ViewModels
 
             await Task.Delay(1);
 
-            if (screensaverId == "default")
+            if (screensaverId == DefaultId)
             {
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = true;
             }
             else
             {
-                SlideshowVisible = false;
-                //VideoSource = await _videoService.GetPathAsync(screensaverId);
+                var path = await _videoService.GetFilePathAsync(screensaverId);
+                if (!string.IsNullOrEmpty(path))
+                {
+                    SlideshowVisible = false;
+
+                    try
+                    {
+                        VideoSource = new Uri(path);
+                    }
+                    catch (UriFormatException)
+                    {
+                        // TODO log error
+                    }
+                }
+                else
+                {
+                    // TODO handle scenario where there
+                    // was an issue with the path.
+                }
             }
 
             CurrentSelection = MenuItems.FirstOrDefault(x => x.Id == screensaverId);

@@ -313,6 +313,7 @@ namespace AmbientSounds
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
+                .AddSingleton<IVideoService, VideoService>()
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
