@@ -40,5 +40,16 @@
         /// Size of video file in MB.
         /// </summary>
         public double MegaByteSize { get; set; }
+
+        /// <summary>
+        /// True if video is premium.
+        /// </summary>
+        public bool IsPremium { get; set; }
+
+        /// <summary>
+        /// Ids used to identify the IAPs
+        /// associated with this video.
+        /// </summary>
+        public string[] IapIds { get; set; } = new string[0];
     }
 }

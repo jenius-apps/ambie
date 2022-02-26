@@ -26,6 +26,8 @@ namespace AmbientSounds.Services
                 FilePath = "ms-appx:///Assets/aaa_beach.mp4",
                 MegaByteSize = 118,
                 Id = "123",
+                IsPremium = true,
+                IapIds = new string[] { "ambieplus" },
                 Name = "Beach"
             });
 
