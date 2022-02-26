@@ -394,7 +394,7 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="translated">Dies aktiviert die Synchronisation der Klanggallerie zwischen deinen Geräten.</target>
+          <target state="translated">Dies aktiviert die Synchronisation der Klanggalerie zwischen deinen Geräten.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
