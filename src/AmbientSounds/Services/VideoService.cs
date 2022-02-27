@@ -1,4 +1,6 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Models;
+using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,30 +8,43 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
 {
+    /// <summary>
+    /// Service for retrieving videos from online
+    /// and from offline.
+    /// </summary>
     public class VideoService : IVideoService
     {
+        private readonly IVideoCache _videoCache;
+
+        public VideoService(IVideoCache videoCache)
+        {
+            Guard.IsNotNull(videoCache, nameof(videoCache));
+            _videoCache = videoCache;
+        }
+
         /// <inheritdoc/>
         public async Task<IReadOnlyList<Video>> GetVideosAsync()
         {
-            await Task.Delay(1);
             List<Video> results = new();
 
             // Get list of videos from service
+            var onlineVidsTask = _videoCache.GetOnlineVideosAsync();
 
             // Get list of offline videos
+            var offlineVids = await _videoCache.GetOfflineVideosAsync();
+            var onlineVids = await onlineVidsTask;
 
-            // loop through the videos from service and mark them as downloaded and add their local paths
-
-            results.Add(new Video
+            foreach (var vid in onlineVids)
             {
-                IsDownloaded = true,
-                FilePath = "ms-appx:///Assets/aaa_beach.mp4",
-                MegaByteSize = 118,
-                Id = "123",
-                IsPremium = true,
-                IapIds = new string[] { "ambieplus" },
-                Name = "Beach"
-            });
+                if (offlineVids.ContainsKey(vid.Id))
+                {
+                    results.Add(offlineVids[vid.Id]);
+                }
+                else
+                {
+                    results.Add(vid);
+                }
+            }
 
             return results;
         }
@@ -42,8 +57,10 @@ namespace AmbientSounds.Services
                 return string.Empty;
             }
 
-            await Task.Delay(1);
-            return "ms-appx:///Assets/aaa_beach.mp4";
+            var offlineVids = await _videoCache.GetOfflineVideosAsync();
+            return offlineVids.ContainsKey(videoId)
+                ? offlineVids[videoId].FilePath
+                : string.Empty;
         }
     }
 }

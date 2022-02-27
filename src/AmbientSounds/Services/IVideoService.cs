@@ -11,7 +11,7 @@ namespace AmbientSounds.Services
     {
         /// <summary>
         /// Gets local file path for given video.
-        /// Returns empty string is no local path found.
+        /// Returns empty string if no local path found.
         /// </summary>
         /// <param name="videoId">The <see cref="Video.Id"/> to use.</param>
         /// <returns>Path to video or empty string if no local path found.</returns>
