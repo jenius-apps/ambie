@@ -37,6 +37,12 @@
         public string FilePath { get; set; } = string.Empty;
 
         /// <summary>
+        /// The extension portion of the file.
+        /// E.g. ".mp4" or ".avi"
+        /// </summary>
+        public string Extension { get; set; } = string.Empty;
+
+        /// <summary>
         /// Size of video file in MB.
         /// </summary>
         public double MegaByteSize { get; set; }
