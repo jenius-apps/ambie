@@ -42,6 +42,11 @@
         string UploadUrl { get; set; }
 
         /// <summary>
+        /// URL to access the videos list.
+        /// </summary>
+        string VideosUrl { get; set; }
+
+        /// <summary>
         /// The API scope for catalogue access.
         /// </summary>
         string CatalogueScope { get; set; }
