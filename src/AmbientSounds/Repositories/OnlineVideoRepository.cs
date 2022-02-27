@@ -9,9 +9,10 @@ namespace AmbientSounds.Repositories
     public class OnlineVideoRepository : IOnlineVideoRepository
     {
         /// <inheritdoc/>
-        public Task<IReadOnlyList<Video>> GetVideosAsync()
+        public async Task<IReadOnlyList<Video>> GetVideosAsync()
         {
-            throw new NotImplementedException();
+            await Task.Delay(1);
+            return Array.Empty<Video>();
         }
     }
 }

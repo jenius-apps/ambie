@@ -89,10 +89,11 @@ namespace AmbientSounds.ViewModels
 
             if (MenuItems.Count > 1)
             {
-                await ChangeScreensaverTo(DefaultId);
+                // Only show if we have more than the default option.
                 SettingsButtonVisible = true;
             }
 
+            await ChangeScreensaverTo(DefaultId);
             Loading = false;
             Loaded?.Invoke(this, EventArgs.Empty);
         }
