@@ -28,8 +28,7 @@ namespace AmbientSounds.Repositories
         /// <inheritdoc/>
         public async Task<IReadOnlyList<Video>> GetVideosAsync()
         {
-            var url = _videosUrl + $"?premium=true";
-            using Stream result = await _client.GetStreamAsync(url);
+            using Stream result = await _client.GetStreamAsync(_videosUrl);
 
             try
             {
