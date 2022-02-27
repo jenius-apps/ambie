@@ -1,7 +1,5 @@
 ﻿using AmbientSounds.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Repositories
@@ -13,5 +11,12 @@ namespace AmbientSounds.Repositories
         /// an offline source.
         /// </summary>
         Task<IReadOnlyList<Video>> GetVideosAsync();
+
+        /// <summary>
+        /// Overwrites the local storage with the given list of video
+        /// metadata.
+        /// </summary>
+        /// <param name="videos">List of videos to that will overwrite the storage file.</param>
+        Task SaveVideosAsync(IList<Video> videos);
     }
 }

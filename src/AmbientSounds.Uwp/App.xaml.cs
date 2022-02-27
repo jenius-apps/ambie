@@ -1,5 +1,7 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Constants;
 using AmbientSounds.Factories;
+using AmbientSounds.Repositories;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
@@ -314,6 +316,9 @@ namespace AmbientSounds
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
                 .AddSingleton<IVideoService, VideoService>()
+                .AddSingleton<IVideoCache, VideoCache>()
+                .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
+                .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
