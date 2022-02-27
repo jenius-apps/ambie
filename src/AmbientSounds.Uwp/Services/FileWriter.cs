@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
@@ -14,8 +16,58 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class FileWriter : IFileWriter
     {
+        private static readonly ConcurrentDictionary<string, SemaphoreSlim> _semaphores = new();
         private const string _soundsDirName = "sounds";
         private const string _imagesDirName = "images";
+
+        /// <inheritdoc/>
+        public async Task<string> ReadAsync(string relativeLocalPath, CancellationToken ct = default)
+        {
+            ct.ThrowIfCancellationRequested();
+
+            if (string.IsNullOrEmpty(relativeLocalPath))
+            {
+                return string.Empty;
+            }
+
+            IStorageItem targetLocation = await ApplicationData.Current.LocalFolder.TryGetItemAsync(relativeLocalPath);
+            ct.ThrowIfCancellationRequested();
+
+            if (targetLocation is StorageFile file)
+            {
+                return await FileIO.ReadTextAsync(file);
+            }
+
+            return string.Empty;
+        }
+
+        /// <inheritdoc/>
+        public async Task WriteStringAsync(string content, string relativeLocalPath)
+        {
+            if (string.IsNullOrEmpty(relativeLocalPath))
+            {
+                return;
+            }
+
+            var semaphore = _semaphores.GetOrAdd(relativeLocalPath, new SemaphoreSlim(1, 1));
+            await semaphore.WaitAsync();
+            try
+            {
+                StorageFile targetLocation = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                    relativeLocalPath,
+                    CreationCollisionOption.OpenIfExists);
+
+                if (targetLocation != null)
+                {
+                    await FileIO.WriteTextAsync(targetLocation, content);
+                }
+            }
+            finally
+            {
+                semaphore.Release();
+            }
+        }
+
 
         /// <inheritdoc/>
         public Task<string> WriteSoundAsync(Stream stream, string nameWithExt)
