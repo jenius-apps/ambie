@@ -145,7 +145,7 @@
                                                 <FontIcon
                                                     VerticalAlignment="Center"
                                                     FontFamily="{StaticResource FluentUIGlyphs}"
-                                                    Glyph="&#xE9B9;" />
+                                                    Glyph="{StaticResource GlyphDownload}" />
                                             </StackPanel>
                                         </Button>
 
@@ -168,7 +168,7 @@
                                             x:Uid="DeleteButton"
                                             Command="{x:Bind DeleteCommand, Mode=OneWay}"
                                             Style="{StaticResource ActionButtonStyle}">
-                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />
                                         </Button>
                                     </StackPanel>
                                 </Grid>

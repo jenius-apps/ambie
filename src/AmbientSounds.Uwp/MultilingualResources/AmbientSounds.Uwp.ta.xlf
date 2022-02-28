@@ -577,6 +577,10 @@
           <source>Get more videos</source>
           <target state="new">Get more videos</target>
         </trans-unit>
+        <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
       </group>
     </body>
   </file>

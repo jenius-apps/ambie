@@ -48,6 +48,7 @@ namespace AmbientSounds.Cache
                 IReadOnlyList<Video> videos = await _offlineVideoRepo.GetVideosAsync();
                 foreach (var v in videos)
                 {
+                    v.IsDownloaded = true;
                     _offlineVideos.TryAdd(v.Id, v);
                 }
             }

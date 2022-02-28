@@ -885,6 +885,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region DeleteText
+        /// <summary>
+        ///   Looks up a localized string similar to: Delete
+        /// </summary>
+        public static string DeleteText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DeleteText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -963,6 +976,7 @@ namespace AmbientSounds.Strings{
             MissingSoundsTitle,
             Default,
             GetMoreVideos,
+            DeleteText,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -122,7 +122,6 @@ namespace AmbientSounds.ViewModels
             else if (menuItemId == VideoDialogId)
             {
                 await _dialogService.OpenVideosMenuAsync();
-                return;
             }
             else
             {
@@ -147,7 +146,11 @@ namespace AmbientSounds.ViewModels
                 }
             }
 
-            CurrentSelection = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
+            var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
+            if (newSelectedItem?.IsToggle == true)
+            {
+                CurrentSelection = newSelectedItem;
+            }
         }
     }
 

@@ -172,7 +172,8 @@ namespace AmbientSounds.Services.Uwp
             {
                 Title = Strings.Resources.GetMoreVideos,
                 CloseButtonText = Strings.Resources.CloseText,
-                Content = "Hello"
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+                Content = new VideosMenu()
             };
 
             await dialog.ShowAsync();
