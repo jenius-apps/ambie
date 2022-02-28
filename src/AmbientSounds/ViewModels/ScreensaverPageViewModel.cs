@@ -16,9 +16,11 @@ namespace AmbientSounds.ViewModels
     public class ScreensaverPageViewModel : ObservableObject
     {
         private const string DefaultId = "default";
+        private const string VideoDialogId = "videoDialog";
         private const string DefaultVideoSource = "http://localhost";
         private readonly ILocalizer _localizer;
         private readonly IVideoService _videoService;
+        private readonly IDialogService _dialogService;
         private Uri _videoSource = new Uri(DefaultVideoSource);
         private bool _settingsButtonVisible;
         private bool _loading;
@@ -32,17 +34,20 @@ namespace AmbientSounds.ViewModels
 
         public ScreensaverPageViewModel(
             ILocalizer localizer,
-            IVideoService videoService)
+            IVideoService videoService,
+            IDialogService dialogService)
         {
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(videoService, nameof(videoService));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
             _localizer = localizer;
             _videoService = videoService;
+            _dialogService = dialogService;
         }
 
-        public ObservableCollection<ToggleMenuItem> MenuItems { get; } = new();
+        public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
 
-        public ToggleMenuItem? CurrentSelection { get; set; }
+        public FlyoutMenuItem? CurrentSelection { get; set; }
 
         public Uri VideoSource
         {
@@ -78,14 +83,16 @@ namespace AmbientSounds.ViewModels
         {
             Loading = true;
 
-            IReadOnlyList<Video> videos = await _videoService.GetVideosAsync();
+            IReadOnlyList<Video> videos = await _videoService.GetVideosAsync(includeOnline: false);
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
-            MenuItems.Add(new ToggleMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId));
+            MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
 
             foreach (var v in videos)
             {
-                MenuItems.Add(new ToggleMenuItem(v.Id, v.Name, screensaverCommand, v.Id));
+                MenuItems.Add(new FlyoutMenuItem(v.Id, v.Name, screensaverCommand, v.Id, true));
             }
+
+            MenuItems.Add(new FlyoutMenuItem(VideoDialogId, _localizer.GetString("GetMoreVideos"), screensaverCommand, VideoDialogId));
 
             if (MenuItems.Count > 1)
             {
@@ -98,23 +105,28 @@ namespace AmbientSounds.ViewModels
             Loaded?.Invoke(this, EventArgs.Empty);
         }
 
-        private async Task ChangeScreensaverTo(string? screensaverId)
+        private async Task ChangeScreensaverTo(string? menuItemId)
         {
-            if (screensaverId is null)
+            if (menuItemId is null)
             {
                 return;
             }
 
             await Task.Delay(1);
 
-            if (screensaverId == DefaultId)
+            if (menuItemId == DefaultId)
             {
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = true;
             }
+            else if (menuItemId == VideoDialogId)
+            {
+                await _dialogService.OpenVideosMenuAsync();
+                return;
+            }
             else
             {
-                var path = await _videoService.GetFilePathAsync(screensaverId);
+                var path = await _videoService.GetFilePathAsync(menuItemId);
                 if (!string.IsNullOrEmpty(path))
                 {
                     SlideshowVisible = false;
@@ -135,9 +147,9 @@ namespace AmbientSounds.ViewModels
                 }
             }
 
-            CurrentSelection = MenuItems.FirstOrDefault(x => x.Id == screensaverId);
+            CurrentSelection = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
         }
     }
 
-    public record ToggleMenuItem(string Id, string Text, ICommand Command, object? CommandParameter = null);
+    public record FlyoutMenuItem(string Id, string Text, ICommand Command, object? CommandParameter = null, bool IsToggle = false);
 }

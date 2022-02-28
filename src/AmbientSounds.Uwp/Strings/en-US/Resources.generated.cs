@@ -872,6 +872,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region GetMoreVideos
+        /// <summary>
+        ///   Looks up a localized string similar to: Get more videos
+        /// </summary>
+        public static string GetMoreVideos
+        {
+            get
+            {
+                return _resourceLoader.GetString("GetMoreVideos");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -949,6 +962,7 @@ namespace AmbientSounds.Strings{
             MissingSoundsMessage,
             MissingSoundsTitle,
             Default,
+            GetMoreVideos,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -38,5 +38,10 @@ namespace AmbientSounds.Services
         /// download missing sounds.
         /// </summary>
         Task<bool> MissingSoundsDialogAsync();
+
+        /// <summary>
+        /// Opens videos menu dialog.
+        /// </summary>
+        Task OpenVideosMenuAsync();
     }
 }

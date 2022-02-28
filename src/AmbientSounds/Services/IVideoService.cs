@@ -21,6 +21,8 @@ namespace AmbientSounds.Services
         /// Retrieves list of videos that can be displayed
         /// in a list on-screen. 
         /// </summary>
-        Task<IReadOnlyList<Video>> GetVideosAsync();
+        Task<IReadOnlyList<Video>> GetVideosAsync(
+            bool includeOnline = true,
+            bool includeOffline = true);
     }
 }

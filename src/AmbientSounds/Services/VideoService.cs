@@ -23,15 +23,22 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task<IReadOnlyList<Video>> GetVideosAsync()
+        public async Task<IReadOnlyList<Video>> GetVideosAsync(
+            bool includeOnline = true,
+            bool includeOffline = true)
         {
             List<Video> results = new();
 
             // Get list of videos from service
-            var onlineVidsTask = _videoCache.GetOnlineVideosAsync();
+            Task<IReadOnlyList<Video>> onlineVidsTask = includeOnline
+                ? _videoCache.GetOnlineVideosAsync()
+                : Task.FromResult(Array.Empty<Video>() as IReadOnlyList<Video>);
 
             // Get list of offline videos
-            var offlineVids = await _videoCache.GetOfflineVideosAsync();
+            IReadOnlyDictionary<string, Video> offlineVids = includeOffline
+                ? await _videoCache.GetOfflineVideosAsync()
+                : new Dictionary<string, Video>();
+
             var onlineVids = await onlineVidsTask;
 
             foreach (var vid in onlineVids)

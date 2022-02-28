@@ -88,12 +88,22 @@ namespace AmbientSounds.Views
 
             foreach (var item in ViewModel.MenuItems)
             {
-                var menuItem = new ToggleMenuFlyoutItem
+                MenuFlyoutItem menuItem;
+
+                if (item.IsToggle)
                 {
-                    DataContext = item,
-                    Text = item.Text,
-                    IsChecked = item == ViewModel.CurrentSelection
-                };
+                    menuItem = new ToggleMenuFlyoutItem()
+                    {
+                        IsChecked = item == ViewModel.CurrentSelection
+                    };
+                }
+                else
+                {
+                    menuItem = new MenuFlyoutItem();
+                }
+
+                menuItem.DataContext = item;
+                menuItem.Text = item.Text;
                 menuItem.Click += OnMenuItemClicked;
 
                 SettingsFlyout.Items.Add(menuItem);
@@ -102,14 +112,18 @@ namespace AmbientSounds.Views
 
         private void OnMenuItemClicked(object sender, RoutedEventArgs e)
         {
-            if (sender is ToggleMenuFlyoutItem toggleItem &&
-                toggleItem.DataContext is ToggleMenuItem dc)
+            if (sender is MenuFlyoutItem flyoutItem &&
+                flyoutItem.DataContext is FlyoutMenuItem dc)
             {
-                foreach (var item in SettingsFlyout.Items)
+
+                if (flyoutItem is ToggleMenuFlyoutItem)
                 {
-                    if (item is ToggleMenuFlyoutItem menuItem)
+                    foreach (var item in SettingsFlyout.Items)
                     {
-                        menuItem.IsChecked = menuItem == toggleItem;
+                        if (item is ToggleMenuFlyoutItem menuItem)
+                        {
+                            menuItem.IsChecked = menuItem == flyoutItem;
+                        }
                     }
                 }
 

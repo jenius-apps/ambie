@@ -28,10 +28,9 @@ namespace AmbientSounds.Repositories
         /// <inheritdoc/>
         public async Task<IReadOnlyList<Video>> GetVideosAsync()
         {
-            using Stream result = await _client.GetStreamAsync(_videosUrl);
-
             try
             {
+                using Stream result = await _client.GetStreamAsync(_videosUrl);
                 var results = await JsonSerializer.DeserializeAsync<Video[]>(
                     result,
                     new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });

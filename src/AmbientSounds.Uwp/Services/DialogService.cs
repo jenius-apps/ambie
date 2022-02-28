@@ -158,5 +158,25 @@ namespace AmbientSounds.Services.Uwp
             await dialog.ShowAsync();
             IsDialogOpen = false;
         }
+
+        /// <inheritdoc/>
+        public async Task OpenVideosMenuAsync()
+        {
+            if (IsDialogOpen)
+            {
+                return;
+            }
+
+            IsDialogOpen = true;
+            var dialog = new ContentDialog()
+            {
+                Title = Strings.Resources.GetMoreVideos,
+                CloseButtonText = Strings.Resources.CloseText,
+                Content = "Hello"
+            };
+
+            await dialog.ShowAsync();
+            IsDialogOpen = false;
+        }
     }
 }
