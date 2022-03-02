@@ -1,4 +1,6 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -13,12 +15,25 @@ namespace AmbientSounds.ViewModels
     public class VideosMenuViewModel : ObservableObject
     {
         private readonly IVideoService _videoService;
+        private readonly ITelemetry _telemetry;
+        private readonly IDownloadManager _downloadManager;
+        private readonly ILocalizer _localizer;
 
-        public VideosMenuViewModel(IVideoService videoService)
+        public VideosMenuViewModel(
+            IVideoService videoService,
+            ITelemetry telemetry,
+            IDownloadManager downloadManager,
+            ILocalizer localizer)
         {
             Guard.IsNotNull(videoService, nameof(videoService));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(downloadManager, nameof(downloadManager));
+            Guard.IsNotNull(localizer, nameof(localizer));
 
             _videoService = videoService;
+            _telemetry = telemetry;
+            _downloadManager = downloadManager;
+            _localizer = localizer;
         }
 
         public ObservableCollection<VideoViewModel> Videos { get; } = new();
@@ -41,7 +56,7 @@ namespace AmbientSounds.ViewModels
 
             foreach (var v in videos)
             {
-                Videos.Add(new VideoViewModel(v, downloadCommand, deleteCommand));
+                Videos.Add(new VideoViewModel(v, downloadCommand, deleteCommand, _localizer));
             }
         }
 
@@ -52,8 +67,18 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            videoVm.Video.IsDownloaded = videoVm.IsDownloaded = true;
-            await Task.Delay(1);
+            if (string.IsNullOrEmpty(videoVm.Video.DownloadUrl))
+            {
+                videoVm.Video.DownloadUrl = await _videoService.GetDownloadUrlAsync(videoVm.Video.Id);
+            }
+
+            _telemetry.TrackEvent(TelemetryConstants.VideoDownloadClicked, new Dictionary<string, string>
+            {
+                { "id", videoVm.Video.Id },
+                { "name", videoVm.Video.Name }
+            });
+
+            _ = _downloadManager.QueueAndDownloadAsync(videoVm.Video, videoVm.DownloadProgress);
         }
 
         private async Task DeleteAsync(VideoViewModel? videoVm)

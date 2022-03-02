@@ -88,6 +88,10 @@
         public const string SmtcDisabled = Settings + "smtcDisabled";
         public const string SmtcEnabled = Settings + "smtcEnabled";
 
+        // videos
+        private const string Videos = "videos:";
+        public const string VideoDownloadClicked = Videos + "downloadClicked";
+
         public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
         public const string MissingSoundsCanceled = "missingSoundsCanceled";
     }

@@ -550,4 +550,7 @@
   <data name="DeleteText" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
 </root>

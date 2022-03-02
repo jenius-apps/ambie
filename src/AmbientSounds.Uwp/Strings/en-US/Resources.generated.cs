@@ -898,6 +898,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SizeMegaByte
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} MB
+        /// </summary>
+        public static string SizeMegaByte
+        {
+            get
+            {
+                return _resourceLoader.GetString("SizeMegaByte");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -977,6 +990,7 @@ namespace AmbientSounds.Strings{
             Default,
             GetMoreVideos,
             DeleteText,
+            SizeMegaByte,
         }
 
         private static ResourceLoader _resourceLoader;
