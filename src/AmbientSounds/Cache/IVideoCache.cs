@@ -19,5 +19,11 @@ namespace AmbientSounds.Cache
         /// Otherwise, cache is returned.
         /// </summary>
         Task<IReadOnlyList<Video>> GetOnlineVideosAsync();
+
+        /// <summary>
+        /// Adds the given video data to cache
+        /// and writes to storage.
+        /// </summary>
+        Task AddOfflineVideoAsync(Video video);
     }
 }

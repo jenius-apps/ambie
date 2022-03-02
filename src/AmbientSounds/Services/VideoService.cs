@@ -4,6 +4,7 @@ using AmbientSounds.Repositories;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,16 +18,20 @@ namespace AmbientSounds.Services
     {
         private readonly IVideoCache _videoCache;
         private readonly IOnlineVideoRepository _onlineVideoRepository;
+        private readonly IDownloadManager _downloadManager;
 
         public VideoService(
             IVideoCache videoCache,
-            IOnlineVideoRepository onlineVideoRepository)
+            IOnlineVideoRepository onlineVideoRepository,
+            IDownloadManager downloadManager)
         {
             Guard.IsNotNull(videoCache, nameof(videoCache));
             Guard.IsNotNull(onlineVideoRepository, nameof(onlineVideoRepository));
+            Guard.IsNotNull(downloadManager, nameof(downloadManager));
 
             _videoCache = videoCache;
             _onlineVideoRepository = onlineVideoRepository;
+            _downloadManager = downloadManager;
         }
 
         /// <inheritdoc/>
@@ -48,16 +53,23 @@ namespace AmbientSounds.Services
 
             var onlineVids = await onlineVidsTask;
 
-            foreach (var vid in onlineVids)
+            if (includeOnline)
             {
-                if (offlineVids.ContainsKey(vid.Id))
+                foreach (var vid in onlineVids)
                 {
-                    results.Add(offlineVids[vid.Id]);
+                    if (offlineVids.ContainsKey(vid.Id))
+                    {
+                        results.Add(offlineVids[vid.Id]);
+                    }
+                    else
+                    {
+                        results.Add(vid);
+                    }
                 }
-                else
-                {
-                    results.Add(vid);
-                }
+            }
+            else
+            {
+                results.AddRange(offlineVids.Values);
             }
 
             return results;
@@ -67,6 +79,30 @@ namespace AmbientSounds.Services
         public Task<string> GetDownloadUrlAsync(string videoId)
         {
             return _onlineVideoRepository.GetDownloadUrlAsync(videoId);
+        }
+
+        /// <inheritdoc/>
+        public async Task InstallVideoAsync(Video video, IProgress<double>? progress = null)
+        {
+            if (string.IsNullOrEmpty(video.DownloadUrl))
+            {
+                video.DownloadUrl = await _onlineVideoRepository.GetDownloadUrlAsync(video.Id);
+            }
+
+            var destinationPath = await _downloadManager.QueueAndDownloadAsync(video, progress ?? new Progress<double>());
+
+            var newVideo = new Video
+            {
+                Id = video.Id,
+                FilePath = destinationPath,
+                Extension = video.Extension,
+                Name = video.Name,
+                IapIds = video.IapIds.ToArray(),
+                IsPremium = video.IsPremium,
+                MegaByteSize = video.MegaByteSize
+            };
+
+            await _videoCache.AddOfflineVideoAsync(newVideo);
         }
 
         /// <inheritdoc/>

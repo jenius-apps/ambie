@@ -72,11 +72,12 @@ namespace AmbientSounds.Services.Uwp
             }
         }
 
-        public async Task QueueAndDownloadAsync(Video video, IProgress<double> progress)
+        /// <inheritdoc/>
+        public async Task<string> QueueAndDownloadAsync(Video video, IProgress<double> progress)
         {
             if (string.IsNullOrEmpty(video.DownloadUrl))
             {
-                return;
+                return string.Empty;
             }
 
             progress.Report(1);
@@ -89,6 +90,8 @@ namespace AmbientSounds.Services.Uwp
                 destinationFile,
                 video.DownloadUrl,
                 progress);
+
+            return destinationFile.Path;
         }
 
         /// <inheritdoc/>

@@ -16,7 +16,6 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IVideoService _videoService;
         private readonly ITelemetry _telemetry;
-        private readonly IDownloadManager _downloadManager;
         private readonly ILocalizer _localizer;
 
         public VideosMenuViewModel(
@@ -27,12 +26,10 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(videoService, nameof(videoService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(localizer, nameof(localizer));
 
             _videoService = videoService;
             _telemetry = telemetry;
-            _downloadManager = downloadManager;
             _localizer = localizer;
         }
 
@@ -67,18 +64,13 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            if (string.IsNullOrEmpty(videoVm.Video.DownloadUrl))
-            {
-                videoVm.Video.DownloadUrl = await _videoService.GetDownloadUrlAsync(videoVm.Video.Id);
-            }
-
             _telemetry.TrackEvent(TelemetryConstants.VideoDownloadClicked, new Dictionary<string, string>
             {
                 { "id", videoVm.Video.Id },
                 { "name", videoVm.Video.Name }
             });
 
-            _ = _downloadManager.QueueAndDownloadAsync(videoVm.Video, videoVm.DownloadProgress);
+            await _videoService.InstallVideoAsync(videoVm.Video, videoVm.DownloadProgress);
         }
 
         private async Task DeleteAsync(VideoViewModel? videoVm)

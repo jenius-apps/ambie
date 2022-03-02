@@ -26,7 +26,10 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Adds video to download queue and starts download.
         /// </summary>
-        Task QueueAndDownloadAsync(Video video, IProgress<double> progress);
+        /// <returns>
+        /// Destination path.
+        /// </returns>
+        Task<string> QueueAndDownloadAsync(Video video, IProgress<double> progress);
 
         /// <summary>
         /// Adds sound to download queue and starts

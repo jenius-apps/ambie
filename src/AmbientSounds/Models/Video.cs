@@ -1,4 +1,6 @@
-﻿namespace AmbientSounds.Models
+﻿using System.Text.Json.Serialization;
+
+namespace AmbientSounds.Models
 {
     /// <summary>
     /// An object representing a video that can be downloaded
@@ -17,9 +19,14 @@
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// True if the vidoe has been downloaded and is available
+        /// True if the video has been downloaded and is available
         /// for offline playback.
         /// </summary>
+        /// <remarks>
+        /// Ignored from serialization since it's only used as
+        /// a flag during runtime.
+        /// </remarks>
+        [JsonIgnore]
         public bool IsDownloaded { get; set; }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -29,5 +30,11 @@ namespace AmbientSounds.Services
         Task<IReadOnlyList<Video>> GetVideosAsync(
             bool includeOnline = true,
             bool includeOffline = true);
+
+        /// <summary>
+        /// Queues the video for downloading
+        /// and stores the video metadata to local storage.
+        /// </summary>
+        Task InstallVideoAsync(Video video, IProgress<double>? progress = null);
     }
 }

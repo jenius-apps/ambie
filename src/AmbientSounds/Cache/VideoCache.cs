@@ -55,5 +55,14 @@ namespace AmbientSounds.Cache
 
             return _offlineVideos;
         }
+
+        /// <inheritdoc/>
+        public async Task AddOfflineVideoAsync(Video video)
+        {
+            await GetOfflineVideosAsync();
+
+            _offlineVideos.TryAdd(video.Id, video);
+            await _offlineVideoRepo.SaveVideosAsync(_offlineVideos.Values.ToArray());
+        }
     }
 }
