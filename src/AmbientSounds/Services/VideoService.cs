@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Models;
+using AmbientSounds.Repositories;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,17 @@ namespace AmbientSounds.Services
     public class VideoService : IVideoService
     {
         private readonly IVideoCache _videoCache;
+        private readonly IOnlineVideoRepository _onlineVideoRepository;
 
-        public VideoService(IVideoCache videoCache)
+        public VideoService(
+            IVideoCache videoCache,
+            IOnlineVideoRepository onlineVideoRepository)
         {
             Guard.IsNotNull(videoCache, nameof(videoCache));
+            Guard.IsNotNull(onlineVideoRepository, nameof(onlineVideoRepository));
+
             _videoCache = videoCache;
+            _onlineVideoRepository = onlineVideoRepository;
         }
 
         /// <inheritdoc/>
@@ -54,6 +61,12 @@ namespace AmbientSounds.Services
             }
 
             return results;
+        }
+
+        /// <inheritdoc/>
+        public Task<string> GetDownloadUrlAsync(string videoId)
+        {
+            return _onlineVideoRepository.GetDownloadUrlAsync(videoId);
         }
 
         /// <inheritdoc/>

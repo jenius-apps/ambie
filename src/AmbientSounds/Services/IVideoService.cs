@@ -10,6 +10,11 @@ namespace AmbientSounds.Services
     public interface IVideoService
     {
         /// <summary>
+        /// Retrieves the download URL for the given video.
+        /// </summary>
+        Task<string> GetDownloadUrlAsync(string videoId);
+
+        /// <summary>
         /// Gets local file path for given video.
         /// Returns empty string if no local path found.
         /// </summary>
