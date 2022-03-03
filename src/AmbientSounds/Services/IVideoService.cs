@@ -11,6 +11,12 @@ namespace AmbientSounds.Services
     public interface IVideoService
     {
         /// <summary>
+        /// Raised when a video has completed downloading.
+        /// The string is the video ID.
+        /// </summary>
+        event EventHandler<string>? VideoDownloaded;
+
+        /// <summary>
         /// Retrieves the download URL for the given video.
         /// </summary>
         Task<string> GetDownloadUrlAsync(string videoId);
@@ -35,6 +41,6 @@ namespace AmbientSounds.Services
         /// Queues the video for downloading
         /// and stores the video metadata to local storage.
         /// </summary>
-        Task InstallVideoAsync(Video video, IProgress<double>? progress = null);
+        Task InstallVideoAsync(Video video, Progress<double>? progress = null);
     }
 }

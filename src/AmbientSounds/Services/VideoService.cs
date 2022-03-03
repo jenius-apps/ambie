@@ -3,6 +3,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Repositories;
 using Microsoft.Toolkit.Diagnostics;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +17,13 @@ namespace AmbientSounds.Services
     /// </summary>
     public class VideoService : IVideoService
     {
+        private readonly ConcurrentDictionary<string, IProgress<double>> _activeDownloads = new();
         private readonly IVideoCache _videoCache;
         private readonly IOnlineVideoRepository _onlineVideoRepository;
         private readonly IDownloadManager _downloadManager;
+
+        /// <inheritdoc/>
+        public event EventHandler<string>? VideoDownloaded;
 
         public VideoService(
             IVideoCache videoCache,
@@ -82,14 +87,22 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task InstallVideoAsync(Video video, IProgress<double>? progress = null)
+        public async Task InstallVideoAsync(Video video, Progress<double>? progress = null)
         {
             if (string.IsNullOrEmpty(video.DownloadUrl))
             {
                 video.DownloadUrl = await _onlineVideoRepository.GetDownloadUrlAsync(video.Id);
             }
 
-            var destinationPath = await _downloadManager.QueueAndDownloadAsync(video, progress ?? new Progress<double>());
+            if (progress is null)
+            {
+                progress = new Progress<double>();
+            }
+
+            progress.ProgressChanged += OnProgressChanged;
+            _activeDownloads.TryAdd(video.Id, progress);
+
+            var destinationPath = await _downloadManager.QueueAndDownloadAsync(video, progress);
 
             var newVideo = new Video
             {
@@ -103,6 +116,16 @@ namespace AmbientSounds.Services
             };
 
             await _videoCache.AddOfflineVideoAsync(newVideo);
+
+            void OnProgressChanged(object sender, double e)
+            {
+                if (e >= 100)
+                {
+                    VideoDownloaded?.Invoke(this, video.Id);
+                    progress.ProgressChanged -= OnProgressChanged;
+                    _activeDownloads.TryRemove(video.Id, out _);
+                }
+            }
         }
 
         /// <inheritdoc/>

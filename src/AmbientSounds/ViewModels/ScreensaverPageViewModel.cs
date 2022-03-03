@@ -43,6 +43,12 @@ namespace AmbientSounds.ViewModels
             _localizer = localizer;
             _videoService = videoService;
             _dialogService = dialogService;
+            _videoService.VideoDownloaded += OnVideoDownloaded;
+        }
+
+        private async void OnVideoDownloaded(object sender, string e)
+        {
+            await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
         }
 
         public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
@@ -79,10 +85,16 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _loading, value);
         }
 
-        public async Task InitializeAsync()
+        public async Task InitializeAsync(string? screensaverToSelect = "")
         {
+            if (Loading)
+            {
+                return;
+            }
+
             Loading = true;
 
+            MenuItems.Clear();
             IReadOnlyList<Video> videos = await _videoService.GetVideosAsync(includeOnline: false);
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
             MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
@@ -100,7 +112,8 @@ namespace AmbientSounds.ViewModels
                 SettingsButtonVisible = true;
             }
 
-            await ChangeScreensaverTo(DefaultId);
+            await ChangeScreensaverTo(string.IsNullOrEmpty(screensaverToSelect) ? DefaultId : screensaverToSelect);
+
             Loading = false;
             Loaded?.Invoke(this, EventArgs.Empty);
         }

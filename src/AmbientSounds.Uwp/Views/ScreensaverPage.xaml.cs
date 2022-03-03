@@ -86,6 +86,8 @@ namespace AmbientSounds.Views
                 return;
             }
 
+            SettingsFlyout.Items.Clear();
+
             foreach (var item in ViewModel.MenuItems)
             {
                 MenuFlyoutItem menuItem;
