@@ -91,6 +91,8 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
+            videoVm.Loading = true;
+
             _telemetry.TrackEvent(TelemetryConstants.VideoDownloadClicked, new Dictionary<string, string>
             {
                 { "id", videoVm.Video.Id },

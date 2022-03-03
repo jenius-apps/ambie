@@ -80,8 +80,6 @@ namespace AmbientSounds.Services.Uwp
                 return string.Empty;
             }
 
-            progress.Report(1);
-
             StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                 $"{VideosDirectory}\\{video.Id + video.Extension}",
                 CreationCollisionOption.ReplaceExisting);

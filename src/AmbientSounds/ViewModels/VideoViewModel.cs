@@ -15,6 +15,7 @@ namespace AmbientSounds.ViewModels
         private bool _isOwned;
         private double _progressValue;
         private bool _loading;
+        private bool _downloadProgressVisible;
 
         public VideoViewModel(
             Video video,
@@ -46,8 +47,6 @@ namespace AmbientSounds.ViewModels
 
         public Video Video { get; }
 
-        public bool DownloadProgressVisible => _progressValue > 0 && _progressValue < 100;
-
         /// <summary>
         /// This sound's download progress.
         /// </summary>
@@ -57,8 +56,13 @@ namespace AmbientSounds.ViewModels
             set
             {
                 SetProperty(ref _progressValue, value);
-                OnPropertyChanged(nameof(DownloadProgressVisible));
             }
+        }
+
+        public bool DownloadProgressVisible
+        {
+            get => _downloadProgressVisible;
+            set => SetProperty(ref _downloadProgressVisible, value);
         }
 
         public bool IsDownloaded
@@ -91,14 +95,17 @@ namespace AmbientSounds.ViewModels
             if (e == 0)
             {
                 Loading = true;
+                DownloadProgressVisible = false;
             }
             else if (e == 1)
             {
                 Loading = false;
+                DownloadProgressVisible = true;
             }
             else if (e == 100)
             {
                 IsDownloaded = true;
+                DownloadProgressVisible = false;
             }
 
             DownloadProgressValue = e;
