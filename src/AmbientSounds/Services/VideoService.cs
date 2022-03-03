@@ -21,22 +21,29 @@ namespace AmbientSounds.Services
         private readonly IVideoCache _videoCache;
         private readonly IOnlineVideoRepository _onlineVideoRepository;
         private readonly IDownloadManager _downloadManager;
+        private readonly IFileWriter _fileWriter;
 
         /// <inheritdoc/>
         public event EventHandler<string>? VideoDownloaded;
 
+        /// <inheritdoc/>
+        public event EventHandler<string>? VideoDeleted;
+
         public VideoService(
             IVideoCache videoCache,
             IOnlineVideoRepository onlineVideoRepository,
-            IDownloadManager downloadManager)
+            IDownloadManager downloadManager,
+            IFileWriter fileWriter)
         {
             Guard.IsNotNull(videoCache, nameof(videoCache));
             Guard.IsNotNull(onlineVideoRepository, nameof(onlineVideoRepository));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
+            Guard.IsNotNull(fileWriter, nameof(fileWriter));
 
             _videoCache = videoCache;
             _onlineVideoRepository = onlineVideoRepository;
             _downloadManager = downloadManager;
+            _fileWriter = fileWriter;
         }
 
         /// <inheritdoc/>
@@ -126,6 +133,16 @@ namespace AmbientSounds.Services
                     _activeDownloads.TryRemove(video.Id, out _);
                 }
             }
+        }
+
+        /// <inheritdoc/>
+        public async Task UninstallVideoAsync(Video video)
+        {
+            await _fileWriter.DeleteFileAsync(video.FilePath);
+            await _videoCache.RemoveOfflineVideoAsync(video.Id);
+            video.FilePath = string.Empty;
+            video.IsDownloaded = false;
+            VideoDeleted?.Invoke(this, video.Id);
         }
 
         /// <inheritdoc/>

@@ -64,5 +64,14 @@ namespace AmbientSounds.Cache
             _offlineVideos.TryAdd(video.Id, video);
             await _offlineVideoRepo.SaveVideosAsync(_offlineVideos.Values.ToArray());
         }
+
+        /// <inheritdoc/>
+        public async Task RemoveOfflineVideoAsync(string videoId)
+        {
+            await GetOfflineVideosAsync();
+
+            _offlineVideos.TryRemove(videoId, out _);
+            await _offlineVideoRepo.SaveVideosAsync(_offlineVideos.Values.ToArray());
+        }
     }
 }

@@ -25,5 +25,11 @@ namespace AmbientSounds.Cache
         /// and writes to storage.
         /// </summary>
         Task AddOfflineVideoAsync(Video video);
+
+        /// <summary>
+        /// Removes the given video data from cache
+        /// and from metadata storage.
+        /// </summary>
+        Task RemoveOfflineVideoAsync(string videoId);
     }
 }

@@ -80,8 +80,14 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            videoVm.Video.IsDownloaded = videoVm.IsDownloaded = false;
-            await Task.Delay(1);
+            _telemetry.TrackEvent(TelemetryConstants.VideoDeleteClicked, new Dictionary<string, string>
+            {
+                { "id", videoVm.Video.Id },
+                { "name", videoVm.Video.Name }
+            });
+
+            await _videoService.UninstallVideoAsync(videoVm.Video);
+            videoVm.IsDownloaded = false;
         }
     }
 }

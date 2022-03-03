@@ -55,5 +55,13 @@ namespace AmbientSounds.Services
         /// Writes the given string content to file in local storage.
         /// </summary>
         Task WriteStringAsync(string content, string relativeLocalPath);
+        
+        /// <summary>
+        /// Deletes the given file.
+        /// </summary>
+        /// <param name="absolutePathInLocalStorage">The absolute path for a file inside local storage.
+        /// If the path is outside of local storage, deletion will likely fail due to file permission restrictions.</param>
+        /// <returns>True if successful, false otherwise.</returns>
+        Task<bool> DeleteFileAsync(string absolutePathInLocalStorage);
     }
 }

@@ -91,6 +91,7 @@
         // videos
         private const string Videos = "videos:";
         public const string VideoDownloadClicked = Videos + "downloadClicked";
+        public const string VideoDeleteClicked = Videos + "deleteClicked";
 
         public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
         public const string MissingSoundsCanceled = "missingSoundsCanceled";

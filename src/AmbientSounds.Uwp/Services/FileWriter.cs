@@ -42,6 +42,26 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public async Task<bool> DeleteFileAsync(string absolutePathInLocalStorage)
+        {
+            if (string.IsNullOrEmpty(absolutePathInLocalStorage))
+            {
+                return false;
+            }
+
+            try
+            {
+                var file = await StorageFile.GetFileFromPathAsync(absolutePathInLocalStorage);
+                await file.DeleteAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <inheritdoc/>
         public async Task WriteStringAsync(string content, string relativeLocalPath)
         {
             if (string.IsNullOrEmpty(relativeLocalPath))
