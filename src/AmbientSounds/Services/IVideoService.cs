@@ -17,6 +17,12 @@ namespace AmbientSounds.Services
         event EventHandler<string>? VideoDownloaded;
 
         /// <summary>
+        /// Raised when a video was deleted.
+        /// The string is the video ID.
+        /// </summary>
+        public event EventHandler<string>? VideoDeleted;
+
+        /// <summary>
         /// Retrieves the download URL for the given video.
         /// </summary>
         Task<string> GetDownloadUrlAsync(string videoId);

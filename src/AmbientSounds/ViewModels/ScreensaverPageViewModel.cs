@@ -44,11 +44,7 @@ namespace AmbientSounds.ViewModels
             _videoService = videoService;
             _dialogService = dialogService;
             _videoService.VideoDownloaded += OnVideoDownloaded;
-        }
-
-        private async void OnVideoDownloaded(object sender, string e)
-        {
-            await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
+            _videoService.VideoDeleted += OnVideoDeleted;
         }
 
         public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
@@ -118,14 +114,24 @@ namespace AmbientSounds.ViewModels
             Loaded?.Invoke(this, EventArgs.Empty);
         }
 
+        private async void OnVideoDeleted(object sender, string deletedVideoId)
+        {
+            await InitializeAsync(deletedVideoId == CurrentSelection?.Id
+                ? DefaultId
+                : CurrentSelection?.Id);
+        }
+
+        private async void OnVideoDownloaded(object sender, string e)
+        {
+            await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
+        }
+
         private async Task ChangeScreensaverTo(string? menuItemId)
         {
             if (menuItemId is null)
             {
                 return;
             }
-
-            await Task.Delay(1);
 
             if (menuItemId == DefaultId)
             {
