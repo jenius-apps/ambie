@@ -158,5 +158,22 @@ namespace AmbientSounds.Services
                 ? offlineVids[videoId].FilePath
                 : string.Empty;
         }
+
+        /// <inheritdoc/>
+        public async Task<Video?> GetLocalVideoAsync(string videoId)
+        {
+            if (string.IsNullOrEmpty(videoId))
+            {
+                return null;
+            }
+
+            var offlineVids = await _videoCache.GetOfflineVideosAsync();
+            if (offlineVids.TryGetValue(videoId, out Video value))
+            {
+                return value;
+            }
+
+            return null;
+        }
     }
 }

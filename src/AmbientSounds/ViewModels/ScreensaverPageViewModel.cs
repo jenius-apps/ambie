@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels
         private readonly ILocalizer _localizer;
         private readonly IVideoService _videoService;
         private readonly IDialogService _dialogService;
+        private readonly IIapService _iapService;
         private Uri _videoSource = new Uri(DefaultVideoSource);
         private bool _settingsButtonVisible;
         private bool _loading;
@@ -35,14 +36,19 @@ namespace AmbientSounds.ViewModels
         public ScreensaverPageViewModel(
             ILocalizer localizer,
             IVideoService videoService,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            IIapService iapService)
         {
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(videoService, nameof(videoService));
             Guard.IsNotNull(dialogService, nameof(dialogService));
+            Guard.IsNotNull(iapService, nameof(iapService));
+
             _localizer = localizer;
             _videoService = videoService;
             _dialogService = dialogService;
+            _iapService = iapService;
+
             _videoService.VideoDownloaded += OnVideoDownloaded;
             _videoService.VideoDeleted += OnVideoDeleted;
         }
@@ -144,6 +150,14 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
+                Video? video = await _videoService.GetLocalVideoAsync(menuItemId);
+                var isOwned = await _iapService.IsAnyOwnedAsync(video?.IapIds ?? Array.Empty<string>());
+                if (!isOwned)
+                {
+                    await _dialogService.OpenPremiumAsync();
+                    return;
+                }
+
                 var path = await _videoService.GetFilePathAsync(menuItemId);
                 if (!string.IsNullOrEmpty(path))
                 {

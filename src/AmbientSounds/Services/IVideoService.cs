@@ -36,6 +36,11 @@ namespace AmbientSounds.Services
         Task<string> GetFilePathAsync(string? videoId);
 
         /// <summary>
+        /// Retrieves metadata for given local video.
+        /// </summary>
+        Task<Video?> GetLocalVideoAsync(string videoId);
+
+        /// <summary>
         /// Retrieves list of videos that can be displayed
         /// in a list on-screen. 
         /// </summary>
