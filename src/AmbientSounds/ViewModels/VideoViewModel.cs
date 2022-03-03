@@ -12,7 +12,9 @@ namespace AmbientSounds.ViewModels
     public class VideoViewModel : ObservableObject
     {
         private bool _isDownloaded;
+        private bool _isOwned;
         private double _progressValue;
+        private bool _loading;
 
         public VideoViewModel(
             Video video,
@@ -65,13 +67,41 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _isDownloaded, value);
         }
 
+        public bool IsOwned
+        {
+            get => _isOwned;
+            set 
+            {
+                SetProperty(ref _isOwned, value);
+            }
+        }
+
+        public bool Loading
+        {
+            get => _loading;
+            set
+            {
+                SetProperty(ref _loading, value);
+                OnPropertyChanged(nameof(DownloadProgressVisible));
+            }
+        }
+
         private void OnProgressChanged(object sender, double e)
         {
-            DownloadProgressValue = e;
-            if (e == 100)
+            if (e == 0)
+            {
+                Loading = true;
+            }
+            else if (e == 1)
+            {
+                Loading = false;
+            }
+            else if (e == 100)
             {
                 IsDownloaded = true;
             }
+
+            DownloadProgressValue = e;
         }
     }
 }

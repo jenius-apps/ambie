@@ -79,7 +79,7 @@ namespace AmbientSounds.Views
             }
         }
 
-        private void OnViewModelLoaded(object sender, System.EventArgs e)
+        private void OnViewModelLoaded(object sender, EventArgs e)
         {
             if (!ViewModel.SettingsButtonVisible)
             {

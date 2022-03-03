@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -21,6 +22,12 @@ namespace AmbientSounds.Services
         /// <param name="iapId">The <see cref="Models.Sound.IapId"/>.</param>
         /// <returns>True if the sound is owned.</returns>
         Task<bool> IsOwnedAsync(string iapId);
+
+        /// <summary>
+        /// Returns true if any of the given in-app purchase IDs
+        /// are owned.
+        /// </summary>
+        Task<bool> IsAnyOwnedAsync(IReadOnlyList<string> iapIds);
 
         /// <summary>
         /// Attempts to buy the sound.

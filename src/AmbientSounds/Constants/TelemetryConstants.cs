@@ -14,6 +14,8 @@
         public const string PreviewClicked = Catalogue + "previewClicked";
         public const string BuyClicked = Catalogue + "buyClicked";
         public const string SubscribeClicked = Catalogue + "subscribeClicked";
+        public const string Purchased = Catalogue + "purchased";
+        public const string PurchaseCancelled = Catalogue + "purchaseCancelled";
 
         // gallery
         private const string Gallery = "gallery:";

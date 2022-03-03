@@ -536,16 +536,16 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
         <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds!</source>
-          <target state="new">Access premium, high quality sounds!</target>
+          <source>Access premium, high quality sounds</source>
+          <target state="new">Access premium, high quality sounds</target>
         </trans-unit>
         <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Growing catalogue!</source>
-          <target state="new">Growing catalogue!</target>
+          <source>Download video screensavers</source>
+          <target state="new">Download video screensavers</target>
         </trans-unit>
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development!</source>
-          <target state="new">Support development!</target>
+          <source>Support development</source>
+          <target state="new">Support development</target>
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
@@ -590,6 +590,18 @@
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
           <target state="new">{0} MB</target>
+        </trans-unit>
+        <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
+          <source>More screensavers</source>
+          <target state="new">More screensavers</target>
+        </trans-unit>
+        <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
+          <source>Screensaver catalogue</source>
+          <target state="new">Screensaver catalogue</target>
+        </trans-unit>
+        <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
+          <source>View premium info</source>
+          <target state="new">View premium info</target>
         </trans-unit>
       </group>
     </body>

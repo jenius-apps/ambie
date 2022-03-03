@@ -100,7 +100,7 @@ namespace AmbientSounds.ViewModels
                 MenuItems.Add(new FlyoutMenuItem(v.Id, v.Name, screensaverCommand, v.Id, true));
             }
 
-            MenuItems.Add(new FlyoutMenuItem(VideoDialogId, _localizer.GetString("GetMoreVideos"), screensaverCommand, VideoDialogId));
+            MenuItems.Add(new FlyoutMenuItem(VideoDialogId, _localizer.GetString("MoreScreensavers"), screensaverCommand, VideoDialogId));
 
             if (MenuItems.Count > 1)
             {

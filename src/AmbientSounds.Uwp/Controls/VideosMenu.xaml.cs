@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace AmbientSounds.Controls
 {
@@ -17,6 +19,16 @@ namespace AmbientSounds.Controls
         private async void OnLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             await ViewModel.InitializeAsync();
+        }
+
+        private void PremiumControl_CloseRequested(object sender, System.EventArgs e)
+        {
+            if (sender is FrameworkElement fe &&
+                fe.Parent is FlyoutPresenter fp &&
+                fp.Parent is Popup p)
+            {
+                p.IsOpen = false;
+            }
         }
     }
 }

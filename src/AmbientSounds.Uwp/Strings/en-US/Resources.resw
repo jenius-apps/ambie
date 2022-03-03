@@ -511,13 +511,13 @@
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
-    <value>Access premium, high quality sounds!</value>
+    <value>Access premium, high quality sounds</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Growing catalogue!</value>
+    <value>Download video screensavers</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>Support development!</value>
+    <value>Support development</value>
   </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Thank you for subscribing!</value>
@@ -552,5 +552,14 @@
   </data>
   <data name="SizeMegaByte" xml:space="preserve">
     <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>More screensavers</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Screensaver catalogue</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>View premium info</value>
   </data>
 </root>

@@ -130,7 +130,7 @@
                                                 VerticalAlignment="Stretch"
                                                 Command="{x:Bind BuyCommand, Mode=OneWay}"
                                                 Style="{StaticResource ActionButtonStyle}">
-                                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB28;" />
+                                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                                             </Button>
                                         </StackPanel>
 

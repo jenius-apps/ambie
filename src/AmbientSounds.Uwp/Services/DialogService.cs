@@ -170,7 +170,7 @@ namespace AmbientSounds.Services.Uwp
             IsDialogOpen = true;
             var dialog = new ContentDialog()
             {
-                Title = Strings.Resources.GetMoreVideos,
+                Title = Strings.Resources.ScreensaverCatalogue,
                 CloseButtonText = Strings.Resources.CloseText,
                 RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
                 Content = new VideosMenu()
