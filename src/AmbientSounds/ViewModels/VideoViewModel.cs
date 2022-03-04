@@ -19,7 +19,8 @@ namespace AmbientSounds.ViewModels
             Video video,
             IAsyncRelayCommand<VideoViewModel> downloadCommand,
             IAsyncRelayCommand<VideoViewModel> deleteCommand,
-            ILocalizer localizer)
+            ILocalizer localizer,
+            Progress<double>? downloadProgress = null)
         {
             Guard.IsNotNull(video, nameof(video));
             Guard.IsNotNull(downloadCommand, nameof(downloadCommand));
@@ -28,7 +29,7 @@ namespace AmbientSounds.ViewModels
             DownloadCommand = downloadCommand;
             DeleteCommand = deleteCommand;
 
-            DownloadProgress = new Progress<double>();
+            DownloadProgress = downloadProgress ?? new Progress<double>();
             DownloadProgress.ProgressChanged += OnProgressChanged;
             
             IsDownloaded = video.IsDownloaded;
@@ -90,17 +91,17 @@ namespace AmbientSounds.ViewModels
 
         private void OnProgressChanged(object sender, double e)
         {
-            if (e == 0)
+            if (e <= 0)
             {
                 Loading = true;
                 DownloadProgressVisible = false;
             }
-            else if (e == 1)
+            else if (e >= 1 && e < 100)
             {
                 Loading = false;
                 DownloadProgressVisible = true;
             }
-            else if (e == 100)
+            else if (e >= 100)
             {
                 IsDownloaded = true;
                 DownloadProgressVisible = false;

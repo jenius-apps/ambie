@@ -50,5 +50,11 @@ namespace AmbientSounds.Services
         /// exists. Returns null otherwise.
         /// </summary>
         IProgress<double>? GetProgress(Sound s);
+
+        /// <summary>
+        /// Returns progress object if given
+        /// file path has an active download.
+        /// </summary>
+        IProgress<double>? GetProgress(string destinationFilePath);
     }
 }

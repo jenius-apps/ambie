@@ -36,6 +36,12 @@ namespace AmbientSounds.Services
         Task<string> GetFilePathAsync(string? videoId);
 
         /// <summary>
+        /// Retrieves the progress object for the video's active installation.
+        /// Returns null of the video doesn't have an active installation.
+        /// </summary>
+        Progress<double>? GetInstallProgress(Video video);
+
+        /// <summary>
         /// Retrieves metadata for given local video.
         /// </summary>
         Task<Video?> GetLocalVideoAsync(string videoId);

@@ -146,6 +146,36 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
+        public Progress<double>? GetInstallProgress(Video video)
+        {
+            if (_downloadManager.GetProgress(video.FilePath) is Progress<double> progress)
+            {
+                if (_activeDownloads.TryAdd(video.Id, progress))
+                {
+                    progress.ProgressChanged += OnProgressChanged;
+
+                    void OnProgressChanged(object sender, double e)
+                    {
+                        if (e >= 100)
+                        {
+                            progress.ProgressChanged -= OnProgressChanged;
+                            _activeDownloads.TryRemove(video.Id, out _);
+
+                            // The progress above must be removed from the active downloads list
+                            // before this event is called so that downstream operations
+                            // do not think there is still an active download.
+                            VideoDownloaded?.Invoke(this, video.Id);
+                        }
+                    }
+                }
+
+                return progress;
+            }
+
+            return null;
+        }
+
+        /// <inheritdoc/>
         public async Task<string> GetFilePathAsync(string? videoId)
         {
             if (videoId is null)

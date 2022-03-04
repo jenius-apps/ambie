@@ -49,7 +49,13 @@ namespace AmbientSounds.Services.Uwp
         public IProgress<double>? GetProgress(Sound s)
         {
             string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
-            return BackgroundDownloadService.Instance.GetProgress(destinationPath);
+            return GetProgress(destinationPath);
+        }
+
+        /// <inheritdoc/>
+        public IProgress<double>? GetProgress(string destinationFilePath)
+        {
+            return BackgroundDownloadService.Instance.GetProgress(destinationFilePath);
         }
 
         /// <inheritdoc/>

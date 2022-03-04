@@ -54,7 +54,8 @@ namespace AmbientSounds.ViewModels
 
             foreach (var v in videos)
             {
-                var vm = new VideoViewModel(v, downloadCommand, deleteCommand, _localizer);
+                Progress<double>? progress = _videoService.GetInstallProgress(v);
+                var vm = new VideoViewModel(v, downloadCommand, deleteCommand, _localizer, progress);
                 _ = UpdateOwnershipAsync(vm);
                 Videos.Add(vm);
             }

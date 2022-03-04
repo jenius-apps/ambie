@@ -103,6 +103,12 @@ namespace AmbientSounds.ViewModels
 
             foreach (var v in videos)
             {
+                if (_videoService.GetInstallProgress(v) is not null)
+                {
+                    // If a video is still being downloaded, don't add it to the menu.
+                    continue;
+                }
+
                 MenuItems.Add(new FlyoutMenuItem(v.Id, v.Name, screensaverCommand, v.Id, true));
             }
 
