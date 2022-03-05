@@ -98,6 +98,10 @@
         public const string VideoSelected = Videos + "selected";
         public const string VideoMenuOpened = Videos + "menuOpened";
 
+        // shaders
+        private const string Shaders = "shaders:";
+        public const string ShaderSelected = Shaders + "selected";
+
         public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
         public const string MissingSoundsCanceled = "missingSoundsCanceled";
     }
