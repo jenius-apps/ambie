@@ -1,4 +1,6 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -29,6 +31,11 @@ namespace AmbientSounds.Controls
             {
                 p.IsOpen = false;
             }
+        }
+
+        private void Flyout_Opened(object sender, object e)
+        {
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.VideoPremiumClicked);
         }
     }
 }

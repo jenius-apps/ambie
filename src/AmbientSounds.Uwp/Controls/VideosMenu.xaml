@@ -61,7 +61,7 @@
                             Visibility="{x:Bind local:UIHelper.InvertVisibility(IsOwned), Mode=OneWay}">
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                             <Button.Flyout>
-                                <Flyout>
+                                <Flyout Opened="Flyout_Opened">
                                     <local:PremiumControl CloseRequested="PremiumControl_CloseRequested" />
                                 </Flyout>
                             </Button.Flyout>

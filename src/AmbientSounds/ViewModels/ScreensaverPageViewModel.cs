@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
@@ -22,6 +23,7 @@ namespace AmbientSounds.ViewModels
         private readonly IVideoService _videoService;
         private readonly IDialogService _dialogService;
         private readonly IIapService _iapService;
+        private readonly ITelemetry _telemetry;
         private Uri _videoSource = new Uri(DefaultVideoSource);
         private bool _settingsButtonVisible;
         private bool _loading;
@@ -37,17 +39,20 @@ namespace AmbientSounds.ViewModels
             ILocalizer localizer,
             IVideoService videoService,
             IDialogService dialogService,
-            IIapService iapService)
+            IIapService iapService,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(videoService, nameof(videoService));
             Guard.IsNotNull(dialogService, nameof(dialogService));
             Guard.IsNotNull(iapService, nameof(iapService));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _localizer = localizer;
             _videoService = videoService;
             _dialogService = dialogService;
             _iapService = iapService;
+            _telemetry = telemetry;
 
             _videoService.VideoDownloaded += OnVideoDownloaded;
             _videoService.VideoDeleted += OnVideoDeleted;
@@ -152,6 +157,7 @@ namespace AmbientSounds.ViewModels
             }
             else if (menuItemId == VideoDialogId)
             {
+                _telemetry.TrackEvent(TelemetryConstants.VideoMenuOpened);
                 await _dialogService.OpenVideosMenuAsync();
             }
             else
@@ -178,11 +184,12 @@ namespace AmbientSounds.ViewModels
                         // TODO log error
                     }
                 }
-                else
+
+                _telemetry.TrackEvent(TelemetryConstants.VideoSelected, new Dictionary<string, string>()
                 {
-                    // TODO handle scenario where there
-                    // was an issue with the path.
-                }
+                    { "id",  menuItemId },
+                    { "name", video?.Name ?? string.Empty }
+                });
             }
 
             var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
