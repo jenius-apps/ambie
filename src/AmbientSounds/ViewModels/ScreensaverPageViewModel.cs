@@ -2,6 +2,7 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Shaders;
+using ComputeSharp;
 using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
@@ -127,7 +128,9 @@ namespace AmbientSounds.ViewModels
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
             MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
 
-            if (_systemInfoProvider.IsDesktop())
+            // Only enable compute shaders on desktop and when not using the WARP device
+            if (_systemInfoProvider.IsDesktop() &&
+                GraphicsDevice.Default.IsHardwareAccelerated)
             {
                 // Animated backgrounds
                 MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ColorfulInfinity)}", _localizer.GetString("ComputeShader/ColoredSmoke"), screensaverCommand, $"[CS]{nameof(ColorfulInfinity)}", true));
