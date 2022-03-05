@@ -43,6 +43,7 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='CloudSyncFileUrl']").Value = "$(CloudSyncFileUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='UploadUrl']").Value = "$(UploadUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='MySoundsUrl']").Value = "$(MySoundsUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='VideosUrl']").Value = "$(VideosUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueScope']").Value = "$(CatalogueScope)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
