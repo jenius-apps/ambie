@@ -53,6 +53,10 @@ namespace AmbientSounds.Views
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested += OnBackRequested;
 
+            if (App.IsTenFoot)
+            {
+                GoBackButton.Focus(FocusState.Programmatic);
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

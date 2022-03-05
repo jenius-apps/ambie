@@ -23,6 +23,7 @@
         </VisualStateManager.VisualStateGroups>
 
         <Button
+            x:Name="GoBackButton"
             x:Uid="BackButton"
             Margin="40,40,0,0"
             VerticalAlignment="Top"
