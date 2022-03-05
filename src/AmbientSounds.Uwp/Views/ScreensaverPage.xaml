@@ -6,7 +6,6 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="RootPage"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -56,7 +55,6 @@
             Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
         <computeSharp:AnimatedComputeShaderPanel
-            x:Name="AnimatedBackground"
             ShaderRunner="{x:Bind converters:PixelShaderToShaderRunnerConverter.Convert(ViewModel.AnimatedBackgroundName), Mode=OneWay}"
             Visibility="{x:Bind ViewModel.AnimatedBackgroundVisible, Mode=OneWay}" />
 
