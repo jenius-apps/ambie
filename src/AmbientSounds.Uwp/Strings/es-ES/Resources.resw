@@ -321,8 +321,36 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sincronización</value>
   </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Explorar</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Atribución</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>Nueva música</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Renovar</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Iniciar sesión</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>¿Estás seguro?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Opcional</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Obligatorio</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Donar</value>
@@ -344,6 +372,9 @@
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Anclar a Taskbar</value>
+  </data>
+  <data name="Transparency" xml:space="preserve">
+    <value>Transparencia</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Vista previa</value>
@@ -376,18 +407,51 @@
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
-    <value>¡Accede a sonidos premium y de alta calidad!</value>
+    <value>Accede a sonidos premium y de alta calidad</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>¡Creciente catálogo!</value>
+    <value>Descargar videos</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>¡Apóyanos!</value>
+    <value>Apóyanos</value>
   </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Hola de nuevo 👋🏽</value>
   </data>
   <data name="RateUsMessage" xml:space="preserve">
     <value>¿Disfrutando de Ambie? ¡Considere calificarnos!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Reanudar la música cuando se inicie Ambie</value>
+  </data>
+  <data name="SettingsDisableSmtc" xml:space="preserve">
+    <value>Impedir que Ambie se integre con los controles multimedia de Windows</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Necesitamos descargar algunos sonidos para reproducir esto. Una vez descargado, intente reproducir esto nuevamente. ¿Iniciar la descarga?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Falta música</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Predeterminado</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Más videos</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Catálogo de vídeos</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Ver información premium</value>
   </data>
 </root>

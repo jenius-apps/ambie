@@ -89,6 +89,9 @@
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
             <x:String x:Key="GlyphSettings">&#xEB5D;</x:String>
+            <x:String x:Key="GlyphDownload">&#xE9B9;</x:String>
+            <x:String x:Key="GlyphDelete">&#xE9ED;</x:String>
+            <x:String x:Key="GlyphPremium">&#xEB28;</x:String>
 
         </ResourceDictionary>
     </Application.Resources>

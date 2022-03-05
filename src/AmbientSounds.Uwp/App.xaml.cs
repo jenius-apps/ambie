@@ -1,8 +1,12 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Constants;
 using AmbientSounds.Factories;
+using AmbientSounds.Repositories;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Tools;
+using JeniusApps.Common.Tools.Uwp;
 using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client.Extensibility;
@@ -289,6 +293,7 @@ namespace AmbientSounds
                 .AddSingleton<SoundListViewModel>() // shared in main and compact pages
                 .AddTransient<CatalogueListViewModel>()
                 .AddTransient<ScreensaverViewModel>()
+                .AddSingleton<ScreensaverPageViewModel>()
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<ThemeSettingsViewModel>()
                 .AddTransient<CataloguePageViewModel>()
@@ -297,6 +302,7 @@ namespace AmbientSounds
                 .AddTransient<ShareResultsViewModel>()
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
+                .AddSingleton<VideosMenuViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddSingleton<AppServiceController>()
@@ -310,9 +316,14 @@ namespace AmbientSounds
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
+                .AddSingleton<IVideoService, VideoService>()
+                .AddSingleton<IVideoCache, VideoCache>()
+                .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
+                .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
+                .AddSingleton<ILocalizer, ReswLocalizer>()
                 .AddSingleton<IFileWriter, FileWriter>()
                 .AddSingleton<IFilePicker, FilePicker>()
                 .AddSingleton<ICustomWebUi, CustomAuthUiService>()

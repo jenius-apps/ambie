@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Services.Store;
 using Microsoft.Toolkit.Uwp.Connectivity;
+using System.Collections.Concurrent;
 
 #nullable enable
 
@@ -14,8 +15,8 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class StoreService : IIapService
     {
-        private static readonly Dictionary<string, StoreProduct> _productsCache = new();
-        private static readonly Dictionary<string, bool> _ownershipCache = new();
+        private static readonly ConcurrentDictionary<string, StoreProduct> _productsCache = new();
+        private static readonly ConcurrentDictionary<string, bool> _ownershipCache = new();
         private static StoreContext? _context;
 
         /// <inheritdoc/>
@@ -55,6 +56,26 @@ namespace AmbientSounds.Services.Uwp
             }
 
             _ownershipCache.TryAdd(iapId, false);
+            return false;
+        }
+
+        /// <inheritdoc/>
+        public async Task<bool> IsAnyOwnedAsync(IReadOnlyList<string> iapIds)
+        {
+            if (iapIds.Count == 0)
+            {
+                return true;
+            }
+
+            foreach (var id in iapIds)
+            {
+                var owned = await IsOwnedAsync(id);
+                if (owned)
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 

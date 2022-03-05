@@ -24,6 +24,14 @@ namespace AmbientSounds.Services
         Task QueueAndDownloadAsync(Sound s, IProgress<double> progress);
 
         /// <summary>
+        /// Adds video to download queue and starts download.
+        /// </summary>
+        /// <returns>
+        /// Destination path.
+        /// </returns>
+        Task<string> QueueAndDownloadAsync(Video video, IProgress<double> progress);
+
+        /// <summary>
         /// Adds sound to download queue and starts
         /// download.
         /// </summary>
@@ -42,5 +50,11 @@ namespace AmbientSounds.Services
         /// exists. Returns null otherwise.
         /// </summary>
         IProgress<double>? GetProgress(Sound s);
+
+        /// <summary>
+        /// Returns progress object if given
+        /// file path has an active download.
+        /// </summary>
+        IProgress<double>? GetProgress(string destinationFilePath);
     }
 }

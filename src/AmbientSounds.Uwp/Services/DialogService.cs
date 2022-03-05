@@ -158,5 +158,26 @@ namespace AmbientSounds.Services.Uwp
             await dialog.ShowAsync();
             IsDialogOpen = false;
         }
+
+        /// <inheritdoc/>
+        public async Task OpenVideosMenuAsync()
+        {
+            if (IsDialogOpen)
+            {
+                return;
+            }
+
+            IsDialogOpen = true;
+            var dialog = new ContentDialog()
+            {
+                Title = Strings.Resources.ScreensaverCatalogue,
+                CloseButtonText = Strings.Resources.CloseText,
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+                Content = new VideosMenu()
+            };
+
+            await dialog.ShowAsync();
+            IsDialogOpen = false;
+        }
     }
 }

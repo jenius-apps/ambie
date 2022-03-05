@@ -14,6 +14,8 @@
         public const string PreviewClicked = Catalogue + "previewClicked";
         public const string BuyClicked = Catalogue + "buyClicked";
         public const string SubscribeClicked = Catalogue + "subscribeClicked";
+        public const string Purchased = Catalogue + "purchased";
+        public const string PurchaseCancelled = Catalogue + "purchaseCancelled";
 
         // gallery
         private const string Gallery = "gallery:";
@@ -87,6 +89,14 @@
         private const string Settings = "settings:";
         public const string SmtcDisabled = Settings + "smtcDisabled";
         public const string SmtcEnabled = Settings + "smtcEnabled";
+
+        // videos
+        private const string Videos = "videos:";
+        public const string VideoDownloadClicked = Videos + "downloadClicked";
+        public const string VideoDeleteClicked = Videos + "deleteClicked";
+        public const string VideoPremiumClicked = Videos + "premiumClicked";
+        public const string VideoSelected = Videos + "selected";
+        public const string VideoMenuOpened = Videos + "menuOpened";
 
         public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
         public const string MissingSoundsCanceled = "missingSoundsCanceled";

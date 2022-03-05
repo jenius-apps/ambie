@@ -138,4 +138,7 @@
   <data name="CatalogueScope" xml:space="preserve">
     <value></value>
   </data>
+  <data name="VideosUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
 </root>

@@ -732,7 +732,7 @@ namespace AmbientSounds.Strings{
 
         #region SubscriptionText1
         /// <summary>
-        ///   Looks up a localized string similar to: Access premium, high quality sounds!
+        ///   Looks up a localized string similar to: Access premium, high quality sounds
         /// </summary>
         public static string SubscriptionText1
         {
@@ -745,7 +745,7 @@ namespace AmbientSounds.Strings{
 
         #region SubscriptionText2
         /// <summary>
-        ///   Looks up a localized string similar to: Growing catalogue!
+        ///   Looks up a localized string similar to: Download video screensavers
         /// </summary>
         public static string SubscriptionText2
         {
@@ -758,7 +758,7 @@ namespace AmbientSounds.Strings{
 
         #region SubscriptionText3
         /// <summary>
-        ///   Looks up a localized string similar to: Support development!
+        ///   Looks up a localized string similar to: Support development
         /// </summary>
         public static string SubscriptionText3
         {
@@ -859,6 +859,84 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Default
+        /// <summary>
+        ///   Looks up a localized string similar to: Default
+        /// </summary>
+        public static string Default
+        {
+            get
+            {
+                return _resourceLoader.GetString("Default");
+            }
+        }
+        #endregion
+
+        #region DeleteText
+        /// <summary>
+        ///   Looks up a localized string similar to: Delete
+        /// </summary>
+        public static string DeleteText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DeleteText");
+            }
+        }
+        #endregion
+
+        #region SizeMegaByte
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} MB
+        /// </summary>
+        public static string SizeMegaByte
+        {
+            get
+            {
+                return _resourceLoader.GetString("SizeMegaByte");
+            }
+        }
+        #endregion
+
+        #region MoreScreensavers
+        /// <summary>
+        ///   Looks up a localized string similar to: More screensavers
+        /// </summary>
+        public static string MoreScreensavers
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoreScreensavers");
+            }
+        }
+        #endregion
+
+        #region ScreensaverCatalogue
+        /// <summary>
+        ///   Looks up a localized string similar to: Screensaver catalogue
+        /// </summary>
+        public static string ScreensaverCatalogue
+        {
+            get
+            {
+                return _resourceLoader.GetString("ScreensaverCatalogue");
+            }
+        }
+        #endregion
+
+        #region ViewPremiumInfo
+        /// <summary>
+        ///   Looks up a localized string similar to: View premium info
+        /// </summary>
+        public static string ViewPremiumInfo
+        {
+            get
+            {
+                return _resourceLoader.GetString("ViewPremiumInfo");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -935,6 +1013,12 @@ namespace AmbientSounds.Strings{
             DownloadText,
             MissingSoundsMessage,
             MissingSoundsTitle,
+            Default,
+            DeleteText,
+            SizeMegaByte,
+            MoreScreensavers,
+            ScreensaverCatalogue,
+            ViewPremiumInfo,
         }
 
         private static ResourceLoader _resourceLoader;

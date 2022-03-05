@@ -41,12 +41,10 @@ namespace AmbientSounds.Controls
             ButtonLoading = true;
             this.Bindings.Update();
 
+            _telemetry.TrackEvent(TelemetryConstants.SubscribeClicked);
             bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId);
             ThanksTextVisible = purchaseSuccessful;
-            _telemetry.TrackEvent(TelemetryConstants.SubscribeClicked, new Dictionary<string, string>() 
-            {
-                { "purchased", purchaseSuccessful.ToString() }
-            });
+            _telemetry.TrackEvent(purchaseSuccessful ? TelemetryConstants.Purchased : TelemetryConstants.PurchaseCancelled);
 
             ButtonLoading = false;
             this.Bindings.Update();

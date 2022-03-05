@@ -17,6 +17,7 @@ namespace AmbientSounds.Services.Uwp
     public class WindowsDownloadManager : IDownloadManager
     {
         private const string SoundsDirectory = "sounds";
+        private const string VideosDirectory = "videos";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IFileDownloader _fileDownloader;
         private readonly ISoundDataProvider _soundDataProvider;
@@ -48,7 +49,13 @@ namespace AmbientSounds.Services.Uwp
         public IProgress<double>? GetProgress(Sound s)
         {
             string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
-            return BackgroundDownloadService.Instance.GetProgress(destinationPath);
+            return GetProgress(destinationPath);
+        }
+
+        /// <inheritdoc/>
+        public IProgress<double>? GetProgress(string destinationFilePath)
+        {
+            return BackgroundDownloadService.Instance.GetProgress(destinationFilePath);
         }
 
         /// <inheritdoc/>
@@ -69,6 +76,26 @@ namespace AmbientSounds.Services.Uwp
             {
                 _ = QueueAndDownloadAsync(s, new Progress<double>());
             }
+        }
+
+        /// <inheritdoc/>
+        public async Task<string> QueueAndDownloadAsync(Video video, IProgress<double> progress)
+        {
+            if (string.IsNullOrEmpty(video.DownloadUrl))
+            {
+                return string.Empty;
+            }
+
+            StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                $"{VideosDirectory}\\{video.Id + video.Extension}",
+                CreationCollisionOption.ReplaceExisting);
+
+            BackgroundDownloadService.Instance.StartDownload(
+                destinationFile,
+                video.DownloadUrl,
+                progress);
+
+            return destinationFile.Path;
         }
 
         /// <inheritdoc/>
