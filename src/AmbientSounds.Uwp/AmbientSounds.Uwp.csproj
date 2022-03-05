@@ -230,7 +230,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resw</DependentUpon>
     </Compile>
-    <Compile Include="TemplateSelectors\BackgroundItemTemplateSelector.cs" />
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>

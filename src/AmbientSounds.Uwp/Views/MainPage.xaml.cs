@@ -67,9 +67,7 @@ namespace AmbientSounds.Views
 
         private void UpdateBackgroundState()
         {
-            bool isBackgroundPresent =
-                !string.IsNullOrEmpty(_userSettings.Get<string>(UserSettingsConstants.BackgroundImage)) ||
-                !string.IsNullOrEmpty(_userSettings.Get<string>(UserSettingsConstants.AnimatedBackgroundType));
+            bool isBackgroundPresent = !string.IsNullOrEmpty(_userSettings.Get<string>(UserSettingsConstants.BackgroundImage));
 
             VisualStateManager.GoToState(
                 this,

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using AmbientSounds.Constants;
 using AmbientSounds.Services;
-using AmbientSounds.Shaders;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -131,14 +129,6 @@ namespace AmbientSounds.ViewModels
                 BackgroundItems.Add(p);
             }
 
-            if (_systemInfoProvider.IsDesktop())
-            {
-                // Animated backgrounds
-                BackgroundItems.Add(typeof(ColorfulInfinity));
-                BackgroundItems.Add(typeof(Octagrams));
-                BackgroundItems.Add(typeof(ProteanClouds));
-            }
-
             // Empty image
             BackgroundItems.Add(paths.Single(path => path.Contains(NoneImageName)));
         }
@@ -163,22 +153,11 @@ namespace AmbientSounds.ViewModels
                     imagePath = string.Empty;
                 }
 
-                _userSettings.Set(UserSettingsConstants.AnimatedBackgroundType, string.Empty);
                 _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
 
                 _telemetry.TrackEvent(TelemetryConstants.BackgroundChanged, new Dictionary<string, string>
                 {
                     { "path", imagePath.Contains("ms-appx") ? imagePath : "custom" }
-                });
-            }
-            else if (selectedItem is Type shaderType)
-            {
-                _userSettings.Set(UserSettingsConstants.AnimatedBackgroundType, shaderType.Name);
-                _userSettings.Set(UserSettingsConstants.BackgroundImage, string.Empty);
-
-                _telemetry.TrackEvent(TelemetryConstants.BackgroundChanged, new Dictionary<string, string>
-                {
-                    { "type", shaderType.FullName }
                 });
             }
         }
