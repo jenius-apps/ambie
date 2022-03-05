@@ -407,18 +407,51 @@
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
-    <value>Greifen Sie auf erstklassige, hochwertige Sounds zu!</value>
+    <value>Greifen Sie auf erstklassige, hochwertige Sounds zu</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Stetig wachsender Katalog!</value>
+    <value>Videos herunterladen</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>Unterstützen Sie die Entwicklung!</value>
+    <value>Unterstützen Sie die Entwicklung</value>
   </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Nochmals Hallo 👋🏽</value>
   </data>
   <data name="RateUsMessage" xml:space="preserve">
     <value>Gefällt Ihnen Ambie? Bitte bewerten Sie uns!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Musik fortsetzen, wenn Ambie anfängt</value>
+  </data>
+  <data name="SettingsDisableSmtc" xml:space="preserve">
+    <value>Verhindern der Integration von Ambie in Windows Media-Steuerelemente</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Wir müssen einige Sounds herunterladen, um dies abzuspielen. Versuchen Sie nach dem Herunterladen, dies erneut abzuspielen. Download starten?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Fehlende Musik</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Vorgabe</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Weitere Videos</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Videokatalog</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Premium-Informationen anzeigen</value>
   </data>
 </root>

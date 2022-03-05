@@ -410,7 +410,7 @@
     <value>高品質の音楽を取得</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>成長カタログ</value>
+    <value>ビデオを入手する</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
     <value>サポート開発</value>
@@ -426,5 +426,32 @@
   </data>
   <data name="SettingsDisableSmtc" xml:space="preserve">
     <value>アンビーが Windows メディア コントロールと統合できないようにする</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>私たちはこれを再生するためにいくつかの音をダウンロードする必要があります。ダウンロードしたら、もう一度再生してみてください。ダウンロードを開始しますか?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>音楽が欠落しています</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>既定</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>その他のビデオ</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>ビデオカタログ</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>プレミアム情報の表示</value>
   </data>
 </root>
