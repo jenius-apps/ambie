@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="ByteSize" Version="2.0.0" />
-    <PackageReference Include="ComputeSharp" Version="2.0.0-alpha.18" />
+    <PackageReference Include="ComputeSharp" Version="2.0.0-alpha.19" />
     <PackageReference Include="JeniusApps.Common" Version="0.0.2-preview" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.0" />
