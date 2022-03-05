@@ -544,9 +544,6 @@
   <data name="Default" xml:space="preserve">
     <value>Default</value>
   </data>
-  <data name="GetMoreVideos" xml:space="preserve">
-    <value>Get more videos</value>
-  </data>
   <data name="DeleteText" xml:space="preserve">
     <value>Delete</value>
   </data>

@@ -574,10 +574,6 @@
           <source>Default</source>
           <target state="translated">Predeterminado</target>
         </trans-unit>
-        <trans-unit id="GetMoreVideos" translate="yes" xml:space="preserve">
-          <source>Get more videos</source>
-          <target state="new">Get more videos</target>
-        </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
           <target state="translated">Borrar</target>
