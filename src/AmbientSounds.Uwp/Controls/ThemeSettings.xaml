@@ -18,14 +18,14 @@
                 Margin="0,4,0,0"
                 HorizontalAlignment="Left"
                 IsItemClickEnabled="True"
-                ItemsSource="{x:Bind ViewModel.BackgroundItems}"
+                ItemsSource="{x:Bind ViewModel.ImagePaths}"
                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
                 ScrollViewer.VerticalScrollMode="Disabled"
                 SelectionMode="None">
                 <interactivity:Interaction.Behaviors>
-                    <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectBackgroundItemCommand}" />
+                    <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectImageCommand}" />
                     <core:EventTriggerBehavior EventName="Loaded">
-                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadBackgroundItemsCommand}" />
+                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
                 <GridView.ItemTemplate>

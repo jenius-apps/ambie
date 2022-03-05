@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
-using AmbientSounds.Constants;
+﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
@@ -34,20 +33,20 @@ namespace AmbientSounds.ViewModels
             _imagePicker = imagePicker;
             _telemetry = telemetry;
 
-            SelectBackgroundItemCommand = new RelayCommand<object>(SelectBackgroundItem);
-            LoadBackgroundItemsCommand = new AsyncRelayCommand(LoadBackgroundItemsAsync);
+            SelectImageCommand = new RelayCommand<string>(SelectImage);
+            LoadImagesCommand = new AsyncRelayCommand(LoadImagesAsync);
             BrowseCommand = new AsyncRelayCommand(BrowseForImageAsync);
         }
 
         /// <summary>
         /// Command for selecting the background image.
         /// </summary>
-        public IRelayCommand<string> SelectBackgroundItemCommand { get; }
+        public IRelayCommand<string> SelectImageCommand { get; }
 
         /// <summary>
         /// Command for loading the background images.
         /// </summary>
-        public IAsyncRelayCommand LoadBackgroundItemsCommand { get; }
+        public IAsyncRelayCommand LoadImagesCommand { get; }
 
         /// <summary>
         /// Command for opening a file picker to select a custom image.
@@ -57,7 +56,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Paths to available background images.
         /// </summary>
-        public ObservableCollection<object> BackgroundItems { get; } = new();
+        public ObservableCollection<string> ImagePaths { get; } = new();
 
         /// <summary>
         /// The current theme.
@@ -68,7 +67,6 @@ namespace AmbientSounds.ViewModels
             set
             {
                 _userSettings.Set(UserSettingsConstants.Theme, value);
-
                 OnPropertyChanged(nameof(DefaultRadioIsChecked));
                 OnPropertyChanged(nameof(DarkRadioIsChecked));
                 OnPropertyChanged(nameof(LightRadioIsChecked));
@@ -114,23 +112,18 @@ namespace AmbientSounds.ViewModels
             CurrentTheme = "light";
         }
 
-        private async Task LoadBackgroundItemsAsync()
+        private async Task LoadImagesAsync()
         {
-            if (BackgroundItems.Count > 0)
+            if (ImagePaths.Count > 0)
             {
                 return;
             }
 
             string[] paths = await _systemInfoProvider.GetAvailableBackgroundsAsync();
-
-            // Images
-            foreach (var p in paths.Where(path => !path.Contains(NoneImageName)))
+            foreach (var p in paths)
             {
-                BackgroundItems.Add(p);
+                ImagePaths.Add(p);
             }
-
-            // Empty image
-            BackgroundItems.Add(paths.Single(path => path.Contains(NoneImageName)));
         }
 
         private async Task BrowseForImageAsync()
@@ -141,20 +134,20 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            SelectBackgroundItem(imagePath);
+            SelectImage(imagePath);
         }
 
-        private void SelectBackgroundItem(object? selectedItem)
+        private void SelectImage(string? imagePath)
         {
-            if (selectedItem is string imagePath)
+            if (imagePath?.Contains(NoneImageName) == true)
             {
-                if (imagePath.Contains(NoneImageName) == true)
-                {
-                    imagePath = string.Empty;
-                }
+                imagePath = string.Empty;
+            }
 
-                _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
+            _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
 
+            if (imagePath != null)
+            {
                 _telemetry.TrackEvent(TelemetryConstants.BackgroundChanged, new Dictionary<string, string>
                 {
                     { "path", imagePath.Contains("ms-appx") ? imagePath : "custom" }

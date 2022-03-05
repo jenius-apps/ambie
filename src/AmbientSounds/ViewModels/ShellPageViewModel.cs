@@ -14,7 +14,6 @@ namespace AmbientSounds.ViewModels
         private readonly IUserSettings _userSettings;
         private readonly ITimerService _ratingTimer;
         private readonly ITelemetry _telemetry;
-        private readonly ISystemInfoProvider _systemInfoProvider;
         private bool _isRatingMessageVisible;
 
         public ShellPageViewModel(
@@ -26,12 +25,10 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
             Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(systemInfoProvider, nameof(System));
 
             _userSettings = userSettings;
             _ratingTimer = timer;
             _telemetry = telemetry;
-            _systemInfoProvider = systemInfoProvider;
 
             _userSettings.SettingSet += OnSettingSet;
 
