@@ -1,6 +1,5 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
-using AmbientSounds.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -28,9 +27,6 @@ namespace AmbientSounds.Controls
             this.InitializeComponent();
             this.Loaded += OnLoaded;
             this.Unloaded += OnUnloaded;
-#if DEBUG
-            ComputeSharpTestButton.Visibility = Visibility.Visible;
-#endif
         }
 
         private bool CanShowOnPc => !App.IsTenFoot;
@@ -114,14 +110,6 @@ namespace AmbientSounds.Controls
         {
             var dialogService = App.Services.GetRequiredService<IDialogService>();
             await dialogService.OpenSettingsAsync();
-        }
-
-        private void ComputeSharpTestClicked(object sender, RoutedEventArgs e)
-        {
-            if (App.Services.GetRequiredService<INavigator>().Frame is Frame frame)
-            {
-                frame.Navigate(typeof(ComputeSharpTestPage));
-            }
         }
     }
 }
