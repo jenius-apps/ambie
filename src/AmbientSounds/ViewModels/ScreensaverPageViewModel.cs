@@ -130,9 +130,9 @@ namespace AmbientSounds.ViewModels
             if (_systemInfoProvider.IsDesktop())
             {
                 // Animated backgrounds
-                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ColorfulInfinity)}", "Colored smoke", screensaverCommand, $"[CS]{nameof(ColorfulInfinity)}", true));
-                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(Octagrams)}", "Octagrams", screensaverCommand, $"[CS]{nameof(Octagrams)}", true));
-                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ProteanClouds)}", "Clouds", screensaverCommand, $"[CS]{nameof(ProteanClouds)}", true));
+                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ColorfulInfinity)}", _localizer.GetString("ComputeShader/ColoredSmoke"), screensaverCommand, $"[CS]{nameof(ColorfulInfinity)}", true));
+                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(Octagrams)}", _localizer.GetString("ComputeShader/Octagrams"), screensaverCommand, $"[CS]{nameof(Octagrams)}", true));
+                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ProteanClouds)}", _localizer.GetString("ComputeShader/Clouds"), screensaverCommand, $"[CS]{nameof(ProteanClouds)}", true));
             }
 
             foreach (var v in videos)
@@ -199,7 +199,7 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
-                Video? video = await _videoService.GetLocalVideoAsync(menuItemId);
+                Video? video = await _videoService.GetLocalVideoAsync(menuItemId!);
                 var isOwned = await _iapService.IsAnyOwnedAsync(video?.IapIds ?? Array.Empty<string>());
                 if (!isOwned)
                 {
@@ -224,7 +224,7 @@ namespace AmbientSounds.ViewModels
 
                 _telemetry.TrackEvent(TelemetryConstants.VideoSelected, new Dictionary<string, string>()
                 {
-                    { "id",  menuItemId },
+                    { "id",  menuItemId! },
                     { "name", video?.Name ?? string.Empty }
                 });
             }

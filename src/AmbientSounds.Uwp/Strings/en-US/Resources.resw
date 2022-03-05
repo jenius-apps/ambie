@@ -559,4 +559,13 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>View premium info</value>
   </data>
+  <data name="ComputeShader/Clouds" xml:space="preserve">
+    <value>Clouds</value>
+  </data>
+  <data name="ComputeShader/ColoredSmoke" xml:space="preserve">
+    <value>Colored smoke</value>
+  </data>
+  <data name="ComputeShader/Octagrams" xml:space="preserve">
+    <value>Octagrams</value>
+  </data>
 </root>
