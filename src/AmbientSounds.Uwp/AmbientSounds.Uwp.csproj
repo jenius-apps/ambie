@@ -199,7 +199,6 @@
       <DependentUpon>VideosMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\PixelShaderToShaderRunnerConverter.cs" />
-    <Compile Include="Converters\ErrorLoader.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
