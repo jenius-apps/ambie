@@ -29,8 +29,7 @@
             Canvas.ZIndex="1"
             Click="GoBack"
             RequestedTheme="Dark"
-            Style="{StaticResource RoundButtonStyle}"
-            Visibility="{x:Bind ShowBackButton}">
+            Style="{StaticResource RoundButtonStyle}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
         </Button>
 

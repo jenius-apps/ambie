@@ -28,8 +28,6 @@ namespace AmbientSounds.Views
 
         public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
 
-        private bool ShowBackButton => !App.IsTenFoot;
-
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var settings = App.Services.GetRequiredService<IUserSettings>();
