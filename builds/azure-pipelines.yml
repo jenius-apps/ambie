@@ -21,6 +21,25 @@ variables:
     value: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
 steps:
+
+## This is required because the windows-2022 image dropped
+## support for this Windows SDK, and Ambie still uses it.
+- task: PowerShell@2
+  displayName: 'Installing Windows SDK 18362'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $sdkUrl = '$(WindowsSdk18362Url)'
+      $exePath = Join-Path $env:TEMP "Setup.exe"
+
+      Write-Output "downloading $sdkUrl"
+      Invoke-WebRequest -Uri $sdkUrl -OutFile $exePath
+
+      Write-Output "Installing $exePath"
+      Start-Process $exePath -ArgumentList "/q" -Wait
+
+## This is required because the windows-2022 image dropped
+## support for this Store Engagement SDK, and Ambie uses it.
 - task: PowerShell@2
   displayName: 'Installing Microsoft Store Engagement SDK'
   inputs:
