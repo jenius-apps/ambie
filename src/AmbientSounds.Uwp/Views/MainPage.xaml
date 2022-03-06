@@ -204,7 +204,7 @@
             </VisualStateGroup>
             <VisualStateGroup>
                 <VisualState x:Name="RegularBackgroundState" />
-                <VisualState x:Name="ImageBackgroundState">
+                <VisualState x:Name="BackgroundItemPresentState">
                     <VisualState.Setters>
                         <Setter Target="HeaderBackplate.Fill" Value="{ThemeResource AcrylicBackplateBrush}" />
                     </VisualState.Setters>

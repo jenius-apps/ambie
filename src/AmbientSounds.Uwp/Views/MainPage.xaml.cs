@@ -67,10 +67,11 @@ namespace AmbientSounds.Views
 
         private void UpdateBackgroundState()
         {
-            bool backgroundImageActive = !string.IsNullOrEmpty(_userSettings.Get<string>(UserSettingsConstants.BackgroundImage));
+            bool isBackgroundPresent = !string.IsNullOrEmpty(_userSettings.Get<string>(UserSettingsConstants.BackgroundImage));
+
             VisualStateManager.GoToState(
                 this,
-                backgroundImageActive ? nameof(ImageBackgroundState) : nameof(RegularBackgroundState),
+                isBackgroundPresent ? nameof(BackgroundItemPresentState) : nameof(RegularBackgroundState),
                 false);
         }
 

@@ -26,6 +26,12 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public bool IsDesktop()
+        {
+            return App.IsDesktop;
+        }
+
+        /// <inheritdoc/>
         public bool IsTenFoot()
         {
             return App.IsTenFoot;

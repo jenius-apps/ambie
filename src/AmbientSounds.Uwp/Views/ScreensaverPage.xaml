@@ -2,9 +2,10 @@
     x:Class="AmbientSounds.Views.ScreensaverPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:computeSharp="using:ComputeSharp.Uwp"
     xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="RootPage"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -21,7 +22,6 @@
                 <VisualState x:Name="Normal" />
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
         <Button
             x:Name="GoBackButton"
             x:Uid="BackButton"
@@ -54,7 +54,10 @@
             AutoPlay="True"
             Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
-        <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+        <computeSharp:AnimatedComputeShaderPanel
+            ShaderRunner="{x:Bind converters:PixelShaderToShaderRunnerConverter.Convert(ViewModel.AnimatedBackgroundName), Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.AnimatedBackgroundVisible, Mode=OneWay}" />
 
+        <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
     </Grid>
 </Page>

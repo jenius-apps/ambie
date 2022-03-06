@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Shaders;
+using ComputeSharp;
 using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
@@ -24,7 +26,9 @@ namespace AmbientSounds.ViewModels
         private readonly IDialogService _dialogService;
         private readonly IIapService _iapService;
         private readonly ITelemetry _telemetry;
+        private readonly ISystemInfoProvider _systemInfoProvider;
         private Uri _videoSource = new Uri(DefaultVideoSource);
+        private string? _animatedBackgroundName = null;
         private bool _settingsButtonVisible;
         private bool _loading;
         private bool _slideshowVisible;
@@ -40,19 +44,22 @@ namespace AmbientSounds.ViewModels
             IVideoService videoService,
             IDialogService dialogService,
             IIapService iapService,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            ISystemInfoProvider systemInfoProvider)
         {
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(videoService, nameof(videoService));
             Guard.IsNotNull(dialogService, nameof(dialogService));
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
 
             _localizer = localizer;
             _videoService = videoService;
             _dialogService = dialogService;
             _iapService = iapService;
             _telemetry = telemetry;
+            _systemInfoProvider = systemInfoProvider;
 
             _videoService.VideoDownloaded += OnVideoDownloaded;
             _videoService.VideoDeleted += OnVideoDeleted;
@@ -73,6 +80,21 @@ namespace AmbientSounds.ViewModels
         }
 
         public bool VideoPlayerVisible => VideoSource.AbsoluteUri != DefaultVideoSource;
+
+        public string? AnimatedBackgroundName
+        {
+            get => _animatedBackgroundName;
+            set
+            {
+                SetProperty(ref _animatedBackgroundName, value);
+                OnPropertyChanged(nameof(AnimatedBackgroundVisible));
+            }
+        }
+
+        /// <summary>
+        /// Determines if the animated background should be shown.
+        /// </summary>
+        public bool AnimatedBackgroundVisible => AnimatedBackgroundName is not null;
 
         public bool SlideshowVisible
         {
@@ -105,6 +127,16 @@ namespace AmbientSounds.ViewModels
             IReadOnlyList<Video> videos = await _videoService.GetVideosAsync(includeOnline: false);
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
             MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
+
+            // Only enable compute shaders on desktop and when not using the WARP device
+            if (_systemInfoProvider.IsDesktop() &&
+                GraphicsDevice.Default.IsHardwareAccelerated)
+            {
+                // Animated backgrounds
+                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ColorfulInfinity)}", _localizer.GetString("ComputeShader/ColoredSmoke"), screensaverCommand, $"[CS]{nameof(ColorfulInfinity)}", true));
+                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(Octagrams)}", _localizer.GetString("ComputeShader/Octagrams"), screensaverCommand, $"[CS]{nameof(Octagrams)}", true));
+                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ProteanClouds)}", _localizer.GetString("ComputeShader/Clouds"), screensaverCommand, $"[CS]{nameof(ProteanClouds)}", true));
+            }
 
             foreach (var v in videos)
             {
@@ -160,9 +192,23 @@ namespace AmbientSounds.ViewModels
                 _telemetry.TrackEvent(TelemetryConstants.VideoMenuOpened);
                 await _dialogService.OpenVideosMenuAsync();
             }
+            else if (menuItemId?.StartsWith("[CS]") == true)
+            {
+                string name = menuItemId.Substring("[CS]".Length);
+
+                AnimatedBackgroundName = name;
+                VideoSource = new Uri(DefaultVideoSource);
+                SlideshowVisible = false;
+
+                _telemetry.TrackEvent(TelemetryConstants.ShaderSelected, new Dictionary<string, string>()
+                {
+                    { "id",  menuItemId! },
+                    { "name", name }
+                });
+            }
             else
             {
-                Video? video = await _videoService.GetLocalVideoAsync(menuItemId);
+                Video? video = await _videoService.GetLocalVideoAsync(menuItemId!);
                 var isOwned = await _iapService.IsAnyOwnedAsync(video?.IapIds ?? Array.Empty<string>());
                 if (!isOwned)
                 {
@@ -187,7 +233,7 @@ namespace AmbientSounds.ViewModels
 
                 _telemetry.TrackEvent(TelemetryConstants.VideoSelected, new Dictionary<string, string>()
                 {
-                    { "id",  menuItemId },
+                    { "id",  menuItemId! },
                     { "name", video?.Name ?? string.Empty }
                 });
             }

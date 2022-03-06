@@ -5,7 +5,6 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
@@ -29,7 +28,6 @@
                         <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
-
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="x:String">
                         <Grid
@@ -38,7 +36,7 @@
                             CornerRadius="8">
                             <Image Stretch="UniformToFill">
                                 <Image.Source>
-                                    <BitmapImage DecodePixelHeight="60" UriSource="{Binding}" />
+                                    <BitmapImage DecodePixelHeight="60" UriSource="{x:Bind}" />
                                 </Image.Source>
                             </Image>
                         </Grid>
