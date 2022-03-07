@@ -70,13 +70,13 @@
             VerticalAlignment="Bottom"
             x:Load="False"
             IsOpen="True"
-            Message="There was an error that caused the rendering to fail, try restarting the app. If the issue persists, please report it by opening an issue on GitHub."
+            Message="There was an error that caused the rendering to fail, try restarting the app. If the issue persists, please report it by sending us an email."
             Severity="Error">
             <muxc:InfoBar.ActionButton>
                 <HyperlinkButton
                     x:Uid="RenderingErrorLink"
                     Content="Report the issue"
-                    NavigateUri="https://github.com/jenius-apps/ambie/issues" />
+                    NavigateUri="mailto:jenius_apps@outlook.com" />
             </muxc:InfoBar.ActionButton>
         </muxc:InfoBar>
     </Grid>
