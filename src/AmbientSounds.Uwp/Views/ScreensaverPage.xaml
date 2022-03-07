@@ -7,6 +7,7 @@
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
@@ -55,9 +56,28 @@
             Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
         <computeSharp:AnimatedComputeShaderPanel
+            RenderingFailed="AnimatedComputeShaderPanel_RenderingFailed"
             ShaderRunner="{x:Bind converters:PixelShaderToShaderRunnerConverter.Convert(ViewModel.AnimatedBackgroundName), Mode=OneWay}"
             Visibility="{x:Bind ViewModel.AnimatedBackgroundVisible, Mode=OneWay}" />
 
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+
+        <!--  Rendering error bar  -->
+        <muxc:InfoBar
+            x:Name="RenderingErrorInfoBar"
+            x:Uid="RenderingErrorInfo"
+            Title="Rendering error"
+            VerticalAlignment="Bottom"
+            x:Load="False"
+            IsOpen="True"
+            Message="There was an error that caused the rendering to fail, try restarting the app. If the issue persists, please report it by opening an issue on GitHub."
+            Severity="Error">
+            <muxc:InfoBar.ActionButton>
+                <HyperlinkButton
+                    x:Uid="RenderingErrorLink"
+                    Content="Report the issue"
+                    NavigateUri="https://github.com/jenius-apps/ambie/issues" />
+            </muxc:InfoBar.ActionButton>
+        </muxc:InfoBar>
     </Grid>
 </Page>

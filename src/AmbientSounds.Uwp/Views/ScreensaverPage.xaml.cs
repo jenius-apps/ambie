@@ -1,7 +1,9 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using ComputeSharp.Uwp;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -159,6 +161,20 @@ namespace AmbientSounds.Views
         private void GoBack(object sender, RoutedEventArgs e)
         {
             GoBack();
+        }
+
+        private void AnimatedComputeShaderPanel_RenderingFailed(AnimatedComputeShaderPanel sender, Exception args)
+        {
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+
+            telemetry.TrackError(args, new Dictionary<string, string>()
+            {
+                { "name", ViewModel.AnimatedBackgroundName ?? string.Empty },
+            });
+
+            InfoBar infoBar = (InfoBar)FindName(nameof(RenderingErrorInfoBar));
+
+            infoBar.IsOpen = true;
         }
     }
 }

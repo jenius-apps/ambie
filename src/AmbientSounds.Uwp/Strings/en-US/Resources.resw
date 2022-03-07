@@ -568,4 +568,13 @@
   <data name="ComputeShader.Octagrams" xml:space="preserve">
     <value>Octagrams</value>
   </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>There was an error that caused the rendering to fail, try restarting the app. If the issue persists, please report it by opening an issue on GitHub.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Report the issue</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Rendering error</value>
+  </data>
 </root>
