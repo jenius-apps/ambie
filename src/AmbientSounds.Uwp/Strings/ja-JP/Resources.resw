@@ -454,4 +454,13 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>プレミアム情報の表示</value>
   </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>雲</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>カラフルな煙</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>オクトグラム</value>
+  </data>
 </root>

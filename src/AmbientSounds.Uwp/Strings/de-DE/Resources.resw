@@ -454,4 +454,13 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Premium-Informationen anzeigen</value>
   </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Wolken</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Bunter Rauch</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Oktogramme</value>
+  </data>
 </root>

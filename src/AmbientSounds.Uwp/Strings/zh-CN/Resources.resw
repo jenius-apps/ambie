@@ -454,4 +454,13 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>查看高级信息</value>
   </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>云</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>五颜六色的烟雾</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>八进制图</value>
+  </data>
 </root>
