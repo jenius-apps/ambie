@@ -19,6 +19,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly ILocalizer _localizer;
         private readonly IIapService _iapService;
+        private bool _loading;
 
         public VideosMenuViewModel(
             IVideoService videoService,
@@ -40,12 +41,20 @@ namespace AmbientSounds.ViewModels
 
         public ObservableCollection<VideoViewModel> Videos { get; } = new();
 
+        public bool Loading
+        {
+            get => _loading;
+            set => SetProperty(ref _loading, value);
+        }
+
         public async Task InitializeAsync()
         {
+            Loading = true;
             Videos.Clear();
             var videos = await _videoService.GetVideosAsync();
             if (videos is null || videos.Count == 0)
             {
+                Loading = false;
                 return;
             }
 
@@ -59,6 +68,8 @@ namespace AmbientSounds.ViewModels
                 _ = UpdateOwnershipAsync(vm);
                 Videos.Add(vm);
             }
+
+            Loading = false;
         }
 
         private void OnIapPurchased(object sender, string e)
