@@ -92,6 +92,11 @@ namespace AmbientSounds.Constants
         public const string DisableSmtcSupportKey = "DisableSmtcSupportKey";
 
         /// <summary>
+        /// Used to remember what was the last used screensaver ID.
+        /// </summary>
+        public const string LastUsedScreensaverKey = "LastUsedScreensaver";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -111,7 +116,8 @@ namespace AmbientSounds.Constants
             { HasRated, false },
             { RatingDismissed, DateTime.MinValue },
             { ResumeOnLaunchKey, false },
-            { DisableSmtcSupportKey, false }
+            { DisableSmtcSupportKey, false },
+            { LastUsedScreensaverKey, string.Empty }
         };
     }
 }

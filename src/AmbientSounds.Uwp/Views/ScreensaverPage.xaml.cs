@@ -38,7 +38,7 @@ namespace AmbientSounds.Views
             }
             else
             {
-                await ViewModel.InitializeAsync();
+                await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
             }
 
             var telemetry = App.Services.GetRequiredService<ITelemetry>();

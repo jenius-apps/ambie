@@ -27,6 +27,7 @@ namespace AmbientSounds.ViewModels
         private readonly IIapService _iapService;
         private readonly ITelemetry _telemetry;
         private readonly ISystemInfoProvider _systemInfoProvider;
+        private readonly IUserSettings _userSettings;
         private Uri _videoSource = new Uri(DefaultVideoSource);
         private string? _animatedBackgroundName = null;
         private bool _settingsButtonVisible;
@@ -45,7 +46,8 @@ namespace AmbientSounds.ViewModels
             IDialogService dialogService,
             IIapService iapService,
             ITelemetry telemetry,
-            ISystemInfoProvider systemInfoProvider)
+            ISystemInfoProvider systemInfoProvider,
+            IUserSettings userSettings)
         {
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(videoService, nameof(videoService));
@@ -53,6 +55,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
 
             _localizer = localizer;
             _videoService = videoService;
@@ -60,6 +63,7 @@ namespace AmbientSounds.ViewModels
             _iapService = iapService;
             _telemetry = telemetry;
             _systemInfoProvider = systemInfoProvider;
+            _userSettings = userSettings;
 
             _videoService.VideoDownloaded += OnVideoDownloaded;
             _videoService.VideoDeleted += OnVideoDeleted;
@@ -182,15 +186,30 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
+            if (menuItemId == VideoDialogId)
+            {
+                _telemetry.TrackEvent(TelemetryConstants.VideoMenuOpened);
+                await _dialogService.OpenVideosMenuAsync();
+                return;
+            }
+
+            var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
+            if (newSelectedItem is null)
+            {
+                menuItemId = DefaultId;
+                newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == DefaultId);
+            }
+
+            if (newSelectedItem?.IsToggle == true)
+            {
+                CurrentSelection = newSelectedItem;
+                _userSettings.Set(UserSettingsConstants.LastUsedScreensaverKey, menuItemId);
+            }
+
             if (menuItemId == DefaultId)
             {
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = true;
-            }
-            else if (menuItemId == VideoDialogId)
-            {
-                _telemetry.TrackEvent(TelemetryConstants.VideoMenuOpened);
-                await _dialogService.OpenVideosMenuAsync();
             }
             else if (menuItemId?.StartsWith("[CS]") == true)
             {
@@ -236,12 +255,6 @@ namespace AmbientSounds.ViewModels
                     { "id",  menuItemId! },
                     { "name", video?.Name ?? string.Empty }
                 });
-            }
-
-            var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
-            if (newSelectedItem?.IsToggle == true)
-            {
-                CurrentSelection = newSelectedItem;
             }
         }
     }
