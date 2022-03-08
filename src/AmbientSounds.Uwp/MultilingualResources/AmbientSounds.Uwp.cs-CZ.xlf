@@ -596,15 +596,15 @@
           <source>View premium info</source>
           <target state="new">View premium info</target>
         </trans-unit>
-        <trans-unit id="ComputeShader/Clouds" translate="yes" xml:space="preserve">
+        <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
           <target state="new">Clouds</target>
         </trans-unit>
-        <trans-unit id="ComputeShader/ColoredSmoke" translate="yes" xml:space="preserve">
+        <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
           <target state="new">Colored smoke</target>
         </trans-unit>
-        <trans-unit id="ComputeShader/Octagrams" translate="yes" xml:space="preserve">
+        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
           <target state="new">Octagrams</target>
         </trans-unit>
