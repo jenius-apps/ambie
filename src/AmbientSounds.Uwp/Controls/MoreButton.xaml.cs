@@ -56,18 +56,6 @@ namespace AmbientSounds.Controls
             DataTransferManager.ShowShareUI();
         }
 
-        private void ScreensaverClicked(object sender, RoutedEventArgs e)
-        {
-            var telemetry = App.Services.GetRequiredService<ITelemetry>();
-            telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
-            {
-                { "trigger", "moreButton" }
-            });
-
-            var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.ToScreensaver();
-        }
-
         private async void RateUsClicked(object sender, RoutedEventArgs e)
         {
             var storeContext = StoreContext.GetDefault();
@@ -110,6 +98,11 @@ namespace AmbientSounds.Controls
         {
             var dialogService = App.Services.GetRequiredService<IDialogService>();
             await dialogService.OpenSettingsAsync();
+        }
+
+        private void OnCompactClicked(object sender, RoutedEventArgs e)
+        {
+            App.Services.GetRequiredService<INavigator>().ToCompact();
         }
     }
 }

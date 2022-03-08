@@ -156,7 +156,7 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>View more options</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>Compact mode</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
@@ -334,7 +334,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Play random sound</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Screensaver mode</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
@@ -559,13 +559,13 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>View premium info</value>
   </data>
-  <data name="ComputeShader/Clouds" xml:space="preserve">
+  <data name="ComputeShader.Clouds" xml:space="preserve">
     <value>Clouds</value>
   </data>
-  <data name="ComputeShader/ColoredSmoke" xml:space="preserve">
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Colored smoke</value>
   </data>
-  <data name="ComputeShader/Octagrams" xml:space="preserve">
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
     <value>Octagrams</value>
   </data>
 </root>

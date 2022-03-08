@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="de-PT" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+  <file datatype="xml" source-language="en-US" target-language="pt-PT" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
     </header>
@@ -58,7 +58,7 @@
           <source>View more options</source>
           <target state="translated">Ver mais opções</target>
         </trans-unit>
-        <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
+        <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
           <target state="translated">Modo Compacto</target>
         </trans-unit>
@@ -294,7 +294,7 @@
           <source>Play random sound</source>
           <target state="translated">Tocar música aleatória</target>
         </trans-unit>
-        <trans-unit id="MoreButtonScreensaver.Label" translate="yes" xml:space="preserve">
+        <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
           <target state="translated">Modo Proteção de Ecrã</target>
         </trans-unit>
@@ -594,6 +594,18 @@
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
           <target state="new">View premium info</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader/Clouds" translate="yes" xml:space="preserve">
+          <source>Clouds</source>
+          <target state="new">Clouds</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader/ColoredSmoke" translate="yes" xml:space="preserve">
+          <source>Colored smoke</source>
+          <target state="new">Colored smoke</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader/Octagrams" translate="yes" xml:space="preserve">
+          <source>Octagrams</source>
+          <target state="new">Octagrams</target>
         </trans-unit>
       </group>
     </body>

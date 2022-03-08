@@ -1,7 +1,9 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
@@ -11,22 +13,26 @@ namespace AmbientSounds.ViewModels
         private readonly IMixMediaPlayerService _mediaPlayerService;
         private readonly INavigator _navigator;
         private readonly IDialogService _dialogService;
+        private readonly ITelemetry _telemetry;
 
         public MainPageViewModel(
             IScreensaverService screensaverService,
             IMixMediaPlayerService mediaPlayerService,
             INavigator navigator,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(screensaverService, nameof(screensaverService));
             Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
             Guard.IsNotNull(navigator, nameof(navigator));
             Guard.IsNotNull(dialogService, nameof(dialogService));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _screensaverService = screensaverService;
             _mediaPlayerService = mediaPlayerService;
             _navigator = navigator;
             _dialogService = dialogService;
+            _telemetry = telemetry;
         }
 
         /// <summary>
@@ -73,5 +79,15 @@ namespace AmbientSounds.ViewModels
         }
 
         public async void OpenThemeSettings() => await _dialogService.OpenThemeSettingsAsync();
+
+        public void GoToScreensaver()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
+            {
+                { "trigger", "mainPage" }
+            });
+
+            _navigator.ToScreensaver();
+        }
     }
 }

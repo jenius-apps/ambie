@@ -216,7 +216,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Přehrát náhodný zvuk</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Spořič obrazovky</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
@@ -287,7 +287,7 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Přejmenovat</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>Kompaktní režim</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">

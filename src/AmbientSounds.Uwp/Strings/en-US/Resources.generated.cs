@@ -28,6 +28,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region CompactMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Compact mode
+        /// </summary>
+        public static string CompactMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("CompactMode");
+            }
+        }
+        #endregion
+
         #region PlayerPauseText
         /// <summary>
         ///   Looks up a localized string similar to: Pause
@@ -297,6 +310,19 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("CanDownload");
+            }
+        }
+        #endregion
+
+        #region ScreensaverMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Screensaver mode
+        /// </summary>
+        public static string ScreensaverMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("ScreensaverMode");
             }
         }
         #endregion
@@ -949,6 +975,7 @@ namespace AmbientSounds.Strings{
         {
             __Undefined = 0,
             CloseText,
+            CompactMode,
             PlayerPauseText,
             PlayerPlayText,
             ReadyToPlayText,
@@ -970,6 +997,7 @@ namespace AmbientSounds.Strings{
             Soundwind,
             AlreadyDownloaded,
             CanDownload,
+            ScreensaverMode,
             Paused,
             Playing,
             GlobalVolume,

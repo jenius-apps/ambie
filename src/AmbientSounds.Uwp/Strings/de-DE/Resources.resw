@@ -51,7 +51,7 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Weitere Optionen</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>Kompakt-Modus</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
@@ -229,7 +229,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Zufälligen Klang abspielen</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Bildschirmschoner-Modus</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
@@ -304,7 +304,7 @@
     <value>Abmelden</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>Dies aktiviert die Synchronisation der Klanggallerie zwischen deinen Geräten.</value>
+    <value>Dies aktiviert die Synchronisation der Klanggalerie zwischen deinen Geräten.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>Konto Optionen anzeigen</value>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -51,7 +51,7 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Ver mais opções</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>Modo Compacto</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
@@ -126,9 +126,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Lareira</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Mais em breve</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Chuva</value>
   </data>
@@ -158,24 +155,6 @@
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
     <value>Volume do som</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Quer mais sons? Envie sugestões!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Sugestão</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Quer mais sons? Envie suguestões!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Enviar sugestão</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Enviar sugestão</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Obrigado!</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema</value>
@@ -250,7 +229,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Tocar música aleatória</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Modo Proteção de Ecrã</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
@@ -300,12 +279,6 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Volume global</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Remove um som para criar espaço para outro.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Limite alcançado!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Nome da mistura de som</value>
   </data>
@@ -326,18 +299,6 @@
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Mudar o nome</value>
-  </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Partilhar ligação da mistura de som</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Partilhar ligação da mistura de som</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Sons em falta</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Está a faltar alguns sons! Transfira-os aqui. Pressione tocar quando estiver pronto.</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Terminar sessão</value>
@@ -360,26 +321,8 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sincronizar</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Carregar sons</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Sons carregados</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Carregar Portal - Beta</value>
-  </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Procurar</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>Imagem URL</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Localização para o som</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Carregar som</value>
   </data>
   <data name="Attribution" xml:space="preserve">
     <value>Atribuição</value>
@@ -390,33 +333,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Novo som</value>
   </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Nenhum</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Publicado</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Rejeitado</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Sob revisão</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Não publicado</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Atualizar</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Carregue sons relaxantes no catálogo de Ambie e faça com que outras pessoas oiçam o seu trabalho!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Iniciar sessão</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Eu aceito os Termos de Uso</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Você tem a certeza?</value>
@@ -424,23 +346,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>Doação URL</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Opcional</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Requerido</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Eu criei este som ou eu tenho permissão para carregá-lo</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>É um ficheiro muito grande! Tente novamente com um ficheiro mais pequeno que {0} MB.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Você está no limite! Você pode ter apenas {0} sons.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Doar</value>

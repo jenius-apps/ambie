@@ -51,7 +51,7 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>その他のオプション</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>コンパクトモード</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
@@ -229,7 +229,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>ランダムな音楽を再生する</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>スクリーンセーバーモード</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">

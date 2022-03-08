@@ -101,7 +101,14 @@
                 VerticalAlignment="Center"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Orientation="Horizontal">
-                <controls:ToggleCompactButton Margin="4,0,0,0" Visibility="{x:Bind IsNotTenFoot}" />
+                <Button
+                    Margin="4,0,0,0"
+                    AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
+                    Click="{x:Bind ViewModel.GoToScreensaver}"
+                    Style="{StaticResource TransparentRoundButtonStyle}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
+                </Button>
                 <Button
                     Margin="4,0,0,0"
                     AutomationProperties.Name="{x:Bind strings:Resources.ThemeSettings}"

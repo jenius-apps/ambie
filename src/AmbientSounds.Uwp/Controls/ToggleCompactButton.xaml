@@ -5,16 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
     <Button
         x:Name="CompactButton"
-        x:Uid="MoreButtonCompact"
+        AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
         Click="Button_Click"
         Style="{StaticResource TransparentRoundButtonStyle}"
-        ToolTipService.ToolTip="{x:Bind ToolTip}">
-        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB1E;" />
+        ToolTipService.ToolTip="{x:Bind strings:Resources.CompactMode}">
+        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
     </Button>
 </UserControl>

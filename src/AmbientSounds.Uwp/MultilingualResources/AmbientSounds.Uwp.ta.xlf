@@ -58,7 +58,7 @@
           <source>View more options</source>
           <target state="translated">மேலும் விருப்பங்களைப் பார்</target>
         </trans-unit>
-        <trans-unit id="MoreButtonCompact.AutomationProperties.Name" translate="yes" xml:space="preserve">
+        <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
           <target state="translated">சிறிய மேல்விரிப்பு</target>
         </trans-unit>
@@ -238,7 +238,7 @@
           <source>Play random sound</source>
           <target state="translated">தானாக ஒரு ஒலியை இயக்கு</target>
         </trans-unit>
-        <trans-unit id="MoreButtonScreensaver.Label" translate="yes" xml:space="preserve">
+        <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
           <target state="translated">திரை சேமிப்பான் பயன்முறை</target>
         </trans-unit>
@@ -595,6 +595,18 @@
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
           <target state="new">View premium info</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader/Clouds" translate="yes" xml:space="preserve">
+          <source>Clouds</source>
+          <target state="new">Clouds</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader/ColoredSmoke" translate="yes" xml:space="preserve">
+          <source>Colored smoke</source>
+          <target state="new">Colored smoke</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader/Octagrams" translate="yes" xml:space="preserve">
+          <source>Octagrams</source>
+          <target state="new">Octagrams</target>
         </trans-unit>
       </group>
     </body>

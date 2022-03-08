@@ -208,7 +208,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Lire un son au hasard</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Mode économiseur d'écran</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
@@ -282,7 +282,7 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Renommer</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>Mode compact</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">

@@ -223,7 +223,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>임의의 소리 재생</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>스크린 세이버 모드</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">

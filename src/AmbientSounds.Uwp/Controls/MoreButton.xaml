@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -14,9 +15,12 @@
         <Button.Flyout>
             <winui:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                 <winui:CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton x:Uid="MoreButtonScreensaver" Click="ScreensaverClicked">
+                    <AppBarButton
+                        Click="OnCompactClicked"
+                        Label="{x:Bind strings:Resources.CompactMode}"
+                        Visibility="{x:Bind CanShowOnPc}">
                         <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEA83;" />
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
                     <AppBarButton

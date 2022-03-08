@@ -208,7 +208,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Speel willekeurig geluid af</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Screensaver-modus</value>
   </data>
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">

@@ -51,7 +51,7 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>查看更多选项</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>简洁模式</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
@@ -229,7 +229,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>播放随机音效</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>屏保模式</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">

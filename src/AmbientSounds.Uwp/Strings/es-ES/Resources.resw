@@ -51,7 +51,7 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Ver más opciones</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
+  <data name="CompactMode" xml:space="preserve">
     <value>Modo compacto</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
@@ -226,7 +226,7 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Reproducir sonido aleatorio</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Modo salvapantallas</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
