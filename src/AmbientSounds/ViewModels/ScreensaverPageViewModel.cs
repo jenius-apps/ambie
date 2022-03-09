@@ -208,6 +208,7 @@ namespace AmbientSounds.ViewModels
 
             if (menuItemId == DefaultId)
             {
+                AnimatedBackgroundName = null;
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = true;
             }
@@ -238,6 +239,7 @@ namespace AmbientSounds.ViewModels
                 var path = await _videoService.GetFilePathAsync(menuItemId);
                 if (!string.IsNullOrEmpty(path))
                 {
+                    AnimatedBackgroundName = null;
                     SlideshowVisible = false;
 
                     try
