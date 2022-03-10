@@ -78,8 +78,18 @@ namespace AmbientSounds.ViewModels
             get => _videoSource;
             set
             {
-                SetProperty(ref _videoSource, value);
+                if (value is null)
+                {
+                    return;
+                }
+
+                _videoSource = value;
                 OnPropertyChanged(nameof(VideoPlayerVisible));
+
+                // Manually raise this event because
+                // UI depends on this being raised
+                // when navigating to the page.
+                OnPropertyChanged(nameof(VideoSource));
             }
         }
 
