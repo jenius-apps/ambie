@@ -619,6 +619,10 @@
           <source>Rendering error</source>
           <target state="new">Rendering error</target>
         </trans-unit>
+        <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
+          <source>Toggle fullscreen</source>
+          <target state="new">Toggle fullscreen</target>
+        </trans-unit>
       </group>
     </body>
   </file>

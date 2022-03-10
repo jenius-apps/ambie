@@ -577,4 +577,7 @@
   <data name="RenderingErrorInfo.Title" xml:space="preserve">
     <value>Rendering error</value>
   </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Toggle fullscreen</value>
+  </data>
 </root>

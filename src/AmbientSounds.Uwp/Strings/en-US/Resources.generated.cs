@@ -963,6 +963,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ToggleFullscreen
+        /// <summary>
+        ///   Looks up a localized string similar to: Toggle fullscreen
+        /// </summary>
+        public static string ToggleFullscreen
+        {
+            get
+            {
+                return _resourceLoader.GetString("ToggleFullscreen");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1047,6 +1060,7 @@ namespace AmbientSounds.Strings{
             MoreScreensavers,
             ScreensaverCatalogue,
             ViewPremiumInfo,
+            ToggleFullscreen,
         }
 
         private static ResourceLoader _resourceLoader;
