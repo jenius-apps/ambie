@@ -119,7 +119,8 @@ namespace AmbientSounds.Services
                 Name = video.Name,
                 IapIds = video.IapIds.ToArray(),
                 IsPremium = video.IsPremium,
-                MegaByteSize = video.MegaByteSize
+                MegaByteSize = video.MegaByteSize,
+                IsDownloaded = true
             };
 
             await _videoCache.AddOfflineVideoAsync(newVideo);
