@@ -110,6 +110,8 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public bool AnimatedBackgroundVisible => AnimatedBackgroundName is not null;
 
+        public bool FullScreenVisible => _systemInfoProvider.IsDesktop();
+
         public bool SlideshowVisible
         {
             get => _slideshowVisible;

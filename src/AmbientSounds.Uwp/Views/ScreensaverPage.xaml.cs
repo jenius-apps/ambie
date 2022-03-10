@@ -10,6 +10,7 @@ using System.ComponentModel;
 using Windows.Media.Core;
 using Windows.System;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -29,6 +30,8 @@ namespace AmbientSounds.Views
         }
 
         public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
+
+        private bool IsFullscreen { get; set; }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -154,6 +157,12 @@ namespace AmbientSounds.Views
 
         private void GoBack()
         {
+            var view = ApplicationView.GetForCurrentView();
+            if (view.IsFullScreenMode)
+            {
+                view.ExitFullScreenMode();
+            }
+
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.GoBack(nameof(ScreensaverPage));
         }
@@ -175,6 +184,23 @@ namespace AmbientSounds.Views
             InfoBar infoBar = (InfoBar)FindName(nameof(RenderingErrorInfoBar));
 
             infoBar.IsOpen = true;
+        }
+
+        private void OnToggleFullscreen(object sender, RoutedEventArgs e)
+        {
+            var view = ApplicationView.GetForCurrentView();
+            if (view.IsFullScreenMode)
+            {
+
+                view.ExitFullScreenMode();
+            }
+            else
+            {
+                view.TryEnterFullScreenMode();
+            }
+
+            IsFullscreen = view.IsFullScreenMode;
+            this.Bindings.Update();
         }
     }
 }

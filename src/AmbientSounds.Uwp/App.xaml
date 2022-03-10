@@ -94,6 +94,8 @@
             <x:String x:Key="GlyphPremium">&#xEB28;</x:String>
             <x:String x:Key="GlyphPhoto">&#xEA83;</x:String>
             <x:String x:Key="GlyphCompact">&#xEB1E;</x:String>
+            <x:String x:Key="GlyphExpand">&#xE922;</x:String>
+            <x:String x:Key="GlyphCollapse">&#xE923;</x:String>
 
         </ResourceDictionary>
     </Application.Resources>
