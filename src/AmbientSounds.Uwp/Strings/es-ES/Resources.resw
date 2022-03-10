@@ -463,4 +463,7 @@
   <data name="ComputeShader.Octagrams" xml:space="preserve">
     <value>Octogramas</value>
   </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Alternar pantalla completa</value>
+  </data>
 </root>

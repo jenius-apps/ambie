@@ -618,7 +618,7 @@
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="new">Toggle fullscreen</target>
+          <target state="translated">全画面表示の切り替え</target>
         </trans-unit>
       </group>
     </body>

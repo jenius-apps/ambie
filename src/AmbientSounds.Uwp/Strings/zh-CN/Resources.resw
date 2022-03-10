@@ -463,4 +463,7 @@
   <data name="ComputeShader.Octagrams" xml:space="preserve">
     <value>八进制图</value>
   </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>切换全屏</value>
+  </data>
 </root>
