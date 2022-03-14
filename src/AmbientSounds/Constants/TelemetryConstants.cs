@@ -40,6 +40,7 @@
         private const string Screensaver = "screensaver:";
         public const string ScreensaverLoaded = Screensaver + "loaded";
         public const string ScreensaverTriggered = Screensaver + "triggered";
+        public const string ScreensaverFullscreen = Screensaver + "fullscreen";
 
         // mix
         private const string Mix = "mix:";

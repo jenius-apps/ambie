@@ -197,6 +197,12 @@ namespace AmbientSounds.Views
             else
             {
                 view.TryEnterFullScreenMode();
+                var telemetry = App.Services.GetRequiredService<ITelemetry>();
+                telemetry.TrackEvent(TelemetryConstants.ScreensaverFullscreen, new Dictionary<string, string>
+                {
+                    { "id", ViewModel.CurrentSelection?.Id ?? "null" },
+                    { "name", ViewModel.CurrentSelection?.Text ?? string.Empty }
+                });
             }
 
             IsFullscreen = view.IsFullScreenMode;
