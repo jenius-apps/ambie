@@ -14,21 +14,25 @@ namespace AmbientSounds.ViewModels
         private readonly IUserSettings _userSettings;
         private readonly ITimerService _ratingTimer;
         private readonly ITelemetry _telemetry;
+        private readonly INavigator _navigator;
         private bool _isRatingMessageVisible;
 
         public ShellPageViewModel(
             IUserSettings userSettings,
             ITimerService timer,
             ITelemetry telemetry,
-            ISystemInfoProvider systemInfoProvider)
+            ISystemInfoProvider systemInfoProvider,
+            INavigator navigator)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(navigator, nameof(navigator));
 
             _userSettings = userSettings;
             _ratingTimer = timer;
             _telemetry = telemetry;
+            _navigator = navigator;
 
             _userSettings.SettingSet += OnSettingSet;
 
@@ -66,6 +70,18 @@ namespace AmbientSounds.ViewModels
         public void Dispose()
         {
             _userSettings.SettingSet -= OnSettingSet;
+        }
+
+        public void Navigate(int index)
+        {
+            if (index <= 0)
+            {
+                _navigator.ToHome();
+            }
+            else if (index == 1)
+            {
+                _navigator.ToCatalogue();
+            }
         }
 
         private void OnIntervalLapsed(object sender, int e)

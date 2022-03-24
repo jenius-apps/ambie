@@ -35,7 +35,10 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            MainFrame.Navigate(typeof(MainPage2));
+            var navigator = App.Services.GetRequiredService<INavigator>();
+            navigator.Frame = MainFrame;
+
+            MenuList.SelectedIndex = 0;
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
@@ -56,6 +59,14 @@ namespace AmbientSounds.Views
                 UserSettingsConstants.RatingDismissed,
                 DateTime.UtcNow);
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ListView l)
+            {
+                ViewModel.Navigate(l.SelectedIndex);
+            }
         }
     }
 }

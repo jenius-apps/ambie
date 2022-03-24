@@ -27,6 +27,15 @@
             -->
             <controls:SoundItemControl />
         </DataTemplate>
+
+        <DataTemplate x:Key="NarrowSoundTemplate" x:DataType="viewmodels:SoundViewModel">
+            <!--
+                The control below gets its viewmodel/datacontext
+                via the itemRepeater's OnElementPrepared event.
+            -->
+            <controls:SoundListItem />
+        </DataTemplate>
+
     </Page.Resources>
 
     <Grid>

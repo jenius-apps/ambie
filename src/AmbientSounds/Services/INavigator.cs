@@ -32,6 +32,11 @@
         void ToCatalogue();
 
         /// <summary>
+        /// Navigates to the home page.
+        /// </summary>
+        void ToHome();
+
+        /// <summary>
         /// Attempts to navigate back.
         /// </summary>
         /// <param name="sourcePage">Optional. If provided,
