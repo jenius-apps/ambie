@@ -26,62 +26,11 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            UpdateBackgroundState();
-
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {
                 { "name", "catalogue" }
             });
-
-            TryStartPageAnimations();
-
-            var navigator = SystemNavigationManager.GetForCurrentView();
-            navigator.BackRequested += OnBackRequested;
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            var navigator = SystemNavigationManager.GetForCurrentView();
-            navigator.BackRequested -= OnBackRequested;
-        }
-
-        private void GoBack(object sender, RoutedEventArgs e)
-        {
-            var animation = ConnectedAnimationService
-                .GetForCurrentView()
-                .PrepareToAnimate(AnimationConstants.CatalogueBack, CatalogueBackplate);
-                animation.Configuration = new DirectConnectedAnimationConfiguration();
-
-            ViewModel.GoBack();
-        }
-
-        private void UpdateBackgroundState()
-        {
-            var userSettings = App.Services.GetRequiredService<IUserSettings>();
-            bool backgroundImageActive = !string.IsNullOrEmpty(userSettings.Get<string>(UserSettingsConstants.BackgroundImage));
-            VisualStateManager.GoToState(
-                this,
-                backgroundImageActive ? nameof(ImageBackgroundState) : nameof(RegularBackgroundState),
-                false);
-        }
-
-        private void TryStartPageAnimations()
-        {
-            var animation = ConnectedAnimationService
-                .GetForCurrentView()
-                .GetAnimation(AnimationConstants.CatalogueForward);
-
-            if (animation is not null)
-            {
-                animation.TryStart(CatalogueBackplate);
-            }
-        }
-
-        private void OnBackRequested(object sender, BackRequestedEventArgs e)
-        {
-            ViewModel.GoBack();
-            e.Handled = true;
         }
     }
 }

@@ -74,7 +74,7 @@ namespace AmbientSounds.ViewModels
 
         public void Navigate(int index)
         {
-            if (index <= 0)
+            if (index == 0)
             {
                 _navigator.ToHome();
             }
