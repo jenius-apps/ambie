@@ -35,9 +35,6 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.Frame = MainFrame;
-
             MainFrame.Navigate(typeof(MainPage2));
         }
 

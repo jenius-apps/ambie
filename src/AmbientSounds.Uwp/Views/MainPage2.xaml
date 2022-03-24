@@ -4,31 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
-    xmlns:viewmodels="using:AmbientSounds.ViewModels"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
-
-    <Page.Resources>
-        <winui:StackLayout
-            x:Name="VerticalStackLayout"
-            Orientation="Vertical"
-            Spacing="4" />
-        <winui:UniformGridLayout
-            x:Name="UniformLayout"
-            MinColumnSpacing="8"
-            MinRowSpacing="8" />
-
-        <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <!--
-                The control below gets its viewmodel/datacontext
-                via the itemRepeater's OnElementPrepared event.
-            -->
-            <controls:SoundItemControl />
-        </DataTemplate>
-    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -87,13 +65,10 @@
                 </ListView.Items>
             </ListView>
 
-            <controls:SoundGridControl
-                x:Name="SoundGallery"
+            <Frame
+                x:Name="ContentFrame"
                 Grid.Column="1"
-                Margin="16,0,0,0"
-                InnerMargin="0,0,16,40"
-                ItemTemplate="{StaticResource MainPageSoundTemplate}"
-                Layout="{StaticResource UniformLayout}" />
+                Margin="16,0,0,0" />
         </Grid>
     </Grid>
 </Page>

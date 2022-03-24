@@ -1,6 +1,4 @@
-﻿using AmbientSounds.Services;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +11,6 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -23,19 +20,11 @@ namespace AmbientSounds.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage2 : Page
+    public sealed partial class HomePage : Page
     {
-        public MainPage2()
+        public HomePage()
         {
             this.InitializeComponent();
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.Frame = ContentFrame;
-
-            ContentFrame.Navigate(typeof(HomePage), null, new SuppressNavigationTransitionInfo());
         }
     }
 }
