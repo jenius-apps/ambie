@@ -38,7 +38,7 @@ namespace AmbientSounds.Views
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.Frame = MainFrame;
 
-            MainFrame.Navigate(typeof(MainPage));
+            MainFrame.Navigate(typeof(MainPage2));
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)

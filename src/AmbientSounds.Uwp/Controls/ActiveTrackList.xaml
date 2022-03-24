@@ -18,23 +18,34 @@
     <UserControl.Resources>
         <!--  Makes save button disabled background transparent.  -->
         <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
+
+        <winui:UniformGridLayout
+            x:Name="UniformLayout"
+            MinColumnSpacing="8"
+            MinRowSpacing="8" />
     </UserControl.Resources>
 
     <Grid>
-        <Border
-            x:Name="BorderBackplate"
-            Width="220"
-            Height="{x:Bind MainGrid.Height, Mode=OneWay}"
-            Background="{ThemeResource AcrylicBackplateBrush}"
-            BorderBrush="{ThemeResource CardStrokeBrush}"
-            BorderThickness="1"
-            CornerRadius="8" />
 
-        <Grid
-            x:Name="MainGrid"
-            Width="220"
-            Padding="0"
-            CornerRadius="8">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="ShowListState">
+                    <VisualState.Setters>
+                        <!--<Setter Target="MainGrid.Height" Value="300" />
+                        <Setter Target="MainGrid.Padding" Value="12" />
+                        <Setter Target="ControlsPanel.(Grid.Row)" Value="0" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="HideListState">
+                    <VisualState.Setters>
+                        <!--<Setter Target="MainGrid.Height" Value="60" />
+                        <Setter Target="MainGrid.Padding" Value="0" />
+                        <Setter Target="ControlsPanel.(Grid.Row)" Value="1" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -46,17 +57,15 @@
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
 
-                <local:PlayerControl />
-
-                <Button
+                <!--<Button
                     x:Uid="ClearActiveButton"
                     Margin="12,0,0,0"
                     Command="{x:Bind ViewModel.ClearCommand}"
                     Style="{StaticResource TransparentRoundButtonStyle}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
-                </Button>
+                </Button>-->
 
-                <Button
+                <!--<Button
                     x:Uid="SaveMixButton"
                     Margin="12,0,0,0"
                     IsEnabled="{x:Bind ViewModel.CanSave, Mode=OneWay}"
@@ -93,16 +102,14 @@
                             </Grid>
                         </Flyout>
                     </Button.Flyout>
-                </Button>
+                </Button>-->
             </StackPanel>
 
-            <Grid
-                Grid.Row="1"
-                Margin="8,24,8,0"
-                Visibility="{x:Bind ShowList, Mode=OneWay}">
+            <Grid Grid.Row="1" Visibility="{x:Bind ShowList, Mode=OneWay}">
                 <winui:ItemsRepeater
                     x:Uid="ActiveTrackListView"
                     ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
+                    Layout="{StaticResource UniformLayout}"
                     Loaded="OnListLoaded"
                     TabFocusNavigation="Local">
                     <winui:ItemsRepeater.ItemTemplate>
@@ -151,8 +158,10 @@
 
                 <StackPanel
                     Grid.Row="1"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                    Orientation="Horizontal"
                     Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
                     <ani:Implicit.ShowAnimations>
                         <ani:ScaleAnimation
@@ -167,42 +176,18 @@
                             Duration="0:0:0.3" />
                     </ani:Implicit.ShowAnimations>
 
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD4;" />
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        Glyph="&#xEAD4;" />
                     <TextBlock
-                        MaxWidth="120"
-                        Margin="0,4,0,0"
+                        Margin="16,0,0,0"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                         Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
                         TextAlignment="Center"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </Grid>
         </Grid>
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="ShowListState">
-                    <VisualState.Setters>
-                        <Setter Target="MainGrid.Height" Value="300" />
-                        <Setter Target="MainGrid.Padding" Value="12" />
-                        <Setter Target="ControlsPanel.(Grid.Row)" Value="0" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="HideListState">
-                    <VisualState.Setters>
-                        <Setter Target="MainGrid.Height" Value="60" />
-                        <Setter Target="MainGrid.Padding" Value="0" />
-                        <Setter Target="ControlsPanel.(Grid.Row)" Value="1" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-            <VisualStateGroup>
-                <VisualState x:Name="RegularBackgroundState" />
-                <VisualState x:Name="ImageBackgroundState">
-                    <VisualState.Setters>
-                        <Setter Target="BorderBackplate.BorderBrush" Value="Transparent" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

@@ -8,7 +8,7 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
-    Background="{ThemeResource ContentBackgroundBrush}"
+    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
     <Grid>
         <toolkit:ImageEx
@@ -21,8 +21,7 @@
         <Frame x:Name="MainFrame" />
 
         <StackPanel
-            Margin="0,12,0,0"
-            HorizontalAlignment="Center"
+            Margin="16,16,0,0"
             VerticalAlignment="Top"
             Orientation="Horizontal">
             <Image Height="18" Source="ms-appx:///Assets/logo.png" />
