@@ -26,7 +26,6 @@
     </UserControl.Resources>
 
     <Grid>
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="ShowListState">
@@ -46,114 +45,86 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel
-                x:Name="ControlsPanel"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-
-                <!--<Button
-                    x:Uid="ClearActiveButton"
-                    Margin="12,0,0,0"
-                    Command="{x:Bind ViewModel.ClearCommand}"
-                    Style="{StaticResource TransparentRoundButtonStyle}">
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
-                </Button>-->
-
-                <!--<Button
-                    x:Uid="SaveMixButton"
-                    Margin="12,0,0,0"
-                    IsEnabled="{x:Bind ViewModel.CanSave, Mode=OneWay}"
-                    Style="{StaticResource TransparentRoundButtonStyle}">
-                    <Button.KeyboardAccelerators>
-                        <KeyboardAccelerator Key="S" Modifiers="Control" />
-                    </Button.KeyboardAccelerators>
-
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
-                    <Button.Flyout>
-                        <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
-                                <TextBox
-                                    x:Name="NameInput"
-                                    x:Uid="NameInputBox"
-                                    Width="200"
-                                    KeyDown="NameInput_KeyDown"
-                                    MaxLength="30" />
-                                <Button
-                                    x:Uid="ConfirmSaveButton"
-                                    Grid.Column="1"
-                                    Margin="4,0,0,0"
-                                    VerticalAlignment="Bottom"
-                                    Background="Transparent"
-                                    Click="Button_Click"
-                                    Command="{x:Bind ViewModel.SaveCommand}"
-                                    CommandParameter="{x:Bind NameInput.Text, Mode=OneWay}">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
-                                </Button>
-                            </Grid>
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>-->
-            </StackPanel>
-
-            <Grid Grid.Row="1" Visibility="{x:Bind ShowList, Mode=OneWay}">
-                <winui:ItemsRepeater
+            <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
+                <ListView
                     x:Uid="ActiveTrackListView"
                     ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
-                    Layout="{StaticResource UniformLayout}"
                     Loaded="OnListLoaded"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                    ScrollViewer.HorizontalScrollMode="Auto"
+                    SelectionMode="None"
                     TabFocusNavigation="Local">
-                    <winui:ItemsRepeater.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="6,0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                            <Grid Margin="0,0,0,16">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
-                                    <RowDefinition Height="auto" />
-                                </Grid.RowDefinitions>
+                            <Border
+                                BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}"
+                                BorderThickness="1"
+                                CornerRadius="8">
+                                <Grid Width="140" Padding="8,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
 
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="auto" />
-                                    </Grid.ColumnDefinitions>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <TextBlock
-                                        VerticalAlignment="Center"
-                                        Text="{x:Bind Name, Mode=OneWay}"
-                                        TextTrimming="CharacterEllipsis"
-                                        ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
-                                    <Button
-                                        Grid.Column="1"
-                                        Padding="2"
-                                        AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
-                                        Background="Transparent"
-                                        Command="{x:Bind RemoveCommand, Mode=OneWay}"
-                                        CommandParameter="{x:Bind Sound, Mode=OneWay}">
-                                        <FontIcon
-                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                        <TextBlock
+                                            Margin="0,8,0,0"
+                                            VerticalAlignment="Center"
                                             FontSize="12"
-                                            Glyph="&#xE9F9;" />
-                                    </Button>
-                                </Grid>
+                                            Text="{x:Bind Name, Mode=OneWay}"
+                                            TextTrimming="CharacterEllipsis"
+                                            ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
+                                        <Button
+                                            Grid.Column="1"
+                                            Margin="0,-1,-9,0"
+                                            AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
+                                            BorderBrush="Transparent"
+                                            Command="{x:Bind RemoveCommand, Mode=OneWay}"
+                                            CommandParameter="{x:Bind Sound, Mode=OneWay}"
+                                            CornerRadius="0,8,0,0">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="14"
+                                                Glyph="&#xE9F9;" />
+                                            <Button.Resources>
+                                                <ResourceDictionary>
+                                                    <ResourceDictionary.ThemeDictionaries>
+                                                        <ResourceDictionary x:Key="Dark">
+                                                            <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Red" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="DarkRed" />
+                                                        </ResourceDictionary>
+                                                    </ResourceDictionary.ThemeDictionaries>
+                                                </ResourceDictionary>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
 
-                                <Slider
-                                    x:Uid="VolumeSliderSound"
-                                    Grid.Row="1"
-                                    HorizontalAlignment="Stretch"
-                                    Value="{x:Bind Volume, Mode=TwoWay}" />
-                            </Grid>
+                                    <Slider
+                                        x:Uid="VolumeSliderSound"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Stretch"
+                                        Value="{x:Bind Volume, Mode=TwoWay}" />
+                                </Grid>
+                            </Border>
                         </DataTemplate>
-                    </winui:ItemsRepeater.ItemTemplate>
-                </winui:ItemsRepeater>
+                    </ListView.ItemTemplate>
+                </ListView>
 
 
                 <StackPanel

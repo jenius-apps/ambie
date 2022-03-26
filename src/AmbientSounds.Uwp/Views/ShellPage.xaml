@@ -43,14 +43,14 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="180" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" MaxWidth="100" />
+                    <ColumnDefinition Width="180" />
                 </Grid.ColumnDefinitions>
 
                 <controls:PlayerControl Margin="16,0,0,0" />
 
-                <controls:ActiveTrackList Grid.Column="1" Margin="16,0,0,0" />
+                <controls:ActiveTrackList Grid.Column="1" HorizontalAlignment="Center" />
             </Grid>
 
             <Grid Grid.Row="1" Margin="0,20,0,0">

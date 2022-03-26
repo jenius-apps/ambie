@@ -33,7 +33,7 @@
             </Grid>
         </Button>
         <Slider
-            Width="120"
+            Width="100"
             Margin="12,0,0,0"
             VerticalAlignment="Center"
             AutomationProperties.Name="{x:Bind strings:Resources.GlobalVolume}"
