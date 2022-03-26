@@ -33,7 +33,7 @@
             Canvas.ZIndex="1"
             Click="GoBack"
             RequestedTheme="Dark"
-            Style="{StaticResource RoundButtonStyle}">
+            Style="{StaticResource SubtleIconButton}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
         </Button>
 
@@ -47,7 +47,7 @@
             <Button
                 AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
                 Click="OnToggleFullscreen"
-                Style="{StaticResource RoundButtonStyle}"
+                Style="{StaticResource SubtleIconButton}"
                 ToolTipService.ToolTip="{x:Bind strings:Resources.ToggleFullscreen}"
                 Visibility="{x:Bind ViewModel.FullScreenVisible, Mode=OneWay}">
                 <Grid>
@@ -64,7 +64,7 @@
             <Button
                 Margin="12,0,0,0"
                 AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
-                Style="{StaticResource RoundButtonStyle}"
+                Style="{StaticResource SubtleIconButton}"
                 ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}"
                 Visibility="{x:Bind ViewModel.SettingsButtonVisible, Mode=OneWay}">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
