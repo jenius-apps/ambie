@@ -25,7 +25,7 @@ namespace AmbientSounds.Services.Uwp
             {
                 case nameof(ScreensaverPage):
                     // supress transition to avoid implicit animation bug on home page.
-                    GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
+                    GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
                     break;
                 default:
                     GoBackSafely(Frame);
@@ -33,7 +33,7 @@ namespace AmbientSounds.Services.Uwp
             }
         }
 
-        private void GoBackSafely(object? frame, NavigationTransitionInfo transition = null)
+        private void GoBackSafely(object? frame, NavigationTransitionInfo? transition = null)
         {
             if (frame is Frame f && f.CanGoBack)
             {
