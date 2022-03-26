@@ -58,12 +58,14 @@
                     Orientation="Horizontal">
                     <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
+                        Click="{x:Bind ViewModel.GoToScreensaver}"
                         Style="{StaticResource SubtleIconButton}"
                         ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
                     </Button>
                     <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.ThemeSettings}"
+                        Click="{x:Bind ViewModel.OpenThemeSettings}"
                         Style="{StaticResource SubtleIconButton}"
                         ToolTipService.ToolTip="{x:Bind strings:Resources.ThemeSettings}">
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C0;" />

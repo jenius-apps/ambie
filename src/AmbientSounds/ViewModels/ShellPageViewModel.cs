@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
@@ -15,6 +16,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITimerService _ratingTimer;
         private readonly ITelemetry _telemetry;
         private readonly INavigator _navigator;
+        private readonly IDialogService _dialogService;
         private bool _isRatingMessageVisible;
 
         public ShellPageViewModel(
@@ -22,17 +24,20 @@ namespace AmbientSounds.ViewModels
             ITimerService timer,
             ITelemetry telemetry,
             ISystemInfoProvider systemInfoProvider,
-            INavigator navigator)
+            INavigator navigator,
+            IDialogService dialogService)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(navigator, nameof(navigator));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
 
             _userSettings = userSettings;
             _ratingTimer = timer;
             _telemetry = telemetry;
             _navigator = navigator;
+            _dialogService = dialogService;
 
             _userSettings.SettingSet += OnSettingSet;
 
@@ -82,6 +87,18 @@ namespace AmbientSounds.ViewModels
             {
                 _navigator.ToCatalogue();
             }
+        }
+
+        public async void OpenThemeSettings() => await _dialogService.OpenThemeSettingsAsync();
+
+        public void GoToScreensaver()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
+            {
+                { "trigger", "mainPage" }
+            });
+
+            _navigator.ToScreensaver();
         }
 
         private void OnIntervalLapsed(object sender, int e)
