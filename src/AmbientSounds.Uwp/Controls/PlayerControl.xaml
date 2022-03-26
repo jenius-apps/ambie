@@ -14,9 +14,8 @@
     <StackPanel Orientation="Horizontal">
         <Button
             AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
-            Background="Transparent"
-            BorderBrush="Transparent"
             Command="{x:Bind ViewModel.TogglePlayStateCommand}"
+            Style="{StaticResource SubtleButton}"
             ToolTipService.ToolTip="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}">
             <Grid>
                 <!--  play  -->

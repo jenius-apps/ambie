@@ -45,12 +45,32 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="180" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
 
                 <controls:PlayerControl Margin="16,0,0,0" />
 
                 <controls:ActiveTrackList Grid.Column="1" HorizontalAlignment="Center" />
+
+                <StackPanel
+                    Grid.Column="2"
+                    Margin="0,0,16,0"
+                    Orientation="Horizontal">
+                    <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
+                    </Button>
+                    <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.ThemeSettings}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.ThemeSettings}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C0;" />
+                    </Button>
+                    <controls:MoreButton />
+                    <controls:AccountControl />
+                </StackPanel>
             </Grid>
 
             <Grid Grid.Row="1" Margin="0,20,0,0">

@@ -10,7 +10,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Button x:Uid="MoreButton" Style="{StaticResource TransparentRoundButtonStyle}">
+    <Button x:Uid="MoreButton" Style="{StaticResource SubtleIconButton}">
         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD0;" />
         <Button.Flyout>
             <winui:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
