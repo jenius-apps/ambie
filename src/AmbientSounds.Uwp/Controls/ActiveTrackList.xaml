@@ -66,66 +66,83 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                            <Border
-                                BorderBrush="{ThemeResource ControlStrokeColorDefaultBrush}"
+                            <Grid
+                                Width="140"
+                                BorderBrush="{ThemeResource CardStrokeColorDefault}"
                                 BorderThickness="1"
                                 CornerRadius="8">
-                                <Grid Width="140" Padding="8,0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                    </Grid.RowDefinitions>
 
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="auto" />
-                                        </Grid.ColumnDefinitions>
+                                <Border BorderThickness="1" CornerRadius="8">
+                                    <Border.Background>
+                                        <ImageBrush Stretch="UniformToFill">
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage
+                                                    DecodePixelHeight="140"
+                                                    DecodePixelType="Logical"
+                                                    UriSource="{x:Bind ImagePath}" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Border.Background>
+                                </Border>
 
-                                        <TextBlock
-                                            Margin="0,8,0,0"
-                                            VerticalAlignment="Center"
-                                            FontSize="12"
-                                            Text="{x:Bind Name, Mode=OneWay}"
-                                            TextTrimming="CharacterEllipsis"
-                                            ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
-                                        <Button
-                                            Grid.Column="1"
-                                            Margin="0,-1,-9,0"
-                                            AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
-                                            BorderBrush="Transparent"
-                                            Command="{x:Bind RemoveCommand, Mode=OneWay}"
-                                            CommandParameter="{x:Bind Sound, Mode=OneWay}"
-                                            CornerRadius="0,8,0,0">
-                                            <FontIcon
-                                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                                FontSize="14"
-                                                Glyph="&#xE9F9;" />
-                                            <Button.Resources>
-                                                <ResourceDictionary>
-                                                    <ResourceDictionary.ThemeDictionaries>
-                                                        <ResourceDictionary x:Key="Dark">
-                                                            <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Red" />
-                                                            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="DarkRed" />
-                                                        </ResourceDictionary>
-                                                    </ResourceDictionary.ThemeDictionaries>
-                                                </ResourceDictionary>
-                                            </Button.Resources>
-                                        </Button>
+                                <Border Background="{ThemeResource AcrylicBackplateBrush}" CornerRadius="8">
+                                    <Grid Padding="8,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock
+                                                Margin="0,8,0,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Text="{x:Bind Name, Mode=OneWay}"
+                                                TextTrimming="CharacterEllipsis"
+                                                ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
+                                            <Button
+                                                Grid.Column="1"
+                                                Margin="0,-1,-9,0"
+                                                AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
+                                                BorderBrush="Transparent"
+                                                Command="{x:Bind RemoveCommand, Mode=OneWay}"
+                                                CommandParameter="{x:Bind Sound, Mode=OneWay}"
+                                                CornerRadius="0,8,0,0">
+                                                <FontIcon
+                                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                                    FontSize="14"
+                                                    Glyph="&#xE9F9;" />
+                                                <Button.Resources>
+                                                    <ResourceDictionary>
+                                                        <ResourceDictionary.ThemeDictionaries>
+                                                            <ResourceDictionary x:Key="Dark">
+                                                                <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
+                                                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Red" />
+                                                                <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="DarkRed" />
+                                                            </ResourceDictionary>
+                                                        </ResourceDictionary.ThemeDictionaries>
+                                                    </ResourceDictionary>
+                                                </Button.Resources>
+                                            </Button>
+                                        </Grid>
+
+                                        <Slider
+                                            x:Uid="VolumeSliderSound"
+                                            Grid.Row="1"
+                                            HorizontalAlignment="Stretch"
+                                            Value="{x:Bind Volume, Mode=TwoWay}" />
                                     </Grid>
-
-                                    <Slider
-                                        x:Uid="VolumeSliderSound"
-                                        Grid.Row="1"
-                                        HorizontalAlignment="Stretch"
-                                        Value="{x:Bind Volume, Mode=TwoWay}" />
-                                </Grid>
-                            </Border>
+                                </Border>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
 
                 <StackPanel
                     Grid.Row="1"
