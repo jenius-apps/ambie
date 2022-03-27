@@ -25,7 +25,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Border
-                Height="72"
+                Height="80"
                 Margin="16,48,16,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Top"
@@ -38,7 +38,7 @@
                     RadiusY="8" />
             </Border>
             <Grid
-                Height="72"
+                Height="80"
                 Margin="16,48,16,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Top">
