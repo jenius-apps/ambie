@@ -15,7 +15,7 @@
         <Button
             AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
             Command="{x:Bind ViewModel.TogglePlayStateCommand}"
-            Style="{StaticResource SubtleButton}"
+            Style="{StaticResource SubtleIconButton}"
             ToolTipService.ToolTip="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}">
             <Grid>
                 <!--  play  -->

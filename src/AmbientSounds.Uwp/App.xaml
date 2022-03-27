@@ -72,6 +72,14 @@
             </Style>
 
             <Style
+                x:Key="IconButton"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                TargetType="Button">
+                <Setter Property="Width" Value="44" />
+                <Setter Property="Height" Value="44" />
+            </Style>
+
+            <Style
                 x:Key="TransparentRoundButtonStyle"
                 BasedOn="{StaticResource RoundButtonStyle}"
                 TargetType="Button">

@@ -129,7 +129,7 @@
                                                 x:Uid="BuyButton"
                                                 VerticalAlignment="Stretch"
                                                 Command="{x:Bind BuyCommand, Mode=OneWay}"
-                                                Style="{StaticResource ActionButtonStyle}">
+                                                Style="{StaticResource SubtleButton}">
                                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                                             </Button>
                                         </StackPanel>
@@ -139,7 +139,7 @@
                                         <Button
                                             x:Uid="DownloadSoundButton"
                                             Command="{x:Bind DownloadCommand, Mode=OneWay}"
-                                            Style="{StaticResource ActionButtonStyle}"
+                                            Style="{StaticResource SubtleButton}"
                                             Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                             <StackPanel Orientation="Horizontal">
                                                 <FontIcon
@@ -167,7 +167,7 @@
                                         <Button
                                             x:Uid="DeleteButton"
                                             Command="{x:Bind DeleteCommand, Mode=OneWay}"
-                                            Style="{StaticResource ActionButtonStyle}">
+                                            Style="{StaticResource SubtleButton}">
                                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />
                                         </Button>
                                     </StackPanel>
