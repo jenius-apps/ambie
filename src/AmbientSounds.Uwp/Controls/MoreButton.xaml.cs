@@ -92,5 +92,11 @@ namespace AmbientSounds.Controls
         {
             App.Services.GetRequiredService<INavigator>().ToCompact();
         }
+
+        private async void ThemeSettingsClicked(object sender, RoutedEventArgs e)
+        {
+            var dialogService = App.Services.GetRequiredService<IDialogService>();
+            await dialogService.OpenThemeSettingsAsync();
+        }
     }
 }

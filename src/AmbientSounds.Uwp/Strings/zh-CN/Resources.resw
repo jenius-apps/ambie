@@ -57,7 +57,7 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>联系开发者</value>
   </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>评价本应用</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">

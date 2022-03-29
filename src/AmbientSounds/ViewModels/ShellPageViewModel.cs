@@ -4,6 +4,7 @@ using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
@@ -17,7 +18,9 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly INavigator _navigator;
         private readonly IDialogService _dialogService;
+        private readonly IIapService _iapService;
         private bool _isRatingMessageVisible;
+        private bool _premiumButtonVisible;
 
         public ShellPageViewModel(
             IUserSettings userSettings,
@@ -25,19 +28,23 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             ISystemInfoProvider systemInfoProvider,
             INavigator navigator,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            IIapService iapService)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(navigator, nameof(navigator));
             Guard.IsNotNull(dialogService, nameof(dialogService));
+            Guard.IsNotNull(iapService, nameof(iapService));
 
             _userSettings = userSettings;
             _ratingTimer = timer;
             _telemetry = telemetry;
             _navigator = navigator;
             _dialogService = dialogService;
+            _iapService = iapService;
+            _iapService.ProductPurchased += OnProductPurchased;
 
             _userSettings.SettingSet += OnSettingSet;
 
@@ -60,6 +67,12 @@ namespace AmbientSounds.ViewModels
         {
             get => _isRatingMessageVisible;
             set => SetProperty(ref _isRatingMessageVisible, value);
+        }
+
+        public bool PremiumButtonVisible
+        {
+            get => _premiumButtonVisible;
+            set => SetProperty(ref _premiumButtonVisible, value);
         }
 
         /// <summary>
@@ -107,6 +120,11 @@ namespace AmbientSounds.ViewModels
             _navigator.ToScreensaver();
         }
 
+        public async Task LoadPremiumButtonAsync()
+        {
+            PremiumButtonVisible = !await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
+        }
+
         private void OnIntervalLapsed(object sender, int e)
         {
             _ratingTimer.Stop();
@@ -121,6 +139,14 @@ namespace AmbientSounds.ViewModels
             {
                 OnPropertyChanged(nameof(ShowBackgroundImage));
                 OnPropertyChanged(nameof(BackgroundImagePath));
+            }
+        }
+
+        private void OnProductPurchased(object sender, string iapId)
+        {
+            if (iapId == IapConstants.MsStoreAmbiePlusId)
+            {
+                PremiumButtonVisible = false;
             }
         }
     }

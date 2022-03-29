@@ -122,6 +122,7 @@
             <x:String x:Key="GlyphCollapse">&#xE923;</x:String>
             <x:String x:Key="GlyphHome">&#xEA80;</x:String>
             <x:String x:Key="GlyphSound">&#xEAD4;</x:String>
+            <x:String x:Key="GlyphPersonalize">&#xE9C0;</x:String>
 
         </ResourceDictionary>
     </Application.Resources>

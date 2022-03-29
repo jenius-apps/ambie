@@ -64,7 +64,7 @@
           <source>Contact the creator</source>
           <target state="translated">Contatta il creatore</target>
         </trans-unit>
-        <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
+        <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
           <source>Rate us</source>
           <target state="translated">Valuta</target>
         </trans-unit>

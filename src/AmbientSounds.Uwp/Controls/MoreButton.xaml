@@ -13,52 +13,31 @@
     <Button x:Uid="MoreButton" Style="{StaticResource SubtleIconButton}">
         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD0;" />
         <Button.Flyout>
-            <winui:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
-                <winui:CommandBarFlyout.SecondaryCommands>
-                    <AppBarButton
-                        Click="OnCompactClicked"
-                        Label="{x:Bind strings:Resources.CompactMode}"
-                        Visibility="{x:Bind CanShowOnPc}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton
-                        x:Uid="MoreButtonShare"
-                        Click="ShareClicked"
-                        Visibility="{x:Bind CanShowOnPc}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB60;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonRate" Click="RateUsClicked">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEBF7;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton
-                        x:Uid="MoreButtonTranslate"
-                        Click="TranslationClicked"
-                        Visibility="{x:Bind CanShowOnPc}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF2B7;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton
-                        x:Uid="MoreButtonContact"
-                        Click="ContactClicked"
-                        Visibility="{x:Bind CanShowOnPc}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAB4;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton x:Uid="MoreButtonSettings" Click="SettingsClicked">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                </winui:CommandBarFlyout.SecondaryCommands>
-            </winui:CommandBarFlyout>
+            <MenuFlyout Placement="BottomEdgeAlignedRight">
+                <MenuFlyoutItem
+                    Click="OnCompactClicked"
+                    Text="{x:Bind strings:Resources.CompactMode}"
+                    Visibility="{x:Bind CanShowOnPc}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Click="RateUsClicked" Text="{x:Bind strings:Resources.RateUsText}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEBF7;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Click="ThemeSettingsClicked" Text="{x:Bind strings:Resources.ThemeSettings}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPersonalize}" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Click="SettingsClicked" Text="{x:Bind strings:Resources.SettingsText}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </MenuFlyout>
         </Button.Flyout>
     </Button>
 </UserControl>

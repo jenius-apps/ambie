@@ -54,7 +54,7 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>개발자 연락하기</value>
   </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>리뷰하기</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">

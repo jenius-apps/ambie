@@ -57,7 +57,7 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contactar con el creador</value>
   </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>Valóranos</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">

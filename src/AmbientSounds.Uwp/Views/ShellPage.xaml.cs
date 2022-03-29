@@ -33,12 +33,14 @@ namespace AmbientSounds.Views
 
         private string RateUs => ResourceLoader.GetForCurrentView().GetString("MoreButtonRate/Label");
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.Frame = MainFrame;
 
             MenuList.SelectedIndex = 0;
+
+            await ViewModel.LoadPremiumButtonAsync();
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)

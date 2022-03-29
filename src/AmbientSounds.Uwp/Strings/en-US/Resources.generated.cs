@@ -41,6 +41,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region RateUsText
+        /// <summary>
+        ///   Looks up a localized string similar to: Rate us
+        /// </summary>
+        public static string RateUsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RateUsText");
+            }
+        }
+        #endregion
+
         #region PlayerPauseText
         /// <summary>
         ///   Looks up a localized string similar to: Pause
@@ -1002,6 +1015,7 @@ namespace AmbientSounds.Strings{
             __Undefined = 0,
             CloseText,
             CompactMode,
+            RateUsText,
             PlayerPauseText,
             PlayerPlayText,
             ReadyToPlayText,

@@ -39,7 +39,7 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contacter le créateur</value>
   </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>Évaluez-nous</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">

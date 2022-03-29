@@ -51,7 +51,7 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Kontakt udvikleren</value>
   </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>Bedøm os</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
