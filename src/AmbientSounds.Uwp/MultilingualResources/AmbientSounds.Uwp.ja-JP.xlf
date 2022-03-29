@@ -612,6 +612,10 @@
           <source>Toggle fullscreen</source>
           <target state="translated">全画面表示の切り替え</target>
         </trans-unit>
+        <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
+          <source>Get Ambie Plus</source>
+          <target state="new">Get Ambie Plus</target>
+        </trans-unit>
       </group>
     </body>
   </file>

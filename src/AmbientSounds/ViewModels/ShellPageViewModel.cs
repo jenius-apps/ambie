@@ -89,6 +89,12 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        public async void OpenPremiumDialog()
+        {
+            _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked);
+            await _dialogService.OpenPremiumAsync();
+        }
+
         public async void OpenThemeSettings() => await _dialogService.OpenThemeSettingsAsync();
 
         public void GoToScreensaver()

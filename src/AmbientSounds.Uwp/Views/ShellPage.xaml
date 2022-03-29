@@ -71,7 +71,6 @@
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C0;" />
                     </Button>
                     <controls:MoreButton />
-                    <controls:AccountControl />
                 </StackPanel>
             </Grid>
 
@@ -81,25 +80,33 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <ListView
-                    x:Name="MenuList"
-                    Margin="16,0,0,0"
-                    SelectionChanged="OnSelectionChanged">
-                    <ListView.Items>
-                        <ListViewItem>
-                            <StackPanel Orientation="Horizontal">
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphHome}" />
-                                <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.Home}" />
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem>
-                            <StackPanel Orientation="Horizontal">
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
-                                <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.Catalogue}" />
-                            </StackPanel>
-                        </ListViewItem>
-                    </ListView.Items>
-                </ListView>
+                <Grid Margin="16,0,0,16">
+                    <ListView x:Name="MenuList" SelectionChanged="OnSelectionChanged">
+                        <ListView.Items>
+                            <ListViewItem AutomationProperties.Name="{x:Bind strings:Resources.Home}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphHome}" />
+                                    <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.Home}" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
+                                    <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.Catalogue}" />
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView.Items>
+                    </ListView>
+
+                    <StackPanel VerticalAlignment="Bottom">
+                        <HyperlinkButton
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
+                            Click="{x:Bind ViewModel.OpenPremiumDialog}"
+                            Content="{x:Bind strings:Resources.GetAmbiePlus}" />
+                    </StackPanel>
+                </Grid>
 
                 <Frame
                     x:Name="MainFrame"

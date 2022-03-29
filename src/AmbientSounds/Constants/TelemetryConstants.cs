@@ -6,6 +6,9 @@
     /// </summary>
     public class TelemetryConstants
     {
+        // shell page
+        public const string ShellPagePremiumClicked = "shellpage:premiumClicked";
+
         // catalogue
         private const string Catalogue = "catalogue:";
         public const string DownloadClicked = Catalogue + "downloadClicked";

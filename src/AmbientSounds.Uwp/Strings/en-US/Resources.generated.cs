@@ -976,6 +976,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region GetAmbiePlus
+        /// <summary>
+        ///   Looks up a localized string similar to: Get Ambie Plus
+        /// </summary>
+        public static string GetAmbiePlus
+        {
+            get
+            {
+                return _resourceLoader.GetString("GetAmbiePlus");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1061,6 +1074,7 @@ namespace AmbientSounds.Strings{
             ScreensaverCatalogue,
             ViewPremiumInfo,
             ToggleFullscreen,
+            GetAmbiePlus,
         }
 
         private static ResourceLoader _resourceLoader;
