@@ -66,14 +66,6 @@
           <source>Contact the creator</source>
           <target state="translated">联系开发者</target>
         </trans-unit>
-        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
-          <source>Chat on Discord</source>
-          <target state="translated">在 Discord 上讨论</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
-          <source>View GitHub</source>
-          <target state="translated">查看 GitHub</target>
-        </trans-unit>
         <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
           <source>Rate us</source>
           <target state="translated">评价本应用</target>

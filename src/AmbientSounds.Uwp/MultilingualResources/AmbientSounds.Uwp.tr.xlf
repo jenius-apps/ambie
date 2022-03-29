@@ -64,14 +64,6 @@
           <source>Contact the creator</source>
           <target state="translated">İçerik oluşturucuyla iletişime geçin</target>
         </trans-unit>
-        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
-          <source>Chat on Discord</source>
-          <target state="translated">Discord'da sohbet edin</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
-          <source>View GitHub</source>
-          <target state="translated">GitHub Görüntüleyin</target>
-        </trans-unit>
         <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
           <source>Rate us</source>
           <target state="translated">Bizi değerlendirin</target>

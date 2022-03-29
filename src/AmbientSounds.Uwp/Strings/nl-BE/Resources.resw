@@ -48,12 +48,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contacteer de maker</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Chat op Discord</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>Bekijk op GitHub</value>
-  </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Beoordeel ons</value>
   </data>

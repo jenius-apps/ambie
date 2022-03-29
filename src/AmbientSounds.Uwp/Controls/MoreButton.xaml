@@ -37,22 +37,6 @@
                         </AppBarButton.Icon>
                     </AppBarButton>
                     <AppBarButton
-                        x:Uid="MoreButtonDiscord"
-                        Click="DiscordClicked"
-                        Visibility="{x:Bind CanShowOnPc}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9C5;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton
-                        x:Uid="MoreButtonGitHub"
-                        Click="GithubClicked"
-                        Visibility="{x:Bind CanShowOnPc}">
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE943;" />
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton
                         x:Uid="MoreButtonTranslate"
                         Click="TranslationClicked"
                         Visibility="{x:Bind CanShowOnPc}">

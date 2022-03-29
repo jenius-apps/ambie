@@ -54,12 +54,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contate o desenvolvedor</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Chat no Discord</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>Ver GitHub</value>
-  </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Nos avalie</value>
   </data>

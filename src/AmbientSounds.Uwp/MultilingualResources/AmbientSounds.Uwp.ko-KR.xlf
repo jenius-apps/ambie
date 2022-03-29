@@ -64,14 +64,6 @@
           <source>Contact the creator</source>
           <target state="translated">개발자 연락하기</target>
         </trans-unit>
-        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
-          <source>Chat on Discord</source>
-          <target state="translated">Discord에 채팅</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
-          <source>View GitHub</source>
-          <target state="translated">GitHub 보기</target>
-        </trans-unit>
         <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
           <source>Rate us</source>
           <target state="translated">리뷰하기</target>

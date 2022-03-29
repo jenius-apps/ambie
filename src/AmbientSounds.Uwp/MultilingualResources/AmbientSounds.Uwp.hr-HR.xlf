@@ -66,14 +66,6 @@
           <source>Contact the creator</source>
           <target state="translated">Kontaktiraj autora aplikacije</target>
         </trans-unit>
-        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
-          <source>Chat on Discord</source>
-          <target state="translated">Pričaj s nama na Discordu</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
-          <source>View GitHub</source>
-          <target state="translated">Prikaži GitHub stranicu</target>
-        </trans-unit>
         <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
           <source>Rate us</source>
           <target state="translated" state-qualifier="tm-suggestion">Ocijenite nas</target>

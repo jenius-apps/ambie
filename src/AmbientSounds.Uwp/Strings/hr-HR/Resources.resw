@@ -57,12 +57,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Kontaktiraj autora aplikacije</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Pričaj s nama na Discordu</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>Prikaži GitHub stranicu</value>
-  </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Ocijenite nas</value>
   </data>

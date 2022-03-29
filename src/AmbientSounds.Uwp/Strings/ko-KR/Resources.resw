@@ -54,12 +54,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>개발자 연락하기</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Discord에 채팅</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>GitHub 보기</value>
-  </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>리뷰하기</value>
   </data>

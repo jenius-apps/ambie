@@ -57,12 +57,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>உருவாக்குநரை தொடர்புகொள்க</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Discord மூலம் எங்களைத் தொடர்புக்கொள்ளுங்கள்</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>GitHub repo காண்க</value>
-  </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>எங்களை மதிப்பிடு செய்க</value>
   </data>

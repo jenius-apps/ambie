@@ -48,12 +48,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>İçerik oluşturucuyla iletişime geçin</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Discord'da sohbet edin</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>GitHub Görüntüleyin</value>
-  </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>Bizi değerlendirin</value>
   </data>

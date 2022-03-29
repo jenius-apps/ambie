@@ -57,12 +57,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>作成者に問い合わせる</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Discord でチャット</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>GitHub を表示</value>
-  </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
     <value>私たちを評価する</value>
   </data>

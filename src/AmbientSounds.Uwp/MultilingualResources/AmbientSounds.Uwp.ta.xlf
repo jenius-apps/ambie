@@ -66,14 +66,6 @@
           <source>Contact the creator</source>
           <target state="translated">உருவாக்குநரை தொடர்புகொள்க</target>
         </trans-unit>
-        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
-          <source>Chat on Discord</source>
-          <target state="translated">Discord மூலம் எங்களைத் தொடர்புக்கொள்ளுங்கள்</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
-          <source>View GitHub</source>
-          <target state="translated">GitHub repo காண்க</target>
-        </trans-unit>
         <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
           <source>Rate us</source>
           <target state="translated">எங்களை மதிப்பிடு செய்க</target>
