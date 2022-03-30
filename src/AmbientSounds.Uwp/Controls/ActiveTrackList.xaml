@@ -113,7 +113,6 @@
                                             Grid.Column="1"
                                             Margin="0,-1,-13,0"
                                             AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
-                                            BorderBrush="Transparent"
                                             Command="{x:Bind RemoveCommand, Mode=OneWay}"
                                             CommandParameter="{x:Bind Sound, Mode=OneWay}"
                                             CornerRadius="0,8,0,0">
@@ -126,8 +125,22 @@
                                                     <ResourceDictionary.ThemeDictionaries>
                                                         <ResourceDictionary x:Key="Dark">
                                                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
-                                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Red" />
-                                                            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="DarkRed" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#c42b1c" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#b5291e" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="LightGray" />
+                                                        </ResourceDictionary>
+                                                        <ResourceDictionary x:Key="Light">
+                                                            <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#c42b1c" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#b5291e" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
+                                                            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="LightGray" />
                                                         </ResourceDictionary>
                                                     </ResourceDictionary.ThemeDictionaries>
                                                 </ResourceDictionary>
