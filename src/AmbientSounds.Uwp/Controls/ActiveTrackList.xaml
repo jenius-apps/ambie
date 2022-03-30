@@ -122,6 +122,7 @@
                                                 Glyph="&#xE9F9;" />
                                             <Button.Resources>
                                                 <ResourceDictionary>
+                                                    <!--  Lightweight styling to mimic red close button  -->
                                                     <ResourceDictionary.ThemeDictionaries>
                                                         <ResourceDictionary x:Key="Dark">
                                                             <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
