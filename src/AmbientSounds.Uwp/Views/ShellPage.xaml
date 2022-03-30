@@ -19,6 +19,12 @@
             Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
             Stretch="UniformToFill" />
 
+        <Rectangle
+            x:Name="AcrylicLayer"
+            x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
+            Fill="{ThemeResource SystemControlAcrylicElementBrush}"
+            Stretch="Fill" />
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
