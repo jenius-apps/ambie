@@ -14,14 +14,14 @@
         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD0;" />
         <Button.Flyout>
             <MenuFlyout Placement="BottomEdgeAlignedRight">
-                <MenuFlyoutItem
+                <!--<MenuFlyoutItem
                     Click="OnCompactClicked"
                     Text="{x:Bind strings:Resources.CompactMode}"
                     Visibility="{x:Bind CanShowOnPc}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
                     </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
+                </MenuFlyoutItem>-->
                 <MenuFlyoutItem Click="RateUsClicked" Text="{x:Bind strings:Resources.RateUsText}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEBF7;" />
