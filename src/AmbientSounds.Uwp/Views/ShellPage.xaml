@@ -94,6 +94,12 @@
                                     <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.Catalogue}" />
                                 </StackPanel>
                             </ListViewItem>
+                            <ListViewItem AutomationProperties.Name="{x:Bind strings:Resources.FocusText}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
+                                    <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.FocusText}" />
+                                </StackPanel>
+                            </ListViewItem>
                         </ListView.Items>
                     </ListView>
 

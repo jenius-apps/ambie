@@ -577,4 +577,7 @@
   <data name="GetAmbiePlus" xml:space="preserve">
     <value>Get Ambie Plus</value>
   </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Focus</value>
+  </data>
 </root>

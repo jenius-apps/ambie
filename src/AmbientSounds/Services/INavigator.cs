@@ -32,6 +32,11 @@
         void ToCatalogue();
 
         /// <summary>
+        /// Navigates to the focus page.
+        /// </summary>
+        void ToFocus();
+
+        /// <summary>
         /// Navigates to the home page.
         /// </summary>
         void ToHome();

@@ -624,6 +624,10 @@
           <source>Get Ambie Plus</source>
           <target state="new">Get Ambie Plus</target>
         </trans-unit>
+        <trans-unit id="FocusText" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="new">Focus</target>
+        </trans-unit>
       </group>
     </body>
   </file>

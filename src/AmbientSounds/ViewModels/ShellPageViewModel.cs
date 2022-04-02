@@ -100,6 +100,10 @@ namespace AmbientSounds.ViewModels
             {
                 _navigator.ToCatalogue();
             }
+            else if (index == 2)
+            {
+                _navigator.ToFocus();
+            }
         }
 
         public async void OpenPremiumDialog()

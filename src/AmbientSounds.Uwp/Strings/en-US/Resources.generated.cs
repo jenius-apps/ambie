@@ -1002,6 +1002,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region FocusText
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus
+        /// </summary>
+        public static string FocusText
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1089,6 +1102,7 @@ namespace AmbientSounds.Strings{
             ViewPremiumInfo,
             ToggleFullscreen,
             GetAmbiePlus,
+            FocusText,
         }
 
         private static ResourceLoader _resourceLoader;
