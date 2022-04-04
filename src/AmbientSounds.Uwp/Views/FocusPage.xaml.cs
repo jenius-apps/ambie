@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,9 @@ namespace AmbientSounds.Views
         public FocusPage()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<FocusPageViewModel>();
         }
+
+        public FocusPageViewModel ViewModel => (FocusPageViewModel)this.DataContext;
     }
 }

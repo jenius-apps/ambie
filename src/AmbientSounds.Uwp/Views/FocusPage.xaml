@@ -50,13 +50,14 @@
                                 Maximum="60"
                                 StepFrequency="5"
                                 TickFrequency="15"
-                                TickPlacement="TopLeft" />
+                                TickPlacement="TopLeft"
+                                Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
 
                             <TextBlock
                                 x:Name="BreakLength"
                                 Margin="12,24,12,0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Break length" />
+                                Text="Rest length" />
                             <Slider
                                 Margin="12,4,12,0"
                                 HorizontalAlignment="Stretch"
@@ -64,7 +65,8 @@
                                 Maximum="60"
                                 StepFrequency="5"
                                 TickFrequency="15"
-                                TickPlacement="TopLeft" />
+                                TickPlacement="TopLeft"
+                                Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
 
                             <TextBlock
                                 x:Name="Repeats"
@@ -77,7 +79,8 @@
                                 AutomationProperties.LabeledBy="{x:Bind Repeats}"
                                 Maximum="8"
                                 TickFrequency="2"
-                                TickPlacement="TopLeft" />
+                                TickPlacement="TopLeft"
+                                Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
 
                             <TextBlock
                                 Margin="0,36,0,0"
@@ -86,9 +89,10 @@
                                 Text="Total" />
                             <TextBlock
                                 HorizontalAlignment="Center"
+                                FontSize="20"
                                 FontWeight="SemiBold"
                                 Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="2 hours 30 minutes" />
+                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}" />
                         </StackPanel>
                     </Grid>
                 </Border>

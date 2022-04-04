@@ -305,6 +305,7 @@ namespace AmbientSounds
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
                 .AddSingleton<VideosMenuViewModel>()
+                .AddSingleton<FocusPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddSingleton<AppServiceController>()
@@ -315,6 +316,7 @@ namespace AmbientSounds
                 // a timer factory.
                 .AddTransient<ITimerService, TimerService>()
                 // exposes events or object tree has singleton, so singleton.
+                .AddSingleton<IFocusService, FocusService>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
