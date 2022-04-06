@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="he-IL" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6921.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Close compact mode</source>
+          <target state="translated">סגור מצב קומפקטי</target>
+        </trans-unit>
+        <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Close compact mode</source>
+          <target state="translated">סגור מצב קומפקטי</target>
+        </trans-unit>
+        <trans-unit id="CloseText" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="translated">סגור</target>
+        </trans-unit>
+        <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
+          <source>Copyright</source>
+          <target state="translated">זכויות יוצרים</target>
+        </trans-unit>
+        <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
+          <source>Copyright Jenius Apps</source>
+          <target state="translated">זכויות יוצרים Jenius Apps</target>
+        </trans-unit>
+        <trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
+          <source>Hello from Vancouver</source>
+          <target state="translated">שלום מוונקובר</target>
+        </trans-unit>
+        <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View app information</source>
+          <target state="translated">הצג מידע על האפליקציה</target>
+        </trans-unit>
+        <trans-unit id="Minutes10Button.Label" translate="yes" xml:space="preserve">
+          <source>10 minutes</source>
+          <target state="translated">10 דקות</target>
+        </trans-unit>
+        <trans-unit id="Minutes15Button.Label" translate="yes" xml:space="preserve">
+          <source>15 minutes</source>
+          <target state="translated">15 דקות</target>
+        </trans-unit>
+        <trans-unit id="Minutes30Button.Label" translate="yes" xml:space="preserve">
+          <source>30 minutes</source>
+          <target state="translated">30 דקות</target>
+        </trans-unit>
+        <trans-unit id="Minutes5Button.Label" translate="yes" xml:space="preserve">
+          <source>5 minutes</source>
+          <target state="translated">5 דקות</target>
+        </trans-unit>
+        <trans-unit id="Minutes60Button.Label" translate="yes" xml:space="preserve">
+          <source>60 minutes</source>
+          <target state="translated">60 דקות</target>
+        </trans-unit>
+        <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View more options</source>
+          <target state="translated">הצג אפשרויות נוספות</target>
+        </trans-unit>
+        <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
+          <source>Compact mode</source>
+          <target state="translated">מצב קומפקטי</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
+          <source>Contact the creator</source>
+          <target state="translated">צור קשר עם היוצר</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
+          <source>Chat on Discord</source>
+          <target state="translated">צ'אט ב-Discord</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
+          <source>View GitHub</source>
+          <target state="translated">הצג את GitHub</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
+          <source>Rate us</source>
+          <target state="translated">דרג אותנו</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">הגדרות</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
+          <source>Share link for Ambie</source>
+          <target state="translated">שתף קישור עבור Ambie</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
+          <source>Add or improve translations</source>
+          <target state="translated">הוסף או שפר תרגומים</target>
+        </trans-unit>
+        <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Off</source>
+          <target state="translated">לא פעיל</target>
+        </trans-unit>
+        <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>On</source>
+          <target state="translated">פעיל</target>
+        </trans-unit>
+        <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Pause the timer</source>
+          <target state="translated">השהה את הטיימר</target>
+        </trans-unit>
+        <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
+          <source>Pause</source>
+          <target state="translated">השהה</target>
+        </trans-unit>
+        <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
+          <source>Play</source>
+          <target state="translated">נגן</target>
+        </trans-unit>
+        <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Continue the timer</source>
+          <target state="translated">המשך בטיימר</target>
+        </trans-unit>
+        <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
+          <source>Ready to play</source>
+          <target state="translated">מוכן לנגן</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">טלמטריה</target>
+        </trans-unit>
+        <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">הגדרות</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View sleep timer options</source>
+          <target state="translated">הצג אפשרויות של טיימר שינה</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View sleep timer options</source>
+          <target state="translated">הצג אפשרויות של טיימר שינה</target>
+        </trans-unit>
+        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
+          <source>Beach</source>
+          <target state="translated">החוף</target>
+        </trans-unit>
+        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
+          <source>Birds</source>
+          <target state="translated">ציפורים</target>
+        </trans-unit>
+        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
+          <source>City street</source>
+          <target state="translated">רחוב העיר</target>
+        </trans-unit>
+        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
+          <source>Coffee shop</source>
+          <target state="translated">בית קפה</target>
+        </trans-unit>
+        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
+          <source>Creek</source>
+          <target state="translated">הנחל</target>
+        </trans-unit>
+        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
+          <source>Fireplace</source>
+          <target state="translated">אח</target>
+        </trans-unit>
+        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
+          <source>Rain</source>
+          <target state="translated">גשם</target>
+        </trans-unit>
+        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
+          <source>Rainforest</source>
+          <target state="translated">יערות גשם</target>
+        </trans-unit>
+        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
+          <source>Underwater</source>
+          <target state="translated">מתחת למים</target>
+        </trans-unit>
+        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
+          <source>Waterfall</source>
+          <target state="translated">מפל מים</target>
+        </trans-unit>
+        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
+          <source>White noise</source>
+          <target state="translated">רעש לבן</target>
+        </trans-unit>
+        <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sounds are loading</source>
+          <target state="translated">הצלילים נטענים</target>
+        </trans-unit>
+        <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
+          <source>Cannot play sound</source>
+          <target state="translated">לא יכול לנגן צליל</target>
+        </trans-unit>
+        <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Stop the timer and clear the time</source>
+          <target state="translated">עצור את הטיימר ונקה את השעה</target>
+        </trans-unit>
+        <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Global volume</source>
+          <target state="translated">נפח גלובלי</target>
+        </trans-unit>
+        <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sound volume</source>
+          <target state="translated">נפח צליל</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated">נושא</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
+          <source>Auto</source>
+          <target state="translated">אוטומטי</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="translated">כהה</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="translated">בהיר</target>
+        </trans-unit>
+        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
+          <source>Vacuum</source>
+          <target state="translated">שואב אבק</target>
+        </trans-unit>
+        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
+          <source>Thunder</source>
+          <target state="translated">רעם</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
+          <source>Notification for new sounds</source>
+          <target state="translated">התראה על צלילים חדשים</target>
+        </trans-unit>
+        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
+          <source>Wind</source>
+          <target state="translated">רוח</target>
+        </trans-unit>
+        <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
+          <source>Already downloaded</source>
+          <target state="translated">הורד כבר</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
+        </trans-unit>
+        <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Go back</source>
+          <target state="translated">תחזור</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
+        </trans-unit>
+        <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
+          <source>Can be downloaded</source>
+          <target state="translated">ניתן להוריד</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
+        </trans-unit>
+        <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Download sound</source>
+          <target state="translated">הורד צליל</target>
+        </trans-unit>
+        <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Download sound</source>
+          <target state="translated">הורד צליל</target>
+        </trans-unit>
+        <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sound catalogue</source>
+          <target state="translated">אוסף צלילים</target>
+        </trans-unit>
+        <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sounds</source>
+          <target state="translated">צלילים</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
+          <source>Privacy policy</source>
+          <target state="translated">מדיניות הפרטיות</target>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Privacy policy</source>
+          <target state="translated">מדיניות הפרטיות</target>
+        </trans-unit>
+        <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">מחק</target>
+        </trans-unit>
+        <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Delete sound</source>
+          <target state="translated">מחק צליל</target>
+        </trans-unit>
+        <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">מחק</target>
+        </trans-unit>
+        <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target state="translated">הורד</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="translated">נגן צליל אקראי</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="translated">נגן צליל אקראי</target>
+        </trans-unit>
+        <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
+          <source>Screensaver mode</source>
+          <target state="translated">מצב שומר מסך</target>
+        </trans-unit>
+        <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
+          <source>Screensaver</source>
+          <target state="translated">שומר מסך</target>
+        </trans-unit>
+        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
+          <source>Use a dark page as screensaver</source>
+          <target state="translated">השתמש בדף כהה כשומר מסך</target>
+        </trans-unit>
+        <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
+          <source>2 hours</source>
+          <target state="translated">2 שעות</target>
+        </trans-unit>
+        <trans-unit id="Hours4Button.Label" translate="yes" xml:space="preserve">
+          <source>4 hours</source>
+          <target state="translated">4 שעות</target>
+        </trans-unit>
+        <trans-unit id="Hours8Button.Label" translate="yes" xml:space="preserve">
+          <source>8 hours</source>
+          <target state="translated">8 שעות</target>
+        </trans-unit>
+        <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Purchase sound</source>
+          <target state="translated">קנה צליל</target>
+        </trans-unit>
+        <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Preview sound</source>
+          <target state="translated">תצוגה מקדימה של צליל</target>
+        </trans-unit>
+        <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Preview sound</source>
+          <target state="translated">תצוגה מקדימה של צליל</target>
+        </trans-unit>
+        <trans-unit id="Paused" translate="yes" xml:space="preserve">
+          <source>Paused</source>
+          <target state="translated">מושהה</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
+        </trans-unit>
+        <trans-unit id="Playing" translate="yes" xml:space="preserve">
+          <source>Playing</source>
+          <target state="translated">מנגן</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
+        </trans-unit>
+        <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Active sounds</source>
+          <target state="translated">צלילים פעילים</target>
+        </trans-unit>
+        <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Clear all active sounds</source>
+          <target state="translated">נקה את כל הצלילים הפעילים</target>
+        </trans-unit>
+        <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Clear all active sounds</source>
+          <target state="translated">נקה את כל הצלילים הפעילים</target>
+        </trans-unit>
+        <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Confirm save</source>
+          <target state="translated">אשר את השמירה</target>
+        </trans-unit>
+        <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
+          <source>Global volume</source>
+          <target state="translated">נפח גלובלי</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
+          <source>Sound mix name</source>
+          <target state="translated">שם מיקס צליל</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Optional</source>
+          <target state="translated">אופציונאלי</target>
+        </trans-unit>
+        <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
+          <source>Remove {0} from active list</source>
+          <target state="translated">הסר את {0} מהרשימה הפעילה</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix</source>
+          <target state="translated">שמור מיקס צליל מותאם אישית</target>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix (Ctrl+S)</source>
+          <target state="translated">שמור מיקס צליל מותאם אישית (Ctrl + S)</target>
+        </trans-unit>
+        <trans-unit id="CancelText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">בטל</target>
+        </trans-unit>
+        <trans-unit id="RenameText" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="translated">שנה שם</target>
+        </trans-unit>
+        <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="translated">שנה שם</target>
+        </trans-unit>
+        <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sign out</source>
+          <target state="translated">התנתק</target>
+        </trans-unit>
+        <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
+          <source>This will enable sound gallery sync across your devices.</source>
+          <target state="needs-review-translation">זה יאפשר סנכרון של גלריית סאונד בין המכשירים שלך.</target>
+        </trans-unit>
+        <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="translated">הצג אפשרויות חשבון</target>
+        </trans-unit>
+        <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="translated">הצג אפשרויות חשבון</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">כניסה</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">כניסה</target>
+        </trans-unit>
+        <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sync</source>
+          <target state="translated">סינכרון</target>
+        </trans-unit>
+        <trans-unit id="Attribution" translate="yes" xml:space="preserve">
+          <source>Attribution</source>
+          <target state="translated">ייחוס</target>
+        </trans-unit>
+        <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
+          <source>Browse</source>
+          <target state="translated">דפדף</target>
+        </trans-unit>
+        <trans-unit id="Name" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="translated">שם</target>
+        </trans-unit>
+        <trans-unit id="NewSound" translate="yes" xml:space="preserve">
+          <source>New sound</source>
+          <target state="translated">צליל חדש</target>
+        </trans-unit>
+        <trans-unit id="Refresh" translate="yes" xml:space="preserve">
+          <source>Refresh</source>
+          <target state="translated">רענן</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
+        </trans-unit>
+        <trans-unit id="SignIn" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">כניסה</target>
+        </trans-unit>
+        <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
+          <source>Are you sure?</source>
+          <target state="translated">האם אתה בטוח?</target>
+        </trans-unit>
+        <trans-unit id="Yes" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">כן</target>
+        </trans-unit>
+        <trans-unit id="Optional" translate="yes" xml:space="preserve">
+          <source>Optional</source>
+          <target state="translated">אופציונאלי</target>
+        </trans-unit>
+        <trans-unit id="Required" translate="yes" xml:space="preserve">
+          <source>Required</source>
+          <target state="translated">נדרש</target>
+        </trans-unit>
+        <trans-unit id="Donate" translate="yes" xml:space="preserve">
+          <source>Donate</source>
+          <target state="translated">תרום</target>
+        </trans-unit>
+        <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
+          <source>Terms of Use</source>
+          <target state="translated">תנאי שימוש</target>
+        </trans-unit>
+        <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
+          <source>Follow us on Twitter</source>
+          <target state="translated">עקבו אחרינו בטוויטר</target>
+        </trans-unit>
+        <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
+          <source>Dismiss</source>
+          <target state="translated">לשחרר</target>
+        </trans-unit>
+        <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
+          <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
+          <target state="needs-review-translation">תודה שניסית את Ambie. לחוויה הטובה ביותר, נסה להצמיד אותנו לשורת המשימות שלך! תהנה מהשהייה המרגיעה שלך 🏝</target>
+        </trans-unit>
+        <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
+          <source>Hello and welcome!</source>
+          <target state="translated">שלום וברוכים הבאים!</target>
+        </trans-unit>
+        <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
+          <source>Pin to taskbar</source>
+          <target state="translated">הצמד לשורת המשימות</target>
+        </trans-unit>
+        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
+          <source>Transparency</source>
+          <target state="needs-review-translation">שקיפות</target>
+        </trans-unit>
+        <trans-unit id="Preview" translate="yes" xml:space="preserve">
+          <source>Preview</source>
+          <target state="translated">תצוגה מקדימה</target>
+        </trans-unit>
+        <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
+          <source>Catalogue</source>
+          <target state="translated">קטלוג</target>
+        </trans-unit>
+        <trans-unit id="Home" translate="yes" xml:space="preserve">
+          <source>Home</source>
+          <target state="translated">בית</target>
+        </trans-unit>
+        <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
+          <source>Auto launch after 1 min</source>
+          <target state="translated">הפעלה אוטומטית לאחר דקה אחת</target>
+        </trans-unit>
+        <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 3 sounds</source>
+          <target state="translated">ערבב והתאם עד 3 צלילים</target>
+        </trans-unit>
+        <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
+          <source>Theme settings</source>
+          <target state="translated">הגדרות נושא</target>
+        </trans-unit>
+        <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
+          <source>Auto resume when Ambie opens</source>
+          <target state="translated">המשך אוטומטי כאשר Ambie נפתח</target>
+        </trans-unit>
+        <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
+          <source>{0} per month</source>
+          <target state="translated">{0} לחודש</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
+        </trans-unit>
+        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
+          <source>Access premium, high quality sounds</source>
+          <target state="translated">גישה לצלילים איכותיים ומובחרים</target>
+        </trans-unit>
+        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
+          <source>Download video screensavers</source>
+          <target state="translated">הורד שומרי מסך וידאו</target>
+        </trans-unit>
+        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
+          <source>Support development</source>
+          <target state="translated">תמיכה בפיתוח</target>
+        </trans-unit>
+        <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
+          <source>Thank you for subscribing!</source>
+          <target state="translated">תודה שנרשמת!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
+        </trans-unit>
+        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
+          <source>Hello again 👋🏽</source>
+          <target state="translated">שוב שלום 👋🏽</target>
+        </trans-unit>
+        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
+          <source>Enjoying Ambie? Please consider rating us!</source>
+          <target state="translated">נהנים מ-Ambie? אנא שקול לדרג אותנו!</target>
+        </trans-unit>
+        <trans-unit id="SettingsDisableSmtc" translate="yes" xml:space="preserve">
+          <source>Prevent Ambie from integrating with Windows media controls</source>
+          <target state="needs-review-translation">מנע מאמבי להשתלב עם פקדי המדיה של Windows</target>
+        </trans-unit>
+        <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target state="translated">הורד</target>
+        </trans-unit>
+        <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
+          <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
+          <target state="needs-review-translation">אנחנו צריכים להוריד כמה צלילים כדי להשמיע את זה. לאחר ההורדה, נסה לשחק את זה שוב. התחל הורדה?</target>
+        </trans-unit>
+        <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
+          <source>Missing sounds</source>
+          <target state="translated">חסרים צלילים</target>
+        </trans-unit>
+        <trans-unit id="Default" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="translated">ברירת מחדל</target>
+        </trans-unit>
+        <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">מחק</target>
+        </trans-unit>
+        <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
+          <source>{0} MB</source>
+          <target state="new">{0} MB</target>
+        </trans-unit>
+        <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
+          <source>More screensavers</source>
+          <target state="translated">עוד שומרי מסך</target>
+        </trans-unit>
+        <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
+          <source>Screensaver catalogue</source>
+          <target state="translated">קטלוג שומרי מסך</target>
+        </trans-unit>
+        <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
+          <source>View premium info</source>
+          <target state="translated">הצג מידע פרימיום</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
+          <source>Clouds</source>
+          <target state="translated">עננים</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
+          <source>Colored smoke</source>
+          <target state="translated">עשן צבעוני</target>
+        </trans-unit>
+        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
+          <source>Octagrams</source>
+          <target state="translated">אוקטגרמות</target>
+        </trans-unit>
+        <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
+          <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
+          <target state="needs-review-translation">הייתה בעיה בהצגת שומר המסך. נסה להפעיל מחדש את Ambie, או צור איתנו קשר אם הבעיה נמשכת.</target>
+        </trans-unit>
+        <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
+          <source>Report the issue</source>
+          <target state="translated">דווח על הבעיה</target>
+        </trans-unit>
+        <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
+          <source>Rendering error</source>
+          <target state="translated">שגיאת רינדור</target>
+        </trans-unit>
+        <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
+          <source>Toggle fullscreen</source>
+          <target state="needs-review-translation">החלף מסך מלא</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
