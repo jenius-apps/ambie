@@ -156,7 +156,7 @@
         </trans-unit>
         <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
           <source>Fireplace</source>
-          <target state="translated">אח</target>
+          <target state="translated">אש</target>
         </trans-unit>
         <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
