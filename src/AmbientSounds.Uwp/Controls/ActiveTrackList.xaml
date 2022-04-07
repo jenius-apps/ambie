@@ -40,11 +40,13 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <!--Playback controls flow LeftToRight regardless of language-->
             <StackPanel
                 x:Name="ControlsPanel"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Orientation="Horizontal">
+                Orientation="Horizontal"
+                FlowDirection="LeftToRight">
 
                 <local:PlayerControl />
 
