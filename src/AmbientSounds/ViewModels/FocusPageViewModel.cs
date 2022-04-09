@@ -124,5 +124,15 @@ namespace AmbientSounds.ViewModels
         {
             _focusService.StartTimer(FocusLength, RestLength, Repetitions);
         }
+
+        public void Pause()
+        {
+            _focusService.PauseTimer();
+        }
+
+        public void Stop()
+        {
+            _focusService.StopTimer();
+        }
     }
 }

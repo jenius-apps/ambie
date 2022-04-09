@@ -124,6 +124,9 @@
             <x:String x:Key="GlyphSound">&#xEAD4;</x:String>
             <x:String x:Key="GlyphPersonalize">&#xE9C0;</x:String>
             <x:String x:Key="GlyphFocus">&#xEBAD;</x:String>
+            <x:String x:Key="GlyphPlay">&#xEB21;</x:String>
+            <x:String x:Key="GlyphPause">&#xEAF4;</x:String>
+            <x:String x:Key="GlyphCancel">&#xE9F9;</x:String>
 
         </ResourceDictionary>
     </Application.Resources>

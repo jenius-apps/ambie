@@ -119,7 +119,7 @@
                                             <FontIcon
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                                 FontSize="14"
-                                                Glyph="&#xE9F9;" />
+                                                Glyph="{StaticResource GlyphCancel}" />
                                             <Button.Resources>
                                                 <ResourceDictionary>
                                                     <!--  Lightweight styling to mimic red close button  -->
