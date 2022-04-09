@@ -137,19 +137,65 @@
         </ScrollViewer>
 
         <Grid Grid.Column="1">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock
+                    FontSize="20"
+                    FontWeight="SemiBold"
+                    Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
+                    TextAlignment="Center" />
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
+                    TextAlignment="Center" />
+            </StackPanel>
+
             <winui:ProgressRing
                 Width="300"
                 Height="300"
+                AutomationProperties.AccessibilityView="Raw"
+                Foreground="SkyBlue"
+                IsIndeterminate="False"
+                Opacity="0.1"
+                Value="100" />
+            <winui:ProgressRing
+                Width="300"
+                Height="300"
+                Foreground="SkyBlue"
                 IsIndeterminate="False"
                 Maximum="60"
-                Value="59" />
+                Value="{x:Bind ViewModel.FocusLengthRemaining, Mode=OneWay}" />
+
             <winui:ProgressRing
-                Width="244"
-                Height="244"
+                Width="248"
+                Height="248"
+                AutomationProperties.AccessibilityView="Raw"
+                Foreground="Green"
+                IsIndeterminate="False"
+                Opacity="0.2"
+                Value="100" />
+            <winui:ProgressRing
+                Width="248"
+                Height="248"
                 Foreground="Green"
                 IsIndeterminate="False"
                 Maximum="60"
-                Value="59" />
+                Value="{x:Bind ViewModel.RestLengthRemaining, Mode=OneWay}" />
+
+            <winui:ProgressRing
+                Width="204"
+                Height="204"
+                AutomationProperties.AccessibilityView="Raw"
+                Foreground="DeepPink"
+                IsIndeterminate="False"
+                Opacity="0.1"
+                Value="100" />
+            <winui:ProgressRing
+                Width="204"
+                Height="204"
+                Foreground="DeepPink"
+                IsIndeterminate="False"
+                Maximum="8"
+                Value="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}" />
         </Grid>
     </Grid>
 </Page>
