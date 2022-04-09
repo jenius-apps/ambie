@@ -196,6 +196,12 @@
                 IsIndeterminate="False"
                 Maximum="8"
                 Value="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}" />
+
+            <Button
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Click="{x:Bind ViewModel.Start}"
+                Content="Start" />
         </Grid>
     </Grid>
 </Page>

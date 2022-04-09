@@ -129,7 +129,7 @@ namespace AmbientSounds.ViewModels
             PremiumButtonVisible = !await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
         }
 
-        private void OnIntervalLapsed(object sender, int e)
+        private void OnIntervalLapsed(object sender, TimeSpan e)
         {
             _ratingTimer.Stop();
             _ratingTimer.IntervalElapsed -= OnIntervalLapsed;

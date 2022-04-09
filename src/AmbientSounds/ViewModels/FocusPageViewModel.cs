@@ -23,6 +23,14 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(focusService, nameof(focusService));
             _focusService = focusService;
+
+            _focusService.TimeUpdated += OnTimeUpdated;
+        }
+
+        private void OnTimeUpdated(object sender, FocusSession e)
+        {
+            CurrentTimeRemaining = e.Remaining.ToString(@"mm\:ss");
+            CurrentStatus = e.SessionType.ToString();
         }
 
         public int FocusLength
@@ -110,6 +118,11 @@ namespace AmbientSounds.ViewModels
             {
                 SetProperty(ref _currentTimeRemaining, value);
             }
+        }
+
+        public void Start()
+        {
+            _focusService.StartTimer(FocusLength, RestLength, Repetitions);
         }
     }
 }
