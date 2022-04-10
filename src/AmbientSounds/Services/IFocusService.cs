@@ -8,6 +8,7 @@ namespace AmbientSounds.Services
     {
         event EventHandler<FocusSession>? TimeUpdated;
 
+        FocusState CurrentState { get; }
         TimeSpan GetTotalTime(int focusLength, int restLength, int repetitions);
         void PauseTimer();
         void ResumeTimer();

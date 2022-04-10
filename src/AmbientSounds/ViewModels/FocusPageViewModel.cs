@@ -120,19 +120,43 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        public bool PlayVisible => _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
+
+        public bool PauseVisible => _focusService.CurrentState == FocusState.Active;
+
+        public bool CancelVisible => _focusService.CurrentState == FocusState.Active || _focusService.CurrentState == FocusState.Paused;
+
         public void Start()
         {
-            _focusService.StartTimer(FocusLength, RestLength, Repetitions);
+            if (_focusService.CurrentState == FocusState.Paused)
+            {
+                _focusService.ResumeTimer();
+            }
+            else
+            {
+                _focusService.StartTimer(FocusLength, RestLength, Repetitions);
+            }
+
+            UpdateButtonVisibilities();
         }
 
         public void Pause()
         {
             _focusService.PauseTimer();
+            UpdateButtonVisibilities();
         }
 
         public void Stop()
         {
             _focusService.StopTimer();
+            UpdateButtonVisibilities();
+        }
+
+        private void UpdateButtonVisibilities()
+        {
+            OnPropertyChanged(nameof(PlayVisible));
+            OnPropertyChanged(nameof(PauseVisible));
+            OnPropertyChanged(nameof(CancelVisible));
         }
     }
 }

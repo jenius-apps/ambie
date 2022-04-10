@@ -24,8 +24,15 @@ namespace AmbientSounds.Services
 
         public FocusSession CurrentSession { get; private set; } = new FocusSession(SessionType.None, TimeSpan.Zero);
 
+        public FocusState CurrentState { get; private set; } = FocusState.None;
+
         public void StartTimer(int focusLength, int restLength, int repetitions)
         {
+            if (focusLength == 0 || restLength == 0)
+            {
+                return;
+            }
+
             _timerService.Stop();
             _sessionQueue.Clear();
 
@@ -39,11 +46,13 @@ namespace AmbientSounds.Services
             CurrentSession = _sessionQueue.Dequeue();
             _timerService.Remaining = CurrentSession.Remaining;
             _timerService.Start();
+            CurrentState = FocusState.Active;
         }
 
         public void PauseTimer()
         {
             _timerService.Stop();
+            CurrentState = FocusState.Paused;
         }
 
         public void StopTimer()
@@ -51,6 +60,7 @@ namespace AmbientSounds.Services
             _timerService.Stop();
             CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero);
             TimeUpdated?.Invoke(this, CurrentSession);
+            CurrentState = FocusState.None;
         }
 
         public void ResumeTimer()
@@ -58,6 +68,7 @@ namespace AmbientSounds.Services
             if (_timerService.Remaining > TimeSpan.Zero)
             {
                 _timerService.Start();
+                CurrentState = FocusState.Active;
             }
         }
 
@@ -90,6 +101,13 @@ namespace AmbientSounds.Services
                 }
             }
         }
+    }
+
+    public enum FocusState
+    {
+        None,
+        Active,
+        Paused
     }
 
     public enum SessionType

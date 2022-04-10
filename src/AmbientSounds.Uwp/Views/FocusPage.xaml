@@ -207,13 +207,22 @@
                 HorizontalAlignment="Center"
                 Orientation="Horizontal"
                 Spacing="4">
-                <Button Click="{x:Bind ViewModel.Start}" Style="{StaticResource SubtleIconButton}">
+                <Button
+                    Click="{x:Bind ViewModel.Start}"
+                    Style="{StaticResource SubtleIconButton}"
+                    Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
                 </Button>
-                <Button Click="{x:Bind ViewModel.Pause}" Style="{StaticResource SubtleIconButton}">
+                <Button
+                    Click="{x:Bind ViewModel.Pause}"
+                    Style="{StaticResource SubtleIconButton}"
+                    Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPause}" />
                 </Button>
-                <Button Click="{x:Bind ViewModel.Stop}" Style="{StaticResource SubtleIconButton}">
+                <Button
+                    Click="{x:Bind ViewModel.Stop}"
+                    Style="{StaticResource SubtleIconButton}"
+                    Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancel}" />
                 </Button>
             </StackPanel>
