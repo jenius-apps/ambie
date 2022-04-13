@@ -19,6 +19,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
 using Windows.Graphics.Display;
@@ -75,6 +76,15 @@ namespace AmbientSounds
         public static bool IsDesktop => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Desktop";
 
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
+
+        public static bool IsRightToLeftLanguage
+        {
+            get
+            {
+                string flowDirectionSetting = ResourceContext.GetForCurrentView().QualifierValues["LayoutDirection"];
+                return flowDirectionSetting == "RTL";
+            }
+        }
 
         /// <summary>
         /// Gets the <see cref="IServiceProvider"/> instance for the current application instance.
@@ -187,6 +197,10 @@ namespace AmbientSounds
             }
 
             AppFrame = rootFrame;
+            if (IsRightToLeftLanguage)
+            {
+                rootFrame.FlowDirection = FlowDirection.RightToLeft;
+            }
             SetAppRequestedTheme();
             Services.GetRequiredService<INavigator>().RootFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);

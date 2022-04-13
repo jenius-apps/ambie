@@ -13,460 +13,463 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>コンパクトモードを終了する</value>
+    <value>סגור מצב קומפקטי</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>コンパクトモードを終了する</value>
+    <value>סגור מצב קומפקטי</value>
   </data>
   <data name="CloseText" xml:space="preserve">
-    <value>閉じる</value>
+    <value>סגור</value>
   </data>
   <data name="Copyright.Text" xml:space="preserve">
-    <value>著作権</value>
+    <value>זכויות יוצרים</value>
   </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
-    <value>著作権 Jenius Apps</value>
+    <value>זכויות יוצרים Jenius Apps</value>
   </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
-    <value>バンクーバーからこんにちは</value>
+    <value>שלום מוונקובר</value>
   </data>
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
-    <value>詳細</value>
+    <value>הצג מידע על האפליקציה</value>
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10分</value>
+    <value>10 דקות</value>
   </data>
   <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15分</value>
+    <value>15 דקות</value>
   </data>
   <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30分</value>
+    <value>30 דקות</value>
   </data>
   <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5分</value>
+    <value>5 דקות</value>
   </data>
   <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60分</value>
+    <value>60 דקות</value>
   </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
-    <value>その他のオプション</value>
+    <value>הצג אפשרויות נוספות</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>コンパクトモード</value>
+    <value>מצב קומפקטי</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
-    <value>問い合わせ</value>
+    <value>צור קשר עם היוצר</value>
   </data>
-  <data name="RateUsText" xml:space="preserve">
-    <value>私たちを評価する</value>
+  <data name="MoreButtonDiscord.Label" xml:space="preserve">
+    <value>צ'אט ב-Discord</value>
+  </data>
+  <data name="MoreButtonGitHub.Label" xml:space="preserve">
+    <value>הצג את GitHub</value>
+  </data>
+  <data name="MoreButtonRate.Label" xml:space="preserve">
+    <value>דרג אותנו</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
-    <value>設定</value>
+    <value>הגדרות</value>
   </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
-    <value>Ambieリンクの共有</value>
+    <value>שתף קישור עבור Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
-    <value>翻訳の追加・改善</value>
+    <value>הוסף או שפר תרגומים</value>
   </data>
   <data name="OffTextBlock.Text" xml:space="preserve">
-    <value>Off</value>
+    <value>לא פעיל</value>
   </data>
   <data name="OnTextBlock.Text" xml:space="preserve">
-    <value>On</value>
+    <value>פעיל</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>タイマ一時停止</value>
+    <value>השהה את הטיימר</value>
   </data>
   <data name="PlayerPauseText" xml:space="preserve">
-    <value>一時停止</value>
+    <value>השהה</value>
   </data>
   <data name="PlayerPlayText" xml:space="preserve">
-    <value>再生</value>
+    <value>נגן</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>タイマー再開</value>
+    <value>המשך בטיימר</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
-    <value>再生可</value>
+    <value>מוכן לנגן</value>
   </data>
   <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
-    <value>テレメトリー</value>
+    <value>טלמטריה</value>
   </data>
   <data name="SettingsText" xml:space="preserve">
-    <value>設定</value>
+    <value>הגדרות</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>スリープタイマーオプション</value>
+    <value>הצג אפשרויות של טיימר שינה</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>スリープタイマーオプション</value>
+    <value>הצג אפשרויות של טיימר שינה</value>
   </data>
   <data name="Soundbeach" xml:space="preserve">
-    <value>ビーチ</value>
+    <value>החוף</value>
   </data>
   <data name="Soundbirds" xml:space="preserve">
-    <value>鳥のさえずり</value>
+    <value>ציפורים</value>
   </data>
   <data name="Soundcitystreet" xml:space="preserve">
-    <value>市街</value>
+    <value>רחוב העיר</value>
   </data>
   <data name="Soundcoffeeshop" xml:space="preserve">
-    <value>コーヒーショップ</value>
+    <value>בית קפה</value>
   </data>
   <data name="Soundcreek" xml:space="preserve">
-    <value>小川</value>
+    <value>הנחל</value>
   </data>
   <data name="Soundfireplace" xml:space="preserve">
-    <value>暖炉</value>
+    <value>אש</value>
   </data>
   <data name="Soundrain" xml:space="preserve">
-    <value>雨</value>
+    <value>גשם</value>
   </data>
   <data name="Soundrainforest" xml:space="preserve">
-    <value>雨の森</value>
+    <value>יערות גשם</value>
   </data>
   <data name="Soundunderwater" xml:space="preserve">
-    <value>水中</value>
+    <value>מתחת למים</value>
   </data>
   <data name="Soundwaterfall" xml:space="preserve">
-    <value>滝</value>
+    <value>מפל מים</value>
   </data>
   <data name="Soundwhitenoise" xml:space="preserve">
-    <value>ホワイトノイズ</value>
+    <value>רעש לבן</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンドロード中</value>
+    <value>הצלילים נטענים</value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
-    <value>サウンドを再生できません</value>
+    <value>לא יכול לנגן צליל</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>タイマー停止し時間をクリアする</value>
+    <value>עצור את הטיימר ונקה את השעה</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>メイン音量</value>
+    <value>נפח גלובלי</value>
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>音量</value>
+    <value>נפח צליל</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>テーマ</value>
+    <value>נושא</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
-    <value>自動</value>
+    <value>אוטומטי</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
-    <value>ダーク</value>
+    <value>כהה</value>
   </data>
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
-    <value>ライト</value>
+    <value>בהיר</value>
   </data>
   <data name="Soundvacuum" xml:space="preserve">
-    <value>掃除機</value>
+    <value>שואב אבק</value>
   </data>
   <data name="Soundthunder" xml:space="preserve">
-    <value>雷</value>
+    <value>רעם</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
-    <value>新しいサウンドの通知</value>
+    <value>התראה על צלילים חדשים</value>
   </data>
   <data name="Soundwind" xml:space="preserve">
-    <value>風</value>
+    <value>רוח</value>
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
-    <value>ダウンロード済み</value>
+    <value>הורד כבר</value>
     <comment>The sound is already downloaded</comment>
   </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
-    <value>戻る</value>
+    <value>תחזור</value>
     <comment>Going back to the previous page</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
-    <value>ダウンロード可</value>
+    <value>ניתן להוריד</value>
     <comment>The sound can be downloaded</comment>
   </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンドをダウンロードする</value>
+    <value>הורד צליל</value>
   </data>
   <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>サウンドをダウンロードする</value>
+    <value>הורד צליל</value>
   </data>
   <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンドカタログ</value>
+    <value>אוסף צלילים</value>
   </data>
   <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンド</value>
+    <value>צלילים</value>
     <comment>List of sounds</comment>
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
-    <value>プライバシーポリシー</value>
+    <value>מדיניות הפרטיות</value>
   </data>
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
-    <value>プライバシーポリシー</value>
+    <value>מדיניות הפרטיות</value>
   </data>
   <data name="DeleteAppBarButton.Label" xml:space="preserve">
-    <value>削除</value>
+    <value>מחק</value>
   </data>
   <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンドを削除する</value>
+    <value>מחק צליל</value>
   </data>
   <data name="DeleteTextBlock.Text" xml:space="preserve">
-    <value>削除</value>
+    <value>מחק</value>
   </data>
   <data name="DownloadTextBlock.Text" xml:space="preserve">
-    <value>ダウンロード</value>
+    <value>הורד</value>
   </data>
   <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
-    <value>ランダムサウンド再生</value>
+    <value>נגן צליל אקראי</value>
   </data>
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>ランダムサウンド再生</value>
+    <value>נגן צליל אקראי</value>
   </data>
   <data name="ScreensaverMode" xml:space="preserve">
-    <value>スクリーンセーバーモード</value>
+    <value>מצב שומר מסך</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
-    <value>スクリーンセーバー</value>
+    <value>שומר מסך</value>
   </data>
   <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>暗いページをスクリーンセーバーとして使用する</value>
+    <value>השתמש בדף כהה כשומר מסך</value>
   </data>
   <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2時間</value>
+    <value>2 שעות</value>
   </data>
   <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4時間</value>
+    <value>4 שעות</value>
   </data>
   <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8時間</value>
+    <value>8 שעות</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンドを購入する</value>
+    <value>קנה צליל</value>
   </data>
   <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンドをプレビューする</value>
+    <value>תצוגה מקדימה של צליל</value>
   </data>
   <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>サウンドをプレビューする</value>
+    <value>תצוגה מקדימה של צליל</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>一時停止中</value>
+    <value>מושהה</value>
     <comment>Sound is paused</comment>
   </data>
   <data name="Playing" xml:space="preserve">
-    <value>再生中</value>
+    <value>מנגן</value>
     <comment>Sound is playing</comment>
   </data>
   <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
-    <value>アクティブサウンド</value>
+    <value>צלילים פעילים</value>
   </data>
   <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>全てのアクティブサウンドをクリアする</value>
+    <value>נקה את כל הצלילים הפעילים</value>
   </data>
   <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>全てのアクティブサウンドをクリアする</value>
+    <value>נקה את כל הצלילים הפעילים</value>
   </data>
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>保存の確認</value>
+    <value>אשר את השמירה</value>
   </data>
   <data name="GlobalVolume" xml:space="preserve">
-    <value>メイン音量</value>
+    <value>נפח גלובלי</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
-    <value>サウンドミックス名</value>
+    <value>שם מיקס צליל</value>
   </data>
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
-    <value>任意</value>
+    <value>אופציונאלי</value>
   </data>
   <data name="RemoveActiveButton" xml:space="preserve">
-    <value>{0} をアクティブリストから削除する</value>
+    <value>הסר את {0} מהרשימה הפעילה</value>
     <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
   </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>サウンドミックスを保存する</value>
+    <value>שמור מיקס צליל מותאם אישית</value>
   </data>
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>サウンドミックスを保存する (Ctrl+S)</value>
+    <value>שמור מיקס צליל מותאם אישית (Ctrl + S)</value>
   </data>
   <data name="CancelText" xml:space="preserve">
-    <value>キャンセル</value>
+    <value>בטל</value>
   </data>
   <data name="RenameText" xml:space="preserve">
-    <value>名前を変更する</value>
+    <value>שנה שם</value>
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
-    <value>名前を変更する</value>
+    <value>שנה שם</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
-    <value>サインアウト</value>
+    <value>התנתק</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>デバイス間のサウンド同期が可能になります。</value>
+    <value>זה יאפשר סנכרון של גלריית סאונד בין המכשירים שלך.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
-    <value>アカウントオプション</value>
+    <value>הצג אפשרויות חשבון</value>
   </data>
   <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>アカウントオプション</value>
+    <value>הצג אפשרויות חשבון</value>
   </data>
   <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
-    <value>サインイン</value>
+    <value>כניסה</value>
   </data>
   <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>サインイン</value>
+    <value>כניסה</value>
   </data>
   <data name="SyncAppBarButton.Label" xml:space="preserve">
-    <value>同期</value>
+    <value>סינכרון</value>
   </data>
   <data name="Attribution" xml:space="preserve">
-    <value>帰属</value>
+    <value>ייחוס</value>
   </data>
   <data name="BrowseText" xml:space="preserve">
-    <value>ブラウズ</value>
+    <value>דפדף</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>名前</value>
+    <value>שם</value>
   </data>
   <data name="NewSound" xml:space="preserve">
-    <value>新しいサウンド</value>
+    <value>צליל חדש</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>リフレッシュ</value>
+    <value>רענן</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
   <data name="SignIn" xml:space="preserve">
-    <value>サインイン</value>
+    <value>כניסה</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>よろしいですか？</value>
+    <value>האם אתה בטוח?</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>はい</value>
+    <value>כן</value>
   </data>
   <data name="Optional" xml:space="preserve">
-    <value>任意</value>
+    <value>אופציונאלי</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>必須</value>
+    <value>נדרש</value>
   </data>
   <data name="Donate" xml:space="preserve">
-    <value>寄付する</value>
+    <value>תרום</value>
   </data>
   <data name="TermsOfUse" xml:space="preserve">
-    <value>利用規約</value>
+    <value>תנאי שימוש</value>
   </data>
   <data name="FollowTwitter" xml:space="preserve">
-    <value>Twitterでフォローする</value>
+    <value>עקבו אחרינו בטוויטר</value>
   </data>
   <data name="Dismiss" xml:space="preserve">
-    <value>閉じる</value>
+    <value>לשחרר</value>
   </data>
   <data name="FirstLaunchMessage" xml:space="preserve">
-    <value>Ambieのご利用ありがとうございます。エクスペリエンスを最大限にするために、タスクバーにピン留めしてみてください!</value>
+    <value>תודה שניסית את Ambie. לחוויה הטובה ביותר, נסה להצמיד אותנו לשורת המשימות שלך! תהנה מהשהייה המרגיעה שלך 🏝</value>
   </data>
   <data name="HelloAndWelcome" xml:space="preserve">
-    <value>ようこそ！</value>
+    <value>שלום וברוכים הבאים!</value>
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
-    <value>タスクバーにピンする</value>
+    <value>הצמד לשורת המשימות</value>
   </data>
   <data name="Transparency" xml:space="preserve">
-    <value>透明度</value>
+    <value>שקיפות</value>
   </data>
   <data name="Preview" xml:space="preserve">
-    <value>プレビュー</value>
+    <value>תצוגה מקדימה</value>
   </data>
   <data name="Catalogue" xml:space="preserve">
-    <value>カタログ</value>
+    <value>קטלוג</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>ホーム</value>
+    <value>בית</value>
   </data>
   <data name="ScreensaverOn" xml:space="preserve">
-    <value>1分後に自動起動</value>
+    <value>הפעלה אוטומטית לאחר דקה אחת</value>
   </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
-    <value>最大3つのサウンドをミックスできます</value>
+    <value>ערבב והתאם עד 3 צלילים</value>
   </data>
   <data name="ThemeSettings" xml:space="preserve">
-    <value>テーマ設定</value>
-  </data>
-  <data name="PricePerMonth" xml:space="preserve">
-    <value>月額{0}</value>
-    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
-  </data>
-  <data name="ThankYouForSub" xml:space="preserve">
-    <value>ご購入ありがとうございます！</value>
-    <comment>Thank you message shown after user purchases a subscription.</comment>
-  </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>プレミアムで高品質サウンドを取得する</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>動画スクリーンセーバーをダウンロードする</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>開発をサポートする</value>
-  </data>
-  <data name="HelloAgain" xml:space="preserve">
-    <value>こんにちは</value>
-  </data>
-  <data name="RateUsMessage" xml:space="preserve">
-    <value>Ambieを楽しんでますか？私たちを評価してください！</value>
+    <value>הגדרות נושא</value>
   </data>
   <data name="SettingsResumeOnLaunch" xml:space="preserve">
-    <value>Ambie起動時に自動再開する</value>
+    <value>המשך אוטומטי כאשר Ambie נפתח</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} לחודש</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>גישה לצלילים איכותיים ומובחרים</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>הורד שומרי מסך וידאו</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>תמיכה בפיתוח</value>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>תודה שנרשמת!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>שוב שלום 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>נהנים מ-Ambie? אנא שקול לדרג אותנו!</value>
   </data>
   <data name="SettingsDisableSmtc" xml:space="preserve">
-    <value>AmbieがWindowsメディアコントロールと統合できないようにする</value>
+    <value>מנע מאמבי להשתלב עם פקדי המדיה של Windows</value>
   </data>
   <data name="DownloadText" xml:space="preserve">
-    <value>ダウンロード</value>
+    <value>הורד</value>
   </data>
   <data name="MissingSoundsMessage" xml:space="preserve">
-    <value>これを再生するためにはいくつかのサウンドをダウンロードする必要があります。ダウンロード後にもう一度再生してみてください。ダウンロードを開始しますか？</value>
+    <value>אנחנו צריכים להוריד כמה צלילים כדי להשמיע את זה. לאחר ההורדה, נסה לשחק את זה שוב. התחל הורדה?</value>
   </data>
   <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>サウンドがありません</value>
+    <value>חסרים צלילים</value>
   </data>
   <data name="Default" xml:space="preserve">
-    <value>デフォルト</value>
+    <value>ברירת מחדל</value>
   </data>
   <data name="DeleteText" xml:space="preserve">
-    <value>削除</value>
-  </data>
-  <data name="SizeMegaByte" xml:space="preserve">
-    <value>{0} MB</value>
+    <value>מחק</value>
   </data>
   <data name="MoreScreensavers" xml:space="preserve">
-    <value>追加スクリーンセーバー</value>
+    <value>עוד שומרי מסך</value>
   </data>
   <data name="ScreensaverCatalogue" xml:space="preserve">
-    <value>スクリーンセーバーカタログ</value>
+    <value>קטלוג שומרי מסך</value>
   </data>
   <data name="ViewPremiumInfo" xml:space="preserve">
-    <value>プレミアム情報</value>
+    <value>הצג מידע פרימיום</value>
   </data>
   <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>雲</value>
+    <value>עננים</value>
   </data>
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>カラフルな煙</value>
+    <value>עשן צבעוני</value>
   </data>
   <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>オクトグラム</value>
+    <value>אוקטגרמות</value>
   </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>スクリーンセーバー表示で問題が発生しました。Ambie再起動を試しても改善しない場合には、お問い合わせください。</value>
+    <value>הייתה בעיה בהצגת שומר המסך. נסה להפעיל מחדש את Ambie, או צור איתנו קשר אם הבעיה נמשכת.</value>
   </data>
   <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>問題を報告する</value>
+    <value>דווח על הבעיה</value>
   </data>
   <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>レンダリングエラー</value>
+    <value>שגיאת רינדור</value>
   </data>
   <data name="ToggleFullscreen" xml:space="preserve">
-    <value>全画面表示切り替え</value>
+    <value>החלף מסך מלא</value>
   </data>
 </root>
