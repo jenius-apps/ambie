@@ -58,7 +58,7 @@
     <value>問い合わせ</value>
   </data>
   <data name="RateUsText" xml:space="preserve">
-    <value>私たちを評価する</value>
+    <value>評価</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>設定</value>

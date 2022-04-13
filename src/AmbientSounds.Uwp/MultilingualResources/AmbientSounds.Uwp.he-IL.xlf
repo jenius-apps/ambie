@@ -66,18 +66,6 @@
           <source>Contact the creator</source>
           <target state="translated">צור קשר עם היוצר</target>
         </trans-unit>
-        <trans-unit id="MoreButtonDiscord.Label" translate="yes" xml:space="preserve">
-          <source>Chat on Discord</source>
-          <target state="translated">צ'אט ב-Discord</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonGitHub.Label" translate="yes" xml:space="preserve">
-          <source>View GitHub</source>
-          <target state="translated">הצג את GitHub</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonRate.Label" translate="yes" xml:space="preserve">
-          <source>Rate us</source>
-          <target state="translated">דרג אותנו</target>
-        </trans-unit>
         <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">הגדרות</target>
@@ -619,6 +607,18 @@
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
           <target state="needs-review-translation">החלף מסך מלא</target>
+        </trans-unit>
+        <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
+          <source>Rate us</source>
+          <target state="new">Rate us</target>
+        </trans-unit>
+        <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
+          <source>Get Ambie Plus</source>
+          <target state="new">Get Ambie Plus</target>
+        </trans-unit>
+        <trans-unit id="FocusText" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="new">Focus</target>
         </trans-unit>
       </group>
     </body>

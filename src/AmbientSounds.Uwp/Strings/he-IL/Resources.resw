@@ -57,15 +57,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>צור קשר עם היוצר</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>צ'אט ב-Discord</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>הצג את GitHub</value>
-  </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
-    <value>דרג אותנו</value>
-  </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>הגדרות</value>
   </data>
