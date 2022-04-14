@@ -108,16 +108,24 @@ namespace AmbientSounds
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             await ActivateAsync(e.PrelaunchActivated);
+            if(e.Kind == ActivationKind.Protocol)
+            {
+                HandleProtocolLaunch((ProtocolActivatedEventArgs)(IActivatedEventArgs)e);
+            }
         }
 
         /// <inheritdoc/>
         protected override async void OnActivated(IActivatedEventArgs args)
         {
-
             if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
             {
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
                 await ActivateAsync(false);
+            }
+            else if(args is ProtocolActivatedEventArgs protocolActivatedEventArgs)
+            {
+                await ActivateAsync(false);
+                HandleProtocolLaunch(protocolActivatedEventArgs);
             }
         }
 
@@ -206,6 +214,12 @@ namespace AmbientSounds
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
             await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
+        }
+
+        private void HandleProtocolLaunch(ProtocolActivatedEventArgs protocolArgs)
+        {
+            var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
+            Services.GetService<ProtocolLaunchController>()?.ProcessProtocolArguments(arg);
         }
 
         private void SetMinSize()
@@ -322,6 +336,7 @@ namespace AmbientSounds
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddSingleton<AppServiceController>()
+                .AddSingleton<ProtocolLaunchController>()
                 // object tree is all transient
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IImagePicker, ImagePicker>()
@@ -368,6 +383,7 @@ namespace AmbientSounds
             // preload appservice controller to ensure its
             // dispatcher queue loads properly on the ui thread.
             provider.GetService<AppServiceController>();
+            provider.GetService<ProtocolLaunchController>();
             _playerTracker = provider.GetRequiredService<PlayerTelemetryTracker>();
             return provider;
         }
