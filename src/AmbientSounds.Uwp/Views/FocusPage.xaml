@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Views.FocusPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -44,13 +45,12 @@
                                 Margin="12,24,12,0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="Focus length" />
-                            <Slider
-                                Margin="12,4,12,0"
-                                HorizontalAlignment="Stretch"
+
+                            <controls:TimerSlider
+                                Margin="12,0,0,0"
                                 Maximum="60"
                                 StepFrequency="5"
                                 TickFrequency="15"
-                                TickPlacement="TopLeft"
                                 Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
 
                             <TextBlock
@@ -58,14 +58,12 @@
                                 Margin="12,24,12,0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="Rest length" />
-                            <Slider
-                                Margin="12,4,12,0"
-                                HorizontalAlignment="Stretch"
-                                AutomationProperties.LabeledBy="{x:Bind BreakLength}"
+
+                            <controls:TimerSlider
+                                Margin="12,0,0,0"
                                 Maximum="60"
                                 StepFrequency="5"
                                 TickFrequency="15"
-                                TickPlacement="TopLeft"
                                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
 
                             <TextBlock
@@ -73,13 +71,11 @@
                                 Margin="12,24,12,0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="Repetitions" />
-                            <Slider
-                                Margin="12,4,12,0"
-                                HorizontalAlignment="Stretch"
-                                AutomationProperties.LabeledBy="{x:Bind Repeats}"
+
+                            <controls:TimerSlider
+                                Margin="12,0,0,0"
                                 Maximum="8"
                                 TickFrequency="2"
-                                TickPlacement="TopLeft"
                                 Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
 
                             <TextBlock
