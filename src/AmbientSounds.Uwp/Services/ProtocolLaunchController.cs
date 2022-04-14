@@ -19,6 +19,7 @@ namespace AmbientSounds.Services
             INavigator navigator)
         {
             Guard.IsNotNull(player, nameof(player));
+            Guard.IsNotNull(navigator, nameof(navigator));
 
             _player = player;
             _navigator = navigator;
