@@ -19,6 +19,7 @@
         <Slider
             Margin="0,4,12,0"
             HorizontalAlignment="Stretch"
+            IsEnabled="{x:Bind IsEnabled, Mode=OneWay}"
             Maximum="{x:Bind Maximum, Mode=OneWay}"
             StepFrequency="{x:Bind StepFrequency, Mode=OneWay}"
             TickFrequency="{x:Bind TickFrequency, Mode=OneWay}"

@@ -120,6 +120,8 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        public bool SlidersEnabled => _focusService.CurrentState == FocusState.None;
+
         public bool PlayVisible => _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
 
         public bool PauseVisible => _focusService.CurrentState == FocusState.Active;
@@ -154,6 +156,7 @@ namespace AmbientSounds.ViewModels
 
         private void UpdateButtonVisibilities()
         {
+            OnPropertyChanged(nameof(SlidersEnabled));
             OnPropertyChanged(nameof(PlayVisible));
             OnPropertyChanged(nameof(PauseVisible));
             OnPropertyChanged(nameof(CancelVisible));
