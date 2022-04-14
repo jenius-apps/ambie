@@ -24,7 +24,7 @@ namespace AmbientSounds.Services
             _navigator = navigator;
         }
 
-        public void ProcessProtocolArguments(string arguments)
+        public void ProcessLaunchProtocolArguments(string arguments)
         {
             var query = QueryString.Parse(arguments);
             query.TryGetValue(CompactKey, out var isCompact);

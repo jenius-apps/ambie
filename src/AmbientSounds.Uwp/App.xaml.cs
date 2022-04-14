@@ -218,8 +218,20 @@ namespace AmbientSounds
 
         private void HandleProtocolLaunch(ProtocolActivatedEventArgs protocolArgs)
         {
-            var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
-            Services.GetService<ProtocolLaunchController>()?.ProcessProtocolArguments(arg);
+            try
+            {
+                var uri = protocolArgs.Uri;
+
+                if(uri.Host == "launch")
+                {
+                    var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
+                    Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
+                }
+            }
+            catch (UriFormatException)
+            {
+                // An invalid Uri may have been passed in.
+            }
         }
 
         private void SetMinSize()
