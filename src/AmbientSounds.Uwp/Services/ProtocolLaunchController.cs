@@ -1,7 +1,6 @@
 ﻿using Microsoft.QueryStringDotNET;
 using Microsoft.Toolkit.Diagnostics;
 using System;
-using Windows.System;
 
 #nullable enable
 
@@ -11,10 +10,9 @@ namespace AmbientSounds.Services
     {
         private readonly IMixMediaPlayerService _player;
         private readonly INavigator _navigator;
-        private readonly DispatcherQueue _dispatcherQueue;
 
         private const string CompactKey = "compact";
-        private const string AutoPlayKey = "autoplay";
+        private const string AutoPlayKey = "autoPlay";
 
         public ProtocolLaunchController(
             IMixMediaPlayerService player,
@@ -24,7 +22,6 @@ namespace AmbientSounds.Services
 
             _player = player;
             _navigator = navigator;
-            _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
         }
 
         public void ProcessProtocolArguments(string arguments)
