@@ -8,10 +8,9 @@ namespace AmbientSounds.Services
     public class FocusService : IFocusService
     {
         private readonly ITimerService _timerService;
+        private readonly Queue<FocusSession> _sessionQueue = new();
 
         public event EventHandler<FocusSession>? TimeUpdated;
-
-        private readonly Queue<FocusSession> _sessionQueue = new();
 
         public FocusService(ITimerService timerService)
         {
@@ -22,7 +21,7 @@ namespace AmbientSounds.Services
             _timerService.IntervalElapsed += OnIntervalElapsed;
         }
 
-        public FocusSession CurrentSession { get; private set; } = new FocusSession(SessionType.None, TimeSpan.Zero);
+        public FocusSession CurrentSession { get; private set; } = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
 
         public FocusState CurrentState { get; private set; } = FocusState.None;
 
@@ -36,10 +35,23 @@ namespace AmbientSounds.Services
             _timerService.Stop();
             _sessionQueue.Clear();
 
+            int queueSize = (repetitions + 1) * 2;
+            int queuePosition = 0;
+
             while (repetitions >= 0)
             {
-                _sessionQueue.Enqueue(new FocusSession(SessionType.Focus, TimeSpan.FromMinutes(focusLength)));
-                _sessionQueue.Enqueue(new FocusSession(SessionType.Rest, TimeSpan.FromMinutes(restLength)));
+                _sessionQueue.Enqueue(new FocusSession(
+                    SessionType.Focus,
+                    TimeSpan.FromMinutes(focusLength),
+                    queuePosition++,
+                    queueSize));
+
+                _sessionQueue.Enqueue(new FocusSession(
+                    SessionType.Rest,
+                    TimeSpan.FromMinutes(restLength),
+                    queuePosition++,
+                    queueSize));
+
                 repetitions -= 1;
             }
 
@@ -58,7 +70,7 @@ namespace AmbientSounds.Services
         public void StopTimer()
         {
             _timerService.Stop();
-            CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero);
+            CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
             TimeUpdated?.Invoke(this, CurrentSession);
             CurrentState = FocusState.None;
         }
@@ -85,9 +97,20 @@ namespace AmbientSounds.Services
             return TimeSpan.FromMinutes((focusLength + restLength) * repetitions);
         }
 
+        public int GetRepetitionsRemaining(FocusSession session)
+        {
+            if (session is null || session.QueueSize <= session.QueuePosition)
+            {
+                return 0;
+            }
+
+            return (int)(Math.Ceiling((session.QueueSize - session.QueuePosition) / 2d) - 1);
+        }
+
         private void OnIntervalElapsed(object sender, TimeSpan remaining)
         {
-            TimeUpdated?.Invoke(this, new FocusSession(CurrentSession.SessionType, remaining));
+            CurrentSession.Remaining = remaining;
+            TimeUpdated?.Invoke(this, CurrentSession);
 
             if (remaining == TimeSpan.Zero)
             {
@@ -117,5 +140,22 @@ namespace AmbientSounds.Services
         Rest
     }
 
-    public record FocusSession(SessionType SessionType, TimeSpan Remaining);
+    public class FocusSession
+    {
+        public FocusSession(SessionType sessionType, TimeSpan remaining, int queuePosition, int queueSize)
+        {
+            SessionType = sessionType;
+            Remaining = remaining;
+            QueuePosition = queuePosition;
+            QueueSize = queueSize;
+        }
+
+        public SessionType SessionType { get; }
+
+        public TimeSpan Remaining { get; set; }
+
+        public int QueueSize { get; }
+
+        public int QueuePosition { get; }
+    }
 }

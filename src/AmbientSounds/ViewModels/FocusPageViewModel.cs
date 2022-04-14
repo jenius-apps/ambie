@@ -29,8 +29,33 @@ namespace AmbientSounds.ViewModels
 
         private void OnTimeUpdated(object sender, FocusSession e)
         {
+            if (e.SessionType == SessionType.None)
+            {
+                // reset
+                FocusLengthRemaining = FocusLength;
+                RestLengthRemaining = RestLength;
+                RepetitionsRemaining = Repetitions;
+                CurrentTimeRemaining = string.Empty;
+                CurrentStatus = string.Empty;
+
+                return;
+            }
+
             CurrentTimeRemaining = e.Remaining.ToString(@"mm\:ss");
             CurrentStatus = e.SessionType.ToString();
+
+            if (e.SessionType == SessionType.Focus)
+            {
+                FocusLengthRemaining = e.Remaining.Minutes;
+                RestLengthRemaining = RestLength;
+            }
+            else if (e.SessionType == SessionType.Rest)
+            {
+                FocusLengthRemaining = 0;
+                RestLengthRemaining = e.Remaining.Minutes;
+            }
+
+            RepetitionsRemaining = _focusService.GetRepetitionsRemaining(e);
         }
 
         public int FocusLength

@@ -14,5 +14,6 @@ namespace AmbientSounds.Services
         void ResumeTimer();
         void StartTimer(int focusLength, int restLength, int repetitions);
         void StopTimer();
+        int GetRepetitionsRemaining(FocusSession session);
     }
 }
