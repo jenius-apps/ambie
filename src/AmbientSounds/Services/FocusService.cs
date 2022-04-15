@@ -8,14 +8,19 @@ namespace AmbientSounds.Services
     public class FocusService : IFocusService
     {
         private readonly ITimerService _timerService;
+        private readonly IFocusToastService _focusToastService;
         private readonly Queue<FocusSession> _sessionQueue = new();
 
         public event EventHandler<FocusSession>? TimeUpdated;
 
-        public FocusService(ITimerService timerService)
+        public FocusService(
+            ITimerService timerService,
+            IFocusToastService focusToastService)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
+            Guard.IsNotNull(focusToastService, nameof(focusToastService));
             _timerService = timerService;
+            _focusToastService = focusToastService;
 
             _timerService.Interval = 1000;
             _timerService.IntervalElapsed += OnIntervalElapsed;
@@ -54,6 +59,8 @@ namespace AmbientSounds.Services
 
                 repetitions -= 1;
             }
+
+            _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now);
 
             CurrentSession = _sessionQueue.Dequeue();
             _timerService.Remaining = CurrentSession.Remaining;

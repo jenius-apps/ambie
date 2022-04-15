@@ -227,6 +227,7 @@
     <Compile Include="Services\ScreensaverService.cs" />
     <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
+    <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\WindowsDownloadManager.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
     <Compile Include="Strings\en-US\Resources.generated.cs">
@@ -508,6 +509,9 @@
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Connectivity">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
       <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
