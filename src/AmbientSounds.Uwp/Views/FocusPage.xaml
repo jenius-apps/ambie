@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
@@ -16,7 +17,7 @@
         </Grid.ColumnDefinitions>
 
         <ScrollViewer>
-            <StackPanel Margin="0,0,16,0">
+            <StackPanel Margin="0,0,16,40">
                 <Border
                     Height="400"
                     HorizontalAlignment="Stretch"
@@ -207,20 +208,26 @@
                 Orientation="Horizontal"
                 Spacing="4">
                 <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
                     Click="{x:Bind ViewModel.Start}"
                     Style="{StaticResource SubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.StartTimer}"
                     Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
                 </Button>
                 <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.PauseTimer}"
                     Click="{x:Bind ViewModel.Pause}"
                     Style="{StaticResource SubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.PauseTimer}"
                     Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPause}" />
                 </Button>
                 <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.StopTimer}"
                     Click="{x:Bind ViewModel.Stop}"
                     Style="{StaticResource SubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.StopTimer}"
                     Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancel}" />
                 </Button>

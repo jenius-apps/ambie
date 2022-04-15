@@ -1015,6 +1015,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region PauseTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Pause timer
+        /// </summary>
+        public static string PauseTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("PauseTimer");
+            }
+        }
+        #endregion
+
+        #region StartTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Start timer
+        /// </summary>
+        public static string StartTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("StartTimer");
+            }
+        }
+        #endregion
+
+        #region StopTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Stop timer
+        /// </summary>
+        public static string StopTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("StopTimer");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1103,6 +1142,9 @@ namespace AmbientSounds.Strings{
             ToggleFullscreen,
             GetAmbiePlus,
             FocusText,
+            PauseTimer,
+            StartTimer,
+            StopTimer,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -631,6 +631,18 @@
           <source>Focus</source>
           <target state="new">Focus</target>
         </trans-unit>
+        <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
+          <source>Pause timer</source>
+          <target state="new">Pause timer</target>
+        </trans-unit>
+        <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
+          <source>Start timer</source>
+          <target state="new">Start timer</target>
+        </trans-unit>
+        <trans-unit id="StopTimer" translate="yes" xml:space="preserve">
+          <source>Stop timer</source>
+          <target state="new">Stop timer</target>
+        </trans-unit>
       </group>
     </body>
   </file>

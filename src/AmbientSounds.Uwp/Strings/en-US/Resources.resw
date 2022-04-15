@@ -580,4 +580,13 @@
   <data name="FocusText" xml:space="preserve">
     <value>Focus</value>
   </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Pause timer</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Start timer</value>
+  </data>
+  <data name="StopTimer" xml:space="preserve">
+    <value>Stop timer</value>
+  </data>
 </root>
