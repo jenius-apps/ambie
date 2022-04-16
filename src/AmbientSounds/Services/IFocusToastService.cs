@@ -5,6 +5,8 @@ namespace AmbientSounds.Services
 {
     public interface IFocusToastService
     {
-        void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start);
+        void ClearToasts();
+
+        void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start, bool showStartToast = false);
     }
 }

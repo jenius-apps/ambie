@@ -60,7 +60,7 @@ namespace AmbientSounds.Services
                 repetitions -= 1;
             }
 
-            _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now);
+            _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now, showStartToast: true);
 
             CurrentSession = _sessionQueue.Dequeue();
             _timerService.Remaining = CurrentSession.Remaining;
@@ -71,12 +71,14 @@ namespace AmbientSounds.Services
         public void PauseTimer()
         {
             _timerService.Stop();
+            _focusToastService.ClearToasts();
             CurrentState = FocusState.Paused;
         }
 
         public void StopTimer()
         {
             _timerService.Stop();
+            _focusToastService.ClearToasts();
             CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
             TimeUpdated?.Invoke(this, CurrentSession);
             CurrentState = FocusState.None;
@@ -86,7 +88,11 @@ namespace AmbientSounds.Services
         {
             if (_timerService.Remaining > TimeSpan.Zero)
             {
+                var sessions = new List<FocusSession>() { CurrentSession };
+                sessions.AddRange(_sessionQueue);
+
                 _timerService.Start();
+                _focusToastService.ScheduleToasts(sessions, DateTime.Now);
                 CurrentState = FocusState.Active;
             }
         }

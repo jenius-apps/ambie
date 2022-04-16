@@ -16,16 +16,26 @@ namespace AmbientSounds.Services
             _toastService = toastService;
         }
 
-        public void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start)
+        public void ClearToasts()
         {
             _toastService.ClearScheduledToasts();
-            _toastService.SendToast("Starting focus session", "We'll let you know when it's time to rest!");
+        }
+
+        public void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start, bool showStartToast)
+        {
+            _toastService.ClearScheduledToasts();
+
+            if (showStartToast)
+            {
+                _toastService.SendToast("Starting focus session", "We'll let you know when it's time to rest!");
+            }
 
             var current = start;
             foreach (var session in orderedSessions)
             {
-                current = current.AddMinutes(session.Remaining.Minutes);
+                current = current.AddTicks(session.Remaining.Ticks);
 
+                // TODO need to schedule toasts using a group id so that they can be cancelled without cancelling others.
                 if (session.QueuePosition == session.QueueSize - 1)
                 {
                     _toastService.ScheduleToast(current, "Focus session complete", "Great job focusing!");

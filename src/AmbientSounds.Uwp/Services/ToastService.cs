@@ -21,8 +21,14 @@ namespace AmbientSounds.Services.Uwp
 
         public void ScheduleToast(DateTime scheduleDateTime, string title, string message)
         {
+            if (scheduleDateTime <= DateTime.Now)
+            {
+                return;
+            }
+
             new ToastContentBuilder()
                 .SetToastScenario(ToastScenario.Alarm)
+                .AddButton(new ToastButtonDismiss())
                 .AddText(title)
                 .AddText(message)
                 .Schedule(scheduleDateTime);
