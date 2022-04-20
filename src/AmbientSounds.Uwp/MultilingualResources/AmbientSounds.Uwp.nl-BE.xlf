@@ -639,6 +639,34 @@
           <source>Stop timer</source>
           <target state="new">Stop timer</target>
         </trans-unit>
+        <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
+          <source>Well done!</source>
+          <target state="new">Well done!</target>
+        </trans-unit>
+        <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
+          <source>Focus session complete</source>
+          <target state="new">Focus session complete</target>
+        </trans-unit>
+        <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
+          <source>Time to focus</source>
+          <target state="new">Time to focus</target>
+        </trans-unit>
+        <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
+          <source>Time to rest</source>
+          <target state="new">Time to rest</target>
+        </trans-unit>
+        <trans-unit id="FocusSessionStartMessage" translate="yes" xml:space="preserve">
+          <source>We'll let you know when it's time to rest!</source>
+          <target state="new">We'll let you know when it's time to rest!</target>
+        </trans-unit>
+        <trans-unit id="FocusSessionStartTitle" translate="yes" xml:space="preserve">
+          <source>Starting focus session</source>
+          <target state="new">Starting focus session</target>
+        </trans-unit>
+        <trans-unit id="RestText" translate="yes" xml:space="preserve">
+          <source>Rest</source>
+          <target state="new">Rest</target>
+        </trans-unit>
       </group>
     </body>
   </file>

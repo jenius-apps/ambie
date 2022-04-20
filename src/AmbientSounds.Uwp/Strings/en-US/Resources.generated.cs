@@ -1054,6 +1054,97 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region FocusSessionCompleteMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Well done!
+        /// </summary>
+        public static string FocusSessionCompleteMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionCompleteMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionCompleteTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus session complete
+        /// </summary>
+        public static string FocusSessionCompleteTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionCompleteTitle");
+            }
+        }
+        #endregion
+
+        #region FocusSessionFocusMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Time to focus
+        /// </summary>
+        public static string FocusSessionFocusMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionFocusMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionRestMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Time to rest
+        /// </summary>
+        public static string FocusSessionRestMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionRestMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionStartMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: We'll let you know when it's time to rest!
+        /// </summary>
+        public static string FocusSessionStartMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionStartMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionStartTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Starting focus session
+        /// </summary>
+        public static string FocusSessionStartTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionStartTitle");
+            }
+        }
+        #endregion
+
+        #region RestText
+        /// <summary>
+        ///   Looks up a localized string similar to: Rest
+        /// </summary>
+        public static string RestText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RestText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1145,6 +1236,13 @@ namespace AmbientSounds.Strings{
             PauseTimer,
             StartTimer,
             StopTimer,
+            FocusSessionCompleteMessage,
+            FocusSessionCompleteTitle,
+            FocusSessionFocusMessage,
+            FocusSessionRestMessage,
+            FocusSessionStartMessage,
+            FocusSessionStartTitle,
+            RestText,
         }
 
         private static ResourceLoader _resourceLoader;
