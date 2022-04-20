@@ -37,6 +37,7 @@ namespace AmbientSounds.ViewModels
                 RepetitionsRemaining = Repetitions;
                 CurrentTimeRemaining = string.Empty;
                 CurrentStatus = string.Empty;
+                UpdateButtonVisibilities();
 
                 return;
             }
@@ -56,6 +57,7 @@ namespace AmbientSounds.ViewModels
             }
 
             RepetitionsRemaining = _focusService.GetRepetitionsRemaining(e);
+            UpdateButtonVisibilities();
         }
 
         public int FocusLength
