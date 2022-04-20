@@ -135,6 +135,10 @@ namespace AmbientSounds.Services
                     _timerService.Remaining = CurrentSession.Remaining;
                     _timerService.Start();
                 }
+                else
+                {
+                    StopTimer();
+                }
             }
         }
     }
