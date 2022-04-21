@@ -25,39 +25,7 @@ namespace AmbientSounds.ViewModels
             _focusService = focusService;
 
             _focusService.TimeUpdated += OnTimeUpdated;
-        }
-
-        private void OnTimeUpdated(object sender, FocusSession e)
-        {
-            if (e.SessionType == SessionType.None)
-            {
-                // reset
-                FocusLengthRemaining = FocusLength;
-                RestLengthRemaining = RestLength;
-                RepetitionsRemaining = Repetitions;
-                CurrentTimeRemaining = string.Empty;
-                CurrentStatus = string.Empty;
-                UpdateButtonVisibilities();
-
-                return;
-            }
-
-            CurrentTimeRemaining = e.Remaining.ToString(@"mm\:ss");
-            CurrentStatus = e.SessionType.ToString();
-
-            if (e.SessionType == SessionType.Focus)
-            {
-                FocusLengthRemaining = e.Remaining.Minutes;
-                RestLengthRemaining = RestLength;
-            }
-            else if (e.SessionType == SessionType.Rest)
-            {
-                FocusLengthRemaining = 0;
-                RestLengthRemaining = e.Remaining.Minutes;
-            }
-
-            RepetitionsRemaining = _focusService.GetRepetitionsRemaining(e);
-            UpdateButtonVisibilities();
+            _focusService.FocusStateChanged += OnFocusStateChanged;
         }
 
         public int FocusLength
@@ -187,6 +155,44 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(PlayVisible));
             OnPropertyChanged(nameof(PauseVisible));
             OnPropertyChanged(nameof(CancelVisible));
+        }
+
+        private void OnFocusStateChanged(object sender, FocusState e)
+        {
+            UpdateButtonVisibilities();
+        }
+
+        private void OnTimeUpdated(object sender, FocusSession e)
+        {
+            if (e.SessionType == SessionType.None)
+            {
+                // reset
+                FocusLengthRemaining = FocusLength;
+                RestLengthRemaining = RestLength;
+                RepetitionsRemaining = Repetitions;
+                CurrentTimeRemaining = string.Empty;
+                CurrentStatus = string.Empty;
+                UpdateButtonVisibilities();
+
+                return;
+            }
+
+            CurrentTimeRemaining = e.Remaining.ToString(@"mm\:ss");
+            CurrentStatus = e.SessionType.ToString();
+
+            if (e.SessionType == SessionType.Focus)
+            {
+                FocusLengthRemaining = e.Remaining.Minutes;
+                RestLengthRemaining = RestLength;
+            }
+            else if (e.SessionType == SessionType.Rest)
+            {
+                FocusLengthRemaining = 0;
+                RestLengthRemaining = e.Remaining.Minutes;
+            }
+
+            RepetitionsRemaining = _focusService.GetRepetitionsRemaining(e);
+            UpdateButtonVisibilities();
         }
     }
 }

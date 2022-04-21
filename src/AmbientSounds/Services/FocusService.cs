@@ -1,7 +1,6 @@
 ﻿using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AmbientSounds.Services
 {
@@ -9,26 +8,41 @@ namespace AmbientSounds.Services
     {
         private readonly ITimerService _timerService;
         private readonly IFocusToastService _focusToastService;
+        private readonly IMixMediaPlayerService _mixMediaPlayerService;
         private readonly Queue<FocusSession> _sessionQueue = new();
+        private FocusState _focusState = FocusState.None;
 
         public event EventHandler<FocusSession>? TimeUpdated;
+        public event EventHandler<FocusState>? FocusStateChanged;
 
         public FocusService(
             ITimerService timerService,
-            IFocusToastService focusToastService)
+            IFocusToastService focusToastService,
+            IMixMediaPlayerService mixMediaPlayerService)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
             Guard.IsNotNull(focusToastService, nameof(focusToastService));
+            Guard.IsNotNull(mixMediaPlayerService, nameof(mixMediaPlayerService));
             _timerService = timerService;
             _focusToastService = focusToastService;
+            _mixMediaPlayerService = mixMediaPlayerService;
 
             _timerService.Interval = 1000;
             _timerService.IntervalElapsed += OnIntervalElapsed;
+            _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackStateChanged;
         }
 
         public FocusSession CurrentSession { get; private set; } = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
 
-        public FocusState CurrentState { get; private set; } = FocusState.None;
+        public FocusState CurrentState
+        {
+            get => _focusState;
+            set
+            {
+                _focusState = value;
+                FocusStateChanged?.Invoke(this, _focusState);
+            }
+        }
 
         public void StartTimer(int focusLength, int restLength, int repetitions)
         {
@@ -139,6 +153,18 @@ namespace AmbientSounds.Services
                 {
                     StopTimer();
                 }
+            }
+        }
+
+        private void OnPlaybackStateChanged(object sender, MediaPlaybackState e)
+        {
+            if (e == MediaPlaybackState.Playing && CurrentState == FocusState.Paused)
+            {
+                ResumeTimer();
+            }
+            else if (e == MediaPlaybackState.Paused && CurrentState == FocusState.Active)
+            {
+                PauseTimer();
             }
         }
     }

@@ -7,6 +7,7 @@ namespace AmbientSounds.Services
     public interface IFocusService
     {
         event EventHandler<FocusSession>? TimeUpdated;
+        event EventHandler<FocusState>? FocusStateChanged;
 
         FocusState CurrentState { get; }
         TimeSpan GetTotalTime(int focusLength, int restLength, int repetitions);

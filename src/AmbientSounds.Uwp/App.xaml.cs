@@ -75,7 +75,7 @@ namespace AmbientSounds
                 // We don't support focus sessions when ambie is suspended,
                 // and we want to make sure notifications are cancelled.
                 // Note: If music is playing, then ambie won't suspend on minimize.
-                focusService.StopTimer();
+                focusService.PauseTimer();
             }
             deferral.Complete();
         }
