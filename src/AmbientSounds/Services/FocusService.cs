@@ -80,6 +80,21 @@ namespace AmbientSounds.Services
             _timerService.Remaining = CurrentSession.Remaining;
             _timerService.Start();
             CurrentState = FocusState.Active;
+
+            PlaySounds();
+        }
+
+        private void PlaySounds()
+        {
+            var sounds = _mixMediaPlayerService.GetSoundIds();
+            if (sounds.Length > 0)
+            {
+                _mixMediaPlayerService.Play();
+            }
+            else
+            {
+                _ = _mixMediaPlayerService.PlayRandomAsync();
+            }
         }
 
         public void PauseTimer()
@@ -108,6 +123,7 @@ namespace AmbientSounds.Services
                 _timerService.Start();
                 _focusToastService.ScheduleToasts(sessions, DateTime.Now);
                 CurrentState = FocusState.Active;
+                PlaySounds();
             }
         }
 

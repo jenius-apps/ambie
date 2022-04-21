@@ -29,6 +29,11 @@ namespace AmbientSounds.Services
         Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[]? soundIds = null);
 
         /// <summary>
+        /// Retrieves a random sound.
+        /// </summary>
+        Task<Sound> GetRandomSoundAsync();
+
+        /// <summary>
         /// Retrieves list of cached local sounds.
         /// </summary>
         Task<IList<Sound>> GetLocalSoundsAsync();

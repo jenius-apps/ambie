@@ -26,6 +26,7 @@ namespace AmbientSounds.Services.Uwp
         private readonly SystemMediaTransportControls _smtc;
         private readonly DispatcherQueue _dispatcherQueue;
         private readonly IUserSettings _userSettings;
+        private readonly ISoundDataProvider _soundDataProvider;
 
         /// <inheritdoc/>
         public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -39,10 +40,15 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
-        public MixMediaPlayerService(IUserSettings userSettings)
+        public MixMediaPlayerService(
+            IUserSettings userSettings,
+            ISoundDataProvider soundDataProvider)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
+            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+
             _userSettings = userSettings;
+            _soundDataProvider = soundDataProvider;
             _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
@@ -144,6 +150,14 @@ namespace AmbientSounds.Services.Uwp
         public bool IsSoundPlaying(string soundId)
         {
             return !string.IsNullOrWhiteSpace(soundId) && _activePlayers.ContainsKey(soundId);
+        }
+
+        /// <inheritdoc/>
+        public async Task PlayRandomAsync()
+        {
+            RemoveAll();
+            var sound = await _soundDataProvider.GetRandomSoundAsync();
+            await ToggleSoundAsync(sound);
         }
 
         /// <inheritdoc/>
@@ -256,12 +270,6 @@ namespace AmbientSounds.Services.Uwp
             {
                 RemoveSound(soundId);
             }
-        }
-
-        /// <inheritdoc/>
-        public IList<string> GetActiveIds()
-        {
-            return _activePlayers.Keys.ToArray();
         }
 
         /// <inheritdoc/>
