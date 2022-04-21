@@ -133,20 +133,16 @@ namespace AmbientSounds.ViewModels
             {
                 _focusService.StartTimer(FocusLength, RestLength, Repetitions);
             }
-
-            UpdateButtonVisibilities();
         }
 
         public void Pause()
         {
             _focusService.PauseTimer();
-            UpdateButtonVisibilities();
         }
 
         public void Stop()
         {
             _focusService.StopTimer();
-            UpdateButtonVisibilities();
         }
 
         private void UpdateButtonVisibilities()
