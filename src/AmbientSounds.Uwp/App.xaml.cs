@@ -123,7 +123,7 @@ namespace AmbientSounds
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
                 await ActivateAsync(false);
             }
-            else if (args is ProtocolActivatedEventArgs protocolActivatedEventArgs)
+            else if (args is IProtocolActivatedEventArgs protocolActivatedEventArgs)
             {
                 await ActivateAsync(false);
                 HandleProtocolLaunch(protocolActivatedEventArgs);
