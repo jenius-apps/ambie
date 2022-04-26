@@ -108,9 +108,10 @@ namespace AmbientSounds
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             await ActivateAsync(e.PrelaunchActivated);
-            if (e.Kind == ActivationKind.Protocol)
+            if (e is IActivatedEventArgs activatedEventArgs
+                && activatedEventArgs is IProtocolActivatedEventArgs protocolArgs)
             {
-                HandleProtocolLaunch((ProtocolActivatedEventArgs)(IActivatedEventArgs)e);
+                HandleProtocolLaunch(protocolArgs);
             }
         }
 
@@ -216,7 +217,7 @@ namespace AmbientSounds
             await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
         }
 
-        private void HandleProtocolLaunch(ProtocolActivatedEventArgs protocolArgs)
+        private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
         {
             try
             {
