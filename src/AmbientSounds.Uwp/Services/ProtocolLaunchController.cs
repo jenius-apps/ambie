@@ -37,7 +37,7 @@ namespace AmbientSounds.Services
                 _navigator.ToCompact();
             }
 
-            if(!string.IsNullOrEmpty(isAutoPlay) && Convert.ToBoolean(isAutoPlay))
+            if (!string.IsNullOrEmpty(isAutoPlay) && Convert.ToBoolean(isAutoPlay))
             {
                 // Auto play music.
                 _player.Play();

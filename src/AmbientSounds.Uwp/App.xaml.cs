@@ -108,7 +108,7 @@ namespace AmbientSounds
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             await ActivateAsync(e.PrelaunchActivated);
-            if(e.Kind == ActivationKind.Protocol)
+            if (e.Kind == ActivationKind.Protocol)
             {
                 HandleProtocolLaunch((ProtocolActivatedEventArgs)(IActivatedEventArgs)e);
             }
@@ -122,7 +122,7 @@ namespace AmbientSounds
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
                 await ActivateAsync(false);
             }
-            else if(args is ProtocolActivatedEventArgs protocolActivatedEventArgs)
+            else if (args is ProtocolActivatedEventArgs protocolActivatedEventArgs)
             {
                 await ActivateAsync(false);
                 HandleProtocolLaunch(protocolActivatedEventArgs);
@@ -222,7 +222,7 @@ namespace AmbientSounds
             {
                 var uri = protocolArgs.Uri;
 
-                if(uri.Host == "launch")
+                if (uri.Host == "launch")
                 {
                     var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
                     Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
