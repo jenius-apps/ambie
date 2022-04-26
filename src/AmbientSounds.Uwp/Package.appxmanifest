@@ -49,9 +49,14 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true" xmlns:a="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"  BackgroundColor="black"/>
       </uap:VisualElements>
       <Extensions>
-		<uap:Extension Category="windows.appService">
-			<uap:AppService Name="com.jeniusapps.ambie" />
-		</uap:Extension>
+		    <uap:Extension Category="windows.appService">
+			    <uap:AppService Name="com.jeniusapps.ambie" />
+		    </uap:Extension>
+		    <uap:Extension Category="windows.protocol" EntryPoint="AmbientSounds.App">
+		      <uap:Protocol Name="ambie">
+		        <uap:DisplayName>AmbientSounds</uap:DisplayName>
+		      </uap:Protocol>
+		    </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
