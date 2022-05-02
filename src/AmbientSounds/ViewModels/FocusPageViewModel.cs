@@ -13,6 +13,8 @@ namespace AmbientSounds.ViewModels
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
+        private bool _secondsRingVisible;
+        private int _secondsRemaining;
         private int _focusLengthRemaining;
         private int _restLengthRemaining;
         private int _repetitionsRemaining;
@@ -69,6 +71,25 @@ namespace AmbientSounds.ViewModels
                 return time.ToString(@"hh\:mm");
             }
         }
+
+        public bool SecondsRingVisible
+        {
+            get => _secondsRingVisible;
+            set
+            {
+                SetProperty(ref _secondsRingVisible, value);
+            }
+        }
+
+        public int SecondsRemaining
+        {
+            get => _secondsRemaining;
+            set
+            {
+                SetProperty(ref _secondsRemaining, value);
+            }
+        }
+
 
         public int FocusLengthRemaining
         {
@@ -131,7 +152,9 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
+                SecondsRemaining = 60;
                 _focusService.StartTimer(FocusLength, RestLength, Repetitions);
+                SecondsRingVisible = true;
             }
         }
 
@@ -163,6 +186,8 @@ namespace AmbientSounds.ViewModels
             if (e.SessionType == SessionType.None)
             {
                 // reset
+                SecondsRemaining = 0;
+                SecondsRingVisible = false;
                 FocusLengthRemaining = FocusLength;
                 RestLengthRemaining = RestLength;
                 RepetitionsRemaining = Repetitions;
@@ -188,6 +213,8 @@ namespace AmbientSounds.ViewModels
             }
 
             RepetitionsRemaining = _focusService.GetRepetitionsRemaining(e);
+            SecondsRingVisible = true;
+            SecondsRemaining = e.Remaining.Seconds;
             UpdateButtonVisibilities();
         }
     }

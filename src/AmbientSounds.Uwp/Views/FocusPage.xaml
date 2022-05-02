@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Views.FocusPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
@@ -154,6 +155,38 @@
                 </StackPanel>
 
                 <winui:ProgressRing
+                    Width="362"
+                    Height="362"
+                    AutomationProperties.AccessibilityView="Raw"
+                    Foreground="Orange"
+                    IsIndeterminate="False"
+                    Opacity="0.1"
+                    Visibility="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}"
+                    Value="100">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="0.1"
+                            Duration="0:0:1" />
+                    </animations:Implicit.ShowAnimations>
+                </winui:ProgressRing>
+                <winui:ProgressRing
+                    Width="362"
+                    Height="362"
+                    Foreground="Orange"
+                    IsIndeterminate="False"
+                    Maximum="60"
+                    Visibility="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}"
+                    Value="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:1" />
+                    </animations:Implicit.ShowAnimations>
+                </winui:ProgressRing>
+
+                <winui:ProgressRing
                     Width="300"
                     Height="300"
                     AutomationProperties.AccessibilityView="Raw"
@@ -207,6 +240,9 @@
                 HorizontalAlignment="Center"
                 Orientation="Horizontal"
                 Spacing="4">
+                <animations:Implicit.Animations>
+                    <animations:OffsetAnimation Duration="0:0:1" />
+                </animations:Implicit.Animations>
                 <Button
                     AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
                     Click="{x:Bind ViewModel.Start}"
