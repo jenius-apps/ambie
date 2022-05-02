@@ -37,6 +37,7 @@ namespace AmbientSounds.Services.Uwp
         public void SendToast(string title, string message)
         {
             new ToastContentBuilder()
+                .AddButton(new ToastButtonDismiss())
                 .AddText(title)
                 .AddText(message)
                 .Show();
