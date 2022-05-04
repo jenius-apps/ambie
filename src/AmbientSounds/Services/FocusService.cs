@@ -44,11 +44,11 @@ namespace AmbientSounds.Services
             }
         }
 
-        public void StartTimer(int focusLength, int restLength, int repetitions)
+        public bool StartTimer(int focusLength, int restLength, int repetitions)
         {
             if (focusLength == 0 || restLength == 0)
             {
-                return;
+                return false;
             }
 
             _timerService.Stop();
@@ -82,6 +82,8 @@ namespace AmbientSounds.Services
             CurrentState = FocusState.Active;
 
             PlaySounds();
+
+            return true;
         }
 
         private void PlaySounds()
@@ -113,7 +115,7 @@ namespace AmbientSounds.Services
             CurrentState = FocusState.None;
         }
 
-        public void ResumeTimer()
+        public bool ResumeTimer()
         {
             if (_timerService.Remaining > TimeSpan.Zero)
             {
@@ -124,7 +126,10 @@ namespace AmbientSounds.Services
                 _focusToastService.ScheduleToasts(sessions, DateTime.Now);
                 CurrentState = FocusState.Active;
                 PlaySounds();
+                return true;
             }
+
+            return false;
         }
 
         public TimeSpan GetTotalTime(int focusLength, int restLength, int repetitions)

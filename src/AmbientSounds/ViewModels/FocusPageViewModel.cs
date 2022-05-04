@@ -2,8 +2,6 @@
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AmbientSounds.ViewModels
 {
@@ -146,14 +144,25 @@ namespace AmbientSounds.ViewModels
 
         public void Start()
         {
+            bool successfullyStarted;
+
             if (_focusService.CurrentState == FocusState.Paused)
             {
-                _focusService.ResumeTimer();
+                successfullyStarted = _focusService.ResumeTimer();
             }
             else
             {
                 SecondsRemaining = 60;
-                _focusService.StartTimer(FocusLength, RestLength, Repetitions);
+                successfullyStarted = _focusService.StartTimer(FocusLength, RestLength, Repetitions);
+            }
+
+            if (successfullyStarted)
+            {
+                // Note that if the timer
+                // didn't start successfully, it does not mean
+                // we should hide the seconds ring. We care what the current state
+                // is. All we care is that if it was started,
+                // make sure the ring is visible.
                 SecondsRingVisible = true;
             }
         }
