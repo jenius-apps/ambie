@@ -22,5 +22,8 @@
       the application package. The asterisks are not wildcards.
     -->
 	  <Type Name="System.Text.Json.JsonSerializer" Serialize="Required All" />
+	  
+	  <!-- Required for the toolkit's notification helpers to work in release mode -->
+	  <Assembly Name="Microsoft.Toolkit.Uwp.Notifications" Dynamic="Required All" />
   </Application>
 </Directives>
