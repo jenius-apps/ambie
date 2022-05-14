@@ -17,6 +17,12 @@
         object? Frame { get; set; }
 
         /// <summary>
+        /// Returns the name of the current page, or returns
+        /// empty string if no page is set.
+        /// </summary>
+        string GetContentPageName();
+
+        /// <summary>
         /// Navigates to the screensaver.
         /// </summary>
         void ToScreensaver();

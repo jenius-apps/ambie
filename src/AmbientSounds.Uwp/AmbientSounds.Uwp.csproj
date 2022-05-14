@@ -192,6 +192,9 @@
     <Compile Include="Controls\ThemeSettings.xaml.cs">
       <DependentUpon>ThemeSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TimeBanner.xaml.cs">
+      <DependentUpon>TimeBanner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TimerSlider.xaml.cs">
       <DependentUpon>TimerSlider.xaml</DependentUpon>
     </Compile>
@@ -437,6 +440,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ThemeSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TimeBanner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

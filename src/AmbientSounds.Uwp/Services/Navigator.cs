@@ -89,5 +89,16 @@ namespace AmbientSounds.Services.Uwp
                 f.Navigate(typeof(CompactPage), null, new SuppressNavigationTransitionInfo());
             }
         }
+
+        /// <inheritdoc/>
+        public string GetContentPageName()
+        {
+            if (Frame is Frame f)
+            {
+                return f.CurrentSourcePageType?.Name ?? string.Empty;
+            }
+
+            return string.Empty;
+        }
     }
 }

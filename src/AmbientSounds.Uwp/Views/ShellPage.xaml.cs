@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
@@ -20,12 +21,28 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
-            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
+            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            this.Unloaded += (_, _) => 
+            {
+                ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
+                ViewModel.Dispose();
+            };
 
             if (App.IsTenFoot)
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
                 ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
+            }
+        }
+
+        private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ViewModel.FocusTimeBannerVisibile))
+            {
+                if (ViewModel.FocusTimeBannerVisibile)
+                {
+                    await ShowTimeBannerAnimations.StartAsync();
+                }
             }
         }
 

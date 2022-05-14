@@ -19,8 +19,10 @@ namespace AmbientSounds.ViewModels
         private readonly INavigator _navigator;
         private readonly IDialogService _dialogService;
         private readonly IIapService _iapService;
+        private readonly IFocusService _focusService;
         private bool _isRatingMessageVisible;
         private bool _premiumButtonVisible;
+        private bool _focusTimeBannerVisible;
 
         public ShellPageViewModel(
             IUserSettings userSettings,
@@ -29,7 +31,8 @@ namespace AmbientSounds.ViewModels
             ISystemInfoProvider systemInfoProvider,
             INavigator navigator,
             IDialogService dialogService,
-            IIapService iapService)
+            IIapService iapService,
+            IFocusService focusService)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
@@ -37,6 +40,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(navigator, nameof(navigator));
             Guard.IsNotNull(dialogService, nameof(dialogService));
             Guard.IsNotNull(iapService, nameof(iapService));
+            Guard.IsNotNull(focusService, nameof(focusService));
 
             _userSettings = userSettings;
             _ratingTimer = timer;
@@ -44,9 +48,11 @@ namespace AmbientSounds.ViewModels
             _navigator = navigator;
             _dialogService = dialogService;
             _iapService = iapService;
-            _iapService.ProductPurchased += OnProductPurchased;
+            _focusService = focusService;
 
+            _iapService.ProductPurchased += OnProductPurchased;
             _userSettings.SettingSet += OnSettingSet;
+            _focusService.FocusStateChanged += OnFocusStateChanged;
 
             var lastDismissDateTime = _userSettings.GetAndDeserialize<DateTime>(UserSettingsConstants.RatingDismissed);
             if (!systemInfoProvider.IsFirstRun() &&
@@ -60,6 +66,16 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        /// <summary>
+        /// Determines whether or not the focus 
+        /// time banner control is visible on the page.
+        /// </summary>
+        public bool FocusTimeBannerVisibile
+        {
+            get => _focusTimeBannerVisible;
+            set => SetProperty(ref _focusTimeBannerVisible, value);
+        }
+            
         /// <summary>
         /// Determines if the rating message is visible.
         /// </summary>
@@ -104,6 +120,8 @@ namespace AmbientSounds.ViewModels
             {
                 _navigator.ToFocus();
             }
+
+            UpdateTimeBannerVisibility();
         }
 
         public async void OpenPremiumDialog()
@@ -152,6 +170,18 @@ namespace AmbientSounds.ViewModels
             {
                 PremiumButtonVisible = false;
             }
+        }
+
+        private void OnFocusStateChanged(object sender, FocusState e)
+        {
+            UpdateTimeBannerVisibility();
+        }
+
+        private void UpdateTimeBannerVisibility()
+        {
+            FocusTimeBannerVisibile = 
+                _navigator.GetContentPageName() != "FocusPage" &&
+                _focusService.CurrentState != FocusState.None;
         }
     }
 }
