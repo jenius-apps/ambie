@@ -613,4 +613,10 @@
   <data name="FocusDotTooltip" xml:space="preserve">
     <value>Focus session is active!</value>
   </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Focusing</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Resting</value>
+  </data>
 </root>

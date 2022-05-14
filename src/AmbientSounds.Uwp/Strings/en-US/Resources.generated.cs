@@ -1158,6 +1158,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SessionTypeFocus
+        /// <summary>
+        ///   Looks up a localized string similar to: Focusing
+        /// </summary>
+        public static string SessionTypeFocus
+        {
+            get
+            {
+                return _resourceLoader.GetString("SessionTypeFocus");
+            }
+        }
+        #endregion
+
+        #region SessionTypeRest
+        /// <summary>
+        ///   Looks up a localized string similar to: Resting
+        /// </summary>
+        public static string SessionTypeRest
+        {
+            get
+            {
+                return _resourceLoader.GetString("SessionTypeRest");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1257,6 +1283,8 @@ namespace AmbientSounds.Strings{
             FocusSessionStartTitle,
             RestText,
             FocusDotTooltip,
+            SessionTypeFocus,
+            SessionTypeRest,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -1,4 +1,6 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Extensions;
+using AmbientSounds.Services;
+using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
@@ -8,6 +10,7 @@ namespace AmbientSounds.ViewModels
     public class FocusPageViewModel : ObservableObject
     {
         private readonly IFocusService _focusService;
+        private readonly ILocalizer _localizer;
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
@@ -19,10 +22,14 @@ namespace AmbientSounds.ViewModels
         private string _currentTimeRemaining = string.Empty;
         private string _currentStatus = string.Empty;
 
-        public FocusPageViewModel(IFocusService focusService)
+        public FocusPageViewModel(
+            IFocusService focusService,
+            ILocalizer localizer)
         {
             Guard.IsNotNull(focusService, nameof(focusService));
+            Guard.IsNotNull(localizer, nameof(localizer));
             _focusService = focusService;
+            _localizer = localizer;
 
             _focusService.TimeUpdated += OnTimeUpdated;
             _focusService.FocusStateChanged += OnFocusStateChanged;
@@ -207,8 +214,8 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            CurrentTimeRemaining = e.Remaining.ToString(@"mm\:ss");
-            CurrentStatus = e.SessionType.ToString();
+            CurrentTimeRemaining = e.Remaining.ToCountdownFormat();
+            CurrentStatus = e.SessionType.ToDisplayString(_localizer);
 
             if (e.SessionType == SessionType.Focus)
             {

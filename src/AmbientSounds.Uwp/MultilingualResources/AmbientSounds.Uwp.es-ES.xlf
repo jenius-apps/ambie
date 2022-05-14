@@ -666,6 +666,14 @@
           <source>Focus session is active!</source>
           <target state="new">Focus session is active!</target>
         </trans-unit>
+        <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
+          <source>Focusing</source>
+          <target state="new">Focusing</target>
+        </trans-unit>
+        <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
+          <source>Resting</source>
+          <target state="new">Resting</target>
+        </trans-unit>
       </group>
     </body>
   </file>
