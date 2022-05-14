@@ -26,6 +26,13 @@ namespace AmbientSounds.Services
             _toastService.ClearScheduledToasts();
         }
 
+        public void SendCompletionToast()
+        {
+            _toastService.SendToast(
+                _localizer.GetString("FocusSessionCompleteTitle"),
+                _localizer.GetString("FocusSessionCompleteMessage"));
+        }
+
         public void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start, bool showStartToast)
         {
             _toastService.ClearScheduledToasts();
@@ -44,10 +51,8 @@ namespace AmbientSounds.Services
 
                 if (session.QueuePosition == session.QueueSize - 1)
                 {
-                    _toastService.ScheduleToast(
-                        current,
-                        _localizer.GetString("FocusSessionCompleteTitle"),
-                        _localizer.GetString("FocusSessionCompleteMessage"));
+                    // last session, so no need to schedule a toast.
+                    continue;
                 }
                 else
                 {

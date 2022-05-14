@@ -166,13 +166,16 @@ namespace AmbientSounds.Services
 
                 if (_sessionQueue.Count > 0)
                 {
+                    // One session done, more to go.
                     CurrentSession = _sessionQueue.Dequeue();
                     _timerService.Remaining = CurrentSession.Remaining;
                     _timerService.Start();
                 }
                 else
                 {
+                    // Whole focus session is done.
                     StopTimer();
+                    _focusToastService.SendCompletionToast();
                 }
             }
         }
