@@ -144,6 +144,7 @@
                                         Height="8"
                                         HorizontalAlignment="Right"
                                         Fill="{ThemeResource AccentFillColorDefaultBrush}"
+                                        ToolTipService.ToolTip="{x:Bind strings:Resources.FocusDotTooltip}"
                                         Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}">
                                         <!--<animations:Implicit.ShowAnimations>
                                             <animations:OpacityAnimation

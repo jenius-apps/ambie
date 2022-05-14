@@ -662,6 +662,10 @@
           <source>Rest</source>
           <target state="new">Rest</target>
         </trans-unit>
+        <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
+          <source>Focus session is active!</source>
+          <target state="new">Focus session is active!</target>
+        </trans-unit>
       </group>
     </body>
   </file>

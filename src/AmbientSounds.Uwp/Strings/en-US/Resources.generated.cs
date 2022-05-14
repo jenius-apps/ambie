@@ -1145,6 +1145,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region FocusDotTooltip
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus session is active!
+        /// </summary>
+        public static string FocusDotTooltip
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusDotTooltip");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1243,6 +1256,7 @@ namespace AmbientSounds.Strings{
             FocusSessionStartMessage,
             FocusSessionStartTitle,
             RestText,
+            FocusDotTooltip,
         }
 
         private static ResourceLoader _resourceLoader;

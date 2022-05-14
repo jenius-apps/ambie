@@ -610,4 +610,7 @@
   <data name="RestText" xml:space="preserve">
     <value>Rest</value>
   </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Focus session is active!</value>
+  </data>
 </root>
