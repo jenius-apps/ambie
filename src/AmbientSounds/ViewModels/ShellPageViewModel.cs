@@ -23,6 +23,7 @@ namespace AmbientSounds.ViewModels
         private bool _isRatingMessageVisible;
         private bool _premiumButtonVisible;
         private bool _focusTimeBannerVisible;
+        private bool _focusDotVisible;
 
         public ShellPageViewModel(
             IUserSettings userSettings,
@@ -64,6 +65,16 @@ namespace AmbientSounds.ViewModels
                 _ratingTimer.IntervalElapsed += OnIntervalLapsed;
                 _ratingTimer.Start();
             }
+        }
+
+        /// <summary>
+        /// Determines whether or not the focus
+        /// dot is visible.
+        /// </summary>
+        public bool FocusDotVisible
+        {
+            get => _focusDotVisible;
+            set => SetProperty(ref _focusDotVisible, value);
         }
 
         /// <summary>
@@ -122,6 +133,7 @@ namespace AmbientSounds.ViewModels
             }
 
             UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
         }
 
         public async void OpenPremiumDialog()
@@ -175,13 +187,19 @@ namespace AmbientSounds.ViewModels
         private void OnFocusStateChanged(object sender, FocusState e)
         {
             UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
         }
 
         private void UpdateTimeBannerVisibility()
         {
-            FocusTimeBannerVisibile = 
+            FocusTimeBannerVisibile =
                 _navigator.GetContentPageName() != "FocusPage" &&
                 _focusService.CurrentState != FocusState.None;
+        }
+
+        private void UpdateFocusDotVisibility()
+        {
+            FocusDotVisible = _focusService.CurrentState != FocusState.None;
         }
     }
 }

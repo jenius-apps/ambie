@@ -133,10 +133,30 @@
                                 </StackPanel>
                             </ListViewItem>
                             <ListViewItem AutomationProperties.Name="{x:Bind strings:Resources.FocusText}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
-                                    <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.FocusText}" />
-                                </StackPanel>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
+                                        <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.FocusText}" />
+                                    </StackPanel>
+
+                                    <Ellipse
+                                        Width="8"
+                                        Height="8"
+                                        HorizontalAlignment="Right"
+                                        Fill="{ThemeResource AccentFillColorDefaultBrush}"
+                                        Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}">
+                                        <!--<animations:Implicit.ShowAnimations>
+                                            <animations:OpacityAnimation
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:1" />
+                                            <animations:TranslationAnimation
+                                                From="0,12,0"
+                                                To="0,0,0"
+                                                Duration="0:0:0.5" />
+                                        </animations:Implicit.ShowAnimations>-->
+                                    </Ellipse>
+                                </Grid>
                             </ListViewItem>
                         </ListView.Items>
                     </ListView>
