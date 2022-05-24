@@ -13,7 +13,6 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -26,23 +25,52 @@
                     BorderThickness="1"
                     CornerRadius="8">
                     <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
                         <Rectangle
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="3"
                             Fill="{ThemeResource CardBackgroundFillColorDefault}"
                             RadiusX="8"
                             RadiusY="8" />
 
-                        <StackPanel Padding="12,0,12,0">
-                            <TextBlock
-                                Margin="12,12,0,0"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="What's the plan?" />
-                            <Rectangle
-                                Height="1"
-                                Margin="-12,12,-12,0"
-                                HorizontalAlignment="Stretch"
-                                Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+                        <TextBlock
+                            Grid.ColumnSpan="3"
+                            Margin="20,12"
+                            VerticalAlignment="Top"
+                            FontWeight="SemiBold"
+                            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                            Text="What's the plan?" />
 
+                        <Rectangle
+                            Grid.Row="1"
+                            Grid.ColumnSpan="3"
+                            Height="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                        <controls:FocusTimer
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="250"
+                            Height="250"
+                            Margin="20"
+                            FocusLengthRemaining="{x:Bind ViewModel.FocusLengthRemaining, Mode=OneWay}"
+                            RepetitionsRemaining="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}"
+                            RestLengthRemaining="{x:Bind ViewModel.RestLengthRemaining, Mode=OneWay}"
+                            SecondsRemaining="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}"
+                            SecondsRingVisible="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}" />
+
+                        <StackPanel Grid.Row="1" Grid.Column="1">
                             <TextBlock
                                 Margin="12,24,12,0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -83,18 +111,39 @@
                                 TickFrequency="2"
                                 Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
 
-                            <TextBlock
+                            <!--<TextBlock
                                 Margin="0,36,0,0"
                                 HorizontalAlignment="Center"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Total" />
+                                Text="Total"
+                                Visibility="Collapsed" />
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 FontSize="20"
                                 FontWeight="SemiBold"
                                 Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}" />
+                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}"
+                                Visibility="Collapsed" />-->
                         </StackPanel>
+
+                        <Grid
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Width="250">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button
+                                    AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
+                                    Click="{x:Bind ViewModel.Start}"
+                                    Style="{ThemeResource AccentButtonStyle}"
+                                    ToolTipService.ToolTip="{x:Bind strings:Resources.StartTimer}"
+                                    Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
+                                        <TextBlock Margin="4,0,0,0" Text="{x:Bind strings:Resources.StartTimer}" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
                     </Grid>
                 </Border>
 
@@ -140,7 +189,8 @@
         <StackPanel
             Grid.Column="1"
             Margin="0,0,0,40"
-            VerticalAlignment="Center">
+            VerticalAlignment="Center"
+            Visibility="Collapsed">
             <Grid>
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock
