@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -73,7 +74,8 @@
                         <StackPanel
                             Grid.Row="1"
                             Grid.Column="1"
-                            VerticalAlignment="Center">
+                            VerticalAlignment="Center"
+                            Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                             <TextBlock
                                 Margin="12,0,12,0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -127,6 +129,24 @@
                                 Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                                 Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}"
                                 Visibility="Collapsed" />-->
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,0,0,20"
+                            VerticalAlignment="Center"
+                            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                            <TextBlock
+                                FontSize="72"
+                                FontWeight="SemiBold"
+                                Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
+                                TextAlignment="Center" />
                         </StackPanel>
 
                         <Grid
@@ -208,105 +228,5 @@
                 </Border>
             </StackPanel>
         </ScrollViewer>
-
-        <StackPanel
-            Grid.Column="1"
-            Margin="0,0,0,40"
-            VerticalAlignment="Center"
-            Visibility="Collapsed">
-            <Grid>
-                <StackPanel VerticalAlignment="Center">
-                    <TextBlock
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
-                        TextAlignment="Center" />
-                    <TextBlock
-                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                        Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
-                        TextAlignment="Center" />
-                </StackPanel>
-
-                <winui:ProgressRing
-                    Width="362"
-                    Height="362"
-                    AutomationProperties.AccessibilityView="Raw"
-                    Foreground="Orange"
-                    IsIndeterminate="False"
-                    Opacity="0.1"
-                    Visibility="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}"
-                    Value="100">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:OpacityAnimation
-                            From="0"
-                            To="0.1"
-                            Duration="0:0:1" />
-                    </animations:Implicit.ShowAnimations>
-                </winui:ProgressRing>
-                <winui:ProgressRing
-                    Width="362"
-                    Height="362"
-                    Foreground="Orange"
-                    IsIndeterminate="False"
-                    Maximum="60"
-                    Visibility="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}"
-                    Value="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:OpacityAnimation
-                            From="0"
-                            To="1"
-                            Duration="0:0:1" />
-                    </animations:Implicit.ShowAnimations>
-                </winui:ProgressRing>
-
-                <winui:ProgressRing
-                    Width="300"
-                    Height="300"
-                    AutomationProperties.AccessibilityView="Raw"
-                    Foreground="SkyBlue"
-                    IsIndeterminate="False"
-                    Opacity="0.1"
-                    Value="100" />
-                <winui:ProgressRing
-                    Width="300"
-                    Height="300"
-                    Foreground="SkyBlue"
-                    IsIndeterminate="False"
-                    Maximum="60"
-                    Value="{x:Bind ViewModel.FocusLengthRemaining, Mode=OneWay}" />
-
-                <winui:ProgressRing
-                    Width="248"
-                    Height="248"
-                    AutomationProperties.AccessibilityView="Raw"
-                    Foreground="Green"
-                    IsIndeterminate="False"
-                    Opacity="0.2"
-                    Value="100" />
-                <winui:ProgressRing
-                    Width="248"
-                    Height="248"
-                    Foreground="Green"
-                    IsIndeterminate="False"
-                    Maximum="60"
-                    Value="{x:Bind ViewModel.RestLengthRemaining, Mode=OneWay}" />
-
-                <winui:ProgressRing
-                    Width="204"
-                    Height="204"
-                    AutomationProperties.AccessibilityView="Raw"
-                    Foreground="DeepPink"
-                    IsIndeterminate="False"
-                    Opacity="0.1"
-                    Value="100" />
-                <winui:ProgressRing
-                    Width="204"
-                    Height="204"
-                    Foreground="DeepPink"
-                    IsIndeterminate="False"
-                    Maximum="8"
-                    Value="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}" />
-            </Grid>
-        </StackPanel>
     </Grid>
 </Page>
