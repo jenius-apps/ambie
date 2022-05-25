@@ -77,6 +77,7 @@ namespace AmbientSounds.Services
             _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now, showStartToast: true);
 
             CurrentSession = _sessionQueue.Dequeue();
+            TimeUpdated?.Invoke(this, CurrentSession);
             _timerService.Remaining = CurrentSession.Remaining;
             _timerService.Start();
             CurrentState = FocusState.Active;
