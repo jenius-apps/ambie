@@ -70,7 +70,8 @@ namespace AmbientSounds
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             _playerTracker?.TrackDuration(DateTimeOffset.Now);
-            if (_serviceProvider?.GetService<IFocusService>() is IFocusService focusService)
+            if (_serviceProvider?.GetService<IFocusService>() is IFocusService focusService &&
+                focusService.CurrentState == AmbientSounds.Services.FocusState.Active)
             {
                 // We don't support focus sessions when ambie is suspended,
                 // and we want to make sure notifications are cancelled.
