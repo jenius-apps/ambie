@@ -586,9 +586,6 @@
   <data name="StartTimer" xml:space="preserve">
     <value>Start timer</value>
   </data>
-  <data name="StopTimer" xml:space="preserve">
-    <value>Stop timer</value>
-  </data>
   <data name="FocusSessionCompleteMessage" xml:space="preserve">
     <value>Well done!</value>
   </data>
@@ -618,5 +615,17 @@
   </data>
   <data name="SessionTypeRest" xml:space="preserve">
     <value>Resting</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Reset timer</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
   </data>
 </root>

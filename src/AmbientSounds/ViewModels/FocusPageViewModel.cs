@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels
         private int _repetitionsRemaining;
         private string _currentTimeRemaining = string.Empty;
         private string _currentStatus = string.Empty;
+        private bool _playEnabled;
 
         public FocusPageViewModel(
             IFocusService focusService,
@@ -42,6 +43,7 @@ namespace AmbientSounds.ViewModels
             { 
                 SetProperty(ref _focusLength, value);
                 OnPropertyChanged(nameof(TotalTime));
+                UpdatePlayEnabled();
                 FocusLengthRemaining = value;
             }
         }
@@ -53,6 +55,7 @@ namespace AmbientSounds.ViewModels
             {
                 SetProperty(ref _restLength, value);
                 OnPropertyChanged(nameof(TotalTime));
+                UpdatePlayEnabled();
                 RestLengthRemaining = value;
             }
         }
@@ -141,6 +144,12 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        public bool PlayEnabled
+        {
+            get => _playEnabled;
+            set => SetProperty(ref _playEnabled, value);
+        }
+
         public bool SlidersEnabled => _focusService.CurrentState == FocusState.None;
 
         public bool PlayVisible => _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
@@ -184,7 +193,12 @@ namespace AmbientSounds.ViewModels
             _focusService.StopTimer();
         }
 
-        private void UpdateButtonVisibilities()
+        private void UpdatePlayEnabled()
+        {
+            PlayEnabled = _focusService.CanStartSession(FocusLength, RestLength);
+        }
+
+    private void UpdateButtonVisibilities()
         {
             OnPropertyChanged(nameof(SlidersEnabled));
             OnPropertyChanged(nameof(PlayVisible));

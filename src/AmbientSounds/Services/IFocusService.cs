@@ -60,5 +60,11 @@ namespace AmbientSounds.Services
         /// <param name="session">The currently active focus segment.</param>
         /// <returns>The number of repetitions remaining.</returns>
         int GetRepetitionsRemaining(FocusSession session);
+
+        /// <summary>
+        /// Determines if the session can be started
+        /// with the given parameters.
+        /// </summary>
+        bool CanStartSession(int focusLength, int restLength);
     }
 }

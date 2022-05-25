@@ -631,10 +631,6 @@
           <source>Start timer</source>
           <target state="new">Start timer</target>
         </trans-unit>
-        <trans-unit id="StopTimer" translate="yes" xml:space="preserve">
-          <source>Stop timer</source>
-          <target state="new">Stop timer</target>
-        </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
           <target state="new">Well done!</target>
@@ -674,6 +670,22 @@
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
           <target state="new">Resting</target>
+        </trans-unit>
+        <trans-unit id="Pause" translate="yes" xml:space="preserve">
+          <source>Pause</source>
+          <target state="new">Pause</target>
+        </trans-unit>
+        <trans-unit id="Reset" translate="yes" xml:space="preserve">
+          <source>Reset</source>
+          <target state="new">Reset</target>
+        </trans-unit>
+        <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
+          <source>Reset timer</source>
+          <target state="new">Reset timer</target>
+        </trans-unit>
+        <trans-unit id="Start" translate="yes" xml:space="preserve">
+          <source>Start</source>
+          <target state="new">Start</target>
         </trans-unit>
       </group>
     </body>

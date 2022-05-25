@@ -132,16 +132,36 @@
                             Width="250">
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button
+                                    Width="160"
                                     AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
                                     Click="{x:Bind ViewModel.Start}"
+                                    IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
                                     Style="{ThemeResource AccentButtonStyle}"
-                                    ToolTipService.ToolTip="{x:Bind strings:Resources.StartTimer}"
                                     Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
                                     <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
-                                        <TextBlock Margin="4,0,0,0" Text="{x:Bind strings:Resources.StartTimer}" />
+                                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xF5B0;" />
+                                        <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Start}" />
                                     </StackPanel>
                                 </Button>
+                                <Button
+                                    Width="160"
+                                    AutomationProperties.Name="{x:Bind strings:Resources.PauseTimer}"
+                                    Click="{x:Bind ViewModel.Pause}"
+                                    Style="{ThemeResource AccentButtonStyle}"
+                                    Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPause}" />
+                                        <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Pause}" />
+                                    </StackPanel>
+                                </Button>
+                                <Button
+                                    Width="160"
+                                    Margin="0,4,0,0"
+                                    AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
+                                    Click="{x:Bind ViewModel.Stop}"
+                                    Content="{x:Bind strings:Resources.Reset}"
+                                    Style="{StaticResource SubtleButton}"
+                                    Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
                             </StackPanel>
                         </Grid>
                     </Grid>
@@ -284,40 +304,6 @@
                     Maximum="8"
                     Value="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}" />
             </Grid>
-
-            <StackPanel
-                Margin="0,20,0,0"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal"
-                Spacing="4">
-                <animations:Implicit.Animations>
-                    <animations:OffsetAnimation Duration="0:0:1" />
-                </animations:Implicit.Animations>
-                <Button
-                    AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
-                    Click="{x:Bind ViewModel.Start}"
-                    Style="{StaticResource SubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.StartTimer}"
-                    Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
-                </Button>
-                <Button
-                    AutomationProperties.Name="{x:Bind strings:Resources.PauseTimer}"
-                    Click="{x:Bind ViewModel.Pause}"
-                    Style="{StaticResource SubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.PauseTimer}"
-                    Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}">
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPause}" />
-                </Button>
-                <Button
-                    AutomationProperties.Name="{x:Bind strings:Resources.StopTimer}"
-                    Click="{x:Bind ViewModel.Stop}"
-                    Style="{StaticResource SubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.StopTimer}"
-                    Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancel}" />
-                </Button>
-            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

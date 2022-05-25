@@ -46,7 +46,7 @@ namespace AmbientSounds.Services
 
         public bool StartTimer(int focusLength, int restLength, int repetitions)
         {
-            if (focusLength == 0 || restLength == 0)
+            if (!CanStartSession(focusLength, restLength))
             {
                 return false;
             }
@@ -98,6 +98,8 @@ namespace AmbientSounds.Services
                 _ = _mixMediaPlayerService.PlayRandomAsync();
             }
         }
+
+        public bool CanStartSession(int focusLength, int restLength) => focusLength > 0 && restLength > 0;
 
         public void PauseTimer()
         {

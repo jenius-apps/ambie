@@ -1042,19 +1042,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region StopTimer
-        /// <summary>
-        ///   Looks up a localized string similar to: Stop timer
-        /// </summary>
-        public static string StopTimer
-        {
-            get
-            {
-                return _resourceLoader.GetString("StopTimer");
-            }
-        }
-        #endregion
-
         #region FocusSessionCompleteMessage
         /// <summary>
         ///   Looks up a localized string similar to: Well done!
@@ -1184,6 +1171,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Pause
+        /// <summary>
+        ///   Looks up a localized string similar to: Pause
+        /// </summary>
+        public static string Pause
+        {
+            get
+            {
+                return _resourceLoader.GetString("Pause");
+            }
+        }
+        #endregion
+
+        #region Reset
+        /// <summary>
+        ///   Looks up a localized string similar to: Reset
+        /// </summary>
+        public static string Reset
+        {
+            get
+            {
+                return _resourceLoader.GetString("Reset");
+            }
+        }
+        #endregion
+
+        #region ResetTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Reset timer
+        /// </summary>
+        public static string ResetTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResetTimer");
+            }
+        }
+        #endregion
+
+        #region Start
+        /// <summary>
+        ///   Looks up a localized string similar to: Start
+        /// </summary>
+        public static string Start
+        {
+            get
+            {
+                return _resourceLoader.GetString("Start");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1274,7 +1313,6 @@ namespace AmbientSounds.Strings{
             FocusText,
             PauseTimer,
             StartTimer,
-            StopTimer,
             FocusSessionCompleteMessage,
             FocusSessionCompleteTitle,
             FocusSessionFocusMessage,
@@ -1285,6 +1323,10 @@ namespace AmbientSounds.Strings{
             FocusDotTooltip,
             SessionTypeFocus,
             SessionTypeRest,
+            Pause,
+            Reset,
+            ResetTimer,
+            Start,
         }
 
         private static ResourceLoader _resourceLoader;
