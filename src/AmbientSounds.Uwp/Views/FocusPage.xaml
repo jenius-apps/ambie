@@ -70,9 +70,12 @@
                             SecondsRemaining="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}"
                             SecondsRingVisible="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}" />
 
-                        <StackPanel Grid.Row="1" Grid.Column="1">
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            VerticalAlignment="Center">
                             <TextBlock
-                                Margin="12,24,12,0"
+                                Margin="12,0,12,0"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="Focus length" />
 
@@ -132,7 +135,7 @@
                             Width="250">
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button
-                                    Width="160"
+                                    MinWidth="140"
                                     AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
                                     Click="{x:Bind ViewModel.Start}"
                                     IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
@@ -144,7 +147,7 @@
                                     </StackPanel>
                                 </Button>
                                 <Button
-                                    Width="160"
+                                    MinWidth="140"
                                     AutomationProperties.Name="{x:Bind strings:Resources.PauseTimer}"
                                     Click="{x:Bind ViewModel.Pause}"
                                     Style="{ThemeResource AccentButtonStyle}"
@@ -155,7 +158,7 @@
                                     </StackPanel>
                                 </Button>
                                 <Button
-                                    Width="160"
+                                    MinWidth="140"
                                     Margin="0,4,0,0"
                                     AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
                                     Click="{x:Bind ViewModel.Stop}"
