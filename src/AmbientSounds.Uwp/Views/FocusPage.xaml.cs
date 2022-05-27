@@ -6,6 +6,8 @@ using Windows.UI.Xaml;
 using System.Threading.Tasks;
 using System;
 using Windows.UI.Xaml.Navigation;
+using AmbientSounds.Constants;
+using System.Collections.Generic;
 
 namespace AmbientSounds.Views
 {
@@ -25,6 +27,12 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel.PropertyChanged += OnPropertyChanged;
+
+            var telemetry = App.Services.GetRequiredService<Services.ITelemetry>();
+            telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
+            {
+                { "name", "focus" }
+            });
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

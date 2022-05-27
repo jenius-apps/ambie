@@ -1,9 +1,11 @@
-﻿using AmbientSounds.Extensions;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Extensions;
 using AmbientSounds.Services;
 using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
@@ -11,6 +13,7 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IFocusService _focusService;
         private readonly ILocalizer _localizer;
+        private readonly ITelemetry _telemetry;
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
@@ -29,12 +32,15 @@ namespace AmbientSounds.ViewModels
 
         public FocusPageViewModel(
             IFocusService focusService,
-            ILocalizer localizer)
+            ILocalizer localizer,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(focusService, nameof(focusService));
             Guard.IsNotNull(localizer, nameof(localizer));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
             _focusService = focusService;
             _localizer = localizer;
+            _telemetry = telemetry;
 
             _focusService.TimeUpdated += OnTimeUpdated;
             _focusService.FocusStateChanged += OnFocusStateChanged;
@@ -187,11 +193,18 @@ namespace AmbientSounds.ViewModels
             if (_focusService.CurrentState == FocusState.Paused)
             {
                 successfullyStarted = _focusService.ResumeTimer();
+                _telemetry.TrackEvent(TelemetryConstants.FocusResumed);
             }
             else
             {
                 SecondsRemaining = 60;
                 successfullyStarted = _focusService.StartTimer(FocusLength, RestLength, Repetitions);
+                _telemetry.TrackEvent(TelemetryConstants.FocusStarted, new Dictionary<string, string>
+                {
+                    { "focusLength", FocusLength.ToString() },
+                    { "restLenth", RestLength.ToString() },
+                    { "repetitions", Repetitions.ToString() }
+                });
             }
 
             if (successfullyStarted)
@@ -208,11 +221,13 @@ namespace AmbientSounds.ViewModels
         public void Pause()
         {
             _focusService.PauseTimer();
+            _telemetry.TrackEvent(TelemetryConstants.FocusPaused);
         }
 
         public void Stop()
         {
             _focusService.StopTimer();
+            _telemetry.TrackEvent(TelemetryConstants.FocusReset);
         }
 
         private void UpdatePlayEnabled()

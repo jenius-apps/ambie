@@ -108,5 +108,12 @@
 
         public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
         public const string MissingSoundsCanceled = "missingSoundsCanceled";
+
+        // focus
+        private const string Focus = "focus:";
+        public const string FocusStarted = Focus + "started";
+        public const string FocusResumed = Focus + "resumed";
+        public const string FocusPaused = Focus + "paushed";
+        public const string FocusReset = Focus + "reset";
     }
 }
