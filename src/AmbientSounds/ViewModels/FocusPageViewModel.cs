@@ -22,6 +22,10 @@ namespace AmbientSounds.ViewModels
         private string _currentTimeRemaining = string.Empty;
         private string _currentStatus = string.Empty;
         private bool _playEnabled;
+        private bool _slidersEnabled;
+        private bool _playVisible;
+        private bool _pauseVisible;
+        private bool _cancelVisible;
 
         public FocusPageViewModel(
             IFocusService focusService,
@@ -34,13 +38,15 @@ namespace AmbientSounds.ViewModels
 
             _focusService.TimeUpdated += OnTimeUpdated;
             _focusService.FocusStateChanged += OnFocusStateChanged;
+
+            UpdateButtonVisibilities();
         }
 
         public int FocusLength
         {
             get => _focusLength;
-            set 
-            { 
+            set
+            {
                 SetProperty(ref _focusLength, value);
                 OnPropertyChanged(nameof(TotalTime));
                 UpdatePlayEnabled();
@@ -150,13 +156,29 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _playEnabled, value);
         }
 
-        public bool SlidersEnabled => _focusService.CurrentState == FocusState.None;
+        public bool SlidersEnabled
+        {
+            get => _slidersEnabled;
+            set => SetProperty(ref _slidersEnabled, value);
+        }
 
-        public bool PlayVisible => _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
+        public bool PlayVisible
+        {
+            get => _playVisible;
+            set => SetProperty(ref _playVisible, value);
+        }
 
-        public bool PauseVisible => _focusService.CurrentState == FocusState.Active;
+        public bool PauseVisible
+        {
+            get => _pauseVisible;
+            set => SetProperty(ref _pauseVisible, value);
+        }
 
-        public bool CancelVisible => _focusService.CurrentState == FocusState.Active || _focusService.CurrentState == FocusState.Paused;
+        public bool CancelVisible
+        {
+            get => _cancelVisible;
+            set => SetProperty(ref _cancelVisible, value);
+        }
 
         public void Start()
         {
@@ -198,12 +220,12 @@ namespace AmbientSounds.ViewModels
             PlayEnabled = _focusService.CanStartSession(FocusLength, RestLength);
         }
 
-    private void UpdateButtonVisibilities()
+        private void UpdateButtonVisibilities()
         {
-            OnPropertyChanged(nameof(SlidersEnabled));
-            OnPropertyChanged(nameof(PlayVisible));
-            OnPropertyChanged(nameof(PauseVisible));
-            OnPropertyChanged(nameof(CancelVisible));
+            SlidersEnabled = _focusService.CurrentState == FocusState.None;
+            PlayVisible = _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
+            PauseVisible = _focusService.CurrentState == FocusState.Active;
+            CancelVisible = _focusService.CurrentState == FocusState.Active || _focusService.CurrentState == FocusState.Paused;
         }
 
         private void OnFocusStateChanged(object sender, FocusState e)
