@@ -129,51 +129,109 @@
                                 FontSize="72"
                                 FontWeight="SemiBold"
                                 Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
-                                TextAlignment="Center" />
+                                TextAlignment="Center">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:1" />
+                                    <animations:TranslationAnimation
+                                        From="0,-40,0"
+                                        To="0"
+                                        Duration="0:0:1" />
+                                </animations:Implicit.ShowAnimations>
+                            </TextBlock>
                             <TextBlock
                                 FontSize="20"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
-                                TextAlignment="Center" />
+                                TextAlignment="Center">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:1" />
+                                    <animations:TranslationAnimation
+                                        From="0,20,0"
+                                        To="0"
+                                        Duration="0:0:1" />
+                                </animations:Implicit.ShowAnimations>
+                            </TextBlock>
                         </StackPanel>
 
                         <Grid
                             Grid.Row="1"
                             Grid.Column="2"
                             Width="250">
-                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button
-                                    MinWidth="140"
-                                    AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
-                                    Click="{x:Bind ViewModel.Start}"
-                                    IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
-                                    Style="{ThemeResource AccentButtonStyle}"
-                                    Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xF5B0;" />
-                                        <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Start}" />
-                                    </StackPanel>
-                                </Button>
-                                <Button
-                                    MinWidth="140"
-                                    AutomationProperties.Name="{x:Bind strings:Resources.PauseTimer}"
-                                    Click="{x:Bind ViewModel.Pause}"
-                                    Style="{ThemeResource AccentButtonStyle}"
-                                    Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPause}" />
-                                        <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Pause}" />
-                                    </StackPanel>
-                                </Button>
-                                <Button
-                                    MinWidth="140"
-                                    Margin="0,4,0,0"
-                                    AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
-                                    Click="{x:Bind ViewModel.Stop}"
-                                    Content="{x:Bind strings:Resources.Reset}"
-                                    Style="{StaticResource SubtleButton}"
-                                    Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
-                            </StackPanel>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Button
+                                MinWidth="140"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
+                                Click="{x:Bind ViewModel.Start}"
+                                IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
+                                Style="{ThemeResource AccentButtonStyle}"
+                                Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xF5B0;" />
+                                    <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Start}" />
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                MinWidth="140"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                AutomationProperties.Name="{x:Bind strings:Resources.PauseTimer}"
+                                Click="{x:Bind ViewModel.Pause}"
+                                Style="{ThemeResource AccentButtonStyle}"
+                                Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPause}" />
+                                    <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Pause}" />
+                                </StackPanel>
+                            </Button>
+                            <Button
+                                Grid.Row="1"
+                                MinWidth="140"
+                                Margin="0,4,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
+                                Canvas.ZIndex="-1"
+                                Click="{x:Bind ViewModel.Stop}"
+                                Content="{x:Bind strings:Resources.Reset}"
+                                Style="{StaticResource SubtleButton}"
+                                Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        Delay="0:0:0.6"
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.5" />
+                                    <animations:TranslationAnimation
+                                        Delay="0:0:0.6"
+                                        EasingMode="EaseInOut"
+                                        From="0,-40,0"
+                                        To="0"
+                                        Duration="0:0:0.5" />
+                                </animations:Implicit.ShowAnimations>
+                                <animations:Implicit.HideAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.5" />
+                                    <animations:TranslationAnimation
+                                        EasingMode="EaseInOut"
+                                        EasingType="Cubic"
+                                        From="0"
+                                        To="0,-40,0"
+                                        Duration="0:0:0.5" />
+                                </animations:Implicit.HideAnimations>
+                            </Button>
                         </Grid>
                     </Grid>
                 </Border>
