@@ -59,17 +59,19 @@
                             VerticalAlignment="Top"
                             Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
 
-                        <controls:FocusTimer
+                        <Grid
                             Grid.Row="1"
                             Grid.Column="0"
-                            Width="250"
-                            Height="250"
-                            Margin="20"
-                            FocusLengthRemaining="{x:Bind ViewModel.FocusLengthRemaining, Mode=OneWay}"
-                            RepetitionsRemaining="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}"
-                            RestLengthRemaining="{x:Bind ViewModel.RestLengthRemaining, Mode=OneWay}"
-                            SecondsRemaining="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}"
-                            SecondsRingVisible="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}" />
+                            Width="250">
+                            <controls:FocusTimer
+                                Width="200"
+                                Height="200"
+                                FocusLengthRemaining="{x:Bind ViewModel.FocusLengthRemaining, Mode=OneWay}"
+                                RepetitionsRemaining="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}"
+                                RestLengthRemaining="{x:Bind ViewModel.RestLengthRemaining, Mode=OneWay}"
+                                SecondsRemaining="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}"
+                                SecondsRingVisible="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}" />
+                        </Grid>
 
                         <StackPanel
                             Grid.Row="1"
@@ -115,20 +117,6 @@
                                 Maximum="8"
                                 TickFrequency="2"
                                 Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
-
-                            <!--<TextBlock
-                                Margin="0,36,0,0"
-                                HorizontalAlignment="Center"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="Total"
-                                Visibility="Collapsed" />
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                FontSize="20"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}"
-                                Visibility="Collapsed" />-->
                         </StackPanel>
 
                         <StackPanel
@@ -221,7 +209,7 @@
                                 AcceptsReturn="True"
                                 FontFamily="Lucida Console"
                                 FontSize="12"
-                                PlaceholderText="A place to gather your thoughts..."
+                                PlaceholderText="Jot down your to-do notes here, or just use it for any notes 🙂"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                     </Grid>
