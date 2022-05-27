@@ -51,7 +51,7 @@
                             VerticalAlignment="Top"
                             FontWeight="SemiBold"
                             Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                            Text="What's the plan?" />
+                            Text="{x:Bind strings:Resources.FocusPlanningHeader}" />
 
                         <Rectangle
                             Grid.Row="1"
@@ -84,7 +84,7 @@
                                 <TextBlock
                                     Margin="12,0,12,0"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    Text="Focus length" />
+                                    Text="{x:Bind strings:Resources.FocusLength}" />
                                 <controls:TimerSlider
                                     Margin="12,0,0,0"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
@@ -110,7 +110,7 @@
                                     x:Name="BreakLength"
                                     Margin="12,24,12,0"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    Text="Rest length" />
+                                    Text="{x:Bind strings:Resources.RestLength}" />
                                 <controls:TimerSlider
                                     Margin="12,0,0,0"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
@@ -137,7 +137,7 @@
                                     x:Name="Repeats"
                                     Margin="12,24,12,0"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    Text="Repetitions" />
+                                    Text="{x:Bind strings:Resources.Repetitions}" />
                                 <controls:TimerSlider
                                     Margin="12,0,0,0"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
@@ -261,18 +261,6 @@
                                         To="0"
                                         Duration="0:0:0.5" />
                                 </animations:Implicit.ShowAnimations>
-                                <animations:Implicit.HideAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:0.5" />
-                                    <animations:TranslationAnimation
-                                        EasingMode="EaseInOut"
-                                        EasingType="Cubic"
-                                        From="0"
-                                        To="0,-40,0"
-                                        Duration="0:0:0.5" />
-                                </animations:Implicit.HideAnimations>
                             </Button>
                         </Grid>
                     </Grid>
@@ -296,7 +284,7 @@
                                 Margin="12,12,0,0"
                                 FontWeight="SemiBold"
                                 Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="Notepad" />
+                                Text="{x:Bind strings:Resources.Notepad}" />
                             <Rectangle
                                 Height="1"
                                 Margin="-12,12,-12,0"
@@ -307,10 +295,10 @@
                                 Height="130"
                                 Margin="0,12,0,0"
                                 AcceptsReturn="True"
-                                FontFamily="Lucida Console"
+                                FontFamily="Lucida Sans Typewriter"
                                 FontSize="12"
                                 MaxLength="1024"
-                                PlaceholderText="Jot down your to-do notes here, or just use it for any notes 🙂"
+                                PlaceholderText="{x:Bind strings:Resources.FocusNotesPlaceholder}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
                     </Grid>

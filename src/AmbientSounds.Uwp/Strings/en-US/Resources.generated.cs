@@ -1223,6 +1223,84 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region FocusLength
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus length
+        /// </summary>
+        public static string FocusLength
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusLength");
+            }
+        }
+        #endregion
+
+        #region FocusNotesPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: You can jot down your to-do list or any notes here 🙂
+        /// </summary>
+        public static string FocusNotesPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusNotesPlaceholder");
+            }
+        }
+        #endregion
+
+        #region FocusPlanningHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: What's the plan?
+        /// </summary>
+        public static string FocusPlanningHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusPlanningHeader");
+            }
+        }
+        #endregion
+
+        #region Notepad
+        /// <summary>
+        ///   Looks up a localized string similar to: Notepad
+        /// </summary>
+        public static string Notepad
+        {
+            get
+            {
+                return _resourceLoader.GetString("Notepad");
+            }
+        }
+        #endregion
+
+        #region Repetitions
+        /// <summary>
+        ///   Looks up a localized string similar to: Repetitions
+        /// </summary>
+        public static string Repetitions
+        {
+            get
+            {
+                return _resourceLoader.GetString("Repetitions");
+            }
+        }
+        #endregion
+
+        #region RestLength
+        /// <summary>
+        ///   Looks up a localized string similar to: Rest length
+        /// </summary>
+        public static string RestLength
+        {
+            get
+            {
+                return _resourceLoader.GetString("RestLength");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1327,6 +1405,12 @@ namespace AmbientSounds.Strings{
             Reset,
             ResetTimer,
             Start,
+            FocusLength,
+            FocusNotesPlaceholder,
+            FocusPlanningHeader,
+            Notepad,
+            Repetitions,
+            RestLength,
         }
 
         private static ResourceLoader _resourceLoader;

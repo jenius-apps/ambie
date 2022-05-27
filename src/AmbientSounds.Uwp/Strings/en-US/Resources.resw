@@ -628,4 +628,22 @@
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Focus length</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>You can jot down your to-do list or any notes here 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>What's the plan?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Notepad</value>
+  </data>
+  <data name="Repetitions" xml:space="preserve">
+    <value>Repetitions</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Rest length</value>
+  </data>
 </root>
