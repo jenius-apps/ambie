@@ -21,9 +21,10 @@
             Value="100">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
+                    Delay="0:0:0.6"
                     From="0"
                     To="0.1"
-                    Duration="0:0:1" />
+                    Duration="0:0:2" />
             </animations:Implicit.ShowAnimations>
         </winui:ProgressRing>
         <winui:ProgressRing
@@ -36,9 +37,10 @@
             Value="{x:Bind SecondsRemaining, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
+                    Delay="0:0:2"
                     From="0"
                     To="1"
-                    Duration="0:0:1" />
+                    Duration="0:0:2" />
             </animations:Implicit.ShowAnimations>
         </winui:ProgressRing>
 

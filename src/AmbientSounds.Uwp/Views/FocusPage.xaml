@@ -134,11 +134,11 @@
                                     <animations:OpacityAnimation
                                         From="0"
                                         To="1"
-                                        Duration="0:0:1" />
+                                        Duration="0:0:2" />
                                     <animations:TranslationAnimation
                                         From="0,-40,0"
                                         To="0"
-                                        Duration="0:0:1" />
+                                        Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>
                             </TextBlock>
                             <TextBlock
@@ -150,11 +150,11 @@
                                     <animations:OpacityAnimation
                                         From="0"
                                         To="1"
-                                        Duration="0:0:1" />
+                                        Duration="0:0:2" />
                                     <animations:TranslationAnimation
                                         From="0,20,0"
                                         To="0"
-                                        Duration="0:0:1" />
+                                        Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>
                             </TextBlock>
                         </StackPanel>
