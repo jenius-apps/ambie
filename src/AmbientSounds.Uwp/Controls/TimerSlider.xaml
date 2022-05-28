@@ -30,6 +30,8 @@
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
+            FontSize="16"
+            FontWeight="SemiBold"
             Text="{x:Bind Value, Mode=OneWay}">
             <ani:Explicit.Animations>
                 <ani:AnimationSet x:Name="IncreaseAnimation">
