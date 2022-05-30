@@ -27,6 +27,11 @@
                         <Setter Target="MenuTextFocus.Visibility" Value="Visible" />
                         <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
                         <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
+                        <Setter Target="TitleBar.Margin" Value="16,14,0,0" />
+                        <Setter Target="PlayerPanelBorder.Margin" Value="16,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="16,0" />
+                        <Setter Target="NavViewGrid.Margin" Value="16,0,0,16" />
+                        <Setter Target="MainFrame.Margin" Value="12,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -47,7 +52,8 @@
 
         <!--  title bar content  -->
         <StackPanel
-            Margin="16,14,0,0"
+            x:Name="TitleBar"
+            Margin="12,14,0,0"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Orientation="Horizontal">
@@ -86,14 +92,15 @@
 
 
         <!--  Top player panel  -->
-        <Grid>
+        <Grid Margin="0,48,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Border
+                Name="PlayerPanelBorder"
                 Height="80"
-                Margin="16,48,16,0"
+                Margin="12,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Top"
                 BorderBrush="{ThemeResource CardStrokeColorDefault}"
@@ -105,8 +112,9 @@
                     RadiusY="8" />
             </Border>
             <Grid
+                Name="PlayerPanelGrid"
                 Height="80"
-                Margin="16,48,16,0"
+                Margin="12,0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
@@ -135,14 +143,13 @@
             </Grid>
 
             <!--  Content below player panel  -->
-            <Grid Grid.Row="1" Margin="0,20,0,0">
+            <Grid Grid.Row="1" Margin="0,12,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="NavMenuWidth" Width="68" />
+                    <ColumnDefinition x:Name="NavMenuWidth" Width="64" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Grid Margin="16,0,0,16">
-
+                <Grid x:Name="NavViewGrid" Margin="12,0,0,12">
                     <!--  Nav menu  -->
                     <ListView x:Name="MenuList" SelectionChanged="OnSelectionChanged">
                         <ListView.Items>
@@ -218,7 +225,7 @@
                 <Frame
                     x:Name="MainFrame"
                     Grid.Column="1"
-                    Margin="16,0,0,0" />
+                    Margin="4,0,0,0" />
             </Grid>
         </Grid>
 
