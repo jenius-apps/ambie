@@ -12,33 +12,55 @@
     x:Name="RootPage"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
+
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="540" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NavMenuWidth.Width" Value="200" />
+                        <Setter Target="MenuTextHome.Visibility" Value="Visible" />
+                        <Setter Target="MenuTextCatalogue.Visibility" Value="Visible" />
+                        <Setter Target="MenuTextFocus.Visibility" Value="Visible" />
+                        <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
+                        <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!--  Custom background  -->
         <toolkit:ImageEx
             x:Name="BackgroundImage"
             x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
             IsCacheEnabled="True"
             Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
             Stretch="UniformToFill" />
-
         <Rectangle
             x:Name="AcrylicLayer"
             x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
             Fill="{ThemeResource SystemControlAcrylicElementBrush}"
             Stretch="Fill" />
 
+        <!--  title bar content  -->
         <StackPanel
             Margin="16,14,0,0"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Orientation="Horizontal">
+
+            <!--  Ambie title bar name  -->
             <Image Height="18" Source="ms-appx:///Assets/logo.png" />
-            <!--  No need to translate this since it's a brand  -->
             <TextBlock
                 Margin="8,0,0,0"
                 VerticalAlignment="Center"
                 FontSize="12"
                 Text="Ambie" />
 
+            <!--  Focus time banner  -->
             <controls:TimeBanner Margin="12,0,0,0" Visibility="{x:Bind ViewModel.FocusTimeBannerVisibile, Mode=OneWay}">
                 <animations:Implicit.HideAnimations>
                     <animations:OpacityAnimation
@@ -63,6 +85,7 @@
         </StackPanel>
 
 
+        <!--  Top player panel  -->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -111,58 +134,77 @@
                 </StackPanel>
             </Grid>
 
+            <!--  Content below player panel  -->
             <Grid Grid.Row="1" Margin="0,20,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition x:Name="NavMenuWidth" Width="68" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Grid Margin="16,0,0,16">
+
+                    <!--  Nav menu  -->
                     <ListView x:Name="MenuList" SelectionChanged="OnSelectionChanged">
                         <ListView.Items>
-                            <ListViewItem AutomationProperties.Name="{x:Bind strings:Resources.Home}">
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="{x:Bind strings:Resources.Home}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.Home}">
                                 <StackPanel Orientation="Horizontal">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphHome}" />
-                                    <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.Home}" />
+                                    <TextBlock
+                                        Name="MenuTextHome"
+                                        Margin="12,0,0,0"
+                                        Text="{x:Bind strings:Resources.Home}"
+                                        Visibility="Collapsed" />
                                 </StackPanel>
                             </ListViewItem>
-                            <ListViewItem AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}">
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.Catalogue}">
                                 <StackPanel Orientation="Horizontal">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
-                                    <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.Catalogue}" />
+                                    <TextBlock
+                                        Name="MenuTextCatalogue"
+                                        Margin="12,0,0,0"
+                                        Text="{x:Bind strings:Resources.Catalogue}"
+                                        Visibility="Collapsed" />
                                 </StackPanel>
                             </ListViewItem>
-                            <ListViewItem AutomationProperties.Name="{x:Bind strings:Resources.FocusText}">
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="{x:Bind strings:Resources.FocusText}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.FocusText}">
                                 <Grid>
                                     <StackPanel Orientation="Horizontal">
                                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
-                                        <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.FocusText}" />
+                                        <TextBlock
+                                            Name="MenuTextFocus"
+                                            Margin="12,0,0,0"
+                                            Text="{x:Bind strings:Resources.FocusText}"
+                                            Visibility="Collapsed" />
                                     </StackPanel>
-
-                                    <Ellipse
-                                        Width="8"
-                                        Height="8"
+                                    <Grid
+                                        x:Name="FocusEllipseGrid"
                                         HorizontalAlignment="Right"
-                                        Fill="{ThemeResource AccentFillColorDefaultBrush}"
-                                        ToolTipService.ToolTip="{x:Bind strings:Resources.FocusDotTooltip}"
-                                        Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}">
-                                        <!--<animations:Implicit.ShowAnimations>
-                                            <animations:OpacityAnimation
-                                                From="0"
-                                                To="1"
-                                                Duration="0:0:1" />
-                                            <animations:TranslationAnimation
-                                                From="0,12,0"
-                                                To="0,0,0"
-                                                Duration="0:0:0.5" />
-                                        </animations:Implicit.ShowAnimations>-->
-                                    </Ellipse>
+                                        Visibility="Collapsed">
+                                        <Ellipse
+                                            Width="8"
+                                            Height="8"
+                                            Fill="{ThemeResource AccentFillColorDefaultBrush}"
+                                            ToolTipService.ToolTip="{x:Bind strings:Resources.FocusDotTooltip}"
+                                            Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}" />
+                                    </Grid>
                                 </Grid>
                             </ListViewItem>
                         </ListView.Items>
                     </ListView>
 
-                    <StackPanel VerticalAlignment="Bottom">
+                    <StackPanel
+                        Name="NavMenuFooter"
+                        VerticalAlignment="Bottom"
+                        Visibility="Collapsed">
                         <HyperlinkButton
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Left"
@@ -172,6 +214,7 @@
                     </StackPanel>
                 </Grid>
 
+                <!--  Main content frame  -->
                 <Frame
                     x:Name="MainFrame"
                     Grid.Column="1"
