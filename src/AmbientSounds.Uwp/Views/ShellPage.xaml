@@ -18,7 +18,7 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="540" />
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowBreakpoint}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="NavMenuWidth.Width" Value="200" />
