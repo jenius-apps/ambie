@@ -32,6 +32,7 @@
                         <Setter Target="PlayerPanelGrid.Margin" Value="16,0" />
                         <Setter Target="NavViewGrid.Margin" Value="16,0,0,16" />
                         <Setter Target="MainFrame.Margin" Value="12,0,0,0" />
+                        <Setter Target="TrackList.ShowList" Value="True" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -125,7 +126,11 @@
 
                 <controls:PlayerControl Margin="16,0,0,0" />
 
-                <controls:ActiveTrackList Grid.Column="1" HorizontalAlignment="Center" />
+                <controls:ActiveTrackList
+                    x:Name="TrackList"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    ShowList="False" />
 
                 <StackPanel
                     Grid.Column="2"
