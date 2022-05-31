@@ -248,29 +248,23 @@
                                 MinWidth="140"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom"
-                                AutomationProperties.Name="{x:Bind strings:Resources.StartTimer}"
-                                Click="{x:Bind ViewModel.Start}"
+                                AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
+                                Click="{x:Bind ViewModel.PlayOrPause}"
                                 IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
-                                Style="{ThemeResource AccentButtonStyle}"
-                                Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xF5B0;" />
-                                    <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Start}" />
-                                </StackPanel>
-                            </Button>
-                            <Button
-                                x:Name="PauseButton"
-                                MinWidth="140"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Bottom"
-                                AutomationProperties.Name="{x:Bind strings:Resources.PauseTimer}"
-                                Click="{x:Bind ViewModel.Pause}"
-                                Style="{ThemeResource AccentButtonStyle}"
-                                Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPause}" />
-                                    <TextBlock Margin="8,0,0,0" Text="{x:Bind strings:Resources.Pause}" />
-                                </StackPanel>
+                                Style="{ThemeResource AccentButtonStyle}">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon
+                                            FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                            Glyph="&#xF5B0;"
+                                            Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
+                                        <FontIcon
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            Glyph="{StaticResource GlyphPause}"
+                                            Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
+                                        <TextBlock Margin="8,0,0,0" Text="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}" />
+                                    </StackPanel>
+                                </Grid>
                             </Button>
                             <Button
                                 Grid.Row="1"

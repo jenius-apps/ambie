@@ -29,6 +29,7 @@ namespace AmbientSounds.ViewModels
         private bool _playVisible;
         private bool _pauseVisible;
         private bool _cancelVisible;
+        private string _primaryButtonText = String.Empty;
 
         public FocusPageViewModel(
             IFocusService focusService,
@@ -45,7 +46,7 @@ namespace AmbientSounds.ViewModels
             _focusService.TimeUpdated += OnTimeUpdated;
             _focusService.FocusStateChanged += OnFocusStateChanged;
 
-            UpdateButtonVisibilities();
+            UpdateButtonStates();
         }
 
         public int FocusLength
@@ -186,7 +187,32 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _cancelVisible, value);
         }
 
-        public void Start()
+        public string PrimaryButtonText
+        {
+            get => _primaryButtonText;
+            set => SetProperty(ref _primaryButtonText, value);
+        }
+
+        public void PlayOrPause()
+        {
+            if (PauseVisible)
+            {
+                Pause();
+            }
+            else if (PlayVisible)
+            {
+                Start();
+            }
+        }
+
+        private void UpdatePrimaryButtonText()
+        {
+            PrimaryButtonText = PauseVisible
+                ? _localizer.GetString("Pause")
+                : _localizer.GetString("Start");
+        }
+
+        private void Start()
         {
             bool successfullyStarted;
 
@@ -218,7 +244,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        public void Pause()
+        private void Pause()
         {
             _focusService.PauseTimer();
             _telemetry.TrackEvent(TelemetryConstants.FocusPaused);
@@ -235,17 +261,18 @@ namespace AmbientSounds.ViewModels
             PlayEnabled = _focusService.CanStartSession(FocusLength, RestLength);
         }
 
-        private void UpdateButtonVisibilities()
+        private void UpdateButtonStates()
         {
             SlidersEnabled = _focusService.CurrentState == FocusState.None;
             PlayVisible = _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
             PauseVisible = _focusService.CurrentState == FocusState.Active;
             CancelVisible = _focusService.CurrentState == FocusState.Active || _focusService.CurrentState == FocusState.Paused;
+            UpdatePrimaryButtonText();
         }
 
         private void OnFocusStateChanged(object sender, FocusState e)
         {
-            UpdateButtonVisibilities();
+            UpdateButtonStates();
         }
 
         private void OnTimeUpdated(object sender, FocusSession e)
@@ -260,7 +287,7 @@ namespace AmbientSounds.ViewModels
                 RepetitionsRemaining = Repetitions;
                 CurrentTimeRemaining = string.Empty;
                 CurrentStatus = string.Empty;
-                UpdateButtonVisibilities();
+                UpdateButtonStates();
 
                 return;
             }
@@ -282,7 +309,7 @@ namespace AmbientSounds.ViewModels
             RepetitionsRemaining = _focusService.GetRepetitionsRemaining(e);
             SecondsRingVisible = true;
             SecondsRemaining = e.Remaining.Seconds;
-            UpdateButtonVisibilities();
+            UpdateButtonStates();
         }
     }
 }

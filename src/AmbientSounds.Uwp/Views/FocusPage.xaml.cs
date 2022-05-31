@@ -8,6 +8,7 @@ using System;
 using Windows.UI.Xaml.Navigation;
 using AmbientSounds.Constants;
 using System.Collections.Generic;
+using Windows.UI.Xaml.Automation;
 
 namespace AmbientSounds.Views
 {
@@ -26,32 +27,11 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ViewModel.PropertyChanged += OnPropertyChanged;
-
             var telemetry = App.Services.GetRequiredService<Services.ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {
                 { "name", "focus" }
             });
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            ViewModel.PropertyChanged -= OnPropertyChanged;
-        }
-
-        private async void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(ViewModel.PlayVisible) && ViewModel.PlayVisible)
-            {
-                await Task.Delay(1);
-                StartButton.Focus(FocusState.Programmatic);
-            }
-            else if (e.PropertyName == nameof(ViewModel.PauseVisible) && ViewModel.PauseVisible)
-            {
-                await Task.Delay(1);
-                PauseButton.Focus(FocusState.Programmatic);
-            }
         }
     }
 }
