@@ -29,6 +29,7 @@
                         <Setter Target="ButtonsPanel.(Grid.Row)" Value="1" />
                         <Setter Target="ButtonsPanel.(Grid.Column)" Value="2" />
                         <Setter Target="ButtonsPanel.Margin" Value="0" />
+                        <Setter Target="ButtonsPanel.MinHeight" Value="0" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -236,6 +237,7 @@
                             Grid.Row="3"
                             Grid.Column="1"
                             Width="250"
+                            MinHeight="100"
                             Margin="0,0,0,20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
