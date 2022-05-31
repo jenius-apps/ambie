@@ -11,22 +11,45 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="890" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainContentRow.Height" Value="*" />
+                        <Setter Target="FocusTimerGrid.(Grid.Column)" Value="0" />
+                        <Setter Target="FocusTimerGrid.Margin" Value="0" />
+                        <Setter Target="SlidersPanel.(Grid.Row)" Value="1" />
+                        <Setter Target="SlidersPanel.(Grid.Column)" Value="1" />
+                        <Setter Target="SlidersPanel.Margin" Value="0,20" />
+                        <Setter Target="CountdownTimerPanel.(Grid.Row)" Value="1" />
+                        <Setter Target="CountdownTimerPanel.(Grid.Column)" Value="1" />
+                        <Setter Target="ButtonsPanel.(Grid.Row)" Value="1" />
+                        <Setter Target="ButtonsPanel.(Grid.Column)" Value="2" />
+                        <Setter Target="ButtonsPanel.Margin" Value="0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
         <ScrollViewer>
             <StackPanel Margin="0,0,16,40">
+
+                <!--  Timer module  -->
                 <Border
-                    Height="400"
                     HorizontalAlignment="Stretch"
                     BorderBrush="{ThemeResource CardStrokeColorDefault}"
                     BorderThickness="1"
                     CornerRadius="8">
                     <Grid>
                         <Grid.RowDefinitions>
+                            <!--  Header  -->
                             <RowDefinition Height="auto" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition x:Name="MainContentRow" Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
@@ -34,13 +57,16 @@
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
 
+                        <!--  Module background fill  -->
                         <Rectangle
-                            Grid.RowSpan="2"
+                            Grid.RowSpan="4"
                             Grid.ColumnSpan="3"
                             Fill="{ThemeResource CardBackgroundFillColorDefault}"
                             RadiusX="8"
-                            RadiusY="8" />
+                            RadiusY="8"
+                            Stretch="Fill" />
 
+                        <!--  Module header  -->
                         <TextBlock
                             Grid.ColumnSpan="3"
                             Margin="20,12"
@@ -49,6 +75,7 @@
                             Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                             Text="{x:Bind strings:Resources.FocusPlanningHeader}" />
 
+                        <!--  Module header divider  -->
                         <Rectangle
                             Grid.Row="1"
                             Grid.ColumnSpan="3"
@@ -57,10 +84,13 @@
                             VerticalAlignment="Top"
                             Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
 
+                        <!--  Focus timer control  -->
                         <Grid
+                            Name="FocusTimerGrid"
                             Grid.Row="1"
-                            Grid.Column="0"
-                            Width="250">
+                            Grid.Column="1"
+                            Width="250"
+                            Margin="0,20,0,0">
                             <controls:FocusTimer
                                 Width="200"
                                 Height="200"
@@ -71,9 +101,12 @@
                                 SecondsRingVisible="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}" />
                         </Grid>
 
+                        <!--  Sliders  -->
                         <StackPanel
-                            Grid.Row="1"
+                            x:Name="SlidersPanel"
+                            Grid.Row="2"
                             Grid.Column="1"
+                            Margin="20,20"
                             VerticalAlignment="Center"
                             Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                             <StackPanel>
@@ -155,10 +188,12 @@
                             </StackPanel>
                         </StackPanel>
 
+                        <!--  Countdown timer display  -->
                         <StackPanel
-                            Grid.Row="1"
+                            x:Name="CountdownTimerPanel"
+                            Grid.Row="2"
                             Grid.Column="1"
-                            Margin="0,0,0,20"
+                            Margin="0,60,0,69"
                             VerticalAlignment="Center"
                             Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                             <TextBlock
@@ -195,10 +230,13 @@
                             </TextBlock>
                         </StackPanel>
 
+                        <!--  Timer buttons  -->
                         <Grid
-                            Grid.Row="1"
-                            Grid.Column="2"
-                            Width="250">
+                            x:Name="ButtonsPanel"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Width="250"
+                            Margin="0,0,0,20">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
