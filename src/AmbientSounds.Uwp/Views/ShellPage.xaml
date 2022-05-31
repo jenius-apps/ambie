@@ -222,7 +222,8 @@
                             HorizontalContentAlignment="Left"
                             AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
                             Click="{x:Bind ViewModel.OpenPremiumDialog}"
-                            Content="{x:Bind strings:Resources.GetAmbiePlus}" />
+                            Content="{x:Bind strings:Resources.GetAmbiePlus}"
+                            Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}" />
                     </StackPanel>
                 </Grid>
 
