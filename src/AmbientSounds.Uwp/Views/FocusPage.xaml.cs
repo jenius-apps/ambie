@@ -33,5 +33,11 @@ namespace AmbientSounds.Views
                 { "name", "focus" }
             });
         }
+
+        private void OnResetClicked(object sender, RoutedEventArgs e)
+        {
+            StartButton.Focus(FocusState.Programmatic);
+            ViewModel.Stop();
+        }
     }
 }

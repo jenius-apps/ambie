@@ -274,7 +274,7 @@
                                 VerticalAlignment="Top"
                                 AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
                                 Canvas.ZIndex="-1"
-                                Click="{x:Bind ViewModel.Stop}"
+                                Click="OnResetClicked"
                                 Content="{x:Bind strings:Resources.Reset}"
                                 Style="{StaticResource SubtleButton}"
                                 Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
