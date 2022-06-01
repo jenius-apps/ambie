@@ -731,6 +731,42 @@
           <source>Help</source>
           <target state="new">Help</target>
         </trans-unit>
+        <trans-unit id="Next" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <target state="new">Next</target>
+        </trans-unit>
+        <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
+          <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
+          <target state="new">Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</target>
+        </trans-unit>
+        <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
+          <source>Set focus minutes</source>
+          <target state="new">Set focus minutes</target>
+        </trans-unit>
+        <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
+          <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
+          <target state="new">Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</target>
+        </trans-unit>
+        <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
+          <source>Set repeats</source>
+          <target state="new">Set repeats</target>
+        </trans-unit>
+        <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
+          <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
+          <target state="new">Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</target>
+        </trans-unit>
+        <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
+          <source>Set rest minutes</source>
+          <target state="new">Set rest minutes</target>
+        </trans-unit>
+        <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
+          <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
+          <target state="new">Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</target>
+        </trans-unit>
+        <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
+          <source>Ready, set, go</source>
+          <target state="new">Ready, set, go</target>
+        </trans-unit>
       </group>
     </body>
   </file>

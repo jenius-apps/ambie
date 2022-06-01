@@ -658,4 +658,31 @@
   <data name="Help" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Set focus minutes</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Set repeats</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Set rest minutes</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Ready, set, go</value>
+  </data>
 </root>

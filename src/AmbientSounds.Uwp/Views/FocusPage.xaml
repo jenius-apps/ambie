@@ -45,7 +45,7 @@
                     Message="{x:Bind strings:Resources.FocusTimerHelpMessage}"
                     Visibility="{x:Bind ViewModel.IsHelpMessageVisible, Mode=OneWay}">
                     <winui:InfoBar.ActionButton>
-                        <HyperlinkButton Content="{x:Bind strings:Resources.FocusTimerHelpAction}" />
+                        <HyperlinkButton Click="{x:Bind ViewModel.StartTutorial}" Content="{x:Bind strings:Resources.FocusTimerHelpAction}" />
                     </winui:InfoBar.ActionButton>
                 </winui:InfoBar>
 
@@ -97,7 +97,7 @@
                             AutomationProperties.Name="{x:Bind strings:Resources.Help}"
                             Click="{x:Bind ViewModel.ShowHelpMessage}"
                             ToolTipService.ToolTip="{x:Bind strings:Resources.Help}"
-                            Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.IsHelpMessageVisible), Mode=OneWay}">
+                            Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
                             <FontIcon
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="16"
@@ -155,12 +155,23 @@
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                     Text="{x:Bind strings:Resources.FocusLength}" />
                                 <controls:TimerSlider
+                                    x:Name="Slider1"
                                     Margin="12,0,0,0"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                     Maximum="60"
                                     StepFrequency="5"
                                     TickFrequency="15"
                                     Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
+
+                                <winui:TeachingTip
+                                    x:Name="TeachingTip1"
+                                    Title="{x:Bind strings:Resources.TipFocusTitle}"
+                                    ActionButtonClick="{x:Bind ViewModel.ShowTip2}"
+                                    ActionButtonContent="{x:Bind strings:Resources.Next}"
+                                    IsOpen="{x:Bind ViewModel.TeachingTip1Visible, Mode=OneWay}"
+                                    PreferredPlacement="Bottom"
+                                    Subtitle="{x:Bind strings:Resources.TipFocusMessage}"
+                                    Target="{x:Bind Slider1}" />
 
                                 <animations:Implicit.ShowAnimations>
                                     <animations:OpacityAnimation
@@ -181,12 +192,24 @@
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                     Text="{x:Bind strings:Resources.RestLength}" />
                                 <controls:TimerSlider
+                                    x:Name="Slider2"
                                     Margin="12,0,0,0"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                     Maximum="60"
                                     StepFrequency="5"
                                     TickFrequency="15"
                                     Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
+
+                                <winui:TeachingTip
+                                    x:Name="TeachingTip2"
+                                    Title="{x:Bind strings:Resources.TipRestTitle}"
+                                    ActionButtonClick="{x:Bind ViewModel.ShowTip3}"
+                                    ActionButtonContent="{x:Bind strings:Resources.Next}"
+                                    IsOpen="{x:Bind ViewModel.TeachingTip2Visible, Mode=OneWay}"
+                                    PreferredPlacement="Bottom"
+                                    Subtitle="{x:Bind strings:Resources.TipRestMessage}"
+                                    Target="{x:Bind Slider2}" />
+
                                 <animations:Implicit.ShowAnimations>
                                     <animations:OpacityAnimation
                                         Delay="0:0:0.15"
@@ -208,11 +231,23 @@
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                     Text="{x:Bind strings:Resources.Repeats}" />
                                 <controls:TimerSlider
+                                    x:Name="Slider3"
                                     Margin="12,0,0,0"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                     Maximum="8"
                                     TickFrequency="2"
                                     Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
+
+                                <winui:TeachingTip
+                                    x:Name="TeachingTip3"
+                                    Title="{x:Bind strings:Resources.TipRepeatsTitle}"
+                                    ActionButtonClick="{x:Bind ViewModel.ShowTip4}"
+                                    ActionButtonContent="{x:Bind strings:Resources.Next}"
+                                    IsOpen="{x:Bind ViewModel.TeachingTip3Visible, Mode=OneWay}"
+                                    PreferredPlacement="Bottom"
+                                    Subtitle="{x:Bind strings:Resources.TipRepeatsMessage}"
+                                    Target="{x:Bind Slider3}" />
+
                                 <animations:Implicit.ShowAnimations>
                                     <animations:OpacityAnimation
                                         Delay="0:0:0.3"
@@ -305,6 +340,16 @@
                                     </StackPanel>
                                 </Grid>
                             </Button>
+
+                            <winui:TeachingTip
+                                x:Name="TeachingTip4"
+                                Title="{x:Bind strings:Resources.TipStartButtonTitle}"
+                                CloseButtonContent="{x:Bind strings:Resources.CloseText}"
+                                IsOpen="{x:Bind ViewModel.TeachingTip4Visible, Mode=OneWay}"
+                                PreferredPlacement="Bottom"
+                                Subtitle="{x:Bind strings:Resources.TipStartButtonMessage}"
+                                Target="{x:Bind StartButton}" />
+
                             <Button
                                 Grid.Row="1"
                                 MinWidth="140"

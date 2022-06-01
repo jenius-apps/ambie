@@ -1353,6 +1353,123 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Next
+        /// <summary>
+        ///   Looks up a localized string similar to: Next
+        /// </summary>
+        public static string Next
+        {
+            get
+            {
+                return _resourceLoader.GetString("Next");
+            }
+        }
+        #endregion
+
+        #region TipFocusMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!
+        /// </summary>
+        public static string TipFocusMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipFocusMessage");
+            }
+        }
+        #endregion
+
+        #region TipFocusTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set focus minutes
+        /// </summary>
+        public static string TipFocusTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipFocusTitle");
+            }
+        }
+        #endregion
+
+        #region TipRepeatsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!
+        /// </summary>
+        public static string TipRepeatsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRepeatsMessage");
+            }
+        }
+        #endregion
+
+        #region TipRepeatsTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set repeats
+        /// </summary>
+        public static string TipRepeatsTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRepeatsTitle");
+            }
+        }
+        #endregion
+
+        #region TipRestMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Now, choose how long each rest segment will be. We recommend about 5 minutes for now!
+        /// </summary>
+        public static string TipRestMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRestMessage");
+            }
+        }
+        #endregion
+
+        #region TipRestTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set rest minutes
+        /// </summary>
+        public static string TipRestTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRestTitle");
+            }
+        }
+        #endregion
+
+        #region TipStartButtonMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!
+        /// </summary>
+        public static string TipStartButtonMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipStartButtonMessage");
+            }
+        }
+        #endregion
+
+        #region TipStartButtonTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Ready, set, go
+        /// </summary>
+        public static string TipStartButtonTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipStartButtonTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1467,6 +1584,15 @@ namespace AmbientSounds.Strings{
             FocusTimerHelpMessage,
             FocusTimerHelpTitle,
             Help,
+            Next,
+            TipFocusMessage,
+            TipFocusTitle,
+            TipRepeatsMessage,
+            TipRepeatsTitle,
+            TipRestMessage,
+            TipRestTitle,
+            TipStartButtonMessage,
+            TipStartButtonTitle,
         }
 
         private static ResourceLoader _resourceLoader;

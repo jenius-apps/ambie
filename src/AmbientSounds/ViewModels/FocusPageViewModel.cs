@@ -65,6 +65,7 @@ namespace AmbientSounds.ViewModels
                 {
                     _userSettings.Set(UserSettingsConstants.HasClosedFocusHelpMessageKey, true);
                 }
+                OnPropertyChanged(nameof(IsHelpIconVisible));
             }
         }
 
@@ -185,7 +186,13 @@ namespace AmbientSounds.ViewModels
         public bool SlidersEnabled
         {
             get => _slidersEnabled;
-            set => SetProperty(ref _slidersEnabled, value);
+            set
+            {
+                if (SetProperty(ref _slidersEnabled, value))
+                {
+                    OnPropertyChanged(nameof(IsHelpIconVisible));
+                }
+            }
         }
 
         public bool PlayVisible
@@ -212,6 +219,13 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _primaryButtonText, value);
         }
 
+        public bool IsHelpIconVisible => !IsHelpMessageVisible && SlidersEnabled;
+
+        public bool TeachingTip1Visible { get; set; }
+        public bool TeachingTip2Visible { get; set; }
+        public bool TeachingTip3Visible { get; set; }
+        public bool TeachingTip4Visible { get; set; }
+
         public void PlayOrPause()
         {
             if (PauseVisible)
@@ -222,6 +236,60 @@ namespace AmbientSounds.ViewModels
             {
                 Start();
             }
+        }
+
+        public void StartTutorial()
+        {
+            if (!SlidersEnabled)
+            {
+                return;
+            }
+
+            IsHelpMessageVisible = false;
+            TeachingTip1Visible = true;
+            OnPropertyChanged(nameof(TeachingTip1Visible));
+        }
+
+        public void ShowTip2()
+        {
+            TeachingTip1Visible = false;
+            OnPropertyChanged(nameof(TeachingTip1Visible));
+
+            if (!SlidersEnabled)
+            {
+                return;
+            }
+
+            TeachingTip2Visible = true;
+            OnPropertyChanged(nameof(TeachingTip2Visible));
+        }
+
+        public void ShowTip3()
+        {
+            TeachingTip2Visible = false;
+            OnPropertyChanged(nameof(TeachingTip2Visible));
+
+            if (!SlidersEnabled)
+            {
+                return;
+            }
+
+            TeachingTip3Visible = true;
+            OnPropertyChanged(nameof(TeachingTip3Visible));
+        }
+
+        public void ShowTip4()
+        {
+            TeachingTip3Visible = false;
+            OnPropertyChanged(nameof(TeachingTip3Visible));
+
+            if (!SlidersEnabled)
+            {
+                return;
+            }
+
+            TeachingTip4Visible = true;
+            OnPropertyChanged(nameof(TeachingTip4Visible));
         }
 
         public void ShowHelpMessage()
