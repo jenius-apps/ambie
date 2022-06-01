@@ -640,10 +640,22 @@
   <data name="Notepad" xml:space="preserve">
     <value>Notepad</value>
   </data>
-  <data name="Repetitions" xml:space="preserve">
-    <value>Repetitions</value>
+  <data name="Repeats" xml:space="preserve">
+    <value>Repeats</value>
   </data>
   <data name="RestLength" xml:space="preserve">
     <value>Rest length</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Show me how to use it</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Welcome to Focus Timer!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
   </data>
 </root>

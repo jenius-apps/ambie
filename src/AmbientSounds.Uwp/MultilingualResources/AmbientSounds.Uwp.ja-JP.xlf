@@ -700,13 +700,29 @@
           <source>Notepad</source>
           <target state="new">Notepad</target>
         </trans-unit>
-        <trans-unit id="Repetitions" translate="yes" xml:space="preserve">
-          <source>Repetitions</source>
-          <target state="new">Repetitions</target>
-        </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest length</source>
           <target state="new">Rest length</target>
+        </trans-unit>
+        <trans-unit id="Repeats" translate="yes" xml:space="preserve">
+          <source>Repeats</source>
+          <target state="new">Repeats</target>
+        </trans-unit>
+        <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
+          <source>Show me how to use it</source>
+          <target state="new">Show me how to use it</target>
+        </trans-unit>
+        <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
+          <target state="new">This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</target>
+        </trans-unit>
+        <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
+          <source>Welcome to Focus Timer!</source>
+          <target state="new">Welcome to Focus Timer!</target>
+        </trans-unit>
+        <trans-unit id="Help" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="new">Help</target>
         </trans-unit>
       </group>
     </body>

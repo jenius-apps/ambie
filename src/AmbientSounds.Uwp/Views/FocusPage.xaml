@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -37,8 +38,18 @@
 
         <ScrollViewer>
             <StackPanel Margin="0,0,16,40">
+                <winui:InfoBar
+                    Title="{x:Bind strings:Resources.FocusTimerHelpTitle}"
+                    Margin="0,0,0,8"
+                    IsOpen="{x:Bind ViewModel.IsHelpMessageVisible, Mode=TwoWay}"
+                    Message="{x:Bind strings:Resources.FocusTimerHelpMessage}"
+                    Visibility="{x:Bind ViewModel.IsHelpMessageVisible, Mode=OneWay}">
+                    <winui:InfoBar.ActionButton>
+                        <HyperlinkButton Content="{x:Bind strings:Resources.FocusTimerHelpAction}" />
+                    </winui:InfoBar.ActionButton>
+                </winui:InfoBar>
 
-                <!--  Timer module  -->
+                <!--  Planning module  -->
                 <Border
                     HorizontalAlignment="Stretch"
                     BorderBrush="{ThemeResource CardStrokeColorDefault}"
@@ -75,6 +86,36 @@
                             FontWeight="SemiBold"
                             Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                             Text="{x:Bind strings:Resources.FocusPlanningHeader}" />
+
+                        <!--  Module help button  -->
+                        <HyperlinkButton
+                            Grid.ColumnSpan="3"
+                            Margin="12,8"
+                            Padding="8,4"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            AutomationProperties.Name="{x:Bind strings:Resources.Help}"
+                            Click="{x:Bind ViewModel.ShowHelpMessage}"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.Help}"
+                            Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.IsHelpMessageVisible), Mode=OneWay}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphHelp}" />
+
+                            <animations:Implicit.ShowAnimations>
+                                <animations:OpacityAnimation
+                                    Delay="0:0:1"
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:1" />
+                                <animations:TranslationAnimation
+                                    Delay="0:0:1"
+                                    From="20,0,0"
+                                    To="0"
+                                    Duration="0:0:1" />
+                            </animations:Implicit.ShowAnimations>
+                        </HyperlinkButton>
 
                         <!--  Module header divider  -->
                         <Rectangle
@@ -167,7 +208,7 @@
                                     x:Name="Repeats"
                                     Margin="12,24,12,0"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    Text="{x:Bind strings:Resources.Repetitions}" />
+                                    Text="{x:Bind strings:Resources.Repeats}" />
                                 <controls:TimerSlider
                                     Margin="12,0,0,0"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
@@ -298,7 +339,7 @@
 
                 <Border
                     Height="200"
-                    Margin="0,4,0,0"
+                    Margin="0,8,0,0"
                     HorizontalAlignment="Stretch"
                     BorderBrush="{ThemeResource CardStrokeColorDefault}"
                     BorderThickness="1"

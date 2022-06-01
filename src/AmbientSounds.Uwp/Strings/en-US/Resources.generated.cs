@@ -1276,15 +1276,15 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region Repetitions
+        #region Repeats
         /// <summary>
-        ///   Looks up a localized string similar to: Repetitions
+        ///   Looks up a localized string similar to: Repeats
         /// </summary>
-        public static string Repetitions
+        public static string Repeats
         {
             get
             {
-                return _resourceLoader.GetString("Repetitions");
+                return _resourceLoader.GetString("Repeats");
             }
         }
         #endregion
@@ -1298,6 +1298,58 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("RestLength");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpAction
+        /// <summary>
+        ///   Looks up a localized string similar to: Show me how to use it
+        /// </summary>
+        public static string FocusTimerHelpAction
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpAction");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!
+        /// </summary>
+        public static string FocusTimerHelpMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpMessage");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Welcome to Focus Timer!
+        /// </summary>
+        public static string FocusTimerHelpTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpTitle");
+            }
+        }
+        #endregion
+
+        #region Help
+        /// <summary>
+        ///   Looks up a localized string similar to: Help
+        /// </summary>
+        public static string Help
+        {
+            get
+            {
+                return _resourceLoader.GetString("Help");
             }
         }
         #endregion
@@ -1409,8 +1461,12 @@ namespace AmbientSounds.Strings{
             FocusNotesPlaceholder,
             FocusPlanningHeader,
             Notepad,
-            Repetitions,
+            Repeats,
             RestLength,
+            FocusTimerHelpAction,
+            FocusTimerHelpMessage,
+            FocusTimerHelpTitle,
+            Help,
         }
 
         private static ResourceLoader _resourceLoader;

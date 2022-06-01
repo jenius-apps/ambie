@@ -30,6 +30,7 @@ namespace AmbientSounds.ViewModels
         private bool _pauseVisible;
         private bool _cancelVisible;
         private string _primaryButtonText = String.Empty;
+        private bool _isHelpMessageVisible;
 
         public FocusPageViewModel(
             IFocusService focusService,
@@ -47,6 +48,12 @@ namespace AmbientSounds.ViewModels
             _focusService.FocusStateChanged += OnFocusStateChanged;
 
             UpdateButtonStates();
+        }
+
+        public bool IsHelpMessageVisible
+        {
+            get => _isHelpMessageVisible;
+            set => SetProperty(ref _isHelpMessageVisible, value);
         }
 
         public int FocusLength
@@ -203,6 +210,11 @@ namespace AmbientSounds.ViewModels
             {
                 Start();
             }
+        }
+
+        public void ShowHelpMessage()
+        {
+            IsHelpMessageVisible = true;
         }
 
         private void UpdatePrimaryButtonText()

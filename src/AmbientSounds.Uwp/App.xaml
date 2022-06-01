@@ -127,6 +127,7 @@
             <x:String x:Key="GlyphPlay">&#xEB21;</x:String>
             <x:String x:Key="GlyphPause">&#xEAF4;</x:String>
             <x:String x:Key="GlyphCancel">&#xE9F9;</x:String>
+            <x:String x:Key="GlyphHelp">&#xEA7D;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>
