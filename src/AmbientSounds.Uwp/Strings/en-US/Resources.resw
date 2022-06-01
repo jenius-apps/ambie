@@ -629,7 +629,7 @@
     <value>Start</value>
   </data>
   <data name="FocusLength" xml:space="preserve">
-    <value>Focus length</value>
+    <value>Focus minutes</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
     <value>You can jot down your to-do list or any notes here 🙂</value>
@@ -644,7 +644,7 @@
     <value>Repeats</value>
   </data>
   <data name="RestLength" xml:space="preserve">
-    <value>Rest length</value>
+    <value>Rest minutes</value>
   </data>
   <data name="FocusTimerHelpAction" xml:space="preserve">
     <value>Show me how to use it</value>

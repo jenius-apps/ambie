@@ -687,8 +687,8 @@
           <target state="new">Start</target>
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
-          <source>Focus length</source>
-          <target state="new">Focus length</target>
+          <source>Focus minutes</source>
+          <target state="new">Focus minutes</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down your to-do list or any notes here 🙂</source>
@@ -703,8 +703,8 @@
           <target state="new">Notepad</target>
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
-          <source>Rest length</source>
-          <target state="new">Rest length</target>
+          <source>Rest minutes</source>
+          <target state="new">Rest minutes</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>

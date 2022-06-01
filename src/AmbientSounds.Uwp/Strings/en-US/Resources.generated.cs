@@ -1226,7 +1226,7 @@ namespace AmbientSounds.Strings{
 
         #region FocusLength
         /// <summary>
-        ///   Looks up a localized string similar to: Focus length
+        ///   Looks up a localized string similar to: Focus minutes
         /// </summary>
         public static string FocusLength
         {
@@ -1291,7 +1291,7 @@ namespace AmbientSounds.Strings{
 
         #region RestLength
         /// <summary>
-        ///   Looks up a localized string similar to: Rest length
+        ///   Looks up a localized string similar to: Rest minutes
         /// </summary>
         public static string RestLength
         {
