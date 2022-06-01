@@ -105,12 +105,10 @@
 
                             <animations:Implicit.ShowAnimations>
                                 <animations:OpacityAnimation
-                                    Delay="0:0:1"
                                     From="0"
                                     To="1"
                                     Duration="0:0:1" />
                                 <animations:TranslationAnimation
-                                    Delay="0:0:1"
                                     From="20,0,0"
                                     To="0"
                                     Duration="0:0:1" />

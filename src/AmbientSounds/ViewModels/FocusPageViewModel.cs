@@ -14,6 +14,7 @@ namespace AmbientSounds.ViewModels
         private readonly IFocusService _focusService;
         private readonly ILocalizer _localizer;
         private readonly ITelemetry _telemetry;
+        private readonly IUserSettings _userSettings;
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
@@ -29,31 +30,42 @@ namespace AmbientSounds.ViewModels
         private bool _playVisible;
         private bool _pauseVisible;
         private bool _cancelVisible;
-        private string _primaryButtonText = String.Empty;
+        private string _primaryButtonText = string.Empty;
         private bool _isHelpMessageVisible;
 
         public FocusPageViewModel(
             IFocusService focusService,
             ILocalizer localizer,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            IUserSettings userSettings)
         {
             Guard.IsNotNull(focusService, nameof(focusService));
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
             _focusService = focusService;
             _localizer = localizer;
             _telemetry = telemetry;
+            _userSettings = userSettings;
 
             _focusService.TimeUpdated += OnTimeUpdated;
             _focusService.FocusStateChanged += OnFocusStateChanged;
 
+            IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
             UpdateButtonStates();
         }
 
         public bool IsHelpMessageVisible
         {
             get => _isHelpMessageVisible;
-            set => SetProperty(ref _isHelpMessageVisible, value);
+            set
+            {
+                SetProperty(ref _isHelpMessageVisible, value);
+                if (value is false)
+                {
+                    _userSettings.Set(UserSettingsConstants.HasClosedFocusHelpMessageKey, true);
+                }
+            }
         }
 
         public int FocusLength

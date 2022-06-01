@@ -97,6 +97,12 @@ namespace AmbientSounds.Constants
         public const string LastUsedScreensaverKey = "LastUsedScreensaver";
 
         /// <summary>
+        /// Used to remember if the user has closed the focus help message
+        /// at least once.
+        /// </summary>
+        public const string HasClosedFocusHelpMessageKey = "HasClosedFocusHelpMessage";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -117,7 +123,8 @@ namespace AmbientSounds.Constants
             { RatingDismissed, DateTime.MinValue },
             { ResumeOnLaunchKey, false },
             { DisableSmtcSupportKey, false },
-            { LastUsedScreensaverKey, string.Empty }
+            { LastUsedScreensaverKey, string.Empty },
+            { HasClosedFocusHelpMessageKey, false },
         };
     }
 }
