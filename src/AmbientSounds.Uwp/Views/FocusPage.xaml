@@ -7,6 +7,7 @@
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
@@ -386,6 +387,26 @@
                             </Button>
                         </Grid>
                     </Grid>
+                </Border>
+
+                <Border
+                    Height="160"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Stretch"
+                    BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <GridView ItemsSource="{x:Bind ViewModel.RecentSettings}">
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="models:RecentFocusSettings">
+                                <StackPanel>
+                                    <TextBlock Text="{x:Bind FocusMinutes}" />
+                                    <TextBlock Text="{x:Bind RestMinutes}" />
+                                    <TextBlock Text="{x:Bind Repeats}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
                 </Border>
 
                 <!--  notepad module  -->

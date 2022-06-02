@@ -25,13 +25,15 @@ namespace AmbientSounds.Views
 
         public FocusPageViewModel ViewModel => (FocusPageViewModel)this.DataContext;
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var telemetry = App.Services.GetRequiredService<Services.ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {
                 { "name", "focus" }
             });
+
+            await ViewModel.InitializeAsync();
         }
 
         private void OnResetClicked(object sender, RoutedEventArgs e)

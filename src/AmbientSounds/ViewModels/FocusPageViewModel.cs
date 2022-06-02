@@ -1,11 +1,15 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Extensions;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
@@ -15,6 +19,7 @@ namespace AmbientSounds.ViewModels
         private readonly ILocalizer _localizer;
         private readonly ITelemetry _telemetry;
         private readonly IUserSettings _userSettings;
+        private readonly IRecentFocusService _recentFocusService;
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
@@ -37,16 +42,19 @@ namespace AmbientSounds.ViewModels
             IFocusService focusService,
             ILocalizer localizer,
             ITelemetry telemetry,
-            IUserSettings userSettings)
+            IUserSettings userSettings,
+            IRecentFocusService recentFocusService)
         {
             Guard.IsNotNull(focusService, nameof(focusService));
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(userSettings, nameof(userSettings));
+            Guard.IsNotNull(recentFocusService, nameof(recentFocusService));
             _focusService = focusService;
             _localizer = localizer;
             _telemetry = telemetry;
             _userSettings = userSettings;
+            _recentFocusService = recentFocusService;
 
             _focusService.TimeUpdated += OnTimeUpdated;
             _focusService.FocusStateChanged += OnFocusStateChanged;
@@ -54,6 +62,8 @@ namespace AmbientSounds.ViewModels
             IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
             UpdateButtonStates();
         }
+
+        public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
 
         public bool IsHelpMessageVisible
         {
@@ -226,6 +236,16 @@ namespace AmbientSounds.ViewModels
         public bool TeachingTip3Visible { get; set; }
         public bool TeachingTip4Visible { get; set; }
 
+        public async Task InitializeAsync()
+        {
+            RecentSettings.Clear();
+            var recents = await _recentFocusService.GetRecentAsync();
+            foreach (var recent in recents.OrderBy(x => x.LastUsed))
+            {
+                RecentSettings.Add(recent);
+            }
+        }
+
         public void PlayOrPause()
         {
             if (PauseVisible)
@@ -327,9 +347,11 @@ namespace AmbientSounds.ViewModels
 
             if (successfullyStarted)
             {
+                _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
+
                 // Note that if the timer
                 // didn't start successfully, it does not mean
-                // we should hide the seconds ring. We care what the current state
+                // we should hide the seconds ring. We don't care what the current state
                 // is. All we care is that if it was started,
                 // make sure the ring is visible.
                 SecondsRingVisible = true;

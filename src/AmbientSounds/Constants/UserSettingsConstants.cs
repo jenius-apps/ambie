@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 
 namespace AmbientSounds.Constants
@@ -13,6 +14,11 @@ namespace AmbientSounds.Constants
         /// for this installation.
         /// </summary>
         public const string HasRated = "HasRated";
+
+        /// <summary>
+        /// Key to remember recent focus settings.
+        /// </summary>
+        public const string RecentFocusKey = "RecentFocusSettings";
 
         /// <summary>
         /// Key to remember the UTC date that the user dismissed the rating prompt.
@@ -125,6 +131,7 @@ namespace AmbientSounds.Constants
             { DisableSmtcSupportKey, false },
             { LastUsedScreensaverKey, string.Empty },
             { HasClosedFocusHelpMessageKey, false },
+            { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
         };
     }
 }

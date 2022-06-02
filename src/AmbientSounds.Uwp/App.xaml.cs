@@ -368,6 +368,7 @@ namespace AmbientSounds
                 .AddTransient<ITimerService, TimerService>()
                 // exposes events or object tree has singleton, so singleton.
                 .AddSingleton<IFocusService, FocusService>()
+                .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
