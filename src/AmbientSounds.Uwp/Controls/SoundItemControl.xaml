@@ -37,6 +37,14 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
+        <ani:Implicit.ShowAnimations>
+            <ani:OpacityAnimation
+                Delay="0:0:0.5"
+                From="0"
+                To="1"
+                Duration="0:0:1" />
+        </ani:Implicit.ShowAnimations>
+
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
                 Width="{StaticResource ImageCardShadowWidth}"

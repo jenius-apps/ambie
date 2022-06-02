@@ -11,10 +11,6 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <winui:StackLayout
-            x:Name="VerticalStackLayout"
-            Orientation="Vertical"
-            Spacing="4" />
         <winui:UniformGridLayout
             x:Name="UniformLayout"
             MinColumnSpacing="8"
@@ -27,15 +23,6 @@
             -->
             <controls:SoundItemControl />
         </DataTemplate>
-
-        <DataTemplate x:Key="NarrowSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <!--
-                The control below gets its viewmodel/datacontext
-                via the itemRepeater's OnElementPrepared event.
-            -->
-            <controls:SoundListItem />
-        </DataTemplate>
-
     </Page.Resources>
 
     <Grid>

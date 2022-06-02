@@ -55,6 +55,14 @@
                     BorderBrush="{ThemeResource CardStrokeColorDefault}"
                     BorderThickness="1"
                     CornerRadius="8">
+
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:1" />
+                    </animations:Implicit.ShowAnimations>
+
                     <Grid>
                         <Grid.RowDefinitions>
                             <!--  Header  -->
@@ -380,6 +388,7 @@
                     </Grid>
                 </Border>
 
+                <!--  notepad module  -->
                 <Border
                     Height="200"
                     Margin="0,8,0,0"
@@ -387,6 +396,14 @@
                     BorderBrush="{ThemeResource CardStrokeColorDefault}"
                     BorderThickness="1"
                     CornerRadius="8">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            Delay="0:0:0.3"
+                            From="0"
+                            To="1"
+                            Duration="0:0:1" />
+                    </animations:Implicit.ShowAnimations>
+
                     <Grid>
                         <Rectangle
                             Fill="{ThemeResource CardBackgroundFillColorDefault}"
