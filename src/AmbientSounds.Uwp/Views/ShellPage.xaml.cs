@@ -48,8 +48,6 @@ namespace AmbientSounds.Views
 
         public ShellPageViewModel ViewModel => (ShellPageViewModel)this.DataContext;
 
-        private string RateUs => ResourceLoader.GetForCurrentView().GetString("MoreButtonRate/Label");
-
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var navigator = App.Services.GetRequiredService<INavigator>();

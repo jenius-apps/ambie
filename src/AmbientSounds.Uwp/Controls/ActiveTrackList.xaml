@@ -170,14 +170,14 @@
                     <ani:Implicit.ShowAnimations>
                         <ani:ScaleAnimation
                             Delay="0:0:0.1"
-                            From="0.90"
+                            From="0.95"
                             To="1"
                             Duration="0:0:0.5" />
                         <ani:OpacityAnimation
                             Delay="0:0:0.1"
                             From="0"
                             To="1"
-                            Duration="0:0:0.3" />
+                            Duration="0:0:0.5" />
                     </ani:Implicit.ShowAnimations>
 
                     <FontIcon
