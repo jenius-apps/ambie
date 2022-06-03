@@ -65,6 +65,8 @@ namespace AmbientSounds.ViewModels
 
         public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
 
+        public bool IsRecentVisible => SlidersEnabled && RecentSettings.Count > 0;
+
         public bool IsHelpMessageVisible
         {
             get => _isHelpMessageVisible;
@@ -244,6 +246,27 @@ namespace AmbientSounds.ViewModels
             {
                 RecentSettings.Add(recent);
             }
+
+            OnPropertyChanged(nameof(IsRecentVisible));
+        }
+
+        public void LoadRecentSettings(RecentFocusSettings settings)
+        {
+            if (settings is null)
+            {
+                return;
+            }
+
+            FocusLength = settings.FocusMinutes;
+            RestLength = settings.RestMinutes;
+            Repetitions = settings.Repeats;
+
+
+            var index = RecentSettings.IndexOf(settings);
+            _telemetry.TrackEvent(TelemetryConstants.FocusRecentClicked, new Dictionary<string, string>
+            {
+                { "index", index.ToString() }
+            });
         }
 
         public void PlayOrPause()
@@ -381,6 +404,7 @@ namespace AmbientSounds.ViewModels
             PlayVisible = _focusService.CurrentState == FocusState.Paused || _focusService.CurrentState == FocusState.None;
             PauseVisible = _focusService.CurrentState == FocusState.Active;
             CancelVisible = _focusService.CurrentState == FocusState.Active || _focusService.CurrentState == FocusState.Paused;
+            OnPropertyChanged(nameof(IsRecentVisible));
             UpdatePrimaryButtonText();
         }
 

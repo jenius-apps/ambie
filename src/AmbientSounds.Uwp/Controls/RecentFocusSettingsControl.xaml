@@ -27,7 +27,7 @@
             Height="40"
             Foreground="{x:Bind Foreground, Mode=OneWay}"
             IsIndeterminate="False"
-            Maximum="60"
+            Maximum="{x:Bind MaxValue, Mode=OneWay}"
             Value="{x:Bind Value, Mode=OneWay}" />
         <TextBlock
             HorizontalAlignment="Center"

@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Navigation;
 using AmbientSounds.Constants;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Automation;
+using AmbientSounds.Models;
 
 namespace AmbientSounds.Views
 {
@@ -40,6 +41,14 @@ namespace AmbientSounds.Views
         {
             StartButton.Focus(FocusState.Programmatic);
             ViewModel.Stop();
+        }
+
+        private void OnRecentClicked(object sender, ItemClickEventArgs e)
+        {
+            if (e.ClickedItem is RecentFocusSettings s)
+            {
+                ViewModel.LoadRecentSettings(s);
+            }
         }
     }
 }

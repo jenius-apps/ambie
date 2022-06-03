@@ -11,6 +11,12 @@ namespace AmbientSounds.Controls
             typeof(RecentFocusSettingsControl),
             new PropertyMetadata(0));
 
+        public static readonly DependencyProperty MaxValueProperty = DependencyProperty.Register(
+            nameof(MaxValue),
+            typeof(int),
+            typeof(RecentFocusSettingsControl),
+            new PropertyMetadata(100));
+
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             nameof(Text),
             typeof(string),
@@ -26,6 +32,12 @@ namespace AmbientSounds.Controls
         {
             get => (int)GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
+        }
+
+        public int MaxValue
+        {
+            get => (int)GetValue(MaxValueProperty);
+            set => SetValue(MaxValueProperty, value);
         }
 
         public string Text

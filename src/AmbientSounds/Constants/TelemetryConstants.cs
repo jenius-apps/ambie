@@ -115,5 +115,6 @@
         public const string FocusResumed = Focus + "resumed";
         public const string FocusPaused = Focus + "paushed";
         public const string FocusReset = Focus + "reset";
+        public const string FocusRecentClicked = Focus + "recentClicked";
     }
 }

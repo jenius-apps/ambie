@@ -470,13 +470,15 @@
                     <ListView
                         Padding="0,0,200,0"
                         IsItemClickEnabled="True"
+                        ItemClick="OnRecentClicked"
                         ItemsSource="{x:Bind ViewModel.RecentSettings}"
                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                         ScrollViewer.HorizontalScrollMode="Auto"
                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
                         ScrollViewer.VerticalScrollMode="Disabled"
                         SelectionMode="None"
-                        Style="{StaticResource HorizontalSnappingListView}">
+                        Style="{StaticResource HorizontalSnappingListView}"
+                        Visibility="{x:Bind ViewModel.IsRecentVisible, Mode=OneWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="models:RecentFocusSettings">
                                 <Grid Width="200" Padding="20">
@@ -488,16 +490,19 @@
 
                                     <controls:RecentFocusSettingsControl
                                         Foreground="SkyBlue"
+                                        MaxValue="60"
                                         Text="{x:Bind strings:Resources.FocusText}"
                                         Value="{x:Bind FocusMinutes}" />
                                     <controls:RecentFocusSettingsControl
                                         Grid.Column="1"
                                         Foreground="Green"
+                                        MaxValue="60"
                                         Text="{x:Bind strings:Resources.RestText}"
                                         Value="{x:Bind RestMinutes}" />
                                     <controls:RecentFocusSettingsControl
                                         Grid.Column="2"
                                         Foreground="DeepPink"
+                                        MaxValue="8"
                                         Text="{x:Bind strings:Resources.Repeats}"
                                         Value="{x:Bind Repeats}" />
 
