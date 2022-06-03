@@ -240,7 +240,7 @@ namespace AmbientSounds.ViewModels
         {
             RecentSettings.Clear();
             var recents = await _recentFocusService.GetRecentAsync();
-            foreach (var recent in recents.OrderBy(x => x.LastUsed))
+            foreach (var recent in recents.OrderByDescending(x => x.LastUsed))
             {
                 RecentSettings.Add(recent);
             }

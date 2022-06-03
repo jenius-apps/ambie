@@ -12,6 +12,83 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style x:Key="HorizontalSnappingListView" TargetType="ListView">
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="TabNavigation" Value="Once" />
+            <Setter Property="IsSwipeEnabled" Value="True" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
+            <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False" />
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Enabled" />
+            <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="True" />
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
+            <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True" />
+            <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+            <Setter Property="ItemContainerTransitions">
+                <Setter.Value>
+                    <TransitionCollection>
+                        <AddDeleteThemeTransition />
+                        <ContentThemeTransition />
+                        <ReorderThemeTransition />
+                        <EntranceThemeTransition IsStaggeringEnabled="False" />
+                    </TransitionCollection>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <!--  this was changed to horizontal  -->
+                        <ItemsStackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListView">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+
+                            <!--  this was changed to add the two snap properties  -->
+                            <ScrollViewer
+                                x:Name="ScrollViewer"
+                                AutomationProperties.AccessibilityView="Raw"
+                                BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}"
+                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                                HorizontalSnapPointsAlignment="Near"
+                                HorizontalSnapPointsType="Mandatory"
+                                IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
+                                IsHorizontalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsHorizontalScrollChainingEnabled}"
+                                IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
+                                IsVerticalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsVerticalScrollChainingEnabled}"
+                                TabNavigation="{TemplateBinding TabNavigation}"
+                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                                ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
+                                <ItemsPresenter
+                                    Padding="{TemplateBinding Padding}"
+                                    Footer="{TemplateBinding Footer}"
+                                    FooterTemplate="{TemplateBinding FooterTemplate}"
+                                    FooterTransitions="{TemplateBinding FooterTransitions}"
+                                    Header="{TemplateBinding Header}"
+                                    HeaderTemplate="{TemplateBinding HeaderTemplate}"
+                                    HeaderTransitions="{TemplateBinding HeaderTransitions}" />
+                            </ScrollViewer>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
     <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -389,25 +466,46 @@
                     </Grid>
                 </Border>
 
-                <Border
-                    Height="160"
-                    Margin="0,8,0,0"
-                    HorizontalAlignment="Stretch"
-                    BorderBrush="{ThemeResource CardStrokeColorDefault}"
-                    BorderThickness="1"
-                    CornerRadius="8">
-                    <GridView ItemsSource="{x:Bind ViewModel.RecentSettings}">
-                        <GridView.ItemTemplate>
+                <Grid Margin="0,8,0,0" HorizontalAlignment="Stretch">
+                    <ListView
+                        Padding="0,0,200,0"
+                        IsItemClickEnabled="True"
+                        ItemsSource="{x:Bind ViewModel.RecentSettings}"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.HorizontalScrollMode="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        SelectionMode="None"
+                        Style="{StaticResource HorizontalSnappingListView}">
+                        <ListView.ItemTemplate>
                             <DataTemplate x:DataType="models:RecentFocusSettings">
-                                <StackPanel>
-                                    <TextBlock Text="{x:Bind FocusMinutes}" />
-                                    <TextBlock Text="{x:Bind RestMinutes}" />
-                                    <TextBlock Text="{x:Bind Repeats}" />
-                                </StackPanel>
+                                <Grid Width="200" Padding="20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <controls:RecentFocusSettingsControl
+                                        Foreground="SkyBlue"
+                                        Text="{x:Bind strings:Resources.FocusText}"
+                                        Value="{x:Bind FocusMinutes}" />
+                                    <controls:RecentFocusSettingsControl
+                                        Grid.Column="1"
+                                        Foreground="Green"
+                                        Text="{x:Bind strings:Resources.RestText}"
+                                        Value="{x:Bind RestMinutes}" />
+                                    <controls:RecentFocusSettingsControl
+                                        Grid.Column="2"
+                                        Foreground="DeepPink"
+                                        Text="{x:Bind strings:Resources.Repeats}"
+                                        Value="{x:Bind Repeats}" />
+
+                                </Grid>
                             </DataTemplate>
-                        </GridView.ItemTemplate>
-                    </GridView>
-                </Border>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
 
                 <!--  notepad module  -->
                 <Border
