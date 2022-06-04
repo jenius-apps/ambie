@@ -112,6 +112,7 @@ namespace AmbientSounds.Services
             _timerService.Stop();
             _focusToastService.ClearToasts();
             CurrentState = FocusState.Paused;
+            _mixMediaPlayerService.Pause();
         }
 
         public void StopTimer()
@@ -121,6 +122,7 @@ namespace AmbientSounds.Services
             CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
             TimeUpdated?.Invoke(this, CurrentSession);
             CurrentState = FocusState.None;
+            _mixMediaPlayerService.Pause();
         }
 
         public bool ResumeTimer()
