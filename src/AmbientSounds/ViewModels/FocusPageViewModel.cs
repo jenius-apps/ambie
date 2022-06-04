@@ -335,6 +335,12 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(TeachingTip4Visible));
         }
 
+        public void CloseLastTip()
+        {
+            TeachingTip4Visible = false;
+            OnPropertyChanged(nameof(TeachingTip4Visible));
+        }
+
         public void ShowHelpMessage()
         {
             IsHelpMessageVisible = true;

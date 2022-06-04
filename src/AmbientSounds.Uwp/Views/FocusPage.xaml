@@ -136,6 +136,9 @@
                     BorderBrush="{ThemeResource CardStrokeColorDefault}"
                     BorderThickness="1"
                     CornerRadius="8">
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                    </animations:Implicit.Animations>
 
                     <animations:Implicit.ShowAnimations>
                         <animations:OpacityAnimation
@@ -433,6 +436,7 @@
                             <winui:TeachingTip
                                 x:Name="TeachingTip4"
                                 Title="{x:Bind strings:Resources.TipStartButtonTitle}"
+                                CloseButtonClick="{x:Bind ViewModel.CloseLastTip}"
                                 CloseButtonContent="{x:Bind strings:Resources.CloseText}"
                                 IsOpen="{x:Bind ViewModel.TeachingTip4Visible, Mode=OneWay}"
                                 PreferredPlacement="Bottom"
@@ -469,7 +473,12 @@
                     </Grid>
                 </Border>
 
+                <!--  recents module  -->
                 <Grid Margin="0,8,0,0" HorizontalAlignment="Stretch">
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                    </animations:Implicit.Animations>
+
                     <ListView
                         Padding="0,0,200,0"
                         IsItemClickEnabled="True"
@@ -530,6 +539,9 @@
                             To="1"
                             Duration="0:0:1" />
                     </animations:Implicit.ShowAnimations>
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                    </animations:Implicit.Animations>
 
                     <Grid>
                         <Rectangle
