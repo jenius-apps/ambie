@@ -21,9 +21,10 @@
       An Assembly element with Name="*Application*" applies to all assemblies in
       the application package. The asterisks are not wildcards.
     -->
-	  <Type Name="System.Text.Json.JsonSerializer" Serialize="Required All" />
+	  <!--<Type Name="System.Text.Json.JsonSerializer" Dynamic="Required All" />-->
+	  <Assembly Name ="*Application*" Dynamic="Required All"/>
 	  
 	  <!-- Required for the toolkit's notification helpers to work in release mode -->
-	  <Assembly Name="Microsoft.Toolkit.Uwp.Notifications" Dynamic="Required All" />
+	  <!--<Assembly Name="Microsoft.Toolkit.Uwp.Notifications" Dynamic="Required All" />-->
   </Application>
 </Directives>
