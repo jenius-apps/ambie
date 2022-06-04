@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Diagnostics;
+﻿using AmbientSounds.Constants;
+using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 
@@ -9,6 +10,7 @@ namespace AmbientSounds.Services
         private readonly ITimerService _timerService;
         private readonly IFocusToastService _focusToastService;
         private readonly IMixMediaPlayerService _mixMediaPlayerService;
+        private readonly ITelemetry _telemetry;
         private readonly Queue<FocusSession> _sessionQueue = new();
         private FocusState _focusState = FocusState.None;
 
@@ -18,14 +20,17 @@ namespace AmbientSounds.Services
         public FocusService(
             ITimerService timerService,
             IFocusToastService focusToastService,
-            IMixMediaPlayerService mixMediaPlayerService)
+            IMixMediaPlayerService mixMediaPlayerService,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
             Guard.IsNotNull(focusToastService, nameof(focusToastService));
             Guard.IsNotNull(mixMediaPlayerService, nameof(mixMediaPlayerService));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
             _timerService = timerService;
             _focusToastService = focusToastService;
             _mixMediaPlayerService = mixMediaPlayerService;
+            _telemetry = telemetry;
 
             _timerService.Interval = 1000;
             _timerService.IntervalElapsed += OnIntervalElapsed;
@@ -173,12 +178,14 @@ namespace AmbientSounds.Services
                     CurrentSession = _sessionQueue.Dequeue();
                     _timerService.Remaining = CurrentSession.Remaining;
                     _timerService.Start();
+                    _telemetry.TrackEvent(TelemetryConstants.FocusSegmentCompleted);
                 }
                 else
                 {
                     // Whole focus session is done.
                     StopTimer();
                     _focusToastService.SendCompletionToast();
+                    _telemetry.TrackEvent(TelemetryConstants.FocusCompleted);
                 }
             }
         }
