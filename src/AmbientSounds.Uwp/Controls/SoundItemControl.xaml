@@ -39,7 +39,7 @@
 
         <ani:Implicit.ShowAnimations>
             <ani:OpacityAnimation
-                Delay="0:0:0.5"
+                Delay="0:0:0.1"
                 From="0"
                 To="1"
                 Duration="0:0:1" />
