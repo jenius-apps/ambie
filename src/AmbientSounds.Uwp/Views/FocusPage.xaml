@@ -123,7 +123,10 @@
                     Message="{x:Bind strings:Resources.FocusTimerHelpMessage}"
                     Visibility="{x:Bind ViewModel.IsHelpMessageVisible, Mode=OneWay}">
                     <winui:InfoBar.ActionButton>
-                        <HyperlinkButton Click="{x:Bind ViewModel.StartTutorial}" Content="{x:Bind strings:Resources.FocusTimerHelpAction}" />
+                        <HyperlinkButton
+                            Click="{x:Bind ViewModel.StartTutorial}"
+                            Content="{x:Bind strings:Resources.FocusTimerHelpAction}"
+                            Visibility="{x:Bind IsDesktop}" />
                     </winui:InfoBar.ActionButton>
                 </winui:InfoBar>
 

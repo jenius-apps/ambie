@@ -26,6 +26,8 @@ namespace AmbientSounds.Views
 
         public FocusPageViewModel ViewModel => (FocusPageViewModel)this.DataContext;
 
+        private bool IsDesktop => App.IsDesktop;
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var telemetry = App.Services.GetRequiredService<Services.ITelemetry>();
