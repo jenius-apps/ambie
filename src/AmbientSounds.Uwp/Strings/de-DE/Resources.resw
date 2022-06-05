@@ -460,4 +460,109 @@
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Vollbild umschalten</value>
   </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Kaufen Sie Ambie Plus</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Fokus</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Timer anhalten</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Timer starten</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Gut erledigt!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Fokussitzung abgeschlossen</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Zeit zum fokussieren</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Zeit zum ausruhen</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Sich ausruhen</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Fokussitzung ist aktiv</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Fokussierung</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Ausruhen</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Timer zurücksetzen</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Minuten konzentrieren</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Hier können Sie Ihre Aufgabenliste oder Notizen aufschreiben</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Wie ist der Plan?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Anmerkungen</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Ruheminuten</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Wiederholungen</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Zeig mir, wie man es benutzt</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Dies ist ein Intervall-Timer, der von der Pomodoro-Technik inspiriert ist. Ziel ist es, sich über einen längeren Zeitraum auf eine Aufgabe zu konzentrieren und dann eine kürzere Ruhepause einzulegen. Wiederholen Sie diesen Zyklus, um sich weiter zu konzentrieren!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Willkommen beim Fokus-Timer!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Nächste</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Jeder Zyklus hat ein Fokussegment und ein Ruhesegment. Wählen Sie aus, wie lang jedes Fokussegment sein soll. Wir empfehlen 25 Minuten zu Beginn!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Fokusminuten einstellen</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Jeder Fokus- und Ruhezyklus kann sich mehrmals wiederholen. Versuchen Sie, 1 Wiederholung hinzuzufügen!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Wiederholungen einstellen</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Wählen Sie nun aus, wie lange jedes Ruhesegment dauern soll. Wir empfehlen vorerst etwa 5 Minuten!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Ruheminuten einstellen</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Starte den Timer und arbeite an deinen Aufgaben. Wir senden Ihnen Benachrichtigungen, wenn es Zeit ist, sich auszuruhen. Hart arbeiten!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Achtung, fertig, los</value>
+  </data>
 </root>

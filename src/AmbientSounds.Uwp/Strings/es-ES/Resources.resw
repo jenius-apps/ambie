@@ -463,4 +463,106 @@
   <data name="GetAmbiePlus" xml:space="preserve">
     <value>Compra Ambie Plus</value>
   </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Enfoque</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Temporizador de pausa</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Temporizador de inicio</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>¡Bien hecho!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Sesión de enfoque completa</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Tiempo de concentrarse</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Tiempo de descansar</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Descansar</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>La sesión de enfoque está activa</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Enfoque</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Descansando</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pausa</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reiniciar</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Restablecer temporizador</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Empezar</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Minutos de atención</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Puede escribir su lista de tareas o cualquier nota aquí</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>¿Cuál es el plan?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Notas</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Minutos de descanso</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Se repite</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Muéstrame cómo usarlo</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Este es un cronómetro de intervalos inspirado en la técnica pomodoro. El objetivo es concentrarse en una tarea durante un período prolongado de tiempo y luego tomar un descanso más corto. ¡Repita este ciclo para seguir enfocándose!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>¡Bienvenido al temporizador de enfoque!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Próximo</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Cada ciclo tiene un segmento de enfoque y un segmento de descanso. Elija la duración de cada segmento de enfoque. ¡Recomendamos 25 minutos para comenzar!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Establecer minutos de enfoque</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Cada ciclo de enfoque y descanso puede repetirse varias veces. ¡Intenta agregar 1 repetición!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Establecer repeticiones</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Ahora, elige cuánto durará cada segmento de descanso. ¡Recomendamos unos 5 minutos por ahora!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Establecer minutos de descanso</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Inicie el temporizador y trabaje en sus tareas. Te enviaremos notificaciones cuando sea el momento de descansar. ¡Trabaja duro!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>En sus marcas, listos, fuera</value>
+  </data>
 </root>

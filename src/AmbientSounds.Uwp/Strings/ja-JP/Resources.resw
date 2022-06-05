@@ -469,4 +469,109 @@
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>全画面表示切り替え</value>
   </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>AmbiePlusを購入する</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>集中</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>一時停止タイマー</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>タイマーを開始</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>素晴らしい！</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>フォーカスセッション完了</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>集中する時間</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>休憩の時間</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>休み</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>フォーカスセッションがアクティブです</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>フォーカシング</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>休憩</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>一時停止</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>リセット</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>リセットタイマー</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>始める</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>フォーカス議事録</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>ここにタスクリストやメモを書き留めることができます</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>どんな計画ですか？</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>ノート</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>休憩分</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>繰り返す</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>使い方を教えて</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>ポモドーロテクニックにインスパイアされたインターバルタイマーです。目標は、長時間タスクに集中してから、短い休憩を取ることです。このサイクルを繰り返して焦点を合わせ続けます！</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>フォーカスタイマーへようこそ！</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>次</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>各サイクルには、フォーカスセグメントとレストセグメントがあります。各フォーカスセグメントの長さを選択します。開始するのに25分をお勧めします！</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>フォーカス分を設定する</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>各フォーカスと休憩のサイクルは複数回繰り返すことができます。 1回繰り返してみてください！</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>セットリピート</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>次に、各レストセグメントの長さを選択します。今のところ5分くらいをお勧めします！</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>休憩時間を設定する</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>タイマーを開始し、タスクに取り組みます。休憩時間になりましたらお知らせします。一生懸命頑張ってください！</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>位置についてよーいどん</value>
+  </data>
 </root>
