@@ -10,16 +10,8 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <Style TargetType="ToggleSwitch">
-            <Setter Property="Margin" Value="0,12,0,0" />
-        </Style>
-    </UserControl.Resources>
-
-    <ScrollViewer>
-        <StackPanel>
-            <local:AboutControl />
-
+    <ScrollViewer Margin="-24,0,-24,-24">
+        <StackPanel Margin="24,0">
             <!--  Telemetry  -->
             <ToggleSwitch x:Uid="SettingsTelemetrySwitch" IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
                 <ToggleSwitch.OffContent>
@@ -72,9 +64,10 @@
 
             <CheckBox
                 x:Uid="SettingsScreensaverDark"
-                Margin="0,12,0,0"
+                Margin="0,4,0,0"
                 IsChecked="{x:Bind ViewModel.DarkScreensaverEnabled, Mode=TwoWay}" />
 
+            <local:AboutControl />
         </StackPanel>
     </ScrollViewer>
 </UserControl>
