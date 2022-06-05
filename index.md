@@ -1,30 +1,24 @@
-# Ambie White Noise
-
-[![](https://img.shields.io/badge/Windows%2010-Download-brightgreen)](https://www.microsoft.com/store/productId/9P07XNM5CHP0) [![](https://img.shields.io/github/v/release/jenius-apps/ambie?label=Manual%20Install)](https://github.com/jenius-apps/ambie/releases) [![GitHub stars](https://img.shields.io/github/stars/jenius-apps/ambie?style=social)](https://github.com/jenius-apps/ambie) [![Twitter Follow](https://img.shields.io/twitter/follow/ambie_app?style=social)](https://twitter.com/ambie_app)
+[![](https://img.shields.io/badge/Microsoft%20Store-Download-brightgreen)](https://www.microsoft.com/store/productId/9P07XNM5CHP0) [![](https://img.shields.io/github/v/release/jenius-apps/ambie?label=Manual%20Install)](https://github.com/jenius-apps/ambie/releases) [![GitHub stars](https://img.shields.io/github/stars/jenius-apps/ambie?style=social)](https://github.com/jenius-apps/ambie) [![Twitter Follow](https://img.shields.io/twitter/follow/ambie_app?style=social)](https://twitter.com/ambie_app)
 
 ## Features
 
 - List of pre-installed sounds such as beach, coffee shop, and rain
 - Includes a growing catalogue of sounds to download
-- Sleep timer to pause playback after a certain time
+- Focus Timer to help you be more productive
+- Windows 11 styling
+- Dark theme support
 - Personalize your space with custom backgrounds
-- Screensaver that is triggered after some time of no movement
-- Use `Compact Mode` to display a mini Ambie window
+- Screensaver visualizations
+- More coming soon!
 
 ## Home
-![](img/gallery.png)
+![](img/2.png)
 
-## Personalize
-![](img/personalize.png)
+## Focus Timer
+![](img/3.png)
 
-## Catalogue
-![](img/catalogue.png)
-
-## Screensaver
-![](img/screensaver.png)
-
-## Compatibility
-![](img/compatibility.png)
+## Dark theme
+![](img/4.png)
 
 ## Support or Contact
 
