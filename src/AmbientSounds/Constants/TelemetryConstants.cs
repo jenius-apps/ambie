@@ -118,5 +118,8 @@
         public const string FocusSegmentCompleted = Focus + "segmentCompleted";
         public const string FocusReset = Focus + "reset";
         public const string FocusRecentClicked = Focus + "recentClicked";
+        public const string FocusHelpClicked = Focus + "helpClicked";
+        public const string FocusTutorialStarted = Focus + "tutorialStarted";
+        public const string FocusTutorialEnded= Focus + "tutorialEnded";
     }
 }

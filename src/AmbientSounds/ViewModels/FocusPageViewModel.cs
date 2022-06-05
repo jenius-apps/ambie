@@ -291,6 +291,7 @@ namespace AmbientSounds.ViewModels
             IsHelpMessageVisible = false;
             TeachingTip1Visible = true;
             OnPropertyChanged(nameof(TeachingTip1Visible));
+            _telemetry.TrackEvent(TelemetryConstants.FocusTutorialStarted);
         }
 
         public void ShowTip2()
@@ -339,11 +340,13 @@ namespace AmbientSounds.ViewModels
         {
             TeachingTip4Visible = false;
             OnPropertyChanged(nameof(TeachingTip4Visible));
+            _telemetry.TrackEvent(TelemetryConstants.FocusTutorialEnded);
         }
 
         public void ShowHelpMessage()
         {
             IsHelpMessageVisible = true;
+            _telemetry.TrackEvent(TelemetryConstants.FocusHelpClicked);
         }
 
         private void UpdatePrimaryButtonText()
