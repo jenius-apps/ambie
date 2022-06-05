@@ -58,13 +58,6 @@ namespace AmbientSounds.Services.Uwp
 
         private void SmtcButtonPressed(SystemMediaTransportControls sender, SystemMediaTransportControlsButtonPressedEventArgs args)
         {
-            if (_userSettings.Get<bool>(UserSettingsConstants.DisableSmtcSupportKey))
-            {
-                // If user disabled media controls,
-                // then don't handle any smtc button presses.
-                return;
-            }
-
             // Note: Playing and pausing the players
             // will not work unless we move to the UI thread.
             // Thus we use the dispatcher queue below.
