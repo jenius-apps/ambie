@@ -125,7 +125,7 @@
                                                     <!--  Lightweight styling to mimic red close button  -->
                                                     <ResourceDictionary.ThemeDictionaries>
                                                         <ResourceDictionary x:Key="Dark">
-                                                            <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBackground" Color="#00c42b1c" />
                                                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#c42b1c" />
                                                             <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#b5291e" />
                                                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
@@ -134,7 +134,7 @@
                                                             <SolidColorBrush x:Key="ButtonForegroundPressed" Color="LightGray" />
                                                         </ResourceDictionary>
                                                         <ResourceDictionary x:Key="Light">
-                                                            <SolidColorBrush x:Key="ButtonBackground" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBackground" Color="#00c42b1c" />
                                                             <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#c42b1c" />
                                                             <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#b5291e" />
                                                             <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
