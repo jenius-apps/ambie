@@ -18,12 +18,12 @@
                 Margin="0,4,0,0"
                 HorizontalAlignment="Left"
                 IsItemClickEnabled="True"
+                ItemClick="OnImageClicked"
                 ItemsSource="{x:Bind ViewModel.ImagePaths}"
                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
                 ScrollViewer.VerticalScrollMode="Disabled"
                 SelectionMode="None">
                 <interactivity:Interaction.Behaviors>
-                    <core:ItemClickBehavior Command="{x:Bind ViewModel.SelectImageCommand}" />
                     <core:EventTriggerBehavior EventName="Loaded">
                         <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
                     </core:EventTriggerBehavior>

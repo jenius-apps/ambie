@@ -6,6 +6,9 @@
     /// </summary>
     public class TelemetryConstants
     {
+        // shell page
+        public const string ShellPagePremiumClicked = "shellpage:premiumClicked";
+
         // catalogue
         private const string Catalogue = "catalogue:";
         public const string DownloadClicked = Catalogue + "downloadClicked";
@@ -105,5 +108,18 @@
 
         public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
         public const string MissingSoundsCanceled = "missingSoundsCanceled";
+
+        // focus
+        private const string Focus = "focus:";
+        public const string FocusStarted = Focus + "started";
+        public const string FocusResumed = Focus + "resumed";
+        public const string FocusPaused = Focus + "paused";
+        public const string FocusCompleted = Focus + "completed";
+        public const string FocusSegmentCompleted = Focus + "segmentCompleted";
+        public const string FocusReset = Focus + "reset";
+        public const string FocusRecentClicked = Focus + "recentClicked";
+        public const string FocusHelpClicked = Focus + "helpClicked";
+        public const string FocusTutorialStarted = Focus + "tutorialStarted";
+        public const string FocusTutorialEnded= Focus + "tutorialEnded";
     }
 }

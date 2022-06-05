@@ -162,13 +162,7 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contact the creator</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Chat on Discord</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>View GitHub</value>
-  </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>Rate us</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
@@ -579,5 +573,116 @@
   </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Toggle fullscreen</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Get Ambie Plus</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Pause timer</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Start timer</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Well done!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Focus session complete</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Time to focus</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Time to rest</value>
+  </data>
+  <data name="FocusSessionStartMessage" xml:space="preserve">
+    <value>We'll let you know when it's time to rest!</value>
+  </data>
+  <data name="FocusSessionStartTitle" xml:space="preserve">
+    <value>Starting focus session</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Rest</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Focus session is active!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Focusing</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Resting</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Reset timer</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Focus minutes</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>You can jot down your to-do list or any notes here 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>What's the plan?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Notepad</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Repeats</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Rest minutes</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Show me how to use it</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Welcome to Focus Timer!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Set focus minutes</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Set repeats</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Set rest minutes</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Ready, set, go</value>
   </data>
 </root>

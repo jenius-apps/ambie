@@ -17,10 +17,8 @@ namespace AmbientSounds.Controls
     public sealed partial class MoreButton : UserControl
     {
         private const string Translations = "https://github.com/jenius-apps/ambie#translation";
-        private const string Github = "https://github.com/jenius-apps/ambie";
         private const string Contact = "mailto:jenius_apps@outlook.com";
         private const string StorePage = "https://www.microsoft.com/store/productId/9P07XNM5CHP0";
-        private const string UwpDiscord = "https://discord.gg/b9z3BeXk3D";
 
         public MoreButton()
         {
@@ -62,19 +60,9 @@ namespace AmbientSounds.Controls
             await storeContext.RequestRateAndReviewAppAsync();
         }
 
-        private async void DiscordClicked(object sender, RoutedEventArgs e)
-        {
-            await LaunchAsync(UwpDiscord);
-        }
-
         private async void ContactClicked(object sender, RoutedEventArgs e)
         {
             await LaunchAsync(Contact);
-        }
-
-        private async void GithubClicked(object sender, RoutedEventArgs e)
-        {
-            await LaunchAsync(Github);
         }
 
         private async void TranslationClicked(object sender, RoutedEventArgs e)
@@ -103,6 +91,12 @@ namespace AmbientSounds.Controls
         private void OnCompactClicked(object sender, RoutedEventArgs e)
         {
             App.Services.GetRequiredService<INavigator>().ToCompact();
+        }
+
+        private async void ThemeSettingsClicked(object sender, RoutedEventArgs e)
+        {
+            var dialogService = App.Services.GetRequiredService<IDialogService>();
+            await dialogService.OpenThemeSettingsAsync();
         }
     }
 }

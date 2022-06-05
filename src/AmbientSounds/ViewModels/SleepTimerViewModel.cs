@@ -140,10 +140,10 @@ namespace AmbientSounds.ViewModels
             PlayVisible = false;
         }
 
-        private void TimerElapsed(object sender, int intervalInMs)
+        private void TimerElapsed(object sender, TimeSpan remaining)
         {
             OnPropertyChanged(nameof(TimeLeft));
-            if (_timer.Remaining < TimeSpan.FromSeconds(1))
+            if (remaining < TimeSpan.FromSeconds(1))
             {
                 StopTimer();
                 _player.Pause();

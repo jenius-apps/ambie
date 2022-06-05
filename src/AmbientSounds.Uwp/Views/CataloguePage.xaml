@@ -12,66 +12,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Rectangle
-            x:Name="HeaderBackplate"
-            Fill="{ThemeResource SystemControlAcrylicWindowBrush}"
-            Stretch="Fill" />
-
-        <Grid
-            x:Name="HeaderGrid"
-            Margin="0,32,0,12"
-            Padding="{StaticResource NarrowPageMargin}">
-
-            <Grid HorizontalAlignment="Left">
-                <Border
-                    Height="40"
-                    HorizontalAlignment="Stretch"
-                    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                    CornerRadius="20" />
-                <StackPanel Orientation="Horizontal">
-                    <Button
-                        Height="40"
-                        Padding="12,0"
-                        AutomationProperties.Name="{x:Bind strings:Resources.Home}"
-                        Background="Transparent"
-                        Click="GoBack"
-                        Content="{x:Bind strings:Resources.Home}"
-                        CornerRadius="20" />
-                    <Grid x:Name="CatalogueBackplate" Margin="4,0,0,0">
-                        <toolkit:DropShadowPanel Style="{StaticResource SubtleShadow}">
-                            <Rectangle
-                                Width="{Binding ElementName=CatalogueTextGrid, Path=ActualWidth}"
-                                Height="48"
-                                Fill="{ThemeResource FallbackBackgroundOppositeBrush}"
-                                RadiusX="24"
-                                RadiusY="24" />
-                        </toolkit:DropShadowPanel>
-                        <Grid
-                            x:Name="CatalogueTextGrid"
-                            Height="48"
-                            Padding="20,0">
-                            <TextBlock
-                                VerticalAlignment="Center"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                                Text="{x:Bind strings:Resources.Catalogue}" />
-                        </Grid>
-                    </Grid>
-                </StackPanel>
-            </Grid>
-
-        </Grid>
-
-        <controls:CatalogueListControl
-            x:Name="CatalogueList"
-            Grid.Row="1"
-            InnerMargin="16,24,16,16" />
-
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="NarrowLayout" />
@@ -80,19 +20,12 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource WideWindowBreakpoint}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="HeaderGrid.Padding" Value="{StaticResource WidePageMargin}" />
-                        <Setter Target="CatalogueList.InnerMargin" Value="40,24,40,32" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-            <VisualStateGroup>
-                <VisualState x:Name="RegularBackgroundState" />
-                <VisualState x:Name="ImageBackgroundState">
-                    <VisualState.Setters>
-                        <Setter Target="HeaderBackplate.Fill" Value="{ThemeResource AcrylicBackplateBrush}" />
+                        <Setter Target="CatalogueList.InnerMargin" Value="0,0,16,40" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+        <controls:CatalogueListControl x:Name="CatalogueList" InnerMargin="0" />
     </Grid>
 </Page>

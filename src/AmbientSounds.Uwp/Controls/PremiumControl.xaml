@@ -76,7 +76,9 @@
             </StackPanel>
         </Grid>
         <HyperlinkButton
-            HorizontalAlignment="Center"
+            MaxWidth="300"
+            Margin="0,8,0,0"
+            HorizontalAlignment="Stretch"
             AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
             Click="CloseClick"
             Content="{x:Bind strings:Resources.CloseText}" />

@@ -41,6 +41,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region RateUsText
+        /// <summary>
+        ///   Looks up a localized string similar to: Rate us
+        /// </summary>
+        public static string RateUsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RateUsText");
+            }
+        }
+        #endregion
+
         #region PlayerPauseText
         /// <summary>
         ///   Looks up a localized string similar to: Pause
@@ -976,6 +989,487 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region GetAmbiePlus
+        /// <summary>
+        ///   Looks up a localized string similar to: Get Ambie Plus
+        /// </summary>
+        public static string GetAmbiePlus
+        {
+            get
+            {
+                return _resourceLoader.GetString("GetAmbiePlus");
+            }
+        }
+        #endregion
+
+        #region FocusText
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus
+        /// </summary>
+        public static string FocusText
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusText");
+            }
+        }
+        #endregion
+
+        #region PauseTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Pause timer
+        /// </summary>
+        public static string PauseTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("PauseTimer");
+            }
+        }
+        #endregion
+
+        #region StartTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Start timer
+        /// </summary>
+        public static string StartTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("StartTimer");
+            }
+        }
+        #endregion
+
+        #region FocusSessionCompleteMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Well done!
+        /// </summary>
+        public static string FocusSessionCompleteMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionCompleteMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionCompleteTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus session complete
+        /// </summary>
+        public static string FocusSessionCompleteTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionCompleteTitle");
+            }
+        }
+        #endregion
+
+        #region FocusSessionFocusMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Time to focus
+        /// </summary>
+        public static string FocusSessionFocusMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionFocusMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionRestMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Time to rest
+        /// </summary>
+        public static string FocusSessionRestMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionRestMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionStartMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: We'll let you know when it's time to rest!
+        /// </summary>
+        public static string FocusSessionStartMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionStartMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionStartTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Starting focus session
+        /// </summary>
+        public static string FocusSessionStartTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionStartTitle");
+            }
+        }
+        #endregion
+
+        #region RestText
+        /// <summary>
+        ///   Looks up a localized string similar to: Rest
+        /// </summary>
+        public static string RestText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RestText");
+            }
+        }
+        #endregion
+
+        #region FocusDotTooltip
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus session is active!
+        /// </summary>
+        public static string FocusDotTooltip
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusDotTooltip");
+            }
+        }
+        #endregion
+
+        #region SessionTypeFocus
+        /// <summary>
+        ///   Looks up a localized string similar to: Focusing
+        /// </summary>
+        public static string SessionTypeFocus
+        {
+            get
+            {
+                return _resourceLoader.GetString("SessionTypeFocus");
+            }
+        }
+        #endregion
+
+        #region SessionTypeRest
+        /// <summary>
+        ///   Looks up a localized string similar to: Resting
+        /// </summary>
+        public static string SessionTypeRest
+        {
+            get
+            {
+                return _resourceLoader.GetString("SessionTypeRest");
+            }
+        }
+        #endregion
+
+        #region Pause
+        /// <summary>
+        ///   Looks up a localized string similar to: Pause
+        /// </summary>
+        public static string Pause
+        {
+            get
+            {
+                return _resourceLoader.GetString("Pause");
+            }
+        }
+        #endregion
+
+        #region Reset
+        /// <summary>
+        ///   Looks up a localized string similar to: Reset
+        /// </summary>
+        public static string Reset
+        {
+            get
+            {
+                return _resourceLoader.GetString("Reset");
+            }
+        }
+        #endregion
+
+        #region ResetTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Reset timer
+        /// </summary>
+        public static string ResetTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResetTimer");
+            }
+        }
+        #endregion
+
+        #region Start
+        /// <summary>
+        ///   Looks up a localized string similar to: Start
+        /// </summary>
+        public static string Start
+        {
+            get
+            {
+                return _resourceLoader.GetString("Start");
+            }
+        }
+        #endregion
+
+        #region FocusLength
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus minutes
+        /// </summary>
+        public static string FocusLength
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusLength");
+            }
+        }
+        #endregion
+
+        #region FocusNotesPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: You can jot down your to-do list or any notes here 🙂
+        /// </summary>
+        public static string FocusNotesPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusNotesPlaceholder");
+            }
+        }
+        #endregion
+
+        #region FocusPlanningHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: What's the plan?
+        /// </summary>
+        public static string FocusPlanningHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusPlanningHeader");
+            }
+        }
+        #endregion
+
+        #region Notepad
+        /// <summary>
+        ///   Looks up a localized string similar to: Notepad
+        /// </summary>
+        public static string Notepad
+        {
+            get
+            {
+                return _resourceLoader.GetString("Notepad");
+            }
+        }
+        #endregion
+
+        #region Repeats
+        /// <summary>
+        ///   Looks up a localized string similar to: Repeats
+        /// </summary>
+        public static string Repeats
+        {
+            get
+            {
+                return _resourceLoader.GetString("Repeats");
+            }
+        }
+        #endregion
+
+        #region RestLength
+        /// <summary>
+        ///   Looks up a localized string similar to: Rest minutes
+        /// </summary>
+        public static string RestLength
+        {
+            get
+            {
+                return _resourceLoader.GetString("RestLength");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpAction
+        /// <summary>
+        ///   Looks up a localized string similar to: Show me how to use it
+        /// </summary>
+        public static string FocusTimerHelpAction
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpAction");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!
+        /// </summary>
+        public static string FocusTimerHelpMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpMessage");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Welcome to Focus Timer!
+        /// </summary>
+        public static string FocusTimerHelpTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpTitle");
+            }
+        }
+        #endregion
+
+        #region Help
+        /// <summary>
+        ///   Looks up a localized string similar to: Help
+        /// </summary>
+        public static string Help
+        {
+            get
+            {
+                return _resourceLoader.GetString("Help");
+            }
+        }
+        #endregion
+
+        #region Next
+        /// <summary>
+        ///   Looks up a localized string similar to: Next
+        /// </summary>
+        public static string Next
+        {
+            get
+            {
+                return _resourceLoader.GetString("Next");
+            }
+        }
+        #endregion
+
+        #region TipFocusMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!
+        /// </summary>
+        public static string TipFocusMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipFocusMessage");
+            }
+        }
+        #endregion
+
+        #region TipFocusTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set focus minutes
+        /// </summary>
+        public static string TipFocusTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipFocusTitle");
+            }
+        }
+        #endregion
+
+        #region TipRepeatsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!
+        /// </summary>
+        public static string TipRepeatsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRepeatsMessage");
+            }
+        }
+        #endregion
+
+        #region TipRepeatsTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set repeats
+        /// </summary>
+        public static string TipRepeatsTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRepeatsTitle");
+            }
+        }
+        #endregion
+
+        #region TipRestMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Now, choose how long each rest segment will be. We recommend about 5 minutes for now!
+        /// </summary>
+        public static string TipRestMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRestMessage");
+            }
+        }
+        #endregion
+
+        #region TipRestTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set rest minutes
+        /// </summary>
+        public static string TipRestTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRestTitle");
+            }
+        }
+        #endregion
+
+        #region TipStartButtonMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!
+        /// </summary>
+        public static string TipStartButtonMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipStartButtonMessage");
+            }
+        }
+        #endregion
+
+        #region TipStartButtonTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Ready, set, go
+        /// </summary>
+        public static string TipStartButtonTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipStartButtonTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -989,6 +1483,7 @@ namespace AmbientSounds.Strings{
             __Undefined = 0,
             CloseText,
             CompactMode,
+            RateUsText,
             PlayerPauseText,
             PlayerPlayText,
             ReadyToPlayText,
@@ -1061,6 +1556,43 @@ namespace AmbientSounds.Strings{
             ScreensaverCatalogue,
             ViewPremiumInfo,
             ToggleFullscreen,
+            GetAmbiePlus,
+            FocusText,
+            PauseTimer,
+            StartTimer,
+            FocusSessionCompleteMessage,
+            FocusSessionCompleteTitle,
+            FocusSessionFocusMessage,
+            FocusSessionRestMessage,
+            FocusSessionStartMessage,
+            FocusSessionStartTitle,
+            RestText,
+            FocusDotTooltip,
+            SessionTypeFocus,
+            SessionTypeRest,
+            Pause,
+            Reset,
+            ResetTimer,
+            Start,
+            FocusLength,
+            FocusNotesPlaceholder,
+            FocusPlanningHeader,
+            Notepad,
+            Repeats,
+            RestLength,
+            FocusTimerHelpAction,
+            FocusTimerHelpMessage,
+            FocusTimerHelpTitle,
+            Help,
+            Next,
+            TipFocusMessage,
+            TipFocusTitle,
+            TipRepeatsMessage,
+            TipRepeatsTitle,
+            TipRestMessage,
+            TipRestTitle,
+            TipStartButtonMessage,
+            TipStartButtonTitle,
         }
 
         private static ResourceLoader _resourceLoader;

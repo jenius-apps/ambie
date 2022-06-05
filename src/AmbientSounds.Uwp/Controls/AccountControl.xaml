@@ -18,7 +18,7 @@
             x:Uid="SignInButton"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Style="{StaticResource TransparentRoundButtonStyle}"
+            Style="{StaticResource SubtleIconButton}"
             Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.SignedIn), Mode=OneWay}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
             <Button.Flyout>

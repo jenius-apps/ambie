@@ -25,7 +25,7 @@ namespace AmbientSounds.Services.Uwp
             {
                 case nameof(ScreensaverPage):
                     // supress transition to avoid implicit animation bug on home page.
-                    GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
+                    GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
                     break;
                 default:
                     GoBackSafely(Frame);
@@ -33,7 +33,7 @@ namespace AmbientSounds.Services.Uwp
             }
         }
 
-        private void GoBackSafely(object? frame, NavigationTransitionInfo transition = null)
+        private void GoBackSafely(object? frame, NavigationTransitionInfo? transition = null)
         {
             if (frame is Frame f && f.CanGoBack)
             {
@@ -60,6 +60,24 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public void ToFocus()
+        {
+            if (Frame is Frame f)
+            {
+                f.Navigate(typeof(FocusPage), null, new SuppressNavigationTransitionInfo());
+            }
+        }
+
+        /// <inheritdoc/>
+        public void ToHome()
+        {
+            if (Frame is Frame f)
+            {
+                f.Navigate(typeof(HomePage), null, new SuppressNavigationTransitionInfo());
+            }
+        }
+
+        /// <inheritdoc/>
         public async void ToCompact()
         {
             if (Frame is Frame f)
@@ -70,6 +88,17 @@ namespace AmbientSounds.Services.Uwp
                 await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, preferences);
                 f.Navigate(typeof(CompactPage), null, new SuppressNavigationTransitionInfo());
             }
+        }
+
+        /// <inheritdoc/>
+        public string GetContentPageName()
+        {
+            if (Frame is Frame f)
+            {
+                return f.CurrentSourcePageType?.Name ?? string.Empty;
+            }
+
+            return string.Empty;
         }
     }
 }

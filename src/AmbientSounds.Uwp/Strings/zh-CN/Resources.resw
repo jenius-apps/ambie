@@ -57,13 +57,7 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>联系开发者</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>在 Discord 上讨论</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>查看 GitHub</value>
-  </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>评价本应用</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">

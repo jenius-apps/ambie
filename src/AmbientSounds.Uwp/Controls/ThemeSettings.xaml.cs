@@ -13,5 +13,13 @@ namespace AmbientSounds.Controls
         }
 
         public ThemeSettingsViewModel ViewModel => (ThemeSettingsViewModel)this.DataContext;
+
+        private void OnImageClicked(object sender, ItemClickEventArgs e)
+        {
+            if (e.ClickedItem is string imagePath)
+            {
+                ViewModel.SelectImageCommand.Execute(imagePath);
+            }
+        }
     }
 }

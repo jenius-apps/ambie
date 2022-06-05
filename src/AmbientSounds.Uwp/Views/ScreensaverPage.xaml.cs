@@ -60,7 +60,7 @@ namespace AmbientSounds.Views
 
             if (App.IsTenFoot)
             {
-                GoBackButton.Focus(FocusState.Programmatic);
+                GoBackButton.Focus(Windows.UI.Xaml.FocusState.Programmatic);
             }
         }
 

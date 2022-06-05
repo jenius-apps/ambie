@@ -56,6 +56,30 @@
             </Style>
 
             <Style
+                x:Key="SubtleButton"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+
+            <Style
+                x:Key="SubtleIconButton"
+                BasedOn="{StaticResource SubtleButton}"
+                TargetType="Button">
+                <Setter Property="Width" Value="44" />
+                <Setter Property="Height" Value="44" />
+            </Style>
+
+            <Style
+                x:Key="IconButton"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                TargetType="Button">
+                <Setter Property="Width" Value="44" />
+                <Setter Property="Height" Value="44" />
+            </Style>
+
+            <Style
                 x:Key="TransparentRoundButtonStyle"
                 BasedOn="{StaticResource RoundButtonStyle}"
                 TargetType="Button">
@@ -96,7 +120,16 @@
             <x:String x:Key="GlyphCompact">&#xEB1E;</x:String>
             <x:String x:Key="GlyphExpand">&#xE922;</x:String>
             <x:String x:Key="GlyphCollapse">&#xE923;</x:String>
+            <x:String x:Key="GlyphHome">&#xEA80;</x:String>
+            <x:String x:Key="GlyphSound">&#xEAD4;</x:String>
+            <x:String x:Key="GlyphPersonalize">&#xE9C0;</x:String>
+            <x:String x:Key="GlyphFocus">&#xEBAD;</x:String>
+            <x:String x:Key="GlyphPlay">&#xEB21;</x:String>
+            <x:String x:Key="GlyphPause">&#xEAF4;</x:String>
+            <x:String x:Key="GlyphCancel">&#xE9F9;</x:String>
+            <x:String x:Key="GlyphHelp">&#xEA7D;</x:String>
 
+            <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

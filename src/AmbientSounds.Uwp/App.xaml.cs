@@ -70,6 +70,14 @@ namespace AmbientSounds
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             _playerTracker?.TrackDuration(DateTimeOffset.Now);
+            if (_serviceProvider?.GetService<IFocusService>() is IFocusService focusService &&
+                focusService.CurrentState == AmbientSounds.Services.FocusState.Active)
+            {
+                // We don't support focus sessions when ambie is suspended,
+                // and we want to make sure notifications are cancelled.
+                // Note: If music is playing, then ambie won't suspend on minimize.
+                focusService.PauseTimer();
+            }
             deferral.Complete();
         }
 
@@ -341,11 +349,13 @@ namespace AmbientSounds
                 .AddTransient<ThemeSettingsViewModel>()
                 .AddTransient<CataloguePageViewModel>()
                 .AddTransient<MainPageViewModel>()
-                .AddTransient<ShellPageViewModel>()
+                .AddSingleton<ShellPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
                 .AddSingleton<VideosMenuViewModel>()
+                .AddSingleton<TimeBannerViewModel>()
+                .AddSingleton<FocusPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddSingleton<AppServiceController>()
@@ -357,6 +367,8 @@ namespace AmbientSounds
                 // a timer factory.
                 .AddTransient<ITimerService, TimerService>()
                 // exposes events or object tree has singleton, so singleton.
+                .AddSingleton<IFocusService, FocusService>()
+                .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
@@ -370,7 +382,9 @@ namespace AmbientSounds
                 .AddSingleton<ILocalizer, ReswLocalizer>()
                 .AddSingleton<IFileWriter, FileWriter>()
                 .AddSingleton<IFilePicker, FilePicker>()
+                .AddSingleton<IFocusToastService, FocusToastService>()
                 .AddSingleton<ICustomWebUi, CustomAuthUiService>()
+                .AddSingleton<IToastService, ToastService>()
                 .AddSingleton<IMsaAuthClient, MsalClient>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()

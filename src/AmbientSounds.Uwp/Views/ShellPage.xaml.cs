@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
@@ -20,7 +21,12 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
-            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
+            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+            this.Unloaded += (_, _) => 
+            {
+                ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
+                ViewModel.Dispose();
+            };
 
             if (App.IsTenFoot)
             {
@@ -29,16 +35,27 @@ namespace AmbientSounds.Views
             }
         }
 
+        private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ViewModel.FocusTimeBannerVisibile))
+            {
+                if (ViewModel.FocusTimeBannerVisibile)
+                {
+                    await ShowTimeBannerAnimations.StartAsync();
+                }
+            }
+        }
+
         public ShellPageViewModel ViewModel => (ShellPageViewModel)this.DataContext;
 
-        private string RateUs => ResourceLoader.GetForCurrentView().GetString("MoreButtonRate/Label");
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.Frame = MainFrame;
 
-            MainFrame.Navigate(typeof(MainPage));
+            MenuList.SelectedIndex = 0;
+
+            await ViewModel.LoadPremiumButtonAsync();
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
@@ -59,6 +76,14 @@ namespace AmbientSounds.Views
                 UserSettingsConstants.RatingDismissed,
                 DateTime.UtcNow);
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
+        }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ListView l)
+            {
+                ViewModel.Navigate(l.SelectedIndex);
+            }
         }
     }
 }

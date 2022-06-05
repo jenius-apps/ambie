@@ -120,7 +120,7 @@ namespace AmbientSounds.ViewModels
             _timerService.Stop();
         }
 
-        private void TimerIntervalElapsed(object sender, int e)
+        private void TimerIntervalElapsed(object sender, TimeSpan e)
         {
             CycleImages();
         }

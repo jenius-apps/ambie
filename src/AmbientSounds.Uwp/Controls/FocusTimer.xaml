@@ -1,0 +1,95 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.FocusTimer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <Grid>
+        <winui:ProgressRing
+            Width="{x:Bind Ring1Width}"
+            Height="{x:Bind Ring1Height}"
+            AutomationProperties.AccessibilityView="Raw"
+            Foreground="Orange"
+            IsIndeterminate="False"
+            Opacity="0.1"
+            Visibility="{x:Bind SecondsRingVisible, Mode=OneWay}"
+            Value="100">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation
+                    Delay="0:0:0.6"
+                    From="0"
+                    To="0.1"
+                    Duration="0:0:2" />
+            </animations:Implicit.ShowAnimations>
+        </winui:ProgressRing>
+        <winui:ProgressRing
+            Width="{x:Bind Ring1Width}"
+            Height="{x:Bind Ring1Height}"
+            Foreground="Orange"
+            IsIndeterminate="False"
+            Maximum="60"
+            Visibility="{x:Bind SecondsRingVisible, Mode=OneWay}"
+            Value="{x:Bind SecondsRemaining, Mode=OneWay}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation
+                    Delay="0:0:2"
+                    From="0"
+                    To="1"
+                    Duration="0:0:2" />
+            </animations:Implicit.ShowAnimations>
+        </winui:ProgressRing>
+
+        <winui:ProgressRing
+            Width="{x:Bind Ring2Width}"
+            Height="{x:Bind Ring2Height}"
+            AutomationProperties.AccessibilityView="Raw"
+            Foreground="SkyBlue"
+            IsIndeterminate="False"
+            Opacity="0.1"
+            Value="100" />
+        <winui:ProgressRing
+            Width="{x:Bind Ring2Width}"
+            Height="{x:Bind Ring2Height}"
+            Foreground="SkyBlue"
+            IsIndeterminate="False"
+            Maximum="60"
+            Value="{x:Bind FocusLengthRemaining, Mode=OneWay}" />
+
+        <winui:ProgressRing
+            Width="{x:Bind Ring3Width}"
+            Height="{x:Bind Ring3Height}"
+            AutomationProperties.AccessibilityView="Raw"
+            Foreground="Green"
+            IsIndeterminate="False"
+            Opacity="0.2"
+            Value="100" />
+        <winui:ProgressRing
+            Width="{x:Bind Ring3Width}"
+            Height="{x:Bind Ring3Height}"
+            Foreground="Green"
+            IsIndeterminate="False"
+            Maximum="60"
+            Value="{x:Bind RestLengthRemaining, Mode=OneWay}" />
+
+        <winui:ProgressRing
+            Width="{x:Bind Ring4Width}"
+            Height="{x:Bind Ring4Height}"
+            AutomationProperties.AccessibilityView="Raw"
+            Foreground="DeepPink"
+            IsIndeterminate="False"
+            Opacity="0.1"
+            Value="100" />
+        <winui:ProgressRing
+            Width="{x:Bind Ring4Width}"
+            Height="{x:Bind Ring4Height}"
+            Foreground="DeepPink"
+            IsIndeterminate="False"
+            Maximum="8"
+            Value="{x:Bind RepetitionsRemaining, Mode=OneWay}" />
+    </Grid>
+</UserControl>

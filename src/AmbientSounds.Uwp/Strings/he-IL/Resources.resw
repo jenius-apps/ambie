@@ -57,15 +57,6 @@
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>צור קשר עם היוצר</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>צ'אט ב-Discord</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>הצג את GitHub</value>
-  </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
-    <value>דרג אותנו</value>
-  </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>הגדרות</value>
   </data>
@@ -151,10 +142,10 @@
     <value>עצור את הטיימר ונקה את השעה</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>נפח גלובלי</value>
+    <value>עוצמת קול גלובלי</value>
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>נפח צליל</value>
+    <value>עוצמת קול צליל</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>נושא</value>
@@ -277,7 +268,7 @@
     <value>אשר את השמירה</value>
   </data>
   <data name="GlobalVolume" xml:space="preserve">
-    <value>נפח גלובלי</value>
+    <value>עוצמת קול גלובלי</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>שם מיקס צליל</value>
