@@ -598,12 +598,6 @@
   <data name="FocusSessionRestMessage" xml:space="preserve">
     <value>Time to rest</value>
   </data>
-  <data name="FocusSessionStartMessage" xml:space="preserve">
-    <value>We'll let you know when it's time to rest!</value>
-  </data>
-  <data name="FocusSessionStartTitle" xml:space="preserve">
-    <value>Starting focus session</value>
-  </data>
   <data name="RestText" xml:space="preserve">
     <value>Rest</value>
   </data>

@@ -9,6 +9,6 @@ namespace AmbientSounds.Services
 
         void SendCompletionToast();
 
-        void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start, bool showStartToast = false);
+        void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start);
     }
 }

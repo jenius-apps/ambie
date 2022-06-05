@@ -1094,32 +1094,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region FocusSessionStartMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: We'll let you know when it's time to rest!
-        /// </summary>
-        public static string FocusSessionStartMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("FocusSessionStartMessage");
-            }
-        }
-        #endregion
-
-        #region FocusSessionStartTitle
-        /// <summary>
-        ///   Looks up a localized string similar to: Starting focus session
-        /// </summary>
-        public static string FocusSessionStartTitle
-        {
-            get
-            {
-                return _resourceLoader.GetString("FocusSessionStartTitle");
-            }
-        }
-        #endregion
-
         #region RestText
         /// <summary>
         ///   Looks up a localized string similar to: Rest
@@ -1564,8 +1538,6 @@ namespace AmbientSounds.Strings{
             FocusSessionCompleteTitle,
             FocusSessionFocusMessage,
             FocusSessionRestMessage,
-            FocusSessionStartMessage,
-            FocusSessionStartTitle,
             RestText,
             FocusDotTooltip,
             SessionTypeFocus,

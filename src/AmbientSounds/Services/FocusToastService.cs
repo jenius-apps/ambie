@@ -33,16 +33,9 @@ namespace AmbientSounds.Services
                 _localizer.GetString("FocusSessionCompleteMessage"));
         }
 
-        public void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start, bool showStartToast)
+        public void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start)
         {
             _toastService.ClearScheduledToasts();
-
-            if (showStartToast)
-            {
-                _toastService.SendToast(
-                    _localizer.GetString("FocusSessionStartTitle"),
-                    _localizer.GetString("FocusSessionStartMessage"));
-            }
 
             var current = start;
             foreach (var session in orderedSessions)        

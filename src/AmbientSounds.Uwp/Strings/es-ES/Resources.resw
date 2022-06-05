@@ -460,4 +460,7 @@
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Alternar pantalla completa</value>
   </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Compra Ambie Plus</value>
+  </data>
 </root>

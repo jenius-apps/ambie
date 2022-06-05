@@ -79,7 +79,7 @@ namespace AmbientSounds.Services
                 repetitions -= 1;
             }
 
-            _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now, showStartToast: false);
+            _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now);
 
             CurrentSession = _sessionQueue.Dequeue();
             TimeUpdated?.Invoke(this, CurrentSession);

@@ -645,14 +645,6 @@
           <source>Time to rest</source>
           <target state="new">Time to rest</target>
         </trans-unit>
-        <trans-unit id="FocusSessionStartMessage" translate="yes" xml:space="preserve">
-          <source>We'll let you know when it's time to rest!</source>
-          <target state="new">We'll let you know when it's time to rest!</target>
-        </trans-unit>
-        <trans-unit id="FocusSessionStartTitle" translate="yes" xml:space="preserve">
-          <source>Starting focus session</source>
-          <target state="new">Starting focus session</target>
-        </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
           <target state="new">Rest</target>

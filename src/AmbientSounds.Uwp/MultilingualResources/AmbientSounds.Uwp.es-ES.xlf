@@ -616,7 +616,7 @@
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie Plus</source>
-          <target state="new">Get Ambie Plus</target>
+          <target state="translated">Compra Ambie Plus</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
@@ -645,14 +645,6 @@
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
           <target state="new">Time to rest</target>
-        </trans-unit>
-        <trans-unit id="FocusSessionStartMessage" translate="yes" xml:space="preserve">
-          <source>We'll let you know when it's time to rest!</source>
-          <target state="new">We'll let you know when it's time to rest!</target>
-        </trans-unit>
-        <trans-unit id="FocusSessionStartTitle" translate="yes" xml:space="preserve">
-          <source>Starting focus session</source>
-          <target state="new">Starting focus session</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
