@@ -56,9 +56,6 @@ namespace AmbientSounds.ViewModels
             _userSettings = userSettings;
             _recentFocusService = recentFocusService;
 
-            _focusService.TimeUpdated += OnTimeUpdated;
-            _focusService.FocusStateChanged += OnFocusStateChanged;
-
             IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
             UpdateButtonStates();
         }
@@ -233,13 +230,11 @@ namespace AmbientSounds.ViewModels
 
         public bool IsHelpIconVisible => !IsHelpMessageVisible && SlidersEnabled;
 
-        public bool TeachingTip1Visible { get; set; }
-        public bool TeachingTip2Visible { get; set; }
-        public bool TeachingTip3Visible { get; set; }
-        public bool TeachingTip4Visible { get; set; }
-
         public async Task InitializeAsync()
         {
+            _focusService.TimeUpdated += OnTimeUpdated;
+            _focusService.FocusStateChanged += OnFocusStateChanged;
+
             RecentSettings.Clear();
             var recents = await _recentFocusService.GetRecentAsync();
             foreach (var recent in recents.OrderByDescending(x => x.LastUsed))
@@ -248,6 +243,12 @@ namespace AmbientSounds.ViewModels
             }
 
             OnPropertyChanged(nameof(IsRecentVisible));
+        }
+
+        public void Uninitialize()
+        {
+            _focusService.TimeUpdated -= OnTimeUpdated;
+            _focusService.FocusStateChanged -= OnFocusStateChanged;
         }
 
         public void LoadRecentSettings(RecentFocusSettings settings)
@@ -281,67 +282,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        public void StartTutorial()
-        {
-            if (!SlidersEnabled)
-            {
-                return;
-            }
-
-            IsHelpMessageVisible = false;
-            TeachingTip1Visible = true;
-            OnPropertyChanged(nameof(TeachingTip1Visible));
-            _telemetry.TrackEvent(TelemetryConstants.FocusTutorialStarted);
-        }
-
-        public void ShowTip2()
-        {
-            TeachingTip1Visible = false;
-            OnPropertyChanged(nameof(TeachingTip1Visible));
-
-            if (!SlidersEnabled)
-            {
-                return;
-            }
-
-            TeachingTip2Visible = true;
-            OnPropertyChanged(nameof(TeachingTip2Visible));
-        }
-
-        public void ShowTip3()
-        {
-            TeachingTip2Visible = false;
-            OnPropertyChanged(nameof(TeachingTip2Visible));
-
-            if (!SlidersEnabled)
-            {
-                return;
-            }
-
-            TeachingTip3Visible = true;
-            OnPropertyChanged(nameof(TeachingTip3Visible));
-        }
-
-        public void ShowTip4()
-        {
-            TeachingTip3Visible = false;
-            OnPropertyChanged(nameof(TeachingTip3Visible));
-
-            if (!SlidersEnabled)
-            {
-                return;
-            }
-
-            TeachingTip4Visible = true;
-            OnPropertyChanged(nameof(TeachingTip4Visible));
-        }
-
-        public void CloseLastTip()
-        {
-            TeachingTip4Visible = false;
-            OnPropertyChanged(nameof(TeachingTip4Visible));
-            _telemetry.TrackEvent(TelemetryConstants.FocusTutorialEnded);
-        }
+        public bool CanStartTutorial() => SlidersEnabled;
 
         public void ShowHelpMessage()
         {

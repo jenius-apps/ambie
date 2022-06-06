@@ -124,7 +124,7 @@
                     Visibility="{x:Bind ViewModel.IsHelpMessageVisible, Mode=OneWay}">
                     <winui:InfoBar.ActionButton>
                         <HyperlinkButton
-                            Click="{x:Bind ViewModel.StartTutorial}"
+                            Click="StartTutorial"
                             Content="{x:Bind strings:Resources.FocusTimerHelpAction}"
                             Visibility="{x:Bind IsDesktop}" />
                     </winui:InfoBar.ActionButton>
@@ -258,9 +258,8 @@
                                 <winui:TeachingTip
                                     x:Name="TeachingTip1"
                                     Title="{x:Bind strings:Resources.TipFocusTitle}"
-                                    ActionButtonClick="{x:Bind ViewModel.ShowTip2}"
+                                    ActionButtonClick="ShowTip2"
                                     ActionButtonContent="{x:Bind strings:Resources.Next}"
-                                    IsOpen="{x:Bind ViewModel.TeachingTip1Visible, Mode=OneWay}"
                                     PreferredPlacement="Bottom"
                                     Subtitle="{x:Bind strings:Resources.TipFocusMessage}"
                                     Target="{x:Bind Slider1}" />
@@ -295,9 +294,8 @@
                                 <winui:TeachingTip
                                     x:Name="TeachingTip2"
                                     Title="{x:Bind strings:Resources.TipRestTitle}"
-                                    ActionButtonClick="{x:Bind ViewModel.ShowTip3}"
+                                    ActionButtonClick="ShowTip3"
                                     ActionButtonContent="{x:Bind strings:Resources.Next}"
-                                    IsOpen="{x:Bind ViewModel.TeachingTip2Visible, Mode=OneWay}"
                                     PreferredPlacement="Bottom"
                                     Subtitle="{x:Bind strings:Resources.TipRestMessage}"
                                     Target="{x:Bind Slider2}" />
@@ -333,9 +331,8 @@
                                 <winui:TeachingTip
                                     x:Name="TeachingTip3"
                                     Title="{x:Bind strings:Resources.TipRepeatsTitle}"
-                                    ActionButtonClick="{x:Bind ViewModel.ShowTip4}"
+                                    ActionButtonClick="ShowTip4"
                                     ActionButtonContent="{x:Bind strings:Resources.Next}"
-                                    IsOpen="{x:Bind ViewModel.TeachingTip3Visible, Mode=OneWay}"
                                     PreferredPlacement="Bottom"
                                     Subtitle="{x:Bind strings:Resources.TipRepeatsMessage}"
                                     Target="{x:Bind Slider3}" />
@@ -436,9 +433,8 @@
                             <winui:TeachingTip
                                 x:Name="TeachingTip4"
                                 Title="{x:Bind strings:Resources.TipStartButtonTitle}"
-                                CloseButtonClick="{x:Bind ViewModel.CloseLastTip}"
+                                CloseButtonClick="OnTutorialEnded"
                                 CloseButtonContent="{x:Bind strings:Resources.CloseText}"
-                                IsOpen="{x:Bind ViewModel.TeachingTip4Visible, Mode=OneWay}"
                                 PreferredPlacement="Bottom"
                                 Subtitle="{x:Bind strings:Resources.TipStartButtonMessage}"
                                 Target="{x:Bind StartButton}" />
