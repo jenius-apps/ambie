@@ -565,7 +565,9 @@
                                 FontSize="12"
                                 MaxLength="1024"
                                 PlaceholderText="{x:Bind strings:Resources.FocusNotesPlaceholder}"
-                                TextWrapping="Wrap" />
+                                Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                TextWrapping="Wrap"
+                                Unloaded="OnUnloaded" />
                         </StackPanel>
                     </Grid>
                 </Border>

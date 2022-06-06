@@ -66,7 +66,7 @@ namespace AmbientSounds
             }
         }
 
-        private void OnSuspension(object sender, SuspendingEventArgs e)
+        private async void OnSuspension(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             _playerTracker?.TrackDuration(DateTimeOffset.Now);
@@ -78,6 +78,12 @@ namespace AmbientSounds
                 // Note: If music is playing, then ambie won't suspend on minimize.
                 focusService.PauseTimer();
             }
+
+            if (_serviceProvider?.GetService<IFocusNotesService>() is IFocusNotesService notesService)
+            {
+                await notesService.SaveNotesToStorageAsync();
+            }
+
             deferral.Complete();
         }
 
@@ -367,6 +373,7 @@ namespace AmbientSounds
                 // a timer factory.
                 .AddTransient<ITimerService, TimerService>()
                 // exposes events or object tree has singleton, so singleton.
+                .AddSingleton<IFocusNotesService, FocusNotesService>()
                 .AddSingleton<IFocusService, FocusService>()
                 .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()

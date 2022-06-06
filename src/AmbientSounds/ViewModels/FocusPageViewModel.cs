@@ -20,6 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IUserSettings _userSettings;
         private readonly IRecentFocusService _recentFocusService;
+        private readonly IFocusNotesService _focusNotesService;
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
@@ -37,24 +38,28 @@ namespace AmbientSounds.ViewModels
         private bool _cancelVisible;
         private string _primaryButtonText = string.Empty;
         private bool _isHelpMessageVisible;
+        private string _notes = string.Empty;
 
         public FocusPageViewModel(
             IFocusService focusService,
             ILocalizer localizer,
             ITelemetry telemetry,
             IUserSettings userSettings,
-            IRecentFocusService recentFocusService)
+            IRecentFocusService recentFocusService,
+            IFocusNotesService focusNotesService)
         {
             Guard.IsNotNull(focusService, nameof(focusService));
             Guard.IsNotNull(localizer, nameof(localizer));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(recentFocusService, nameof(recentFocusService));
+            Guard.IsNotNull(focusNotesService, nameof(focusNotesService));
             _focusService = focusService;
             _localizer = localizer;
             _telemetry = telemetry;
             _userSettings = userSettings;
             _recentFocusService = recentFocusService;
+            _focusNotesService = focusNotesService;
 
             IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
             UpdateButtonStates();
@@ -63,6 +68,18 @@ namespace AmbientSounds.ViewModels
         public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
 
         public bool IsRecentVisible => SlidersEnabled && RecentSettings.Count > 0;
+
+        public string Notes
+        {
+            get => _notes;
+            set
+            {
+                if (SetProperty(ref _notes, value))
+                {
+                    _focusNotesService.UpdateNotes(value);
+                }
+            }
+        }
 
         public bool IsHelpMessageVisible
         {
@@ -243,12 +260,20 @@ namespace AmbientSounds.ViewModels
             }
 
             OnPropertyChanged(nameof(IsRecentVisible));
+
+            _notes = await _focusNotesService.GetStoredNotesAsync();
+            OnPropertyChanged(nameof(Notes));
         }
 
         public void Uninitialize()
         {
             _focusService.TimeUpdated -= OnTimeUpdated;
             _focusService.FocusStateChanged -= OnFocusStateChanged;
+        }
+
+        public Task SaveNotesToStorageAsync()
+        {
+            return _focusNotesService.SaveNotesToStorageAsync();
         }
 
         public void LoadRecentSettings(RecentFocusSettings settings)

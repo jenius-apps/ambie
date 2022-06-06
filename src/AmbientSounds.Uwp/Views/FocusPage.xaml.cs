@@ -128,5 +128,10 @@ namespace AmbientSounds.Views
             TeachingTip3.IsOpen = false;
             TeachingTip4.IsOpen = false;
         }
+
+        private async void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            await ViewModel.SaveNotesToStorageAsync();
+        }
     }
 }
