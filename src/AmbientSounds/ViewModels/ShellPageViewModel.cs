@@ -51,9 +51,6 @@ namespace AmbientSounds.ViewModels
             _iapService = iapService;
             _focusService = focusService;
 
-            _iapService.ProductPurchased += OnProductPurchased;
-            _userSettings.SettingSet += OnSettingSet;
-            _focusService.FocusStateChanged += OnFocusStateChanged;
 
             var lastDismissDateTime = _userSettings.GetAndDeserialize<DateTime>(UserSettingsConstants.RatingDismissed);
             if (!systemInfoProvider.IsFirstRun() &&
@@ -112,11 +109,6 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public bool ShowBackgroundImage => !string.IsNullOrWhiteSpace(BackgroundImagePath);
 
-        public void Dispose()
-        {
-            _userSettings.SettingSet -= OnSettingSet;
-        }
-
         public void Navigate(int index)
         {
             if (index == 0)
@@ -154,7 +146,24 @@ namespace AmbientSounds.ViewModels
             _navigator.ToScreensaver();
         }
 
-        public async Task LoadPremiumButtonAsync()
+        public async Task InitializeAsync()
+        {
+            _iapService.ProductPurchased += OnProductPurchased;
+            _userSettings.SettingSet += OnSettingSet;
+            _focusService.FocusStateChanged += OnFocusStateChanged;
+
+            await LoadPremiumButtonAsync();
+        }
+
+        public void Dispose()
+        {
+            _userSettings.SettingSet -= OnSettingSet;
+            _iapService.ProductPurchased -= OnProductPurchased;
+            _focusService.FocusStateChanged -= OnFocusStateChanged;
+
+        }
+
+        private async Task LoadPremiumButtonAsync()
         {
             PremiumButtonVisible = !await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
         }
