@@ -454,6 +454,15 @@
   <data name="ComputeShader.Octagrams" xml:space="preserve">
     <value>Oktogramme</value>
   </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Beim Anzeigen des Bildschirmschoners ist ein Problem aufgetreten. Versuchen Sie, Ambie neu zu starten, oder kontaktieren Sie uns, wenn das Problem weiterhin besteht.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Melden Sie das Problem</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Renderfehler</value>
+  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Vollbild umschalten</value>
   </data>
@@ -561,5 +570,14 @@
   </data>
   <data name="TipStartButtonTitle" xml:space="preserve">
     <value>Achtung, fertig, los</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} Fokusminuten, {1} Ruheminuten, {2} Wiederholungen.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Liste der letzten Fokuskonfigurationen.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 bis {0}</value>
   </data>
 </root>

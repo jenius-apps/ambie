@@ -454,6 +454,15 @@
   <data name="ComputeShader.Octagrams" xml:space="preserve">
     <value>Octogramas</value>
   </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Hubo un problema al mostrar el protector de pantalla. Intente reiniciar Ambie o comuníquese con nosotros si el problema persiste.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Reportar el problema</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Error de renderizado</value>
+  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Alternar pantalla completa</value>
   </data>
@@ -561,5 +570,14 @@
   </data>
   <data name="TipStartButtonTitle" xml:space="preserve">
     <value>En sus marcas, listos, fuera</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} minutos de concentración, {1} minutos de descanso, {2} repeticiones.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Lista de configuraciones de enfoque recientes.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 a {0}</value>
   </data>
 </root>
