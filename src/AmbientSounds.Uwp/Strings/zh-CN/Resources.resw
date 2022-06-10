@@ -229,9 +229,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>屏保</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>使用暗色页面作为屏保</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 小时</value>
   </data>

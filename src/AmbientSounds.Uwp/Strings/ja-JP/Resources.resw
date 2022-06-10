@@ -229,9 +229,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>スクリーンセーバー</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>暗いページをスクリーンセーバーとして使用する</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2時間</value>
   </data>

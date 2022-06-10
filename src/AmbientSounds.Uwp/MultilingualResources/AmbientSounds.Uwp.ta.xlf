@@ -238,10 +238,6 @@
           <source>Screensaver</source>
           <target state="translated">திரை சேமிப்பான்</target>
         </trans-unit>
-        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
-          <source>Use a dark page as screensaver</source>
-          <target state="translated">ஒரு இருள்ளானப் பக்கத்தை திரை சேமிப்பானாகப் பயன்படுத்து</target>
-        </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
           <target state="translated">2 மணிநேரங்கள்</target>

@@ -19,6 +19,7 @@ namespace AmbientSounds.ViewModels
     public class ScreensaverPageViewModel : ObservableObject
     {
         private const string DefaultId = "default";
+        private const string DarkScreenId = "darkscreen";
         private const string VideoDialogId = "videoDialog";
         private const string DefaultVideoSource = "http://localhost";
         private readonly ILocalizer _localizer;
@@ -33,6 +34,7 @@ namespace AmbientSounds.ViewModels
         private bool _settingsButtonVisible;
         private bool _loading;
         private bool _slideshowVisible;
+        private bool _isDarkScreen;
 
         /// <summary>
         /// Raised when the view model has completed
@@ -112,6 +114,12 @@ namespace AmbientSounds.ViewModels
 
         public bool FullScreenVisible => _systemInfoProvider.IsDesktop();
 
+        public bool IsDarkScreen
+        {
+            get => _isDarkScreen;
+            set => SetProperty(ref _isDarkScreen, value);
+        }
+
         public bool SlideshowVisible
         {
             get => _slideshowVisible;
@@ -143,6 +151,7 @@ namespace AmbientSounds.ViewModels
             IReadOnlyList<Video> videos = await _videoService.GetVideosAsync(includeOnline: false);
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
             MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
+            MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), screensaverCommand, DarkScreenId, true));
 
             // Only enable compute shaders on desktop and when not using the WARP device
             if (_systemInfoProvider.IsDesktop() &&
@@ -220,14 +229,23 @@ namespace AmbientSounds.ViewModels
 
             if (menuItemId == DefaultId)
             {
+                IsDarkScreen = false;
                 AnimatedBackgroundName = null;
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = true;
+            }
+            else if (menuItemId == DarkScreenId)
+            {
+                IsDarkScreen = true;
+                AnimatedBackgroundName = null;
+                VideoSource = new Uri(DefaultVideoSource);
+                SlideshowVisible = false;
             }
             else if (menuItemId?.StartsWith("[CS]") == true)
             {
                 string name = menuItemId.Substring("[CS]".Length);
 
+                IsDarkScreen = false;
                 AnimatedBackgroundName = name;
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = false;
@@ -240,6 +258,7 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
+                IsDarkScreen = false;
                 Video? video = await _videoService.GetLocalVideoAsync(menuItemId!);
                 var isOwned = await _iapService.IsAnyOwnedAsync(video?.IapIds ?? Array.Empty<string>());
                 if (!isOwned)

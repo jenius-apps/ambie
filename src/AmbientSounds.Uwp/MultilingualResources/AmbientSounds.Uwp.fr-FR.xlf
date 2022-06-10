@@ -293,10 +293,6 @@
           <source>Screensaver</source>
           <target state="translated">Économiseur d'écran</target>
         </trans-unit>
-        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
-          <source>Use a dark page as screensaver</source>
-          <target state="translated">Utiliser une page sombre comme économiseur d'écran</target>
-        </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
           <target state="translated">2 heures</target>

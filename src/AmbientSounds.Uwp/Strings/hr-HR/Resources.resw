@@ -229,9 +229,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Čuvar zaslona</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Koristi tamni način rada za čuvara zaslona</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 sata</value>
   </data>

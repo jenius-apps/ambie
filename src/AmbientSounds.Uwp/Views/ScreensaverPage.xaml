@@ -10,14 +10,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:strings="using:AmbientSounds.Strings"
-    x:Name="RootPage"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+    <Page.Resources>
+        <BrushTransition x:Key="Transition" Duration="0:0:1" />
+    </Page.Resources>
 
-    <Grid>
+    <Grid
+        x:Name="RootPage"
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        BackgroundTransition="{StaticResource Transition}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:Name="DarkScreensaverState">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsDarkScreen, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootPage.Background" Value="Black" />
                     </VisualState.Setters>

@@ -36,21 +36,12 @@ namespace AmbientSounds.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var settings = App.Services.GetRequiredService<IUserSettings>();
-            bool useDarkScreensaver = settings.Get<bool>(UserSettingsConstants.DarkScreensasver);
-            if (useDarkScreensaver)
-            {
-                VisualStateManager.GoToState(this, nameof(DarkScreensaverState), false);
-            }
-            else
-            {
-                await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
-            }
+            await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
 
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {
-                { "name", "screensaver" },
-                { "darkscreensaver", useDarkScreensaver ? "true" : "false" }
+                { "name", "screensaver" }
             });
 
             var coreWindow = CoreWindow.GetForCurrentThread();

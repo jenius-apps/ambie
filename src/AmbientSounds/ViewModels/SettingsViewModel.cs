@@ -64,15 +64,6 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// Settings flag for dark screensaver.
-        /// </summary>
-        public bool DarkScreensaverEnabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.DarkScreensasver);
-            set => _userSettings.Set(UserSettingsConstants.DarkScreensasver, value);
-        }
-
-        /// <summary>
         /// Settings flag for resume on launch.
         /// </summary>
         public bool ResumeOnLaunchEnabled

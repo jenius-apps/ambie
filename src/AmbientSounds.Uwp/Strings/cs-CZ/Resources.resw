@@ -216,9 +216,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Spořič obrazovky</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Použít tmavou stránku jako spořič obrazovky</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 hodiny</value>
   </data>

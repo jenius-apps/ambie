@@ -294,10 +294,6 @@
           <source>Screensaver</source>
           <target state="translated">Скринсейвер</target>
         </trans-unit>
-        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
-          <source>Use a dark page as screensaver</source>
-          <target state="translated">Скринсейвер в виде пустой страницы</target>
-        </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
           <target state="translated">2 часа</target>

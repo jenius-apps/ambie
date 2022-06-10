@@ -223,9 +223,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Protetor de tela</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Use uma página escura como proteção de tela</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 horas</value>
   </data>

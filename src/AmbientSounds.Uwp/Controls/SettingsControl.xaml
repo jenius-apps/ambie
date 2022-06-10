@@ -62,12 +62,8 @@
                 </ToggleSwitch.OnContent>
             </ToggleSwitch>
 
-            <CheckBox
-                x:Uid="SettingsScreensaverDark"
-                Margin="0,4,0,0"
-                IsChecked="{x:Bind ViewModel.DarkScreensaverEnabled, Mode=TwoWay}" />
-
             <local:AboutControl />
+
         </StackPanel>
     </ScrollViewer>
 </UserControl>

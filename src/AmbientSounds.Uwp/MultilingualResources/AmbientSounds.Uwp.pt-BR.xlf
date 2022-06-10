@@ -286,10 +286,6 @@
           <source>Screensaver</source>
           <target state="translated">Protetor de tela</target>
         </trans-unit>
-        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
-          <source>Use a dark page as screensaver</source>
-          <target state="translated">Use uma página escura como proteção de tela</target>
-        </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
           <target state="translated" state-qualifier="tm-suggestion">2 horas</target>

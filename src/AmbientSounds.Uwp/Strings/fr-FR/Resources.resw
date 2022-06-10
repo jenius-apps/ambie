@@ -208,9 +208,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Économiseur d'écran</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Utiliser une page sombre comme économiseur d'écran</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 heures</value>
   </data>

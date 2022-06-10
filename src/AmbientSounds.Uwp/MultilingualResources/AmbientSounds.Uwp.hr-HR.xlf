@@ -294,10 +294,6 @@
           <source>Screensaver</source>
           <target state="translated">Čuvar zaslona</target>
         </trans-unit>
-        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
-          <source>Use a dark page as screensaver</source>
-          <target state="translated">Koristi tamni način rada za čuvara zaslona</target>
-        </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
           <target state="translated">2 sata</target>

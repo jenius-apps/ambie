@@ -229,9 +229,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Скринсейвер</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Скринсейвер в виде пустой страницы</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 часа</value>
   </data>

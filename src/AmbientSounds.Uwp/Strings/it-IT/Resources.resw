@@ -223,9 +223,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Salvaschermo</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Usa una pagina scura come salvaschermo</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 ore</value>
   </data>

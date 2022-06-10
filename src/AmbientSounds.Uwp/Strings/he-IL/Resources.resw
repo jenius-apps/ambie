@@ -226,9 +226,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>שומר מסך</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>השתמש בדף כהה כשומר מסך</value>
-  </data>
   <data name="Hours2Button.Label" xml:space="preserve">
     <value>2 שעות</value>
   </data>

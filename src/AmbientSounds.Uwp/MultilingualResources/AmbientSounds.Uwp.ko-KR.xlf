@@ -293,10 +293,6 @@
           <source>Screensaver</source>
           <target state="translated">화면 보호기</target>
         </trans-unit>
-        <trans-unit id="SettingsScreensaverDark.Content" translate="yes" xml:space="preserve">
-          <source>Use a dark page as screensaver</source>
-          <target state="translated">어두운 페이지를 화면 보호기로 사용</target>
-        </trans-unit>
         <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
           <source>2 hours</source>
           <target state="new">2 hours</target>

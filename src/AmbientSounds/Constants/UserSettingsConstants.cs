@@ -56,11 +56,6 @@ namespace AmbientSounds.Constants
         public const string EnableScreenSaver = "EnableScreenSaver";
 
         /// <summary>
-        /// If true, the screensaver will just be a dark, blank page.
-        /// </summary>
-        public const string DarkScreensasver = "DarkScreensaver";
-
-        /// <summary>
         /// The number of max active tracks.
         /// </summary>
         public const string MaxActive = "MaxActive";
@@ -117,7 +112,6 @@ namespace AmbientSounds.Constants
             { TelemetryOn, true },
             { Notifications, true },
             { EnableScreenSaver, false },
-            { DarkScreensasver, false },
             { MaxActive, 3 },
             { ActiveTracks, Array.Empty<string>() },
             { ActiveMixId, string.Empty },
