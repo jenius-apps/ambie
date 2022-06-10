@@ -754,6 +754,18 @@
           <source>Ready, set, go</source>
           <target state="translated">En sus marcas, listos, fuera</target>
         </trans-unit>
+        <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
+          <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
+          <target state="new">{0} focus minutes, {1} rest minutes, {2} repeats.</target>
+        </trans-unit>
+        <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
+          <source>List of recent focus configurations.</source>
+          <target state="new">List of recent focus configurations.</target>
+        </trans-unit>
+        <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
+          <source>0 to {0}</source>
+          <target state="new">0 to {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

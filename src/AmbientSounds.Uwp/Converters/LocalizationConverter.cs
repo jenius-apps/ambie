@@ -65,6 +65,24 @@ namespace AmbientSounds.Converters
             }
         }
 
+        public static string RecentFocusAccessibleName(int focusMinutes, int restMinutes, int repeats)
+        {
+            InitializeLoader();
+            return string.Format(
+                _loader.GetString("RecentFocusAccessibleName"),
+                focusMinutes.ToString(),
+                restMinutes.ToString(),
+                repeats.ToString());
+        }
+
+        public static string SliderHelpText(double max)
+        {
+            InitializeLoader();
+            return string.Format(
+                _loader.GetString("ZeroToMax"),
+                max.ToString());
+        }
+
         /// <summary>
         /// Returns localized phrase for online sound object
         /// in a list view.

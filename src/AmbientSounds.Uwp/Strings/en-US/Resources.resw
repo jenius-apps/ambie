@@ -679,4 +679,13 @@
   <data name="TipStartButtonTitle" xml:space="preserve">
     <value>Ready, set, go</value>
   </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} focus minutes, {1} rest minutes, {2} repeats.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>List of recent focus configurations.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 to {0}</value>
+  </data>
 </root>

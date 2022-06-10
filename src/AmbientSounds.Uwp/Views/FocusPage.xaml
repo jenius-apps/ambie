@@ -114,7 +114,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <ScrollViewer>
+        <ScrollViewer AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}">
             <StackPanel Margin="0,0,16,40">
                 <winui:InfoBar
                     Title="{x:Bind strings:Resources.FocusTimerHelpTitle}"
@@ -249,6 +249,7 @@
                                 <controls:TimerSlider
                                     x:Name="Slider1"
                                     Margin="12,0,0,0"
+                                    AutomationName="{x:Bind strings:Resources.FocusLength}"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                     Maximum="60"
                                     StepFrequency="5"
@@ -285,6 +286,7 @@
                                 <controls:TimerSlider
                                     x:Name="Slider2"
                                     Margin="12,0,0,0"
+                                    AutomationName="{x:Bind strings:Resources.RestLength}"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                     Maximum="60"
                                     StepFrequency="5"
@@ -323,6 +325,7 @@
                                 <controls:TimerSlider
                                     x:Name="Slider3"
                                     Margin="12,0,0,0"
+                                    AutomationName="{x:Bind strings:Resources.Repeats}"
                                     IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                     Maximum="8"
                                     TickFrequency="2"
@@ -477,6 +480,7 @@
 
                     <ListView
                         Padding="0,0,200,0"
+                        AutomationProperties.Name="{x:Bind strings:Resources.RecentFocusList}"
                         IsItemClickEnabled="True"
                         ItemClick="OnRecentClicked"
                         ItemsSource="{x:Bind ViewModel.RecentSettings}"
@@ -489,32 +493,33 @@
                         Visibility="{x:Bind ViewModel.IsRecentVisible, Mode=OneWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="models:RecentFocusSettings">
-                                <Grid Width="200" Padding="20">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
+                                <ListViewItem AutomationProperties.Name="{x:Bind converters:LocalizationConverter.RecentFocusAccessibleName(FocusMinutes, RestMinutes, Repeats)}">
+                                    <Grid Width="200" Padding="20">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
-                                    <controls:RecentFocusSettingsControl
-                                        Foreground="SkyBlue"
-                                        MaxValue="60"
-                                        Text="{x:Bind strings:Resources.FocusText}"
-                                        Value="{x:Bind FocusMinutes}" />
-                                    <controls:RecentFocusSettingsControl
-                                        Grid.Column="1"
-                                        Foreground="Green"
-                                        MaxValue="60"
-                                        Text="{x:Bind strings:Resources.RestText}"
-                                        Value="{x:Bind RestMinutes}" />
-                                    <controls:RecentFocusSettingsControl
-                                        Grid.Column="2"
-                                        Foreground="DeepPink"
-                                        MaxValue="8"
-                                        Text="{x:Bind strings:Resources.Repeats}"
-                                        Value="{x:Bind Repeats}" />
-
-                                </Grid>
+                                        <controls:RecentFocusSettingsControl
+                                            Foreground="SkyBlue"
+                                            MaxValue="60"
+                                            Text="{x:Bind strings:Resources.FocusText}"
+                                            Value="{x:Bind FocusMinutes}" />
+                                        <controls:RecentFocusSettingsControl
+                                            Grid.Column="1"
+                                            Foreground="Green"
+                                            MaxValue="60"
+                                            Text="{x:Bind strings:Resources.RestText}"
+                                            Value="{x:Bind RestMinutes}" />
+                                        <controls:RecentFocusSettingsControl
+                                            Grid.Column="2"
+                                            Foreground="DeepPink"
+                                            MaxValue="8"
+                                            Text="{x:Bind strings:Resources.Repeats}"
+                                            Value="{x:Bind Repeats}" />
+                                    </Grid>
+                                </ListViewItem>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -561,6 +566,7 @@
                                 Height="130"
                                 Margin="0,12,0,0"
                                 AcceptsReturn="True"
+                                AutomationProperties.Name="{x:Bind strings:Resources.Notepad}"
                                 FontFamily="Lucida Sans Typewriter"
                                 FontSize="12"
                                 MaxLength="1024"

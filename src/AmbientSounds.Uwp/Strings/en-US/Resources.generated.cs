@@ -1444,6 +1444,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region RecentFocusAccessibleName
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} focus minutes, {1} rest minutes, {2} repeats.
+        /// </summary>
+        public static string RecentFocusAccessibleName
+        {
+            get
+            {
+                return _resourceLoader.GetString("RecentFocusAccessibleName");
+            }
+        }
+        #endregion
+
+        #region RecentFocusList
+        /// <summary>
+        ///   Looks up a localized string similar to: List of recent focus configurations.
+        /// </summary>
+        public static string RecentFocusList
+        {
+            get
+            {
+                return _resourceLoader.GetString("RecentFocusList");
+            }
+        }
+        #endregion
+
+        #region ZeroToMax
+        /// <summary>
+        ///   Looks up a localized string similar to: 0 to {0}
+        /// </summary>
+        public static string ZeroToMax
+        {
+            get
+            {
+                return _resourceLoader.GetString("ZeroToMax");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1565,6 +1604,9 @@ namespace AmbientSounds.Strings{
             TipRestTitle,
             TipStartButtonMessage,
             TipStartButtonTitle,
+            RecentFocusAccessibleName,
+            RecentFocusList,
+            ZeroToMax,
         }
 
         private static ResourceLoader _resourceLoader;

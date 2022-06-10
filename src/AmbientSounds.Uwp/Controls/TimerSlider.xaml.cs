@@ -1,10 +1,23 @@
-﻿using System.Threading.Tasks;
+﻿using AmbientSounds.Converters;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
 namespace AmbientSounds.Controls
 {
     public sealed partial class TimerSlider : ObservableUserControl
     {
+        public string AutomationName
+        {
+            get => (string)GetValue(AutomationNameProperty);
+            set => SetValueDp(AutomationNameProperty, value);
+        }
+
+        public static readonly DependencyProperty AutomationNameProperty = DependencyProperty.Register(
+            nameof(AutomationName),
+            typeof(string),
+            typeof(TimerSlider),
+            new PropertyMetadata(string.Empty));
+
         public double Value
         {
             get => (double)GetValue(ValueProperty);

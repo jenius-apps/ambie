@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:loc="using:AmbientSounds.Converters"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="300"
@@ -19,6 +20,8 @@
         <Slider
             Margin="0,4,12,0"
             HorizontalAlignment="Stretch"
+            AutomationProperties.HelpText="{x:Bind loc:LocalizationConverter.SliderHelpText(Maximum), Mode=OneWay}"
+            AutomationProperties.Name="{x:Bind AutomationName, Mode=OneWay}"
             IsEnabled="{x:Bind IsEnabled, Mode=OneWay}"
             Maximum="{x:Bind Maximum, Mode=OneWay}"
             StepFrequency="{x:Bind StepFrequency, Mode=OneWay}"
