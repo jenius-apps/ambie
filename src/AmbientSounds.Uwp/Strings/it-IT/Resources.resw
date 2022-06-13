@@ -340,9 +340,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Aggiungi alla barra delle applicazioni</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>Trasparenza</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>Anteprima</value>
   </data>

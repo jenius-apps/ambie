@@ -341,9 +341,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>הצמד לשורת המשימות</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>שקיפות</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>תצוגה מקדימה</value>
   </data>

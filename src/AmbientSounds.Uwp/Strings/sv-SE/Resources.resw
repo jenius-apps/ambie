@@ -344,9 +344,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Fäst till aktivitetsfältet</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>Genomskinlighet</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>Förhandsvisning</value>
   </data>

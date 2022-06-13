@@ -442,10 +442,6 @@
           <source>Pin to taskbar</source>
           <target state="translated">Anclar a Taskbar</target>
         </trans-unit>
-        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
-          <source>Transparency</source>
-          <target state="translated">Transparencia</target>
-        </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
           <target state="translated">Vista previa</target>

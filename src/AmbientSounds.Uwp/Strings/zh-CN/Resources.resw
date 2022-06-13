@@ -340,9 +340,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>固定到任务栏</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>界面透明</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>预览</value>
   </data>

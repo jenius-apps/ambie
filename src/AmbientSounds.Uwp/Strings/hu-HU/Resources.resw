@@ -340,9 +340,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Rögzítés a tálcára</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>Áttetszőség</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>Előnézet</value>
   </data>

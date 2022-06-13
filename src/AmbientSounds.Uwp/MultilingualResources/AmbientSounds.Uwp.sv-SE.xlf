@@ -446,10 +446,6 @@
           <source>Pin to taskbar</source>
           <target state="translated">Fäst till aktivitetsfältet</target>
         </trans-unit>
-        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
-          <source>Transparency</source>
-          <target state="translated">Genomskinlighet</target>
-        </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
           <target state="translated">Förhandsvisning</target>

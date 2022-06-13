@@ -344,9 +344,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>பணிப்பட்டியில் பொருத்து</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>வெளிப்படைத்தன்மை</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>முன்னோட்டம்</value>
   </data>

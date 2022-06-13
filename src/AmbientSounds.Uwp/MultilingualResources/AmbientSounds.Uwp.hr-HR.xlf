@@ -447,10 +447,6 @@
           <source>Pin to taskbar</source>
           <target state="translated">Prikvači na programsku traku</target>
         </trans-unit>
-        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
-          <source>Transparency</source>
-          <target state="translated">Prozirnost</target>
-        </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
           <target state="translated">Pretpregled</target>

@@ -344,9 +344,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Prikvači na programsku traku</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>Prozirnost</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>Pretpregled</value>
   </data>

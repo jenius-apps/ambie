@@ -652,19 +652,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region Transparency
-        /// <summary>
-        ///   Looks up a localized string similar to: Transparency
-        /// </summary>
-        public static string Transparency
-        {
-            get
-            {
-                return _resourceLoader.GetString("Transparency");
-            }
-        }
-        #endregion
-
         #region Preview
         /// <summary>
         ///   Looks up a localized string similar to: Preview
@@ -1543,7 +1530,6 @@ namespace AmbientSounds.Strings{
             FirstLaunchMessage,
             HelloAndWelcome,
             PinToTaskbar,
-            Transparency,
             Preview,
             Catalogue,
             Home,

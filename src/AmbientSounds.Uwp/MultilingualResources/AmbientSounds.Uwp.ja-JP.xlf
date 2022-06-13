@@ -446,10 +446,6 @@
           <source>Pin to taskbar</source>
           <target state="translated">タスクバーにピンする</target>
         </trans-unit>
-        <trans-unit id="Transparency" translate="yes" xml:space="preserve">
-          <source>Transparency</source>
-          <target state="translated">透明度</target>
-        </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
           <target state="translated">プレビュー</target>

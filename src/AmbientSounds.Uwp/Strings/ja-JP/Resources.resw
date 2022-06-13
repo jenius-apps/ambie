@@ -344,9 +344,6 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>タスクバーにピンする</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>透明度</value>
-  </data>
   <data name="Preview" xml:space="preserve">
     <value>プレビュー</value>
   </data>
