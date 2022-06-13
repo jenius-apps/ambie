@@ -34,26 +34,6 @@
           <source>View app information</source>
           <target state="translated">查看 App 信息</target>
         </trans-unit>
-        <trans-unit id="Minutes10Button.Label" translate="yes" xml:space="preserve">
-          <source>10 minutes</source>
-          <target state="translated">10 分钟</target>
-        </trans-unit>
-        <trans-unit id="Minutes15Button.Label" translate="yes" xml:space="preserve">
-          <source>15 minutes</source>
-          <target state="translated">15 分钟</target>
-        </trans-unit>
-        <trans-unit id="Minutes30Button.Label" translate="yes" xml:space="preserve">
-          <source>30 minutes</source>
-          <target state="translated">30 分钟</target>
-        </trans-unit>
-        <trans-unit id="Minutes5Button.Label" translate="yes" xml:space="preserve">
-          <source>5 minutes</source>
-          <target state="translated">5 分钟</target>
-        </trans-unit>
-        <trans-unit id="Minutes60Button.Label" translate="yes" xml:space="preserve">
-          <source>60 minutes</source>
-          <target state="translated">60 分钟</target>
-        </trans-unit>
         <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more options</source>
           <target state="translated">查看更多选项</target>
@@ -293,18 +273,6 @@
         <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
           <source>Screensaver</source>
           <target state="translated">屏保</target>
-        </trans-unit>
-        <trans-unit id="Hours2Button.Label" translate="yes" xml:space="preserve">
-          <source>2 hours</source>
-          <target state="translated">2 小时</target>
-        </trans-unit>
-        <trans-unit id="Hours4Button.Label" translate="yes" xml:space="preserve">
-          <source>4 hours</source>
-          <target state="translated">4 小时</target>
-        </trans-unit>
-        <trans-unit id="Hours8Button.Label" translate="yes" xml:space="preserve">
-          <source>8 hours</source>
-          <target state="translated">8 小时</target>
         </trans-unit>
         <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Purchase sound</source>

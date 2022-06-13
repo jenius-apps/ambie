@@ -30,21 +30,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Klik for app informationer</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 minutter</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 minutter</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 minutter</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 minutter</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 minutter</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Klik for flere valgmuligheder</value>
   </data>

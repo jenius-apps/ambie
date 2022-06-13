@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>הצג מידע על האפליקציה</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 דקות</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 דקות</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 דקות</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 דקות</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 דקות</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>הצג אפשרויות נוספות</value>
   </data>
@@ -225,15 +210,6 @@
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>שומר מסך</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 שעות</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 שעות</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 שעות</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>קנה צליל</value>

@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Информация о программе</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 минут</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 минут</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 минут</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 минут</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 минут</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Остальные настройки</value>
   </data>
@@ -228,15 +213,6 @@
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Скринсейвер</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 часа</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 часа</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 часов</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Купить звук</value>

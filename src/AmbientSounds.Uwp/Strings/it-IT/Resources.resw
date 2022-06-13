@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Vedi informazioni sull'app</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 minuti</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 minuti</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 minuti</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 minuti</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 minuti</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Mostra più opzioni</value>
   </data>
@@ -222,15 +207,6 @@
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Salvaschermo</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 ore</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 ore</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 ore</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Compra suono</value>

@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Fes clic per veure la informació de l'aplicació</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 minuts</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 minuts</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 minuts</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 minuts</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 minuts</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Fes clic aquí per veure més opcions</value>
   </data>

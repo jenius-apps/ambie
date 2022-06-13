@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Visar appinformation</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 minuter</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 minuter</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 minuter</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 minuter</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 minuter</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Visa fler alternativ</value>
   </data>
@@ -228,15 +213,6 @@
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Skärmsläck</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>Två timmar</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>Fyra timmar</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>Åtta timmar</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Köp ljud</value>

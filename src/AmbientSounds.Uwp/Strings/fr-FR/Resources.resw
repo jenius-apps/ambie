@@ -208,15 +208,6 @@
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Économiseur d'écran</value>
   </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 heures</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 heures</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 heures</value>
-  </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Acheter ce son</value>
   </data>

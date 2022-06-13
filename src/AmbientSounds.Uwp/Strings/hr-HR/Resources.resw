@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Prikaži informacije o aplikaciji</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 minuta</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 minuta</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 minuta</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 minuta</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 minuta</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Pregled dodatnih mogućnosti</value>
   </data>
@@ -228,15 +213,6 @@
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Čuvar zaslona</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 sata</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 sata</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 sati</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Kupi zvuk</value>

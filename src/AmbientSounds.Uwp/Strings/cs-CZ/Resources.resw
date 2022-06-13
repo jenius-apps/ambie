@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Klikněte zde pro zobrazení informací o aplikaci</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 minut</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 minut</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 minut</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 minut</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 minut</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Klikněte zde pro zobrazení více možností</value>
   </data>
@@ -215,15 +200,6 @@
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Spořič obrazovky</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 hodiny</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 hodiny</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 hodin</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Nakoupit zvuk</value>

@@ -33,21 +33,6 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>앺 정보 보기</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10분</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15분</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30분</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5분</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60분</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>옵션 보기</value>
   </data>
