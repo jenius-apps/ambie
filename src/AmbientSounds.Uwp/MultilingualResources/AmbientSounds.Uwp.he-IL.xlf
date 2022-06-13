@@ -454,10 +454,6 @@
           <source>Home</source>
           <target state="translated">בית</target>
         </trans-unit>
-        <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
-          <source>Auto launch after 1 min</source>
-          <target state="translated">הפעלה אוטומטית לאחר דקה אחת</target>
-        </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
           <target state="translated">ערבב והתאם עד 3 צלילים</target>

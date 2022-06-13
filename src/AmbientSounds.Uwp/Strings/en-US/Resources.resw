@@ -458,9 +458,6 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>Auto launch after 1 min</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mix and match up to 3 sounds</value>
   </data>

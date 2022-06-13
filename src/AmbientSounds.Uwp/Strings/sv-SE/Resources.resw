@@ -353,9 +353,6 @@
   <data name="Home" xml:space="preserve">
     <value>Hem</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>Starta automatiskt efter 1 minut</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mixa och matcha upp till 3 ljud</value>
   </data>

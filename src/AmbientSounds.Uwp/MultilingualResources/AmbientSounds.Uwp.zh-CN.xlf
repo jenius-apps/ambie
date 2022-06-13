@@ -453,10 +453,6 @@
           <source>Home</source>
           <target state="translated">主页</target>
         </trans-unit>
-        <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
-          <source>Auto launch after 1 min</source>
-          <target state="translated">1 分钟后自动启用</target>
-        </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
           <target state="translated">选择至多 3 个音效进行混音</target>

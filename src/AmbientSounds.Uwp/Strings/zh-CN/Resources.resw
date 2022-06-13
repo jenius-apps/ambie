@@ -349,9 +349,6 @@
   <data name="Home" xml:space="preserve">
     <value>主页</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>1 分钟后自动启用</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>选择至多 3 个音效进行混音</value>
   </data>

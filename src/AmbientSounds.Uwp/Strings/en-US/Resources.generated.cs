@@ -691,19 +691,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region ScreensaverOn
-        /// <summary>
-        ///   Looks up a localized string similar to: Auto launch after 1 min
-        /// </summary>
-        public static string ScreensaverOn
-        {
-            get
-            {
-                return _resourceLoader.GetString("ScreensaverOn");
-            }
-        }
-        #endregion
-
         #region SelectSoundsPlaceholder
         /// <summary>
         ///   Looks up a localized string similar to: Mix and match up to 3 sounds
@@ -1533,7 +1520,6 @@ namespace AmbientSounds.Strings{
             Preview,
             Catalogue,
             Home,
-            ScreensaverOn,
             SelectSoundsPlaceholder,
             ThemeSettings,
             SettingsResumeOnLaunch,

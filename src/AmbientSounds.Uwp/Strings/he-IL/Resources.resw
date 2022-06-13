@@ -350,9 +350,6 @@
   <data name="Home" xml:space="preserve">
     <value>בית</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>הפעלה אוטומטית לאחר דקה אחת</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>ערבב והתאם עד 3 צלילים</value>
   </data>

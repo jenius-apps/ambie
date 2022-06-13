@@ -353,9 +353,6 @@
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>1分後に自動起動</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>最大3つのサウンドをミックスできます</value>
   </data>

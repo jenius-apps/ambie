@@ -459,10 +459,6 @@
           <source>Home</source>
           <target state="translated">முகப்பு</target>
         </trans-unit>
-        <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
-          <source>Auto launch after 1 min</source>
-          <target state="translated">1 நிமிடம் பிறகு தானாகத் திற</target>
-        </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
           <target state="translated">3 ஒலிகள் வரை கலந்து பொருத்தவும்</target>

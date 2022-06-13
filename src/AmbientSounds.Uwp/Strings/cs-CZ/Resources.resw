@@ -333,9 +333,6 @@
   <data name="Home" xml:space="preserve">
     <value>Domov</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>Automaticky spustit po jedné minutě</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mixujte a spojujte až 3 zvuky</value>
   </data>

@@ -353,9 +353,6 @@
   <data name="Home" xml:space="preserve">
     <value>முகப்பு</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>1 நிமிடம் பிறகு தானாகத் திற</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>3 ஒலிகள் வரை கலந்து பொருத்தவும்</value>
   </data>

@@ -453,10 +453,6 @@
           <source>Home</source>
           <target state="translated">Startseite</target>
         </trans-unit>
-        <trans-unit id="ScreensaverOn" translate="yes" xml:space="preserve">
-          <source>Auto launch after 1 min</source>
-          <target state="translated">Automatischer Start nach 1 min</target>
-        </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
           <target state="translated">Bis zu 3 Klänge mischen und kombinieren</target>

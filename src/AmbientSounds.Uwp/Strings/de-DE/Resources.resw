@@ -349,9 +349,6 @@
   <data name="Home" xml:space="preserve">
     <value>Startseite</value>
   </data>
-  <data name="ScreensaverOn" xml:space="preserve">
-    <value>Automatischer Start nach 1 min</value>
-  </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Bis zu 3 Klänge mischen und kombinieren</value>
   </data>
