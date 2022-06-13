@@ -354,7 +354,6 @@ namespace AmbientSounds
                 .AddTransient<SettingsViewModel>()
                 .AddTransient<ThemeSettingsViewModel>()
                 .AddTransient<CataloguePageViewModel>()
-                .AddTransient<MainPageViewModel>()
                 .AddSingleton<ShellPageViewModel>()
                 .AddTransient<ShareResultsViewModel>()
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
