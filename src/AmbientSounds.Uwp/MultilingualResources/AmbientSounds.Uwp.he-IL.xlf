@@ -496,10 +496,6 @@
           <source>Enjoying Ambie? Please consider rating us!</source>
           <target state="translated">נהנים מ-Ambie? אנא שקול לדרג אותנו!</target>
         </trans-unit>
-        <trans-unit id="SettingsDisableSmtc" translate="yes" xml:space="preserve">
-          <source>Prevent Ambie from integrating with Windows media controls</source>
-          <target state="needs-review-translation">מנע מאמבי להשתלב עם פקדי המדיה של Windows</target>
-        </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
           <target state="translated">הורד</target>

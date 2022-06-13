@@ -382,9 +382,6 @@
   <data name="RateUsMessage" xml:space="preserve">
     <value>נהנים מ-Ambie? אנא שקול לדרג אותנו!</value>
   </data>
-  <data name="SettingsDisableSmtc" xml:space="preserve">
-    <value>מנע מאמבי להשתלב עם פקדי המדיה של Windows</value>
-  </data>
   <data name="DownloadText" xml:space="preserve">
     <value>הורד</value>
   </data>

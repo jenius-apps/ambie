@@ -385,9 +385,6 @@
   <data name="SettingsResumeOnLaunch" xml:space="preserve">
     <value>Reanudar la música cuando se inicie Ambie</value>
   </data>
-  <data name="SettingsDisableSmtc" xml:space="preserve">
-    <value>Impedir que Ambie se integre con los controles multimedia de Windows</value>
-  </data>
   <data name="DownloadText" xml:space="preserve">
     <value>Descargar</value>
   </data>

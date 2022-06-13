@@ -385,9 +385,6 @@
   <data name="SettingsResumeOnLaunch" xml:space="preserve">
     <value>打开 Ambie 时自动恢复播放</value>
   </data>
-  <data name="SettingsDisableSmtc" xml:space="preserve">
-    <value>不将 Ambie 集成到 Windows 系统媒体控件</value>
-  </data>
   <data name="DownloadText" xml:space="preserve">
     <value>下载</value>
   </data>

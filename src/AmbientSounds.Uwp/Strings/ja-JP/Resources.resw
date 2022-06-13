@@ -385,9 +385,6 @@
   <data name="SettingsResumeOnLaunch" xml:space="preserve">
     <value>Ambie起動時に自動再開する</value>
   </data>
-  <data name="SettingsDisableSmtc" xml:space="preserve">
-    <value>AmbieがWindowsメディアコントロールと統合できないようにする</value>
-  </data>
   <data name="DownloadText" xml:space="preserve">
     <value>ダウンロード</value>
   </data>

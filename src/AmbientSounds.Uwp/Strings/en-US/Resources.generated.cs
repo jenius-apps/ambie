@@ -821,19 +821,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region SettingsDisableSmtc
-        /// <summary>
-        ///   Looks up a localized string similar to: Prevent Ambie from integrating with Windows media controls
-        /// </summary>
-        public static string SettingsDisableSmtc
-        {
-            get
-            {
-                return _resourceLoader.GetString("SettingsDisableSmtc");
-            }
-        }
-        #endregion
-
         #region DownloadText
         /// <summary>
         ///   Looks up a localized string similar to: Download
@@ -1530,7 +1517,6 @@ namespace AmbientSounds.Strings{
             ThankYouForSub,
             HelloAgain,
             RateUsMessage,
-            SettingsDisableSmtc,
             DownloadText,
             MissingSoundsMessage,
             MissingSoundsTitle,

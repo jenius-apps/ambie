@@ -500,10 +500,6 @@
           <source>Auto resume when Ambie opens</source>
           <target state="translated">打开 Ambie 时自动恢复播放</target>
         </trans-unit>
-        <trans-unit id="SettingsDisableSmtc" translate="yes" xml:space="preserve">
-          <source>Prevent Ambie from integrating with Windows media controls</source>
-          <target state="translated">不将 Ambie 集成到 Windows 系统媒体控件</target>
-        </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
           <target state="translated">下载</target>

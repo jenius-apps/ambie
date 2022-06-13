@@ -500,10 +500,6 @@
           <source>Auto resume when Ambie opens</source>
           <target state="translated">Musik fortsetzen, wenn Ambie anfängt</target>
         </trans-unit>
-        <trans-unit id="SettingsDisableSmtc" translate="yes" xml:space="preserve">
-          <source>Prevent Ambie from integrating with Windows media controls</source>
-          <target state="translated">Verhindern der Integration von Ambie in Windows Media-Steuerelemente</target>
-        </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
           <target state="translated">Herunterladen</target>
