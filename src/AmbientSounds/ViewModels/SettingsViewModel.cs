@@ -9,25 +9,17 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IUserSettings _userSettings;
         private readonly IStoreNotificationRegistrar _notifications;
-        private readonly IScreensaverService _screensaverService;
-        private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly ITelemetry _telemetry;
         private bool _notificationsLoading;
 
         public SettingsViewModel(
             IUserSettings userSettings,
-            IScreensaverService screensaverService,
-            ISystemInfoProvider systemInfoProvider,
             IStoreNotificationRegistrar notifications,
             ITelemetry telemetry)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(notifications, nameof(notifications));
-            Guard.IsNotNull(screensaverService, nameof(screensaverService));
-            Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
-            _systemInfoProvider = systemInfoProvider;
-            _screensaverService = screensaverService;
             _userSettings = userSettings;
             _notifications = notifications;
             _telemetry = telemetry;
@@ -40,27 +32,6 @@ namespace AmbientSounds.ViewModels
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.TelemetryOn);
             set => _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
-        }
-
-        /// <summary>
-        /// Settings flag for screensaver.
-        /// </summary>
-        public bool ScreensaverEnabled
-        {
-            get => _userSettings.Get(UserSettingsConstants.EnableScreenSaver, _systemInfoProvider.IsTenFoot());
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.EnableScreenSaver, value);
-                
-                if (value)
-                {
-                    _screensaverService.StartTimer();
-                }
-                else
-                {
-                    _screensaverService.StopTimer();
-                }
-            }
         }
 
         /// <summary>

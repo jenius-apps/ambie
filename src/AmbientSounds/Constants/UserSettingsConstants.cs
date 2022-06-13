@@ -51,11 +51,6 @@ namespace AmbientSounds.Constants
         public const string Notifications = "NotificationSetting";
 
         /// <summary>
-        /// If true, screen saver will be triggered automatically.
-        /// </summary>
-        public const string EnableScreenSaver = "EnableScreenSaver";
-
-        /// <summary>
         /// The number of max active tracks.
         /// </summary>
         public const string MaxActive = "MaxActive";
@@ -111,7 +106,6 @@ namespace AmbientSounds.Constants
             { Volume, 80d },
             { TelemetryOn, true },
             { Notifications, true },
-            { EnableScreenSaver, false },
             { MaxActive, 3 },
             { ActiveTracks, Array.Empty<string>() },
             { ActiveMixId, string.Empty },
