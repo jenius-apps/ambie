@@ -174,6 +174,9 @@
     <Compile Include="Controls\RenameInputBox.xaml.cs">
       <DependentUpon>RenameInputBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SaveMixButton.xaml.cs">
+      <DependentUpon>SaveMixButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Screensaver.xaml.cs">
       <DependentUpon>Screensaver.xaml</DependentUpon>
     </Compile>
@@ -416,6 +419,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\RenameInputBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SaveMixButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

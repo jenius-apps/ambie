@@ -42,5 +42,17 @@ namespace AmbientSounds.Services
         /// are found.
         /// </summary>
         Task<IEnumerable<string>> GetUnavailableSoundsAsync(Sound mix);
+
+        /// <summary>
+        /// Saves the current active sounds into a mix.
+        /// </summary>
+        /// <param name="name">Optional name for the mix.</param>
+        /// <returns>The string Id of the new sound mix.</returns>
+        Task<string> SaveCurrentMixAsync(string name = "");
+        
+        /// <summary>
+        /// Returns true if the current mix can be saved.
+        /// </summary>
+        bool CanSaveCurrentMix();
     }
 }

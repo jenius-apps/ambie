@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -18,10 +19,13 @@ namespace AmbientSounds.Controls
             typeof(ActiveTrackList),
             new PropertyMetadata(true, OnShowListChanged));
 
+        public event EventHandler? TrackListChanged;
+
         public ActiveTrackList()
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ActiveTrackListViewModel>();
+            ViewModel.TrackListChanged += OnTrackListChanged;
             this.Unloaded += OnUnloaded;
         }
 
@@ -55,27 +59,13 @@ namespace AmbientSounds.Controls
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
+            ViewModel.TrackListChanged -= OnTrackListChanged;
             ViewModel.Dispose();
         }
 
-        private void NameInput_KeyDown(object sender, KeyRoutedEventArgs e)
+        private void OnTrackListChanged(object sender, EventArgs e)
         {
-            //if (e.Key == Windows.System.VirtualKey.Enter)
-            //{
-            //    ViewModel.SaveCommand.ExecuteAsync(NameInput.Text);
-            //    e.Handled = true;
-            //    SaveFlyout.Hide();
-            //}
-        }
-
-        private void SaveFlyout_Closed(object sender, object e)
-        {
-            //NameInput.Text = "";
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //SaveFlyout.Hide();
+            TrackListChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private async void OnListLoaded(object sender, RoutedEventArgs e)

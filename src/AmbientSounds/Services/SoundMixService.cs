@@ -34,6 +34,32 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
+        public async Task<string> SaveCurrentMixAsync(string name = "")
+        {
+            if (!CanSaveCurrentMix())
+            {
+                return string.Empty;
+            }
+
+            var activeTracks = _player.GetSoundIds();
+            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: activeTracks);
+            var id = await SaveMixAsync(sounds, name);
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                _player.SetMixId(id);
+            }
+
+            return id;
+        }
+
+        /// <inheritdoc/>
+        public bool CanSaveCurrentMix()
+        {
+            return string.IsNullOrWhiteSpace(_player.CurrentMixId) && _player.GetSoundIds().Length > 1;
+        }
+
+        /// <inheritdoc/>
         public async Task<string> SaveMixAsync(IList<Sound> sounds, string name = "")
         {
             if (sounds is null || sounds.Count <= 1)

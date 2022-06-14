@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.SaveMixButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Button x:Uid="SaveMixButton" Style="{StaticResource SubtleIconButton}">
+        <Button.KeyboardAccelerators>
+            <KeyboardAccelerator Key="S" Modifiers="Control" />
+        </Button.KeyboardAccelerators>
+
+        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
+        <Button.Flyout>
+            <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                        x:Name="NameInput"
+                        x:Uid="NameInputBox"
+                        Width="200"
+                        KeyDown="NameInput_KeyDown"
+                        MaxLength="30" />
+                    <Button
+                        x:Uid="ConfirmSaveButton"
+                        Grid.Column="1"
+                        Margin="4,0,0,0"
+                        VerticalAlignment="Bottom"
+                        Click="Button_Click"
+                        Style="{StaticResource SubtleIconButton}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
+                    </Button>
+                </Grid>
+            </Flyout>
+        </Button.Flyout>
+    </Button>
+</UserControl>

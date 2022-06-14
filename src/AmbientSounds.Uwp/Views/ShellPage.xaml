@@ -130,12 +130,15 @@
                     x:Name="TrackList"
                     Grid.Column="1"
                     HorizontalAlignment="Center"
-                    ShowList="False" />
+                    ShowList="False"
+                    TrackListChanged="{x:Bind ViewModel.UpdateCanSave}" />
 
                 <StackPanel
                     Grid.Column="2"
                     Margin="0,0,16,0"
                     Orientation="Horizontal">
+
+                    <controls:SaveMixButton MixSaved="{x:Bind ViewModel.UpdateCanSave}" Visibility="{x:Bind ViewModel.CanSaveMix, Mode=OneWay}" />
                     <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
                         Click="{x:Bind ViewModel.GoToScreensaver}"

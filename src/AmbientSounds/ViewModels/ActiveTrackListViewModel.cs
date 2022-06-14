@@ -21,17 +21,17 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundVmFactory _soundVmFactory;
         private readonly IUserSettings _userSettings;
         private readonly ISoundDataProvider _soundDataProvider;
-        private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
         private readonly bool _loadPreviousState;
         private bool _loaded;
+
+        public event EventHandler? TrackListChanged;
 
         public ActiveTrackListViewModel(
             IMixMediaPlayerService player,
             ISoundVmFactory soundVmFactory,
             IUserSettings userSettings,
             ITelemetry telemetry,
-            ISoundMixService soundMixService,
             ISoundDataProvider soundDataProvider,
             IAppSettings appSettings)
         {
@@ -39,20 +39,17 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(appSettings, nameof(appSettings));
 
             _loadPreviousState = appSettings.LoadPreviousState;
             _telemetry = telemetry;
-            _soundMixService = soundMixService;
             _soundDataProvider = soundDataProvider;
             _userSettings = userSettings;
             _soundVmFactory = soundVmFactory;
             _player = player;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
-            SaveCommand = new AsyncRelayCommand<string>(SaveAsync);
             ClearCommand = new RelayCommand(ClearAll);
         }
 
@@ -62,25 +59,10 @@ namespace AmbientSounds.ViewModels
         public IRelayCommand ClearCommand { get; }
 
         /// <summary>
-        /// Command for saving the sound mix.
-        /// </summary>
-        public IAsyncRelayCommand<string> SaveCommand { get; }
-
-        /// <summary>
         /// Removes the sound from active list
         /// and pauses it.
         /// </summary>
         public IRelayCommand<Sound> RemoveCommand { get; }
-
-        /// <summary>
-        /// Save button is visible if true.
-        /// </summary>
-        public bool CanSave => string.IsNullOrWhiteSpace(_player.CurrentMixId) && ActiveTracks.Count > 1;
-
-        /// <summary>
-        /// Determines if the item is a sound mix.
-        /// </summary>
-        public bool IsMix => !string.IsNullOrWhiteSpace(_player.CurrentMixId);
 
         /// <summary>
         /// List of active sounds being played.
@@ -163,32 +145,11 @@ namespace AmbientSounds.ViewModels
                 ActiveTracks.Clear();
                 _player.RemoveAll();
                 UpdateStoredState();
-                UpdateCanSave();
             }
 
             _telemetry.TrackEvent(TelemetryConstants.MixCleared, new Dictionary<string, string>
             {
                 { "count", count.ToString() }
-            });
-        }
-
-        private async Task SaveAsync(string? name)
-        {
-            if (name is null ||
-                SaveCommand.IsRunning ||
-                !string.IsNullOrWhiteSpace(_player.CurrentMixId))
-            {
-                return;
-            }
-
-            var soundIds = ActiveTracks.Select(static x => x.Sound).ToArray();
-            var id = await _soundMixService.SaveMixAsync(soundIds, name);
-            _player.SetMixId(id);
-            UpdateCanSave();
-
-            _telemetry.TrackEvent(TelemetryConstants.MixSaved, new Dictionary<string, string>
-            {
-                { "count", soundIds.Length.ToString() }
             });
         }
 
@@ -201,6 +162,7 @@ namespace AmbientSounds.ViewModels
 
         private void ActiveTracks_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
+            TrackListChanged?.Invoke(this, EventArgs.Empty);
             OnPropertyChanged(nameof(IsClearVisible));
             OnPropertyChanged(nameof(IsPlaceholderVisible));
         }
@@ -212,7 +174,6 @@ namespace AmbientSounds.ViewModels
             {
                 ActiveTracks.Remove(sound);
                 UpdateStoredState();
-                UpdateCanSave();
             }
         }
 
@@ -230,11 +191,8 @@ namespace AmbientSounds.ViewModels
             {
                 ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(sound, RemoveCommand));
                 UpdateStoredState();
-                UpdateCanSave();
             }
         }
-
-        private void UpdateCanSave() => OnPropertyChanged(nameof(CanSave));
 
         private void RemoveSound(Sound? s)
         {

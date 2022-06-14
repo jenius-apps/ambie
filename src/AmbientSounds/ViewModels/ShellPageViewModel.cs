@@ -20,6 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly IDialogService _dialogService;
         private readonly IIapService _iapService;
         private readonly IFocusService _focusService;
+        private readonly ISoundMixService _soundMixService;
         private bool _isRatingMessageVisible;
         private bool _premiumButtonVisible;
         private bool _focusTimeBannerVisible;
@@ -33,7 +34,8 @@ namespace AmbientSounds.ViewModels
             INavigator navigator,
             IDialogService dialogService,
             IIapService iapService,
-            IFocusService focusService)
+            IFocusService focusService,
+            ISoundMixService soundMixService)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(timer, nameof(timer));
@@ -42,6 +44,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(dialogService, nameof(dialogService));
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(focusService, nameof(focusService));
+            Guard.IsNotNull(soundMixService, nameof(soundMixService));
 
             _userSettings = userSettings;
             _ratingTimer = timer;
@@ -50,7 +53,7 @@ namespace AmbientSounds.ViewModels
             _dialogService = dialogService;
             _iapService = iapService;
             _focusService = focusService;
-
+            _soundMixService = soundMixService;
 
             var lastDismissDateTime = _userSettings.GetAndDeserialize<DateTime>(UserSettingsConstants.RatingDismissed);
             if (!systemInfoProvider.IsFirstRun() &&
@@ -73,6 +76,11 @@ namespace AmbientSounds.ViewModels
             get => _focusDotVisible;
             set => SetProperty(ref _focusDotVisible, value);
         }
+
+        /// <summary>
+        /// Determines if the current mix can be saved or not.
+        /// </summary>
+        public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
 
         /// <summary>
         /// Determines whether or not the focus 
@@ -108,6 +116,11 @@ namespace AmbientSounds.ViewModels
         /// Determines if the background image should be shown.
         /// </summary>
         public bool ShowBackgroundImage => !string.IsNullOrWhiteSpace(BackgroundImagePath);
+
+        public void UpdateCanSave()
+        {
+            OnPropertyChanged(nameof(CanSaveMix));
+        }
 
         public void Navigate(int index)
         {
