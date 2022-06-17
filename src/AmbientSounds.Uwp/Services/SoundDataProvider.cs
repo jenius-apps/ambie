@@ -96,15 +96,23 @@ namespace AmbientSounds.Services.Uwp
             // Delete sound file 
             if (!string.IsNullOrWhiteSpace(soundForDeletion.FilePath))
             {
-                StorageFile soundFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.FilePath);
-                await soundFile.DeleteAsync();
+                try
+                {
+                    StorageFile soundFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.FilePath);
+                    await soundFile.DeleteAsync();
+                }
+                catch (FileNotFoundException) { }
             }
 
             // Delete image file
             if (!string.IsNullOrWhiteSpace(soundForDeletion.ImagePath))
             {
-                StorageFile imageFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.ImagePath);
-                await imageFile.DeleteAsync();
+                try
+                {
+                    StorageFile imageFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.ImagePath);
+                    await imageFile.DeleteAsync();
+                }
+                catch (FileNotFoundException) { }
             }
 
             LocalSoundDeleted?.Invoke(this, soundForDeletion.Id);
