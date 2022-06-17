@@ -61,7 +61,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public Task UpdateLocalSoundAsync(IList<Sound> sounds)
         {
-            if (sounds is null || sounds.Count == 0)
+            if (sounds is null || sounds.Count == 0 || _localSoundCache is null)
             {
                 return Task.CompletedTask;
             }
@@ -81,13 +81,10 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task DeleteLocalSoundAsync(string id)
         {
-            if (string.IsNullOrWhiteSpace(id) || !await IsSoundInstalledAsync(id))
+            if (string.IsNullOrWhiteSpace(id) || !await IsSoundInstalledAsync(id) || _localSoundCache is null)
             {
                 return;
             }
-
-            // TODO: throw or just ignore?
-            Guard.IsNotNull(_localSoundCache, nameof(_localSoundCache));
 
             // Delete from cache
             var soundForDeletion = _localSoundCache.First(x => x.Id == id);

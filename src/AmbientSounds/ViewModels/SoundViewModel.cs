@@ -289,13 +289,17 @@ namespace AmbientSounds.ViewModels
                 _playerService.RemoveSound(_sound.Id);
             }
 
-            await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
-
-            _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
+            try
             {
-                { "name", _sound.Name ?? "" },
-                { "id", _sound.Id ?? "" }
-            });
+                await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
+
+                _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
+                {
+                    { "name", _sound.Name ?? "" },
+                    { "id", _sound.Id ?? "" }
+                });
+            }
+            catch { }
         }
 
         public void Dispose()
