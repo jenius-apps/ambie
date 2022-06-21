@@ -374,6 +374,7 @@ namespace AmbientSounds
                 // exposes events or object tree has singleton, so singleton.
                 .AddSingleton<IFocusNotesService, FocusNotesService>()
                 .AddSingleton<IFocusService, FocusService>()
+                .AddSingleton<IFocusHistoryService, FocusHistoryService>()
                 .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()

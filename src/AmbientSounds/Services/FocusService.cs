@@ -11,6 +11,7 @@ namespace AmbientSounds.Services
         private readonly IFocusToastService _focusToastService;
         private readonly IMixMediaPlayerService _mixMediaPlayerService;
         private readonly ITelemetry _telemetry;
+        private readonly IFocusHistoryService _focusHistoryService;
         private readonly Queue<FocusSession> _sessionQueue = new();
         private FocusState _focusState = FocusState.None;
 
@@ -21,16 +22,19 @@ namespace AmbientSounds.Services
             ITimerService timerService,
             IFocusToastService focusToastService,
             IMixMediaPlayerService mixMediaPlayerService,
+            IFocusHistoryService focusHistoryService,
             ITelemetry telemetry)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
             Guard.IsNotNull(focusToastService, nameof(focusToastService));
             Guard.IsNotNull(mixMediaPlayerService, nameof(mixMediaPlayerService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
             _timerService = timerService;
             _focusToastService = focusToastService;
             _mixMediaPlayerService = mixMediaPlayerService;
             _telemetry = telemetry;
+            _focusHistoryService = focusHistoryService;
 
             _timerService.Interval = 1000;
             _timerService.IntervalElapsed += OnIntervalElapsed;
@@ -89,6 +93,12 @@ namespace AmbientSounds.Services
 
             PlaySounds();
 
+            _focusHistoryService.TrackNewHistory(
+                DateTime.UtcNow.Ticks,
+                focusLength,
+                restLength,
+                repetitions);
+
             return true;
         }
 
@@ -115,14 +125,32 @@ namespace AmbientSounds.Services
             _mixMediaPlayerService.Pause();
         }
 
-        public void StopTimer()
+        public void StopTimer(bool sessionCompleted = false)
         {
             _timerService.Stop();
             _focusToastService.ClearToasts();
+
+            if (sessionCompleted)
+            {
+                _focusToastService.SendCompletionToast();
+                _telemetry.TrackEvent(TelemetryConstants.FocusCompleted);
+                _focusHistoryService.TrackHistoryCompletion(
+                    DateTime.UtcNow.Ticks,
+                    CurrentSession.SessionType);
+            }
+            else
+            {
+                _focusHistoryService.TrackIncompleteHistory(
+                    DateTime.UtcNow.Ticks,
+                    CurrentSession.SessionType,
+                    CurrentSession.Remaining);
+            }
+
             CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
             TimeUpdated?.Invoke(this, CurrentSession);
             CurrentState = FocusState.None;
             _mixMediaPlayerService.Pause();
+
         }
 
         public bool ResumeTimer()
@@ -177,6 +205,7 @@ namespace AmbientSounds.Services
                 if (_sessionQueue.Count > 0)
                 {
                     // One session done, more to go.
+                    _focusHistoryService.TrackSegmentEnd(CurrentSession.SessionType);
                     CurrentSession = _sessionQueue.Dequeue();
                     _timerService.Remaining = CurrentSession.Remaining;
                     _timerService.Start();
@@ -185,9 +214,7 @@ namespace AmbientSounds.Services
                 else
                 {
                     // Whole focus session is done.
-                    StopTimer();
-                    _focusToastService.SendCompletionToast();
-                    _telemetry.TrackEvent(TelemetryConstants.FocusCompleted);
+                    StopTimer(sessionCompleted: true);
                 }
             }
         }
