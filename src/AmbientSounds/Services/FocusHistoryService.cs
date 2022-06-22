@@ -9,6 +9,8 @@ namespace AmbientSounds.Services
     {
         private FocusHistory? _activeHistory;
 
+        public event EventHandler<FocusHistory?>? HistoryAdded;
+
         public void TrackHistoryCompletion(long utcTicks, SessionType lastCompletedSegmentType)
         {
             if (_activeHistory is null)
@@ -22,6 +24,7 @@ namespace AmbientSounds.Services
             // TODO save to cache
             // Fire event
 
+            HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
         }
 
@@ -38,6 +41,7 @@ namespace AmbientSounds.Services
             // TODO save to cache
             // Fire event
 
+            HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
         }
 

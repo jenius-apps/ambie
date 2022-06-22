@@ -1,9 +1,15 @@
-﻿using System;
+﻿using AmbientSounds.Models;
+using System;
 
 namespace AmbientSounds.Services
 {
     public interface IFocusHistoryService
     {
+        /// <summary>
+        /// Event raised when a new history is added.
+        /// </summary>
+        event EventHandler<FocusHistory?>? HistoryAdded;
+
         /// <summary>
         /// Updates active history that a segment had ended.
         /// </summary>

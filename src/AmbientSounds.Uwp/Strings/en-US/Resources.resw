@@ -652,4 +652,7 @@
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 to {0}</value>
   </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
 </root>

@@ -142,7 +142,6 @@ namespace AmbientSounds.Services
             {
                 _focusHistoryService.TrackIncompleteHistory(
                     DateTime.UtcNow.Ticks,
-                    CurrentSession.SessionType,
                     CurrentSession.Remaining);
             }
 

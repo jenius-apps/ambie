@@ -358,6 +358,7 @@ namespace AmbientSounds
                 .AddTransient<ShareResultsViewModel>()
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
+                .AddSingleton<FocusHistoryModuleViewModel>()
                 .AddSingleton<VideosMenuViewModel>()
                 .AddSingleton<TimeBannerViewModel>()
                 .AddSingleton<FocusPageViewModel>()

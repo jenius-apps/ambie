@@ -723,6 +723,10 @@
           <source>0 to {0}</source>
           <target state="translated">0 ~ {0}</target>
         </trans-unit>
+        <trans-unit id="History" translate="yes" xml:space="preserve">
+          <source>History</source>
+          <target state="new">History</target>
+        </trans-unit>
       </group>
     </body>
   </file>

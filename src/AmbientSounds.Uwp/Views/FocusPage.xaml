@@ -577,6 +577,8 @@
                         </StackPanel>
                     </Grid>
                 </Border>
+
+                <controls:FocusHistoryModule Margin="0,8,0,0" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
