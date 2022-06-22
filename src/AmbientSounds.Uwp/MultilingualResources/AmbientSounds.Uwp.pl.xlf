@@ -209,7 +209,7 @@
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
-          <target state="translated">Wróć</target>
+          <target state="translated">Wstecz</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
@@ -570,7 +570,7 @@
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="translated">Skoncentruj się</target>
+          <target state="translated">Koncentracja</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
@@ -586,7 +586,7 @@
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="translated">Sekcja koncentracji zakończona</target>
+          <target state="translated">Sesja koncentracji zakończona</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
@@ -598,19 +598,19 @@
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="translated">Odpocznij</target>
+          <target state="translated">Odpoczynek</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="translated">Sekcja koncentracji aktywna!</target>
+          <target state="translated">Sesja koncentracji aktywna!</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">Skupienie</target>
+          <target state="translated">Skoncentruj się</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="translated">Odpoczynek</target>
+          <target state="translated">Czas na odpoczynek</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
@@ -630,15 +630,15 @@
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="translated">Minuty skupienia</target>
+          <target state="translated">Czas skupienia (w minutach)</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down your to-do list or any notes here 🙂</source>
-          <target state="translated">Możesz nakreślać tu listy rzeczy do zrobienia lub robić notatki 🙂</target>
+          <target state="translated">Miejsce do sporządzenia listy rzeczy do zrobienia bądź pisania notatek 🙂</target>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="translated">Jaki mamy plan?</target>
+          <target state="translated">Licznik koncentracji</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
@@ -650,7 +650,7 @@
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="translated">Minuty odpoczynku</target>
+          <target state="translated">Czas odpoczynku (w minutach)</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
