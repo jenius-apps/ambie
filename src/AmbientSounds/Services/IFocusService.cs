@@ -22,16 +22,6 @@ namespace AmbientSounds.Services
         FocusState CurrentState { get; }
 
         /// <summary>
-        /// Calculates the total time for the given
-        /// parameters of a session.
-        /// </summary>
-        /// <param name="focusLength">The length of each focus segment.</param>
-        /// <param name="restLength">The length of each rest segment.</param>
-        /// <param name="repetitions">The number of times to repeat. A value of zero means that the session will only run once.</param>
-        /// <returns>The total time a focus session will take.</returns>
-        TimeSpan GetTotalTime(int focusLength, int restLength, int repetitions);
-
-        /// <summary>
         /// Pauses the given focus session.
         /// </summary>
         void PauseTimer();

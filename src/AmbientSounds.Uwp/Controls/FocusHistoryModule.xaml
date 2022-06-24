@@ -12,8 +12,6 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <UserControl.Resources />
-
     <Border
         HorizontalAlignment="Stretch"
         BorderBrush="{ThemeResource CardStrokeColorDefault}"
@@ -56,19 +54,27 @@
                                     <CornerRadius x:Key="ProgressBarTrackCornerRadius">2</CornerRadius>
                                 </Grid.Resources>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="52" />
                                     <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="52" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="100%" />
+                                <TextBlock HorizontalAlignment="Left" Text="{x:Bind PercentComplete}" />
+
 
                                 <winui:ProgressBar
                                     Grid.Column="1"
-                                    Margin="0,0,12,0"
+                                    Margin="0,0,0,0"
                                     HorizontalAlignment="Stretch"
                                     Foreground="Green"
                                     IsIndeterminate="False"
                                     Value="50" />
+
+                                <local:FocusAward
+                                    Grid.Column="2"
+                                    Margin="0,0,12,0"
+                                    HorizontalAlignment="Right"
+                                    Award="{x:Bind Award}" />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

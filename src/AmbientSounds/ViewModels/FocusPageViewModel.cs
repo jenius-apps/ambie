@@ -134,7 +134,7 @@ namespace AmbientSounds.ViewModels
         {
             get
             {
-                TimeSpan time = _focusService.GetTotalTime(FocusLength, RestLength, Repetitions);
+                TimeSpan time = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
                 return time.ToString(@"hh\:mm");
             }
         }

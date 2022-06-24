@@ -53,7 +53,7 @@ namespace AmbientSounds.Services
             }
         }
 
-        public bool StartTimer(int focusLength, int restLength, int repetitions)
+        public bool StartTimer(int focusLength, int restLength, int originalRepetitions)
         {
             if (!CanStartSession(focusLength, restLength))
             {
@@ -63,6 +63,7 @@ namespace AmbientSounds.Services
             _timerService.Stop();
             _sessionQueue.Clear();
 
+            int repetitions = originalRepetitions;
             int queueSize = (repetitions + 1) * 2;
             int queuePosition = 0;
 
@@ -97,7 +98,7 @@ namespace AmbientSounds.Services
                 DateTime.UtcNow.Ticks,
                 focusLength,
                 restLength,
-                repetitions);
+                originalRepetitions);
 
             return true;
         }
@@ -167,19 +168,6 @@ namespace AmbientSounds.Services
             }
 
             return false;
-        }
-
-        public TimeSpan GetTotalTime(int focusLength, int restLength, int repetitions)
-        {
-            if (focusLength < 0 ||
-                restLength < 0 ||
-                repetitions < 0)
-            {
-                return TimeSpan.Zero;
-            }
-
-            repetitions += 1;
-            return TimeSpan.FromMinutes((focusLength + restLength) * repetitions);
         }
 
         public int GetRepetitionsRemaining(FocusSession session)

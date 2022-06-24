@@ -52,7 +52,7 @@ namespace AmbientSounds.Services
                 StartUtcTicks = utcTicks,
                 FocusLength = focusLength,
                 RestLength = restLength,
-                Repetitions = restLength
+                Repetitions = repetitions
             };
         }
 

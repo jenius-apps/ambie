@@ -33,4 +33,12 @@ namespace AmbientSounds.Models
         /// </summary>
         public Dictionary<long, double> Interruptions { get; set; } = new();
     }
+
+    public enum HistoryAward
+    {
+        None,
+        Bronze,
+        Silver,
+        Gold
+    }
 }
