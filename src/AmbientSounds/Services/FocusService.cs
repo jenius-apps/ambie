@@ -143,7 +143,7 @@ namespace AmbientSounds.Services
             {
                 _focusHistoryService.TrackIncompleteHistory(
                     DateTime.UtcNow.Ticks,
-                    CurrentSession.Remaining);
+                    CurrentSession.OriginalLength - CurrentSession.Remaining);
             }
 
             CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
@@ -235,15 +235,18 @@ namespace AmbientSounds.Services
 
     public class FocusSession
     {
-        public FocusSession(SessionType sessionType, TimeSpan remaining, int queuePosition, int queueSize)
+        public FocusSession(SessionType sessionType, TimeSpan originalLength, int queuePosition, int queueSize)
         {
             SessionType = sessionType;
-            Remaining = remaining;
+            OriginalLength = originalLength;
+            Remaining = originalLength;
             QueuePosition = queuePosition;
             QueueSize = queueSize;
         }
 
         public SessionType SessionType { get; }
+
+        public TimeSpan OriginalLength { get; }
 
         public TimeSpan Remaining { get; set; }
 

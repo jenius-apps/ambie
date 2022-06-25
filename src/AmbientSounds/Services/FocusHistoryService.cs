@@ -28,14 +28,14 @@ namespace AmbientSounds.Services
             _activeHistory = null;
         }
 
-        public void TrackIncompleteHistory(long utcTicks, TimeSpan minutesRemaining)
+        public void TrackIncompleteHistory(long utcTicks, TimeSpan minutesUsedInIncompleteSegment)
         {
             if (_activeHistory is null)
             {
                 return;
             }
 
-            _activeHistory.PartialSegmentTicks = minutesRemaining.Ticks;
+            _activeHistory.PartialSegmentTicks = minutesUsedInIncompleteSegment.Ticks;
             _activeHistory.EndUtcTicks = utcTicks;
 
             // TODO save to cache
