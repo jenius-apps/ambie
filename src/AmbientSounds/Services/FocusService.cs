@@ -2,6 +2,7 @@
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
+using AmbientSounds.Models;
 
 namespace AmbientSounds.Services
 {
@@ -143,6 +144,7 @@ namespace AmbientSounds.Services
             {
                 _focusHistoryService.TrackIncompleteHistory(
                     DateTime.UtcNow.Ticks,
+                    CurrentSession.SessionType,
                     CurrentSession.OriginalLength - CurrentSession.Remaining);
             }
 
@@ -224,13 +226,6 @@ namespace AmbientSounds.Services
         None,
         Active,
         Paused
-    }
-
-    public enum SessionType
-    {
-        None,
-        Focus,
-        Rest
     }
 
     public class FocusSession

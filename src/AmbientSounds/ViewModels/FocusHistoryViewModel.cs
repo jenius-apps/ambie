@@ -24,6 +24,10 @@ namespace AmbientSounds.ViewModels
 
             Award = focusHistory.GetAward(percent);
             _localStart = new DateTime(focusHistory.StartUtcTicks, DateTimeKind.Utc).ToLocalTime();
+
+            int rounds = focusHistory.Repetitions + 1;
+            FocusInfo = $"{focusHistory.GetFocusTimeCompleted():N1}/{focusHistory.FocusLength * rounds}";
+            RestInfo = $"{focusHistory.GetRestTimeCompleted():N1}/{focusHistory.RestLength * rounds}";
         }
 
         public FocusHistory FocusHistory => _focusHistory;
@@ -33,5 +37,9 @@ namespace AmbientSounds.ViewModels
         public HistoryAward Award { get; }
 
         public string TimeElapsed => _localStart.Humanize();
+
+        public string FocusInfo { get; }
+
+        public string RestInfo { get; }
     }
 }

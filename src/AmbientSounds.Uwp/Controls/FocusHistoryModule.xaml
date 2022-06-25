@@ -43,7 +43,7 @@
                     SelectionMode="None">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:FocusHistoryViewModel">
-                            <Grid MinWidth="160" Padding="20,12,20,20">
+                            <Grid MinWidth="180" Padding="20,12,20,20">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto" />
                                     <RowDefinition Height="auto" />
@@ -58,16 +58,49 @@
 
                                     <StackPanel HorizontalAlignment="Left">
                                         <TextBlock FontSize="28" Text="{x:Bind PercentComplete}" />
-                                        <TextBlock
-                                            FontSize="10"
-                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                            Text="{x:Bind TimeElapsed}"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            FontSize="10"
-                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                            Text="2 interruptions"
-                                            TextWrapping="Wrap" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Glyph="{StaticResource GlyphFocus}" />
+                                            <TextBlock
+                                                Margin="4,0,0,0"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Text="{x:Bind FocusInfo}"
+                                                TextWrapping="Wrap" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Glyph="{StaticResource GlyphSleep}" />
+                                            <TextBlock
+                                                Margin="4,0,0,0"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Text="{x:Bind RestInfo}"
+                                                TextWrapping="Wrap" />
+
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Glyph="{StaticResource GlyphCritical}" />
+                                            <TextBlock
+                                                Margin="4,0,0,0"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Text="2"
+                                                TextWrapping="Wrap" />
+
+                                        </StackPanel>
                                     </StackPanel>
 
                                     <local:FocusAward

@@ -49,14 +49,14 @@ namespace AmbientSounds.Services
                 }
                 else
                 {
-                    if (session.SessionType == SessionType.Focus)
+                    if (session.SessionType == Models.SessionType.Focus)
                     {
                         _toastService.ScheduleToast(
                             current,
                             _localizer.GetString("RestText"),
                             _localizer.GetString("FocusSessionRestMessage"));
                     }
-                    else if (session.SessionType == SessionType.Rest)
+                    else if (session.SessionType == Models.SessionType.Rest)
                     {
                         _toastService.ScheduleToast(
                             current,

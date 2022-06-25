@@ -36,6 +36,6 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Closes the current active history while being incomplete. 
         /// </summary>
-        void TrackIncompleteHistory(long utcTicks, TimeSpan minutesUsedInIncompleteSegment);
+        void TrackIncompleteHistory(long utcTicks, SessionType partialSegmentType, TimeSpan minutesUsedInIncompleteSegment);
     }
 }

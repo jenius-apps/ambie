@@ -27,6 +27,8 @@ namespace AmbientSounds.Models
         /// </summary>
         public long PartialSegmentTicks { get; set; }
 
+        public SessionType PartialSegmentType { get; set; }
+
         /// <summary>
         /// Key = utc ticks start time.
         /// Value = minutes length of the interruption as given by user.
@@ -40,5 +42,12 @@ namespace AmbientSounds.Models
         Bronze,
         Silver,
         Gold
+    }
+
+    public enum SessionType
+    {
+        None,
+        Focus,
+        Rest
     }
 }

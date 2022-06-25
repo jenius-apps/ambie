@@ -76,5 +76,37 @@ namespace AmbientSounds.Extensions
 
             return sumOfTime / totalTime.TotalMinutes * 100;
         }
+
+        public static double GetFocusTimeCompleted(this FocusHistory history)
+        {
+            if (history is null)
+            {
+                return 0;
+            }
+
+            double focusTimeCompleted = history.FocusLength * history.FocusSegmentsCompleted;
+            if (history.PartialSegmentType == SessionType.Focus)
+            {
+                focusTimeCompleted += TimeSpan.FromTicks(history.PartialSegmentTicks).TotalMinutes;
+            }
+
+            return focusTimeCompleted;
+        }
+
+        public static double GetRestTimeCompleted(this FocusHistory history)
+        {
+            if (history is null)
+            {
+                return 0;
+            }
+
+            double restTimeCompleted = history.RestLength * history.RestSegmentsCompleted;
+            if (history.PartialSegmentType == SessionType.Rest)
+            {
+                restTimeCompleted += TimeSpan.FromTicks(history.PartialSegmentTicks).TotalMinutes;
+            }
+
+            return restTimeCompleted;
+        }
     }
 }

@@ -22,24 +22,26 @@ namespace AmbientSounds.Services
             _activeHistory.EndUtcTicks = utcTicks;
 
             // TODO save to cache
-            // Fire event
 
             HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
         }
 
-        public void TrackIncompleteHistory(long utcTicks, TimeSpan minutesUsedInIncompleteSegment)
+        public void TrackIncompleteHistory(
+            long utcTicks,
+            SessionType partialSegmentType,
+            TimeSpan minutesUsedInIncompleteSegment)
         {
             if (_activeHistory is null)
             {
                 return;
             }
 
+            _activeHistory.PartialSegmentType = partialSegmentType;
             _activeHistory.PartialSegmentTicks = minutesUsedInIncompleteSegment.Ticks;
             _activeHistory.EndUtcTicks = utcTicks;
 
             // TODO save to cache
-            // Fire event
 
             HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
