@@ -9,5 +9,8 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind GlpyhCode}" />
+    <FontIcon
+        FontFamily="{StaticResource FluentUIGlyphs}"
+        FontSize="{x:Bind FontSize, Mode=OneWay}"
+        Glyph="{x:Bind GlpyhCode}" />
 </UserControl>
