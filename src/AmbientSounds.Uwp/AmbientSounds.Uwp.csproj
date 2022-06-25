@@ -149,9 +149,6 @@
     <Compile Include="Controls\FocusAward.xaml.cs">
       <DependentUpon>FocusAward.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FocusHistoryBar.xaml.cs">
-      <DependentUpon>FocusHistoryBar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\FocusHistoryModule.xaml.cs">
       <DependentUpon>FocusHistoryModule.xaml</DependentUpon>
     </Compile>
@@ -396,10 +393,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FocusAward.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\FocusHistoryBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
