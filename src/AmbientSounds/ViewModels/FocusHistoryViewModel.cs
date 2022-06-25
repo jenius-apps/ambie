@@ -10,6 +10,7 @@ namespace AmbientSounds.ViewModels
     public class FocusHistoryViewModel : ObservableObject
     {
         private readonly FocusHistory _focusHistory;
+        private readonly DateTime _localStart;
 
         public FocusHistoryViewModel(FocusHistory focusHistory)
         {
@@ -22,7 +23,7 @@ namespace AmbientSounds.ViewModels
                 : $"{percent:N1}%";
 
             Award = focusHistory.GetAward(percent);
-            TimeElapsed = new DateTime(focusHistory.StartUtcTicks, DateTimeKind.Utc).ToLocalTime().Humanize();
+            _localStart = new DateTime(focusHistory.StartUtcTicks, DateTimeKind.Utc).ToLocalTime();
         }
 
         public FocusHistory FocusHistory => _focusHistory;
@@ -31,6 +32,6 @@ namespace AmbientSounds.ViewModels
 
         public HistoryAward Award { get; }
 
-        public string TimeElapsed { get; }
+        public string TimeElapsed => _localStart.Humanize();
     }
 }
