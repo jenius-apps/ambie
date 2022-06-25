@@ -1,10 +1,9 @@
 ﻿using AmbientSounds.Extensions;
 using AmbientSounds.Models;
+using Humanizer;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AmbientSounds.ViewModels
 {
@@ -23,6 +22,7 @@ namespace AmbientSounds.ViewModels
                 : $"{percent:N1}%";
 
             Award = focusHistory.GetAward(percent);
+            TimeElapsed = new DateTime(focusHistory.StartUtcTicks, DateTimeKind.Utc).ToLocalTime().Humanize();
         }
 
         public FocusHistory FocusHistory => _focusHistory;
@@ -30,5 +30,7 @@ namespace AmbientSounds.ViewModels
         public string PercentComplete { get; }
 
         public HistoryAward Award { get; }
+
+        public string TimeElapsed { get; }
     }
 }

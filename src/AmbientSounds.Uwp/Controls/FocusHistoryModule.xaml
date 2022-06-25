@@ -61,7 +61,7 @@
                                         <TextBlock
                                             FontSize="10"
                                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                            Text="2 days ago"
+                                            Text="{x:Bind TimeElapsed}"
                                             TextWrapping="Wrap" />
                                         <TextBlock
                                             FontSize="10"
