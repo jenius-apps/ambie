@@ -58,7 +58,7 @@
 
                                     <StackPanel HorizontalAlignment="Left">
                                         <TextBlock FontSize="28" Text="{x:Bind PercentComplete}" />
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.FocusLength}">
                                             <FontIcon
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                                 FontSize="10"
@@ -72,7 +72,7 @@
                                                 TextWrapping="Wrap" />
                                         </StackPanel>
 
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.RestLength}">
                                             <FontIcon
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                                 FontSize="10"
@@ -87,7 +87,7 @@
 
                                         </StackPanel>
 
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.Interruptions}">
                                             <FontIcon
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                                 FontSize="10"

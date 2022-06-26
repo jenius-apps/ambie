@@ -655,4 +655,7 @@
   <data name="History" xml:space="preserve">
     <value>History</value>
   </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Interruptions</value>
+  </data>
 </root>

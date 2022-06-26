@@ -1457,6 +1457,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Interruptions
+        /// <summary>
+        ///   Looks up a localized string similar to: Interruptions
+        /// </summary>
+        public static string Interruptions
+        {
+            get
+            {
+                return _resourceLoader.GetString("Interruptions");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1579,6 +1592,7 @@ namespace AmbientSounds.Strings{
             RecentFocusList,
             ZeroToMax,
             History,
+            Interruptions,
         }
 
         private static ResourceLoader _resourceLoader;

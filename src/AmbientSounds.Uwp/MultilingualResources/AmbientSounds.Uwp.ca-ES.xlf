@@ -727,6 +727,10 @@
           <source>History</source>
           <target state="new">History</target>
         </trans-unit>
+        <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
+          <source>Interruptions</source>
+          <target state="new">Interruptions</target>
+        </trans-unit>
       </group>
     </body>
   </file>
