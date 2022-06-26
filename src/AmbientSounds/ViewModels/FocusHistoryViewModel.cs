@@ -36,6 +36,14 @@ namespace AmbientSounds.ViewModels
 
         public HistoryAward Award { get; }
 
+        /// <summary>
+        /// Human-friendly time string such as '3 days ago'.
+        /// </summary>
+        /// <remarks>
+        /// The lack of backing field is by design.
+        /// Each time the UI retrieves this value,
+        /// We want the string to be updated.
+        /// </remarks>
         public string TimeElapsed => _localStart.Humanize();
 
         public string FocusInfo { get; }

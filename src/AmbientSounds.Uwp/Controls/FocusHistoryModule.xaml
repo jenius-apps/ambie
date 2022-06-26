@@ -37,7 +37,7 @@
                     Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
 
                 <GridView
-                    Margin="0,12"
+                    Margin="0,12,0,0"
                     IsItemClickEnabled="True"
                     ItemsSource="{x:Bind ViewModel.Items}"
                     SelectionMode="None">
@@ -99,7 +99,6 @@
                                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                                 Text="2"
                                                 TextWrapping="Wrap" />
-
                                         </StackPanel>
                                     </StackPanel>
 

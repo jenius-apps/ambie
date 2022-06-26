@@ -25,7 +25,7 @@ namespace AmbientSounds.Views
 
         private bool IsDesktop => App.IsDesktop;
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var telemetry = App.Services.GetRequiredService<Services.ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
@@ -33,13 +33,15 @@ namespace AmbientSounds.Views
                 { "name", "focus" }
             });
 
-            await ViewModel.InitializeAsync();
+            _ = ViewModel.InitializeAsync();
+            _ = HistoryModule.ViewModel.InitializeAsync();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             CloseAll();
             ViewModel.Uninitialize();
+            HistoryModule.ViewModel.Uninitialize();
         }
 
         private void OnResetClicked(object sender, RoutedEventArgs e)

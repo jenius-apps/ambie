@@ -19,22 +19,26 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
 
             _focusHistoryService = focusHistoryService;
-
-            _focusHistoryService.HistoryAdded += OnHistoryAdded;
         }
 
         public ObservableCollection<FocusHistoryViewModel> Items { get; } = new();
 
         public async Task InitializeAsync()
         {
+            _focusHistoryService.HistoryAdded += OnHistoryAdded;
             await Task.Delay(1);
+        }
+
+        public void Uninitialize()
+        {
+            _focusHistoryService.HistoryAdded -= OnHistoryAdded;
         }
 
         private void OnHistoryAdded(object sender, FocusHistory? history)
         {
             if (history is FocusHistory f)
             {
-                Items.Add(new FocusHistoryViewModel(f));
+                Items.Insert(0, new FocusHistoryViewModel(f));
             }
         }
     }
