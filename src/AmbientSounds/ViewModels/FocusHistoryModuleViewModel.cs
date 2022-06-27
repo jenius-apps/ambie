@@ -5,6 +5,7 @@ using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,11 +27,17 @@ namespace AmbientSounds.ViewModels
         public async Task InitializeAsync()
         {
             _focusHistoryService.HistoryAdded += OnHistoryAdded;
-            await Task.Delay(1);
+            Items.Clear();
+            var recent = await _focusHistoryService.GetRecentAsync();
+            foreach (var focusHistory in recent.OrderByDescending(x => x.StartUtcTicks))
+            {
+                Items.Add(new FocusHistoryViewModel(focusHistory));
+            }
         }
 
         public void Uninitialize()
         {
+            Items.Clear();
             _focusHistoryService.HistoryAdded -= OnHistoryAdded;
         }
 

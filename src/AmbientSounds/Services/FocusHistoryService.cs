@@ -1,15 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using AmbientSounds.Cache;
 using AmbientSounds.Models;
+using Microsoft.Toolkit.Diagnostics;
 
 namespace AmbientSounds.Services
 {
     public sealed class FocusHistoryService : IFocusHistoryService
     {
+        private readonly IFocusHistoryCache _focusHistoryCache;
         private FocusHistory? _activeHistory;
 
         public event EventHandler<FocusHistory?>? HistoryAdded;
+
+        public FocusHistoryService(IFocusHistoryCache focusHistoryCache)
+        {
+            Guard.IsNotNull(focusHistoryCache, nameof(focusHistoryCache));
+            _focusHistoryCache = focusHistoryCache;
+        }
+
+        public Task<IReadOnlyList<FocusHistory>> GetRecentAsync()
+        {
+            return _focusHistoryCache.GetRecentAsync();
+        }
 
         public void TrackHistoryCompletion(long utcTicks, SessionType lastCompletedSegmentType)
         {

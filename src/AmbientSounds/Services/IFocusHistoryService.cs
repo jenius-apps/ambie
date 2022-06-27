@@ -1,5 +1,7 @@
 ﻿using AmbientSounds.Models;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
 {
@@ -9,6 +11,11 @@ namespace AmbientSounds.Services
         /// Event raised when a new history is added.
         /// </summary>
         event EventHandler<FocusHistory?>? HistoryAdded;
+
+        /// <summary>
+        /// Retrieves list of recent focus history.
+        /// </summary>
+        Task<IReadOnlyList<FocusHistory>> GetRecentAsync();
 
         /// <summary>
         /// Updates active history that a segment had ended.
