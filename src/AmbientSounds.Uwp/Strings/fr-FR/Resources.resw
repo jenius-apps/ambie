@@ -359,4 +359,192 @@
   <data name="ThemeSettings" xml:space="preserve">
     <value>Paramètres du thème</value>
   </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} par mois</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>Merci de vous être abonné!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>Accédez à des sons de haute qualité</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>Télécharger des vidéos</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>Soutenir le développement</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Rebonjour 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Veuillez nous évaluer</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Reprendre à l'ouverture d'Ambie</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Nous avons besoin de télécharger des sons pour jouer cela. Une fois téléchargé, essayez de jouer à nouveau. Commencer Le Téléchargement?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Sons manquants</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Défaut</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} Mo</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Plus d'économiseurs d'écran</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Catalogue d'économiseurs d'écran</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Afficher les informations sur les primes</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Des nuages</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Fumée colorée</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Octagrammes</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Un problème est survenu lors de l'affichage de l'économiseur d'écran. Essayez de redémarrer Ambie ou contactez-nous si le problème persiste.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Signaler le problème</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Passer en plein écran</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Obtenez Ambie Plus</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Se concentrer</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Pause minuterie</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Démarrer la minuterie</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Bon travail!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Séance de mise au point terminée</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Le temps de se concentrer</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Temps de repos</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Le repos</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>La session de mise au point est active</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Mise au point</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Repos</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Réinitialiser la minuterie</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Début</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Minutes de concentration</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Vous pouvez noter votre liste de tâches ou toute note ici 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Quel est le plan?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Bloc-notes</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Minutes de repos</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Répète</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Montre moi comment l'utiliser</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Il s'agit d'un minuteur d'intervalle inspiré de la technique Pomodoro. L'objectif est de se concentrer sur une tâche pendant une longue période de temps, puis de prendre une pause plus courte. Répétez ce cycle pour continuer à vous concentrer !</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Bienvenue à la minuterie de mise au point</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aider</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Chaque cycle comporte un segment de mise au point et un segment de repos. Choisissez la durée de chaque segment de mise au point. Nous recommandons 25 minutes pour commencer !</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Définir les minutes de mise au point</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Chaque cycle de mise au point et de repos peut se répéter plusieurs fois. Essayez d'ajouter 1 répétition !</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Définir des répétitions</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Maintenant, choisissez la durée de chaque segment de repos. Nous recommandons environ 5 minutes pour l'instant !</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Définir les minutes de repos</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Démarrez le chronomètre et travaillez sur vos tâches. Nous vous enverrons des notifications lorsqu'il sera temps de vous reposer. Travailler dur!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Prêt, prêt, partez</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} minutes de concentration, {1} minutes de repos, {2} répétitions.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Liste des configurations de focus récentes.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 à {0}</value>
+  </data>
 </root>
