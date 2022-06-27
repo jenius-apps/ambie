@@ -40,6 +40,8 @@ namespace AmbientSounds.Services
             _timerService.Interval = 1000;
             _timerService.IntervalElapsed += OnIntervalElapsed;
             _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackStateChanged;
+
+            _focusHistoryService.HistoryAdded += OnHistoryAdded;
         }
 
         public FocusSession CurrentSession { get; private set; } = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
@@ -219,6 +221,12 @@ namespace AmbientSounds.Services
                 PauseTimer();
             }
         }
+
+        private void OnHistoryAdded(object sender, FocusHistory? e)
+        {
+            // TODO update cache
+        }
+
     }
 
     public enum FocusState
