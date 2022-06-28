@@ -81,4 +81,4 @@ To help translate, follow these instructions.
 - Dutch: [Christof Becu](https://github.com/ChristofBecu)
 - Russian: [Dmitry Gorbushin](https://github.com/Gorbushin)
 - Hebrew: [Adam Dernis](https://github.com/Avid29)
-- Polish: [Maciej Klupp] (https://github.com/Feebson)
+- Polish: [Maciej Klupp](https://github.com/maciej-klupp)
