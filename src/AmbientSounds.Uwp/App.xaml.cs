@@ -385,6 +385,7 @@ namespace AmbientSounds
                 .AddSingleton<IVideoCache, VideoCache>()
                 .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
                 .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
+                .AddSingleton<IFocusHistoryRepository, FocusHistoryRepository>()
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
