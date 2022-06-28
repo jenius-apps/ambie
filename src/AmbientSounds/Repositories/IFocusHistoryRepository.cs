@@ -16,11 +16,12 @@ namespace AmbientSounds.Repositories
         /// Overwrites the history summary in local storage
         /// with the given summary data.
         /// </summary>
-        Task SaveHistoryAsync(FocusHistorySummary summary);
+        Task SaveSummaryAsync(FocusHistorySummary summary);
 
         /// <summary>
         /// Retrieves the history item based on the given start time ticks.
         /// </summary>
         Task<FocusHistory?> GetHistoryAsync(long startTimeTicks);
+        Task SaveHistoryAsync(FocusHistory history);
     }
 }

@@ -7,6 +7,7 @@ using AmbientSounds.Constants;
 using System.Collections.Generic;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.Views
 {
@@ -25,7 +26,7 @@ namespace AmbientSounds.Views
 
         private bool IsDesktop => App.IsDesktop;
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var telemetry = App.Services.GetRequiredService<Services.ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
@@ -33,8 +34,11 @@ namespace AmbientSounds.Views
                 { "name", "focus" }
             });
 
-            _ = ViewModel.InitializeAsync();
-            _ = HistoryModule.ViewModel.InitializeAsync();
+            var mainTask = ViewModel.InitializeAsync();
+            var historyModuleTask = HistoryModule.ViewModel.InitializeAsync();
+
+            await mainTask;
+            await historyModuleTask;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

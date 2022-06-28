@@ -19,9 +19,11 @@ namespace AmbientSounds.Repositories
             _fileWriter = fileWriter;
         }
 
+        private string HistoryPath(long startTimeTicks) => Path.Combine(HistoryDirectory, startTimeTicks.ToString());
+
         public async Task<FocusHistory?> GetHistoryAsync(long startTimeTicks)
         {
-            var path = Path.Combine(HistoryDirectory, startTimeTicks.ToString());
+            var path = HistoryPath(startTimeTicks);
             string content = await _fileWriter.ReadAsync(path);
             if (string.IsNullOrEmpty(content))
             {
@@ -58,7 +60,12 @@ namespace AmbientSounds.Repositories
             }
         }
 
-        public Task SaveHistoryAsync(FocusHistorySummary summary)
+        public Task SaveHistoryAsync(FocusHistory history)
+        {
+            return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(history), HistoryPath(history.StartUtcTicks));
+        }
+
+        public Task SaveSummaryAsync(FocusHistorySummary summary)
         {
             return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(summary), SummaryFileName);
         }

@@ -32,11 +32,16 @@ namespace AmbientSounds.Extensions
             return TimeSpan.FromMinutes((focusLength + restLength) * repetitions);
         }
 
-        public static HistoryAward GetAward(this FocusHistory history, double percentComplete)
+        public static HistoryAward GetAward(this FocusHistory history, double? percentComplete = null)
         {
             if (history is null)
             {
                 return HistoryAward.None;
+            }
+
+            if (percentComplete is null)
+            {
+                percentComplete = GetPercentComplete(history);
             }
 
             if (percentComplete >= 100)

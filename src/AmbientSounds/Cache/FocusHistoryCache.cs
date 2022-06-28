@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Extensions;
+using AmbientSounds.Models;
 using AmbientSounds.Repositories;
 using Microsoft.Toolkit.Diagnostics;
 using System;
@@ -24,6 +25,42 @@ namespace AmbientSounds.Cache
             _focusHistoryRepository = focusHistoryRepository;
         }
 
+        public async Task AddHistoryAsync(FocusHistory focusHistory)
+        {
+            if (focusHistory is null || _recentCache.ContainsKey(focusHistory.StartUtcTicks))
+            {
+                return;
+            }
+
+            if (_cachedSummary is null)
+            {
+                _cachedSummary = new FocusHistorySummary();
+            }
+
+            var historyAward = focusHistory.GetAward();
+            if (historyAward == HistoryAward.Gold)
+            {
+                _cachedSummary.GoldTrophies += 1;
+            }
+            else if (historyAward == HistoryAward.Silver)
+            {
+                _cachedSummary.SilverTrophies += 1;
+            }
+            else if (historyAward == HistoryAward.Bronze)
+            {
+                _cachedSummary.BronzeTrophies += 1;
+            }
+
+            _recentCache.TryAdd(focusHistory.StartUtcTicks, focusHistory);
+            _allHistoryCache.TryAdd(focusHistory.StartUtcTicks, focusHistory);
+            var historyTask = _focusHistoryRepository.SaveHistoryAsync(focusHistory);
+
+            _cachedSummary.RecentStartTimeTicks = _recentCache.Keys.OrderByDescending(x => x).Take(5).ToArray();
+            _cachedSummary.Count += 1;
+            await _focusHistoryRepository.SaveSummaryAsync(_cachedSummary);
+            await historyTask;
+        }
+
         public async Task<FocusHistory?> GetHistoryAsync(long startTimeTicks)
         {
             if (_allHistoryCache.TryGetValue(startTimeTicks, out FocusHistory value))
@@ -44,18 +81,21 @@ namespace AmbientSounds.Cache
         {
             if (_recentCache.Count == 0)
             {
-                var summary = _cachedSummary ?? await _focusHistoryRepository.GetSummaryAsync();
-                foreach (var tick in summary.RecentStartTimeTicks)
+                await Task.Run(async () =>
                 {
-                    var history = await GetHistoryAsync(tick);
-                    if (history is null)
+                    var summary = _cachedSummary ?? await _focusHistoryRepository.GetSummaryAsync();
+                    foreach (var tick in summary.RecentStartTimeTicks)
                     {
-                        continue;
-                    }
+                        var history = await GetHistoryAsync(tick);
+                        if (history is null)
+                        {
+                            continue;
+                        }
 
-                    _recentCache.TryRemove(tick, out _);
-                    _recentCache.TryAdd(tick, history);
-                }
+                        _recentCache.TryRemove(tick, out _);
+                        _recentCache.TryAdd(tick, history);
+                    }
+                });
             }
 
             return _recentCache.Values.ToList().AsReadOnly();

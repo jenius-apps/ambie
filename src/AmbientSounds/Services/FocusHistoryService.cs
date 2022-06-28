@@ -36,7 +36,7 @@ namespace AmbientSounds.Services
             TrackSegmentEnd(lastCompletedSegmentType);
             _activeHistory.EndUtcTicks = utcTicks;
 
-            // TODO save to cache
+            _ = _focusHistoryCache.AddHistoryAsync(_activeHistory);
 
             HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
@@ -56,7 +56,7 @@ namespace AmbientSounds.Services
             _activeHistory.PartialSegmentTicks = minutesUsedInIncompleteSegment.Ticks;
             _activeHistory.EndUtcTicks = utcTicks;
 
-            // TODO save to cache
+            _ = _focusHistoryCache.AddHistoryAsync(_activeHistory);
 
             HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
