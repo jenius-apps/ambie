@@ -56,7 +56,6 @@
                         <Button
                             Grid.Column="2"
                             AutomationProperties.Name="{x:Bind strings:Resources.ViewPremiumInfo}"
-                            Background="Transparent"
                             ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
                             Visibility="{x:Bind local:UIHelper.InvertVisibility(IsOwned), Mode=OneWay}">
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
@@ -72,7 +71,6 @@
                                 <Grid Visibility="{x:Bind local:UIHelper.InvertVisibility(DownloadProgressVisible), Mode=OneWay}">
                                     <Button
                                         AutomationProperties.Name="{x:Bind strings:Resources.DownloadText}"
-                                        Background="Transparent"
                                         Command="{x:Bind DownloadCommand}"
                                         CommandParameter="{x:Bind}"
                                         ToolTipService.ToolTip="{x:Bind strings:Resources.DownloadText}"
@@ -83,7 +81,6 @@
                                     <Button
                                         Grid.Column="2"
                                         AutomationProperties.Name="{x:Bind strings:Resources.DeleteText}"
-                                        Background="Transparent"
                                         Command="{x:Bind DeleteCommand}"
                                         CommandParameter="{x:Bind}"
                                         ToolTipService.ToolTip="{x:Bind strings:Resources.DeleteText}"
