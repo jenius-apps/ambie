@@ -566,11 +566,11 @@
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie Plus</source>
-          <target state="translated">Kup subskrypcję Ambie Plus</target>
+          <target state="translated">Kup Ambie Plus</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="translated">Koncentracja</target>
+          <target state="translated">Praca</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
@@ -590,15 +590,15 @@
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="translated">Czas skupienia</target>
+          <target state="translated">Czas pracy</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="translated">Czas odpoczynku</target>
+          <target state="translated">Czas przerwy</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="translated">Odpocznij</target>
+          <target state="translated">Przerwa</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
@@ -606,11 +606,11 @@
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">Skoncentruj się</target>
+          <target state="translated">Skoncentruj się na wykonaniu zadania</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="translated">Odpocznij</target>
+          <target state="translated">Zrób sobie przerwę od pracy</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
@@ -646,15 +646,15 @@
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="translated">Powtórzenia</target>
+          <target state="translated">Cykle</target>
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="translated">Czas odpoczynku (w minutach)</target>
+          <target state="translated">Czas przerwy (w minutach)</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="translated">Pomoc w użytkowaniu</target>
+          <target state="translated">Pokaż mi jak z niego korzystać</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
@@ -674,7 +674,7 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">Każdy cykl dzieli się na segment skupienia i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</target>
+          <target state="translated">Każdy cykl dzieli się na segment spracy i segment przerwy. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
@@ -690,15 +690,15 @@
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="translated">Wybierz długość każdego segmentu odpoczynku. Na początek proponujemy okres 5 minut!</target>
+          <target state="translated">Wybierz długość każdego segmentu przerwy. Na początek proponujemy okres 5 minut!</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="translated">Ustaw czas odpoczynku</target>
+          <target state="translated">Ustaw czas przerwy</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="translated">Uruchom licznik i zajmij się swoimi zadaniami. Kiedy przyjdzie czas na odpoczynek pojawi się powiadomienie. Do roboty!</target>
+          <target state="translated">Uruchom licznik i zajmij się swoimi zadaniami. Kiedy przyjdzie czas na przerwę pojawi się powiadomienie. Do roboty!</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
@@ -706,7 +706,7 @@
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="translated">{0} minut skupienia, {1} minut odpoczynku, {2} powtórzeń.</target>
+          <target state="translated">{0} minut pracy, {1} minut przerwy, {2} cykli.</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
