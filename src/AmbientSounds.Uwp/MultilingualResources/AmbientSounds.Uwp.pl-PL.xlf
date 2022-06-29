@@ -293,7 +293,7 @@
         </trans-unit>
         <trans-unit id="Playing" translate="yes" xml:space="preserve">
           <source>Playing</source>
-          <target state="translated">Odtwarzam</target>
+          <target state="translated">Odtwarzanie</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
         </trans-unit>
         <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -355,7 +355,7 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="translated">Umożliwi to synchronizację pomiędzy urządzeniami.</target>
+          <target state="translated">Umożliwia synchronizację pomiędzy urządzeniami.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
@@ -506,7 +506,7 @@
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="translated">W celu odtworzenia konieczne jest pobranie dodatkowych dźwięków. Po pobraniu spróbuj ponownie. Rozpocząć pobieranie?</target>
+          <target state="translated">W celu odtworzenia konieczne jest pobranie dodatkowych dźwięków. Po pobraniu spróbuj odtworzyć ponownie. Rozpocząć pobieranie?</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
@@ -534,7 +534,7 @@
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="translated">Informacje premium</target>
+          <target state="translated">Informacje o premium</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
@@ -570,7 +570,7 @@
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="translated">Skoncentruj się</target>
+          <target state="translated">Koncentracja</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
@@ -586,7 +586,7 @@
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="translated">Sekcja koncentracji zakończona</target>
+          <target state="translated">Sesja koncentracji zakończona</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
@@ -602,15 +602,15 @@
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="translated">Sekcja koncentracji aktywna!</target>
+          <target state="translated">Sesja koncentracji aktywna!</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">Skupienie</target>
+          <target state="translated">Skoncentruj się</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="translated">Odpoczynek</target>
+          <target state="translated">Odpocznij</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
@@ -630,11 +630,11 @@
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="translated">Minuty skupienia</target>
+          <target state="translated">Czas skupienia (w minutach)</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down your to-do list or any notes here 🙂</source>
-          <target state="translated">Możesz nakreślać tu listy rzeczy do zrobienia lub robić notatki 🙂</target>
+          <target state="translated">Miejsce do napisania notatek albo listy rzeczy do zrobienia 🙂</target>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
@@ -650,7 +650,7 @@
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="translated">Minuty odpoczynku</target>
+          <target state="translated">Czas odpoczynku (w minutach)</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
@@ -658,7 +658,7 @@
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="translated">Licznik koncentracji jest inspirowany techniką pomodoro. Technika opiera się na dłuższych okresach skupienia na zadaniu przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pomaga w skupieniu się!</target>
+          <target state="translated">Licznik koncentracji jest inspirowany techniką pomodoro. Technika ta opiera się na dłuższych okresach skupienia na zadaniu przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pomaga w skupieniu się!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
@@ -674,7 +674,7 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">Każdy cykl dzieli się na segment koncentracji i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</target>
+          <target state="translated">Każdy cykl dzieli się na segment skupienia i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>

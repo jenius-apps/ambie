@@ -37,6 +37,7 @@
         <TextBlock
             Grid.Row="1"
             Margin="0,4,0,0"
+            FontSize="10"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Text="{x:Bind Text, Mode=OneWay}"
             TextAlignment="Center" />
