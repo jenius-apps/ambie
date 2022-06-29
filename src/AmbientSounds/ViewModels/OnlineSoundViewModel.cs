@@ -319,7 +319,8 @@ namespace AmbientSounds.ViewModels
                 _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
                 {
                     { "id", _sound.Id ?? "" },
-                    { "location", TelemetryLocation }
+                    { "location", TelemetryLocation },
+                    { "name", _sound.Name }
                 });
 
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
