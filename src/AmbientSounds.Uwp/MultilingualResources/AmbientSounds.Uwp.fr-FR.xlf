@@ -732,6 +732,10 @@
           <source>Interruptions</source>
           <target state="new">Interruptions</target>
         </trans-unit>
+        <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Your recent history will appear here</source>
+          <target state="new">Your recent history will appear here</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1470,6 +1470,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region FocusHistoryPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Your recent history will appear here
+        /// </summary>
+        public static string FocusHistoryPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusHistoryPlaceholderText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1593,6 +1606,7 @@ namespace AmbientSounds.Strings{
             ZeroToMax,
             History,
             Interruptions,
+            FocusHistoryPlaceholderText,
         }
 
         private static ResourceLoader _resourceLoader;
