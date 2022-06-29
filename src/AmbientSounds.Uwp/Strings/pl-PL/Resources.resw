@@ -228,7 +228,7 @@
     <comment>Sound is paused</comment>
   </data>
   <data name="Playing" xml:space="preserve">
-    <value>Odtwarzam</value>
+    <value>Odtwarzanie</value>
     <comment>Sound is playing</comment>
   </data>
   <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
@@ -275,7 +275,7 @@
     <value>Wyloguj</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>Umożliwi to synchronizację pomiędzy urządzeniami.</value>
+    <value>Umożliwia synchronizację pomiędzy urządzeniami.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>Opcje konta</value>
@@ -389,7 +389,7 @@
     <value>Pobierz</value>
   </data>
   <data name="MissingSoundsMessage" xml:space="preserve">
-    <value>W celu odtworzenia konieczne jest pobranie dodatkowych dźwięków. Po pobraniu spróbuj ponownie. Rozpocząć pobieranie?</value>
+    <value>W celu odtworzenia konieczne jest pobranie dodatkowych dźwięków. Po pobraniu spróbuj odtworzyć ponownie. Rozpocząć pobieranie?</value>
   </data>
   <data name="MissingSoundsTitle" xml:space="preserve">
     <value>Brakujące dźwięki</value>
@@ -410,7 +410,7 @@
     <value>Katalog wygaszaczy</value>
   </data>
   <data name="ViewPremiumInfo" xml:space="preserve">
-    <value>Informacje premium</value>
+    <value>Informacje o premium</value>
   </data>
   <data name="ComputeShader.Clouds" xml:space="preserve">
     <value>Chmury</value>
@@ -437,7 +437,7 @@
     <value>Kup subskrypcję Ambie Plus</value>
   </data>
   <data name="FocusText" xml:space="preserve">
-    <value>Skoncentruj się</value>
+    <value>Koncentracja</value>
   </data>
   <data name="PauseTimer" xml:space="preserve">
     <value>Wstrzymaj licznik</value>
@@ -449,7 +449,7 @@
     <value>Dobra robota!</value>
   </data>
   <data name="FocusSessionCompleteTitle" xml:space="preserve">
-    <value>Sekcja koncentracji zakończona</value>
+    <value>Sesja koncentracji zakończona</value>
   </data>
   <data name="FocusSessionFocusMessage" xml:space="preserve">
     <value>Czas skupienia</value>
@@ -461,13 +461,13 @@
     <value>Odpocznij</value>
   </data>
   <data name="FocusDotTooltip" xml:space="preserve">
-    <value>Sekcja koncentracji aktywna!</value>
+    <value>Sesja koncentracji aktywna!</value>
   </data>
   <data name="SessionTypeFocus" xml:space="preserve">
-    <value>Skupienie</value>
+    <value>Skoncentruj się</value>
   </data>
   <data name="SessionTypeRest" xml:space="preserve">
-    <value>Odpoczynek</value>
+    <value>Odpocznij</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pauza</value>
@@ -482,10 +482,10 @@
     <value>Start</value>
   </data>
   <data name="FocusLength" xml:space="preserve">
-    <value>Minuty skupienia</value>
+    <value>Czas skupienia (w minutach)</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>Możesz nakreślać tu listy rzeczy do zrobienia lub robić notatki 🙂</value>
+    <value>Miejsce do napisania notatek albo listy rzeczy do zrobienia 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>Jaki mamy plan?</value>
@@ -497,13 +497,13 @@
     <value>Powtórzenia</value>
   </data>
   <data name="RestLength" xml:space="preserve">
-    <value>Minuty odpoczynku</value>
+    <value>Czas odpoczynku (w minutach)</value>
   </data>
   <data name="FocusTimerHelpAction" xml:space="preserve">
     <value>Pomoc w użytkowaniu</value>
   </data>
   <data name="FocusTimerHelpMessage" xml:space="preserve">
-    <value>Licznik koncentracji jest inspirowany techniką pomodoro. Technika opiera się na dłuższych okresach skupienia na zadaniu przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pomaga w skupieniu się!</value>
+    <value>Licznik koncentracji jest inspirowany techniką pomodoro. Technika ta opiera się na dłuższych okresach skupienia na zadaniu przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pomaga w skupieniu się!</value>
   </data>
   <data name="FocusTimerHelpTitle" xml:space="preserve">
     <value>Witamy w liczniku koncentracji!</value>
@@ -515,7 +515,7 @@
     <value>Dalej</value>
   </data>
   <data name="TipFocusMessage" xml:space="preserve">
-    <value>Każdy cykl dzieli się na segment koncentracji i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</value>
+    <value>Każdy cykl dzieli się na segment skupienia i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</value>
   </data>
   <data name="TipFocusTitle" xml:space="preserve">
     <value>Ustaw czas skupienia</value>
