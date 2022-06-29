@@ -102,13 +102,13 @@
                                         </StackPanel>
                                     </StackPanel>
 
-                                    <local:FocusAward
+                                    <!--<local:FocusAward
                                         Grid.Column="1"
                                         Margin="0,8,0,0"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Top"
                                         Award="{x:Bind Award}"
-                                        FontSize="28" />
+                                        FontSize="28" />-->
                                 </Grid>
 
                                 <winui:ProgressBar

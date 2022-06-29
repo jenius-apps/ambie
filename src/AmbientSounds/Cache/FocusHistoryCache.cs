@@ -34,19 +34,19 @@ namespace AmbientSounds.Cache
             }
 
             var summary = await GetSummaryAsync();
-            var historyAward = focusHistory.GetAward();
-            if (historyAward == HistoryAward.Gold)
-            {
-                summary.GoldTrophies += 1;
-            }
-            else if (historyAward == HistoryAward.Silver)
-            {
-                summary.SilverTrophies += 1;
-            }
-            else if (historyAward == HistoryAward.Bronze)
-            {
-                summary.BronzeTrophies += 1;
-            }
+            //var historyAward = focusHistory.GetAward();
+            //if (historyAward == HistoryAward.Gold)
+            //{
+            //    summary.GoldTrophies += 1;
+            //}
+            //else if (historyAward == HistoryAward.Silver)
+            //{
+            //    summary.SilverTrophies += 1;
+            //}
+            //else if (historyAward == HistoryAward.Bronze)
+            //{
+            //    summary.BronzeTrophies += 1;
+            //}
 
             _recentCache.TryAdd(focusHistory.StartUtcTicks, focusHistory);
             _allHistoryCache.TryAdd(focusHistory.StartUtcTicks, focusHistory);

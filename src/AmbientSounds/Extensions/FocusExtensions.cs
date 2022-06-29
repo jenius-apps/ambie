@@ -32,33 +32,33 @@ namespace AmbientSounds.Extensions
             return TimeSpan.FromMinutes((focusLength + restLength) * repetitions);
         }
 
-        public static HistoryAward GetAward(this FocusHistory history, double? percentComplete = null)
-        {
-            if (history is null)
-            {
-                return HistoryAward.None;
-            }
+        //public static HistoryAward GetAward(this FocusHistory history, double? percentComplete = null)
+        //{
+        //    if (history is null)
+        //    {
+        //        return HistoryAward.None;
+        //    }
 
-            if (percentComplete is null)
-            {
-                percentComplete = GetPercentComplete(history);
-            }
+        //    if (percentComplete is null)
+        //    {
+        //        percentComplete = GetPercentComplete(history);
+        //    }
 
-            if (percentComplete >= 100)
-            {
-                return HistoryAward.Gold;
-            }
-            else if (percentComplete >= 50)
-            {
-                return HistoryAward.Silver;
-            }
-            else if (history.FocusSegmentsCompleted >= 1)
-            {
-                return HistoryAward.Bronze;
-            }
+        //    if (percentComplete >= 100)
+        //    {
+        //        return HistoryAward.Gold;
+        //    }
+        //    else if (percentComplete >= 50)
+        //    {
+        //        return HistoryAward.Silver;
+        //    }
+        //    else if (history.FocusSegmentsCompleted >= 1)
+        //    {
+        //        return HistoryAward.Bronze;
+        //    }
 
-            return HistoryAward.None;
-        }
+        //    return HistoryAward.None;
+        //}
 
         public static double GetPercentComplete(this FocusHistory history)
         {

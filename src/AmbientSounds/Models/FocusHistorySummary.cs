@@ -10,10 +10,10 @@ namespace AmbientSounds.Models
 
         public long[] RecentStartTimeTicks { get; set; } = Array.Empty<long>();
 
-        public int GoldTrophies { get; set; }
+        //public int GoldTrophies { get; set; }
 
-        public int SilverTrophies { get; set; }
+        //public int SilverTrophies { get; set; }
 
-        public int BronzeTrophies { get; set; }
+        //public int BronzeTrophies { get; set; }
     }
 }

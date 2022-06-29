@@ -9,20 +9,18 @@ namespace AmbientSounds.ViewModels
 {
     public class FocusHistoryViewModel : ObservableObject
     {
-        private readonly FocusHistory _focusHistory;
         private readonly DateTime _localStart;
 
         public FocusHistoryViewModel(FocusHistory focusHistory)
         {
             Guard.IsNotNull(focusHistory, nameof(focusHistory));
-            _focusHistory = focusHistory;
 
             var percent = focusHistory.GetPercentComplete();
             PercentComplete = percent >= 100
                 ? $"{percent}%"
                 : $"{percent:N1}%";
 
-            Award = focusHistory.GetAward(percent);
+            //Award = focusHistory.GetAward(percent);
             _localStart = new DateTime(focusHistory.StartUtcTicks, DateTimeKind.Utc).ToLocalTime();
 
             int rounds = focusHistory.Repetitions + 1;
@@ -30,11 +28,9 @@ namespace AmbientSounds.ViewModels
             RestInfo = $"{focusHistory.GetRestTimeCompleted():N1}/{focusHistory.RestLength * rounds}";
         }
 
-        public FocusHistory FocusHistory => _focusHistory;
-
         public string PercentComplete { get; }
 
-        public HistoryAward Award { get; }
+        //public HistoryAward Award { get; }
 
         /// <summary>
         /// Human-friendly time string such as '3 days ago'.
