@@ -674,7 +674,7 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">Każdy cykl dzieli się na segment spracy i segment przerwy. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</target>
+          <target state="translated">Każdy cykl dzieli się na segment pracy i segment przerwy. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
