@@ -199,7 +199,6 @@ namespace AmbientSounds.ViewModels
             if (s is not null)
             {
                 _player.RemoveSound(s.Id);
-                _telemetry.TrackEvent(TelemetryConstants.MixRemoved);
             }
         }
 
