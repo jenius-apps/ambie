@@ -29,11 +29,7 @@ namespace AmbientSounds.Models
 
         public SessionType PartialSegmentType { get; set; }
 
-        /// <summary>
-        /// Key = utc ticks start time.
-        /// Value = minutes length of the interruption as given by user.
-        /// </summary>
-        public Dictionary<long, double> Interruptions { get; set; } = new();
+        public FocusInterruption[] Interruptions { get; set; } = Array.Empty<FocusInterruption>();
     }
 
     public enum HistoryAward

@@ -17,6 +17,7 @@ namespace AmbientSounds.Cache
         private readonly ConcurrentDictionary<long, FocusHistory> _allHistoryCache = new();
         private readonly IFocusHistoryRepository _focusHistoryRepository;
         private FocusHistorySummary? _cachedSummary;
+        private readonly object _summaryLock = new();
 
         public FocusHistoryCache(IFocusHistoryRepository focusHistoryRepository)
         {
@@ -32,32 +33,28 @@ namespace AmbientSounds.Cache
                 return;
             }
 
-            if (_cachedSummary is null)
-            {
-                _cachedSummary = new FocusHistorySummary();
-            }
-
+            var summary = await GetSummaryAsync();
             var historyAward = focusHistory.GetAward();
             if (historyAward == HistoryAward.Gold)
             {
-                _cachedSummary.GoldTrophies += 1;
+                summary.GoldTrophies += 1;
             }
             else if (historyAward == HistoryAward.Silver)
             {
-                _cachedSummary.SilverTrophies += 1;
+                summary.SilverTrophies += 1;
             }
             else if (historyAward == HistoryAward.Bronze)
             {
-                _cachedSummary.BronzeTrophies += 1;
+                summary.BronzeTrophies += 1;
             }
 
             _recentCache.TryAdd(focusHistory.StartUtcTicks, focusHistory);
             _allHistoryCache.TryAdd(focusHistory.StartUtcTicks, focusHistory);
             var historyTask = _focusHistoryRepository.SaveHistoryAsync(focusHistory);
 
-            _cachedSummary.RecentStartTimeTicks = _recentCache.Keys.OrderByDescending(x => x).Take(5).ToArray();
-            _cachedSummary.Count += 1;
-            await _focusHistoryRepository.SaveSummaryAsync(_cachedSummary);
+            summary.RecentStartTimeTicks = _recentCache.Keys.OrderByDescending(x => x).Take(5).ToArray();
+            summary.Count += 1;
+            await _focusHistoryRepository.SaveSummaryAsync(summary);
             await historyTask;
         }
 
@@ -83,7 +80,7 @@ namespace AmbientSounds.Cache
             {
                 await Task.Run(async () =>
                 {
-                    var summary = _cachedSummary ?? await _focusHistoryRepository.GetSummaryAsync();
+                    var summary = await GetSummaryAsync();
                     foreach (var tick in summary.RecentStartTimeTicks)
                     {
                         var history = await GetHistoryAsync(tick);
@@ -99,6 +96,24 @@ namespace AmbientSounds.Cache
             }
 
             return _recentCache.Values.ToList().AsReadOnly();
+        }
+
+        public async Task<FocusHistorySummary> GetSummaryAsync()
+        {
+            if (_cachedSummary is null)
+            {
+                var summary = await _focusHistoryRepository.GetSummaryAsync();
+
+                lock (_summaryLock)
+                {
+                    if (_cachedSummary is null)
+                    {
+                        _cachedSummary = summary;
+                    }
+                }
+            }
+
+            return _cachedSummary;
         }
     }
 }
