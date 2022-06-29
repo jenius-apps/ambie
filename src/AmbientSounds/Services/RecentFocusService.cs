@@ -11,6 +11,7 @@ namespace AmbientSounds.Services
 {
     public sealed class RecentFocusService : IRecentFocusService
     {
+        private const int MaxNumRecents = 3;
         private long _minDateTimeTicks = long.MaxValue;
         private ConcurrentDictionary<long, RecentFocusSettings>? _cache;
         private readonly IFocusService _focusService;
@@ -48,7 +49,7 @@ namespace AmbientSounds.Services
                 return Task.CompletedTask;
             }
 
-            if (_cache.Count >= 5 && _cache.TryGetValue(_minDateTimeTicks, out _))
+            if (_cache.Count >= MaxNumRecents && _cache.TryGetValue(_minDateTimeTicks, out _))
             {
                 var success = _cache.TryRemove(_minDateTimeTicks, out _);
                 if (success)
@@ -74,7 +75,7 @@ namespace AmbientSounds.Services
         public Task<IReadOnlyList<RecentFocusSettings>> GetRecentAsync()
         {
             EnsureCacheInitialized();
-            IReadOnlyList<RecentFocusSettings> list = _cache!.Values.ToList();
+            IReadOnlyList<RecentFocusSettings> list = _cache!.Values.Take(MaxNumRecents).ToList();
             return Task.FromResult(list);
         }
 
