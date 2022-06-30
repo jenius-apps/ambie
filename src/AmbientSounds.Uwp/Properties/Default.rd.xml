@@ -20,7 +20,7 @@
 
       <!-- Required for JSON serialization -->
       <Type Name="System.Text.Json.JsonSerializer" Serialize="Required All" />
-
+	  
       <!-- JSON model types -->
       <Namespace Name="AmbientSounds.Models" Dynamic="Required Public"/>
 
