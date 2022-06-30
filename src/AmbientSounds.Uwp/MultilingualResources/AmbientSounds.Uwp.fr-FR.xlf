@@ -736,6 +736,10 @@
           <source>Your recent history will appear here</source>
           <target state="new">Your recent history will appear here</target>
         </trans-unit>
+        <trans-unit id="SeeMore" translate="yes" xml:space="preserve">
+          <source>See more</source>
+          <target state="new">See more</target>
+        </trans-unit>
       </group>
     </body>
   </file>

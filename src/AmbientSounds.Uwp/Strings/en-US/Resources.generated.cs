@@ -1483,6 +1483,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SeeMore
+        /// <summary>
+        ///   Looks up a localized string similar to: See more
+        /// </summary>
+        public static string SeeMore
+        {
+            get
+            {
+                return _resourceLoader.GetString("SeeMore");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1607,6 +1620,7 @@ namespace AmbientSounds.Strings{
             History,
             Interruptions,
             FocusHistoryPlaceholderText,
+            SeeMore,
         }
 
         private static ResourceLoader _resourceLoader;

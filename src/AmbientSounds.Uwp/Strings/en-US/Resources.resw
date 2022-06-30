@@ -661,4 +661,7 @@
   <data name="FocusHistoryPlaceholderText" xml:space="preserve">
     <value>Your recent history will appear here</value>
   </data>
+  <data name="SeeMore" xml:space="preserve">
+    <value>See more</value>
+  </data>
 </root>
