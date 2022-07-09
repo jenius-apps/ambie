@@ -149,10 +149,10 @@
                     </GridView.ItemTemplate>
                 </GridView>
 
-                <HyperlinkButton
+                <!--<HyperlinkButton
                     Margin="7,0,0,12"
                     Content="{x:Bind strings:Resources.SeeMore}"
-                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}" />
+                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}" />-->
             </StackPanel>
         </Grid>
     </Border>
