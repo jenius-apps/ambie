@@ -360,6 +360,7 @@ namespace AmbientSounds
                 .AddSingleton<FocusHistoryModuleViewModel>()
                 .AddSingleton<VideosMenuViewModel>()
                 .AddSingleton<TimeBannerViewModel>()
+                .AddSingleton<AllHistoryPageViewModel>()
                 .AddSingleton<FocusPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation

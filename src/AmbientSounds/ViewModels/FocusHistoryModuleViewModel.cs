@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +23,11 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
 
             _focusHistoryService = focusHistoryService;
+
+            SeeMoreHistoryCommand = new AsyncRelayCommand(SeeHistoryAsync);
         }
+
+        public IAsyncRelayCommand SeeMoreHistoryCommand { get; }
 
         public ObservableCollection<FocusHistoryViewModel> Items { get; } = new();
 
@@ -70,6 +75,11 @@ namespace AmbientSounds.ViewModels
                 Items.Insert(0, new FocusHistoryViewModel(f));
                 UpdatePlaceholder();
             }
+        }
+
+        private Task SeeHistoryAsync()
+        {
+            return Task.CompletedTask;
         }
     }
 }

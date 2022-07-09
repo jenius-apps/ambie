@@ -151,6 +151,7 @@
 
                 <HyperlinkButton
                     Margin="7,0,0,12"
+                    Click="Test"
                     Content="{x:Bind strings:Resources.SeeMore}"
                     Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}" />
             </StackPanel>
