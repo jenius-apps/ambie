@@ -29,7 +29,7 @@ namespace AmbientSounds.Models
 
         public SessionType PartialSegmentType { get; set; }
 
-        public FocusInterruption[] Interruptions { get; set; } = Array.Empty<FocusInterruption>();
+        public List<FocusInterruption> Interruptions { get; set; } = new();
     }
 
     public enum HistoryAward

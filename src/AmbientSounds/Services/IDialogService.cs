@@ -43,5 +43,10 @@ namespace AmbientSounds.Services
         /// Opens videos menu dialog.
         /// </summary>
         Task OpenVideosMenuAsync();
+
+        /// <summary>
+        /// Opens interruption dialog.
+        /// </summary>
+        Task<(double, string)> OpenInterruptionAsync();
     }
 }

@@ -211,6 +211,7 @@
                             <HyperlinkButton
                                 Padding="8,4"
                                 AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                                Command="{x:Bind ViewModel.InterruptionCommand}"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}"
                                 Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                                 <animations:Implicit.ShowAnimations>

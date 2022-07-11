@@ -11,14 +11,20 @@ namespace AmbientSounds.Services
     public sealed class FocusHistoryService : IFocusHistoryService
     {
         private readonly IFocusHistoryCache _focusHistoryCache;
+        private readonly IDialogService _dialogService;
         private FocusHistory? _activeHistory;
 
         public event EventHandler<FocusHistory?>? HistoryAdded;
 
-        public FocusHistoryService(IFocusHistoryCache focusHistoryCache)
+        public FocusHistoryService(
+            IFocusHistoryCache focusHistoryCache,
+            IDialogService dialogService)
         {
             Guard.IsNotNull(focusHistoryCache, nameof(focusHistoryCache));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
+
             _focusHistoryCache = focusHistoryCache;
+            _dialogService = dialogService;
         }
 
         public Task<IReadOnlyList<FocusHistory>> GetRecentAsync()
@@ -88,6 +94,24 @@ namespace AmbientSounds.Services
             {
                 _activeHistory.RestSegmentsCompleted++;
             }
+        }
+
+        public async Task<bool> LogInterruptionAsync()
+        {
+            if (_activeHistory is null)
+            {
+                return false;
+            }
+
+            (double minutes, string notes) = await _dialogService.OpenInterruptionAsync();
+            _activeHistory.Interruptions.Add(new FocusInterruption
+            {
+                Minutes = minutes,
+                Notes = notes,
+                UtcTime = DateTime.UtcNow.Ticks
+            });
+
+            return minutes > 0;
         }
     }
 }

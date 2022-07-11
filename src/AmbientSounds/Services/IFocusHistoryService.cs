@@ -44,5 +44,11 @@ namespace AmbientSounds.Services
         /// Closes the current active history while being incomplete. 
         /// </summary>
         void TrackIncompleteHistory(long utcTicks, SessionType partialSegmentType, TimeSpan minutesUsedInIncompleteSegment);
+
+        /// <summary>
+        /// Opens a dialog requesting an interruption time from the user.
+        /// The interruption time will be logged in history.
+        /// </summary>
+        Task<bool> LogInterruptionAsync();
     }
 }
