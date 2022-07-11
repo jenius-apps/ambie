@@ -180,32 +180,51 @@
                             Text="{x:Bind strings:Resources.FocusPlanningHeader}" />
 
                         <!--  Module help button  -->
-                        <HyperlinkButton
+                        <Grid
                             Grid.ColumnSpan="3"
                             Margin="12,8"
-                            Padding="8,4"
                             HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            AutomationProperties.Name="{x:Bind strings:Resources.Help}"
-                            Click="{x:Bind ViewModel.ShowHelpMessage}"
-                            ToolTipService.ToolTip="{x:Bind strings:Resources.Help}"
-                            Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
-                            <FontIcon
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                FontSize="16"
-                                Glyph="{StaticResource GlyphHelp}" />
+                            VerticalAlignment="Top">
+                            <HyperlinkButton
+                                Padding="8,4"
+                                AutomationProperties.Name="{x:Bind strings:Resources.Help}"
+                                Click="{x:Bind ViewModel.ShowHelpMessage}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.Help}"
+                                Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="16"
+                                    Glyph="{StaticResource GlyphHelp}" />
 
-                            <animations:Implicit.ShowAnimations>
-                                <animations:OpacityAnimation
-                                    From="0"
-                                    To="1"
-                                    Duration="0:0:1" />
-                                <animations:TranslationAnimation
-                                    From="20,0,0"
-                                    To="0"
-                                    Duration="0:0:1" />
-                            </animations:Implicit.ShowAnimations>
-                        </HyperlinkButton>
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:1" />
+                                    <animations:TranslationAnimation
+                                        From="20,0,0"
+                                        To="0"
+                                        Duration="0:0:1" />
+                                </animations:Implicit.ShowAnimations>
+                            </HyperlinkButton>
+
+                            <HyperlinkButton
+                                Padding="8,4"
+                                AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}"
+                                Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:1" />
+                                </animations:Implicit.ShowAnimations>
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="16"
+                                    Glyph="{StaticResource GlyphInterruption}" />
+                            </HyperlinkButton>
+                        </Grid>
 
                         <!--  Module header divider  -->
                         <Rectangle

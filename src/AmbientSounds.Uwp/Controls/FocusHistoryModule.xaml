@@ -121,7 +121,7 @@
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                                 FontSize="10"
                                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                Glyph="{StaticResource GlyphCritical}" />
+                                                Glyph="{StaticResource GlyphInterruption}" />
                                             <TextBlock
                                                 Margin="4,0,0,0"
                                                 FontSize="10"

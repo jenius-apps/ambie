@@ -736,6 +736,10 @@
           <source>See more</source>
           <target state="new">See more</target>
         </trans-unit>
+        <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
+          <source>Log interruption</source>
+          <target state="new">Log interruption</target>
+        </trans-unit>
       </group>
     </body>
   </file>

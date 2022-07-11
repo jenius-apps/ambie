@@ -1496,6 +1496,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region LogInterruption
+        /// <summary>
+        ///   Looks up a localized string similar to: Log interruption
+        /// </summary>
+        public static string LogInterruption
+        {
+            get
+            {
+                return _resourceLoader.GetString("LogInterruption");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1621,6 +1634,7 @@ namespace AmbientSounds.Strings{
             Interruptions,
             FocusHistoryPlaceholderText,
             SeeMore,
+            LogInterruption,
         }
 
         private static ResourceLoader _resourceLoader;
