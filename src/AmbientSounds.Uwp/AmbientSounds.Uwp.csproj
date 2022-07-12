@@ -155,8 +155,8 @@
     <Compile Include="Controls\FocusTimer.xaml.cs">
       <DependentUpon>FocusTimer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\InterruptionMenu.xaml.cs">
-      <DependentUpon>InterruptionMenu.xaml</DependentUpon>
+    <Compile Include="Controls\InterruptionDialog.xaml.cs">
+      <DependentUpon>InterruptionDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\LogoControl.xaml.cs">
       <DependentUpon>LogoControl.xaml</DependentUpon>
@@ -407,7 +407,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\InterruptionMenu.xaml">
+    <Page Include="Controls\InterruptionDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

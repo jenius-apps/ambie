@@ -1509,6 +1509,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Confirm
+        /// <summary>
+        ///   Looks up a localized string similar to: Confirm
+        /// </summary>
+        public static string Confirm
+        {
+            get
+            {
+                return _resourceLoader.GetString("Confirm");
+            }
+        }
+        #endregion
+
+        #region InterruptionMinutesTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Minutes interrupted
+        /// </summary>
+        public static string InterruptionMinutesTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionMinutesTitle");
+            }
+        }
+        #endregion
+
+        #region Notes
+        /// <summary>
+        ///   Looks up a localized string similar to: Notes
+        /// </summary>
+        public static string Notes
+        {
+            get
+            {
+                return _resourceLoader.GetString("Notes");
+            }
+        }
+        #endregion
+
+        #region InterruptionMinutesHelpMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.
+        /// </summary>
+        public static string InterruptionMinutesHelpMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionMinutesHelpMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1635,6 +1687,10 @@ namespace AmbientSounds.Strings{
             FocusHistoryPlaceholderText,
             SeeMore,
             LogInterruption,
+            Confirm,
+            InterruptionMinutesTitle,
+            Notes,
+            InterruptionMinutesHelpMessage,
         }
 
         private static ResourceLoader _resourceLoader;

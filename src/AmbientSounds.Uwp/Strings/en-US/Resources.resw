@@ -667,4 +667,16 @@
   <data name="LogInterruption" xml:space="preserve">
     <value>Log interruption</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Minutes interrupted</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</value>
+  </data>
 </root>

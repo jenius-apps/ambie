@@ -188,21 +188,16 @@ namespace AmbientSounds.Services.Uwp
             }
 
             IsDialogOpen = true;
-            var content = new InterruptionMenu();
-            var dialog = new ContentDialog()
+            var dialog = new InterruptionDialog()
             {
-                Title = Strings.Resources.LogInterruption,
-                CloseButtonText = Strings.Resources.CloseText,
-                PrimaryButtonText = Strings.Resources.LogInterruption, 
                 RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Content = content
             };
 
             var result = await dialog.ShowAsync();
             IsDialogOpen = false;
 
             return result == ContentDialogResult.Primary 
-                ? (content.MinutesLogged, content.InterruptionNotes) 
+                ? (dialog.MinutesLogged, dialog.InterruptionNotes) 
                 : (0, string.Empty);
         }
     }
