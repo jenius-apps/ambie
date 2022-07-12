@@ -137,7 +137,7 @@
                     BorderThickness="1"
                     CornerRadius="8">
                     <animations:Implicit.Animations>
-                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                        <animations:OffsetAnimation Duration="0:0:0.15" />
                     </animations:Implicit.Animations>
 
                     <animations:Implicit.ShowAnimations>
@@ -495,7 +495,7 @@
                 <!--  recents module  -->
                 <Grid Margin="0,8,0,0" HorizontalAlignment="Stretch">
                     <animations:Implicit.Animations>
-                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                        <animations:OffsetAnimation Duration="0:0:0.15" />
                     </animations:Implicit.Animations>
 
                     <ListView
@@ -561,7 +561,7 @@
                             Duration="0:0:1" />
                     </animations:Implicit.ShowAnimations>
                     <animations:Implicit.Animations>
-                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                        <animations:OffsetAnimation Duration="0:0:0.15" />
                     </animations:Implicit.Animations>
 
                     <Grid>
@@ -598,7 +598,18 @@
                     </Grid>
                 </Border>
 
-                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,8,0,0" />
+                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,8,0,0">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            Delay="0:0:0.3"
+                            From="0"
+                            To="1"
+                            Duration="0:0:1" />
+                    </animations:Implicit.ShowAnimations>
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.15" />
+                    </animations:Implicit.Animations>
+                </controls:FocusHistoryModule>
             </StackPanel>
         </ScrollViewer>
     </Grid>
