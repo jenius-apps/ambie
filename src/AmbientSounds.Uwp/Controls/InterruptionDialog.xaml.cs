@@ -23,7 +23,6 @@ namespace AmbientSounds.Controls
         {
             MinutesLogged = MinutesBox.Value;
             InterruptionNotes = NotesBox.Text;
-            this.Hide();
         }
 
         private void NumberBox_ValueChanged(WinUI.NumberBox sender, WinUI.NumberBoxValueChangedEventArgs args)

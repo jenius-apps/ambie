@@ -104,6 +104,12 @@ namespace AmbientSounds.Services
             }
 
             (double minutes, string notes) = await _dialogService.OpenInterruptionAsync();
+
+            if (minutes <= 0)
+            {
+                return false;
+            }
+
             _activeHistory.Interruptions.Add(new FocusInterruption
             {
                 Minutes = minutes,
@@ -111,7 +117,7 @@ namespace AmbientSounds.Services
                 UtcTime = DateTime.UtcNow.Ticks
             });
 
-            return minutes > 0;
+            return true;
         }
     }
 }

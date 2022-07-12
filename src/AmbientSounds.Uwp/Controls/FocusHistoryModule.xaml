@@ -126,7 +126,7 @@
                                                 Margin="4,0,0,0"
                                                 FontSize="10"
                                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                Text="2"
+                                                Text="{x:Bind InterruptionCount}"
                                                 TextWrapping="Wrap" />
                                         </StackPanel>
                                     </StackPanel>

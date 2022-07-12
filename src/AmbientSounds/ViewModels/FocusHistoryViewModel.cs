@@ -26,6 +26,7 @@ namespace AmbientSounds.ViewModels
             int rounds = focusHistory.Repetitions + 1;
             FocusInfo = $"{focusHistory.GetFocusTimeCompleted():N1}/{focusHistory.FocusLength * rounds}";
             RestInfo = $"{focusHistory.GetRestTimeCompleted():N1}/{focusHistory.RestLength * rounds}";
+            InterruptionCount = focusHistory.Interruptions.Count;
         }
 
         public string PercentComplete { get; }
@@ -45,5 +46,7 @@ namespace AmbientSounds.ViewModels
         public string FocusInfo { get; }
 
         public string RestInfo { get; }
+
+        public int InterruptionCount { get; }
     }
 }
