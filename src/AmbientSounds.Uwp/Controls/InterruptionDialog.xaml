@@ -28,8 +28,10 @@
         </Grid.RowDefinitions>
 
         <winui:InfoBar
+            x:Name="HelpMessageBar"
             Width="300"
-            IsOpen="True"
+            CloseButtonClick="HelpMessageBar_CloseButtonClick"
+            IsOpen="False"
             Message="{x:Bind strings:Resources.InterruptionMinutesHelpMessage}"
             Severity="Informational" />
 

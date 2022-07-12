@@ -180,6 +180,7 @@ namespace AmbientSounds.Services.Uwp
             IsDialogOpen = false;
         }
 
+        /// <inheritdoc/>
         public async Task<(double, string)> OpenInterruptionAsync()
         {
             if (IsDialogOpen)
