@@ -27,12 +27,16 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock FontSize="20" Text="{x:Bind StatText, Mode=OneWay}" />
+            <TextBlock
+                FontSize="20"
+                Text="{x:Bind StatText, Mode=OneWay}"
+                TextTrimming="CharacterEllipsis" />
             <TextBlock
                 Grid.Row="1"
                 FontSize="10"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="{x:Bind DescriptionText, Mode=OneWay}" />
+                Text="{x:Bind DescriptionText, Mode=OneWay}"
+                TextWrapping="WrapWholeWords" />
         </Grid>
     </Grid>
 </UserControl>
