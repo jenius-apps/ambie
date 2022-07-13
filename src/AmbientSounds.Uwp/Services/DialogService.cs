@@ -216,6 +216,7 @@ namespace AmbientSounds.Services.Uwp
             {
                 Title = Strings.Resources.History,
                 CloseButtonText = Strings.Resources.CloseText,
+                Content = new FocusHistoryDetails(historyViewModel)
             };
 
             await dialog.ShowAsync();

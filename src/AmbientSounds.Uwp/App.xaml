@@ -112,6 +112,7 @@
             <x:Double x:Key="ImageCardShadowWidth">144</x:Double>
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
+            <x:String x:Key="GlyphCalendar">&#xE972;</x:String>
             <x:String x:Key="GlyphSettings">&#xEB5D;</x:String>
             <x:String x:Key="GlyphDownload">&#xE9B9;</x:String>
             <x:String x:Key="GlyphDelete">&#xE9ED;</x:String>

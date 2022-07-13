@@ -43,6 +43,8 @@ namespace AmbientSounds.ViewModels
         /// </remarks>
         public string TimeElapsed => _localStart.Humanize();
 
+        public string StartDate => _localStart.Date.ToShortDateString();
+
         public string FocusInfo { get; }
 
         public string RestInfo { get; }
