@@ -216,6 +216,7 @@ namespace AmbientSounds.Services.Uwp
             {
                 Title = Strings.Resources.History,
                 CloseButtonText = Strings.Resources.CloseText,
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
                 Content = new FocusHistoryDetails(historyViewModel)
             };
 

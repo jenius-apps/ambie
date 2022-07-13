@@ -19,6 +19,7 @@
             HorizontalAlignment="Left"
             FontFamily="{StaticResource FluentUIGlyphs}"
             FontSize="32"
+            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Glyph="{x:Bind Glyph, Mode=OneWay}" />
 
         <Grid Grid.Column="1">
