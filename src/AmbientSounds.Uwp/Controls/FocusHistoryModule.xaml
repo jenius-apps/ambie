@@ -67,6 +67,7 @@
                 <GridView
                     Margin="0,12,0,0"
                     IsItemClickEnabled="True"
+                    ItemClick="OnHistoryClicked"
                     ItemsSource="{x:Bind ViewModel.Items}"
                     SelectionMode="None"
                     Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}">

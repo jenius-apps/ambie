@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Controls;
 using AmbientSounds.Converters;
+using AmbientSounds.ViewModels;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Threading.Tasks;
@@ -200,6 +201,25 @@ namespace AmbientSounds.Services.Uwp
             return result == ContentDialogResult.Primary 
                 ? (dialog.MinutesLogged, dialog.InterruptionNotes) 
                 : (0, string.Empty);
+        }
+
+        /// <inheritdoc/>
+        public async Task OpenHistoryDetailsAsync(FocusHistoryViewModel historyViewModel)
+        {
+            if (historyViewModel is null || IsDialogOpen)
+            {
+                return;
+            }
+
+            IsDialogOpen = true;
+            var dialog = new ContentDialog()
+            {
+                Title = Strings.Resources.History,
+                CloseButtonText = Strings.Resources.CloseText,
+            };
+
+            await dialog.ShowAsync();
+            IsDialogOpen = false;
         }
     }
 }

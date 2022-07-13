@@ -13,5 +13,13 @@ namespace AmbientSounds.Controls
         }
 
         public FocusHistoryModuleViewModel ViewModel => (FocusHistoryModuleViewModel)this.DataContext;
+
+        private void OnHistoryClicked(object sender, ItemClickEventArgs e)
+        {
+            if (e.ClickedItem is FocusHistoryViewModel vm)
+            {
+                ViewModel.DetailsCommand.Execute(vm);
+            }
+        }
     }
 }
