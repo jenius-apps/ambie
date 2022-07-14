@@ -1561,6 +1561,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region HistoryRecent
+        /// <summary>
+        ///   Looks up a localized string similar to: Recent history
+        /// </summary>
+        public static string HistoryRecent
+        {
+            get
+            {
+                return _resourceLoader.GetString("HistoryRecent");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1691,6 +1704,7 @@ namespace AmbientSounds.Strings{
             InterruptionMinutesTitle,
             Notes,
             InterruptionMinutesHelpMessage,
+            HistoryRecent,
         }
 
         private static ResourceLoader _resourceLoader;

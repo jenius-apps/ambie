@@ -30,7 +30,7 @@
                     Margin="12,12,0,0"
                     FontWeight="SemiBold"
                     Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    Text="{x:Bind strings:Resources.History}" />
+                    Text="{x:Bind strings:Resources.HistoryRecent}" />
                 <Rectangle
                     Height="1"
                     Margin="-12,12,-12,0"

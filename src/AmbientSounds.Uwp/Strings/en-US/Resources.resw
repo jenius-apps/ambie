@@ -679,4 +679,7 @@
   <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
     <value>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</value>
   </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Recent history</value>
+  </data>
 </root>

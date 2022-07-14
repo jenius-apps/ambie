@@ -752,6 +752,10 @@
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
           <target state="new">Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</target>
         </trans-unit>
+        <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
+          <source>Recent history</source>
+          <target state="new">Recent history</target>
+        </trans-unit>
       </group>
     </body>
   </file>
