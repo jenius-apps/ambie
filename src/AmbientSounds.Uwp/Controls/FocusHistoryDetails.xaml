@@ -14,9 +14,9 @@
     <ScrollViewer>
         <StackPanel Margin="0,16,0,0">
             <local:HistoryStat
-                DescriptionText="{x:Bind ViewModel.StartDate}"
+                DescriptionText="{x:Bind ViewModel.TimeElapsed}"
                 Glyph="{StaticResource GlyphCalendar}"
-                StatText="{x:Bind ViewModel.TimeElapsed}" />
+                StatText="{x:Bind FormatStartEnd(ViewModel.StartTime, ViewModel.EndTime)}" />
             <local:HistoryStat
                 Margin="0,20,0,0"
                 DescriptionText="{x:Bind strings:Resources.FocusLength}"
