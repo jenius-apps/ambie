@@ -30,7 +30,13 @@ namespace AmbientSounds.ViewModels
             FocusInfo = $"{focusHistory.GetFocusTimeCompleted():N1}/{focusHistory.FocusLength * rounds}";
             RestInfo = $"{focusHistory.GetRestTimeCompleted():N1}/{focusHistory.RestLength * rounds}";
             InterruptionCount = focusHistory.Interruptions.Count;
-            Interruptions = focusHistory.Interruptions;
+
+            for (int i = 0; i < focusHistory.Interruptions.Count; i++)
+            {
+                Interruptions.Add(new InterruptionViewModel(
+                    focusHistory.Interruptions[i],
+                    i == focusHistory.Interruptions.Count - 1));
+            }
         }
 
         public string PercentComplete { get; }
@@ -57,6 +63,6 @@ namespace AmbientSounds.ViewModels
 
         public int InterruptionCount { get; }
 
-        public List<FocusInterruption> Interruptions { get; }
+        public List<InterruptionViewModel> Interruptions { get; } = new();
     }
 }

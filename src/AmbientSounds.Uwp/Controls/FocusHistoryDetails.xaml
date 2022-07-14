@@ -2,10 +2,12 @@
     x:Class="AmbientSounds.Controls.FocusHistoryDetails"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -32,6 +34,69 @@
                 DescriptionText="{x:Bind strings:Resources.Interruptions}"
                 Glyph="{StaticResource GlyphInterruption}"
                 StatText="{x:Bind ViewModel.InterruptionCount}" />
+
+            <ItemsControl ItemsSource="{x:Bind ViewModel.Interruptions}" Margin="0,6,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:InterruptionViewModel">
+                        <Grid MaxWidth="300">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Margin="14,0,0,0" HorizontalAlignment="Left">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <Rectangle
+                                    Grid.RowSpan="1"
+                                    Width="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Stretch"
+                                    Fill="{ThemeResource SystemAccentColor}"
+                                    Visibility="{x:Bind IsLast}" />
+
+                                <Rectangle
+                                    Grid.RowSpan="2"
+                                    Width="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Stretch"
+                                    Fill="{ThemeResource SystemAccentColor}"
+                                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(IsLast)}" />
+
+                                <Ellipse
+                                    Grid.RowSpan="2"
+                                    Width="8"
+                                    Height="8"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Fill="{ThemeResource SystemAccentColor}" />
+                            </Grid>
+
+                            <Grid
+                                Grid.Column="1"
+                                Margin="0,4"
+                                VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="{x:Bind MinutesInterrupted}" TextTrimming="CharacterEllipsis" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    FontSize="10"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Text="{x:Bind Notes}"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
