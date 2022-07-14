@@ -86,80 +86,28 @@
                 </animations:Implicit.ShowAnimations>
             </local:HistoryStat>
 
-            <ItemsControl Margin="0,6,0,0" ItemsSource="{x:Bind ViewModel.Interruptions}">
+            <ItemsControl
+                MaxWidth="300"
+                Margin="0,6,0,0"
+                ItemsSource="{x:Bind ViewModel.Interruptions}">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
-                        Delay="0:0:0.24"
+                        Delay="0:0:0.18"
                         From="0"
                         To="1"
                         Duration="0:0:0.3" />
                     <animations:TranslationAnimation
-                        Delay="0:0:0.24"
+                        Delay="0:0:0.18"
                         From="0,12,0"
                         To="0"
                         Duration="0:0:0.3" />
                 </animations:Implicit.ShowAnimations>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:InterruptionViewModel">
-                        <Grid MaxWidth="300">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Grid Margin="14,0,0,0" HorizontalAlignment="Left">
-
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-
-                                <Rectangle
-                                    Grid.RowSpan="1"
-                                    Width="2"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Stretch"
-                                    Fill="{ThemeResource SystemAccentColor}"
-                                    Visibility="{x:Bind IsLast}" />
-
-                                <Rectangle
-                                    Grid.RowSpan="2"
-                                    Width="2"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Stretch"
-                                    Fill="{ThemeResource SystemAccentColor}"
-                                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(IsLast)}" />
-
-                                <Ellipse
-                                    Grid.RowSpan="2"
-                                    Width="8"
-                                    Height="8"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Fill="{ThemeResource SystemAccentColor}" />
-                            </Grid>
-
-                            <Grid
-                                Grid.Column="1"
-                                Margin="0,4"
-                                VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
-                                    <RowDefinition Height="auto" />
-                                </Grid.RowDefinitions>
-
-                                <TextBlock
-                                    FontSize="10"
-                                    Text="{x:Bind MinutesInterrupted}"
-                                    TextTrimming="CharacterEllipsis" />
-                                <TextBlock
-                                    Grid.Row="1"
-                                    FontSize="10"
-                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                    Text="{x:Bind Notes}"
-                                    TextWrapping="WrapWholeWords" />
-                            </Grid>
-                        </Grid>
+                        <local:StatDetail
+                            DescriptionText="{x:Bind Notes}"
+                            HalfLengthLine="{x:Bind IsLast}"
+                            StatText="{x:Bind MinutesInterrupted}" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

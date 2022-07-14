@@ -210,6 +210,9 @@
     <Compile Include="Controls\SoundListItem.xaml.cs">
       <DependentUpon>SoundListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\StatDetail.xaml.cs">
+      <DependentUpon>StatDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ThemeSettings.xaml.cs">
       <DependentUpon>ThemeSettings.xaml</DependentUpon>
     </Compile>
@@ -482,6 +485,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SoundListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StatDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
