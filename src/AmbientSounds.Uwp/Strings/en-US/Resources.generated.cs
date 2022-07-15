@@ -1484,19 +1484,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region SeeMore
-        /// <summary>
-        ///   Looks up a localized string similar to: See more
-        /// </summary>
-        public static string SeeMore
-        {
-            get
-            {
-                return _resourceLoader.GetString("SeeMore");
-            }
-        }
-        #endregion
-
         #region LogInterruption
         /// <summary>
         ///   Looks up a localized string similar to: Log interruption
@@ -1737,7 +1724,6 @@ namespace AmbientSounds.Strings{
             History,
             Interruptions,
             FocusHistoryPlaceholderText,
-            SeeMore,
             LogInterruption,
             Confirm,
             InterruptionMinutesTitle,
