@@ -20,6 +20,17 @@
 
 Ambie is an app that plays white noise and nature sounds to help you focus, sleep, and unwind. For many people, having background noise while working on a task helps with concentration. Ambie has a good starting selection of built-in sounds such as rain and beach waves that help you. These can also be used to help you sleep, relax, and de-stress. For instance, those with tinnitus and anxiety have reached out saying Ambie has helped them. And if you download Ambie from the Microsoft Store, you'll get access to a catalogue of online sounds that you can download to expand your library.
 
+## From the Press
+
+One of [FastCompany's best new apps for productivity](https://www.fastcompany.com/90766562/the-23-best-new-productivity-apps-for-2022) in 2022 (USA):
+> Great ambient noise apps are in short supply on Windows PCs, which is why Ambie is so refreshing. It includes dozens of high-quality background sounds, plus the ability to save your own custom mixes. A major update this year added focus timers and a simple notepad, making this a one-stop concentration shop.
+
+One of [Xataka's best Windows apps](https://www.xataka.com/basics/mejores-apps-2022-para-windows-nuevas-imprescindible-joyas-ocultas) in 2022 (Spain):
+> It is a simple and colorful application, although with several utilities. On the one hand, you have a wide catalog of sounds to play the one you like the most, but it also allows you to mix sounds to create a unique one.
+
+Included in [Beebom's list of best apps on Windows 11](https://beebom.com/best-windows-11-apps/) (India):
+> The app works miracles when you are trying to focus on work or studies. It lets you set a timer and choose your favorite natural sound from its curated catalog. I love this well-designed app, and I strongly recommend instaling Ambie White Noise if you have a hard time focusing at work or school.
+
 ## Contribute
 
 For new features, please make sure there's an issue created for it first and that maintainers have confirmed that the new feature should be on Ambie's roadmap. In some cases, you might have contacted the maintainers directly via other channels such as Twitter or Discord. You might have asked the maintainers if you can submit a PR. In those scenarios, an issue is not required.
