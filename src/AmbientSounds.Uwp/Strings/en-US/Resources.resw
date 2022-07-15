@@ -682,4 +682,7 @@
   <data name="HistoryRecent" xml:space="preserve">
     <value>Recent history</value>
   </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Rounds completed</value>
+  </data>
 </root>

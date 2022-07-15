@@ -17,6 +17,7 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(focusHistory, nameof(focusHistory));
 
+            // TODO change percent complete to be defined as focus minutes completed out of all total focus minutes
             var percent = focusHistory.GetPercentComplete();
             PercentComplete = percent >= 100
                 ? $"{percent}%"
@@ -27,8 +28,10 @@ namespace AmbientSounds.ViewModels
             _localEnd = new DateTime(focusHistory.EndUtcTicks, DateTimeKind.Utc).ToLocalTime();
 
             int rounds = focusHistory.Repetitions + 1;
-            FocusInfo = $"{focusHistory.GetFocusTimeCompleted():N1}/{focusHistory.FocusLength * rounds}";
-            RestInfo = $"{focusHistory.GetRestTimeCompleted():N1}/{focusHistory.RestLength * rounds}";
+            FocusMinutes = Math.Round(focusHistory.GetFocusTimeCompleted(), 1);
+            FocusInfo = $"{focusHistory.FocusSegmentsCompleted}/{rounds}";
+            RestMinutes = Math.Round(focusHistory.GetRestTimeCompleted(), 1);
+
             InterruptionCount = focusHistory.Interruptions.Count;
 
             for (int i = 0; i < focusHistory.Interruptions.Count; i++)
@@ -57,9 +60,11 @@ namespace AmbientSounds.ViewModels
 
         public string EndTime => _localEnd.ToShortTimeString();
 
-        public string FocusInfo { get; }
+        public double FocusMinutes { get; }
 
-        public string RestInfo { get; }
+        public double RestMinutes { get; }
+
+        public string FocusInfo { get; }
 
         public int InterruptionCount { get; }
 

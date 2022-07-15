@@ -1574,6 +1574,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region RoundsCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Rounds completed
+        /// </summary>
+        public static string RoundsCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("RoundsCompleted");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1705,6 +1718,7 @@ namespace AmbientSounds.Strings{
             Notes,
             InterruptionMinutesHelpMessage,
             HistoryRecent,
+            RoundsCompleted,
         }
 
         private static ResourceLoader _resourceLoader;

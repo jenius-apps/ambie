@@ -767,6 +767,10 @@
           <source>Recent history</source>
           <target state="new">Recent history</target>
         </trans-unit>
+        <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
+          <source>Rounds completed</source>
+          <target state="new">Rounds completed</target>
+        </trans-unit>
       </group>
     </body>
   </file>

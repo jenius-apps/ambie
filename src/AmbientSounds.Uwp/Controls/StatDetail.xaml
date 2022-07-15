@@ -16,7 +16,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Margin="14,0,0,0" HorizontalAlignment="Left">
+        <Grid Margin="12,0,0,0" HorizontalAlignment="Left">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -28,7 +28,7 @@
                 Width="2"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Stretch"
-                Fill="{ThemeResource AccentFillColorTertiaryBrush}"
+                Fill="Gray"
                 Visibility="{x:Bind HalfLengthLine, Mode=OneWay}" />
 
             <Rectangle
@@ -36,7 +36,7 @@
                 Width="2"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Stretch"
-                Fill="{ThemeResource AccentFillColorTertiaryBrush}"
+                Fill="Gray"
                 Visibility="{x:Bind converters:VisibilityConverter.InvertBool(HalfLengthLine), Mode=OneWay}" />
 
             <Ellipse
@@ -45,7 +45,7 @@
                 Height="8"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Fill="{ThemeResource AccentFillColorDefaultBrush}" />
+                Fill="Gray" />
         </Grid>
 
         <Grid

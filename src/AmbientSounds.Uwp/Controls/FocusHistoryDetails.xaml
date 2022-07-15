@@ -31,11 +31,7 @@
                         Duration="0:0:0.3" />
                 </animations:Implicit.ShowAnimations>
             </local:HistoryStat>
-            <local:HistoryStat
-                Margin="0,20,0,0"
-                DescriptionText="{x:Bind strings:Resources.FocusLength}"
-                Glyph="{StaticResource GlyphFocus}"
-                StatText="{x:Bind ViewModel.FocusInfo}">
+            <StackPanel>
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         Delay="0:0:0.06"
@@ -48,48 +44,42 @@
                         To="0"
                         Duration="0:0:0.3" />
                 </animations:Implicit.ShowAnimations>
-            </local:HistoryStat>
-            <local:HistoryStat
-                Margin="0,20,0,0"
-                DescriptionText="{x:Bind strings:Resources.RestLength}"
-                Glyph="{StaticResource GlyphSleep}"
-                StatText="{x:Bind ViewModel.RestInfo}">
-                <animations:Implicit.ShowAnimations>
-                    <animations:OpacityAnimation
-                        Delay="0:0:0.12"
-                        From="0"
-                        To="1"
-                        Duration="0:0:0.3" />
-                    <animations:TranslationAnimation
-                        Delay="0:0:0.12"
-                        From="0,12,0"
-                        To="0"
-                        Duration="0:0:0.3" />
-                </animations:Implicit.ShowAnimations>
-            </local:HistoryStat>
-            <local:HistoryStat
-                Margin="0,20,0,0"
-                DescriptionText="{x:Bind strings:Resources.Interruptions}"
-                Glyph="{StaticResource GlyphInterruption}"
-                StatText="{x:Bind ViewModel.InterruptionCount}">
-                <animations:Implicit.ShowAnimations>
-                    <animations:OpacityAnimation
-                        Delay="0:0:0.18"
-                        From="0"
-                        To="1"
-                        Duration="0:0:0.3" />
-                    <animations:TranslationAnimation
-                        Delay="0:0:0.18"
-                        From="0,12,0"
-                        To="0"
-                        Duration="0:0:0.3" />
-                </animations:Implicit.ShowAnimations>
-            </local:HistoryStat>
 
-            <ItemsControl
-                MaxWidth="300"
-                Margin="0,6,0,0"
-                ItemsSource="{x:Bind ViewModel.Interruptions}">
+                <local:HistoryStat
+                    Margin="0,20,0,0"
+                    DescriptionText="{x:Bind strings:Resources.FocusLength}"
+                    Glyph="{StaticResource GlyphFocus}"
+                    StatText="{x:Bind ViewModel.FocusMinutes}" />
+                <ItemsControl MaxWidth="300" Margin="0,6,0,0">
+                    <local:StatDetail
+                        DescriptionText="{x:Bind strings:Resources.RoundsCompleted}"
+                        HalfLengthLine="True"
+                        StatText="{x:Bind ViewModel.FocusInfo}" />
+                </ItemsControl>
+            </StackPanel>
+
+            <StackPanel>
+                <animations:Implicit.ShowAnimations>
+                    <animations:OpacityAnimation
+                        Delay="0:0:0.12"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <animations:TranslationAnimation
+                        Delay="0:0:0.12"
+                        From="0,12,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </animations:Implicit.ShowAnimations>
+
+                <local:HistoryStat
+                    Margin="0,20,0,0"
+                    DescriptionText="{x:Bind strings:Resources.RestLength}"
+                    Glyph="{StaticResource GlyphSleep}"
+                    StatText="{x:Bind ViewModel.RestMinutes}" />
+            </StackPanel>
+
+            <StackPanel>
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         Delay="0:0:0.18"
@@ -102,15 +92,25 @@
                         To="0"
                         Duration="0:0:0.3" />
                 </animations:Implicit.ShowAnimations>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:InterruptionViewModel">
-                        <local:StatDetail
-                            DescriptionText="{x:Bind Notes}"
-                            HalfLengthLine="{x:Bind IsLast}"
-                            StatText="{x:Bind MinutesInterrupted}" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                <local:HistoryStat
+                    Margin="0,20,0,0"
+                    DescriptionText="{x:Bind strings:Resources.Interruptions}"
+                    Glyph="{StaticResource GlyphInterruption}"
+                    StatText="{x:Bind ViewModel.InterruptionCount}" />
+                <ItemsControl
+                    MaxWidth="300"
+                    Margin="0,6,0,0"
+                    ItemsSource="{x:Bind ViewModel.Interruptions}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="viewmodels:InterruptionViewModel">
+                            <local:StatDetail
+                                DescriptionText="{x:Bind Notes}"
+                                HalfLengthLine="{x:Bind IsLast}"
+                                StatText="{x:Bind MinutesInterrupted}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

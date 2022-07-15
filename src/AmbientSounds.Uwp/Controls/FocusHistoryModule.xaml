@@ -98,7 +98,7 @@
                                                 Margin="4,0,0,0"
                                                 FontSize="10"
                                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                Text="{x:Bind FocusInfo}"
+                                                Text="{x:Bind FocusMinutes}"
                                                 TextWrapping="Wrap" />
                                         </StackPanel>
 
@@ -112,7 +112,7 @@
                                                 Margin="4,0,0,0"
                                                 FontSize="10"
                                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                Text="{x:Bind RestInfo}"
+                                                Text="{x:Bind RestMinutes}"
                                                 TextWrapping="Wrap" />
 
                                         </StackPanel>
