@@ -685,4 +685,10 @@
   <data name="RoundsCompleted" xml:space="preserve">
     <value>Rounds completed</value>
   </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Good effort</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>You're amazing</value>
+  </data>
 </root>

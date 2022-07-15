@@ -1587,6 +1587,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ResultMessageFail1
+        /// <summary>
+        ///   Looks up a localized string similar to: Good effort
+        /// </summary>
+        public static string ResultMessageFail1
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResultMessageFail1");
+            }
+        }
+        #endregion
+
+        #region ResultMessageSuccess1
+        /// <summary>
+        ///   Looks up a localized string similar to: You're amazing
+        /// </summary>
+        public static string ResultMessageSuccess1
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResultMessageSuccess1");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1719,6 +1745,8 @@ namespace AmbientSounds.Strings{
             InterruptionMinutesHelpMessage,
             HistoryRecent,
             RoundsCompleted,
+            ResultMessageFail1,
+            ResultMessageSuccess1,
         }
 
         private static ResourceLoader _resourceLoader;

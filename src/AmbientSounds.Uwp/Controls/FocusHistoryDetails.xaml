@@ -47,10 +47,11 @@
 
                 <local:HistoryStat
                     Margin="0,20,0,0"
-                    DescriptionText="{x:Bind strings:Resources.FocusLength}"
+                    DescriptionText="{x:Bind GetResultText(ViewModel.FocusMinutes, ViewModel.TotalFocusMinutes)}"
                     Glyph="{StaticResource GlyphFocus}"
-                    StatText="{x:Bind ViewModel.FocusMinutes}" />
+                    StatText="{x:Bind ViewModel.PercentComplete}" />
                 <ItemsControl MaxWidth="300" Margin="0,6,0,0">
+                    <local:StatDetail DescriptionText="{x:Bind strings:Resources.FocusLength}" StatText="{x:Bind ViewModel.FocusMinutesFraction}" />
                     <local:StatDetail
                         DescriptionText="{x:Bind strings:Resources.RoundsCompleted}"
                         HalfLengthLine="True"
@@ -58,7 +59,7 @@
                 </ItemsControl>
             </StackPanel>
 
-            <StackPanel>
+            <StackPanel Visibility="{x:Bind CanShowRestStat(ViewModel.RestMinutes)}">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         Delay="0:0:0.12"

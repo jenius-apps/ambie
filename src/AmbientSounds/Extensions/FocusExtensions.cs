@@ -86,6 +86,11 @@ namespace AmbientSounds.Extensions
             return focusTimeCompleted / totalFocusTime * 100;
         }
 
+        public static double GetFocusTimeTotal(this FocusHistory history)
+        {
+            return history.FocusLength * (history.Repetitions + 1);
+        }
+
         public static double GetFocusTimeCompleted(this FocusHistory history)
         {
             if (history is null)

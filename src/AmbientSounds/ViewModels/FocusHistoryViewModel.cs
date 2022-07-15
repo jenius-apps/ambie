@@ -29,6 +29,9 @@ namespace AmbientSounds.ViewModels
             int rounds = focusHistory.Repetitions + 1;
             FocusMinutes = Math.Round(focusHistory.GetFocusTimeCompleted(), 1);
             FocusInfo = $"{focusHistory.FocusSegmentsCompleted}/{rounds}";
+            TotalFocusMinutes = focusHistory.GetFocusTimeTotal();
+            FocusMinutesFraction = $"{FocusMinutes}/{TotalFocusMinutes}";
+
             RestMinutes = Math.Round(focusHistory.GetRestTimeCompleted(), 1);
 
             InterruptionCount = focusHistory.Interruptions.Count;
@@ -60,6 +63,10 @@ namespace AmbientSounds.ViewModels
         public string EndTime => _localEnd.ToShortTimeString();
 
         public double FocusMinutes { get; }
+
+        public double TotalFocusMinutes { get; }
+
+        public string FocusMinutesFraction { get; }
 
         public double RestMinutes { get; }
 

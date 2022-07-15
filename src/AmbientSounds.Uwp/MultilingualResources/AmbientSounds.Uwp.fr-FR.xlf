@@ -768,6 +768,14 @@
           <source>Rounds completed</source>
           <target state="new">Rounds completed</target>
         </trans-unit>
+        <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
+          <source>Good effort</source>
+          <target state="new">Good effort</target>
+        </trans-unit>
+        <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
+          <source>You're amazing</source>
+          <target state="new">You're amazing</target>
+        </trans-unit>
       </group>
     </body>
   </file>
