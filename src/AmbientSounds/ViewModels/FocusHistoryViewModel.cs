@@ -17,7 +17,6 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(focusHistory, nameof(focusHistory));
 
-            // TODO change percent complete to be defined as focus minutes completed out of all total focus minutes
             var percent = focusHistory.GetPercentComplete();
             PercentComplete = percent >= 100
                 ? $"{percent}%"

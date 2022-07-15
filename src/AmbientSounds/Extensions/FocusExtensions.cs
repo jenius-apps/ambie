@@ -62,24 +62,28 @@ namespace AmbientSounds.Extensions
 
         public static double GetPercentComplete(this FocusHistory history)
         {
+            // Percent complete is defined as number of focus minutes completed 
+            // divided by the number of total possible focus minutes.
+
             if (history is null)
             {
                 return 0;
             }
 
-            var totalTime = GetTotalTime(history.FocusLength, history.RestLength, history.Repetitions);
             int numOfRounds = history.Repetitions + 1;
-            if (history.FocusSegmentsCompleted == numOfRounds &&
-                history.RestSegmentsCompleted == numOfRounds)
+            if (history.FocusSegmentsCompleted == numOfRounds)
             {
                 return 100;
             }
 
-            double sumOfTime = (history.FocusSegmentsCompleted * history.FocusLength) +
-                            (history.RestSegmentsCompleted & history.RestLength) +
-                            TimeSpan.FromTicks(history.PartialSegmentTicks).TotalMinutes;
+            double totalFocusTime = history.FocusLength * numOfRounds;
+            double focusTimeCompleted = history.FocusSegmentsCompleted * numOfRounds;
+            if (history.PartialSegmentType == SessionType.Focus)
+            {
+                focusTimeCompleted += TimeSpan.FromTicks(history.PartialSegmentTicks).TotalMinutes;
+            }
 
-            return sumOfTime / totalTime.TotalMinutes * 100;
+            return focusTimeCompleted / totalFocusTime * 100;
         }
 
         public static double GetFocusTimeCompleted(this FocusHistory history)
