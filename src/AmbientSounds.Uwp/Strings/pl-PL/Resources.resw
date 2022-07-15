@@ -52,7 +52,7 @@
     <value>Udostępnij link do Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
-    <value>Dodaj/Popraw tłumaczenie</value>
+    <value>Dodaj lub Popraw tłumaczenie</value>
   </data>
   <data name="OffTextBlock.Text" xml:space="preserve">
     <value>Wyłączone</value>
@@ -434,7 +434,7 @@
     <value>Przełącz tryb pełnoekranowy</value>
   </data>
   <data name="GetAmbiePlus" xml:space="preserve">
-    <value>Kup subskrypcję Ambie Plus</value>
+    <value>Kup Ambie Plus</value>
   </data>
   <data name="FocusText" xml:space="preserve">
     <value>Koncentracja</value>
@@ -452,22 +452,22 @@
     <value>Sesja koncentracji zakończona</value>
   </data>
   <data name="FocusSessionFocusMessage" xml:space="preserve">
-    <value>Czas skupienia</value>
+    <value>Czas na koncentrację</value>
   </data>
   <data name="FocusSessionRestMessage" xml:space="preserve">
     <value>Czas odpoczynku</value>
   </data>
   <data name="RestText" xml:space="preserve">
-    <value>Odpocznij</value>
+    <value>Odpoczynek</value>
   </data>
   <data name="FocusDotTooltip" xml:space="preserve">
     <value>Sesja koncentracji aktywna!</value>
   </data>
   <data name="SessionTypeFocus" xml:space="preserve">
-    <value>Skoncentruj się</value>
+    <value>Skoncentruj się na wykonaniu zadania</value>
   </data>
   <data name="SessionTypeRest" xml:space="preserve">
-    <value>Odpocznij</value>
+    <value>Zrób sobie przerwę od pracy</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pauza</value>
@@ -482,7 +482,7 @@
     <value>Start</value>
   </data>
   <data name="FocusLength" xml:space="preserve">
-    <value>Czas skupienia (w minutach)</value>
+    <value>Czas koncentracji (w minutach)</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
     <value>Miejsce do napisania notatek albo listy rzeczy do zrobienia 🙂</value>
@@ -500,7 +500,7 @@
     <value>Czas odpoczynku (w minutach)</value>
   </data>
   <data name="FocusTimerHelpAction" xml:space="preserve">
-    <value>Pomoc w użytkowaniu</value>
+    <value>Pokaż mi jak z niego korzystać</value>
   </data>
   <data name="FocusTimerHelpMessage" xml:space="preserve">
     <value>Licznik koncentracji jest inspirowany techniką pomodoro. Technika ta opiera się na dłuższych okresach skupienia na zadaniu przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pomaga w skupieniu się!</value>
@@ -515,13 +515,13 @@
     <value>Dalej</value>
   </data>
   <data name="TipFocusMessage" xml:space="preserve">
-    <value>Każdy cykl dzieli się na segment skupienia i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</value>
+    <value>Każdy cykl dzieli się na segment koncentracji i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</value>
   </data>
   <data name="TipFocusTitle" xml:space="preserve">
-    <value>Ustaw czas skupienia</value>
+    <value>Ustaw czas koncentracji</value>
   </data>
   <data name="TipRepeatsMessage" xml:space="preserve">
-    <value>Cykle mogą być wielokrotnie powtarzane. Dodaj jedno powtórzenie!</value>
+    <value>Cykl koncentracji i odpoczynku może być wielokrotnie powtarzany. Dodaj jedno powtórzenie!</value>
   </data>
   <data name="TipRepeatsTitle" xml:space="preserve">
     <value>Ustaw powtórzenia</value>
@@ -533,13 +533,13 @@
     <value>Ustaw czas odpoczynku</value>
   </data>
   <data name="TipStartButtonMessage" xml:space="preserve">
-    <value>Uruchom licznik i zajmij się swoimi zadaniami. Kiedy przyjdzie czas na odpoczynek pojawi się powiadomienie. Do roboty!</value>
+    <value>Uruchom licznik i skoncentruj się na swoim zadaniu. Kiedy przyjdzie czas na odpoczynek pojawi się powiadomienie. Do roboty!</value>
   </data>
   <data name="TipStartButtonTitle" xml:space="preserve">
     <value>Na miejsca, gotowi, start</value>
   </data>
   <data name="RecentFocusAccessibleName" xml:space="preserve">
-    <value>{0} minut skupienia, {1} minut odpoczynku, {2} powtórzeń.</value>
+    <value>{0} minut koncentracji, {1} minut odpoczynku, {2} powtórzeń.</value>
   </data>
   <data name="RecentFocusList" xml:space="preserve">
     <value>Lista ostatnich konfiguracji licznika koncentracji.</value>
