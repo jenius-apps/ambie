@@ -436,11 +436,15 @@ namespace AmbientSounds.ViewModels
 
         private async Task LogInterruptionAsync()
         {
-            var success = await _focusHistoryService.LogInterruptionAsync();
+            (double minutesLogged, bool hasNotes) = await _focusHistoryService.LogInterruptionAsync();
 
-            if (success)
+            if (minutesLogged > 0)
             {
-                _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged);
+                _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
+                {
+                    { "minutes", minutesLogged.ToString() },
+                    { "hasNotes", hasNotes.ToString() }
+                });
             }
         }
     }

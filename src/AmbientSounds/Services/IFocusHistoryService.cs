@@ -49,6 +49,10 @@ namespace AmbientSounds.Services
         /// Opens a dialog requesting an interruption time from the user.
         /// The interruption time will be logged in history.
         /// </summary>
-        Task<bool> LogInterruptionAsync();
+        /// <returns>
+        /// 1. Double for minutes logged.
+        /// 2. True if notes were populated. False if empty.
+        /// </returns>
+        Task<(double, bool)> LogInterruptionAsync();
     }
 }

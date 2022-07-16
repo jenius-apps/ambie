@@ -96,18 +96,18 @@ namespace AmbientSounds.Services
             }
         }
 
-        public async Task<bool> LogInterruptionAsync()
+        public async Task<double> LogInterruptionAsync()
         {
             if (_activeHistory is null)
             {
-                return false;
+                return 0;
             }
 
             (double minutes, string notes) = await _dialogService.OpenInterruptionAsync();
 
             if (minutes <= 0)
             {
-                return false;
+                return 0;
             }
 
             _activeHistory.Interruptions.Add(new FocusInterruption
@@ -117,7 +117,7 @@ namespace AmbientSounds.Services
                 UtcTime = DateTime.UtcNow.Ticks
             });
 
-            return true;
+            return minutes;
         }
     }
 }
