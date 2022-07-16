@@ -99,6 +99,12 @@ namespace AmbientSounds.Constants
         public const string HasClosedFocusHelpMessageKey = "HasClosedFocusHelpMessage";
 
         /// <summary>
+        /// Used to remember if the user has closed the interruption help
+        /// at least once.
+        /// </summary>
+        public const string HasClosedInterruptionMessageKey = "HasClosedInterruptionMessage";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -119,6 +125,7 @@ namespace AmbientSounds.Constants
             { DisableSmtcSupportKey, false },
             { LastUsedScreensaverKey, string.Empty },
             { HasClosedFocusHelpMessageKey, false },
+            { HasClosedInterruptionMessageKey, false },
             { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
         };
     }

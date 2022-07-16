@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Controls;
 using AmbientSounds.Converters;
+using AmbientSounds.ViewModels;
 using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Threading.Tasks;
@@ -174,6 +175,49 @@ namespace AmbientSounds.Services.Uwp
                 CloseButtonText = Strings.Resources.CloseText,
                 RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
                 Content = new VideosMenu()
+            };
+
+            await dialog.ShowAsync();
+            IsDialogOpen = false;
+        }
+
+        /// <inheritdoc/>
+        public async Task<(double, string)> OpenInterruptionAsync()
+        {
+            if (IsDialogOpen)
+            {
+                return (0, string.Empty);
+            }
+
+            IsDialogOpen = true;
+            var dialog = new InterruptionDialog()
+            {
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            };
+
+            var result = await dialog.ShowAsync();
+            IsDialogOpen = false;
+
+            return result == ContentDialogResult.Primary 
+                ? (dialog.MinutesLogged, dialog.InterruptionNotes) 
+                : (0, string.Empty);
+        }
+
+        /// <inheritdoc/>
+        public async Task OpenHistoryDetailsAsync(FocusHistoryViewModel historyViewModel)
+        {
+            if (historyViewModel is null || IsDialogOpen)
+            {
+                return;
+            }
+
+            IsDialogOpen = true;
+            var dialog = new ContentDialog()
+            {
+                Title = Strings.Resources.History,
+                CloseButtonText = Strings.Resources.CloseText,
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+                Content = new FocusHistoryDetails(historyViewModel)
             };
 
             await dialog.ShowAsync();

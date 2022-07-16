@@ -1444,6 +1444,162 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region History
+        /// <summary>
+        ///   Looks up a localized string similar to: History
+        /// </summary>
+        public static string History
+        {
+            get
+            {
+                return _resourceLoader.GetString("History");
+            }
+        }
+        #endregion
+
+        #region Interruptions
+        /// <summary>
+        ///   Looks up a localized string similar to: Interruptions
+        /// </summary>
+        public static string Interruptions
+        {
+            get
+            {
+                return _resourceLoader.GetString("Interruptions");
+            }
+        }
+        #endregion
+
+        #region FocusHistoryPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Your recent history will appear here
+        /// </summary>
+        public static string FocusHistoryPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusHistoryPlaceholderText");
+            }
+        }
+        #endregion
+
+        #region LogInterruption
+        /// <summary>
+        ///   Looks up a localized string similar to: Log interruption
+        /// </summary>
+        public static string LogInterruption
+        {
+            get
+            {
+                return _resourceLoader.GetString("LogInterruption");
+            }
+        }
+        #endregion
+
+        #region Confirm
+        /// <summary>
+        ///   Looks up a localized string similar to: Confirm
+        /// </summary>
+        public static string Confirm
+        {
+            get
+            {
+                return _resourceLoader.GetString("Confirm");
+            }
+        }
+        #endregion
+
+        #region InterruptionMinutesTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Minutes interrupted
+        /// </summary>
+        public static string InterruptionMinutesTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionMinutesTitle");
+            }
+        }
+        #endregion
+
+        #region Notes
+        /// <summary>
+        ///   Looks up a localized string similar to: Notes
+        /// </summary>
+        public static string Notes
+        {
+            get
+            {
+                return _resourceLoader.GetString("Notes");
+            }
+        }
+        #endregion
+
+        #region InterruptionMinutesHelpMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.
+        /// </summary>
+        public static string InterruptionMinutesHelpMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionMinutesHelpMessage");
+            }
+        }
+        #endregion
+
+        #region HistoryRecent
+        /// <summary>
+        ///   Looks up a localized string similar to: Recent history
+        /// </summary>
+        public static string HistoryRecent
+        {
+            get
+            {
+                return _resourceLoader.GetString("HistoryRecent");
+            }
+        }
+        #endregion
+
+        #region RoundsCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Rounds completed
+        /// </summary>
+        public static string RoundsCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("RoundsCompleted");
+            }
+        }
+        #endregion
+
+        #region ResultMessageFail1
+        /// <summary>
+        ///   Looks up a localized string similar to: Good effort
+        /// </summary>
+        public static string ResultMessageFail1
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResultMessageFail1");
+            }
+        }
+        #endregion
+
+        #region ResultMessageSuccess1
+        /// <summary>
+        ///   Looks up a localized string similar to: You're amazing
+        /// </summary>
+        public static string ResultMessageSuccess1
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResultMessageSuccess1");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1565,6 +1721,18 @@ namespace AmbientSounds.Strings{
             RecentFocusAccessibleName,
             RecentFocusList,
             ZeroToMax,
+            History,
+            Interruptions,
+            FocusHistoryPlaceholderText,
+            LogInterruption,
+            Confirm,
+            InterruptionMinutesTitle,
+            Notes,
+            InterruptionMinutesHelpMessage,
+            HistoryRecent,
+            RoundsCompleted,
+            ResultMessageFail1,
+            ResultMessageSuccess1,
         }
 
         private static ResourceLoader _resourceLoader;

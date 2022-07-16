@@ -1,0 +1,58 @@
+﻿<ContentDialog
+    x:Class="AmbientSounds.Controls.InterruptionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    CloseButtonText="{x:Bind strings:Resources.CancelText}"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
+    PrimaryButtonText="{x:Bind strings:Resources.Confirm}"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    mc:Ignorable="d">
+    <ContentDialog.Title>
+        <StackPanel Orientation="Horizontal">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphInterruption}" />
+            <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.LogInterruption}" />
+        </StackPanel>
+    </ContentDialog.Title>
+
+    <Grid MaxWidth="300">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <winui:InfoBar
+            x:Name="HelpMessageBar"
+            Width="300"
+            CloseButtonClick="HelpMessageBar_CloseButtonClick"
+            IsOpen="False"
+            Message="{x:Bind strings:Resources.InterruptionMinutesHelpMessage}"
+            Severity="Informational" />
+
+        <winui:NumberBox
+            x:Name="MinutesBox"
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            Header="{x:Bind strings:Resources.InterruptionMinutesTitle}"
+            Maximum="99"
+            Minimum="0"
+            SpinButtonPlacementMode="Inline"
+            ValueChanged="NumberBox_ValueChanged"
+            Value="0" />
+
+        <TextBox
+            x:Name="NotesBox"
+            Grid.Row="2"
+            Width="300"
+            Margin="0,20,0,12"
+            Header="{x:Bind strings:Resources.Notes}"
+            MaxLength="280"
+            PlaceholderText="{x:Bind strings:Resources.Optional}" />
+    </Grid>
+</ContentDialog>
