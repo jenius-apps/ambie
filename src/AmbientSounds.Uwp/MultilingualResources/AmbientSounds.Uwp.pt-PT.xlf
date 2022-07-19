@@ -501,271 +501,271 @@
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
           <source>Auto resume when Ambie opens</source>
-          <target state="new">Auto resume when Ambie opens</target>
+          <target state="translated">Retomar quando o Ambie abrir</target>
         </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated">Download</target>
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="new">We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</target>
+          <target state="translated">Precisamos baixar alguns sons para reproduzir isso. Uma vez baixado, tente jogar novamente. Iniciar download?</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
-          <target state="new">Missing sounds</target>
+          <target state="translated">Sons ausentes</target>
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="new">Default</target>
+          <target state="translated">Predefinição</target>
         </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Excluir</target>
         </trans-unit>
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
-          <target state="new">{0} MB</target>
+          <target state="translated">{0} MB</target>
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="new">More screensavers</target>
+          <target state="translated">Mais protetores de tela</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="new">Screensaver catalogue</target>
+          <target state="translated">Catálogo de protetores de tela</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="new">View premium info</target>
+          <target state="translated">Ver informações premium</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
-          <target state="new">Clouds</target>
+          <target state="translated">Nuvens</target>
         </trans-unit>
         <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
-          <target state="new">Colored smoke</target>
+          <target state="translated">Fumaça colorida</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
-          <target state="new">Octagrams</target>
+          <target state="translated">Octagramas</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="new">There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</target>
+          <target state="translated">Ocorreu um problema ao exibir o protetor de tela. Tente reiniciar o Ambie ou entre em contato conosco se o problema persistir.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
-          <target state="new">Report the issue</target>
+          <target state="translated">Relatar o problema</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="new">Rendering error</target>
+          <target state="translated">Erro</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="new">Toggle fullscreen</target>
+          <target state="translated">Alternar para o modo tela cheia</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie Plus</source>
-          <target state="new">Get Ambie Plus</target>
+          <target state="translated">Obtenha o Ambie Plus</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="new">Focus</target>
+          <target state="translated">Foco</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
-          <target state="new">Pause timer</target>
+          <target state="translated">Pausar cronômetro</target>
         </trans-unit>
         <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
           <source>Start timer</source>
-          <target state="new">Start timer</target>
+          <target state="translated">Iniciar cronômetro</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="new">Well done!</target>
+          <target state="translated">Bom trabalho!</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="new">Focus session complete</target>
+          <target state="translated">Sessão de foco concluída</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="new">Time to focus</target>
+          <target state="translated">Hora de focar</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="new">Time to rest</target>
+          <target state="translated">Hora de descansar</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="new">Rest</target>
+          <target state="translated">Descanso</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="new">Focus session is active!</target>
+          <target state="translated">Sessão de foco está ativa!</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="new">Focusing</target>
+          <target state="translated">Concentrando</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="new">Resting</target>
+          <target state="translated">Em repouso</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="new">Pause</target>
+          <target state="translated">Pausa</target>
         </trans-unit>
         <trans-unit id="Reset" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="new">Reset</target>
+          <target state="translated">Redefinir</target>
         </trans-unit>
         <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
           <source>Reset timer</source>
-          <target state="new">Reset timer</target>
+          <target state="translated">Redefinir cronômetro</target>
         </trans-unit>
         <trans-unit id="Start" translate="yes" xml:space="preserve">
           <source>Start</source>
-          <target state="new">Start</target>
+          <target state="translated">Começar</target>
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="new">Focus minutes</target>
+          <target state="translated">Minutos de foco</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down your to-do list or any notes here 🙂</source>
-          <target state="new">You can jot down your to-do list or any notes here 🙂</target>
+          <target state="translated">Você pode anotar sua lista de tarefas ou quaisquer notas aqui</target>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="new">What's the plan?</target>
+          <target state="translated">Qual é o plano?</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
-          <target state="new">Notepad</target>
+          <target state="translated">Bloco de anotações</target>
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="new">Rest minutes</target>
+          <target state="translated">Minutos de descanso</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="new">Repeats</target>
+          <target state="translated">Repete</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="new">Show me how to use it</target>
+          <target state="translated">Mostre-me como usá-lo</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="new">This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</target>
+          <target state="translated">Este é um temporizador de intervalo inspirado na técnica pomodoro. O objetivo é se concentrar em uma tarefa por um longo período de tempo e, em seguida, fazer uma pausa de descanso mais curta. Repita este ciclo para manter o foco!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="new">Welcome to Focus Timer!</target>
+          <target state="translated">Bem-vindo ao temporizador de foco!</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="new">Help</target>
+          <target state="translated">Ajuda</target>
         </trans-unit>
         <trans-unit id="Next" translate="yes" xml:space="preserve">
           <source>Next</source>
-          <target state="new">Next</target>
+          <target state="translated">Próximo</target>
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="new">Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</target>
+          <target state="translated">Cada ciclo tem um segmento de foco e um segmento de descanso. Escolha a duração de cada segmento de foco. Recomendamos 25 minutos para começar!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="new">Set focus minutes</target>
+          <target state="translated">Definir minutos de foco</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="new">Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</target>
+          <target state="translated">Cada ciclo de foco e descanso pode se repetir várias vezes. Tente adicionar 1 repetição!</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
-          <target state="new">Set repeats</target>
+          <target state="translated">Definir repetições</target>
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="new">Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</target>
+          <target state="translated">Agora, escolha a duração de cada segmento de descanso. Recomendamos cerca de 5 minutos por enquanto!</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="new">Set rest minutes</target>
+          <target state="translated">Definir minutos de descanso</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="new">Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</target>
+          <target state="translated">Inicie o cronômetro e trabalhe em suas tarefas. Enviaremos notificações quando for hora de descansar. Trabalhar duro!</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="new">Ready, set, go</target>
+          <target state="translated">Pronto, definido, ir</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="new">{0} focus minutes, {1} rest minutes, {2} repeats.</target>
+          <target state="translated">{0} minutos de foco, {1} minutos de descanso, {2} repetições</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="new">List of recent focus configurations.</target>
+          <target state="translated">Lista de configurações de foco recentes.</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
-          <target state="new">0 to {0}</target>
+          <target state="translated">0 a {0}</target>
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="new">History</target>
+          <target state="translated">História</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
-          <target state="new">Interruptions</target>
+          <target state="translated">Interrupções</target>
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
-          <target state="new">Your recent history will appear here</target>
+          <target state="translated">Seu histórico recente aparecerá aqui</target>
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="new">Log interruption</target>
+          <target state="translated">Registre a interrupção</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="new">Confirm</target>
+          <target state="translated">Confirme</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="new">Minutes interrupted</target>
+          <target state="translated">Minutos interrompidos</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
-          <target state="new">Notes</target>
+          <target state="translated">Notas</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="new">Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</target>
+          <target state="translated">Você foi interrompido por algo? Acompanhe suas interrupções aqui, para que você possa revisá-las posteriormente em seu histórico.</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="new">Recent history</target>
+          <target state="translated">História recente</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="new">Rounds completed</target>
+          <target state="translated">Rodadas concluídas</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="new">Good effort</target>
+          <target state="translated">Bom esforço</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="new">You're amazing</target>
+          <target state="translated">Você é incrível</target>
         </trans-unit>
       </group>
     </body>

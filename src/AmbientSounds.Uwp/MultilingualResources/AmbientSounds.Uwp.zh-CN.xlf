@@ -718,51 +718,51 @@
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="new">History</target>
+          <target state="translated">历史</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
-          <target state="new">Interruptions</target>
+          <target state="translated">中断</target>
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
-          <target state="new">Your recent history will appear here</target>
+          <target state="translated">您最近的历史记录将显示在此处</target>
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="new">Log interruption</target>
+          <target state="translated">记录中断</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="new">Confirm</target>
+          <target state="translated">确认</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="new">Minutes interrupted</target>
+          <target state="translated">分钟中断</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
-          <target state="new">Notes</target>
+          <target state="translated">笔记</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="new">Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</target>
+          <target state="translated">你是不是被什么东西打断了？ 在此处跟踪您的中断，以便您稍后可以在历史记录中查看它们。</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="new">Recent history</target>
+          <target state="translated">近期历史</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="new">Rounds completed</target>
+          <target state="translated">完成的回合</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="new">Good effort</target>
+          <target state="translated">好功夫</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="new">You're amazing</target>
+          <target state="translated">你太棒了</target>
         </trans-unit>
       </group>
     </body>
