@@ -153,8 +153,9 @@ namespace AmbientSounds.ViewModels
             MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
             MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), screensaverCommand, DarkScreenId, true));
 
-            // Only enable compute shaders on desktop and when not using the WARP device
-            if (_systemInfoProvider.IsDesktop() &&
+            // Only enable compute shaders on desktop or on Xbox Series S or X devices, and when not using the WARP device.
+            // ComputeSharp needs DX12 APIs with FL11 and SM6.0 support, which is not available for UWP apps on Xbox One.
+            if ((_systemInfoProvider.IsDesktop() || _systemInfoProvider.IsXboxSeries()) &&
                 GraphicsDevice.Default.IsHardwareAccelerated)
             {
                 // Animated backgrounds
