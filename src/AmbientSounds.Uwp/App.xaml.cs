@@ -89,7 +89,9 @@ namespace AmbientSounds
 
         public static bool IsDesktop => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Desktop";
 
-        public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
+        public static bool IsXbox => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox";
+
+        public static bool IsTenFoot => IsXbox || _isTenFootPc;
 
         public static bool IsRightToLeftLanguage
         {

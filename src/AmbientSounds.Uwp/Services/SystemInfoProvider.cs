@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Uwp.Helpers;
+﻿using AmbientSounds.GamingInformation;
+using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,6 +36,26 @@ namespace AmbientSounds.Services.Uwp
         public bool IsTenFoot()
         {
             return App.IsTenFoot;
+        }
+
+        /// <inheritdoc/>
+        public unsafe bool IsXboxSeries()
+        {
+            if (App.IsXbox)
+            {
+                GAMING_DEVICE_MODEL_INFORMATION information = default;
+
+                if (GamingDeviceInformation.GetGamingDeviceModelInformation(&information) == 0)
+                {
+                    return
+                        information.deviceId is
+                        GAMING_DEVICE_DEVICE_ID.GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S or
+                        GAMING_DEVICE_DEVICE_ID.GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X or
+                        GAMING_DEVICE_DEVICE_ID.GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT;
+                }
+            }
+
+            return false;
         }
 
         /// <inheritdoc/>

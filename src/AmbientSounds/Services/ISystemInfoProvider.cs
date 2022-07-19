@@ -28,6 +28,12 @@ namespace AmbientSounds.Services
         bool IsTenFoot();
 
         /// <summary>
+        /// Checks whether the current device is an Xbox Series S or X device.
+        /// </summary>
+        /// <returns>Whether the current device is an Xbox Series S or X device.</returns>
+        bool IsXboxSeries();
+
+        /// <summary>
         /// Retrieves list of paths for background images
         /// available in the device.
         /// </summary>
