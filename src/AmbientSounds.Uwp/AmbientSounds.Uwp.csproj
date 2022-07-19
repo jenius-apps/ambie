@@ -19,6 +19,7 @@
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
     <LangVersion>10.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <UseDotNetNativeSharedAssemblyFrameworkPackage>false</UseDotNetNativeSharedAssemblyFrameworkPackage>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -233,6 +234,10 @@
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
+    <Compile Include="GamingInformation\GamingDeviceInformation.cs" />
+    <Compile Include="GamingInformation\GAMING_DEVICE_MODEL_INFORMATION.cs" />
+    <Compile Include="GamingInformation\GAMING_DEVICE_DEVICE_ID.cs" />
+    <Compile Include="GamingInformation\GAMING_DEVICE_VENDOR_ID.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
