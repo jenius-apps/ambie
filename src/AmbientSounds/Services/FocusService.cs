@@ -78,11 +78,14 @@ namespace AmbientSounds.Services
                     queuePosition++,
                     queueSize));
 
-                _sessionQueue.Enqueue(new FocusSession(
-                    SessionType.Rest,
-                    TimeSpan.FromMinutes(restLength),
-                    queuePosition++,
-                    queueSize));
+                if (restLength > 0)
+                {
+                    _sessionQueue.Enqueue(new FocusSession(
+                        SessionType.Rest,
+                        TimeSpan.FromMinutes(restLength),
+                        queuePosition++,
+                        queueSize));
+                }
 
                 repetitions -= 1;
             }
@@ -119,7 +122,7 @@ namespace AmbientSounds.Services
             }
         }
 
-        public bool CanStartSession(int focusLength, int restLength) => focusLength > 0 && restLength > 0;
+        public bool CanStartSession(int focusLength, int restLength) => focusLength > 0 && restLength >= 0;
 
         public void PauseTimer()
         {
