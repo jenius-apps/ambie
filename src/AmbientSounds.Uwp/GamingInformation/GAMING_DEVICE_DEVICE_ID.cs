@@ -29,5 +29,20 @@ public enum GAMING_DEVICE_DEVICE_ID
     /// <summary>
     /// The device is an Xbox One X dev kit.
     /// </summary>
-    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT = 0x10F7CDE3
+    GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT = 0x10F7CDE3,
+
+    /// <summary>
+    /// The device is an Xbox Series S.
+    /// </summary>
+    GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S = 0x1D27FABB,
+
+    /// <summary>
+    /// The device is an Xbox Series X.
+    /// </summary>
+    GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X = 0x2F7A3DFF,
+
+    /// <summary>
+    /// The device is an Xbox Series X dev kit.
+    /// </summary>
+    GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT = unchecked((int)0xDE8A5661)
 }
