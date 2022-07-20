@@ -50,6 +50,10 @@ namespace AmbientSounds.Views
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested += OnBackRequested;
 
+            var view = ApplicationView.GetForCurrentView();
+            IsFullscreen = view.IsFullScreenMode;
+            this.Bindings.Update();
+
             if (App.IsTenFoot)
             {
                 GoBackButton.Focus(Windows.UI.Xaml.FocusState.Programmatic);
