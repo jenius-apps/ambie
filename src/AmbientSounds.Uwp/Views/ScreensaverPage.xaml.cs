@@ -45,9 +45,13 @@ namespace AmbientSounds.Views
             });
 
             var coreWindow = CoreWindow.GetForCurrentThread();
-            coreWindow.KeyDown += CataloguePage_KeyDown;
+            coreWindow.KeyDown += CoreWindow_KeyDown;
+            coreWindow.SizeChanged += CoreWindow_SizeChanged;
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested += OnBackRequested;
+
+            var view = ApplicationView.GetForCurrentView();
+            IsFullscreen = view.IsFullScreenMode;
 
             if (App.IsTenFoot)
             {
@@ -61,7 +65,8 @@ namespace AmbientSounds.Views
             ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
 
             var coreWindow = CoreWindow.GetForCurrentThread();
-            coreWindow.KeyDown -= CataloguePage_KeyDown;
+            coreWindow.KeyDown -= CoreWindow_KeyDown;
+            coreWindow.SizeChanged -= CoreWindow_SizeChanged;
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested -= OnBackRequested;
 
@@ -137,13 +142,21 @@ namespace AmbientSounds.Views
             GoBack();
         }
 
-        private void CataloguePage_KeyDown(CoreWindow sender, KeyEventArgs args)
+        private void CoreWindow_KeyDown(CoreWindow sender, KeyEventArgs args)
         {
             if (args.VirtualKey == VirtualKey.Escape)
             {
                 GoBack();
                 args.Handled = true;
             }
+        }
+
+        private void CoreWindow_SizeChanged(CoreWindow sender, WindowSizeChangedEventArgs args)
+        {
+            var view = ApplicationView.GetForCurrentView();
+
+            IsFullscreen = view.IsFullScreenMode;
+            this.Bindings.Update();
         }
 
         private void GoBack()
@@ -195,9 +208,6 @@ namespace AmbientSounds.Views
                     { "name", ViewModel.CurrentSelection?.Text ?? string.Empty }
                 });
             }
-
-            IsFullscreen = view.IsFullScreenMode;
-            this.Bindings.Update();
         }
     }
 }
