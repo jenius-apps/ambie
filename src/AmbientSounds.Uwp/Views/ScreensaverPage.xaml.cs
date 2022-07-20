@@ -52,7 +52,6 @@ namespace AmbientSounds.Views
 
             var view = ApplicationView.GetForCurrentView();
             IsFullscreen = view.IsFullScreenMode;
-            this.Bindings.Update();
 
             if (App.IsTenFoot)
             {
