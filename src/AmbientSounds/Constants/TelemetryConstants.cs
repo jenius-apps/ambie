@@ -120,6 +120,8 @@
         public const string FocusRecentClicked = Focus + "recentClicked";
         public const string FocusHelpClicked = Focus + "helpClicked";
         public const string FocusTutorialStarted = Focus + "tutorialStarted";
-        public const string FocusTutorialEnded= Focus + "tutorialEnded";
+        public const string FocusTutorialEnded = Focus + "tutorialEnded";
+        public const string FocusInterruptionLogged = Focus + "interruptionLogged";
+        public const string FocusHistoryClicked = Focus + "historyClicked";
     }
 }

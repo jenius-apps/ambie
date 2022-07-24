@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AmbientSounds.ViewModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -43,5 +44,15 @@ namespace AmbientSounds.Services
         /// Opens videos menu dialog.
         /// </summary>
         Task OpenVideosMenuAsync();
+
+        /// <summary>
+        /// Opens interruption dialog.
+        /// </summary>
+        Task<(double, string)> OpenInterruptionAsync();
+
+        /// <summary>
+        /// Opens dialog for the given history details.
+        /// </summary>
+        Task OpenHistoryDetailsAsync(FocusHistoryViewModel historyViewModel);
     }
 }

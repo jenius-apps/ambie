@@ -5,6 +5,7 @@ using AmbientSounds.Services;
 using JeniusApps.Common.Tools;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,7 @@ namespace AmbientSounds.ViewModels
         private readonly IUserSettings _userSettings;
         private readonly IRecentFocusService _recentFocusService;
         private readonly IFocusNotesService _focusNotesService;
+        private readonly IFocusHistoryService _focusHistoryService;
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
@@ -46,7 +48,8 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             IUserSettings userSettings,
             IRecentFocusService recentFocusService,
-            IFocusNotesService focusNotesService)
+            IFocusNotesService focusNotesService,
+            IFocusHistoryService focusHistoryService)
         {
             Guard.IsNotNull(focusService, nameof(focusService));
             Guard.IsNotNull(localizer, nameof(localizer));
@@ -54,16 +57,22 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(recentFocusService, nameof(recentFocusService));
             Guard.IsNotNull(focusNotesService, nameof(focusNotesService));
+            Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
             _focusService = focusService;
             _localizer = localizer;
             _telemetry = telemetry;
             _userSettings = userSettings;
             _recentFocusService = recentFocusService;
             _focusNotesService = focusNotesService;
+            _focusHistoryService = focusHistoryService;
 
             IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
             UpdateButtonStates();
+
+            InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
         }
+
+        public IAsyncRelayCommand InterruptionCommand { get; }
 
         public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
 
@@ -134,7 +143,7 @@ namespace AmbientSounds.ViewModels
         {
             get
             {
-                TimeSpan time = _focusService.GetTotalTime(FocusLength, RestLength, Repetitions);
+                TimeSpan time = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
                 return time.ToString(@"hh\:mm");
             }
         }
@@ -423,6 +432,20 @@ namespace AmbientSounds.ViewModels
             SecondsRingVisible = true;
             SecondsRemaining = e.Remaining.Seconds;
             UpdateButtonStates();
+        }
+
+        private async Task LogInterruptionAsync()
+        {
+            (double minutesLogged, bool hasNotes) = await _focusHistoryService.LogInterruptionAsync();
+
+            if (minutesLogged > 0)
+            {
+                _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
+                {
+                    { "minutes", minutesLogged.ToString() },
+                    { "hasNotes", hasNotes.ToString() }
+                });
+            }
         }
     }
 }

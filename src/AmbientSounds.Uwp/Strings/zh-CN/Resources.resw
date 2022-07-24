@@ -547,4 +547,40 @@
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 到 {0}</value>
   </data>
+  <data name="History" xml:space="preserve">
+    <value>历史</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>中断</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>您最近的历史记录将显示在此处</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>记录中断</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>分钟中断</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>笔记</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>你是不是被什么东西打断了？ 在此处跟踪您的中断，以便您稍后可以在历史记录中查看它们。</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>近期历史</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>完成的回合</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>好功夫</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>你太棒了</value>
+  </data>
 </root>

@@ -652,4 +652,40 @@
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 to {0}</value>
   </data>
+  <data name="History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Interruptions</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Your recent history will appear here</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Log interruption</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Minutes interrupted</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Recent history</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Rounds completed</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Good effort</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>You're amazing</value>
+  </data>
 </root>

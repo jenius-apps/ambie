@@ -112,6 +112,7 @@
             <x:Double x:Key="ImageCardShadowWidth">144</x:Double>
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
+            <x:String x:Key="GlyphCalendar">&#xE972;</x:String>
             <x:String x:Key="GlyphSettings">&#xEB5D;</x:String>
             <x:String x:Key="GlyphDownload">&#xE9B9;</x:String>
             <x:String x:Key="GlyphDelete">&#xE9ED;</x:String>
@@ -128,6 +129,9 @@
             <x:String x:Key="GlyphPause">&#xEAF4;</x:String>
             <x:String x:Key="GlyphCancel">&#xE9F9;</x:String>
             <x:String x:Key="GlyphHelp">&#xEA7D;</x:String>
+            <x:String x:Key="GlyphSleep">&#xEB78;</x:String>
+            <x:String x:Key="GlyphCritical">&#xEA8B;</x:String>
+            <x:String x:Key="GlyphInterruption">&#xE96D;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

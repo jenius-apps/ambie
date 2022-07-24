@@ -547,4 +547,40 @@
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 a {0}</value>
   </data>
+  <data name="History" xml:space="preserve">
+    <value>História</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Interrupções</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Seu histórico recente aparecerá aqui</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Registre a interrupção</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirme</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Minutos interrompidos</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notas</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Você foi interrompido por algo? Acompanhe suas interrupções aqui, para que você possa revisá-las posteriormente em seu histórico.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>História recente</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Rodadas concluídas</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Bom esforço</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Você é incrível</value>
+  </data>
 </root>

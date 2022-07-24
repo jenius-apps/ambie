@@ -357,6 +357,7 @@ namespace AmbientSounds
                 .AddSingleton<ShellPageViewModel>()
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
+                .AddSingleton<FocusHistoryModuleViewModel>()
                 .AddSingleton<VideosMenuViewModel>()
                 .AddSingleton<TimeBannerViewModel>()
                 .AddSingleton<FocusPageViewModel>()
@@ -373,14 +374,17 @@ namespace AmbientSounds
                 // exposes events or object tree has singleton, so singleton.
                 .AddSingleton<IFocusNotesService, FocusNotesService>()
                 .AddSingleton<IFocusService, FocusService>()
+                .AddSingleton<IFocusHistoryService, FocusHistoryService>()
                 .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
                 .AddSingleton<IVideoService, VideoService>()
+                .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
                 .AddSingleton<IVideoCache, VideoCache>()
                 .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
                 .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
+                .AddSingleton<IFocusHistoryRepository, FocusHistoryRepository>()
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()

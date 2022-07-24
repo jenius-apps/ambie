@@ -7,6 +7,7 @@ using AmbientSounds.Constants;
 using System.Collections.Generic;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.Views
 {
@@ -33,13 +34,18 @@ namespace AmbientSounds.Views
                 { "name", "focus" }
             });
 
-            await ViewModel.InitializeAsync();
+            var mainTask = ViewModel.InitializeAsync();
+            var historyModuleTask = HistoryModule.ViewModel.InitializeAsync();
+
+            await mainTask;
+            await historyModuleTask;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             CloseAll();
             ViewModel.Uninitialize();
+            HistoryModule.ViewModel.Uninitialize();
         }
 
         private void OnResetClicked(object sender, RoutedEventArgs e)

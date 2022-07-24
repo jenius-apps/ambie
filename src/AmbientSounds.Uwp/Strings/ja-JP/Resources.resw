@@ -538,4 +538,49 @@
   <data name="TipStartButtonTitle" xml:space="preserve">
     <value>位置についてよーいどん</value>
   </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0}フォーカス分、{1}休憩分、{2}回の繰り返し。</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>最近の濃度設定のリスト。</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0から{0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>歴史</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>中断</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>最近の履歴がここに表示されます</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>中断をログに記録する</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>分が中断されました</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ノート</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>何かに邪魔されましたか？ ここで中断を追跡して、後で履歴で確認できるようにします。</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>近年の歴史</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>ラウンドが完了しました</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>頑張って</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>あなたが素晴らしいです</value>
+  </data>
 </root>
