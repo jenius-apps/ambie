@@ -455,7 +455,7 @@
     <value>Час зосередитися</value>
   </data>
   <data name="FocusSessionRestMessage" xml:space="preserve">
-    <value>Чай відпочити</value>
+    <value>Час відпочити</value>
   </data>
   <data name="RestText" xml:space="preserve">
     <value>Відпочинок</value>
@@ -551,7 +551,7 @@
     <value>Історія</value>
   </data>
   <data name="Interruptions" xml:space="preserve">
-    <value>Перерви</value>
+    <value>Відволікань</value>
   </data>
   <data name="FocusHistoryPlaceholderText" xml:space="preserve">
     <value>Ваші нещодавні дії будуть відображені тут</value>
@@ -569,7 +569,7 @@
     <value>Нотатки</value>
   </data>
   <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
-    <value>Вам щось завадило? Відстежуйте свої переривання тут, щоб потім переглянути їх у своїй історії.</value>
+    <value>Вам щось завадило? Відстежуйте свої відволікання тут, щоб потім переглянути їх у своїй історії.</value>
   </data>
   <data name="HistoryRecent" xml:space="preserve">
     <value>Нещодавні дії</value>
