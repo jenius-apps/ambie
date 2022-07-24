@@ -20,7 +20,7 @@
         </trans-unit>
         <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
           <source>Copyright</source>
-          <target state="new">Авторські права</target>
+          <target state="translated">Авторські права</target>
         </trans-unit>
         <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
           <source>Copyright Jenius Apps</source>
@@ -715,6 +715,54 @@
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
           <target state="translated">0 до {0}</target>
+        </trans-unit>
+        <trans-unit id="History" translate="yes" xml:space="preserve">
+          <source>History</source>
+          <target state="translated">Історія</target>
+        </trans-unit>
+        <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
+          <source>Interruptions</source>
+          <target state="translated">Відволікань</target>
+        </trans-unit>
+        <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Your recent history will appear here</source>
+          <target state="translated">Ваші нещодавні дії будуть відображені тут</target>
+        </trans-unit>
+        <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
+          <source>Log interruption</source>
+          <target state="translated">Записати перерву</target>
+        </trans-unit>
+        <trans-unit id="Confirm" translate="yes" xml:space="preserve">
+          <source>Confirm</source>
+          <target state="translated">Підтвердити</target>
+        </trans-unit>
+        <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
+          <source>Minutes interrupted</source>
+          <target state="translated">Час перерви у хвилинах</target>
+        </trans-unit>
+        <trans-unit id="Notes" translate="yes" xml:space="preserve">
+          <source>Notes</source>
+          <target state="translated">Нотатки</target>
+        </trans-unit>
+        <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
+          <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
+          <target state="translated">Вам щось завадило? Відстежуйте свої відволікання тут, щоб потім переглянути їх у своїй історії.</target>
+        </trans-unit>
+        <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
+          <source>Recent history</source>
+          <target state="translated">Нещодавні дії</target>
+        </trans-unit>
+        <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
+          <source>Rounds completed</source>
+          <target state="translated">Циклів виконано</target>
+        </trans-unit>
+        <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
+          <source>Good effort</source>
+          <target state="translated">Гарна спроба</target>
+        </trans-unit>
+        <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
+          <source>You're amazing</source>
+          <target state="translated">Так тримати</target>
         </trans-unit>
       </group>
     </body>

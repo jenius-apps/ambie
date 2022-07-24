@@ -21,6 +21,9 @@
   <data name="CloseText" xml:space="preserve">
     <value>Закрити</value>
   </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>Авторські права</value>
+  </data>
   <data name="CopyrightJeniusApps.Text" xml:space="preserve">
     <value>Власником авторських прав є Jenius Apps</value>
   </data>
@@ -367,7 +370,7 @@
     <value>Отримайте доступ до звуків високої якості</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Завантажити заставки</value>
+    <value>Завантаження заставок</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
     <value>Підтримати розробника</value>
@@ -515,7 +518,7 @@
     <value>Кожен цикл ділиться на сегмент зосередження та сегмент відпочинку. Встановіть довжину кожного. Для початку ми пропонуємо період 25 хвилин!</value>
   </data>
   <data name="TipFocusTitle" xml:space="preserve">
-    <value>Встановіть тривалість режиму зосередженності</value>
+    <value>Встановіть тривалість режиму зосередженості</value>
   </data>
   <data name="TipRepeatsMessage" xml:space="preserve">
     <value>Цикл зосередження та відпочинку можна повторювати багато разів. Додайте одне повторення!</value>
@@ -524,7 +527,7 @@
     <value>Встановіть повторення</value>
   </data>
   <data name="TipRestMessage" xml:space="preserve">
-    <value>Виберіть тривалість кожного сегмента відпочинку. Ми пропонуємо почати з 5 хвилин!</value>
+    <value>Виберіть тривалість кожного сегмента відпочинку. Ми рекомендуємо почати з 5 хвилин!</value>
   </data>
   <data name="TipRestTitle" xml:space="preserve">
     <value>Встановіть час відпочинку</value>
@@ -543,5 +546,41 @@
   </data>
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 до {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Історія</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Перерви</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Ваші нещодавні дії будуть відображені тут</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Записати перерву</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Підтвердити</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Час перерви у хвилинах</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Нотатки</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Вам щось завадило? Відстежуйте свої переривання тут, щоб потім переглянути їх у своїй історії.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Нещодавні дії</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Циклів виконано</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Гарна спроба</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Так тримати</value>
   </data>
 </root>
