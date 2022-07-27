@@ -94,3 +94,4 @@ To help translate, follow these instructions.
 - Russian: [Dmitry Gorbushin](https://github.com/Gorbushin)
 - Hebrew: [Adam Dernis](https://github.com/Avid29)
 - Polish: [Maciej Klupp](https://github.com/maciej-klupp)
+- Ukrainian: [Andrii Yakonyuk](https://github.com/andrewyakonyuk)
