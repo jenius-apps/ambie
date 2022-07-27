@@ -62,6 +62,7 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='MySoundsUrl']").Value = "$(MySoundsUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='VideosUrl']").Value = "$(VideosUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueScope']").Value = "$(CatalogueScope)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='PresenceUrl']").Value = "$(PresenceUrl)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 
