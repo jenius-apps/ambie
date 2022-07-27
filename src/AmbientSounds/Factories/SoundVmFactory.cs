@@ -96,7 +96,8 @@ namespace AmbientSounds.Factories
                 _renamer,
                 _serviceProvider.GetRequiredService<IDialogService>(),
                 _serviceProvider.GetRequiredService<IIapService>(),
-                _serviceProvider.GetRequiredService<IDownloadManager>());
+                _serviceProvider.GetRequiredService<IDownloadManager>(),
+                _serviceProvider.GetRequiredService<IPresenceService>());
             vm.Initialize();
             return vm;
         }

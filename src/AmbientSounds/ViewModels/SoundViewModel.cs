@@ -26,11 +26,13 @@ namespace AmbientSounds.ViewModels
         private readonly IDialogService _dialogService;
         private readonly IIapService _iapService;
         private readonly IDownloadManager _downloadManager;
+        private readonly IPresenceService _presenceService;
         private Progress<double>? _downloadProgress;
         private int _position;
         private int _setSize;
         private bool _downloadActive;
         private double _downloadProgressValue;
+        private double _presenceCount = 0;
 
         public SoundViewModel(
             Sound s,
@@ -41,7 +43,8 @@ namespace AmbientSounds.ViewModels
             IRenamer renamer,
             IDialogService dialogService,
             IIapService iapService,
-            IDownloadManager downloadManager)
+            IDownloadManager downloadManager,
+            IPresenceService presenceService)
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(playerService, nameof(playerService));
@@ -52,6 +55,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(dialogService, nameof(dialogService));
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
+            Guard.IsNotNull(presenceService, nameof(presenceService));
 
             _sound = s;
             _soundMixService = soundMixService;
@@ -62,6 +66,7 @@ namespace AmbientSounds.ViewModels
             _dialogService = dialogService;
             _iapService = iapService;
             _downloadManager = downloadManager;
+            _presenceService = presenceService;
 
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
@@ -157,11 +162,18 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _downloadProgressValue, value);
         }
 
+        public double PresenceCount
+        {
+            get => _presenceCount;
+            set => SetProperty(ref _presenceCount, value);
+        }
+
         public void Initialize()
         {
             _playerService.SoundRemoved += OnSoundPaused;
             _playerService.SoundAdded += OnSoundPlayed;
             _playerService.MixPlayed += OnMixPlayed;
+            _presenceService.SoundPresenceChanged += OnPresenceChanged;
 
             DownloadActive = _downloadManager.IsDownloadActive(_sound);
             if (DownloadActive)
@@ -266,6 +278,14 @@ namespace AmbientSounds.ViewModels
             if (args.MixId == _sound.Id || args.SoundIds.Contains(_sound.Id))
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
+            }
+        }
+
+        private void OnPresenceChanged(object sender, PresenceEventArgs e)
+        {
+            if (e.SoundId == _sound.Id)
+            {
+                PresenceCount = e.Count;
             }
         }
 
