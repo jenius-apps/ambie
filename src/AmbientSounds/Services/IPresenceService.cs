@@ -30,5 +30,10 @@ namespace AmbientSounds.Services
         /// and <see cref="IncrementAsync"/>.
         /// </summary>
         Task EnsureInitializedAsync();
+
+        /// <summary>
+        /// Disconnects connection to the server.
+        /// </summary>
+        Task DisconnectAsync();
     }
 }

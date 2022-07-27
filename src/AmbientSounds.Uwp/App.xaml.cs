@@ -55,6 +55,7 @@ namespace AmbientSounds
         {
             this.InitializeComponent();
             this.Suspending += OnSuspension;
+            this.Resuming += OnResuming;
 
             if (IsTenFoot)
             {
@@ -63,6 +64,14 @@ namespace AmbientSounds
 
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
                 this.FocusVisualKind = FocusVisualKind.Reveal;
+            }
+        }
+
+        private async void OnResuming(object sender, object e)
+        {
+            if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+            {
+                await presenceService.EnsureInitializedAsync();
             }
         }
 
@@ -82,6 +91,11 @@ namespace AmbientSounds
             if (_serviceProvider?.GetService<IFocusNotesService>() is IFocusNotesService notesService)
             {
                 await notesService.SaveNotesToStorageAsync();
+            }
+
+            if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+            {
+                await presenceService.DisconnectAsync();
             }
 
             deferral.Complete();

@@ -14,6 +14,11 @@ namespace AmbientSounds.Services
             _connection = new HubConnectionBuilder()
                 .WithUrl(appSettings.PresenceUrl)
                 .Build();
+
+            _connection.On<string, double>("updatePresence", (s, d) =>
+            {
+                SoundPresenceChanged?.Invoke(this, new PresenceEventArgs(s, d));
+            });
         }
 
         public async Task EnsureInitializedAsync()
@@ -22,11 +27,6 @@ namespace AmbientSounds.Services
             {
                 return;
             }
-
-            _connection.On<string, double>("updatePresence", (s, d) =>
-            {
-                SoundPresenceChanged?.Invoke(this, new PresenceEventArgs(s, d));
-            });
 
             try
             {
@@ -37,6 +37,15 @@ namespace AmbientSounds.Services
                 // Note: if debugging with localhost, ensure the server code has
                 // apps.UseHttpsRedirection() commented out in Program.cs.
             }
+        }
+
+        public async Task DisconnectAsync()
+        {
+            try
+            {
+                await _connection.StopAsync();
+            }
+            catch { }
         }
 
         public async Task IncrementAsync(string soundId)
