@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>关闭简洁模式</value>
+    <value>关闭紧凑模式</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>关闭简洁模式</value>
+    <value>关闭紧凑模式</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>关闭</value>
@@ -37,7 +37,7 @@
     <value>查看更多选项</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>简洁模式</value>
+    <value>紧凑模式</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>联系开发者</value>
@@ -49,7 +49,7 @@
     <value>设置</value>
   </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
-    <value>分享 Ambie 链接</value>
+    <value>分享 Ambie 的链接</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
     <value>添加或改善翻译</value>
@@ -100,13 +100,13 @@
     <value>咖啡馆</value>
   </data>
   <data name="Soundcreek" xml:space="preserve">
-    <value>溪水</value>
+    <value>溪流</value>
   </data>
   <data name="Soundfireplace" xml:space="preserve">
     <value>壁炉</value>
   </data>
   <data name="Soundrain" xml:space="preserve">
-    <value>雨露</value>
+    <value>雨天</value>
   </data>
   <data name="Soundrainforest" xml:space="preserve">
     <value>雨林</value>
@@ -133,7 +133,7 @@
     <value>全局音量</value>
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>音效音量</value>
+    <value>媒体音量</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>主题</value>
@@ -142,10 +142,10 @@
     <value>自动</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
-    <value>黑暗</value>
+    <value>暗色</value>
   </data>
   <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
-    <value>明亮</value>
+    <value>浅色</value>
   </data>
   <data name="Soundvacuum" xml:space="preserve">
     <value>吸尘器</value>
@@ -154,7 +154,7 @@
     <value>雷鸣</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
-    <value>新音效提示</value>
+    <value>新音效通知</value>
   </data>
   <data name="Soundwind" xml:space="preserve">
     <value>风声</value>
@@ -168,7 +168,7 @@
     <comment>Going back to the previous page</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
-    <value>可以下载</value>
+    <value>可供下载</value>
     <comment>The sound can be downloaded</comment>
   </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
@@ -178,7 +178,7 @@
     <value>下载音效</value>
   </data>
   <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>音效目录</value>
+    <value>音效类别</value>
   </data>
   <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
     <value>音效</value>
@@ -203,10 +203,10 @@
     <value>下载</value>
   </data>
   <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
-    <value>播放随机音效</value>
+    <value>随机播放音效</value>
   </data>
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>播放随机音效</value>
+    <value>随机播放音效</value>
   </data>
   <data name="ScreensaverMode" xml:space="preserve">
     <value>屏保模式</value>
@@ -247,16 +247,16 @@
     <value>全局音量</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
-    <value>混音列表名称</value>
+    <value>混合音效名称</value>
   </data>
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>可选</value>
   </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>保存自定义混音列表</value>
+    <value>保存自定义混合音效</value>
   </data>
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>保存自定义混音列表 (Ctrl+S)</value>
+    <value>保存自定义混合音效(Ctrl+S)</value>
   </data>
   <data name="CancelText" xml:space="preserve">
     <value>取消</value>
@@ -271,7 +271,7 @@
     <value>注销</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>登录以便在多个设备间同步你的音效库。</value>
+    <value>登录以便在多个设备间同步音效库。</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>查看账户选项</value>
@@ -332,10 +332,10 @@
     <value>关闭</value>
   </data>
   <data name="FirstLaunchMessage" xml:space="preserve">
-    <value>感谢使用 Ambie。将 Ambie 固定在任务栏上可以获得更好的使用体验！开始享受音效放松自己吧！ 🏝</value>
+    <value>感谢使用 Ambie。将 Ambie 固定在任务栏上可以获得更好的使用体验！开始享受吧！ 🏝</value>
   </data>
   <data name="HelloAndWelcome" xml:space="preserve">
-    <value>欢迎使用！</value>
+    <value>你好，欢迎使用！</value>
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
     <value>固定到任务栏</value>
@@ -389,10 +389,10 @@
     <value>下载</value>
   </data>
   <data name="MissingSoundsMessage" xml:space="preserve">
-    <value>我们需要下载一些声音才能播放此内容。下载后，请尝试再次播放。开始下载？</value>
+    <value>我们需要下载一些声音才能播放此内容。请在下载后尝试再次播放。现在开始下载吗？</value>
   </data>
   <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>缺少音乐</value>
+    <value>缺少音效</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>默认</value>
@@ -401,13 +401,13 @@
     <value>删除</value>
   </data>
   <data name="SizeMegaByte" xml:space="preserve">
-    <value>{0} 兆字节</value>
+    <value>{0} MB</value>
   </data>
   <data name="MoreScreensavers" xml:space="preserve">
-    <value>更多视频</value>
+    <value>更多屏保</value>
   </data>
   <data name="ScreensaverCatalogue" xml:space="preserve">
-    <value>视频目录</value>
+    <value>屏保目录</value>
   </data>
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>查看高级信息</value>
@@ -416,10 +416,10 @@
     <value>云</value>
   </data>
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>五颜六色的烟雾</value>
+    <value>彩色的烟雾</value>
   </data>
   <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>八进制图</value>
+    <value>八角星</value>
   </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>显示屏幕保护程序时出现问题。尝试重新启动 Ambie，如果问题仍然存在，请联系我们。</value>
@@ -428,16 +428,16 @@
     <value>报告问题</value>
   </data>
   <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>错误</value>
+    <value>渲染错误</value>
   </data>
   <data name="ToggleFullscreen" xml:space="preserve">
-    <value>切换全屏</value>
+    <value>全屏</value>
   </data>
   <data name="GetAmbiePlus" xml:space="preserve">
-    <value>获取安比加</value>
+    <value>获取 Ambie Plus</value>
   </data>
   <data name="FocusText" xml:space="preserve">
-    <value>重点</value>
+    <value>专注</value>
   </data>
   <data name="PauseTimer" xml:space="preserve">
     <value>暂停计时器</value>
@@ -446,10 +446,10 @@
     <value>启动计时器</value>
   </data>
   <data name="FocusSessionCompleteMessage" xml:space="preserve">
-    <value>好工作！</value>
+    <value>干得不错！</value>
   </data>
   <data name="FocusSessionCompleteTitle" xml:space="preserve">
-    <value>焦点会议完成</value>
+    <value>专注任务完成</value>
   </data>
   <data name="FocusSessionFocusMessage" xml:space="preserve">
     <value>时间集中</value>
@@ -461,10 +461,10 @@
     <value>休息</value>
   </data>
   <data name="FocusDotTooltip" xml:space="preserve">
-    <value>焦点会话处于活动状态</value>
+    <value>正在进行专注任务</value>
   </data>
   <data name="SessionTypeFocus" xml:space="preserve">
-    <value>聚焦</value>
+    <value>正在专注</value>
   </data>
   <data name="SessionTypeRest" xml:space="preserve">
     <value>休息</value>
@@ -482,31 +482,31 @@
     <value>开始</value>
   </data>
   <data name="FocusLength" xml:space="preserve">
-    <value>焦点会议</value>
+    <value>专注时长（分钟）</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
     <value>您可以在此处记下您的待办事项或任何笔记 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
-    <value>有什么计划？</value>
+    <value>在这里设置专注计划</value>
   </data>
   <data name="Notepad" xml:space="preserve">
     <value>记事本</value>
   </data>
   <data name="RestLength" xml:space="preserve">
-    <value>休息时间</value>
+    <value>休息时间（分钟）</value>
   </data>
   <data name="Repeats" xml:space="preserve">
-    <value>重复</value>
+    <value>重复次数</value>
   </data>
   <data name="FocusTimerHelpAction" xml:space="preserve">
-    <value>告诉我如何使用它</value>
+    <value>向我展示如何使用它</value>
   </data>
   <data name="FocusTimerHelpMessage" xml:space="preserve">
-    <value>这是一个受番茄钟技术启发的间隔计时器。目标是长时间专注于一项任务，然后进行较短的休息时间。重复此循环以保持专注！</value>
+    <value>这是一个受番茄时钟启发的间隔计时器。目标是长时间专注于一项任务，然后进行较短时间的休息。重复此循环以保持专注！</value>
   </data>
   <data name="FocusTimerHelpTitle" xml:space="preserve">
-    <value>欢迎关注定时器</value>
+    <value>欢迎使用专注定时器</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>帮助</value>
@@ -515,34 +515,34 @@
     <value>下一个</value>
   </data>
   <data name="TipFocusMessage" xml:space="preserve">
-    <value>每个周期都有一个焦点段和一个休息段。选择每个重点部分的长度。我们建议 25 分钟开始！</value>
+    <value>每个周期都有一个专注时段和一个休息时段，你需要选择每个专注时段的长度。我们建议您设置为 25 分钟。</value>
   </data>
   <data name="TipFocusTitle" xml:space="preserve">
-    <value>设置焦点分钟</value>
+    <value>设置专注时长</value>
   </data>
   <data name="TipRepeatsMessage" xml:space="preserve">
-    <value>每个专注和休息周期可以重复多次。尝试添加 1 次重复！</value>
+    <value>每个专注和休息周期可以重复多次。您可以尝试添加 1 次重复！</value>
   </data>
   <data name="TipRepeatsTitle" xml:space="preserve">
     <value>设置重复</value>
   </data>
   <data name="TipRestMessage" xml:space="preserve">
-    <value>现在，选择每个休息段的时间。我们建议现在大约 5 分钟！</value>
+    <value>现在选择每个休息时段的长度。我们目前建议设置为 5 分钟！</value>
   </data>
   <data name="TipRestTitle" xml:space="preserve">
     <value>设置休息时间</value>
   </data>
   <data name="TipStartButtonMessage" xml:space="preserve">
-    <value>启动计时器并处理您的任务。到了休息时间，我们会向您发送通知。努力工作！</value>
+    <value>启动计时器并处理您的任务。到了休息时间，我们会向您发送通知。努力工作吧！</value>
   </data>
   <data name="TipStartButtonTitle" xml:space="preserve">
-    <value>预备，准备，开始</value>
+    <value>预备，开始！</value>
   </data>
   <data name="RecentFocusAccessibleName" xml:space="preserve">
-    <value>{0} 分钟专注, {1} 分钟休息, {2} 次重复.</value>
+    <value>专注 {0} 分钟，休息 {1} 分钟，重复 {2} 次。</value>
   </data>
   <data name="RecentFocusList" xml:space="preserve">
-    <value>最近的焦点配置列表.</value>
+    <value>最近的专注配置列表.</value>
   </data>
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 到 {0}</value>
@@ -563,22 +563,22 @@
     <value>确认</value>
   </data>
   <data name="InterruptionMinutesTitle" xml:space="preserve">
-    <value>分钟中断</value>
+    <value>计时中断</value>
   </data>
   <data name="Notes" xml:space="preserve">
-    <value>笔记</value>
+    <value>记录</value>
   </data>
   <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
-    <value>你是不是被什么东西打断了？ 在此处跟踪您的中断，以便您稍后可以在历史记录中查看它们。</value>
+    <value>你是不是被什么东西打断了？ 在此处查看您的中断，以便您稍后在历史记录中查看它们。</value>
   </data>
   <data name="HistoryRecent" xml:space="preserve">
-    <value>近期历史</value>
+    <value>历史记录</value>
   </data>
   <data name="RoundsCompleted" xml:space="preserve">
-    <value>完成的回合</value>
+    <value>完成的循环</value>
   </data>
   <data name="ResultMessageFail1" xml:space="preserve">
-    <value>好功夫</value>
+    <value>干得好！</value>
   </data>
   <data name="ResultMessageSuccess1" xml:space="preserve">
     <value>你太棒了</value>
