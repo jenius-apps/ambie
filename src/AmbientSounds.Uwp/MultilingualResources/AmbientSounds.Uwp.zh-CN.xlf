@@ -8,11 +8,11 @@
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="translated">关闭简洁模式</target>
+          <target state="translated">关闭紧凑模式</target>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="translated">关闭简洁模式</target>
+          <target state="translated">关闭紧凑模式</target>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
@@ -40,7 +40,7 @@
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
-          <target state="translated">简洁模式</target>
+          <target state="translated">紧凑模式</target>
         </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
@@ -56,7 +56,7 @@
         </trans-unit>
         <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
           <source>Share link for Ambie</source>
-          <target state="translated">分享 Ambie 链接</target>
+          <target state="translated">分享 Ambie 的链接</target>
         </trans-unit>
         <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
           <source>Add or improve translations</source>
@@ -92,7 +92,7 @@
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
           <source>Telemetry</source>
-          <target state="translated">遥测</target>
+          <target state="needs-review-translation">遥测</target>
         </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
@@ -124,7 +124,7 @@
         </trans-unit>
         <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
           <source>Creek</source>
-          <target state="translated">溪水</target>
+          <target state="translated">溪流</target>
         </trans-unit>
         <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
           <source>Fireplace</source>
@@ -132,7 +132,7 @@
         </trans-unit>
         <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
-          <target state="translated">雨露</target>
+          <target state="translated">雨天</target>
         </trans-unit>
         <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
           <source>Rainforest</source>
@@ -168,7 +168,7 @@
         </trans-unit>
         <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound volume</source>
-          <target state="translated">音效音量</target>
+          <target state="translated">媒体音量</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
@@ -180,11 +180,11 @@
         </trans-unit>
         <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="translated">黑暗</target>
+          <target state="translated">暗色</target>
         </trans-unit>
         <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="translated">明亮</target>
+          <target state="translated">浅色</target>
         </trans-unit>
         <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
           <source>Vacuum</source>
@@ -196,7 +196,7 @@
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
           <source>Notification for new sounds</source>
-          <target state="translated">新音效提示</target>
+          <target state="translated">新音效通知</target>
         </trans-unit>
         <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
           <source>Wind</source>
@@ -214,7 +214,7 @@
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
-          <target state="translated">可以下载</target>
+          <target state="translated">可供下载</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -227,7 +227,7 @@
         </trans-unit>
         <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound catalogue</source>
-          <target state="translated">音效目录</target>
+          <target state="translated">音效类别</target>
         </trans-unit>
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
@@ -260,11 +260,11 @@
         </trans-unit>
         <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="translated">播放随机音效</target>
+          <target state="translated">随机播放音效</target>
         </trans-unit>
         <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="translated">播放随机音效</target>
+          <target state="translated">随机播放音效</target>
         </trans-unit>
         <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
@@ -318,7 +318,7 @@
         </trans-unit>
         <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
           <source>Sound mix name</source>
-          <target state="translated">混音列表名称</target>
+          <target state="translated">混合音效名称</target>
         </trans-unit>
         <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Optional</source>
@@ -326,11 +326,11 @@
         </trans-unit>
         <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Save custom sound mix</source>
-          <target state="translated">保存自定义混音列表</target>
+          <target state="translated">保存自定义混合音效</target>
         </trans-unit>
         <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Save custom sound mix (Ctrl+S)</source>
-          <target state="translated">保存自定义混音列表 (Ctrl+S)</target>
+          <target state="translated">保存自定义混合音效(Ctrl+S)</target>
         </trans-unit>
         <trans-unit id="CancelText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
@@ -350,7 +350,7 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="translated">登录以便在多个设备间同步你的音效库。</target>
+          <target state="translated">登录以便在多个设备间同步音效库。</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
@@ -431,11 +431,11 @@
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="translated">感谢使用 Ambie。将 Ambie 固定在任务栏上可以获得更好的使用体验！开始享受音效放松自己吧！ 🏝</target>
+          <target state="translated">感谢使用 Ambie。将 Ambie 固定在任务栏上可以获得更好的使用体验！开始享受吧！ 🏝</target>
         </trans-unit>
         <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
           <source>Hello and welcome!</source>
-          <target state="translated">欢迎使用！</target>
+          <target state="translated">你好，欢迎使用！</target>
         </trans-unit>
         <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
           <source>Pin to taskbar</source>
@@ -506,11 +506,11 @@
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="translated">我们需要下载一些声音才能播放此内容。下载后，请尝试再次播放。开始下载？</target>
+          <target state="translated">我们需要下载一些声音才能播放此内容。请在下载后尝试再次播放。现在开始下载吗？</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
-          <target state="translated">缺少音乐</target>
+          <target state="translated">缺少音效</target>
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
@@ -522,15 +522,15 @@
         </trans-unit>
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
-          <target state="translated">{0} 兆字节</target>
+          <target state="translated">{0} MB</target>
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="translated">更多视频</target>
+          <target state="translated">更多屏保</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="translated">视频目录</target>
+          <target state="translated">屏保目录</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
@@ -542,11 +542,11 @@
         </trans-unit>
         <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
-          <target state="translated">五颜六色的烟雾</target>
+          <target state="translated">彩色的烟雾</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
-          <target state="translated">八进制图</target>
+          <target state="translated">八角星</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
@@ -558,19 +558,19 @@
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="translated">错误</target>
+          <target state="translated">渲染错误</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="translated">切换全屏</target>
+          <target state="translated">全屏</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie Plus</source>
-          <target state="translated">获取安比加</target>
+          <target state="translated">获取 Ambie Plus</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="translated">重点</target>
+          <target state="translated">专注</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
@@ -582,11 +582,11 @@
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="translated">好工作！</target>
+          <target state="translated">干得不错！</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="translated">焦点会议完成</target>
+          <target state="translated">专注任务完成</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
@@ -602,11 +602,11 @@
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="translated">焦点会话处于活动状态</target>
+          <target state="translated">正在进行专注任务</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">聚焦</target>
+          <target state="translated">正在专注</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
@@ -630,7 +630,7 @@
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="translated">焦点会议</target>
+          <target state="translated">专注时长（分钟）</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down your to-do list or any notes here 🙂</source>
@@ -638,7 +638,7 @@
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="translated">有什么计划？</target>
+          <target state="translated">在这里设置专注计划</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
@@ -646,23 +646,23 @@
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="translated">休息时间</target>
+          <target state="translated">休息时间（分钟）</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="translated">重复</target>
+          <target state="translated">重复次数</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="translated">告诉我如何使用它</target>
+          <target state="translated">向我展示如何使用它</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="translated">这是一个受番茄钟技术启发的间隔计时器。目标是长时间专注于一项任务，然后进行较短的休息时间。重复此循环以保持专注！</target>
+          <target state="translated">这是一个受番茄时钟启发的间隔计时器。目标是长时间专注于一项任务，然后进行较短时间的休息。重复此循环以保持专注！</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="translated">欢迎关注定时器</target>
+          <target state="translated">欢迎使用专注定时器</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
@@ -674,15 +674,15 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">每个周期都有一个焦点段和一个休息段。选择每个重点部分的长度。我们建议 25 分钟开始！</target>
+          <target state="translated">每个周期都有一个专注时段和一个休息时段，你需要选择每个专注时段的长度。我们建议您设置为 25 分钟。</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="translated">设置焦点分钟</target>
+          <target state="translated">设置专注时长</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="translated">每个专注和休息周期可以重复多次。尝试添加 1 次重复！</target>
+          <target state="translated">每个专注和休息周期可以重复多次。您可以尝试添加 1 次重复！</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
@@ -690,7 +690,7 @@
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="translated">现在，选择每个休息段的时间。我们建议现在大约 5 分钟！</target>
+          <target state="translated">现在选择每个休息时段的长度。我们目前建议设置为 5 分钟！</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
@@ -698,19 +698,19 @@
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="translated">启动计时器并处理您的任务。到了休息时间，我们会向您发送通知。努力工作！</target>
+          <target state="translated">启动计时器并处理您的任务。到了休息时间，我们会向您发送通知。努力工作吧！</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="translated">预备，准备，开始</target>
+          <target state="translated">预备，开始！</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="translated">{0} 分钟专注, {1} 分钟休息, {2} 次重复.</target>
+          <target state="translated">专注 {0} 分钟，休息 {1} 分钟，重复 {2} 次。</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="translated">最近的焦点配置列表.</target>
+          <target state="translated">最近的专注配置列表.</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
@@ -738,31 +738,35 @@
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="translated">分钟中断</target>
+          <target state="translated">计时中断</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
-          <target state="translated">笔记</target>
+          <target state="translated">记录</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="translated">你是不是被什么东西打断了？ 在此处跟踪您的中断，以便您稍后可以在历史记录中查看它们。</target>
+          <target state="translated">你是不是被什么东西打断了？ 在此处查看您的中断，以便您稍后在历史记录中查看它们。</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="translated">近期历史</target>
+          <target state="translated">历史记录</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="translated">完成的回合</target>
+          <target state="translated">完成的循环</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="translated">好功夫</target>
+          <target state="translated">干得好！</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
           <target state="translated">你太棒了</target>
+        </trans-unit>
+        <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
+          <source>Ambie</source>
+          <target state="translated">安比</target>
         </trans-unit>
       </group>
     </body>

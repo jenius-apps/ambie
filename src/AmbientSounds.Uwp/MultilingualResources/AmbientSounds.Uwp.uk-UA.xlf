@@ -1,772 +1,768 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="ta" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+  <file datatype="xml" source-language="en-US" target-language="uk-UA" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
-      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.1.12.0" tool-company="Microsoft" />
     </header>
     <body>
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="translated">சிறிய மேல்விரிப்பை மூடு</target>
+          <target state="translated">Закрити компактний режим</target>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="translated">சிறிய மேல்விரிப்பை மூடு</target>
+          <target state="translated">Закрити компактний режим</target>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="translated">மூடு</target>
+          <target state="translated">Закрити</target>
         </trans-unit>
         <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
           <source>Copyright</source>
-          <target state="translated">பதிப்புரிமை</target>
+          <target state="translated">Авторські права</target>
         </trans-unit>
         <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
           <source>Copyright Jenius Apps</source>
-          <target state="translated">பதிப்புரிமை Jenius Apps</target>
+          <target state="translated">Власником авторських прав є Jenius Apps</target>
         </trans-unit>
         <trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
           <source>Hello from Vancouver</source>
-          <target state="translated">Vancouver இலிருந்து வணக்கம்</target>
+          <target state="translated">Вітання з Ванкуверу</target>
         </trans-unit>
         <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View app information</source>
-          <target state="translated">பயன்பாட்டுத் தகவல்களைப் பார்</target>
+          <target state="translated">Інформація про застосунок</target>
         </trans-unit>
         <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more options</source>
-          <target state="translated">மேலும் விருப்பங்களைப் பார்</target>
+          <target state="translated">Додаткові параметри</target>
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
-          <target state="translated">சிறிய மேல்விரிப்பு</target>
+          <target state="translated">Компактний режим</target>
         </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
-          <target state="translated">உருவாக்குநரை தொடர்புகொள்க</target>
+          <target state="translated">Зв'язатися з творцями</target>
         </trans-unit>
         <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
           <source>Rate us</source>
-          <target state="translated">எங்களை மதிப்பிடு செய்க</target>
+          <target state="translated">Оцініть нас</target>
         </trans-unit>
         <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="translated">அமைப்புகள்</target>
+          <target state="translated">Налаштування</target>
         </trans-unit>
         <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
           <source>Share link for Ambie</source>
-          <target state="translated">Ambieக்காண பகிர்வு இணைப்பு</target>
+          <target state="translated">Поділіться посиланням на Ambie</target>
         </trans-unit>
         <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
           <source>Add or improve translations</source>
-          <target state="translated">மொழிபெயர்ப்புகளைச் சேர் அல்லது மேம்படுத்து</target>
+          <target state="translated">Додайте або виправте переклад</target>
         </trans-unit>
         <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Off</source>
-          <target state="translated">அணை</target>
+          <target state="translated">Вимкнено</target>
         </trans-unit>
         <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
           <source>On</source>
-          <target state="translated">இயக்கு</target>
+          <target state="translated">Ввімкнено</target>
         </trans-unit>
         <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Pause the timer</source>
-          <target state="translated">டைமரை இடைநிறுத்து</target>
+          <target state="translated">Зупинити таймер</target>
         </trans-unit>
         <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="translated">இடைநிறுத்து</target>
+          <target state="translated">Пауза</target>
         </trans-unit>
         <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
           <source>Play</source>
-          <target state="translated">இயக்குக</target>
+          <target state="translated">Грати</target>
         </trans-unit>
         <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Continue the timer</source>
-          <target state="translated">டைமரை தொடர்ந்து இயக்கு</target>
+          <target state="translated">Відновити таймер</target>
         </trans-unit>
         <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
           <source>Ready to play</source>
-          <target state="translated">இயக்கத் தயார்</target>
+          <target state="translated">Готовий</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
           <source>Telemetry</source>
-          <target state="translated">தரவுச்சேகரிப்பு</target>
+          <target state="translated">Телеметрія</target>
         </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="translated">அமைப்புகள்</target>
+          <target state="translated">Налаштування</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View sleep timer options</source>
-          <target state="translated">உறக்கம் டைமர் விருப்பங்களைக் காண்க</target>
+          <target state="translated">Переглянути параметри таймера сну</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View sleep timer options</source>
-          <target state="translated">உறக்கம் டைமர் விருப்பங்களைக் காண்க</target>
+          <target state="translated">Переглянути параметри таймера сну</target>
+        </trans-unit>
+        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
+          <source>Beach</source>
+          <target state="translated">Пляж</target>
+        </trans-unit>
+        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
+          <source>Birds</source>
+          <target state="translated">Пташки</target>
+        </trans-unit>
+        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
+          <source>City street</source>
+          <target state="translated">Міська вулиця</target>
+        </trans-unit>
+        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
+          <source>Coffee shop</source>
+          <target state="translated">Кав'ярня</target>
+        </trans-unit>
+        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
+          <source>Creek</source>
+          <target state="translated">Струмок</target>
+        </trans-unit>
+        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
+          <source>Fireplace</source>
+          <target state="translated">Багаття</target>
+        </trans-unit>
+        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
+          <source>Rain</source>
+          <target state="translated">Дощ</target>
+        </trans-unit>
+        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
+          <source>Rainforest</source>
+          <target state="translated">Тропічний ліс</target>
+        </trans-unit>
+        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
+          <source>Underwater</source>
+          <target state="translated">Під водою</target>
+        </trans-unit>
+        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
+          <source>Waterfall</source>
+          <target state="translated">Водоспад</target>
+        </trans-unit>
+        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
+          <source>White noise</source>
+          <target state="translated">Білий шум</target>
         </trans-unit>
         <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds are loading</source>
-          <target state="translated">ஒலிகளை ஏற்றுகின்றது</target>
+          <target state="translated">Звуки завантажуються</target>
         </trans-unit>
         <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
           <source>Cannot play sound</source>
-          <target state="translated">ஒலியை இயக்க இயலவில்லை</target>
+          <target state="translated">Не вдається відтворити звук</target>
         </trans-unit>
         <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Stop the timer and clear the time</source>
-          <target state="translated">டைமரை நிறுத்தி நேரத்தை ஆழி</target>
+          <target state="translated">Зупинити і скинути таймер</target>
         </trans-unit>
         <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Global volume</source>
-          <target state="translated">முதன்மை ஒலியளவு</target>
+          <target state="translated">Загальна гучність</target>
         </trans-unit>
         <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound volume</source>
-          <target state="translated">ஒலியளவு</target>
+          <target state="translated">Гучність</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
-          <target state="translated">கருப்பொருள்</target>
+          <target state="translated">Тема</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
-          <target state="translated">தானியங்கு</target>
+          <target state="translated">Авто</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="translated">இருள்</target>
+          <target state="translated">Темна</target>
         </trans-unit>
         <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="translated">வெளிச்சம்</target>
+          <target state="translated">Світла</target>
+        </trans-unit>
+        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
+          <source>Vacuum</source>
+          <target state="translated">Вакуум</target>
+        </trans-unit>
+        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
+          <source>Thunder</source>
+          <target state="translated">Грім</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
           <source>Notification for new sounds</source>
-          <target state="translated">புதிய ஒலிகளுக்கான அறிவிப்பு</target>
+          <target state="translated">Сповіщення про нові звуки</target>
+        </trans-unit>
+        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
+          <source>Wind</source>
+          <target state="translated">Вітер</target>
         </trans-unit>
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>
-          <target state="translated">ஏற்கனவே பதிவிறக்கம் செய்யப்பட்டது</target>
+          <target state="translated">Вже завантажено</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
-          <target state="translated">பின் செல்</target>
+          <target state="translated">Повернутись</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
-          <target state="translated">பதிவிறக்கம் செய்யலாம்</target>
+          <target state="translated">Доступне для завантаження</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="translated">ஒலியைப் பதிவிறக்கம் செய்</target>
+          <target state="translated">Завантажити звук</target>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Download sound</source>
-          <target state="translated">ஒலியைப் பதிவிறக்கம் செய்</target>
+          <target state="translated">Завантажити звук</target>
         </trans-unit>
         <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound catalogue</source>
-          <target state="translated">ஒலி வரிசைப்பட்டியல்</target>
+          <target state="translated">Каталог звуків</target>
         </trans-unit>
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
-          <target state="translated">ஒலிகள்</target>
+          <target state="translated">Звуки</target>
           <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="translated">தனியுரிமைக் கொள்கை</target>
+          <target state="translated">Політика приватності</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
-          <target state="translated">தனியுரிமைக் கொள்கை</target>
+          <target state="translated">ПОлітика приватності</target>
         </trans-unit>
         <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="translated">நீக்கு</target>
+          <target state="translated">Видалити</target>
         </trans-unit>
         <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Delete sound</source>
-          <target state="translated">ஒலியை நீக்கு</target>
+          <target state="translated">Видалити звук</target>
         </trans-unit>
         <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="translated">நீக்கு</target>
+          <target state="translated">Видалити</target>
         </trans-unit>
         <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="translated">பதிவிறக்குக</target>
+          <target state="translated">Завантажити</target>
         </trans-unit>
         <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="translated">தானாக ஒரு ஒலியை இயக்கு</target>
+          <target state="translated">Відтворити випадковий звук</target>
         </trans-unit>
         <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="translated">தானாக ஒரு ஒலியை இயக்கு</target>
+          <target state="translated">Відтворити випадковий звук</target>
         </trans-unit>
         <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
-          <target state="translated">திரை சேமிப்பான் பயன்முறை</target>
+          <target state="translated">Режим заставки</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
           <source>Screensaver</source>
-          <target state="translated">திரை சேமிப்பான்</target>
+          <target state="translated">Заставка</target>
         </trans-unit>
         <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Purchase sound</source>
-          <target state="translated">ஒலியை வாங்கு</target>
+          <target state="translated">Придбати звук</target>
         </trans-unit>
         <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
-          <target state="translated">ஒலியை முன்னோட்டம் செய்க</target>
+          <target state="translated">Прослухати звук</target>
         </trans-unit>
         <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
-          <target state="translated">ஒலியை முன்னோட்டம் செய்க</target>
+          <target state="translated">Прослухати звук</target>
         </trans-unit>
         <trans-unit id="Paused" translate="yes" xml:space="preserve">
           <source>Paused</source>
-          <target state="translated">இடைநிறுத்தப்பட்டுள்ளது</target>
+          <target state="translated">Призупинено</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
         </trans-unit>
         <trans-unit id="Playing" translate="yes" xml:space="preserve">
           <source>Playing</source>
-          <target state="translated">இயக்குகின்றது</target>
+          <target state="translated">Відтворюється</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
         </trans-unit>
         <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Active sounds</source>
-          <target state="translated">நடப்பு ஒலிகள்</target>
+          <target state="translated">Активні звуки</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="translated">நடப்புப் பட்டியலை அழி</target>
+          <target state="translated">Очистити активні звуки</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="translated">நடப்புப் பட்டியலை அழி</target>
+          <target state="translated">Очистити активні звуки</target>
         </trans-unit>
         <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Confirm save</source>
-          <target state="translated">சேமிப்பை உறுதிசெய்</target>
-        </trans-unit>
-        <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
-          <source>Sound mix name</source>
-          <target state="translated">ஒலி கலவையின் பெயர்</target>
-        </trans-unit>
-        <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
-          <source>Optional</source>
-          <target state="translated">கட்டாயமற்றவை</target>
-        </trans-unit>
-        <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Save custom sound mix</source>
-          <target state="translated">தனிப்பயன் ஒலி கலவையைச் சேமி</target>
-        </trans-unit>
-        <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Save custom sound mix (Ctrl+S)</source>
-          <target state="translated">தனிப்பயன் ஒலி கலவையைச் சேமி(Ctrl+S)</target>
-        </trans-unit>
-        <trans-unit id="CancelText" translate="yes" xml:space="preserve">
-          <source>Cancel</source>
-          <target state="translated">இரத்து</target>
-        </trans-unit>
-        <trans-unit id="RenameText" translate="yes" xml:space="preserve">
-          <source>Rename</source>
-          <target state="translated">மறுபெயரிடு</target>
-        </trans-unit>
-        <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Rename</source>
-          <target state="translated">மறுபெயரிடு</target>
-        </trans-unit>
-        <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Sign out</source>
-          <target state="translated">வெளியேறு</target>
-        </trans-unit>
-        <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
-          <source>This will enable sound gallery sync across your devices.</source>
-          <target state="needs-review-translation">இது உங்கள் எல்லா சாதனங்களிலும் ஒலி தொகுப்பை ஒத்திசையும். மற்றும் நீங்கள் ஒலிகளைப் பதிவேற்றம் செய்யலாம். </target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View account options</source>
-          <target state="translated">கணக்கு விருப்பங்களைப் பார்</target>
-        </trans-unit>
-        <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>View account options</source>
-          <target state="translated">கணக்கு விருப்பங்களைப் பார்</target>
-        </trans-unit>
-        <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sign in</source>
-          <target state="translated">உள்நுழை</target>
-        </trans-unit>
-        <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Sign in</source>
-          <target state="translated">உள்நுழை</target>
-        </trans-unit>
-        <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Sync</source>
-          <target state="translated">ஒத்திசை</target>
-        </trans-unit>
-        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
-          <source>Beach</source>
-          <target state="translated">கடற்கரை</target>
-        </trans-unit>
-        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
-          <source>Birds</source>
-          <target state="translated">பறவைகள்</target>
-        </trans-unit>
-        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
-          <source>City street</source>
-          <target state="translated">நகர் தெரு</target>
-        </trans-unit>
-        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
-          <source>Coffee shop</source>
-          <target state="translated">குழம்பிக் கடை</target>
-        </trans-unit>
-        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
-          <source>Creek</source>
-          <target state="translated">கழி</target>
-        </trans-unit>
-        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
-          <source>Fireplace</source>
-          <target state="translated">நெருப்பிடம்</target>
-        </trans-unit>
-        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
-          <source>Rain</source>
-          <target state="translated">மழை</target>
-        </trans-unit>
-        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
-          <source>Rainforest</source>
-          <target state="translated">மழைக்காடுகள்</target>
-        </trans-unit>
-        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
-          <source>Underwater</source>
-          <target state="translated">அடிநிலநீர்</target>
-        </trans-unit>
-        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
-          <source>Waterfall</source>
-          <target state="translated">நீர்வீழ்ச்சி</target>
-        </trans-unit>
-        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
-          <source>White noise</source>
-          <target state="translated">வெள்ளை ஒலி</target>
-        </trans-unit>
-        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
-          <source>Vacuum</source>
-          <target state="translated">பாழ்வெறுமை</target>
-        </trans-unit>
-        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
-          <source>Thunder</source>
-          <target state="translated">இடியோசை</target>
-        </trans-unit>
-        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
-          <source>Wind</source>
-          <target state="translated">காற்று</target>
+          <target state="translated">Підтвердьте збереження змін</target>
         </trans-unit>
         <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
           <source>Global volume</source>
-          <target state="translated">மொத்த ஒலியாளவு</target>
+          <target state="translated">Загальна гучність</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
+          <source>Sound mix name</source>
+          <target state="translated">Назва міксу</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Optional</source>
+          <target state="translated">Необов'язковий</target>
         </trans-unit>
         <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
           <source>Remove {0} from active list</source>
-          <target state="translated">இயக்கப்படும் பட்டியலில் இருந்து {0} ஐ அகற்று</target>
+          <target state="translated">Видалити {0} зі списку відтворюваних звуків</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix</source>
+          <target state="translated">Зберегти свій власний мікс</target>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix (Ctrl+S)</source>
+          <target state="translated">Зберегти свій власний мікс(Ctrl+S)</target>
+        </trans-unit>
+        <trans-unit id="CancelText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">Скасувати</target>
+        </trans-unit>
+        <trans-unit id="RenameText" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="translated">Перейменувати</target>
+        </trans-unit>
+        <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="translated">Перейменувати</target>
+        </trans-unit>
+        <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sign out</source>
+          <target state="translated">Вийти</target>
+        </trans-unit>
+        <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
+          <source>This will enable sound gallery sync across your devices.</source>
+          <target state="translated">Це дозволить синхронізувати між пристроями.</target>
+        </trans-unit>
+        <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="translated">Параметри облікового запису</target>
+        </trans-unit>
+        <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View account options</source>
+          <target state="translated">Параметри облікового запису</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">Увійти</target>
+        </trans-unit>
+        <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Sign in</source>
+          <target state="translated">Увійти</target>
+        </trans-unit>
+        <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Sync</source>
+          <target state="translated">Синхронізація</target>
         </trans-unit>
         <trans-unit id="Attribution" translate="yes" xml:space="preserve">
           <source>Attribution</source>
-          <target state="translated">பண்புக்கூறு</target>
+          <target state="translated">Позначення авторства</target>
         </trans-unit>
         <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
           <source>Browse</source>
-          <target state="translated">உலாவு</target>
+          <target state="translated">Огляд</target>
         </trans-unit>
         <trans-unit id="Name" translate="yes" xml:space="preserve">
           <source>Name</source>
-          <target state="translated">பெயர்</target>
+          <target state="translated">Назва</target>
         </trans-unit>
         <trans-unit id="NewSound" translate="yes" xml:space="preserve">
           <source>New sound</source>
-          <target state="translated">புதிய ஒலி</target>
+          <target state="translated">Новий звук</target>
         </trans-unit>
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
-          <target state="translated">புதுப்பி</target>
+          <target state="translated">Оновити</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="translated">உள்நுழை</target>
+          <target state="translated">Увійти</target>
         </trans-unit>
         <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
           <source>Are you sure?</source>
-          <target state="translated">நிச்சயமாகவா?</target>
+          <target state="translated">Ви впевнені?</target>
         </trans-unit>
         <trans-unit id="Yes" translate="yes" xml:space="preserve">
           <source>Yes</source>
-          <target state="translated">ஆம்</target>
+          <target state="translated">Так</target>
         </trans-unit>
         <trans-unit id="Optional" translate="yes" xml:space="preserve">
           <source>Optional</source>
-          <target state="translated">விருப்பப்படியானவை</target>
+          <target state="translated">Необов'язкове</target>
         </trans-unit>
         <trans-unit id="Required" translate="yes" xml:space="preserve">
           <source>Required</source>
-          <target state="translated">தேவையானவை</target>
+          <target state="translated">Обов'язкове</target>
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>
-          <target state="translated">தானமளி</target>
+          <target state="translated">Зробити пожертвування</target>
         </trans-unit>
         <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
           <source>Terms of Use</source>
-          <target state="translated">பயன்பாட்டு விதிமுறைகள்</target>
+          <target state="translated">Умови використання</target>
         </trans-unit>
         <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
           <source>Follow us on Twitter</source>
-          <target state="translated">Twitter இல் எங்களைப் பின்தொடரவும்</target>
+          <target state="translated">Слідкуйте за нами в Twitter</target>
         </trans-unit>
         <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
           <source>Dismiss</source>
-          <target state="translated">நிராகரி</target>
+          <target state="translated">Відмінити</target>
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="translated">Ambie ஐ முயற்சித்ததற்கு நன்றி. சிறந்த அனுபவத்திற்கு, எங்களை உங்கள் பணிப்பட்டியில் பொருத்த முயற்சிக்கவும்! உங்கள் ஓய்வெடுக்கும் தங்க அனுபவிக்கவும் 🏝</target>
+          <target state="translated">Дякуємо, що спробували Ambie. Для кращого результату закріпіть програму на панелі завдань. Сядайте зручніше і розслабтеся 🏝</target>
         </trans-unit>
         <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
           <source>Hello and welcome!</source>
-          <target state="translated">வணக்கம் மற்றும் நல்வரவு!</target>
+          <target state="translated">Ласкаво просимо!</target>
         </trans-unit>
         <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
           <source>Pin to taskbar</source>
-          <target state="translated">பணிப்பட்டியில் பொருத்து</target>
+          <target state="translated">Закріпити на панелі завдань</target>
         </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
-          <target state="translated">முன்னோட்டம்</target>
+          <target state="translated">Переглянути</target>
         </trans-unit>
         <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
           <source>Catalogue</source>
-          <target state="translated">பட்டியல்</target>
+          <target state="translated">Каталог</target>
         </trans-unit>
         <trans-unit id="Home" translate="yes" xml:space="preserve">
           <source>Home</source>
-          <target state="translated">முகப்பு</target>
+          <target state="translated">Колекція</target>
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
-          <target state="translated">3 ஒலிகள் வரை கலந்து பொருத்தவும்</target>
+          <target state="translated">Змішуйте разом до трьох звуків</target>
         </trans-unit>
         <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
           <source>Theme settings</source>
-          <target state="translated">கருப்பொருள் அமைப்புகள்</target>
+          <target state="translated">Налаштування теми</target>
+        </trans-unit>
+        <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
+          <source>Auto resume when Ambie opens</source>
+          <target state="translated">Автоматично відновлювати відтворення після запуску Ambie</target>
         </trans-unit>
         <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
           <source>{0} per month</source>
-          <target state="translated">மாதத்திற்கு {0}</target>
+          <target state="translated">{0} на місяць</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
         </trans-unit>
         <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
           <source>Access premium, high quality sounds</source>
-          <target state="needs-review-translation">பிரீமியம், உயர் தர ஒலிகளை அணுகலாம்!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Отримайте доступ до звуків високої якості</target>
         </trans-unit>
         <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
           <source>Download video screensavers</source>
-          <target state="needs-review-translation">வளர்ந்து வரும் பட்டியல்!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Завантаження заставок</target>
         </trans-unit>
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development</source>
-          <target state="needs-review-translation">உருவாக்கத்தை ஆதரவளி!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Підтримати розробника</target>
         </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
-          <target state="translated">சந்தாசேர்ந்ததற்கு நன்றி!</target>
+          <target state="translated">Дякуємо за підписку!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
-          <target state="new">Hello again 👋🏽</target>
+          <target state="translated">Вітаємо знову 👋🏽</target>
         </trans-unit>
         <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
           <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="new">Enjoying Ambie? Please consider rating us!</target>
-        </trans-unit>
-        <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
-          <source>Auto resume when Ambie opens</source>
-          <target state="new">Auto resume when Ambie opens</target>
+          <target state="translated">Подобається Ambie? Оцініть нас!</target>
         </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated">Завантажити</target>
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="new">We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</target>
+          <target state="translated">Для відтворення потрібно завантажити додаткові звуки. Після завантаження спробуйте відновити ще раз. Почати завантаження?</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
-          <target state="new">Missing sounds</target>
+          <target state="translated">Відсутні звуки</target>
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="new">Default</target>
+          <target state="translated">За замовчуванням</target>
         </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Видалити</target>
         </trans-unit>
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
-          <target state="new">{0} MB</target>
+          <target state="translated">{0} Мб</target>
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="new">More screensavers</target>
+          <target state="translated">Більше заставок</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="new">Screensaver catalogue</target>
+          <target state="translated">Каталог заставок</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="new">View premium info</target>
+          <target state="translated">Інформація про преміум</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
-          <target state="new">Clouds</target>
+          <target state="translated">Хмари</target>
         </trans-unit>
         <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
-          <target state="new">Colored smoke</target>
+          <target state="translated">Кольоровий дим</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
-          <target state="new">Octagrams</target>
+          <target state="translated">Восьмикутники</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="new">There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</target>
+          <target state="translated">Виникла проблема з відображенням заставки. Спробуйте перезапустити Ambie або зв’яжіться з нами, якщо проблема не зникне.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
-          <target state="new">Report the issue</target>
+          <target state="translated">Повідомити про проблему</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="new">Rendering error</target>
+          <target state="translated">Помилка відображення</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="new">Toggle fullscreen</target>
+          <target state="translated">Перемкнути повноекранний режим</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie Plus</source>
-          <target state="new">Get Ambie Plus</target>
+          <target state="translated">Отримати Ambie Plus</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="new">Focus</target>
+          <target state="translated">Зосередження</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
-          <target state="new">Pause timer</target>
+          <target state="translated">Призупинити таймер</target>
         </trans-unit>
         <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
           <source>Start timer</source>
-          <target state="new">Start timer</target>
+          <target state="translated">Запустити таймер</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="new">Well done!</target>
+          <target state="translated">Гарна робота!</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="new">Focus session complete</target>
+          <target state="translated">Сеанс зосередження завершено</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="new">Time to focus</target>
+          <target state="translated">Час зосередитися</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="new">Time to rest</target>
+          <target state="translated">Час відпочити</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="new">Rest</target>
+          <target state="translated">Відпочинок</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="new">Focus session is active!</target>
+          <target state="translated">Сеанс зосередження активний!</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="new">Focusing</target>
+          <target state="translated">Зосередьтеся на виконанні завдання</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="new">Resting</target>
+          <target state="translated">Зробіть перерву в роботі</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="new">Pause</target>
+          <target state="translated">Пауза</target>
         </trans-unit>
         <trans-unit id="Reset" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="new">Reset</target>
+          <target state="translated">Скинути</target>
         </trans-unit>
         <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
           <source>Reset timer</source>
-          <target state="new">Reset timer</target>
+          <target state="translated">Скинути таймер</target>
         </trans-unit>
         <trans-unit id="Start" translate="yes" xml:space="preserve">
           <source>Start</source>
-          <target state="new">Start</target>
+          <target state="translated">Почати</target>
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="new">Focus minutes</target>
+          <target state="translated">Час зосередження (в хвилинах)</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down your to-do list or any notes here 🙂</source>
-          <target state="new">You can jot down your to-do list or any notes here 🙂</target>
+          <target state="translated">Місце для записів або списку справ 🙂</target>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="new">What's the plan?</target>
+          <target state="translated">Який у нас план?</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
-          <target state="new">Notepad</target>
-        </trans-unit>
-        <trans-unit id="RestLength" translate="yes" xml:space="preserve">
-          <source>Rest minutes</source>
-          <target state="new">Rest minutes</target>
+          <target state="translated">Нотатки</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="new">Repeats</target>
+          <target state="translated">Повторення</target>
+        </trans-unit>
+        <trans-unit id="RestLength" translate="yes" xml:space="preserve">
+          <source>Rest minutes</source>
+          <target state="translated">Час відпочинку (в хвилинах)</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="new">Show me how to use it</target>
+          <target state="translated">Покажіть, як ним користуватися</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="new">This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</target>
+          <target state="translated">Лічильник зосередження створений за мотивами техніки помодоро. Ця техніка базується на більш тривалих періодах зосередженості на завданні, перерваних короткими періодами відпочинку. Повторення цього циклу допомагає вам залишатися зосередженим!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="new">Welcome to Focus Timer!</target>
+          <target state="translated">Ласкаво просимо до лічильника зосередження!</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="new">Help</target>
+          <target state="translated">Допомога</target>
         </trans-unit>
         <trans-unit id="Next" translate="yes" xml:space="preserve">
           <source>Next</source>
-          <target state="new">Next</target>
+          <target state="translated">Далі</target>
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="new">Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</target>
+          <target state="translated">Кожен цикл ділиться на сегмент зосередження та сегмент відпочинку. Встановіть довжину кожного. Для початку ми пропонуємо період 25 хвилин!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="new">Set focus minutes</target>
+          <target state="translated">Встановіть тривалість режиму зосередженості</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="new">Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</target>
+          <target state="translated">Цикл зосередження та відпочинку можна повторювати багато разів. Додайте одне повторення!</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
-          <target state="new">Set repeats</target>
+          <target state="translated">Встановіть повторення</target>
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="new">Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</target>
+          <target state="translated">Виберіть тривалість кожного сегмента відпочинку. Ми рекомендуємо почати з 5 хвилин!</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="new">Set rest minutes</target>
+          <target state="translated">Встановіть час відпочинку</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="new">Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</target>
+          <target state="translated">Запустіть лічильник і зосередьтеся на своєму завданні. Ви отримаєте сповіщення, коли настане час відпочинку. До роботи!</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="new">Ready, set, go</target>
+          <target state="translated">На старт, увага, марш</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="new">{0} focus minutes, {1} rest minutes, {2} repeats.</target>
+          <target state="translated">{0} хвилин зосередження, {1} хвилин відпочинку, {2} повторень.</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="new">List of recent focus configurations.</target>
+          <target state="translated">Список останніх конфігурацій зосередження.</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
-          <target state="new">0 to {0}</target>
+          <target state="translated">0 до {0}</target>
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="new">History</target>
+          <target state="translated">Історія</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
-          <target state="new">Interruptions</target>
+          <target state="translated">Відволікань</target>
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
-          <target state="new">Your recent history will appear here</target>
+          <target state="translated">Ваші нещодавні дії будуть відображені тут</target>
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="new">Log interruption</target>
+          <target state="translated">Записати перерву</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="new">Confirm</target>
+          <target state="translated">Підтвердити</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="new">Minutes interrupted</target>
+          <target state="translated">Час перерви у хвилинах</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
-          <target state="new">Notes</target>
+          <target state="translated">Нотатки</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="new">Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</target>
+          <target state="translated">Вам щось завадило? Відстежуйте свої відволікання тут, щоб потім переглянути їх у своїй історії.</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="new">Recent history</target>
+          <target state="translated">Нещодавні дії</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="new">Rounds completed</target>
+          <target state="translated">Циклів виконано</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="new">Good effort</target>
+          <target state="translated">Гарна спроба</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="new">You're amazing</target>
+          <target state="translated">Так тримати</target>
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>

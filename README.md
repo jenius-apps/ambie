@@ -52,6 +52,7 @@ To help translate, follow these instructions.
     - If you get a message saying "Translation Provider Manager Issue," just click Ok and ignore it. It's unrelated to adding a language.
 - Select a language. 
 - Once you select a language, new `.xlf` files will be created in the `MultilingualResources` folder.
+- Find and install `Humanizer.Core` nuget package for a new language
 - Now follow the `Improving an existing language` steps below.
 
 ### Improving an existing language (can be done with any text editor)
@@ -93,3 +94,4 @@ To help translate, follow these instructions.
 - Russian: [Dmitry Gorbushin](https://github.com/Gorbushin)
 - Hebrew: [Adam Dernis](https://github.com/Avid29)
 - Polish: [Maciej Klupp](https://github.com/maciej-klupp)
+- Ukrainian: [Andrii Yakonyuk](https://github.com/andrewyakonyuk)
