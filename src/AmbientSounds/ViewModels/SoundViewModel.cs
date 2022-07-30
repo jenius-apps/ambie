@@ -179,7 +179,7 @@ namespace AmbientSounds.ViewModels
             _playerService.SoundRemoved += OnSoundPaused;
             _playerService.SoundAdded += OnSoundPlayed;
             _playerService.MixPlayed += OnMixPlayed;
-            _presenceService.SoundPresenceChanged += OnPresenceChanged;
+            //_presenceService.SoundPresenceChanged += OnPresenceChanged;
 
             DownloadActive = _downloadManager.IsDownloadActive(_sound);
             if (DownloadActive)
@@ -336,6 +336,7 @@ namespace AmbientSounds.ViewModels
             _playerService.SoundRemoved -= OnSoundPaused;
             _playerService.SoundAdded -= OnSoundPlayed;
             _playerService.MixPlayed -= OnMixPlayed;
+            //_presenceService.SoundPresenceChanged -= OnPresenceChanged;
 
             if (_downloadProgress is not null)
             {
