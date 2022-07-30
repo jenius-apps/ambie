@@ -172,36 +172,61 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-                    <controls:PlusBadge
-                        x:Name="Badge"
-                        HorizontalAlignment="Left"
-                        x:Load="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
+                <controls:PlusBadge
+                    x:Name="Badge"
+                    HorizontalAlignment="Left"
+                    x:Load="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
 
-                    <StackPanel Grid.Column="2" Orientation="Horizontal">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAF7;" />
-                        <TextBlock Margin="4,0,0,0" Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                    <StackPanel
+                        Margin="0,0,0,4"
+                        Orientation="Horizontal"
+                        Visibility="{x:Bind ViewModel.IsPresenceVisible, Mode=OneWay}">
+                        <ani:Implicit.ShowAnimations>
+                            <ani:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.3" />
+                            <ani:TranslationAnimation
+                                From="0,12,0"
+                                To="0"
+                                Duration="0:0:0.3" />
+                        </ani:Implicit.ShowAnimations>
+                        <ani:Explicit.Animations>
+                            <ani:AnimationSet x:Name="HidePresenceAnimation">
+                                <ani:OpacityAnimation
+                                    From="1"
+                                    To="0"
+                                    Duration="0:0:0.3" />
+                                <ani:TranslationAnimation
+                                    From="0"
+                                    To="0,12,0"
+                                    Duration="0:0:0.3" />
+                            </ani:AnimationSet>
+                        </ani:Explicit.Animations>
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="14"
+                            Foreground="White"
+                            Glyph="&#xEAF7;" />
+                        <TextBlock
+                            Margin="4,0,0,0"
+                            FontSize="12"
+                            Foreground="White"
+                            Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
                     </StackPanel>
-                </Grid>
-
-                <TextBlock
-                    Grid.Row="1"
-                    VerticalAlignment="Bottom"
-                    Foreground="White"
-                    Text="{x:Bind ViewModel.Name, Mode=OneWay}"
-                    TextTrimming="CharacterEllipsis"
-                    TextWrapping="Wrap">
-                    <ToolTipService.ToolTip>
-                        <Grid MaxWidth="300">
-                            <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                        </Grid>
-                    </ToolTipService.ToolTip>
-                </TextBlock>
+                    <TextBlock
+                        Foreground="White"
+                        Text="{x:Bind ViewModel.Name, Mode=OneWay}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="Wrap">
+                        <ToolTipService.ToolTip>
+                            <Grid MaxWidth="300">
+                                <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
+                            </Grid>
+                        </ToolTipService.ToolTip>
+                    </TextBlock>
+                </StackPanel>
             </Grid>
 
             <Grid.ContextFlyout>

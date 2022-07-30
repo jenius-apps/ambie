@@ -165,8 +165,14 @@ namespace AmbientSounds.ViewModels
         public double PresenceCount
         {
             get => _presenceCount;
-            set => SetProperty(ref _presenceCount, value);
+            set
+            {
+                SetProperty(ref _presenceCount, value);
+                OnPropertyChanged(nameof(IsPresenceVisible));
+            }
         }
+
+        public bool IsPresenceVisible => PresenceCount > 0 && IsCurrentlyPlaying;
 
         public void Initialize()
         {
@@ -278,6 +284,7 @@ namespace AmbientSounds.ViewModels
             if (args.MixId == _sound.Id || args.SoundIds.Contains(_sound.Id))
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
+                OnPropertyChanged(nameof(IsPresenceVisible));
             }
         }
 
@@ -292,6 +299,7 @@ namespace AmbientSounds.ViewModels
         private void OnSoundPaused(object sender, SoundPausedArgs args)
         {
             OnPropertyChanged(nameof(IsCurrentlyPlaying));
+            OnPropertyChanged(nameof(IsPresenceVisible));
         }
 
         private void OnSoundPlayed(object sender, SoundPlayedArgs args)
@@ -299,6 +307,7 @@ namespace AmbientSounds.ViewModels
             if (args.ParentMixId == _sound.Id || args.Sound.Id == _sound.Id)
             {
                 OnPropertyChanged(nameof(IsCurrentlyPlaying));
+                OnPropertyChanged(nameof(IsPresenceVisible));
             }
         }
 
