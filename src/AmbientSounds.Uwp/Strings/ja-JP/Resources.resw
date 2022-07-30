@@ -583,4 +583,7 @@
   <data name="ResultMessageSuccess1" xml:space="preserve">
     <value>あなたが素晴らしいです</value>
   </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>アンビー</value>
+  </data>
 </root>

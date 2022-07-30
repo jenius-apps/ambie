@@ -44,8 +44,6 @@ steps:
     script: |
       [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest
       $xmlDoc.Package.Identity.Name="43891JeniusApps.Ambie"
-      $xmlDoc.Package.Properties.DisplayName="Ambie"
-      $xmlDoc.Package.Applications.Application.VisualElements.DisplayName="Ambie"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest')
     failOnStderr: true
 

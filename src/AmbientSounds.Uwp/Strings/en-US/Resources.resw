@@ -688,4 +688,7 @@
   <data name="ResultMessageSuccess1" xml:space="preserve">
     <value>You're amazing</value>
   </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Ambie</value>
+  </data>
 </root>

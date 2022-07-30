@@ -764,6 +764,10 @@
           <source>You're amazing</source>
           <target state="translated">あなたが素晴らしいです</target>
         </trans-unit>
+        <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
+          <source>Ambie</source>
+          <target state="translated">アンビー</target>
+        </trans-unit>
       </group>
     </body>
   </file>
