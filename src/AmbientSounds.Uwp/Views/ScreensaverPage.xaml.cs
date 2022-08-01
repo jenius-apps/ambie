@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using ComputeSharp;
 using ComputeSharp.Uwp;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml.Controls;
@@ -49,6 +50,8 @@ namespace AmbientSounds.Views
             coreWindow.SizeChanged += CoreWindow_SizeChanged;
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested += OnBackRequested;
+            var device = GraphicsDevice.GetDefault();
+            device.DeviceLost += Device_DeviceLost;
 
             var view = ApplicationView.GetForCurrentView();
             IsFullscreen = view.IsFullScreenMode;
@@ -69,6 +72,8 @@ namespace AmbientSounds.Views
             coreWindow.SizeChanged -= CoreWindow_SizeChanged;
             var navigator = SystemNavigationManager.GetForCurrentView();
             navigator.BackRequested -= OnBackRequested;
+            var device = GraphicsDevice.GetDefault();
+            device.DeviceLost -= Device_DeviceLost;
 
             SettingsFlyout?.Items?.Clear();
         }
@@ -157,6 +162,16 @@ namespace AmbientSounds.Views
 
             IsFullscreen = view.IsFullScreenMode;
             this.Bindings.Update();
+        }
+
+        private void Device_DeviceLost(object sender, DeviceLostEventArgs e)
+        {
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+
+            telemetry.TrackEvent(nameof(GraphicsDevice.DeviceLost), new Dictionary<string, string>()
+            {
+                { "reason", e.Reason.ToString() }
+            });
         }
 
         private void GoBack()
