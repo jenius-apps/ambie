@@ -176,11 +176,11 @@ namespace AmbientSounds.Views
             GoBack();
         }
 
-        private void AnimatedComputeShaderPanel_RenderingFailed(AnimatedComputeShaderPanel sender, Exception args)
+        private void AnimatedComputeShaderPanel_RenderingFailed(AnimatedComputeShaderPanel sender, RenderingFailedEventArgs args)
         {
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
 
-            telemetry.TrackError(args, new Dictionary<string, string>()
+            telemetry.TrackError(args.Exception, new Dictionary<string, string>()
             {
                 { "name", ViewModel.AnimatedBackgroundName ?? string.Empty },
             });
