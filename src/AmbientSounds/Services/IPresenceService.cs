@@ -15,6 +15,11 @@ namespace AmbientSounds.Services
         event EventHandler<PresenceEventArgs>? SoundPresenceChanged;
 
         /// <summary>
+        /// Raised when the presence connection is disconnected.
+        /// </summary>
+        event EventHandler? PresenceDisconnected;
+
+        /// <summary>
         /// Informs server that the count should decrement for the given soundId.
         /// </summary>
         Task DecrementAsync(string soundId);
