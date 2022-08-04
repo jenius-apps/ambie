@@ -105,6 +105,11 @@ namespace AmbientSounds.Constants
         public const string HasClosedInterruptionMessageKey = "HasClosedInterruptionMessage";
 
         /// <summary>
+        /// Used to remember a unique device ID for the purposes of tracking presence counts.
+        /// </summary>
+        public const string DevicePresenceIdKey = "DevicePresenceId";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -127,6 +132,7 @@ namespace AmbientSounds.Constants
             { HasClosedFocusHelpMessageKey, false },
             { HasClosedInterruptionMessageKey, false },
             { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
+            { DevicePresenceIdKey, string.Empty }
         };
     }
 }

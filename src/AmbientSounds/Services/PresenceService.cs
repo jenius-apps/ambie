@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AmbientSounds.Constants;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Toolkit.Diagnostics;
 
 namespace AmbientSounds.Services
 {
@@ -10,12 +12,23 @@ namespace AmbientSounds.Services
     {
         private readonly HubConnection _connection;
         private readonly HashSet<string> _connectedSoundIds = new();
+        private readonly string _deviceId;
+        private readonly ITelemetry _telemetry;
 
         public event EventHandler<PresenceEventArgs>? SoundPresenceChanged;
         public event EventHandler? PresenceDisconnected;
 
-        public PresenceService(IAppSettings appSettings)
+        public PresenceService(
+            IAppSettings appSettings,
+            IUserSettings userSettings,
+            ITelemetry telemetry)
         {
+            Guard.IsNotNull(appSettings, nameof(appSettings));
+            Guard.IsNotNull(userSettings, nameof(userSettings));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
+
+            _telemetry = telemetry;
+
             _connection = new HubConnectionBuilder()
                 .WithUrl(appSettings.PresenceUrl)
                 .Build();
@@ -25,6 +38,13 @@ namespace AmbientSounds.Services
                 SoundPresenceChanged?.Invoke(this, new PresenceEventArgs(s, d));
             });
 
+            var deviceId = userSettings.Get<string>(UserSettingsConstants.DevicePresenceIdKey);
+            if (string.IsNullOrEmpty(deviceId))
+            {
+                deviceId = Guid.NewGuid().ToString();
+                userSettings.Set(UserSettingsConstants.DevicePresenceIdKey, deviceId);
+            }
+            _deviceId = deviceId;
         }
 
         public async Task EnsureInitializedAsync()
@@ -71,10 +91,13 @@ namespace AmbientSounds.Services
 
             try
             {
-                await _connection.InvokeAsync("IncrementPresence", soundId);
+                await _connection.InvokeAsync("IncrementDevicePresence", _deviceId, soundId);
                 _connectedSoundIds.Add(soundId);
             }
-            catch { }
+            catch (Exception e)
+            {
+                _telemetry.TrackError(e);
+            }
         }
 
         public async Task DecrementAsync(string soundId)
@@ -86,10 +109,13 @@ namespace AmbientSounds.Services
 
             try
             {
-                await _connection.InvokeAsync("DecrementPresence", soundId);
+                await _connection.InvokeAsync("DecrementDevicePresence", _deviceId, soundId);
                 _connectedSoundIds.Remove(soundId);
             }
-            catch { }
+            catch (Exception e)
+            {
+                _telemetry.TrackError(e);
+            }
         }
     }
 
