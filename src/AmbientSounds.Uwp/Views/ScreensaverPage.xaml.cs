@@ -168,7 +168,7 @@ namespace AmbientSounds.Views
         {
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
 
-            telemetry.TrackEvent(nameof(GraphicsDevice.DeviceLost), new Dictionary<string, string>()
+            telemetry.TrackEvent(TelemetryConstants.ShaderDeviceLost, new Dictionary<string, string>()
             {
                 { "reason", e.Reason.ToString() }
             });
