@@ -12,7 +12,7 @@ namespace AmbientSounds.Services
     {
         private readonly HubConnection _connection;
         private readonly HashSet<string> _connectedSoundIds = new();
-        private readonly string _deviceId;
+        private readonly string _deviceId; // used to uniquely identify this device in signalr.
         private readonly ITelemetry _telemetry;
 
         public event EventHandler<PresenceEventArgs>? SoundPresenceChanged;
@@ -38,13 +38,18 @@ namespace AmbientSounds.Services
                 SoundPresenceChanged?.Invoke(this, new PresenceEventArgs(s, d));
             });
 
+            _deviceId = GetOrCreateDeviceId(userSettings);
+        }
+
+        private static string GetOrCreateDeviceId(IUserSettings userSettings)
+        {
             var deviceId = userSettings.Get<string>(UserSettingsConstants.DevicePresenceIdKey);
             if (string.IsNullOrEmpty(deviceId))
             {
                 deviceId = Guid.NewGuid().ToString();
                 userSettings.Set(UserSettingsConstants.DevicePresenceIdKey, deviceId);
             }
-            _deviceId = deviceId;
+            return deviceId;
         }
 
         public async Task EnsureInitializedAsync()
