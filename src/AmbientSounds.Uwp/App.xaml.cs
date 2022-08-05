@@ -4,6 +4,8 @@ using AmbientSounds.Factories;
 using AmbientSounds.Repositories;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
+using AmbientSounds.Tools;
+using AmbientSounds.Tools.Uwp;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Tools;
 using JeniusApps.Common.Tools.Uwp;
@@ -11,6 +13,7 @@ using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client.Extensibility;
 using Microsoft.Toolkit.Diagnostics;
+using Microsoft.Toolkit.Uwp.Connectivity;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -55,6 +58,8 @@ namespace AmbientSounds
         {
             this.InitializeComponent();
             this.Suspending += OnSuspension;
+            this.Resuming += OnResuming;
+            NetworkHelper.Instance.NetworkChanged += OnNetworkChanged;
 
             if (IsTenFoot)
             {
@@ -63,6 +68,32 @@ namespace AmbientSounds
 
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
                 this.FocusVisualKind = FocusVisualKind.Reveal;
+            }
+        }
+
+        private async void OnNetworkChanged(object sender, EventArgs e)
+        {
+            var presence = _serviceProvider?.GetService<IPresenceService>();
+            if (presence is null)
+            {
+                return;
+            }
+
+            if (NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
+            {
+                await presence.EnsureInitializedAsync();
+            }
+            else
+            {
+                await presence.DisconnectAsync();
+            }
+        }
+
+        private async void OnResuming(object sender, object e)
+        {
+            if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+            {
+                await presenceService.EnsureInitializedAsync();
             }
         }
 
@@ -82,6 +113,11 @@ namespace AmbientSounds
             if (_serviceProvider?.GetService<IFocusNotesService>() is IFocusNotesService notesService)
             {
                 await notesService.SaveNotesToStorageAsync();
+            }
+
+            if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+            {
+                await presenceService.DisconnectAsync();
             }
 
             deferral.Complete();
@@ -372,11 +408,13 @@ namespace AmbientSounds
                 // a timer factory.
                 .AddTransient<ITimerService, TimerService>()
                 // exposes events or object tree has singleton, so singleton.
+                .AddSingleton<IDispatcherQueue, WindowsDispatcherQueue>()
                 .AddSingleton<IFocusNotesService, FocusNotesService>()
                 .AddSingleton<IFocusService, FocusService>()
                 .AddSingleton<IFocusHistoryService, FocusHistoryService>()
                 .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
+                .AddSingleton<IPresenceService, PresenceService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
                 .AddSingleton<IVideoService, VideoService>()

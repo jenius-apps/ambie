@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Diagnostics;
@@ -96,7 +97,9 @@ namespace AmbientSounds.Factories
                 _renamer,
                 _serviceProvider.GetRequiredService<IDialogService>(),
                 _serviceProvider.GetRequiredService<IIapService>(),
-                _serviceProvider.GetRequiredService<IDownloadManager>());
+                _serviceProvider.GetRequiredService<IDownloadManager>(),
+                _serviceProvider.GetRequiredService<IPresenceService>(),
+                _serviceProvider.GetRequiredService<IDispatcherQueue>());
             vm.Initialize();
             return vm;
         }

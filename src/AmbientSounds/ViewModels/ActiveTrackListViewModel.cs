@@ -22,6 +22,7 @@ namespace AmbientSounds.ViewModels
         private readonly IUserSettings _userSettings;
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly ITelemetry _telemetry;
+        private readonly IPresenceService _presenceService;
         private readonly bool _loadPreviousState;
         private bool _loaded;
 
@@ -33,7 +34,8 @@ namespace AmbientSounds.ViewModels
             IUserSettings userSettings,
             ITelemetry telemetry,
             ISoundDataProvider soundDataProvider,
-            IAppSettings appSettings)
+            IAppSettings appSettings,
+            IPresenceService presenceService)
         {
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
@@ -41,6 +43,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(appSettings, nameof(appSettings));
+            Guard.IsNotNull(presenceService, nameof(presenceService));
 
             _loadPreviousState = appSettings.LoadPreviousState;
             _telemetry = telemetry;
@@ -48,6 +51,7 @@ namespace AmbientSounds.ViewModels
             _userSettings = userSettings;
             _soundVmFactory = soundVmFactory;
             _player = player;
+            _presenceService = presenceService;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             ClearCommand = new RelayCommand(ClearAll);
@@ -87,6 +91,12 @@ namespace AmbientSounds.ViewModels
             _player.SoundAdded += OnSoundAdded;
             _player.SoundRemoved += OnSoundRemoved;
             ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
+
+            // This track list is what we use
+            // to determine if a user should report presence
+            // for a sound. Thus, we initialize the presence service
+            // the same time this viewmodel is initialized.
+            await _presenceService.EnsureInitializedAsync();
 
             if (ActiveTracks.Count > 0 || !_loadPreviousState)
             {
@@ -167,21 +177,31 @@ namespace AmbientSounds.ViewModels
             OnPropertyChanged(nameof(IsPlaceholderVisible));
         }
 
-        private void OnSoundRemoved(object sender, SoundPausedArgs args)
+        private async void OnSoundRemoved(object sender, SoundPausedArgs args)
         {
             var sound = ActiveTracks.FirstOrDefault(x => x.Sound?.Id == args.SoundId);
             if (sound is not null)
             {
                 ActiveTracks.Remove(sound);
                 UpdateStoredState();
+
+                if (!sound.Sound.IsMix)
+                {
+                    await _presenceService.DecrementAsync(args.SoundId);
+                }
             }
         }
 
-        private void OnSoundAdded(object sender, SoundPlayedArgs args)
+        private async void OnSoundAdded(object sender, SoundPlayedArgs args)
         {
             if (args?.Sound is not null)
             {
                 AddSoundTrack(args.Sound);
+
+                if (!args.Sound.IsMix)
+                {
+                    await _presenceService.IncrementAsync(args.Sound.Id);
+                }
             }
         }
 
