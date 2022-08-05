@@ -98,7 +98,8 @@ namespace AmbientSounds.ViewModels
 
             _telemetry.TrackEvent(TelemetryConstants.FocusHistoryClicked, new Dictionary<string, string>
             {
-                { "index", Items.IndexOf(vm).ToString() }
+                { "index", Items.IndexOf(vm).ToString() },
+                { "percentComplete", vm.PercentComplete }
             });
         }
     }

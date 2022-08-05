@@ -20,6 +20,7 @@ namespace AmbientSounds.Services.Uwp
             UploadUrl = resourceLoader.GetString(nameof(UploadUrl));
             VideosUrl = resourceLoader.GetString(nameof(VideosUrl));
             CatalogueScope = resourceLoader.GetString(nameof(CatalogueScope));
+            PresenceUrl = resourceLoader.GetString(nameof(PresenceUrl));
         }
 
         /// <inheritdoc/>
@@ -48,5 +49,8 @@ namespace AmbientSounds.Services.Uwp
 
         /// <inheritdoc/>
         public string CatalogueScope { get; set; }
+
+        /// <inheritdoc/>
+        public string PresenceUrl { get; set; }
     }
 }

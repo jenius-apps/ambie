@@ -50,5 +50,10 @@
         /// The API scope for catalogue access.
         /// </summary>
         string CatalogueScope { get; set; }
+
+        /// <summary>
+        /// The URL to enable presence features.
+        /// </summary>
+        string PresenceUrl { get; set; }
     }
 }

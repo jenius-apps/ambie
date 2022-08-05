@@ -348,7 +348,8 @@ namespace AmbientSounds.ViewModels
                 {
                     { "focusLength", FocusLength.ToString() },
                     { "restLenth", RestLength.ToString() },
-                    { "repetitions", Repetitions.ToString() }
+                    { "repetitions", Repetitions.ToString() },
+                    { "hourOfDay", DateTime.Now.Hour.ToString() }
                 });
             }
 

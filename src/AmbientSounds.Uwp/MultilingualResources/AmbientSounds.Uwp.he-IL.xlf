@@ -764,6 +764,10 @@
           <source>You're amazing</source>
           <target state="new">You're amazing</target>
         </trans-unit>
+        <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
+          <source>Ambie</source>
+          <target state="new">Ambie</target>
+        </trans-unit>
       </group>
     </body>
   </file>

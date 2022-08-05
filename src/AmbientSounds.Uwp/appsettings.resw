@@ -141,4 +141,7 @@
   <data name="VideosUrl" xml:space="preserve">
     <value>http://localhost</value>
   </data>
+  <data name="PresenceUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
 </root>

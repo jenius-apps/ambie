@@ -403,7 +403,8 @@
                                 FontSize="20"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
-                                TextAlignment="Center">
+                                TextAlignment="Center"
+                                TextWrapping="Wrap">
                                 <animations:Implicit.ShowAnimations>
                                     <animations:OpacityAnimation
                                         From="0"

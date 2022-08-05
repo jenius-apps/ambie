@@ -547,4 +547,7 @@
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 ~ {0}</value>
   </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>암비</value>
+  </data>
 </root>
