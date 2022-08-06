@@ -105,6 +105,7 @@
         // shaders
         private const string Shaders = "shaders:";
         public const string ShaderSelected = Shaders + "selected";
+        public const string ShaderDeviceLost = Shaders + "deviceLost";
 
         public const string MissingSoundsDownloaded = "missingSoundsDownloaded";
         public const string MissingSoundsCanceled = "missingSoundsCanceled";
