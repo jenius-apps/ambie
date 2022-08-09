@@ -547,4 +547,40 @@
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 do {0}</value>
   </data>
+  <data name="History" xml:space="preserve">
+    <value>Historia</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Przerwy</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Ostatnie sesje pojawią się w tej sekcji</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Przerwy w pracy</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potwierdź</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Czas przerwy (w minutach)</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notatki</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Czy coś przeszkodziło ci w wykonaniu zadania? Monitoruj przerwy w pracy i zapisuj je w historii, aby móc dokonać ich późniejszego przeglądu.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Historia</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Ukończone cykle</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Niezła próba</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Jesteś niesamowity</value>
+  </data>
 </root>
