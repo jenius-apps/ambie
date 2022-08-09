@@ -96,7 +96,7 @@ namespace AmbientSounds.ViewModels
             // to determine if a user should report presence
             // for a sound. Thus, we initialize the presence service
             // the same time this viewmodel is initialized.
-            await _presenceService.EnsureInitializedAsync();
+            var task = _presenceService.EnsureInitializedAsync();
 
             if (ActiveTracks.Count > 0 || !_loadPreviousState)
             {
@@ -144,6 +144,7 @@ namespace AmbientSounds.ViewModels
             _loaded = true;
             OnPropertyChanged(nameof(IsClearVisible));
             OnPropertyChanged(nameof(IsPlaceholderVisible));
+            await task;
         }
 
         private void ClearAll()
