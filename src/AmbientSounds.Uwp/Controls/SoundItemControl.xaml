@@ -37,13 +37,17 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <ani:Implicit.ShowAnimations>
+        <!--
+            Commenting out for now because of opacity bug
+            when performing navigation from screensaver page
+        -->
+        <!--<ani:Implicit.ShowAnimations>
             <ani:OpacityAnimation
                 Delay="0:0:0.1"
                 From="0"
                 To="1"
                 Duration="0:0:1" />
-        </ani:Implicit.ShowAnimations>
+        </ani:Implicit.ShowAnimations>-->
 
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
