@@ -4,6 +4,7 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -99,49 +100,35 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         private async Task LoadAsync()
         {
-            _provider.LocalSoundAdded += OnLocalSoundAdded;
-            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
+            if (Sounds.Count > 0)
+            {
+                Sounds.Clear();
+            }
 
             var soundList = await _provider.GetSoundsAsync();
             if (soundList is null || soundList.Count == 0)
             {
-                Sounds.Clear();
                 return;
             }
 
-            var localIds = soundList.Select(s => s.Id);
-            var forDeletion = new List<SoundViewModel>();
-
-            if (Sounds.Count > 0)
-            {
-                foreach (var soundVm in Sounds)
-                {
-                    if (!localIds.Contains(soundVm.Id))
-                    {
-                        forDeletion.Add(soundVm);
-                    }
-                    else
-                    {
-                        // Ensure viewmodels are initialized.
-                        soundVm.Initialize();
-                    }
-                }
-            }
-
-            foreach (var soundVm in forDeletion)
-            {
-                Sounds.Remove(soundVm);
-            }
-
-            var existingIds = Sounds.Select(s => s.Id);
-            foreach (var sound in soundList.Where(x => !existingIds.Contains(x.Id)))
+            foreach (var sound in soundList)
             {
                 var s = _factory.GetSoundVm(sound);
                 s.MixUnavailableCommand = MixUnavailableCommand;
-                Sounds.Add(s);
+
+                try
+                {
+                    Sounds.Add(s);
+                }
+                catch (Exception e)
+                {
+                    _telemetry.TrackError(e);
+                }
             }
 
             UpdateItemPositions();
+            _provider.LocalSoundAdded += OnLocalSoundAdded;
+            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
         }
 
         public void Dispose()
@@ -153,6 +140,8 @@ namespace AmbientSounds.ViewModels
             {
                 s.Dispose();
             }
+
+            Sounds.Clear();
         }
 
         private void UpdateItemPositions()
