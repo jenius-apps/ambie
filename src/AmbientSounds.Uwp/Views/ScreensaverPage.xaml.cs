@@ -161,6 +161,14 @@ namespace AmbientSounds.Views
             var view = ApplicationView.GetForCurrentView();
 
             IsFullscreen = view.IsFullScreenMode;
+
+            // We hide the back button when in full screen mode
+            // to avoid the opacity animation bug that occurs
+            // when navigating back to home page while in full screen mode.
+            GoBackButton.Visibility = view.IsFullScreenMode
+                ? Visibility.Collapsed
+                : Visibility.Visible;
+
             this.Bindings.Update();
         }
 
