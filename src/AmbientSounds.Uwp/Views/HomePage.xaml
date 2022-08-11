@@ -7,29 +7,13 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <winui:UniformGridLayout
-            x:Name="UniformLayout"
-            MinColumnSpacing="8"
-            MinRowSpacing="8" />
-
         <DataTemplate x:Key="MainPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
-            <!--
-                The control below gets its viewmodel/datacontext
-                via the itemRepeater's OnElementPrepared event.
-            -->
-            <controls:SoundItemControl />
+            <controls:SoundItemControl ViewModel="{x:Bind}" />
         </DataTemplate>
     </Page.Resources>
 
-    <Grid>
-        <controls:SoundGridControl
-            x:Name="SoundGallery"
-            InnerMargin="0,0,16,40"
-            ItemTemplate="{StaticResource MainPageSoundTemplate}"
-            Layout="{StaticResource UniformLayout}" />
-    </Grid>
+    <controls:SoundGridControl x:Name="SoundGallery" ItemTemplate="{StaticResource MainPageSoundTemplate}" />
 </Page>

@@ -13,41 +13,32 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
-    AutomationProperties.LocalizedControlType="button"
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
-    AutomationProperties.PositionInSet="{x:Bind ViewModel.Position, Mode=OneWay}"
-    AutomationProperties.SizeOfSet="{x:Bind ViewModel.SetSize, Mode=OneWay}"
-    GettingFocus="OnGettingFocus"
-    IsTabStop="True"
     KeyDown="OnControlKeyDown"
-    LosingFocus="OnLosingFocus"
     mc:Ignorable="d">
 
     <Grid x:Name="Root">
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="FocusStates">
-                <VisualState x:Name="Focused">
+            <VisualStateGroup>
+                <VisualState>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="PresenceCount"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                    </Storyboard>
                     <VisualState.Setters>
-                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
-                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
+                        <Setter Target="PresenceCount.Visibility" Value="Visible" />
                     </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsPresenceVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
                 </VisualState>
-                <VisualState x:Name="Unfocused" />
-                <VisualState x:Name="PointerFocused" />
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <!--
-            Commenting out for now because of opacity bug
-            when performing navigation from screensaver page
-        -->
-        <!--<ani:Implicit.ShowAnimations>
-            <ani:OpacityAnimation
-                Delay="0:0:0.1"
-                From="0"
-                To="1"
-                Duration="0:0:1" />
-        </ani:Implicit.ShowAnimations>-->
 
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
@@ -183,31 +174,10 @@
 
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                     <StackPanel
+                        x:Name="PresenceCount"
                         Margin="0,0,0,4"
                         Orientation="Horizontal"
-                        Visibility="{x:Bind ViewModel.IsPresenceVisible, Mode=OneWay}">
-                        <ani:Implicit.ShowAnimations>
-                            <ani:OpacityAnimation
-                                From="0"
-                                To="1"
-                                Duration="0:0:0.3" />
-                            <ani:TranslationAnimation
-                                From="0,12,0"
-                                To="0"
-                                Duration="0:0:0.3" />
-                        </ani:Implicit.ShowAnimations>
-                        <ani:Explicit.Animations>
-                            <ani:AnimationSet x:Name="HidePresenceAnimation">
-                                <ani:OpacityAnimation
-                                    From="1"
-                                    To="0"
-                                    Duration="0:0:0.3" />
-                                <ani:TranslationAnimation
-                                    From="0"
-                                    To="0,12,0"
-                                    Duration="0:0:0.3" />
-                            </ani:AnimationSet>
-                        </ani:Explicit.Animations>
+                        Visibility="Collapsed">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="14"
@@ -260,23 +230,5 @@
                 </muxc:CommandBarFlyout>
             </Grid.ContextFlyout>
         </Grid>
-
-        <Rectangle
-            x:Name="FocusVisualWhite"
-            IsHitTestVisible="False"
-            RadiusX="8"
-            RadiusY="8"
-            Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}"
-            StrokeThickness="4"
-            Visibility="Collapsed" />
-
-        <Rectangle
-            x:Name="FocusVisualBlack"
-            IsHitTestVisible="False"
-            RadiusX="8"
-            RadiusY="8"
-            Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}"
-            StrokeThickness="2"
-            Visibility="Collapsed" />
     </Grid>
 </UserControl>
