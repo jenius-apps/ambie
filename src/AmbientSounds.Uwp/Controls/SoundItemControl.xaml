@@ -18,6 +18,28 @@
     mc:Ignorable="d">
 
     <Grid x:Name="Root">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="PresenceCount"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                    </Storyboard>
+                    <VisualState.Setters>
+                        <Setter Target="PresenceCount.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsPresenceVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
                 Width="{StaticResource ImageCardShadowWidth}"
@@ -152,31 +174,10 @@
 
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                     <StackPanel
+                        x:Name="PresenceCount"
                         Margin="0,0,0,4"
                         Orientation="Horizontal"
-                        Visibility="{x:Bind ViewModel.IsPresenceVisible, Mode=OneWay}">
-                        <ani:Implicit.ShowAnimations>
-                            <ani:OpacityAnimation
-                                From="0"
-                                To="1"
-                                Duration="0:0:0.3" />
-                            <ani:TranslationAnimation
-                                From="0,12,0"
-                                To="0"
-                                Duration="0:0:0.3" />
-                        </ani:Implicit.ShowAnimations>
-                        <ani:Explicit.Animations>
-                            <ani:AnimationSet x:Name="HidePresenceAnimation">
-                                <ani:OpacityAnimation
-                                    From="1"
-                                    To="0"
-                                    Duration="0:0:0.3" />
-                                <ani:TranslationAnimation
-                                    From="0"
-                                    To="0,12,0"
-                                    Duration="0:0:0.3" />
-                            </ani:AnimationSet>
-                        </ani:Explicit.Animations>
+                        Visibility="Collapsed">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="14"
