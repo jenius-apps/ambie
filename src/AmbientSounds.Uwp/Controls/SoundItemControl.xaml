@@ -13,42 +13,11 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
-    AutomationProperties.LocalizedControlType="button"
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
-    AutomationProperties.PositionInSet="{x:Bind ViewModel.Position, Mode=OneWay}"
-    AutomationProperties.SizeOfSet="{x:Bind ViewModel.SetSize, Mode=OneWay}"
-    GettingFocus="OnGettingFocus"
-    IsTabStop="True"
     KeyDown="OnControlKeyDown"
-    LosingFocus="OnLosingFocus"
     mc:Ignorable="d">
 
     <Grid x:Name="Root">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="FocusStates">
-                <VisualState x:Name="Focused">
-                    <VisualState.Setters>
-                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
-                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Unfocused" />
-                <VisualState x:Name="PointerFocused" />
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <!--
-            Commenting out for now because of opacity bug
-            when performing navigation from screensaver page
-        -->
-        <!--<ani:Implicit.ShowAnimations>
-            <ani:OpacityAnimation
-                Delay="0:0:0.1"
-                From="0"
-                To="1"
-                Duration="0:0:1" />
-        </ani:Implicit.ShowAnimations>-->
-
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
                 Width="{StaticResource ImageCardShadowWidth}"
@@ -260,23 +229,5 @@
                 </muxc:CommandBarFlyout>
             </Grid.ContextFlyout>
         </Grid>
-
-        <Rectangle
-            x:Name="FocusVisualWhite"
-            IsHitTestVisible="False"
-            RadiusX="8"
-            RadiusY="8"
-            Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}"
-            StrokeThickness="4"
-            Visibility="Collapsed" />
-
-        <Rectangle
-            x:Name="FocusVisualBlack"
-            IsHitTestVisible="False"
-            RadiusX="8"
-            RadiusY="8"
-            Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}"
-            StrokeThickness="2"
-            Visibility="Collapsed" />
     </Grid>
 </UserControl>

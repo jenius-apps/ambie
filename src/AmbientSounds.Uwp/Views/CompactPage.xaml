@@ -60,10 +60,10 @@
             </Button>
         </Grid>
 
-        <controls:SoundGridControl
+        <!--<controls:SoundGridControl
             Grid.Row="1"
             InnerMargin="12"
             ItemTemplate="{StaticResource NarrowSoundTemplate}"
-            Layout="{StaticResource VerticalStackLayout}" />
+            Layout="{StaticResource VerticalStackLayout}" />-->
     </Grid>
 </Page>

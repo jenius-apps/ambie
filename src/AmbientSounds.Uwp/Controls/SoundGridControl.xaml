@@ -10,17 +10,21 @@
     mc:Ignorable="d">
 
     <Grid>
-        <ScrollViewer>
-            <muxc:ItemsRepeater
-                x:Name="SoundsGridView"
-                x:Uid="SoundsGridView"
-                Margin="{x:Bind InnerMargin, Mode=OneWay}"
-                ElementPrepared="OnElementPrepared"
-                ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
-                ItemsSource="{x:Bind ViewModel.Sounds}"
-                Layout="{x:Bind Layout, Mode=OneWay}"
-                TabFocusNavigation="Once" />
-        </ScrollViewer>
+        <GridView
+            ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
+            ItemsSource="{x:Bind ViewModel.Sounds}"
+            SelectionMode="None">
+            <GridView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </GridView.ItemContainerTransitions>
+            <GridView.ItemContainerStyle>
+                <Style BasedOn="{StaticResource DefaultGridViewItemStyle}" TargetType="GridViewItem">
+                    <Setter Property="Margin" Value="0,0,8,8" />
+                </Style>
+            </GridView.ItemContainerStyle>
+        </GridView>
 
         <muxc:ProgressRing
             x:Uid="SoundsLoadingRing"

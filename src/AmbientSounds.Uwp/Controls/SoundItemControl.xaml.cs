@@ -26,23 +26,6 @@ namespace AmbientSounds.Controls
             set => SetValue(ViewModelProperty, value);
         }
 
-        private void OnGettingFocus(UIElement sender, Windows.UI.Xaml.Input.GettingFocusEventArgs args)
-        {
-            if (args.FocusState == FocusState.Keyboard || args.FocusState == FocusState.Programmatic)
-            {
-                VisualStateManager.GoToState(this, nameof(Focused), false);
-            }
-            else
-            {
-                VisualStateManager.GoToState(this, nameof(PointerFocused), false);
-            }
-        }
-
-        private void OnLosingFocus(UIElement sender, Windows.UI.Xaml.Input.LosingFocusEventArgs args)
-        {
-            VisualStateManager.GoToState(this, nameof(Unfocused), false);
-        }
-
         private async void OnControlKeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (e.Key is VirtualKey.Enter or VirtualKey.Space or VirtualKey.GamepadA)
