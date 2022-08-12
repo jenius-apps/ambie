@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using AmbientSounds.Models;
+using AmbientSounds.Tools;
 
 namespace AmbientSounds.Services
 {
@@ -13,6 +14,7 @@ namespace AmbientSounds.Services
         private readonly IMixMediaPlayerService _mixMediaPlayerService;
         private readonly ITelemetry _telemetry;
         private readonly IFocusHistoryService _focusHistoryService;
+        private readonly IPlatformFocusManager _platformFocusManager;
         private readonly Queue<FocusSession> _sessionQueue = new();
         private FocusState _focusState = FocusState.None;
 
@@ -24,18 +26,21 @@ namespace AmbientSounds.Services
             IFocusToastService focusToastService,
             IMixMediaPlayerService mixMediaPlayerService,
             IFocusHistoryService focusHistoryService,
-            ITelemetry telemetry)
+            ITelemetry telemetry,
+            IPlatformFocusManager platformFocusManager)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
             Guard.IsNotNull(focusToastService, nameof(focusToastService));
             Guard.IsNotNull(mixMediaPlayerService, nameof(mixMediaPlayerService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
+            Guard.IsNotNull(platformFocusManager, nameof(platformFocusManager));
             _timerService = timerService;
             _focusToastService = focusToastService;
             _mixMediaPlayerService = mixMediaPlayerService;
             _telemetry = telemetry;
             _focusHistoryService = focusHistoryService;
+            _platformFocusManager = platformFocusManager;
 
             _timerService.Interval = 1000;
             _timerService.IntervalElapsed += OnIntervalElapsed;
@@ -90,6 +95,8 @@ namespace AmbientSounds.Services
                 repetitions -= 1;
             }
 
+            _platformFocusManager.TryStartFocus();
+
             _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now);
 
             CurrentSession = _sessionQueue.Dequeue();
@@ -130,6 +137,7 @@ namespace AmbientSounds.Services
             _focusToastService.ClearToasts();
             CurrentState = FocusState.Paused;
             _mixMediaPlayerService.Pause();
+            _platformFocusManager.DeactivateFocus();
         }
 
         public void StopTimer(bool sessionCompleted = false)
@@ -157,7 +165,7 @@ namespace AmbientSounds.Services
             TimeUpdated?.Invoke(this, CurrentSession);
             CurrentState = FocusState.None;
             _mixMediaPlayerService.Pause();
-
+            _platformFocusManager.DeactivateFocus();
         }
 
         public bool ResumeTimer()
@@ -171,6 +179,7 @@ namespace AmbientSounds.Services
                 _focusToastService.ScheduleToasts(sessions, DateTime.Now);
                 CurrentState = FocusState.Active;
                 PlaySounds();
+                _platformFocusManager.TryStartFocus();
                 return true;
             }
 

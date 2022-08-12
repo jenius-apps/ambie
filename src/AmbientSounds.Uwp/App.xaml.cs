@@ -419,6 +419,7 @@ namespace AmbientSounds
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
                 .AddSingleton<IVideoService, VideoService>()
                 .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
+                .AddSingleton<IPlatformFocusManager, WindowsFocusManager>()
                 .AddSingleton<IVideoCache, VideoCache>()
                 .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
                 .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()

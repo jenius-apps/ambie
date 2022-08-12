@@ -264,6 +264,7 @@
       <DependentUpon>Resources.resw</DependentUpon>
     </Compile>
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
+    <Compile Include="Tools\WindowsFocusManager.cs" />
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
