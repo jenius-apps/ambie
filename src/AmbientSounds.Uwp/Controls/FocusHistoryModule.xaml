@@ -13,17 +13,9 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Border
-        HorizontalAlignment="Stretch"
-        BorderBrush="{ThemeResource CardStrokeColorDefault}"
-        BorderThickness="1"
-        CornerRadius="8">
-
+    <Border Style="{StaticResource ModuleBorderStyle}">
         <Grid>
-            <Rectangle
-                Fill="{ThemeResource CardBackgroundFillColorDefault}"
-                RadiusX="8"
-                RadiusY="8" />
+            <Rectangle Style="{StaticResource ModuleBackgroundRectStyle}" />
 
             <StackPanel Padding="12,0,12,0">
                 <TextBlock

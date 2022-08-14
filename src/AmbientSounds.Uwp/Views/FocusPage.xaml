@@ -131,11 +131,7 @@
                 </winui:InfoBar>
 
                 <!--  Planning module  -->
-                <Border
-                    HorizontalAlignment="Stretch"
-                    BorderBrush="{ThemeResource CardStrokeColorDefault}"
-                    BorderThickness="1"
-                    CornerRadius="8">
+                <Border Style="{StaticResource ModuleBorderStyle}">
                     <animations:Implicit.Animations>
                         <animations:OffsetAnimation Duration="0:0:0.15" />
                     </animations:Implicit.Animations>
@@ -598,6 +594,19 @@
                         </StackPanel>
                     </Grid>
                 </Border>
+
+                <controls:FocusTaskModule Margin="0,8,0,0">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            Delay="0:0:0.3"
+                            From="0"
+                            To="1"
+                            Duration="0:0:1" />
+                    </animations:Implicit.ShowAnimations>
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.15" />
+                    </animations:Implicit.Animations>
+                </controls:FocusTaskModule>
 
                 <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,8,0,0">
                     <animations:Implicit.ShowAnimations>
