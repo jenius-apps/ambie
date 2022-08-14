@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -23,27 +24,28 @@
                     Margin="24,12,0,12"
                     FontWeight="SemiBold"
                     Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    Text="Tasks" />
+                    Text="{x:Bind strings:Resources.TaskModuleTitle}" />
 
                 <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
 
                 <TextBox
                     Grid.Row="1"
                     Margin="12,12,12,0"
-                    PlaceholderText="Add a task" />
+                    MaxLength="280"
+                    PlaceholderText="{x:Bind strings:Resources.TaskModuleNewTaskPlaceholder}" />
 
                 <ListView
-                    x:Name="tasklist"
                     Grid.Row="2"
                     Margin="8,8,12,0"
                     AllowDrop="True"
+                    AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
                     CanReorderItems="True"
                     ItemsSource="{x:Bind ViewModel.Tasks}"
                     SelectionMode="None">
 
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="x:String">
-                            <Grid Background="Transparent">
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="40" />
                                     <ColumnDefinition Width="*" />
@@ -51,7 +53,7 @@
                                 <CheckBox VerticalAlignment="Top" />
                                 <TextBlock
                                     Grid.Column="1"
-                                    Margin="-8,6,0,0"
+                                    Margin="0,6,0,0"
                                     Text="{x:Bind}"
                                     TextWrapping="Wrap" />
                             </Grid>

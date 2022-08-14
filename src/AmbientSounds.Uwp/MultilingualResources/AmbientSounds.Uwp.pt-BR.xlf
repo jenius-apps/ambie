@@ -772,6 +772,14 @@
           <source>Ambie</source>
           <target state="new">Ambie</target>
         </trans-unit>
+        <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Add a task</source>
+          <target state="new">Add a task</target>
+        </trans-unit>
+        <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
+          <source>Tasks</source>
+          <target state="new">Tasks</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -691,4 +691,10 @@
   <data name="AppDisplayName" xml:space="preserve">
     <value>Ambie</value>
   </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Add a task</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
 </root>

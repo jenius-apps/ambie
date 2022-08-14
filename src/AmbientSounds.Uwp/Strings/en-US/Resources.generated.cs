@@ -1613,6 +1613,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region TaskModuleNewTaskPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Add a task
+        /// </summary>
+        public static string TaskModuleNewTaskPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleNewTaskPlaceholder");
+            }
+        }
+        #endregion
+
+        #region TaskModuleTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Tasks
+        /// </summary>
+        public static string TaskModuleTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1747,6 +1773,8 @@ namespace AmbientSounds.Strings{
             ResultMessageFail1,
             ResultMessageSuccess1,
             AppDisplayName,
+            TaskModuleNewTaskPlaceholder,
+            TaskModuleTitle,
         }
 
         private static ResourceLoader _resourceLoader;
