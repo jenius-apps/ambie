@@ -17,7 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Controls
 {
-    public sealed partial class FocusTaskModule : UserControl
+    public sealed partial class FocusTaskModule : UserControl, ICanUninitialize
     {
         public FocusTaskModule()
         {
@@ -26,5 +26,18 @@ namespace AmbientSounds.Controls
         }
 
         public FocusTaskModuleViewModel ViewModel => (FocusTaskModuleViewModel)this.DataContext;
+
+        public void Uninitialize()
+        {
+            ViewModel.Uninitialize();
+        }
+
+        private void OnTaskKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                ViewModel.AddTask();
+            }
+        }
     }
 }

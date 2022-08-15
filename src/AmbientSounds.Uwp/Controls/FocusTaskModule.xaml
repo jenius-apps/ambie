@@ -31,8 +31,10 @@
                 <TextBox
                     Grid.Row="1"
                     Margin="12,12,12,0"
+                    KeyDown="OnTaskKeyDown"
                     MaxLength="280"
-                    PlaceholderText="{x:Bind strings:Resources.TaskModuleNewTaskPlaceholder}" />
+                    PlaceholderText="{x:Bind strings:Resources.TaskModuleNewTaskPlaceholder}"
+                    Text="{x:Bind ViewModel.NewTask, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 <ListView
                     Grid.Row="2"

@@ -4,7 +4,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace AmbientSounds.Controls
 {
-    public sealed partial class FocusHistoryModule : UserControl
+    public sealed partial class FocusHistoryModule : UserControl, ICanUninitialize
     {
         public FocusHistoryModule()
         {
@@ -13,6 +13,11 @@ namespace AmbientSounds.Controls
         }
 
         public FocusHistoryModuleViewModel ViewModel => (FocusHistoryModuleViewModel)this.DataContext;
+
+        public void Uninitialize()
+        {
+            ViewModel.Uninitialize();
+        }
 
         private void OnHistoryClicked(object sender, ItemClickEventArgs e)
         {

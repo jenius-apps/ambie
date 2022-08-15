@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using System.Threading.Tasks;
+using AmbientSounds.Controls;
 
 namespace AmbientSounds.Views
 {
@@ -16,10 +17,17 @@ namespace AmbientSounds.Views
     /// </summary>
     public sealed partial class FocusPage : Page
     {
+        private readonly ICanUninitialize[] _controlsToUnitialize;
+
         public FocusPage()
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<FocusPageViewModel>();
+            _controlsToUnitialize = new ICanUninitialize[]
+            {
+                HistoryModule,
+                TaskModule
+            };
         }
 
         public FocusPageViewModel ViewModel => (FocusPageViewModel)this.DataContext;
@@ -45,7 +53,10 @@ namespace AmbientSounds.Views
         {
             CloseAll();
             ViewModel.Uninitialize();
-            HistoryModule.ViewModel.Uninitialize();
+            foreach (var control in _controlsToUnitialize)
+            {
+                control.Uninitialize();
+            }
         }
 
         private void OnResetClicked(object sender, RoutedEventArgs e)
