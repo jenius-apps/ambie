@@ -164,7 +164,7 @@
     <Compile Include="Controls\HistoryStat.xaml.cs">
       <DependentUpon>HistoryStat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ICanUninitialize.cs" />
+    <Compile Include="Controls\ICanInitialize.cs" />
     <Compile Include="Controls\InterruptionDialog.xaml.cs">
       <DependentUpon>InterruptionDialog.xaml</DependentUpon>
     </Compile>

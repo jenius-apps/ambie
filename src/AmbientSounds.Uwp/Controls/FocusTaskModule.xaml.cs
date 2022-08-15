@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -17,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Controls
 {
-    public sealed partial class FocusTaskModule : UserControl, ICanUninitialize
+    public sealed partial class FocusTaskModule : UserControl, ICanInitialize
     {
         public FocusTaskModule()
         {
@@ -27,16 +28,15 @@ namespace AmbientSounds.Controls
 
         public FocusTaskModuleViewModel ViewModel => (FocusTaskModuleViewModel)this.DataContext;
 
-        public void Uninitialize()
-        {
-            ViewModel.Uninitialize();
-        }
+        public Task InitializeAsync() => ViewModel.InitializeAsync();
 
-        private void OnTaskKeyDown(object sender, KeyRoutedEventArgs e)
+        public void Uninitialize() => ViewModel.Uninitialize();
+
+        private async void OnTaskKeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                ViewModel.AddTask();
+                await ViewModel.AddTaskAsync();
             }
         }
     }

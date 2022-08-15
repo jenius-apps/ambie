@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Models;
+using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
@@ -51,7 +52,7 @@ namespace AmbientSounds.ViewModels
             Tasks.Clear();
         }
 
-        public void AddTask()
+        public async Task AddTaskAsync()
         {
             var task = NewTask;
             if (string.IsNullOrWhiteSpace(task))
@@ -59,12 +60,13 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            var vm = new Models.FocusTask()
+            FocusTask? newTask = await _taskService.AddTaskAsync(task);
+            if (newTask is null)
             {
-                Text = task.Trim()
-            };
+                return;
+            }
 
-            Tasks.Add(new FocusTaskViewModel(vm, _deleteCommand));
+            Tasks.Add(new FocusTaskViewModel(newTask, _deleteCommand));
             NewTask = string.Empty;
         }
 

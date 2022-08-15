@@ -6,6 +6,8 @@ namespace AmbientSounds.Services
 {
     public interface IFocusTaskService
     {
+        Task<FocusTask?> AddTaskAsync(string text);
+
         /// <summary>
         /// Retrieves tasks.
         /// </summary>

@@ -1,10 +1,11 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
 namespace AmbientSounds.Controls
 {
-    public sealed partial class FocusHistoryModule : UserControl, ICanUninitialize
+    public sealed partial class FocusHistoryModule : UserControl, ICanInitialize
     {
         public FocusHistoryModule()
         {
@@ -13,6 +14,8 @@ namespace AmbientSounds.Controls
         }
 
         public FocusHistoryModuleViewModel ViewModel => (FocusHistoryModuleViewModel)this.DataContext;
+
+        public Task InitializeAsync() => ViewModel.InitializeAsync();
 
         public void Uninitialize()
         {

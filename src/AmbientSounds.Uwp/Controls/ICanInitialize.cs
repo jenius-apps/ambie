@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.Controls
 {
-    public interface ICanUninitialize
+    public interface ICanInitialize
     {
+        Task InitializeAsync();
+
         void Uninitialize();
     }
 }
