@@ -413,6 +413,7 @@ namespace AmbientSounds
                 .AddSingleton<IFocusNotesService, FocusNotesService>()
                 .AddSingleton<IFocusService, FocusService>()
                 .AddSingleton<IFocusHistoryService, FocusHistoryService>()
+                .AddSingleton<IFocusTaskService, FocusTaskService>()
                 .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
                 .AddSingleton<IPresenceService, PresenceService>()

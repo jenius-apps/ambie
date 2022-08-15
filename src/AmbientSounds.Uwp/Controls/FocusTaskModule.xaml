@@ -6,6 +6,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -43,10 +44,14 @@
                     AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
                     CanReorderItems="True"
                     ItemsSource="{x:Bind ViewModel.Tasks}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.HorizontalScrollMode="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollMode="Disabled"
                     SelectionMode="None">
 
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="x:String">
+                        <DataTemplate x:DataType="viewmodels:FocusTaskViewModel">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="40" />
@@ -56,7 +61,7 @@
                                 <TextBlock
                                     Grid.Column="1"
                                     Margin="0,6,0,0"
-                                    Text="{x:Bind}"
+                                    Text="{x:Bind Text}"
                                     TextWrapping="Wrap" />
                             </Grid>
                         </DataTemplate>
