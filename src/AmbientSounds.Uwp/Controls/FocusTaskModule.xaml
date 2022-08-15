@@ -43,6 +43,7 @@
                     AllowDrop="True"
                     AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
                     CanReorderItems="True"
+                    IsRightTapEnabled="true"
                     ItemsSource="{x:Bind ViewModel.Tasks}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.HorizontalScrollMode="Disabled"
@@ -57,12 +58,24 @@
                                     <ColumnDefinition Width="40" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
+
                                 <CheckBox VerticalAlignment="Top" />
+
                                 <TextBlock
                                     Grid.Column="1"
                                     Margin="0,6,0,0"
                                     Text="{x:Bind Text}"
                                     TextWrapping="Wrap" />
+
+                                <Grid.ContextFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem
+                                            Command="{x:Bind DeleteCommand}"
+                                            CommandParameter="{x:Bind}"
+                                            Icon="Delete"
+                                            Text="{x:Bind strings:Resources.DeleteText}" />
+                                    </MenuFlyout>
+                                </Grid.ContextFlyout>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

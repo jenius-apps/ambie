@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,12 +14,14 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IFocusTaskService _taskService;
         private string _newTask = string.Empty;
+        private IRelayCommand<FocusTaskViewModel> _deleteCommand;
 
         public FocusTaskModuleViewModel(
             IFocusTaskService focusTaskService)
         {
             Guard.IsNotNull(focusTaskService, nameof(focusTaskService));
             _taskService = focusTaskService;
+            _deleteCommand = new RelayCommand<FocusTaskViewModel>(DeleteTask);
         }
 
         public ObservableCollection<FocusTaskViewModel> Tasks { get; } = new();
@@ -39,7 +42,7 @@ namespace AmbientSounds.ViewModels
             var tasks = await _taskService.GetTasksAsync();
             foreach (var t in tasks)
             {
-                Tasks.Add(new FocusTaskViewModel(t));
+                Tasks.Add(new FocusTaskViewModel(t, _deleteCommand));
             }
         }
 
@@ -61,8 +64,18 @@ namespace AmbientSounds.ViewModels
                 Text = task.Trim()
             };
 
-            Tasks.Add(new FocusTaskViewModel(vm));
+            Tasks.Add(new FocusTaskViewModel(vm, _deleteCommand));
             NewTask = string.Empty;
+        }
+
+        private void DeleteTask(FocusTaskViewModel? task)
+        {
+            if (task is null)
+            {
+                return;
+            }
+
+            Tasks.Remove(task);
         }
     }
 }
