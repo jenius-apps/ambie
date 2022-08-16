@@ -31,6 +31,11 @@
                 <Grid.ContextFlyout>
                     <MenuFlyout>
                         <MenuFlyoutItem
+                            Command="{x:Bind EditCommand}"
+                            CommandParameter="{x:Bind}"
+                            Icon="Edit"
+                            Text="{x:Bind strings:Resources.EditText}" />
+                        <MenuFlyoutItem
                             Command="{x:Bind DeleteCommand}"
                             CommandParameter="{x:Bind}"
                             Icon="Delete"

@@ -20,6 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly IRelayCommand<FocusTaskViewModel> _deleteCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _completeCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _reopenCommand;
+        private readonly IRelayCommand<FocusTaskViewModel> _editCommand;
         private string _newTask = string.Empty;
         private bool _isCompletedListVisible;
 
@@ -36,6 +37,7 @@ namespace AmbientSounds.ViewModels
             _deleteCommand = new RelayCommand<FocusTaskViewModel>(DeleteTask);
             _completeCommand = new RelayCommand<FocusTaskViewModel>(CompleteTask);
             _reopenCommand = new RelayCommand<FocusTaskViewModel>(ReopenTask);
+            _editCommand = new RelayCommand<FocusTaskViewModel>(EditTask);
         }
 
         public ObservableCollection<FocusTaskViewModel> Tasks { get; } = new();
@@ -71,14 +73,13 @@ namespace AmbientSounds.ViewModels
             var tasks = await _taskService.GetTasksAsync();
             foreach (var t in tasks)
             {
-                var vm = new FocusTaskViewModel(t, _deleteCommand, _completeCommand);
                 if (t.Completed)
                 {
-                    CompletedTasks.Add(vm);
+                    CompletedTasks.Add(CreateTaskVm(t, true));
                 }
                 else
                 {
-                    Tasks.Add(vm);
+                    Tasks.Add(CreateTaskVm(t, false));
                 }
             }
         }
@@ -105,7 +106,7 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            Tasks.Add(new FocusTaskViewModel(newTask, _deleteCommand, _completeCommand));
+            Tasks.Add(CreateTaskVm(newTask, false));
             NewTask = string.Empty;
         }
 
@@ -149,19 +150,44 @@ namespace AmbientSounds.ViewModels
             // TODO update cache
         }
 
+        private void EditTask(FocusTaskViewModel? task)
+        {
+            if (task is null || task.IsCompleted)
+            {
+                // we do not allow editing of completed tasks.
+                return;
+            }
+
+            // add dialog
+        }
+
         private void OnTaskCompletionChanged(object sender, FocusTask e)
         {
             _dispatcherQueue.TryEnqueue(() =>
             {
                 if (e.Completed)
                 {
-                    CompletedTasks.Add(new FocusTaskViewModel(e, _deleteCommand, reopen: _reopenCommand));
+                    CompletedTasks.Add(CreateTaskVm(e, true));
                 }
                 else
                 {
-                    Tasks.Add(new FocusTaskViewModel(e, _deleteCommand, complete: _completeCommand));
+                    Tasks.Add(CreateTaskVm(e, false));
                 }
             });
+        }
+
+        private FocusTaskViewModel CreateTaskVm(FocusTask task, bool completed)
+        {
+            return completed
+                ? new FocusTaskViewModel(
+                    task,
+                    delete: _deleteCommand,
+                    reopen: _reopenCommand)
+                : new FocusTaskViewModel(
+                    task,
+                    delete: _deleteCommand,
+                    edit: _editCommand,
+                    complete: _completeCommand);
         }
     }
 }

@@ -1652,6 +1652,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region EditText
+        /// <summary>
+        ///   Looks up a localized string similar to: Edit
+        /// </summary>
+        public static string EditText
+        {
+            get
+            {
+                return _resourceLoader.GetString("EditText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1789,6 +1802,7 @@ namespace AmbientSounds.Strings{
             TaskModuleNewTaskPlaceholder,
             TaskModuleTitle,
             TaskModuleRecentCompleted,
+            EditText,
         }
 
         private static ResourceLoader _resourceLoader;

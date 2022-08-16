@@ -11,16 +11,21 @@ namespace AmbientSounds.ViewModels
 
         public FocusTaskViewModel(
             FocusTask task,
-            IRelayCommand<FocusTaskViewModel> delete,
+            IRelayCommand<FocusTaskViewModel>? delete = null,
+            IRelayCommand<FocusTaskViewModel>? edit = null,
             IRelayCommand<FocusTaskViewModel>? complete = null,
             IRelayCommand<FocusTaskViewModel>? reopen = null)
         {
             Guard.IsNotNull(task, nameof(task));
             Task = task;
             _isCompleted = task.Completed;
-            DeleteCommand = delete;
             CompleteCommand = complete;
             ReopenCommand = reopen;
+
+            // a fallback is used for these because they might be used with xaml binding.
+            // So we ensure that if it is bound, it's not null.
+            EditCommand = edit ?? new RelayCommand<FocusTaskViewModel>(vm => { });
+            DeleteCommand = delete ?? new RelayCommand<FocusTaskViewModel>(vm => { }); 
         }
 
         public bool IsCompleted
@@ -44,6 +49,8 @@ namespace AmbientSounds.ViewModels
         }
 
         public FocusTask Task { get; }
+
+        public IRelayCommand<FocusTaskViewModel> EditCommand { get; }
 
         public IRelayCommand<FocusTaskViewModel> DeleteCommand { get; }
 

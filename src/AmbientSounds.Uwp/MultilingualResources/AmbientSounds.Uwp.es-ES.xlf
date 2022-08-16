@@ -782,6 +782,10 @@
           <source>Recently completed</source>
           <target state="new">Recently completed</target>
         </trans-unit>
+        <trans-unit id="EditText" translate="yes" xml:space="preserve">
+          <source>Edit</source>
+          <target state="new">Edit</target>
+        </trans-unit>
       </group>
     </body>
   </file>
