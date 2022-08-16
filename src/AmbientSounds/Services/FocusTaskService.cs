@@ -15,6 +15,8 @@ namespace AmbientSounds.Services
     {
         private readonly IFocusTaskCache _cache;
 
+        public event EventHandler<FocusTask>? TaskCompletionChanged;
+
         public FocusTaskService(IFocusTaskCache focusTaskCache)
         {
             Guard.IsNotNull(focusTaskCache, nameof(focusTaskCache));
@@ -44,6 +46,24 @@ namespace AmbientSounds.Services
             _ = _cache.AddTaskAsync(newTask).ConfigureAwait(false);
 
             return Task.FromResult<FocusTask?>(newTask);
+        }
+
+        public async Task UpdateCompletionAsync(string taskId, bool isCompleted)
+        {
+            if (string.IsNullOrEmpty(taskId))
+            {
+                return;
+            }
+
+            var task = await _cache.GetTaskAsync(taskId);
+            if (task is null)
+            {
+                return;
+            }
+
+            task.Completed = isCompleted;
+            await _cache.UpdateTaskAsync(task);
+            TaskCompletionChanged?.Invoke(this, task);
         }
     }
 }

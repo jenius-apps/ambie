@@ -11,5 +11,9 @@ namespace AmbientSounds.Cache
         Task AddTaskAsync(FocusTask task);
 
         Task<IReadOnlyDictionary<string, FocusTask>> GetTasksAsync();
+
+        Task<FocusTask?> GetTaskAsync(string taskId);
+
+        Task UpdateTaskAsync(FocusTask task);
     }
 }

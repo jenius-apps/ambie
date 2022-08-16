@@ -59,7 +59,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <CheckBox VerticalAlignment="Top" />
+                                <CheckBox VerticalAlignment="Top" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}" />
 
                                 <TextBlock
                                     Grid.Column="1"
