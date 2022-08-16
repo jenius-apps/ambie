@@ -28,7 +28,16 @@ namespace AmbientSounds.Controls
 
         public FocusTaskModuleViewModel ViewModel => (FocusTaskModuleViewModel)this.DataContext;
 
-        public Task InitializeAsync() => ViewModel.InitializeAsync();
+        public async Task InitializeAsync()
+        {
+            await ViewModel.InitializeAsync();
+
+            // Initialize chevron position if it's open
+            if (ViewModel.IsCompletedListVisible)
+            {
+                _ = OpenChevronAnimation.StartAsync();
+            }
+        }
 
         public void Uninitialize() => ViewModel.Uninitialize();
 
@@ -37,6 +46,20 @@ namespace AmbientSounds.Controls
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
                 await ViewModel.AddTaskAsync();
+            }
+        }
+
+        private async void OnRecentCompletedClicked(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.IsCompletedListVisible)
+            {
+                await CloseChevronAnimation.StartAsync();
+                ViewModel.IsCompletedListVisible = false;
+            }
+            else
+            {
+                await OpenChevronAnimation.StartAsync();
+                ViewModel.IsCompletedListVisible = true;
             }
         }
     }

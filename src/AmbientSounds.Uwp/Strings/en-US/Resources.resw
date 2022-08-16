@@ -697,4 +697,7 @@
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>Tasks</value>
   </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Recently completed</value>
+  </data>
 </root>

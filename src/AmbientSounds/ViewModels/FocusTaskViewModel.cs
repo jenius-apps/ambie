@@ -2,9 +2,6 @@
 using CommunityToolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AmbientSounds.ViewModels
 {
@@ -15,12 +12,15 @@ namespace AmbientSounds.ViewModels
         public FocusTaskViewModel(
             FocusTask task,
             IRelayCommand<FocusTaskViewModel> delete,
-            IRelayCommand<FocusTaskViewModel> complete)
+            IRelayCommand<FocusTaskViewModel>? complete = null,
+            IRelayCommand<FocusTaskViewModel>? reopen = null)
         {
             Guard.IsNotNull(task, nameof(task));
             Task = task;
+            _isCompleted = task.Completed;
             DeleteCommand = delete;
             CompleteCommand = complete;
+            ReopenCommand = reopen;
         }
 
         public bool IsCompleted
@@ -28,9 +28,17 @@ namespace AmbientSounds.ViewModels
             get => _isCompleted;
             set
             {
-                if (SetProperty(ref _isCompleted, value) && value is true)
+                bool valueChanged = SetProperty(ref _isCompleted, value);
+                if (valueChanged)
                 {
-                    CompleteCommand.Execute(this);
+                    if (value is true)
+                    {
+                        CompleteCommand?.Execute(this);
+                    }
+                    else
+                    {
+                        ReopenCommand?.Execute(this);
+                    }
                 }
             }
         }
@@ -39,7 +47,9 @@ namespace AmbientSounds.ViewModels
 
         public IRelayCommand<FocusTaskViewModel> DeleteCommand { get; }
 
-        public IRelayCommand<FocusTaskViewModel> CompleteCommand { get; }
+        public IRelayCommand<FocusTaskViewModel>? CompleteCommand { get; }
+
+        public IRelayCommand<FocusTaskViewModel>? ReopenCommand { get; }
 
         public string Text => Task.Text;
     }

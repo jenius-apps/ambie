@@ -779,6 +779,10 @@
           <source>Tasks</source>
           <target state="new">Tasks</target>
         </trans-unit>
+        <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
+          <source>Recently completed</source>
+          <target state="new">Recently completed</target>
+        </trans-unit>
       </group>
     </body>
   </file>

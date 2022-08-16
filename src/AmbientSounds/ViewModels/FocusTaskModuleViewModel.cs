@@ -7,6 +7,7 @@ using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,9 +17,11 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IFocusTaskService _taskService;
         private readonly IDispatcherQueue _dispatcherQueue;
+        private readonly IRelayCommand<FocusTaskViewModel> _deleteCommand;
+        private readonly IRelayCommand<FocusTaskViewModel> _completeCommand;
+        private readonly IRelayCommand<FocusTaskViewModel> _reopenCommand;
         private string _newTask = string.Empty;
-        private IRelayCommand<FocusTaskViewModel> _deleteCommand;
-        private IRelayCommand<FocusTaskViewModel> _completeCommand;
+        private bool _isCompletedListVisible;
 
         public FocusTaskModuleViewModel(
             IFocusTaskService focusTaskService,
@@ -32,11 +35,16 @@ namespace AmbientSounds.ViewModels
 
             _deleteCommand = new RelayCommand<FocusTaskViewModel>(DeleteTask);
             _completeCommand = new RelayCommand<FocusTaskViewModel>(CompleteTask);
+            _reopenCommand = new RelayCommand<FocusTaskViewModel>(ReopenTask);
         }
 
         public ObservableCollection<FocusTaskViewModel> Tasks { get; } = new();
 
         public ObservableCollection<FocusTaskViewModel> CompletedTasks { get; } = new();
+
+        public int RecentCompletedCount => CompletedTasks.Count;
+
+        public bool RecentCompletedButtonVisible => CompletedTasks.Count > 0;
 
         public string NewTask
         {
@@ -44,9 +52,16 @@ namespace AmbientSounds.ViewModels
             set => SetProperty(ref _newTask, value);
         }
 
+        public bool IsCompletedListVisible
+        {
+            get => _isCompletedListVisible;
+            set => SetProperty(ref _isCompletedListVisible, value);
+        }
+
         public async Task InitializeAsync()
         {
             _taskService.TaskCompletionChanged += OnTaskCompletionChanged;
+            CompletedTasks.CollectionChanged += OnCompletedTaskListChanged;
 
             if (Tasks.Count > 0)
             {
@@ -71,6 +86,7 @@ namespace AmbientSounds.ViewModels
         public void Uninitialize()
         {
             _taskService.TaskCompletionChanged -= OnTaskCompletionChanged;
+            CompletedTasks.CollectionChanged -= OnCompletedTaskListChanged;
             Tasks.Clear();
             CompletedTasks.Clear();
         }
@@ -93,6 +109,12 @@ namespace AmbientSounds.ViewModels
             NewTask = string.Empty;
         }
 
+        private void OnCompletedTaskListChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(RecentCompletedCount));
+            OnPropertyChanged(nameof(RecentCompletedButtonVisible));
+        }
+
         private void CompleteTask(FocusTaskViewModel? task)
         {
             if (task is null)
@@ -102,6 +124,17 @@ namespace AmbientSounds.ViewModels
 
             Tasks.Remove(task);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
+        }
+
+        private void ReopenTask(FocusTaskViewModel? task)
+        {
+            if (task is null)
+            {
+                return;
+            }
+
+            CompletedTasks.Remove(task);
+            _ = _taskService.UpdateCompletionAsync(task.Task.Id, false).ConfigureAwait(false);
         }
 
         private void DeleteTask(FocusTaskViewModel? task)
@@ -122,7 +155,11 @@ namespace AmbientSounds.ViewModels
             {
                 if (e.Completed)
                 {
-                    CompletedTasks.Add(new FocusTaskViewModel(e, _deleteCommand, _completeCommand));
+                    CompletedTasks.Add(new FocusTaskViewModel(e, _deleteCommand, reopen: _reopenCommand));
+                }
+                else
+                {
+                    Tasks.Add(new FocusTaskViewModel(e, _deleteCommand, complete: _completeCommand));
                 }
             });
         }
