@@ -161,7 +161,7 @@ namespace AmbientSounds.ViewModels
                 Tasks.Remove(task);
             }
 
-            // TODO update cache
+            _ = _taskService.DeleteTaskAsync(task.Task.Id).ConfigureAwait(false);
         }
 
         private async void EditTask(FocusTaskViewModel? task)

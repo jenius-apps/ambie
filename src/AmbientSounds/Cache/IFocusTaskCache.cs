@@ -15,5 +15,7 @@ namespace AmbientSounds.Cache
         Task<FocusTask?> GetTaskAsync(string taskId);
 
         Task UpdateTaskAsync(FocusTask task);
+
+        Task DeleteAsync(string taskId);
     }
 }

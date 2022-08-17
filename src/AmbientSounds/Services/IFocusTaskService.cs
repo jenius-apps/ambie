@@ -22,5 +22,10 @@ namespace AmbientSounds.Services
         /// <param name="taskId">Id of task to update.</param>
         /// <param name="isCompleted">New value for IsCompleted</param>
         Task UpdateCompletionAsync(string taskId, bool isCompleted);
+
+        /// <summary>
+        /// Deletes the given task.
+        /// </summary>
+        Task DeleteTaskAsync(string taskId);
     }
 }

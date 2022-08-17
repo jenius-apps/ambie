@@ -65,5 +65,10 @@ namespace AmbientSounds.Services
             await _cache.UpdateTaskAsync(task);
             TaskCompletionChanged?.Invoke(this, task);
         }
+
+        public Task DeleteTaskAsync(string taskId)
+        {
+            return _cache.DeleteAsync(taskId);
+        }
     }
 }

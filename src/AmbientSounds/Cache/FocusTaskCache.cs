@@ -57,10 +57,23 @@ namespace AmbientSounds.Cache
             }
 
             await EnsureInitializedAsync();
-
             if (_tasks.ContainsKey(task.Id))
             {
                 _tasks[task.Id] = task;
+                await _focusTaskRepository.SaveTasksAsync(_tasks.Values);
+            }
+        }
+
+        public async Task DeleteAsync(string taskId)
+        {
+            if (string.IsNullOrEmpty(taskId))
+            {
+                return;
+            }
+
+            await EnsureInitializedAsync();
+            if (_tasks.TryRemove(taskId, out _))
+            {
                 await _focusTaskRepository.SaveTasksAsync(_tasks.Values);
             }
         }
