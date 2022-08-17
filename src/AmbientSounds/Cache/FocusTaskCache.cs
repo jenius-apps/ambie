@@ -1,4 +1,6 @@
 ﻿using AmbientSounds.Models;
+using AmbientSounds.Repositories;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,6 +13,13 @@ namespace AmbientSounds.Cache
     public class FocusTaskCache : IFocusTaskCache
     {
         private readonly ConcurrentDictionary<string, FocusTask> _tasks = new();
+        private readonly IFocusTaskRepository _focusTaskRepository;
+
+        public FocusTaskCache(IFocusTaskRepository focusTaskRepository)
+        {
+            Guard.IsNotNull(focusTaskRepository, nameof(focusTaskRepository));
+            _focusTaskRepository = focusTaskRepository;
+        }
 
         public async Task AddTaskAsync(FocusTask task)
         {
@@ -19,15 +28,13 @@ namespace AmbientSounds.Cache
                 return;
             }
 
-            await Task.Delay(1);
             _tasks.TryAdd(task.Id, task);
-            // update storage
+            await _focusTaskRepository.SaveTasksAsync(_tasks.Values);
         }
 
         public async Task<IReadOnlyDictionary<string, FocusTask>> GetTasksAsync()
         {
-            // get from storage
-            await Task.Delay(1);
+            await EnsureInitializedAsync();
             return _tasks;
         }
 
@@ -38,9 +45,8 @@ namespace AmbientSounds.Cache
                 return null;
             }
 
-            await Task.Delay(1);
-            _tasks.TryGetValue(taskId, out FocusTask value);
-            return value;
+            await EnsureInitializedAsync();
+            return _tasks.TryGetValue(taskId, out FocusTask value) ? value : null;
         }
 
         public async Task UpdateTaskAsync(FocusTask task)
@@ -50,10 +56,27 @@ namespace AmbientSounds.Cache
                 return;
             }
 
-            _tasks[task.Id] = task;
-            await Task.Delay(1);
+            await EnsureInitializedAsync();
 
-            // update storage
+            if (_tasks.ContainsKey(task.Id))
+            {
+                _tasks[task.Id] = task;
+                await _focusTaskRepository.SaveTasksAsync(_tasks.Values);
+            }
+        }
+
+        private async Task EnsureInitializedAsync()
+        {
+            if (_tasks.Count > 0)
+            {
+                return;
+            }
+
+            var tasks = await _focusTaskRepository.GetTasksAsync();
+            foreach (var t in tasks)
+            {
+                _tasks.TryAdd(t.Id, t);
+            }
         }
     }
 }
