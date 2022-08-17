@@ -235,25 +235,22 @@ namespace AmbientSounds.Services.Uwp
             }
 
             IsDialogOpen = true;
-            var textbox = new TextBox() { Text = prepopulatedText };
+            var dialog = new EditTextDialog()
+            {
+                Text = prepopulatedText,
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            };
+
             if (maxSize.HasValue)
             {
-                textbox.MaxLength = maxSize.Value;
+                dialog.MaxLength = maxSize.Value;
             }
-            var dialog = new ContentDialog()
-            {
-                Title = Strings.Resources.EditText,
-                CloseButtonText = Strings.Resources.CancelText,
-                PrimaryButtonText = Strings.Resources.Confirm,
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Content = textbox
-            };
 
             var result = await dialog.ShowAsync();
             IsDialogOpen = false;
 
-            return result == ContentDialogResult.Primary && prepopulatedText != textbox.Text
-                ? textbox.Text.Trim()
+            return result == ContentDialogResult.Primary && prepopulatedText != dialog.Text
+                ? dialog.Text.Trim()
                 : null;
         }
     }

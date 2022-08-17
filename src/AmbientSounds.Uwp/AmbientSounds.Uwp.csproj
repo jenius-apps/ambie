@@ -146,6 +146,9 @@
     <Compile Include="Controls\CatalogueListControl.xaml.cs">
       <DependentUpon>CatalogueListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EditTextDialog.xaml.cs">
+      <DependentUpon>EditTextDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FocusAward.xaml.cs">
       <DependentUpon>FocusAward.xaml</DependentUpon>
     </Compile>
@@ -406,6 +409,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\CatalogueListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EditTextDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
