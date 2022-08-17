@@ -151,8 +151,15 @@ namespace AmbientSounds.ViewModels
             {
                 return;
             }
-
-            Tasks.Remove(task);
+            
+            if (task.IsCompleted)
+            {
+                CompletedTasks.Remove(task);
+            }
+            else
+            {
+                Tasks.Remove(task);
+            }
 
             // TODO update cache
         }
