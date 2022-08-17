@@ -48,7 +48,7 @@
                     x:Name="TaskText"
                     Grid.Column="1"
                     Margin="0,6,0,0"
-                    Text="{x:Bind Text}"
+                    Text="{x:Bind Text, Mode=OneWay}"
                     TextWrapping="Wrap" />
             </Grid>
         </DataTemplate>
@@ -74,7 +74,7 @@
                     Grid.Column="1"
                     Margin="0,6,0,0"
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Text="{x:Bind Text}"
+                    Text="{x:Bind Text, Mode=OneWay}"
                     TextDecorations="Strikethrough"
                     TextWrapping="Wrap" />
             </Grid>
@@ -105,7 +105,7 @@
                     Grid.Row="1"
                     Margin="12,12,12,0"
                     KeyDown="OnTaskKeyDown"
-                    MaxLength="280"
+                    MaxLength="{x:Bind ViewModel.MaxTextSize}"
                     PlaceholderText="{x:Bind strings:Resources.TaskModuleNewTaskPlaceholder}"
                     Text="{x:Bind ViewModel.NewTask, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 

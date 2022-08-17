@@ -15,8 +15,10 @@ namespace AmbientSounds.ViewModels
 {
     public class FocusTaskModuleViewModel : ObservableObject
     {
+        private const int MaxTaskText = 280;
         private readonly IFocusTaskService _taskService;
         private readonly IDispatcherQueue _dispatcherQueue;
+        private readonly IDialogService _dialogService;
         private readonly IRelayCommand<FocusTaskViewModel> _deleteCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _completeCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _reopenCommand;
@@ -26,19 +28,24 @@ namespace AmbientSounds.ViewModels
 
         public FocusTaskModuleViewModel(
             IFocusTaskService focusTaskService,
-            IDispatcherQueue dispatcherQueue)
+            IDispatcherQueue dispatcherQueue,
+            IDialogService dialogService)
         {
             Guard.IsNotNull(focusTaskService, nameof(focusTaskService));
             Guard.IsNotNull(dispatcherQueue, nameof(dispatcherQueue));
+            Guard.IsNotNull(dialogService, nameof(dialogService));
 
             _taskService = focusTaskService;
             _dispatcherQueue = dispatcherQueue;
+            _dialogService = dialogService;
 
             _deleteCommand = new RelayCommand<FocusTaskViewModel>(DeleteTask);
             _completeCommand = new RelayCommand<FocusTaskViewModel>(CompleteTask);
             _reopenCommand = new RelayCommand<FocusTaskViewModel>(ReopenTask);
             _editCommand = new RelayCommand<FocusTaskViewModel>(EditTask);
         }
+
+        public int MaxTextSize => MaxTaskText;
 
         public ObservableCollection<FocusTaskViewModel> Tasks { get; } = new();
 
@@ -150,7 +157,7 @@ namespace AmbientSounds.ViewModels
             // TODO update cache
         }
 
-        private void EditTask(FocusTaskViewModel? task)
+        private async void EditTask(FocusTaskViewModel? task)
         {
             if (task is null || task.IsCompleted)
             {
@@ -159,6 +166,12 @@ namespace AmbientSounds.ViewModels
             }
 
             // add dialog
+            string? newText = await _dialogService.EditTextAsync(task.Text);
+            if (!string.IsNullOrEmpty(newText))
+            {
+                task.Text = newText!;
+                // update service
+            }
         }
 
         private void OnTaskCompletionChanged(object sender, FocusTask e)

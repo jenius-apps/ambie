@@ -8,6 +8,7 @@ namespace AmbientSounds.ViewModels
     public class FocusTaskViewModel : ObservableObject
     {
         private bool _isCompleted;
+        private string _text = string.Empty;
 
         public FocusTaskViewModel(
             FocusTask task,
@@ -19,6 +20,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(task, nameof(task));
             Task = task;
             _isCompleted = task.Completed;
+            Text = task.Text;
             CompleteCommand = complete;
             ReopenCommand = reopen;
 
@@ -27,6 +29,16 @@ namespace AmbientSounds.ViewModels
             EditCommand = edit ?? new RelayCommand<FocusTaskViewModel>(vm => { });
             DeleteCommand = delete ?? new RelayCommand<FocusTaskViewModel>(vm => { }); 
         }
+
+        public FocusTask Task { get; }
+
+        public IRelayCommand<FocusTaskViewModel> EditCommand { get; }
+
+        public IRelayCommand<FocusTaskViewModel> DeleteCommand { get; }
+
+        public IRelayCommand<FocusTaskViewModel>? CompleteCommand { get; }
+
+        public IRelayCommand<FocusTaskViewModel>? ReopenCommand { get; }
 
         public bool IsCompleted
         {
@@ -48,16 +60,10 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        public FocusTask Task { get; }
-
-        public IRelayCommand<FocusTaskViewModel> EditCommand { get; }
-
-        public IRelayCommand<FocusTaskViewModel> DeleteCommand { get; }
-
-        public IRelayCommand<FocusTaskViewModel>? CompleteCommand { get; }
-
-        public IRelayCommand<FocusTaskViewModel>? ReopenCommand { get; }
-
-        public string Text => Task.Text;
+        public string Text
+        {
+            get => _text;
+            set => SetProperty(ref _text, value);
+        }
     }
 }
