@@ -788,6 +788,10 @@
           <source>Edit</source>
           <target state="new">Edit</target>
         </trans-unit>
+        <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
+          <source>Tasks completed</source>
+          <target state="new">Tasks completed</target>
+        </trans-unit>
       </group>
     </body>
   </file>

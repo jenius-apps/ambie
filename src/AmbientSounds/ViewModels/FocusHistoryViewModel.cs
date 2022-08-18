@@ -35,6 +35,7 @@ namespace AmbientSounds.ViewModels
             RestMinutes = Math.Round(focusHistory.GetRestTimeCompleted(), 1);
 
             InterruptionCount = focusHistory.Interruptions.Count;
+            TasksCompleted = focusHistory.TasksCompleted;
 
             for (int i = 0; i < focusHistory.Interruptions.Count; i++)
             {
@@ -73,6 +74,8 @@ namespace AmbientSounds.ViewModels
         public string FocusInfo { get; }
 
         public int InterruptionCount { get; }
+
+        public int TasksCompleted { get; }
 
         public List<InterruptionViewModel> Interruptions { get; } = new();
     }

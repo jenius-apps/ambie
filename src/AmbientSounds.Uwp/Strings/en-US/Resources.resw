@@ -703,4 +703,7 @@
   <data name="EditText" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Tasks completed</value>
+  </data>
 </root>

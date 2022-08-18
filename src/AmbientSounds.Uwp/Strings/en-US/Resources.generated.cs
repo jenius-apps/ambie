@@ -1665,6 +1665,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region TasksCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Tasks completed
+        /// </summary>
+        public static string TasksCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("TasksCompleted");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1803,6 +1816,7 @@ namespace AmbientSounds.Strings{
             TaskModuleTitle,
             TaskModuleRecentCompleted,
             EditText,
+            TasksCompleted,
         }
 
         private static ResourceLoader _resourceLoader;
