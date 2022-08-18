@@ -103,6 +103,25 @@
                 <Setter Property="ShadowOpacity" Value="0.4" />
             </Style>
 
+            <Style x:Key="ModuleBorderStyle" TargetType="Border">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefault}" />
+            </Style>
+
+            <Style x:Key="ModuleBackgroundRectStyle" TargetType="Rectangle">
+                <Setter Property="RadiusY" Value="8" />
+                <Setter Property="RadiusX" Value="8" />
+                <Setter Property="Fill" Value="{ThemeResource CardBackgroundFillColorDefault}" />
+            </Style>
+
+            <Style x:Key="ModuleDividerRectStyle" TargetType="Rectangle">
+                <Setter Property="Height" Value="1" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Fill" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
+            </Style>
+
             <x:Double x:Key="WideWindowBreakpoint">670</x:Double>
             <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
@@ -132,6 +151,7 @@
             <x:String x:Key="GlyphSleep">&#xEB78;</x:String>
             <x:String x:Key="GlyphCritical">&#xEA8B;</x:String>
             <x:String x:Key="GlyphInterruption">&#xE96D;</x:String>
+            <x:String x:Key="GlyphChevronRight">&#xE9A8;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

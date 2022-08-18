@@ -124,5 +124,17 @@
         public const string FocusTutorialEnded = Focus + "tutorialEnded";
         public const string FocusInterruptionLogged = Focus + "interruptionLogged";
         public const string FocusHistoryClicked = Focus + "historyClicked";
+
+        // tasks
+        private const string Task = "task:";
+        public const string TaskAdded = Task + "added";
+        public const string TaskDeleted = Task + "deleted";
+        public const string TaskReordered = Task + "reordered";
+        public const string TaskEdited = Task + "edited";
+        public const string TaskCompleted = Task + "completed";
+        public const string TaskReopened = Task + "reopened";
+        public const string TaskCompletedExpanded = Task + "completedExpanded";
+        public const string TaskCompletedCollapsed = Task + "completedCollapsed";
+        public const string TasksLoaded = Task + "loaded";
     }
 }

@@ -54,5 +54,15 @@ namespace AmbientSounds.Services
         /// Opens dialog for the given history details.
         /// </summary>
         Task OpenHistoryDetailsAsync(FocusHistoryViewModel historyViewModel);
+
+        /// <summary>
+        /// Opens a dialog that will edit the prepopulated string.
+        /// </summary>
+        /// <param name="prepopulatedText">Text to prepopulate the UI.</param>
+        /// <param name="maxSize">Optional max length for the string input.</param>
+        /// <returns>
+        /// Returns a real string if the operation was confirmed, the text was valid, and if the text was changed.
+        /// </returns>
+        Task<string?> EditTextAsync(string prepopulatedText, int? maxSize = null);
     }
 }

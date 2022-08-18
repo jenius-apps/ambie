@@ -1174,7 +1174,7 @@ namespace AmbientSounds.Strings{
 
         #region FocusNotesPlaceholder
         /// <summary>
-        ///   Looks up a localized string similar to: You can jot down your to-do list or any notes here 🙂
+        ///   Looks up a localized string similar to: You can jot down any notes here 🙂
         /// </summary>
         public static string FocusNotesPlaceholder
         {
@@ -1613,6 +1613,71 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region TaskModuleNewTaskPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Add a task
+        /// </summary>
+        public static string TaskModuleNewTaskPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleNewTaskPlaceholder");
+            }
+        }
+        #endregion
+
+        #region TaskModuleTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Tasks
+        /// </summary>
+        public static string TaskModuleTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleTitle");
+            }
+        }
+        #endregion
+
+        #region TaskModuleRecentCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Recently completed
+        /// </summary>
+        public static string TaskModuleRecentCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleRecentCompleted");
+            }
+        }
+        #endregion
+
+        #region EditText
+        /// <summary>
+        ///   Looks up a localized string similar to: Edit
+        /// </summary>
+        public static string EditText
+        {
+            get
+            {
+                return _resourceLoader.GetString("EditText");
+            }
+        }
+        #endregion
+
+        #region TasksCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Tasks completed
+        /// </summary>
+        public static string TasksCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("TasksCompleted");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1747,6 +1812,11 @@ namespace AmbientSounds.Strings{
             ResultMessageFail1,
             ResultMessageSuccess1,
             AppDisplayName,
+            TaskModuleNewTaskPlaceholder,
+            TaskModuleTitle,
+            TaskModuleRecentCompleted,
+            EditText,
+            TasksCompleted,
         }
 
         private static ResourceLoader _resourceLoader;

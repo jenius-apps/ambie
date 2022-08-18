@@ -590,7 +590,7 @@
     <value>Focus minutes</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>You can jot down your to-do list or any notes here 🙂</value>
+    <value>You can jot down any notes here 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>What's the plan?</value>
@@ -690,5 +690,20 @@
   </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>Ambie</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Add a task</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Recently completed</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Tasks completed</value>
   </data>
 </root>

@@ -146,6 +146,9 @@
     <Compile Include="Controls\CatalogueListControl.xaml.cs">
       <DependentUpon>CatalogueListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EditTextDialog.xaml.cs">
+      <DependentUpon>EditTextDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FocusAward.xaml.cs">
       <DependentUpon>FocusAward.xaml</DependentUpon>
     </Compile>
@@ -155,12 +158,16 @@
     <Compile Include="Controls\FocusHistoryModule.xaml.cs">
       <DependentUpon>FocusHistoryModule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FocusTaskModule.xaml.cs">
+      <DependentUpon>FocusTaskModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FocusTimer.xaml.cs">
       <DependentUpon>FocusTimer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\HistoryStat.xaml.cs">
       <DependentUpon>HistoryStat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ICanInitialize.cs" />
     <Compile Include="Controls\InterruptionDialog.xaml.cs">
       <DependentUpon>InterruptionDialog.xaml</DependentUpon>
     </Compile>
@@ -405,6 +412,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\EditTextDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\FocusAward.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -414,6 +425,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FocusHistoryModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FocusTaskModule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

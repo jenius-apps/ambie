@@ -12,6 +12,7 @@ namespace AmbientSounds.Services
     {
         private readonly IFocusHistoryCache _focusHistoryCache;
         private readonly IDialogService _dialogService;
+        private readonly HashSet<string> _taskIdsCompleted = new();
         private FocusHistory? _activeHistory;
 
         public event EventHandler<FocusHistory?>? HistoryAdded;
@@ -41,11 +42,13 @@ namespace AmbientSounds.Services
 
             TrackSegmentEnd(lastCompletedSegmentType);
             _activeHistory.EndUtcTicks = utcTicks;
+            _activeHistory.TasksCompleted = _taskIdsCompleted.Count;
 
             _ = _focusHistoryCache.AddHistoryAsync(_activeHistory);
 
             HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
+            _taskIdsCompleted.Clear();
         }
 
         public void TrackIncompleteHistory(
@@ -61,11 +64,13 @@ namespace AmbientSounds.Services
             _activeHistory.PartialSegmentType = partialSegmentType;
             _activeHistory.PartialSegmentTicks = minutesUsedInIncompleteSegment.Ticks;
             _activeHistory.EndUtcTicks = utcTicks;
+            _activeHistory.TasksCompleted = _taskIdsCompleted.Count;
 
             _ = _focusHistoryCache.AddHistoryAsync(_activeHistory);
 
             HistoryAdded?.Invoke(this, _activeHistory);
             _activeHistory = null;
+            _taskIdsCompleted.Clear();
         }
 
         public void TrackNewHistory(long utcTicks, int focusLength, int restLength, int repetitions)
@@ -118,6 +123,22 @@ namespace AmbientSounds.Services
             });
 
             return (minutes, !string.IsNullOrWhiteSpace(notes));
+        }
+
+        public void LogTaskCompleted(string taskId)
+        {
+            if (_activeHistory is null)
+            {
+                // If there's no active session, don't log it.
+                return;
+            }
+
+            _taskIdsCompleted.Add(taskId);
+        }
+
+        public void RevertTaskCompleted(string taskId)
+        {
+            _taskIdsCompleted.Remove(taskId);
         }
     }
 }

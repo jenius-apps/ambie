@@ -1,0 +1,170 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.FocusTaskModule"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style
+            x:Key="ClosedTask"
+            BasedOn="{StaticResource DefaultTextBlockStyle}"
+            TargetType="TextBlock">
+            <Setter Property="TextDecorations" Value="Strikethrough" />
+            <Setter Property="Foreground" Value="Strikethrough" />
+        </Style>
+
+        <DataTemplate x:Key="OpenTaskTemplate" x:DataType="viewmodels:FocusTaskViewModel">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem
+                            Command="{x:Bind EditCommand}"
+                            CommandParameter="{x:Bind}"
+                            Icon="Edit"
+                            Text="{x:Bind strings:Resources.EditText}" />
+                        <MenuFlyoutItem
+                            Command="{x:Bind DeleteCommand}"
+                            CommandParameter="{x:Bind}"
+                            Icon="Delete"
+                            Text="{x:Bind strings:Resources.DeleteText}" />
+                    </MenuFlyout>
+                </Grid.ContextFlyout>
+
+                <CheckBox VerticalAlignment="Top" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}" />
+                <TextBlock
+                    x:Name="TaskText"
+                    Grid.Column="1"
+                    Margin="0,6,0,0"
+                    Text="{x:Bind Text, Mode=OneWay}"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ClosedTaskTemplate" x:DataType="viewmodels:FocusTaskViewModel">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem
+                            Command="{x:Bind DeleteCommand}"
+                            CommandParameter="{x:Bind}"
+                            Icon="Delete"
+                            Text="{x:Bind strings:Resources.DeleteText}" />
+                    </MenuFlyout>
+                </Grid.ContextFlyout>
+
+                <CheckBox VerticalAlignment="Top" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}" />
+                <TextBlock
+                    x:Name="TaskText"
+                    Grid.Column="1"
+                    Margin="0,6,0,0"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind Text, Mode=OneWay}"
+                    TextDecorations="Strikethrough"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource ModuleBorderStyle}">
+        <Grid>
+            <Rectangle Style="{StaticResource ModuleBackgroundRectStyle}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Margin="24,12,0,12"
+                    FontWeight="SemiBold"
+                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                    Text="{x:Bind strings:Resources.TaskModuleTitle}" />
+
+                <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
+
+                <TextBox
+                    Grid.Row="1"
+                    Margin="12"
+                    IsEnabled="{x:Bind ViewModel.CanAddMoreTasks, Mode=OneWay}"
+                    KeyDown="OnTaskKeyDown"
+                    MaxLength="{x:Bind ViewModel.MaxTextSize}"
+                    PlaceholderText="{x:Bind strings:Resources.TaskModuleNewTaskPlaceholder}"
+                    Text="{x:Bind ViewModel.NewTask, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <ListView
+                    Grid.Row="2"
+                    Margin="8,-4,12,8"
+                    AllowDrop="True"
+                    AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
+                    CanDragItems="True"
+                    CanReorderItems="True"
+                    DragItemsCompleted="OnDragItemsCompleted"
+                    IsRightTapEnabled="true"
+                    ItemTemplate="{StaticResource OpenTaskTemplate}"
+                    ItemsSource="{x:Bind ViewModel.Tasks}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.HorizontalScrollMode="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollMode="Disabled"
+                    SelectionMode="None"
+                    Visibility="{x:Bind ViewModel.OpenTaskListVisible, Mode=OneWay}" />
+
+                <Button
+                    Grid.Row="3"
+                    Margin="12,0,0,12"
+                    Click="OnRecentCompletedClicked"
+                    Visibility="{x:Bind ViewModel.RecentCompletedButtonVisible, Mode=OneWay}">
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon
+                            ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            Glyph="{StaticResource GlyphChevronRight}">
+                            <ani:Explicit.Animations>
+                                <ani:AnimationSet x:Name="OpenChevronAnimation">
+                                    <ani:RotationInDegreesAnimation
+                                        From="0"
+                                        To="90"
+                                        Duration="0:0:0.15" />
+                                </ani:AnimationSet>
+                                <ani:AnimationSet x:Name="CloseChevronAnimation">
+                                    <ani:RotationInDegreesAnimation
+                                        From="90"
+                                        To="0"
+                                        Duration="0:0:0.15" />
+                                </ani:AnimationSet>
+                            </ani:Explicit.Animations>
+                        </FontIcon>
+                        <TextBlock Margin="6,0,0,0" Text="{x:Bind strings:Resources.TaskModuleRecentCompleted}" />
+                        <TextBlock Margin="8,0,0,0" Text="{x:Bind ViewModel.RecentCompletedCount, Mode=OneWay}" />
+                    </StackPanel>
+                </Button>
+
+                <ItemsControl
+                    Grid.Row="4"
+                    Margin="24,0,12,8"
+                    ItemTemplate="{StaticResource ClosedTaskTemplate}"
+                    ItemsSource="{x:Bind ViewModel.CompletedTasks}"
+                    Visibility="{x:Bind ViewModel.IsCompletedListVisible, Mode=OneWay}" />
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

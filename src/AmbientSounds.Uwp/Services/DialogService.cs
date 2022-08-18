@@ -223,5 +223,35 @@ namespace AmbientSounds.Services.Uwp
             await dialog.ShowAsync();
             IsDialogOpen = false;
         }
+
+        /// <inheritdoc/>
+        public async Task<string?> EditTextAsync(
+            string prepopulatedText,
+            int? maxSize = null)
+        {
+            if (IsDialogOpen)
+            {
+                return null;
+            }
+
+            IsDialogOpen = true;
+            var dialog = new EditTextDialog()
+            {
+                Text = prepopulatedText,
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            };
+
+            if (maxSize.HasValue)
+            {
+                dialog.MaxLength = maxSize.Value;
+            }
+
+            var result = await dialog.ShowAsync();
+            IsDialogOpen = false;
+
+            return result == ContentDialogResult.Primary && prepopulatedText != dialog.Text
+                ? dialog.Text.Trim()
+                : null;
+        }
     }
 }
