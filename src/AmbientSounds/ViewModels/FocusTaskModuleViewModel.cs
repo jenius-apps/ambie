@@ -20,6 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly IFocusTaskService _taskService;
         private readonly IDispatcherQueue _dispatcherQueue;
         private readonly IDialogService _dialogService;
+        private readonly IFocusHistoryService _focusHistoryService;
         private readonly IRelayCommand<FocusTaskViewModel> _deleteCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _completeCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _reopenCommand;
@@ -30,15 +31,18 @@ namespace AmbientSounds.ViewModels
         public FocusTaskModuleViewModel(
             IFocusTaskService focusTaskService,
             IDispatcherQueue dispatcherQueue,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            IFocusHistoryService focusHistoryService)
         {
             Guard.IsNotNull(focusTaskService, nameof(focusTaskService));
             Guard.IsNotNull(dispatcherQueue, nameof(dispatcherQueue));
             Guard.IsNotNull(dialogService, nameof(dialogService));
+            Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
 
             _taskService = focusTaskService;
             _dispatcherQueue = dispatcherQueue;
             _dialogService = dialogService;
+            _focusHistoryService = focusHistoryService;
 
             _deleteCommand = new RelayCommand<FocusTaskViewModel>(DeleteTask);
             _completeCommand = new RelayCommand<FocusTaskViewModel>(CompleteTask);
@@ -155,6 +159,7 @@ namespace AmbientSounds.ViewModels
             }
 
             Tasks.Remove(task);
+            _focusHistoryService.LogTaskCompleted(task.Task.Id);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
         }
 
@@ -166,6 +171,7 @@ namespace AmbientSounds.ViewModels
             }
 
             CompletedTasks.Remove(task);
+            _focusHistoryService.RevertTaskCompleted(task.Task.Id);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, false).ConfigureAwait(false);
         }
 

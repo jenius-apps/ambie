@@ -17,11 +17,6 @@ namespace AmbientSounds.Models
         public DateTime CreatedDate { get; set; }
 
         /// <summary>
-        /// Date when the task was completed.
-        /// </summary>
-        public DateTime CompletedDate { get; set; }
-
-        /// <summary>
         /// The text for the task. 
         /// </summary>
         public string Text { get; set; } = string.Empty;

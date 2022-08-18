@@ -54,5 +54,16 @@ namespace AmbientSounds.Services
         /// 2. True if notes were populated. False if empty.
         /// </returns>
         Task<(double, bool)> LogInterruptionAsync();
+
+        /// <summary>
+        /// Logs that a task was completed during a focus session.
+        /// If there is no active session, no operation is performed.
+        /// </summary>
+        void LogTaskCompleted(string taskId);
+
+        /// <summary>
+        /// Removes a task that was previously logged as completed.
+        /// </summary>
+        void RevertTaskCompleted(string taskId);
     }
 }
