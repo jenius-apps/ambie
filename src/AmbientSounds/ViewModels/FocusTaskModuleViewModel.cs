@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -115,6 +116,16 @@ namespace AmbientSounds.ViewModels
 
             Tasks.Add(CreateTaskVm(newTask, false));
             NewTask = string.Empty;
+        }
+
+        public void OnItemsReordered()
+        {
+            if (Tasks.Count == 0)
+            {
+                return;
+            }
+
+            _ = _taskService.ReorderAsync(Tasks.Select(x => x.Task.Id)).ConfigureAwait(false);
         }
 
         private void OnCompletedTaskListChanged(object sender, NotifyCollectionChangedEventArgs e)

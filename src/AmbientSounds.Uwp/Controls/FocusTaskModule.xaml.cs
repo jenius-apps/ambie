@@ -62,5 +62,10 @@ namespace AmbientSounds.Controls
                 ViewModel.IsCompletedListVisible = true;
             }
         }
+
+        private void OnDragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
+        {
+            ViewModel.OnItemsReordered();
+        }
     }
 }

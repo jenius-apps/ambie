@@ -25,10 +25,9 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task<IReadOnlyList<FocusTask>> GetTasksAsync()
+        public Task<IReadOnlyList<FocusTask>> GetTasksAsync()
         {
-            IReadOnlyDictionary<string, FocusTask> tasks = await _cache.GetTasksAsync();
-            return tasks.Values.ToList().AsReadOnly();
+            return _cache.GetTasksAsync();
         }
 
         /// <inheritdoc/>
@@ -68,6 +67,12 @@ namespace AmbientSounds.Services
             task.Completed = isCompleted;
             await _cache.UpdateTaskAsync(task);
             TaskCompletionChanged?.Invoke(this, task);
+        }
+
+        /// <inheritdoc/>
+        public Task ReorderAsync(IEnumerable<string> taskIdList)
+        {
+            return _cache.ReorderAsync(taskIdList);
         }
 
         /// <inheritdoc/>

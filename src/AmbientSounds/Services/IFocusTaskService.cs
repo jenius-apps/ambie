@@ -30,6 +30,12 @@ namespace AmbientSounds.Services
         Task UpdateCompletionAsync(string taskId, bool isCompleted);
 
         /// <summary>
+        /// Reorders the cached tasks based on the order of the given
+        /// id list. Saves new order to storage.
+        /// </summary>
+        Task ReorderAsync(IEnumerable<string> taskIdList);
+
+        /// <summary>
         /// Updates the task's text.
         /// </summary>
         /// <param name="taskId">Id of task to update.</param>
