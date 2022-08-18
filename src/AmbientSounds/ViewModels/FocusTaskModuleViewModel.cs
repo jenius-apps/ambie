@@ -56,6 +56,8 @@ namespace AmbientSounds.ViewModels
 
         public bool RecentCompletedButtonVisible => CompletedTasks.Count > 0;
 
+        public bool OpenTaskListVisible => Tasks.Count > 0;
+
         public string NewTask
         {
             get => _newTask;
@@ -72,6 +74,7 @@ namespace AmbientSounds.ViewModels
         {
             _taskService.TaskCompletionChanged += OnTaskCompletionChanged;
             CompletedTasks.CollectionChanged += OnCompletedTaskListChanged;
+            Tasks.CollectionChanged += OnOpenTasksChanged;
 
             if (Tasks.Count > 0)
             {
@@ -100,6 +103,7 @@ namespace AmbientSounds.ViewModels
         {
             _taskService.TaskCompletionChanged -= OnTaskCompletionChanged;
             CompletedTasks.CollectionChanged -= OnCompletedTaskListChanged;
+            Tasks.CollectionChanged -= OnOpenTasksChanged;
             Tasks.Clear();
             CompletedTasks.Clear();
         }
@@ -136,6 +140,11 @@ namespace AmbientSounds.ViewModels
         {
             OnPropertyChanged(nameof(RecentCompletedCount));
             OnPropertyChanged(nameof(RecentCompletedButtonVisible));
+        }
+
+        private void OnOpenTasksChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(OpenTaskListVisible));
         }
 
         private void CompleteTask(FocusTaskViewModel? task)

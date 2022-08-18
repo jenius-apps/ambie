@@ -11,10 +11,11 @@ namespace AmbientSounds.Cache
 {
     public class FocusTaskCache : IFocusTaskCache
     {
-        private readonly ConcurrentDictionary<string, FocusTask> _tasks = new();
+        private ConcurrentDictionary<string, FocusTask>? _tasks;
         private readonly IFocusTaskRepository _focusTaskRepository;
         private string[] _taskIdPositions = Array.Empty<string>();
         private readonly object _positionLock = new();
+        private readonly object _tasksLock = new();
 
         public FocusTaskCache(IFocusTaskRepository focusTaskRepository)
         {
@@ -31,6 +32,10 @@ namespace AmbientSounds.Cache
             }
 
             await EnsureInitializedAsync();
+            if (_tasks is null)
+            {
+                return;
+            }
 
             if (_tasks.TryAdd(task.Id, task))
             {
@@ -47,6 +52,10 @@ namespace AmbientSounds.Cache
         public async Task<IReadOnlyList<FocusTask>> GetTasksAsync()
         {
             await EnsureInitializedAsync();
+            if (_tasks is null)
+            {
+                return Array.Empty<FocusTask>();
+            }
 
             // Prevent concurrency problems by holding
             // a reference of the taskIdOrder array.
@@ -78,6 +87,11 @@ namespace AmbientSounds.Cache
             }
 
             await EnsureInitializedAsync();
+            if (_tasks is null)
+            {
+                return null;
+            }
+
             return _tasks.TryGetValue(taskId, out FocusTask value) ? value : null;
         }
 
@@ -90,6 +104,11 @@ namespace AmbientSounds.Cache
             }
 
             await EnsureInitializedAsync();
+            if (_tasks is null)
+            {
+                return;
+            }
+
             if (_tasks.ContainsKey(task.Id))
             {
                 _tasks[task.Id] = task;
@@ -106,6 +125,11 @@ namespace AmbientSounds.Cache
             }
 
             await EnsureInitializedAsync();
+            if (_tasks is null)
+            {
+                return;
+            }
+
             if (_tasks.TryRemove(taskId, out _))
             {
                 // Remove the deleted Id from the
@@ -122,6 +146,12 @@ namespace AmbientSounds.Cache
         /// <inheritdoc/>
         public async Task ReorderAsync(IEnumerable<string> taskIdList)
         {
+            await EnsureInitializedAsync();
+            if (_tasks is null)
+            {
+                return;
+            }
+
             // Ensure that the input ids
             // exist in cache.
             List<string> validIds = new();
@@ -154,9 +184,19 @@ namespace AmbientSounds.Cache
 
         private async Task EnsureInitializedAsync()
         {
-            if (_tasks.Count > 0)
+            if (_tasks is not null)
             {
                 return;
+            }
+
+            lock (_tasksLock)
+            {
+                if (_tasks is not null)
+                {
+                    return;
+                }
+
+                _tasks = new ConcurrentDictionary<string, FocusTask>();
             }
 
             // Retrieve tasks from storage

@@ -111,7 +111,7 @@
 
                 <ListView
                     Grid.Row="2"
-                    Margin="8,8,12,0"
+                    Margin="8,8,12,4"
                     AllowDrop="True"
                     AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
                     CanDragItems="True"
@@ -124,11 +124,12 @@
                     ScrollViewer.HorizontalScrollMode="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollMode="Disabled"
-                    SelectionMode="None" />
+                    SelectionMode="None"
+                    Visibility="{x:Bind ViewModel.OpenTaskListVisible, Mode=OneWay}" />
 
                 <Button
                     Grid.Row="3"
-                    Margin="12,8,0,12"
+                    Margin="12,12,0,12"
                     Click="OnRecentCompletedClicked"
                     Visibility="{x:Bind ViewModel.RecentCompletedButtonVisible, Mode=OneWay}">
                     <StackPanel Orientation="Horizontal">
