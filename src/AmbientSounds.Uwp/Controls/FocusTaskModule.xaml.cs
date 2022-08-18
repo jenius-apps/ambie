@@ -1,4 +1,6 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -53,13 +55,17 @@ namespace AmbientSounds.Controls
         {
             if (ViewModel.IsCompletedListVisible)
             {
+                // going to collapse the button
                 await CloseChevronAnimation.StartAsync();
                 ViewModel.IsCompletedListVisible = false;
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.TaskCompletedCollapsed);
             }
             else
             {
+                // going to expand the button
                 await OpenChevronAnimation.StartAsync();
                 ViewModel.IsCompletedListVisible = true;
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.TaskCompletedExpanded);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
@@ -20,6 +21,7 @@ namespace AmbientSounds.ViewModels
         private readonly IFocusTaskService _taskService;
         private readonly IDispatcherQueue _dispatcherQueue;
         private readonly IDialogService _dialogService;
+        private readonly ITelemetry _telemetry;
         private readonly IFocusHistoryService _focusHistoryService;
         private readonly IRelayCommand<FocusTaskViewModel> _deleteCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _completeCommand;
@@ -32,17 +34,20 @@ namespace AmbientSounds.ViewModels
             IFocusTaskService focusTaskService,
             IDispatcherQueue dispatcherQueue,
             IDialogService dialogService,
-            IFocusHistoryService focusHistoryService)
+            IFocusHistoryService focusHistoryService,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(focusTaskService, nameof(focusTaskService));
             Guard.IsNotNull(dispatcherQueue, nameof(dispatcherQueue));
             Guard.IsNotNull(dialogService, nameof(dialogService));
             Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _taskService = focusTaskService;
             _dispatcherQueue = dispatcherQueue;
             _dialogService = dialogService;
             _focusHistoryService = focusHistoryService;
+            _telemetry = telemetry;
 
             _deleteCommand = new RelayCommand<FocusTaskViewModel>(DeleteTask);
             _completeCommand = new RelayCommand<FocusTaskViewModel>(CompleteTask);
@@ -78,14 +83,14 @@ namespace AmbientSounds.ViewModels
 
         public async Task InitializeAsync()
         {
-            _taskService.TaskCompletionChanged += OnTaskCompletionChanged;
-            CompletedTasks.CollectionChanged += OnCompletedTaskListChanged;
-            Tasks.CollectionChanged += OnOpenTasksChanged;
-
             if (Tasks.Count > 0)
             {
                 Tasks.Clear();
             }
+
+            _taskService.TaskCompletionChanged += OnTaskCompletionChanged;
+            CompletedTasks.CollectionChanged += OnCompletedTaskListChanged;
+            Tasks.CollectionChanged += OnOpenTasksChanged;
 
             var tasks = await _taskService.GetTasksAsync();
             foreach (var t in tasks)
@@ -103,6 +108,12 @@ namespace AmbientSounds.ViewModels
                     CompletedTasks.Add(CreateTaskVm(c, true));
                 }
             }
+
+            _telemetry.TrackEvent(TelemetryConstants.TasksLoaded, new Dictionary<string, string>
+            {
+                { "openCount", Tasks.Count.ToString() },
+                { "completedCount", CompletedTasks.Count.ToString() },
+            });
         }
 
         public void Uninitialize()
@@ -130,6 +141,7 @@ namespace AmbientSounds.ViewModels
 
             Tasks.Add(CreateTaskVm(newTask, false));
             NewTask = string.Empty;
+            _telemetry.TrackEvent(TelemetryConstants.TaskAdded);
         }
 
         public void OnItemsReordered()
@@ -139,6 +151,7 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
+            _telemetry.TrackEvent(TelemetryConstants.TaskReordered);
             _ = _taskService.ReorderAsync(Tasks.Select(x => x.Task.Id)).ConfigureAwait(false);
         }
 
@@ -164,6 +177,7 @@ namespace AmbientSounds.ViewModels
             Tasks.Remove(task);
             _focusHistoryService.LogTaskCompleted(task.Task.Id);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
+            _telemetry.TrackEvent(TelemetryConstants.TaskCompleted);
         }
 
         private void ReopenTask(FocusTaskViewModel? task)
@@ -176,6 +190,7 @@ namespace AmbientSounds.ViewModels
             CompletedTasks.Remove(task);
             _focusHistoryService.RevertTaskCompleted(task.Task.Id);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, false).ConfigureAwait(false);
+            _telemetry.TrackEvent(TelemetryConstants.TaskReopened);
         }
 
         private void DeleteTask(FocusTaskViewModel? task)
@@ -195,6 +210,10 @@ namespace AmbientSounds.ViewModels
             }
 
             _ = _taskService.DeleteTaskAsync(task.Task.Id).ConfigureAwait(false);
+            _telemetry.TrackEvent(TelemetryConstants.TaskDeleted, new Dictionary<string, string>
+            {
+                { "completed", task.IsCompleted.ToString() }
+            });
         }
 
         private async void EditTask(FocusTaskViewModel? task)
@@ -213,6 +232,7 @@ namespace AmbientSounds.ViewModels
 
                 // Update the cache
                 _ = _taskService.UpdateTextAsync(task.Task.Id, newText!).ConfigureAwait(false);
+                _telemetry.TrackEvent(TelemetryConstants.TaskEdited);
             }
         }
 
