@@ -767,27 +767,27 @@
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
-          <target state="new">Ambie</target>
+          <target state="translated">Ambie</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add a task</source>
-          <target state="new">Add a task</target>
+          <target state="translated">Fügen Sie eine Aufgabe hinzu</target>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
-          <target state="new">Tasks</target>
+          <target state="translated">Aufgaben</target>
         </trans-unit>
         <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
           <source>Recently completed</source>
-          <target state="new">Recently completed</target>
+          <target state="translated">Abgeschlossen</target>
         </trans-unit>
         <trans-unit id="EditText" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="new">Edit</target>
+          <target state="translated">Bearbeiten</target>
         </trans-unit>
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
-          <target state="new">Tasks completed</target>
+          <target state="translated">Aufgaben erledigt</target>
         </trans-unit>
       </group>
     </body>

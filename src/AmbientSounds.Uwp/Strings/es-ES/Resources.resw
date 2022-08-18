@@ -581,6 +581,24 @@
     <value>Buen esfuerzo</value>
   </data>
   <data name="ResultMessageSuccess1" xml:space="preserve">
-    <value>YouEres increíble</value>
+    <value>Eres increíble</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Ambie</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Agregar una tarea</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Tareas</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Terminado</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Tareas completadas</value>
   </data>
 </root>

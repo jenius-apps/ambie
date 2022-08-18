@@ -586,4 +586,19 @@
   <data name="AppDisplayName" xml:space="preserve">
     <value>アンビー</value>
   </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>タスクを追加する</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>タスク</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>完了したタスク</value>
+  </data>
 </root>
