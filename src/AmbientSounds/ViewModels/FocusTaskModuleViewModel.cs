@@ -172,12 +172,14 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            // add dialog
             string? newText = await _dialogService.EditTextAsync(task.Text);
             if (!string.IsNullOrEmpty(newText))
             {
+                // Update the UI
                 task.Text = newText!;
-                // update service
+
+                // Update the cache
+                _ = _taskService.UpdateTextAsync(task.Task.Id, newText).ConfigureAwait(false);
             }
         }
 

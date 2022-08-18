@@ -7,8 +7,14 @@ namespace AmbientSounds.Services
 {
     public interface IFocusTaskService
     {
+        /// <summary>
+        /// Raised when a tasks's Completed property is changed.
+        /// </summary>
         event EventHandler<FocusTask>? TaskCompletionChanged;
 
+        /// <summary>
+        /// Adds tasks to storage.
+        /// </summary>
         Task<FocusTask?> AddTaskAsync(string text);
 
         /// <summary>
@@ -22,6 +28,13 @@ namespace AmbientSounds.Services
         /// <param name="taskId">Id of task to update.</param>
         /// <param name="isCompleted">New value for IsCompleted</param>
         Task UpdateCompletionAsync(string taskId, bool isCompleted);
+
+        /// <summary>
+        /// Updates the task's text.
+        /// </summary>
+        /// <param name="taskId">Id of task to update.</param>
+        /// <param name="newText">New value for Text.</param>
+        Task UpdateTextAsync(string taskId, string newText);
 
         /// <summary>
         /// Deletes the given task.
