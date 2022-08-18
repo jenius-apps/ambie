@@ -104,6 +104,7 @@
                 <TextBox
                     Grid.Row="1"
                     Margin="12"
+                    IsEnabled="{x:Bind ViewModel.CanAddMoreTasks, Mode=OneWay}"
                     KeyDown="OnTaskKeyDown"
                     MaxLength="{x:Bind ViewModel.MaxTextSize}"
                     PlaceholderText="{x:Bind strings:Resources.TaskModuleNewTaskPlaceholder}"

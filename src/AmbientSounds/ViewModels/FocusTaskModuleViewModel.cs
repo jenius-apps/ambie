@@ -62,6 +62,8 @@ namespace AmbientSounds.ViewModels
 
         public bool OpenTaskListVisible => Tasks.Count > 0;
 
+        public bool CanAddMoreTasks => Tasks.Count < 5;
+
         public string NewTask
         {
             get => _newTask;
@@ -149,6 +151,7 @@ namespace AmbientSounds.ViewModels
         private void OnOpenTasksChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             OnPropertyChanged(nameof(OpenTaskListVisible));
+            OnPropertyChanged(nameof(CanAddMoreTasks));
         }
 
         private void CompleteTask(FocusTaskViewModel? task)
