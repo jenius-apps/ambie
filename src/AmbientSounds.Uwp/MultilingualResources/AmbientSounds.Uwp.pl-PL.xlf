@@ -633,8 +633,9 @@
           <target state="translated">Czas koncentracji (w minutach)</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
-          <source>You can jot down your to-do list or any notes here 🙂</source>
-          <target state="translated">Miejsce do napisania notatek albo listy rzeczy do zrobienia 🙂</target>
+          <source>You can jot down any notes here 🙂</source>
+          <target state="needs-review-translation">Miejsce do napisania notatek albo listy rzeczy do zrobienia 🙂</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>

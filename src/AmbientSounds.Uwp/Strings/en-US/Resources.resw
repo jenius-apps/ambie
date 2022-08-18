@@ -590,7 +590,7 @@
     <value>Focus minutes</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>You can jot down your to-do list or any notes here 🙂</value>
+    <value>You can jot down any notes here 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>What's the plan?</value>

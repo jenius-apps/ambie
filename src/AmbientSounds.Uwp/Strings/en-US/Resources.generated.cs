@@ -1174,7 +1174,7 @@ namespace AmbientSounds.Strings{
 
         #region FocusNotesPlaceholder
         /// <summary>
-        ///   Looks up a localized string similar to: You can jot down your to-do list or any notes here 🙂
+        ///   Looks up a localized string similar to: You can jot down any notes here 🙂
         /// </summary>
         public static string FocusNotesPlaceholder
         {
