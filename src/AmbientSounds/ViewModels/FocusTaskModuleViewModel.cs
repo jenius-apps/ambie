@@ -179,7 +179,7 @@ namespace AmbientSounds.ViewModels
                 task.Text = newText!;
 
                 // Update the cache
-                _ = _taskService.UpdateTextAsync(task.Task.Id, newText).ConfigureAwait(false);
+                _ = _taskService.UpdateTextAsync(task.Task.Id, newText!).ConfigureAwait(false);
             }
         }
 
