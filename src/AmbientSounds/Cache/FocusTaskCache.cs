@@ -30,8 +30,17 @@ namespace AmbientSounds.Cache
                 return;
             }
 
-            _tasks.TryAdd(task.Id, task);
-            await SaveAsync();
+            await EnsureInitializedAsync();
+
+            if (_tasks.TryAdd(task.Id, task))
+            {
+                lock (_positionLock)
+                {
+                    _taskIdPositions = _taskIdPositions.Concat(new[] { task.Id }).ToArray();
+                }
+
+                await SaveAsync();
+            }
         }
 
         /// <inheritdoc/>

@@ -81,13 +81,17 @@ namespace AmbientSounds.ViewModels
             var tasks = await _taskService.GetTasksAsync();
             foreach (var t in tasks)
             {
-                if (t.Completed)
-                {
-                    CompletedTasks.Add(CreateTaskVm(t, true));
-                }
-                else
+                if (!t.Completed)
                 {
                     Tasks.Add(CreateTaskVm(t, false));
+                }
+            }
+
+            foreach (var c in _taskService.GetCompletedTasks())
+            {
+                if (c.Completed)
+                {
+                    CompletedTasks.Add(CreateTaskVm(c, true));
                 }
             }
         }

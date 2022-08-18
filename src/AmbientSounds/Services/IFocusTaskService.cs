@@ -23,6 +23,11 @@ namespace AmbientSounds.Services
         Task<IReadOnlyList<FocusTask>> GetTasksAsync();
 
         /// <summary>
+        /// Retrieves list of completed tasks.
+        /// </summary>
+        IReadOnlyList<FocusTask> GetCompletedTasks();
+
+        /// <summary>
         /// Updates the the completion status of the given task.
         /// </summary>
         /// <param name="taskId">Id of task to update.</param>
