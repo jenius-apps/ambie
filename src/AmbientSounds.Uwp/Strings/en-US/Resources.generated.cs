@@ -1678,6 +1678,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region Timer
+        /// <summary>
+        ///   Looks up a localized string similar to: Timer
+        /// </summary>
+        public static string Timer
+        {
+            get
+            {
+                return _resourceLoader.GetString("Timer");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1817,6 +1830,7 @@ namespace AmbientSounds.Strings{
             TaskModuleRecentCompleted,
             EditText,
             TasksCompleted,
+            Timer,
         }
 
         private static ResourceLoader _resourceLoader;

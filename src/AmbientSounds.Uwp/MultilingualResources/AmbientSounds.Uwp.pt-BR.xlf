@@ -793,6 +793,10 @@
           <source>Tasks completed</source>
           <target state="translated">Tarefas concluídas</target>
         </trans-unit>
+        <trans-unit id="Timer" translate="yes" xml:space="preserve">
+          <source>Timer</source>
+          <target state="new">Timer</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -706,4 +706,7 @@
   <data name="TasksCompleted" xml:space="preserve">
     <value>Tasks completed</value>
   </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
 </root>
