@@ -3,19 +3,18 @@ using AmbientSounds.Extensions;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using JeniusApps.Common.Tools;
-using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AmbientSounds.ViewModels
 {
-    public class FocusTimerModuleViewModel : ObservableObject
+    public partial class FocusTimerModuleViewModel : ObservableObject
     {
         private readonly IFocusService _focusService;
         private readonly IUserSettings _userSettings;
@@ -23,22 +22,36 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IRecentFocusService _recentFocusService;
         private readonly IFocusHistoryService _focusHistoryService;
+        [ObservableProperty]
         private bool _secondsRingVisible;
+        [ObservableProperty]
         private int _secondsRemaining;
+        [ObservableProperty]
         private int _focusLengthRemaining;
+        [ObservableProperty]
         private int _restLengthRemaining;
+        [ObservableProperty]
         private int _repetitionsRemaining;
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsHelpIconVisible))]
         private bool _slidersEnabled;
         private bool _isHelpMessageVisible;
         private int _focusLength;
         private int _restLength;
         private int _repetitions;
+        [ObservableProperty]
         private bool _playEnabled;
+        [ObservableProperty]
         private bool _cancelVisible;
+        [ObservableProperty]
         private bool _playVisible;
+        [ObservableProperty]
         private bool _pauseVisible;
+        [ObservableProperty]
         private string _primaryButtonText = string.Empty;
+        [ObservableProperty]
         private string _currentTimeRemaining = string.Empty;
+        [ObservableProperty]
         private string _currentStatus = string.Empty;
 
         public FocusTimerModuleViewModel(
@@ -49,12 +62,12 @@ namespace AmbientSounds.ViewModels
             IFocusHistoryService focusHistoryService,
             IUserSettings userSettings)
         {
-            Guard.IsNotNull(focusService, nameof(focusService));
-            Guard.IsNotNull(userSettings, nameof(userSettings));
-            Guard.IsNotNull(localizer, nameof(localizer));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(recentFocusService, nameof(recentFocusService));
-            Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
+            Guard.IsNotNull(focusService);
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(localizer);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNull(recentFocusService);
+            Guard.IsNotNull(focusHistoryService);
             _focusService = focusService;
             _userSettings = userSettings;
             _localizer = localizer;
@@ -85,48 +98,6 @@ namespace AmbientSounds.ViewModels
                     _userSettings.Set(UserSettingsConstants.HasClosedFocusHelpMessageKey, true);
                 }
                 OnPropertyChanged(nameof(IsHelpIconVisible));
-            }
-        }
-
-        public bool SecondsRingVisible
-        {
-            get => _secondsRingVisible;
-            set => SetProperty(ref _secondsRingVisible, value);
-        }
-
-        public int SecondsRemaining
-        {
-            get => _secondsRemaining;
-            set => SetProperty(ref _secondsRemaining, value);
-        }
-
-        public int FocusLengthRemaining
-        {
-            get => _focusLengthRemaining;
-            set => SetProperty(ref _focusLengthRemaining, value);
-        }
-
-        public int RestLengthRemaining
-        {
-            get => _restLengthRemaining;
-            set => SetProperty(ref _restLengthRemaining, value);
-        }
-
-        public int RepetitionsRemaining
-        {
-            get => _repetitionsRemaining;
-            set => SetProperty(ref _repetitionsRemaining, value);
-        }
-
-        public bool SlidersEnabled
-        {
-            get => _slidersEnabled;
-            set
-            {
-                if (SetProperty(ref _slidersEnabled, value))
-                {
-                    OnPropertyChanged(nameof(IsHelpIconVisible));
-                }
             }
         }
 
@@ -172,48 +143,6 @@ namespace AmbientSounds.ViewModels
                 TimeSpan time = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
                 return time.ToString(@"hh\:mm");
             }
-        }
-
-        public bool PlayEnabled
-        {
-            get => _playEnabled;
-            set => SetProperty(ref _playEnabled, value);
-        }
-
-        public bool PlayVisible
-        {
-            get => _playVisible;
-            set => SetProperty(ref _playVisible, value);
-        }
-
-        public bool PauseVisible
-        {
-            get => _pauseVisible;
-            set => SetProperty(ref _pauseVisible, value);
-        }
-
-        public bool CancelVisible
-        {
-            get => _cancelVisible;
-            set => SetProperty(ref _cancelVisible, value);
-        }
-
-        public string PrimaryButtonText
-        {
-            get => _primaryButtonText;
-            set => SetProperty(ref _primaryButtonText, value);
-        }
-
-        public string CurrentTimeRemaining
-        {
-            get => _currentTimeRemaining;
-            set => SetProperty(ref _currentTimeRemaining, value);
-        }
-
-        public string CurrentStatus
-        {
-            get => _currentStatus;
-            set => SetProperty(ref _currentStatus, value);
         }
 
         public async Task InitializeAsync()
