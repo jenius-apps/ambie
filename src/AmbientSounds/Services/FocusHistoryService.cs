@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AmbientSounds.Cache;
 using AmbientSounds.Models;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 
 namespace AmbientSounds.Services
 {

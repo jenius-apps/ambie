@@ -2,7 +2,7 @@
 using AmbientSounds.Controls;
 using AmbientSounds.Converters;
 using AmbientSounds.ViewModels;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;

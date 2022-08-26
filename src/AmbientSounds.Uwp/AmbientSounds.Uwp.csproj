@@ -562,7 +562,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.2-preview</Version>
+      <Version>0.0.3-preview</Version>
     </PackageReference>
     <PackageReference Include="ComputeSharp.Uwp">
       <Version>2.0.0-alpha.26</Version>

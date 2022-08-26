@@ -1,8 +1,8 @@
 ﻿using AmbientSounds.Extensions;
 using AmbientSounds.Models;
 using Humanizer;
-using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 
