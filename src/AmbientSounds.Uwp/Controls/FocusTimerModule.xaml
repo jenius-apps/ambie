@@ -515,7 +515,7 @@
 
         <!--  recents module  -->
         <Grid
-            Margin="0,8,0,0"
+            Margin="0,6,0,0"
             HorizontalAlignment="Stretch"
             Visibility="{x:Bind ViewModel.IsRecentVisible, Mode=OneWay}">
             <animations:Implicit.Animations>
