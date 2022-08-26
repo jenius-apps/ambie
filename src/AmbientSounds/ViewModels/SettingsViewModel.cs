@@ -1,7 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
-using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace AmbientSounds.ViewModels
 {

@@ -1,6 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Threading.Tasks;
 

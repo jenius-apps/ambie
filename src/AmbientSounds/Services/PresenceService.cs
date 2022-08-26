@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AmbientSounds.Constants;
 using Microsoft.AspNetCore.SignalR.Client;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 
 namespace AmbientSounds.Services
 {

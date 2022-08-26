@@ -22,6 +22,11 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IRecentFocusService _recentFocusService;
         private readonly IFocusHistoryService _focusHistoryService;
+        private bool _isHelpMessageVisible;
+        private int _focusLength;
+        private int _restLength;
+        private int _repetitions;
+
         [ObservableProperty]
         private bool _secondsRingVisible;
         [ObservableProperty]
@@ -35,10 +40,6 @@ namespace AmbientSounds.ViewModels
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(IsHelpIconVisible))]
         private bool _slidersEnabled;
-        private bool _isHelpMessageVisible;
-        private int _focusLength;
-        private int _restLength;
-        private int _repetitions;
         [ObservableProperty]
         private bool _playEnabled;
         [ObservableProperty]

@@ -1,7 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
 using AmbientSounds.Models;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;

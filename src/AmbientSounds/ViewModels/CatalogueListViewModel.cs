@@ -1,8 +1,8 @@
 ﻿using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

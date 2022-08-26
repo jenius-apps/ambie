@@ -1,7 +1,7 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Models;
 using AmbientSounds.Repositories;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
 ﻿using Microsoft.QueryStringDotNET;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 
 #nullable enable

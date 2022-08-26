@@ -1,5 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Diagnostics;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Diagnostics;
 using AmbientSounds.Services;
 using System;
 using System.Collections.Generic;
