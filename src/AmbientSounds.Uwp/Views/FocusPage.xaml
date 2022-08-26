@@ -99,7 +99,7 @@
                     <VisualState.Setters>
                         <Setter Target="MainContentRow.Height" Value="*" />
                         <Setter Target="FocusTimerGrid.(Grid.Column)" Value="0" />
-                        <Setter Target="FocusTimerGrid.Margin" Value="0" />
+                        <Setter Target="FocusTimerGrid.Margin" Value="0,20,0,20" />
                         <Setter Target="SlidersPanel.(Grid.Row)" Value="1" />
                         <Setter Target="SlidersPanel.(Grid.Column)" Value="1" />
                         <Setter Target="SlidersPanel.Margin" Value="0,20" />
@@ -372,38 +372,53 @@
                         </StackPanel>
 
                         <!--  Countdown timer display  -->
-                        <StackPanel
+                        <Grid
                             x:Name="CountdownTimerPanel"
                             Grid.Row="2"
                             Grid.Column="1"
                             Margin="0,60,0,69"
                             VerticalAlignment="Center"
                             Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
-                                TextAlignment="Center">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,-40,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </TextBlock>
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"
-                                Visibility="Collapsed" />
 
-                            <Border
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="72"
+                                    FontWeight="SemiBold"
+                                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                    Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
+                                    TextAlignment="Center">
+                                    <animations:Implicit.ShowAnimations>
+                                        <animations:OpacityAnimation
+                                            From="0"
+                                            To="1"
+                                            Duration="0:0:2" />
+                                        <animations:TranslationAnimation
+                                            From="0,-40,0"
+                                            To="0"
+                                            Duration="0:0:2" />
+                                    </animations:Implicit.ShowAnimations>
+                                </TextBlock>
+
+                                <TextBlock
+                                    FontSize="20"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                    Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap">
+                                    <animations:Implicit.ShowAnimations>
+                                        <animations:OpacityAnimation
+                                            From="0"
+                                            To="1"
+                                            Duration="0:0:2" />
+                                        <animations:TranslationAnimation
+                                            From="0,20,0"
+                                            To="0"
+                                            Duration="0:0:2" />
+                                    </animations:Implicit.ShowAnimations>
+                                </TextBlock>
+                            </StackPanel>
+
+                            <!--<Border
                                 MinHeight="152"
                                 MaxWidth="600"
                                 Margin="40,12,40,0"
@@ -449,8 +464,8 @@
                                         To="0"
                                         Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>
-                            </winui:PipsPager>
-                        </StackPanel>
+                            </winui:PipsPager>-->
+                        </Grid>
 
                         <!--  Timer buttons  -->
                         <Grid
