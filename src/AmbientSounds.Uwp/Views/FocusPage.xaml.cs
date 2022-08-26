@@ -13,9 +13,6 @@ using System.Linq;
 
 namespace AmbientSounds.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class FocusPage : Page
     {
         private readonly ICanInitialize[] _controlsToInitialize;
@@ -26,6 +23,7 @@ namespace AmbientSounds.Views
             this.DataContext = App.Services.GetRequiredService<FocusPageViewModel>();
             _controlsToInitialize = new ICanInitialize[]
             {
+                TimerModule,
                 HistoryModule,
                 TaskModule
             };
@@ -37,7 +35,7 @@ namespace AmbientSounds.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            var telemetry = App.Services.GetRequiredService<Services.ITelemetry>();
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {
                 { "name", "focus" }
@@ -50,99 +48,11 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            CloseAll();
             ViewModel.Uninitialize();
             foreach (var control in _controlsToInitialize)
             {
                 control.Uninitialize();
             }
-        }
-
-        private void OnResetClicked(object sender, RoutedEventArgs e)
-        {
-            StartButton.Focus(Windows.UI.Xaml.FocusState.Programmatic);
-            ViewModel.Stop();
-        }
-
-        private void OnRecentClicked(object sender, ItemClickEventArgs e)
-        {
-            if (e.ClickedItem is RecentFocusSettings s)
-            {
-                ViewModel.LoadRecentSettings(s);
-            }
-        }
-
-        private void StartTutorial(object sender, RoutedEventArgs e)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
-
-            ViewModel.IsHelpMessageVisible = false;
-            TeachingTip1.IsOpen = true;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = false;
-
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialStarted);
-        }
-
-        private void ShowTip2(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
-
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = true;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = false;
-        }
-
-        private void ShowTip3(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
-
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = true;
-            TeachingTip4.IsOpen = false;
-        }
-
-        private void ShowTip4(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
-
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = true;
-        }
-
-        private void OnTutorialEnded(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
-        {
-            CloseAll();
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialEnded);
-        }
-
-        private void CloseAll()
-        {
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = false;
         }
 
         private async void OnUnloaded(object sender, RoutedEventArgs e)
