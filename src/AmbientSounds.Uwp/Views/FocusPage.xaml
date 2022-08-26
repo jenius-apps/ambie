@@ -380,8 +380,8 @@
                             VerticalAlignment="Center"
                             Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                             <TextBlock
-                                FontSize="72"
-                                FontWeight="SemiBold"
+                                FontSize="20"
+                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                                 Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
                                 TextAlignment="Center">
                                 <animations:Implicit.ShowAnimations>
@@ -397,10 +397,20 @@
                             </TextBlock>
                             <TextBlock
                                 FontSize="20"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
                                 TextAlignment="Center"
-                                TextWrapping="Wrap">
+                                TextWrapping="Wrap"
+                                Visibility="Collapsed" />
+
+                            <Border
+                                MinHeight="152"
+                                MaxWidth="600"
+                                Margin="40,12,40,0"
+                                Background="{ThemeResource BlueGradientBrush}"
+                                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="8">
                                 <animations:Implicit.ShowAnimations>
                                     <animations:OpacityAnimation
                                         From="0"
@@ -411,7 +421,35 @@
                                         To="0"
                                         Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>
-                            </TextBlock>
+                                <Grid Padding="20,12" CornerRadius="8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <CheckBox HorizontalAlignment="Stretch">
+                                        <TextBlock Foreground="{ThemeResource TextFillColorPrimaryBrush}" Text="Task 1" />
+                                    </CheckBox>
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                        Text="this is a much smaller task"
+                                        TextWrapping="WrapWholeWords" />
+
+                                </Grid>
+                            </Border>
+                            <winui:PipsPager Margin="0,12,0,0" HorizontalAlignment="Center">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:2" />
+                                    <animations:TranslationAnimation
+                                        From="0,20,0"
+                                        To="0"
+                                        Duration="0:0:2" />
+                                </animations:Implicit.ShowAnimations>
+                            </winui:PipsPager>
                         </StackPanel>
 
                         <!--  Timer buttons  -->
