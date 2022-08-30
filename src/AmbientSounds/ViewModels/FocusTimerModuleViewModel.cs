@@ -90,9 +90,12 @@ namespace AmbientSounds.ViewModels
 
         public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
 
-        public bool TasksVisible => CancelVisible && FocusTasks.Count > 0;
+        public bool TasksVisible => CancelVisible && 
+            FocusTasks.Count > 0 && 
+            _focusService.CurrentSessionType == SessionType.Focus;
 
-        public bool CountdownVisible => CancelVisible && FocusTasks.Count == 0;
+        public bool CountdownVisible => CancelVisible &&
+            (FocusTasks.Count == 0 || _focusService.CurrentSessionType == SessionType.Rest);
 
         public bool IsRecentVisible => _focusService.CurrentState == FocusState.None && RecentSettings.Count > 0;
 
@@ -338,6 +341,10 @@ namespace AmbientSounds.ViewModels
             PrimaryButtonText = PauseVisible
                 ? _localizer.GetString("Pause")
                 : _localizer.GetString("Start");
+
+            // Need to update here in case session type changed.
+            OnPropertyChanged(nameof(TasksVisible));
+            OnPropertyChanged(nameof(CountdownVisible));
         }
 
         private async Task LogInterruptionAsync()

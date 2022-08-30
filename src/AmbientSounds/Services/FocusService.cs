@@ -46,6 +46,8 @@ namespace AmbientSounds.Services
 
         public FocusSession CurrentSession { get; private set; } = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
 
+        public SessionType CurrentSessionType => CurrentSession.SessionType;
+
         public FocusState CurrentState
         {
             get => _focusState;
