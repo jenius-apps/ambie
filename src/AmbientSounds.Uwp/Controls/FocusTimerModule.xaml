@@ -130,6 +130,7 @@
             </winui:InfoBar.ActionButton>
         </winui:InfoBar>
 
+        <!--  Module container  -->
         <Border Style="{StaticResource ModuleBorderStyle}">
             <Grid>
                 <Grid.RowDefinitions>
@@ -145,6 +146,7 @@
                     Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                     Text="{x:Bind strings:Resources.Timer}" />
 
+                <!--  Header action buttons at top right of module  -->
                 <Grid
                     Margin="12,8"
                     HorizontalAlignment="Right"
@@ -193,6 +195,7 @@
 
                 <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
 
+                <!--  Module body  -->
                 <Grid Grid.Row="1" MinHeight="120">
                     <Grid.RowDefinitions>
                         <RowDefinition x:Name="MainContentRow" Height="auto" />
