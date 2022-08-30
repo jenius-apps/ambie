@@ -27,7 +27,10 @@
                 </controls:FocusTimerModule>
 
                 <!--  Task module  -->
-                <controls:FocusTaskModule x:Name="TaskModule" Margin="0,8,0,0">
+                <controls:FocusTaskModule
+                    x:Name="TaskModule"
+                    Margin="0,8,0,0"
+                    Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}">
                     <animations:Implicit.ShowAnimations>
                         <animations:OpacityAnimation
                             Delay="0:0:0.3"
