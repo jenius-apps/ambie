@@ -163,6 +163,8 @@ namespace AmbientSounds.ViewModels
             _focusService.TimeUpdated += OnTimeUpdated;
             _focusService.FocusStateChanged += OnFocusStateChanged;
 
+            await InitializeTasksAsync();
+
             // Initialize recent list
             if (RecentSettings.Count > 0)
             {
