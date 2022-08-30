@@ -15,10 +15,12 @@ namespace AmbientSounds.ViewModels
             IRelayCommand<FocusTaskViewModel>? delete = null,
             IRelayCommand<FocusTaskViewModel>? edit = null,
             IRelayCommand<FocusTaskViewModel>? complete = null,
-            IRelayCommand<FocusTaskViewModel>? reopen = null)
+            IRelayCommand<FocusTaskViewModel>? reopen = null,
+            string? displayTitle = null)
         {
             Guard.IsNotNull(task, nameof(task));
             Task = task;
+            DisplayTitle = displayTitle ?? string.Empty;
             _isCompleted = task.Completed;
             Text = task.Text;
             CompleteCommand = complete;
@@ -31,6 +33,8 @@ namespace AmbientSounds.ViewModels
         }
 
         public FocusTask Task { get; }
+
+        public string DisplayTitle { get; }
 
         public IRelayCommand<FocusTaskViewModel> EditCommand { get; }
 

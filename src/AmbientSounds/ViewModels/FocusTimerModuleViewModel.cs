@@ -22,6 +22,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IRecentFocusService _recentFocusService;
         private readonly IFocusHistoryService _focusHistoryService;
+        private readonly IFocusTaskService _taskService;
         private bool _isHelpMessageVisible;
         private int _focusLength;
         private int _restLength;
@@ -43,6 +44,8 @@ namespace AmbientSounds.ViewModels
         [ObservableProperty]
         private bool _playEnabled;
         [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(TasksVisible))]
+        [NotifyPropertyChangedFor(nameof(CountdownVisible))]
         private bool _cancelVisible;
         [ObservableProperty]
         private bool _playVisible;
@@ -61,7 +64,8 @@ namespace AmbientSounds.ViewModels
             IRecentFocusService recentFocusService,
             ITelemetry telemetry,
             IFocusHistoryService focusHistoryService,
-            IUserSettings userSettings)
+            IUserSettings userSettings,
+            IFocusTaskService taskService)
         {
             Guard.IsNotNull(focusService);
             Guard.IsNotNull(userSettings);
@@ -69,18 +73,26 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(telemetry);
             Guard.IsNotNull(recentFocusService);
             Guard.IsNotNull(focusHistoryService);
+            Guard.IsNotNull(taskService);
             _focusService = focusService;
             _userSettings = userSettings;
             _localizer = localizer;
             _telemetry = telemetry;
             _recentFocusService = recentFocusService;
             _focusHistoryService = focusHistoryService;
+            _taskService = taskService;
             IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
             UpdateButtonStates();
             InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
         }
 
         public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
+
+        public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
+
+        public bool TasksVisible => CancelVisible && FocusTasks.Count > 0;
+
+        public bool CountdownVisible => CancelVisible && FocusTasks.Count == 0;
 
         public bool IsRecentVisible => _focusService.CurrentState == FocusState.None && RecentSettings.Count > 0;
 
@@ -172,6 +184,7 @@ namespace AmbientSounds.ViewModels
             _focusService.FocusStateChanged -= OnFocusStateChanged;
 
             RecentSettings.Clear();
+            FocusTasks.Clear();
         }
 
         public bool CanStartTutorial() => SlidersEnabled;
@@ -231,7 +244,7 @@ namespace AmbientSounds.ViewModels
             UpdateButtonStates();
         }
 
-        private void Start()
+        private async void Start()
         {
             bool successfullyStarted;
 
@@ -242,6 +255,7 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
+                await InitializeTasksAsync();
                 SecondsRemaining = 60;
                 successfullyStarted = _focusService.StartTimer(FocusLength, RestLength, Repetitions);
                 _telemetry.TrackEvent(TelemetryConstants.FocusStarted, new Dictionary<string, string>
@@ -263,6 +277,18 @@ namespace AmbientSounds.ViewModels
                 // is. All we care is that if it was started,
                 // make sure the ring is visible.
                 SecondsRingVisible = true;
+            }
+        }
+
+        private async Task InitializeTasksAsync()
+        {
+            FocusTasks.Clear();
+            var tasks = await _taskService.GetTasksAsync();
+            int index = 1;
+            foreach (var t in tasks)
+            {
+                FocusTasks.Add(new FocusTaskViewModel(t, displayTitle: $"Task {index}"));
+                index++;
             }
         }
 
