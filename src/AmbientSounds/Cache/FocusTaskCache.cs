@@ -5,17 +5,18 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Cache
 {
     public class FocusTaskCache : IFocusTaskCache
     {
+        private readonly SemaphoreSlim _initializeTasksLock = new SemaphoreSlim(1, 1);
+        private readonly SemaphoreSlim _taskOrderLock = new SemaphoreSlim(1, 1);
         private ConcurrentDictionary<string, FocusTask>? _tasks;
         private readonly IFocusTaskRepository _focusTaskRepository;
         private string[] _taskIdPositions = Array.Empty<string>();
-        private readonly object _positionLock = new();
-        private readonly object _tasksLock = new();
 
         public FocusTaskCache(IFocusTaskRepository focusTaskRepository)
         {
@@ -39,10 +40,9 @@ namespace AmbientSounds.Cache
 
             if (_tasks.TryAdd(task.Id, task))
             {
-                lock (_positionLock)
-                {
-                    _taskIdPositions = _taskIdPositions.Concat(new[] { task.Id }).ToArray();
-                }
+                await _taskOrderLock.WaitAsync();
+                _taskIdPositions = _taskIdPositions.Concat(new[] { task.Id }).ToArray();
+                _taskOrderLock.Release();
 
                 await SaveAsync();
             }
@@ -134,10 +134,9 @@ namespace AmbientSounds.Cache
             {
                 // Remove the deleted Id from the
                 // task order cache.
-                lock (_positionLock)
-                {
-                    _taskIdPositions = _taskIdPositions.Where(x => x != taskId).ToArray();
-                }
+                await _taskOrderLock.WaitAsync();
+                _taskIdPositions = _taskIdPositions.Where(x => x != taskId).ToArray();
+                _taskOrderLock.Release();
 
                 await SaveAsync();
             }
@@ -166,10 +165,9 @@ namespace AmbientSounds.Cache
             // Update the task order cache.
             if (validIds.Count > 0)
             {
-                lock (_positionLock)
-                {
-                    _taskIdPositions = validIds.ToArray();
-                }
+                await _taskOrderLock.WaitAsync();
+                _taskIdPositions = validIds.ToArray();
+                _taskOrderLock.Release();
             }
 
             await SaveAsync();
@@ -184,20 +182,15 @@ namespace AmbientSounds.Cache
 
         private async Task EnsureInitializedAsync()
         {
+            await _initializeTasksLock.WaitAsync();
+
             if (_tasks is not null)
             {
+                _initializeTasksLock.Release();
                 return;
             }
 
-            lock (_tasksLock)
-            {
-                if (_tasks is not null)
-                {
-                    return;
-                }
-
-                _tasks = new ConcurrentDictionary<string, FocusTask>();
-            }
+            _tasks = new ConcurrentDictionary<string, FocusTask>();
 
             // Retrieve tasks from storage
             // and add to the concurrent dictionary.
@@ -208,10 +201,11 @@ namespace AmbientSounds.Cache
             }
 
             // Initialize the cache for the task order.
-            lock (_positionLock)
-            {
-                _taskIdPositions = tasks.Select(x => x.Id).ToArray();
-            }
+            await _taskOrderLock.WaitAsync();
+            _taskIdPositions = tasks.Select(x => x.Id).ToArray();
+            _taskOrderLock.Release();
+
+            _initializeTasksLock.Release();
         }
     }
 }
