@@ -289,7 +289,7 @@ namespace AmbientSounds.ViewModels
             int index = 1;
             foreach (var t in tasks)
             {
-                FocusTasks.Add(new FocusTaskViewModel(t, displayTitle: $"Task {index}"));
+                FocusTasks.Add(new FocusTaskViewModel(t, displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
                 index++;
             }
         }

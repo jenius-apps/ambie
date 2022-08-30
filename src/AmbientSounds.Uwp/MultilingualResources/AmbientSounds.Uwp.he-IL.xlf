@@ -792,6 +792,10 @@
           <source>Timer</source>
           <target state="new">Timer</target>
         </trans-unit>
+        <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
+          <source>Task {0}</source>
+          <target state="new">Task {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

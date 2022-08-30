@@ -709,4 +709,7 @@
   <data name="Timer" xml:space="preserve">
     <value>Timer</value>
   </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Task {0}</value>
+  </data>
 </root>
