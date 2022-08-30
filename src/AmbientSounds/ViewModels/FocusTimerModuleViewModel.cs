@@ -240,6 +240,32 @@ namespace AmbientSounds.ViewModels
             });
         }
 
+        [RelayCommand]
+        private void CompleteTask(FocusTaskViewModel? task)
+        {
+            if (task is null)
+            {
+                return;
+            }
+
+            _focusHistoryService.LogTaskCompleted(task.Task.Id);
+            _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
+            _telemetry.TrackEvent(TelemetryConstants.TaskCompletedInSession);
+        }
+
+        [RelayCommand]
+        private void ReopenTask(FocusTaskViewModel? task)
+        {
+            if (task is null)
+            {
+                return;
+            }
+
+            _focusHistoryService.RevertTaskCompleted(task.Task.Id);
+            _ = _taskService.UpdateCompletionAsync(task.Task.Id, false).ConfigureAwait(false);
+            _telemetry.TrackEvent(TelemetryConstants.TaskReopenedInSession);
+        }
+
         private void OnFocusStateChanged(object sender, FocusState e)
         {
             OnPropertyChanged(nameof(IsRecentVisible));
@@ -289,7 +315,11 @@ namespace AmbientSounds.ViewModels
             int index = 1;
             foreach (var t in tasks)
             {
-                FocusTasks.Add(new FocusTaskViewModel(t, displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
+                FocusTasks.Add(new FocusTaskViewModel(
+                    t, 
+                    complete: CompleteTaskCommand,
+                    reopen: ReopenTaskCommand,
+                    displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
                 index++;
             }
         }

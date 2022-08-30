@@ -133,6 +133,8 @@
         public const string TaskEdited = Task + "edited";
         public const string TaskCompleted = Task + "completed";
         public const string TaskReopened = Task + "reopened";
+        public const string TaskCompletedInSession = Task + "completedInSession";
+        public const string TaskReopenedInSession = Task + "reopenedInSession";
         public const string TaskCompletedExpanded = Task + "completedExpanded";
         public const string TaskCompletedCollapsed = Task + "completedCollapsed";
         public const string TasksLoaded = Task + "loaded";

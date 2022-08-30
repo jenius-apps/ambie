@@ -440,7 +440,7 @@
                                                     <RowDefinition Height="*" />
                                                 </Grid.RowDefinitions>
 
-                                                <CheckBox HorizontalAlignment="Stretch">
+                                                <CheckBox HorizontalAlignment="Stretch" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}">
                                                     <TextBlock Foreground="{ThemeResource TextFillColorPrimaryBrush}" Text="{x:Bind DisplayTitle}" />
                                                 </CheckBox>
                                                 <TextBlock
