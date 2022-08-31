@@ -3,8 +3,8 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +22,6 @@ namespace AmbientSounds.ViewModels
         private readonly IDispatcherQueue _dispatcherQueue;
         private readonly IDialogService _dialogService;
         private readonly ITelemetry _telemetry;
-        private readonly IFocusHistoryService _focusHistoryService;
         private readonly IRelayCommand<FocusTaskViewModel> _deleteCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _completeCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _reopenCommand;
@@ -34,19 +33,16 @@ namespace AmbientSounds.ViewModels
             IFocusTaskService focusTaskService,
             IDispatcherQueue dispatcherQueue,
             IDialogService dialogService,
-            IFocusHistoryService focusHistoryService,
             ITelemetry telemetry)
         {
             Guard.IsNotNull(focusTaskService, nameof(focusTaskService));
             Guard.IsNotNull(dispatcherQueue, nameof(dispatcherQueue));
             Guard.IsNotNull(dialogService, nameof(dialogService));
-            Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
             Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _taskService = focusTaskService;
             _dispatcherQueue = dispatcherQueue;
             _dialogService = dialogService;
-            _focusHistoryService = focusHistoryService;
             _telemetry = telemetry;
 
             _deleteCommand = new RelayCommand<FocusTaskViewModel>(DeleteTask);
@@ -175,7 +171,6 @@ namespace AmbientSounds.ViewModels
             }
 
             Tasks.Remove(task);
-            _focusHistoryService.LogTaskCompleted(task.Task.Id);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
             _telemetry.TrackEvent(TelemetryConstants.TaskCompleted);
         }
@@ -188,7 +183,6 @@ namespace AmbientSounds.ViewModels
             }
 
             CompletedTasks.Remove(task);
-            _focusHistoryService.RevertTaskCompleted(task.Task.Id);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, false).ConfigureAwait(false);
             _telemetry.TrackEvent(TelemetryConstants.TaskReopened);
         }
@@ -242,10 +236,22 @@ namespace AmbientSounds.ViewModels
             {
                 if (e.Completed)
                 {
+                    var oldTask = Tasks.Where(x => x.Task.Id == e.Id).FirstOrDefault();
+                    if (oldTask is not null)
+                    {
+                        Tasks.Remove(oldTask);
+                    }
+
                     CompletedTasks.Add(CreateTaskVm(e, true));
                 }
                 else
                 {
+                    var oldTask = CompletedTasks.Where(x => x.Task.Id == e.Id).FirstOrDefault();
+                    if (oldTask is not null)
+                    {
+                        CompletedTasks.Remove(oldTask);
+                    }
+
                     Tasks.Add(CreateTaskVm(e, false));
                 }
             });

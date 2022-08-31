@@ -164,6 +164,9 @@
     <Compile Include="Controls\FocusTimer.xaml.cs">
       <DependentUpon>FocusTimer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FocusTimerModule.xaml.cs">
+      <DependentUpon>FocusTimerModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\HistoryStat.xaml.cs">
       <DependentUpon>HistoryStat.xaml</DependentUpon>
     </Compile>
@@ -271,6 +274,7 @@
       <DependentUpon>Resources.resw</DependentUpon>
     </Compile>
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
+    <Compile Include="Tools\WindowsMediaPlayer.cs" />
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
     </Compile>
@@ -326,6 +330,7 @@
     <Content Include="Assets\SmallTile.scale-150.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SoundEffects\chime.mp3" />
     <Content Include="Assets\Sounds\beach.wav" />
     <Content Include="Assets\Sounds\birds.wav" />
     <Content Include="Assets\Sounds\citystreet.wav" />
@@ -433,6 +438,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FocusTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FocusTimerModule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -555,7 +564,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.2-preview</Version>
+      <Version>0.0.3-preview</Version>
     </PackageReference>
     <PackageReference Include="ComputeSharp.Uwp">
       <Version>2.0.0-alpha.26</Version>
@@ -735,6 +744,7 @@
   <ItemGroup>
     <PRIResource Include="Strings\uk-UA\Resources.resw" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

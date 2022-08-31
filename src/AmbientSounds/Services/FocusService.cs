@@ -1,5 +1,5 @@
 ﻿using AmbientSounds.Constants;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using AmbientSounds.Models;
@@ -45,6 +45,8 @@ namespace AmbientSounds.Services
         }
 
         public FocusSession CurrentSession { get; private set; } = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
+
+        public SessionType CurrentSessionType => CurrentSession.SessionType;
 
         public FocusState CurrentState
         {

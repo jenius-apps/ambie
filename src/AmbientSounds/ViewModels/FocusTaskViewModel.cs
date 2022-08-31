@@ -1,7 +1,7 @@
 ﻿using AmbientSounds.Models;
 using CommunityToolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AmbientSounds.ViewModels
 {
@@ -15,10 +15,12 @@ namespace AmbientSounds.ViewModels
             IRelayCommand<FocusTaskViewModel>? delete = null,
             IRelayCommand<FocusTaskViewModel>? edit = null,
             IRelayCommand<FocusTaskViewModel>? complete = null,
-            IRelayCommand<FocusTaskViewModel>? reopen = null)
+            IRelayCommand<FocusTaskViewModel>? reopen = null,
+            string? displayTitle = null)
         {
             Guard.IsNotNull(task, nameof(task));
             Task = task;
+            DisplayTitle = displayTitle ?? string.Empty;
             _isCompleted = task.Completed;
             Text = task.Text;
             CompleteCommand = complete;
@@ -31,6 +33,8 @@ namespace AmbientSounds.ViewModels
         }
 
         public FocusTask Task { get; }
+
+        public string DisplayTitle { get; }
 
         public IRelayCommand<FocusTaskViewModel> EditCommand { get; }
 

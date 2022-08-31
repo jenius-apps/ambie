@@ -3,8 +3,8 @@ using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Diagnostics;
+using CommunityToolkit.Mvvm.Input;
 using System;
 
 namespace AmbientSounds.Factories

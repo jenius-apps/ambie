@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,6 +21,11 @@ namespace AmbientSounds.Services
         /// Gets the current state of the focus service. 
         /// </summary>
         FocusState CurrentState { get; }
+
+        /// <summary>
+        /// Gets the current session type.
+        /// </summary>
+        SessionType CurrentSessionType { get; }
 
         /// <summary>
         /// Pauses the given focus session.

@@ -772,8 +772,8 @@
           <target state="new">Ambie</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
-          <source>Add a task</source>
-          <target state="new">Add a task</target>
+          <source>Add tasks to focus on, then press the start button</source>
+          <target state="new">Add tasks to focus on, then press the start button</target>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
@@ -790,6 +790,14 @@
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
           <target state="new">Tasks completed</target>
+        </trans-unit>
+        <trans-unit id="Timer" translate="yes" xml:space="preserve">
+          <source>Timer</source>
+          <target state="new">Timer</target>
+        </trans-unit>
+        <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
+          <source>Task {0}</source>
+          <target state="new">Task {0}</target>
         </trans-unit>
       </group>
     </body>

@@ -692,7 +692,7 @@
     <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>Add a task</value>
+    <value>Add tasks to focus on, then press the start button</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>Tasks</value>
@@ -705,5 +705,11 @@
   </data>
   <data name="TasksCompleted" xml:space="preserve">
     <value>Tasks completed</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Task {0}</value>
   </data>
 </root>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -45,6 +46,16 @@ namespace AmbientSounds.Services.Uwp
             StorageFolder backgrounds = await assets.GetFolderAsync("Backgrounds");
             var images = await backgrounds.GetFilesAsync();
             return images.Select(static x => $"ms-appx:///Assets/Backgrounds/{x.Name}").ToArray();
+        }
+
+        /// <inheritdoc/>
+        public async Task<IReadOnlyList<string>> GetAvailableSoundEffectsAsync()
+        {
+            StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
+            StorageFolder soundEffects = await assets.GetFolderAsync("SoundEffects");
+            var sounds = await soundEffects.GetFilesAsync();
+            return sounds.Select(static x => $"ms-appx:///Assets/SoundEffects/{x.Name}").ToArray();
         }
     }
 }

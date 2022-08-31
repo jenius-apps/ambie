@@ -1,5 +1,5 @@
 ﻿using JeniusApps.Common.Tools;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 

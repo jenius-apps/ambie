@@ -12,7 +12,7 @@ using JeniusApps.Common.Tools.Uwp;
 using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client.Extensibility;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using System;
 using System.Net.Http;
@@ -391,6 +391,7 @@ namespace AmbientSounds
                 .AddTransient<ThemeSettingsViewModel>()
                 .AddTransient<CataloguePageViewModel>()
                 .AddSingleton<FocusTaskModuleViewModel>()
+                .AddSingleton<FocusTimerModuleViewModel>()
                 .AddSingleton<ShellPageViewModel>()
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
@@ -440,6 +441,8 @@ namespace AmbientSounds
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()
                 .AddSingleton<PlayerTelemetryTracker>()
+                .AddSingleton<IMediaPlayer, WindowsMediaPlayer>()
+                .AddSingleton<ISoundEffectsService, SoundEffectsService>()
                 .AddSingleton<ISyncEngine, SyncEngine>()
                 .AddSingleton<IAccountManager, AccountManager>()
                 .AddSingleton<IPreviewService, PreviewService>()

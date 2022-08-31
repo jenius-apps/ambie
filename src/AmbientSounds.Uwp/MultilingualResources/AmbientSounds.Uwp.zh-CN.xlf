@@ -770,8 +770,9 @@
           <target state="translated">Ambie</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
-          <source>Add a task</source>
-          <target state="translated">添加任务</target>
+          <source>Add tasks to focus on, then press the start button</source>
+          <target state="needs-review-translation">添加任务</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
@@ -788,6 +789,14 @@
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
           <target state="translated">已完成的任务</target>
+        </trans-unit>
+        <trans-unit id="Timer" translate="yes" xml:space="preserve">
+          <source>Timer</source>
+          <target state="new">Timer</target>
+        </trans-unit>
+        <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
+          <source>Task {0}</source>
+          <target state="new">Task {0}</target>
         </trans-unit>
       </group>
     </body>

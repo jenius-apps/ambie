@@ -32,7 +32,7 @@
                         <Setter Target="PlayerPanelBorder.Margin" Value="16,0" />
                         <Setter Target="PlayerPanelGrid.Margin" Value="16,0" />
                         <Setter Target="NavViewGrid.Margin" Value="16,0,0,16" />
-                        <Setter Target="MainFrame.Margin" Value="12,0,0,0" />
+                        <Setter Target="MainFrame.Margin" Value="8,0,0,0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
                     </VisualState.Setters>
                 </VisualState>
@@ -159,7 +159,7 @@
             </Grid>
 
             <!--  Content below player panel  -->
-            <Grid Grid.Row="1" Margin="0,12,0,0">
+            <Grid Grid.Row="1" Margin="0,8,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="NavMenuWidth" Width="64" />
                     <ColumnDefinition Width="*" />

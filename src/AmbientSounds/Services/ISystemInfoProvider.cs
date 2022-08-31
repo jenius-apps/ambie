@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
 {
@@ -39,5 +40,14 @@ namespace AmbientSounds.Services
         /// was run since being installed.
         /// </summary>
         bool IsFirstRun();
+
+        /// <summary>
+        /// Retrieves list of paths for sound effects
+        /// installed with this app.
+        /// </summary>
+        /// <returns>
+        /// List of URI-friendly paths to the files.
+        /// </returns>
+        Task<IReadOnlyList<string>> GetAvailableSoundEffectsAsync();
     }
 }

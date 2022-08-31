@@ -1616,7 +1616,7 @@ namespace AmbientSounds.Strings{
 
         #region TaskModuleNewTaskPlaceholder
         /// <summary>
-        ///   Looks up a localized string similar to: Add a task
+        ///   Looks up a localized string similar to: Add tasks to focus on, then press the start button
         /// </summary>
         public static string TaskModuleNewTaskPlaceholder
         {
@@ -1675,6 +1675,32 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("TasksCompleted");
+            }
+        }
+        #endregion
+
+        #region Timer
+        /// <summary>
+        ///   Looks up a localized string similar to: Timer
+        /// </summary>
+        public static string Timer
+        {
+            get
+            {
+                return _resourceLoader.GetString("Timer");
+            }
+        }
+        #endregion
+
+        #region TaskTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Task {0}
+        /// </summary>
+        public static string TaskTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskTitle");
             }
         }
         #endregion
@@ -1817,6 +1843,8 @@ namespace AmbientSounds.Strings{
             TaskModuleRecentCompleted,
             EditText,
             TasksCompleted,
+            Timer,
+            TaskTitle,
         }
 
         private static ResourceLoader _resourceLoader;
