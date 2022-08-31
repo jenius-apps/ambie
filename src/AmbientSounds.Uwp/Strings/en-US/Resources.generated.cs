@@ -1616,7 +1616,7 @@ namespace AmbientSounds.Strings{
 
         #region TaskModuleNewTaskPlaceholder
         /// <summary>
-        ///   Looks up a localized string similar to: Add a task
+        ///   Looks up a localized string similar to: Add tasks to focus on, then press the start button
         /// </summary>
         public static string TaskModuleNewTaskPlaceholder
         {

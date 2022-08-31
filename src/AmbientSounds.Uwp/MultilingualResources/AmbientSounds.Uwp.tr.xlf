@@ -780,8 +780,8 @@
           <target state="new">Ambie</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
-          <source>Add a task</source>
-          <target state="new">Add a task</target>
+          <source>Add tasks to focus on, then press the start button</source>
+          <target state="new">Add tasks to focus on, then press the start button</target>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>

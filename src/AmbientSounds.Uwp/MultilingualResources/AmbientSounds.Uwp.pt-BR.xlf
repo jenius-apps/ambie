@@ -774,8 +774,9 @@
           <target state="translated">Ambie</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
-          <source>Add a task</source>
-          <target state="translated">Adicionar uma tarefa</target>
+          <source>Add tasks to focus on, then press the start button</source>
+          <target state="needs-review-translation">Adicionar uma tarefa</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
