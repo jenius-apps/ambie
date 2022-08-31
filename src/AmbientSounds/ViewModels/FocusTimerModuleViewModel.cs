@@ -57,6 +57,8 @@ namespace AmbientSounds.ViewModels
         private string _currentTimeRemaining = string.Empty;
         [ObservableProperty]
         private string _currentStatus = string.Empty;
+        [ObservableProperty]
+        private int _selectedTaskIndex;
 
         public FocusTimerModuleViewModel(
             IFocusService focusService,
@@ -253,6 +255,11 @@ namespace AmbientSounds.ViewModels
 
             _focusHistoryService.LogTaskCompleted(task.Task.Id);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
+            if (SelectedTaskIndex < FocusTasks.Count - 1)
+            {
+                SelectedTaskIndex += 1;
+            }
+
             _telemetry.TrackEvent(TelemetryConstants.TaskCompletedInSession);
         }
 
