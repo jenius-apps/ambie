@@ -15,15 +15,20 @@ namespace AmbientSounds.Services
     public class FocusTaskService : IFocusTaskService
     {
         private readonly IFocusTaskCache _cache;
+        private readonly ISoundEffectsService _soundEffectsService;
         private readonly ConcurrentDictionary<string, FocusTask> _completedTasks = new();
 
         /// <inheritdoc/>
         public event EventHandler<FocusTask>? TaskCompletionChanged;
 
-        public FocusTaskService(IFocusTaskCache focusTaskCache)
+        public FocusTaskService(
+            IFocusTaskCache focusTaskCache,
+            ISoundEffectsService soundEffectsService)
         {
-            Guard.IsNotNull(focusTaskCache, nameof(focusTaskCache));
+            Guard.IsNotNull(focusTaskCache);
             _cache = focusTaskCache;
+            Guard.IsNotNull(soundEffectsService);
+            _soundEffectsService = soundEffectsService;
         }
 
         /// <inheritdoc/>
@@ -70,6 +75,11 @@ namespace AmbientSounds.Services
             {
                 // Scenario: task was previously open
                 // and now it's being changed to completed.
+
+                // Play the sound right away because it doesn't
+                // matter if the rest of this if block fails. The
+                // sound effect is inconsequential.
+                _ = _soundEffectsService.Play(SoundEffect.Chime).ConfigureAwait(false);
 
                 // Retrieve from storage.
                 var storedTask = await _cache.GetTaskAsync(taskId);
