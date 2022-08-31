@@ -445,13 +445,22 @@
                                                 <CheckBox HorizontalAlignment="Stretch" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}">
                                                     <TextBlock Foreground="{ThemeResource TextFillColorPrimaryBrush}" Text="{x:Bind DisplayTitle}" />
                                                 </CheckBox>
-                                                <TextBlock
-                                                    Grid.Row="1"
-                                                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                    Text="{x:Bind Text}"
-                                                    TextTrimming="CharacterEllipsis"
-                                                    TextWrapping="WrapWholeWords" />
-
+                                                <Grid Grid.Row="1">
+                                                    <TextBlock
+                                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                                        Text="{x:Bind Text}"
+                                                        TextTrimming="CharacterEllipsis"
+                                                        TextWrapping="WrapWholeWords"
+                                                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(IsCompleted), Mode=OneWay}" />
+                                                    <TextBlock
+                                                        Grid.Row="1"
+                                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                        Text="{x:Bind Text}"
+                                                        TextDecorations="Strikethrough"
+                                                        TextTrimming="CharacterEllipsis"
+                                                        TextWrapping="WrapWholeWords"
+                                                        Visibility="{x:Bind IsCompleted, Mode=OneWay}" />
+                                                </Grid>
                                             </Grid>
                                         </Border>
                                     </DataTemplate>
