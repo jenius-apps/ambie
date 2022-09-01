@@ -176,23 +176,52 @@
                         </animations:Implicit.ShowAnimations>
                     </HyperlinkButton>
 
-                    <HyperlinkButton
-                        Padding="8,4"
-                        AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
-                        Command="{x:Bind ViewModel.InterruptionCommand}"
-                        ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}"
-                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                         <animations:Implicit.ShowAnimations>
                             <animations:OpacityAnimation
                                 From="0"
                                 To="1"
                                 Duration="0:0:1" />
                         </animations:Implicit.ShowAnimations>
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
-                            Glyph="{StaticResource GlyphInterruption}" />
-                    </HyperlinkButton>
+
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
+                            Command="{x:Bind ViewModel.OpenCompactModeCommand}">
+                            <ToolTipService.ToolTip>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                        FontWeight="SemiBold"
+                                        Text="Switch to compact mode"
+                                        TextWrapping="Wrap" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Text="In compact mode, we'll shrink the window and display only the necessary items to help you focus."
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+                            </ToolTipService.ToolTip>
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphCompact}" />
+                        </HyperlinkButton>
+
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                            Command="{x:Bind ViewModel.InterruptionCommand}"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphInterruption}" />
+                        </HyperlinkButton>
+                    </StackPanel>
                 </Grid>
 
                 <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
@@ -405,7 +434,7 @@
                                         To="1"
                                         Duration="0:0:2" />
                                     <animations:TranslationAnimation
-                                        From="0,-40,0"
+                                        From="0,-20,0"
                                         To="0"
                                         Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>

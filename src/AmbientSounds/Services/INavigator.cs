@@ -1,4 +1,6 @@
-﻿namespace AmbientSounds.Services
+﻿using System.Threading.Tasks;
+
+namespace AmbientSounds.Services
 {
     /// <summary>
     /// Allows programmatic page navigation.
@@ -28,11 +30,6 @@
         void ToScreensaver();
 
         /// <summary>
-        /// Navigates to the compact page.
-        /// </summary>
-        void ToCompact();
-
-        /// <summary>
         /// Navigates to the catalogue page.
         /// </summary>
         void ToCatalogue();
@@ -55,5 +52,16 @@
         /// For example, if ScreensaverPage is provided, the 
         /// RootFrame is used for GoBack.</param>
         void GoBack(string? sourcePage = null);
+
+        /// <summary>
+        /// Attempts to trigger compact overlay mode
+        /// and navigates to the requested page.
+        /// </summary>
+        Task ToCompactOverlayAsync(CompactPageType page);
+    }
+
+    public enum CompactPageType
+    {
+        FocusTimer
     }
 }

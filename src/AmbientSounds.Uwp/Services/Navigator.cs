@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Views;
 using System;
+using System.Threading.Tasks;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -78,19 +79,6 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async void ToCompact()
-        {
-            if (Frame is Frame f)
-            {
-                // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
-                var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-                preferences.CustomSize = new Windows.Foundation.Size(360, 500);
-                await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, preferences);
-                f.Navigate(typeof(CompactPage), null, new SuppressNavigationTransitionInfo());
-            }
-        }
-
-        /// <inheritdoc/>
         public string GetContentPageName()
         {
             if (Frame is Frame f)
@@ -99,6 +87,36 @@ namespace AmbientSounds.Services.Uwp
             }
 
             return string.Empty;
+        }
+
+        /// <inheritdoc/>
+        public async Task ToCompactOverlayAsync(CompactPageType page)
+        {
+            Type? pageType = page switch
+            {
+                CompactPageType.FocusTimer => typeof(CompactFocusTimerPage),
+                _ => null
+            };
+
+            if (pageType is null)
+            {
+                return;
+            }
+
+            if (RootFrame is Frame f)
+            {
+                // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
+                var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+                preferences.CustomSize = new Windows.Foundation.Size(360, 500);
+                bool success = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(
+                    ApplicationViewMode.CompactOverlay,
+                    preferences);
+
+                if (success)
+                {
+                    f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
+                }
+            }
         }
     }
 }

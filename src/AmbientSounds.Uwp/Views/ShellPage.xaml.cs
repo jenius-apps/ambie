@@ -58,6 +58,16 @@ namespace AmbientSounds.Views
             await ViewModel.InitializeAsync();
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            // navigate content frame to blank page to ensure any
+            // uninitialize code is triggered. This addresses scenarios when
+            // the shell page navigates to screensaver page or other top level pages.
+            MainFrame.Navigate(typeof(Page));
+        }
+
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
         {
             ViewModel.IsRatingMessageVisible = false;

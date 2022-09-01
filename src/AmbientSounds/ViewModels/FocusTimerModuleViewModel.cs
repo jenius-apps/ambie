@@ -23,6 +23,7 @@ namespace AmbientSounds.ViewModels
         private readonly IRecentFocusService _recentFocusService;
         private readonly IFocusHistoryService _focusHistoryService;
         private readonly IFocusTaskService _taskService;
+        private readonly INavigator _navigator;
         private bool _isHelpMessageVisible;
         private int _focusLength;
         private int _restLength;
@@ -67,7 +68,8 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             IFocusHistoryService focusHistoryService,
             IUserSettings userSettings,
-            IFocusTaskService taskService)
+            IFocusTaskService taskService,
+            INavigator navigator)
         {
             Guard.IsNotNull(focusService);
             Guard.IsNotNull(userSettings);
@@ -76,6 +78,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(recentFocusService);
             Guard.IsNotNull(focusHistoryService);
             Guard.IsNotNull(taskService);
+            Guard.IsNotNull(navigator);
             _focusService = focusService;
             _userSettings = userSettings;
             _localizer = localizer;
@@ -83,6 +86,7 @@ namespace AmbientSounds.ViewModels
             _recentFocusService = recentFocusService;
             _focusHistoryService = focusHistoryService;
             _taskService = taskService;
+            _navigator = navigator;
             IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
             UpdateButtonStates();
             InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
@@ -366,6 +370,12 @@ namespace AmbientSounds.ViewModels
                     { "hasNotes", hasNotes.ToString() }
                 });
             }
+        }
+
+        [RelayCommand]
+        private async Task OpenCompactModeAsync()
+        {
+            await _navigator.ToCompactOverlayAsync(CompactPageType.FocusTimer);
         }
 
         private void OnTimeUpdated(object sender, FocusSession e)
