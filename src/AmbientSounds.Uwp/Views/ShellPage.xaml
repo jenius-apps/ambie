@@ -109,7 +109,7 @@
                 BorderThickness="1"
                 CornerRadius="8">
                 <Rectangle
-                    Fill="{ThemeResource CardBackgroundFillColorDefault}"
+                    Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                     RadiusX="8"
                     RadiusY="8" />
             </Border>

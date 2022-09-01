@@ -124,7 +124,7 @@
             <Style x:Key="ModuleBackgroundRectStyle" TargetType="Rectangle">
                 <Setter Property="RadiusY" Value="8" />
                 <Setter Property="RadiusX" Value="8" />
-                <Setter Property="Fill" Value="{ThemeResource CardBackgroundFillColorDefault}" />
+                <Setter Property="Fill" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
             </Style>
 
             <Style x:Key="ModuleDividerRectStyle" TargetType="Rectangle">

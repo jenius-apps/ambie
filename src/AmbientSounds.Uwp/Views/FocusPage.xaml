@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <ScrollViewer AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}">
+        <ScrollViewer AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}" HorizontalScrollMode="Disabled">
             <StackPanel Margin="0,0,16,40">
 
                 <!--  Timer module  -->
@@ -64,7 +64,7 @@
 
                     <Grid>
                         <Rectangle
-                            Fill="{ThemeResource CardBackgroundFillColorDefault}"
+                            Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                             RadiusX="8"
                             RadiusY="8" />
 
@@ -85,7 +85,6 @@
                                 Margin="0,12,0,0"
                                 AcceptsReturn="True"
                                 AutomationProperties.Name="{x:Bind strings:Resources.Notepad}"
-                                FontFamily="Lucida Sans Typewriter"
                                 FontSize="12"
                                 MaxLength="1024"
                                 PlaceholderText="{x:Bind strings:Resources.FocusNotesPlaceholder}"
