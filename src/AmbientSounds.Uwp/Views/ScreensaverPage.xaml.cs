@@ -8,12 +8,14 @@ using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Timers;
 using Windows.Media.Core;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
@@ -26,6 +28,8 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ScreensaverPageViewModel>();
+            IsButtonsHidden = false;
+            SetTimer();
             ViewModel.Loaded += OnViewModelLoaded;
             ViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
@@ -33,6 +37,12 @@ namespace AmbientSounds.Views
         public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
 
         private bool IsFullscreen { get; set; }
+
+        private bool IsButtonsHidden { get; set; }
+
+        private DispatcherTimer InactiveTimer { get; set; }
+
+        private const int SecondsToHide = 5;
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -231,6 +241,38 @@ namespace AmbientSounds.Views
                     { "name", ViewModel.CurrentSelection?.Text ?? string.Empty }
                 });
             }
+        }
+
+        private void SetTimer()
+        {
+            InactiveTimer = new DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, SecondsToHide)
+            };
+            InactiveTimer.Tick += OnInactive;
+        }
+
+        private void OnInactive(object sender, object e)
+        {
+            if (!IsButtonsHidden)
+            {
+                GoBackButton.Visibility = Visibility.Collapsed;
+                ActionButtons.Visibility = Visibility.Collapsed;
+                IsButtonsHidden = true; ;
+            }
+            InactiveTimer.Stop();
+        }
+
+        private void RootPage_OnPointerMoved(object sender, PointerRoutedEventArgs e)
+        {
+            if (IsButtonsHidden)
+            {
+                GoBackButton.Visibility = Visibility.Visible;
+                ActionButtons.Visibility = Visibility.Visible;
+                IsButtonsHidden = false;
+            }
+
+            InactiveTimer.Start();
         }
     }
 }
