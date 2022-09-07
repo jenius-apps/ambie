@@ -41,11 +41,11 @@ namespace AmbientSounds.Views
 
         private bool IsButtonsHidden { get; set; }
 
-        private Timer InactiveTimer { get; set; }
+        private DispatcherQueueTimer InactiveTimer { get; set; }
 
         private DispatcherQueue Queue { get; set; }
 
-        private const int MilisecondsToHide = 5000;
+        private const int SecondsToHide = 5;
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -248,21 +248,21 @@ namespace AmbientSounds.Views
 
         private void SetTimer()
         {
-            InactiveTimer = new Timer(MilisecondsToHide);
-            InactiveTimer.AutoReset = false;
-            InactiveTimer.Elapsed += OnInactive;
+            InactiveTimer = Queue.CreateTimer();
+            InactiveTimer.Interval = new TimeSpan(0, 0, SecondsToHide);
+            InactiveTimer.IsRepeating = false;
+            InactiveTimer.Tick += OnInactive;
         }
 
-        private void OnInactive(object sender, ElapsedEventArgs e)
+        private void OnInactive(DispatcherQueueTimer t, object sender)
         {
             if (!IsButtonsHidden)
             {
-                Queue.TryEnqueue(() =>
-                {
-                    GoBackButton.Visibility = Visibility.Collapsed;
-                    ActionButtons.Visibility = Visibility.Collapsed;
-                    IsButtonsHidden = true;
-                });
+
+                GoBackButton.Visibility = Visibility.Collapsed;
+                ActionButtons.Visibility = Visibility.Collapsed;
+                IsButtonsHidden = true;
+
             }
 
             InactiveTimer.Stop();
