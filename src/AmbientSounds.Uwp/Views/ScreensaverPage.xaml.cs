@@ -29,6 +29,7 @@ namespace AmbientSounds.Views
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ScreensaverPageViewModel>();
             IsButtonsHidden = false;
+            Queue = DispatcherQueue.GetForCurrentThread();
             SetTimer();
             ViewModel.Loaded += OnViewModelLoaded;
             ViewModel.PropertyChanged += OnViewModelPropertyChanged;
@@ -40,9 +41,11 @@ namespace AmbientSounds.Views
 
         private bool IsButtonsHidden { get; set; }
 
-        private DispatcherTimer InactiveTimer { get; set; }
+        private Timer InactiveTimer { get; set; }
 
-        private const int SecondsToHide = 5;
+        private DispatcherQueue Queue { get; set; }
+
+        private const int MilisecondsToHide = 5000;
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -245,21 +248,23 @@ namespace AmbientSounds.Views
 
         private void SetTimer()
         {
-            InactiveTimer = new DispatcherTimer
-            {
-                Interval = new TimeSpan(0, 0, SecondsToHide)
-            };
-            InactiveTimer.Tick += OnInactive;
+            InactiveTimer = new Timer(MilisecondsToHide);
+            InactiveTimer.AutoReset = false;
+            InactiveTimer.Elapsed += OnInactive;
         }
 
-        private void OnInactive(object sender, object e)
+        private void OnInactive(object sender, ElapsedEventArgs e)
         {
             if (!IsButtonsHidden)
             {
-                GoBackButton.Visibility = Visibility.Collapsed;
-                ActionButtons.Visibility = Visibility.Collapsed;
-                IsButtonsHidden = true; ;
+                Queue.TryEnqueue(() =>
+                {
+                    GoBackButton.Visibility = Visibility.Collapsed;
+                    ActionButtons.Visibility = Visibility.Collapsed;
+                    IsButtonsHidden = true;
+                });
             }
+
             InactiveTimer.Stop();
         }
 
