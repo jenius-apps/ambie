@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Navigation;
 namespace AmbientSounds.Views
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Page to be used in compact overlay mode to display the focus timer.
     /// </summary>
     public sealed partial class CompactFocusTimerPage : Page
     {
