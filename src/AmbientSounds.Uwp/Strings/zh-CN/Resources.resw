@@ -601,4 +601,10 @@
   <data name="TasksCompleted" xml:space="preserve">
     <value>已完成的任务</value>
   </data>
+  <data name="Timer" xml:space="preserve">
+    <value>计时器</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>任务{0}</value>
+  </data>
 </root>

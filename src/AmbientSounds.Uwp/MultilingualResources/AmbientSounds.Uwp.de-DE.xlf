@@ -792,11 +792,11 @@
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="new">Timer</target>
+          <target state="translated">Timer</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
-          <target state="new">Task {0}</target>
+          <target state="translated">Aufgabe {0}</target>
         </trans-unit>
       </group>
     </body>
