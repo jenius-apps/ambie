@@ -88,11 +88,6 @@ namespace AmbientSounds.Controls
             await dialogService.OpenSettingsAsync();
         }
 
-        private void OnCompactClicked(object sender, RoutedEventArgs e)
-        {
-            App.Services.GetRequiredService<INavigator>().ToCompact();
-        }
-
         private async void ThemeSettingsClicked(object sender, RoutedEventArgs e)
         {
             var dialogService = App.Services.GetRequiredService<IDialogService>();

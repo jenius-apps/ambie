@@ -232,9 +232,6 @@
     <Compile Include="Controls\TimerSlider.xaml.cs">
       <DependentUpon>TimerSlider.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ToggleCompactButton.xaml.cs">
-      <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Controls\VideosMenu.xaml.cs">
       <DependentUpon>VideosMenu.xaml</DependentUpon>
@@ -529,10 +526,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TimerSlider.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ToggleCompactButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
