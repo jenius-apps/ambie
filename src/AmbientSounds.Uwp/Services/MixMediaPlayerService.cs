@@ -19,6 +19,7 @@ namespace AmbientSounds.Services.Uwp
     public class MixMediaPlayerService : IMixMediaPlayerService
     {
         private readonly Dictionary<string, MediaPlayer> _activePlayers = new();
+        private readonly Dictionary<string, string> _soundNames = new();
         private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new();
         private readonly int _maxActive;
         private double _globalVolume;
@@ -97,9 +98,9 @@ namespace AmbientSounds.Services.Uwp
                 _playbackState = value;
                 PlaybackStateChanged?.Invoke(this, value);
 
-                if (value == MediaPlaybackState.Playing) 
+                if (value == MediaPlaybackState.Playing)
                     _smtc.PlaybackStatus = MediaPlaybackStatus.Playing;
-                else if (value == MediaPlaybackState.Paused) 
+                else if (value == MediaPlaybackState.Paused)
                     _smtc.PlaybackStatus = MediaPlaybackStatus.Paused;
             }
         }
@@ -176,7 +177,7 @@ namespace AmbientSounds.Services.Uwp
                 var oldestSoundId = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
                 RemoveSound(oldestSoundId);
             }
-            
+
             if (_activePlayers.Count < _maxActive)
             {
                 MediaSource? mediaSource = null;
@@ -199,7 +200,7 @@ namespace AmbientSounds.Services.Uwp
                         return;
                     }
                 }
-                
+
                 if (mediaSource is not null)
                 {
                     CurrentMixId = parentMixId;
@@ -209,6 +210,8 @@ namespace AmbientSounds.Services.Uwp
                     _activePlayers.TryAdd(sound.Id, player);
                     _activeSoundDateTimes.TryAdd(sound.Id, DateTimeOffset.Now);
                     Screensavers.TryAdd(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
+                    _soundNames.Add(sound.Id, sound.Name);
+                    RefreshSmtcTitle();
 
                     if (keepPaused) Pause();
                     else Play();
@@ -280,7 +283,9 @@ namespace AmbientSounds.Services.Uwp
             _activePlayers[soundId] = null!;
             _activePlayers.Remove(soundId);
             _activeSoundDateTimes.Remove(soundId);
+            _soundNames.Remove(soundId);
             Screensavers.Remove(soundId);
+            RefreshSmtcTitle();
 
             // Any time we remove a sound,
             // we are guaranteed to "destruct"
@@ -311,6 +316,15 @@ namespace AmbientSounds.Services.Uwp
             _smtc.IsNextEnabled = false;
             _smtc.IsPreviousEnabled = false;
             _smtc.ButtonPressed += SmtcButtonPressed;
+            RefreshSmtcTitle();
+        }
+
+        private void RefreshSmtcTitle()
+        {
+            _smtc.DisplayUpdater.Type = MediaPlaybackType.Music;
+            _smtc.DisplayUpdater.MusicProperties.Title = _soundNames.Count == 0 ? "Ambie" : string.Join(" / ", _soundNames.Values); ;
+            _smtc.DisplayUpdater.MusicProperties.Artist = "Ambie";
+            _smtc.DisplayUpdater.Update();
         }
 
         private MediaPlayer CreateLoopingPlayer()
@@ -322,6 +336,6 @@ namespace AmbientSounds.Services.Uwp
 
             player.CommandManager.IsEnabled = false;
             return player;
-        } 
+        }
     }
 }
