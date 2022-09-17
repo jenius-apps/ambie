@@ -17,6 +17,7 @@
 
     <Grid
         x:Name="RootPage"
+        PointerMoved="RootPage_OnPointerMoved"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
         BackgroundTransition="{StaticResource Transition}">
         <VisualStateManager.VisualStateGroups>
@@ -50,7 +51,8 @@
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Orientation="Horizontal"
-            RequestedTheme="Dark">
+            RequestedTheme="Dark"
+            Name="ActionButtons">
             <Button
                 AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
                 Click="OnToggleFullscreen"
