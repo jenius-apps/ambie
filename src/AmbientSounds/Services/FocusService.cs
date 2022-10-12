@@ -15,6 +15,7 @@ namespace AmbientSounds.Services
         private readonly IFocusHistoryService _focusHistoryService;
         private readonly Queue<FocusSession> _sessionQueue = new();
         private FocusState _focusState = FocusState.None;
+        private double _previousGlobalVolume;
 
         public event EventHandler<FocusSession>? TimeUpdated;
         public event EventHandler<FocusState>? FocusStateChanged;
@@ -203,6 +204,11 @@ namespace AmbientSounds.Services
                     // One session done, more to go.
                     _focusHistoryService.TrackSegmentEnd(CurrentSession.SessionType);
                     CurrentSession = _sessionQueue.Dequeue();
+                    if (CurrentSession.SessionType == SessionType.Rest)
+                    {
+                        _previousGlobalVolume = _mixMediaPlayerService.GlobalVolume;
+                    }
+                    _mixMediaPlayerService.GlobalVolume = CurrentSession.SessionType == SessionType.Rest ? 0 : _previousGlobalVolume;
                     _timerService.Remaining = CurrentSession.Remaining;
                     _timerService.Start();
                     _telemetry.TrackEvent(TelemetryConstants.FocusSegmentCompleted);
