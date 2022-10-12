@@ -19,7 +19,11 @@ namespace AmbientSounds.Services.Uwp
             }
         }
 
-        public void ScheduleToast(DateTime scheduleDateTime, string title, string message)
+        public void ScheduleToast(
+            DateTime scheduleDateTime,
+            string title,
+            string message,
+            bool silent = false)
         {
             if (scheduleDateTime <= DateTime.Now)
             {
@@ -28,6 +32,7 @@ namespace AmbientSounds.Services.Uwp
 
             new ToastContentBuilder()
                 .SetToastScenario(ToastScenario.Alarm)
+                .AddAudio(new Uri("ms-appx:///Assets/SoundEffects/bell.wav"), silent: silent)
                 .AddButton(new ToastButtonDismiss())
                 .AddText(title)
                 .AddText(message)

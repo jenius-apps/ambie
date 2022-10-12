@@ -9,6 +9,7 @@ namespace AmbientSounds.Services
 
     public enum SoundEffect
     {
-        Chime
+        Chime,
+        Bell
     }
 }
