@@ -1704,6 +1704,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region StudyText
+        /// <summary>
+        ///   Looks up a localized string similar to: Study
+        /// </summary>
+        public static string StudyText
+        {
+            get
+            {
+                return _resourceLoader.GetString("StudyText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1845,6 +1858,7 @@ namespace AmbientSounds.Strings{
             TasksCompleted,
             Timer,
             TaskTitle,
+            StudyText,
         }
 
         private static ResourceLoader _resourceLoader;

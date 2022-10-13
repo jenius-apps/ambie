@@ -806,6 +806,10 @@
           <source>Task {0}</source>
           <target state="translated">Tache {0}</target>
         </trans-unit>
+        <trans-unit id="StudyText" translate="yes" xml:space="preserve">
+          <source>Study</source>
+          <target state="new">Study</target>
+        </trans-unit>
       </group>
     </body>
   </file>

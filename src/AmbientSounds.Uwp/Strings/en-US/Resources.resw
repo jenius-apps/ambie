@@ -712,4 +712,7 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Task {0}</value>
   </data>
+  <data name="StudyText" xml:space="preserve">
+    <value>Study</value>
+  </data>
 </root>
