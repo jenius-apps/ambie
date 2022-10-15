@@ -48,6 +48,11 @@
         void ToHome();
 
         /// <summary>
+        /// Navigates to the study home page.
+        /// </summary>
+        void ToStudyHome();
+
+        /// <summary>
         /// Attempts to navigate back.
         /// </summary>
         /// <param name="sourcePage">Optional. If provided,

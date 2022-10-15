@@ -804,6 +804,10 @@
           <source>Study</source>
           <target state="new">Study</target>
         </trans-unit>
+        <trans-unit id="StudyHomeTitleText" translate="yes" xml:space="preserve">
+          <source>Study rooms</source>
+          <target state="new">Study rooms</target>
+        </trans-unit>
       </group>
     </body>
   </file>

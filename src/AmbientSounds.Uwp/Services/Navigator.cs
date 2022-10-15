@@ -78,6 +78,15 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public void ToStudyHome()
+        {
+            if (Frame is Frame f)
+            {
+                f.Navigate(typeof(StudyHomePage), null, new SuppressNavigationTransitionInfo());
+            }
+        }
+
+        /// <inheritdoc/>
         public async void ToCompact()
         {
             if (Frame is Frame f)

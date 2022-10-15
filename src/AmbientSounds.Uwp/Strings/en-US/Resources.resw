@@ -715,4 +715,7 @@
   <data name="StudyText" xml:space="preserve">
     <value>Study</value>
   </data>
+  <data name="StudyHomeTitleText" xml:space="preserve">
+    <value>Study rooms</value>
+  </data>
 </root>

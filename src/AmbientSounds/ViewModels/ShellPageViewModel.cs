@@ -136,6 +136,10 @@ namespace AmbientSounds.ViewModels
             {
                 _navigator.ToFocus();
             }
+            else if (index == 3)
+            {
+                _navigator.ToStudyHome();
+            }
 
             UpdateTimeBannerVisibility();
             UpdateFocusDotVisibility();
