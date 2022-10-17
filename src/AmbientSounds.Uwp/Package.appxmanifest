@@ -11,7 +11,7 @@
   <Identity
     Name="90134f50-d8e6-4406-abc4-57d19471dbd5"
     Publisher="CN=0B44CA61-7898-42FE-825C-ADA43BC01A93"
-    Version="3.2.4.0" />
+    Version="3.2.5.0" />
 
   <mp:PhoneIdentity PhoneProductId="90134f50-d8e6-4406-abc4-57d19471dbd5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -57,10 +57,61 @@
 		        <uap:DisplayName>ms-resource:AppDisplayName</uap:DisplayName>
 		      </uap:Protocol>
 		    </uap:Extension>
+		  <uap3:Extension Category="windows.appExtension">
+			  <uap3:AppExtension Name="microsoft.gameBarUIExtension"
+								 Id="AmbientSoundsWidget"
+								 DisplayName="ms-resource:AppDisplayName"
+								 Description="Play white noise and nature sounds using Xbox Game Bar"
+								 PublicFolder="AmbieWhiteNoise">
+				  <uap3:Properties>
+					  <GameBarWidget Type="Standard">
+						  <HomeMenuVisible>true</HomeMenuVisible>
+						  <PinningSupported>true</PinningSupported>
+						  <ActivateAfterInstall>false</ActivateAfterInstall>
+						  <Window>
+							  <AllowForegroundTransparency>true</AllowForegroundTransparency>
+							  <Size>
+								  <Height>500</Height>
+								  <Width>600</Width>
+								  <MinHeight>500</MinHeight>
+								  <MinWidth>260</MinWidth>
+							  </Size>
+							  <ResizeSupported>
+								  <Horizontal>true</Horizontal>
+								  <Vertical>true</Vertical>
+							  </ResizeSupported>
+						  </Window>
+					  </GameBarWidget>
+				  </uap3:Properties>
+			  </uap3:AppExtension>
+		  </uap3:Extension>
       </Extensions>
     </Application>
   </Applications>
-
+  <Extensions>
+    <!--Enlighten COM on where to find Metadata Based Marshaling (MBM) data for the Game Bar private types 
+      <Path> is a required element (by VS) and has to point to a binary in the package, but it's not used when the class id is
+      00000355-0000-0000-C000-000000000046 (MBM). Due to that we just put the Microsoft.Gaming.XboxGameBar.winmd here.--> 
+   <Extension Category="windows.activatableClass.proxyStub">
+    <ProxyStub ClassId="00000355-0000-0000-C000-000000000046">
+	    <Path>Microsoft.Gaming.XboxGameBar.winmd</Path>
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetAuthHost" InterfaceId="DC263529-B12F-469E-BB35-B94069F5B15A" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetControlHost" InterfaceId="C309CAC7-8435-4082-8F37-784523747047" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetForegroundWorkerHost" InterfaceId="DDB52B57-FA83-420C-AFDE-6FA556E18B83" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetForegroundWorkerPrivate" InterfaceId="42BACDFC-BB28-4E71-99B4-24C034C7B7E0" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarNavigationKeyCombo" InterfaceId="5EEA3DBF-09BB-42A5-B491-CF561E33C172" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetActivatedEventArgsPrivate" InterfaceId="782535A7-9407-4572-BFCB-316B4086F102" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost" InterfaceId="5D12BC93-212B-4B9F-9091-76B73BF56525" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost2" InterfaceId="28717C8B-D8E8-47A8-AF47-A1D5263BAE9B" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost3" InterfaceId="3F5A3F12-C1E4-4942-B80D-3117BC948E29" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost4" InterfaceId="FA696D9E-2501-4B01-B26F-4BB85344740F" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetHost5" InterfaceId="A6C878CC-2B08-4B94-B1C3-222C6A913F3C" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetPrivate" InterfaceId="22ABA97F-FB0F-4439-9BDD-2C67B2D5AA8F" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetPrivate2" InterfaceId="B2F7DB8C-7540-48DA-9B46-4E60CE0D9DEB" />
+	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetPrivate3" InterfaceId="4FB89FB6-7CB8-489D-8408-2269E6C733A1" />
+    </ProxyStub>
+   </Extension>
+  </Extensions>
   <Capabilities>
     <Capability Name="internetClient" />
     <uap3:Capability Name="backgroundMediaPlayback"/>
