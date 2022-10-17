@@ -33,6 +33,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Gaming.XboxGameBar;
 
 #nullable enable
 
@@ -50,6 +51,7 @@ namespace AmbientSounds
         private static PlayerTelemetryTracker? _playerTracker;
         private IUserSettings? _userSettings;
         private static Frame? AppFrame;
+        private XboxGameBarWidget? _widget;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -175,9 +177,24 @@ namespace AmbientSounds
             }
             else if (args is IProtocolActivatedEventArgs protocolActivatedEventArgs)
             {
-                await ActivateAsync(false);
-                HandleProtocolLaunch(protocolActivatedEventArgs);
+                if (protocolActivatedEventArgs.Uri.AbsoluteUri.StartsWith("ms-gamebarwidget"))
+                {
+                    await ActivateAsync(false, widgetMode: true);
+                    _widget = new XboxGameBarWidget(args as XboxGameBarWidgetActivatedEventArgs, Window.Current.CoreWindow, AppFrame);
+                    Window.Current.Closed += OnWidgetClosed;
+                }
+                else
+                {
+                    await ActivateAsync(false);
+                    HandleProtocolLaunch(protocolActivatedEventArgs);
+                }
             }
+        }
+
+        private void OnWidgetClosed(object sender, Windows.UI.Core.CoreWindowEventArgs e)
+        {
+            _widget = null;
+            Window.Current.Closed -= OnWidgetClosed;
         }
 
         protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
@@ -221,7 +238,7 @@ namespace AmbientSounds
             _appServiceDeferral?.Complete();
         }
 
-        private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null)
+        private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null, bool widgetMode = false)
         {
             // Do not repeat app initialization when the Window already has content
             if (Window.Current.Content is not Frame rootFrame)
@@ -248,7 +265,10 @@ namespace AmbientSounds
                 // Navigate to the root page if one isn't loaded already
                 if (rootFrame.Content is null)
                 {
-                    rootFrame.Navigate(typeof(Views.ShellPage));
+                    rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
+                    {
+                        IsGameBarWidget = widgetMode
+                    });
                 }
 
                 SetMinSize();
