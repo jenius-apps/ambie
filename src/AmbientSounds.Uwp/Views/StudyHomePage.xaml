@@ -6,62 +6,107 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <toolkit:SwitchPresenter Value="1">
+        <toolkit:Case Value="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-        <TextBlock
-            Margin="0,6,0,0"
-            FontSize="18"
-            FontWeight="SemiBold"
-            Text="{x:Bind strings:Resources.StudyHomeTitleText}" />
+                <TextBlock
+                    Margin="0,6,0,0"
+                    FontSize="18"
+                    FontWeight="SemiBold"
+                    Text="{x:Bind strings:Resources.StudyHomeTitleText}" />
 
-        <StackPanel
-            Grid.Row="1"
-            Margin="0,12,0,0"
-            VerticalAlignment="Top"
-            Orientation="Horizontal">
-            <Button
-                Width="180"
-                Height="160"
-                HorizontalContentAlignment="Stretch"
-                VerticalContentAlignment="Stretch">
                 <StackPanel
-                    Margin="4"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom">
-                    <FontIcon
-                        HorizontalAlignment="Left"
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="32"
-                        Glyph="&#xEAFC;" />
-                    <TextBlock Text="Join room" />
+                    Grid.Row="1"
+                    Margin="0,12,0,0"
+                    VerticalAlignment="Top"
+                    Orientation="Horizontal">
+                    <Button
+                        Width="180"
+                        Height="160"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch">
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                            <FontIcon
+                                HorizontalAlignment="Left"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="32"
+                                Glyph="{StaticResource GlyphTeams}" />
+                            <TextBlock Text="Join room" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Width="180"
+                        Height="160"
+                        Margin="4,0,0,0"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch">
+                        <StackPanel
+                            Margin="4"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                            <FontIcon
+                                HorizontalAlignment="Left"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="32"
+                                Glyph="{StaticResource GlyphPlusWithCircle}" />
+                            <TextBlock Text="Create room" />
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
-            </Button>
-            <Button
-                Width="180"
-                Height="160"
-                Margin="4,0,0,0"
-                HorizontalContentAlignment="Stretch"
-                VerticalContentAlignment="Stretch">
-                <StackPanel
-                    Margin="4"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom">
-                    <FontIcon
-                        HorizontalAlignment="Left"
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="32"
-                        Glyph="&#xE904;" />
-                    <TextBlock Text="Create room" />
-                </StackPanel>
-            </Button>
-        </StackPanel>
-    </Grid>
+            </Grid>
+        </toolkit:Case>
+
+        <toolkit:Case Value="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="280" />
+                </Grid.ColumnDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel VerticalAlignment="Center">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="100"
+                            Glyph="{StaticResource GlyphTeams}" />
+                        <!--<TextBlock Text="Welcome to your study room!" TextAlignment="Center" />-->
+                        <TextBlock
+                            Margin="0,0,0,0"
+                            Text="Invite your friends using this code"
+                            TextAlignment="Center" />
+                        <TextBlock
+                            CharacterSpacing="100"
+                            FontSize="32"
+                            FontWeight="SemiBold"
+                            IsTextSelectionEnabled="True"
+                            Text="4K62HK"
+                            TextAlignment="Center" />
+                    </StackPanel>
+
+                    <TextBox
+                        Grid.Row="1"
+                        Margin="0,0,0,16"
+                        PlaceholderText="Message" />
+                </Grid>
+            </Grid>
+        </toolkit:Case>
+    </toolkit:SwitchPresenter>
 </Page>
