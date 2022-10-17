@@ -7,8 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Background="Transparent"
     mc:Ignorable="d">
 
     <toolkit:SwitchPresenter Value="1">
@@ -70,13 +69,13 @@
         </toolkit:Case>
 
         <toolkit:Case Value="1">
-            <Grid>
+            <Grid Margin="0,0,16,16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="280" />
+                    <ColumnDefinition Width="260" />
                 </Grid.ColumnDefinitions>
 
-                <Grid>
+                <Grid Margin="0,0,4,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="auto" />
@@ -93,7 +92,6 @@
                             Text="Invite your friends using this code"
                             TextAlignment="Center" />
                         <TextBlock
-                            CharacterSpacing="100"
                             FontSize="32"
                             FontWeight="SemiBold"
                             IsTextSelectionEnabled="True"
@@ -103,8 +101,20 @@
 
                     <TextBox
                         Grid.Row="1"
-                        Margin="0,0,0,16"
+                        Margin="0,0,0,4"
                         PlaceholderText="Message" />
+                </Grid>
+
+                <Grid
+                    Grid.Column="1"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <Rectangle
+                        Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        RadiusX="8"
+                        RadiusY="8" />
+
                 </Grid>
             </Grid>
         </toolkit:Case>
