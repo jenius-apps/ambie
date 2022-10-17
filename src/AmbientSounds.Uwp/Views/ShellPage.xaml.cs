@@ -55,7 +55,7 @@ namespace AmbientSounds.Views
 
             MenuList.SelectedIndex = 0;
 
-            await ViewModel.InitializeAsync();
+            await ViewModel.InitializeAsync(e.Parameter as ShellPageNavigationArgs);
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)

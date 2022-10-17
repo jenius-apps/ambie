@@ -19,6 +19,16 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TopPlayerPanel.Margin" Value="0,48,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowBreakpoint}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
@@ -58,7 +68,8 @@
             Margin="12,14,0,0"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
-            Orientation="Horizontal">
+            Orientation="Horizontal"
+            Visibility="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}">
 
             <!--  Ambie title bar name  -->
             <Image Height="18" Source="ms-appx:///Assets/logo.png" />
@@ -92,9 +103,8 @@
             </controls:TimeBanner>
         </StackPanel>
 
-
         <!--  Top player panel  -->
-        <Grid Margin="0,48,0,0">
+        <Grid x:Name="TopPlayerPanel" Margin="0,12,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
