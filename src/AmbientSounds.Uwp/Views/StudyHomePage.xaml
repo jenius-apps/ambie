@@ -75,11 +75,20 @@
                     <ColumnDefinition Width="260" />
                 </Grid.ColumnDefinitions>
 
-                <Grid Margin="0,0,4,0">
+                <Grid
+                    Margin="0,0,8,0"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
+                    <Rectangle
+                        Grid.RowSpan="2"
+                        Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        RadiusX="8"
+                        RadiusY="8" />
 
                     <StackPanel VerticalAlignment="Center">
                         <FontIcon
