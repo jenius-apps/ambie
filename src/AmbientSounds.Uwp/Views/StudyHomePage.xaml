@@ -7,11 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
     Background="Transparent"
     mc:Ignorable="d">
 
-    <toolkit:SwitchPresenter Value="1">
-        <toolkit:Case Value="0">
+    <toolkit:SwitchPresenter TargetType="viewmodels:StudyPageStatus" Value="{x:Bind ViewModel.CurrentPage, Mode=OneWay}">
+        <toolkit:Case IsDefault="True" Value="Home">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -51,7 +52,8 @@
                         Height="160"
                         Margin="4,0,0,0"
                         HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch">
+                        VerticalContentAlignment="Stretch"
+                        Command="{x:Bind ViewModel.CreateRoomCommand}">
                         <StackPanel
                             Margin="4"
                             HorizontalAlignment="Left"
@@ -68,7 +70,7 @@
             </Grid>
         </toolkit:Case>
 
-        <toolkit:Case Value="1">
+        <toolkit:Case Value="Room">
             <Grid Margin="0,0,16,16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
