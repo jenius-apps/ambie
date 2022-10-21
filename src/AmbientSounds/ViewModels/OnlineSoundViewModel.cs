@@ -61,14 +61,12 @@ namespace AmbientSounds.ViewModels
             PreviewCommand = new RelayCommand(Preview);
         }
 
-        private async void OnProductPurchased(object sender, string iapId)
+        private void OnProductPurchased(object sender, string iapId)
         {
-            if (!_sound.IsPremium || _sound.IapId != iapId)
+            if (_sound.IsPremium && _sound.IapIds.Contains(iapId))
             {
-                return;
+                IsOwned = true;
             }
-
-            IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
         }
 
         private async void OnSoundDeleted(object sender, string id)
@@ -79,7 +77,7 @@ namespace AmbientSounds.ViewModels
                 DownloadProgressValue = 0;
 
                 // Note: a non-premium sound is treated as "owned"
-                IsOwned = _sound.IsPremium ? await _iapService.IsOwnedAsync(_sound.IapId) : true;
+                IsOwned = _sound.IsPremium ? await _iapService.IsAnyOwnedAsync(_sound.IapIds) : true;
             }
         }
 
@@ -282,15 +280,7 @@ namespace AmbientSounds.ViewModels
             bool isOwned;
             if (_sound.IsPremium)
             {
-                isOwned = await _iapService.IsOwnedAsync(_sound.IapId);
-
-                if (!isOwned && _sound.IapId != IapConstants.MsStoreAmbiePlusId)
-                {
-                    // Handle case that user is subscribed to ambie plus,
-                    // but they don't own the individual add-on for some old premium sounds.
-                    // We should let them download the sound as long as they have ambie plus.
-                    isOwned = await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
-                }
+                isOwned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
             }
             else
             {

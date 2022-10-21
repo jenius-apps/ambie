@@ -3,6 +3,7 @@ using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
 
@@ -132,7 +133,7 @@ namespace AmbientSounds.Services.Uwp
                 FileExtension = s.FileExtension,
                 ScreensaverImagePaths = s.ScreensaverImagePaths,
                 IsPremium = s.IsPremium,
-                IapId = s.IapId,
+                IapIds = s.IapIds.ToArray(),
                 ColourHex = s.ColourHex
             };
 
