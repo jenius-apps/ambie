@@ -4,6 +4,7 @@ using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Xaml.Controls;
 using Windows.ApplicationModel.Resources;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
@@ -55,7 +56,15 @@ namespace AmbientSounds.Views
 
             MenuList.SelectedIndex = 0;
 
-            await ViewModel.InitializeAsync(e.Parameter as ShellPageNavigationArgs);
+            if (e.Parameter is ShellPageNavigationArgs args)
+            {
+                if (!args.IsGameBarWidget)
+                {
+                    BackdropMaterial.SetApplyToRootOrPageBackground(RootPage, true);
+                }
+
+                await ViewModel.InitializeAsync(args);
+            }
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)

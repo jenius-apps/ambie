@@ -5,13 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
-    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
     mc:Ignorable="d">
 
     <Grid>
@@ -19,10 +20,11 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}" />
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsGameBarWidget, Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="TopPlayerPanel.Margin" Value="0,48,0,0" />
+                        <Setter Target="TopPlayerPanel.Margin" Value="0,12,0,0" />
+                        <Setter Target="RootPage.Background" Value="#1c1c1c" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -69,7 +71,7 @@
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Orientation="Horizontal"
-            Visibility="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}">
+            Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.IsGameBarWidget), Mode=OneWay}">
 
             <!--  Ambie title bar name  -->
             <Image Height="18" Source="ms-appx:///Assets/logo.png" />
@@ -104,7 +106,7 @@
         </StackPanel>
 
         <!--  Top player panel  -->
-        <Grid x:Name="TopPlayerPanel" Margin="0,12,0,0">
+        <Grid x:Name="TopPlayerPanel" Margin="0,48,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />

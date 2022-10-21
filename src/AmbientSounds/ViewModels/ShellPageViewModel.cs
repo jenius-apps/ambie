@@ -27,7 +27,7 @@ namespace AmbientSounds.ViewModels
         private bool _focusDotVisible;
 
         [ObservableProperty]
-        private bool _titleBarVisible;
+        private bool _isGameBarWidget;
 
         public ShellPageViewModel(
             IUserSettings userSettings,
@@ -172,7 +172,7 @@ namespace AmbientSounds.ViewModels
 
             if (args is not null)
             {
-                TitleBarVisible = !args.IsGameBarWidget;
+                IsGameBarWidget = args.IsGameBarWidget;
             }
         }
 
