@@ -18,6 +18,13 @@ namespace AmbientSounds.ViewModels
             await Task.Delay(1);
             CurrentPage = StudyPageStatus.Room;
         }
+
+        [RelayCommand]
+        private async Task GoToStudyHomeAsync()
+        {
+            await Task.Delay(1);
+            CurrentPage = StudyPageStatus.Home;
+        }
     }
 
     public enum StudyPageStatus

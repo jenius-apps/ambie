@@ -83,16 +83,36 @@
                     BorderThickness="1"
                     CornerRadius="8">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Rectangle
-                        Grid.RowSpan="2"
+                        Grid.RowSpan="3"
                         Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         RadiusX="8"
                         RadiusY="8" />
 
-                    <StackPanel VerticalAlignment="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            Margin="4"
+                            Command="{x:Bind ViewModel.GoToStudyHomeCommand}"
+                            Style="{StaticResource SubtleButton}">
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphChevronLeft}" />
+                        </Button>
+
+                        <Rectangle
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource ModuleDividerRectStyle}" />
+                    </Grid>
+
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="100"
@@ -111,7 +131,7 @@
                     </StackPanel>
 
                     <TextBox
-                        Grid.Row="1"
+                        Grid.Row="2"
                         Margin="0,0,0,4"
                         PlaceholderText="Message" />
                 </Grid>
