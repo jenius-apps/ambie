@@ -24,7 +24,6 @@ namespace AmbientSounds.ViewModels
         private double _progressValue;
         private bool _isInstalled;
         private bool _isOwned;
-        private string _price = "";
 
         public OnlineSoundViewModel(
             Sound s, 
@@ -166,15 +165,6 @@ namespace AmbientSounds.ViewModels
         public bool DownloadButtonVisible => IsOwned && !DownloadProgressVisible;
 
         /// <summary>
-        /// Price of the item if it is premium.
-        /// </summary>
-        public string Price
-        {
-            get => _price;
-            set => SetProperty(ref _price, value);
-        }
-
-        /// <summary>
         /// True if the sound can be bought.
         /// </summary>
         public bool CanBuy => _sound.IsPremium && !_isOwned;
@@ -293,7 +283,6 @@ namespace AmbientSounds.ViewModels
             if (_sound.IsPremium)
             {
                 isOwned = await _iapService.IsOwnedAsync(_sound.IapId);
-                Price = await _iapService.GetPriceAsync(_sound.IapId);
 
                 if (!isOwned && _sound.IapId != IapConstants.MsStoreAmbiePlusId)
                 {
