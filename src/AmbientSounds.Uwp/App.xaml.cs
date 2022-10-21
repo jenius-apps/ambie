@@ -51,7 +51,7 @@ namespace AmbientSounds
         private static PlayerTelemetryTracker? _playerTracker;
         private IUserSettings? _userSettings;
         private static Frame? AppFrame;
-        private XboxGameBarWidget? _widget;
+        //private XboxGameBarWidget? _widget;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -179,9 +179,9 @@ namespace AmbientSounds
             {
                 if (protocolActivatedEventArgs.Uri.AbsoluteUri.StartsWith("ms-gamebarwidget"))
                 {
-                    await ActivateAsync(false, widgetMode: true);
-                    _widget = new XboxGameBarWidget(args as XboxGameBarWidgetActivatedEventArgs, Window.Current.CoreWindow, AppFrame);
-                    Window.Current.Closed += OnWidgetClosed;
+                    //await ActivateAsync(false, widgetMode: true);
+                    //_widget = new XboxGameBarWidget(args as XboxGameBarWidgetActivatedEventArgs, Window.Current.CoreWindow, AppFrame);
+                    //Window.Current.Closed += OnWidgetClosed;
                 }
                 else
                 {
@@ -191,11 +191,11 @@ namespace AmbientSounds
             }
         }
 
-        private void OnWidgetClosed(object sender, Windows.UI.Core.CoreWindowEventArgs e)
-        {
-            _widget = null;
-            Window.Current.Closed -= OnWidgetClosed;
-        }
+        //private void OnWidgetClosed(object sender, Windows.UI.Core.CoreWindowEventArgs e)
+        //{
+        //    _widget = null;
+        //    Window.Current.Closed -= OnWidgetClosed;
+        //}
 
         protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
         {

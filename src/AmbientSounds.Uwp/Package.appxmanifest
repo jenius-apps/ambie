@@ -57,7 +57,7 @@
 		        <uap:DisplayName>ms-resource:AppDisplayName</uap:DisplayName>
 		      </uap:Protocol>
 		    </uap:Extension>
-		  <uap3:Extension Category="windows.appExtension">
+		  <!--<uap3:Extension Category="windows.appExtension">
 			  <uap3:AppExtension Name="microsoft.gameBarUIExtension"
 								 Id="AmbientSoundsWidget"
 								 DisplayName="ms-resource:AppDisplayName"
@@ -84,14 +84,14 @@
 					  </GameBarWidget>
 				  </uap3:Properties>
 			  </uap3:AppExtension>
-		  </uap3:Extension>
+		  </uap3:Extension>-->
       </Extensions>
     </Application>
   </Applications>
-  <Extensions>
-    <!--Enlighten COM on where to find Metadata Based Marshaling (MBM) data for the Game Bar private types 
+  <!--<Extensions>
+    --><!--Enlighten COM on where to find Metadata Based Marshaling (MBM) data for the Game Bar private types 
       <Path> is a required element (by VS) and has to point to a binary in the package, but it's not used when the class id is
-      00000355-0000-0000-C000-000000000046 (MBM). Due to that we just put the Microsoft.Gaming.XboxGameBar.winmd here.--> 
+      00000355-0000-0000-C000-000000000046 (MBM). Due to that we just put the Microsoft.Gaming.XboxGameBar.winmd here.--><!-- 
    <Extension Category="windows.activatableClass.proxyStub">
     <ProxyStub ClassId="00000355-0000-0000-C000-000000000046">
 	    <Path>Microsoft.Gaming.XboxGameBar.winmd</Path>
@@ -111,7 +111,7 @@
 	    <Interface Name="Microsoft.Gaming.XboxGameBar.Private.IXboxGameBarWidgetPrivate3" InterfaceId="4FB89FB6-7CB8-489D-8408-2269E6C733A1" />
     </ProxyStub>
    </Extension>
-  </Extensions>
+  </Extensions>-->
   <Capabilities>
     <Capability Name="internetClient" />
     <uap3:Capability Name="backgroundMediaPlayback"/>
