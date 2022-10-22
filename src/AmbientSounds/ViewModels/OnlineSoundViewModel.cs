@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class OnlineSoundViewModel : ObservableObject
+    public partial class OnlineSoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
         private readonly IDownloadManager _downloadManager;
@@ -53,12 +53,6 @@ namespace AmbientSounds.ViewModels
             _downloadProgress.ProgressChanged += OnProgressChanged;
             _soundService.LocalSoundDeleted += OnSoundDeleted;
             _iapService.ProductPurchased += OnProductPurchased;
-
-            DownloadCommand = new AsyncRelayCommand(DownloadAsync);
-            LoadCommand = new AsyncRelayCommand(LoadAsync);
-            DeleteCommand = new AsyncRelayCommand(DeleteSound);
-            BuyCommand = new AsyncRelayCommand(BuySoundAsync);
-            PreviewCommand = new RelayCommand(Preview);
         }
 
         private void OnProductPurchased(object sender, string iapId)
@@ -214,31 +208,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public bool NotInstalled => !IsInstalled;
 
-        /// <summary>
-        /// Command for downloading this sound.
-        /// </summary>
-        public IAsyncRelayCommand DownloadCommand { get; }
-
-        /// <summary>
-        /// Command for deleting this sound.
-        /// </summary>
-        public IAsyncRelayCommand DeleteCommand { get; }
-
-        /// <summary>
-        /// Command for buying sound.
-        /// </summary>
-        public IAsyncRelayCommand BuyCommand { get; }
-
-        /// <summary>
-        /// Command for loading this sound.
-        /// </summary>
-        public IAsyncRelayCommand LoadCommand { get; }
-
-        /// <summary>
-        /// Command for previewing this sound.
-        /// </summary>
-        public IRelayCommand PreviewCommand { get; }
-
+        [RelayCommand]
         private void Preview()
         {
             _telemetry.TrackEvent(TelemetryConstants.PreviewClicked, new Dictionary<string, string>
@@ -249,6 +219,7 @@ namespace AmbientSounds.ViewModels
             _previewService.Play(_sound.PreviewFilePath);
         }
 
+        [RelayCommand]
         private async Task BuySoundAsync()
         {
             _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
@@ -260,7 +231,8 @@ namespace AmbientSounds.ViewModels
             await _dialogService.OpenPremiumAsync();
         }
 
-        private async Task DeleteSound()
+        [RelayCommand]
+        private async Task DeleteSoundAsync()
         {
             _telemetry.TrackEvent(TelemetryConstants.CatalogueDeleteClicked, new Dictionary<string, string>
             {
@@ -269,6 +241,7 @@ namespace AmbientSounds.ViewModels
             await _soundService.DeleteLocalSoundAsync(_sound.Id ?? "");
         }
 
+        [RelayCommand]
         private async Task LoadAsync()
         {
             if (_downloadManager.IsDownloadActive(_sound))
@@ -299,6 +272,7 @@ namespace AmbientSounds.ViewModels
             IsOwned = isOwned;
         }
 
+        [RelayCommand]
         private Task DownloadAsync()
         {
             if (DownloadProgressValue == 0 && NotInstalled)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class AccountControlViewModel : ObservableObject
+    public partial class AccountControlViewModel : ObservableObject
     {
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
@@ -38,17 +38,7 @@ namespace AmbientSounds.ViewModels
             _telemetry = telemetry;
             _syncEngine = syncEngine;
             _navigator = navigator;
-
-            SignInCommand = new AsyncRelayCommand(SignIn);
-            SignOutCommand = new AsyncRelayCommand(SignOutAsync);
-            SyncCommand = new AsyncRelayCommand(SyncAsync);
         }
-
-        public IAsyncRelayCommand SignInCommand { get; }
-
-        public IAsyncRelayCommand SignOutCommand { get; }
-
-        public IAsyncRelayCommand SyncCommand { get; }
 
         public Person? Person
         {
@@ -154,6 +144,7 @@ namespace AmbientSounds.ViewModels
             Loading = true;
         }
 
+        [RelayCommand]
         private async Task SignOutAsync()
         {
             await _accountManager.SignOutAsync();
@@ -180,12 +171,14 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        [RelayCommand]
         private async Task SyncAsync()
         {
             await _syncEngine.SyncDown();
             _telemetry.TrackEvent(TelemetryConstants.SyncManual);
         }
 
+        [RelayCommand]
         private async Task SignIn()
         {
             await _accountManager.RequestSignIn();

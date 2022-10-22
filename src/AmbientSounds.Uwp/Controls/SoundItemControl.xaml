@@ -245,7 +245,7 @@
                     <muxc:CommandBarFlyout.SecondaryCommands>
                         <AppBarButton
                             x:Uid="DeleteAppBarButton"
-                            Command="{x:Bind ViewModel.DeleteCommand, Mode=OneWay}"
+                            Command="{x:Bind ViewModel.DeleteSoundCommand, Mode=OneWay}"
                             Icon="Delete" />
                         <AppBarButton
                             x:Uid="RenameAppBarButton"

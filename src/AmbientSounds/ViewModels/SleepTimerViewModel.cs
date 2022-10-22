@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SleepTimerViewModel : ObservableObject
+    public partial class SleepTimerViewModel : ObservableObject
     {
         private const int DefaultTimerInterval = 1000; // ms
         private readonly IMixMediaPlayerService _player;
@@ -30,11 +30,6 @@ namespace AmbientSounds.ViewModels
             _timer = timer;
             _telemetry = telemetry;
             _timer.Interval = DefaultTimerInterval;
-
-            TimerStartCommand = new RelayCommand<int>(StartTimer);
-            TimerPlayCommand = new RelayCommand(PlayTimer);
-            TimerPauseCommand = new RelayCommand(PauseTimer);
-            TimerStopCommand = new RelayCommand(StopTimer);
         }
         
         private void OnPlaybackStateChanged(object sender, MediaPlaybackState e)
@@ -44,26 +39,6 @@ namespace AmbientSounds.ViewModels
             else if (e == MediaPlaybackState.Opening || e == MediaPlaybackState.Playing)
                 PlayTimer();
         }
-
-        /// <summary>
-        /// Starts the timer with the specified remainder time.
-        /// </summary>
-        public IRelayCommand<int> TimerStartCommand { get; }
-
-        /// <summary>
-        /// Plays the timer if it were paused.
-        /// </summary>
-        public IRelayCommand TimerPlayCommand { get; }
-
-        /// <summary>
-        /// Pauses the timer.
-        /// </summary>
-        public IRelayCommand TimerPauseCommand { get; }
-
-        /// <summary>
-        /// Stops the timer and clears the countdown.
-        /// </summary>
-        public IRelayCommand TimerStopCommand { get; }
 
         public bool StopVisible
         {
@@ -94,6 +69,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public string TimeLeft => _timer.Remaining.ToString("g");
 
+        [RelayCommand]
         private void StartTimer(int minutes)
         {
             _telemetry.TrackEvent(TelemetryConstants.TimeSelected, new Dictionary<string, string>
@@ -109,6 +85,7 @@ namespace AmbientSounds.ViewModels
             PlayVisible = false;
         }
 
+        [RelayCommand]
         private void PlayTimer()
         {
             if (_timer.Remaining > TimeSpan.Zero)
@@ -119,6 +96,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        [RelayCommand]
         private void PauseTimer()
         {
             _timer.Stop();
@@ -130,6 +108,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        [RelayCommand]
         private void StopTimer()
         {
             _timer.Stop();

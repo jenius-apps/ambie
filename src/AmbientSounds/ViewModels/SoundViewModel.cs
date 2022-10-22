@@ -18,7 +18,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// View model for a sound object.
     /// </summary>
-    public class SoundViewModel : ObservableObject
+    public partial class SoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
@@ -78,10 +78,6 @@ namespace AmbientSounds.ViewModels
             _presenceService = presenceService;
             _dispatcherQueue = dispatcherQueue;
             _onlineSoundDataProvider = onlineSoundDataProvider;
-
-            DeleteCommand = new RelayCommand(DeleteSound);
-            RenameCommand = new AsyncRelayCommand(RenameAsync);
-            PlayCommand = new AsyncRelayCommand(PlayAsync);
         }
 
         public int Position
@@ -162,15 +158,6 @@ namespace AmbientSounds.ViewModels
         public string? ImagePath => _sound.IsMix ? _sound.ImagePaths[0] : _sound.ImagePath;
 
         /// <summary>
-        /// Command for deleting this sound.
-        /// </summary>
-        public IRelayCommand DeleteCommand { get; }
-
-        public IAsyncRelayCommand RenameCommand { get; }
-
-        public IAsyncRelayCommand PlayCommand { get; }
-
-        /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
         public bool IsCurrentlyPlaying => string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
@@ -248,6 +235,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Loads this sound into the player and plays it.
         /// </summary>
+        [RelayCommand]
         private async Task PlayAsync()
         {
             if (DownloadActive)
@@ -342,6 +330,7 @@ namespace AmbientSounds.ViewModels
             });
         }
 
+        [RelayCommand]
         private async Task RenameAsync()
         {
             bool renamed = await _renamer.RenameAsync(_sound);
@@ -395,6 +384,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        [RelayCommand]
         private async void DeleteSound()
         {
             if (!_sound.IsMix)

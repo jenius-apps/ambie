@@ -56,9 +56,6 @@ namespace AmbientSounds.ViewModels
             _userSettings = userSettings;
             _navigator = navigator;
 
-            LoadCommand = new AsyncRelayCommand(LoadAsync);
-            MixUnavailableCommand = new AsyncRelayCommand<IList<string>>(OnMixUnavailableAsync);
-
             LoadCommand.PropertyChanged += OnLoadCommandPropertyChanged;
         }
 
@@ -95,17 +92,11 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// The <see cref="IAsyncRelayCommand"/> responsible for loading the viewmodel data.
-        /// </summary>
-        public IAsyncRelayCommand LoadCommand { get; }
-
-        public IAsyncRelayCommand<IList<string>> MixUnavailableCommand { get; }
-
-        /// <summary>
         /// The list of sounds for this page.
         /// </summary>
         public ObservableCollection<SoundViewModel> Sounds { get; } = new();
 
+        [RelayCommand]
         private async Task OnMixUnavailableAsync(IList<string>? unavailable)
         {
             if (unavailable is null)
@@ -135,6 +126,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Loads the list of sounds for this view model.
         /// </summary>
+        [RelayCommand]
         private async Task LoadAsync()
         {
             if (Sounds.Count > 0)
