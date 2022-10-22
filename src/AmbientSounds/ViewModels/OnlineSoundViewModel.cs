@@ -21,8 +21,30 @@ namespace AmbientSounds.ViewModels
         private readonly IPreviewService _previewService;
         private readonly IDialogService _dialogService;
         private Progress<double> _downloadProgress;
-        private double _progressValue;
+
+        /// <summary>
+        /// This sound's download progress.
+        /// </summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
+        [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+        private double _downloadProgressValue;
+
+        /// <summary>
+        /// True if the item is already installed.
+        /// </summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(NotInstalled))]
         private bool _isInstalled;
+
+        /// <summary>
+        /// If true, the sound is owned by the user
+        /// and can be downloaded. If false, the sound
+        /// must be purchased first.
+        /// </summary>
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(CanBuy))]
+        [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
         private bool _isOwned;
 
         public OnlineSoundViewModel(
@@ -136,22 +158,6 @@ namespace AmbientSounds.ViewModels
             Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
         /// <summary>
-        /// If true, the sound is owned by the user
-        /// and can be downloaded. If false, the sound
-        /// must be purchased first.
-        /// </summary>
-        public bool IsOwned
-        {
-            get => _isOwned;
-            set 
-            { 
-                SetProperty(ref _isOwned, value);
-                OnPropertyChanged(nameof(CanBuy));
-                OnPropertyChanged(nameof(DownloadButtonVisible));
-            }
-        }
-
-        /// <summary>
         /// Determines if the download button is visible.
         /// </summary>
         public bool DownloadButtonVisible => IsOwned && !DownloadProgressVisible;
@@ -172,36 +178,9 @@ namespace AmbientSounds.ViewModels
         public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
 
         /// <summary>
-        /// This sound's download progress.
-        /// </summary>
-        public double DownloadProgressValue
-        {
-            get => _progressValue;
-            set
-            {
-                SetProperty(ref _progressValue, value);
-                OnPropertyChanged(nameof(DownloadProgressVisible));
-                OnPropertyChanged(nameof(DownloadButtonVisible));
-            }
-        }
-
-        /// <summary>
         /// True if download progress should be visible.
         /// </summary>
         public bool DownloadProgressVisible => DownloadProgressValue > 0 && DownloadProgressValue < 100;
-
-        /// <summary>
-        /// True if the item is already installed.
-        /// </summary>
-        public bool IsInstalled
-        {
-            get => _isInstalled;
-            set
-            {
-                SetProperty(ref _isInstalled, value);
-                OnPropertyChanged(nameof(NotInstalled));
-            }
-        }
 
         /// <summary>
         /// True if the item can be downloaded;

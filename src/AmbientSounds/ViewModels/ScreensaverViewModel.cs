@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ScreensaverViewModel : ObservableObject
+    public partial class ScreensaverViewModel : ObservableObject
     {
         private const int ImageTimeLength = 30000; // milliseconds
         private readonly ITimerService _timerService;
@@ -17,12 +17,22 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly ISoundService _soundDataProvider;
         private IList<string> _images = new List<string>();
+
+        [ObservableProperty]
         private string _imageSource1 = "https://localhost:8080";
+
+        [ObservableProperty]
         private string _imageSource2 = "https://localhost:8080";
+
+        [ObservableProperty]
         private bool _imageVisible1;
+
+        [ObservableProperty]
         private bool _imageVisible2;
         private int _imageIndex1;
         private int _imageIndex2;
+
+        [ObservableProperty]
         private bool _loading;
 
         public ScreensaverViewModel(
@@ -41,36 +51,6 @@ namespace AmbientSounds.ViewModels
             _timerService = timerService;
             _soundDataProvider = soundDataProvider;
             _timerService.Interval = ImageTimeLength;
-        }
-
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
-
-        public string ImageSource1
-        {
-            get => _imageSource1;
-            set => SetProperty(ref _imageSource1, value);
-        }
-
-        public string ImageSource2
-        {
-            get => _imageSource2;
-            set => SetProperty(ref _imageSource2, value);
-        }
-
-        public bool ImageVisible1
-        {
-            get => _imageVisible1;
-            set => SetProperty(ref _imageVisible1, value);
-        }
-
-        public bool ImageVisible2
-        {
-            get => _imageVisible2;
-            set => SetProperty(ref _imageVisible2, value);
         }
 
         public async void LoadAsync()

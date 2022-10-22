@@ -33,10 +33,21 @@ namespace AmbientSounds.ViewModels
         private readonly IPresenceService _presenceService;
         private readonly IDispatcherQueue _dispatcherQueue;
         private Progress<double>? _downloadProgress;
+
+        [ObservableProperty]
         private int _position;
+
+        [ObservableProperty]
         private int _setSize;
+
+        [ObservableProperty]
         private bool _downloadActive;
+
+        [ObservableProperty]
         private double _downloadProgressValue;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsPresenceVisible))]
         private double _presenceCount = 0;
 
         public SoundViewModel(
@@ -78,18 +89,6 @@ namespace AmbientSounds.ViewModels
             _presenceService = presenceService;
             _dispatcherQueue = dispatcherQueue;
             _onlineSoundDataProvider = onlineSoundDataProvider;
-        }
-
-        public int Position
-        {
-            get => _position;
-            set => SetProperty(ref _position, value);
-        }
-
-        public int SetSize
-        {
-            get => _setSize;
-            set => SetProperty(ref _setSize, value);
         }
 
         public IAsyncRelayCommand<IList<string>>? MixUnavailableCommand { get; set; }
@@ -163,28 +162,6 @@ namespace AmbientSounds.ViewModels
         public bool IsCurrentlyPlaying => string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
             ? _playerService.IsSoundPlaying(_sound.Id)
             : _soundMixService.IsMixPlaying(_sound.Id);
-
-        public bool DownloadActive
-        {
-            get => _downloadActive;
-            set => SetProperty(ref _downloadActive, value);
-        }
-
-        public double DownloadProgressValue
-        {
-            get => _downloadProgressValue;
-            set => SetProperty(ref _downloadProgressValue, value);
-        }
-
-        public double PresenceCount
-        {
-            get => _presenceCount;
-            set
-            {
-                SetProperty(ref _presenceCount, value);
-                OnPropertyChanged(nameof(IsPresenceVisible));
-            }
-        }
 
         public bool IsPresenceVisible => PresenceCount > 0 && IsCurrentlyPlaying;
 

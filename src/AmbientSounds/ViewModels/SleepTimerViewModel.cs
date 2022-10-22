@@ -14,8 +14,18 @@ namespace AmbientSounds.ViewModels
         private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly ITimerService _timer;
-        private bool _canPlay;
-        private bool _canStop;
+
+        [ObservableProperty]
+        private bool _playVisible;
+
+        [ObservableProperty]
+        private bool _stopVisible;
+
+        /// <summary>
+        /// Determines if the sleep timer's countdown is visible.
+        /// </summary>
+        [ObservableProperty]
+        private bool _countdownVisible;
 
         public SleepTimerViewModel(
             IMixMediaPlayerService player,
@@ -39,29 +49,6 @@ namespace AmbientSounds.ViewModels
             else if (e == MediaPlaybackState.Opening || e == MediaPlaybackState.Playing)
                 PlayTimer();
         }
-
-        public bool StopVisible
-        {
-            get => _canStop;
-            set => SetProperty(ref _canStop, value);
-        }
-
-        public bool PlayVisible
-        {
-            get => _canPlay;
-            set => SetProperty(ref _canPlay, value);
-        }
-
-        /// <summary>
-        /// Determines if the sleep timer's countdown
-        /// is visible.
-        /// </summary>
-        public bool CountdownVisible
-        {
-            get => _countdownVisible;
-            set => SetProperty(ref _countdownVisible, value);
-        }
-        private bool _countdownVisible;
 
         /// <summary>
         /// String representation of time remaining.

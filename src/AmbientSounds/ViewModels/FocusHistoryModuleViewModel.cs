@@ -16,7 +16,11 @@ namespace AmbientSounds.ViewModels
         private readonly IFocusHistoryService _focusHistoryService;
         private readonly ITelemetry _telemetry;
         private readonly IDialogService _dialogService;
+
+        [ObservableProperty]
         private bool _loading;
+
+        [ObservableProperty]
         private bool _placeholderVisible;
 
         public FocusHistoryModuleViewModel(
@@ -34,18 +38,6 @@ namespace AmbientSounds.ViewModels
         }
 
         public ObservableCollection<FocusHistoryViewModel> Items { get; } = new();
-
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
-
-        public bool PlaceholderVisible
-        {
-            get => _placeholderVisible;
-            set => SetProperty(ref _placeholderVisible, value);
-        }
 
         public async Task InitializeAsync()
         {
