@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models
 {
@@ -27,6 +28,7 @@ namespace AmbientSounds.Models
         /// </summary>
         public long PartialSegmentTicks { get; set; }
 
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public SessionType PartialSegmentType { get; set; }
 
         public List<FocusInterruption> Interruptions { get; set; } = new();

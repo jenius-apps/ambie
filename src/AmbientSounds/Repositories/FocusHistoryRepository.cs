@@ -32,7 +32,7 @@ namespace AmbientSounds.Repositories
 
             try
             {
-                var result = JsonSerializer.Deserialize<FocusHistory>(content);
+                var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.Default.FocusHistory);
                 return result;
             }
             catch
@@ -51,7 +51,7 @@ namespace AmbientSounds.Repositories
 
             try
             {
-                var result = JsonSerializer.Deserialize<FocusHistorySummary>(content);
+                var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.Default.FocusHistorySummary);
                 return result ?? new FocusHistorySummary();
             }
             catch
@@ -62,12 +62,12 @@ namespace AmbientSounds.Repositories
 
         public Task SaveHistoryAsync(FocusHistory history)
         {
-            return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(history), HistoryPath(history.StartUtcTicks));
+            return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(history, AmbieJsonSerializerContext.Default.FocusHistory), HistoryPath(history.StartUtcTicks));
         }
 
         public Task SaveSummaryAsync(FocusHistorySummary summary)
         {
-            return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(summary), SummaryFileName);
+            return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(summary, AmbieJsonSerializerContext.Default.FocusHistorySummary), SummaryFileName);
         }
     }
 }
