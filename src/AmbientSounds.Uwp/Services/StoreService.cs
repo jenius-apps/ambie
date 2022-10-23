@@ -135,9 +135,9 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task<bool> BuyAsync(string iapId)
+        public async Task<bool> BuyAsync(string iapId, bool latest = false)
         {
-            StorePurchaseStatus result = await PurchaseAddOn(iapId);
+            StorePurchaseStatus result = await PurchaseAddOn(iapId, latest);
 
             if (result == StorePurchaseStatus.Succeeded || result == StorePurchaseStatus.AlreadyPurchased)
             {
@@ -157,14 +157,19 @@ namespace AmbientSounds.Services.Uwp
             };
         }
 
-        private static async Task<StorePurchaseStatus> PurchaseAddOn(string id)
+        private static async Task<StorePurchaseStatus> PurchaseAddOn(string id, bool latest = false)
         {
             if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
             {
                 return StorePurchaseStatus.NetworkError;
             }
 
-            var addOnProduct = await GetAddOn(id);
+            (string idOnly, _) = id.SplitIdAndVersion();
+
+            var addOnProduct = latest
+                ? await GetLatestAddonAsync(idOnly)
+                : await GetAddOn(id);
+
             if (addOnProduct is null)
                 return StorePurchaseStatus.ServerError;
 

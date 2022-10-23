@@ -42,7 +42,7 @@ namespace AmbientSounds.Controls
             this.Bindings.Update();
 
             _telemetry.TrackEvent(TelemetryConstants.SubscribeClicked);
-            bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId);
+            bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId, latest: true);
             ThanksTextVisible = purchaseSuccessful;
             _telemetry.TrackEvent(purchaseSuccessful ? TelemetryConstants.Purchased : TelemetryConstants.PurchaseCancelled);
 
