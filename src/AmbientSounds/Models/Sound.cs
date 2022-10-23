@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.Models
 {
@@ -59,7 +60,14 @@ namespace AmbientSounds.Models
         /// Id used to identify the IAP
         /// associated with this sound.
         /// </summary>
+        [Obsolete("Use IapIds instead")]
         public string IapId { get; set; } = "";
+
+        /// <summary>
+        /// Ids used to identify the IAPs
+        /// associated with this sound.
+        /// </summary>
+        public IReadOnlyList<string> IapIds { get; set; } = Array.Empty<string>();
 
         /// <summary>
         /// If true, this sound is a custom mix.

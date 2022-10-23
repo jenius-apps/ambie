@@ -60,7 +60,7 @@ namespace AmbientSounds.Controls
             ButtonLoading = true;
             this.Bindings.Update();
 
-            string price = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusId);
+            string price = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusId);
             Price = string.Format(Strings.Resources.PricePerMonth, price);
             
             ButtonLoading = false;
