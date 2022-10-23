@@ -10,6 +10,8 @@ namespace AmbientSounds.Models
     [JsonSerializable(typeof(FocusHistorySummary))]
     [JsonSerializable(typeof(FocusTask[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
     [JsonSerializable(typeof(IEnumerable<FocusTask>))]
+    [JsonSerializable(typeof(Video[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
+    [JsonSerializable(typeof(IList<Video>))]
     public sealed partial class AmbieJsonSerializerContext : JsonSerializerContext
     {
     }
