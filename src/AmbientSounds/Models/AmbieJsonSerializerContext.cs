@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models
 {
@@ -7,6 +8,8 @@ namespace AmbientSounds.Models
     /// </summary>
     [JsonSerializable(typeof(FocusHistory))]
     [JsonSerializable(typeof(FocusHistorySummary))]
+    [JsonSerializable(typeof(FocusTask[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
+    [JsonSerializable(typeof(IEnumerable<FocusTask>))]
     public sealed partial class AmbieJsonSerializerContext : JsonSerializerContext
     {
     }

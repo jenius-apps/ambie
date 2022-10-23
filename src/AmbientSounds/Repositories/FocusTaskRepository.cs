@@ -30,7 +30,7 @@ namespace AmbientSounds.Repositories
 
             try
             {
-                var result = JsonSerializer.Deserialize<FocusTask[]>(content);
+                var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.Default.FocusTaskArray);
                 return result ?? Array.Empty<FocusTask>();
             }
             catch
@@ -47,7 +47,7 @@ namespace AmbientSounds.Repositories
                 return;
             }
 
-            await _fileWriter.WriteStringAsync(JsonSerializer.Serialize(tasks), TasksFilename);
+            await _fileWriter.WriteStringAsync(JsonSerializer.Serialize(tasks, AmbieJsonSerializerContext.Default.IEnumerableFocusTask), TasksFilename);
         }
     }
 }
