@@ -100,7 +100,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Determines if the plus badge is visible.
         /// </summary>
-        public bool PlusBadgeVisible => _sound.IsPremium && IapConstants.ContainsAmbiePlus(_sound.IapIds);
+        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus();
 
         /// <summary>
         /// The sound's attribution.

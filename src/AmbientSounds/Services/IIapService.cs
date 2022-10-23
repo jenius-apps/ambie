@@ -38,10 +38,10 @@ namespace AmbientSounds.Services
         Task<bool> BuyAsync(string iapId);
 
         /// <summary>
-        /// Retrieves the price of the item.
+        /// Retrieves the latest price of the item.
         /// </summary>
         /// <param name="iapId">An IAP ID whose price we want to check.</param>
         /// <returns>The price of the item formatted like $1.99.</returns>
-        Task<string> GetPriceAsync(string iapId);
+        Task<string> GetLatestPriceAsync(string iapId);
     }
 }
