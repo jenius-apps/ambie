@@ -277,6 +277,18 @@ namespace AmbientSounds.ViewModels
                         OnPropertyChanged(nameof(FreeBadgeVisible));
                         OnPropertyChanged(nameof(PlusBadgeVisible));
                         _ = _soundDataProvider.UpdateLocalSoundAsync(items).ConfigureAwait(false);
+
+                        _telemetry.TrackEvent(TelemetryConstants.ExpiredClicked, new Dictionary<string, string>
+                        {
+                            { "name", Name ?? "" },
+                        });
+                    }
+                    else
+                    {
+                        _telemetry.TrackEvent(TelemetryConstants.FreeClicked, new Dictionary<string, string>
+                        {
+                            { "name", Name ?? "" },
+                        });
                     }
                 }
 

@@ -251,13 +251,13 @@ namespace AmbientSounds.ViewModels
 
         private async Task BuySoundAsync()
         {
-            await _dialogService.OpenPremiumAsync();
-
             _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
             {
                 { "id", _sound.Id },
                 { "name", _sound.Name }
             });
+
+            await _dialogService.OpenPremiumAsync();
         }
 
         private async Task DeleteSound()
@@ -309,6 +309,15 @@ namespace AmbientSounds.ViewModels
                     { "location", TelemetryLocation },
                     { "name", _sound.Name }
                 });
+
+                if (FreeBadgeVisible)
+                {
+                    _telemetry.TrackEvent(TelemetryConstants.FreeDownloaded, new Dictionary<string, string>
+                    {
+                        { "id", _sound.Id ?? "" },
+                        { "name", _sound.Name }
+                    });
+                }
 
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
             }
