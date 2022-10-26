@@ -76,6 +76,30 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
+        public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
+            IReadOnlyList<string> soundIds,
+            string? iapId = null)
+        {
+            if (soundIds is null || soundIds.Count == 0)
+            {
+                return Array.Empty<Sound>();
+            }
+
+            var url = _url + $"/sounds?{string.Join("&", soundIds.Select(x => "ids=" + x))}";
+            if (!string.IsNullOrEmpty(iapId))
+            {
+                url += $"&iapId={iapId}";
+            }
+
+            using Stream result = await _client.GetStreamAsync(url);
+            var results = await JsonSerializer.DeserializeAsync<Sound[]>(
+                result,
+                new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+            return results ?? Array.Empty<Sound>();
+        }
+
+        /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(IList<string> soundIds)
         {
             if (soundIds is null || soundIds.Count == 0)

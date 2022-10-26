@@ -59,7 +59,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public Task UpdateLocalSoundAsync(IList<Sound> sounds)
+        public Task UpdateLocalSoundAsync(IReadOnlyList<Sound> sounds)
         {
             if (sounds is null || sounds.Count == 0 || _localSoundCache is null)
             {
