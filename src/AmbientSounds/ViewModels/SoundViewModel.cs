@@ -104,7 +104,21 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Determines if the plus badge is visible.
         /// </summary>
-        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
+        public bool PlusBadgeVisible
+        {
+            get
+            {
+                if (_sound.IapIds.Count > 0)
+                {
+                    return _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
+                }
+                else
+                {
+                    // backwards compatibility
+                    return _sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId;
+                }
+            }
+        }
 
         /// <summary>
         /// Determines if the free badge is visible
@@ -292,7 +306,10 @@ namespace AmbientSounds.ViewModels
                     }
                 }
 
-                var owned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
+                var owned = _sound.IapIds.Count > 0
+                    ? await _iapService.IsAnyOwnedAsync(_sound.IapIds)
+                    : await _iapService.IsOwnedAsync(_sound.IapId); // backwards compatibility
+
                 if (!owned)
                 {
                     await _dialogService.OpenPremiumAsync();
