@@ -167,7 +167,15 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public bool CanBuy => _sound.IsPremium && !_isOwned;
 
-        public bool PlusBadgeVisible => _sound.IsPremium;
+        /// <summary>
+        /// Determines if the plus badge is visible.
+        /// </summary>
+        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
+
+        /// <summary>
+        /// Determines if the free badge is visible
+        /// </summary>
+        public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
 
         /// <summary>
         /// This sound's download progress.
@@ -243,13 +251,13 @@ namespace AmbientSounds.ViewModels
 
         private async Task BuySoundAsync()
         {
-            await _dialogService.OpenPremiumAsync();
-
             _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
             {
                 { "id", _sound.Id },
                 { "name", _sound.Name }
             });
+
+            await _dialogService.OpenPremiumAsync();
         }
 
         private async Task DeleteSound()
@@ -301,6 +309,15 @@ namespace AmbientSounds.ViewModels
                     { "location", TelemetryLocation },
                     { "name", _sound.Name }
                 });
+
+                if (FreeBadgeVisible)
+                {
+                    _telemetry.TrackEvent(TelemetryConstants.FreeDownloaded, new Dictionary<string, string>
+                    {
+                        { "id", _sound.Id ?? "" },
+                        { "name", _sound.Name }
+                    });
+                }
 
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
             }

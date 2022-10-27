@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
         private readonly IRenamer _renamer;
@@ -47,19 +48,21 @@ namespace AmbientSounds.ViewModels
             IIapService iapService,
             IDownloadManager downloadManager,
             IPresenceService presenceService,
-            IDispatcherQueue dispatcherQueue)
+            IDispatcherQueue dispatcherQueue,
+            IOnlineSoundDataProvider onlineSoundDataProvider)
         {
-            Guard.IsNotNull(s, nameof(s));
-            Guard.IsNotNull(playerService, nameof(playerService));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(soundMixService, nameof(soundMixService));
-            Guard.IsNotNull(renamer, nameof(renamer));
-            Guard.IsNotNull(dialogService, nameof(dialogService));
-            Guard.IsNotNull(iapService, nameof(iapService));
-            Guard.IsNotNull(downloadManager, nameof(downloadManager));
-            Guard.IsNotNull(presenceService, nameof(presenceService));
-            Guard.IsNotNull(dispatcherQueue, nameof(dispatcherQueue));
+            Guard.IsNotNull(s);
+            Guard.IsNotNull(playerService);
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNull(soundMixService);
+            Guard.IsNotNull(renamer);
+            Guard.IsNotNull(dialogService);
+            Guard.IsNotNull(iapService);
+            Guard.IsNotNull(downloadManager);
+            Guard.IsNotNull(presenceService);
+            Guard.IsNotNull(dispatcherQueue);
+            Guard.IsNotNull(onlineSoundDataProvider);
 
             _sound = s;
             _soundMixService = soundMixService;
@@ -72,6 +75,7 @@ namespace AmbientSounds.ViewModels
             _downloadManager = downloadManager;
             _presenceService = presenceService;
             _dispatcherQueue = dispatcherQueue;
+            _onlineSoundDataProvider = onlineSoundDataProvider;
 
             DeleteCommand = new RelayCommand(DeleteSound);
             RenameCommand = new AsyncRelayCommand(RenameAsync);
@@ -100,7 +104,12 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Determines if the plus badge is visible.
         /// </summary>
-        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus();
+        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
+
+        /// <summary>
+        /// Determines if the free badge is visible
+        /// </summary>
+        public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
 
         /// <summary>
         /// The sound's attribution.
@@ -241,6 +250,48 @@ namespace AmbientSounds.ViewModels
 
             if (_sound.IsPremium)
             {
+                if (_sound.IapIds.ContainsFreeId())
+                {
+                    bool stillFree;
+                    IReadOnlyList<Sound> items;
+                    try
+                    {
+                        items = await _onlineSoundDataProvider.GetOnlineSoundsAsync(
+                            new string[] { _sound.Id },
+                            IapConstants.MsStoreFreeRotationId);
+                        stillFree = items.Count == 1;
+                    }
+                    catch (Exception e)
+                    {
+                        // if we don't know what happened, assume it's still free.
+                        stillFree = true;
+                        items = Array.Empty<Sound>();
+                        _telemetry.TrackError(e);
+                    }
+
+                    if (!stillFree)
+                    {
+                        var newList = new List<string>(_sound.IapIds);
+                        newList.Remove(IapConstants.MsStoreFreeRotationId);
+                        _sound.IapIds = newList;
+                        OnPropertyChanged(nameof(FreeBadgeVisible));
+                        OnPropertyChanged(nameof(PlusBadgeVisible));
+                        _ = _soundDataProvider.UpdateLocalSoundAsync(items).ConfigureAwait(false);
+
+                        _telemetry.TrackEvent(TelemetryConstants.ExpiredClicked, new Dictionary<string, string>
+                        {
+                            { "name", Name ?? "" },
+                        });
+                    }
+                    else
+                    {
+                        _telemetry.TrackEvent(TelemetryConstants.FreeClicked, new Dictionary<string, string>
+                        {
+                            { "name", Name ?? "" },
+                        });
+                    }
+                }
+
                 var owned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
                 if (!owned)
                 {

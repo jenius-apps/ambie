@@ -712,4 +712,7 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Task {0}</value>
   </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Free this week!</value>
+  </data>
 </root>

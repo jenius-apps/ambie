@@ -12,6 +12,7 @@
         // catalogue
         private const string Catalogue = "catalogue:";
         public const string DownloadClicked = Catalogue + "downloadClicked";
+        public const string FreeDownloaded = Catalogue + "freeDownloaded";
         public const string MoreSoundsClicked = Catalogue + "moreSoundsClicked";
         public const string CatalogueDeleteClicked = Catalogue + "deleteClicked";
         public const string PreviewClicked = Catalogue + "previewClicked";
@@ -24,6 +25,8 @@
         private const string Gallery = "gallery:";
         public const string SoundClicked = Gallery + "soundClicked";
         public const string DeleteClicked = Gallery + "deleteClicked";
+        public const string FreeClicked = Gallery + "freeSoundClicked";
+        public const string ExpiredClicked = Gallery + "expiredFreeSoundClicked";
 
         // timer
         private const string Timer = "timer:";

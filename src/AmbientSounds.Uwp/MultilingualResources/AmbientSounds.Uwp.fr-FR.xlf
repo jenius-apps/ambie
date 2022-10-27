@@ -806,6 +806,10 @@
           <source>Task {0}</source>
           <target state="translated">Tache {0}</target>
         </trans-unit>
+        <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
+          <source>Free this week!</source>
+          <target state="new">Free this week!</target>
+        </trans-unit>
       </group>
     </body>
   </file>
