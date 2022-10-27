@@ -50,4 +50,13 @@ namespace AmbientSounds.Models;
 [JsonSerializable(typeof(RecentFocusSettings[]))]
 public sealed partial class AmbieJsonSerializerContext : JsonSerializerContext
 {
+    /// <summary>
+    /// The lazily initialized backing field for the context to be used for case insensitive serialization (<see cref="CaseInsensitive"/>).
+    /// </summary>
+    private static AmbieJsonSerializerContext? _caseInsensitive;
+
+    /// <summary>
+    /// A case insensitive variant of <see cref="Default"/>.
+    /// </summary>
+    public static AmbieJsonSerializerContext CaseInsensitive => _caseInsensitive ??= new AmbieJsonSerializerContext(new JsonSerializerOptions(s_defaultOptions) { PropertyNameCaseInsensitive = true });
 }

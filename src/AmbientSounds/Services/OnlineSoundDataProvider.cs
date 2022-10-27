@@ -21,11 +21,6 @@ namespace AmbientSounds.Services
         private readonly string _url;
         private readonly string _mySoundsUrl;
 
-        private readonly AmbieJsonSerializerContext _deserializeContext = new(new JsonSerializerOptions()
-        {
-            PropertyNameCaseInsensitive = true
-        });
-
         /// <inheritdoc/>
         public event EventHandler<int>? UserSoundsFetched;
 
@@ -73,7 +68,7 @@ namespace AmbientSounds.Services
 
             var url = _url + $"?culture={_systemInfoProvider.GetCulture()}&premium=true";
             using Stream result = await _client.GetStreamAsync(url);
-            var results = await JsonSerializer.DeserializeAsync(result, _deserializeContext.SoundArray);
+            var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
 
             return results ?? Array.Empty<Sound>();
         }
@@ -130,7 +125,7 @@ namespace AmbientSounds.Services
 
             try
             {
-                var results = await JsonSerializer.DeserializeAsync(result, _deserializeContext.SoundArray);
+                var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
 
                 UserSoundsFetched?.Invoke(this, results?.Length ?? 0);
                 return results ?? Array.Empty<Sound>();

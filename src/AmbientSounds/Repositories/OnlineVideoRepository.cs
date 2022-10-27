@@ -14,10 +14,6 @@ namespace AmbientSounds.Repositories
     {
         private readonly string _videosUrl;
         private readonly HttpClient _client;
-        private readonly AmbieJsonSerializerContext _deserializeContext = new(new JsonSerializerOptions()
-        {
-            PropertyNameCaseInsensitive = true
-        });
 
         public OnlineVideoRepository(
             HttpClient httpClient,
@@ -36,7 +32,7 @@ namespace AmbientSounds.Repositories
             {
                 using Stream result = await _client.GetStreamAsync(_videosUrl);
 
-                var results = await JsonSerializer.DeserializeAsync(result, _deserializeContext.VideoArray);
+                var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.VideoArray);
 
                 return results ?? Array.Empty<Video>();
             }
@@ -55,7 +51,7 @@ namespace AmbientSounds.Repositories
                 if (result.IsSuccessStatusCode)
                 {
                     var json = await result.Content.ReadAsStringAsync();
-                    var video = JsonSerializer.Deserialize(json, _deserializeContext.Video);
+                    var video = JsonSerializer.Deserialize(json, AmbieJsonSerializerContext.CaseInsensitive.Video);
                     return video?.DownloadUrl ?? string.Empty;
                 }
             }
