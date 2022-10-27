@@ -122,7 +122,7 @@ namespace AmbientSounds.ViewModels
                 // This case is when the app is being launched.
 
                 var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
-                var previousActiveTrackIds = _userSettings.GetAndDeserialize<string[]>(UserSettingsConstants.ActiveTracks);
+                var previousActiveTrackIds = _userSettings.GetAndDeserialize(UserSettingsConstants.ActiveTracks, AmbieJsonSerializerContext.Default.StringArray);
                 var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
                 if (sounds is not null && sounds.Count > 0)
                 {
@@ -167,7 +167,7 @@ namespace AmbientSounds.ViewModels
         private void UpdateStoredState()
         {
             var ids = ActiveTracks.Select(static x => x.Sound.Id).ToArray();
-            _userSettings.SetAndSerialize(UserSettingsConstants.ActiveTracks, ids);
+            _userSettings.SetAndSerialize(UserSettingsConstants.ActiveTracks, ids, AmbieJsonSerializerContext.Default.StringArray);
             _userSettings.Set(UserSettingsConstants.ActiveMixId, _player.CurrentMixId);
         }
 

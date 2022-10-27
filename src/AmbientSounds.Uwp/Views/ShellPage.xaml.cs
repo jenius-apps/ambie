@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -74,7 +75,8 @@ namespace AmbientSounds.Views
             ViewModel.IsRatingMessageVisible = false;
             App.Services.GetRequiredService<IUserSettings>().SetAndSerialize(
                 UserSettingsConstants.RatingDismissed,
-                DateTime.UtcNow);
+                DateTime.UtcNow,
+                AmbieJsonSerializerContext.Default.DateTime);
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
         }
 

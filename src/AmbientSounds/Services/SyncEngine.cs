@@ -154,7 +154,7 @@ namespace AmbientSounds.Services
             try
             {
                 string serialized = await _cloudFileWriter.ReadFileAsync(_cloudSyncFileUrl, token, default);
-                data = JsonSerializer.Deserialize<SyncData>(serialized);
+                data = JsonSerializer.Deserialize(serialized, AmbieJsonSerializerContext.Default.SyncData);
             }
             catch
             {
@@ -232,7 +232,7 @@ namespace AmbientSounds.Services
                     .ToArray()
             };
 
-            var serialized = JsonSerializer.Serialize(syncData);
+            var serialized = JsonSerializer.Serialize(syncData, AmbieJsonSerializerContext.Default.SyncData);
 
             try
             {

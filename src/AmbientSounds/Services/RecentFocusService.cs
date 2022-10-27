@@ -59,7 +59,7 @@ namespace AmbientSounds.Services
             }
 
             _cache.TryAdd(settings.LastUsed.Ticks, settings);
-            _userSettings.SetAndSerialize(UserSettingsConstants.RecentFocusKey, _cache.Values.ToArray());
+            _userSettings.SetAndSerialize(UserSettingsConstants.RecentFocusKey, _cache.Values.ToArray(), AmbieJsonSerializerContext.Default.RecentFocusSettingsArray);
 
             foreach (var key in _cache.Keys)
             {
@@ -84,7 +84,7 @@ namespace AmbientSounds.Services
             if (_cache is null)
             {
                 _cache = new();
-                var storedFocusSettings = _userSettings.GetAndDeserialize<RecentFocusSettings[]>(UserSettingsConstants.RecentFocusKey)
+                var storedFocusSettings = _userSettings.GetAndDeserialize(UserSettingsConstants.RecentFocusKey, AmbieJsonSerializerContext.Default.RecentFocusSettingsArray)
                     ?? Array.Empty<RecentFocusSettings>();
 
                 foreach (var settings in storedFocusSettings)
