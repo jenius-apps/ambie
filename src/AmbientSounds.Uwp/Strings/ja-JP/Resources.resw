@@ -607,4 +607,7 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>タスク{0}</value>
   </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>今週は無料</value>
+  </data>
 </root>

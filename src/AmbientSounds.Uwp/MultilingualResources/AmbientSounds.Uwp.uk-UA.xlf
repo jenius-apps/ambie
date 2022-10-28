@@ -792,15 +792,15 @@
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="new">Timer</target>
+          <target state="translated">Таймер</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
-          <target state="new">Task {0}</target>
+          <target state="translated">Завдання {0}</target>
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="new">Free this week!</target>
+          <target state="translated">Безкоштовно цього тижня</target>
         </trans-unit>
       </group>
     </body>

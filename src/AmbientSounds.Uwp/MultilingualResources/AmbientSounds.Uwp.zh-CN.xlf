@@ -800,7 +800,7 @@
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="new">Free this week!</target>
+          <target state="translated">本周免费</target>
         </trans-unit>
       </group>
     </body>

@@ -809,7 +809,7 @@
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="new">Free this week!</target>
+          <target state="translated">Gratis questa settimana</target>
         </trans-unit>
       </group>
     </body>
