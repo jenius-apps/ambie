@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using System;
 using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
 using Windows.Storage;
 
 #nullable enable
@@ -32,21 +33,21 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public T? GetAndDeserialize<T>(string settingKey)
+        public T? GetAndDeserialize<T>(string settingKey, JsonTypeInfo<T> jsonTypeInfo)
         {
             object result = ApplicationData.Current.LocalSettings.Values[settingKey];
             if (result is string serialized)
             {
-                return JsonSerializer.Deserialize<T>(serialized);
+                return JsonSerializer.Deserialize(serialized, jsonTypeInfo);
             }
 
             return (T)UserSettingsConstants.Defaults[settingKey];
         }
 
         /// <inheritdoc/>
-        public void SetAndSerialize<T>(string settingKey, T value)
+        public void SetAndSerialize<T>(string settingKey, T value, JsonTypeInfo<T> jsonTypeInfo)
         {
-            var serialized = JsonSerializer.Serialize(value);
+            var serialized = JsonSerializer.Serialize(value, jsonTypeInfo);
             Set(settingKey, serialized);
         }
 

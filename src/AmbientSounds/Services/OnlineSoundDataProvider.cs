@@ -68,9 +68,7 @@ namespace AmbientSounds.Services
 
             var url = _url + $"?culture={_systemInfoProvider.GetCulture()}&premium=true";
             using Stream result = await _client.GetStreamAsync(url);
-            var results = await JsonSerializer.DeserializeAsync<Sound[]>(
-                result,
-                new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+            var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
 
             return results ?? Array.Empty<Sound>();
         }
@@ -127,9 +125,7 @@ namespace AmbientSounds.Services
 
             try
             {
-                var results = await JsonSerializer.DeserializeAsync<Sound[]>(
-                    result,
-                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
 
                 UserSoundsFetched?.Invoke(this, results?.Length ?? 0);
                 return results ?? Array.Empty<Sound>();

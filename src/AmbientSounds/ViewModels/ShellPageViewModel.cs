@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -58,7 +59,7 @@ namespace AmbientSounds.ViewModels
             _focusService = focusService;
             _soundMixService = soundMixService;
 
-            var lastDismissDateTime = _userSettings.GetAndDeserialize<DateTime>(UserSettingsConstants.RatingDismissed);
+            var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
             if (!systemInfoProvider.IsFirstRun() &&
                 !systemInfoProvider.IsTenFoot() &&
                 !_userSettings.Get<bool>(UserSettingsConstants.HasRated) &&
