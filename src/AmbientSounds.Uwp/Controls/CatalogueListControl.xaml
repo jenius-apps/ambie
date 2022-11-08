@@ -120,7 +120,7 @@
                                 <Grid
                                     Grid.Row="2"
                                     Height="36"
-                                    Margin="8,4"
+                                    Margin="4,4"
                                     VerticalAlignment="Bottom">
                                     <StackPanel
                                         x:Name="DownloadPanel"
@@ -134,6 +134,7 @@
                                             Orientation="Horizontal">
                                             <Button
                                                 x:Uid="BuyButton"
+                                                Padding="8,0"
                                                 VerticalAlignment="Stretch"
                                                 Command="{x:Bind BuyCommand, Mode=OneWay}"
                                                 Style="{StaticResource SubtleButton}">
@@ -145,6 +146,8 @@
                                         <!--  download button  -->
                                         <Button
                                             x:Uid="DownloadSoundButton"
+                                            Padding="8,0"
+                                            VerticalAlignment="Stretch"
                                             Command="{x:Bind DownloadCommand, Mode=OneWay}"
                                             Style="{StaticResource SubtleButton}"
                                             Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
@@ -173,6 +176,8 @@
                                         Orientation="Horizontal">
                                         <Button
                                             x:Uid="DeleteButton"
+                                            Padding="8,0"
+                                            VerticalAlignment="Stretch"
                                             Command="{x:Bind DeleteCommand, Mode=OneWay}"
                                             Style="{StaticResource SubtleButton}">
                                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />
