@@ -159,15 +159,25 @@
                                             </StackPanel>
                                         </Button>
 
-                                        <muxc:ProgressRing
-                                            Width="20"
-                                            Height="20"
+                                        <Grid
                                             Margin="8,0,0,0"
                                             VerticalAlignment="Center"
-                                            Foreground="White"
-                                            IsIndeterminate="False"
-                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
-                                            Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                            <muxc:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                AutomationProperties.AccessibilityView="Raw"
+                                                Foreground="#32ffffff"
+                                                IsIndeterminate="False"
+                                                Value="100" />
+                                            <muxc:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="White"
+                                                IsIndeterminate="False"
+                                                Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                        </Grid>
                                     </StackPanel>
 
                                     <StackPanel
