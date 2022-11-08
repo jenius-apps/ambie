@@ -267,19 +267,17 @@ namespace AmbientSounds.ViewModels
                 if (_sound.IapIds.ContainsFreeId())
                 {
                     bool stillFree;
-                    IReadOnlyList<Sound> items;
                     try
                     {
-                        items = await _onlineSoundDataProvider.GetOnlineSoundsAsync(
+                        var items = await _onlineSoundDataProvider.GetOnlineSoundsAsync(
                             new string[] { _sound.Id },
                             IapConstants.MsStoreFreeRotationId);
-                        stillFree = items.Count == 1;
+                        stillFree = items.Count >= 1;
                     }
                     catch (Exception e)
                     {
                         // if we don't know what happened, assume it's still free.
                         stillFree = true;
-                        items = Array.Empty<Sound>();
                         _telemetry.TrackError(e);
                     }
 
@@ -290,7 +288,7 @@ namespace AmbientSounds.ViewModels
                         _sound.IapIds = newList;
                         OnPropertyChanged(nameof(FreeBadgeVisible));
                         OnPropertyChanged(nameof(PlusBadgeVisible));
-                        _ = _soundDataProvider.UpdateLocalSoundAsync(items).ConfigureAwait(false);
+                        _ = _soundDataProvider.UpdateLocalSoundAsync(new Sound[] { _sound }).ConfigureAwait(false);
 
                         _telemetry.TrackEvent(TelemetryConstants.ExpiredClicked, new Dictionary<string, string>
                         {
