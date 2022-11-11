@@ -14,6 +14,14 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
+                    <Color x:Key="SystemAccentColor">#e37700</Color>
+                    <Color x:Key="SystemAccentColorLight1">#FFE8881E</Color>
+                    <Color x:Key="SystemAccentColorLight2">#FFED993C</Color>
+                    <Color x:Key="SystemAccentColorLight3">#FFF1AA5A</Color>
+                    <Color x:Key="SystemAccentColorDark1">#FFCE6500</Color>
+                    <Color x:Key="SystemAccentColorDark2">#FFB85300</Color>
+                    <Color x:Key="SystemAccentColorDark3">#FFA34100</Color>
+
                     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#539AFF" />
                         <GradientStop Offset="1" Color="#53BEFF" />
@@ -32,6 +40,14 @@
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="White" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
+                    <Color x:Key="SystemAccentColor">#ffb634</Color>
+                    <Color x:Key="SystemAccentColorDark1">#FFFFBF4B</Color>
+                    <Color x:Key="SystemAccentColorDark2">#FFFFC862</Color>
+                    <Color x:Key="SystemAccentColorDark3">#FFFFD17A</Color>
+                    <Color x:Key="SystemAccentColorLight1">#FFE6A12A</Color>
+                    <Color x:Key="SystemAccentColorLight2">#FFCE8C1F</Color>
+                    <Color x:Key="SystemAccentColorLight3">#FFB57615</Color>
+
                     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#427BCC" />
                         <GradientStop Offset="1" Color="#539AFF" />
