@@ -48,7 +48,7 @@
                     Height="200"
                     Margin="0,8,0,0"
                     HorizontalAlignment="Stretch"
-                    BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     BorderThickness="1"
                     CornerRadius="8">
                     <animations:Implicit.ShowAnimations>
