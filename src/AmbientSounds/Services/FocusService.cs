@@ -161,6 +161,12 @@ namespace AmbientSounds.Services
             CurrentState = FocusState.None;
             _mixMediaPlayerService.Pause();
 
+            // Need to reset to the previous volume so that 
+            // if the user starts focusing again, the volume isn't 0.
+            if (_mixMediaPlayerService.GlobalVolume == 0)
+            {
+                _mixMediaPlayerService.GlobalVolume = _previousGlobalVolume;
+            }
         }
 
         public bool ResumeTimer()
