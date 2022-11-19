@@ -375,7 +375,7 @@ namespace AmbientSounds.ViewModels
         [RelayCommand]
         private async Task OpenCompactModeAsync()
         {
-            await _navigator.ToCompactOverlayAsync(CompactPageType.FocusTimer);
+            await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
         }
 
         private void OnTimeUpdated(object sender, FocusSession e)

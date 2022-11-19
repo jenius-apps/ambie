@@ -57,11 +57,23 @@ namespace AmbientSounds.Services
         /// Attempts to trigger compact overlay mode
         /// and navigates to the requested page.
         /// </summary>
-        Task ToCompactOverlayAsync(CompactPageType page);
+        Task ToCompactOverlayAsync(CompactViewMode mode);
     }
 
-    public enum CompactPageType
+    public enum CompactViewMode
     {
-        FocusTimer
+        /// <summary>
+        /// Specifies the Home mode
+        /// for compact view wheere users
+        /// can play their sounds.
+        /// </summary>
+        Home,
+
+        /// <summary>
+        /// Specifies the Focus mode
+        /// for compact view where users
+        /// can start a focus session.
+        /// </summary>
+        Focus
     }
 }

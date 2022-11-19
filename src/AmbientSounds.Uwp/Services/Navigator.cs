@@ -90,19 +90,8 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task ToCompactOverlayAsync(CompactPageType page)
+        public async Task ToCompactOverlayAsync(CompactViewMode mode)
         {
-            Type? pageType = page switch
-            {
-                CompactPageType.FocusTimer => typeof(CompactFocusTimerPage),
-                _ => null
-            };
-
-            if (pageType is null)
-            {
-                return;
-            }
-
             if (RootFrame is Frame f)
             {
                 // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
@@ -114,7 +103,7 @@ namespace AmbientSounds.Services.Uwp
 
                 if (success)
                 {
-                    f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
+                    f.Navigate(typeof(CompactPage), mode, new SuppressNavigationTransitionInfo());
                 }
             }
         }
