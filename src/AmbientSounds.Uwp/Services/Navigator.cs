@@ -24,8 +24,10 @@ namespace AmbientSounds.Services.Uwp
         {
             switch (sourcePage)
             {
+                case nameof(CompactPage):
+                    GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
+                    break;
                 case nameof(ScreensaverPage):
-                    // supress transition to avoid implicit animation bug on home page.
                     GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
                     break;
                 default:
@@ -105,6 +107,26 @@ namespace AmbientSounds.Services.Uwp
                 {
                     f.Navigate(typeof(CompactPage), mode, new SuppressNavigationTransitionInfo());
                 }
+            }
+        }
+
+        /// <inheritdoc/>
+        public async Task CloseCompactOverlayAsync(CompactViewMode closingOverlayMode)
+        {
+            var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
+            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);
+
+            GoBack(nameof(CompactPage));
+
+            switch (closingOverlayMode)
+            {
+                case CompactViewMode.Focus:
+                    ToFocus();
+                    break;
+                case CompactViewMode.Home:
+                default:
+                    ToHome();
+                    break;
             }
         }
     }

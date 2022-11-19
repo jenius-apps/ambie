@@ -57,7 +57,14 @@ namespace AmbientSounds.Services
         /// Attempts to trigger compact overlay mode
         /// and navigates to the requested page.
         /// </summary>
-        Task ToCompactOverlayAsync(CompactViewMode mode);
+        Task ToCompactOverlayAsync(CompactViewMode requestedOverlayMode);
+
+        /// <summary>
+        /// Closes the compact overlay and navigates back to the
+        /// page most relevant to the given <paramref name="closingOverlayMode"/>.
+        /// </summary>
+        /// <param name="closingOverlayMode">Used to determine which page to navigate back to.</param>
+        Task CloseCompactOverlayAsync(CompactViewMode closingOverlayMode);
     }
 
     public enum CompactViewMode

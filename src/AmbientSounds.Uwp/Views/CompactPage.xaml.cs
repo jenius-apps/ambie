@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -22,18 +23,26 @@ namespace AmbientSounds.Views
         public CompactPage()
         {
             this.InitializeComponent();
+            this.DataContext = App.Services.GetRequiredService<CompactPageViewModel>();
             _userSettings = App.Services.GetRequiredService<IUserSettings>();
         }
 
+        public CompactPageViewModel ViewModel => (CompactPageViewModel)this.DataContext;
+
         private string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage);
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
             {
                 { "name", "compact" }
             });
+
+            if (e.Parameter is CompactViewMode requestedViewMode)
+            {
+                await ViewModel.InitializeAsync(requestedViewMode);
+            }
 
             UpdateBackgroundState();
         }
@@ -45,14 +54,6 @@ namespace AmbientSounds.Views
             {
                 FindName(nameof(BackgroundImage));
             }
-        }
-
-        private async void CloseCompactClicked(object sender, RoutedEventArgs e)
-        {
-            var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
-            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);
-            var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.GoBack();
         }
     }
 }
