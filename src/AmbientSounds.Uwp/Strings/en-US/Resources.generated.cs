@@ -1704,6 +1704,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region FreeBadgeInfo
+        /// <summary>
+        ///   Looks up a localized string similar to: Free this week!
+        /// </summary>
+        public static string FreeBadgeInfo
+        {
+            get
+            {
+                return _resourceLoader.GetString("FreeBadgeInfo");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1845,6 +1858,7 @@ namespace AmbientSounds.Strings{
             TasksCompleted,
             Timer,
             TaskTitle,
+            FreeBadgeInfo,
         }
 
         private static ResourceLoader _resourceLoader;

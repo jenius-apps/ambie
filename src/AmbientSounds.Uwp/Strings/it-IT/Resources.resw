@@ -376,4 +376,238 @@
   <data name="SubscriptionText3" xml:space="preserve">
     <value>Supporta lo sviluppo!</value>
   </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Ciao</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Ti piace Ambie? Valutaci!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Riprendi quando si apre Ambie</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Scarica</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Abbiamo bisogno di scaricare alcuni suoni per poterlo riprodurre. Una volta scaricato, prova a giocare di nuovo. Inizia il download?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Suoni mancanti</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Predefinito</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Più screensaver</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Catalogo salvaschermo</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Visualizza informazioni premium</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Nuvole</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Fumo colorato</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Octogrammi</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Si è verificato un problema durante la visualizzazione dello screensaver. Prova a riavviare Ambie o contattaci se il problema persiste.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Segnala il problema</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Errore di rendering</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Passare a schermo intero</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Ottieni Ambie Plus</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Concentrati</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Metti in pausa il timer</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Avvia timer</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Perfetto!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Sessione di concentrazione completata</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Tempo per concentrarsi</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Tempo per riposare</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Riposo</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>La sessione di concentrazione è attiva!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Concentrandosi</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Riposo</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pausa</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Ripristina</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Reimposta il timer</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Inizio</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Minuti di concentrazione</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Puoi prendere appunti qui 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Qual è il piano?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Bloc notes</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Minuti di riposo</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Ripetizioni</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Insegnami</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Questo è un timer a intervalli ispirato alla tecnica del pomodoro. L'obiettivo è concentrarsi su un'attività per un periodo di tempo prolungato, quindi fare una pausa di riposo più breve. Ripeti questo ciclo per continuare a concentrarti!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Benvenuto in Focus Timer!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Prossimo</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Ogni ciclo ha un segmento di concentrazione e un segmento di riposo. Scegli quanto durerà ciascun segmento di concentrazione. Consigliamo 25 minuti!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Imposta i minuti di concentrazione</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Ogni ciclo di concentrazione e riposo può ripetersi più volte. Prova ad aggiungere 1 ripetizione!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Imposta le ripetizioni</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Ora scegli la durata di ogni segmento di riposo. Consigliamo circa 5 minuti!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Imposta i minuti di riposo</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Avvia il timer e lavora sui tuoi compiti. Ti invieremo notifiche quando è ora di riposare. Lavorare duramente!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Andiamo!</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} minuti di concentrazione, {1} minuti di riposo, {2} ripetizioni.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Elenco delle configurazioni recenti.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>Da 0 a {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Storia</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Interruzioni</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>La tua cronologia recente apparirà qui</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Interruzione del registro</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confermare</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Minuti interrotti</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Appunti</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Sei stato interrotto da qualcosa? Tieni traccia delle tue interruzioni qui, in modo da poterle rivedere più avanti nella cronologia.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Storia recente</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Round completati</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Buon sforzo</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Sei incredibile</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Ambie</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Aggiungi le attività su cui concentrarti, quindi premi il pulsante di avvio</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Compiti</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Completato recentemente</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Modificare</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Compiti completati</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Compito {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Gratis questa settimana</value>
+  </data>
 </root>

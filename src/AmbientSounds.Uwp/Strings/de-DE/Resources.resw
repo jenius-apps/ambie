@@ -601,4 +601,13 @@
   <data name="TasksCompleted" xml:space="preserve">
     <value>Aufgaben erledigt</value>
   </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Aufgabe {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Diese Woche kostenlos</value>
+  </data>
 </root>

@@ -172,6 +172,11 @@
                     HorizontalAlignment="Left"
                     x:Load="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
 
+                <controls:FreeBadge
+                    x:Name="FreeBadge"
+                    HorizontalAlignment="Left"
+                    x:Load="{x:Bind ViewModel.FreeBadgeVisible, Mode=OneWay}" />
+
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                     <StackPanel
                         x:Name="PresenceCount"

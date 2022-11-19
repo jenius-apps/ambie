@@ -24,7 +24,6 @@ namespace AmbientSounds.ViewModels
         private double _progressValue;
         private bool _isInstalled;
         private bool _isOwned;
-        private string _price = "";
 
         public OnlineSoundViewModel(
             Sound s, 
@@ -62,14 +61,12 @@ namespace AmbientSounds.ViewModels
             PreviewCommand = new RelayCommand(Preview);
         }
 
-        private async void OnProductPurchased(object sender, string iapId)
+        private void OnProductPurchased(object sender, string iapId)
         {
-            if (!_sound.IsPremium || _sound.IapId != iapId)
+            if (_sound.IsPremium && _sound.IapIds.Contains(iapId))
             {
-                return;
+                IsOwned = true;
             }
-
-            IsOwned = await _iapService.IsOwnedAsync(_sound.IapId);
         }
 
         private async void OnSoundDeleted(object sender, string id)
@@ -80,7 +77,7 @@ namespace AmbientSounds.ViewModels
                 DownloadProgressValue = 0;
 
                 // Note: a non-premium sound is treated as "owned"
-                IsOwned = _sound.IsPremium ? await _iapService.IsOwnedAsync(_sound.IapId) : true;
+                IsOwned = _sound.IsPremium ? await _iapService.IsAnyOwnedAsync(_sound.IapIds) : true;
             }
         }
 
@@ -166,20 +163,19 @@ namespace AmbientSounds.ViewModels
         public bool DownloadButtonVisible => IsOwned && !DownloadProgressVisible;
 
         /// <summary>
-        /// Price of the item if it is premium.
-        /// </summary>
-        public string Price
-        {
-            get => _price;
-            set => SetProperty(ref _price, value);
-        }
-
-        /// <summary>
         /// True if the sound can be bought.
         /// </summary>
         public bool CanBuy => _sound.IsPremium && !_isOwned;
 
-        public bool PlusBadgeVisible => _sound.IsPremium;
+        /// <summary>
+        /// Determines if the plus badge is visible.
+        /// </summary>
+        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
+
+        /// <summary>
+        /// Determines if the free badge is visible
+        /// </summary>
+        public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
 
         /// <summary>
         /// This sound's download progress.
@@ -255,13 +251,13 @@ namespace AmbientSounds.ViewModels
 
         private async Task BuySoundAsync()
         {
-            await _dialogService.OpenPremiumAsync();
-
             _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
             {
                 { "id", _sound.Id },
                 { "name", _sound.Name }
             });
+
+            await _dialogService.OpenPremiumAsync();
         }
 
         private async Task DeleteSound()
@@ -292,16 +288,7 @@ namespace AmbientSounds.ViewModels
             bool isOwned;
             if (_sound.IsPremium)
             {
-                isOwned = await _iapService.IsOwnedAsync(_sound.IapId);
-                Price = await _iapService.GetPriceAsync(_sound.IapId);
-
-                if (!isOwned && _sound.IapId != IapConstants.MsStoreAmbiePlusId)
-                {
-                    // Handle case that user is subscribed to ambie plus,
-                    // but they don't own the individual add-on for some old premium sounds.
-                    // We should let them download the sound as long as they have ambie plus.
-                    isOwned = await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
-                }
+                isOwned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
             }
             else
             {
@@ -322,6 +309,15 @@ namespace AmbientSounds.ViewModels
                     { "location", TelemetryLocation },
                     { "name", _sound.Name }
                 });
+
+                if (FreeBadgeVisible)
+                {
+                    _telemetry.TrackEvent(TelemetryConstants.FreeDownloaded, new Dictionary<string, string>
+                    {
+                        { "id", _sound.Id ?? "" },
+                        { "name", _sound.Name }
+                    });
+                }
 
                 return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
             }

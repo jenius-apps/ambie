@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
@@ -42,9 +43,20 @@ namespace AmbientSounds.Controls
             this.Bindings.Update();
 
             _telemetry.TrackEvent(TelemetryConstants.SubscribeClicked);
-            bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId);
+            bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId, latest: true);
             ThanksTextVisible = purchaseSuccessful;
-            _telemetry.TrackEvent(purchaseSuccessful ? TelemetryConstants.Purchased : TelemetryConstants.PurchaseCancelled);
+
+            if (purchaseSuccessful)
+            {
+                _telemetry.TrackEvent(TelemetryConstants.Purchased, new Dictionary<string, string>
+                {
+                    { "DaysSinceFirstUse", (DateTime.Now - SystemInformation.Instance.FirstUseTime).Days.ToString() },
+                });
+            }
+            else
+            {
+                _telemetry.TrackEvent(TelemetryConstants.PurchaseCancelled);
+            }
 
             ButtonLoading = false;
             this.Bindings.Update();
@@ -60,7 +72,7 @@ namespace AmbientSounds.Controls
             ButtonLoading = true;
             this.Bindings.Update();
 
-            string price = await _iapService.GetPriceAsync(IapConstants.MsStoreAmbiePlusId);
+            string price = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusId);
             Price = string.Format(Strings.Resources.PricePerMonth, price);
             
             ButtonLoading = false;

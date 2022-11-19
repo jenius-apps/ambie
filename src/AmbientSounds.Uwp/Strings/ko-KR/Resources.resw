@@ -550,4 +550,13 @@
   <data name="AppDisplayName" xml:space="preserve">
     <value>암비</value>
   </data>
+  <data name="Timer" xml:space="preserve">
+    <value>시간제 노동자</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>작업 {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>이번주 무료</value>
+  </data>
 </root>

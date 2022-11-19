@@ -18,20 +18,14 @@
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
   <Application>
 
-      <!-- Required for JSON serialization -->
-      <Type Name="System.Text.Json.JsonSerializer" Serialize="Required All" />
-	  
-      <!-- JSON model types -->
-      <Namespace Name="AmbientSounds.Models" Dynamic="Required Public"/>
-
       <!-- Required for the toolkit's notification helpers to work in release mode -->
       <Assembly Name="Microsoft.Toolkit.Uwp.Notifications" Dynamic="Required All" />
 
-	  <!-- Required for signalr to work in release mode -->
-	  <Namespace Name="Microsoft.Extensions.Options" Dynamic="Required Public"/>
-	  <Type Name="Microsoft.AspNetCore.SignalR.JsonHubProtocolOptions" Activate="Required Public" />
-	  <Type Name="Microsoft.Extensions.Logging.LoggerFactoryOptions" Activate="Required Public" />
-	  <Type Name="Microsoft.Extensions.Logging.LoggerFilterOptions" Activate="Required Public" />
-	  <Type Name="Microsoft.AspNetCore.Http.Connections.Client.HttpConnectionOptions" Activate="Required Public" />
+      <!-- Required for signalr to work in release mode -->
+      <Namespace Name="Microsoft.Extensions.Options" Dynamic="Required Public"/>
+      <Type Name="Microsoft.AspNetCore.SignalR.JsonHubProtocolOptions" Activate="Required Public" />
+      <Type Name="Microsoft.Extensions.Logging.LoggerFactoryOptions" Activate="Required Public" />
+      <Type Name="Microsoft.Extensions.Logging.LoggerFilterOptions" Activate="Required Public" />
+      <Type Name="Microsoft.AspNetCore.Http.Connections.Client.HttpConnectionOptions" Activate="Required Public" />
   </Application>
 </Directives>

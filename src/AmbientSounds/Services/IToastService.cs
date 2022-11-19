@@ -11,7 +11,8 @@ namespace AmbientSounds.Services
         void ScheduleToast(
             DateTime scheduleDateTime,
             string title,
-            string message);
+            string message,
+            bool silent = false);
 
         void SendToast(string title, string messages);
     }

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Diagnostics;
 using MimeTypes;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,15 +14,19 @@ namespace AmbientSounds.Services
     {
         private readonly HttpClient _client;
         private readonly IFileWriter _fileWriter;
+        private readonly ITelemetry _telemetry;
 
         public FileDownloader(
             HttpClient httpClient,
-            IFileWriter fileWriter)
+            IFileWriter fileWriter,
+            ITelemetry telemetry)
         {
-            Guard.IsNotNull(fileWriter, nameof(fileWriter));
-            Guard.IsNotNull(httpClient, nameof(httpClient));
+            Guard.IsNotNull(fileWriter);
+            Guard.IsNotNull(httpClient);
+            Guard.IsNotNull(telemetry);
             _fileWriter = fileWriter;
             _client = httpClient;
+            _telemetry = telemetry;
         }
 
         /// <inheritdoc/>
@@ -47,7 +52,23 @@ namespace AmbientSounds.Services
             HttpResponseMessage response = await _client.GetAsync(url);
 
             var contentType = response.Content.Headers.ContentType.MediaType;
-            var nameWithExt = name + MimeTypeMap.GetExtension(contentType);
+            string nameWithExt;
+            try
+            {
+                nameWithExt = name + MimeTypeMap.GetExtension(contentType);
+            }
+            catch (Exception e)
+            {
+                // GetExtension can crash if the contentType has on natural mapping.
+                // This can happen if the image or URL is corrupted.
+                // So we fall back to no extension, which fine.
+                nameWithExt = name;
+                _telemetry.TrackError(e, new Dictionary<string, string>
+                {
+                    { "contentType", contentType },
+                    { "imageUrl", url ?? string.Empty }
+                });
+            }
             using var stream = await response.Content.ReadAsStreamAsync();
             return await _fileWriter.WriteImageAsync(stream, nameWithExt);
         }

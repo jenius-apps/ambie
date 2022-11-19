@@ -30,7 +30,6 @@ namespace AmbientSounds.ViewModels
             ISoundVmFactory soundVmFactory,
             IDialogService dialogService,
             IDownloadManager downloadManager)
-
         {
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(telemetry, nameof(telemetry));

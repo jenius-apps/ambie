@@ -14,6 +14,14 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
+                    <Color x:Key="SystemAccentColor">#e37700</Color>
+                    <Color x:Key="SystemAccentColorLight1">#FFE8881E</Color>
+                    <Color x:Key="SystemAccentColorLight2">#FFED993C</Color>
+                    <Color x:Key="SystemAccentColorLight3">#FFF1AA5A</Color>
+                    <Color x:Key="SystemAccentColorDark1">#FFCE6500</Color>
+                    <Color x:Key="SystemAccentColorDark2">#FFB85300</Color>
+                    <Color x:Key="SystemAccentColorDark3">#FFA34100</Color>
+
                     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#539AFF" />
                         <GradientStop Offset="1" Color="#53BEFF" />
@@ -32,6 +40,13 @@
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="White" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
+                    <Color x:Key="SystemAccentColor">#FFB900</Color>
+                    <Color x:Key="SystemAccentColorLight1">#FFFFC21E</Color>
+                    <Color x:Key="SystemAccentColorLight2">#FFFFCB3C</Color>
+                    <Color x:Key="SystemAccentColorLight3">#FFFFD359</Color>
+                    <Color x:Key="SystemAccentColorDark1">#FFE6A400</Color>
+                    <Color x:Key="SystemAccentColorDark2">#FFCD8F00</Color>
+                    <Color x:Key="SystemAccentColorDark3">#FFB47900</Color>
                     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#427BCC" />
                         <GradientStop Offset="1" Color="#539AFF" />
@@ -118,7 +133,7 @@
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="BorderThickness" Value="1" />
                 <Setter Property="CornerRadius" Value="8" />
-                <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefault}" />
+                <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
             </Style>
 
             <Style x:Key="ModuleBackgroundRectStyle" TargetType="Rectangle">
@@ -163,6 +178,7 @@
             <x:String x:Key="GlyphCritical">&#xEA8B;</x:String>
             <x:String x:Key="GlyphInterruption">&#xE96D;</x:String>
             <x:String x:Key="GlyphChevronRight">&#xE9A8;</x:String>
+            <x:String x:Key="GlyphSaleTag">&#xEBAA;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

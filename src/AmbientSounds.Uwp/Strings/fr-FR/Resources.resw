@@ -601,4 +601,10 @@
   <data name="TasksCompleted" xml:space="preserve">
     <value>Tâches terminées</value>
   </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Minuteur</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Tache {0}</value>
+  </data>
 </root>

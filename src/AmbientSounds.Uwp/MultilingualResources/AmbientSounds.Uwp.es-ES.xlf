@@ -794,11 +794,15 @@
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="new">Timer</target>
+          <target state="translated">Temporizador</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
-          <target state="new">Task {0}</target>
+          <target state="translated">Tarea {0}</target>
+        </trans-unit>
+        <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
+          <source>Free this week!</source>
+          <target state="new">Gratis esta semana</target>
         </trans-unit>
       </group>
     </body>

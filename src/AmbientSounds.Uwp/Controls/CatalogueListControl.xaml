@@ -89,11 +89,18 @@
                                 </Rectangle>
 
                                 <controls:PlusBadge
-                                    x:Name="Badge"
+                                    x:Name="PlusBadge"
                                     Margin="12,12,0,0"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
                                     x:Load="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
+
+                                <controls:FreeBadge
+                                    x:Name="FreeBadge"
+                                    Margin="12,12,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    x:Load="{x:Bind FreeBadgeVisible, Mode=OneWay}" />
 
                                 <Grid Grid.Row="1" Margin="12,0">
                                     <TextBlock
@@ -113,7 +120,7 @@
                                 <Grid
                                     Grid.Row="2"
                                     Height="36"
-                                    Margin="8,4"
+                                    Margin="4,4"
                                     VerticalAlignment="Bottom">
                                     <StackPanel
                                         x:Name="DownloadPanel"
@@ -127,6 +134,7 @@
                                             Orientation="Horizontal">
                                             <Button
                                                 x:Uid="BuyButton"
+                                                Padding="8,0"
                                                 VerticalAlignment="Stretch"
                                                 Command="{x:Bind BuyCommand, Mode=OneWay}"
                                                 Style="{StaticResource SubtleButton}">
@@ -138,6 +146,8 @@
                                         <!--  download button  -->
                                         <Button
                                             x:Uid="DownloadSoundButton"
+                                            Padding="8,0"
+                                            VerticalAlignment="Stretch"
                                             Command="{x:Bind DownloadCommand, Mode=OneWay}"
                                             Style="{StaticResource SubtleButton}"
                                             Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
@@ -149,15 +159,25 @@
                                             </StackPanel>
                                         </Button>
 
-                                        <muxc:ProgressRing
-                                            Width="20"
-                                            Height="20"
+                                        <Grid
                                             Margin="8,0,0,0"
                                             VerticalAlignment="Center"
-                                            Foreground="White"
-                                            IsIndeterminate="False"
-                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
-                                            Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                            <muxc:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                AutomationProperties.AccessibilityView="Raw"
+                                                Foreground="#32ffffff"
+                                                IsIndeterminate="False"
+                                                Value="100" />
+                                            <muxc:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="White"
+                                                IsIndeterminate="False"
+                                                Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                        </Grid>
                                     </StackPanel>
 
                                     <StackPanel
@@ -166,6 +186,8 @@
                                         Orientation="Horizontal">
                                         <Button
                                             x:Uid="DeleteButton"
+                                            Padding="8,0"
+                                            VerticalAlignment="Stretch"
                                             Command="{x:Bind DeleteCommand, Mode=OneWay}"
                                             Style="{StaticResource SubtleButton}">
                                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />

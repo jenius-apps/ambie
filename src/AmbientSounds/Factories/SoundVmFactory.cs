@@ -99,7 +99,8 @@ namespace AmbientSounds.Factories
                 _serviceProvider.GetRequiredService<IIapService>(),
                 _serviceProvider.GetRequiredService<IDownloadManager>(),
                 _serviceProvider.GetRequiredService<IPresenceService>(),
-                _serviceProvider.GetRequiredService<IDispatcherQueue>());
+                _serviceProvider.GetRequiredService<IDispatcherQueue>(),
+                _serviceProvider.GetRequiredService<IOnlineSoundDataProvider>());
             vm.Initialize();
             return vm;
         }

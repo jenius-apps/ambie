@@ -8,11 +8,11 @@
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="new">Close compact mode</target>
+          <target state="translated">Kompakt modu kapat</target>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close compact mode</source>
-          <target state="new">Close compact mode</target>
+          <target state="translated">Kompakt modu kapat</target>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
@@ -247,145 +247,145 @@
         </trans-unit>
         <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Delete sound</source>
-          <target state="new">Delete sound</target>
+          <target state="translated">Sesi sil</target>
         </trans-unit>
         <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Sil</target>
         </trans-unit>
         <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated">İndir</target>
         </trans-unit>
         <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Sil</target>
         </trans-unit>
         <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Rastgele ses oynat</target>
         </trans-unit>
         <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Rastgele ses oynat</target>
         </trans-unit>
         <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
-          <target state="new">Screensaver mode</target>
+          <target state="translated">Ekran koruyucu modu</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
           <source>Screensaver</source>
-          <target state="new">Screensaver</target>
+          <target state="translated">Ekran koruyucu</target>
         </trans-unit>
         <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Purchase sound</source>
-          <target state="new">Purchase sound</target>
+          <target state="translated">Sesi satın al</target>
         </trans-unit>
         <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
-          <target state="new">Preview sound</target>
+          <target state="translated">Sesi önizle</target>
         </trans-unit>
         <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
-          <target state="new">Preview sound</target>
+          <target state="translated">Sesi önizle</target>
         </trans-unit>
         <trans-unit id="Paused" translate="yes" xml:space="preserve">
           <source>Paused</source>
-          <target state="new">Paused</target>
+          <target state="translated">Durduruldu</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
         </trans-unit>
         <trans-unit id="Playing" translate="yes" xml:space="preserve">
           <source>Playing</source>
-          <target state="new">Playing</target>
+          <target state="translated">Oynatılıyor</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
         </trans-unit>
         <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound volume</source>
-          <target state="new">Sound volume</target>
+          <target state="translated">Ses seviyesi</target>
         </trans-unit>
         <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Active sounds</source>
-          <target state="new">Active sounds</target>
+          <target state="translated">Aktif sesler</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="new">Clear all active sounds</target>
+          <target state="translated">Tüm aktif sesleri temizle</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="new">Clear all active sounds</target>
+          <target state="translated">Tüm aktif sesleri temizle</target>
         </trans-unit>
         <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Confirm save</source>
-          <target state="new">Confirm save</target>
+          <target state="translated">Kaydetmeyi onayla</target>
         </trans-unit>
         <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
           <source>Global volume</source>
-          <target state="new">Global volume</target>
+          <target state="translated">Ses seviyesi</target>
         </trans-unit>
         <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
           <source>Sound mix name</source>
-          <target state="new">Sound mix name</target>
+          <target state="translated">Ses karışımı adı</target>
         </trans-unit>
         <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Optional</source>
-          <target state="new">Optional</target>
+          <target state="translated">İsteğe bağlı</target>
         </trans-unit>
         <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Save custom sound mix</source>
-          <target state="new">Save custom sound mix</target>
+          <target state="translated">Özel ses karışımını kaydet</target>
         </trans-unit>
         <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Save custom sound mix (Ctrl+S)</source>
-          <target state="new">Save custom sound mix (Ctrl+S)</target>
+          <target state="translated">Özel ses karışımını kaydet (Ctrl+S)</target>
         </trans-unit>
         <trans-unit id="CancelText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">İptal et</target>
         </trans-unit>
         <trans-unit id="RenameText" translate="yes" xml:space="preserve">
           <source>Rename</source>
-          <target state="new">Rename</target>
+          <target state="translated">Yeniden adlandır</target>
         </trans-unit>
         <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Rename</source>
-          <target state="new">Rename</target>
+          <target state="translated">Yeniden adlandır</target>
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Compact mode</source>
-          <target state="new">Compact mode</target>
+          <target state="translated">Kompakt mod</target>
         </trans-unit>
         <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sign out</source>
-          <target state="new">Sign out</target>
+          <target state="translated">Oturumu kapat</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="new">This will enable sound gallery sync across your devices.</target>
+          <target state="translated">Cihazlarınız arasında ses galerisi senkronizasyonunu etkinleştirir.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="new">View account options</target>
+          <target state="translated">Hesap ayarlarını görüntüle</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="new">View account options</target>
+          <target state="translated">Hesap ayarlarını görüntüle</target>
         </trans-unit>
         <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="new">Sign in</target>
+          <target state="translated">Giriş yap</target>
         </trans-unit>
         <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="new">Sign in</target>
+          <target state="translated">Giriş yap</target>
         </trans-unit>
         <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sync</source>
-          <target state="new">Sync</target>
+          <target state="translated">Senkronizasyon</target>
         </trans-unit>
         <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
           <source>Browse</source>
-          <target state="new">Browse</target>
+          <target state="translated">Göz at</target>
         </trans-unit>
         <trans-unit id="Attribution" translate="yes" xml:space="preserve">
           <source>Attribution</source>
@@ -393,68 +393,68 @@
         </trans-unit>
         <trans-unit id="Name" translate="yes" xml:space="preserve">
           <source>Name</source>
-          <target state="new">Name</target>
+          <target state="translated">İsim</target>
         </trans-unit>
         <trans-unit id="NewSound" translate="yes" xml:space="preserve">
           <source>New sound</source>
-          <target state="new">New sound</target>
+          <target state="translated">Yeni ses</target>
         </trans-unit>
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
-          <target state="new">Refresh</target>
+          <target state="translated">Yenile</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="new">Sign in</target>
+          <target state="translated">Giriş yap</target>
         </trans-unit>
         <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
           <source>Are you sure?</source>
-          <target state="new">Are you sure?</target>
+          <target state="translated">Emin misiniz?</target>
         </trans-unit>
         <trans-unit id="Yes" translate="yes" xml:space="preserve">
           <source>Yes</source>
-          <target state="new">Yes</target>
+          <target state="translated">Evet</target>
         </trans-unit>
         <trans-unit id="Optional" translate="yes" xml:space="preserve">
           <source>Optional</source>
-          <target state="new">Optional</target>
+          <target state="translated">İsteğe bağlı</target>
         </trans-unit>
         <trans-unit id="Required" translate="yes" xml:space="preserve">
           <source>Required</source>
-          <target state="new">Required</target>
+          <target state="translated">Gerekli</target>
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>
-          <target state="new">Donate</target>
+          <target state="translated">Bağış yap</target>
         </trans-unit>
         <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
           <source>Terms of Use</source>
-          <target state="new">Terms of Use</target>
+          <target state="translated">Kullanım Şartları</target>
         </trans-unit>
         <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
           <source>Follow us on Twitter</source>
-          <target state="new">Follow us on Twitter</target>
+          <target state="translated">Twitter'da bizi takip et</target>
         </trans-unit>
         <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
           <source>Dismiss</source>
-          <target state="new">Dismiss</target>
+          <target state="translated">Kapat</target>
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="new">Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</target>
+          <target state="translated">Ambie'yi denediğiniz için teşekkürler. En iyi deneyim için bizi görev çubuğunuza sabitlemeyi deneyin! Dinlenmenizin keyfini çıkarın 🏝</target>
         </trans-unit>
         <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
           <source>Hello and welcome!</source>
-          <target state="new">Hello and welcome!</target>
+          <target state="translated">Merhaba, hoş geldiniz!</target>
         </trans-unit>
         <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
           <source>Pin to taskbar</source>
-          <target state="new">Pin to taskbar</target>
+          <target state="translated">Görev çubuğuna sabitle</target>
         </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
-          <target state="new">Preview</target>
+          <target state="translated">Ön izleme</target>
         </trans-unit>
         <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
           <source>Catalogue</source>
@@ -466,346 +466,350 @@
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
-          <target state="new">Mix and match up to 3 sounds</target>
+          <target state="translated">3 sese kadar karıştırın ve eşleştirin</target>
         </trans-unit>
         <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
           <source>Remove {0} from active list</source>
-          <target state="new">Remove {0} from active list</target>
+          <target state="translated">{0} öğesini aktif listeden kaldır</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
         </trans-unit>
         <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
           <source>Theme settings</source>
-          <target state="new">Theme settings</target>
+          <target state="translated">Tema Ayarları</target>
         </trans-unit>
         <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
           <source>{0} per month</source>
-          <target state="new">{0} per month</target>
+          <target state="translated">Aylık {0}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
         </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
-          <target state="new">Thank you for subscribing!</target>
+          <target state="translated">Abone olduğunuz için teşekkürler!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
         <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
           <source>Access premium, high quality sounds</source>
-          <target state="new">Access premium, high quality sounds</target>
+          <target state="translated">Premium, yüksek kaliteli seslere erişin</target>
         </trans-unit>
         <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
           <source>Download video screensavers</source>
-          <target state="new">Download video screensavers</target>
+          <target state="translated">Video ekran koruyucuları indirin</target>
         </trans-unit>
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development</source>
-          <target state="new">Support development</target>
+          <target state="translated">Geliştirmeyi destekleyin</target>
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
-          <target state="new">Hello again 👋🏽</target>
+          <target state="translated">Tekrardan merhaba 👋🏽</target>
         </trans-unit>
         <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
           <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="new">Enjoying Ambie? Please consider rating us!</target>
+          <target state="translated">Ambie'den hoşlanıyor musun? Lütfen bizi derecelendirmeyi düşünün!</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
           <source>Auto resume when Ambie opens</source>
-          <target state="new">Auto resume when Ambie opens</target>
+          <target state="translated">Ambie açıldığında otomatik olarak devam ettir</target>
         </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated">İndir</target>
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="new">We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</target>
+          <target state="translated">Bunu çalabilmemiz için bazı sesleri indirmemiz gerekiyor. İndirildikten sonra, tekrar oynatmayı deneyin. İndirme başlatılsın mı?</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
-          <target state="new">Missing sounds</target>
+          <target state="translated">Eksik sesler</target>
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="new">Default</target>
+          <target state="translated">Varsayılan</target>
         </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Sil</target>
         </trans-unit>
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
-          <target state="new">{0} MB</target>
+          <target state="translated">{0} MB</target>
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="new">More screensavers</target>
+          <target state="translated">Daha fazla ekran koruyucu</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="new">Screensaver catalogue</target>
+          <target state="translated">Ekran koruyucu kataloğu</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="new">View premium info</target>
+          <target state="translated">Premium bilgilerini görüntüle</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
-          <target state="new">Clouds</target>
+          <target state="translated">Bulutlar</target>
         </trans-unit>
         <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
-          <target state="new">Colored smoke</target>
+          <target state="translated">Renkli duman</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
-          <target state="new">Octagrams</target>
+          <target state="translated">Oktagramlar</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="new">There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</target>
+          <target state="translated">Ekran koruyucu gösteriminde bir sorun yaşandı. Ambie'yi yeniden başlatmayı deneyin, sorun devam ederse bizimle iletişime geçin.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
-          <target state="new">Report the issue</target>
+          <target state="translated">Sorunu bildir</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="new">Rendering error</target>
+          <target state="translated">Görüntü hatası</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="new">Toggle fullscreen</target>
+          <target state="translated">Tam ekrana geç</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie Plus</source>
-          <target state="new">Get Ambie Plus</target>
+          <target state="translated">Ambie Plus'ı edinin</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="new">Focus</target>
+          <target state="translated">Odaklan</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
-          <target state="new">Pause timer</target>
+          <target state="translated">Zamanlayıcıyı durdur</target>
         </trans-unit>
         <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
           <source>Start timer</source>
-          <target state="new">Start timer</target>
+          <target state="translated">Zamanlayıcıyı başlat</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="new">Well done!</target>
+          <target state="translated">Tebrikler!</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="new">Focus session complete</target>
+          <target state="translated">Odaklanma oturumu tamamlandı</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="new">Time to focus</target>
+          <target state="translated">Odaklanma zamanı</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="new">Time to rest</target>
+          <target state="translated">Dinlenme zamanı</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="new">Rest</target>
+          <target state="translated">Dinlen</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="new">Focus session is active!</target>
+          <target state="translated">Odaklanma oturumu aktif!</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="new">Focusing</target>
+          <target state="translated">Odaklanma</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="new">Resting</target>
+          <target state="translated">Dinlenme</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="new">Pause</target>
+          <target state="translated">Durdur</target>
         </trans-unit>
         <trans-unit id="Reset" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="new">Reset</target>
+          <target state="translated">Sıfırla</target>
         </trans-unit>
         <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
           <source>Reset timer</source>
-          <target state="new">Reset timer</target>
+          <target state="translated">Zamanlayıcıyı sıfırla</target>
         </trans-unit>
         <trans-unit id="Start" translate="yes" xml:space="preserve">
           <source>Start</source>
-          <target state="new">Start</target>
+          <target state="translated">Başlat</target>
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="new">Focus minutes</target>
+          <target state="translated">Odaklanma dakikaları</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
-          <target state="new">You can jot down any notes here 🙂</target>
+          <target state="translated">Notlarınızı buraya yazabilirsiniz 🙂</target>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="new">What's the plan?</target>
+          <target state="translated">Planınız nedir?</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
-          <target state="new">Notepad</target>
+          <target state="translated">Not defteri</target>
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="new">Rest minutes</target>
+          <target state="translated">Dinlenme dakikaları</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="new">Repeats</target>
+          <target state="translated">Tekrarlar</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="new">Show me how to use it</target>
+          <target state="translated">Nasıl kullanıldığını göster</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="new">This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</target>
+          <target state="translated">Focus Timer, pomodoro tekniğinden ilham alınarak hazırlanmış olan aralıklı zamanlayıcıdır. Uzun bir süre bir göreve odaklanabilmenin sırrı, ardından daha kısa bir dinlenme molası vermektir. Odaklanmaya devam etmek için bu döngüyü tekrarlayın!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="new">Welcome to Focus Timer!</target>
+          <target state="translated">Focus Timer'a Hoş Geldiniz!</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="new">Help</target>
+          <target state="translated">Yardım</target>
         </trans-unit>
         <trans-unit id="Next" translate="yes" xml:space="preserve">
           <source>Next</source>
-          <target state="new">Next</target>
+          <target state="translated">Sonraki</target>
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="new">Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</target>
+          <target state="translated">Her döngünün bir odak bölümü ve bir dinlenme bölümü vardır. Her bir odak bölümünün ne kadar süreceğini seçin. Başlangıç olarak 25 dakikayı öneriyoruz!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="new">Set focus minutes</target>
+          <target state="translated">Odaklanma dakikalarını ayarla</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="new">Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</target>
+          <target state="translated">Odaklanma ve dinlenme döngüleri birden çok kez tekrarlanabilir. 1 tekrar eklemeyi deneyin!</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
-          <target state="new">Set repeats</target>
+          <target state="translated">Tekrarları ayarla</target>
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="new">Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</target>
+          <target state="translated">Şimdi, her dinlenme bölümünün ne kadar süreceğini seçin. Şimdilik yaklaşık 5 dakikayı öneriyoruz!</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="new">Set rest minutes</target>
+          <target state="translated">Dinlenme dakikalarını ayarla</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="new">Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</target>
+          <target state="translated">Zamanlayıcıyı başlatın ve görevleriniz üzerinde çalışın. Dinlenme zamanı geldiğinde size bildirim göndereceğiz. İyi çalışmalar!</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="new">Ready, set, go</target>
+          <target state="translated">Hazır, ayarla, başla</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="new">{0} focus minutes, {1} rest minutes, {2} repeats.</target>
+          <target state="translated">{0} odaklanma dakikaları, {1} dinlenme dakikaları, {2} tekrarlar.</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="new">List of recent focus configurations.</target>
+          <target state="translated">Son konfigürasyonların listesi.</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
-          <target state="new">0 to {0}</target>
+          <target state="translated">0 dan {0}'a</target>
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="new">History</target>
+          <target state="translated">Geçmiş</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
-          <target state="new">Interruptions</target>
+          <target state="translated">Bölünmeler</target>
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
-          <target state="new">Your recent history will appear here</target>
+          <target state="translated">Yakın geçmişiniz burada görünecek</target>
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="new">Log interruption</target>
+          <target state="translated">Bölünme kaydet</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="new">Confirm</target>
+          <target state="translated">Onayla</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="new">Minutes interrupted</target>
+          <target state="translated">Bölünme dakikaları</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
-          <target state="new">Notes</target>
+          <target state="translated">Notlar</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="new">Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</target>
+          <target state="translated">Bir şey tarafından kesintiye uğradınız mı? Kesintilerinizi burada takip edin, böylece daha sonra geçmişinizde gözden geçirebilirsiniz.</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="new">Recent history</target>
+          <target state="translated">Geçmiş</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="new">Rounds completed</target>
+          <target state="translated">Tamamlanan turlar</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="new">Good effort</target>
+          <target state="translated">İyi çaba</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="new">You're amazing</target>
+          <target state="translated">Harikasın</target>
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
-          <target state="new">Ambie</target>
+          <target state="translated">Ambie</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>
-          <target state="new">Add tasks to focus on, then press the start button</target>
+          <target state="translated">Odaklanmak için görevler ekleyin, ardından başlat düğmesine basın</target>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
-          <target state="new">Tasks</target>
+          <target state="translated">Görevler</target>
         </trans-unit>
         <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
           <source>Recently completed</source>
-          <target state="new">Recently completed</target>
+          <target state="translated">Yakın zamanda tamamlandı</target>
         </trans-unit>
         <trans-unit id="EditText" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="new">Edit</target>
+          <target state="translated">Düzenle</target>
         </trans-unit>
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
-          <target state="new">Tasks completed</target>
+          <target state="translated">Tamamlanan görevler</target>
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="new">Timer</target>
+          <target state="translated">Zamanlayıcı</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
-          <target state="new">Task {0}</target>
+          <target state="translated">Görev {0}</target>
+        </trans-unit>
+        <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
+          <source>Free this week!</source>
+          <target state="translated">Bu hafta ücretsiz!</target>
         </trans-unit>
       </group>
     </body>

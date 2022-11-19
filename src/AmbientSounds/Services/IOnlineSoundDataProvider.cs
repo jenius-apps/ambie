@@ -44,5 +44,16 @@ namespace AmbientSounds.Services
         /// <param name="accesstoken">A JWT access token required for the API.</param>
         /// <returns>List of sounds uploaded by the user to the Ambie Catalogue.</returns>
         Task<IList<Sound>> GetUserSoundsAsync(string accesstoken);
+
+        /// <summary>
+        /// Retrieves the given 
+        /// online sound straight from the source.
+        /// </summary>
+        /// <param name="soundIds">Ids to check.</param>
+        /// <param name="iapId">Optional. Iap to filter the search.</param>
+        /// <returns>List of sounds based on given parameters.</returns>
+        Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
+           IReadOnlyList<string> soundIds,
+           string? iapId = null);
     }
 }

@@ -68,6 +68,28 @@ namespace AmbientSounds.Services
 
             var url = _url + $"?culture={_systemInfoProvider.GetCulture()}&premium=true";
             using Stream result = await _client.GetStreamAsync(url);
+            var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
+
+            return results ?? Array.Empty<Sound>();
+        }
+
+        /// <inheritdoc/>
+        public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
+            IReadOnlyList<string> soundIds,
+            string? iapId = null)
+        {
+            if (soundIds is null || soundIds.Count == 0)
+            {
+                return Array.Empty<Sound>();
+            }
+
+            var url = _url + $"/sounds?{string.Join("&", soundIds.Select(x => "ids=" + x))}";
+            if (!string.IsNullOrEmpty(iapId))
+            {
+                url += $"&iapId={iapId}";
+            }
+
+            using Stream result = await _client.GetStreamAsync(url);
             var results = await JsonSerializer.DeserializeAsync<Sound[]>(
                 result,
                 new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
@@ -103,9 +125,7 @@ namespace AmbientSounds.Services
 
             try
             {
-                var results = await JsonSerializer.DeserializeAsync<Sound[]>(
-                    result,
-                    new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
 
                 UserSoundsFetched?.Invoke(this, results?.Length ?? 0);
                 return results ?? Array.Empty<Sound>();

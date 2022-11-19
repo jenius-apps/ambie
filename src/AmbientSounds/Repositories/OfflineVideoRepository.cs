@@ -33,7 +33,7 @@ namespace AmbientSounds.Repositories
 
             try
             {
-                var result = JsonSerializer.Deserialize<Video[]>(content);
+                var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.Default.VideoArray);
                 return result ?? Array.Empty<Video>();
             }
             catch
@@ -45,7 +45,7 @@ namespace AmbientSounds.Repositories
         /// <inheritdoc/>
         public Task SaveVideosAsync(IList<Video> videos)
         {
-            return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(videos), LocalVideoDataFile);
+            return _fileWriter.WriteStringAsync(JsonSerializer.Serialize(videos, AmbieJsonSerializerContext.Default.IListVideo), LocalVideoDataFile);
         }
     }
 }

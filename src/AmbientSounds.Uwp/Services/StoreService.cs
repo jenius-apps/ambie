@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Windows.Services.Store;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using System.Collections.Concurrent;
+using AmbientSounds.Constants;
 
 #nullable enable
 
@@ -15,6 +16,7 @@ namespace AmbientSounds.Services.Uwp
     /// </summary>
     public class StoreService : IIapService
     {
+        private static readonly ConcurrentDictionary<string, (int Version, StoreProduct Product)> _versionedProductsCache = new();
         private static readonly ConcurrentDictionary<string, StoreProduct> _productsCache = new();
         private static readonly ConcurrentDictionary<string, bool> _ownershipCache = new();
         private static StoreContext? _context;
@@ -25,6 +27,11 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<bool> IsOwnedAsync(string iapId)
         {
+            if (iapId == IapConstants.MsStoreFreeRotationId)
+            {
+                return true;
+            }
+
             if (_ownershipCache.TryGetValue(iapId, out bool isOwned))
             {
                 return isOwned;
@@ -47,9 +54,15 @@ namespace AmbientSounds.Services.Uwp
             foreach (var addOnLicense in appLicense.AddOnLicenses)
             {
                 StoreLicense license = addOnLicense.Value;
-                if (license.InAppOfferToken == iapId && license.IsActive)
+                if (!license.IsActive)
                 {
-                    // Handle add-on scenario
+                    continue;
+                }
+
+                if (license.InAppOfferToken == iapId ||
+                    (iapId.ContainsAmbiePlus() && license.InAppOfferToken.ContainsAmbiePlus()))
+                {
+                    // 2nd condition: if requested iap is ambieplus but license is for ambieplus_2, we still count it as ownership.
                     _ownershipCache.TryAdd(iapId, true);
                     return true;
                 }
@@ -62,11 +75,6 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task<bool> IsAnyOwnedAsync(IReadOnlyList<string> iapIds)
         {
-            if (iapIds.Count == 0)
-            {
-                return true;
-            }
-
             foreach (var id in iapIds)
             {
                 var owned = await IsOwnedAsync(id);
@@ -79,17 +87,62 @@ namespace AmbientSounds.Services.Uwp
             return false;
         }
 
-        /// <inheritdoc/>
-        public async Task<string> GetPriceAsync(string iapId)
+        public async Task<string> GetLatestPriceAsync(string iapId)
         {
-            var addon = await GetAddOn(iapId);
-            return addon?.Price?.FormattedPrice ?? "---";
+            (string idOnly, _) = iapId.SplitIdAndVersion();
+            var addon = await GetLatestAddonAsync(idOnly);
+            return addon?.Price?.FormattedPrice ?? "—";
+        }
+
+        private static async Task<StoreProduct?> GetLatestAddonAsync(string idOnly)
+        {
+            if (_versionedProductsCache.ContainsKey(idOnly))
+            {
+                return _versionedProductsCache[idOnly].Product;
+            }
+
+            if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
+            {
+                return null;
+            }
+
+            if (_context is null)
+                _context = StoreContext.GetDefault();
+
+            /// Get all add-ons for this app.
+            var result = await _context.GetAssociatedStoreProductsAsync(new string[] { "Durable", "Consumable" });
+            if (result.ExtendedError is not null)
+            {
+                return null;
+            }
+
+            foreach (var item in result.Products)
+            {
+                StoreProduct product = item.Value;
+
+                if (product.InAppOfferToken.StartsWith(idOnly))
+                {
+                    (string id, int version) = product.InAppOfferToken.SplitIdAndVersion();
+                    if (_versionedProductsCache.ContainsKey(idOnly) && version > _versionedProductsCache[idOnly].Version)
+                    {
+                        _versionedProductsCache[idOnly] = (version, product);
+                    }
+                    else
+                    {
+                        _versionedProductsCache.TryAdd(id, (version, product));
+                    }
+                }
+            }
+
+            return _versionedProductsCache.ContainsKey(idOnly)
+                ? _versionedProductsCache[idOnly].Product
+                : null;
         }
 
         /// <inheritdoc/>
-        public async Task<bool> BuyAsync(string iapId)
+        public async Task<bool> BuyAsync(string iapId, bool latest = false)
         {
-            StorePurchaseStatus result = await PurchaseAddOn(iapId);
+            StorePurchaseStatus result = await PurchaseAddOn(iapId, latest);
 
             if (result == StorePurchaseStatus.Succeeded || result == StorePurchaseStatus.AlreadyPurchased)
             {
@@ -109,14 +162,19 @@ namespace AmbientSounds.Services.Uwp
             };
         }
 
-        private static async Task<StorePurchaseStatus> PurchaseAddOn(string id)
+        private static async Task<StorePurchaseStatus> PurchaseAddOn(string id, bool latest = false)
         {
             if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
             {
                 return StorePurchaseStatus.NetworkError;
             }
 
-            var addOnProduct = await GetAddOn(id);
+            (string idOnly, _) = id.SplitIdAndVersion();
+
+            var addOnProduct = latest
+                ? await GetLatestAddonAsync(idOnly)
+                : await GetAddOn(id);
+
             if (addOnProduct is null)
                 return StorePurchaseStatus.ServerError;
 

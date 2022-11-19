@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -11,7 +12,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// ViewModel for the shell page.
     /// </summary>
-    public class ShellPageViewModel : ObservableObject
+    public partial class ShellPageViewModel : ObservableObject
     {
         private readonly IUserSettings _userSettings;
         private readonly ITimerService _ratingTimer;
@@ -25,6 +26,9 @@ namespace AmbientSounds.ViewModels
         private bool _premiumButtonVisible;
         private bool _focusTimeBannerVisible;
         private bool _focusDotVisible;
+
+        [ObservableProperty]
+        private bool _titleBarVisible;
 
         public ShellPageViewModel(
             IUserSettings userSettings,
@@ -55,7 +59,7 @@ namespace AmbientSounds.ViewModels
             _focusService = focusService;
             _soundMixService = soundMixService;
 
-            var lastDismissDateTime = _userSettings.GetAndDeserialize<DateTime>(UserSettingsConstants.RatingDismissed);
+            var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
             if (!systemInfoProvider.IsFirstRun() &&
                 !systemInfoProvider.IsTenFoot() &&
                 !_userSettings.Get<bool>(UserSettingsConstants.HasRated) &&
@@ -159,13 +163,18 @@ namespace AmbientSounds.ViewModels
             _navigator.ToScreensaver();
         }
 
-        public async Task InitializeAsync()
+        public async Task InitializeAsync(ShellPageNavigationArgs? args = null)
         {
             _iapService.ProductPurchased += OnProductPurchased;
             _userSettings.SettingSet += OnSettingSet;
             _focusService.FocusStateChanged += OnFocusStateChanged;
 
             await LoadPremiumButtonAsync();
+
+            if (args is not null)
+            {
+                TitleBarVisible = !args.IsGameBarWidget;
+            }
         }
 
         public void Dispose()

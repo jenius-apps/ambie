@@ -601,4 +601,13 @@
   <data name="TasksCompleted" xml:space="preserve">
     <value>Завдання виконано</value>
   </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Таймер</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Завдання {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Безкоштовно цього тижня</value>
+  </data>
 </root>

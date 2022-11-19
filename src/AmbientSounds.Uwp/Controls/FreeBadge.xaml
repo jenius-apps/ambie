@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.FreeBadge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid
+        Width="24"
+        Height="24"
+        Tapped="OnTapped"
+        ToolTipService.ToolTip="{x:Bind strings:Resources.FreeBadgeInfo}">
+        <Grid.ContextFlyout>
+            <Flyout Placement="Top">
+                <Flyout.FlyoutPresenterStyle>
+                    <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                        <Setter Property="Padding" Value="8" />
+                    </Style>
+                </Flyout.FlyoutPresenterStyle>
+
+                <TextBlock Text="{x:Bind strings:Resources.FreeBadgeInfo}" />
+            </Flyout>
+        </Grid.ContextFlyout>
+        <Rectangle
+            Fill="Goldenrod"
+            RadiusX="4"
+            RadiusY="4"
+            Stretch="Fill" />
+
+        <FontIcon
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            AutomationProperties.AccessibilityView="Raw"
+            FontFamily="{StaticResource FluentUIGlyphs}"
+            Foreground="Black"
+            Glyph="{StaticResource GlyphSaleTag}" />
+    </Grid>
+</UserControl>

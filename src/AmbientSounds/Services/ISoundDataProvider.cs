@@ -54,7 +54,7 @@ namespace AmbientSounds.Services
         /// Updates the given sounds in cache and in storage.
         /// </summary>
         /// <param name="sounds">The sounds to update.</param>
-        Task UpdateLocalSoundAsync(IList<Sound> sounds);
+        Task UpdateLocalSoundAsync(IReadOnlyList<Sound> sounds);
 
         /// <summary>
         /// Checks to see if given sound

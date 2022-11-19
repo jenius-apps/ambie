@@ -54,14 +54,16 @@ namespace AmbientSounds.Services
                         _toastService.ScheduleToast(
                             current,
                             _localizer.GetString("RestText"),
-                            _localizer.GetString("FocusSessionRestMessage"));
+                            _localizer.GetString("FocusSessionRestMessage"),
+                            silent: false);
                     }
                     else if (session.SessionType == Models.SessionType.Rest)
                     {
                         _toastService.ScheduleToast(
                             current,
                             _localizer.GetString("FocusText"),
-                            _localizer.GetString("FocusSessionFocusMessage"));
+                            _localizer.GetString("FocusSessionFocusMessage"),
+                            silent: true);
                     }
                 }
             }

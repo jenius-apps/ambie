@@ -59,7 +59,7 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public Task UpdateLocalSoundAsync(IList<Sound> sounds)
+        public Task UpdateLocalSoundAsync(IReadOnlyList<Sound> sounds)
         {
             if (sounds is null || sounds.Count == 0 || _localSoundCache is null)
             {
@@ -187,7 +187,7 @@ namespace AmbientSounds.Services.Uwp
             StorageFile localDataFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                 LocalDataFileName,
                 CreationCollisionOption.OpenIfExists);
-            string json = JsonSerializer.Serialize(_localSoundCache);
+            string json = _localSoundCache is null ? "" : JsonSerializer.Serialize(_localSoundCache, AmbieJsonSerializerContext.Default.ListSound);
             await FileIO.WriteTextAsync(localDataFile, json);
         }
 
@@ -210,7 +210,7 @@ namespace AmbientSounds.Services.Uwp
             try
             {
                 using Stream dataStream = await localDataFile.OpenStreamForReadAsync();
-                _localSoundCache = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+                _localSoundCache = await JsonSerializer.DeserializeAsync(dataStream, AmbieJsonSerializerContext.Default.ListSound);
             }
             catch (Exception)
             {
@@ -233,7 +233,7 @@ namespace AmbientSounds.Services.Uwp
                 StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
                 StorageFile dataFile = await assets.GetFileAsync(DataFileName);
                 using Stream dataStream = await dataFile.OpenStreamForReadAsync();
-                var sounds = await JsonSerializer.DeserializeAsync<List<Sound>>(dataStream);
+                var sounds = await JsonSerializer.DeserializeAsync(dataStream, AmbieJsonSerializerContext.Default.ListSound);
 
                 foreach (var s in sounds!)
                 {
