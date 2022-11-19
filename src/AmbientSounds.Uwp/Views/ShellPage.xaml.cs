@@ -22,12 +22,6 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
-            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
-            this.Unloaded += (_, _) => 
-            {
-                ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
-                ViewModel.Dispose();
-            };
 
             if (App.IsTenFoot)
             {
@@ -51,6 +45,7 @@ namespace AmbientSounds.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
             var navigator = App.Services.GetRequiredService<INavigator>();
             navigator.Frame = MainFrame;
 
@@ -62,11 +57,8 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-
-            // navigate content frame to blank page to ensure any
-            // uninitialize code is triggered. This addresses scenarios when
-            // the shell page navigates to screensaver page or other top level pages.
-            MainFrame.Navigate(typeof(Page));
+            ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
+            ViewModel.Dispose();
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)

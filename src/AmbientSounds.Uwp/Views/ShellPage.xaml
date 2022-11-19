@@ -177,7 +177,10 @@
 
                 <Grid x:Name="NavViewGrid" Margin="12,0,0,12">
                     <!--  Nav menu  -->
-                    <ListView x:Name="MenuList" SelectionChanged="OnSelectionChanged">
+                    <ListView
+                        x:Name="MenuList"
+                        SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}"
+                        SelectionChanged="OnSelectionChanged">
                         <ListView.ItemContainerStyle>
                             <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
