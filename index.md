@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/Microsoft%20Store-Download-brightgreen)](https://www.microsoft.com/store/productId/9P07XNM5CHP0) [![](https://img.shields.io/github/v/release/jenius-apps/ambie?label=Manual%20Install)](https://github.com/jenius-apps/ambie/releases) [![GitHub stars](https://img.shields.io/github/stars/jenius-apps/ambie?style=social)](https://github.com/jenius-apps/ambie) [![Twitter Follow](https://img.shields.io/twitter/follow/ambie_app?style=social)](https://twitter.com/ambie_app)
+[![](https://img.shields.io/badge/Microsoft%20Store-Download-brightgreen)](https://apps.microsoft.com/store/detail/ambie-white-noise/9P07XNM5CHP0?cid=ghp) [![](https://img.shields.io/github/v/release/jenius-apps/ambie?label=Manual%20Install)](https://github.com/jenius-apps/ambie/releases) [![GitHub stars](https://img.shields.io/github/stars/jenius-apps/ambie?style=social)](https://github.com/jenius-apps/ambie) [![Twitter Follow](https://img.shields.io/twitter/follow/ambie_app?style=social)](https://twitter.com/ambie_app)
 
 ## Features
 
