@@ -11,7 +11,7 @@
     mc:Ignorable="d">
 
     <Button x:Uid="MoreButton" Style="{StaticResource SubtleIconButton}">
-        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD0;" />
+        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphThreeDots}" />
         <Button.Flyout>
             <MenuFlyout Placement="BottomEdgeAlignedRight">
                 <MenuFlyoutItem Click="RateUsClicked" Text="{x:Bind strings:Resources.RateUsText}">

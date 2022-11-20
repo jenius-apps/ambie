@@ -190,6 +190,8 @@
             <x:String x:Key="GlyphInterruption">&#xE96D;</x:String>
             <x:String x:Key="GlyphChevronRight">&#xE9A8;</x:String>
             <x:String x:Key="GlyphSaleTag">&#xEBAA;</x:String>
+            <x:String x:Key="GlyphBack">&#xE921;</x:String>
+            <x:String x:Key="GlyphThreeDots">&#xEAD0;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

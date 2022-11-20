@@ -28,6 +28,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -42,23 +43,50 @@
 
         <Border
             Name="PlayerPanelBorder"
-            Height="80"
+            Grid.RowSpan="2"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Top"
+            VerticalAlignment="Stretch"
             BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
             BorderThickness="0,0,0,1">
             <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
         </Border>
 
-        <controls:TitleBarLogo
-            Margin="0,14,0,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top" />
+        <Button
+            x:Uid="CloseCompactMode"
+            Width="32"
+            Height="28"
+            Margin="4,4,0,0"
+            Canvas.ZIndex="1"
+            Command="{x:Bind ViewModel.CloseCompactCommand}"
+            Style="{StaticResource SmallSubtleIconButton}">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="15"
+                Glyph="{StaticResource GlyphBack}" />
+        </Button>
+
+        <Grid x:Name="AppTitleBar" Background="Transparent">
+            <!--  Width of the padding columns is set in LayoutMetricsChanged handler.  -->
+            <!--
+                Using padding columns instead of Margin ensures that the background
+                paints the area under the caption control buttons (for transparent buttons).
+            -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0" />
+                <ColumnDefinition />
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
+            </Grid.ColumnDefinitions>
+
+            <controls:TitleBarLogo
+                Grid.Column="1"
+                Margin="0,6,0,0"
+                HorizontalAlignment="Center" />
+        </Grid>
 
         <Grid
             Name="PlayerPanelGrid"
-            Height="80"
-            Padding="12,28,12,0"
+            Grid.Row="1"
+            Padding="4,0,6,4"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -69,15 +97,13 @@
             <controls:PlayerControl IsCompact="True" />
 
             <Button
-                x:Uid="CloseCompactMode"
                 Grid.Column="1"
                 Margin="12,0,0,0"
-                Command="{x:Bind ViewModel.CloseCompactCommand}"
                 Style="{StaticResource SmallSubtleIconButton}">
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="{StaticResource SmallIconSize}"
-                    Glyph="{StaticResource GlyphCompact}" />
+                    Glyph="{StaticResource GlyphSettings}" />
             </Button>
         </Grid>
 
