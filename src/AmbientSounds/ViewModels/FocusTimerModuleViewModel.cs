@@ -124,6 +124,12 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         }
     }
 
+    public bool UseCompactMode
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
+        set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
+    }
+
     public int FocusLength
     {
         get => _focusLength;

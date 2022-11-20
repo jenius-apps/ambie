@@ -127,5 +127,13 @@ namespace AmbientSounds.Controls
                 ViewModel.LoadRecentSettings(s);
             }
         }
+
+        private void OnSettingsClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is HyperlinkButton hb)
+            {
+                FlyoutBase.ShowAttachedFlyout(hb);
+            }
+        }
     }
 }
