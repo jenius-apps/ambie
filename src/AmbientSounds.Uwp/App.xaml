@@ -97,6 +97,8 @@
                 <Setter Property="Height" Value="44" />
             </Style>
 
+            <x:Double x:Key="SmallIconSize">18</x:Double>
+
             <Style
                 x:Key="SmallSubtleIconButton"
                 BasedOn="{StaticResource SubtleButton}"

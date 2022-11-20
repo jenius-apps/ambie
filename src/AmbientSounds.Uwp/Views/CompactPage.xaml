@@ -62,7 +62,7 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <controls:PlayerControl />
+            <controls:PlayerControl IsCompact="True" />
 
             <Button
                 x:Uid="CloseCompactMode"
@@ -71,7 +71,7 @@
                 Style="{StaticResource SmallSubtleIconButton}">
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="18"
+                    FontSize="{StaticResource SmallIconSize}"
                     Glyph="{StaticResource GlyphCompact}" />
             </Button>
         </Grid>
