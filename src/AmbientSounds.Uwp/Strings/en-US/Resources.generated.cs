@@ -1717,6 +1717,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsCompactMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Use compact mode with Focus Timer
+        /// </summary>
+        public static string SettingsCompactMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsCompactMode");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1859,6 +1872,7 @@ namespace AmbientSounds.Strings{
             Timer,
             TaskTitle,
             FreeBadgeInfo,
+            SettingsCompactMode,
         }
 
         private static ResourceLoader _resourceLoader;

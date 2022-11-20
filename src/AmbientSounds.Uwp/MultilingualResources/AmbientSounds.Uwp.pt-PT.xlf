@@ -805,6 +805,10 @@
           <source>Free this week!</source>
           <target state="translated">Gratuito esta semana</target>
         </trans-unit>
+        <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
+          <source>Use compact mode with Focus Timer</source>
+          <target state="new">Use compact mode with Focus Timer</target>
+        </trans-unit>
       </group>
     </body>
   </file>

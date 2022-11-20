@@ -715,4 +715,7 @@
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>Free this week!</value>
   </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Use compact mode with Focus Timer</value>
+  </data>
 </root>

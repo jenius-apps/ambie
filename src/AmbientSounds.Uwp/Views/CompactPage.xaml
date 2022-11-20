@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
@@ -104,6 +105,11 @@
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="{StaticResource SmallIconSize}"
                     Glyph="{StaticResource GlyphSettings}" />
+                <Button.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                        <ToggleMenuFlyoutItem IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}" Text="{x:Bind strings:Resources.SettingsCompactMode}" />
+                    </MenuFlyout>
+                </Button.Flyout>
             </Button>
         </Grid>
 
