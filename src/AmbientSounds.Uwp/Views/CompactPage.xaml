@@ -50,10 +50,15 @@
             <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
         </Border>
 
+        <controls:TitleBarLogo
+            Margin="0,14,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top" />
+
         <Grid
             Name="PlayerPanelGrid"
             Height="80"
-            Padding="12,24,12,0"
+            Padding="12,28,12,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
