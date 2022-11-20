@@ -8,7 +8,7 @@
   The best white noise app on Windows
 </p>
 <p align="center">
-  <a style="text-decoration:none" href="https://apps.microsoft.com/store/detail/ambie-white-noise/9P07XNM5CHP0" target="_blank">
+  <a style="text-decoration:none" href="https://apps.microsoft.com/store/detail/ambie-white-noise/9P07XNM5CHP0?cid=ghr" target="_blank">
     <img src="https://img.shields.io/badge/Microsoft%20Store-Download-brightgreen" alt="Store link" />
   </a>
   <a style="text-decoration:none" href="https://discord.gg/b9z3BeXk3D" target="_blank">
