@@ -59,6 +59,11 @@ public sealed partial class CompactPage : Page
         if (_coreTitleBar is { } bar)
         {
             bar.LayoutMetricsChanged -= TitleBarLayoutMetricsChanged;
+
+            // Important! Need to unset the title bar so that the
+            // main window's title bar works normally. If we do not unset this,
+            // the main window's title bar does not support drag and drop.
+            Window.Current.SetTitleBar(null);
         }
     }
 
