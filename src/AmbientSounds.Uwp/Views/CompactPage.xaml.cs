@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Controls;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
@@ -81,5 +83,27 @@ public sealed partial class CompactPage : Page
         // Required for interactive elements in bar.
         // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/shell/title-bar#interactive-content
         AppTitleBar.Height = sender.Height;
+    }
+
+    private void OnSegmentClicked(object sender, RoutedEventArgs e)
+    {
+        if (sender is SegmentItem item && item.Tag is string tag)
+        {
+            if (item.IsChecked)
+            {
+                // if item is already selected, do nothing.
+                return;
+            }
+
+            switch (tag)
+            {
+                case "home":
+                    ViewModel.CurrentView = CompactViewMode.Home;
+                    break;
+                case "focus":
+                    ViewModel.CurrentView = CompactViewMode.Focus;
+                    break;
+            }
+        }
     }
 }
