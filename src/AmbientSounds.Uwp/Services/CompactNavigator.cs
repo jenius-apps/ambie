@@ -21,7 +21,7 @@ public sealed class CompactNavigator : ICompactNavigator
         {
             Type pageType = mode switch
             {
-                CompactViewMode.Home => typeof(HomePage),
+                CompactViewMode.Home => typeof(CompactHomePage),
                 _ => typeof(FocusPage)
             };
 

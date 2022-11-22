@@ -166,6 +166,9 @@
             <x:Double x:Key="ImageCardHeight">208</x:Double>
             <x:Double x:Key="ImageCardWidth">148</x:Double>
             <x:Double x:Key="ImageCardShadowWidth">144</x:Double>
+            <x:Double x:Key="CompactImageCardHeight">104</x:Double>
+            <x:Double x:Key="CompactImageCardWidth">74</x:Double>
+            <x:Double x:Key="CompactImageCardShadowWidth">72</x:Double>
 
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
             <x:String x:Key="GlyphCalendar">&#xE972;</x:String>
