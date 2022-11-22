@@ -460,6 +460,7 @@ namespace AmbientSounds
                 .AddSingleton<IToastService, ToastService>()
                 .AddSingleton<IMsaAuthClient, MsalClient>()
                 .AddSingleton<INavigator, Navigator>()
+                .AddSingleton<ICompactNavigator, CompactNavigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()
                 .AddSingleton<PlayerTelemetryTracker>()
                 .AddSingleton<IMediaPlayer, WindowsMediaPlayer>()

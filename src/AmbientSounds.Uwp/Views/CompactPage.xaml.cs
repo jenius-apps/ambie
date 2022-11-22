@@ -36,6 +36,8 @@ public sealed partial class CompactPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        App.Services.GetRequiredService<ICompactNavigator>().ContentFrame = CompactContentFrame;
+
         // Required for interactive elements in bar.
         // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/shell/title-bar#interactive-content
         _coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
@@ -89,21 +91,14 @@ public sealed partial class CompactPage : Page
     {
         if (sender is SegmentItem item && item.Tag is string tag)
         {
-            if (item.IsChecked)
+            CompactViewMode requestedMode = tag switch
             {
-                // if item is already selected, do nothing.
-                return;
-            }
+                "home" => CompactViewMode.Home,
+                "focus" => CompactViewMode.Focus,
+                _ => CompactViewMode.Home
+            };
 
-            switch (tag)
-            {
-                case "home":
-                    ViewModel.CurrentView = CompactViewMode.Home;
-                    break;
-                case "focus":
-                    ViewModel.CurrentView = CompactViewMode.Focus;
-                    break;
-            }
+            ViewModel.NavigateTo(requestedMode);
         }
     }
 }
