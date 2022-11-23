@@ -31,7 +31,7 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _titleBarVisible;
 
     [ObservableProperty]
-    private int _navMenuIndex;
+    private int _navMenuIndex = -1;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -129,23 +129,30 @@ public partial class ShellPageViewModel : ObservableObject
         OnPropertyChanged(nameof(CanSaveMix));
     }
 
-    public void Navigate(int index)
+    public void Navigate(ContentPageType pageType)
     {
-        if (index == 0)
+        if (NavMenuIndex == (int)pageType)
+        {
+            return;
+        }
+
+        if (pageType == ContentPageType.Home)
         {
             _navigator.ToHome();
         }
-        else if (index == 1)
+        else if (pageType == ContentPageType.Catalogue)
         {
             _navigator.ToCatalogue();
         }
-        else if (index == 2)
+        else if (pageType == ContentPageType.Focus)
         {
             _navigator.ToFocus();
         }
 
         UpdateTimeBannerVisibility();
         UpdateFocusDotVisibility();
+
+        NavMenuIndex = (int)pageType;
     }
 
     public async void OpenPremiumDialog()
@@ -186,7 +193,12 @@ public partial class ShellPageViewModel : ObservableObject
         // This ensures that the nav menu selects the correct
         // index. Previously, it could become out of sync when the content page
         // is changed programmatically (rather than the user selecting the nav item).
-        NavMenuIndex = (int)e;
+        if (NavMenuIndex != (int)e)
+        {
+            NavMenuIndex = (int)e;
+            UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
+        }
     }
 
     public void Dispose()

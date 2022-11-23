@@ -5,11 +5,13 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Windows.ApplicationModel.Resources;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Uwp.UI;
+
 
 namespace AmbientSounds.Views
 {
@@ -47,9 +49,12 @@ namespace AmbientSounds.Views
         {
             ViewModel.PropertyChanged += OnViewModelPropertyChanged;
             var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.Frame = MainFrame;
 
-            MenuList.SelectedIndex = 0;
+            if (navigator.Frame is null)
+            {
+                navigator.Frame = MainFrame;
+                ViewModel.Navigate(ContentPageType.Home);
+            }
 
             await ViewModel.InitializeAsync(e.Parameter as ShellPageNavigationArgs);
         }
@@ -82,11 +87,22 @@ namespace AmbientSounds.Views
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnMenuItemClicked(object sender, ItemClickEventArgs e)
         {
-            if (sender is ListView l)
+            if (e.ClickedItem is FrameworkElement f && f.FindParent<ListViewItem>() is { Tag: string tag })
             {
-                ViewModel.Navigate(l.SelectedIndex);
+                switch (tag)
+                {
+                    case "focus":
+                        ViewModel.Navigate(ContentPageType.Focus);
+                        break;
+                    case "catalogue":
+                        ViewModel.Navigate(ContentPageType.Catalogue);
+                        break;
+                    case "home":
+                        ViewModel.Navigate(ContentPageType.Home);
+                        break;
+                }
             }
         }
     }

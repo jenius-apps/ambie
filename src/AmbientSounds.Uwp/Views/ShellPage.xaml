@@ -174,8 +174,9 @@
                     <!--  Nav menu  -->
                     <ListView
                         x:Name="MenuList"
-                        SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}"
-                        SelectionChanged="OnSelectionChanged">
+                        IsItemClickEnabled="True"
+                        ItemClick="OnMenuItemClicked"
+                        SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}">
                         <ListView.ItemContainerStyle>
                             <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -185,6 +186,7 @@
                             <ListViewItem
                                 MinWidth="0"
                                 AutomationProperties.Name="{x:Bind strings:Resources.Home}"
+                                Tag="home"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.Home}">
                                 <StackPanel Orientation="Horizontal">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphHome}" />
@@ -198,6 +200,7 @@
                             <ListViewItem
                                 MinWidth="0"
                                 AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
+                                Tag="catalogue"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.Catalogue}">
                                 <StackPanel Orientation="Horizontal">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
@@ -211,6 +214,7 @@
                             <ListViewItem
                                 MinWidth="0"
                                 AutomationProperties.Name="{x:Bind strings:Resources.FocusText}"
+                                Tag="focus"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.FocusText}">
                                 <Grid>
                                     <StackPanel Orientation="Horizontal">
