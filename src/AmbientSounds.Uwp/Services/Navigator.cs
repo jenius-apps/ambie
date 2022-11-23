@@ -120,10 +120,13 @@ public class Navigator : INavigator
     /// <inheritdoc/>
     public async Task CloseCompactOverlayAsync(CompactViewMode closingOverlayMode)
     {
+        // Note: GoBack must occur before the await call below.
+        // This gives time for the new shellpage content frame
+        // to be correctly set so that the subsequent navigation works correctly.
+        GoBack(nameof(CompactPage));
+
         var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
         await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);
-
-        GoBack(nameof(CompactPage));
 
         switch (closingOverlayMode)
         {

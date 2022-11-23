@@ -53,7 +53,11 @@ namespace AmbientSounds.Views
             if (navigator.Frame is null)
             {
                 navigator.Frame = MainFrame;
-                ViewModel.Navigate(ContentPageType.Home);
+
+                if (e.NavigationMode != NavigationMode.Back)
+                {
+                    ViewModel.Navigate(ContentPageType.Home);
+                }
             }
 
             await ViewModel.InitializeAsync(e.Parameter as ShellPageNavigationArgs);
@@ -61,7 +65,7 @@ namespace AmbientSounds.Views
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            base.OnNavigatedFrom(e);
+            App.Services.GetRequiredService<INavigator>().Frame = null;
             ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
             ViewModel.Dispose();
         }
