@@ -29,6 +29,10 @@
                         <Setter Target="MainGrid.Height" Value="{StaticResource CompactImageCardHeight}" />
                         <Setter Target="ShadowRect.Width" Value="{StaticResource CompactImageCardShadowWidth}" />
                         <Setter Target="ShadowRect.Height" Value="{StaticResource CompactImageCardHeight}" />
+                        <Setter Target="MainGrid.CornerRadius" Value="4" />
+                        <Setter Target="ShadowRect.RadiusX" Value="4" />
+                        <Setter Target="ShadowRect.RadiusY" Value="4" />
+                        <Setter Target="NameText.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -210,6 +214,7 @@
                             Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
                     </StackPanel>
                     <TextBlock
+                        x:Name="NameText"
                         Foreground="White"
                         Text="{x:Bind ViewModel.Name, Mode=OneWay}"
                         TextTrimming="CharacterEllipsis"

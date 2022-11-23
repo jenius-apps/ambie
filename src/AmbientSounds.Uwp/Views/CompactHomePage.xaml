@@ -16,7 +16,7 @@
     </Page.Resources>
 
     <controls:SoundGridControl
-        x:Name="SoundGallery"
         Margin="14,12,0,0"
+        IsCompact="True"
         ItemTemplate="{StaticResource CompactPageSoundTemplate}" />
 </Page>
