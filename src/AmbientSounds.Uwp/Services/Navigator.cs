@@ -33,6 +33,7 @@ public class Navigator : INavigator
                 break;
             case nameof(ScreensaverPage):
                 GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
+                ToHome();
                 break;
             default:
                 GoBackSafely(Frame);
