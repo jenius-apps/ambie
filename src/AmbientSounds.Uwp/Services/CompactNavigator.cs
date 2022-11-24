@@ -1,9 +1,5 @@
 ﻿using AmbientSounds.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
@@ -21,8 +17,9 @@ public sealed class CompactNavigator : ICompactNavigator
         {
             Type pageType = mode switch
             {
+                CompactViewMode.Focus => typeof(CompactFocusPage),
                 CompactViewMode.Home => typeof(CompactHomePage),
-                _ => typeof(FocusPage)
+                _ => typeof(CompactHomePage)
             };
 
             f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
