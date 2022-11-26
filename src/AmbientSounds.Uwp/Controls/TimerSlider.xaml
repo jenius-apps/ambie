@@ -12,12 +12,22 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="40" />
         </Grid.ColumnDefinitions>
 
+        <TextBlock
+            Grid.ColumnSpan="2"
+            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+            Text="{x:Bind Header, Mode=OneWay}" />
+
         <Slider
+            Grid.Row="1"
             Margin="0,4,12,0"
             HorizontalAlignment="Stretch"
             AutomationProperties.HelpText="{x:Bind loc:LocalizationConverter.SliderHelpText(Maximum), Mode=OneWay}"
@@ -30,6 +40,7 @@
             Value="{x:Bind Value, Mode=TwoWay}" />
 
         <TextBlock
+            Grid.Row="1"
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"

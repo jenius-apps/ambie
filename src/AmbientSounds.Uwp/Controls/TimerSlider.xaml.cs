@@ -18,6 +18,18 @@ namespace AmbientSounds.Controls
             typeof(TimerSlider),
             new PropertyMetadata(string.Empty));
 
+        public string Header
+        {
+            get => (string)GetValue(HeaderProperty);
+            set => SetValueDp(HeaderProperty, value);
+        }
+
+        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
+            nameof(Header),
+            typeof(string),
+            typeof(TimerSlider),
+            new PropertyMetadata(string.Empty));
+
         public double Value
         {
             get => (double)GetValue(ValueProperty);

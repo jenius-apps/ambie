@@ -2,9 +2,11 @@
     x:Class="AmbientSounds.Controls.CompactFocusTimerModule"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -15,17 +17,38 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <winui:ProgressRing
-            Width="100"
-            Height="100"
-            IsIndeterminate="False"
-            Value="70" />
-        <winui:ProgressRing
-            Width="100"
-            Height="100"
-            IsIndeterminate="False"
-            Opacity="0.1"
-            Value="100" />
+
+        <!--  Sliders  -->
+        <StackPanel Margin="12,12,12,0" Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
+            <local:TimerSlider
+                Margin="12,0,0,0"
+                AutomationName="{x:Bind strings:Resources.FocusLength}"
+                Header="{x:Bind strings:Resources.FocusLength}"
+                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                Maximum="60"
+                StepFrequency="5"
+                TickFrequency="15"
+                Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
+
+            <local:TimerSlider
+                Margin="12,4,0,0"
+                AutomationName="{x:Bind strings:Resources.RestLength}"
+                Header="{x:Bind strings:Resources.RestLength}"
+                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                Maximum="60"
+                StepFrequency="5"
+                TickFrequency="15"
+                Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
+
+            <local:TimerSlider
+                Margin="12,4,0,0"
+                AutomationName="{x:Bind strings:Resources.Repeats}"
+                Header="{x:Bind strings:Resources.Repeats}"
+                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                Maximum="8"
+                TickFrequency="2"
+                Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
+        </StackPanel>
 
         <Grid
             Grid.Row="1"
@@ -35,17 +58,29 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button
+
+            <Border
                 Grid.ColumnSpan="2"
-                Height="40"
+                Margin="-12"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="0,1,0,0">
+                <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+            </Border>
+
+            <Button
+                Grid.ColumnSpan="1"
+                Height="32"
                 HorizontalAlignment="Stretch"
                 Content="Start" />
             <Button
                 Grid.Column="1"
-                Height="40"
+                Height="32"
                 HorizontalAlignment="Stretch"
+                Click="{x:Bind ViewModel.Stop}"
                 Content="Stop"
-                Visibility="Collapsed" />
+                Visibility="Visible" />
         </Grid>
     </Grid>
 </UserControl>

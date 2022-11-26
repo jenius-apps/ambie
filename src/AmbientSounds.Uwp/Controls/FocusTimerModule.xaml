@@ -277,14 +277,11 @@
                         VerticalAlignment="Center"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                         <StackPanel>
-                            <TextBlock
-                                Margin="12,0,12,0"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind strings:Resources.FocusLength}" />
                             <local:TimerSlider
                                 x:Name="Slider1"
                                 Margin="12,0,0,0"
                                 AutomationName="{x:Bind strings:Resources.FocusLength}"
+                                Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="60"
                                 StepFrequency="5"
@@ -313,15 +310,11 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock
-                                x:Name="BreakLength"
-                                Margin="12,24,12,0"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind strings:Resources.RestLength}" />
                             <local:TimerSlider
                                 x:Name="Slider2"
-                                Margin="12,0,0,0"
+                                Margin="12,24,0,0"
                                 AutomationName="{x:Bind strings:Resources.RestLength}"
+                                Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="60"
                                 StepFrequency="5"
@@ -352,15 +345,11 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock
-                                x:Name="Repeats"
-                                Margin="12,24,12,0"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind strings:Resources.Repeats}" />
                             <local:TimerSlider
                                 x:Name="Slider3"
-                                Margin="12,0,0,0"
+                                Margin="12,24,0,0"
                                 AutomationName="{x:Bind strings:Resources.Repeats}"
+                                Header="{x:Bind strings:Resources.Repeats}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="8"
                                 TickFrequency="2"
