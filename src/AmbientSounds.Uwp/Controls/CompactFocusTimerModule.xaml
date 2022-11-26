@@ -18,6 +18,19 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="StartButton.(Grid.ColumnSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <!--  Sliders  -->
         <StackPanel Margin="12,12,12,0" Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
             <local:TimerSlider
@@ -70,17 +83,37 @@
             </Border>
 
             <Button
-                Grid.ColumnSpan="1"
-                Height="32"
+                x:Name="StartButton"
+                Grid.ColumnSpan="2"
+                Height="36"
                 HorizontalAlignment="Stretch"
-                Content="Start" />
+                AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
+                Click="{x:Bind ViewModel.PlayOrPause}"
+                IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}">
+                <Grid>
+                    <FontIcon
+                        FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                        FontSize="14"
+                        Glyph="&#xF5B0;"
+                        Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
+                    <FontIcon
+                        FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                        FontSize="14"
+                        Glyph="&#xE62E;"
+                        Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
+                </Grid>
+            </Button>
             <Button
                 Grid.Column="1"
-                Height="32"
+                Height="36"
                 HorizontalAlignment="Stretch"
                 Click="{x:Bind ViewModel.Stop}"
-                Content="Stop"
-                Visibility="Visible" />
+                Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                <FontIcon
+                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                    FontSize="14"
+                    Glyph="&#xEE95;" />
+            </Button>
         </Grid>
     </Grid>
 </UserControl>
