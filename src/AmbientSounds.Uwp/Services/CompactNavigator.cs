@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Views;
 using System;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
@@ -22,7 +23,10 @@ public sealed class CompactNavigator : ICompactNavigator
                 _ => typeof(CompactHomePage)
             };
 
-            f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
+            if (f.CurrentSourcePageType != pageType)
+            {
+                f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
+            }
         }
     }
 }

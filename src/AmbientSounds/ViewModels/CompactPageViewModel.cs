@@ -54,11 +54,6 @@ public sealed partial class CompactPageViewModel : ObservableObject
 
     public void NavigateTo(CompactViewMode requestedViewMode)
     {
-        if (CurrentView == requestedViewMode)
-        {
-            return;
-        }
-
         CurrentView = requestedViewMode;
         _compactNavigator.NavigateTo(requestedViewMode);
     }
