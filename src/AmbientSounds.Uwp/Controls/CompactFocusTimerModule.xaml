@@ -54,15 +54,49 @@
                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
 
             <local:TimerSlider
-                Margin="12,4,0,0"
+                Margin="12,4,0,12"
                 AutomationName="{x:Bind strings:Resources.Repeats}"
                 Header="{x:Bind strings:Resources.Repeats}"
                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                 Maximum="8"
                 TickFrequency="2"
                 Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                        Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}"
+                        TextAlignment="Center" />
+                    <TextBlock
+                        FontSize="12"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        Text="Duration"
+                        TextAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="SemiBold"
+                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                        Text="{x:Bind ViewModel.EndTime, Mode=OneWay}"
+                        TextAlignment="Center" />
+                    <TextBlock
+                        FontSize="12"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        Text="End"
+                        TextAlignment="Center" />
+                </StackPanel>
+            </Grid>
         </StackPanel>
 
+        <!--  bottom buttons  -->
         <Grid
             Grid.Row="1"
             Padding="12"
