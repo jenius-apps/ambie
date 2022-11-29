@@ -200,7 +200,8 @@
                         <HyperlinkButton
                             Padding="8,4"
                             AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
-                            Command="{x:Bind ViewModel.OpenCompactModeCommand}">
+                            Command="{x:Bind ViewModel.OpenCompactModeCommand}"
+                            Visibility="{x:Bind IsDesktop}">
                             <ToolTipService.ToolTip>
                                 <Grid>
                                     <Grid.RowDefinitions>

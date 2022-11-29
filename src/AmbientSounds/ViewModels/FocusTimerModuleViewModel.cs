@@ -24,6 +24,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private readonly IFocusHistoryService _focusHistoryService;
     private readonly IFocusTaskService _taskService;
     private readonly INavigator _navigator;
+    private readonly ISystemInfoProvider _systemInfoProvider;
     private bool _isHelpMessageVisible;
     private int _focusLength;
     private int _restLength;
@@ -69,7 +70,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         IFocusHistoryService focusHistoryService,
         IUserSettings userSettings,
         IFocusTaskService taskService,
-        INavigator navigator)
+        INavigator navigator,
+        ISystemInfoProvider systemInfoProvider)
     {
         Guard.IsNotNull(focusService);
         Guard.IsNotNull(userSettings);
@@ -79,6 +81,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         Guard.IsNotNull(focusHistoryService);
         Guard.IsNotNull(taskService);
         Guard.IsNotNull(navigator);
+        Guard.IsNotNull(systemInfoProvider);
         _focusService = focusService;
         _userSettings = userSettings;
         _localizer = localizer;
@@ -87,6 +90,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         _focusHistoryService = focusHistoryService;
         _taskService = taskService;
         _navigator = navigator;
+        _systemInfoProvider = systemInfoProvider;
         IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
         UpdateButtonStates();
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
@@ -335,6 +339,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     private async Task TriggerCompactModeAsync()
     {
+        if (!_systemInfoProvider.IsDesktop())
+        {
+            return;
+        }
+
         if (_userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey))
         {
             await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
@@ -394,6 +403,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenCompactModeAsync()
     {
+        if (!_systemInfoProvider.IsDesktop())
+        {
+            return;
+        }
+
         await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
     }
 

@@ -102,6 +102,11 @@ public class Navigator : INavigator
     /// <inheritdoc/>
     public async Task ToCompactOverlayAsync(CompactViewMode mode)
     {
+        if (!App.IsDesktop)
+        {
+            return;
+        }
+
         if (RootFrame is Frame f)
         {
             // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
@@ -121,6 +126,11 @@ public class Navigator : INavigator
     /// <inheritdoc/>
     public async Task CloseCompactOverlayAsync(CompactViewMode closingOverlayMode)
     {
+        if (!App.IsDesktop)
+        {
+            return;
+        }
+
         GoBack(nameof(CompactPage));
         var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
         await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);
