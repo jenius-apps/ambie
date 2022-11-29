@@ -718,4 +718,10 @@
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Use compact mode with Focus Timer</value>
   </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>End</value>
+  </data>
 </root>

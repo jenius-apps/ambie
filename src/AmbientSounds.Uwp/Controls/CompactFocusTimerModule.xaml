@@ -77,7 +77,7 @@
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Text="Duration"
+                        Text="{x:Bind strings:Resources.DurationText}"
                         TextAlignment="Center" />
                 </StackPanel>
                 <StackPanel Grid.Column="1">
@@ -90,7 +90,7 @@
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Text="End"
+                        Text="{x:Bind strings:Resources.EndTimeText}"
                         TextAlignment="Center" />
                 </StackPanel>
             </Grid>
