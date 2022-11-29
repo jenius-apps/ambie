@@ -120,6 +120,14 @@
                 RadiusX="4"
                 RadiusY="4" />
 
+            <Border
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="4" />
+
             <controls:SegmentItem
                 AutomationName="{x:Bind strings:Resources.Home}"
                 Clicked="OnSegmentClicked"
