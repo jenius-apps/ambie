@@ -331,16 +331,17 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 { "hourOfDay", DateTime.Now.Hour.ToString() }
             });
 
-            // We only want to to trigger compact mode
-            // when starting a new session,
-            // not when resuming a paused session.
-            _ = TriggerCompactModeAsync();
+            if (successfullyStarted)
+            {
+                // We only want to perform these actions
+                // when starting a new session, not when resuming.
+                _ = TriggerCompactModeAsync();
+                _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
+            }
         }
 
         if (successfullyStarted)
         {
-            _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
-
             // Note that if the timer
             // didn't start successfully, it does not mean
             // we should hide the seconds ring. We don't care what the current state
