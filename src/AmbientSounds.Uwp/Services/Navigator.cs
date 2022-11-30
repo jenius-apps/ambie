@@ -109,6 +109,11 @@ public class Navigator : INavigator
 
         if (RootFrame is Frame f)
         {
+            if (f.CurrentSourcePageType == typeof(CompactPage))
+            {
+                return;
+            }
+
             // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
             preferences.CustomSize = new Windows.Foundation.Size(360, 500);
