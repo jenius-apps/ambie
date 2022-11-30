@@ -139,7 +139,7 @@ namespace AmbientSounds.Constants
             { HasClosedInterruptionMessageKey, false },
             { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
             { DevicePresenceIdKey, string.Empty },
-            { CompactOnFocusKey, true },
+            { CompactOnFocusKey, false },
         };
     }
 }
