@@ -31,13 +31,18 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private int _repetitions;
 
     [ObservableProperty]
+    private bool _isResting;
+    [ObservableProperty]
+    private bool _isFocusing;
+    [ObservableProperty]
     private bool _secondsRingVisible;
     [ObservableProperty]
     private int _secondsRemaining;
     [ObservableProperty]
-    private int _focusLengthRemaining;
+    [NotifyPropertyChangedFor(nameof(FocusLengthProgress))]
+    private double _focusLengthRemaining; 
     [ObservableProperty]
-    private int _restLengthRemaining;
+    private double _restLengthRemaining;
     [ObservableProperty]
     private int _repetitionsRemaining;
     [ObservableProperty]
@@ -57,6 +62,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private string _primaryButtonText = string.Empty;
     [ObservableProperty]
     private string _currentTimeRemaining = string.Empty;
+    [ObservableProperty]
+    private string _originalSegmentLength = string.Empty;
+    [ObservableProperty]
+    private string _timeElapsed = string.Empty;
     [ObservableProperty]
     private string _currentStatus = string.Empty;
     [ObservableProperty]
@@ -99,6 +108,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
 
     public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
+
+    public double FocusLengthProgress => FocusLength - FocusLengthRemaining;
 
     public bool TasksVisible => CancelVisible && 
         FocusTasks.Count > 0 && 
@@ -436,26 +447,34 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             RestLengthRemaining = RestLength;
             RepetitionsRemaining = Repetitions;
             CurrentTimeRemaining = string.Empty;
+            TimeElapsed = string.Empty;
+            OriginalSegmentLength = string.Empty;
             CurrentStatus = string.Empty;
+            IsFocusing = false;
+            IsResting = false;
             UpdateButtonStates();
 
             return;
         }
 
         CurrentTimeRemaining = e.Remaining.ToCountdownFormat();
+        TimeElapsed = (e.OriginalLength - e.Remaining).ToCountdownFormat();
+        OriginalSegmentLength = e.OriginalLength.ToCountdownFormat();
         CurrentStatus = e.SessionType.ToDisplayString(_localizer);
 
         if (e.SessionType == SessionType.Focus)
         {
-            FocusLengthRemaining = e.Remaining.Minutes;
+            FocusLengthRemaining = e.Remaining.TotalMinutes;
             RestLengthRemaining = RestLength;
         }
         else if (e.SessionType == SessionType.Rest)
         {
             FocusLengthRemaining = 0;
-            RestLengthRemaining = e.Remaining.Minutes;
+            RestLengthRemaining = e.Remaining.TotalMinutes;
         }
 
+        IsResting = e.SessionType == SessionType.Rest;
+        IsFocusing = e.SessionType == SessionType.Focus;
         RepetitionsRemaining = _focusService.GetRepetitionsRemaining(e);
         SecondsRingVisible = true;
         SecondsRemaining = e.Remaining.Seconds;

@@ -22,15 +22,15 @@ namespace AmbientSounds.Controls
 
         public static readonly DependencyProperty FocusLengthRemainingProperty = DependencyProperty.Register(
             nameof(FocusLengthRemaining),
-            typeof(int),
+            typeof(double),
             typeof(FocusTimer),
-            new PropertyMetadata(0));
+            new PropertyMetadata(0d));
 
         public static readonly DependencyProperty RestLengthRemainingProperty = DependencyProperty.Register(
             nameof(RestLengthRemaining),
-            typeof(int),
+            typeof(double),
             typeof(FocusTimer),
-            new PropertyMetadata(0));
+            new PropertyMetadata(0d));
 
         public static readonly DependencyProperty RepetitionsRemainingProperty = DependencyProperty.Register(
             nameof(RepetitionsRemaining),
@@ -56,15 +56,15 @@ namespace AmbientSounds.Controls
             set => SetValue(SecondsRemainingProperty, value);
         }
 
-        public int FocusLengthRemaining
+        public double FocusLengthRemaining
         {
-            get => (int)GetValue(FocusLengthRemainingProperty);
+            get => (double)GetValue(FocusLengthRemainingProperty);
             set => SetValue(FocusLengthRemainingProperty, value);
         }
 
-        public int RestLengthRemaining
+        public double RestLengthRemaining
         {
-            get => (int)GetValue(RestLengthRemainingProperty);
+            get => (double)GetValue(RestLengthRemainingProperty);
             set => SetValue(RestLengthRemainingProperty, value);
         }
 
