@@ -252,6 +252,9 @@
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceDictionaries\SharedTemplates.xaml.cs">
+      <DependentUpon>SharedTemplates.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\BackgroundDownloadService.cs" />
@@ -562,6 +565,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\VideosMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\SharedTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

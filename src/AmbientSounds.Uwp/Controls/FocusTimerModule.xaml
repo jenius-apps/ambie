@@ -448,6 +448,7 @@
                                 MaxHeight="160"
                                 Margin="0,8,0,0"
                                 Background="Transparent"
+                                ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
                                 ItemsSource="{x:Bind ViewModel.FocusTasks}"
                                 SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}">
                                 <animations:Implicit.ShowAnimations>
@@ -460,43 +461,6 @@
                                         To="0"
                                         Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>
-                                <FlipView.ItemTemplate>
-                                    <DataTemplate x:DataType="viewmodels:FocusTaskViewModel">
-                                        <Border
-                                            Margin="20,0"
-                                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                                            BorderThickness="1"
-                                            CornerRadius="8">
-                                            <Grid Padding="20,12" CornerRadius="8">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="auto" />
-                                                    <RowDefinition Height="*" />
-                                                </Grid.RowDefinitions>
-
-                                                <CheckBox HorizontalAlignment="Stretch" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}">
-                                                    <TextBlock Foreground="{ThemeResource TextFillColorPrimaryBrush}" Text="{x:Bind DisplayTitle}" />
-                                                </CheckBox>
-                                                <Grid Grid.Row="1">
-                                                    <TextBlock
-                                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                        Text="{x:Bind Text}"
-                                                        TextTrimming="CharacterEllipsis"
-                                                        TextWrapping="WrapWholeWords"
-                                                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(IsCompleted), Mode=OneWay}" />
-                                                    <TextBlock
-                                                        Grid.Row="1"
-                                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                        Text="{x:Bind Text}"
-                                                        TextDecorations="Strikethrough"
-                                                        TextTrimming="CharacterEllipsis"
-                                                        TextWrapping="WrapWholeWords"
-                                                        Visibility="{x:Bind IsCompleted, Mode=OneWay}" />
-                                                </Grid>
-                                            </Grid>
-                                        </Border>
-                                    </DataTemplate>
-                                </FlipView.ItemTemplate>
                             </FlipView>
                         </StackPanel>
                     </Grid>

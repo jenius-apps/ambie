@@ -1,0 +1,43 @@
+﻿<ResourceDictionary
+    x:Class="AmbientSounds.ResourceDictionaries.SharedTemplates"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AmbientSounds.Converters"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels">
+
+    <DataTemplate x:Key="TaskFlipViewItemTemplate" x:DataType="viewmodels:FocusTaskViewModel">
+        <Border
+            Margin="20,0"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+            BorderThickness="1"
+            CornerRadius="8">
+            <Grid Padding="20,12" CornerRadius="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <CheckBox HorizontalAlignment="Stretch" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}">
+                    <TextBlock Foreground="{ThemeResource TextFillColorPrimaryBrush}" Text="{x:Bind DisplayTitle}" />
+                </CheckBox>
+                <Grid Grid.Row="1">
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                        Text="{x:Bind Text}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWholeWords"
+                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(IsCompleted), Mode=OneWay}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        Text="{x:Bind Text}"
+                        TextDecorations="Strikethrough"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="WrapWholeWords"
+                        Visibility="{x:Bind IsCompleted, Mode=OneWay}" />
+                </Grid>
+            </Grid>
+        </Border>
+    </DataTemplate>
+</ResourceDictionary>

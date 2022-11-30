@@ -151,6 +151,14 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
+
+            <!--<FlipView
+                Grid.Row="1"
+                Background="Transparent"
+                ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
+                ItemsSource="{x:Bind ViewModel.FocusTasks}"
+                SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />-->
+
         </Grid>
 
         <!--  bottom buttons  -->
