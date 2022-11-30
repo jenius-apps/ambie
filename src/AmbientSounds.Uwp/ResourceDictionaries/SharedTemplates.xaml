@@ -7,7 +7,6 @@
 
     <DataTemplate x:Key="TaskFlipViewItemTemplate" x:DataType="viewmodels:FocusTaskViewModel">
         <Border
-            Margin="20,0"
             Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
             BorderBrush="{ThemeResource ControlElevationBorderBrush}"
             BorderThickness="1"

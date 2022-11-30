@@ -24,4 +24,12 @@ public sealed partial class CompactFocusTimerModule : UserControl, ICanInitializ
     {
         ViewModel.Uninitialize();
     }
+
+    private void OnTaskSelectedChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (sender is FlipView f)
+        {
+            ViewModel.SelectedTaskIndex = f.SelectedIndex;
+        }
+    }
 }
