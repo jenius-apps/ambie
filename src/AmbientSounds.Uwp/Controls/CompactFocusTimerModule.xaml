@@ -115,7 +115,6 @@
                     Foreground="{ThemeResource SystemAccentColor}"
                     IsIndeterminate="False"
                     Opacity="0.1"
-                    Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
                     Value="100" />
                 <winui:ProgressRing
                     Width="40"
@@ -126,6 +125,15 @@
                     Maximum="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
                     Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
                     Value="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}" />
+                <winui:ProgressRing
+                    Width="40"
+                    Height="40"
+                    HorizontalAlignment="Left"
+                    Foreground="{ThemeResource SystemAccentColorDark1}"
+                    IsIndeterminate="False"
+                    Maximum="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
+                    Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}"
+                    Value="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}" />
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="14"
@@ -134,7 +142,7 @@
                     Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}" />
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="24"
+                    FontSize="14"
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                     Glyph="{StaticResource GlyphSleep}"
                     Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />

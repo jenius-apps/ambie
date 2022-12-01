@@ -42,6 +42,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(FocusLengthProgress))]
     private double _focusLengthRemaining; 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(RestLengthProgress))]
     private double _restLengthRemaining;
     [ObservableProperty]
     private int _repetitionsRemaining;
@@ -110,6 +111,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
 
     public double FocusLengthProgress => FocusLength - FocusLengthRemaining;
+
+    public double RestLengthProgress => RestLength - RestLengthRemaining;
 
     public bool TasksVisible => CancelVisible && 
         FocusTasks.Count > 0 && 
