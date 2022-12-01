@@ -15,6 +15,7 @@
     <UserControl.Resources>
         <x:Double x:Key="SmallRingSize">40</x:Double>
         <x:Double x:Key="LargeRingSize">200</x:Double>
+        <x:Double x:Key="MediumRingSize">120</x:Double>
     </UserControl.Resources>
 
     <Grid>
@@ -31,6 +32,21 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="StartButton.(Grid.ColumnSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="270" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="BackgroundRing.Width" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="BackgroundRing.Height" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="FocusRing.Width" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="FocusRing.Height" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="RestRing.Width" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="RestRing.Height" Value="{StaticResource LargeRingSize}" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -101,7 +117,7 @@
             </Grid>
         </StackPanel>
 
-        <!--  progress with tasks  -->
+        <!--  task ui  -->
         <Grid Padding="24,24,24,12" Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -173,25 +189,29 @@
                 SelectionChanged="OnTaskSelectedChanged" />
         </Grid>
 
+        <!--  no task ui  -->
         <Grid Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
             <winui:ProgressRing
-                Width="{StaticResource LargeRingSize}"
-                Height="{StaticResource LargeRingSize}"
+                x:Name="BackgroundRing"
+                Width="{StaticResource MediumRingSize}"
+                Height="{StaticResource MediumRingSize}"
                 Foreground="{ThemeResource SystemAccentColor}"
                 IsIndeterminate="False"
                 Opacity="0.1"
                 Value="100" />
             <winui:ProgressRing
-                Width="{StaticResource LargeRingSize}"
-                Height="{StaticResource LargeRingSize}"
+                x:Name="FocusRing"
+                Width="{StaticResource MediumRingSize}"
+                Height="{StaticResource MediumRingSize}"
                 Foreground="{ThemeResource SystemAccentColor}"
                 IsIndeterminate="False"
                 Maximum="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
                 Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
                 Value="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}" />
             <winui:ProgressRing
-                Width="{StaticResource LargeRingSize}"
-                Height="{StaticResource LargeRingSize}"
+                x:Name="RestRing"
+                Width="{StaticResource MediumRingSize}"
+                Height="{StaticResource MediumRingSize}"
                 Foreground="{ThemeResource SystemAccentColorDark1}"
                 IsIndeterminate="False"
                 Maximum="{x:Bind ViewModel.RestLength, Mode=OneWay}"
