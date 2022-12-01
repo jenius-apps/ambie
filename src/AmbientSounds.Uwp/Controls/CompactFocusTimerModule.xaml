@@ -41,12 +41,9 @@
                         <AdaptiveTrigger MinWindowWidth="270" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="BackgroundRing.Width" Value="{StaticResource LargeRingSize}" />
-                        <Setter Target="BackgroundRing.Height" Value="{StaticResource LargeRingSize}" />
-                        <Setter Target="FocusRing.Width" Value="{StaticResource LargeRingSize}" />
-                        <Setter Target="FocusRing.Height" Value="{StaticResource LargeRingSize}" />
-                        <Setter Target="RestRing.Width" Value="{StaticResource LargeRingSize}" />
-                        <Setter Target="RestRing.Height" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="TimerRing.Width" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="TimerRing.Height" Value="{StaticResource LargeRingSize}" />
+                        <Setter Target="StatusText.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -128,32 +125,17 @@
                     <ColumnDefinition Width="40" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <winui:ProgressRing
+                <local:FocusTimer2
                     Width="{StaticResource SmallRingSize}"
                     Height="{StaticResource SmallRingSize}"
                     HorizontalAlignment="Left"
-                    Foreground="{ThemeResource SystemAccentColor}"
-                    IsIndeterminate="False"
-                    Opacity="0.1"
-                    Value="100" />
-                <winui:ProgressRing
-                    Width="{StaticResource SmallRingSize}"
-                    Height="{StaticResource SmallRingSize}"
-                    HorizontalAlignment="Left"
-                    Foreground="{ThemeResource SystemAccentColor}"
-                    IsIndeterminate="False"
-                    Maximum="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
-                    Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
-                    Value="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}" />
-                <winui:ProgressRing
-                    Width="{StaticResource SmallRingSize}"
-                    Height="{StaticResource SmallRingSize}"
-                    HorizontalAlignment="Left"
-                    Foreground="{ThemeResource SystemAccentColorDark1}"
-                    IsIndeterminate="False"
-                    Maximum="{x:Bind ViewModel.RestLength, Mode=OneWay}"
-                    Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}"
-                    Value="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}" />
+                    FocusLength="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
+                    FocusLengthProgress="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}"
+                    FocusRingVisible="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
+                    RestLength="{x:Bind ViewModel.RestLength, Mode=OneWay}"
+                    RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
+                    RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
+
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="14"
@@ -191,32 +173,16 @@
 
         <!--  no task ui  -->
         <Grid Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
-            <winui:ProgressRing
-                x:Name="BackgroundRing"
+            <local:FocusTimer2
+                x:Name="TimerRing"
                 Width="{StaticResource MediumRingSize}"
                 Height="{StaticResource MediumRingSize}"
-                Foreground="{ThemeResource SystemAccentColor}"
-                IsIndeterminate="False"
-                Opacity="0.1"
-                Value="100" />
-            <winui:ProgressRing
-                x:Name="FocusRing"
-                Width="{StaticResource MediumRingSize}"
-                Height="{StaticResource MediumRingSize}"
-                Foreground="{ThemeResource SystemAccentColor}"
-                IsIndeterminate="False"
-                Maximum="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
-                Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
-                Value="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}" />
-            <winui:ProgressRing
-                x:Name="RestRing"
-                Width="{StaticResource MediumRingSize}"
-                Height="{StaticResource MediumRingSize}"
-                Foreground="{ThemeResource SystemAccentColorDark1}"
-                IsIndeterminate="False"
-                Maximum="{x:Bind ViewModel.RestLength, Mode=OneWay}"
-                Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}"
-                Value="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}" />
+                FocusLength="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
+                FocusLengthProgress="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}"
+                FocusRingVisible="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
+                RestLength="{x:Bind ViewModel.RestLength, Mode=OneWay}"
+                RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
+                RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid>
@@ -233,7 +199,11 @@
                         Glyph="{StaticResource GlyphSleep}"
                         Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
                 </Grid>
-                <TextBlock Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}" TextAlignment="Center" />
+                <TextBlock
+                    x:Name="StatusText"
+                    Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
+                    TextAlignment="Center"
+                    Visibility="Collapsed" />
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
                     <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />

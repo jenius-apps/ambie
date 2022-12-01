@@ -166,6 +166,9 @@
     <Compile Include="Controls\FocusTimer.xaml.cs">
       <DependentUpon>FocusTimer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FocusTimer2.xaml.cs">
+      <DependentUpon>FocusTimer2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FocusTimerModule.xaml.cs">
       <DependentUpon>FocusTimerModule.xaml</DependentUpon>
     </Compile>
@@ -461,6 +464,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FocusTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FocusTimer2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
