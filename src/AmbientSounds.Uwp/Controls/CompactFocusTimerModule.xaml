@@ -243,6 +243,16 @@
         </Grid>
 
         <!--  bottom buttons  -->
+
+        <Border
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="0,1,0,0">
+            <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+        </Border>
+
         <Grid
             Grid.Row="1"
             Padding="12"
@@ -251,16 +261,6 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <Border
-                Grid.ColumnSpan="2"
-                Margin="-12"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                BorderThickness="0,1,0,0">
-                <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
-            </Border>
 
             <Button
                 x:Name="StartButton"
