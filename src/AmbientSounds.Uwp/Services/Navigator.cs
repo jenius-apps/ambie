@@ -116,7 +116,7 @@ public class Navigator : INavigator
 
             // Ref: https://programmer.group/uwp-use-compact-overlay-mode-to-always-display-on-the-front-end.html
             var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            preferences.CustomSize = new Windows.Foundation.Size(360, 500);
+            preferences.CustomSize = new Windows.Foundation.Size(272, 452);
             bool success = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(
                 ApplicationViewMode.CompactOverlay,
                 preferences);
