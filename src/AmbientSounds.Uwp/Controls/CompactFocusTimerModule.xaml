@@ -7,6 +7,8 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -21,6 +23,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
@@ -115,7 +118,7 @@
         </StackPanel>
 
         <!--  task ui  -->
-        <Grid Padding="24,24,24,12" Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
+        <Grid Padding="24,24,24,0" Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -212,10 +215,33 @@
             </StackPanel>
         </Grid>
 
+        <Grid
+            Grid.Row="1"
+            Padding="24,12"
+            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+            <ItemsControl ItemsSource="{x:Bind ViewModel.Segments}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <toolkit:UniformGrid Rows="1" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:FocusSegmentViewModel">
+                        <Grid x:Name="ItemGrid" HorizontalAlignment="Stretch">
+                            <winui:ProgressBar
+                                Margin="1,0"
+                                IsIndeterminate="False"
+                                Value="{x:Bind Progress, Mode=OneWay}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+
         <!--  bottom buttons  -->
 
         <Border
-            Grid.Row="1"
+            Grid.Row="2"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
@@ -224,7 +250,7 @@
         </Border>
 
         <Grid
-            Grid.Row="1"
+            Grid.Row="2"
             Padding="12"
             ColumnSpacing="8">
             <Grid.ColumnDefinitions>

@@ -14,6 +14,12 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace AmbientSounds.ViewModels;
 
+public partial class FocusSegmentViewModel : ObservableObject
+{
+    [ObservableProperty]
+    private double _progress;
+}
+
 public partial class FocusTimerModuleViewModel : ObservableObject
 {
     private readonly IFocusService _focusService;
@@ -109,6 +115,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
 
     public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
+
+    public ObservableCollection<FocusSegmentViewModel> Segments { get; } = new();
 
     public double FocusLengthProgress => FocusLength - FocusLengthRemaining;
 
@@ -233,6 +241,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         RecentSettings.Clear();
         FocusTasks.Clear();
+        Segments.Clear();
     }
 
     public bool CanStartTutorial() => SlidersEnabled;
@@ -257,6 +266,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public void Stop()
     {
+        Segments.Clear();
         _focusService.StopTimer();
         _telemetry.TrackEvent(TelemetryConstants.FocusReset);
     }
@@ -351,6 +361,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 // when starting a new session, not when resuming.
                 _ = TriggerCompactModeAsync();
                 _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
+                InitializeSegments();
             }
         }
 
@@ -362,6 +373,17 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             // is. All we care is that if it was started,
             // make sure the ring is visible.
             SecondsRingVisible = true;
+        }
+    }
+
+    private void InitializeSegments()
+    {
+        Segments.Clear();
+        int index = 0;
+        while (index < (Repetitions + 1))
+        {
+            Segments.Add(new FocusSegmentViewModel());
+            index++;
         }
     }
 
@@ -458,6 +480,14 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             UpdateButtonStates();
 
             return;
+        }
+
+        int targetPosition = e.QueuePosition / 2;
+        if (e.SessionType == SessionType.Focus &&
+            e.QueuePosition % 2 == 0 &&
+            Segments.Count > targetPosition)
+        {
+            Segments[targetPosition].Progress = e.GetPercentComplete();
         }
 
         CurrentTimeRemaining = e.Remaining.ToCountdownFormat();
