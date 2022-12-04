@@ -218,6 +218,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         _focusService.FocusStateChanged += OnFocusStateChanged;
 
         await InitializeTasksAsync();
+        InitializeSegments();
 
         // Initialize recent list
         if (RecentSettings.Count > 0)
@@ -379,10 +380,32 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private void InitializeSegments()
     {
         Segments.Clear();
+        if (_focusService.CurrentState == FocusState.None)
+        {
+            return;
+        }
+
+        int activePosition = (int)Math.Floor(_focusService.CurrentSession.QueuePosition / 2d);
         int index = 0;
         while (index < (Repetitions + 1))
         {
-            Segments.Add(new FocusSegmentViewModel());
+            double progress = 0;
+            if (index < activePosition || 
+                (index == activePosition && _focusService.CurrentSession.SessionType == SessionType.Rest))
+            {
+                progress = 100;
+            }
+            else if (index == activePosition)
+            {
+                progress = _focusService.CurrentState == FocusState.Paused
+                    ? _focusService.CurrentSession.GetPercentComplete()
+                    : 0;
+            }
+                    
+            Segments.Add(new FocusSegmentViewModel()
+            {
+                Progress = progress
+            });
             index++;
         }
     }
