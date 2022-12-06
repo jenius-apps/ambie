@@ -19,6 +19,13 @@ namespace AmbientSounds.Extensions
             return localizer.GetString($"{nameof(SessionType)}{sessionType}");
         }
 
+        public static double GetPercentComplete(this FocusSession session)
+        {
+            return (session.OriginalLength - session.Remaining).TotalMinutes
+                / session.OriginalLength.TotalMinutes 
+                * 100;
+        }
+
         public static TimeSpan GetTotalTime(int focusLength, int restLength, int repetitions)
         {
             if (focusLength < 0 ||
@@ -31,34 +38,6 @@ namespace AmbientSounds.Extensions
             repetitions += 1;
             return TimeSpan.FromMinutes((focusLength + restLength) * repetitions);
         }
-
-        //public static HistoryAward GetAward(this FocusHistory history, double? percentComplete = null)
-        //{
-        //    if (history is null)
-        //    {
-        //        return HistoryAward.None;
-        //    }
-
-        //    if (percentComplete is null)
-        //    {
-        //        percentComplete = GetPercentComplete(history);
-        //    }
-
-        //    if (percentComplete >= 100)
-        //    {
-        //        return HistoryAward.Gold;
-        //    }
-        //    else if (percentComplete >= 50)
-        //    {
-        //        return HistoryAward.Silver;
-        //    }
-        //    else if (history.FocusSegmentsCompleted >= 1)
-        //    {
-        //        return HistoryAward.Bronze;
-        //    }
-
-        //    return HistoryAward.None;
-        //}
 
         public static double GetPercentComplete(this FocusHistory history)
         {

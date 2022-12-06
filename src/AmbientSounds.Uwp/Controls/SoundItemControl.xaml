@@ -21,6 +21,23 @@
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsCompact, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Width" Value="{StaticResource CompactImageCardWidth}" />
+                        <Setter Target="MainGrid.Height" Value="{StaticResource CompactImageCardHeight}" />
+                        <Setter Target="ShadowRect.Width" Value="{StaticResource CompactImageCardShadowWidth}" />
+                        <Setter Target="ShadowRect.Height" Value="{StaticResource CompactImageCardHeight}" />
+                        <Setter Target="MainGrid.CornerRadius" Value="4" />
+                        <Setter Target="ShadowRect.RadiusX" Value="4" />
+                        <Setter Target="ShadowRect.RadiusY" Value="4" />
+                        <Setter Target="NameText.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
                     <Storyboard>
                         <DoubleAnimation
                             Storyboard.TargetName="PresenceCount"
@@ -42,6 +59,7 @@
 
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
+                x:Name="ShadowRect"
                 Width="{StaticResource ImageCardShadowWidth}"
                 Height="{StaticResource ImageCardHeight}"
                 Fill="Black"
@@ -51,6 +69,7 @@
         </toolkit:DropShadowPanel>
 
         <Grid
+            x:Name="MainGrid"
             Width="{StaticResource ImageCardWidth}"
             Height="{StaticResource ImageCardHeight}"
             CornerRadius="8"
@@ -195,6 +214,7 @@
                             Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
                     </StackPanel>
                     <TextBlock
+                        x:Name="NameText"
                         Foreground="White"
                         Text="{x:Bind ViewModel.Name, Mode=OneWay}"
                         TextTrimming="CharacterEllipsis"

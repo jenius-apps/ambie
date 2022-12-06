@@ -1717,6 +1717,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsCompactMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Use compact mode with Focus Timer
+        /// </summary>
+        public static string SettingsCompactMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsCompactMode");
+            }
+        }
+        #endregion
+
+        #region DurationText
+        /// <summary>
+        ///   Looks up a localized string similar to: Duration
+        /// </summary>
+        public static string DurationText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DurationText");
+            }
+        }
+        #endregion
+
+        #region EndTimeText
+        /// <summary>
+        ///   Looks up a localized string similar to: End
+        /// </summary>
+        public static string EndTimeText
+        {
+            get
+            {
+                return _resourceLoader.GetString("EndTimeText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1859,6 +1898,9 @@ namespace AmbientSounds.Strings{
             Timer,
             TaskTitle,
             FreeBadgeInfo,
+            SettingsCompactMode,
+            DurationText,
+            EndTimeText,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -145,6 +145,9 @@
     <Compile Include="Controls\CatalogueListControl.xaml.cs">
       <DependentUpon>CatalogueListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CompactFocusTimerModule.xaml.cs">
+      <DependentUpon>CompactFocusTimerModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EditTextDialog.xaml.cs">
       <DependentUpon>EditTextDialog.xaml</DependentUpon>
     </Compile>
@@ -162,6 +165,9 @@
     </Compile>
     <Compile Include="Controls\FocusTimer.xaml.cs">
       <DependentUpon>FocusTimer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FocusTimer2.xaml.cs">
+      <DependentUpon>FocusTimer2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\FocusTimerModule.xaml.cs">
       <DependentUpon>FocusTimerModule.xaml</DependentUpon>
@@ -207,6 +213,9 @@
     <Compile Include="Controls\Screensaver.xaml.cs">
       <DependentUpon>Screensaver.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SegmentItem.xaml.cs">
+      <DependentUpon>SegmentItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
@@ -234,8 +243,8 @@
     <Compile Include="Controls\TimerSlider.xaml.cs">
       <DependentUpon>TimerSlider.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ToggleCompactButton.xaml.cs">
-      <DependentUpon>ToggleCompactButton.xaml</DependentUpon>
+    <Compile Include="Controls\TitleBarLogo.xaml.cs">
+      <DependentUpon>TitleBarLogo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Controls\VideosMenu.xaml.cs">
@@ -246,9 +255,13 @@
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceDictionaries\SharedTemplates.xaml.cs">
+      <DependentUpon>SharedTemplates.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\BackgroundDownloadService.cs" />
+    <Compile Include="Services\CompactNavigator.cs" />
     <Compile Include="Services\CustomAuthUiService.cs" />
     <Compile Include="Services\DispatcherExtensions.cs" />
     <Compile Include="Services\FilePicker.cs" />
@@ -279,6 +292,12 @@
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CompactFocusPage.xaml.cs">
+      <DependentUpon>CompactFocusPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CompactHomePage.xaml.cs">
+      <DependentUpon>CompactHomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CompactPage.xaml.cs">
       <DependentUpon>CompactPage.xaml</DependentUpon>
@@ -420,6 +439,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\CompactFocusTimerModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\EditTextDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -441,6 +464,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FocusTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\FocusTimer2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -500,6 +527,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SegmentItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -536,7 +567,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ToggleCompactButton.xaml">
+    <Page Include="Controls\TitleBarLogo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -544,7 +575,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceDictionaries\SharedTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CataloguePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CompactFocusPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CompactHomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

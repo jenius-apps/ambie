@@ -153,46 +153,89 @@
                     Margin="12,8"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top">
-                    <HyperlinkButton
-                        Padding="8,4"
-                        AutomationProperties.Name="{x:Bind strings:Resources.Help}"
-                        Click="{x:Bind ViewModel.ShowHelpMessage}"
-                        ToolTipService.ToolTip="{x:Bind strings:Resources.Help}"
-                        Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
-                            Glyph="{StaticResource GlyphHelp}" />
 
-                        <animations:Implicit.ShowAnimations>
-                            <animations:OpacityAnimation
-                                From="0"
-                                To="1"
-                                Duration="0:0:1" />
-                            <animations:TranslationAnimation
-                                From="20,0,0"
-                                To="0"
-                                Duration="0:0:1" />
-                        </animations:Implicit.ShowAnimations>
-                    </HyperlinkButton>
-
-                    <HyperlinkButton
-                        Padding="8,4"
-                        AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
-                        Command="{x:Bind ViewModel.InterruptionCommand}"
-                        ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}"
-                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
                         <animations:Implicit.ShowAnimations>
                             <animations:OpacityAnimation
                                 From="0"
                                 To="1"
                                 Duration="0:0:1" />
                         </animations:Implicit.ShowAnimations>
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
-                            Glyph="{StaticResource GlyphInterruption}" />
-                    </HyperlinkButton>
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.Help}"
+                            Click="{x:Bind ViewModel.ShowHelpMessage}"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.Help}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphHelp}" />
+                        </HyperlinkButton>
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                            Click="OnSettingsClicked"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphSettings}" />
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout Placement="BottomEdgeAlignedRight">
+                                    <ToggleMenuFlyoutItem IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}" Text="{x:Bind strings:Resources.SettingsCompactMode}" />
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </HyperlinkButton>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                        <animations:Implicit.ShowAnimations>
+                            <animations:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:1" />
+                        </animations:Implicit.ShowAnimations>
+
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
+                            Command="{x:Bind ViewModel.OpenCompactModeCommand}"
+                            Visibility="{x:Bind IsDesktop}">
+                            <ToolTipService.ToolTip>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                        FontWeight="SemiBold"
+                                        Text="Switch to compact mode"
+                                        TextWrapping="Wrap" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Text="In compact mode, we'll shrink the window and display only the necessary items to help you focus."
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+                            </ToolTipService.ToolTip>
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphCompact}" />
+                        </HyperlinkButton>
+
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                            Command="{x:Bind ViewModel.InterruptionCommand}"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphInterruption}" />
+                        </HyperlinkButton>
+                    </StackPanel>
                 </Grid>
 
                 <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
@@ -235,14 +278,11 @@
                         VerticalAlignment="Center"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                         <StackPanel>
-                            <TextBlock
-                                Margin="12,0,12,0"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind strings:Resources.FocusLength}" />
                             <local:TimerSlider
                                 x:Name="Slider1"
                                 Margin="12,0,0,0"
                                 AutomationName="{x:Bind strings:Resources.FocusLength}"
+                                Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="60"
                                 StepFrequency="5"
@@ -271,15 +311,11 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock
-                                x:Name="BreakLength"
-                                Margin="12,24,12,0"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind strings:Resources.RestLength}" />
                             <local:TimerSlider
                                 x:Name="Slider2"
-                                Margin="12,0,0,0"
+                                Margin="12,24,0,0"
                                 AutomationName="{x:Bind strings:Resources.RestLength}"
+                                Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="60"
                                 StepFrequency="5"
@@ -310,15 +346,11 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <TextBlock
-                                x:Name="Repeats"
-                                Margin="12,24,12,0"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind strings:Resources.Repeats}" />
                             <local:TimerSlider
                                 x:Name="Slider3"
-                                Margin="12,0,0,0"
+                                Margin="12,24,0,0"
                                 AutomationName="{x:Bind strings:Resources.Repeats}"
+                                Header="{x:Bind strings:Resources.Repeats}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="8"
                                 TickFrequency="2"
@@ -405,7 +437,7 @@
                                         To="1"
                                         Duration="0:0:2" />
                                     <animations:TranslationAnimation
-                                        From="0,-40,0"
+                                        From="0,-20,0"
                                         To="0"
                                         Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>
@@ -416,6 +448,7 @@
                                 MaxHeight="160"
                                 Margin="0,8,0,0"
                                 Background="Transparent"
+                                ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
                                 ItemsSource="{x:Bind ViewModel.FocusTasks}"
                                 SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}">
                                 <animations:Implicit.ShowAnimations>
@@ -428,43 +461,6 @@
                                         To="0"
                                         Duration="0:0:2" />
                                 </animations:Implicit.ShowAnimations>
-                                <FlipView.ItemTemplate>
-                                    <DataTemplate x:DataType="viewmodels:FocusTaskViewModel">
-                                        <Border
-                                            Margin="20,0"
-                                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                                            BorderThickness="1"
-                                            CornerRadius="8">
-                                            <Grid Padding="20,12" CornerRadius="8">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="auto" />
-                                                    <RowDefinition Height="*" />
-                                                </Grid.RowDefinitions>
-
-                                                <CheckBox HorizontalAlignment="Stretch" IsChecked="{x:Bind IsCompleted, Mode=TwoWay}">
-                                                    <TextBlock Foreground="{ThemeResource TextFillColorPrimaryBrush}" Text="{x:Bind DisplayTitle}" />
-                                                </CheckBox>
-                                                <Grid Grid.Row="1">
-                                                    <TextBlock
-                                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                        Text="{x:Bind Text}"
-                                                        TextTrimming="CharacterEllipsis"
-                                                        TextWrapping="WrapWholeWords"
-                                                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(IsCompleted), Mode=OneWay}" />
-                                                    <TextBlock
-                                                        Grid.Row="1"
-                                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                        Text="{x:Bind Text}"
-                                                        TextDecorations="Strikethrough"
-                                                        TextTrimming="CharacterEllipsis"
-                                                        TextWrapping="WrapWholeWords"
-                                                        Visibility="{x:Bind IsCompleted, Mode=OneWay}" />
-                                                </Grid>
-                                            </Grid>
-                                        </Border>
-                                    </DataTemplate>
-                                </FlipView.ItemTemplate>
                             </FlipView>
                         </StackPanel>
                     </Grid>

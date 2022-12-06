@@ -5,11 +5,13 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Windows.ApplicationModel.Resources;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Uwp.UI;
+
 
 namespace AmbientSounds.Views
 {
@@ -22,12 +24,6 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
-            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
-            this.Unloaded += (_, _) => 
-            {
-                ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
-                ViewModel.Dispose();
-            };
 
             if (App.IsTenFoot)
             {
@@ -51,12 +47,27 @@ namespace AmbientSounds.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            ViewModel.PropertyChanged += OnViewModelPropertyChanged;
             var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.Frame = MainFrame;
 
-            MenuList.SelectedIndex = 0;
+            if (navigator.Frame is null)
+            {
+                navigator.Frame = MainFrame;
+
+                if (e.NavigationMode != NavigationMode.Back)
+                {
+                    ViewModel.Navigate(ContentPageType.Home);
+                }
+            }
 
             await ViewModel.InitializeAsync(e.Parameter as ShellPageNavigationArgs);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            App.Services.GetRequiredService<INavigator>().Frame = null;
+            ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
+            ViewModel.Dispose();
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
@@ -80,11 +91,22 @@ namespace AmbientSounds.Views
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnMenuItemClicked(object sender, ItemClickEventArgs e)
         {
-            if (sender is ListView l)
+            if (e.ClickedItem is FrameworkElement f && f.FindParent<ListViewItem>() is { Tag: string tag })
             {
-                ViewModel.Navigate(l.SelectedIndex);
+                switch (tag)
+                {
+                    case "focus":
+                        ViewModel.Navigate(ContentPageType.Focus);
+                        break;
+                    case "catalogue":
+                        ViewModel.Navigate(ContentPageType.Catalogue);
+                        break;
+                    case "home":
+                        ViewModel.Navigate(ContentPageType.Home);
+                        break;
+                }
             }
         }
     }

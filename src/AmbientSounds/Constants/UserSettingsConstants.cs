@@ -110,6 +110,12 @@ namespace AmbientSounds.Constants
         public const string DevicePresenceIdKey = "DevicePresenceId";
 
         /// <summary>
+        /// Used to remember if compact mode should be
+        /// automatically opened when starting a focus session.
+        /// </summary>
+        public const string CompactOnFocusKey = "CompactOnFocus";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -132,7 +138,8 @@ namespace AmbientSounds.Constants
             { HasClosedFocusHelpMessageKey, false },
             { HasClosedInterruptionMessageKey, false },
             { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
-            { DevicePresenceIdKey, string.Empty }
+            { DevicePresenceIdKey, string.Empty },
+            { CompactOnFocusKey, false },
         };
     }
 }

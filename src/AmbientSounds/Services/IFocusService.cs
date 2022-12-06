@@ -18,6 +18,11 @@ namespace AmbientSounds.Services
         event EventHandler<FocusState>? FocusStateChanged;
 
         /// <summary>
+        /// Gets the current session.
+        /// </summary>
+        FocusSession CurrentSession { get; }
+
+        /// <summary>
         /// Gets the current state of the focus service. 
         /// </summary>
         FocusState CurrentState { get; }

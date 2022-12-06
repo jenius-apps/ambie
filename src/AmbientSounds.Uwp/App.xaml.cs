@@ -419,6 +419,7 @@ namespace AmbientSounds
                 .AddSingleton<VideosMenuViewModel>()
                 .AddSingleton<TimeBannerViewModel>()
                 .AddSingleton<FocusPageViewModel>()
+                .AddSingleton<CompactPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddSingleton<AppServiceController>()
@@ -459,6 +460,7 @@ namespace AmbientSounds
                 .AddSingleton<IToastService, ToastService>()
                 .AddSingleton<IMsaAuthClient, MsalClient>()
                 .AddSingleton<INavigator, Navigator>()
+                .AddSingleton<ICompactNavigator, CompactNavigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()
                 .AddSingleton<PlayerTelemetryTracker>()
                 .AddSingleton<IMediaPlayer, WindowsMediaPlayer>()

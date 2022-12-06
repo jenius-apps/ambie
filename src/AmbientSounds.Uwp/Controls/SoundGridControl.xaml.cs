@@ -15,6 +15,13 @@ namespace AmbientSounds.Controls
             typeof(SoundGridControl),
             null);
 
+        public static readonly DependencyProperty IsCompactProperty =
+            DependencyProperty.Register(
+                nameof(IsCompact),
+                typeof(bool),
+                typeof(SoundGridControl),
+                new PropertyMetadata(false));
+
         public SoundGridControl()
         {
             this.InitializeComponent();
@@ -29,6 +36,12 @@ namespace AmbientSounds.Controls
         {
             get => (DataTemplate?)GetValue(ItemTemplateProperty);
             set => SetValue(ItemTemplateProperty, value);
+        }
+
+        public bool IsCompact
+        {
+            get => (bool)GetValue(IsCompactProperty);
+            set => SetValue(IsCompactProperty, value);
         }
     }
 }

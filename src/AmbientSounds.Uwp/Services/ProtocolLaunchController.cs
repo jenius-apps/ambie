@@ -33,8 +33,8 @@ namespace AmbientSounds.Services
 
             if (!string.IsNullOrEmpty(isCompact) && Convert.ToBoolean(isCompact))
             {
-                // Enter compact view.
-                _navigator.ToCompact();
+                // music player compact view not supported for now.
+                //_navigator.ToCompact();
             }
 
             if (!string.IsNullOrEmpty(isAutoPlay) && Convert.ToBoolean(isAutoPlay))

@@ -1,0 +1,15 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.TitleBarLogo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:strings="using:AmbientSounds.Strings">
+
+    <StackPanel Orientation="Horizontal">
+        <Image Height="18" Source="ms-appx:///Assets/logo.png" />
+        <TextBlock
+            Margin="8,0,0,0"
+            VerticalAlignment="Center"
+            FontSize="12"
+            Text="{x:Bind strings:Resources.AppDisplayName}" />
+    </StackPanel>
+</UserControl>

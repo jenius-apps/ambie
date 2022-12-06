@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.CompactHomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="CompactPageSoundTemplate" x:DataType="viewmodels:SoundViewModel">
+            <controls:SoundItemControl IsCompact="True" ViewModel="{x:Bind}" />
+        </DataTemplate>
+    </Page.Resources>
+
+    <controls:SoundGridControl
+        Margin="14,12,0,0"
+        IsCompact="True"
+        ItemTemplate="{StaticResource CompactPageSoundTemplate}" />
+</Page>
