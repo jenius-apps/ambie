@@ -240,6 +240,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         _focusService.TimeUpdated -= OnTimeUpdated;
         _focusService.FocusStateChanged -= OnFocusStateChanged;
 
+        SelectedTaskIndex = 0;
         RecentSettings.Clear();
         FocusTasks.Clear();
         Segments.Clear();
