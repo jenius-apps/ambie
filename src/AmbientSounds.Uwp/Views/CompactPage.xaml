@@ -95,7 +95,10 @@
                     Glyph="{StaticResource GlyphSettings}" />
                 <Button.Flyout>
                     <MenuFlyout Placement="BottomEdgeAlignedRight">
-                        <ToggleMenuFlyoutItem IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}" Text="{x:Bind strings:Resources.SettingsCompactMode}" />
+                        <ToggleMenuFlyoutItem
+                            Click="OnCompactToggled"
+                            IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}"
+                            Text="{x:Bind strings:Resources.SettingsCompactMode}" />
                     </MenuFlyout>
                 </Button.Flyout>
             </Button>

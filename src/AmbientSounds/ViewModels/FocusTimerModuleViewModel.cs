@@ -421,6 +421,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         if (_userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey))
         {
             await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
+            _telemetry.TrackEvent(TelemetryConstants.MiniOpenedAutomatically, new Dictionary<string, string>
+            {
+                { "page", "focus" }
+            });
         }
     }
 
@@ -483,6 +487,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         }
 
         await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
+        _telemetry.TrackEvent(TelemetryConstants.MiniOpenedManually, new Dictionary<string, string>
+        {
+            { "page", "focus" }
+        });
     }
 
     private void OnTimeUpdated(object sender, FocusSession e)

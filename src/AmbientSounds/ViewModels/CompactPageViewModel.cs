@@ -17,6 +17,7 @@ public sealed partial class CompactPageViewModel : ObservableObject
     private readonly IUserSettings _userSettings;
     private readonly INavigator _navigator;
     private readonly ICompactNavigator _compactNavigator;
+    private readonly ITelemetry _telemetry;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsHomeSelected))]
@@ -26,14 +27,17 @@ public sealed partial class CompactPageViewModel : ObservableObject
     public CompactPageViewModel(
         INavigator navigator,
         IUserSettings userSettings,
-        ICompactNavigator compactNavigator)
+        ICompactNavigator compactNavigator,
+        ITelemetry telemetry)
     {                   
         Guard.IsNotNull(navigator);
         Guard.IsNotNull(userSettings);
         Guard.IsNotNull(compactNavigator);
+        Guard.IsNotNull(telemetry);
         _navigator = navigator;
         _userSettings = userSettings;
         _compactNavigator = compactNavigator;
+        _telemetry = telemetry;
     }
 
     public bool IsHomeSelected => CurrentView == CompactViewMode.Home;
@@ -54,6 +58,11 @@ public sealed partial class CompactPageViewModel : ObservableObject
 
     public void NavigateTo(CompactViewMode requestedViewMode)
     {
+        _telemetry.TrackEvent(TelemetryConstants.MiniNavigate, new Dictionary<string, string>
+        {
+            { "to", requestedViewMode.ToString() }
+        });
+
         CurrentView = requestedViewMode;
         _compactNavigator.NavigateTo(requestedViewMode);
     }
@@ -61,6 +70,7 @@ public sealed partial class CompactPageViewModel : ObservableObject
     [RelayCommand]
     private async Task CloseCompactAsync()
     {
+        _telemetry.TrackEvent(TelemetryConstants.MiniBack);
         await _navigator.CloseCompactOverlayAsync(_currentView);
     }
 }

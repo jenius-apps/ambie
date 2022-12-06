@@ -101,4 +101,17 @@ public sealed partial class CompactPage : Page
             ViewModel.NavigateTo(requestedMode);
         }
     }
+
+    private void OnCompactToggled(object sender, RoutedEventArgs e)
+    {
+        if (sender is ToggleMenuFlyoutItem item)
+        {
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(
+                item.IsChecked ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
+                new Dictionary<string, string>
+                {
+                        { "page", "compact" }
+                });
+        }
+    }
 }

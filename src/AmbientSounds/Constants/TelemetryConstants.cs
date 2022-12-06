@@ -128,6 +128,20 @@
         public const string FocusInterruptionLogged = Focus + "interruptionLogged";
         public const string FocusHistoryClicked = Focus + "historyClicked";
 
+        // mini
+        private const string Mini = "mini:";
+        public const string MiniOpenedManually = Mini + "openedManually";
+        public const string MiniOpenedAutomatically = Mini + "openedAutomatically";
+        public const string MiniAutoEnabled = Mini + "autoEnabled";
+        public const string MiniAutoDisabled = Mini + "autoDisabled";
+        public const string MiniBack = Mini + "back";
+        public const string MiniNavigate = Mini + "navigation";
+        //public const string MiniFocusStart = Mini + "focusStart";
+        //public const string MiniFocusPause = Mini + "focusPause";
+        //public const string MiniFocusStop = Mini + "focusStop";
+        //public const string MiniFocusResume = Mini + "focusResume";
+        //public const string MiniSoundClicked = Mini + "soundClicked";
+
         // tasks
         private const string Task = "task:";
         public const string TaskAdded = Task + "added";
