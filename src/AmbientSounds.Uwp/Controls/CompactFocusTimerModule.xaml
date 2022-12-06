@@ -167,7 +167,7 @@
 
             <FlipView
                 Grid.Row="1"
-                Margin="0,12,0,0"
+                Margin="0,12,0,16"
                 ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
                 ItemsSource="{x:Bind ViewModel.FocusTasks}"
                 SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=OneWay}"
@@ -180,6 +180,7 @@
                 x:Name="TimerRing"
                 Width="{StaticResource MediumRingSize}"
                 Height="{StaticResource MediumRingSize}"
+                VerticalAlignment="Center"
                 FocusLength="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
                 FocusLengthProgress="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}"
                 FocusRingVisible="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
@@ -217,7 +218,7 @@
 
         <Grid
             Grid.Row="1"
-            Padding="24,12"
+            Padding="24,0,24,12"
             Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
             <ItemsControl ItemsSource="{x:Bind ViewModel.Segments}">
                 <ItemsControl.ItemsPanel>
