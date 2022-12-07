@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>关闭紧凑模式</value>
+    <value>关闭 Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>关闭紧凑模式</value>
+    <value>关闭 Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>关闭</value>
@@ -37,7 +37,7 @@
     <value>查看更多选项</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>紧凑模式</value>
+    <value>Ambie Mini</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>联系开发者</value>
@@ -485,7 +485,7 @@
     <value>专注时长（分钟）</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>您可以在此处记下您的待办事项或任何笔记 🙂</value>
+    <value>你可以在这里写下任何笔记</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>在这里设置专注计划</value>
@@ -587,7 +587,7 @@
     <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>添加任务</value>
+    <value>添加任务，然后按开始按钮</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>任务</value>
@@ -609,5 +609,23 @@
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>本周免费</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>对焦时打开Ambie Mini</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>期间</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>结尾</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>打开 Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>使用 Ambie Mini，我们将缩小窗口并仅显示必要的项目以帮助您集中注意力。</value>
   </data>
 </root>

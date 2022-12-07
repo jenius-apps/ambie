@@ -8,12 +8,12 @@
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">Kompakt-Modus verlassen</target>
+          <target state="translated">Schließen Sie Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">Kompakt-Modus verlassen</target>
+          <target state="translated">Schließen Sie Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
@@ -42,7 +42,7 @@
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Ambie Mini</source>
-          <target state="needs-review-translation">Kompakt-Modus</target>
+          <target state="translated">Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
@@ -637,7 +637,7 @@
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
-          <target state="needs-review-translation">Hier können Sie Ihre Aufgabenliste oder Notizen aufschreiben</target>
+          <target state="translated">Hier können Sie sich Notizen machen 🙂</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
@@ -774,7 +774,7 @@
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>
-          <target state="needs-review-translation">Fügen Sie eine Aufgabe hinzu</target>
+          <target state="translated">Fügen Sie Aufgaben hinzu und drücken Sie dann die Starttaste</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
@@ -807,27 +807,27 @@
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="new">Open Ambie Mini when focusing</target>
+          <target state="translated">Öffnen Sie Ambie Mini beim Fokussieren</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
-          <target state="new">Duration</target>
+          <target state="translated">Dauer</target>
         </trans-unit>
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
-          <target state="new">End</target>
+          <target state="translated">Ende</target>
         </trans-unit>
         <trans-unit id="MiniText" translate="yes" xml:space="preserve">
           <source>Mini</source>
-          <target state="new">Mini</target>
+          <target state="translated">Mini</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini</source>
-          <target state="new">Open Ambie Mini</target>
+          <target state="translated">Öffnen Sie Ambie Mini</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="new">With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</target>
+          <target state="translated">Mit Ambie Mini verkleinern wir das Fenster und zeigen nur die notwendigen Elemente an, damit Sie sich besser konzentrieren können.</target>
         </trans-unit>
       </group>
     </body>

@@ -8,12 +8,12 @@
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">Esci dalla modalità compatta</target>
+          <target state="translated">Chiudi Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">Esci dalla modalità compatta</target>
+          <target state="translated">Chiudi Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
@@ -351,7 +351,7 @@
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Ambie Mini</source>
-          <target state="needs-review-translation">Modalità compatta</target>
+          <target state="translated">Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
@@ -360,7 +360,7 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="needs-review-translation">Attiverai la sincronizzazione della galleria dei suoni tra i tuoi dispositivi. E potrai caricare suoni.</target>
+          <target state="translated">Attiverai la sincronizzazione della galleria dei suoni tra i tuoi dispositivi. E potrai caricare suoni.</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -489,17 +489,17 @@
         </trans-unit>
         <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
           <source>Access premium, high quality sounds</source>
-          <target state="needs-review-translation">Ottieni l'accesso a suoni premium di alta qualità!</target>
+          <target state="translated">Ottieni l'accesso a suoni premium di alta qualità</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
           <source>Download video screensavers</source>
-          <target state="needs-review-translation">Un catalogo in espansione!</target>
+          <target state="translated">Un catalogo in espansione</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development</source>
-          <target state="needs-review-translation">Supporta lo sviluppo!</target>
+          <target state="translated">Supporta lo sviluppo</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
@@ -816,27 +816,27 @@
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="new">Open Ambie Mini when focusing</target>
+          <target state="translated">Apri Ambie Mini durante la messa a fuoco</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
-          <target state="new">Duration</target>
+          <target state="translated">Durata</target>
         </trans-unit>
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
-          <target state="new">End</target>
+          <target state="translated">Fine</target>
         </trans-unit>
         <trans-unit id="MiniText" translate="yes" xml:space="preserve">
           <source>Mini</source>
-          <target state="new">Mini</target>
+          <target state="translated">Mini</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini</source>
-          <target state="new">Open Ambie Mini</target>
+          <target state="translated">Apri Ambie Mini</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="new">With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</target>
+          <target state="translated">Con Ambie Mini, ridurremo la finestra e mostreremo solo gli elementi necessari per aiutarti a concentrarti.</target>
         </trans-unit>
       </group>
     </body>

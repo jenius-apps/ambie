@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>콤팩트 모드 닫기</value>
+    <value>닫기 암비 미니</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>콤팩트 모드 닫기</value>
+    <value>닫기 암비 미니</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>닫기</value>
@@ -28,13 +28,13 @@
     <value>저작권 Jenius Apps</value>
   </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
-    <value>Hello from Vancouver</value>
+    <value>밴쿠버에서 안녕하세요</value>
   </data>
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
-    <value>앺 정보 보기</value>
+    <value>앱 정보 보기</value>
   </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
-    <value>옵션 보기</value>
+    <value>더 많은 옵션 보기</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>개발자 연락하기</value>
@@ -61,10 +61,10 @@
     <value>타이머 정지</value>
   </data>
   <data name="PlayerPauseText" xml:space="preserve">
-    <value>음악 정지</value>
+    <value>정지시키다</value>
   </data>
   <data name="PlayerPlayText" xml:space="preserve">
-    <value>음악 재생</value>
+    <value>놀다</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>타이머 시작</value>
@@ -127,7 +127,7 @@
     <value>타이머 종료 그리고 시간 지우기</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>음량 조절</value>
+    <value>글로벌 볼륨</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>테마</value>
@@ -154,7 +154,7 @@
     <value>바람</value>
   </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
-    <value>뒤로 가기</value>
+    <value>뒤</value>
     <comment>Going back to the previous page</comment>
   </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
@@ -265,7 +265,7 @@
     <value>이름 바꾸기</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>컴팩트 모드</value>
+    <value>암비 미니</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>로그아웃</value>
@@ -485,7 +485,7 @@
     <value>집중 시간</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>여기에 할 일 목록이나 메모를 기록할 수 있습니다</value>
+    <value>여기에 메모를 작성할 수 있습니다</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>무슨 계획이야?</value>
@@ -547,8 +547,59 @@
   <data name="ZeroToMax" xml:space="preserve">
     <value>0 ~ {0}</value>
   </data>
+  <data name="History" xml:space="preserve">
+    <value>역사</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>중단</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>최근 기록이 여기에 표시됩니다</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>로그 중단</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>확인하다</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>잠시 중단됨</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>메모</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>무언가에 방해를 받았나요? 나중에 기록에서 검토할 수 있도록 여기에서 중단을 추적하십시오.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>최근 이력</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>완료된 라운드</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>좋은 노력</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>너 굉장하다</value>
+  </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>암비</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>집중할 작업을 추가하고 시작 버튼을 누르세요</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>최근 완료</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>편집하다</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>완료된 작업</value>
   </data>
   <data name="Timer" xml:space="preserve">
     <value>시간제 노동자</value>
@@ -558,5 +609,23 @@
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>이번주 무료</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>초점을 맞출 때 암비 미니 열기</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>지속</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>끝</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>미니</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>오픈 앰비 미니</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>암비 미니 를 사용하면 창을 축소하고 집중하는 데 필요한 항목만 표시합니다.</value>
   </data>
 </root>

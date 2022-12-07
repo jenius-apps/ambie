@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>コンパクトモードを終了する</value>
+    <value>アンビーミニを閉じる</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>コンパクトモードを終了する</value>
+    <value>アンビーミニを閉じる</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>閉じる</value>
@@ -37,7 +37,7 @@
     <value>その他のオプション</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>コンパクトモード</value>
+    <value>アンビーミニ</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>問い合わせ</value>
@@ -485,7 +485,7 @@
     <value>フォーカス議事録</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>ここにタスクリストやメモを書き留めることができます</value>
+    <value>ここにメモを書き留めることができます</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>どんな計画ですか？</value>
@@ -587,7 +587,7 @@
     <value>アンビー</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>タスクを追加する</value>
+    <value>タスクを追加し、開始ボタンを押します</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>タスク</value>
@@ -609,5 +609,23 @@
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>今週は無料</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>フォーカス時にアンビーミニを開く</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>間隔</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>終わり</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>ミニ</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>アンビーミニを開く</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>アンビーミニでは、ウィンドウを縮小し、必要な項目のみを表示して集中できるようにします。</value>
   </data>
 </root>

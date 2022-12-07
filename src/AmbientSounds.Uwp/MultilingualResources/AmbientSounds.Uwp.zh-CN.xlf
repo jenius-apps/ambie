@@ -8,12 +8,12 @@
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">关闭紧凑模式</target>
+          <target state="translated">关闭 Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="needs-review-translation">关闭紧凑模式</target>
+          <target state="translated">关闭 Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
@@ -42,7 +42,7 @@
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Ambie Mini</source>
-          <target state="needs-review-translation">紧凑模式</target>
+          <target state="translated">Ambie Mini</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
@@ -95,7 +95,7 @@
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
           <source>Telemetry</source>
-          <target state="needs-review-translation">遥测</target>
+          <target state="translated">遥测</target>
         </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
@@ -637,7 +637,7 @@
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
-          <target state="needs-review-translation">您可以在此处记下您的待办事项或任何笔记 🙂</target>
+          <target state="translated">你可以在这里写下任何笔记</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
@@ -774,7 +774,7 @@
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>
-          <target state="needs-review-translation">添加任务</target>
+          <target state="translated">添加任务，然后按开始按钮</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
@@ -807,27 +807,27 @@
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="new">Open Ambie Mini when focusing</target>
+          <target state="translated">对焦时打开Ambie Mini</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
-          <target state="new">Duration</target>
+          <target state="translated">期间</target>
         </trans-unit>
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
-          <target state="new">End</target>
+          <target state="translated">结尾</target>
         </trans-unit>
         <trans-unit id="MiniText" translate="yes" xml:space="preserve">
           <source>Mini</source>
-          <target state="new">Mini</target>
+          <target state="translated">Mini</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini</source>
-          <target state="new">Open Ambie Mini</target>
+          <target state="translated">打开 Ambie Mini</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="new">With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</target>
+          <target state="translated">使用 Ambie Mini，我们将缩小窗口并仅显示必要的项目以帮助您集中注意力。</target>
         </trans-unit>
       </group>
     </body>

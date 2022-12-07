@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Fechar modo compacto</value>
+    <value>Fechar Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Fechar modo compacto</value>
+    <value>Fechar Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Fechar</value>
@@ -265,7 +265,7 @@
     <value>Renomear</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>Modo compacto</value>
+    <value>Ambie Mini</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Sair</value>
@@ -368,13 +368,13 @@
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
-    <value>Acesse sons premium de alta qualidade!</value>
+    <value>Acesse sons premium de alta qualidade</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Catálogo em crescimento!</value>
+    <value>Catálogo em crescimento</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>Apoie o desenvolvimento!</value>
+    <value>Apoie o desenvolvimento</value>
   </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Olá de novo</value>
@@ -485,7 +485,7 @@
     <value>Minutos de foco</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>Você pode anotar sua lista de tarefas ou quaisquer notas aqui</value>
+    <value>Você pode anotar quaisquer notas aqui</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>Qual é o plano?</value>
@@ -587,7 +587,7 @@
     <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>Adicionar uma tarefa</value>
+    <value>Adicione tarefas e pressione o botão Iniciar</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>Tarefas</value>
@@ -609,5 +609,23 @@
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>Gratuito esta semana</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Abra o Ambie Mini ao focar</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Duração</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Fim</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Abrir Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Com o Ambie Mini, encolheremos a janela e exibiremos apenas os itens necessários para ajudá-lo a se concentrar.</value>
   </data>
 </root>

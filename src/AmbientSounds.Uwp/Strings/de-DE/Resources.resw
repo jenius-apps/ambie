@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Kompakt-Modus verlassen</value>
+    <value>Schließen Sie Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Kompakt-Modus verlassen</value>
+    <value>Schließen Sie Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Schließen</value>
@@ -37,7 +37,7 @@
     <value>Weitere Optionen</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>Kompakt-Modus</value>
+    <value>Ambie Mini</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Entwickler kontaktieren</value>
@@ -485,7 +485,7 @@
     <value>Minuten konzentrieren</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>Hier können Sie Ihre Aufgabenliste oder Notizen aufschreiben</value>
+    <value>Hier können Sie sich Notizen machen 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>Wie ist der Plan?</value>
@@ -587,7 +587,7 @@
     <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>Fügen Sie eine Aufgabe hinzu</value>
+    <value>Fügen Sie Aufgaben hinzu und drücken Sie dann die Starttaste</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>Aufgaben</value>
@@ -609,5 +609,23 @@
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>Diese Woche kostenlos</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Öffnen Sie Ambie Mini beim Fokussieren</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Ende</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Öffnen Sie Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Mit Ambie Mini verkleinern wir das Fenster und zeigen nur die notwendigen Elemente an, damit Sie sich besser konzentrieren können.</value>
   </data>
 </root>

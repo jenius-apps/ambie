@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Esci dalla modalità compatta</value>
+    <value>Chiudi Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Esci dalla modalità compatta</value>
+    <value>Chiudi Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Chiudi</value>
@@ -265,7 +265,7 @@
     <value>Rinomina</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>Modalità compatta</value>
+    <value>Ambie Mini</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Logout</value>
@@ -368,13 +368,13 @@
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
-    <value>Ottieni l'accesso a suoni premium di alta qualità!</value>
+    <value>Ottieni l'accesso a suoni premium di alta qualità</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Un catalogo in espansione!</value>
+    <value>Un catalogo in espansione</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>Supporta lo sviluppo!</value>
+    <value>Supporta lo sviluppo</value>
   </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Ciao</value>
@@ -609,5 +609,23 @@
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>Gratis questa settimana</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Apri Ambie Mini durante la messa a fuoco</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Durata</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Fine</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Apri Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Con Ambie Mini, ridurremo la finestra e mostreremo solo gli elementi necessari per aiutarti a concentrarti.</value>
   </data>
 </root>
