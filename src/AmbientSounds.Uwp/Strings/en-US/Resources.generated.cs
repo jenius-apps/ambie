@@ -30,7 +30,7 @@ namespace AmbientSounds.Strings{
 
         #region CompactMode
         /// <summary>
-        ///   Looks up a localized string similar to: Compact mode
+        ///   Looks up a localized string similar to: Ambie Mini
         /// </summary>
         public static string CompactMode
         {
@@ -1720,13 +1720,39 @@ namespace AmbientSounds.Strings{
 
         #region SettingsCompactMode
         /// <summary>
-        ///   Looks up a localized string similar to: Use compact mode with Focus Timer
+        ///   Looks up a localized string similar to: Open Ambie Mini when focusing
         /// </summary>
         public static string SettingsCompactMode
         {
             get
             {
                 return _resourceLoader.GetString("SettingsCompactMode");
+            }
+        }
+        #endregion
+
+        #region CompactModeTooltipTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Open Ambie Mini
+        /// </summary>
+        public static string CompactModeTooltipTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("CompactModeTooltipTitle");
+            }
+        }
+        #endregion
+
+        #region CompactModeTooltipMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.
+        /// </summary>
+        public static string CompactModeTooltipMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("CompactModeTooltipMessage");
             }
         }
         #endregion
@@ -1753,6 +1779,19 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("EndTimeText");
+            }
+        }
+        #endregion
+
+        #region MiniText
+        /// <summary>
+        ///   Looks up a localized string similar to: Mini
+        /// </summary>
+        public static string MiniText
+        {
+            get
+            {
+                return _resourceLoader.GetString("MiniText");
             }
         }
         #endregion
@@ -1899,8 +1938,11 @@ namespace AmbientSounds.Strings{
             TaskTitle,
             FreeBadgeInfo,
             SettingsCompactMode,
+            CompactModeTooltipTitle,
+            CompactModeTooltipMessage,
             DurationText,
             EndTimeText,
+            MiniText,
         }
 
         private static ResourceLoader _resourceLoader;

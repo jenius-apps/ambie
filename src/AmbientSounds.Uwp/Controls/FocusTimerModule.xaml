@@ -214,11 +214,11 @@
 
                                     <TextBlock
                                         FontWeight="SemiBold"
-                                        Text="Switch to compact mode"
+                                        Text="{x:Bind strings:Resources.CompactModeTooltipTitle}"
                                         TextWrapping="Wrap" />
                                     <TextBlock
                                         Grid.Row="1"
-                                        Text="In compact mode, we'll shrink the window and display only the necessary items to help you focus."
+                                        Text="{x:Bind strings:Resources.CompactModeTooltipMessage}"
                                         TextWrapping="WrapWholeWords" />
                                 </Grid>
                             </ToolTipService.ToolTip>

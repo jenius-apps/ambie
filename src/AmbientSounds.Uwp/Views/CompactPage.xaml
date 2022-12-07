@@ -69,7 +69,8 @@
             <controls:TitleBarLogo
                 Grid.Column="1"
                 Margin="0,6,0,0"
-                HorizontalAlignment="Center" />
+                HorizontalAlignment="Center"
+                DisplayText="{x:Bind strings:Resources.MiniText}" />
         </Grid>
 
         <Grid

@@ -7,12 +7,14 @@
     <body>
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Close compact mode</source>
-          <target state="translated">コンパクトモードを終了する</target>
+          <source>Close Ambie Mini</source>
+          <target state="needs-review-translation">コンパクトモードを終了する</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Close compact mode</source>
-          <target state="translated">コンパクトモードを終了する</target>
+          <source>Close Ambie Mini</source>
+          <target state="needs-review-translation">コンパクトモードを終了する</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
@@ -39,8 +41,9 @@
           <target state="translated">その他のオプション</target>
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
-          <source>Compact mode</source>
-          <target state="translated">コンパクトモード</target>
+          <source>Ambie Mini</source>
+          <target state="needs-review-translation">コンパクトモード</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
@@ -803,8 +806,8 @@
           <target state="translated">今週は無料</target>
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
-          <source>Use compact mode with Focus Timer</source>
-          <target state="new">Use compact mode with Focus Timer</target>
+          <source>Open Ambie Mini when focusing</source>
+          <target state="new">Open Ambie Mini when focusing</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
@@ -813,6 +816,18 @@
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
           <target state="new">End</target>
+        </trans-unit>
+        <trans-unit id="MiniText" translate="yes" xml:space="preserve">
+          <source>Mini</source>
+          <target state="new">Mini</target>
+        </trans-unit>
+        <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
+          <source>Open Ambie Mini</source>
+          <target state="new">Open Ambie Mini</target>
+        </trans-unit>
+        <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
+          <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
+          <target state="new">With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</target>
         </trans-unit>
       </group>
     </body>

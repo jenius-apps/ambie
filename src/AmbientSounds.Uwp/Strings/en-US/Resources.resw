@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Close compact mode</value>
+    <value>Close Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Close compact mode</value>
+    <value>Close Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Close</value>
@@ -142,7 +142,7 @@
     <value>View more options</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>Compact mode</value>
+    <value>Ambie Mini</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contact the creator</value>
@@ -716,12 +716,21 @@
     <value>Free this week!</value>
   </data>
   <data name="SettingsCompactMode" xml:space="preserve">
-    <value>Use compact mode with Focus Timer</value>
+    <value>Open Ambie Mini when focusing</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Open Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</value>
   </data>
   <data name="DurationText" xml:space="preserve">
     <value>Duration</value>
   </data>
-  <data name="EndTimeText" xml:space="preserve">
+	<data name="EndTimeText" xml:space="preserve">
     <value>End</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
   </data>
 </root>
