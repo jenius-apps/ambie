@@ -49,5 +49,10 @@ namespace AmbientSounds.Services
         /// List of URI-friendly paths to the files.
         /// </returns>
         Task<IReadOnlyList<string>> GetAvailableSoundEffectsAsync();
+
+        /// <summary>
+        /// Returns true if the app is currently in compact mode.
+        /// </summary>
+        bool IsCompact();
     }
 }

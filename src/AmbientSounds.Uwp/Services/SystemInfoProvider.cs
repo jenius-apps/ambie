@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Windows.UI.ViewManagement;
 
 #nullable enable
 
@@ -56,6 +57,12 @@ namespace AmbientSounds.Services.Uwp
             StorageFolder soundEffects = await assets.GetFolderAsync("SoundEffects");
             var sounds = await soundEffects.GetFilesAsync();
             return sounds.Select(static x => $"ms-appx:///Assets/SoundEffects/{x.Name}").ToArray();
+        }
+
+        /// <inheritdoc/>
+        public bool IsCompact()
+        {
+            return ApplicationView.GetForCurrentView().ViewMode == ApplicationViewMode.CompactOverlay;
         }
     }
 }

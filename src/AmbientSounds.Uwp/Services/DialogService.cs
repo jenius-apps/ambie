@@ -17,12 +17,16 @@ namespace AmbientSounds.Services.Uwp
     public class DialogService : IDialogService
     {
         private readonly IUserSettings _userSettings;
+        private readonly ISystemInfoProvider _systemInfoProvider;
 
-        public DialogService(IUserSettings userSettings)
+        public DialogService(
+            IUserSettings userSettings,
+            ISystemInfoProvider systemInfoProvider)
         {
-            Guard.IsNotNull(userSettings, nameof(userSettings));
-
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(systemInfoProvider);
             _userSettings = userSettings;
+            _systemInfoProvider = systemInfoProvider;
         }
 
         /// <summary>
@@ -142,7 +146,7 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public async Task OpenPremiumAsync()
         {
-            if (IsDialogOpen)
+            if (IsDialogOpen || _systemInfoProvider.IsCompact())
             {
                 return;
             }
