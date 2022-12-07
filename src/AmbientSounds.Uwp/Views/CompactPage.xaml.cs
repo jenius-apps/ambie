@@ -69,6 +69,8 @@ public sealed partial class CompactPage : Page
             // the main window's title bar does not support drag and drop.
             Window.Current.SetTitleBar(null);
         }
+
+        CompactContentFrame.Navigate(typeof(BlankPage));
     }
 
     private void UpdateBackgroundState()
