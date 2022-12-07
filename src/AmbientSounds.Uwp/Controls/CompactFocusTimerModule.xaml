@@ -168,10 +168,10 @@
             <FlipView
                 Grid.Row="1"
                 Margin="0,12,0,16"
+                Background="Transparent"
                 ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
                 ItemsSource="{x:Bind ViewModel.FocusTasks}"
-                SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=OneWay}"
-                SelectionChanged="OnTaskSelectedChanged" />
+                SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
         </Grid>
 
         <!--  no task ui  -->

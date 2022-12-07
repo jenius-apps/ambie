@@ -123,6 +123,7 @@ public class Navigator : INavigator
 
             if (success)
             {
+                BlankOutPage(Frame as Frame);
                 f.Navigate(typeof(CompactPage), mode, new SuppressNavigationTransitionInfo());
             }
         }
@@ -154,6 +155,20 @@ public class Navigator : INavigator
             default:
                 ToHome();
                 break;
+        }
+    }
+
+    private void BlankOutPage(Frame? f)
+    {
+        // Why blank out a frame?
+        // This is a workaround to ensure the uninitialize code
+        // of the frame page is executed. 
+        // This is required to avoid bugs related to viewmodels being
+        // initialized twice. 
+
+        if (f is not null)
+        {
+            f.Navigate(typeof(BlankPage));
         }
     }
 }

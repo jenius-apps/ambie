@@ -68,7 +68,6 @@ namespace AmbientSounds.Views
             App.Services.GetRequiredService<INavigator>().Frame = null;
             ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
             ViewModel.Dispose();
-            MainFrame.Navigate(typeof(BlankPage));
         }
 
         private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)

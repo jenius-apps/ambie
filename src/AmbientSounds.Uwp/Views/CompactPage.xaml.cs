@@ -70,6 +70,11 @@ public sealed partial class CompactPage : Page
             Window.Current.SetTitleBar(null);
         }
 
+        // Why blank out this frame?
+        // This is a workaround to ensure the uninitialize code
+        // of the frame page is executed. 
+        // This is required to avoid bugs with flipview index being changed
+        // while the flipview is being populated.
         CompactContentFrame.Navigate(typeof(BlankPage));
     }
 
