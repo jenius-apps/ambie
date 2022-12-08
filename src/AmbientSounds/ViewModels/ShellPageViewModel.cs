@@ -63,10 +63,14 @@ public partial class ShellPageViewModel : ObservableObject
         _soundMixService = soundMixService;
 
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
-        if (!systemInfoProvider.IsFirstRun() &&
-            !systemInfoProvider.IsTenFoot() &&
-            !_userSettings.Get<bool>(UserSettingsConstants.HasRated) &&
-            lastDismissDateTime.AddDays(7) <= DateTime.UtcNow)
+        var isNotFirstRun = !systemInfoProvider.IsFirstRun();
+        var isDesktop = systemInfoProvider.IsDesktop();
+        var hasNotBeenRated = !_userSettings.Get<bool>(UserSettingsConstants.HasRated);
+        var pastlastDismiss = lastDismissDateTime.AddDays(30) <= DateTime.UtcNow;
+        if (isNotFirstRun &&
+            isDesktop &&
+            hasNotBeenRated &&
+            pastlastDismiss)
         {
             _ratingTimer.Interval = 1800000; // 30 minutes
             _ratingTimer.IntervalElapsed += OnIntervalLapsed;

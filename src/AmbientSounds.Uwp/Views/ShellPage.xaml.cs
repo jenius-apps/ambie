@@ -11,7 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.UI;
-
+using System.Collections.Generic;
 
 namespace AmbientSounds.Views
 {
@@ -74,11 +74,16 @@ namespace AmbientSounds.Views
         {
             ViewModel.IsRatingMessageVisible = false;
             var storeContext = StoreContext.GetDefault();
-            await storeContext.RequestRateAndReviewAppAsync();
+            var result = await storeContext.RequestRateAndReviewAppAsync();
             App.Services.GetRequiredService<IUserSettings>().Set(
                 UserSettingsConstants.HasRated,
                 true);
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsClicked);
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(
+                TelemetryConstants.OobeRateUsClicked,
+                new Dictionary<string, string>
+                {
+                    { "status", result.Status.ToString() }
+                });
         }
 
         private void TeachingTip_CloseButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
