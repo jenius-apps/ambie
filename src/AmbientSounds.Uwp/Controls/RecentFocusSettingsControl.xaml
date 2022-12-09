@@ -36,10 +36,11 @@
             Text="{x:Bind Value, Mode=OneWay}" />
         <TextBlock
             Grid.Row="1"
-            Margin="0,4,0,0"
+            Margin="4,4,4,0"
             FontSize="10"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Text="{x:Bind Text, Mode=OneWay}"
-            TextAlignment="Center" />
+            TextAlignment="Center"
+            TextWrapping="Wrap" />
     </Grid>
 </UserControl>

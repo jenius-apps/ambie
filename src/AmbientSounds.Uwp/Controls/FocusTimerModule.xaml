@@ -567,7 +567,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:RecentFocusSettings">
                         <ListViewItem AutomationProperties.Name="{x:Bind converters:LocalizationConverter.RecentFocusAccessibleName(FocusMinutes, RestMinutes, Repeats)}">
-                            <Grid Width="200" Padding="8,24">
+                            <Grid Width="200" Padding="6,16">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
