@@ -115,12 +115,12 @@
                         <Setter Target="FocusTimerGrid.(Grid.Row)" Value="0" />
                         <Setter Target="FocusTimerGrid.(Grid.Column)" Value="1" />
                         <Setter Target="FocusTimerGrid.Margin" Value="0,20,0,20" />
-                        <Setter Target="SlidersPanel.(Grid.Column)" Value="0" />
                         <Setter Target="SlidersPanel.Margin" Value="12,12,0,12" />
-                        <Setter Target="SlidersPanel.Width" Value="300" />
+                        <Setter Target="SlidersPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="DataText.(Grid.Row)" Value="0" />
+                        <Setter Target="DataText.(Grid.Column)" Value="1" />
+                        <Setter Target="DataText.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="DataText.Margin" Value="12,12,0,12" />
-                        <Setter Target="DataText.VerticalAlignment" Value="Center" />
                         <Setter Target="CountdownTimerPanel.(Grid.Row)" Value="0" />
                         <Setter Target="CountdownTimerPanel.(Grid.Column)" Value="1" />
                         <Setter Target="ButtonPanelColumn1.Width" Value="100" />
@@ -269,17 +269,15 @@
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MaxWidth="400" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
 
                     <!--  Sliders  -->
                     <StackPanel
                         x:Name="SlidersPanel"
-                        Grid.Row="0"
-                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
                         Margin="12,12,12,0"
-                        VerticalAlignment="Center"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                         <StackPanel>
                             <local:TimerSlider
@@ -378,6 +376,7 @@
                         x:Name="DataText"
                         Grid.Row="1"
                         Grid.Column="0"
+                        Grid.ColumnSpan="2"
                         Margin="12"
                         RowSpacing="12"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
