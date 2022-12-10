@@ -116,6 +116,32 @@
                 <Setter Property="Height" Value="44" />
             </Style>
 
+            <Style x:Key="PlayTimerIcon" TargetType="FontIcon">
+                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Glyph" Value="&#xF5B0;" />
+            </Style>
+
+            <Style x:Key="PauseTimerIcon" TargetType="FontIcon">
+                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Glyph" Value="&#xE62E;" />
+            </Style>
+
+            <Style x:Key="StopTimerIcon" TargetType="FontIcon">
+                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Glyph" Value="&#xEE95;" />
+            </Style>
+
+            <Style
+                x:Key="TimerActionButton"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                TargetType="Button">
+                <Setter Property="Height" Value="36" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+            </Style>
+
             <Style
                 x:Key="TransparentRoundButtonStyle"
                 BasedOn="{StaticResource RoundButtonStyle}"
