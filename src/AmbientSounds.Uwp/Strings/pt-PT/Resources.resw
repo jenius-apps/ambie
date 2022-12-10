@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Fechar modo compacto</value>
+    <value>Fechar Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Fechar modo compacto</value>
+    <value>Fechar Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Fechar</value>
@@ -31,28 +31,25 @@
     <value>Olá de Vancouver</value>
   </data>
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ver informação da aplicação</value>
+    <value>Ver informações do aplicativo</value>
   </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ver mais opções</value>
-  </data>
-  <data name="CompactMode" xml:space="preserve">
-    <value>Modo Compacto</value>
+    <value>Veja mais opções</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
-    <value>Contactar o criador</value>
+    <value>Contate o desenvolvedor</value>
   </data>
   <data name="RateUsText" xml:space="preserve">
-    <value>Classifique-nos</value>
+    <value>Nos avalie</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
-    <value>Definições</value>
+    <value>Configurações</value>
   </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
-    <value>Partilhar ligação para Ambie</value>
+    <value>Compartilhar link para Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
-    <value>Adicione ou melhore as traduções</value>
+    <value>Adicionar ou melhorar as traduções</value>
   </data>
   <data name="OffTextBlock.Text" xml:space="preserve">
     <value>Desligado</value>
@@ -61,16 +58,16 @@
     <value>Ligado</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Pausar o temporizador</value>
+    <value>Pause o cronômetro</value>
   </data>
   <data name="PlayerPauseText" xml:space="preserve">
-    <value>Pausa</value>
+    <value>Pausar</value>
   </data>
   <data name="PlayerPlayText" xml:space="preserve">
-    <value>Tocar</value>
+    <value>Reproduzir</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Continuar o temporizador</value>
+    <value>Continue o cronômetro</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Pronto para tocar</value>
@@ -79,13 +76,13 @@
     <value>Telemetria</value>
   </data>
   <data name="SettingsText" xml:space="preserve">
-    <value>Definições</value>
+    <value>Configurações</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ver opções do despertador</value>
+    <value>Ver opções de temporizador</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Ver opções do despertador</value>
+    <value>Ver opções de temporizador</value>
   </data>
   <data name="Soundbeach" xml:space="preserve">
     <value>Praia</value>
@@ -97,7 +94,7 @@
     <value>Rua da cidade</value>
   </data>
   <data name="Soundcoffeeshop" xml:space="preserve">
-    <value>Café</value>
+    <value>Cafeteria</value>
   </data>
   <data name="Soundcreek" xml:space="preserve">
     <value>Riacho</value>
@@ -112,7 +109,7 @@
     <value>Floresta tropical</value>
   </data>
   <data name="Soundunderwater" xml:space="preserve">
-    <value>Debaixo de água</value>
+    <value>Embaixo da água</value>
   </data>
   <data name="Soundwaterfall" xml:space="preserve">
     <value>Cascata</value>
@@ -121,19 +118,16 @@
     <value>Ruído branco</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
-    <value>Os sons estão a carregar</value>
+    <value>Os sons estão carregando</value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
-    <value>Não foi possivel tocar o som</value>
+    <value>Não consigo tocar som</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Parar o temporizador e limpar o tempo</value>
+    <value>Pare o cronômetro e zere o tempo</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Volume global</value>
-  </data>
-  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>Volume do som</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Tema</value>
@@ -151,7 +145,7 @@
     <value>Vácuo</value>
   </data>
   <data name="Soundthunder" xml:space="preserve">
-    <value>Trovoada</value>
+    <value>Trovões</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Notificação para novos sons</value>
@@ -159,23 +153,23 @@
   <data name="Soundwind" xml:space="preserve">
     <value>Vento</value>
   </data>
-  <data name="AlreadyDownloaded" xml:space="preserve">
-    <value>Já transferido</value>
-    <comment>The sound is already downloaded</comment>
-  </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Voltar atrás</value>
+    <value>Volte</value>
     <comment>Going back to the previous page</comment>
   </data>
-  <data name="CanDownload" xml:space="preserve">
-    <value>Pode ser transferido</value>
-    <comment>The sound can be downloaded</comment>
-  </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Transferir som</value>
+    <value>Baixar som</value>
   </data>
   <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Transferir som</value>
+    <value>Baixar som</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Já baixado</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Pode ser baixado</value>
+    <comment>The sound can be downloaded</comment>
   </data>
   <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
     <value>Catálogo de sons</value>
@@ -185,34 +179,34 @@
     <comment>List of sounds</comment>
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
-    <value>Política de privacidade</value>
+    <value>Política de Privacidade</value>
   </data>
   <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Política de privacidade</value>
-  </data>
-  <data name="DeleteAppBarButton.Label" xml:space="preserve">
-    <value>Eliminar</value>
+    <value>Política de Privacidade</value>
   </data>
   <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Eliminar som</value>
+    <value>Excluir som</value>
   </data>
   <data name="DeleteTextBlock.Text" xml:space="preserve">
-    <value>Eliminar</value>
+    <value>Excluir</value>
   </data>
   <data name="DownloadTextBlock.Text" xml:space="preserve">
-    <value>Transferir</value>
+    <value>Download</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Excluir</value>
   </data>
   <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Tocar música aleatória</value>
+    <value>Reproduzir som aleatório</value>
   </data>
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Tocar música aleatória</value>
+    <value>Reproduzir som aleatório</value>
   </data>
   <data name="ScreensaverMode" xml:space="preserve">
-    <value>Modo Proteção de Ecrã</value>
+    <value>Modo protetor de tela</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
-    <value>Proteção de Ecrã</value>
+    <value>Protetor de tela</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Comprar som</value>
@@ -228,8 +222,11 @@
     <comment>Sound is paused</comment>
   </data>
   <data name="Playing" xml:space="preserve">
-    <value>Tocando</value>
+    <value>Reproduzindo</value>
     <comment>Sound is playing</comment>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Volume do som</value>
   </data>
   <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
     <value>Sons ativos</value>
@@ -241,49 +238,52 @@
     <value>Limpar todos os sons ativos</value>
   </data>
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Confirme a guardação</value>
+    <value>Confirmar salvamento</value>
   </data>
   <data name="GlobalVolume" xml:space="preserve">
     <value>Volume global</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
-    <value>Nome da mistura de som</value>
+    <value>Nome da mixagem de som</value>
   </data>
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>Opcional</value>
   </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Guardar mistura de som personalizada</value>
+    <value>Salvar mix de som personalizado</value>
   </data>
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Guardar mistura de som personalizada (Ctrl+S)</value>
+    <value>Salvar mix de som personalizado (Ctrl + S)</value>
   </data>
   <data name="CancelText" xml:space="preserve">
     <value>Cancelar</value>
   </data>
   <data name="RenameText" xml:space="preserve">
-    <value>Mudar o nome</value>
+    <value>Renomear</value>
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
-    <value>Mudar o nome</value>
+    <value>Renomear</value>
+  </data>
+  <data name="CompactMode" xml:space="preserve">
+    <value>Ambie Mini</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
-    <value>Terminar sessão</value>
+    <value>Sair</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>Isso permitirá a sincronização da galeria de som nos seus dispositivos.</value>
+    <value>Isso permitirá a sincronização da galeria de som em seus dispositivos. E você pode fazer upload de sons.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ver opções da conta</value>
+    <value>Ver opções de conta</value>
   </data>
   <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Ver opções da conta</value>
+    <value>Ver opções de conta</value>
   </data>
   <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Iniciar sessão</value>
+    <value>Entrar</value>
   </data>
   <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Iniciar sessão</value>
+    <value>Entrar</value>
   </data>
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sincronizar</value>
@@ -305,10 +305,10 @@
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
   <data name="SignIn" xml:space="preserve">
-    <value>Iniciar sessão</value>
+    <value>Entrar</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Você tem a certeza?</value>
+    <value>Você tem certeza?</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
@@ -317,7 +317,7 @@
     <value>Opcional</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>Requerido</value>
+    <value>Obrigatório</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Doar</value>
@@ -326,61 +326,61 @@
     <value>Termos de Uso</value>
   </data>
   <data name="FollowTwitter" xml:space="preserve">
-    <value>Segue-nos no Twitter</value>
+    <value>Siga-nos no Twitter</value>
   </data>
   <data name="Dismiss" xml:space="preserve">
-    <value>Dispensar</value>
+    <value>Ignorar</value>
   </data>
   <data name="FirstLaunchMessage" xml:space="preserve">
-    <value>Obrigado por experimentar Ambie. Para uma melhor experiência, tente afixar-nos na barra de tarefas! Desfrute da sua estadia relaxante 🏝</value>
+    <value>Obrigado por experimentar Ambie. Para obter a melhor experiência, tente nos fixar em sua barra de tarefas! Aproveite a sua estadia relaxante 🏝</value>
   </data>
   <data name="HelloAndWelcome" xml:space="preserve">
     <value>Olá e bem-vindo!</value>
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
-    <value>Afixar na barra de tarefas</value>
+    <value>Fixar na barra de tarefas</value>
   </data>
   <data name="Preview" xml:space="preserve">
-    <value>Pré-visualização</value>
+    <value>Visualização</value>
   </data>
   <data name="Catalogue" xml:space="preserve">
     <value>Catálogo</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Página Inicial</value>
+    <value>Casa</value>
   </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
-    <value>Misture e junte até 3 sons</value>
+    <value>Misture e combine até 3 sons</value>
   </data>
   <data name="RemoveActiveButton" xml:space="preserve">
     <value>Remover {0} da lista ativa</value>
     <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
   </data>
   <data name="ThemeSettings" xml:space="preserve">
-    <value>Definições de tema</value>
+    <value>Configurações de tema</value>
   </data>
   <data name="PricePerMonth" xml:space="preserve">
     <value>{0} por mês</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
   <data name="ThankYouForSub" xml:space="preserve">
-    <value>Obrigado por se subscrever!</value>
+    <value>Obrigado por se inscrever!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
-    <value>Acesso premium, sons de alta qualidade!</value>
+    <value>Acesse sons premium de alta qualidade</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Catálogo em crescimento!</value>
+    <value>Catálogo em crescimento</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>Apoie o desenvolvimento!</value>
+    <value>Apoie o desenvolvimento</value>
   </data>
   <data name="HelloAgain" xml:space="preserve">
-    <value>Olá outra vez 👋🏽</value>
+    <value>Olá de novo</value>
   </data>
   <data name="RateUsMessage" xml:space="preserve">
-    <value>Adorando o Ambie? Por favor, considere em nos avaliar!</value>
+    <value>Por favor, avalie-nos</value>
   </data>
   <data name="SettingsResumeOnLaunch" xml:space="preserve">
     <value>Retomar quando o Ambie abrir</value>
@@ -485,7 +485,7 @@
     <value>Minutos de foco</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>Você pode anotar sua lista de tarefas ou quaisquer notas aqui</value>
+    <value>Você pode anotar quaisquer notas aqui</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>Qual é o plano?</value>
@@ -587,7 +587,7 @@
     <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>Adicionar uma tarefa</value>
+    <value>Adicione tarefas e pressione o botão Iniciar</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>Tarefas</value>
@@ -609,5 +609,23 @@
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>Gratuito esta semana</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Abra o Ambie Mini ao focar</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Duração</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Fim</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Abrir Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Com o Ambie Mini, encolheremos a janela e exibiremos apenas os itens necessários para ajudá-lo a se concentrar.</value>
   </data>
 </root>
