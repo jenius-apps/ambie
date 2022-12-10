@@ -221,6 +221,8 @@
             <x:String x:Key="GlyphSaleTag">&#xEBAA;</x:String>
             <x:String x:Key="GlyphBack">&#xE921;</x:String>
             <x:String x:Key="GlyphThreeDots">&#xEAD0;</x:String>
+            <x:String x:Key="GlyphStopwatch">&#xEBFE;</x:String>
+            <x:String x:Key="GlyphClock">&#xE9B5;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>
