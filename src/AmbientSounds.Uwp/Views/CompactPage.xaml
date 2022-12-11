@@ -22,14 +22,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <toolkit:ImageEx
-            x:Name="BackgroundImage"
-            Grid.RowSpan="2"
-            x:Load="False"
-            IsCacheEnabled="True"
-            Source="{x:Bind BackgroundImagePath}"
-            Stretch="UniformToFill" />
-
         <Border
             Name="PlayerPanelBorder"
             Grid.RowSpan="2"
