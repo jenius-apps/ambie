@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
@@ -120,7 +121,7 @@
                         <Setter Target="DataText.(Grid.Row)" Value="0" />
                         <Setter Target="DataText.(Grid.Column)" Value="1" />
                         <Setter Target="DataText.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="DataText.Margin" Value="12,12,0,12" />
+                        <Setter Target="DataText.Margin" Value="60,13,60,0" />
                         <Setter Target="CountdownTimerPanel.(Grid.Row)" Value="0" />
                         <Setter Target="CountdownTimerPanel.(Grid.Column)" Value="1" />
                         <Setter Target="ButtonPanelColumn1.Width" Value="100" />
@@ -377,41 +378,37 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        Margin="12"
-                        RowSpacing="12"
+                        Margin="24,12"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
-
-                        <StackPanel>
-                            <TextBlock
-                                FontSize="20"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}" />
-                            <TextBlock
-                                FontSize="12"
-                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                Text="{x:Bind strings:Resources.DurationText}" />
-                        </StackPanel>
-
-                        <StackPanel Grid.Column="1">
-                            <TextBlock
-                                FontSize="20"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                        <toolkit:UniformGrid
+                            Columns="2"
+                            Orientation="Vertical"
+                            Rows="2">
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.EndTimeText}"
+                                Margin="0,0,12,12"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphClock}"
                                 Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
-                            <TextBlock
-                                FontSize="12"
-                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                Text="{x:Bind strings:Resources.EndTimeText}" />
-                        </StackPanel>
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.DurationText}"
+                                Margin="0,0,12,12"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphStopwatch}"
+                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.FocusText}"
+                                Margin="0,0,12,12"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFocus}"
+                                Text="{x:Bind ViewModel.TotalFocus, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.RestText}"
+                                Margin="0,0,12,12"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphSleep}"
+                                Text="{x:Bind ViewModel.TotalRest, Mode=OneWay}" />
+                        </toolkit:UniformGrid>
                     </Grid>
                     <Grid
                         x:Name="CountdownTimerPanel"
@@ -502,7 +499,7 @@
                 <Grid
                     x:Name="ButtonsPanel"
                     Grid.Row="2"
-                    Padding="8"
+                    Padding="12"
                     ColumnSpacing="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="ButtonPanelColumn1" Width="*" />

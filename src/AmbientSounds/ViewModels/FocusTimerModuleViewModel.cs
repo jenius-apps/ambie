@@ -162,6 +162,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             SetProperty(ref _focusLength, value);
             OnPropertyChanged(nameof(TotalTime));
+            OnPropertyChanged(nameof(TotalFocus));
             OnPropertyChanged(nameof(EndTime));
             UpdatePlayEnabled();
             FocusLengthRemaining = value;
@@ -175,6 +176,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             SetProperty(ref _restLength, value);
             OnPropertyChanged(nameof(TotalTime));
+            OnPropertyChanged(nameof(TotalRest));
             OnPropertyChanged(nameof(EndTime));
             UpdatePlayEnabled();
             RestLengthRemaining = value;
@@ -189,6 +191,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             SetProperty(ref _repetitions, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(EndTime));
+            OnPropertyChanged(nameof(TotalFocus));
+            OnPropertyChanged(nameof(TotalRest));
             RepetitionsRemaining = value;
         }
     }
@@ -198,6 +202,24 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         get
         {
             TimeSpan time = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
+            return time.ToString(@"hh\:mm");
+        }
+    }
+
+    public string TotalFocus
+    {
+        get
+        {
+            TimeSpan time = FocusExtensions.GetTotalTime(FocusLength, 0, Repetitions);
+            return time.ToString(@"hh\:mm");
+        }
+    }
+
+    public string TotalRest
+    {
+        get
+        {
+            TimeSpan time = FocusExtensions.GetTotalTime(0, RestLength, Repetitions);
             return time.ToString(@"hh\:mm");
         }
     }
