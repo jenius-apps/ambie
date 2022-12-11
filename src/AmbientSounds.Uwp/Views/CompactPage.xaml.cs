@@ -83,7 +83,7 @@ public sealed partial class CompactPage : Page
         bool backgroundImageActive = !string.IsNullOrEmpty(BackgroundImagePath);
         if (backgroundImageActive)
         {
-            FindName(nameof(BackgroundImage));
+            //FindName(nameof(BackgroundImage));
         }
     }
 
