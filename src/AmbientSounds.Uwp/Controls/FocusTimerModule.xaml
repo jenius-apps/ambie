@@ -113,9 +113,9 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MainContentRow.Height" Value="*" />
-                        <Setter Target="FocusTimerGrid.(Grid.Row)" Value="0" />
-                        <Setter Target="FocusTimerGrid.(Grid.Column)" Value="1" />
-                        <Setter Target="FocusTimerGrid.Margin" Value="0,20,0,20" />
+                        <Setter Target="FocusTimerGrid.Margin" Value="24,12,0,12" />
+                        <Setter Target="FocusTimerGrid.HorizontalAlignment" Value="Left" />
+                        <Setter Target="FocusTimerGrid.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="SlidersPanel.Margin" Value="12,12,0,12" />
                         <Setter Target="SlidersPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="DataText.(Grid.Row)" Value="0" />
@@ -124,8 +124,9 @@
                         <Setter Target="DataText.Margin" Value="60,13,60,0" />
                         <Setter Target="CountdownTimerPanel.(Grid.Row)" Value="0" />
                         <Setter Target="CountdownTimerPanel.(Grid.Column)" Value="1" />
-                        <Setter Target="ButtonPanelColumn1.Width" Value="100" />
-                        <Setter Target="ButtonPanelColumn2.Width" Value="100" />
+                        <Setter Target="ButtonPanelColumn1.Width" Value="110" />
+                        <Setter Target="ButtonPanelColumn2.Width" Value="110" />
+                        <Setter Target="ModuleColumn1.Width" Value="300" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -270,7 +271,7 @@
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" MaxWidth="400" />
+                        <ColumnDefinition x:Name="ModuleColumn1" Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
@@ -349,11 +350,12 @@
                     <!--  timer  -->
                     <Grid
                         x:Name="FocusTimerGrid"
-                        Grid.Row="1 "
-                        Grid.Column="1"
-                        Width="250"
-                        Margin="0,20,0,0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
                         Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+
                         <local:FocusTimer2
                             Width="200"
                             Height="200"
@@ -363,16 +365,35 @@
                             RestLength="{x:Bind ViewModel.RestLength, Mode=OneWay}"
                             RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
                             RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
-                        <!--<local:FocusTimer
-                            Width="200"
-                            Height="200"
-                            FocusLengthRemaining="{x:Bind ViewModel.FocusLengthRemaining, Mode=OneWay}"
-                            RepetitionsRemaining="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}"
-                            RestLengthRemaining="{x:Bind ViewModel.RestLengthRemaining, Mode=OneWay}"
-                            SecondsRemaining="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}"
-                            SecondsRingVisible="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}" />-->
+
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid>
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="14"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Glyph="{StaticResource GlyphFocus}"
+                                    Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}" />
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="14"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Glyph="{StaticResource GlyphSleep}"
+                                    Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
+                            </Grid>
+                            <TextBlock
+                                x:Name="StatusText"
+                                Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
+                                TextAlignment="Center" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
+                            </StackPanel>
+                        </StackPanel>
                     </Grid>
 
+                    <!--  setup data  -->
                     <Grid
                         x:Name="DataText"
                         Grid.Row="1"
@@ -413,70 +434,14 @@
                     <Grid
                         x:Name="CountdownTimerPanel"
                         Grid.Row="1"
-                        Grid.Column="1"
-                        VerticalAlignment="Center"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="12"
                         Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
 
-                        <StackPanel Margin="0,60,0,69" Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
-                            <TextBlock
-                                FontSize="72"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
-                                TextAlignment="Center">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,-40,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </TextBlock>
-
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,20,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </TextBlock>
-                        </StackPanel>
-
-                        <StackPanel Margin="0,29" Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
-                                TextAlignment="Center">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,-20,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </TextBlock>
-
+                        <StackPanel Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
                             <FlipView
-                                MaxWidth="600"
-                                MaxHeight="160"
-                                Margin="0,8,0,0"
+                                MaxHeight="200"
                                 Background="Transparent"
                                 ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
                                 ItemsSource="{x:Bind ViewModel.FocusTasks}"
@@ -494,6 +459,18 @@
                             </FlipView>
                         </StackPanel>
                     </Grid>
+
+                    <!--<toolkit:UniformGrid
+                        Columns="2"
+                        Orientation="Vertical"
+                        Rows="2">
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.EndTimeText}"
+                            Margin="0,0,12,12"
+                            VerticalAlignment="Center"
+                            Glyph="{StaticResource GlyphClock}"
+                            Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+                    </toolkit:UniformGrid>-->
                 </Grid>
 
                 <Grid
