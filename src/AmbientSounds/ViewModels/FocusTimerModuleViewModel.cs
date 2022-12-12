@@ -123,14 +123,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public double RestLengthProgress => RestLength - RestLengthRemaining;
 
-    public bool TasksVisible => CancelVisible &&
-        FocusTasks.Count > 0 &&
-        _focusService.CurrentSessionType == SessionType.Focus;
+    public bool TasksVisible => CancelVisible && FocusTasks.Count > 0;
 
     public bool ActiveDataVisible => CancelVisible && FocusTasks.Count == 0;
 
-    public bool CountdownVisible => CancelVisible &&
-        (FocusTasks.Count == 0 || _focusService.CurrentSessionType == SessionType.Rest);
+    public bool CountdownVisible => CancelVisible && FocusTasks.Count == 0 ;
 
     public bool IsRecentVisible => _focusService.CurrentState == FocusState.None && RecentSettings.Count > 0;
 

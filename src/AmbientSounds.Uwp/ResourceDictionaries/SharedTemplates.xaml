@@ -3,7 +3,22 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:AmbientSounds.Converters"
-    xmlns:viewmodels="using:AmbientSounds.ViewModels">
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls">
+
+    <DataTemplate x:Key="FocusSegmentTemplate" x:DataType="viewmodels:FocusSegmentViewModel">
+        <Grid x:Name="ItemGrid" HorizontalAlignment="Stretch">
+            <winui:ProgressBar
+                Margin="1,0"
+                IsIndeterminate="False"
+                Value="{x:Bind Progress, Mode=OneWay}" />
+        </Grid>
+    </DataTemplate>
+
+    <ItemsPanelTemplate x:Key="FocusSegmentItemsPanel">
+        <toolkit:UniformGrid Rows="1" />
+    </ItemsPanelTemplate>
 
     <DataTemplate x:Key="TaskFlipViewItemTemplate" x:DataType="viewmodels:FocusTaskViewModel">
         <Border

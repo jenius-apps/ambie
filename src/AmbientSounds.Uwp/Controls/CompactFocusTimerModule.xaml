@@ -216,28 +216,13 @@
             </StackPanel>
         </Grid>
 
-        <Grid
+        <ItemsControl
             Grid.Row="1"
-            Padding="24,0,24,12"
-            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-            <ItemsControl ItemsSource="{x:Bind ViewModel.Segments}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <toolkit:UniformGrid Rows="1" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:FocusSegmentViewModel">
-                        <Grid x:Name="ItemGrid" HorizontalAlignment="Stretch">
-                            <winui:ProgressBar
-                                Margin="1,0"
-                                IsIndeterminate="False"
-                                Value="{x:Bind Progress, Mode=OneWay}" />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
+            Margin="24,0,24,12"
+            ItemTemplate="{StaticResource FocusSegmentTemplate}"
+            ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
+            ItemsSource="{x:Bind ViewModel.Segments}"
+            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
 
         <!--  bottom buttons  -->
 
