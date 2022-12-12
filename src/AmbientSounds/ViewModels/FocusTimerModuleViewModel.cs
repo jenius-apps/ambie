@@ -59,6 +59,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private bool _playEnabled;
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TasksVisible))]
+    [NotifyPropertyChangedFor(nameof(ActiveDataVisible))]
     [NotifyPropertyChangedFor(nameof(CountdownVisible))]
     private bool _cancelVisible;
     [ObservableProperty]
@@ -122,9 +123,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public double RestLengthProgress => RestLength - RestLengthRemaining;
 
-    public bool TasksVisible => CancelVisible && 
-        FocusTasks.Count > 0 && 
+    public bool TasksVisible => CancelVisible &&
+        FocusTasks.Count > 0 &&
         _focusService.CurrentSessionType == SessionType.Focus;
+
+    public bool ActiveDataVisible => CancelVisible && FocusTasks.Count == 0;
 
     public bool CountdownVisible => CancelVisible &&
         (FocusTasks.Count == 0 || _focusService.CurrentSessionType == SessionType.Rest);
@@ -483,6 +486,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         // Need to update here in case session type changed.
         OnPropertyChanged(nameof(TasksVisible));
+        OnPropertyChanged(nameof(ActiveDataVisible));
         OnPropertyChanged(nameof(CountdownVisible));
     }
 

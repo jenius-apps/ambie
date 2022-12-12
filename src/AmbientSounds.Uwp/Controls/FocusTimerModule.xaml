@@ -122,11 +122,18 @@
                         <Setter Target="DataText.(Grid.Column)" Value="1" />
                         <Setter Target="DataText.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="DataText.Margin" Value="60,13,60,0" />
+                        <Setter Target="ActiveDataText.(Grid.Row)" Value="0" />
+                        <Setter Target="ActiveDataText.(Grid.Column)" Value="1" />
+                        <Setter Target="ActiveDataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ActiveDataText.Orientation" Value="Vertical" />
+                        <Setter Target="ActiveDataText.Margin" Value="32,0" />
+                        <Setter Target="ActiveDataText.VerticalAlignment" Value="Center" />
                         <Setter Target="CountdownTimerPanel.(Grid.Row)" Value="0" />
                         <Setter Target="CountdownTimerPanel.(Grid.Column)" Value="1" />
+                        <Setter Target="CountdownTimerPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="ButtonPanelColumn1.Width" Value="110" />
                         <Setter Target="ButtonPanelColumn2.Width" Value="110" />
-                        <Setter Target="ModuleColumn1.Width" Value="300" />
+                        <Setter Target="ModuleColumn1.Width" Value="240" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -273,6 +280,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="ModuleColumn1" Width="*" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
                     <!--  Sliders  -->
@@ -393,7 +401,7 @@
                         </StackPanel>
                     </Grid>
 
-                    <!--  setup data  -->
+                    <!--  Setup data  -->
                     <Grid
                         x:Name="DataText"
                         Grid.Row="1"
@@ -431,46 +439,65 @@
                                 Text="{x:Bind ViewModel.TotalRest, Mode=OneWay}" />
                         </toolkit:UniformGrid>
                     </Grid>
-                    <Grid
+
+                    <!--  Tasks  -->
+                    <FlipView
                         x:Name="CountdownTimerPanel"
                         Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
+                        MaxHeight="200"
                         Margin="12"
-                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                        Background="Transparent"
+                        ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
+                        ItemsSource="{x:Bind ViewModel.FocusTasks}"
+                        SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}"
+                        Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
+                        <animations:Implicit.ShowAnimations>
+                            <animations:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:2" />
+                            <animations:TranslationAnimation
+                                From="0,20,0"
+                                To="0"
+                                Duration="0:0:2" />
+                        </animations:Implicit.ShowAnimations>
+                    </FlipView>
 
-                        <StackPanel Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
-                            <FlipView
-                                MaxHeight="200"
-                                Background="Transparent"
-                                ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
-                                ItemsSource="{x:Bind ViewModel.FocusTasks}"
-                                SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,20,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </FlipView>
-                        </StackPanel>
-                    </Grid>
-
-                    <!--<toolkit:UniformGrid
+                    <!--  Active data  -->
+                    <toolkit:UniformGrid
+                        x:Name="ActiveDataText"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="24,12"
                         Columns="2"
-                        Orientation="Vertical"
-                        Rows="2">
+                        Orientation="Horizontal"
+                        RowSpacing="24"
+                        Rows="2"
+                        Visibility="{x:Bind ViewModel.ActiveDataVisible, Mode=OneWay}">
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.Start}"
+                            Glyph="{StaticResource GlyphPlay}"
+                            Text="10:00 PM" />
+
                         <local:TimerData
                             Title="{x:Bind strings:Resources.EndTimeText}"
-                            Margin="0,0,12,12"
-                            VerticalAlignment="Center"
                             Glyph="{StaticResource GlyphClock}"
                             Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
-                    </toolkit:UniformGrid>-->
+
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.Interruptions}"
+                            Glyph="{StaticResource GlyphInterruption}"
+                            Text="0" />
+
+                        <local:TimerData
+                            Title="Pauses"
+                            Glyph="{StaticResource GlyphPause}"
+                            Text="4" />
+
+                    </toolkit:UniformGrid>
                 </Grid>
 
                 <Grid
