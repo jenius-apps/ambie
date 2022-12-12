@@ -121,7 +121,8 @@
                         <Setter Target="DataText.(Grid.Row)" Value="0" />
                         <Setter Target="DataText.(Grid.Column)" Value="1" />
                         <Setter Target="DataText.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="DataText.Margin" Value="60,13,60,0" />
+                        <Setter Target="DataText.Margin" Value="32,0" />
+                        <Setter Target="DataText.VerticalAlignment" Value="Center" />
                         <Setter Target="ActiveDataText.(Grid.Row)" Value="0" />
                         <Setter Target="ActiveDataText.(Grid.Column)" Value="1" />
                         <Setter Target="ActiveDataText.(Grid.ColumnSpan)" Value="1" />
@@ -410,30 +411,28 @@
                         Margin="24,12"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                         <toolkit:UniformGrid
+                            ColumnSpacing="12"
                             Columns="2"
                             Orientation="Vertical"
+                            RowSpacing="24"
                             Rows="2">
                             <local:TimerData
                                 Title="{x:Bind strings:Resources.EndTimeText}"
-                                Margin="0,0,12,12"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphClock}"
                                 Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
                             <local:TimerData
                                 Title="{x:Bind strings:Resources.DurationText}"
-                                Margin="0,0,12,12"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphStopwatch}"
                                 Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}" />
                             <local:TimerData
                                 Title="{x:Bind strings:Resources.FocusText}"
-                                Margin="0,0,12,12"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphFocus}"
                                 Text="{x:Bind ViewModel.TotalFocus, Mode=OneWay}" />
                             <local:TimerData
                                 Title="{x:Bind strings:Resources.RestText}"
-                                Margin="0,0,12,12"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphSleep}"
                                 Text="{x:Bind ViewModel.TotalRest, Mode=OneWay}" />
@@ -472,6 +471,7 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Margin="24,12"
+                        ColumnSpacing="12"
                         Columns="2"
                         Orientation="Horizontal"
                         RowSpacing="24"
