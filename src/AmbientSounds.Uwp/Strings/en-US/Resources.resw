@@ -727,10 +727,13 @@
   <data name="DurationText" xml:space="preserve">
     <value>Duration</value>
   </data>
-	<data name="EndTimeText" xml:space="preserve">
+  <data name="EndTimeText" xml:space="preserve">
     <value>End</value>
   </data>
   <data name="MiniText" xml:space="preserve">
     <value>Mini</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Pauses</value>
   </data>
 </root>

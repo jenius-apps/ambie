@@ -831,6 +831,10 @@
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
           <target state="translated">Con Ambie Mini, reduciremos la ventana y mostraremos solo los elementos necesarios para ayudarlo a concentrarse.</target>
         </trans-unit>
+        <trans-unit id="PausesText" translate="yes" xml:space="preserve">
+          <source>Pauses</source>
+          <target state="new">Pauses</target>
+        </trans-unit>
       </group>
     </body>
   </file>

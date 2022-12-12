@@ -480,7 +480,7 @@
                         <local:TimerData
                             Title="{x:Bind strings:Resources.Start}"
                             Glyph="{StaticResource GlyphPlay}"
-                            Text="10:00 PM" />
+                            Text="{x:Bind ViewModel.StartTime, Mode=OneWay}" />
 
                         <local:TimerData
                             Title="{x:Bind strings:Resources.EndTimeText}"
@@ -490,12 +490,12 @@
                         <local:TimerData
                             Title="{x:Bind strings:Resources.Interruptions}"
                             Glyph="{StaticResource GlyphInterruption}"
-                            Text="0" />
+                            Text="{x:Bind ViewModel.InterruptionCount, Mode=OneWay}" />
 
                         <local:TimerData
-                            Title="Pauses"
+                            Title="{x:Bind strings:Resources.PausesText}"
                             Glyph="{StaticResource GlyphPause}"
-                            Text="4" />
+                            Text="{x:Bind ViewModel.Pauses, Mode=OneWay}" />
 
                     </toolkit:UniformGrid>
                 </Grid>

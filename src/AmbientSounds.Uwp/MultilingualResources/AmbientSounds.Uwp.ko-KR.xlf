@@ -828,6 +828,10 @@
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
           <target state="translated">암비 미니 를 사용하면 창을 축소하고 집중하는 데 필요한 항목만 표시합니다.</target>
         </trans-unit>
+        <trans-unit id="PausesText" translate="yes" xml:space="preserve">
+          <source>Pauses</source>
+          <target state="new">Pauses</target>
+        </trans-unit>
       </group>
     </body>
   </file>

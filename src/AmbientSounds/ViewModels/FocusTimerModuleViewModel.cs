@@ -136,6 +136,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public IAsyncRelayCommand InterruptionCommand { get; }
 
+    public int InterruptionCount => _focusHistoryService.GetInterruptionCount();
+
+    public int Pauses => _focusHistoryService.GetPauses();
+
     public bool IsHelpIconVisible => !IsHelpMessageVisible && SlidersEnabled;
 
     public bool IsHelpMessageVisible
@@ -226,6 +230,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             return time.ToString(@"hh\:mm");
         }
     }
+
+    public string StartTime => _focusHistoryService.GetStartTime().ToShortTimeString();
 
     public string EndTime
     {
@@ -358,6 +364,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     {
         OnPropertyChanged(nameof(IsRecentVisible));
         UpdateButtonStates();
+        if (e == FocusState.Paused)
+        {
+            _focusHistoryService.LogPause();
+            OnPropertyChanged(nameof(Pauses));
+        }
     }
 
     private async void Start()
@@ -368,6 +379,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             successfullyStarted = _focusService.ResumeTimer();
             _telemetry.TrackEvent(TelemetryConstants.FocusResumed);
+            OnPropertyChanged(nameof(EndTime));
         }
         else
         {
@@ -389,6 +401,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 _ = TriggerCompactModeAsync();
                 _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
                 InitializeSegments();
+                OnPropertyChanged(nameof(StartTime));
             }
         }
 
@@ -496,6 +509,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         if (minutesLogged > 0)
         {
+            OnPropertyChanged(nameof(InterruptionCount));
             _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
             {
                 { "minutes", minutesLogged.ToString() },
