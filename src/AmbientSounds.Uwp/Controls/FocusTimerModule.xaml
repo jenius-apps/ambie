@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
@@ -98,21 +99,55 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="StartButton.(Grid.ColumnSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="890" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MainContentRow.Height" Value="*" />
-                        <Setter Target="FocusTimerGrid.(Grid.Column)" Value="0" />
-                        <Setter Target="FocusTimerGrid.Margin" Value="0,20,0,20" />
-                        <Setter Target="SlidersPanel.(Grid.Row)" Value="0" />
-                        <Setter Target="SlidersPanel.(Grid.Column)" Value="1" />
-                        <Setter Target="SlidersPanel.Margin" Value="0,20" />
+                        <Setter Target="FocusTimerGrid.Margin" Value="24,12,0,12" />
+                        <Setter Target="FocusTimerGrid.HorizontalAlignment" Value="Left" />
+                        <Setter Target="FocusTimerGrid.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="SlidersPanel.Margin" Value="12,12,0,12" />
+                        <Setter Target="SlidersPanel.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="DataText.(Grid.Row)" Value="0" />
+                        <Setter Target="DataText.(Grid.Column)" Value="1" />
+                        <Setter Target="DataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="DataText.Margin" Value="32,0" />
+                        <Setter Target="DataText.VerticalAlignment" Value="Center" />
+                        <Setter Target="ActiveDataText.(Grid.Row)" Value="0" />
+                        <Setter Target="ActiveDataText.(Grid.Column)" Value="1" />
+                        <Setter Target="ActiveDataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ActiveDataText.Orientation" Value="Vertical" />
+                        <Setter Target="ActiveDataText.Margin" Value="32,0" />
+                        <Setter Target="ActiveDataText.VerticalAlignment" Value="Center" />
                         <Setter Target="CountdownTimerPanel.(Grid.Row)" Value="0" />
                         <Setter Target="CountdownTimerPanel.(Grid.Column)" Value="1" />
-                        <Setter Target="ButtonsPanel.(Grid.Row)" Value="0" />
-                        <Setter Target="ButtonsPanel.(Grid.Column)" Value="2" />
-                        <Setter Target="ButtonsPanel.Margin" Value="0" />
-                        <Setter Target="ButtonsPanel.MinHeight" Value="0" />
+                        <Setter Target="CountdownTimerPanel.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ButtonPanelColumn1.Width" Value="110" />
+                        <Setter Target="ButtonPanelColumn2.Width" Value="110" />
+                        <Setter Target="ModuleColumn1.Width" Value="240" />
+                        <Setter Target="TaskActiveDataText.(Grid.Row)" Value="0" />
+                        <Setter Target="TaskActiveDataText.(Grid.Column)" Value="1" />
+                        <Setter Target="TaskActiveDataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="TaskActiveDataText.Orientation" Value="Vertical" />
+                        <Setter Target="TaskActiveDataText.Columns" Value="1" />
+                        <Setter Target="TaskActiveDataText.Rows" Value="2" />
+                        <Setter Target="TaskActiveDataText.Width" Value="120" />
+                        <Setter Target="TaskActiveDataText.Margin" Value="24,0,36,0" />
+                        <Setter Target="TaskActiveDataText.RowSpacing" Value="24" />
+                        <Setter Target="TaskActiveDataText.ColumnSpacing" Value="0" />
+                        <Setter Target="TaskActiveDataText.VerticalAlignment" Value="Center" />
+                        <Setter Target="TaskFlipView.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="TaskFlipView.Margin" Value="12,12,0,12" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -138,9 +173,10 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <Rectangle Grid.RowSpan="2" Style="{StaticResource ModuleBackgroundRectStyle}" />
+                <Rectangle Grid.RowSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
 
                 <TextBlock
                     Margin="24,12,0,12"
@@ -243,6 +279,11 @@
 
                 <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
 
+                <Rectangle
+                    Grid.Row="2"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource ModuleDividerRectStyle}" />
+
                 <!--  Module body  -->
                 <Grid Grid.Row="1" MinHeight="120">
                     <Grid.RowDefinitions>
@@ -251,34 +292,16 @@
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition x:Name="ModuleColumn1" Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
 
-                    <Grid
-                        x:Name="FocusTimerGrid"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Width="250"
-                        Margin="0,20,0,0">
-                        <local:FocusTimer
-                            Width="200"
-                            Height="200"
-                            FocusLengthRemaining="{x:Bind ViewModel.FocusLengthRemaining, Mode=OneWay}"
-                            RepetitionsRemaining="{x:Bind ViewModel.RepetitionsRemaining, Mode=OneWay}"
-                            RestLengthRemaining="{x:Bind ViewModel.RestLengthRemaining, Mode=OneWay}"
-                            SecondsRemaining="{x:Bind ViewModel.SecondsRemaining, Mode=OneWay}"
-                            SecondsRingVisible="{x:Bind ViewModel.SecondsRingVisible, Mode=OneWay}" />
-                    </Grid>
-
                     <!--  Sliders  -->
                     <StackPanel
                         x:Name="SlidersPanel"
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Margin="20,20"
-                        VerticalAlignment="Center"
+                        Grid.ColumnSpan="2"
+                        Margin="12,12,12,0"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                         <StackPanel>
                             <local:TimerSlider
@@ -300,17 +323,6 @@
                                 PreferredPlacement="Bottom"
                                 Subtitle="{x:Bind strings:Resources.TipFocusMessage}"
                                 Target="{x:Bind Slider1}" />
-
-                            <animations:Implicit.ShowAnimations>
-                                <animations:OpacityAnimation
-                                    From="0"
-                                    To="1"
-                                    Duration="0:0:0.3" />
-                                <animations:TranslationAnimation
-                                    From="0,40,0"
-                                    To="0"
-                                    Duration="0:0:0.3" />
-                            </animations:Implicit.ShowAnimations>
                         </StackPanel>
 
                         <StackPanel>
@@ -333,19 +345,6 @@
                                 PreferredPlacement="Bottom"
                                 Subtitle="{x:Bind strings:Resources.TipRestMessage}"
                                 Target="{x:Bind Slider2}" />
-
-                            <animations:Implicit.ShowAnimations>
-                                <animations:OpacityAnimation
-                                    Delay="0:0:0.15"
-                                    From="0"
-                                    To="1"
-                                    Duration="0:0:0.3" />
-                                <animations:TranslationAnimation
-                                    Delay="0:0:0.15"
-                                    From="0,40,0"
-                                    To="0"
-                                    Duration="0:0:0.3" />
-                            </animations:Implicit.ShowAnimations>
                         </StackPanel>
 
                         <StackPanel>
@@ -367,178 +366,234 @@
                                 PreferredPlacement="Bottom"
                                 Subtitle="{x:Bind strings:Resources.TipRepeatsMessage}"
                                 Target="{x:Bind Slider3}" />
-
-                            <animations:Implicit.ShowAnimations>
-                                <animations:OpacityAnimation
-                                    Delay="0:0:0.3"
-                                    From="0"
-                                    To="1"
-                                    Duration="0:0:0.3" />
-                                <animations:TranslationAnimation
-                                    Delay="0:0:0.3"
-                                    From="0,40,0"
-                                    To="0"
-                                    Duration="0:0:0.3" />
-                            </animations:Implicit.ShowAnimations>
                         </StackPanel>
                     </StackPanel>
 
+                    <!--  timer  -->
+                    <Grid
+                        x:Name="FocusTimerGrid"
+                        Grid.ColumnSpan="2"
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <local:FocusTimer2
+                            Width="200"
+                            Height="200"
+                            FocusLength="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
+                            FocusLengthProgress="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}"
+                            FocusRingVisible="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
+                            RestLength="{x:Bind ViewModel.RestLength, Mode=OneWay}"
+                            RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
+                            RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
+
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid>
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="14"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Glyph="{StaticResource GlyphFocus}"
+                                    Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}" />
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="14"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Glyph="{StaticResource GlyphSleep}"
+                                    Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
+                            </Grid>
+                            <TextBlock
+                                x:Name="StatusText"
+                                Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
+                                TextAlignment="Center" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <ItemsControl
+                            Grid.Row="1"
+                            Margin="0,12,0,0"
+                            ItemTemplate="{StaticResource FocusSegmentTemplate}"
+                            ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
+                            ItemsSource="{x:Bind ViewModel.Segments}" />
+                    </Grid>
+
+                    <!--  Setup data  -->
+                    <Grid
+                        x:Name="DataText"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="24,12"
+                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
+                        <toolkit:UniformGrid
+                            ColumnSpacing="12"
+                            Columns="2"
+                            Orientation="Vertical"
+                            RowSpacing="24"
+                            Rows="2">
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.EndTimeText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphClock}"
+                                Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.DurationText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphStopwatch}"
+                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.FocusText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFocus}"
+                                Text="{x:Bind ViewModel.TotalFocus, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.RestText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphSleep}"
+                                Text="{x:Bind ViewModel.TotalRest, Mode=OneWay}" />
+                        </toolkit:UniformGrid>
+                    </Grid>
+
+                    <!--  Tasks  -->
                     <Grid
                         x:Name="CountdownTimerPanel"
                         Grid.Row="1"
-                        Grid.Column="1"
-                        VerticalAlignment="Center"
-                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-
-                        <StackPanel Margin="0,60,0,69" Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
-                            <TextBlock
-                                FontSize="72"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
-                                TextAlignment="Center">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,-40,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </TextBlock>
-
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,20,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </TextBlock>
-                        </StackPanel>
-
-                        <StackPanel Margin="0,29" Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
-                            <TextBlock
-                                FontSize="20"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind ViewModel.CurrentTimeRemaining, Mode=OneWay}"
-                                TextAlignment="Center">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,-20,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </TextBlock>
-
-                            <FlipView
-                                MaxWidth="600"
-                                MaxHeight="160"
-                                Margin="0,8,0,0"
-                                Background="Transparent"
-                                ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
-                                ItemsSource="{x:Bind ViewModel.FocusTasks}"
-                                SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}">
-                                <animations:Implicit.ShowAnimations>
-                                    <animations:OpacityAnimation
-                                        From="0"
-                                        To="1"
-                                        Duration="0:0:2" />
-                                    <animations:TranslationAnimation
-                                        From="0,20,0"
-                                        To="0"
-                                        Duration="0:0:2" />
-                                </animations:Implicit.ShowAnimations>
-                            </FlipView>
-                        </StackPanel>
-                    </Grid>
-
-                    <Grid
-                        x:Name="ButtonsPanel"
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Width="250"
-                        MinHeight="100"
-                        Margin="0,0,0,20">
+                        Grid.ColumnSpan="2"
+                        Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
-                        <Button
-                            x:Name="StartButton"
-                            MinWidth="140"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Bottom"
-                            AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
-                            Click="{x:Bind ViewModel.PlayOrPause}"
-                            IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
-                            Style="{ThemeResource AccentButtonStyle}">
-                            <Grid>
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon
-                                        FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                        Glyph="&#xF5B0;"
-                                        Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
-                                    <FontIcon
-                                        FontFamily="{StaticResource FluentUIGlyphs}"
-                                        Glyph="{StaticResource GlyphPause}"
-                                        Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
-                                    <TextBlock Margin="8,0,0,0" Text="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}" />
-                                </StackPanel>
-                            </Grid>
-                        </Button>
-
-                        <winui:TeachingTip
-                            x:Name="TeachingTip4"
-                            Title="{x:Bind strings:Resources.TipStartButtonTitle}"
-                            CloseButtonClick="OnTutorialEnded"
-                            CloseButtonContent="{x:Bind strings:Resources.CloseText}"
-                            PreferredPlacement="Bottom"
-                            Subtitle="{x:Bind strings:Resources.TipStartButtonMessage}"
-                            Target="{x:Bind StartButton}" />
-
-                        <Button
-                            Grid.Row="1"
-                            MinWidth="140"
-                            Margin="0,4,0,0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Top"
-                            AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
-                            Canvas.ZIndex="-1"
-                            Click="OnResetClicked"
-                            Content="{x:Bind strings:Resources.Reset}"
-                            Style="{StaticResource SubtleButton}"
-                            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <FlipView
+                            x:Name="TaskFlipView"
+                            Grid.ColumnSpan="2"
+                            MaxHeight="200"
+                            Margin="12,12,12,0"
+                            Background="Transparent"
+                            ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
+                            ItemsSource="{x:Bind ViewModel.FocusTasks}"
+                            SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}">
                             <animations:Implicit.ShowAnimations>
                                 <animations:OpacityAnimation
-                                    Delay="0:0:0.6"
                                     From="0"
                                     To="1"
-                                    Duration="0:0:0.5" />
+                                    Duration="0:0:2" />
                                 <animations:TranslationAnimation
-                                    Delay="0:0:0.6"
-                                    EasingMode="EaseInOut"
-                                    From="0,-40,0"
+                                    From="0,20,0"
                                     To="0"
-                                    Duration="0:0:0.5" />
+                                    Duration="0:0:2" />
                             </animations:Implicit.ShowAnimations>
-                        </Button>
+                        </FlipView>
+
+                        <toolkit:UniformGrid
+                            x:Name="TaskActiveDataText"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="24,12"
+                            ColumnSpacing="12"
+                            Columns="2"
+                            Orientation="Horizontal">
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.Start}"
+                                Glyph="{StaticResource GlyphPlay}"
+                                Text="{x:Bind ViewModel.StartTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.EndTimeText}"
+                                Glyph="{StaticResource GlyphClock}"
+                                Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+                        </toolkit:UniformGrid>
                     </Grid>
+
+                    <!--  Active data  -->
+                    <toolkit:UniformGrid
+                        x:Name="ActiveDataText"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="24,12"
+                        ColumnSpacing="12"
+                        Columns="2"
+                        Orientation="Horizontal"
+                        RowSpacing="24"
+                        Rows="2"
+                        Visibility="{x:Bind ViewModel.ActiveDataVisible, Mode=OneWay}">
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.Start}"
+                            Glyph="{StaticResource GlyphPlay}"
+                            Text="{x:Bind ViewModel.StartTime, Mode=OneWay}" />
+
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.EndTimeText}"
+                            Glyph="{StaticResource GlyphClock}"
+                            Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.Interruptions}"
+                            Glyph="{StaticResource GlyphInterruption}"
+                            Text="{x:Bind ViewModel.InterruptionCount, Mode=OneWay}" />
+
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.PausesText}"
+                            Glyph="{StaticResource GlyphPause}"
+                            Text="{x:Bind ViewModel.Pauses, Mode=OneWay}" />
+
+                    </toolkit:UniformGrid>
+                </Grid>
+
+                <Grid
+                    x:Name="ButtonsPanel"
+                    Grid.Row="2"
+                    Padding="12"
+                    ColumnSpacing="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="ButtonPanelColumn1" Width="*" />
+                        <ColumnDefinition x:Name="ButtonPanelColumn2" Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="StartButton"
+                        Grid.ColumnSpan="2"
+                        AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
+                        Click="{x:Bind ViewModel.PlayOrPause}"
+                        IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
+                        Style="{StaticResource TimerActionButton}">
+                        <Grid>
+                            <FontIcon Style="{StaticResource PlayTimerIcon}" Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
+                            <FontIcon Style="{StaticResource PauseTimerIcon}" Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
+                        </Grid>
+                    </Button>
+
+                    <winui:TeachingTip
+                        x:Name="TeachingTip4"
+                        Title="{x:Bind strings:Resources.TipStartButtonTitle}"
+                        CloseButtonClick="OnTutorialEnded"
+                        CloseButtonContent="{x:Bind strings:Resources.CloseText}"
+                        PreferredPlacement="Bottom"
+                        Subtitle="{x:Bind strings:Resources.TipStartButtonMessage}"
+                        Target="{x:Bind StartButton}" />
+
+                    <Button
+                        x:Name="StopButton"
+                        Grid.Column="1"
+                        AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
+                        Click="OnResetClicked"
+                        Style="{StaticResource TimerActionButton}"
+                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                        <FontIcon Style="{StaticResource StopTimerIcon}" />
+                    </Button>
                 </Grid>
             </Grid>
         </Border>

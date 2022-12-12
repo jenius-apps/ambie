@@ -65,5 +65,21 @@ namespace AmbientSounds.Services
         /// Removes a task that was previously logged as completed.
         /// </summary>
         void RevertTaskCompleted(string taskId);
+
+        /// <summary>
+        /// Returns the number of interruptions in the currently
+        /// active focus session history. Returns 0 if there
+        /// are no active sessions.
+        /// </summary>
+        int GetInterruptionCount();
+
+        /// <summary>
+        /// Returns the start time of the active focus session,
+        /// if one is available. Otherwise, returns DateTime minimum.
+        /// </summary>
+        /// <returns></returns>
+        DateTime GetStartTime();
+        void LogPause();
+        int GetPauses();
     }
 }

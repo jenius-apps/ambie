@@ -216,28 +216,13 @@
             </StackPanel>
         </Grid>
 
-        <Grid
+        <ItemsControl
             Grid.Row="1"
-            Padding="24,0,24,12"
-            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-            <ItemsControl ItemsSource="{x:Bind ViewModel.Segments}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <toolkit:UniformGrid Rows="1" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:FocusSegmentViewModel">
-                        <Grid x:Name="ItemGrid" HorizontalAlignment="Stretch">
-                            <winui:ProgressBar
-                                Margin="1,0"
-                                IsIndeterminate="False"
-                                Value="{x:Bind Progress, Mode=OneWay}" />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
+            Margin="24,0,24,12"
+            ItemTemplate="{StaticResource FocusSegmentTemplate}"
+            ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
+            ItemsSource="{x:Bind ViewModel.Segments}"
+            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
 
         <!--  bottom buttons  -->
 
@@ -262,34 +247,21 @@
             <Button
                 x:Name="StartButton"
                 Grid.ColumnSpan="2"
-                Height="36"
-                HorizontalAlignment="Stretch"
                 AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
                 Click="{x:Bind ViewModel.PlayOrPause}"
-                IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}">
+                IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
+                Style="{StaticResource TimerActionButton}">
                 <Grid>
-                    <FontIcon
-                        FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                        FontSize="14"
-                        Glyph="&#xF5B0;"
-                        Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
-                    <FontIcon
-                        FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                        FontSize="14"
-                        Glyph="&#xE62E;"
-                        Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
+                    <FontIcon Style="{StaticResource PlayTimerIcon}" Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
+                    <FontIcon Style="{StaticResource PauseTimerIcon}" Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
                 </Grid>
             </Button>
             <Button
                 Grid.Column="1"
-                Height="36"
-                HorizontalAlignment="Stretch"
                 Click="{x:Bind ViewModel.Stop}"
+                Style="{StaticResource TimerActionButton}"
                 Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-                <FontIcon
-                    FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                    FontSize="14"
-                    Glyph="&#xEE95;" />
+                <FontIcon Style="{StaticResource StopTimerIcon}" />
             </Button>
         </Grid>
     </Grid>

@@ -28,6 +28,17 @@ namespace AmbientSounds.Services
             _dialogService = dialogService;
         }
 
+        public int GetInterruptionCount()
+        {
+            return _activeHistory?.Interruptions.Count ?? 0;
+        }
+
+        public DateTime GetStartTime()
+        {
+            var startTime = new DateTime(_activeHistory?.StartUtcTicks ?? 0, DateTimeKind.Utc);
+            return startTime.ToLocalTime();
+        }
+
         public Task<IReadOnlyList<FocusHistory>> GetRecentAsync()
         {
             return _focusHistoryCache.GetRecentAsync();
@@ -124,6 +135,16 @@ namespace AmbientSounds.Services
 
             return (minutes, !string.IsNullOrWhiteSpace(notes));
         }
+
+        public void LogPause()
+        {
+            if (_activeHistory is FocusHistory f)
+            {
+                f.Pauses++;
+            }
+        }
+
+        public int GetPauses() => _activeHistory?.Pauses ?? 0;
 
         public void LogTaskCompleted(string taskId)
         {

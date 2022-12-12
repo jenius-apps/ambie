@@ -34,6 +34,8 @@ namespace AmbientSounds.Models
         public List<FocusInterruption> Interruptions { get; set; } = new();
 
         public int TasksCompleted { get; set; }
+
+        public int Pauses { get; set; }
     }
 
     public enum HistoryAward

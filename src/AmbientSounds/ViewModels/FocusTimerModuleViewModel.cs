@@ -59,6 +59,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private bool _playEnabled;
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TasksVisible))]
+    [NotifyPropertyChangedFor(nameof(ActiveDataVisible))]
     [NotifyPropertyChangedFor(nameof(CountdownVisible))]
     private bool _cancelVisible;
     [ObservableProperty]
@@ -122,16 +123,19 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public double RestLengthProgress => RestLength - RestLengthRemaining;
 
-    public bool TasksVisible => CancelVisible && 
-        FocusTasks.Count > 0 && 
-        _focusService.CurrentSessionType == SessionType.Focus;
+    public bool TasksVisible => CancelVisible && FocusTasks.Count > 0;
 
-    public bool CountdownVisible => CancelVisible &&
-        (FocusTasks.Count == 0 || _focusService.CurrentSessionType == SessionType.Rest);
+    public bool ActiveDataVisible => CancelVisible && FocusTasks.Count == 0;
+
+    public bool CountdownVisible => CancelVisible && FocusTasks.Count == 0 ;
 
     public bool IsRecentVisible => _focusService.CurrentState == FocusState.None && RecentSettings.Count > 0;
 
     public IAsyncRelayCommand InterruptionCommand { get; }
+
+    public int InterruptionCount => _focusHistoryService.GetInterruptionCount();
+
+    public int Pauses => _focusHistoryService.GetPauses();
 
     public bool IsHelpIconVisible => !IsHelpMessageVisible && SlidersEnabled;
 
@@ -162,6 +166,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             SetProperty(ref _focusLength, value);
             OnPropertyChanged(nameof(TotalTime));
+            OnPropertyChanged(nameof(TotalFocus));
             OnPropertyChanged(nameof(EndTime));
             UpdatePlayEnabled();
             FocusLengthRemaining = value;
@@ -175,6 +180,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             SetProperty(ref _restLength, value);
             OnPropertyChanged(nameof(TotalTime));
+            OnPropertyChanged(nameof(TotalRest));
             OnPropertyChanged(nameof(EndTime));
             UpdatePlayEnabled();
             RestLengthRemaining = value;
@@ -189,6 +195,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             SetProperty(ref _repetitions, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(EndTime));
+            OnPropertyChanged(nameof(TotalFocus));
+            OnPropertyChanged(nameof(TotalRest));
             RepetitionsRemaining = value;
         }
     }
@@ -201,6 +209,26 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             return time.ToString(@"hh\:mm");
         }
     }
+
+    public string TotalFocus
+    {
+        get
+        {
+            TimeSpan time = FocusExtensions.GetTotalTime(FocusLength, 0, Repetitions);
+            return time.ToString(@"hh\:mm");
+        }
+    }
+
+    public string TotalRest
+    {
+        get
+        {
+            TimeSpan time = FocusExtensions.GetTotalTime(0, RestLength, Repetitions);
+            return time.ToString(@"hh\:mm");
+        }
+    }
+
+    public string StartTime => _focusHistoryService.GetStartTime().ToShortTimeString();
 
     public string EndTime
     {
@@ -333,6 +361,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     {
         OnPropertyChanged(nameof(IsRecentVisible));
         UpdateButtonStates();
+        if (e == FocusState.Paused)
+        {
+            _focusHistoryService.LogPause();
+            OnPropertyChanged(nameof(Pauses));
+        }
     }
 
     private async void Start()
@@ -343,6 +376,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             successfullyStarted = _focusService.ResumeTimer();
             _telemetry.TrackEvent(TelemetryConstants.FocusResumed);
+            OnPropertyChanged(nameof(EndTime));
         }
         else
         {
@@ -364,6 +398,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 _ = TriggerCompactModeAsync();
                 _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
                 InitializeSegments();
+                OnPropertyChanged(nameof(StartTime));
             }
         }
 
@@ -461,6 +496,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         // Need to update here in case session type changed.
         OnPropertyChanged(nameof(TasksVisible));
+        OnPropertyChanged(nameof(ActiveDataVisible));
         OnPropertyChanged(nameof(CountdownVisible));
     }
 
@@ -470,6 +506,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         if (minutesLogged > 0)
         {
+            OnPropertyChanged(nameof(InterruptionCount));
             _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
             {
                 { "minutes", minutesLogged.ToString() },

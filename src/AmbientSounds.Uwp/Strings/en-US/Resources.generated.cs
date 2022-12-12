@@ -1795,6 +1795,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region PausesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Pauses
+        /// </summary>
+        public static string PausesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("PausesText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1943,6 +1956,7 @@ namespace AmbientSounds.Strings{
             DurationText,
             EndTimeText,
             MiniText,
+            PausesText,
         }
 
         private static ResourceLoader _resourceLoader;
