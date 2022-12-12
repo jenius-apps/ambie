@@ -135,6 +135,19 @@
                         <Setter Target="ButtonPanelColumn1.Width" Value="110" />
                         <Setter Target="ButtonPanelColumn2.Width" Value="110" />
                         <Setter Target="ModuleColumn1.Width" Value="240" />
+                        <Setter Target="TaskActiveDataText.(Grid.Row)" Value="0" />
+                        <Setter Target="TaskActiveDataText.(Grid.Column)" Value="1" />
+                        <Setter Target="TaskActiveDataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="TaskActiveDataText.Orientation" Value="Vertical" />
+                        <Setter Target="TaskActiveDataText.Columns" Value="1" />
+                        <Setter Target="TaskActiveDataText.Rows" Value="2" />
+                        <Setter Target="TaskActiveDataText.Width" Value="120" />
+                        <Setter Target="TaskActiveDataText.Margin" Value="24,0,36,0" />
+                        <Setter Target="TaskActiveDataText.RowSpacing" Value="24" />
+                        <Setter Target="TaskActiveDataText.ColumnSpacing" Value="0" />
+                        <Setter Target="TaskActiveDataText.VerticalAlignment" Value="Center" />
+                        <Setter Target="TaskFlipView.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="TaskFlipView.Margin" Value="12,12,0,12" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -281,7 +294,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="ModuleColumn1" Width="*" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
 
                     <!--  Sliders  -->
@@ -440,29 +453,58 @@
                     </Grid>
 
                     <!--  Tasks  -->
-                    <FlipView
+                    <Grid
                         x:Name="CountdownTimerPanel"
                         Grid.Row="1"
-                        Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        MaxHeight="200"
-                        Margin="12"
-                        Background="Transparent"
-                        ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
-                        ItemsSource="{x:Bind ViewModel.FocusTasks}"
-                        SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}"
                         Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
-                        <animations:Implicit.ShowAnimations>
-                            <animations:OpacityAnimation
-                                From="0"
-                                To="1"
-                                Duration="0:0:2" />
-                            <animations:TranslationAnimation
-                                From="0,20,0"
-                                To="0"
-                                Duration="0:0:2" />
-                        </animations:Implicit.ShowAnimations>
-                    </FlipView>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <FlipView
+                            x:Name="TaskFlipView"
+                            Grid.ColumnSpan="2"
+                            MaxHeight="200"
+                            Margin="12,12,12,0"
+                            Background="Transparent"
+                            ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
+                            ItemsSource="{x:Bind ViewModel.FocusTasks}"
+                            SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}">
+                            <animations:Implicit.ShowAnimations>
+                                <animations:OpacityAnimation
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:2" />
+                                <animations:TranslationAnimation
+                                    From="0,20,0"
+                                    To="0"
+                                    Duration="0:0:2" />
+                            </animations:Implicit.ShowAnimations>
+                        </FlipView>
+
+                        <toolkit:UniformGrid
+                            x:Name="TaskActiveDataText"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="24,12"
+                            ColumnSpacing="12"
+                            Columns="2"
+                            Orientation="Horizontal">
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.Start}"
+                                Glyph="{StaticResource GlyphPlay}"
+                                Text="{x:Bind ViewModel.StartTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.EndTimeText}"
+                                Glyph="{StaticResource GlyphClock}"
+                                Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+                        </toolkit:UniformGrid>
+                    </Grid>
 
                     <!--  Active data  -->
                     <toolkit:UniformGrid
