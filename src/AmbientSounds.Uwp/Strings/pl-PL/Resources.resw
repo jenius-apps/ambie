@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Tryb pełny</value>
+    <value>Zamknij Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Tryb pełny</value>
+    <value>Zamknij Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Zamknij</value>
@@ -37,7 +37,7 @@
     <value>Więcej opcji</value>
   </data>
   <data name="CompactMode" xml:space="preserve">
-    <value>Tryb kompaktowy</value>
+    <value>Ambie Mini</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Kontakt z twórcami</value>
@@ -485,7 +485,7 @@
     <value>Czas koncentracji (w minutach)</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>Miejsce do napisania notatek albo listy rzeczy do zrobienia 🙂</value>
+    <value>Tutaj możesz zanotować dowolne notatki</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>Jaki mamy plan?</value>
@@ -587,7 +587,7 @@
     <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>Dodaj zadanie</value>
+    <value>Dodaj zadania, na których chcesz się skupić, a następnie naciśnij przycisk Start</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>Zadania</value>
@@ -600,5 +600,35 @@
   </data>
   <data name="TasksCompleted" xml:space="preserve">
     <value>Zadania ukończone</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Czas</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Zadanie {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Za darmo w tym tygodniu</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Otwórz Ambie Mini podczas ustawiania ostrości</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Czas trwania</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Koniec</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Otwórz Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Dzięki Ambie Mini zmniejszymy okno i wyświetlimy tylko niezbędne elementy, które pomogą Ci się skoncentrować.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Pauzy</value>
   </data>
 </root>

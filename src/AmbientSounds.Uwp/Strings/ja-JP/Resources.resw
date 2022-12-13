@@ -628,4 +628,7 @@
   <data name="CompactModeTooltipMessage" xml:space="preserve">
     <value>アンビーミニでは、ウィンドウを縮小し、必要な項目のみを表示して集中できるようにします。</value>
   </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>一時停止</value>
+  </data>
 </root>

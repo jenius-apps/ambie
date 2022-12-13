@@ -628,4 +628,7 @@
   <data name="CompactModeTooltipMessage" xml:space="preserve">
     <value>Avec Ambie Mini, nous réduirons la fenêtre et n'afficherons que les éléments nécessaires pour vous aider à vous concentrer.</value>
   </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Pauses</value>
+  </data>
 </root>

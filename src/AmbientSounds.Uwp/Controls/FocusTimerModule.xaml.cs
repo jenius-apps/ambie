@@ -148,10 +148,5 @@ namespace AmbientSounds.Controls
                     });
             }
         }
-
-        private int ActiveDataColumn(bool areTasksVisible)
-        {
-            return areTasksVisible ? 2 : 1;
-        }
     }
 }

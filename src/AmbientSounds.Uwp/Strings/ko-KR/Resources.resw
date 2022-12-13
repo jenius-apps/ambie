@@ -628,4 +628,7 @@
   <data name="CompactModeTooltipMessage" xml:space="preserve">
     <value>암비 미니 를 사용하면 창을 축소하고 집중하는 데 필요한 항목만 표시합니다.</value>
   </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>멈춤</value>
+  </data>
 </root>

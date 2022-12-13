@@ -830,7 +830,7 @@
         </trans-unit>
         <trans-unit id="PausesText" translate="yes" xml:space="preserve">
           <source>Pauses</source>
-          <target state="new">Pauses</target>
+          <target state="translated">멈춤</target>
         </trans-unit>
       </group>
     </body>
