@@ -134,7 +134,7 @@
                         <Setter Target="CountdownTimerPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="ButtonPanelColumn1.Width" Value="110" />
                         <Setter Target="ButtonPanelColumn2.Width" Value="110" />
-                        <Setter Target="ModuleColumn1.Width" Value="240" />
+                        <Setter Target="ModuleColumn1.Width" Value="248" />
                         <Setter Target="TaskActiveDataText.(Grid.Row)" Value="0" />
                         <Setter Target="TaskActiveDataText.(Grid.Column)" Value="1" />
                         <Setter Target="TaskActiveDataText.(Grid.ColumnSpan)" Value="1" />
