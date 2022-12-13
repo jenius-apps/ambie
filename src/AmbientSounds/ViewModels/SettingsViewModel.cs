@@ -46,6 +46,15 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Settings flag for resume on launch.
         /// </summary>
+        public bool AmbieMiniEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
+            set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
+        }
+
+        /// <summary>
+        /// Settings flag for resume on launch.
+        /// </summary>
         public bool SmtcDisabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.DisableSmtcSupportKey);

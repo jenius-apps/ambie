@@ -244,6 +244,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     {
         _focusService.TimeUpdated += OnTimeUpdated;
         _focusService.FocusStateChanged += OnFocusStateChanged;
+        _userSettings.SettingSet += OnSettingChanged;
 
         await InitializeTasksAsync();
         InitializeSegments();
@@ -267,6 +268,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     {
         _focusService.TimeUpdated -= OnTimeUpdated;
         _focusService.FocusStateChanged -= OnFocusStateChanged;
+        _userSettings.SettingSet -= OnSettingChanged;
 
         SelectedTaskIndex = 0;
         RecentSettings.Clear();
@@ -365,6 +367,14 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             _focusHistoryService.LogPause();
             OnPropertyChanged(nameof(Pauses));
+        }
+    }
+
+    private void OnSettingChanged(object sender, string settingKey)
+    {
+        if (settingKey == UserSettingsConstants.CompactOnFocusKey)
+        {
+            OnPropertyChanged(nameof(UseCompactMode));
         }
     }
 
