@@ -412,7 +412,7 @@
                                 x:Name="StatusText"
                                 Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
                                 TextAlignment="Center" />
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
                                 <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
                                 <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
