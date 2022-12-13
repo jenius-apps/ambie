@@ -157,7 +157,7 @@
                     Margin="24,0,0,0"
                     Spacing="2">
                     <TextBlock Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}" />
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
                         <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
                         <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
@@ -208,7 +208,7 @@
                     Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
                     TextAlignment="Center"
                     Visibility="Collapsed" />
-                <StackPanel Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
                     <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
                     <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
