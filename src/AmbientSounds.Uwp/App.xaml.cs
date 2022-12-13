@@ -165,6 +165,9 @@ namespace AmbientSounds
             {
                 HandleProtocolLaunch(protocolArgs);
             }
+
+            // Ensure previously scheduled toasts are closed on a fresh new launch.
+            App.Services.GetRequiredService<IToastService>().ClearScheduledToasts();
         }
 
         /// <inheritdoc/>
