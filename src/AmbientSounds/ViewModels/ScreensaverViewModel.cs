@@ -90,7 +90,7 @@ namespace AmbientSounds.ViewModels
 
             if (_images is null || _images.Count < 2)
             {
-                var firstSound = (await _soundDataProvider.GetSoundsAsync(refresh: false)).FirstOrDefault();
+                var firstSound = (await _soundDataProvider.GetSoundsAsync()).FirstOrDefault();
                 _images = firstSound?.ScreensaverImagePaths ?? Array.Empty<string>();
             }
 

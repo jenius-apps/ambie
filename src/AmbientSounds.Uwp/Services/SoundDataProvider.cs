@@ -31,10 +31,10 @@ namespace AmbientSounds.Services.Uwp
         public event EventHandler<string>? LocalSoundDeleted;
 
         /// <inheritdoc/>
-        public async Task<IList<Sound>> GetSoundsAsync(bool refresh = false, string[]? soundIds = null)
+        public async Task<IList<Sound>> GetSoundsAsync(string[]? soundIds = null)
         {
             var packagedSoundsTask = GetPackagedSoundsAsync();
-            var localSounds = await GetLocalSoundsInternalAsync(refresh: refresh);
+            var localSounds = await GetLocalSoundsInternalAsync();
             var packagedSounds = await packagedSoundsTask;
             packagedSounds.AddRange(localSounds);
 
@@ -217,11 +217,7 @@ namespace AmbientSounds.Services.Uwp
                 // TODO log
             }
 
-            if (_localSoundCache is null)
-            {
-                _localSoundCache = new List<Sound>();
-            }
-
+            _localSoundCache ??= new List<Sound>();
             return _localSoundCache.AsReadOnly();
         }
 
