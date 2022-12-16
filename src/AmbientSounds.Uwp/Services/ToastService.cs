@@ -5,6 +5,16 @@ namespace AmbientSounds.Services.Uwp
 {
     public class ToastService : IToastService
     {
+        private const string BellUriString = "ms-appx:///Assets/SoundEffects/bell.wav";
+        private readonly Uri _bellUri;
+        private readonly Lazy<IToastButton> _dismissButton;
+
+        public ToastService()
+        {
+            _bellUri = new Uri(BellUriString);
+            _dismissButton = new Lazy<IToastButton>(() => new ToastButtonDismiss());
+        }
+
         public void ClearScheduledToasts()
         {
             ToastNotifierCompat notifier = ToastNotificationManagerCompat.CreateToastNotifier();
@@ -31,21 +41,27 @@ namespace AmbientSounds.Services.Uwp
             }
 
             new ToastContentBuilder()
-                .SetToastScenario(ToastScenario.Alarm)
-                .AddAudio(new Uri("ms-appx:///Assets/SoundEffects/bell.wav"), silent: silent)
-                .AddButton(new ToastButtonDismiss())
+                .SetToastScenario(ToastScenario.Default)
+                .AddAudio(_bellUri, silent: silent)
+                .AddButton(_dismissButton.Value)
                 .AddText(title)
                 .AddText(message)
-                .Schedule(scheduleDateTime);
+                .Schedule(scheduleDateTime, toast =>
+                {
+                    toast.ExpirationTime = new DateTimeOffset(scheduleDateTime).AddMinutes(1);
+                });
         }
 
         public void SendToast(string title, string message)
         {
             new ToastContentBuilder()
-                .AddButton(new ToastButtonDismiss())
+                .AddButton(_dismissButton.Value)
                 .AddText(title)
                 .AddText(message)
-                .Show();
+                .Show(toast =>
+                {
+                    toast.ExpirationTime = DateTimeOffset.Now.AddMinutes(1);
+                });
         }
     }
 }

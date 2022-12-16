@@ -12,18 +12,15 @@
     <Grid>
         <ScrollViewer AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}" HorizontalScrollMode="Disabled">
             <StackPanel Margin="0,0,16,40">
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+                </StackPanel.ChildrenTransitions>
 
                 <!--  Timer module  -->
                 <controls:FocusTimerModule x:Name="TimerModule">
-                    <animations:Implicit.Animations>
-                        <animations:OffsetAnimation Duration="0:0:0.15" />
-                    </animations:Implicit.Animations>
-                    <animations:Implicit.ShowAnimations>
-                        <animations:OpacityAnimation
-                            From="0"
-                            To="1"
-                            Duration="0:0:1" />
-                    </animations:Implicit.ShowAnimations>
+                    <controls:FocusTimerModule.Transitions>
+                        <RepositionThemeTransition />
+                    </controls:FocusTimerModule.Transitions>
                 </controls:FocusTimerModule>
 
                 <!--  Task module  -->
@@ -31,16 +28,9 @@
                     x:Name="TaskModule"
                     Margin="0,8,0,0"
                     Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:OpacityAnimation
-                            Delay="0:0:0.3"
-                            From="0"
-                            To="1"
-                            Duration="0:0:1" />
-                    </animations:Implicit.ShowAnimations>
-                    <animations:Implicit.Animations>
-                        <animations:OffsetAnimation Duration="0:0:0.15" />
-                    </animations:Implicit.Animations>
+                    <controls:FocusTaskModule.Transitions>
+                        <RepositionThemeTransition />
+                    </controls:FocusTaskModule.Transitions>
                 </controls:FocusTaskModule>
 
                 <!--  notepad module  -->
@@ -51,17 +41,9 @@
                     BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                     BorderThickness="1"
                     CornerRadius="8">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:OpacityAnimation
-                            Delay="0:0:0.3"
-                            From="0"
-                            To="1"
-                            Duration="0:0:1" />
-                    </animations:Implicit.ShowAnimations>
-                    <animations:Implicit.Animations>
-                        <animations:OffsetAnimation Duration="0:0:0.15" />
-                    </animations:Implicit.Animations>
-
+                    <Border.Transitions>
+                        <RepositionThemeTransition />
+                    </Border.Transitions>
                     <Grid>
                         <Rectangle
                             Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
@@ -96,16 +78,9 @@
                 </Border>
 
                 <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,8,0,0">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:OpacityAnimation
-                            Delay="0:0:0.3"
-                            From="0"
-                            To="1"
-                            Duration="0:0:1" />
-                    </animations:Implicit.ShowAnimations>
-                    <animations:Implicit.Animations>
-                        <animations:OffsetAnimation Duration="0:0:0.15" />
-                    </animations:Implicit.Animations>
+                    <controls:FocusHistoryModule.Transitions>
+                        <RepositionThemeTransition />
+                    </controls:FocusHistoryModule.Transitions>
                 </controls:FocusHistoryModule>
             </StackPanel>
         </ScrollViewer>
