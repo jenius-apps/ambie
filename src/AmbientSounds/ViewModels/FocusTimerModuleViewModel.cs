@@ -119,6 +119,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public ObservableCollection<FocusSegmentViewModel> Segments { get; } = new();
 
+    public bool CanUseFluentSystemIcons => _systemInfoProvider.CanUseFluentSystemIcons();
+
     public double FocusLengthProgress => FocusLength - FocusLengthRemaining;
 
     public double RestLengthProgress => RestLength - RestLengthRemaining;

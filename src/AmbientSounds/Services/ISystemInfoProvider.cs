@@ -54,5 +54,11 @@ namespace AmbientSounds.Services
         /// Returns true if the app is currently in compact mode.
         /// </summary>
         bool IsCompact();
+        
+        /// <summary>
+        /// Returns true if the system is capable of using
+        /// the built-in fluent system icons.
+        /// </summary>
+        bool CanUseFluentSystemIcons();
     }
 }

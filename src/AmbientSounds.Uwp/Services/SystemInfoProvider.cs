@@ -64,5 +64,12 @@ namespace AmbientSounds.Services.Uwp
         {
             return ApplicationView.GetForCurrentView().ViewMode == ApplicationViewMode.CompactOverlay;
         }
+
+        /// <inheritdoc/>
+        public bool CanUseFluentSystemIcons()
+        {
+            var result = SystemInformation.Instance.OperatingSystemVersion;
+            return result.Build >= 22000;
+        }
     }
 }
