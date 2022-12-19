@@ -1,0 +1,73 @@
+﻿using AmbientSounds.Models;
+using AmbientSounds.Repositories;
+using CommunityToolkit.Diagnostics;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AmbientSounds.Cache;
+
+public class SoundCache : ISoundCache
+{
+    private readonly ConcurrentDictionary<string, Sound> _installedSounds = new();
+    private readonly ConcurrentDictionary<string, Sound> _preinstalled = new();
+    private readonly IOfflineSoundRepository _offlineSoundRepo;
+
+    public SoundCache(
+        IOfflineSoundRepository offlineSoundRepository)
+    {
+        Guard.IsNotNull(offlineSoundRepository);
+        _offlineSoundRepo = offlineSoundRepository;
+    }
+
+    public async Task<IReadOnlyDictionary<string, Sound>> GetPreinstalledSoundsAsync()
+    {
+        if (_preinstalled.Count == 0)
+        {
+            IReadOnlyList<Sound> videos = await _offlineSoundRepo.GetPrenstalledSoundsAsync();
+            foreach (var v in videos)
+            {
+                _preinstalled.TryAdd(v.Id, v);
+            }
+        }
+
+        return _preinstalled;
+    }
+
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<Sound>> GetInstalledSoundsAsync()
+    {
+        if (_installedSounds.Count == 0)
+        {
+            IReadOnlyList<Sound> videos = await _offlineSoundRepo.GetLocalSoundsAsync();
+            foreach (var v in videos)
+            {
+                _installedSounds.TryAdd(v.Id, v);
+            }
+        }
+
+        return (_installedSounds.Values as IReadOnlyList<Sound>) ?? Array.Empty<Sound>();
+    }
+
+    /// <inheritdoc/>
+    public async Task AddLocalInstalledSoundAsync(Sound sound)
+    {
+        await GetInstalledSoundsAsync();
+
+        _installedSounds.TryAdd(sound.Id, sound);
+        await _offlineSoundRepo.SaveLocalSoundsAsync(_installedSounds.Values.ToArray());
+    }
+
+    /// <inheritdoc/>
+    public async Task RemoveLocalInstalledSoundAsync(string videoId)
+    {
+        await GetInstalledSoundsAsync();
+
+        _installedSounds.TryRemove(videoId, out _);
+        await _offlineSoundRepo.SaveLocalSoundsAsync(_installedSounds.Values.ToArray());
+    }
+}

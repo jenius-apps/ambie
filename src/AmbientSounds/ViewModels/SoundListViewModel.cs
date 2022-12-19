@@ -15,6 +15,7 @@ namespace AmbientSounds.ViewModels
     public class SoundListViewModel : ObservableObject
     {
         private readonly ISoundDataProvider _provider;
+        private readonly ISoundService _soundService;
         private readonly ITelemetry _telemetry;
         private readonly ISoundVmFactory _factory;
         private readonly IDialogService _dialogService;
@@ -26,18 +27,21 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public SoundListViewModel(
             ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             ITelemetry telemetry,
             ISoundVmFactory soundVmFactory,
             IDialogService dialogService,
             IDownloadManager downloadManager)
         {
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
-            Guard.IsNotNull(dialogService, nameof(dialogService));
-            Guard.IsNotNull(downloadManager, nameof(downloadManager));
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(soundService);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNull(soundVmFactory);
+            Guard.IsNotNull(dialogService);
+            Guard.IsNotNull(downloadManager);
 
             _provider = soundDataProvider;
+            _soundService = soundService;
             _telemetry = telemetry;
             _factory = soundVmFactory;
             _dialogService = dialogService;
@@ -104,7 +108,9 @@ namespace AmbientSounds.ViewModels
                 Sounds.Clear();
             }
 
-            var soundList = await _provider.GetSoundsAsync();
+            await _soundService.PrepopulateSoundsIfEmpty();
+            //var soundList = await _provider.GetSoundsAsync();
+            var soundList = await _soundService.GetLocalSoundsAsync();
             if (soundList is null || soundList.Count == 0)
             {
                 return;
