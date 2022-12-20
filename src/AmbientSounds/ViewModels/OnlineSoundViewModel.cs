@@ -16,6 +16,7 @@ namespace AmbientSounds.ViewModels
         private readonly Sound _sound;
         private readonly IDownloadManager _downloadManager;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundService;
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
         private readonly IPreviewService _previewService;
@@ -29,6 +30,7 @@ namespace AmbientSounds.ViewModels
             Sound s, 
             IDownloadManager downloadManager,
             ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             ITelemetry telemetry,
             IPreviewService previewService,
             IIapService iapService,
@@ -37,6 +39,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(soundService);
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(iapService, nameof(iapService));
             Guard.IsNotNull(previewService, nameof(previewService));
@@ -46,6 +49,7 @@ namespace AmbientSounds.ViewModels
             _previewService = previewService;
             _iapService = iapService;
             _soundDataProvider = soundDataProvider;
+            _soundService = soundService;
             _telemetry = telemetry;
             _dialogService = dialogService;
 
@@ -73,7 +77,7 @@ namespace AmbientSounds.ViewModels
         {
             if (id == _sound.Id)
             {
-                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id);
+                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id);
                 DownloadProgressValue = 0;
 
                 // Note: a non-premium sound is treated as "owned"
@@ -86,7 +90,7 @@ namespace AmbientSounds.ViewModels
             DownloadProgressValue = e;
             if (e >= 100)
             {
-                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
+                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
                 DownloadProgressValue = 0;
             }
         }
@@ -281,7 +285,7 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
-                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
+                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
             }
 
             // Determine ownership

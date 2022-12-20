@@ -56,13 +56,6 @@ namespace AmbientSounds.Services
         Task UpdateLocalSoundAsync(IReadOnlyList<Sound> sounds);
 
         /// <summary>
-        /// Checks to see if given sound
-        /// is already saved.
-        /// </summary>
-        /// <param name="s">The sound to check.</param>
-        Task<bool> IsSoundInstalledAsync(string id);
-
-        /// <summary>
         /// Refreshes the downloaded metadata with updated metadata from
         /// the online provider. This is used to update things like names
         /// or attribution.

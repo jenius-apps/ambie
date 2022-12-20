@@ -78,6 +78,7 @@ namespace AmbientSounds.Factories
                 s,
                 _downloadManager,
                 _soundDataProvider,
+                _serviceProvider.GetRequiredService<ISoundService>(),
                 _telemetry,
                 _previewService,
                 _iapService,
