@@ -132,13 +132,13 @@ namespace AmbientSounds.ViewModels
             }
 
             UpdateItemPositions();
-            _provider.LocalSoundAdded += OnLocalSoundAdded;
+            _soundService.LocalSoundAdded += OnLocalSoundAdded;
             _provider.LocalSoundDeleted += OnLocalSoundDeleted;
         }
 
         public void Dispose()
         {
-            _provider.LocalSoundAdded -= OnLocalSoundAdded;
+            _soundService.LocalSoundAdded -= OnLocalSoundAdded;
             _provider.LocalSoundDeleted -= OnLocalSoundDeleted;
 
             foreach (var s in Sounds)

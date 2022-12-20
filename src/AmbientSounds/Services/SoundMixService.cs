@@ -14,17 +14,21 @@ namespace AmbientSounds.Services
     {
         private readonly ISoundDataProvider _soundDataProvider;
         private readonly IMixMediaPlayerService _player;
+        private readonly ISoundService _soundService;
         private readonly string[] _namePlaceholders = new string[] { "🎵", "🎼", "🎧", "🎶" };
 
         public SoundMixService(
             ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             IMixMediaPlayerService player)
         {
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(player, nameof(player));
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(player);
+            Guard.IsNotNull(soundService);
 
             _soundDataProvider = soundDataProvider;
             _player = player;
+            _soundService = soundService;
         }
 
         /// <inheritdoc/>
@@ -76,7 +80,7 @@ namespace AmbientSounds.Services
                 ImagePaths = sounds.Select(static x => x.ImagePath).ToArray()
             };
 
-            await _soundDataProvider.AddLocalSoundAsync(mix);
+            await _soundService.AddLocalSoundAsync(mix);
             return mix.Id;
         }
 
@@ -164,7 +168,7 @@ namespace AmbientSounds.Services
                     ImagePaths = soundsForThisMix.Select(static x => x.ImagePath).ToArray()
                 };
 
-                await _soundDataProvider.AddLocalSoundAsync(hydratedMix);
+                await _soundService.AddLocalSoundAsync(hydratedMix);
             }
         }
 

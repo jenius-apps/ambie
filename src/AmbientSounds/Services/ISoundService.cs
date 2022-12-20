@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,6 +9,11 @@ namespace AmbientSounds.Services;
 
 public interface ISoundService
 {
+    /// <summary>
+    /// Local sound added.
+    /// </summary>
+    event EventHandler<Sound> LocalSoundAdded;
+
     /// <summary>
     /// Gets the list of sounds that are installed.
     /// </summary>
@@ -28,4 +34,10 @@ public interface ISoundService
     /// Returns true if the given sound ID is installed;
     /// </summary>
     Task<bool> IsSoundInstalledAsync(string id);
+
+    /// <summary>
+    /// Adds sound info to local list.
+    /// </summary>
+    /// <param name="s">The sound info to save.</param>
+    Task AddLocalSoundAsync(Sound? s);
 }

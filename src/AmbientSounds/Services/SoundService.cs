@@ -14,13 +14,14 @@ public class SoundService : ISoundService
 {
     private readonly ISoundCache _soundCache;
 
+    /// <inheritdoc/>
+    public event EventHandler<Sound>? LocalSoundAdded;
     public SoundService(ISoundCache soundCache)
     {
         Guard.IsNotNull(soundCache);
         _soundCache = soundCache;
     }
 
-    // TODO move add/delete functionality here from SoundDataProvider.
     public Task<IReadOnlyList<Sound>> GetLocalSoundsAsync()
     {
         return _soundCache.GetInstalledSoundsAsync();
@@ -28,6 +29,7 @@ public class SoundService : ISoundService
 
     public async Task PrepopulateSoundsIfEmpty()
     {
+        // TODO: in the calling method, make sure it's only called on first run.
         var sounds = await _soundCache.GetInstalledSoundsAsync();
         if (sounds.Count != 0)
         {
@@ -46,5 +48,17 @@ public class SoundService : ISoundService
     {
         Sound? sound = await _soundCache.GetInstalledSoundAsync(id);
         return sound is not null;
+    }
+
+    /// <inheritdoc/>
+    public async Task AddLocalSoundAsync(Sound? s)
+    {
+        if (s is null || await IsSoundInstalledAsync(s.Id))
+        {
+            return;
+        }
+
+        await _soundCache.AddLocalInstalledSoundAsync(s);
+        LocalSoundAdded?.Invoke(this, s);
     }
 }

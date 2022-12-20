@@ -11,11 +11,6 @@ namespace AmbientSounds.Services
     public interface ISoundDataProvider
     {
         /// <summary>
-        /// Local sound added.
-        /// </summary>
-        event EventHandler<Sound> LocalSoundAdded;
-
-        /// <summary>
         /// Local sound deleted. ID parameter is provided.
         /// </summary>
         event EventHandler<string> LocalSoundDeleted;
@@ -36,12 +31,6 @@ namespace AmbientSounds.Services
         /// Retrieves list of cached local sounds.
         /// </summary>
         Task<IList<Sound>> GetLocalSoundsAsync();
-
-        /// <summary>
-        /// Adds sound info to local list.
-        /// </summary>
-        /// <param name="s">The sound info to save.</param>
-        Task AddLocalSoundAsync(Sound s);
 
         /// <summary>
         /// Deletes sound info to local list.

@@ -22,20 +22,24 @@ namespace AmbientSounds.Services.Uwp
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IFileDownloader _fileDownloader;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundService;
 
         public event EventHandler? DownloadsCompleted;
 
         public WindowsDownloadManager(
             IFileDownloader fileDownloader,
             ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             IOnlineSoundDataProvider onlineSoundDataProvider)
         {
-            Guard.IsNotNull(fileDownloader, nameof(fileDownloader));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
+            Guard.IsNotNull(fileDownloader);
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(soundService);
+            Guard.IsNotNull(onlineSoundDataProvider);
 
             _fileDownloader = fileDownloader;
             _soundDataProvider = soundDataProvider;
+            _soundService = soundService;
             _onlineSoundDataProvider = onlineSoundDataProvider;
         }
 
@@ -137,7 +141,7 @@ namespace AmbientSounds.Services.Uwp
                 ColourHex = s.ColourHex
             };
 
-            await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
+            await _soundService.AddLocalSoundAsync(newSoundInfo);
             DownloadsCompleted?.Invoke(this, EventArgs.Empty);
         }
 

@@ -18,6 +18,7 @@ namespace AmbientSounds.Services
         private readonly IDownloadManager _downloadManager;
         private readonly IAccountManager _accountManager;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundService;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
@@ -37,25 +38,28 @@ namespace AmbientSounds.Services
             IDownloadManager downloadManager,
             IAccountManager accountManager,
             ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             IOnlineSoundDataProvider onlineSoundDataProvider,
             IAppSettings appSettings,
             ISoundMixService soundMixService,
             ITelemetry telemetry)
         {
-            Guard.IsNotNull(cloudFileWriter, nameof(cloudFileWriter));
-            Guard.IsNotNull(downloadManager, nameof(downloadManager));
-            Guard.IsNotNull(accountManager, nameof(accountManager));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
-            Guard.IsNotNull(soundMixService, nameof(soundMixService));
-            Guard.IsNotNull(appSettings, nameof(appSettings));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNullOrEmpty(appSettings.CloudSyncFileUrl, nameof(appSettings.CloudSyncFileUrl));
+            Guard.IsNotNull(cloudFileWriter);
+            Guard.IsNotNull(downloadManager);
+            Guard.IsNotNull(accountManager);
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(soundService);
+            Guard.IsNotNull(onlineSoundDataProvider);
+            Guard.IsNotNull(soundMixService);
+            Guard.IsNotNull(appSettings);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNullOrEmpty(appSettings.CloudSyncFileUrl);
 
             _accountManager = accountManager;
             _cloudFileWriter = cloudFileWriter;
             _downloadManager = downloadManager;
             _soundDataProvider = soundDataProvider;
+            _soundService = soundService;
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _soundMixService = soundMixService;
             _telemetry = telemetry;
@@ -64,7 +68,7 @@ namespace AmbientSounds.Services
 
             _downloadManager.DownloadsCompleted += OnDownloadsCompleted;
             _soundDataProvider.LocalSoundDeleted += OnLocalSoundDeleted;
-            _soundDataProvider.LocalSoundAdded += OnLocalSoundAdded;
+            _soundService.LocalSoundAdded += OnLocalSoundAdded;
             _accountManager.SignInUpdated += OnSignInUpdated;
         }
 
@@ -252,7 +256,7 @@ namespace AmbientSounds.Services
         {
             _downloadManager.DownloadsCompleted -= OnDownloadsCompleted;
             _soundDataProvider.LocalSoundDeleted -= OnLocalSoundDeleted;
-            _soundDataProvider.LocalSoundAdded -= OnLocalSoundAdded;
+            _soundService.LocalSoundAdded -= OnLocalSoundAdded;
             _accountManager.SignInUpdated -= OnSignInUpdated;
         }
     }
