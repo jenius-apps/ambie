@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
         private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundService;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
@@ -41,6 +42,7 @@ namespace AmbientSounds.ViewModels
             Sound s,
             IMixMediaPlayerService playerService,
             ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             ISoundMixService soundMixService,
             ITelemetry telemetry,
             IRenamer renamer,
@@ -54,6 +56,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(s);
             Guard.IsNotNull(playerService);
             Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(soundService);
             Guard.IsNotNull(telemetry);
             Guard.IsNotNull(soundMixService);
             Guard.IsNotNull(renamer);
@@ -68,6 +71,7 @@ namespace AmbientSounds.ViewModels
             _soundMixService = soundMixService;
             _playerService = playerService;
             _soundDataProvider = soundDataProvider;
+            _soundService = soundService;
             _telemetry = telemetry;
             _renamer = renamer;
             _dialogService = dialogService;
@@ -403,7 +407,7 @@ namespace AmbientSounds.ViewModels
 
             try
             {
-                await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
+                await _soundService.DeleteLocalSoundAsync(_sound.Id ?? "");
 
                 _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
                 {

@@ -15,6 +15,11 @@ public interface ISoundService
     event EventHandler<Sound> LocalSoundAdded;
 
     /// <summary>
+    /// Local sound deleted.
+    /// </summary>
+    event EventHandler<string> LocalSoundDeleted;
+
+    /// <summary>
     /// Gets the list of sounds that are installed.
     /// </summary>
     /// <returns>List of installed sound objects.</returns>
@@ -40,4 +45,10 @@ public interface ISoundService
     /// </summary>
     /// <param name="s">The sound info to save.</param>
     Task AddLocalSoundAsync(Sound? s);
+
+    /// <summary>
+    /// Deletes sound info from local list.
+    /// </summary>
+    /// <param name="id">The sound info to delete.</param>
+    Task DeleteLocalSoundAsync(string id);
 }

@@ -67,7 +67,7 @@ namespace AmbientSounds.Services
             _dataChangeQueue = new Queue<string>();
 
             _downloadManager.DownloadsCompleted += OnDownloadsCompleted;
-            _soundDataProvider.LocalSoundDeleted += OnLocalSoundDeleted;
+            _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
             _soundService.LocalSoundAdded += OnLocalSoundAdded;
             _accountManager.SignInUpdated += OnSignInUpdated;
         }
@@ -255,7 +255,7 @@ namespace AmbientSounds.Services
         public void Dispose()
         {
             _downloadManager.DownloadsCompleted -= OnDownloadsCompleted;
-            _soundDataProvider.LocalSoundDeleted -= OnLocalSoundDeleted;
+            _soundService.LocalSoundDeleted -= OnLocalSoundDeleted;
             _soundService.LocalSoundAdded -= OnLocalSoundAdded;
             _accountManager.SignInUpdated -= OnSignInUpdated;
         }

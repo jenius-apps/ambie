@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Windows.ApplicationModel;
 
 #nullable enable
 
@@ -21,9 +22,15 @@ public class AssetsReader : IAssetsReader
     private const string DataFileName = "Data.json";
 
     /// <inheritdoc/>
+    public bool IsPathFromPackage(string filePath)
+    {
+        return filePath.Contains(Package.Current.InstalledLocation.Path);
+    }
+
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<string>> GetBackgroundsAsync()
     {
-        StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+        StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
         StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
         StorageFolder backgrounds = await assets.GetFolderAsync("Backgrounds");
         var images = await backgrounds.GetFilesAsync();
@@ -33,7 +40,7 @@ public class AssetsReader : IAssetsReader
     /// <inheritdoc/>
     public async Task<IReadOnlyList<string>> GetSoundEffectsAsync()
     {
-        StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+        StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
         StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
         StorageFolder soundEffects = await assets.GetFolderAsync("SoundEffects");
         var sounds = await soundEffects.GetFilesAsync();
@@ -43,7 +50,7 @@ public class AssetsReader : IAssetsReader
     /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetPackagedSoundsAsync()
     {
-        StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+        StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
         StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
         StorageFile dataFile = await assets.GetFileAsync(DataFileName);
         using Stream dataStream = await dataFile.OpenStreamForReadAsync();

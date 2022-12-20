@@ -22,13 +22,7 @@ namespace AmbientSounds.Services.Uwp
         private const string LocalDataFileName = "localData.json";
         private List<Sound>? _localSoundCache; // cache of non-packaged sounds.
         private List<Sound>? _packagedSoundCache;
-        private Random? _random;
-
-        /// <inheritdoc/>
-        public event EventHandler<Sound>? LocalSoundAdded;
-
-        /// <inheritdoc/>
-        public event EventHandler<string>? LocalSoundDeleted;
+        private Random? _random;        
 
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(string[]? soundIds = null)
@@ -76,80 +70,6 @@ namespace AmbientSounds.Services.Uwp
             }
 
             return WriteCacheAsync();
-        }
-
-        /// <inheritdoc/>
-        public async Task DeleteLocalSoundAsync(string id)
-        {
-            if (string.IsNullOrWhiteSpace(id) || !await IsSoundInstalledAsync(id) || _localSoundCache is null)
-            {
-                return;
-            }
-
-            // Delete from cache
-            var soundForDeletion = _localSoundCache.First(x => x.Id == id);
-            _localSoundCache.Remove(soundForDeletion);
-
-            // Write changes to file
-            await WriteCacheAsync();
-
-            // Delete sound file 
-            if (!string.IsNullOrWhiteSpace(soundForDeletion.FilePath))
-            {
-                try
-                {
-                    StorageFile soundFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.FilePath);
-                    await soundFile.DeleteAsync();
-                }
-                catch (FileNotFoundException) { }
-            }
-
-            // Delete image file
-            if (!string.IsNullOrWhiteSpace(soundForDeletion.ImagePath))
-            {
-                try
-                {
-                    StorageFile imageFile = await StorageFile.GetFileFromPathAsync(soundForDeletion.ImagePath);
-                    await imageFile.DeleteAsync();
-                }
-                catch (FileNotFoundException) { }
-            }
-
-            LocalSoundDeleted?.Invoke(this, soundForDeletion.Id);
-        }
-
-        /// <inheritdoc/>
-        public async Task AddLocalSoundAsync(Sound s)
-        {
-            Guard.IsNotNull(s, nameof(s));
-
-            bool isAlreadyInstalled = await IsSoundInstalledAsync(s.Id);
-            if (isAlreadyInstalled)
-            {
-                return;
-            }
-
-            // TODO: throw or just ignore?
-            Guard.IsNotNull(_localSoundCache, nameof(_localSoundCache));
-
-            _localSoundCache.Add(s);
-            await WriteCacheAsync();
-            LocalSoundAdded?.Invoke(this, s);
-        }
-
-        /// <inheritdoc/>
-        public async Task<bool> IsSoundInstalledAsync(string id)
-        {
-            if (id is null)
-            {
-                return false;
-            }
-
-            var packagedSounds = await GetPackagedSoundsAsync();
-            if (packagedSounds.Any(x => x.Id == id)) return true;
-
-            IReadOnlyList<Sound> sounds = await GetLocalSoundsInternalAsync();
-            return sounds.Any(x => x.Id == id);
         }
 
         /// <inheritdoc/>

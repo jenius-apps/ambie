@@ -24,4 +24,10 @@ public interface IAssetsReader
     /// Retrieves list of sounds pre-installed in assets folder.
     /// </summary>
     Task<IReadOnlyList<Sound>> GetPackagedSoundsAsync();
+
+    /// <summary>
+    /// Returns true if the file path is contained inside the app's
+    /// package/install location.
+    /// </summary>
+    bool IsPathFromPackage(string filePath);
 }

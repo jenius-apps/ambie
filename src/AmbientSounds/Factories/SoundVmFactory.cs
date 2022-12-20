@@ -77,7 +77,6 @@ namespace AmbientSounds.Factories
             return new OnlineSoundViewModel(
                 s,
                 _downloadManager,
-                _soundDataProvider,
                 _serviceProvider.GetRequiredService<ISoundService>(),
                 _telemetry,
                 _previewService,
@@ -93,6 +92,7 @@ namespace AmbientSounds.Factories
                 s,
                 _player,
                 _soundDataProvider,
+                _serviceProvider.GetRequiredService<ISoundService>(),
                 _soundMixService,
                 _telemetry,
                 _renamer,

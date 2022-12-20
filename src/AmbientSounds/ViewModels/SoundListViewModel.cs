@@ -14,7 +14,6 @@ namespace AmbientSounds.ViewModels
 {
     public class SoundListViewModel : ObservableObject
     {
-        private readonly ISoundDataProvider _provider;
         private readonly ISoundService _soundService;
         private readonly ITelemetry _telemetry;
         private readonly ISoundVmFactory _factory;
@@ -26,21 +25,18 @@ namespace AmbientSounds.ViewModels
         /// immediately after creation.
         /// </summary>
         public SoundListViewModel(
-            ISoundDataProvider soundDataProvider,
             ISoundService soundService,
             ITelemetry telemetry,
             ISoundVmFactory soundVmFactory,
             IDialogService dialogService,
             IDownloadManager downloadManager)
         {
-            Guard.IsNotNull(soundDataProvider);
             Guard.IsNotNull(soundService);
             Guard.IsNotNull(telemetry);
             Guard.IsNotNull(soundVmFactory);
             Guard.IsNotNull(dialogService);
             Guard.IsNotNull(downloadManager);
 
-            _provider = soundDataProvider;
             _soundService = soundService;
             _telemetry = telemetry;
             _factory = soundVmFactory;
@@ -133,13 +129,13 @@ namespace AmbientSounds.ViewModels
 
             UpdateItemPositions();
             _soundService.LocalSoundAdded += OnLocalSoundAdded;
-            _provider.LocalSoundDeleted += OnLocalSoundDeleted;
+            _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
         }
 
         public void Dispose()
         {
             _soundService.LocalSoundAdded -= OnLocalSoundAdded;
-            _provider.LocalSoundDeleted -= OnLocalSoundDeleted;
+            _soundService.LocalSoundDeleted -= OnLocalSoundDeleted;
 
             foreach (var s in Sounds)
             {
