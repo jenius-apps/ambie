@@ -122,16 +122,22 @@
                 <Setter Property="Glyph" Value="&#xF5B0;" />
             </Style>
 
-            <Style x:Key="PauseTimerIcon" TargetType="FontIcon">
+            <Style x:Key="FluentPauseTimerIcon" TargetType="FontIcon">
                 <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="Glyph" Value="&#xE62E;" />
             </Style>
 
+            <Style x:Key="MDL2PauseTimerIcon" TargetType="FontIcon">
+                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Glyph" Value="&#xE103;" />
+            </Style>
+
             <Style x:Key="StopTimerIcon" TargetType="FontIcon">
                 <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="Glyph" Value="&#xEE95;" />
+                <Setter Property="Glyph" Value="&#xE002;" />
             </Style>
 
             <Style
