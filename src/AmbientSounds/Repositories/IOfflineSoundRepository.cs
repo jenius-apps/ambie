@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmbientSounds.Repositories
+namespace AmbientSounds.Repositories;
+
+public interface IOfflineSoundRepository
 {
-    public interface IOfflineSoundRepository
-    {
-        Task<IReadOnlyList<Sound>> GetLocalSoundsAsync();
-        Task<IReadOnlyList<Sound>> GetPrenstalledSoundsAsync();
-        Task SaveLocalSoundsAsync(IList<Sound> sounds);
-    }
+    /// <summary>
+    /// Retrieves list of sound data from storage.
+    /// </summary>
+    Task<IReadOnlyList<Sound>> GetLocalSoundsAsync();
+    
+    /// <summary>
+    /// Saves the given list of sound meta data to storage.
+    /// </summary>
+    Task SaveLocalSoundsAsync(IList<Sound> sounds);
 }

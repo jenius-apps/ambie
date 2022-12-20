@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Repositories;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Concurrent;
@@ -15,26 +16,31 @@ public class SoundCache : ISoundCache
     private readonly ConcurrentDictionary<string, Sound> _installedSounds = new();
     private readonly ConcurrentDictionary<string, Sound> _preinstalled = new();
     private readonly IOfflineSoundRepository _offlineSoundRepo;
+    private readonly IAssetsReader _assetsReader;
 
     public SoundCache(
-        IOfflineSoundRepository offlineSoundRepository)
+        IOfflineSoundRepository offlineSoundRepository,
+        IAssetsReader assetsReader)
     {
         Guard.IsNotNull(offlineSoundRepository);
+        Guard.IsNotNull(assetsReader);
         _offlineSoundRepo = offlineSoundRepository;
+        _assetsReader = assetsReader;
     }
 
-    public async Task<IReadOnlyDictionary<string, Sound>> GetPreinstalledSoundsAsync()
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<Sound>> GetPreinstalledSoundsAsync()
     {
         if (_preinstalled.Count == 0)
         {
-            IReadOnlyList<Sound> videos = await _offlineSoundRepo.GetPrenstalledSoundsAsync();
+            IReadOnlyList<Sound> videos = await _assetsReader.GetPackagedSoundsAsync();
             foreach (var v in videos)
             {
                 _preinstalled.TryAdd(v.Id, v);
             }
         }
 
-        return _preinstalled;
+        return _preinstalled.Values as IReadOnlyList<Sound> ?? Array.Empty<Sound>();
     }
 
 

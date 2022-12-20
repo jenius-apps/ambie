@@ -10,7 +10,6 @@ namespace AmbientSounds.Repositories
 {
     public class OfflineSoundRepository : IOfflineSoundRepository
     {
-        private const string DataFileName = "Data.json";
         private const string LocalDataFileName = "localData.json";
         private readonly IFileWriter _fileWriter;
 
@@ -24,14 +23,6 @@ namespace AmbientSounds.Repositories
         public Task<IReadOnlyList<Sound>> GetLocalSoundsAsync()
         {
             return GetSoundsAsync(LocalDataFileName);
-        }
-
-        /// <inheritdoc/>
-        public Task<IReadOnlyList<Sound>> GetPrenstalledSoundsAsync()
-        {
-            // TODO this is the wrong way to fetch preinstalled sounds.
-            // Look at soundDataProvider 
-            return GetSoundsAsync(DataFileName);
         }
 
         private async Task<IReadOnlyList<Sound>> GetSoundsAsync(string file)

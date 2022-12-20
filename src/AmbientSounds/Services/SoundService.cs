@@ -34,7 +34,7 @@ public class SoundService : ISoundService
         var preInstalledSounds = await _soundCache.GetPreinstalledSoundsAsync();
         foreach (var s in preInstalledSounds)
         {
-            await _soundCache.AddLocalInstalledSoundAsync(s.Value);
+            await _soundCache.AddLocalInstalledSoundAsync(s);
         }
     }
 }
