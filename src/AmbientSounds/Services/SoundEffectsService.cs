@@ -1,11 +1,9 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Tools;
+﻿using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -18,11 +16,11 @@ namespace AmbientSounds.Services
 
         public SoundEffectsService(
             IMediaPlayer mediaPlayer,
-            ISystemInfoProvider systemInfoProvider)
+            IAssetsReader assetsReader)
         {
             Guard.IsNotNull(mediaPlayer);
             _mediaPlayer = mediaPlayer;
-            _soundEffectsLazy = new Lazy<Task<IReadOnlyList<string>>>(systemInfoProvider.GetAvailableSoundEffectsAsync);
+            _soundEffectsLazy = new Lazy<Task<IReadOnlyList<string>>>(assetsReader.GetSoundEffectsAsync);
         }
 
         /// <inheritdoc/>

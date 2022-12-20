@@ -291,6 +291,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resw</DependentUpon>
     </Compile>
+    <Compile Include="Tools\AssetsReader.cs" />
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">

@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -15,20 +16,20 @@ namespace AmbientSounds.ViewModels
         private readonly IUserSettings _userSettings;
         private readonly IImagePicker _imagePicker;
         private readonly ITelemetry _telemetry;
-        private readonly ISystemInfoProvider _systemInfoProvider;
+        private readonly IAssetsReader _assetsReader;
 
         public ThemeSettingsViewModel(
             IUserSettings userSettings,
-            ISystemInfoProvider systemInfoProvider,
+            IAssetsReader assetsReader,
             IImagePicker imagePicker,
             ITelemetry telemetry)
         {
-            Guard.IsNotNull(userSettings, nameof(userSettings));
-            Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
-            Guard.IsNotNull(imagePicker, nameof(imagePicker));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(assetsReader);
+            Guard.IsNotNull(imagePicker);
+            Guard.IsNotNull(telemetry);
 
-            _systemInfoProvider = systemInfoProvider;
+            _assetsReader = assetsReader;
             _userSettings = userSettings;
             _imagePicker = imagePicker;
             _telemetry = telemetry;
@@ -119,7 +120,7 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            string[] paths = await _systemInfoProvider.GetAvailableBackgroundsAsync();
+            var paths = await _assetsReader.GetBackgroundsAsync();
             foreach (var p in paths)
             {
                 ImagePaths.Add(p);

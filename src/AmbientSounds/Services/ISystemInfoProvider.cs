@@ -29,26 +29,11 @@ namespace AmbientSounds.Services
         bool IsTenFoot();
 
         /// <summary>
-        /// Retrieves list of paths for background images
-        /// available in the device.
-        /// </summary>
-        Task<string[]> GetAvailableBackgroundsAsync();
-
-        /// <summary>
         /// Returns true if the current
         /// session is the first time this app
         /// was run since being installed.
         /// </summary>
         bool IsFirstRun();
-
-        /// <summary>
-        /// Retrieves list of paths for sound effects
-        /// installed with this app.
-        /// </summary>
-        /// <returns>
-        /// List of URI-friendly paths to the files.
-        /// </returns>
-        Task<IReadOnlyList<string>> GetAvailableSoundEffectsAsync();
 
         /// <summary>
         /// Returns true if the app is currently in compact mode.
