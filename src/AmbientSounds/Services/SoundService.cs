@@ -52,7 +52,6 @@ public class SoundService : ISoundService
 
     public async Task PrepopulateSoundsIfEmpty()
     {
-        // TODO: in the calling method, make sure it's only called on first run.
         var sounds = await _soundCache.GetInstalledSoundsAsync();
         if (sounds.Count != 0)
         {

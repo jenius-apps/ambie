@@ -19,6 +19,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundVmFactory _factory;
         private readonly IDialogService _dialogService;
         private readonly IDownloadManager _downloadManager;
+        private readonly IUserSettings _userSettings;
 
         /// <summary>
         /// Default constructor. Must initialize with <see cref="LoadAsync"/>
@@ -29,19 +30,22 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             ISoundVmFactory soundVmFactory,
             IDialogService dialogService,
-            IDownloadManager downloadManager)
+            IDownloadManager downloadManager,
+            IUserSettings userSettings)
         {
             Guard.IsNotNull(soundService);
             Guard.IsNotNull(telemetry);
             Guard.IsNotNull(soundVmFactory);
             Guard.IsNotNull(dialogService);
             Guard.IsNotNull(downloadManager);
+            Guard.IsNotNull(userSettings);
 
             _soundService = soundService;
             _telemetry = telemetry;
             _factory = soundVmFactory;
             _dialogService = dialogService;
             _downloadManager = downloadManager;
+            _userSettings = userSettings;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             MixUnavailableCommand = new AsyncRelayCommand<IList<string>>(OnMixUnavailableAsync);
@@ -104,8 +108,13 @@ namespace AmbientSounds.ViewModels
                 Sounds.Clear();
             }
 
-            await _soundService.PrepopulateSoundsIfEmpty();
-            //var soundList = await _provider.GetSoundsAsync();
+            if (!_userSettings.Get<bool>(UserSettingsConstants.HasLoadedPackagedSoundsKey))
+            {
+                await _soundService.PrepopulateSoundsIfEmpty();
+                _userSettings.Set(UserSettingsConstants.HasLoadedPackagedSoundsKey, true);
+            }
+            
+
             var soundList = await _soundService.GetLocalSoundsAsync();
             if (soundList is null || soundList.Count == 0)
             {
