@@ -109,8 +109,9 @@ public class WindowsDownloadManager : IDownloadManager
     {
         string localImagePath;
         string destinationFilePath;
+        bool performFakeDownload = _assetsReader.IsPathFromPackage(s.FilePath);
 
-        if (_assetsReader.IsPathFromPackage(s.FilePath))
+        if (performFakeDownload)
         {
             // Handle "downloading" of a packaged sound
             // As you might remember, a packaged sound is already local,
@@ -120,8 +121,6 @@ public class WindowsDownloadManager : IDownloadManager
             progress.Report(25);
             await Task.Delay(300); 
             progress.Report(50);
-            await Task.Delay(300);
-            progress.Report(100);
             localImagePath = s.ImagePath;
             destinationFilePath = s.FilePath;
         }
@@ -166,6 +165,18 @@ public class WindowsDownloadManager : IDownloadManager
         };
 
         await _soundService.AddLocalSoundAsync(newSoundInfo);
+
+        if (performFakeDownload)
+        {
+            // Report completion of fake download here
+            // so downstream event handlers work correctly.
+            // The handlers expect the download completion to happen after
+            // the sound metadata was added.
+
+            await Task.Delay(300);
+            progress.Report(100);
+        }
+
         DownloadsCompleted?.Invoke(this, EventArgs.Empty);
     }
 
