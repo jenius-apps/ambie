@@ -80,6 +80,8 @@ public class SoundService : ISoundService
             return;
         }
 
+        s.SortOrder = _soundCache.InstallSoundsCount;
+
         await _soundCache.AddLocalInstalledSoundAsync(s);
         LocalSoundAdded?.Invoke(this, s);
     }
@@ -109,11 +111,26 @@ public class SoundService : ISoundService
         {
             await _fileWriter.DeleteFileAsync(sound.FilePath);
         }
-
+        
         // Delete metadata
         await _soundCache.RemoveLocalInstalledSoundAsync(id);
 
+        await ReapplySortPositions();
+
         LocalSoundDeleted?.Invoke(this, sound.Id);
+    }
+
+    private async Task ReapplySortPositions()
+    {
+        var sounds = await GetLocalSoundsAsync();
+        int i = 0;
+        foreach (var s in sounds)
+        {
+            s.SortOrder = i;
+            i++;
+        }
+
+        await _soundCache.SaveCacheAsync();
     }
 
     /// <inheritdoc/>

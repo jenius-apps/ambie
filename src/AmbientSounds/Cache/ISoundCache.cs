@@ -6,6 +6,7 @@ namespace AmbientSounds.Cache;
 
 public interface ISoundCache
 {
+    int InstallSoundsCount { get; }
     Task AddLocalInstalledSoundAsync(Sound sound);
     Task<IReadOnlyList<Sound>> GetPreinstalledSoundsAsync();
     Task<IReadOnlyList<Sound>> GetInstalledSoundsAsync();

@@ -29,6 +29,9 @@ public class SoundCache : ISoundCache
     }
 
     /// <inheritdoc/>
+    public int InstallSoundsCount => _installedSounds.Count;
+
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetPreinstalledSoundsAsync()
     {
         if (_preinstalled.Count == 0)
