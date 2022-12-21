@@ -234,8 +234,7 @@
                         <AppBarButton
                             x:Uid="DeleteAppBarButton"
                             Command="{x:Bind ViewModel.DeleteCommand, Mode=OneWay}"
-                            Icon="Delete"
-                            Visibility="{x:Bind ViewModel.CanDelete, Mode=OneWay}" />
+                            Icon="Delete" />
                         <AppBarButton
                             x:Uid="RenameAppBarButton"
                             Command="{x:Bind ViewModel.RenameCommand, Mode=OneWay}"

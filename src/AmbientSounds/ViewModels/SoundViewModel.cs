@@ -160,11 +160,6 @@ namespace AmbientSounds.ViewModels
         public string? ImagePath => _sound.IsMix ? _sound.ImagePaths[0] : _sound.ImagePath;
 
         /// <summary>
-        /// If true, item can be deleted from local storage.
-        /// </summary>
-        public bool CanDelete => !_sound.FilePath?.StartsWith("ms-appx") ?? false;
-
-        /// <summary>
         /// Command for deleting this sound.
         /// </summary>
         public IRelayCommand DeleteCommand { get; }
