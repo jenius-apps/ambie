@@ -121,7 +121,7 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            foreach (var sound in soundList.OrderBy(x => x.SortOrder))
+            foreach (var sound in soundList.OrderBy(x => x.SortOrder).ThenBy(x => x.Name))
             {
                 var s = _factory.GetSoundVm(sound);
                 s.MixUnavailableCommand = MixUnavailableCommand;
