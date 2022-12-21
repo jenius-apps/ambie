@@ -24,7 +24,7 @@ public class AssetsReader : IAssetsReader
     /// <inheritdoc/>
     public bool IsPathFromPackage(string filePath)
     {
-        return filePath.Contains(Package.Current.InstalledLocation.Path);
+        return filePath.StartsWith("ms-appx:///Assets");
     }
 
     /// <inheritdoc/>

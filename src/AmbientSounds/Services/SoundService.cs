@@ -98,13 +98,13 @@ public class SoundService : ISoundService
             return;
         }
 
-        // Delete image
+        // Delete image only if it was downloaded. Images from the package cannot be deleted.
         if (!_assetsReader.IsPathFromPackage(sound.ImagePath))
         {
             await _fileWriter.DeleteFileAsync(sound.ImagePath);
         }
 
-        // Delete sound file
+        // Delete sound only if it was downloaded. Sound files from the package cannot be deleted.
         if (!_assetsReader.IsPathFromPackage(sound.FilePath))
         {
             await _fileWriter.DeleteFileAsync(sound.FilePath);
