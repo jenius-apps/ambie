@@ -23,7 +23,7 @@ public interface ISoundService
     /// Gets the list of sounds that are installed.
     /// </summary>
     /// <returns>List of installed sound objects.</returns>
-    Task<IReadOnlyList<Sound>> GetLocalSoundsAsync();
+    Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(IReadOnlyList<string>? soundIds = null);
 
     /// <summary>
     /// Takes the packaged sounds and installs them
@@ -51,4 +51,9 @@ public interface ISoundService
     /// </summary>
     /// <param name="id">The sound info to delete.</param>
     Task DeleteLocalSoundAsync(string id);
+
+    /// <summary>
+    /// Retrieves a random sound.
+    /// </summary>
+    Task<Sound?> GetRandomSoundAsync();
 }

@@ -21,7 +21,7 @@ namespace AmbientSounds.Services.Uwp
         private const string LocalDataFileName = "localData.json";
         private List<Sound>? _localSoundCache; // cache of non-packaged sounds.
         private List<Sound>? _packagedSoundCache;
-        private Random? _random;        
+        private Random? _random;
 
         /// <inheritdoc/>
         public async Task<IList<Sound>> GetSoundsAsync(string[]? soundIds = null)
@@ -33,15 +33,6 @@ namespace AmbientSounds.Services.Uwp
 
             if (soundIds is null) return packagedSounds;
             else return packagedSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
-        }
-
-        /// <inheritdoc/>
-        public async Task<Sound> GetRandomSoundAsync()
-        {
-            _random ??= new Random();
-            var sounds = await GetSoundsAsync();
-            var index = _random.Next(sounds.Count);
-            return sounds[index];
         }
 
         /// <inheritdoc/>

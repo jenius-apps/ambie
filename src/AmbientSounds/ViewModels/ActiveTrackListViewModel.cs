@@ -20,7 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly IMixMediaPlayerService _player;
         private readonly ISoundVmFactory _soundVmFactory;
         private readonly IUserSettings _userSettings;
-        private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundDataProvider;
         private readonly ITelemetry _telemetry;
         private readonly IPresenceService _presenceService;
         private readonly bool _loadPreviousState;
@@ -33,7 +33,7 @@ namespace AmbientSounds.ViewModels
             ISoundVmFactory soundVmFactory,
             IUserSettings userSettings,
             ITelemetry telemetry,
-            ISoundDataProvider soundDataProvider,
+            ISoundService soundDataProvider,
             IAppSettings appSettings,
             IPresenceService presenceService)
         {
@@ -108,7 +108,7 @@ namespace AmbientSounds.ViewModels
             {
                 // This case is when the track list is returning to view because of a page navigation.
 
-                var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: soundIds);
+                var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: soundIds);
                 if (sounds is { Count: > 0 })
                 {
                     foreach (var s in sounds)
@@ -123,7 +123,7 @@ namespace AmbientSounds.ViewModels
 
                 var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
                 var previousActiveTrackIds = _userSettings.GetAndDeserialize(UserSettingsConstants.ActiveTracks, AmbieJsonSerializerContext.Default.StringArray);
-                var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: previousActiveTrackIds);
+                var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: previousActiveTrackIds);
                 if (sounds is not null && sounds.Count > 0)
                 {
                     foreach (var s in sounds)

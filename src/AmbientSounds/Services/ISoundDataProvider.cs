@@ -10,18 +10,6 @@ namespace AmbientSounds.Services
     public interface ISoundDataProvider
     {
         /// <summary>
-        /// Retrieves list of sound data available.
-        /// </summary>
-        /// <param name="soundIds">Optional. Fetches sound with given Ids.</param>
-        /// <returns>A list of <see cref="Sound"/> instances.</returns>
-        Task<IList<Sound>> GetSoundsAsync(string[]? soundIds = null);
-
-        /// <summary>
-        /// Retrieves a random sound.
-        /// </summary>
-        Task<Sound> GetRandomSoundAsync();
-
-        /// <summary>
         /// Updates the given sounds in cache and in storage.
         /// </summary>
         /// <param name="sounds">The sounds to update.</param>

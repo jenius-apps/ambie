@@ -27,7 +27,7 @@ namespace AmbientSounds.Services.Uwp
         private readonly SystemMediaTransportControls _smtc;
         private readonly DispatcherQueue _dispatcherQueue;
         private readonly IUserSettings _userSettings;
-        private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundDataProvider;
 
         /// <inheritdoc/>
         public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -43,7 +43,7 @@ namespace AmbientSounds.Services.Uwp
 
         public MixMediaPlayerService(
             IUserSettings userSettings,
-            ISoundDataProvider soundDataProvider)
+            ISoundService soundDataProvider)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
@@ -151,7 +151,10 @@ namespace AmbientSounds.Services.Uwp
         {
             RemoveAll();
             var sound = await _soundDataProvider.GetRandomSoundAsync();
-            await ToggleSoundAsync(sound);
+            if (sound is not null)
+            {
+                await ToggleSoundAsync(sound);
+            }
         }
 
         /// <inheritdoc/>

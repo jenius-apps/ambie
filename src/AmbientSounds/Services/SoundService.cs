@@ -5,6 +5,7 @@ using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ public class SoundService : ISoundService
     private readonly ISoundCache _soundCache;
     private readonly IFileWriter _fileWriter;
     private readonly IAssetsReader _assetsReader;
+    private Random? _random;
 
     /// <inheritdoc/>
     public event EventHandler<Sound>? LocalSoundAdded;
@@ -37,9 +39,15 @@ public class SoundService : ISoundService
         _assetsReader = assetsReader;
     }
 
-    public Task<IReadOnlyList<Sound>> GetLocalSoundsAsync()
+    public async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(IReadOnlyList<string>? soundIds = null)
     {
-        return _soundCache.GetInstalledSoundsAsync();
+        var localSounds = await _soundCache.GetInstalledSoundsAsync();
+        if (soundIds is null)
+        {
+            return localSounds;
+        }
+
+        return localSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
     }
 
     public async Task PrepopulateSoundsIfEmpty()
@@ -107,5 +115,21 @@ public class SoundService : ISoundService
         await _soundCache.RemoveLocalInstalledSoundAsync(id);
 
         LocalSoundDeleted?.Invoke(this, sound.Id);
+    }
+
+    /// <inheritdoc/>
+    public async Task<Sound?> GetRandomSoundAsync()
+    {
+        _random ??= new Random();
+        var sounds = await GetLocalSoundsAsync();
+        if (sounds.Count <= 1)
+        {
+            return sounds.FirstOrDefault();
+        }
+        else
+        {
+            var index = _random.Next(sounds.Count);
+            return sounds[index];
+        }
     }
 }
