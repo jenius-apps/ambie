@@ -12,21 +12,17 @@ namespace AmbientSounds.Services
     /// </summary>
     public class SoundMixService : ISoundMixService
     {
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly IMixMediaPlayerService _player;
         private readonly ISoundService _soundService;
         private readonly string[] _namePlaceholders = new string[] { "🎵", "🎼", "🎧", "🎶" };
 
         public SoundMixService(
-            ISoundDataProvider soundDataProvider,
             ISoundService soundService,
             IMixMediaPlayerService player)
         {
-            Guard.IsNotNull(soundDataProvider);
             Guard.IsNotNull(player);
             Guard.IsNotNull(soundService);
 
-            _soundDataProvider = soundDataProvider;
             _player = player;
             _soundService = soundService;
         }

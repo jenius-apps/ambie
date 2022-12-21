@@ -21,24 +21,20 @@ namespace AmbientSounds.Services.Uwp
         private const string VideosDirectory = "videos";
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly IFileDownloader _fileDownloader;
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundService _soundService;
 
         public event EventHandler? DownloadsCompleted;
 
         public WindowsDownloadManager(
             IFileDownloader fileDownloader,
-            ISoundDataProvider soundDataProvider,
             ISoundService soundService,
             IOnlineSoundDataProvider onlineSoundDataProvider)
         {
             Guard.IsNotNull(fileDownloader);
-            Guard.IsNotNull(soundDataProvider);
             Guard.IsNotNull(soundService);
             Guard.IsNotNull(onlineSoundDataProvider);
 
             _fileDownloader = fileDownloader;
-            _soundDataProvider = soundDataProvider;
             _soundService = soundService;
             _onlineSoundDataProvider = onlineSoundDataProvider;
         }

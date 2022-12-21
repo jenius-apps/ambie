@@ -15,7 +15,6 @@ namespace AmbientSounds.Factories
     public class SoundVmFactory : ISoundVmFactory
     {
         private readonly IDownloadManager _downloadManager;
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
@@ -30,7 +29,6 @@ namespace AmbientSounds.Factories
             IMixMediaPlayerService player,
             ITelemetry telemetry,
             IPreviewService previewService,
-            ISoundDataProvider soundDataProvider,
             ISoundMixService soundMixService,
             IUserSettings userSettings,
             IIapService iapService,
@@ -38,7 +36,6 @@ namespace AmbientSounds.Factories
             IServiceProvider serviceProvider)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(iapService, nameof(iapService));
@@ -53,7 +50,6 @@ namespace AmbientSounds.Factories
             _previewService = previewService;
             _soundMixService = soundMixService;
             _iapService = iapService;
-            _soundDataProvider = soundDataProvider;
             _player = player;
             _renamer = renamer;
             _telemetry = telemetry;
@@ -91,7 +87,6 @@ namespace AmbientSounds.Factories
             var vm = new SoundViewModel(
                 s,
                 _player,
-                _soundDataProvider,
                 _serviceProvider.GetRequiredService<ISoundService>(),
                 _soundMixService,
                 _telemetry,

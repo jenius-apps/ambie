@@ -14,20 +14,16 @@ namespace AmbientSounds.ViewModels
     public class CatalogueListViewModel : ObservableObject
     {
         private readonly IOnlineSoundDataProvider _dataProvider;
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundVmFactory _soundVmFactory;
         private bool _loading;
 
         public CatalogueListViewModel(
             IOnlineSoundDataProvider dataProvider,
-            ISoundDataProvider soundDataProvider,
             ISoundVmFactory soundVmFactory)
         {
             Guard.IsNotNull(dataProvider, nameof(dataProvider));
             Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
 
-            _soundDataProvider = soundDataProvider;
             _dataProvider = dataProvider;
             _soundVmFactory = soundVmFactory;
         }

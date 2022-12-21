@@ -22,7 +22,6 @@ namespace AmbientSounds.ViewModels
     {
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundService _soundService;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
@@ -43,7 +42,6 @@ namespace AmbientSounds.ViewModels
         public SoundViewModel(
             Sound s,
             IMixMediaPlayerService playerService,
-            ISoundDataProvider soundDataProvider,
             ISoundService soundService,
             ISoundMixService soundMixService,
             ITelemetry telemetry,
@@ -57,7 +55,6 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(s);
             Guard.IsNotNull(playerService);
-            Guard.IsNotNull(soundDataProvider);
             Guard.IsNotNull(soundService);
             Guard.IsNotNull(telemetry);
             Guard.IsNotNull(soundMixService);
@@ -72,7 +69,6 @@ namespace AmbientSounds.ViewModels
             _sound = s;
             _soundMixService = soundMixService;
             _playerService = playerService;
-            _soundDataProvider = soundDataProvider;
             _soundService = soundService;
             _telemetry = telemetry;
             _renamer = renamer;

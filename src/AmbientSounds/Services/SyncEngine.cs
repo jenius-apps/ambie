@@ -17,7 +17,6 @@ namespace AmbientSounds.Services
         private readonly ICloudFileWriter _cloudFileWriter;
         private readonly IDownloadManager _downloadManager;
         private readonly IAccountManager _accountManager;
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly ISoundService _soundService;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
@@ -37,7 +36,6 @@ namespace AmbientSounds.Services
             ICloudFileWriter cloudFileWriter,
             IDownloadManager downloadManager,
             IAccountManager accountManager,
-            ISoundDataProvider soundDataProvider,
             ISoundService soundService,
             IOnlineSoundDataProvider onlineSoundDataProvider,
             IAppSettings appSettings,
@@ -47,7 +45,6 @@ namespace AmbientSounds.Services
             Guard.IsNotNull(cloudFileWriter);
             Guard.IsNotNull(downloadManager);
             Guard.IsNotNull(accountManager);
-            Guard.IsNotNull(soundDataProvider);
             Guard.IsNotNull(soundService);
             Guard.IsNotNull(onlineSoundDataProvider);
             Guard.IsNotNull(soundMixService);
@@ -58,7 +55,6 @@ namespace AmbientSounds.Services
             _accountManager = accountManager;
             _cloudFileWriter = cloudFileWriter;
             _downloadManager = downloadManager;
-            _soundDataProvider = soundDataProvider;
             _soundService = soundService;
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _soundMixService = soundMixService;
