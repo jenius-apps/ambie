@@ -56,4 +56,10 @@ public interface ISoundService
     /// Retrieves a random sound.
     /// </summary>
     Task<Sound?> GetRandomSoundAsync();
+
+    /// <summary>
+    /// Updates the given sounds in cache and in storage.
+    /// </summary>
+    /// <param name="sounds">The sounds to update.</param>
+    Task UpdateSoundAsync(Sound sound);
 }

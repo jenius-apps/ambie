@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System;
 using AmbientSounds.Tools;
 
+#nullable enable
+
 namespace AmbientSounds.ViewModels
 {
     /// <summary>
@@ -292,7 +294,7 @@ namespace AmbientSounds.ViewModels
                         _sound.IapIds = newList;
                         OnPropertyChanged(nameof(FreeBadgeVisible));
                         OnPropertyChanged(nameof(PlusBadgeVisible));
-                        _ = _soundDataProvider.UpdateLocalSoundAsync(new Sound[] { _sound }).ConfigureAwait(false);
+                        _ = _soundService.UpdateSoundAsync(_sound).ConfigureAwait(false);
 
                         _telemetry.TrackEvent(TelemetryConstants.ExpiredClicked, new Dictionary<string, string>
                         {

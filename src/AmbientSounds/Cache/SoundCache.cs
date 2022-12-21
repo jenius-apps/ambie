@@ -83,4 +83,10 @@ public class SoundCache : ISoundCache
         await GetInstalledSoundsAsync();
         return _installedSounds.TryGetValue(stringId, out Sound result) ? result : null;
     }
+
+    /// <inheritdoc/>
+    public async Task SaveCacheAsync()
+    {
+        await _offlineSoundRepo.SaveLocalSoundsAsync(_installedSounds.Values.ToArray());
+    }
 }

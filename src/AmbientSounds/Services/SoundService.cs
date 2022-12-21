@@ -132,4 +132,21 @@ public class SoundService : ISoundService
             return sounds[index];
         }
     }
+
+    /// <inheritdoc/>
+    public async Task UpdateSoundAsync(Sound updatedSound)
+    {
+        IReadOnlyList<Sound> sounds = await GetLocalSoundsAsync(new string[] 
+        {
+            updatedSound.Id 
+        });
+
+        if (sounds.Count == 1)
+        {
+            sounds[0].Name = updatedSound.Name;
+            sounds[0].IapIds = updatedSound.IapIds;
+        }
+
+        await _soundCache.SaveCacheAsync();
+    }
 }

@@ -67,7 +67,6 @@ namespace AmbientSounds.ViewModels
             try
             {
                 sounds = await _dataProvider.GetSoundsAsync();
-                await _soundDataProvider.RefreshLocalSoundsMetaDataAsync(sounds);
             }
             catch (Exception e)
             {
