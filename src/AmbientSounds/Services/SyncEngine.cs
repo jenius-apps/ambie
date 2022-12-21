@@ -173,7 +173,7 @@ namespace AmbientSounds.Services
             }
 
             var soundMixIds = data.SoundMixes?.Select(x => x.Id).ToList() ?? new List<string>();
-            IList<Sound> installedSounds = await _soundDataProvider.GetLocalSoundsAsync();
+            var installedSounds = await _soundService.GetLocalSoundsAsync();
             var installedIds = installedSounds.Select(x => x.Id);
             var soundIdsToDownload = new List<string>();
 
@@ -226,7 +226,7 @@ namespace AmbientSounds.Services
 
             Syncing = true;
 
-            var localSounds = await _soundDataProvider.GetLocalSoundsAsync();
+            var localSounds = await _soundService.GetLocalSoundsAsync();
             var syncData = new SyncData
             {
                 InstalledSoundIds = localSounds.Select(static x => x.Id).ToArray(),

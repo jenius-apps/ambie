@@ -1,6 +1,5 @@
 ﻿using AmbientSounds.Converters;
 using AmbientSounds.Models;
-using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,13 +42,6 @@ namespace AmbientSounds.Services.Uwp
             var sounds = await GetSoundsAsync();
             var index = _random.Next(sounds.Count);
             return sounds[index];
-        }
-
-        /// <inheritdoc/>
-        public async Task<IList<Sound>> GetLocalSoundsAsync()
-        {
-            var localSounds = await GetLocalSoundsInternalAsync();
-            return localSounds.ToList();
         }
 
         /// <inheritdoc/>

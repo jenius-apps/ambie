@@ -1,5 +1,4 @@
 ﻿using AmbientSounds.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -21,11 +20,6 @@ namespace AmbientSounds.Services
         /// Retrieves a random sound.
         /// </summary>
         Task<Sound> GetRandomSoundAsync();
-
-        /// <summary>
-        /// Retrieves list of cached local sounds.
-        /// </summary>
-        Task<IList<Sound>> GetLocalSoundsAsync();
 
         /// <summary>
         /// Updates the given sounds in cache and in storage.
