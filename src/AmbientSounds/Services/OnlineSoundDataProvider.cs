@@ -77,7 +77,7 @@ public class OnlineSoundDataProvider : IOnlineSoundDataProvider
 
         var packagedSounds = await _assetsReader.GetPreinstalledSoundsAsync();
 
-        var list = new List<Sound>(packagedSounds);
+        var list = new List<Sound>(packagedSounds.OrderBy(x => x.Id));
         if (results is not null)
         {
             list.AddRange(results);
