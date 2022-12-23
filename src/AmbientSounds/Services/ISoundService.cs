@@ -62,4 +62,13 @@ public interface ISoundService
     /// </summary>
     /// <param name="sounds">The sounds to update.</param>
     Task UpdateSoundAsync(Sound sound);
+
+    /// <summary>
+    /// Updates the position of the given sound
+    /// and the positions of the surrounding sounds.
+    /// </summary>
+    /// <param name="soundId">The ID of the sound that was moved.</param>
+    /// <param name="oldIndex">The sound's old position.</param>
+    /// <param name="newIndex">The sound's new position.</param>
+    Task UpdatePositionsAsync(string soundId, int oldIndex, int newIndex);
 }

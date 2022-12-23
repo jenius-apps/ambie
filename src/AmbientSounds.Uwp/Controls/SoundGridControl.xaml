@@ -39,6 +39,9 @@
         </VisualStateManager.VisualStateGroups>
         <GridView
             x:Name="MainGridView"
+            AllowDrop="True"
+            CanDragItems="True"
+            CanReorderItems="True"
             ItemContainerStyle="{StaticResource RegularItemContainerStyle}"
             ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
             ItemsSource="{x:Bind ViewModel.Sounds}"

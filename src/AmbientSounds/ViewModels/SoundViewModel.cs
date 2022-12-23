@@ -101,7 +101,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// The sound's GUID.
         /// </summary>
-        public string? Id => _sound.Id;
+        public string Id => _sound.Id;
 
         /// <summary>
         /// Determines if the plus badge is visible.

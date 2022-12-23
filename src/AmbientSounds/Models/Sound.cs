@@ -116,6 +116,12 @@ namespace AmbientSounds.Models
         /// Used for sorting installed sounds.
         /// </summary>
         public int SortOrder { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
     public enum PublishState

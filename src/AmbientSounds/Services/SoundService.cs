@@ -61,6 +61,7 @@ public class SoundService : ISoundService
         var preInstalledSounds = await _soundCache.GetPreinstalledSoundsAsync();
         foreach (var s in preInstalledSounds)
         {
+            s.SortOrder = _soundCache.InstallSoundsCount;
             await _soundCache.AddLocalInstalledSoundAsync(s);
         }
     }
@@ -81,7 +82,6 @@ public class SoundService : ISoundService
         }
 
         s.SortOrder = _soundCache.InstallSoundsCount;
-
         await _soundCache.AddLocalInstalledSoundAsync(s);
         LocalSoundAdded?.Invoke(this, s);
     }
@@ -111,26 +111,14 @@ public class SoundService : ISoundService
         {
             await _fileWriter.DeleteFileAsync(sound.FilePath);
         }
-        
+
+        // Update positions of remaining sounds.
+        await UpdatePositionsAsync(sound.Id, sound.SortOrder, -1);
+
         // Delete metadata
         await _soundCache.RemoveLocalInstalledSoundAsync(id);
 
-        await ReapplySortPositions();
-
         LocalSoundDeleted?.Invoke(this, sound.Id);
-    }
-
-    private async Task ReapplySortPositions()
-    {
-        var sounds = await GetLocalSoundsAsync();
-        int i = 0;
-        foreach (var s in sounds)
-        {
-            s.SortOrder = i;
-            i++;
-        }
-
-        await _soundCache.SaveCacheAsync();
     }
 
     /// <inheritdoc/>
@@ -147,6 +135,58 @@ public class SoundService : ISoundService
             var index = _random.Next(sounds.Count);
             return sounds[index];
         }
+    }
+
+    /// <inheritdoc/>
+    public async Task UpdatePositionsAsync(string soundId, int oldIndex, int newIndex)
+    {
+        if (oldIndex == newIndex || oldIndex < 0 || string.IsNullOrEmpty(soundId))
+        {
+            return;
+        }
+
+        var sounds = await GetLocalSoundsAsync();
+
+        if (newIndex < 0 && oldIndex >= 0)
+        {
+            // Item was deleted, so only decrement
+            // the items that came after the old index.
+            foreach (var s in sounds)
+            {
+                if (s.SortOrder > oldIndex)
+                {
+                    s.SortOrder--;
+                }
+            }
+        }
+        else
+        {
+            foreach (var s in sounds)
+            {
+                if (s.Id == soundId)
+                {
+                    s.SortOrder = newIndex;
+                    continue;
+                }
+
+                if (oldIndex < newIndex)
+                {
+                    if (s.SortOrder > oldIndex && s.SortOrder <= newIndex)
+                    {
+                        s.SortOrder--;
+                    }
+                }
+                else if (oldIndex > newIndex)
+                {
+                    if (s.SortOrder >= newIndex && s.SortOrder < oldIndex)
+                    {
+                        s.SortOrder++;
+                    }
+                }
+            }
+        }
+
+        await _soundCache.SaveCacheAsync();
     }
 
     /// <inheritdoc/>

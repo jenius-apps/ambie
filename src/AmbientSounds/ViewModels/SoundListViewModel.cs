@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,6 +21,9 @@ namespace AmbientSounds.ViewModels
         private readonly IDialogService _dialogService;
         private readonly IDownloadManager _downloadManager;
         private readonly IUserSettings _userSettings;
+        private bool _isDeleting;
+        private bool _isAdding;
+        private int _reorderedOldIndex;
 
         /// <summary>
         /// Default constructor. Must initialize with <see cref="LoadAsync"/>
@@ -55,7 +59,9 @@ namespace AmbientSounds.ViewModels
         {
             var forDeletion = Sounds.FirstOrDefault(x => x.Id == id);
             if (forDeletion is null) return;
+            _isDeleting = true;
             Sounds.Remove(forDeletion);
+            _isDeleting = false;
             UpdateItemPositions();
         }
 
@@ -63,7 +69,9 @@ namespace AmbientSounds.ViewModels
         {
             var s = _factory.GetSoundVm(e);
             s.MixUnavailableCommand = MixUnavailableCommand;
+            _isAdding = true;
             Sounds.Add(s);
+            _isAdding = false;
             UpdateItemPositions();
         }
 
@@ -121,14 +129,16 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            foreach (var sound in soundList.OrderBy(x => x.SortOrder).ThenBy(x => x.Name))
+            foreach (var sound in soundList.OrderBy(x => x.SortOrder))
             {
                 var s = _factory.GetSoundVm(sound);
                 s.MixUnavailableCommand = MixUnavailableCommand;
 
                 try
                 {
+                    _isAdding = true;
                     Sounds.Add(s);
+                    _isAdding = false;
                 }
                 catch (Exception e)
                 {
@@ -139,12 +149,32 @@ namespace AmbientSounds.ViewModels
             UpdateItemPositions();
             _soundService.LocalSoundAdded += OnLocalSoundAdded;
             _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
+            Sounds.CollectionChanged += OnSoundCollectionChanged;
+        }
+
+        private void OnSoundCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Remove && !_isDeleting)
+            {
+                _reorderedOldIndex = e.OldStartingIndex;
+            }
+            else if (e.Action == NotifyCollectionChangedAction.Add && !_isAdding)
+            {
+                if (e.NewItems.Count > 0 && e.NewItems[0] is SoundViewModel svm)
+                {
+                    _ = _soundService.UpdatePositionsAsync(
+                        svm.Id,
+                        _reorderedOldIndex,
+                        e.NewStartingIndex).ConfigureAwait(false);
+                }
+            }
         }
 
         public void Dispose()
         {
             _soundService.LocalSoundAdded -= OnLocalSoundAdded;
             _soundService.LocalSoundDeleted -= OnLocalSoundDeleted;
+            Sounds.CollectionChanged -= OnSoundCollectionChanged;
 
             foreach (var s in Sounds)
             {
