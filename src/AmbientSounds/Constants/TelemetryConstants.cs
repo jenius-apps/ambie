@@ -24,9 +24,11 @@
         // gallery
         private const string Gallery = "gallery:";
         public const string SoundClicked = Gallery + "soundClicked";
+        public const string SoundReordered = Gallery + "soundReordered";
         public const string DeleteClicked = Gallery + "deleteClicked";
         public const string FreeClicked = Gallery + "freeSoundClicked";
         public const string ExpiredClicked = Gallery + "expiredFreeSoundClicked";
+        public const string EmptyMessageButtonClicked = Gallery + "emptyMessageButtonClicked";
 
         // timer
         private const string Timer = "timer:";

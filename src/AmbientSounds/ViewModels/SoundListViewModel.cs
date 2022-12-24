@@ -129,6 +129,7 @@ namespace AmbientSounds.ViewModels
         private void OpenCatalogue()
         {
             _navigator.ToCatalogue();
+            _telemetry.TrackEvent(TelemetryConstants.EmptyMessageButtonClicked);
         }
 
         /// <summary>
@@ -191,6 +192,8 @@ namespace AmbientSounds.ViewModels
                         svm.Id,
                         _reorderedOldIndex,
                         e.NewStartingIndex).ConfigureAwait(false);
+
+                    _telemetry.TrackEvent(TelemetryConstants.SoundReordered);
                 }
             }
         }
