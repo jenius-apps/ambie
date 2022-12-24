@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -53,7 +54,19 @@ namespace AmbientSounds.ViewModels
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             MixUnavailableCommand = new AsyncRelayCommand<IList<string>>(OnMixUnavailableAsync);
+
+            LoadCommand.PropertyChanged += OnLoadCommandPropertyChanged;
         }
+
+        private void OnLoadCommandPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(LoadCommand.IsRunning))
+            {
+                OnPropertyChanged(nameof(EmptyMessageVisible));
+            }
+        }
+
+        public bool EmptyMessageVisible => !LoadCommand.IsRunning && Sounds.Count == 0;
 
         private void OnLocalSoundDeleted(object sender, string id)
         {
@@ -63,6 +76,7 @@ namespace AmbientSounds.ViewModels
             Sounds.Remove(forDeletion);
             _isDeleting = false;
             UpdateItemPositions();
+            OnPropertyChanged(nameof(EmptyMessageVisible));
         }
 
         private void OnLocalSoundAdded(object sender, Models.Sound e)
@@ -73,6 +87,7 @@ namespace AmbientSounds.ViewModels
             Sounds.Add(s);
             _isAdding = false;
             UpdateItemPositions();
+            OnPropertyChanged(nameof(EmptyMessageVisible));
         }
 
         /// <summary>
@@ -149,6 +164,7 @@ namespace AmbientSounds.ViewModels
             _soundService.LocalSoundAdded += OnLocalSoundAdded;
             _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
             Sounds.CollectionChanged += OnSoundCollectionChanged;
+            OnPropertyChanged(nameof(EmptyMessageVisible));
         }
 
         private void OnSoundCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

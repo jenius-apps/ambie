@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -37,6 +38,30 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+        <StackPanel
+            VerticalAlignment="Center"
+            Spacing="12"
+            Visibility="{x:Bind ViewModel.EmptyMessageVisible, Mode=OneWay}">
+            <TextBlock
+                AutomationProperties.AccessibilityView="Raw"
+                FontSize="80"
+                Text="🥶"
+                TextAlignment="Center" />
+            <TextBlock
+                MaxWidth="300"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.EmptyHomeMessage}"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <Button
+                Height="36"
+                MinWidth="180"
+                HorizontalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
+                Content="{x:Bind strings:Resources.Catalogue}" />
+        </StackPanel>
+
         <GridView
             x:Name="MainGridView"
             AllowDrop="True"

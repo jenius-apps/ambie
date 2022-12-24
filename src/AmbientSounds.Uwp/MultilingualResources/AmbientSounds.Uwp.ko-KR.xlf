@@ -832,6 +832,10 @@
           <source>Pauses</source>
           <target state="translated">멈춤</target>
         </trans-unit>
+        <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
+          <source>It's cold and chilly! Warm things up with new music from the catalogue.</source>
+          <target state="new">It's cold and chilly! Warm things up with new music from the catalogue.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
