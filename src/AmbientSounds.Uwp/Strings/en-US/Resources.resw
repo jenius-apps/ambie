@@ -737,6 +737,6 @@
     <value>Pauses</value>
   </data>
   <data name="EmptyHomeMessage" xml:space="preserve">
-    <value>It's cold and chilly! Warm things up with new music from the catalogue.</value>
+    <value>Download sounds from the catalogue</value>
   </data>
 </root>

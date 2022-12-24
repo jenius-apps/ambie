@@ -1811,7 +1811,7 @@ namespace AmbientSounds.Strings{
 
         #region EmptyHomeMessage
         /// <summary>
-        ///   Looks up a localized string similar to: It's cold and chilly! Warm things up with new music from the catalogue.
+        ///   Looks up a localized string similar to: Download sounds from the catalogue
         /// </summary>
         public static string EmptyHomeMessage
         {
