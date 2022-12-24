@@ -184,17 +184,14 @@ namespace AmbientSounds.ViewModels
             {
                 _reorderedOldIndex = e.OldStartingIndex;
             }
-            else if (e.Action == NotifyCollectionChangedAction.Add && !_isAdding)
+            else if (e is { Action: NotifyCollectionChangedAction.Add, NewItems: [SoundViewModel svm, ..] } && !_isAdding)
             {
-                if (e.NewItems.Count > 0 && e.NewItems[0] is SoundViewModel svm)
-                {
-                    _ = _soundService.UpdatePositionsAsync(
-                        svm.Id,
-                        _reorderedOldIndex,
-                        e.NewStartingIndex).ConfigureAwait(false);
+                _ = _soundService.UpdatePositionsAsync(
+                    svm.Id,
+                    _reorderedOldIndex,
+                    e.NewStartingIndex).ConfigureAwait(false);
 
-                    _telemetry.TrackEvent(TelemetryConstants.SoundReordered);
-                }
+                _telemetry.TrackEvent(TelemetryConstants.SoundReordered);
             }
         }
 

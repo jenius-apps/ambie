@@ -40,17 +40,14 @@ namespace AmbientSounds.Constants
                 return (string.Empty, 0);
             }
 
-            var split = iapId.Split('_');
-            if (split.Length <= 1)
+            if (iapId.Split('_') is [string id, string version, ..])
             {
-                return (iapId, 0);
+                return int.TryParse(version, out int result)
+                    ? (id, result)
+                    : (id, 0);
             }
-            else
-            {
-                return int.TryParse(split[1], out int result)
-                    ? (split[0], result)
-                    : (split[0], 0);
-            }
+
+            return (iapId, 0);
         }
     }
 }
