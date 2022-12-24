@@ -122,7 +122,6 @@ namespace AmbientSounds.ViewModels
                 _userSettings.Set(UserSettingsConstants.HasLoadedPackagedSoundsKey, true);
             }
             
-
             var soundList = await _soundService.GetLocalSoundsAsync();
             if (soundList is null || soundList.Count == 0)
             {

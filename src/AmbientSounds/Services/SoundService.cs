@@ -39,6 +39,7 @@ public class SoundService : ISoundService
         _assetsReader = assetsReader;
     }
 
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(IReadOnlyList<string>? soundIds = null)
     {
         var localSounds = await _soundCache.GetInstalledSoundsAsync();
@@ -50,20 +51,27 @@ public class SoundService : ISoundService
         return localSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
     }
 
+    /// <inheritdoc/>
     public async Task PrepopulateSoundsIfEmpty()
     {
-        var sounds = await _soundCache.GetInstalledSoundsAsync();
-        if (sounds.Count != 0)
-        {
-            return;
-        }
-
         var preInstalledSounds = await _soundCache.GetPreinstalledSoundsAsync();
         foreach (var s in preInstalledSounds)
         {
-            s.SortOrder = _soundCache.InstallSoundsCount;
-            await _soundCache.AddLocalInstalledSoundAsync(s);
+            if (!await IsSoundInstalledAsync(s.Id))
+            {
+                await _soundCache.AddLocalInstalledSoundAsync(s);
+            }
         }
+
+        var all = await _soundCache.GetInstalledSoundsAsync();
+        int index = 0;
+        foreach(var s in all)
+        {
+            s.SortOrder = index;
+            index++;
+        }
+
+        await _soundCache.SaveCacheAsync();
     }
 
     /// <inheritdoc/>
