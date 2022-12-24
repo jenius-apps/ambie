@@ -67,7 +67,7 @@ public class SoundService : ISoundService
         int index = 0;
         foreach(var s in all)
         {
-            s.SortOrder = index;
+            s.SortPosition = index;
             index++;
         }
 
@@ -89,7 +89,7 @@ public class SoundService : ISoundService
             return;
         }
 
-        s.SortOrder = _soundCache.InstallSoundsCount;
+        s.SortPosition = _soundCache.InstallSoundsCount;
         await _soundCache.AddLocalInstalledSoundAsync(s);
         LocalSoundAdded?.Invoke(this, s);
     }
@@ -121,7 +121,7 @@ public class SoundService : ISoundService
         }
 
         // Update positions of remaining sounds.
-        await UpdatePositionsAsync(sound.Id, sound.SortOrder, -1);
+        await UpdatePositionsAsync(sound.Id, sound.SortPosition, -1);
 
         // Delete metadata
         await _soundCache.RemoveLocalInstalledSoundAsync(id);
@@ -161,9 +161,9 @@ public class SoundService : ISoundService
             // the items that came after the old index.
             foreach (var s in sounds)
             {
-                if (s.SortOrder > oldIndex)
+                if (s.SortPosition > oldIndex)
                 {
-                    s.SortOrder--;
+                    s.SortPosition--;
                 }
             }
         }
@@ -173,22 +173,22 @@ public class SoundService : ISoundService
             {
                 if (s.Id == soundId)
                 {
-                    s.SortOrder = newIndex;
+                    s.SortPosition = newIndex;
                     continue;
                 }
 
                 if (oldIndex < newIndex)
                 {
-                    if (s.SortOrder > oldIndex && s.SortOrder <= newIndex)
+                    if (s.SortPosition > oldIndex && s.SortPosition <= newIndex)
                     {
-                        s.SortOrder--;
+                        s.SortPosition--;
                     }
                 }
                 else if (oldIndex > newIndex)
                 {
-                    if (s.SortOrder >= newIndex && s.SortOrder < oldIndex)
+                    if (s.SortPosition >= newIndex && s.SortPosition < oldIndex)
                     {
-                        s.SortOrder++;
+                        s.SortPosition++;
                     }
                 }
             }
