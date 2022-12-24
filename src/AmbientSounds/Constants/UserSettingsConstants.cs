@@ -116,6 +116,12 @@ namespace AmbientSounds.Constants
         public const string CompactOnFocusKey = "CompactOnFocus";
 
         /// <summary>
+        /// Used to remember if packaged sounds have already been loaded,
+        /// which usually occurs on first run of the app.
+        /// </summary>
+        public const string HasLoadedPackagedSoundsKey = "HasLoadedPackagedSounds";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -140,6 +146,7 @@ namespace AmbientSounds.Constants
             { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
             { DevicePresenceIdKey, string.Empty },
             { CompactOnFocusKey, true },
+            { HasLoadedPackagedSoundsKey, false },
         };
     }
 }

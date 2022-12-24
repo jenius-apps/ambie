@@ -12,19 +12,19 @@ namespace AmbientSounds.Services
     /// </summary>
     public class SoundMixService : ISoundMixService
     {
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly IMixMediaPlayerService _player;
+        private readonly ISoundService _soundService;
         private readonly string[] _namePlaceholders = new string[] { "🎵", "🎼", "🎧", "🎶" };
 
         public SoundMixService(
-            ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             IMixMediaPlayerService player)
         {
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(player, nameof(player));
+            Guard.IsNotNull(player);
+            Guard.IsNotNull(soundService);
 
-            _soundDataProvider = soundDataProvider;
             _player = player;
+            _soundService = soundService;
         }
 
         /// <inheritdoc/>
@@ -42,7 +42,7 @@ namespace AmbientSounds.Services
             }
 
             var activeTracks = _player.GetSoundIds();
-            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: activeTracks);
+            var sounds = await _soundService.GetLocalSoundsAsync(soundIds: activeTracks);
             var id = await SaveMixAsync(sounds, name);
 
             if (!string.IsNullOrEmpty(id))
@@ -60,7 +60,7 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task<string> SaveMixAsync(IList<Sound> sounds, string name = "")
+        public async Task<string> SaveMixAsync(IReadOnlyList<Sound> sounds, string name = "")
         {
             if (sounds is null || sounds.Count <= 1)
             {
@@ -76,7 +76,7 @@ namespace AmbientSounds.Services
                 ImagePaths = sounds.Select(static x => x.ImagePath).ToArray()
             };
 
-            await _soundDataProvider.AddLocalSoundAsync(mix);
+            await _soundService.AddLocalSoundAsync(mix);
             return mix.Id;
         }
 
@@ -88,7 +88,7 @@ namespace AmbientSounds.Services
                 return Enumerable.Empty<string>();
             }
 
-            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: mix.SoundIds);
+            var sounds = await _soundService.GetLocalSoundsAsync(soundIds: mix.SoundIds);
             if (sounds is null)
             {
                 return Enumerable.Empty<string>();
@@ -118,7 +118,7 @@ namespace AmbientSounds.Services
 
             _player.RemoveAll();
 
-            var sounds = await _soundDataProvider.GetSoundsAsync(soundIds: mix.SoundIds);
+            var sounds = await _soundService.GetLocalSoundsAsync(soundIds: mix.SoundIds);
             if (sounds is not null && sounds.Count == mix.SoundIds.Length)
             {
                 foreach (var soundId in mix.SoundIds)
@@ -141,7 +141,7 @@ namespace AmbientSounds.Services
                 return;
             }
 
-            var allSounds = await _soundDataProvider.GetSoundsAsync();
+            var allSounds = await _soundService.GetLocalSoundsAsync();
             var allSoundIds = allSounds.Select(static x => x.Id);
 
             foreach (var soundMix in dehydratedMixes)
@@ -164,7 +164,7 @@ namespace AmbientSounds.Services
                     ImagePaths = soundsForThisMix.Select(static x => x.ImagePath).ToArray()
                 };
 
-                await _soundDataProvider.AddLocalSoundAsync(hydratedMix);
+                await _soundService.AddLocalSoundAsync(hydratedMix);
             }
         }
 

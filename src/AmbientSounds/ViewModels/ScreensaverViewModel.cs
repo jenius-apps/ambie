@@ -15,7 +15,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITimerService _timerService;
         private readonly IMixMediaPlayerService _mediaPlayerService;
         private readonly ITelemetry _telemetry;
-        private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundDataProvider;
         private IList<string> _images = new List<string>();
         private string _imageSource1 = "https://localhost:8080";
         private string _imageSource2 = "https://localhost:8080";
@@ -28,7 +28,7 @@ namespace AmbientSounds.ViewModels
         public ScreensaverViewModel(
             ITimerService timerService,
             IMixMediaPlayerService mediaPlayerService,
-            ISoundDataProvider soundDataProvider,
+            ISoundService soundDataProvider,
             ITelemetry telemetry)
         {
             Guard.IsNotNull(timerService, nameof(timerService));
@@ -90,7 +90,7 @@ namespace AmbientSounds.ViewModels
 
             if (_images is null || _images.Count < 2)
             {
-                var firstSound = (await _soundDataProvider.GetSoundsAsync(refresh: false)).FirstOrDefault();
+                var firstSound = (await _soundDataProvider.GetLocalSoundsAsync()).FirstOrDefault();
                 _images = firstSound?.ScreensaverImagePaths ?? Array.Empty<string>();
             }
 

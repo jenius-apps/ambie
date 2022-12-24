@@ -15,7 +15,7 @@ namespace AmbientSounds.ViewModels
     {
         private readonly Sound _sound;
         private readonly IDownloadManager _downloadManager;
-        private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundService;
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
         private readonly IPreviewService _previewService;
@@ -28,30 +28,30 @@ namespace AmbientSounds.ViewModels
         public OnlineSoundViewModel(
             Sound s, 
             IDownloadManager downloadManager,
-            ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             ITelemetry telemetry,
             IPreviewService previewService,
             IIapService iapService,
             IDialogService dialogService)
         {
-            Guard.IsNotNull(s, nameof(s));
-            Guard.IsNotNull(downloadManager, nameof(downloadManager));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(iapService, nameof(iapService));
-            Guard.IsNotNull(previewService, nameof(previewService));
-            Guard.IsNotNull(dialogService, nameof(dialogService));
+            Guard.IsNotNull(s);
+            Guard.IsNotNull(downloadManager);
+            Guard.IsNotNull(soundService);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNull(iapService);
+            Guard.IsNotNull(previewService);
+            Guard.IsNotNull(dialogService);
             _sound = s;
             _downloadManager = downloadManager;
             _previewService = previewService;
             _iapService = iapService;
-            _soundDataProvider = soundDataProvider;
+            _soundService = soundService;
             _telemetry = telemetry;
             _dialogService = dialogService;
 
             _downloadProgress = new Progress<double>();
             _downloadProgress.ProgressChanged += OnProgressChanged;
-            _soundDataProvider.LocalSoundDeleted += OnSoundDeleted;
+            _soundService.LocalSoundDeleted += OnSoundDeleted;
             _iapService.ProductPurchased += OnProductPurchased;
 
             DownloadCommand = new AsyncRelayCommand(DownloadAsync);
@@ -73,7 +73,7 @@ namespace AmbientSounds.ViewModels
         {
             if (id == _sound.Id)
             {
-                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id);
+                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id);
                 DownloadProgressValue = 0;
 
                 // Note: a non-premium sound is treated as "owned"
@@ -86,7 +86,7 @@ namespace AmbientSounds.ViewModels
             DownloadProgressValue = e;
             if (e >= 100)
             {
-                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
+                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
                 DownloadProgressValue = 0;
             }
         }
@@ -266,7 +266,7 @@ namespace AmbientSounds.ViewModels
             {
                 { "id", _sound.Id ?? "" },
             });
-            await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
+            await _soundService.DeleteLocalSoundAsync(_sound.Id ?? "");
         }
 
         private async Task LoadAsync()
@@ -281,7 +281,7 @@ namespace AmbientSounds.ViewModels
             }
             else
             {
-                IsInstalled = await _soundDataProvider.IsSoundInstalledAsync(_sound.Id ?? "");
+                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
             }
 
             // Determine ownership
@@ -344,7 +344,7 @@ namespace AmbientSounds.ViewModels
         {
             _iapService.ProductPurchased -= OnProductPurchased;
             _downloadProgress.ProgressChanged -= OnProgressChanged;
-            _soundDataProvider.LocalSoundDeleted -= OnSoundDeleted;
+            _soundService.LocalSoundDeleted -= OnSoundDeleted;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -9,98 +10,121 @@ using Windows.Storage;
 
 #nullable enable
 
-namespace AmbientSounds.Services.Uwp
+namespace AmbientSounds.Services.Uwp;
+
+/// <summary>
+/// Uses the Windows-provided BackgroundDownloader
+/// API to perform download and track progress.
+/// </summary>
+public class WindowsDownloadManager : IDownloadManager
 {
-    /// <summary>
-    /// Uses the Windows-provided BackgroundDownloader
-    /// API to perform download and track progress.
-    /// </summary>
-    public class WindowsDownloadManager : IDownloadManager
+    private const string SoundsDirectory = "sounds";
+    private const string VideosDirectory = "videos";
+    private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+    private readonly IFileDownloader _fileDownloader;
+    private readonly ISoundService _soundService;
+    private readonly IAssetsReader _assetsReader;
+
+    public event EventHandler? DownloadsCompleted;
+
+    public WindowsDownloadManager(
+        IFileDownloader fileDownloader,
+        ISoundService soundService,
+        IOnlineSoundDataProvider onlineSoundDataProvider,
+        IAssetsReader assetsReader)
     {
-        private const string SoundsDirectory = "sounds";
-        private const string VideosDirectory = "videos";
-        private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
-        private readonly IFileDownloader _fileDownloader;
-        private readonly ISoundDataProvider _soundDataProvider;
+        Guard.IsNotNull(fileDownloader);
+        Guard.IsNotNull(soundService);
+        Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(assetsReader);
 
-        public event EventHandler? DownloadsCompleted;
+        _fileDownloader = fileDownloader;
+        _soundService = soundService;
+        _onlineSoundDataProvider = onlineSoundDataProvider;
+        _assetsReader = assetsReader;
+    }
 
-        public WindowsDownloadManager(
-            IFileDownloader fileDownloader,
-            ISoundDataProvider soundDataProvider,
-            IOnlineSoundDataProvider onlineSoundDataProvider)
+    /// <inheritdoc/>
+    public bool IsDownloadActive(Sound s)
+    {
+        string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
+        return BackgroundDownloadService.Instance.IsDownloadActive(destinationPath);
+    }
+
+    /// <inheritdoc/>
+    public IProgress<double>? GetProgress(Sound s)
+    {
+        string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
+        return GetProgress(destinationPath);
+    }
+
+    /// <inheritdoc/>
+    public IProgress<double>? GetProgress(string destinationFilePath)
+    {
+        return BackgroundDownloadService.Instance.GetProgress(destinationFilePath);
+    }
+
+    /// <inheritdoc/>
+    public async Task QueueAndDownloadAsync(IList<string> onlineSoundIds)
+    {
+        if (onlineSoundIds is null || onlineSoundIds.Count == 0)
         {
-            Guard.IsNotNull(fileDownloader, nameof(fileDownloader));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
-
-            _fileDownloader = fileDownloader;
-            _soundDataProvider = soundDataProvider;
-            _onlineSoundDataProvider = onlineSoundDataProvider;
+            return;
         }
 
-        /// <inheritdoc/>
-        public bool IsDownloadActive(Sound s)
+        var sounds = await _onlineSoundDataProvider.GetSoundsAsync(onlineSoundIds);
+        if (sounds is null)
         {
-            string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
-            return BackgroundDownloadService.Instance.IsDownloadActive(destinationPath);
+            return;
         }
 
-        /// <inheritdoc/>
-        public IProgress<double>? GetProgress(Sound s)
+        foreach (var s in sounds)
         {
-            string destinationPath = GetDestinationPath(s.Id + s.FileExtension);
-            return GetProgress(destinationPath);
+            _ = QueueAndDownloadAsync(s, new Progress<double>());
+        }
+    }
+
+    /// <inheritdoc/>
+    public async Task<string> QueueAndDownloadAsync(Video video, IProgress<double> progress)
+    {
+        if (string.IsNullOrEmpty(video.DownloadUrl))
+        {
+            return string.Empty;
         }
 
-        /// <inheritdoc/>
-        public IProgress<double>? GetProgress(string destinationFilePath)
+        StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+            $"{VideosDirectory}\\{video.Id + video.Extension}",
+            CreationCollisionOption.ReplaceExisting);
+
+        BackgroundDownloadService.Instance.StartDownload(
+            destinationFile,
+            video.DownloadUrl,
+            progress);
+
+        return destinationFile.Path;
+    }
+
+    /// <inheritdoc/>
+    public async Task QueueAndDownloadAsync(Sound s, IProgress<double> progress)
+    {
+        string localImagePath;
+        string destinationFilePath;
+        bool performFakeDownload = _assetsReader.IsPathFromPackage(s.FilePath);
+
+        if (performFakeDownload)
         {
-            return BackgroundDownloadService.Instance.GetProgress(destinationFilePath);
+            // Handle "downloading" of a packaged sound
+            // As you might remember, a packaged sound is already local,
+            // so we fake the download UX below to provide a consistent experience
+            // for the user. 
+
+            progress.Report(25);
+            await Task.Delay(300); 
+            progress.Report(50);
+            localImagePath = s.ImagePath;
+            destinationFilePath = s.FilePath;
         }
-
-        /// <inheritdoc/>
-        public async Task QueueAndDownloadAsync(IList<string> onlineSoundIds)
-        {
-            if (onlineSoundIds is null || onlineSoundIds.Count == 0)
-            {
-                return;
-            }
-
-            var sounds = await _onlineSoundDataProvider.GetSoundsAsync(onlineSoundIds);
-            if (sounds is null)
-            {
-                return;
-            }
-
-            foreach (var s in sounds)
-            {
-                _ = QueueAndDownloadAsync(s, new Progress<double>());
-            }
-        }
-
-        /// <inheritdoc/>
-        public async Task<string> QueueAndDownloadAsync(Video video, IProgress<double> progress)
-        {
-            if (string.IsNullOrEmpty(video.DownloadUrl))
-            {
-                return string.Empty;
-            }
-
-            StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                $"{VideosDirectory}\\{video.Id + video.Extension}",
-                CreationCollisionOption.ReplaceExisting);
-
-            BackgroundDownloadService.Instance.StartDownload(
-                destinationFile,
-                video.DownloadUrl,
-                progress);
-
-            return destinationFile.Path;
-        }
-
-        /// <inheritdoc/>
-        public async Task QueueAndDownloadAsync(Sound s, IProgress<double> progress)
+        else
         {
             string downloadUrl = await _onlineSoundDataProvider.GetDownloadLinkAsync(s);
             if (string.IsNullOrWhiteSpace(downloadUrl))
@@ -110,7 +134,7 @@ namespace AmbientSounds.Services.Uwp
 
             progress.Report(1);
 
-            string localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
+            localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
                 s.ImagePath,
                 s.Id);
 
@@ -118,32 +142,46 @@ namespace AmbientSounds.Services.Uwp
                 $"{SoundsDirectory}\\{s.Id + s.FileExtension}",
                 CreationCollisionOption.ReplaceExisting);
 
+            destinationFilePath = destinationFile.Path;
+
             BackgroundDownloadService.Instance.StartDownload(
                 destinationFile,
                 downloadUrl,
                 progress);
-
-            var newSoundInfo = new Sound
-            {
-                Id = s.Id,
-                ImagePath = localImagePath,
-                Name = s.Name,
-                FilePath = destinationFile.Path,
-                Attribution = s.Attribution,
-                FileExtension = s.FileExtension,
-                ScreensaverImagePaths = s.ScreensaverImagePaths,
-                IsPremium = s.IsPremium,
-                IapIds = s.IapIds.ToArray(),
-                ColourHex = s.ColourHex
-            };
-
-            await _soundDataProvider.AddLocalSoundAsync(newSoundInfo);
-            DownloadsCompleted?.Invoke(this, EventArgs.Empty);
         }
 
-        private string GetDestinationPath(string soundFileName)
+        var newSoundInfo = new Sound
         {
-            return Path.Combine(ApplicationData.Current.LocalFolder.Path, SoundsDirectory, soundFileName);
+            Id = s.Id,
+            ImagePath = localImagePath,
+            Name = s.Name,
+            FilePath = destinationFilePath,
+            Attribution = s.Attribution,
+            FileExtension = s.FileExtension,
+            ScreensaverImagePaths = s.ScreensaverImagePaths,
+            IsPremium = s.IsPremium,
+            IapIds = s.IapIds.ToArray(),
+            ColourHex = s.ColourHex
+        };
+
+        await _soundService.AddLocalSoundAsync(newSoundInfo);
+
+        if (performFakeDownload)
+        {
+            // Report completion of fake download here
+            // so downstream event handlers work correctly.
+            // The handlers expect the download completion to happen after
+            // the sound metadata was added.
+
+            await Task.Delay(300);
+            progress.Report(100);
         }
+
+        DownloadsCompleted?.Invoke(this, EventArgs.Empty);
+    }
+
+    private string GetDestinationPath(string soundFileName)
+    {
+        return Path.Combine(ApplicationData.Current.LocalFolder.Path, SoundsDirectory, soundFileName);
     }
 }

@@ -281,7 +281,6 @@
     <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\PartnerCentreNotificationRegistrar.cs" />
     <Compile Include="Services\ScreensaverService.cs" />
-    <Compile Include="Services\SoundDataProvider.cs" />
     <Compile Include="Services\TimerService.cs" />
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\WindowsDownloadManager.cs" />
@@ -291,6 +290,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resw</DependentUpon>
     </Compile>
+    <Compile Include="Tools\AssetsReader.cs" />
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
@@ -334,6 +334,7 @@
     <Content Include="Assets\Backgrounds\sand.png" />
     <Content Include="Assets\Backgrounds\znone.png" />
     <Content Include="Assets\Backgrounds\rosyhill.png" />
+    <Content Include="Assets\headphone_3d.png" />
     <Content Include="Assets\Images\beach.png" />
     <Content Include="Assets\Images\birds.png" />
     <Content Include="Assets\Images\citystreet.png" />

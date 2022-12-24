@@ -17,7 +17,7 @@ namespace AmbientSounds.Services
         private readonly ICloudFileWriter _cloudFileWriter;
         private readonly IDownloadManager _downloadManager;
         private readonly IAccountManager _accountManager;
-        private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundService;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
@@ -36,26 +36,26 @@ namespace AmbientSounds.Services
             ICloudFileWriter cloudFileWriter,
             IDownloadManager downloadManager,
             IAccountManager accountManager,
-            ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             IOnlineSoundDataProvider onlineSoundDataProvider,
             IAppSettings appSettings,
             ISoundMixService soundMixService,
             ITelemetry telemetry)
         {
-            Guard.IsNotNull(cloudFileWriter, nameof(cloudFileWriter));
-            Guard.IsNotNull(downloadManager, nameof(downloadManager));
-            Guard.IsNotNull(accountManager, nameof(accountManager));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(onlineSoundDataProvider, nameof(onlineSoundDataProvider));
-            Guard.IsNotNull(soundMixService, nameof(soundMixService));
-            Guard.IsNotNull(appSettings, nameof(appSettings));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNullOrEmpty(appSettings.CloudSyncFileUrl, nameof(appSettings.CloudSyncFileUrl));
+            Guard.IsNotNull(cloudFileWriter);
+            Guard.IsNotNull(downloadManager);
+            Guard.IsNotNull(accountManager);
+            Guard.IsNotNull(soundService);
+            Guard.IsNotNull(onlineSoundDataProvider);
+            Guard.IsNotNull(soundMixService);
+            Guard.IsNotNull(appSettings);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNullOrEmpty(appSettings.CloudSyncFileUrl);
 
             _accountManager = accountManager;
             _cloudFileWriter = cloudFileWriter;
             _downloadManager = downloadManager;
-            _soundDataProvider = soundDataProvider;
+            _soundService = soundService;
             _onlineSoundDataProvider = onlineSoundDataProvider;
             _soundMixService = soundMixService;
             _telemetry = telemetry;
@@ -63,8 +63,8 @@ namespace AmbientSounds.Services
             _dataChangeQueue = new Queue<string>();
 
             _downloadManager.DownloadsCompleted += OnDownloadsCompleted;
-            _soundDataProvider.LocalSoundDeleted += OnLocalSoundDeleted;
-            _soundDataProvider.LocalSoundAdded += OnLocalSoundAdded;
+            _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
+            _soundService.LocalSoundAdded += OnLocalSoundAdded;
             _accountManager.SignInUpdated += OnSignInUpdated;
         }
 
@@ -169,7 +169,7 @@ namespace AmbientSounds.Services
             }
 
             var soundMixIds = data.SoundMixes?.Select(x => x.Id).ToList() ?? new List<string>();
-            IList<Sound> installedSounds = await _soundDataProvider.GetLocalSoundsAsync();
+            var installedSounds = await _soundService.GetLocalSoundsAsync();
             var installedIds = installedSounds.Select(x => x.Id);
             var soundIdsToDownload = new List<string>();
 
@@ -222,7 +222,7 @@ namespace AmbientSounds.Services
 
             Syncing = true;
 
-            var localSounds = await _soundDataProvider.GetLocalSoundsAsync();
+            var localSounds = await _soundService.GetLocalSoundsAsync();
             var syncData = new SyncData
             {
                 InstalledSoundIds = localSounds.Select(static x => x.Id).ToArray(),
@@ -251,8 +251,8 @@ namespace AmbientSounds.Services
         public void Dispose()
         {
             _downloadManager.DownloadsCompleted -= OnDownloadsCompleted;
-            _soundDataProvider.LocalSoundDeleted -= OnLocalSoundDeleted;
-            _soundDataProvider.LocalSoundAdded -= OnLocalSoundAdded;
+            _soundService.LocalSoundDeleted -= OnLocalSoundDeleted;
+            _soundService.LocalSoundAdded -= OnLocalSoundAdded;
             _accountManager.SignInUpdated -= OnSignInUpdated;
         }
     }

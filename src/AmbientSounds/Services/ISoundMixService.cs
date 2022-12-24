@@ -20,7 +20,7 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="sounds">List of sounds to save.</param>
         /// <returns>The string Id of the new sound mix.</returns>
-        Task<string> SaveMixAsync(IList<Sound> sounds, string name = "");
+        Task<string> SaveMixAsync(IReadOnlyList<Sound> sounds, string name = "");
 
         /// <summary>
         /// Reconstructs the given sound mixes and adds them to

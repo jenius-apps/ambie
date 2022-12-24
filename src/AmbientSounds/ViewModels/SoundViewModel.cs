@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System;
 using AmbientSounds.Tools;
 
+#nullable enable
+
 namespace AmbientSounds.ViewModels
 {
     /// <summary>
@@ -20,7 +22,7 @@ namespace AmbientSounds.ViewModels
     {
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
-        private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundService;
         private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
         private readonly ISoundMixService _soundMixService;
         private readonly ITelemetry _telemetry;
@@ -40,7 +42,7 @@ namespace AmbientSounds.ViewModels
         public SoundViewModel(
             Sound s,
             IMixMediaPlayerService playerService,
-            ISoundDataProvider soundDataProvider,
+            ISoundService soundService,
             ISoundMixService soundMixService,
             ITelemetry telemetry,
             IRenamer renamer,
@@ -53,7 +55,7 @@ namespace AmbientSounds.ViewModels
         {
             Guard.IsNotNull(s);
             Guard.IsNotNull(playerService);
-            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(soundService);
             Guard.IsNotNull(telemetry);
             Guard.IsNotNull(soundMixService);
             Guard.IsNotNull(renamer);
@@ -67,7 +69,7 @@ namespace AmbientSounds.ViewModels
             _sound = s;
             _soundMixService = soundMixService;
             _playerService = playerService;
-            _soundDataProvider = soundDataProvider;
+            _soundService = soundService;
             _telemetry = telemetry;
             _renamer = renamer;
             _dialogService = dialogService;
@@ -99,7 +101,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// The sound's GUID.
         /// </summary>
-        public string? Id => _sound.Id;
+        public string Id => _sound.Id;
 
         /// <summary>
         /// Determines if the plus badge is visible.
@@ -156,11 +158,6 @@ namespace AmbientSounds.ViewModels
         /// The path for the image to display for the current sound.
         /// </summary>
         public string? ImagePath => _sound.IsMix ? _sound.ImagePaths[0] : _sound.ImagePath;
-
-        /// <summary>
-        /// If true, item can be deleted from local storage.
-        /// </summary>
-        public bool CanDelete => !_sound.FilePath?.StartsWith("ms-appx") ?? false;
 
         /// <summary>
         /// Command for deleting this sound.
@@ -288,7 +285,7 @@ namespace AmbientSounds.ViewModels
                         _sound.IapIds = newList;
                         OnPropertyChanged(nameof(FreeBadgeVisible));
                         OnPropertyChanged(nameof(PlusBadgeVisible));
-                        _ = _soundDataProvider.UpdateLocalSoundAsync(new Sound[] { _sound }).ConfigureAwait(false);
+                        _ = _soundService.UpdateSoundAsync(_sound).ConfigureAwait(false);
 
                         _telemetry.TrackEvent(TelemetryConstants.ExpiredClicked, new Dictionary<string, string>
                         {
@@ -403,7 +400,7 @@ namespace AmbientSounds.ViewModels
 
             try
             {
-                await _soundDataProvider.DeleteLocalSoundAsync(_sound.Id ?? "");
+                await _soundService.DeleteLocalSoundAsync(_sound.Id ?? "");
 
                 _telemetry.TrackEvent(TelemetryConstants.DeleteClicked, new Dictionary<string, string>
                 {

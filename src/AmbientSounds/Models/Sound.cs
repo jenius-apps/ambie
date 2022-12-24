@@ -111,6 +111,17 @@ namespace AmbientSounds.Models
         /// Supports RGB and ARGB.
         /// </summary>
         public string ColourHex { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Used for sorting installed sounds.
+        /// </summary>
+        public int SortPosition { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
     public enum PublishState

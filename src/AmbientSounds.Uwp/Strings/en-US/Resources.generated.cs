@@ -1808,6 +1808,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region EmptyHomeMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Download sounds from the catalogue
+        /// </summary>
+        public static string EmptyHomeMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EmptyHomeMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1957,6 +1970,7 @@ namespace AmbientSounds.Strings{
             EndTimeText,
             MiniText,
             PausesText,
+            EmptyHomeMessage,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -842,6 +842,10 @@
           <source>Pauses</source>
           <target state="translated">Pause</target>
         </trans-unit>
+        <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
+          <source>Download sounds from the catalogue</source>
+          <target state="new">Download sounds from the catalogue</target>
+        </trans-unit>
       </group>
     </body>
   </file>
