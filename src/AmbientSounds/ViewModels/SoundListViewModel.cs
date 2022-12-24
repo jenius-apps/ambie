@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class SoundListViewModel : ObservableObject
+    public partial class SoundListViewModel : ObservableObject
     {
         private readonly ISoundService _soundService;
         private readonly ITelemetry _telemetry;
@@ -22,6 +22,7 @@ namespace AmbientSounds.ViewModels
         private readonly IDialogService _dialogService;
         private readonly IDownloadManager _downloadManager;
         private readonly IUserSettings _userSettings;
+        private readonly INavigator _navigator;
         private bool _isDeleting;
         private bool _isAdding;
         private int _reorderedOldIndex;
@@ -36,7 +37,8 @@ namespace AmbientSounds.ViewModels
             ISoundVmFactory soundVmFactory,
             IDialogService dialogService,
             IDownloadManager downloadManager,
-            IUserSettings userSettings)
+            IUserSettings userSettings,
+            INavigator navigator)
         {
             Guard.IsNotNull(soundService);
             Guard.IsNotNull(telemetry);
@@ -44,6 +46,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(dialogService);
             Guard.IsNotNull(downloadManager);
             Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(navigator);
 
             _soundService = soundService;
             _telemetry = telemetry;
@@ -51,6 +54,7 @@ namespace AmbientSounds.ViewModels
             _dialogService = dialogService;
             _downloadManager = downloadManager;
             _userSettings = userSettings;
+            _navigator = navigator;
 
             LoadCommand = new AsyncRelayCommand(LoadAsync);
             MixUnavailableCommand = new AsyncRelayCommand<IList<string>>(OnMixUnavailableAsync);
@@ -119,6 +123,12 @@ namespace AmbientSounds.ViewModels
             {
                 _telemetry.TrackEvent(TelemetryConstants.MissingSoundsCanceled);
             }
+        }
+
+        [RelayCommand]
+        private void OpenCatalogue()
+        {
+            _navigator.ToCatalogue();
         }
 
         /// <summary>

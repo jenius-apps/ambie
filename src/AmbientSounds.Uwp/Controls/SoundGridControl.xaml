@@ -34,34 +34,11 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MainGridView.ItemContainerStyle" Value="{StaticResource CompactItemContainerStyle}" />
+                        <Setter Target="CatalogueButton.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-        <StackPanel
-            VerticalAlignment="Center"
-            Spacing="12"
-            Visibility="{x:Bind ViewModel.EmptyMessageVisible, Mode=OneWay}">
-            <Image
-                Width="100"
-                HorizontalAlignment="Center"
-                AutomationProperties.AccessibilityView="Raw"
-                Source="ms-appx:///Assets/headphone_3d.png" />
-            <TextBlock
-                MaxWidth="300"
-                FontSize="12"
-                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="{x:Bind strings:Resources.EmptyHomeMessage}"
-                TextAlignment="Center"
-                TextWrapping="Wrap" />
-            <Button
-                Height="36"
-                MinWidth="180"
-                HorizontalAlignment="Center"
-                AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
-                Content="{x:Bind strings:Resources.Catalogue}" />
-        </StackPanel>
 
         <GridView
             x:Name="MainGridView"
@@ -78,6 +55,36 @@
                 </TransitionCollection>
             </GridView.ItemContainerTransitions>
         </GridView>
+
+        <StackPanel
+            VerticalAlignment="Center"
+            Spacing="12"
+            Visibility="{x:Bind ViewModel.EmptyMessageVisible, Mode=OneWay}">
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </StackPanel.ChildrenTransitions>
+            <Image
+                Width="100"
+                HorizontalAlignment="Center"
+                AutomationProperties.AccessibilityView="Raw"
+                Source="ms-appx:///Assets/headphone_3d.png" />
+            <TextBlock
+                MaxWidth="300"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.EmptyHomeMessage}"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <Button
+                x:Name="CatalogueButton"
+                Height="36"
+                MinWidth="180"
+                HorizontalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
+                Command="{x:Bind ViewModel.OpenCatalogueCommand}"
+                Content="{x:Bind strings:Resources.Catalogue}" />
+        </StackPanel>
+
 
         <muxc:ProgressRing
             x:Uid="SoundsLoadingRing"
