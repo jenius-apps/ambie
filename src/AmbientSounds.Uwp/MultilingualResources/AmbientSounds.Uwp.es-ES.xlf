@@ -837,7 +837,7 @@
         </trans-unit>
         <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
           <source>Download sounds from the catalogue</source>
-          <target state="new">Download sounds from the catalogue</target>
+          <target state="translated">Descargar sonidos del catálogo</target>
         </trans-unit>
       </group>
     </body>

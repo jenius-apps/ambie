@@ -631,4 +631,7 @@
   <data name="PausesText" xml:space="preserve">
     <value>一時停止</value>
   </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>カタログから音楽をダウンロード</value>
+  </data>
 </root>

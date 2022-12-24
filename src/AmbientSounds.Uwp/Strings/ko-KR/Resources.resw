@@ -631,4 +631,7 @@
   <data name="PausesText" xml:space="preserve">
     <value>멈춤</value>
   </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>카탈로그에서 음악 다운로드</value>
+  </data>
 </root>

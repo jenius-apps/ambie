@@ -631,4 +631,7 @@
   <data name="PausesText" xml:space="preserve">
     <value>Pausas</value>
   </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Baixar sons do catálogo</value>
+  </data>
 </root>

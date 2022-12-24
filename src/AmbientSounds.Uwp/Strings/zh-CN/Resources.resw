@@ -631,4 +631,7 @@
   <data name="PausesText" xml:space="preserve">
     <value>暂停</value>
   </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>从目录下载声音</value>
+  </data>
 </root>
