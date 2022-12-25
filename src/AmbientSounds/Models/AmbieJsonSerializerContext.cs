@@ -49,6 +49,7 @@ namespace AmbientSounds.Models;
 [JsonSerializable(typeof(List<Sound>))]
 [JsonSerializable(typeof(IList<Sound>))]
 [JsonSerializable(typeof(RecentFocusSettings[]))]
+[JsonSerializable(typeof(MsalUser), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 public sealed partial class AmbieJsonSerializerContext : JsonSerializerContext
 {
     /// <summary>

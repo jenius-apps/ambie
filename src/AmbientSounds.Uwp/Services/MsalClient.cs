@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.Identity.Client;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using Microsoft.Identity.Client.Extensibility;
-using Windows.System;
+using System.Text.Json;
 
 #nullable enable
 
 namespace AmbientSounds.Services.Uwp
 {
-    public class MsalClient : IMsaAuthClient
+    public sealed class MsalClient : IMsaAuthClient
     {
         private const string PictureFileName = "profile.png";
         private const string RedirectUri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
@@ -78,13 +77,29 @@ namespace AmbientSounds.Services.Uwp
 
             if (profileResponse.IsSuccessStatusCode)
             {
-                var content = await profileResponse.Content.ReadAsStringAsync();
-                var data = JObject.Parse(content);
+                using var stream = await profileResponse.Content.ReadAsStreamAsync();
 
-                if (data is not null)
+                MsalUser? user = null;
+
+                try
                 {
-                    person.Email = data["userPrincipalName"].ToString();
-                    person.Firstname = data["givenName"].ToString();
+                    user = await JsonSerializer.DeserializeAsync(
+                        stream,
+                        AmbieJsonSerializerContext.Default.MsalUser);
+                }
+                catch (Exception e)
+                {
+                    // Failed to deserialize
+                    _telemetry.TrackError(e, new Dictionary<string, string>
+                    {
+                        { "trace", e.StackTrace }
+                    });
+                }
+
+                if (user is not null)
+                {
+                    person.Email = user.Email;
+                    person.Firstname = user.FirstName;
                 }
             }
 
