@@ -117,7 +117,9 @@ namespace AmbientSounds.ViewModels
                 else
                 {
                     // backwards compatibility
+#pragma warning disable CS0618
                     return _sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId;
+#pragma warning restore CS0618
                 }
             }
         }
@@ -303,7 +305,9 @@ namespace AmbientSounds.ViewModels
 
                 var owned = _sound.IapIds.Count > 0
                     ? await _iapService.IsAnyOwnedAsync(_sound.IapIds)
+#pragma warning disable CS0618
                     : await _iapService.IsOwnedAsync(_sound.IapId); // backwards compatibility
+#pragma warning restore CS0618
 
                 if (!owned)
                 {
