@@ -4,9 +4,7 @@ using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 #nullable enable
@@ -37,6 +35,14 @@ public class SoundService : ISoundService
         _soundCache = soundCache;
         _fileWriter = fileWriter;
         _assetsReader = assetsReader;
+    }
+
+    /// <inheritdoc/>
+    public async Task<Sound?> GetLocalSoundAsync(string soundId)
+    {
+        Guard.IsNotNull(soundId);
+
+        return await _soundCache.GetInstalledSoundAsync(soundId);
     }
 
     /// <inheritdoc/>
@@ -200,15 +206,10 @@ public class SoundService : ISoundService
     /// <inheritdoc/>
     public async Task UpdateSoundAsync(Sound updatedSound)
     {
-        IReadOnlyList<Sound> sounds = await GetLocalSoundsAsync(new string[] 
+        if (await GetLocalSoundAsync(updatedSound.Id) is Sound sound)
         {
-            updatedSound.Id 
-        });
-
-        if (sounds.Count == 1)
-        {
-            sounds[0].Name = updatedSound.Name;
-            sounds[0].IapIds = updatedSound.IapIds;
+            sound.Name = updatedSound.Name;
+            sound.IapIds = updatedSound.IapIds;
         }
 
         await _soundCache.SaveCacheAsync();

@@ -20,6 +20,14 @@ public interface ISoundService
     event EventHandler<string> LocalSoundDeleted;
 
     /// <summary>
+    /// Gets an installed sound from its id, if present.
+    /// </summary>
+    /// <param name="soundId">The id of the installed sound to retrieve.</param>
+    /// <returns>The installed sound with the provided id, if it exists.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if <paramref name="soundId"/> is <see langword="null"/>.</exception>
+    Task<Sound?> GetLocalSoundAsync(string soundId);
+
+    /// <summary>
     /// Gets the list of sounds that are installed.
     /// </summary>
     /// <returns>List of installed sound objects.</returns>
