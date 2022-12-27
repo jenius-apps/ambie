@@ -24,8 +24,7 @@ public interface ISoundService
     /// </summary>
     /// <param name="soundId">The id of the installed sound to retrieve.</param>
     /// <returns>The installed sound with the provided id, if it exists.</returns>
-    /// <exception cref="ArgumentNullException">Thrown if <paramref name="soundId"/> is <see langword="null"/>.</exception>
-    Task<Sound?> GetLocalSoundAsync(string soundId);
+    Task<Sound?> GetLocalSoundAsync(string? soundId);
 
     /// <summary>
     /// Gets the list of sounds that are installed.

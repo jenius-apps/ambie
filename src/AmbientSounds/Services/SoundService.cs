@@ -38,9 +38,12 @@ public class SoundService : ISoundService
     }
 
     /// <inheritdoc/>
-    public async Task<Sound?> GetLocalSoundAsync(string soundId)
+    public async Task<Sound?> GetLocalSoundAsync(string? soundId)
     {
-        Guard.IsNotNull(soundId);
+        if (soundId is null)
+        {
+            return null;
+        }
 
         return await _soundCache.GetInstalledSoundAsync(soundId);
     }
