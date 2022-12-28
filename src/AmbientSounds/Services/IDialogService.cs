@@ -64,5 +64,10 @@ namespace AmbientSounds.Services
         /// Returns a real string if the operation was confirmed, the text was valid, and if the text was changed.
         /// </returns>
         Task<string?> EditTextAsync(string prepopulatedText, int? maxSize = null);
+        
+        /// <summary>
+        /// Opens the tutorial dialog.
+        /// </summary>
+        Task OpenTutorialAsync();
     }
 }

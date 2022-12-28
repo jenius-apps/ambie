@@ -1,0 +1,15 @@
+﻿<ContentDialog
+    x:Class="AmbientSounds.Controls.TutorialDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    Title="{x:Bind strings:Resources.EditHomePage}"
+    CloseButtonText="{x:Bind strings:Resources.CloseText}"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    mc:Ignorable="d">
+
+    <local:TutorialControl Message="{x:Bind strings:Resources.EditHomePageMessage}" Source="https://github.com/jenius-apps/ambie/blob/main/images/smallreordergif.gif?raw=true" />
+</ContentDialog>

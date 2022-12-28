@@ -832,6 +832,14 @@
           <source>Download sounds from the catalogue</source>
           <target state="translated">カタログから音楽をダウンロード</target>
         </trans-unit>
+        <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
+          <source>Edit home page</source>
+          <target state="translated">スタートページを編集</target>
+        </trans-unit>
+        <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
+          <source>Drag and drop sounds to personalize your home page. Try it now!</source>
+          <target state="translated">サウンドをドラッグ アンド ドロップして開始年齢をパーソナライズします。 今試してみて！</target>
+        </trans-unit>
       </group>
     </body>
   </file>

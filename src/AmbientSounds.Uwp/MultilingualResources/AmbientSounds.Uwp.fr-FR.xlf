@@ -845,6 +845,14 @@
           <source>Download sounds from the catalogue</source>
           <target state="translated">Télécharger des sons du catalogue</target>
         </trans-unit>
+        <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
+          <source>Edit home page</source>
+          <target state="translated">Modifier la page de démarrage</target>
+        </trans-unit>
+        <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
+          <source>Drag and drop sounds to personalize your home page. Try it now!</source>
+          <target state="translated">Faites glisser et déposez des sons pour personnaliser votre âge de départ. Essayez-le maintenant!</target>
+        </trans-unit>
       </group>
     </body>
   </file>

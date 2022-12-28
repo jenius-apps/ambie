@@ -634,4 +634,10 @@
   <data name="EmptyHomeMessage" xml:space="preserve">
     <value>从目录下载声音</value>
   </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>编辑起始页</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>拖放声音以个性化您的开始年龄。 现在就试试！</value>
+  </data>
 </root>

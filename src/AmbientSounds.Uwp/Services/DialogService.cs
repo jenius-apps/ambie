@@ -38,6 +38,24 @@ namespace AmbientSounds.Services.Uwp
         public static bool IsDialogOpen;
 
         /// <inheritdoc/>
+        public async Task OpenTutorialAsync()
+        {
+            if (IsDialogOpen)
+            {
+                return;
+            }
+
+            IsDialogOpen = true;
+            var dialog = new TutorialDialog()
+            {
+                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme()
+            };
+
+            await dialog.ShowAsync();
+            IsDialogOpen = false;
+        }
+
+        /// <inheritdoc/>
         public async Task<bool> MissingSoundsDialogAsync()
         {
             if (IsDialogOpen)

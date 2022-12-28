@@ -634,4 +634,10 @@
   <data name="EmptyHomeMessage" xml:space="preserve">
     <value>Stáhněte si zvuky z katalogu</value>
   </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Upravit úvodní stránku</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Přetažením zvuků přizpůsobte svou domovskou stránku. Zkus to nyní!</value>
+  </data>
 </root>

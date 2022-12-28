@@ -10,6 +10,7 @@
     xmlns:loc="using:AmbientSounds.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
@@ -240,6 +241,11 @@
                             Command="{x:Bind ViewModel.RenameCommand, Mode=OneWay}"
                             Icon="Rename"
                             Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
+                        <AppBarButton Click="OnEditHomePageClicked" Label="{x:Bind strings:Resources.EditHomePage}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphEditHome}" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                         <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
                             <StackPanel Width="300" Margin="12">
                                 <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />

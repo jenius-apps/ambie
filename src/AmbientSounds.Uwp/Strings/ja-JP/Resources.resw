@@ -634,4 +634,10 @@
   <data name="EmptyHomeMessage" xml:space="preserve">
     <value>カタログから音楽をダウンロード</value>
   </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>スタートページを編集</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>サウンドをドラッグ アンド ドロップして開始年齢をパーソナライズします。 今試してみて！</value>
+  </data>
 </root>

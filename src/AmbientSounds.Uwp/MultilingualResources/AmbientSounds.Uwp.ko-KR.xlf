@@ -836,6 +836,14 @@
           <source>Download sounds from the catalogue</source>
           <target state="translated">카탈로그에서 음악 다운로드</target>
         </trans-unit>
+        <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
+          <source>Edit home page</source>
+          <target state="translated">시작 페이지 수정</target>
+        </trans-unit>
+        <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
+          <source>Drag and drop sounds to personalize your home page. Try it now!</source>
+          <target state="translated">사운드를 드래그 앤 드롭하여 시작 연령을 개인화하십시오. 지금 사용해 보세요!</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -838,6 +838,14 @@
           <source>Download sounds from the catalogue</source>
           <target state="new">Download sounds from the catalogue</target>
         </trans-unit>
+        <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
+          <source>Edit home page</source>
+          <target state="new">Edit home page</target>
+        </trans-unit>
+        <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
+          <source>Drag and drop sounds to personalize your home page. Try it now!</source>
+          <target state="new">Drag and drop sounds to personalize your home page. Try it now!</target>
+        </trans-unit>
       </group>
     </body>
   </file>

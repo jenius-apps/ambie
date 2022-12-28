@@ -739,4 +739,10 @@
   <data name="EmptyHomeMessage" xml:space="preserve">
     <value>Download sounds from the catalogue</value>
   </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Edit home page</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Drag and drop sounds to personalize your home page. Try it now!</value>
+  </data>
 </root>

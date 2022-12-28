@@ -634,4 +634,10 @@
   <data name="EmptyHomeMessage" xml:space="preserve">
     <value>Scarica suoni dal catalogo</value>
   </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Modifica la pagina iniziale</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Trascina e rilascia i suoni per personalizzare la tua età iniziale. Provalo ora!</value>
+  </data>
 </root>

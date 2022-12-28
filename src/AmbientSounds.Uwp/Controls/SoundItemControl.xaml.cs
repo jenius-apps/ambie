@@ -1,4 +1,7 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using Windows.System;
 using Windows.UI.Xaml;
@@ -55,6 +58,12 @@ namespace AmbientSounds.Controls
             {
                 img.UriSource = new Uri("http://localhost");
             }
+        }
+
+        private async void OnEditHomePageClicked(object sender, RoutedEventArgs e)
+        {
+            await App.Services.GetRequiredService<IDialogService>().OpenTutorialAsync();
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ReorderClicked);
         }
     }
 }

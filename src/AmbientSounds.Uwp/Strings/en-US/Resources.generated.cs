@@ -1821,6 +1821,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region EditHomePage
+        /// <summary>
+        ///   Looks up a localized string similar to: Edit home page
+        /// </summary>
+        public static string EditHomePage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EditHomePage");
+            }
+        }
+        #endregion
+
+        #region EditHomePageMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Drag and drop sounds to personalize your home page. Try it now!
+        /// </summary>
+        public static string EditHomePageMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EditHomePageMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1971,6 +1997,8 @@ namespace AmbientSounds.Strings{
             MiniText,
             PausesText,
             EmptyHomeMessage,
+            EditHomePage,
+            EditHomePageMessage,
         }
 
         private static ResourceLoader _resourceLoader;

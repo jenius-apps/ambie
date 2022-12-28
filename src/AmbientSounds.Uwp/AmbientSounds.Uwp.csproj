@@ -249,6 +249,12 @@
     <Compile Include="Controls\TitleBarLogo.xaml.cs">
       <DependentUpon>TitleBarLogo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TutorialControl.xaml.cs">
+      <DependentUpon>TutorialControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TutorialDialog.xaml.cs">
+      <DependentUpon>TutorialDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Controls\VideosMenu.xaml.cs">
       <DependentUpon>VideosMenu.xaml</DependentUpon>
@@ -579,6 +585,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TitleBarLogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TutorialControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TutorialDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
