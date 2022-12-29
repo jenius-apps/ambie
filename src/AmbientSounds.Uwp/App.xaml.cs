@@ -274,7 +274,6 @@ namespace AmbientSounds
                     });
                 }
 
-                SetMinSize();
                 Window.Current.Activate();
             }
 
@@ -306,14 +305,6 @@ namespace AmbientSounds
             {
                 // An invalid Uri may have been passed in.
             }
-        }
-
-        private void SetMinSize()
-        {
-            // Note: needs to be run sometime before Window.Current.Activate()
-            var scale = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(
-                new Windows.Foundation.Size(260 * scale, 500 * scale));
         }
 
         private void OnSettingSet(object sender, string key)
