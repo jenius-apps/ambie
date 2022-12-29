@@ -46,6 +46,13 @@ public class SoundCache : ISoundCache
         return _preinstalled.Values as IReadOnlyList<Sound> ?? Array.Empty<Sound>();
     }
 
+    /// <inheritdoc/>
+    public async Task<Sound?> GetInstalledSoundAsync(string stringId)
+    {
+        await GetInstalledSoundsAsync();
+
+        return _installedSounds.TryGetValue(stringId, out Sound result) ? result : null;
+    }
 
     /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetInstalledSoundsAsync()
@@ -78,13 +85,6 @@ public class SoundCache : ISoundCache
 
         _installedSounds.TryRemove(videoId, out _);
         await _offlineSoundRepo.SaveLocalSoundsAsync(_installedSounds.Values.ToArray());
-    }
-
-    /// <inheritdoc/>
-    public async Task<Sound?> GetInstalledSoundAsync(string stringId)
-    {
-        await GetInstalledSoundsAsync();
-        return _installedSounds.TryGetValue(stringId, out Sound result) ? result : null;
     }
 
     /// <inheritdoc/>
