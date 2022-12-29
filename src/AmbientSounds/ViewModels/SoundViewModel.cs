@@ -117,7 +117,9 @@ namespace AmbientSounds.ViewModels
                 else
                 {
                     // backwards compatibility
+#pragma warning disable CS0618
                     return _sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId;
+#pragma warning restore CS0618
                 }
             }
         }
@@ -148,11 +150,11 @@ namespace AmbientSounds.ViewModels
 
         public bool HasSecondImage => IsMix && _sound.ImagePaths.Length == 2;
 
-        public string? SecondImagePath => _sound.ImagePaths.Length >= 2 ? _sound.ImagePaths[1] : "http://localhost:8000";
+        public string? SecondImagePath => _sound.ImagePaths is [_, var path, ..] ? path : "http://localhost:8000";
 
         public bool HasThirdImage => IsMix && _sound.ImagePaths.Length == 3;
 
-        public string? ThirdImagePath => _sound.ImagePaths.Length >= 3 ? _sound.ImagePaths[2] : "http://localhost:8000";
+        public string? ThirdImagePath => _sound.ImagePaths is [_, _, var path, ..] ? path : "http://localhost:8000";
 
         /// <summary>
         /// The path for the image to display for the current sound.
@@ -303,7 +305,9 @@ namespace AmbientSounds.ViewModels
 
                 var owned = _sound.IapIds.Count > 0
                     ? await _iapService.IsAnyOwnedAsync(_sound.IapIds)
+#pragma warning disable CS0618
                     : await _iapService.IsOwnedAsync(_sound.IapId); // backwards compatibility
+#pragma warning restore CS0618
 
                 if (!owned)
                 {

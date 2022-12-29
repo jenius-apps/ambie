@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models
 {
@@ -63,6 +64,6 @@ namespace AmbientSounds.Models
         /// Ids used to identify the IAPs
         /// associated with this video.
         /// </summary>
-        public string[] IapIds { get; set; } = new string[0];
+        public string[] IapIds { get; set; } = Array.Empty<string>();
     }
 }
