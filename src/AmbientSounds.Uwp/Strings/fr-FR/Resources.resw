@@ -640,4 +640,7 @@
   <data name="EditHomePageMessage" xml:space="preserve">
     <value>Faites glisser et déposez des sons pour personnaliser votre âge de départ. Essayez-le maintenant!</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Désolé pour ça! Nous n'avons pas pu charger le catalogue. Essayez de vérifier votre connexion Internet.</value>
+  </data>
 </root>

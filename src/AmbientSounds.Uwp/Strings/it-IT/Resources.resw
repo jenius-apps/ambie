@@ -640,4 +640,7 @@
   <data name="EditHomePageMessage" xml:space="preserve">
     <value>Trascina e rilascia i suoni per personalizzare la tua età iniziale. Provalo ora!</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Mi dispiace per questo! Non è stato possibile caricare il catalogo. Prova a controllare la tua connessione Internet.</value>
+  </data>
 </root>

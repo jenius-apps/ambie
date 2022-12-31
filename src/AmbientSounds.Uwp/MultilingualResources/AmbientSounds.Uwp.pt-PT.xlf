@@ -846,7 +846,7 @@
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
-          <target state="new">Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</target>
+          <target state="translated">Desculpe por isso! Não foi possível carregar o catálogo. Tente verificar sua conexão com a Internet.</target>
         </trans-unit>
       </group>
     </body>

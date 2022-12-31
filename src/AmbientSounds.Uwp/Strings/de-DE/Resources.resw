@@ -640,4 +640,7 @@
   <data name="EditHomePageMessage" xml:space="preserve">
     <value>Drag-and-Drop-Sounds, um Ihr Startalter zu personalisieren. Versuchen Sie es jetzt!</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Das tut mir leid! Der Katalog konnte nicht geladen werden. Versuchen Sie, Ihre Internetverbindung zu überprüfen.</value>
+  </data>
 </root>

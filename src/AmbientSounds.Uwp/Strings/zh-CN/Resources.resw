@@ -640,4 +640,7 @@
   <data name="EditHomePageMessage" xml:space="preserve">
     <value>拖放声音以个性化您的开始年龄。 现在就试试！</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>对于那个很抱歉！ 我们无法加载目录。 尝试检查您的互联网连接。</value>
+  </data>
 </root>

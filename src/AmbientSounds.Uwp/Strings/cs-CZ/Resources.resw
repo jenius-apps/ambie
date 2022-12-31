@@ -640,4 +640,7 @@
   <data name="EditHomePageMessage" xml:space="preserve">
     <value>Přetažením zvuků přizpůsobte svou domovskou stránku. Zkus to nyní!</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Omlouvám se za to! Katalog se nám nepodařilo načíst. Zkuste zkontrolovat připojení k internetu.</value>
+  </data>
 </root>

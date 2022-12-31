@@ -385,4 +385,7 @@
   <data name="RateUsMessage" xml:space="preserve">
     <value>Gillar du Ambie? Snälla överväg att betygsätta oss!</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Förlåt för det! Vi kunde inte ladda katalogen. Prova att kontrollera din internetanslutning.</value>
+  </data>
 </root>

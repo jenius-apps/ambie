@@ -631,4 +631,7 @@
   <data name="PausesText" xml:space="preserve">
     <value>Pauzy</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Przepraszam za to! Nie mogliśmy załadować katalogu. Spróbuj sprawdzić połączenie internetowe.</value>
+  </data>
 </root>

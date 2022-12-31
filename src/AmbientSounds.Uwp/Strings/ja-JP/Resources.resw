@@ -640,4 +640,7 @@
   <data name="EditHomePageMessage" xml:space="preserve">
     <value>サウンドをドラッグ アンド ドロップして開始年齢をパーソナライズします。 今試してみて！</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>ごめんなさい！ カタログを読み込めませんでした。 インターネット接続を確認してみてください。</value>
+  </data>
 </root>
