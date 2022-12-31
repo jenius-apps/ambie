@@ -845,6 +845,10 @@
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
           <target state="translated">拖放声音以个性化您的开始年龄。 现在就试试！</target>
         </trans-unit>
+        <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
+          <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
+          <target state="new">Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

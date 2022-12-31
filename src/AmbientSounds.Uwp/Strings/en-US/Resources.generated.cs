@@ -1847,6 +1847,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region EmptyCatalogueMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Sorry about that! We couldn't load the catalogue. Try checking your internet connection.
+        /// </summary>
+        public static string EmptyCatalogueMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EmptyCatalogueMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1999,6 +2012,7 @@ namespace AmbientSounds.Strings{
             EmptyHomeMessage,
             EditHomePage,
             EditHomePageMessage,
+            EmptyCatalogueMessage,
         }
 
         private static ResourceLoader _resourceLoader;

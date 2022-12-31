@@ -11,10 +11,13 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class CatalogueListViewModel : ObservableObject
+    public partial class CatalogueListViewModel : ObservableObject
     {
         private readonly IOnlineSoundDataProvider _dataProvider;
         private readonly ISoundVmFactory _soundVmFactory;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(EmptyMessageVisible))]
         private bool _loading;
 
         public CatalogueListViewModel(
@@ -28,16 +31,12 @@ namespace AmbientSounds.ViewModels
             _soundVmFactory = soundVmFactory;
         }
 
+        public bool EmptyMessageVisible => !Loading && Sounds.Count == 0;
+
         /// <summary>
         /// The list of sounds for this page.
         /// </summary>
         public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
-
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
 
         /// <inheritdoc/>
         public void Dispose()

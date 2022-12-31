@@ -840,6 +840,10 @@
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
           <target state="translated">サウンドをドラッグ アンド ドロップして開始年齢をパーソナライズします。 今試してみて！</target>
         </trans-unit>
+        <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
+          <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
+          <target state="new">Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

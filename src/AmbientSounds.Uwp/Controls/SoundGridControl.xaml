@@ -85,7 +85,6 @@
                 Content="{x:Bind strings:Resources.Catalogue}" />
         </StackPanel>
 
-
         <muxc:ProgressRing
             x:Uid="SoundsLoadingRing"
             Width="40"

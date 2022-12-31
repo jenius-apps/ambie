@@ -745,4 +745,7 @@
   <data name="EditHomePageMessage" xml:space="preserve">
     <value>Drag and drop sounds to personalize your home page. Try it now!</value>
   </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</value>
+  </data>
 </root>
