@@ -631,6 +631,15 @@
   <data name="PausesText" xml:space="preserve">
     <value>Pauzy</value>
   </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Pobierz muzykę z katalogu</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Edytuj stronę startową</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Przeciągnij i upuść muzykę, aby spersonalizować swoją stronę główną. Spróbuj teraz!</value>
+  </data>
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>Przepraszam za to! Nie mogliśmy załadować katalogu. Spróbuj sprawdzić połączenie internetowe.</value>
   </data>

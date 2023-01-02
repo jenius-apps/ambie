@@ -835,15 +835,15 @@
         </trans-unit>
         <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
           <source>Download sounds from the catalogue</source>
-          <target state="new">Download sounds from the catalogue</target>
+          <target state="translated">Pobierz muzykę z katalogu</target>
         </trans-unit>
         <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
           <source>Edit home page</source>
-          <target state="new">Edit home page</target>
+          <target state="translated">Edytuj stronę startową</target>
         </trans-unit>
         <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="new">Drag and drop sounds to personalize your home page. Try it now!</target>
+          <target state="translated">Przeciągnij i upuść muzykę, aby spersonalizować swoją stronę główną. Spróbuj teraz!</target>
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>

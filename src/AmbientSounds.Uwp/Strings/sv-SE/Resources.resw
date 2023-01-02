@@ -385,6 +385,15 @@
   <data name="RateUsMessage" xml:space="preserve">
     <value>Gillar du Ambie? Snälla överväg att betygsätta oss!</value>
   </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Ladda ner musik från katalogen</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Redigera startsida</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Dra och släpp musik för att anpassa din startsida. Prova det nu!</value>
+  </data>
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>Förlåt för det! Vi kunde inte ladda katalogen. Prova att kontrollera din internetanslutning.</value>
   </data>
