@@ -201,12 +201,6 @@
                     VerticalAlignment="Top">
 
                     <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
-                        <animations:Implicit.ShowAnimations>
-                            <animations:OpacityAnimation
-                                From="0"
-                                To="1"
-                                Duration="0:0:1" />
-                        </animations:Implicit.ShowAnimations>
                         <HyperlinkButton
                             Padding="8,4"
                             AutomationProperties.Name="{x:Bind strings:Resources.Help}"
@@ -239,13 +233,6 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-                        <animations:Implicit.ShowAnimations>
-                            <animations:OpacityAnimation
-                                From="0"
-                                To="1"
-                                Duration="0:0:1" />
-                        </animations:Implicit.ShowAnimations>
-
                         <HyperlinkButton
                             Padding="8,4"
                             AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
