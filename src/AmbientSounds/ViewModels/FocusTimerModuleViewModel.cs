@@ -542,7 +542,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
             {
                 { "minutes", minutes.ToString() },
-                { "hasNotes", (!string.IsNullOrWhiteSpace(notes)).ToString() }
+                { "hasNotes", (!string.IsNullOrWhiteSpace(notes)).ToString() },
+                { "isCompact", "false" }
             });
         }
     }

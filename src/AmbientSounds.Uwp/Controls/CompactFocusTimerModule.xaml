@@ -57,6 +57,7 @@
                         <Setter Target="TimerRing.Width" Value="{StaticResource LargeRingSize}" />
                         <Setter Target="TimerRing.Height" Value="{StaticResource LargeRingSize}" />
                         <Setter Target="StatusText.Visibility" Value="Visible" />
+                        <Setter Target="InterruptionText.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -231,8 +232,20 @@
                 HorizontalAlignment="Stretch"
                 AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
                 Command="{x:Bind ViewModel.CompactInterruptionCommand}"
-                Content="{x:Bind strings:Resources.LogInterruption}"
-                Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}">
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphInterruption}" />
+                    <TextBlock
+                        x:Name="InterruptionText"
+                        Margin="8,0,0,0"
+                        Text="{x:Bind strings:Resources.LogInterruption}"
+                        Visibility="Collapsed" />
+                </StackPanel>
+            </HyperlinkButton>
 
             <ItemsControl
                 Margin="0,12,0,0"
