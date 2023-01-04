@@ -226,13 +226,21 @@
             </StackPanel>
         </Grid>
 
-        <ItemsControl
-            Grid.Row="1"
-            Margin="24,0,24,12"
-            ItemTemplate="{StaticResource FocusSegmentTemplate}"
-            ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
-            ItemsSource="{x:Bind ViewModel.Segments}"
-            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
+        <StackPanel Grid.Row="1" Margin="24,0,24,12">
+            <HyperlinkButton
+                HorizontalAlignment="Stretch"
+                AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                Command="{x:Bind ViewModel.CompactInterruptionCommand}"
+                Content="{x:Bind strings:Resources.LogInterruption}"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+
+            <ItemsControl
+                Margin="0,12,0,0"
+                ItemTemplate="{StaticResource FocusSegmentTemplate}"
+                ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
+                ItemsSource="{x:Bind ViewModel.Segments}"
+                Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
+        </StackPanel>
 
         <!--  bottom buttons  -->
 

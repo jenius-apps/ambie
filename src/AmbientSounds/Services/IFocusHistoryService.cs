@@ -46,14 +46,9 @@ namespace AmbientSounds.Services
         void TrackIncompleteHistory(long utcTicks, SessionType partialSegmentType, TimeSpan minutesUsedInIncompleteSegment);
 
         /// <summary>
-        /// Opens a dialog requesting an interruption time from the user.
-        /// The interruption time will be logged in history.
+        /// Logs an interruption using the given data.
         /// </summary>
-        /// <returns>
-        /// 1. Double for minutes logged.
-        /// 2. True if notes were populated. False if empty.
-        /// </returns>
-        Task<(double, bool)> LogInterruptionAsync();
+        void LogInterruption(double minutes, string notes);
 
         /// <summary>
         /// Logs that a task was completed during a focus session.

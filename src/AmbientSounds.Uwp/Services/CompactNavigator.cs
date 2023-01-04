@@ -20,6 +20,7 @@ public sealed class CompactNavigator : ICompactNavigator
             {
                 CompactViewMode.Focus => typeof(CompactFocusPage),
                 CompactViewMode.Home => typeof(CompactHomePage),
+                CompactViewMode.Interruption => typeof(CompactInterruptionPage),
                 _ => typeof(CompactHomePage)
             };
 
