@@ -263,6 +263,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             RecentSettings.Add(recent);
         }
 
+        if (RecentSettings.FirstOrDefault() is RecentFocusSettings s)
+        {
+            LoadRecentSettings(s);
+        }
+
         OnPropertyChanged(nameof(IsRecentVisible));
     }
 
