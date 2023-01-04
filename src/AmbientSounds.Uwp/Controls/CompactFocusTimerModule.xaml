@@ -227,7 +227,10 @@
             </StackPanel>
         </Grid>
 
-        <StackPanel Grid.Row="1" Margin="24,0,24,12">
+        <StackPanel
+            Grid.Row="1"
+            Margin="24,0,24,12"
+            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
             <HyperlinkButton
                 HorizontalAlignment="Stretch"
                 AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
@@ -251,8 +254,7 @@
                 Margin="0,12,0,0"
                 ItemTemplate="{StaticResource FocusSegmentTemplate}"
                 ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
-                ItemsSource="{x:Bind ViewModel.Segments}"
-                Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
+                ItemsSource="{x:Bind ViewModel.Segments}" />
         </StackPanel>
 
         <!--  bottom buttons  -->
