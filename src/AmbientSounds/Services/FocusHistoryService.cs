@@ -112,28 +112,20 @@ namespace AmbientSounds.Services
             }
         }
 
-        public async Task<(double, bool)> LogInterruptionAsync()
+        /// <inheritdoc/>
+        public void LogInterruption(double minutes, string notes)
         {
-            if (_activeHistory is null)
+            if (_activeHistory is null || minutes <= 0)
             {
-                return (0, false);
-            }
-
-            (double minutes, string notes) = await _dialogService.OpenInterruptionAsync();
-
-            if (minutes <= 0)
-            {
-                return (0, false);
+                return;
             }
 
             _activeHistory.Interruptions.Add(new FocusInterruption
             {
                 Minutes = minutes,
-                Notes = notes,
+                Notes = notes.Trim(),
                 UtcTime = DateTime.UtcNow.Ticks
             });
-
-            return (minutes, !string.IsNullOrWhiteSpace(notes));
         }
 
         public void LogPause()

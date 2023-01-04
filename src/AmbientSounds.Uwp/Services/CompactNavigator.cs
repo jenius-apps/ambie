@@ -20,6 +20,7 @@ public sealed class CompactNavigator : ICompactNavigator
             {
                 CompactViewMode.Focus => typeof(CompactFocusPage),
                 CompactViewMode.Home => typeof(CompactHomePage),
+                CompactViewMode.Interruption => typeof(CompactInterruptionPage),
                 _ => typeof(CompactHomePage)
             };
 
@@ -27,6 +28,14 @@ public sealed class CompactNavigator : ICompactNavigator
             {
                 f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
             }
+        }
+    }
+
+    public void GoBackSafely()
+    {
+        if (ContentFrame is Frame f && f.CanGoBack)
+        {
+            f.GoBack();
         }
     }
 }

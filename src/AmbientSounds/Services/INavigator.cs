@@ -94,5 +94,12 @@ public enum CompactViewMode
     /// for compact view where users
     /// can start a focus session.
     /// </summary>
-    Focus
+    Focus,
+
+    /// <summary>
+    /// Specifies the Interruption mode
+    /// for compact view where users
+    /// can log an interruption.
+    /// </summary>
+    Interruption,
 }

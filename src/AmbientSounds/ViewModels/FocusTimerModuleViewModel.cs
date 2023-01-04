@@ -31,6 +31,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private readonly IFocusTaskService _taskService;
     private readonly INavigator _navigator;
     private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly IDialogService _dialogService;
+    private readonly ICompactNavigator _compactNavigator;
     private bool _isHelpMessageVisible;
     private int _focusLength;
     private int _restLength;
@@ -88,7 +90,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         IUserSettings userSettings,
         IFocusTaskService taskService,
         INavigator navigator,
-        ISystemInfoProvider systemInfoProvider)
+        ISystemInfoProvider systemInfoProvider,
+        IDialogService dialogService,
+        ICompactNavigator compactNavigator)
     {
         Guard.IsNotNull(focusService);
         Guard.IsNotNull(userSettings);
@@ -99,6 +103,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         Guard.IsNotNull(taskService);
         Guard.IsNotNull(navigator);
         Guard.IsNotNull(systemInfoProvider);
+        Guard.IsNotNull(dialogService);
+        Guard.IsNotNull(compactNavigator);
         _focusService = focusService;
         _userSettings = userSettings;
         _localizer = localizer;
@@ -108,6 +114,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         _taskService = taskService;
         _navigator = navigator;
         _systemInfoProvider = systemInfoProvider;
+        _dialogService = dialogService;
+        _compactNavigator = compactNavigator;
         IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
         UpdateButtonStates();
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
@@ -517,17 +525,25 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         OnPropertyChanged(nameof(CountdownVisible));
     }
 
+    [RelayCommand]
+    private void CompactInterruption()
+    {
+        _compactNavigator.NavigateTo(CompactViewMode.Interruption);
+    }
+
     private async Task LogInterruptionAsync()
     {
-        (double minutesLogged, bool hasNotes) = await _focusHistoryService.LogInterruptionAsync();
+        (double minutes, string notes) = await _dialogService.OpenInterruptionAsync();
+        _focusHistoryService.LogInterruption(minutes, notes);
 
-        if (minutesLogged > 0)
+        if (minutes > 0)
         {
             OnPropertyChanged(nameof(InterruptionCount));
             _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
             {
-                { "minutes", minutesLogged.ToString() },
-                { "hasNotes", hasNotes.ToString() }
+                { "minutes", minutes.ToString() },
+                { "hasNotes", (!string.IsNullOrWhiteSpace(notes)).ToString() },
+                { "isCompact", "false" }
             });
         }
     }

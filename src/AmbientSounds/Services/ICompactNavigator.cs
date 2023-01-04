@@ -9,6 +9,12 @@ public interface ICompactNavigator
     object? ContentFrame { get; set; }
 
     /// <summary>
+    /// Runs the GoBack method for the ContentFrame
+    /// if it's capable of doing so.
+    /// </summary>
+    void GoBackSafely();
+
+    /// <summary>
     /// Navigates to the page corresponding to the given mode.
     /// </summary>
     /// <param name="mode">The mode to navigate to.</param>
