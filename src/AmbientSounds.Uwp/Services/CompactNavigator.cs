@@ -30,4 +30,12 @@ public sealed class CompactNavigator : ICompactNavigator
             }
         }
     }
+
+    public void GoBackSafely()
+    {
+        if (ContentFrame is Frame f && f.CanGoBack)
+        {
+            f.GoBack();
+        }
+    }
 }

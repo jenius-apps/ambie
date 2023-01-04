@@ -257,6 +257,11 @@
             Grid.Row="2"
             Padding="12"
             ColumnSpacing="8">
+
+            <Grid.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </Grid.ChildrenTransitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
