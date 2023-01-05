@@ -36,21 +36,6 @@ public interface INavigator
     void ToScreensaver();
 
     /// <summary>
-    /// Navigates to the catalogue page.
-    /// </summary>
-    void ToCatalogue();
-
-    /// <summary>
-    /// Navigates to the focus page.
-    /// </summary>
-    void ToFocus();
-
-    /// <summary>
-    /// Navigates to the home page.
-    /// </summary>
-    void ToHome();
-
-    /// <summary>
     /// Attempts to navigate back.
     /// </summary>
     /// <param name="sourcePage">Optional. If provided,
@@ -71,13 +56,20 @@ public interface INavigator
     /// </summary>
     /// <param name="closingOverlayMode">Used to determine which page to navigate back to.</param>
     Task CloseCompactOverlayAsync(CompactViewMode closingOverlayMode);
+    
+    /// <summary>
+    /// Navigates to the page corresponding to the given enum.
+    /// </summary>
+    /// <param name="contentPage">The page to navigate to.</param>
+    void NavigateTo(ContentPageType contentPage);
 }
 
 public enum ContentPageType
 {
     Home,
     Catalogue,
-    Focus
+    Focus,
+    Settings
 }
 
 public enum CompactViewMode

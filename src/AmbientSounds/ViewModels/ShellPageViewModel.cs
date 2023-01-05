@@ -140,19 +140,7 @@ public partial class ShellPageViewModel : ObservableObject
             return;
         }
 
-        if (pageType == ContentPageType.Home)
-        {
-            _navigator.ToHome();
-        }
-        else if (pageType == ContentPageType.Catalogue)
-        {
-            _navigator.ToCatalogue();
-        }
-        else if (pageType == ContentPageType.Focus)
-        {
-            _navigator.ToFocus();
-        }
-
+        _navigator.NavigateTo(pageType);
         UpdateTimeBannerVisibility();
         UpdateFocusDotVisibility();
 

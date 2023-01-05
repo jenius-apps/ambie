@@ -325,6 +325,9 @@
     <Compile Include="Views\ScreensaverPage.xaml.cs">
       <DependentUpon>ScreensaverPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
     </Compile>
@@ -640,6 +643,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ScreensaverPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -36,6 +36,7 @@
                         <Setter Target="MenuTextHome.Visibility" Value="Visible" />
                         <Setter Target="MenuTextCatalogue.Visibility" Value="Visible" />
                         <Setter Target="MenuTextFocus.Visibility" Value="Visible" />
+                        <Setter Target="MenuTextSettings.Visibility" Value="Visible" />
                         <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
                         <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
                         <Setter Target="TitleBar.Margin" Value="16,14,0,0" />
@@ -237,6 +238,20 @@
                                             Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}" />
                                     </Grid>
                                 </Grid>
+                            </ListViewItem>
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                                Tag="settings"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+                                    <TextBlock
+                                        Name="MenuTextSettings"
+                                        Margin="12,0,0,0"
+                                        Text="{x:Bind strings:Resources.SettingsText}"
+                                        Visibility="Collapsed" />
+                                </StackPanel>
                             </ListViewItem>
                         </ListView.Items>
                     </ListView>

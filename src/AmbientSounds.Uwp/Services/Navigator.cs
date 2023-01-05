@@ -33,7 +33,7 @@ public class Navigator : INavigator
                 break;
             case nameof(ScreensaverPage):
                 GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
-                ToHome();
+                NavigateTo(ContentPageType.Home);
                 break;
             default:
                 GoBackSafely(Frame);
@@ -59,32 +59,20 @@ public class Navigator : INavigator
     }
 
     /// <inheritdoc/>
-    public void ToCatalogue()
+    public void NavigateTo(ContentPageType contentPage)
     {
-        if (Frame is Frame f)
+        Type pageType = contentPage switch
         {
-            f.Navigate(typeof(CataloguePage), null, new SuppressNavigationTransitionInfo());
-            ContentPageChanged?.Invoke(this, ContentPageType.Catalogue);
-        }
-    }
+            ContentPageType.Focus => typeof(FocusPage),
+            ContentPageType.Catalogue => typeof(CataloguePage),
+            ContentPageType.Settings => typeof(SettingsPage),
+            _ => typeof(HomePage)
+        };
 
-    /// <inheritdoc/>
-    public void ToFocus()
-    {
         if (Frame is Frame f)
         {
-            f.Navigate(typeof(FocusPage), null, new SuppressNavigationTransitionInfo());
-            ContentPageChanged?.Invoke(this, ContentPageType.Focus);
-        }
-    }
-
-    /// <inheritdoc/>
-    public void ToHome()
-    {
-        if (Frame is Frame f)
-        {
-            f.Navigate(typeof(HomePage), null, new SuppressNavigationTransitionInfo());
-            ContentPageChanged?.Invoke(this, ContentPageType.Home);
+            f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
+            ContentPageChanged?.Invoke(this, contentPage);
         }
     }
 
@@ -149,11 +137,11 @@ public class Navigator : INavigator
         switch (closingOverlayMode)
         {
             case CompactViewMode.Focus:
-                ToFocus();
+                NavigateTo(ContentPageType.Focus);
                 break;
             case CompactViewMode.Home:
             default:
-                ToHome();
+                NavigateTo(ContentPageType.Home);
                 break;
         }
     }
@@ -166,9 +154,6 @@ public class Navigator : INavigator
         // This is required to avoid bugs related to viewmodels being
         // initialized twice. 
 
-        if (f is not null)
-        {
-            f.Navigate(typeof(BlankPage));
-        }
+        f?.Navigate(typeof(BlankPage));
     }
 }
