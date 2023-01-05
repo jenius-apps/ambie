@@ -121,7 +121,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
     }
 
-    public ObservableCollection<RecentFocusSettings> RecentSettings { get; } = new();
+    public ObservableCollection<RecentFocusSettingsViewModel> RecentSettings { get; } = new();
 
     public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
 
@@ -268,10 +268,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         var recents = await _recentFocusService.GetRecentAsync();
         foreach (var recent in recents.OrderByDescending(x => x.LastUsed))
         {
-            RecentSettings.Add(recent);
+            RecentSettings.Add(new RecentFocusSettingsViewModel(recent, DeleteRecentSettingCommand));
         }
 
-        if (RecentSettings.FirstOrDefault() is RecentFocusSettings s)
+        if (RecentSettings.FirstOrDefault() is { } s)
         {
             LoadRecentSettings(s);
         }
@@ -324,23 +324,28 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         _telemetry.TrackEvent(TelemetryConstants.FocusHelpClicked);
     }
 
-    public void LoadRecentSettings(RecentFocusSettings settings)
+    public void LoadRecentSettings(RecentFocusSettingsViewModel vm)
     {
-        if (settings is null)
+        if (vm is null)
         {
             return;
         }
 
-        FocusLength = settings.FocusMinutes;
-        RestLength = settings.RestMinutes;
-        Repetitions = settings.Repeats;
+        FocusLength = vm.Settings.FocusMinutes;
+        RestLength = vm.Settings.RestMinutes;
+        Repetitions = vm.Settings.Repeats;
+    }
 
-
-        var index = RecentSettings.IndexOf(settings);
-        _telemetry.TrackEvent(TelemetryConstants.FocusRecentClicked, new Dictionary<string, string>
+    [RelayCommand]
+    public async Task DeleteRecentSettingAsync(RecentFocusSettingsViewModel? vm)
+    {
+        if (vm is null)
         {
-            { "index", index.ToString() }
-        });
+            return;
+        }
+
+        RecentSettings.Remove(vm);
+        await _recentFocusService.RemoveRecentAsync(vm.Settings);
     }
 
     [RelayCommand]

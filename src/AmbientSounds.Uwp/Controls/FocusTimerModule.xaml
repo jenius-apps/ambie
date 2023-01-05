@@ -620,9 +620,12 @@
                 SelectionMode="None"
                 Style="{StaticResource HorizontalSnappingListView}">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:RecentFocusSettings">
-                        <ListViewItem AutomationProperties.Name="{x:Bind converters:LocalizationConverter.RecentFocusAccessibleName(FocusMinutes, RestMinutes, Repeats)}">
-                            <Grid Width="200" Padding="6,16">
+                    <DataTemplate x:DataType="viewmodels:RecentFocusSettingsViewModel">
+                        <ListViewItem AutomationProperties.Name="{x:Bind converters:LocalizationConverter.RecentFocusAccessibleName(Settings.FocusMinutes, Settings.RestMinutes, Settings.Repeats)}">
+                            <Grid
+                                Width="200"
+                                Padding="6,16"
+                                Background="Transparent">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
@@ -633,19 +636,29 @@
                                     Foreground="SkyBlue"
                                     MaxValue="60"
                                     Text="{x:Bind strings:Resources.FocusText}"
-                                    Value="{x:Bind FocusMinutes}" />
+                                    Value="{x:Bind Settings.FocusMinutes}" />
                                 <local:RecentFocusSettingsControl
                                     Grid.Column="1"
                                     Foreground="Green"
                                     MaxValue="60"
                                     Text="{x:Bind strings:Resources.RestText}"
-                                    Value="{x:Bind RestMinutes}" />
+                                    Value="{x:Bind Settings.RestMinutes}" />
                                 <local:RecentFocusSettingsControl
                                     Grid.Column="2"
                                     Foreground="DeepPink"
                                     MaxValue="8"
                                     Text="{x:Bind strings:Resources.Repeats}"
-                                    Value="{x:Bind Repeats}" />
+                                    Value="{x:Bind Settings.Repeats}" />
+
+                                <Grid.ContextFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem
+                                            Command="{x:Bind DeleteCommand}"
+                                            CommandParameter="{x:Bind}"
+                                            Icon="Delete"
+                                            Text="{x:Bind strings:Resources.DeleteText}" />
+                                    </MenuFlyout>
+                                </Grid.ContextFlyout>
                             </Grid>
                         </ListViewItem>
                     </DataTemplate>
