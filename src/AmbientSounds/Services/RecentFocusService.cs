@@ -27,6 +27,22 @@ namespace AmbientSounds.Services
             _userSettings = userSettings;
         }
 
+        /// <inheritdoc/>
+        public Task RemoveRecentAsync(RecentFocusSettings settings)
+        {
+            Guard.IsNotNull(settings);
+            EnsureCacheInitialized();
+            _cache!.TryRemove(settings.LastUsed.Ticks, out _);
+            foreach (var key in _cache.Keys)
+            {
+                if (key < _minDateTimeTicks)
+                {
+                    _minDateTimeTicks = key;
+                }
+            }
+            return Task.CompletedTask;
+        }
+
         public Task AddRecentAsync(int focusMinutes, int restMinutes, int repeats, DateTime? lastUsed = null)
         {
             if (!_focusService.CanStartSession(focusMinutes, restMinutes))

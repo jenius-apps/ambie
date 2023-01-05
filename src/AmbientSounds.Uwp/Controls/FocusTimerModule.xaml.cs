@@ -122,9 +122,13 @@ namespace AmbientSounds.Controls
 
         private void OnRecentClicked(object sender, ItemClickEventArgs e)
         {
-            if (e.ClickedItem is RecentFocusSettings s)
+            if (e.ClickedItem is RecentFocusSettingsViewModel s)
             {
                 ViewModel.LoadRecentSettings(s);
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusRecentClicked, new Dictionary<string, string>
+                {
+                    { "index", ViewModel.RecentSettings.IndexOf(s).ToString() }
+                });
             }
         }
 

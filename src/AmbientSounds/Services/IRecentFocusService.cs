@@ -18,5 +18,11 @@ namespace AmbientSounds.Services
         /// from storage.
         /// </summary>
         Task<IReadOnlyList<RecentFocusSettings>> GetRecentAsync();
+        
+        /// <summary>
+        /// Deletes the settings configuration from storage.
+        /// </summary>
+        /// <param name="settings">The settings object to delete.</param>
+        Task RemoveRecentAsync(RecentFocusSettings settings);
     }
 }
