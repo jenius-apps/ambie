@@ -199,17 +199,22 @@ namespace AmbientSounds.Services.Uwp
                     }
                     catch
                     {
-                        // todo log
                         return;
                     }
                 }
 
                 if (mediaSource is not null)
                 {
+                    // This code here (combined with a wav source file) allows for gapless playback!
+                    var item = new MediaPlaybackItem(mediaSource);
+                    var playbackList = new MediaPlaybackList() { AutoRepeatEnabled = true };
+                    playbackList.Items.Add(item);
+                    // End gapless playback code.
+
                     CurrentMixId = parentMixId;
-                    var player = CreateLoopingPlayer();
+                    var player = CreatePlayer();
                     player.Volume *= _globalVolume;
-                    player.Source = mediaSource;
+                    player.Source = playbackList;
                     _activePlayers.TryAdd(sound.Id, player);
                     _activeSoundDateTimes.TryAdd(sound.Id, DateTimeOffset.Now);
                     Screensavers.TryAdd(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
@@ -330,13 +335,9 @@ namespace AmbientSounds.Services.Uwp
             _smtc.DisplayUpdater.Update();
         }
 
-        private MediaPlayer CreateLoopingPlayer()
+        private MediaPlayer CreatePlayer()
         {
-            var player = new MediaPlayer()
-            {
-                IsLoopingEnabled = true,
-            };
-
+            var player = new MediaPlayer();
             player.CommandManager.IsEnabled = false;
             return player;
         }
