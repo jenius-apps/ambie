@@ -82,12 +82,6 @@ namespace AmbientSounds.Controls
             catch { }
         }
 
-        private async void SettingsClicked(object sender, RoutedEventArgs e)
-        {
-            var dialogService = App.Services.GetRequiredService<IDialogService>();
-            await dialogService.OpenSettingsAsync();
-        }
-
         private async void ThemeSettingsClicked(object sender, RoutedEventArgs e)
         {
             var dialogService = App.Services.GetRequiredService<IDialogService>();

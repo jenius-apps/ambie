@@ -13,11 +13,6 @@ namespace AmbientSounds.Services
     public interface IDialogService
     {
         /// <summary>
-        /// Opens a settings dialog.
-        /// </summary>
-        Task OpenSettingsAsync();
-
-        /// <summary>
         /// Opens the theme settings dialog.
         /// </summary>
         Task OpenThemeSettingsAsync();

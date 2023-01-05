@@ -24,11 +24,6 @@
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPersonalize}" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Click="SettingsClicked" Text="{x:Bind strings:Resources.SettingsText}">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
             </MenuFlyout>
         </Button.Flyout>
     </Button>
