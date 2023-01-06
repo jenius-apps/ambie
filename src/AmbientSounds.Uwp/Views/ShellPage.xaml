@@ -160,7 +160,6 @@
                         ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
                     </Button>
-                    <controls:MoreButton />
                 </StackPanel>
             </Grid>
 

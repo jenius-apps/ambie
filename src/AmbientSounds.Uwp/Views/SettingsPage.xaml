@@ -11,16 +11,6 @@
 
     <ScrollViewer>
         <StackPanel Margin="0,0,16,40">
-            <TextBlock
-                Margin="0,8,0,0"
-                FontWeight="SemiBold"
-                Text="{x:Bind strings:Resources.ThemeSettings}" />
-            <controls:ThemeSettings Margin="0,8,0,0" />
-
-            <TextBlock
-                Margin="0,24,0,0"
-                FontWeight="SemiBold"
-                Text="General settings" />
             <controls:SettingsControl Margin="0,8,0,0" />
         </StackPanel>
     </ScrollViewer>

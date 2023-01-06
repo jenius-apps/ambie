@@ -153,8 +153,6 @@ public partial class ShellPageViewModel : ObservableObject
         await _dialogService.OpenPremiumAsync();
     }
 
-    public async void OpenThemeSettings() => await _dialogService.OpenThemeSettingsAsync();
-
     public void GoToScreensaver()
     {
         _telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()

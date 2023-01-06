@@ -2,7 +2,9 @@
     x:Class="AmbientSounds.Controls.SettingsControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -15,9 +17,82 @@
         <StackPanel.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
         </StackPanel.ChildrenTransitions>
+        <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.ThemeSettings}" />
+
+        <labs:SettingsCard
+            Margin="0,4,0,0"
+            Description="Change the colours that appear in Ambie"
+            Header="Choose your mode">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPaintBrush}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <ComboBox SelectedIndex="{x:Bind ViewModel.CurrentThemeIndex, Mode=OneWay}" SelectionChanged="OnSelectionChanged">
+                <ComboBoxItem x:Uid="SettingsThemeDefaultRadio" Tag="default" />
+                <ComboBoxItem x:Uid="SettingsThemeDarkRadio" Tag="dark" />
+                <ComboBoxItem x:Uid="SettingsThemeLightRadio" Tag="light" />
+            </ComboBox>
+        </labs:SettingsCard>
+
+        <labs:SettingsExpander Header="Background image">
+            <labs:SettingsExpander.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPallete}" />
+            </labs:SettingsExpander.HeaderIcon>
+
+            <labs:SettingsExpander.Items>
+                <labs:SettingsCard ContentAlignment="Left">
+                    <Grid>
+                        <GridView
+                            Margin="0,4,0,0"
+                            HorizontalAlignment="Stretch"
+                            IsItemClickEnabled="True"
+                            ItemClick="OnImageClicked"
+                            ItemsSource="{x:Bind ViewModel.ImagePaths}"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollMode="Disabled"
+                            SelectionMode="None">
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="Loaded">
+                                    <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+                            <GridView.ItemTemplate>
+                                <DataTemplate x:DataType="x:String">
+                                    <Grid
+                                        Width="100"
+                                        Height="60"
+                                        CornerRadius="8">
+                                        <Image Stretch="UniformToFill">
+                                            <Image.Source>
+                                                <BitmapImage DecodePixelHeight="60" UriSource="{x:Bind}" />
+                                            </Image.Source>
+                                        </Image>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridView.ItemTemplate>
+                        </GridView>
+                    </Grid>
+                </labs:SettingsCard>
+                <labs:SettingsCard Header="Custom image">
+                    <Button
+                        MinWidth="120"
+                        Command="{x:Bind ViewModel.BrowseCommand}"
+                        Content="{x:Bind strings:Resources.BrowseText}" />
+                </labs:SettingsCard>
+
+            </labs:SettingsExpander.Items>
+        </labs:SettingsExpander>
+
+        <TextBlock
+            Margin="0,20,0,0"
+            FontWeight="SemiBold"
+            Text="General settings" />
 
         <!--  Telemetry  -->
-        <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
+        <labs:SettingsCard
+            x:Uid="SettingsTelemetrySwitch"
+            Margin="0,4,0,0"
+            Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDiagnostics}" />
             </labs:SettingsCard.HeaderIcon>

@@ -184,9 +184,6 @@
     <Compile Include="Controls\LogoControl.xaml.cs">
       <DependentUpon>LogoControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MoreButton.xaml.cs">
-      <DependentUpon>MoreButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\NoPaddingDialog.xaml.cs">
       <DependentUpon>NoPaddingDialog.xaml</DependentUpon>
     </Compile>
@@ -232,9 +229,6 @@
     </Compile>
     <Compile Include="Controls\StatDetail.xaml.cs">
       <DependentUpon>StatDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ThemeSettings.xaml.cs">
-      <DependentUpon>ThemeSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TimeBanner.xaml.cs">
       <DependentUpon>TimeBanner.xaml</DependentUpon>
@@ -510,10 +504,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MoreButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\NoPaddingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -571,10 +561,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\StatDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ThemeSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
