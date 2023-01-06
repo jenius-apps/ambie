@@ -11,103 +11,100 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <ScrollViewer Margin="0">
-        <StackPanel Margin="0,0,16,0" Spacing="8">
-            <StackPanel.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            </StackPanel.ChildrenTransitions>
+    <StackPanel Spacing="4">
+        <StackPanel.ChildrenTransitions>
+            <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+        </StackPanel.ChildrenTransitions>
 
-            <!--  Telemetry  -->
-            <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
-                <labs:SettingsCard.HeaderIcon>
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDiagnostics}" />
-                </labs:SettingsCard.HeaderIcon>
+        <!--  Telemetry  -->
+        <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDiagnostics}" />
+            </labs:SettingsCard.HeaderIcon>
 
-                <ToggleSwitch IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
-                    <ToggleSwitch.OffContent>
-                        <TextBlock x:Uid="OffTextBlock" />
-                    </ToggleSwitch.OffContent>
-                    <ToggleSwitch.OnContent>
-                        <TextBlock x:Uid="OnTextBlock" />
-                    </ToggleSwitch.OnContent>
-                </ToggleSwitch>
-            </labs:SettingsCard>
+            <ToggleSwitch IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+        </labs:SettingsCard>
 
-            <!--  New sound notifications  -->
-            <labs:SettingsCard x:Uid="SettingsNotificationsSwitch" Description="{x:Bind strings:Resources.SettingsNotificationsSwitchDescription}">
-                <labs:SettingsCard.HeaderIcon>
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphNotification}" />
-                </labs:SettingsCard.HeaderIcon>
+        <!--  New sound notifications  -->
+        <labs:SettingsCard x:Uid="SettingsNotificationsSwitch" Description="{x:Bind strings:Resources.SettingsNotificationsSwitchDescription}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphNotification}" />
+            </labs:SettingsCard.HeaderIcon>
 
-                <ToggleSwitch IsOn="{x:Bind ViewModel.NotificationsEnabled, Mode=TwoWay}">
-                    <ToggleSwitch.OffContent>
-                        <TextBlock x:Uid="OffTextBlock" />
-                    </ToggleSwitch.OffContent>
-                    <ToggleSwitch.OnContent>
-                        <TextBlock x:Uid="OnTextBlock" />
-                    </ToggleSwitch.OnContent>
-                </ToggleSwitch>
-            </labs:SettingsCard>
+            <ToggleSwitch IsOn="{x:Bind ViewModel.NotificationsEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+        </labs:SettingsCard>
 
-            <!--  Resume on launch  -->
-            <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsResumeOnLaunchDescription}" Header="{x:Bind strings:Resources.SettingsResumeOnLaunch}">
-                <labs:SettingsCard.HeaderIcon>
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
-                </labs:SettingsCard.HeaderIcon>
+        <!--  Resume on launch  -->
+        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsResumeOnLaunchDescription}" Header="{x:Bind strings:Resources.SettingsResumeOnLaunch}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
+            </labs:SettingsCard.HeaderIcon>
 
-                <ToggleSwitch IsOn="{x:Bind ViewModel.ResumeOnLaunchEnabled, Mode=TwoWay}">
-                    <ToggleSwitch.OffContent>
-                        <TextBlock x:Uid="OffTextBlock" />
-                    </ToggleSwitch.OffContent>
-                    <ToggleSwitch.OnContent>
-                        <TextBlock x:Uid="OnTextBlock" />
-                    </ToggleSwitch.OnContent>
-                </ToggleSwitch>
-            </labs:SettingsCard>
+            <ToggleSwitch IsOn="{x:Bind ViewModel.ResumeOnLaunchEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+        </labs:SettingsCard>
 
-            <!--  Ambie Mini on focus  -->
-            <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsCompactModeDescription}" Header="{x:Bind strings:Resources.SettingsCompactMode}">
-                <labs:SettingsCard.HeaderIcon>
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
-                </labs:SettingsCard.HeaderIcon>
+        <!--  Ambie Mini on focus  -->
+        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsCompactModeDescription}" Header="{x:Bind strings:Resources.SettingsCompactMode}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
+            </labs:SettingsCard.HeaderIcon>
 
-                <ToggleSwitch IsOn="{x:Bind ViewModel.AmbieMiniEnabled, Mode=TwoWay}">
-                    <ToggleSwitch.OffContent>
-                        <TextBlock x:Uid="OffTextBlock" />
-                    </ToggleSwitch.OffContent>
-                    <ToggleSwitch.OnContent>
-                        <TextBlock x:Uid="OnTextBlock" />
-                    </ToggleSwitch.OnContent>
-                </ToggleSwitch>
-            </labs:SettingsCard>
+            <ToggleSwitch IsOn="{x:Bind ViewModel.AmbieMiniEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+        </labs:SettingsCard>
 
-            <labs:SettingsExpander Description="{x:Bind Version}" Header="{x:Bind strings:Resources.AboutAmbie}">
-                <labs:SettingsExpander.HeaderIcon>
-                    <SymbolIcon Symbol="Help" />
-                </labs:SettingsExpander.HeaderIcon>
+        <labs:SettingsExpander Description="{x:Bind Version}" Header="{x:Bind strings:Resources.AboutAmbie}">
+            <labs:SettingsExpander.HeaderIcon>
+                <SymbolIcon Symbol="Help" />
+            </labs:SettingsExpander.HeaderIcon>
 
-                <labs:SettingsExpander.Items>
-                    <labs:SettingsCard ContentAlignment="Left">
-                        <StackPanel>
-                            <TextBlock x:Uid="HelloFromVancouver" Margin="0,4,0,0" />
-                            <TextBlock Margin="0,4,0,0" Text="© Jenius Apps" />
-                            <HyperlinkButton
-                                x:Uid="PrivacyPolicyButton"
-                                Margin="-12,12,0,0"
-                                NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
-                            <HyperlinkButton
-                                Margin="-12,0,0,0"
-                                Content="{x:Bind strings:Resources.TermsOfUse}"
-                                NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
-                            <HyperlinkButton
-                                Margin="-12,0,0,0"
-                                Content="{x:Bind strings:Resources.FollowTwitter}"
-                                NavigateUri="https://twitter.com/ambie_app" />
-                        </StackPanel>
-                    </labs:SettingsCard>
-                </labs:SettingsExpander.Items>
-            </labs:SettingsExpander>
-
-        </StackPanel>
-    </ScrollViewer>
+            <labs:SettingsExpander.Items>
+                <labs:SettingsCard ContentAlignment="Left">
+                    <StackPanel>
+                        <TextBlock x:Uid="HelloFromVancouver" Margin="0,4,0,0" />
+                        <TextBlock Margin="0,4,0,0" Text="© Jenius Apps" />
+                        <HyperlinkButton
+                            x:Uid="PrivacyPolicyButton"
+                            Margin="-12,12,0,0"
+                            NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
+                        <HyperlinkButton
+                            Margin="-12,0,0,0"
+                            Content="{x:Bind strings:Resources.TermsOfUse}"
+                            NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
+                        <HyperlinkButton
+                            Margin="-12,0,0,0"
+                            Content="{x:Bind strings:Resources.FollowTwitter}"
+                            NavigateUri="https://twitter.com/ambie_app" />
+                    </StackPanel>
+                </labs:SettingsCard>
+            </labs:SettingsExpander.Items>
+        </labs:SettingsExpander>
+    </StackPanel>
 </UserControl>

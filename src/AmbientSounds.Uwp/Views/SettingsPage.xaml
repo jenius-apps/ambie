@@ -6,7 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     mc:Ignorable="d">
 
-    <controls:SettingsControl />
+    <ScrollViewer>
+        <StackPanel Margin="0,0,16,40">
+            <TextBlock
+                Margin="0,8,0,0"
+                FontWeight="SemiBold"
+                Text="{x:Bind strings:Resources.ThemeSettings}" />
+            <controls:ThemeSettings Margin="0,8,0,0" />
+
+            <TextBlock
+                Margin="0,24,0,0"
+                FontWeight="SemiBold"
+                Text="General settings" />
+            <controls:SettingsControl Margin="0,8,0,0" />
+        </StackPanel>
+    </ScrollViewer>
 </Page>

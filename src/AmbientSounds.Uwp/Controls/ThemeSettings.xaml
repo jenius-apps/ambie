@@ -5,68 +5,85 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <ScrollViewer>
-        <StackPanel>
-            <GridView
-                Width="312"
-                Margin="0,4,0,0"
-                HorizontalAlignment="Left"
-                IsItemClickEnabled="True"
-                ItemClick="OnImageClicked"
-                ItemsSource="{x:Bind ViewModel.ImagePaths}"
-                ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                ScrollViewer.VerticalScrollMode="Disabled"
-                SelectionMode="None">
-                <interactivity:Interaction.Behaviors>
-                    <core:EventTriggerBehavior EventName="Loaded">
-                        <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
-                    </core:EventTriggerBehavior>
-                </interactivity:Interaction.Behaviors>
-                <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="x:String">
-                        <Grid
-                            Width="100"
-                            Height="60"
-                            CornerRadius="8">
-                            <Image Stretch="UniformToFill">
-                                <Image.Source>
-                                    <BitmapImage DecodePixelHeight="60" UriSource="{x:Bind}" />
-                                </Image.Source>
-                            </Image>
-                        </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-                <GridView.ItemContainerTransitions>
-                    <TransitionCollection>
-                        <EntranceThemeTransition IsStaggeringEnabled="True" />
-                    </TransitionCollection>
-                </GridView.ItemContainerTransitions>
-            </GridView>
+    <StackPanel Spacing="4">
+        <labs:SettingsCard Description="Change the colours that appear in Ambie" Header="Choose your mode">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPaintBrush}" />
+            </labs:SettingsCard.HeaderIcon>
 
-            <Button
-                HorizontalAlignment="Stretch"
-                Command="{x:Bind ViewModel.BrowseCommand}"
-                Content="{x:Bind strings:Resources.BrowseText}" />
+            <ComboBox>
+                <ComboBoxItem Content="Auto" />
+                <ComboBoxItem Content="Dark" />
+                <ComboBoxItem Content="Light" />
+            </ComboBox>
+        </labs:SettingsCard>
 
-            <RadioButton
-                x:Uid="SettingsThemeDefaultRadio"
-                Margin="0,4,0,0"
-                Click="{x:Bind ViewModel.DefaultThemeRadioClicked}"
-                IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
-            <RadioButton
-                x:Uid="SettingsThemeDarkRadio"
-                Click="{x:Bind ViewModel.DarkThemeRadioClicked}"
-                IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
-            <RadioButton
-                x:Uid="SettingsThemeLightRadio"
-                Click="{x:Bind ViewModel.LightThemeRadioClicked}"
-                IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />
-        </StackPanel>
-    </ScrollViewer>
+        <labs:SettingsExpander Header="Background image">
+            <labs:SettingsExpander.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPallete}" />
+            </labs:SettingsExpander.HeaderIcon>
+
+            <labs:SettingsExpander.Items>
+                <labs:SettingsCard ContentAlignment="Left">
+                    <GridView
+                        Margin="0,4,0,0"
+                        HorizontalAlignment="Left"
+                        IsItemClickEnabled="True"
+                        ItemClick="OnImageClicked"
+                        ItemsSource="{x:Bind ViewModel.ImagePaths}"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        SelectionMode="None">
+                        <interactivity:Interaction.Behaviors>
+                            <core:EventTriggerBehavior EventName="Loaded">
+                                <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadImagesCommand}" />
+                            </core:EventTriggerBehavior>
+                        </interactivity:Interaction.Behaviors>
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <Grid
+                                    Width="100"
+                                    Height="60"
+                                    CornerRadius="8">
+                                    <Image Stretch="UniformToFill">
+                                        <Image.Source>
+                                            <BitmapImage DecodePixelHeight="60" UriSource="{x:Bind}" />
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </labs:SettingsCard>
+                <labs:SettingsCard Header="Custom image">
+                    <Button
+                        MinWidth="120"
+                        Command="{x:Bind ViewModel.BrowseCommand}"
+                        Content="{x:Bind strings:Resources.BrowseText}" />
+                </labs:SettingsCard>
+
+            </labs:SettingsExpander.Items>
+        </labs:SettingsExpander>
+
+        <!--<RadioButton
+            x:Uid="SettingsThemeDefaultRadio"
+            Margin="0,4,0,0"
+            Click="{x:Bind ViewModel.DefaultThemeRadioClicked}"
+            IsChecked="{x:Bind ViewModel.DefaultRadioIsChecked}" />
+        <RadioButton
+            x:Uid="SettingsThemeDarkRadio"
+            Click="{x:Bind ViewModel.DarkThemeRadioClicked}"
+            IsChecked="{x:Bind ViewModel.DarkRadioIsChecked}" />
+        <RadioButton
+            x:Uid="SettingsThemeLightRadio"
+            Click="{x:Bind ViewModel.LightThemeRadioClicked}"
+            IsChecked="{x:Bind ViewModel.LightRadioIsChecked}" />-->
+    </StackPanel>
 </UserControl>
