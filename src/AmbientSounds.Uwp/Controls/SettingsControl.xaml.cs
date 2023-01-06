@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -15,5 +16,7 @@ namespace AmbientSounds.Controls
         }
 
         public SettingsViewModel ViewModel => (SettingsViewModel)this.DataContext;
+
+        private string Version => SystemInformation.Instance.ApplicationVersion.ToFormattedString();
     }
 }

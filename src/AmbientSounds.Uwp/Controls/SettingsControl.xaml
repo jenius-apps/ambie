@@ -12,13 +12,13 @@
     mc:Ignorable="d">
 
     <ScrollViewer Margin="0">
-        <StackPanel Margin="0,0,16,0" Spacing="4">
+        <StackPanel Margin="0,0,16,0" Spacing="8">
             <StackPanel.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
             </StackPanel.ChildrenTransitions>
 
             <!--  Telemetry  -->
-            <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="This controls if crashes and usage info are reported to help improve Ambie.">
+            <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDiagnostics}" />
                 </labs:SettingsCard.HeaderIcon>
@@ -34,7 +34,7 @@
             </labs:SettingsCard>
 
             <!--  New sound notifications  -->
-            <labs:SettingsCard x:Uid="SettingsNotificationsSwitch" Description="We let you know when new sounds are available for download.">
+            <labs:SettingsCard x:Uid="SettingsNotificationsSwitch" Description="{x:Bind strings:Resources.SettingsNotificationsSwitchDescription}">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphNotification}" />
                 </labs:SettingsCard.HeaderIcon>
@@ -50,7 +50,7 @@
             </labs:SettingsCard>
 
             <!--  Resume on launch  -->
-            <labs:SettingsCard Description="On launch, Ambie will resume playing automatically." Header="{x:Bind strings:Resources.SettingsResumeOnLaunch}">
+            <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsResumeOnLaunchDescription}" Header="{x:Bind strings:Resources.SettingsResumeOnLaunch}">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
                 </labs:SettingsCard.HeaderIcon>
@@ -66,7 +66,7 @@
             </labs:SettingsCard>
 
             <!--  Ambie Mini on focus  -->
-            <labs:SettingsCard Description="Ambie Mini will open automatically when focusing." Header="{x:Bind strings:Resources.SettingsCompactMode}">
+            <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsCompactModeDescription}" Header="{x:Bind strings:Resources.SettingsCompactMode}">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCompact}" />
                 </labs:SettingsCard.HeaderIcon>
@@ -81,7 +81,32 @@
                 </ToggleSwitch>
             </labs:SettingsCard>
 
-            <local:AboutControl />
+            <labs:SettingsExpander Description="{x:Bind Version}" Header="{x:Bind strings:Resources.AboutAmbie}">
+                <labs:SettingsExpander.HeaderIcon>
+                    <SymbolIcon Symbol="Help" />
+                </labs:SettingsExpander.HeaderIcon>
+
+                <labs:SettingsExpander.Items>
+                    <labs:SettingsCard ContentAlignment="Left">
+                        <StackPanel>
+                            <TextBlock x:Uid="HelloFromVancouver" Margin="0,4,0,0" />
+                            <TextBlock Margin="0,4,0,0" Text="© Jenius Apps" />
+                            <HyperlinkButton
+                                x:Uid="PrivacyPolicyButton"
+                                Margin="-12,12,0,0"
+                                NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
+                            <HyperlinkButton
+                                Margin="-12,0,0,0"
+                                Content="{x:Bind strings:Resources.TermsOfUse}"
+                                NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
+                            <HyperlinkButton
+                                Margin="-12,0,0,0"
+                                Content="{x:Bind strings:Resources.FollowTwitter}"
+                                NavigateUri="https://twitter.com/ambie_app" />
+                        </StackPanel>
+                    </labs:SettingsCard>
+                </labs:SettingsExpander.Items>
+            </labs:SettingsExpander>
 
         </StackPanel>
     </ScrollViewer>

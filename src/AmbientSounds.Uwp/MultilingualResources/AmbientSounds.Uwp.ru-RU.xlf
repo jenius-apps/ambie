@@ -848,6 +848,26 @@
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
           <target state="new">Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</target>
         </trans-unit>
+        <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
+          <source>About Ambie</source>
+          <target state="new">About Ambie</target>
+        </trans-unit>
+        <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
+          <source>Ambie Mini will open automatically when focusing.</source>
+          <target state="new">Ambie Mini will open automatically when focusing.</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
+          <source>We'll notify you know when new sounds are available.</source>
+          <target state="new">We'll notify you know when new sounds are available.</target>
+        </trans-unit>
+        <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
+          <source>On launch, Ambie will resume playing automatically.</source>
+          <target state="new">On launch, Ambie will resume playing automatically.</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
+          <source>Crashes and anonymous usage info are reported to help improve Ambie.</source>
+          <target state="new">Crashes and anonymous usage info are reported to help improve Ambie.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
