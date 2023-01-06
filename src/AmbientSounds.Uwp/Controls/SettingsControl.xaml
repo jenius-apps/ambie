@@ -16,7 +16,9 @@
     <StackPanel Spacing="4">
         <StackPanel.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            <RepositionThemeTransition />
         </StackPanel.ChildrenTransitions>
+
         <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.ThemeSettings}" />
 
         <labs:SettingsCard
