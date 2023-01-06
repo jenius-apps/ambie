@@ -1876,7 +1876,7 @@ namespace AmbientSounds.Strings{
 
         #region SettingsCompactModeDescription
         /// <summary>
-        ///   Looks up a localized string similar to: Ambie Mini will open automatically when focusing.
+        ///   Looks up a localized string similar to: Ambie Mini will open automatically when focusing
         /// </summary>
         public static string SettingsCompactModeDescription
         {
@@ -1889,7 +1889,7 @@ namespace AmbientSounds.Strings{
 
         #region SettingsNotificationsSwitchDescription
         /// <summary>
-        ///   Looks up a localized string similar to: We'll notify you know when new sounds are available.
+        ///   Looks up a localized string similar to: We'll notify you know when new sounds are available
         /// </summary>
         public static string SettingsNotificationsSwitchDescription
         {
@@ -1902,7 +1902,7 @@ namespace AmbientSounds.Strings{
 
         #region SettingsResumeOnLaunchDescription
         /// <summary>
-        ///   Looks up a localized string similar to: On launch, Ambie will resume playing automatically.
+        ///   Looks up a localized string similar to: On launch, Ambie will resume playing automatically
         /// </summary>
         public static string SettingsResumeOnLaunchDescription
         {
@@ -1915,13 +1915,78 @@ namespace AmbientSounds.Strings{
 
         #region SettingsTelemetrySwitchDescription
         /// <summary>
-        ///   Looks up a localized string similar to: Crashes and anonymous usage info are reported to help improve Ambie.
+        ///   Looks up a localized string similar to: Crashes and anonymous usage info are reported to help improve Ambie
         /// </summary>
         public static string SettingsTelemetrySwitchDescription
         {
             get
             {
                 return _resourceLoader.GetString("SettingsTelemetrySwitchDescription");
+            }
+        }
+        #endregion
+
+        #region BackgroundImage
+        /// <summary>
+        ///   Looks up a localized string similar to: Background image
+        /// </summary>
+        public static string BackgroundImage
+        {
+            get
+            {
+                return _resourceLoader.GetString("BackgroundImage");
+            }
+        }
+        #endregion
+
+        #region CustomImage
+        /// <summary>
+        ///   Looks up a localized string similar to: Custom image
+        /// </summary>
+        public static string CustomImage
+        {
+            get
+            {
+                return _resourceLoader.GetString("CustomImage");
+            }
+        }
+        #endregion
+
+        #region SettingsGeneralHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: General settings
+        /// </summary>
+        public static string SettingsGeneralHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsGeneralHeader");
+            }
+        }
+        #endregion
+
+        #region SettingsTheme
+        /// <summary>
+        ///   Looks up a localized string similar to: Choose your mode
+        /// </summary>
+        public static string SettingsTheme
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsTheme");
+            }
+        }
+        #endregion
+
+        #region SettingsThemeDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Change the colours that appear in Ambie
+        /// </summary>
+        public static string SettingsThemeDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsThemeDescription");
             }
         }
         #endregion
@@ -2083,6 +2148,11 @@ namespace AmbientSounds.Strings{
             SettingsNotificationsSwitchDescription,
             SettingsResumeOnLaunchDescription,
             SettingsTelemetrySwitchDescription,
+            BackgroundImage,
+            CustomImage,
+            SettingsGeneralHeader,
+            SettingsTheme,
+            SettingsThemeDescription,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -21,8 +21,8 @@
 
         <labs:SettingsCard
             Margin="0,4,0,0"
-            Description="Change the colours that appear in Ambie"
-            Header="Choose your mode">
+            Description="{x:Bind strings:Resources.SettingsThemeDescription}"
+            Header="{x:Bind strings:Resources.SettingsTheme}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPaintBrush}" />
             </labs:SettingsCard.HeaderIcon>
@@ -34,7 +34,7 @@
             </ComboBox>
         </labs:SettingsCard>
 
-        <labs:SettingsExpander Header="Background image">
+        <labs:SettingsExpander Header="{x:Bind strings:Resources.BackgroundImage}">
             <labs:SettingsExpander.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPallete}" />
             </labs:SettingsExpander.HeaderIcon>
@@ -73,7 +73,7 @@
                         </GridView>
                     </Grid>
                 </labs:SettingsCard>
-                <labs:SettingsCard Header="Custom image">
+                <labs:SettingsCard Header="{x:Bind strings:Resources.CustomImage}">
                     <Button
                         MinWidth="120"
                         Command="{x:Bind ViewModel.BrowseCommand}"
@@ -86,7 +86,7 @@
         <TextBlock
             Margin="0,20,0,0"
             FontWeight="SemiBold"
-            Text="General settings" />
+            Text="{x:Bind strings:Resources.SettingsGeneralHeader}" />
 
         <!--  Telemetry  -->
         <labs:SettingsCard
