@@ -33,6 +33,9 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private int _navMenuIndex = -1;
 
+    [ObservableProperty]
+    private int _footerMenuIndex = -1;
+
     public ShellPageViewModel(
         IUserSettings userSettings,
         ITimerService timer,
@@ -135,16 +138,20 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void Navigate(ContentPageType pageType)
     {
-        if (NavMenuIndex == (int)pageType)
+        if (pageType == ContentPageType.Settings && FooterMenuIndex == -1)
         {
-            return;
+            NavMenuIndex = -1;
+            FooterMenuIndex = 0;
+        }
+        else if (NavMenuIndex != (int)pageType)
+        {
+            NavMenuIndex = (int)pageType;
+            FooterMenuIndex = -1;
         }
 
         _navigator.NavigateTo(pageType);
         UpdateTimeBannerVisibility();
         UpdateFocusDotVisibility();
-
-        NavMenuIndex = (int)pageType;
     }
 
     public async void OpenPremiumDialog()
@@ -180,12 +187,36 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnContentPageChanged(object sender, ContentPageType e)
     {
+        int navMenuIndex = e switch
+        {
+            ContentPageType.Settings => -1,
+            _ => (int)e
+        };
+
+        int footerMenuIndex = e switch
+        {
+            ContentPageType.Settings => 0,
+            _ => -1
+        };
+
+        bool changesMade = false;
         // This ensures that the nav menu selects the correct
         // index. Previously, it could become out of sync when the content page
         // is changed programmatically (rather than the user selecting the nav item).
-        if (NavMenuIndex != (int)e)
+        if (NavMenuIndex != navMenuIndex)
         {
-            NavMenuIndex = (int)e;
+            NavMenuIndex = navMenuIndex;
+            changesMade = true;
+        }
+
+        if (FooterMenuIndex != footerMenuIndex)
+        {
+            FooterMenuIndex = footerMenuIndex;
+            changesMade = true;
+        }
+
+        if (changesMade)
+        {
             UpdateTimeBannerVisibility();
             UpdateFocusDotVisibility();
         }
