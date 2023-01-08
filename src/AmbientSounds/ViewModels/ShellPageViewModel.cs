@@ -138,20 +138,38 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void Navigate(ContentPageType pageType)
     {
-        if (pageType == ContentPageType.Settings && FooterMenuIndex == -1)
+        int navMenuIndex = pageType switch
+        {
+            ContentPageType.Settings => -1,
+            _ => (int)pageType
+        };
+
+        int footerMenuIndex = pageType switch
+        {
+            ContentPageType.Settings => 0,
+            _ => -1
+        };
+
+        bool changed = false;
+        if (footerMenuIndex != FooterMenuIndex)
         {
             NavMenuIndex = -1;
-            FooterMenuIndex = 0;
+            FooterMenuIndex = footerMenuIndex;
+            changed = true;
         }
-        else if (NavMenuIndex != (int)pageType)
+        if (NavMenuIndex != navMenuIndex)
         {
-            NavMenuIndex = (int)pageType;
+            NavMenuIndex = navMenuIndex;
             FooterMenuIndex = -1;
+            changed = true;
         }
 
-        _navigator.NavigateTo(pageType);
-        UpdateTimeBannerVisibility();
-        UpdateFocusDotVisibility();
+        if (changed)
+        {
+            _navigator.NavigateTo(pageType);
+            UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
+        }
     }
 
     public async void OpenPremiumDialog()
