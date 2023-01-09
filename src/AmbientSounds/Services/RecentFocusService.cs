@@ -33,6 +33,12 @@ namespace AmbientSounds.Services
             Guard.IsNotNull(settings);
             EnsureCacheInitialized();
             _cache!.TryRemove(settings.LastUsed.Ticks, out _);
+
+            _userSettings.SetAndSerialize(
+                UserSettingsConstants.RecentFocusKey,
+                _cache.Values.ToArray(),
+                AmbieJsonSerializerContext.Default.RecentFocusSettingsArray);
+
             foreach (var key in _cache.Keys)
             {
                 if (key < _minDateTimeTicks)
