@@ -643,4 +643,34 @@
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>对于那个很抱歉！ 我们无法加载目录。 尝试检查您的互联网连接。</value>
   </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>应用信息</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini将在对焦时自动打开</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>当有新声音可用时，我们会通知您</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>发布后，Ambie 将自动恢复播放</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>报告错误和匿名使用信息以帮助改进 Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>背景图片</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>自定义镜像</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>常规设置</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>选择您的模式</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>更改 Ambie 中显示的颜色</value>
+  </data>
 </root>

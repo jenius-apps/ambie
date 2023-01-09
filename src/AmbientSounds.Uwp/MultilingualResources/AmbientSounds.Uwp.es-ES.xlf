@@ -853,43 +853,43 @@
         </trans-unit>
         <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
           <source>About Ambie</source>
-          <target state="new">About Ambie</target>
+          <target state="translated">Información de la aplicación</target>
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="new">Ambie Mini will open automatically when focusing</target>
+          <target state="translated">Ambie Mini se abrirá automáticamente al enfocar</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
-          <target state="new">We'll notify you know when new sounds are available</target>
+          <target state="translated">Te avisaremos cuando haya nuevos sonidos disponibles</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
           <source>On launch, Ambie will resume playing automatically</source>
-          <target state="new">On launch, Ambie will resume playing automatically</target>
+          <target state="translated">En el lanzamiento, Ambie reanudará la reproducción automática</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
           <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
-          <target state="new">Crashes and anonymous usage info are reported to help improve Ambie</target>
+          <target state="translated">Se notifican errores e información de uso anónima para ayudar a mejorar Ambie</target>
         </trans-unit>
         <trans-unit id="BackgroundImage" translate="yes" xml:space="preserve">
           <source>Background image</source>
-          <target state="new">Background image</target>
+          <target state="translated">Imagen de fondo</target>
         </trans-unit>
         <trans-unit id="CustomImage" translate="yes" xml:space="preserve">
           <source>Custom image</source>
-          <target state="new">Custom image</target>
+          <target state="translated">Imagen personalizada</target>
         </trans-unit>
         <trans-unit id="SettingsGeneralHeader" translate="yes" xml:space="preserve">
           <source>General settings</source>
-          <target state="new">General settings</target>
+          <target state="translated">Configuración general</target>
         </trans-unit>
         <trans-unit id="SettingsTheme" translate="yes" xml:space="preserve">
           <source>Choose your mode</source>
-          <target state="new">Choose your mode</target>
+          <target state="translated">Elige tu modo</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDescription" translate="yes" xml:space="preserve">
           <source>Change the colours that appear in Ambie</source>
-          <target state="new">Change the colours that appear in Ambie</target>
+          <target state="translated">Cambiar los colores que aparecen en Ambie</target>
         </trans-unit>
       </group>
     </body>

@@ -643,4 +643,34 @@
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>ごめんなさい！ カタログを読み込めませんでした。 インターネット接続を確認してみてください。</value>
   </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>アプリケーション情報</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>アンビエミニはピントを合わせると自動的に開きます</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>新しいサウンドが利用可能になったらお知らせします</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>起動時に、Ambieは自動的に再生を再開します</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>エラーと匿名の使用状況情報は、Ambieの改善に役立つように報告されます</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>背景画像</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>カスタム画像</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>一般設定</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>モードを選択してください</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>アンビに表示される色を変更する</value>
+  </data>
 </root>
