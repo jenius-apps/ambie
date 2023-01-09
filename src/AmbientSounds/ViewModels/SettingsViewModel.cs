@@ -18,6 +18,7 @@ namespace AmbientSounds.ViewModels
         private readonly IUserSettings _userSettings;
         private readonly IStoreNotificationRegistrar _notifications;
         private readonly ITelemetry _telemetry;
+        private readonly IAppStoreRatings _appStoreRatings;
         private bool _notificationsLoading;
 
         public SettingsViewModel(
@@ -25,18 +26,21 @@ namespace AmbientSounds.ViewModels
             IStoreNotificationRegistrar notifications,
             ITelemetry telemetry,
             IAssetsReader assetsReader,
-            IImagePicker imagePicker)
+            IImagePicker imagePicker,
+            IAppStoreRatings appStoreRatings)
         {
             Guard.IsNotNull(userSettings);
             Guard.IsNotNull(notifications);
             Guard.IsNotNull(telemetry);
             Guard.IsNotNull(assetsReader);
             Guard.IsNotNull(imagePicker);
+            Guard.IsNotNull(appStoreRatings);
             _userSettings = userSettings;
             _notifications = notifications;
             _telemetry = telemetry;
             _assetsReader = assetsReader;
             _imagePicker = imagePicker;
+            _appStoreRatings = appStoreRatings;
         }
 
         /// <summary>
@@ -187,6 +191,16 @@ namespace AmbientSounds.ViewModels
                 {
                     { "path", imagePath.Contains("ms-appx") ? imagePath : "custom" }
                 });
+            }
+        }
+
+        [RelayCommand]
+        private async Task RequestRatingAsync()
+        {
+            bool result = await _appStoreRatings.RequestInAppRatingsAsync();
+            if (result)
+            {
+                _userSettings.Set(UserSettingsConstants.HasRated, true);
             }
         }
     }
