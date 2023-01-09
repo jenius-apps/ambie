@@ -11,6 +11,11 @@ namespace AmbientSounds.Extensions
     {
         public static string ToCountdownFormat(this TimeSpan remaining)
         {
+            if (remaining.TotalMinutes == 60)
+            {
+                return "60:00";
+            }
+
             return remaining.ToString(@"mm\:ss");
         }
 
