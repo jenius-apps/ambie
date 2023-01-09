@@ -16,7 +16,7 @@
     <StackPanel Spacing="4">
         <StackPanel.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            <RepositionThemeTransition />
+            <RepositionThemeTransition IsStaggeringEnabled="False" />
         </StackPanel.ChildrenTransitions>
 
         <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.ThemeSettings}" />
@@ -42,7 +42,7 @@
             </labs:SettingsExpander.HeaderIcon>
 
             <labs:SettingsExpander.Items>
-                <labs:SettingsCard ContentAlignment="Left">
+                <labs:SettingsCard HorizontalContentAlignment="Stretch" ContentAlignment="Vertical">
                     <Grid>
                         <GridView
                             Margin="0,4,0,0"
