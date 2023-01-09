@@ -144,7 +144,6 @@
                     Grid.Column="2"
                     Margin="0,0,16,0"
                     Orientation="Horizontal">
-
                     <controls:SaveMixButton MixSaved="{x:Bind ViewModel.UpdateCanSave}" Visibility="{x:Bind ViewModel.CanSaveMix, Mode=OneWay}">
                         <animations:Implicit.ShowAnimations>
                             <animations:OpacityAnimation
@@ -159,6 +158,14 @@
                         Style="{StaticResource SubtleIconButton}"
                         ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
+                    </Button>
+                    <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
+                        Click="{x:Bind ViewModel.OpenPremiumDialog}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.GetAmbiePlus}"
+                        Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                     </Button>
                 </StackPanel>
             </Grid>
@@ -240,19 +247,7 @@
                         </ListView.Items>
                     </ListView>
 
-                    <StackPanel
-                        x:Name="NavMenuFooter"
-                        VerticalAlignment="Bottom"
-                        Visibility="Collapsed">
-                        <HyperlinkButton
-                            Margin="3,0,3,0"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Left"
-                            AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
-                            Click="{x:Bind ViewModel.OpenPremiumDialog}"
-                            Content="{x:Bind strings:Resources.GetAmbiePlus}"
-                            Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}" />
-
+                    <StackPanel x:Name="NavMenuFooter" VerticalAlignment="Bottom">
                         <ListView
                             IsItemClickEnabled="True"
                             ItemClick="OnMenuItemClicked"
