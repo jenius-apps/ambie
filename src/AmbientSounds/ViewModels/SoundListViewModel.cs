@@ -128,7 +128,7 @@ namespace AmbientSounds.ViewModels
         [RelayCommand]
         private void OpenCatalogue()
         {
-            _navigator.ToCatalogue();
+            _navigator.NavigateTo(ContentPageType.Catalogue);
             _telemetry.TrackEvent(TelemetryConstants.EmptyMessageButtonClicked);
         }
 

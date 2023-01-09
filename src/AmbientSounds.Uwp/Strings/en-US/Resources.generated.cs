@@ -1860,6 +1860,136 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AboutAmbie
+        /// <summary>
+        ///   Looks up a localized string similar to: About Ambie
+        /// </summary>
+        public static string AboutAmbie
+        {
+            get
+            {
+                return _resourceLoader.GetString("AboutAmbie");
+            }
+        }
+        #endregion
+
+        #region SettingsCompactModeDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Ambie Mini will open automatically when focusing
+        /// </summary>
+        public static string SettingsCompactModeDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsCompactModeDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsNotificationsSwitchDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: We'll notify you know when new sounds are available
+        /// </summary>
+        public static string SettingsNotificationsSwitchDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsNotificationsSwitchDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsResumeOnLaunchDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: On launch, Ambie will resume playing automatically
+        /// </summary>
+        public static string SettingsResumeOnLaunchDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsResumeOnLaunchDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsTelemetrySwitchDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Crashes and anonymous usage info are reported to help improve Ambie
+        /// </summary>
+        public static string SettingsTelemetrySwitchDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsTelemetrySwitchDescription");
+            }
+        }
+        #endregion
+
+        #region BackgroundImage
+        /// <summary>
+        ///   Looks up a localized string similar to: Background image
+        /// </summary>
+        public static string BackgroundImage
+        {
+            get
+            {
+                return _resourceLoader.GetString("BackgroundImage");
+            }
+        }
+        #endregion
+
+        #region CustomImage
+        /// <summary>
+        ///   Looks up a localized string similar to: Custom image
+        /// </summary>
+        public static string CustomImage
+        {
+            get
+            {
+                return _resourceLoader.GetString("CustomImage");
+            }
+        }
+        #endregion
+
+        #region SettingsGeneralHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: General settings
+        /// </summary>
+        public static string SettingsGeneralHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsGeneralHeader");
+            }
+        }
+        #endregion
+
+        #region SettingsTheme
+        /// <summary>
+        ///   Looks up a localized string similar to: Choose your mode
+        /// </summary>
+        public static string SettingsTheme
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsTheme");
+            }
+        }
+        #endregion
+
+        #region SettingsThemeDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Change the colours that appear in Ambie
+        /// </summary>
+        public static string SettingsThemeDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsThemeDescription");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2013,6 +2143,16 @@ namespace AmbientSounds.Strings{
             EditHomePage,
             EditHomePageMessage,
             EmptyCatalogueMessage,
+            AboutAmbie,
+            SettingsCompactModeDescription,
+            SettingsNotificationsSwitchDescription,
+            SettingsResumeOnLaunchDescription,
+            SettingsTelemetrySwitchDescription,
+            BackgroundImage,
+            CustomImage,
+            SettingsGeneralHeader,
+            SettingsTheme,
+            SettingsThemeDescription,
         }
 
         private static ResourceLoader _resourceLoader;

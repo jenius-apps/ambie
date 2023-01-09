@@ -13,16 +13,6 @@ namespace AmbientSounds.Services
     public interface IDialogService
     {
         /// <summary>
-        /// Opens a settings dialog.
-        /// </summary>
-        Task OpenSettingsAsync();
-
-        /// <summary>
-        /// Opens the theme settings dialog.
-        /// </summary>
-        Task OpenThemeSettingsAsync();
-
-        /// <summary>
         /// Opens a rename dialog.
         /// </summary>
         /// <param name="currentName">The current name use to pre-populate the field.</param>

@@ -111,6 +111,9 @@ namespace AmbientSounds.Views
                     case "home":
                         ViewModel.Navigate(ContentPageType.Home);
                         break;
+                    case "settings":
+                        ViewModel.Navigate(ContentPageType.Settings);
+                        break;
                 }
             }
         }

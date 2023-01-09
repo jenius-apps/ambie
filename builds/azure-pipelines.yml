@@ -69,6 +69,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+    nugetConfigPath: 'nuget.config'
 
 - task: VSBuild@1
   inputs:

@@ -748,4 +748,34 @@
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</value>
   </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>About Ambie</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini will open automatically when focusing</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>We'll notify you know when new sounds are available</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>On launch, Ambie will resume playing automatically</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Crashes and anonymous usage info are reported to help improve Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Background image</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Custom image</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>General settings</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Choose your mode</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Change the colours that appear in Ambie</value>
+  </data>
 </root>

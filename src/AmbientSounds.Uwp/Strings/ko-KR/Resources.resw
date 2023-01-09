@@ -643,4 +643,34 @@
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>미안합니다! 카탈로그를 로드할 수 없습니다. 인터넷 연결을 확인하십시오.</value>
   </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>응용 프로그램 정보</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>초점을 맞출 때 Ambie Mini가 자동으로 열립니다</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>새로운 소리를 사용할 수 있게 되면 알려드립니다</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>실행 시 Ambie는 자동으로 재생을 재개합니다</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>오류 및 익명 사용 정보는 Ambie 개선에 도움이 되도록 보고됩니다.</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>배경 이미지</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>사용자 지정 이미지</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>일반 설정</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>모드 선택</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Ambie에 표시되는 색상 변경</value>
+  </data>
 </root>

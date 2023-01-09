@@ -643,4 +643,34 @@
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>¡Lo siento por eso! No pudimos cargar el catálogo. Prueba a comprobar tu conexión a Internet.</value>
   </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Información de la aplicación</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini se abrirá automáticamente al enfocar</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Te avisaremos cuando haya nuevos sonidos disponibles</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>En el lanzamiento, Ambie reanudará la reproducción automática</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Se notifican errores e información de uso anónima para ayudar a mejorar Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Imagen de fondo</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Imagen personalizada</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Configuración general</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Elige tu modo</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Cambiar los colores que aparecen en Ambie</value>
+  </data>
 </root>

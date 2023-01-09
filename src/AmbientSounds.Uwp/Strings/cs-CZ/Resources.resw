@@ -643,4 +643,34 @@
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>Omlouvám se za to! Katalog se nám nepodařilo načíst. Zkuste zkontrolovat připojení k internetu.</value>
   </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Informace o aplikaci</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini se automaticky otevře při zaostřování</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Upozorníme vás, až budou k dispozici nové zvuky</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Při spuštění bude Ambie pokračovat v automatickém přehrávání</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Chyby a anonymní informace o používání jsou hlášeny, aby pomohly vylepšit Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Obrázek na pozadí</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Vlastní obrázek</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Obecná nastavení</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Vyberte si režim</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Změna barev, které se zobrazují v Ambie</value>
+  </data>
 </root>

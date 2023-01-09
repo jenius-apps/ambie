@@ -33,6 +33,9 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private int _navMenuIndex = -1;
 
+    [ObservableProperty]
+    private int _footerMenuIndex = -1;
+
     public ShellPageViewModel(
         IUserSettings userSettings,
         ITimerService timer,
@@ -135,28 +138,38 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void Navigate(ContentPageType pageType)
     {
-        if (NavMenuIndex == (int)pageType)
+        int navMenuIndex = pageType switch
         {
-            return;
+            ContentPageType.Settings => -1,
+            _ => (int)pageType
+        };
+
+        int footerMenuIndex = pageType switch
+        {
+            ContentPageType.Settings => 0,
+            _ => -1
+        };
+
+        bool changed = false;
+        if (footerMenuIndex != FooterMenuIndex)
+        {
+            NavMenuIndex = -1;
+            FooterMenuIndex = footerMenuIndex;
+            changed = true;
+        }
+        if (NavMenuIndex != navMenuIndex)
+        {
+            NavMenuIndex = navMenuIndex;
+            FooterMenuIndex = -1;
+            changed = true;
         }
 
-        if (pageType == ContentPageType.Home)
+        if (changed)
         {
-            _navigator.ToHome();
+            _navigator.NavigateTo(pageType);
+            UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
         }
-        else if (pageType == ContentPageType.Catalogue)
-        {
-            _navigator.ToCatalogue();
-        }
-        else if (pageType == ContentPageType.Focus)
-        {
-            _navigator.ToFocus();
-        }
-
-        UpdateTimeBannerVisibility();
-        UpdateFocusDotVisibility();
-
-        NavMenuIndex = (int)pageType;
     }
 
     public async void OpenPremiumDialog()
@@ -164,8 +177,6 @@ public partial class ShellPageViewModel : ObservableObject
         _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked);
         await _dialogService.OpenPremiumAsync();
     }
-
-    public async void OpenThemeSettings() => await _dialogService.OpenThemeSettingsAsync();
 
     public void GoToScreensaver()
     {
@@ -194,12 +205,36 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnContentPageChanged(object sender, ContentPageType e)
     {
+        int navMenuIndex = e switch
+        {
+            ContentPageType.Settings => -1,
+            _ => (int)e
+        };
+
+        int footerMenuIndex = e switch
+        {
+            ContentPageType.Settings => 0,
+            _ => -1
+        };
+
+        bool changesMade = false;
         // This ensures that the nav menu selects the correct
         // index. Previously, it could become out of sync when the content page
         // is changed programmatically (rather than the user selecting the nav item).
-        if (NavMenuIndex != (int)e)
+        if (NavMenuIndex != navMenuIndex)
         {
-            NavMenuIndex = (int)e;
+            NavMenuIndex = navMenuIndex;
+            changesMade = true;
+        }
+
+        if (FooterMenuIndex != footerMenuIndex)
+        {
+            FooterMenuIndex = footerMenuIndex;
+            changesMade = true;
+        }
+
+        if (changesMade)
+        {
             UpdateTimeBannerVisibility();
             UpdateFocusDotVisibility();
         }

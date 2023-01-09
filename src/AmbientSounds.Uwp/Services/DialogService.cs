@@ -79,65 +79,6 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public async Task OpenSettingsAsync()
-        {
-            if (IsDialogOpen)
-                return;
-
-            IsDialogOpen = true;
-            var dialog = new ContentDialog()
-            {
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Title = Strings.Resources.SettingsText,
-                CloseButtonText = Strings.Resources.CloseText,
-                Content = new SettingsControl()
-            };
-
-            void OnSettingsSet(object sender, string key)
-            {
-                if (key == UserSettingsConstants.Theme)
-                {
-                    dialog.RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme();
-                }
-            }
-
-            _userSettings.SettingSet += OnSettingsSet;
-            await dialog.ShowAsync();
-            _userSettings.SettingSet -= OnSettingsSet;
-            IsDialogOpen = false;
-
-        }
-
-        /// <inheritdoc/>
-        public async Task OpenThemeSettingsAsync()
-        {
-            if (IsDialogOpen)
-                return;
-
-            IsDialogOpen = true;
-            var dialog = new ContentDialog()
-            {
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Title = Strings.Resources.ThemeSettings,
-                CloseButtonText = Strings.Resources.CloseText,
-                Content = new ThemeSettings()
-            };
-
-            void OnSettingsSet(object sender, string key)
-            {
-                if (key == UserSettingsConstants.Theme)
-                {
-                    dialog.RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme();
-                }
-            }
-
-            _userSettings.SettingSet += OnSettingsSet;
-            await dialog.ShowAsync();
-            _userSettings.SettingSet -= OnSettingsSet;
-            IsDialogOpen = false;
-        }
-
-        /// <inheritdoc/>
         public async Task<string> RenameAsync(string currentName)
         {
             if (IsDialogOpen)

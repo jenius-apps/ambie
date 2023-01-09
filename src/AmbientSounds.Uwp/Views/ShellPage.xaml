@@ -36,12 +36,13 @@
                         <Setter Target="MenuTextHome.Visibility" Value="Visible" />
                         <Setter Target="MenuTextCatalogue.Visibility" Value="Visible" />
                         <Setter Target="MenuTextFocus.Visibility" Value="Visible" />
+                        <Setter Target="MenuTextSettings.Visibility" Value="Visible" />
                         <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
                         <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
                         <Setter Target="TitleBar.Margin" Value="16,14,0,0" />
                         <Setter Target="PlayerPanelBorder.Margin" Value="16,0" />
                         <Setter Target="PlayerPanelGrid.Margin" Value="16,0" />
-                        <Setter Target="NavViewGrid.Margin" Value="16,0,0,16" />
+                        <Setter Target="NavViewGrid.Margin" Value="16,0,0,12" />
                         <Setter Target="MainFrame.Margin" Value="8,0,0,0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
                     </VisualState.Setters>
@@ -143,7 +144,6 @@
                     Grid.Column="2"
                     Margin="0,0,16,0"
                     Orientation="Horizontal">
-
                     <controls:SaveMixButton MixSaved="{x:Bind ViewModel.UpdateCanSave}" Visibility="{x:Bind ViewModel.CanSaveMix, Mode=OneWay}">
                         <animations:Implicit.ShowAnimations>
                             <animations:OpacityAnimation
@@ -159,7 +159,14 @@
                         ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
                     </Button>
-                    <controls:MoreButton />
+                    <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
+                        Click="{x:Bind ViewModel.OpenPremiumDialog}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.GetAmbiePlus}"
+                        Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
+                    </Button>
                 </StackPanel>
             </Grid>
 
@@ -173,7 +180,6 @@
                 <Grid x:Name="NavViewGrid" Margin="12,0,0,12">
                     <!--  Nav menu  -->
                     <ListView
-                        x:Name="MenuList"
                         IsItemClickEnabled="True"
                         ItemClick="OnMenuItemClicked"
                         SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}">
@@ -241,17 +247,33 @@
                         </ListView.Items>
                     </ListView>
 
-                    <StackPanel
-                        Name="NavMenuFooter"
-                        VerticalAlignment="Bottom"
-                        Visibility="Collapsed">
-                        <HyperlinkButton
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Left"
-                            AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
-                            Click="{x:Bind ViewModel.OpenPremiumDialog}"
-                            Content="{x:Bind strings:Resources.GetAmbiePlus}"
-                            Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}" />
+                    <StackPanel x:Name="NavMenuFooter" VerticalAlignment="Bottom">
+                        <ListView
+                            IsItemClickEnabled="True"
+                            ItemClick="OnMenuItemClicked"
+                            SelectedIndex="{x:Bind ViewModel.FooterMenuIndex, Mode=OneWay}">
+                            <ListView.ItemContainerStyle>
+                                <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Items>
+                                <ListViewItem
+                                    MinWidth="0"
+                                    AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                                    Tag="settings"
+                                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+                                        <TextBlock
+                                            Name="MenuTextSettings"
+                                            Margin="12,0,0,0"
+                                            Text="{x:Bind strings:Resources.SettingsText}"
+                                            Visibility="Collapsed" />
+                                    </StackPanel>
+                                </ListViewItem>
+                            </ListView.Items>
+                        </ListView>
                     </StackPanel>
                 </Grid>
 

@@ -184,9 +184,6 @@
     <Compile Include="Controls\LogoControl.xaml.cs">
       <DependentUpon>LogoControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MoreButton.xaml.cs">
-      <DependentUpon>MoreButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\NoPaddingDialog.xaml.cs">
       <DependentUpon>NoPaddingDialog.xaml</DependentUpon>
     </Compile>
@@ -232,9 +229,6 @@
     </Compile>
     <Compile Include="Controls\StatDetail.xaml.cs">
       <DependentUpon>StatDetail.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ThemeSettings.xaml.cs">
-      <DependentUpon>ThemeSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TimeBanner.xaml.cs">
       <DependentUpon>TimeBanner.xaml</DependentUpon>
@@ -324,6 +318,9 @@
     </Compile>
     <Compile Include="Views\ScreensaverPage.xaml.cs">
       <DependentUpon>ScreensaverPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
@@ -507,10 +504,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MoreButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\NoPaddingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -568,10 +561,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\StatDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ThemeSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -643,12 +632,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
+      <Version>0.0.11</Version>
+    </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
       <Version>0.0.3-preview</Version>
     </PackageReference>
