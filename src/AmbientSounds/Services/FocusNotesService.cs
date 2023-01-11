@@ -16,9 +16,14 @@ namespace AmbientSounds.Services
             _fileWriter = fileWriter;
         }
 
-        public Task<string> GetStoredNotesAsync()
+        public async Task<string> GetStoredNotesAsync()
         {
-            return _fileWriter.ReadAsync(NotesFileName);
+            if (string.IsNullOrEmpty(_notes))
+            {
+                _notes = await _fileWriter.ReadAsync(NotesFileName);
+            }
+
+            return _notes;
         }
 
         public void UpdateNotes(string notes)
