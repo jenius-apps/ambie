@@ -13,18 +13,18 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <StackPanel Spacing="4">
+    <StackPanel Spacing="3">
         <StackPanel.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
             <RepositionThemeTransition IsStaggeringEnabled="False" />
         </StackPanel.ChildrenTransitions>
 
-        <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.ThemeSettings}" />
+        <TextBlock
+            Margin="1,0,0,5"
+            Style="{StaticResource BodyStrongTextBlockStyle}"
+            Text="{x:Bind strings:Resources.ThemeSettings}" />
 
-        <labs:SettingsCard
-            Margin="0,4,0,0"
-            Description="{x:Bind strings:Resources.SettingsThemeDescription}"
-            Header="{x:Bind strings:Resources.SettingsTheme}">
+        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsThemeDescription}" Header="{x:Bind strings:Resources.SettingsTheme}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPaintBrush}" />
             </labs:SettingsCard.HeaderIcon>
@@ -86,15 +86,12 @@
         </labs:SettingsExpander>
 
         <TextBlock
-            Margin="0,20,0,0"
-            FontWeight="SemiBold"
+            Margin="1,29,0,5"
+            Style="{StaticResource BodyStrongTextBlockStyle}"
             Text="{x:Bind strings:Resources.SettingsGeneralHeader}" />
 
         <!--  Telemetry  -->
-        <labs:SettingsCard
-            x:Uid="SettingsTelemetrySwitch"
-            Margin="0,4,0,0"
-            Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
+        <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDiagnostics}" />
             </labs:SettingsCard.HeaderIcon>
@@ -157,32 +154,34 @@
             </ToggleSwitch>
         </labs:SettingsCard>
 
-        <labs:SettingsExpander Description="{x:Bind Version}" Header="{x:Bind strings:Resources.AboutAmbie}">
+        <labs:SettingsExpander Header="{x:Bind strings:Resources.AboutAmbie}">
+            <labs:SettingsExpander.Description>
+                <TextBlock Text="© Jenius Apps" />
+            </labs:SettingsExpander.Description>
             <labs:SettingsExpander.HeaderIcon>
-                <SymbolIcon Symbol="Help" />
+                <BitmapIcon UriSource="ms-appx:///Assets/logo.png" ShowAsMonochrome="False"/>
             </labs:SettingsExpander.HeaderIcon>
-
+            <TextBlock
+                IsTextSelectionEnabled="True"
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                Text="{x:Bind Version}" />
             <labs:SettingsExpander.Items>
+                <labs:SettingsCard>
+
+                    <labs:SettingsCard.Header>
+                        <TextBlock>
+                            <Run Text="🍁" />
+                            <Run x:Uid="HelloFromVancouver" />
+                        </TextBlock>
+                    </labs:SettingsCard.Header>
+                </labs:SettingsCard>
                 <labs:SettingsCard ContentAlignment="Left">
-                    <StackPanel>
-                        <TextBlock x:Uid="HelloFromVancouver" Margin="0,4,0,0" />
-                        <TextBlock Margin="0,4,0,0" Text="© Jenius Apps" />
-                        <HyperlinkButton
-                            x:Uid="PrivacyPolicyButton"
-                            Margin="-12,12,0,0"
-                            NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
-                        <HyperlinkButton
-                            Margin="-12,0,0,0"
-                            Content="{x:Bind strings:Resources.TermsOfUse}"
-                            NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
-                        <HyperlinkButton
-                            Margin="-12,0,0,0"
-                            Content="{x:Bind strings:Resources.FollowTwitter}"
-                            NavigateUri="https://twitter.com/ambie_app" />
-                        <HyperlinkButton
-                            Margin="-12,0,0,0"
-                            Command="{x:Bind ViewModel.RequestRatingCommand}"
-                            Content="{x:Bind strings:Resources.RateUsText}" />
+                    <StackPanel Margin="-12,0,0,0" Orientation="Vertical">
+                        <HyperlinkButton x:Uid="PrivacyPolicyButton" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
+                        <HyperlinkButton Content="{x:Bind strings:Resources.TermsOfUse}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
+                        <HyperlinkButton Content="{x:Bind strings:Resources.FollowTwitter}" NavigateUri="https://twitter.com/ambie_app" />
+                        <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
                     </StackPanel>
                 </labs:SettingsCard>
             </labs:SettingsExpander.Items>
