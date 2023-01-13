@@ -47,6 +47,11 @@
         string VideosUrl { get; set; }
 
         /// <summary>
+        /// URL to access the share endpoint.
+        /// </summary>
+        string ShareUrl { get; set; }
+
+        /// <summary>
         /// The API scope for catalogue access.
         /// </summary>
         string CatalogueScope { get; set; }
