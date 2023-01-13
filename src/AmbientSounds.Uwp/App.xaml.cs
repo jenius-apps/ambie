@@ -434,6 +434,7 @@ namespace AmbientSounds
                 .AddSingleton<IFocusTaskService, FocusTaskService>()
                 .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
+                .AddSingleton<IShareService, ShareService>()
                 .AddSingleton<IPresenceService, PresenceService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
