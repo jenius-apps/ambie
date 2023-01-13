@@ -412,6 +412,7 @@ namespace AmbientSounds
                 .AddSingleton<VideosMenuViewModel>()
                 .AddSingleton<TimeBannerViewModel>()
                 .AddSingleton<InterruptionPageViewModel>()
+                .AddSingleton<ShareViewModel>()
                 .AddSingleton<FocusPageViewModel>()
                 .AddSingleton<CompactPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()

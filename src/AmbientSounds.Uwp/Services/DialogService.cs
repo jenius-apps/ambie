@@ -234,8 +234,9 @@ public class DialogService : IDialogService
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
         };
 
+        _ = dialog.InitializeAsync(soundIds);
         await dialog.ShowAsync();
-
+        dialog.Uninitialize();
         IsDialogOpen = false;
     }
 }

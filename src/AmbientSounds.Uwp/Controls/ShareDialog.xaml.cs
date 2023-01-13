@@ -1,35 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
-// The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+namespace AmbientSounds.Controls;
 
-namespace AmbientSounds.Controls
+public sealed partial class ShareDialog : ContentDialog
 {
-    public sealed partial class ShareDialog : ContentDialog
+    public ShareDialog()
     {
-        public ShareDialog()
-        {
-            this.InitializeComponent();
-        }
+        this.InitializeComponent();
+    }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-        }
+    public Task InitializeAsync(IReadOnlyList<string> soundIds)
+    {
+        return ShareControl.ViewModel.InitializeAsync(soundIds);
+    }
 
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
-        {
-        }
+    public void Uninitialize()
+    {
+        ShareControl.ViewModel.Uninitialize();
     }
 }

@@ -11,5 +11,5 @@
     Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
 
-    <Grid />
+    <local:ShareControl x:Name="ShareControl" />
 </ContentDialog>
