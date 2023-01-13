@@ -7,7 +7,9 @@
     public class TelemetryConstants
     {
         // shell page
-        public const string ShellPagePremiumClicked = "shellpage:premiumClicked";
+        private const string ShellPage = "shellpage:";
+        public const string ShellPagePremiumClicked = ShellPage + "premiumClicked";
+        public const string ShellPageShareClicked = ShellPage + "shareClicked";
 
         // catalogue
         private const string Catalogue = "catalogue:";

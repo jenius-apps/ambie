@@ -161,6 +161,7 @@
                     </Button>
                     <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
+                        Command="{x:Bind ViewModel.OpenShareCommand}"
                         Style="{StaticResource SubtleIconButton}"
                         ToolTipService.ToolTip="{x:Bind strings:Resources.ShareMessage}">
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphShare}" />

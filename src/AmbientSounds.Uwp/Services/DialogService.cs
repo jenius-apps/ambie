@@ -1,220 +1,241 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Controls;
 using AmbientSounds.Converters;
+using AmbientSounds.Models;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
 
-namespace AmbientSounds.Services.Uwp
+namespace AmbientSounds.Services.Uwp;
+
+/// <summary>
+/// Class for opening dialogs.
+/// </summary>
+public class DialogService : IDialogService
 {
-    /// <summary>
-    /// Class for opening dialogs.
-    /// </summary>
-    public class DialogService : IDialogService
+    private readonly IUserSettings _userSettings;
+    private readonly ISystemInfoProvider _systemInfoProvider;
+
+    public DialogService(
+        IUserSettings userSettings,
+        ISystemInfoProvider systemInfoProvider)
     {
-        private readonly IUserSettings _userSettings;
-        private readonly ISystemInfoProvider _systemInfoProvider;
+        Guard.IsNotNull(userSettings);
+        Guard.IsNotNull(systemInfoProvider);
+        _userSettings = userSettings;
+        _systemInfoProvider = systemInfoProvider;
+    }
 
-        public DialogService(
-            IUserSettings userSettings,
-            ISystemInfoProvider systemInfoProvider)
+    /// <summary>
+    /// UWP apps crash if more than one content dialog
+    /// is opened at the same time. This flag
+    /// will be used to help ensure only one
+    /// dialog is open at a time.
+    /// </summary>
+    public static bool IsDialogOpen;
+
+    /// <inheritdoc/>
+    public async Task OpenTutorialAsync()
+    {
+        if (IsDialogOpen)
         {
-            Guard.IsNotNull(userSettings);
-            Guard.IsNotNull(systemInfoProvider);
-            _userSettings = userSettings;
-            _systemInfoProvider = systemInfoProvider;
+            return;
         }
 
-        /// <summary>
-        /// UWP apps crash if more than one content dialog
-        /// is opened at the same time. This flag
-        /// will be used to help ensure only one
-        /// dialog is open at a time.
-        /// </summary>
-        public static bool IsDialogOpen;
-
-        /// <inheritdoc/>
-        public async Task OpenTutorialAsync()
+        IsDialogOpen = true;
+        var dialog = new TutorialDialog()
         {
-            if (IsDialogOpen)
-            {
-                return;
-            }
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme()
+        };
 
-            IsDialogOpen = true;
-            var dialog = new TutorialDialog()
-            {
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme()
-            };
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 
-            await dialog.ShowAsync();
-            IsDialogOpen = false;
+    /// <inheritdoc/>
+    public async Task<bool> MissingSoundsDialogAsync()
+    {
+        if (IsDialogOpen)
+        {
+            return false;
         }
 
-        /// <inheritdoc/>
-        public async Task<bool> MissingSoundsDialogAsync()
+        IsDialogOpen = true;
+        var dialog = new ContentDialog()
         {
-            if (IsDialogOpen)
-            {
-                return false;
-            }
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Title = Strings.Resources.MissingSoundsTitle,
+            PrimaryButtonText = Strings.Resources.DownloadText,
+            CloseButtonText = Strings.Resources.CancelText,
+            Content = Strings.Resources.MissingSoundsMessage
+        };
 
-            IsDialogOpen = true;
-            var dialog = new ContentDialog()
-            {
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Title = Strings.Resources.MissingSoundsTitle,
-                PrimaryButtonText = Strings.Resources.DownloadText,
-                CloseButtonText = Strings.Resources.CancelText,
-                Content = Strings.Resources.MissingSoundsMessage
-            };
+        var result = await dialog.ShowAsync();
+        IsDialogOpen = false;
+        return result == ContentDialogResult.Primary;
+    }
 
-            var result = await dialog.ShowAsync();
-            IsDialogOpen = false;
-            return result == ContentDialogResult.Primary;
+    /// <inheritdoc/>
+    public async Task<string> RenameAsync(string currentName)
+    {
+        if (IsDialogOpen)
+            return currentName;
+
+        IsDialogOpen = true;
+        var inputBoxControl = new RenameInputBox() { Input = currentName };
+        bool enterClicked = false;
+        var dialog = new ContentDialog()
+        {
+            Title = Strings.Resources.RenameText,
+            CloseButtonText = Strings.Resources.CancelText,
+            PrimaryButtonText = Strings.Resources.RenameText,
+            Content = inputBoxControl
+        };
+        inputBoxControl.EnterClicked += (s, e) => { dialog.Hide(); enterClicked = true; };
+
+        var result = await dialog.ShowAsync();
+        IsDialogOpen = false;
+
+        return result == ContentDialogResult.Primary || enterClicked ? inputBoxControl.Input : currentName;
+    }
+
+    /// <inheritdoc/>
+    public async Task OpenPremiumAsync()
+    {
+        if (IsDialogOpen || _systemInfoProvider.IsCompact())
+        {
+            return;
         }
 
-        /// <inheritdoc/>
-        public async Task<string> RenameAsync(string currentName)
+        IsDialogOpen = true;
+        var content = new PremiumControl();
+        var dialog = new NoPaddingDialog()
         {
-            if (IsDialogOpen)
-                return currentName;
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Content = content
+        };
 
-            IsDialogOpen = true;
-            var inputBoxControl = new RenameInputBox() { Input = currentName };
-            bool enterClicked = false;
-            var dialog = new ContentDialog()
-            {
-                Title = Strings.Resources.RenameText,
-                CloseButtonText = Strings.Resources.CancelText,
-                PrimaryButtonText = Strings.Resources.RenameText,
-                Content = inputBoxControl
-            };
-            inputBoxControl.EnterClicked += (s, e) => { dialog.Hide(); enterClicked = true; };
+        content.CloseRequested += (s, e) => dialog.Hide();
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 
-            var result = await dialog.ShowAsync();
-            IsDialogOpen = false;
-
-            return result == ContentDialogResult.Primary || enterClicked ? inputBoxControl.Input : currentName;
+    /// <inheritdoc/>
+    public async Task OpenVideosMenuAsync()
+    {
+        if (IsDialogOpen)
+        {
+            return;
         }
 
-        /// <inheritdoc/>
-        public async Task OpenPremiumAsync()
+        IsDialogOpen = true;
+        var dialog = new ContentDialog()
         {
-            if (IsDialogOpen || _systemInfoProvider.IsCompact())
-            {
-                return;
-            }
+            Title = Strings.Resources.ScreensaverCatalogue,
+            CloseButtonText = Strings.Resources.CloseText,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Content = new VideosMenu()
+        };
 
-            IsDialogOpen = true;
-            var content = new PremiumControl();
-            var dialog = new NoPaddingDialog()
-            {
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Content = content
-            };
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 
-            content.CloseRequested += (s, e) => dialog.Hide();
-            await dialog.ShowAsync();
-            IsDialogOpen = false;
+    /// <inheritdoc/>
+    public async Task<(double, string)> OpenInterruptionAsync()
+    {
+        if (IsDialogOpen)
+        {
+            return (0, string.Empty);
         }
 
-        /// <inheritdoc/>
-        public async Task OpenVideosMenuAsync()
+        IsDialogOpen = true;
+        var dialog = new InterruptionDialog()
         {
-            if (IsDialogOpen)
-            {
-                return;
-            }
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+        };
 
-            IsDialogOpen = true;
-            var dialog = new ContentDialog()
-            {
-                Title = Strings.Resources.ScreensaverCatalogue,
-                CloseButtonText = Strings.Resources.CloseText,
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Content = new VideosMenu()
-            };
+        var result = await dialog.ShowAsync();
+        IsDialogOpen = false;
 
-            await dialog.ShowAsync();
-            IsDialogOpen = false;
+        return result == ContentDialogResult.Primary 
+            ? (dialog.MinutesLogged, dialog.InterruptionNotes) 
+            : (0, string.Empty);
+    }
+
+    /// <inheritdoc/>
+    public async Task OpenHistoryDetailsAsync(FocusHistoryViewModel historyViewModel)
+    {
+        if (historyViewModel is null || IsDialogOpen)
+        {
+            return;
         }
 
-        /// <inheritdoc/>
-        public async Task<(double, string)> OpenInterruptionAsync()
+        IsDialogOpen = true;
+        var dialog = new ContentDialog()
         {
-            if (IsDialogOpen)
-            {
-                return (0, string.Empty);
-            }
+            Title = Strings.Resources.History,
+            CloseButtonText = Strings.Resources.CloseText,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Content = new FocusHistoryDetails(historyViewModel)
+        };
 
-            IsDialogOpen = true;
-            var dialog = new InterruptionDialog()
-            {
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-            };
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 
-            var result = await dialog.ShowAsync();
-            IsDialogOpen = false;
-
-            return result == ContentDialogResult.Primary 
-                ? (dialog.MinutesLogged, dialog.InterruptionNotes) 
-                : (0, string.Empty);
+    /// <inheritdoc/>
+    public async Task<string?> EditTextAsync(
+        string prepopulatedText,
+        int? maxSize = null)
+    {
+        if (IsDialogOpen)
+        {
+            return null;
         }
 
-        /// <inheritdoc/>
-        public async Task OpenHistoryDetailsAsync(FocusHistoryViewModel historyViewModel)
+        IsDialogOpen = true;
+        var dialog = new EditTextDialog()
         {
-            if (historyViewModel is null || IsDialogOpen)
-            {
-                return;
-            }
+            Text = prepopulatedText,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+        };
 
-            IsDialogOpen = true;
-            var dialog = new ContentDialog()
-            {
-                Title = Strings.Resources.History,
-                CloseButtonText = Strings.Resources.CloseText,
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-                Content = new FocusHistoryDetails(historyViewModel)
-            };
-
-            await dialog.ShowAsync();
-            IsDialogOpen = false;
+        if (maxSize.HasValue)
+        {
+            dialog.MaxLength = maxSize.Value;
         }
 
-        /// <inheritdoc/>
-        public async Task<string?> EditTextAsync(
-            string prepopulatedText,
-            int? maxSize = null)
+        var result = await dialog.ShowAsync();
+        IsDialogOpen = false;
+
+        return result == ContentDialogResult.Primary && prepopulatedText != dialog.Text
+            ? dialog.Text.Trim()
+            : null;
+    }
+
+    /// <inheritdoc/>
+    public async Task OpenShareAsync(IReadOnlyList<string> soundIds)
+    {
+        if (IsDialogOpen)
         {
-            if (IsDialogOpen)
-            {
-                return null;
-            }
-
-            IsDialogOpen = true;
-            var dialog = new EditTextDialog()
-            {
-                Text = prepopulatedText,
-                RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-            };
-
-            if (maxSize.HasValue)
-            {
-                dialog.MaxLength = maxSize.Value;
-            }
-
-            var result = await dialog.ShowAsync();
-            IsDialogOpen = false;
-
-            return result == ContentDialogResult.Primary && prepopulatedText != dialog.Text
-                ? dialog.Text.Trim()
-                : null;
+            return;
         }
+
+        IsDialogOpen = true;
+
+        var dialog = new ShareDialog()
+        {
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+        };
+
+        await dialog.ShowAsync();
+
+        IsDialogOpen = false;
     }
 }

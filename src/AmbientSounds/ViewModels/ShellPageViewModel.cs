@@ -3,6 +3,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly IFocusService _focusService;
     private readonly ISoundMixService _soundMixService;
+    private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private bool _isRatingMessageVisible;
     private bool _premiumButtonVisible;
     private bool _focusTimeBannerVisible;
@@ -45,7 +47,8 @@ public partial class ShellPageViewModel : ObservableObject
         IDialogService dialogService,
         IIapService iapService,
         IFocusService focusService,
-        ISoundMixService soundMixService)
+        ISoundMixService soundMixService,
+        IMixMediaPlayerService mixMediaPlayerService)
     {
         Guard.IsNotNull(userSettings);
         Guard.IsNotNull(timer);
@@ -55,6 +58,7 @@ public partial class ShellPageViewModel : ObservableObject
         Guard.IsNotNull(iapService);
         Guard.IsNotNull(focusService);
         Guard.IsNotNull(soundMixService);
+        Guard.IsNotNull(mixMediaPlayerService);
 
         _userSettings = userSettings;
         _ratingTimer = timer;
@@ -64,6 +68,7 @@ public partial class ShellPageViewModel : ObservableObject
         _iapService = iapService;
         _focusService = focusService;
         _soundMixService = soundMixService;
+        _mixMediaPlayerService = mixMediaPlayerService;
 
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
         var isNotFirstRun = !systemInfoProvider.IsFirstRun();
@@ -170,6 +175,13 @@ public partial class ShellPageViewModel : ObservableObject
             UpdateTimeBannerVisibility();
             UpdateFocusDotVisibility();
         }
+    }
+
+    [RelayCommand]
+    private async Task OpenShareAsync()
+    {
+        _telemetry.TrackEvent(TelemetryConstants.ShellPageShareClicked);
+        await _dialogService.OpenShareAsync(_mixMediaPlayerService.GetSoundIds());
     }
 
     public async void OpenPremiumDialog()
