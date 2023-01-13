@@ -891,6 +891,10 @@
           <source>Change the colours that appear in Ambie</source>
           <target state="new">Change the colours that appear in Ambie</target>
         </trans-unit>
+        <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
+          <source>Share what you're listening to</source>
+          <target state="new">Share what you're listening to</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -778,4 +778,7 @@
   <data name="SettingsThemeDescription" xml:space="preserve">
     <value>Change the colours that appear in Ambie</value>
   </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Share what you're listening to</value>
+  </data>
 </root>

@@ -160,6 +160,12 @@
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
                     </Button>
                     <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.ShareMessage}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphShare}" />
+                    </Button>
+                    <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
                         Click="{x:Bind ViewModel.OpenPremiumDialog}"
                         Style="{StaticResource SubtleIconButton}"

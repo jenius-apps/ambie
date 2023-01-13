@@ -1990,6 +1990,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ShareMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Share what you're listening to
+        /// </summary>
+        public static string ShareMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("ShareMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2153,6 +2166,7 @@ namespace AmbientSounds.Strings{
             SettingsGeneralHeader,
             SettingsTheme,
             SettingsThemeDescription,
+            ShareMessage,
         }
 
         private static ResourceLoader _resourceLoader;
