@@ -163,7 +163,7 @@ namespace AmbientSounds
             if (e is IActivatedEventArgs activatedEventArgs
                 && activatedEventArgs is IProtocolActivatedEventArgs protocolArgs)
             {
-                HandleProtocolLaunch(protocolArgs);
+                await HandleProtocolLaunchAsync(protocolArgs);
             }
 
             // Ensure previously scheduled toasts are closed on a fresh new launch.
@@ -189,7 +189,7 @@ namespace AmbientSounds
                 else
                 {
                     await ActivateAsync(false);
-                    HandleProtocolLaunch(protocolActivatedEventArgs);
+                    await HandleProtocolLaunchAsync(protocolActivatedEventArgs);
                 }
             }
         }
@@ -289,7 +289,7 @@ namespace AmbientSounds
             await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
         }
 
-        private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
+        private async Task HandleProtocolLaunchAsync(IProtocolActivatedEventArgs protocolArgs)
         {
             try
             {
@@ -300,9 +300,9 @@ namespace AmbientSounds
                 {
                     Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
                 }
-                else if (uri.Host is "share")
+                else if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
                 {
-                    _ = Services.GetService<ProtocolLaunchController>()?.ProcessShareProtocolArgumentsAsync(arg);
+                    await controller.ProcessShareProtocolArgumentsAsync(arg);
                 }
             }
             catch (UriFormatException)

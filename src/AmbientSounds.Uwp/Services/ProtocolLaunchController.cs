@@ -62,11 +62,17 @@ public class ProtocolLaunchController
             }
             else
             {
+                _player.RemoveAll();
+
                 foreach (var s in sounds)
                 {
-                    // TODO for some reason the third item on the list is always 
-                    // muted. Need to remove and re-add to get it to play.
                     await _player.ToggleSoundAsync(s);
+
+                    // For some reason the third item on the list is always muted. Need to remove and re-add to get it to play.
+                    // The delay below is a workaround that seems to let the third item play normally.
+                    // A delay of 1ms doesn't work, so 300ms was chosen to allow for the workaround
+                    // and to have a smooth-looking transition.
+                    await Task.Delay(300);
                 }
             }
         }
