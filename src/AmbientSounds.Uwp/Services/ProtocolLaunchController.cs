@@ -1,6 +1,9 @@
 ﻿using Microsoft.QueryStringDotNET;
 using CommunityToolkit.Diagnostics;
 using System;
+using AmbientSounds.Models;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 #nullable enable
 
@@ -9,14 +12,23 @@ namespace AmbientSounds.Services;
 public class ProtocolLaunchController
 {
     private readonly IMixMediaPlayerService _player;
+    private readonly IShareService _shareService;
+    private readonly ISoundService _soundService;
 
     private const string AutoPlayKey = "autoPlay";
 
-    public ProtocolLaunchController(IMixMediaPlayerService player)
+    public ProtocolLaunchController(
+        IMixMediaPlayerService player,
+        IShareService shareService,
+        ISoundService soundService)
     {
         Guard.IsNotNull(player);
+        Guard.IsNotNull(shareService);
+        Guard.IsNotNull(soundService);
 
         _player = player;
+        _shareService = shareService;
+        _soundService = soundService;
     }
 
     public void ProcessLaunchProtocolArguments(string arguments)
@@ -28,6 +40,35 @@ public class ProtocolLaunchController
         {
             // Auto play music.
             _player.Play();
+        }
+    }
+
+    public async Task ProcessShareProtocolArgumentsAsync(string arguments)
+    {
+        var query = QueryString.Parse(arguments);
+
+        if (query.TryGetValue("id", out var shareId))
+        {
+            IReadOnlyList<string> soundIds = await _shareService.GetSoundIdsAsync(shareId);
+            if (soundIds.Count == 0)
+            {
+                return;
+            }
+
+            IReadOnlyList<Sound> sounds = await _soundService.GetLocalSoundsAsync(soundIds);
+            if (sounds.Count != soundIds.Count)
+            {
+                // open missing sounds 
+            }
+            else
+            {
+                foreach (var s in sounds)
+                {
+                    // TODO for some reason the third item on the list is always 
+                    // muted. Need to remove and re-add to get it to play.
+                    await _player.ToggleSoundAsync(s);
+                }
+            }
         }
     }
 }

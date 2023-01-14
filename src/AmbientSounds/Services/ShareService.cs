@@ -16,6 +16,7 @@ public class ShareService : IShareService
 {
     private readonly HttpClient _client;
     private readonly ConcurrentDictionary<string, ShareDetail> _soundIdCache = new();
+    private readonly ConcurrentDictionary<string, ShareDetail> _shareIdCache = new();
     private readonly string _baseUrl;
 
     public ShareService(
@@ -61,12 +62,56 @@ public class ShareService : IShareService
             if (shareDetail is not null)
             {
                 _soundIdCache.TryAdd(key, shareDetail);
+                _shareIdCache.TryAdd(shareDetail.Id, shareDetail);
             }
 
             return shareDetail;
         }
 
         return null;
+    }
+
+    public async Task<ShareDetail?> GetShareDetailAsync(string shareId)
+    {
+        if (string.IsNullOrEmpty(shareId))
+        {
+            return null;
+        }
+
+        if (_shareIdCache.TryGetValue(shareId, out ShareDetail result))
+        {
+            return result;
+        }
+
+        var url = $"{_baseUrl}/detail?shareId={shareId}";
+        HttpRequestMessage message = new(HttpMethod.Get, url);
+        HttpResponseMessage response = await _client.SendAsync(message);
+        if (response.IsSuccessStatusCode)
+        {
+            using Stream content = await response.Content.ReadAsStreamAsync();
+            ShareDetail? shareDetail = await JsonSerializer.DeserializeAsync(content, AmbieJsonSerializerContext.CaseInsensitive.ShareDetail);
+
+            if (shareDetail is not null)
+            {
+                _soundIdCache.TryAdd(shareDetail.SoundIdComposite, shareDetail);
+                _shareIdCache.TryAdd(shareId, shareDetail);
+            }
+
+            return shareDetail;
+        }
+
+        return null;
+    }
+
+    public async Task<IReadOnlyList<string>> GetSoundIdsAsync(string shareId)
+    {
+        ShareDetail? detail = await GetShareDetailAsync(shareId);
+        if (string.IsNullOrEmpty(detail?.SoundIdComposite))
+        {
+            return Array.Empty<string>();
+        }
+
+        return detail!.SoundIdComposite.Split(';');
     }
 
     private string SortAndCompose(IReadOnlyList<string> ids)

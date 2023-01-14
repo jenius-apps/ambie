@@ -294,11 +294,15 @@ namespace AmbientSounds
             try
             {
                 var uri = protocolArgs.Uri;
+                var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
 
-                if (uri.Host == "launch")
+                if (uri.Host is "launch")
                 {
-                    var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
                     Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
+                }
+                else if (uri.Host is "share")
+                {
+                    _ = Services.GetService<ProtocolLaunchController>()?.ProcessShareProtocolArgumentsAsync(arg);
                 }
             }
             catch (UriFormatException)
