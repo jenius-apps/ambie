@@ -23,6 +23,7 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundService _soundDataProvider;
         private readonly ITelemetry _telemetry;
         private readonly IPresenceService _presenceService;
+        private readonly IShareService _shareService;
         private readonly bool _loadPreviousState;
         private bool _loaded;
 
@@ -35,15 +36,17 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             ISoundService soundDataProvider,
             IAppSettings appSettings,
-            IPresenceService presenceService)
+            IPresenceService presenceService,
+            IShareService shareService)
         {
-            Guard.IsNotNull(player, nameof(player));
-            Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
-            Guard.IsNotNull(userSettings, nameof(userSettings));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(appSettings, nameof(appSettings));
-            Guard.IsNotNull(presenceService, nameof(presenceService));
+            Guard.IsNotNull(player);
+            Guard.IsNotNull(soundVmFactory);
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNull(appSettings);
+            Guard.IsNotNull(presenceService);
+            Guard.IsNotNull(shareService);
 
             _loadPreviousState = appSettings.LoadPreviousState;
             _telemetry = telemetry;
@@ -52,6 +55,7 @@ namespace AmbientSounds.ViewModels
             _soundVmFactory = soundVmFactory;
             _player = player;
             _presenceService = presenceService;
+            _shareService = shareService;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             ClearCommand = new RelayCommand(ClearAll);
@@ -120,7 +124,7 @@ namespace AmbientSounds.ViewModels
             else
             {
                 // This case is when the app is being launched.
-
+                var recent = _shareService.RecentShare;
                 var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
                 var previousActiveTrackIds = _userSettings.GetAndDeserialize(UserSettingsConstants.ActiveTracks, AmbieJsonSerializerContext.Default.StringArray);
                 var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: previousActiveTrackIds);

@@ -163,7 +163,7 @@ namespace AmbientSounds
             if (e is IActivatedEventArgs activatedEventArgs
                 && activatedEventArgs is IProtocolActivatedEventArgs protocolArgs)
             {
-                await HandleProtocolLaunchAsync(protocolArgs);
+                HandleProtocolLaunch(protocolArgs);
             }
 
             // Ensure previously scheduled toasts are closed on a fresh new launch.
@@ -189,7 +189,7 @@ namespace AmbientSounds
                 else
                 {
                     await ActivateAsync(false);
-                    await HandleProtocolLaunchAsync(protocolActivatedEventArgs);
+                    HandleProtocolLaunch(protocolActivatedEventArgs);
                 }
             }
         }
@@ -289,7 +289,7 @@ namespace AmbientSounds
             await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
         }
 
-        private async Task HandleProtocolLaunchAsync(IProtocolActivatedEventArgs protocolArgs)
+        private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
         {
             try
             {
@@ -302,7 +302,7 @@ namespace AmbientSounds
                 }
                 else if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
                 {
-                    await controller.ProcessShareProtocolArgumentsAsync(arg);
+                    controller.ProcessShareProtocolArguments(arg);
                 }
             }
             catch (UriFormatException)
@@ -446,6 +446,8 @@ namespace AmbientSounds
                 .AddSingleton<IFocusTaskCache, FocusTaskCache>()
                 .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
                 .AddSingleton<IVideoCache, VideoCache>()
+                .AddSingleton<IShareDetailCache, ShareDetailCache>()
+                .AddSingleton<IShareDetailRepository, ShareDetailRepository>()
                 .AddSingleton<IFocusTaskRepository, FocusTaskRepository>()
                 .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
                 .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()

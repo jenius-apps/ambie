@@ -43,38 +43,13 @@ public class ProtocolLaunchController
         }
     }
 
-    public async Task ProcessShareProtocolArgumentsAsync(string arguments)
+    public void ProcessShareProtocolArguments(string arguments)
     {
         var query = QueryString.Parse(arguments);
 
         if (query.TryGetValue("id", out var shareId))
         {
-            IReadOnlyList<string> soundIds = await _shareService.GetSoundIdsAsync(shareId);
-            if (soundIds.Count == 0)
-            {
-                return;
-            }
-
-            IReadOnlyList<Sound> sounds = await _soundService.GetLocalSoundsAsync(soundIds);
-            if (sounds.Count != soundIds.Count)
-            {
-                // open missing sounds 
-            }
-            else
-            {
-                _player.RemoveAll();
-
-                foreach (var s in sounds)
-                {
-                    await _player.ToggleSoundAsync(s);
-
-                    // For some reason the third item on the list is always muted. Need to remove and re-add to get it to play.
-                    // The delay below is a workaround that seems to let the third item play normally.
-                    // A delay of 1ms doesn't work, so 300ms was chosen to allow for the workaround
-                    // and to have a smooth-looking transition.
-                    await Task.Delay(300);
-                }
-            }
+            _ =_shareService.ProcessShareRequestAsync(shareId);
         }
     }
 }
