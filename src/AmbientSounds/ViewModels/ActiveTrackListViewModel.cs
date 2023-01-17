@@ -3,6 +3,7 @@ using AmbientSounds.Events;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -24,6 +25,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IPresenceService _presenceService;
         private readonly IShareService _shareService;
+        private readonly IDispatcherQueue _dispatcherQueue;
         private readonly bool _loadPreviousState;
         private bool _loaded;
 
@@ -37,7 +39,8 @@ namespace AmbientSounds.ViewModels
             ISoundService soundDataProvider,
             IAppSettings appSettings,
             IPresenceService presenceService,
-            IShareService shareService)
+            IShareService shareService,
+            IDispatcherQueue dispatcherQueue)
         {
             Guard.IsNotNull(player);
             Guard.IsNotNull(soundVmFactory);
@@ -47,6 +50,7 @@ namespace AmbientSounds.ViewModels
             Guard.IsNotNull(appSettings);
             Guard.IsNotNull(presenceService);
             Guard.IsNotNull(shareService);
+            Guard.IsNotNull(dispatcherQueue);
 
             _loadPreviousState = appSettings.LoadPreviousState;
             _telemetry = telemetry;
@@ -56,6 +60,7 @@ namespace AmbientSounds.ViewModels
             _player = player;
             _presenceService = presenceService;
             _shareService = shareService;
+            _dispatcherQueue = dispatcherQueue;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             ClearCommand = new RelayCommand(ClearAll);
@@ -92,6 +97,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public async Task LoadPreviousStateAsync()
         {
+            _shareService.ShareRequested += OnShareRequested;
             _player.SoundAdded += OnSoundAdded;
             _player.SoundRemoved += OnSoundRemoved;
             ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
@@ -124,7 +130,6 @@ namespace AmbientSounds.ViewModels
             else
             {
                 // This case is when the app is being launched.
-                var recent = _shareService.RecentShare;
                 var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
                 var previousActiveTrackIds = _userSettings.GetAndDeserialize(UserSettingsConstants.ActiveTracks, AmbieJsonSerializerContext.Default.StringArray);
                 var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: previousActiveTrackIds);
@@ -232,6 +237,20 @@ namespace AmbientSounds.ViewModels
             ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
             _player.SoundAdded -= OnSoundAdded;
             _player.SoundRemoved -= OnSoundRemoved;
+            _shareService.ShareRequested -= OnShareRequested;
+        }
+
+        private async void OnShareRequested(object sender, IReadOnlyList<string> soundIds)
+        {
+            var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds);
+            if (sounds is { Count: > 0 })
+            {
+                ClearAll();
+                foreach (var s in sounds)
+                {
+                    await _player.ToggleSoundAsync(s);
+                }
+            }
         }
     }
 }

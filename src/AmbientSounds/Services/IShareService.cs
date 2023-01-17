@@ -1,5 +1,4 @@
-﻿using AmbientSounds.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,8 +9,6 @@ namespace AmbientSounds.Services;
 public interface IShareService
 {
     event EventHandler<IReadOnlyList<string>>? ShareRequested;
-
-    IReadOnlyList<string>? RecentShare { get; }
 
     Task ProcessShareRequestAsync(string shareId);
 

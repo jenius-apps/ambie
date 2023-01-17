@@ -25,8 +25,6 @@ public class ShareService : IShareService
         _baseShareUrl = appSettings.ShareUrl;
     }
 
-    public IReadOnlyList<string>? RecentShare { get; private set; }
-
     public async Task ProcessShareRequestAsync(string shareId)
     {
         Guard.IsNotNull(shareId);
@@ -37,7 +35,6 @@ public class ShareService : IShareService
             return;
         }
 
-        RecentShare = soundIds;
         ShareRequested?.Invoke(this, soundIds);
     }
 
