@@ -243,6 +243,14 @@ namespace AmbientSounds.ViewModels
         private async void OnShareRequested(object sender, IReadOnlyList<string> soundIds)
         {
             var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds);
+            _ = Task.Run(() =>
+            {
+                if (sounds.Count != soundIds.Count)
+                {
+                    _shareService.LogShareFailed(soundIds);
+                }
+            });
+
             if (sounds is { Count: > 0 })
             {
                 ClearAll();

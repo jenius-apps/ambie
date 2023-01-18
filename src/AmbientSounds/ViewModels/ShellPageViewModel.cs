@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -24,6 +25,8 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IFocusService _focusService;
     private readonly ISoundMixService _soundMixService;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
+    private readonly IShareService _shareService;
+    private readonly IDispatcherQueue _dispatcherQueue;
     private bool _isRatingMessageVisible;
     private bool _premiumButtonVisible;
     private bool _focusTimeBannerVisible;
@@ -38,6 +41,9 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private int _footerMenuIndex = -1;
 
+    [ObservableProperty]
+    private bool _isMissingSoundsMessageVisible;
+
     public ShellPageViewModel(
         IUserSettings userSettings,
         ITimerService timer,
@@ -48,7 +54,9 @@ public partial class ShellPageViewModel : ObservableObject
         IIapService iapService,
         IFocusService focusService,
         ISoundMixService soundMixService,
-        IMixMediaPlayerService mixMediaPlayerService)
+        IMixMediaPlayerService mixMediaPlayerService,
+        IShareService shareService,
+        IDispatcherQueue dispatcherQueue)
     {
         Guard.IsNotNull(userSettings);
         Guard.IsNotNull(timer);
@@ -59,6 +67,8 @@ public partial class ShellPageViewModel : ObservableObject
         Guard.IsNotNull(focusService);
         Guard.IsNotNull(soundMixService);
         Guard.IsNotNull(mixMediaPlayerService);
+        Guard.IsNotNull(shareService);
+        Guard.IsNotNull(dispatcherQueue);
 
         _userSettings = userSettings;
         _ratingTimer = timer;
@@ -69,6 +79,8 @@ public partial class ShellPageViewModel : ObservableObject
         _focusService = focusService;
         _soundMixService = soundMixService;
         _mixMediaPlayerService = mixMediaPlayerService;
+        _shareService = shareService;
+        _dispatcherQueue = dispatcherQueue;
 
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
         var isNotFirstRun = !systemInfoProvider.IsFirstRun();
@@ -206,6 +218,7 @@ public partial class ShellPageViewModel : ObservableObject
         _userSettings.SettingSet += OnSettingSet;
         _focusService.FocusStateChanged += OnFocusStateChanged;
         _navigator.ContentPageChanged += OnContentPageChanged;
+        _shareService.ShareFailed += OnShareFailed;
 
         await LoadPremiumButtonAsync();
 
@@ -213,6 +226,27 @@ public partial class ShellPageViewModel : ObservableObject
         {
             TitleBarVisible = !args.IsGameBarWidget;
         }
+    }
+
+    private void OnShareFailed(object sender, EventArgs e)
+    {
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            IsMissingSoundsMessageVisible = true;
+        });
+    }
+
+    [RelayCommand]
+    private async Task OpenMissingDialogAsync()
+    {
+        IsMissingSoundsMessageVisible = false;
+        await Task.Delay(1);
+    }
+
+    [RelayCommand]
+    private void DismissMissingDialog()
+    {
+        IsMissingSoundsMessageVisible = false;
     }
 
     private void OnContentPageChanged(object sender, ContentPageType e)
@@ -258,6 +292,7 @@ public partial class ShellPageViewModel : ObservableObject
         _iapService.ProductPurchased -= OnProductPurchased;
         _focusService.FocusStateChanged -= OnFocusStateChanged;
         _navigator.ContentPageChanged -= OnContentPageChanged;
+        _shareService.ShareFailed -= OnShareFailed;
     }
 
     private async Task LoadPremiumButtonAsync()

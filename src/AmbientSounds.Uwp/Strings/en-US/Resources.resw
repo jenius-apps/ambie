@@ -781,4 +781,13 @@
   <data name="ShareMessage" xml:space="preserve">
     <value>Share what you're listening to</value>
   </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Let's see if they can be downloaded.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>You're missing some sounds</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Review</value>
+  </data>
 </root>
