@@ -9,6 +9,15 @@ namespace AmbientSounds.Services;
 public interface IShareService
 {
     /// <summary>
+    /// List of failed sound IDs.
+    /// </summary>
+    /// <remarks>
+    /// Populated when <see cref="ShareFailed"/>
+    /// is fired.
+    /// </remarks>
+    IReadOnlyList<string>? FailedSoundIds { get; }
+
+    /// <summary>
     /// Raised after a share was received and processed.
     /// Payload is the list of sounds that was received.
     /// </summary>

@@ -67,4 +67,9 @@ public interface IDialogService
     /// Opens the share dialog.
     /// </summary>
     Task OpenShareAsync(IReadOnlyList<string> soundIds);
+
+    /// <summary>
+    /// Opens the missing shared sounds dialog.
+    /// </summary>
+    Task MissingShareSoundsDialogAsync();
 }

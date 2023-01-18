@@ -239,4 +239,27 @@ public class DialogService : IDialogService
         dialog.Uninitialize();
         IsDialogOpen = false;
     }
+
+    /// <inheritdoc/>
+    public async Task MissingShareSoundsDialogAsync()
+    {
+        if (IsDialogOpen)
+        {
+            return;
+        }
+
+        IsDialogOpen = true;
+        var content = new DownloadMissingList();
+        _ = content.InitializeAsync();
+        var dialog = new ContentDialog()
+        {
+            Title = Strings.Resources.MissingSoundsTitle,
+            CloseButtonText = Strings.Resources.CloseText,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Content = content
+        };
+
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 }

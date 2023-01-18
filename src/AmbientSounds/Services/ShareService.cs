@@ -12,7 +12,6 @@ public class ShareService : IShareService
 {
     private readonly IShareDetailCache _shareDetailCache;
     private readonly string _baseShareUrl;
-    private IReadOnlyList<string>? _failedShare;
 
     public event EventHandler<IReadOnlyList<string>>? ShareRequested;
 
@@ -27,6 +26,9 @@ public class ShareService : IShareService
         _shareDetailCache = shareDetail;
         _baseShareUrl = appSettings.ShareUrl;
     }
+
+    /// <inheritdoc/>
+    public IReadOnlyList<string>? FailedSoundIds { get; private set; }
 
     /// <inheritdoc/>
     public async Task ProcessShareRequestAsync(string shareId)
@@ -45,8 +47,11 @@ public class ShareService : IShareService
     /// <inheritdoc/>
     public void LogShareFailed(IReadOnlyList<string> soundIds)
     {
-        _failedShare = soundIds;
-        ShareFailed?.Invoke(this, EventArgs.Empty);
+        if (soundIds.Count > 0)
+        {
+            FailedSoundIds = soundIds;
+            ShareFailed?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     /// <inheritdoc/>

@@ -240,7 +240,7 @@ public partial class ShellPageViewModel : ObservableObject
     private async Task OpenMissingDialogAsync()
     {
         IsMissingSoundsMessageVisible = false;
-        await Task.Delay(1);
+        await _dialogService.MissingShareSoundsDialogAsync();
     }
 
     [RelayCommand]
