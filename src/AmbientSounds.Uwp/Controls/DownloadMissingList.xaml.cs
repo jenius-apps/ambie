@@ -22,6 +22,8 @@ public sealed partial class DownloadMissingList : UserControl
         await ViewModel.InitializeAsync();
     }
 
+    public void Uninitialize() => ViewModel.Uninitialize();
+
     private void PremiumControl_CloseRequested(object sender, System.EventArgs e)
     {
         if (sender is FrameworkElement fe &&

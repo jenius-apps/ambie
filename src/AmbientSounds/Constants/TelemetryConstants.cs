@@ -63,6 +63,11 @@
         private const string Share = "share:";
         public const string ShareClicked = Share + "clicked";
         public const string ShareReceived = Share + "received";
+        public const string SharePlayed = Share + "soundsPlayed";
+        public const string ShareSoundsMissingLoaded = Share + "missingSoundsLoaded";
+        public const string ShareFailedMessageShown = Share + "failedMessageShown";
+        public const string ShareFailedMessageClicked = Share + "failedMessageClicked";
+        public const string ShareFailedMessageDismissed = Share + "failedMessageDismissed";
 
         // Sign in
         private const string Signin = "signin:";

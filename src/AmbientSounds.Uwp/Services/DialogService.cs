@@ -260,6 +260,7 @@ public class DialogService : IDialogService
         };
 
         await dialog.ShowAsync();
+        content.Uninitialize();
         IsDialogOpen = false;
     }
 }

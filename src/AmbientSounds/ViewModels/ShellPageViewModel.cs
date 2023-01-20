@@ -234,18 +234,22 @@ public partial class ShellPageViewModel : ObservableObject
         {
             IsMissingSoundsMessageVisible = true;
         });
+
+        _telemetry.TrackEvent(TelemetryConstants.ShareFailedMessageShown);
     }
 
     [RelayCommand]
     private async Task OpenMissingDialogAsync()
     {
         IsMissingSoundsMessageVisible = false;
+        _telemetry.TrackEvent(TelemetryConstants.ShareFailedMessageClicked);
         await _dialogService.MissingShareSoundsDialogAsync();
     }
 
     [RelayCommand]
     private void DismissMissingDialog()
     {
+        _telemetry.TrackEvent(TelemetryConstants.ShareFailedMessageDismissed);
         IsMissingSoundsMessageVisible = false;
     }
 

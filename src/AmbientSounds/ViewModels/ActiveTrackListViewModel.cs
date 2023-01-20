@@ -258,6 +258,12 @@ namespace AmbientSounds.ViewModels
                 {
                     await _player.ToggleSoundAsync(s);
                 }
+
+                _telemetry.TrackEvent(TelemetryConstants.SharePlayed, new Dictionary<string, string>
+                {
+                    { "missingSounds", (sounds.Count < soundIds.Count).ToString() },
+                    { "id count", soundIds.Count.ToString() }
+                });
             }
         }
     }
