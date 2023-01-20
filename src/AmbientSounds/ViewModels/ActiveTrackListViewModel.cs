@@ -3,6 +3,7 @@ using AmbientSounds.Events;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -23,6 +24,8 @@ namespace AmbientSounds.ViewModels
         private readonly ISoundService _soundDataProvider;
         private readonly ITelemetry _telemetry;
         private readonly IPresenceService _presenceService;
+        private readonly IShareService _shareService;
+        private readonly IDispatcherQueue _dispatcherQueue;
         private readonly bool _loadPreviousState;
         private bool _loaded;
 
@@ -35,15 +38,19 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             ISoundService soundDataProvider,
             IAppSettings appSettings,
-            IPresenceService presenceService)
+            IPresenceService presenceService,
+            IShareService shareService,
+            IDispatcherQueue dispatcherQueue)
         {
-            Guard.IsNotNull(player, nameof(player));
-            Guard.IsNotNull(soundVmFactory, nameof(soundVmFactory));
-            Guard.IsNotNull(userSettings, nameof(userSettings));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(appSettings, nameof(appSettings));
-            Guard.IsNotNull(presenceService, nameof(presenceService));
+            Guard.IsNotNull(player);
+            Guard.IsNotNull(soundVmFactory);
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(telemetry);
+            Guard.IsNotNull(appSettings);
+            Guard.IsNotNull(presenceService);
+            Guard.IsNotNull(shareService);
+            Guard.IsNotNull(dispatcherQueue);
 
             _loadPreviousState = appSettings.LoadPreviousState;
             _telemetry = telemetry;
@@ -52,6 +59,8 @@ namespace AmbientSounds.ViewModels
             _soundVmFactory = soundVmFactory;
             _player = player;
             _presenceService = presenceService;
+            _shareService = shareService;
+            _dispatcherQueue = dispatcherQueue;
 
             RemoveCommand = new RelayCommand<Sound>(RemoveSound);
             ClearCommand = new RelayCommand(ClearAll);
@@ -88,6 +97,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public async Task LoadPreviousStateAsync()
         {
+            _shareService.ShareRequested += OnShareRequested;
             _player.SoundAdded += OnSoundAdded;
             _player.SoundRemoved += OnSoundRemoved;
             ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
@@ -120,7 +130,6 @@ namespace AmbientSounds.ViewModels
             else
             {
                 // This case is when the app is being launched.
-
                 var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
                 var previousActiveTrackIds = _userSettings.GetAndDeserialize(UserSettingsConstants.ActiveTracks, AmbieJsonSerializerContext.Default.StringArray);
                 var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: previousActiveTrackIds);
@@ -228,6 +237,34 @@ namespace AmbientSounds.ViewModels
             ActiveTracks.CollectionChanged -= ActiveTracks_CollectionChanged;
             _player.SoundAdded -= OnSoundAdded;
             _player.SoundRemoved -= OnSoundRemoved;
+            _shareService.ShareRequested -= OnShareRequested;
+        }
+
+        private async void OnShareRequested(object sender, IReadOnlyList<string> soundIds)
+        {
+            var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds);
+            _ = Task.Run(() =>
+            {
+                if (sounds.Count != soundIds.Count)
+                {
+                    _shareService.LogShareFailed(soundIds);
+                }
+            });
+
+            if (sounds is { Count: > 0 })
+            {
+                ClearAll();
+                foreach (var s in sounds)
+                {
+                    await _player.ToggleSoundAsync(s);
+                }
+
+                _telemetry.TrackEvent(TelemetryConstants.SharePlayed, new Dictionary<string, string>
+                {
+                    { "missingSounds", (sounds.Count < soundIds.Count).ToString() },
+                    { "id count", soundIds.Count.ToString() }
+                });
+            }
         }
     }
 }

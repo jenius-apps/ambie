@@ -147,6 +147,9 @@
     <Compile Include="Controls\CompactFocusTimerModule.xaml.cs">
       <DependentUpon>CompactFocusTimerModule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DownloadMissingList.xaml.cs">
+      <DependentUpon>DownloadMissingList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EditTextDialog.xaml.cs">
       <DependentUpon>EditTextDialog.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,12 @@
     </Compile>
     <Compile Include="Controls\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ShareControl.xaml.cs">
+      <DependentUpon>ShareControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ShareDialog.xaml.cs">
+      <DependentUpon>ShareDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Shimmer.xaml.cs">
       <DependentUpon>Shimmer.xaml</DependentUpon>
@@ -457,6 +466,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\DownloadMissingList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\EditTextDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -542,6 +555,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ShareControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ShareDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

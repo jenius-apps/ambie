@@ -1990,6 +1990,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ShareMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Share what you're listening to
+        /// </summary>
+        public static string ShareMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("ShareMessage");
+            }
+        }
+        #endregion
+
+        #region MissingShareSoundsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Let's see if they can be downloaded.
+        /// </summary>
+        public static string MissingShareSoundsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingShareSoundsMessage");
+            }
+        }
+        #endregion
+
+        #region MissingShareSoundsTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: You're missing some sounds
+        /// </summary>
+        public static string MissingShareSoundsTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingShareSoundsTitle");
+            }
+        }
+        #endregion
+
+        #region ReviewText
+        /// <summary>
+        ///   Looks up a localized string similar to: Review
+        /// </summary>
+        public static string ReviewText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ReviewText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2153,6 +2205,10 @@ namespace AmbientSounds.Strings{
             SettingsGeneralHeader,
             SettingsTheme,
             SettingsThemeDescription,
+            ShareMessage,
+            MissingShareSoundsMessage,
+            MissingShareSoundsTitle,
+            ReviewText,
         }
 
         private static ResourceLoader _resourceLoader;

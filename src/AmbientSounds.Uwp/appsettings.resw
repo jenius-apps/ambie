@@ -144,4 +144,7 @@
   <data name="PresenceUrl" xml:space="preserve">
     <value>http://localhost</value>
   </data>
+  <data name="ShareUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
 </root>

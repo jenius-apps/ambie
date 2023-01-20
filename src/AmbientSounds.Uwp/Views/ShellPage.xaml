@@ -160,6 +160,15 @@
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
                     </Button>
                     <Button
+                        x:Name="ShareButton"
+                        AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
+                        Command="{x:Bind ViewModel.OpenShareCommand}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.ShareMessage}"
+                        Visibility="Collapsed">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphShare}" />
+                    </Button>
+                    <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
                         Click="{x:Bind ViewModel.OpenPremiumDialog}"
                         Style="{StaticResource SubtleIconButton}"
@@ -294,5 +303,15 @@
             IsOpen="{x:Bind ViewModel.IsRatingMessageVisible, Mode=OneWay}"
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.RateUsMessage}" />
+
+        <winui:TeachingTip
+            Title="{x:Bind strings:Resources.MissingShareSoundsTitle}"
+            ActionButtonCommand="{x:Bind ViewModel.OpenMissingDialogCommand}"
+            ActionButtonContent="{x:Bind strings:Resources.ReviewText}"
+            CloseButtonCommand="{x:Bind ViewModel.DismissMissingDialogCommand}"
+            CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
+            IsOpen="{x:Bind ViewModel.IsMissingSoundsMessageVisible, Mode=OneWay}"
+            PreferredPlacement="Bottom"
+            Subtitle="{x:Bind strings:Resources.MissingShareSoundsMessage}" />
     </Grid>
 </Page>

@@ -19,6 +19,7 @@ namespace AmbientSounds.Services.Uwp
             CloudSyncFileUrl = resourceLoader.GetString(nameof(CloudSyncFileUrl));
             UploadUrl = resourceLoader.GetString(nameof(UploadUrl));
             VideosUrl = resourceLoader.GetString(nameof(VideosUrl));
+            ShareUrl = resourceLoader.GetString(nameof(ShareUrl));
             CatalogueScope = resourceLoader.GetString(nameof(CatalogueScope));
             PresenceUrl = resourceLoader.GetString(nameof(PresenceUrl));
         }
@@ -46,6 +47,9 @@ namespace AmbientSounds.Services.Uwp
 
         /// <inheritdoc/>
         public string VideosUrl { get; set; }
+
+        /// <inheritdoc/>
+        public string ShareUrl { get; set; }
 
         /// <inheritdoc/>
         public string CatalogueScope { get; set; }

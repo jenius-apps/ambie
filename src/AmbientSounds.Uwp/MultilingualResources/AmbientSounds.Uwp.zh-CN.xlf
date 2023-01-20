@@ -889,6 +889,22 @@
           <source>Change the colours that appear in Ambie</source>
           <target state="translated">更改 Ambie 中显示的颜色</target>
         </trans-unit>
+        <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
+          <source>Share what you're listening to</source>
+          <target state="new">Share what you're listening to</target>
+        </trans-unit>
+        <trans-unit id="MissingShareSoundsMessage" translate="yes" xml:space="preserve">
+          <source>Let's see if they can be downloaded.</source>
+          <target state="new">Let's see if they can be downloaded.</target>
+        </trans-unit>
+        <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
+          <source>You're missing some sounds</source>
+          <target state="new">You're missing some sounds</target>
+        </trans-unit>
+        <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <target state="new">Review</target>
+        </trans-unit>
       </group>
     </body>
   </file>

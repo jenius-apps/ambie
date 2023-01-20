@@ -39,6 +39,7 @@ namespace AmbientSounds.Models;
 /// </para>
 /// </remarks>
 [JsonSerializable(typeof(FocusHistory))]
+[JsonSerializable(typeof(ShareDetail))]
 [JsonSerializable(typeof(FocusHistorySummary))]
 [JsonSerializable(typeof(FocusTask[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(IEnumerable<FocusTask>))]

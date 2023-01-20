@@ -294,11 +294,15 @@ namespace AmbientSounds
             try
             {
                 var uri = protocolArgs.Uri;
+                var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
 
-                if (uri.Host == "launch")
+                if (uri.Host is "launch")
                 {
-                    var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
                     Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
+                }
+                else if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
+                {
+                    controller.ProcessShareProtocolArguments(arg);
                 }
             }
             catch (UriFormatException)
@@ -412,6 +416,8 @@ namespace AmbientSounds
                 .AddSingleton<VideosMenuViewModel>()
                 .AddSingleton<TimeBannerViewModel>()
                 .AddSingleton<InterruptionPageViewModel>()
+                .AddSingleton<DownloadMissingViewModel>()
+                .AddSingleton<ShareViewModel>()
                 .AddSingleton<FocusPageViewModel>()
                 .AddSingleton<CompactPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
@@ -433,6 +439,7 @@ namespace AmbientSounds
                 .AddSingleton<IFocusTaskService, FocusTaskService>()
                 .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
+                .AddSingleton<IShareService, ShareService>()
                 .AddSingleton<IPresenceService, PresenceService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
@@ -440,6 +447,8 @@ namespace AmbientSounds
                 .AddSingleton<IFocusTaskCache, FocusTaskCache>()
                 .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
                 .AddSingleton<IVideoCache, VideoCache>()
+                .AddSingleton<IShareDetailCache, ShareDetailCache>()
+                .AddSingleton<IShareDetailRepository, ShareDetailRepository>()
                 .AddSingleton<IFocusTaskRepository, FocusTaskRepository>()
                 .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
                 .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
