@@ -673,4 +673,16 @@
   <data name="SettingsThemeDescription" xml:space="preserve">
     <value>Modificare i colori visualizzati in Ambie</value>
   </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Condividi quello che stai ascoltando</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Vediamo se possono essere scaricati.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Ti manca la musica</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Revisione</value>
+  </data>
 </root>

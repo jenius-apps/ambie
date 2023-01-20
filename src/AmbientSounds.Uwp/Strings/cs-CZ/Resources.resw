@@ -673,4 +673,16 @@
   <data name="SettingsThemeDescription" xml:space="preserve">
     <value>Změna barev, které se zobrazují v Ambie</value>
   </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Sdílejte, co posloucháte</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Podívejme se, zda se dají stáhnout.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Chybí vám hudba</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Posouzení</value>
+  </data>
 </root>

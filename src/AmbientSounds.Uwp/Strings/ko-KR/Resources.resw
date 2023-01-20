@@ -673,4 +673,16 @@
   <data name="SettingsThemeDescription" xml:space="preserve">
     <value>Ambie에 표시되는 색상 변경</value>
   </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>듣고 있는 것을 공유하세요</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>다운로드가 가능한지 알아봅시다.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>음악이 누락되었습니다</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>검토</value>
+  </data>
 </root>

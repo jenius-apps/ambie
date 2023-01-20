@@ -886,19 +886,19 @@
         </trans-unit>
         <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
           <source>Share what you're listening to</source>
-          <target state="new">Share what you're listening to</target>
+          <target state="translated">聴いているものを共有する</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsMessage" translate="yes" xml:space="preserve">
           <source>Let's see if they can be downloaded.</source>
-          <target state="new">Let's see if they can be downloaded.</target>
+          <target state="translated">ダウンロードできるか見てみましょう.</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
           <source>You're missing some sounds</source>
-          <target state="new">You're missing some sounds</target>
+          <target state="translated">音楽がありません</target>
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="translated">レビュー</target>
         </trans-unit>
       </group>
     </body>

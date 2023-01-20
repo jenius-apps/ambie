@@ -673,4 +673,16 @@
   <data name="SettingsThemeDescription" xml:space="preserve">
     <value>アンビに表示される色を変更する</value>
   </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>聴いているものを共有する</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>ダウンロードできるか見てみましょう.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>音楽がありません</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>レビュー</value>
+  </data>
 </root>

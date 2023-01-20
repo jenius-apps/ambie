@@ -890,19 +890,19 @@
         </trans-unit>
         <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
           <source>Share what you're listening to</source>
-          <target state="new">Share what you're listening to</target>
+          <target state="translated">듣고 있는 것을 공유하세요</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsMessage" translate="yes" xml:space="preserve">
           <source>Let's see if they can be downloaded.</source>
-          <target state="new">Let's see if they can be downloaded.</target>
+          <target state="translated">다운로드가 가능한지 알아봅시다.</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
           <source>You're missing some sounds</source>
-          <target state="new">You're missing some sounds</target>
+          <target state="translated">음악이 누락되었습니다</target>
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="translated">검토</target>
         </trans-unit>
       </group>
     </body>
