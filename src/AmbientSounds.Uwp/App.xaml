@@ -236,6 +236,7 @@
             <x:String x:Key="GlyphPaintBrush">&#xEAEE;</x:String>
             <x:String x:Key="GlyphPallete">&#xE9C0;</x:String>
             <x:String x:Key="GlyphShare">&#xEB60;</x:String>
+            <x:String x:Key="GlyphCheckMarkCircle">&#xE9A2;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

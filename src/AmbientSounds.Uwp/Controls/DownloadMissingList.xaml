@@ -24,21 +24,14 @@
                 <DataTemplate x:DataType="viewmodels:OnlineSoundViewModel">
                     <Grid AutomationProperties.Name="{x:Bind Name}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="44" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <local:PlusBadge Visibility="{x:Bind PlusBadgeVisible}" />
-
-                        <TextBlock
-                            Grid.Column="1"
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            Text="{x:Bind Name}" />
+                        <TextBlock VerticalAlignment="Center" Text="{x:Bind Name}" />
 
                         <winui:ProgressRing
-                            Grid.Column="2"
+                            Grid.Column="1"
                             Width="20"
                             Height="20"
                             Margin="0,0,8,0"
@@ -47,8 +40,9 @@
                             Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
 
                         <Button
-                            Grid.Column="2"
+                            Grid.Column="1"
                             AutomationProperties.Name="{x:Bind strings:Resources.ViewPremiumInfo}"
+                            Style="{StaticResource SmallSubtleIconButton}"
                             ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
                             Visibility="{x:Bind local:UIHelper.InvertVisibility(IsOwned), Mode=OneWay}">
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
@@ -59,17 +53,24 @@
                             </Button.Flyout>
                         </Button>
 
-                        <Grid Grid.Column="2" Visibility="{x:Bind IsOwned, Mode=OneWay}">
+                        <Grid Grid.Column="1" Visibility="{x:Bind IsOwned, Mode=OneWay}">
                             <Grid Visibility="{x:Bind local:UIHelper.InvertVisibility(DownloadProgressVisible), Mode=OneWay}">
                                 <Button
                                     AutomationProperties.Name="{x:Bind strings:Resources.DownloadText}"
                                     Command="{x:Bind DownloadCommand}"
                                     CommandParameter="{x:Bind}"
+                                    Style="{StaticResource SmallSubtleIconButton}"
                                     ToolTipService.ToolTip="{x:Bind strings:Resources.DownloadText}"
                                     Visibility="{x:Bind local:UIHelper.InvertVisibility(IsInstalled), Mode=OneWay}">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
                                 </Button>
                             </Grid>
+
+                            <FontIcon
+                                Margin="0,0,5,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                Visibility="{x:Bind IsInstalled, Mode=OneWay}" />
                         </Grid>
                     </Grid>
                 </DataTemplate>
