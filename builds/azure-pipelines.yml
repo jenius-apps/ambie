@@ -4,7 +4,15 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - main
+  paths:
+    exclude:
+    - docs
+    - images
+    - "**/*.md"
 
 pool:
   vmImage: 'windows-2022'
@@ -61,6 +69,7 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='VideosUrl']").Value = "$(VideosUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueScope']").Value = "$(CatalogueScope)"
       $xmlDoc.SelectSingleNode("//root/data[@name='PresenceUrl']").Value = "$(PresenceUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='ShareUrl']").Value = "$(ShareUrl)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 
