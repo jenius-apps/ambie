@@ -14,43 +14,42 @@ namespace AmbientSounds.ViewModels
         private readonly IAccountManager _accountManager;
         private readonly ITelemetry _telemetry;
         private readonly ISyncEngine _syncEngine;
-        private readonly INavigator _navigator;
         private readonly ISystemInfoProvider _systemInfoProvider;
+
+        /// <summary>
+        /// Determines if the user is signed in or not.
+        /// </summary>
+        [ObservableProperty]
         private bool _signedIn;
+
+        /// <summary>
+        /// Determines if the account control is loading.
+        /// </summary>
+        [ObservableProperty]
         private bool _loading;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ProfilePath))]
+        [NotifyPropertyChangedFor(nameof(IsProfilePathValid))]
+        [NotifyPropertyChangedFor(nameof(FirstName))]
+        [NotifyPropertyChangedFor(nameof(Email))]
         private Person? _person;
 
         public AccountControlViewModel(
             IAccountManager accountManager,
             ITelemetry telemetry,
             ISyncEngine syncEngine,
-            ISystemInfoProvider systemInfoProvider,
-            INavigator navigator)
+            ISystemInfoProvider systemInfoProvider)
         {
             Guard.IsNotNull(accountManager, nameof(accountManager));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(syncEngine, nameof(syncEngine));
-            Guard.IsNotNull(navigator, nameof(navigator));
             Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
 
             _systemInfoProvider = systemInfoProvider;
             _accountManager = accountManager;
             _telemetry = telemetry;
             _syncEngine = syncEngine;
-            _navigator = navigator;
-        }
-
-        public Person? Person
-        {
-            get => _person;
-            set 
-            {
-                SetProperty(ref _person, value);
-                OnPropertyChanged(nameof(ProfilePath));
-                OnPropertyChanged(nameof(IsProfilePathValid));
-                OnPropertyChanged(nameof(FirstName));
-                OnPropertyChanged(nameof(Email));
-            }
         }
 
         /// <summary>
@@ -62,7 +61,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// First name of the user.
         /// </summary>
-        public string FirstName => _person?.Firstname ?? "";
+        public string FirstName => Person?.Firstname ?? "";
 
         /// <summary>
         /// Email of the user.
@@ -81,24 +80,6 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public bool IsProfilePathValid => !string.IsNullOrWhiteSpace(Person?.PicturePath);
 
-        /// <summary>
-        /// Determines if the user is signed in or not.
-        /// </summary>
-        public bool SignedIn
-        {
-            get => _signedIn;
-            set => SetProperty(ref _signedIn, value);
-        }
-
-        /// <summary>
-        /// Determines if the account control is loading.
-        /// </summary>
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
-
         public async Task LoadAsync()
         {
             _accountManager.SignInUpdated += OnSignInUpdated;
@@ -106,7 +87,7 @@ namespace AmbientSounds.ViewModels
             _syncEngine.SyncCompleted += OnSyncCompleted;
 
 
-            if (Loading || _signedIn)
+            if (Loading || SignedIn)
             {
                 return;
             }
