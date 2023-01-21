@@ -685,4 +685,13 @@
   <data name="ReviewText" xml:space="preserve">
     <value>Recenzja</value>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Udział</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Skopiowane!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Kopiuj</value>
+  </data>
 </root>

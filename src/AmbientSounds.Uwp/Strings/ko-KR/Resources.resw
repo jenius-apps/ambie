@@ -685,4 +685,13 @@
   <data name="ReviewText" xml:space="preserve">
     <value>검토</value>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>공유하다</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>복사했습니다!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>복사</value>
+  </data>
 </root>

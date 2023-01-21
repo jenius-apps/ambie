@@ -685,4 +685,13 @@
   <data name="ReviewText" xml:space="preserve">
     <value>Posouzení</value>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Podíl</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Zkopírováno!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Kopírovat</value>
+  </data>
 </root>

@@ -685,4 +685,13 @@
   <data name="ReviewText" xml:space="preserve">
     <value>Revoir</value>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Copié!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Copie</value>
+  </data>
 </root>
