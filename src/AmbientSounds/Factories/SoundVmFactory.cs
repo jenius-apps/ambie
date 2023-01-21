@@ -67,9 +67,6 @@ namespace AmbientSounds.Factories
                 return null;
             }
 
-            var dialogService = _serviceProvider.GetService(typeof(IDialogService)) as IDialogService;
-            Guard.IsNotNull(dialogService, nameof(dialogService));
-
             return new OnlineSoundViewModel(
                 s,
                 _downloadManager,
@@ -77,7 +74,7 @@ namespace AmbientSounds.Factories
                 _telemetry,
                 _previewService,
                 _iapService,
-                dialogService);
+                _serviceProvider.GetRequiredService<IDialogService>());
         }
 
         /// <inheritdoc/>

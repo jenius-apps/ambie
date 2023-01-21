@@ -103,9 +103,7 @@ public class OnlineSoundDataProvider : IOnlineSoundDataProvider
         }
 
         using Stream result = await _client.GetStreamAsync(url);
-        var results = await JsonSerializer.DeserializeAsync<Sound[]>(
-            result,
-            new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
 
         return results ?? Array.Empty<Sound>();
     }
