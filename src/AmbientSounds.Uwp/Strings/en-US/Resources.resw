@@ -790,4 +790,13 @@
   <data name="ReviewText" xml:space="preserve">
     <value>Review</value>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Copied!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Copy</value>
+  </data>
 </root>

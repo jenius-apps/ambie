@@ -13,4 +13,11 @@ public sealed partial class ShareControl : UserControl
     }
 
     public ShareViewModel ViewModel => (ShareViewModel)this.DataContext;
+
+    private string GetCopyText(bool isCopySuccessful)
+    {
+        return isCopySuccessful
+            ? Strings.Resources.CopiedText
+            : Strings.Resources.CopyText;
+    }
 }

@@ -192,8 +192,11 @@ public partial class ShellPageViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenShareAsync()
     {
-        _telemetry.TrackEvent(TelemetryConstants.ShellPageShareClicked);
-        await _dialogService.OpenShareAsync(_mixMediaPlayerService.GetSoundIds());
+        if (_mixMediaPlayerService.GetSoundIds() is { Length: > 0 } ids)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.ShellPageShareClicked);
+            await _dialogService.OpenShareAsync(ids);
+        }
     }
 
     public async void OpenPremiumDialog()
