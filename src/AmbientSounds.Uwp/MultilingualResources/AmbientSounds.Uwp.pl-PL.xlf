@@ -917,6 +917,14 @@
           <source>Copy</source>
           <target state="translated">Kopiuj</target>
         </trans-unit>
+        <trans-unit id="OrText" translate="yes" xml:space="preserve">
+          <source>Or</source>
+          <target state="translated">Lub</target>
+        </trans-unit>
+        <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
+          <source>Unlock this sound</source>
+          <target state="translated">Odblokuj ten dźwięk</target>
+        </trans-unit>
       </group>
     </body>
   </file>

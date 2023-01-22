@@ -694,4 +694,10 @@
   <data name="CopyText" xml:space="preserve">
     <value>コピー</value>
   </data>
+  <data name="OrText" xml:space="preserve">
+    <value>または</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>このサウンドのロックを解除</value>
+  </data>
 </root>

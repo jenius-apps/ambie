@@ -13,16 +13,6 @@ namespace AmbientSounds.Constants
 
         public static bool ContainsAmbiePlus(this IReadOnlyList<string> ids) => ids.ContainsId(MsStoreAmbiePlusId);
 
-        private static bool ContainsId(this IReadOnlyList<string> ids, string id)
-        {
-            if (ids is null || ids.Count == 0)
-            {
-                return false;
-            }
-
-            return ids.Any(x => x.StartsWith(id, StringComparison.OrdinalIgnoreCase));
-        }
-
         public static bool ContainsAmbiePlus(this string id)
         {
             if (id is null)
@@ -48,6 +38,30 @@ namespace AmbientSounds.Constants
             }
 
             return (iapId, 0);
+        }
+
+        public static IEnumerable<string> GetDurableIaps(this IReadOnlyList<string> ids)
+        {
+            foreach (var id in ids)
+            {
+                if (id.StartsWith(MsStoreAmbiePlusId, StringComparison.OrdinalIgnoreCase) || 
+                    id.StartsWith(MsStoreFreeRotationId, StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                yield return id;
+            }
+        }
+
+        private static bool ContainsId(this IReadOnlyList<string> ids, string id)
+        {
+            if (ids is null || ids.Count == 0)
+            {
+                return false;
+            }
+
+            return ids.Any(x => x.StartsWith(id, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
