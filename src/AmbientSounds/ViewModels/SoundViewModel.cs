@@ -47,7 +47,6 @@ namespace AmbientSounds.ViewModels
         private double _downloadProgressValue;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsPresenceVisible))]
         private double _presenceCount = 0;
 
         public SoundViewModel(
@@ -334,6 +333,7 @@ namespace AmbientSounds.ViewModels
                 _dispatcherQueue.TryEnqueue(() =>
                 {
                     PresenceCount = e.Count;
+                    OnPropertyChanged(nameof(IsPresenceVisible));
                 });
             }
         }
@@ -342,7 +342,8 @@ namespace AmbientSounds.ViewModels
         {
             _dispatcherQueue.TryEnqueue(() =>
             { 
-                PresenceCount = 0; 
+                PresenceCount = 0;
+                OnPropertyChanged(nameof(IsPresenceVisible));
             });
         }
 
