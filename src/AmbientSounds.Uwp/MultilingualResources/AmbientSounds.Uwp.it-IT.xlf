@@ -928,11 +928,11 @@
         </trans-unit>
         <trans-unit id="OrText" translate="yes" xml:space="preserve">
           <source>Or</source>
-          <target state="new">Or</target>
+          <target state="translated">O</target>
         </trans-unit>
         <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
           <source>Unlock this sound</source>
-          <target state="new">Unlock this sound</target>
+          <target state="translated">Sblocca questo suono</target>
         </trans-unit>
       </group>
     </body>

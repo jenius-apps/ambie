@@ -694,4 +694,10 @@
   <data name="CopyText" xml:space="preserve">
     <value>복사</value>
   </data>
+  <data name="OrText" xml:space="preserve">
+    <value>혹은</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>이 소리 잠금 해제</value>
+  </data>
 </root>

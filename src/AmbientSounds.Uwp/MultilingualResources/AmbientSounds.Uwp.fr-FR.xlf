@@ -927,11 +927,11 @@
         </trans-unit>
         <trans-unit id="OrText" translate="yes" xml:space="preserve">
           <source>Or</source>
-          <target state="new">Or</target>
+          <target state="new">Ou</target>
         </trans-unit>
         <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
           <source>Unlock this sound</source>
-          <target state="new">Unlock this sound</target>
+          <target state="new">Débloquez ce son</target>
         </trans-unit>
       </group>
     </body>

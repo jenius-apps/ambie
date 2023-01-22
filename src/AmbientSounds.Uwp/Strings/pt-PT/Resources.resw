@@ -694,4 +694,10 @@
   <data name="CopyText" xml:space="preserve">
     <value>Cópia</value>
   </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Ou</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Desbloquear este som</value>
+  </data>
 </root>
