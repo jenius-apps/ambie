@@ -3,10 +3,10 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
-trigger:
-  branches:
-    include:
-    - pull/*
+trigger: none
+
+pr:
+- main
 
 pool:
   vmImage: 'windows-2022'

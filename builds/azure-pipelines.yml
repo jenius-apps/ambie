@@ -5,6 +5,8 @@
 
 trigger: none
 
+pr: none
+
 pool:
   vmImage: 'windows-2022'
 
