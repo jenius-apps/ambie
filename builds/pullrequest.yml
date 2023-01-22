@@ -1,0 +1,88 @@
+# Universal Windows Platform
+# Build a Universal Windows Platform project using Visual Studio.
+# Add steps that test and distribute an app, save build artifacts, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+    - pull/*
+
+pool:
+  vmImage: 'windows-2022'
+
+variables:
+  - group: ambie-variables
+  - name: solution
+    value: '**/*.sln'
+  - name: buildPlatform
+    value: 'x86|x64|ARM64'
+  - name: buildConfiguration
+    value: 'Release'
+  - name: appxPackageDir
+    value: '$(build.artifactStagingDirectory)\AppxPackages\\'
+
+steps:
+
+## This is required because the windows-2022 image dropped
+## support for this Store Engagement SDK, and Ambie uses it.
+- task: PowerShell@2
+  displayName: 'Installing Microsoft Store Engagement SDK'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $sdkUrl = '$(EngagementSdkMsiUrl)'
+      $msiPath = Join-Path $env:TEMP "Setup.msi"
+
+      Write-Output "downloading $sdkUrl"
+      Invoke-WebRequest -Uri $sdkUrl -OutFile $msiPath
+
+      Write-Output "Installing $msiPath"
+      Start-Process $msiPath -ArgumentList "/q" -Wait
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest
+      $xmlDoc.Package.Identity.Name="43891JeniusApps.Ambie"
+      $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest')
+    failOnStderr: true
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw
+      $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueUrl']").Value = "$(CatalogueUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='TelemetryApiKey']").Value = "$(TelemetryApiKey)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='MsaClientId']").Value = "$(MsaClientId)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='CloudSyncFileUrl']").Value = "$(CloudSyncFileUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='UploadUrl']").Value = "$(UploadUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='MySoundsUrl']").Value = "$(MySoundsUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='VideosUrl']").Value = "$(VideosUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueScope']").Value = "$(CatalogueScope)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='PresenceUrl']").Value = "$(PresenceUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='ShareUrl']").Value = "$(ShareUrl)"
+      $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
+    failOnStderr: true
+
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+    nugetConfigPath: 'nuget.config'
+    feedsToUse: 'config'
+
+- task: VSBuild@1
+  inputs:
+    platform: 'x64'
+    solution: '**/AmbientSounds.Uwp.csproj'
+    configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
+
+# - task: PublishBuildArtifacts@1
+#   displayName: 'Publish Artifact: drop'
+#   inputs:
+#     PathtoPublish: '$(build.artifactstagingdirectory)'
