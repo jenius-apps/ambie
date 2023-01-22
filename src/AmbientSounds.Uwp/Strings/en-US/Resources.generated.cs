@@ -2081,6 +2081,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region OrText
+        /// <summary>
+        ///   Looks up a localized string similar to: Or
+        /// </summary>
+        public static string OrText
+        {
+            get
+            {
+                return _resourceLoader.GetString("OrText");
+            }
+        }
+        #endregion
+
+        #region BuyDurableTooltip
+        /// <summary>
+        ///   Looks up a localized string similar to: Unlock this sound
+        /// </summary>
+        public static string BuyDurableTooltip
+        {
+            get
+            {
+                return _resourceLoader.GetString("BuyDurableTooltip");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2251,6 +2277,8 @@ namespace AmbientSounds.Strings{
             ShareText,
             CopiedText,
             CopyText,
+            OrText,
+            BuyDurableTooltip,
         }
 
         private static ResourceLoader _resourceLoader;

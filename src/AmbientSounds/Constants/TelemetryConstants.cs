@@ -22,6 +22,9 @@
         public const string SubscribeClicked = Catalogue + "subscribeClicked";
         public const string Purchased = Catalogue + "purchased";
         public const string PurchaseCancelled = Catalogue + "purchaseCancelled";
+        public const string BuyDurableClicked = Catalogue + "buyDurableClicked";
+        public const string BuyDurablePurchased = Catalogue + "buyDurablePurchased";
+        public const string BuyDurableCanceled = Catalogue + "buyDurableCanceled";
 
         // gallery
         private const string Gallery = "gallery:";
