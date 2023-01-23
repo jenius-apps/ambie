@@ -309,10 +309,11 @@ public partial class OnlineSoundViewModel : ObservableObject
 
         if (!isOwned)
         {
-            string? durableIap = _sound.IapIds.GetDurableIaps().FirstOrDefault();
+            string? iap = _sound.IapIds.GetDurableIaps().FirstOrDefault();
 
-            if (durableIap is { Length: > 0 } s)
+            if (iap is { Length: > 0 } s)
             {
+                DurableIap = s;
                 IndividualPrice = await _iapService.GetLatestPriceAsync(s);
                 CanBuyIndividually = true;
             }
