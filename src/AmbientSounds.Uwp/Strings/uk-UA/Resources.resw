@@ -610,4 +610,94 @@
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>Безкоштовно цього тижня</value>
   </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Відкрийте Ambie Mini під час фокусування</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Тривалість</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Кінець</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Міні</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Відкрийте Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>За допомогою Ambie Mini ми зменшимо вікно та відобразимо лише необхідні елементи, які допоможуть вам зосередитися.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Паузи</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Завантаження звуків з каталогу</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Редагування домашньої сторінки</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Перетягуйте звуки, щоб персоналізувати домашню сторінку. Спробуйте зараз!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Вибачте за це! Ми не змогли завантажити каталог. Спробуйте перевірити підключення до Інтернету.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Про Амбі</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini відкриється автоматично при фокусуванні</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Ми повідомимо вас, коли з'являться нові звуки</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Після запуску Ambie відновить гру автоматично</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Повідомляється, що збої та анонімна інформація про використання допомагають покращити Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Фонове зображення</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Настроюване зображення</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Загальні налаштування</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Виберіть свій режим</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Зміна кольорів, що з'являються в Ambie</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Поділіться тим, що ви слухаєте</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Давайте подивимося, чи можна їх завантажити.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Вам не вистачає деяких звуків</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Огляд</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Ділити</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Скопійовані!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Або</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Розблокуйте цей звук</value>
+  </data>
 </root>

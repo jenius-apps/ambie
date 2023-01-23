@@ -376,4 +376,316 @@
     <value>Hvala vam na pretplati!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Pozdrav opet 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Uživaš u Ambieju? Razmislite o tome da nas ocijenite!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Automatski nastavi kada se Otvori Ambie</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Preuzimanje</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Moramo skinuti neke zvukove da bi ovo odsvirali. Nakon preuzimanja pokušajte ovo ponovno reproducirati. Želite li započeti preuzimanje?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Nedostaju zvukovi</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Propust</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Izbrisati</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Više čuvara zaslona</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Katalog čuvara zaslona</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Prikaz premium informacija</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Oblaci</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Obojeni dim</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Oktogrami</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Došlo je do problema s prikazom čuvara zaslona. Pokušajte ponovno pokrenuti Ambie ili nas kontaktirajte ako se problem nastavi pojavljivati.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Prijavite problem</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Pogreška pri renderiranju</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Uključi/isključi cijeli zaslon</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Nabavite Ambie Plus</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Žarište</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Pauziraj mjerač vremena</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Pokreni mjerač vremena</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Bravo!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Sesija fokusa je dovršena</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Vrijeme je za fokusiranje</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Vrijeme je za odmor</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Ostatak</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Sesija fokusa je aktivna!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Fokusiranje</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Odmaranje</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pauza</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Brisanje</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Ponovno postavljanje mjerača vremena</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Početak</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Minute fokusa</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Sve bilješke možete zabilježiti ovdje 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Kakav je plan?</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Minute odmora</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Ponavlja</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Pokaži mi kako ga koristiti</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Ovo je intervalni tajmer inspiriran pomodoro tehnikom. Cilj je usredotočiti se na zadatak dulje vrijeme, a zatim uzeti kraću pauzu za odmor. Ponovite ovaj ciklus kako biste se nastavili fokusirati!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Dobrodošli u Focus Timer!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Pomoć</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Sljedeći</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Svaki ciklus ima segment fokusa i segment odmora. Odaberite koliko će trajati svaki segment fokusa. Preporučujemo 25 minuta za početak!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Postavljanje minuta fokusa</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Svaki fokus i ciklus odmora mogu se ponoviti više puta. Pokušajte dodati 1 ponovite!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Postavi ponavljanja</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Sada odaberite koliko će trajati svaki segment odmora. Za sada preporučujemo oko 5 minuta!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Postavljanje minuta odmora</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Pokrenite mjerač vremena i radite na svojim zadacima. Poslat ćemo vam obavijesti kada dođe vrijeme za odmor.</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Spremno, spremno, naprijed</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} minutama fokusa, {1} minutama odmora, ponavlja se {2}.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Popis nedavnih konfiguracija fokusa.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 do {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Povijest</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Prekide</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Vaša nedavna povijest pojavit će se ovdje</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Prekid zapisnika</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrditi</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Minute prekinute</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Bilješke</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Je li vas nešto prekinulo? Ovdje pratite svoje prekide kako biste ih mogli pregledati kasnije u svojoj povijesti.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Novija povijest</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Završeni su zaokruženi krugovi</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Dobar trud</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Ti si nevjerojatna</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Dodavanje zadataka na koje ćete se usredotočiti, a zatim pritisnite gumb Start</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Zadaci</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Nedavno dovršeno</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Urediti</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Zadaci su dovršeni</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Tajmer</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>{0} zadatka</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Besplatno ovaj tjedan!</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Otvorite Ambie Mini prilikom fokusiranja</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Trajanje</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Otvori Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Uz Ambie Mini smanjit ćemo prozor i prikazati samo potrebne stavke koje će vam pomoći da se usredotočite.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Zaustavlja</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Preuzimanje zvukova iz kataloga</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Uređivanje početne stranice</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Povucite i ispustite zvukove da biste personalizirali početnu stranicu. Probajte odmah!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Žao mi je zbog toga! Nismo mogli učitati katalog. Pokušajte provjeriti internetsku vezu.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>O Ambieju</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini će se automatski otvoriti prilikom fokusiranja</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Obavijestit ćemo vas kada su dostupni novi zvukovi</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Prilikom lansiranja Ambie će nastaviti s automatskom reprodukcijom</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Prijavljuju se padovi i anonimni podaci o korištenju koji pomažu u poboljšanju Ambieja</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Pozadinska slika</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Prilagođena slika</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Opće postavke</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Odabir načina rada</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Promjena boja koje se pojavljuju u Ambieju</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Podijelite ono što slušate</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Da vidimo mogu li se preuzeti.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Nedostaju ti neki zvukovi.</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Pregled</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Dijeliti</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Kopiran!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Kopija</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Ili</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Otključaj ovaj zvuk</value>
+  </data>
 </root>

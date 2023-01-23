@@ -397,6 +397,9 @@
   <data name="DeleteText" xml:space="preserve">
     <value>מחק</value>
   </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} מגה בייט</value>
+  </data>
   <data name="MoreScreensavers" xml:space="preserve">
     <value>עוד שומרי מסך</value>
   </data>
@@ -426,5 +429,275 @@
   </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>החלף מסך מלא</value>
+  </data>
+  <data name="RateUsText" xml:space="preserve">
+    <value>דרג אותנו</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>קבלו את אמבי פלוס</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>מוקד</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>השהה טיימר</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>טיימר הפעלה</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>עבודה טובה!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>הפעלת המיקוד הושלמה</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>הגיע הזמן להתמקד</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>זמן לנוח</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>מנוחה</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>מפגש המיקוד פעיל!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>התמקדות</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>נח</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>השהה</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>איפוס</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>איפוס טיימר</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>התחלה</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>דקות מיקוד</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>אתה יכול לרשום את כל ההערות כאן 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>מה התוכנית?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>פנקס רשימות</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>דקות מנוחה</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>חוזר</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>הראה לי כיצד להשתמש בו</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>זהו טיימר מרווח בהשראת טכניקת הפומודורו. המטרה היא להתמקד במשימה למשך פרק זמן ממושך, ואז לקחת הפסקת מנוחה קצרה יותר. חזור על מחזור זה כדי להמשיך להתמקד!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>ברוכים הבאים לפוקוס טיימר!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>עזרה</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>הבא</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>לכל מחזור יש מקטע מיקוד ומקטע מנוחה. בחר כמה זמן יהיה כל מקטע מיקוד. אנו ממליצים להתחיל 25 דקות!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>הגדרת דקות מיקוד</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>כל מחזור מיקוד ומנוחה יכול לחזור על עצמו מספר פעמים. נסה להוסיף חזרה אחת!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>הגדרת חזרות</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>כעת, בחר כמה זמן יהיה כל קטע מנוחה. אנו ממליצים על 5 דקות לעת עתה!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>קבעו דקות מנוחה</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>הפעל את הטיימר ועבוד על המשימות שלך. אנו נשלח לך התראות כשיגיע הזמן לנוח.עבוד קשה!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>מוכן, מוכן, יוצא לדרך</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} דקות מיקוד, {1} דקות מנוחה {2} חזרות.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>רשימה של תצורות מיקוד אחרונות.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 עד {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>היסטוריה</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>הפרעות</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>ההיסטוריה האחרונה שלך תופיע כאן</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>הפרעה ליומן</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>לאשר</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>דקות שהופרעו</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>הערות</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>משהו הפריע לך? עקוב אחר ההפרעות שלך כאן, כדי שתוכל לסקור אותן בהמשך ההיסטוריה שלך.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>היסטוריה אחרונה</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>הסבבים הושלמו</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>מאמץ טוב</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>את מדהימה</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>אמבי</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>הוספת פעילויות להתמקד בהן ולאחר מכן לחיצה על לחצן 'התחל'</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>פעילויות</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>הושלם לאחרונה</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>עריכה</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>משימות שהושלמו</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>טיימר</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>משימה {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>חינם השבוע!</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>פתח את Ambie Mini בעת התמקדות</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>משך</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>קצה</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>מיני</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>פתח את אמביי מיני</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>עם Ambie Mini, אנו נכווץ את החלון ונציג רק את הפריטים הדרושים כדי לעזור לך להתמקד.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>משהה</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>הורד צלילים מהקטלוג</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>עריכת דף הבית</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>גרור ושחרר צלילים כדי להתאים אישית את דף הבית שלך. נסה את זה עכשיו!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>סליחה על זה! לא יכולנו לטעון את הקטלוג. נסה לבדוק את חיבור האינטרנט שלך.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>אודות אמביה</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini ייפתח באופן אוטומטי בעת התמקדות</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>אנו נודיע לך כאשר צלילים חדשים יהיו זמינים</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>בעת ההשקה, Ambie תחדש את ההפעלה באופן אוטומטי</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>דווח על קריסות ופרטי שימוש אנונימיים כדי לסייע בשיפור Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>תמונת רקע</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>תמונה מותאמת אישית</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>הגדרות כלליות</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>בחר את המצב שלך</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>שינוי הצבעים שמופיעים ב-Ambie</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>שתף את מה שאתה מאזין לו</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>בואו נראה אם ניתן להוריד אותם.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>חסרים לך כמה צלילים</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>סקירה</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>לשתף</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>שהועתק!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>עותק</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>או</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>בטל את הנעילה של צליל זה</value>
   </data>
 </root>

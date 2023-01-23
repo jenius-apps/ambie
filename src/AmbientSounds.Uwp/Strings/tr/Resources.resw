@@ -607,4 +607,91 @@
   <data name="FreeBadgeInfo" xml:space="preserve">
     <value>Bu hafta ücretsiz!</value>
   </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Netleme yaparken Ambie Mini'yi açın</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Süre</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Son</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Açık Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Ambie Mini ile pencereyi küçülteceğiz ve odaklanmanıza yardımcı olmak için yalnızca gerekli öğeleri görüntüleyeceğiz.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Durakla -tır</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Katalogdan sesleri indirin</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Giriş sayfasını düzenle</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Ana sayfanızı kişiselleştirmek için sesleri sürükleyip bırakın. Şimdi deneyin!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Bunun için üzgünüm! Kataloğu yükleyemedik. İnternet bağlantınızı kontrol etmeyi deneyin.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Ambie Hakkında</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini netleme sırasında otomatik olarak açılacak</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Yeni sesler çıktığında sizi bilgilendireceğiz</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Lansmanda, Ambie otomatik olarak oynamaya devam edecek</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Kilitlenmeler ve anonim kullanım bilgileri, Ambie'yi iyileştirmeye yardımcı olmak için bildirilir</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Arka plan resmi</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Özel görüntü</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Genel ayarlar</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Modunuzu seçin</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Ambie'de görünen renkleri değiştirme</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Dinlediklerinizi paylaşın</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Bakalım indirilebilecek mi?</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Bazı sesleri kaçırıyorsun</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Eleştiri</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Paylaş</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Kopya -lanan!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Kopya etmek</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Veya</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Bu sesin kilidini aç</value>
+  </data>
 </root>
