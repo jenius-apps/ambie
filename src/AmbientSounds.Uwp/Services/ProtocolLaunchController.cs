@@ -1,9 +1,8 @@
 ﻿using Microsoft.QueryStringDotNET;
 using CommunityToolkit.Diagnostics;
 using System;
-using AmbientSounds.Models;
-using System.Threading.Tasks;
 using System.Collections.Generic;
+using AmbientSounds.Constants;
 
 #nullable enable
 
@@ -13,22 +12,22 @@ public class ProtocolLaunchController
 {
     private readonly IMixMediaPlayerService _player;
     private readonly IShareService _shareService;
-    private readonly ISoundService _soundService;
+    private readonly ITelemetry _telemetry;
 
     private const string AutoPlayKey = "autoPlay";
 
     public ProtocolLaunchController(
         IMixMediaPlayerService player,
         IShareService shareService,
-        ISoundService soundService)
+        ITelemetry telemetry)
     {
         Guard.IsNotNull(player);
         Guard.IsNotNull(shareService);
-        Guard.IsNotNull(soundService);
+        Guard.IsNotNull(telemetry);
 
         _player = player;
         _shareService = shareService;
-        _soundService = soundService;
+        _telemetry = telemetry;
     }
 
     public void ProcessLaunchProtocolArguments(string arguments)
@@ -49,6 +48,11 @@ public class ProtocolLaunchController
 
         if (query.TryGetValue("id", out var shareId))
         {
+            _telemetry.TrackEvent(TelemetryConstants.ShareReceived, new Dictionary<string, string>
+            {
+                { "shareId", shareId }
+            });
+
             _ =_shareService.ProcessShareRequestAsync(shareId);
         }
     }

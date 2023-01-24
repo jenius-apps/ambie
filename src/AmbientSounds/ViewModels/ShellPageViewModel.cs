@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -194,7 +195,11 @@ public partial class ShellPageViewModel : ObservableObject
     {
         if (_mixMediaPlayerService.GetSoundIds() is { Length: > 0 } ids)
         {
-            _telemetry.TrackEvent(TelemetryConstants.ShellPageShareClicked);
+            var sorted = ids.OrderBy(x => x).ToArray();
+            _telemetry.TrackEvent(TelemetryConstants.ShellPageShareClicked, new Dictionary<string, string>
+            {
+                { "ids", string.Join(",", sorted) }
+            });
             await _dialogService.OpenShareAsync(ids);
         }
     }
