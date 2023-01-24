@@ -71,6 +71,7 @@
         public const string ShareFailedMessageShown = Share + "failedMessageShown";
         public const string ShareFailedMessageClicked = Share + "failedMessageClicked";
         public const string ShareFailedMessageDismissed = Share + "failedMessageDismissed";
+        public const string ShareContextMenuClicked = Share + "contextMenuClicked";
 
         // Sign in
         private const string Signin = "signin:";

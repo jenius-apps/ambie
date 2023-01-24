@@ -18,7 +18,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// View model for a sound object.
     /// </summary>
-    public class SoundViewModel : ObservableObject
+    public partial class SoundViewModel : ObservableObject
     {
         private readonly Sound _sound;
         private readonly IMixMediaPlayerService _playerService;
@@ -218,7 +218,6 @@ namespace AmbientSounds.ViewModels
                     RegisterProgress(progress);
                 }
             }
-
         }
 
         private void RegisterProgress(IProgress<double> progress)
@@ -413,6 +412,22 @@ namespace AmbientSounds.ViewModels
                 });
             }
             catch { }
+        }
+
+        [RelayCommand]
+        private async Task ShareAsync()
+        {
+            IReadOnlyList<string> ids = IsMix ? _sound.SoundIds.OrderBy(x => x).ToArray() : new string[]
+            {
+                Id
+            };
+
+            _telemetry.TrackEvent(TelemetryConstants.ShareContextMenuClicked, new Dictionary<string, string>
+            {
+                { "ids", string.Join(",", ids) }
+            });
+
+            await _dialogService.OpenShareAsync(ids);
         }
 
         public void Dispose()
