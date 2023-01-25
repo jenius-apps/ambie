@@ -905,6 +905,26 @@
           <source>Review</source>
           <target state="translated">Recenzja</target>
         </trans-unit>
+        <trans-unit id="ShareText" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated">Udział</target>
+        </trans-unit>
+        <trans-unit id="CopiedText" translate="yes" xml:space="preserve">
+          <source>Copied!</source>
+          <target state="translated">Skopiowane!</target>
+        </trans-unit>
+        <trans-unit id="CopyText" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated">Kopiuj</target>
+        </trans-unit>
+        <trans-unit id="OrText" translate="yes" xml:space="preserve">
+          <source>Or</source>
+          <target state="translated">Lub</target>
+        </trans-unit>
+        <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
+          <source>Unlock this sound</source>
+          <target state="translated">Odblokuj ten dźwięk</target>
+        </trans-unit>
       </group>
     </body>
   </file>

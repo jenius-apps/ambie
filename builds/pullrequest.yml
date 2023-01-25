@@ -5,7 +5,8 @@
 
 trigger: none
 
-pr: none
+pr:
+- main
 
 pool:
   vmImage: 'windows-2022'
@@ -81,7 +82,7 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+# - task: PublishBuildArtifacts@1
+#   displayName: 'Publish Artifact: drop'
+#   inputs:
+#     PathtoPublish: '$(build.artifactstagingdirectory)'

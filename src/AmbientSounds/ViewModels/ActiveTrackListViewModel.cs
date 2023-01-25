@@ -245,6 +245,7 @@ namespace AmbientSounds.ViewModels
                 foreach (var s in sounds)
                 {
                     await _player.ToggleSoundAsync(s);
+                    await Task.Delay(300); // delay needed because for some reason sounds don't play without it.
                 }
 
                 _telemetry.TrackEvent(TelemetryConstants.SharePlayed, new Dictionary<string, string>

@@ -427,6 +427,7 @@ namespace AmbientSounds
                 // object tree is all transient
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IImagePicker, ImagePicker>()
+                .AddTransient<IClipboard, WindowsClipboard>()
                 .AddSingleton<IAppStoreRatings, MicrosoftStoreRatings>()
                 // Must be transient because this is basically
                 // a timer factory.

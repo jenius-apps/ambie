@@ -22,6 +22,9 @@
         public const string SubscribeClicked = Catalogue + "subscribeClicked";
         public const string Purchased = Catalogue + "purchased";
         public const string PurchaseCancelled = Catalogue + "purchaseCancelled";
+        public const string BuyDurableClicked = Catalogue + "buyDurableClicked";
+        public const string BuyDurablePurchased = Catalogue + "buyDurablePurchased";
+        public const string BuyDurableCanceled = Catalogue + "buyDurableCanceled";
 
         // gallery
         private const string Gallery = "gallery:";
@@ -61,13 +64,13 @@
 
         // sharing
         private const string Share = "share:";
-        public const string ShareClicked = Share + "clicked";
         public const string ShareReceived = Share + "received";
         public const string SharePlayed = Share + "soundsPlayed";
         public const string ShareSoundsMissingLoaded = Share + "missingSoundsLoaded";
         public const string ShareFailedMessageShown = Share + "failedMessageShown";
         public const string ShareFailedMessageClicked = Share + "failedMessageClicked";
         public const string ShareFailedMessageDismissed = Share + "failedMessageDismissed";
+        public const string ShareContextMenuClicked = Share + "contextMenuClicked";
 
         // Sign in
         private const string Signin = "signin:";

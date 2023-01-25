@@ -685,4 +685,19 @@
   <data name="ReviewText" xml:space="preserve">
     <value>レビュー</value>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>共有</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>コピーしました！</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>または</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>このサウンドのロックを解除</value>
+  </data>
 </root>

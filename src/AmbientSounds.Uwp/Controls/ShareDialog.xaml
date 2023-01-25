@@ -6,7 +6,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
-    Title="{x:Bind strings:Resources.ShareMessage}"
+    Title="{x:Bind strings:Resources.ShareText}"
     CloseButtonText="{x:Bind strings:Resources.CloseText}"
     Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">

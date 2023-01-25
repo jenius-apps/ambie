@@ -30,10 +30,6 @@ namespace AmbientSounds.Views
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
                 ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
             }
-
-#if DEBUG
-            ShareButton.Visibility = Visibility;
-#endif
         }
 
         private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)

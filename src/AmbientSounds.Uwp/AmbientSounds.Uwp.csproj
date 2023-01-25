@@ -300,6 +300,7 @@
     </Compile>
     <Compile Include="Tools\AssetsReader.cs" />
     <Compile Include="Tools\MicrosoftStoreRatings.cs" />
+    <Compile Include="Tools\WindowsClipboard.cs" />
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">

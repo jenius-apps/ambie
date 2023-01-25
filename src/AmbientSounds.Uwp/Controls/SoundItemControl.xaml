@@ -244,6 +244,10 @@
                 <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                     <muxc:CommandBarFlyout.SecondaryCommands>
                         <AppBarButton
+                            Command="{x:Bind ViewModel.ShareCommand, Mode=OneWay}"
+                            Icon="Share"
+                            Label="{x:Bind strings:Resources.ShareText}" />
+                        <AppBarButton
                             x:Uid="DeleteAppBarButton"
                             Command="{x:Bind ViewModel.DeleteSoundCommand, Mode=OneWay}"
                             Icon="Delete" />

@@ -376,4 +376,316 @@
   <data name="SubscriptionText3" xml:space="preserve">
     <value>Fejlesztés támogatása!</value>
   </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Üdv újra 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Élvezi az Ambie-t? Kérjük, fontolja meg az értékelésünket!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Automatikus folytatás az Ambie megnyitásakor</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Ennek lejátszásához le kell töltenünk néhány hangot. A letöltés után próbálja meg újra lejátszani. Elkezdi a letöltést?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Hiányzó hangok</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Alapértelmezett</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Töröl</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>További képernyővédők</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Képernyővédő katalógus</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Prémium információk megtekintése</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Felhők</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Színes füst</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Oktagrammok</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Hiba történt a képernyővédő megjelenítésekor. Próbálja meg újraindítani az Ambie alkalmazást, vagy vegye fel velünk a kapcsolatot, ha a probléma továbbra is fennáll.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Jelentsd a problémát</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Renderelési hiba</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Teljes képernyős váltás</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Szerezze be az Ambie Plus-t</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Fókusz</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Szüneteltetési időzítő</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Indítási időzítő</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Szép munka!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>A fókusz munkamenet befejeződött</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Ideje összpontosítani</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Ideje pihenni</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Pihen</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>A fókusz aktív munkamenet!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Élességállítás</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Pihenő</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Szünet</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Átszed</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Állítsa vissza az időzítőt</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Elkezd</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Fókuszban lévő percek</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Itt 🙂 feljegyezheti a jegyzeteket</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Mi a terv?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Jegyzettömb</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Pihenő percek</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Megismétli</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Használati módszer</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Ez egy intervallum időzítő, amelyet a pomodoro technika ihletett. A cél az, hogy hosszabb ideig összpontosítson egy feladatra, majd rövidebb pihenőt tartson. Ismételje meg ezt a ciklust, hogy továbbra is összpontosítson!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Üdvözöljük a Focus Timer oldalon!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Segítség</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Következő</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Minden ciklushoz tartozik egy fókuszszegmens és egy pihenő szegmens. Válassza ki, hogy az egyes fókuszszegmensek milyen hosszúak legyenek. Javasoljuk, hogy 25 perc legyen a kezdéshez!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Fókuszpercek beállítása</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Minden fókusz- és pihenőciklus többször is megismétlődhet. Próbáljon meg hozzáadni 1 ismétlést!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Ismétlések beállítása</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Most válassza ki, hogy az egyes pihenőszakaszok milyen hosszúak legyenek. Egyelőre kb. 5 percet ajánlunk!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Pihenőpercek beállítása</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Indítsa el az időzítőt, és dolgozzon a feladatain. Értesítést küldünk neked, amikor eljön a pihenés ideje.</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Készen állsz, készen állsz, indulhatsz</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} fókuszpercek, {1} pihenőpercek {2} ismétlődnek.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>A legutóbbi fókuszkonfigurációk listája.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0-tól {0}-ig</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Történelem</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Megszakítások</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>A közelmúlt története itt jelenik meg</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Napló megszakítása</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Megerősít</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Félbeszakadt percek</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Félbeszakított valami? Itt követheti nyomon a megszakításokat, így később áttekintheti őket az előzményekben.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>A közelmúlt történelme</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Befejezett fordulók</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Jó erőfeszítés</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Csodálatos vagy</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Adja hozzá a fókuszálni kívánt feladatokat, majd nyomja meg a Start gombot</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Feladatok</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Nemrég befejezett</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Szerkeszt</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Elvégzett feladatok</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Időzítő</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Feladat {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Ezen a héten ingyenes!</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Nyissa meg az Ambie Minit fókuszáláskor</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Időtartam</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Vég</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Nyissa meg az Ambie Minit</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Az Ambie Mini segítségével összezsugorítjuk az ablakot, és csak a szükséges elemeket jelenítjük meg, hogy segítsünk az összpontosításban.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Megáll</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Hangok letöltése a katalógusból</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Kezdőlap szerkesztése</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Húzza át a hangokat a kezdőlap személyre szabásához. Próbálja ki most!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Sajnálom! Nem tudtuk betölteni a katalógust. Próbáld meg ellenőrizni az internetkapcsolatot.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Az Ambie-ról</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Az Ambie Mini automatikusan megnyílik fókuszáláskor</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Értesíteni fogjuk, ha új hangok jelennek meg</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Indításkor az Ambie automatikusan folytatja a lejátszást</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Az összeomlásokról és a névtelen használati adatokról a jelentések segítenek az Ambie fejlesztésében</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Háttérkép</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Egyéni rendszerkép</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Általános beállítások</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Válassza ki a módot</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Az Ambie alkalmazásban megjelenő színek módosítása</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Ossza meg, amit hallgat</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Lássuk, letölthetők-e.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Hiányzik néhány hang</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Szemle</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Részvény</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Másolt!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Másolat</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Vagy</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Oldja fel ezt a hangot</value>
+  </data>
 </root>

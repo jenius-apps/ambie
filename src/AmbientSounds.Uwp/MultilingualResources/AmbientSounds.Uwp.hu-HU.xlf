@@ -504,35 +504,35 @@
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
-          <target state="new">Hello again 👋🏽</target>
+          <target state="translated">Üdv újra 👋🏽</target>
         </trans-unit>
         <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
           <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="new">Enjoying Ambie? Please consider rating us!</target>
+          <target state="translated">Élvezi az Ambie-t? Kérjük, fontolja meg az értékelésünket!</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
           <source>Auto resume when Ambie opens</source>
-          <target state="new">Auto resume when Ambie opens</target>
+          <target state="translated">Automatikus folytatás az Ambie megnyitásakor</target>
         </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="new">Download</target>
+          <target state="translated">Letöltés</target>
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="new">We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</target>
+          <target state="translated">Ennek lejátszásához le kell töltenünk néhány hangot. A letöltés után próbálja meg újra lejátszani. Elkezdi a letöltést?</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
-          <target state="new">Missing sounds</target>
+          <target state="translated">Hiányzó hangok</target>
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="new">Default</target>
+          <target state="translated">Alapértelmezett</target>
         </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Töröl</target>
         </trans-unit>
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
@@ -540,219 +540,219 @@
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="new">More screensavers</target>
+          <target state="translated">További képernyővédők</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="new">Screensaver catalogue</target>
+          <target state="translated">Képernyővédő katalógus</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="new">View premium info</target>
+          <target state="translated">Prémium információk megtekintése</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
-          <target state="new">Clouds</target>
+          <target state="translated">Felhők</target>
         </trans-unit>
         <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
-          <target state="new">Colored smoke</target>
+          <target state="translated">Színes füst</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
-          <target state="new">Octagrams</target>
+          <target state="translated">Oktagrammok</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="new">There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</target>
+          <target state="translated">Hiba történt a képernyővédő megjelenítésekor. Próbálja meg újraindítani az Ambie alkalmazást, vagy vegye fel velünk a kapcsolatot, ha a probléma továbbra is fennáll.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
-          <target state="new">Report the issue</target>
+          <target state="translated">Jelentsd a problémát</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="new">Rendering error</target>
+          <target state="translated">Renderelési hiba</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="new">Toggle fullscreen</target>
+          <target state="translated">Teljes képernyős váltás</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie Plus</source>
-          <target state="new">Get Ambie Plus</target>
+          <target state="translated">Szerezze be az Ambie Plus-t</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="new">Focus</target>
+          <target state="translated">Fókusz</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
-          <target state="new">Pause timer</target>
+          <target state="translated">Szüneteltetési időzítő</target>
         </trans-unit>
         <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
           <source>Start timer</source>
-          <target state="new">Start timer</target>
+          <target state="translated">Indítási időzítő</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="new">Well done!</target>
+          <target state="translated">Szép munka!</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="new">Focus session complete</target>
+          <target state="translated">A fókusz munkamenet befejeződött</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="new">Time to focus</target>
+          <target state="translated">Ideje összpontosítani</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="new">Time to rest</target>
+          <target state="translated">Ideje pihenni</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="new">Rest</target>
+          <target state="translated">Pihen</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="new">Focus session is active!</target>
+          <target state="translated">A fókusz aktív munkamenet!</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="new">Focusing</target>
+          <target state="translated">Élességállítás</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="new">Resting</target>
+          <target state="translated">Pihenő</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="new">Pause</target>
+          <target state="translated">Szünet</target>
         </trans-unit>
         <trans-unit id="Reset" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="new">Reset</target>
+          <target state="translated">Átszed</target>
         </trans-unit>
         <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
           <source>Reset timer</source>
-          <target state="new">Reset timer</target>
+          <target state="translated">Állítsa vissza az időzítőt</target>
         </trans-unit>
         <trans-unit id="Start" translate="yes" xml:space="preserve">
           <source>Start</source>
-          <target state="new">Start</target>
+          <target state="translated">Elkezd</target>
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="new">Focus minutes</target>
+          <target state="translated">Fókuszban lévő percek</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
-          <target state="new">You can jot down any notes here 🙂</target>
+          <target state="translated">Itt 🙂 feljegyezheti a jegyzeteket</target>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="new">What's the plan?</target>
+          <target state="translated">Mi a terv?</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
-          <target state="new">Notepad</target>
+          <target state="translated">Jegyzettömb</target>
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="new">Rest minutes</target>
+          <target state="translated">Pihenő percek</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="new">Repeats</target>
+          <target state="translated">Megismétli</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="new">Show me how to use it</target>
+          <target state="translated">Használati módszer</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="new">This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</target>
+          <target state="translated">Ez egy intervallum időzítő, amelyet a pomodoro technika ihletett. A cél az, hogy hosszabb ideig összpontosítson egy feladatra, majd rövidebb pihenőt tartson. Ismételje meg ezt a ciklust, hogy továbbra is összpontosítson!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="new">Welcome to Focus Timer!</target>
+          <target state="translated">Üdvözöljük a Focus Timer oldalon!</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="new">Help</target>
+          <target state="translated">Segítség</target>
         </trans-unit>
         <trans-unit id="Next" translate="yes" xml:space="preserve">
           <source>Next</source>
-          <target state="new">Next</target>
+          <target state="translated">Következő</target>
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="new">Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</target>
+          <target state="translated">Minden ciklushoz tartozik egy fókuszszegmens és egy pihenő szegmens. Válassza ki, hogy az egyes fókuszszegmensek milyen hosszúak legyenek. Javasoljuk, hogy 25 perc legyen a kezdéshez!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="new">Set focus minutes</target>
+          <target state="translated">Fókuszpercek beállítása</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="new">Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</target>
+          <target state="translated">Minden fókusz- és pihenőciklus többször is megismétlődhet. Próbáljon meg hozzáadni 1 ismétlést!</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
-          <target state="new">Set repeats</target>
+          <target state="translated">Ismétlések beállítása</target>
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="new">Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</target>
+          <target state="translated">Most válassza ki, hogy az egyes pihenőszakaszok milyen hosszúak legyenek. Egyelőre kb. 5 percet ajánlunk!</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="new">Set rest minutes</target>
+          <target state="translated">Pihenőpercek beállítása</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="new">Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</target>
+          <target state="translated">Indítsa el az időzítőt, és dolgozzon a feladatain. Értesítést küldünk neked, amikor eljön a pihenés ideje.</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="new">Ready, set, go</target>
+          <target state="translated">Készen állsz, készen állsz, indulhatsz</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="new">{0} focus minutes, {1} rest minutes, {2} repeats.</target>
+          <target state="translated">{0} fókuszpercek, {1} pihenőpercek {2} ismétlődnek.</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="new">List of recent focus configurations.</target>
+          <target state="translated">A legutóbbi fókuszkonfigurációk listája.</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
-          <target state="new">0 to {0}</target>
+          <target state="translated">0-tól {0}-ig</target>
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="new">History</target>
+          <target state="translated">Történelem</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
-          <target state="new">Interruptions</target>
+          <target state="translated">Megszakítások</target>
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
-          <target state="new">Your recent history will appear here</target>
+          <target state="translated">A közelmúlt története itt jelenik meg</target>
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="new">Log interruption</target>
+          <target state="translated">Napló megszakítása</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="new">Confirm</target>
+          <target state="translated">Megerősít</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="new">Minutes interrupted</target>
+          <target state="translated">Félbeszakadt percek</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
@@ -760,23 +760,23 @@
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="new">Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</target>
+          <target state="translated">Félbeszakított valami? Itt követheti nyomon a megszakításokat, így később áttekintheti őket az előzményekben.</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="new">Recent history</target>
+          <target state="translated">A közelmúlt történelme</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="new">Rounds completed</target>
+          <target state="translated">Befejezett fordulók</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="new">Good effort</target>
+          <target state="translated">Jó erőfeszítés</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="new">You're amazing</target>
+          <target state="translated">Csodálatos vagy</target>
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
@@ -784,47 +784,47 @@
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>
-          <target state="new">Add tasks to focus on, then press the start button</target>
+          <target state="translated">Adja hozzá a fókuszálni kívánt feladatokat, majd nyomja meg a Start gombot</target>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
-          <target state="new">Tasks</target>
+          <target state="translated">Feladatok</target>
         </trans-unit>
         <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
           <source>Recently completed</source>
-          <target state="new">Recently completed</target>
+          <target state="translated">Nemrég befejezett</target>
         </trans-unit>
         <trans-unit id="EditText" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="new">Edit</target>
+          <target state="translated">Szerkeszt</target>
         </trans-unit>
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
-          <target state="new">Tasks completed</target>
+          <target state="translated">Elvégzett feladatok</target>
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="new">Timer</target>
+          <target state="translated">Időzítő</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
-          <target state="new">Task {0}</target>
+          <target state="translated">Feladat {0}</target>
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="new">Free this week!</target>
+          <target state="translated">Ezen a héten ingyenes!</target>
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="new">Open Ambie Mini when focusing</target>
+          <target state="translated">Nyissa meg az Ambie Minit fókuszáláskor</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
-          <target state="new">Duration</target>
+          <target state="translated">Időtartam</target>
         </trans-unit>
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
-          <target state="new">End</target>
+          <target state="translated">Vég</target>
         </trans-unit>
         <trans-unit id="MiniText" translate="yes" xml:space="preserve">
           <source>Mini</source>
@@ -832,87 +832,107 @@
         </trans-unit>
         <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini</source>
-          <target state="new">Open Ambie Mini</target>
+          <target state="translated">Nyissa meg az Ambie Minit</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="new">With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</target>
+          <target state="translated">Az Ambie Mini segítségével összezsugorítjuk az ablakot, és csak a szükséges elemeket jelenítjük meg, hogy segítsünk az összpontosításban.</target>
         </trans-unit>
         <trans-unit id="PausesText" translate="yes" xml:space="preserve">
           <source>Pauses</source>
-          <target state="new">Pauses</target>
+          <target state="translated">Megáll</target>
         </trans-unit>
         <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
           <source>Download sounds from the catalogue</source>
-          <target state="new">Download sounds from the catalogue</target>
+          <target state="translated">Hangok letöltése a katalógusból</target>
         </trans-unit>
         <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
           <source>Edit home page</source>
-          <target state="new">Edit home page</target>
+          <target state="translated">Kezdőlap szerkesztése</target>
         </trans-unit>
         <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="new">Drag and drop sounds to personalize your home page. Try it now!</target>
+          <target state="translated">Húzza át a hangokat a kezdőlap személyre szabásához. Próbálja ki most!</target>
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
-          <target state="new">Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</target>
+          <target state="translated">Sajnálom! Nem tudtuk betölteni a katalógust. Próbáld meg ellenőrizni az internetkapcsolatot.</target>
         </trans-unit>
         <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
           <source>About Ambie</source>
-          <target state="new">About Ambie</target>
+          <target state="translated">Az Ambie-ról</target>
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="new">Ambie Mini will open automatically when focusing</target>
+          <target state="translated">Az Ambie Mini automatikusan megnyílik fókuszáláskor</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
-          <target state="new">We'll notify you know when new sounds are available</target>
+          <target state="translated">Értesíteni fogjuk, ha új hangok jelennek meg</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
           <source>On launch, Ambie will resume playing automatically</source>
-          <target state="new">On launch, Ambie will resume playing automatically</target>
+          <target state="translated">Indításkor az Ambie automatikusan folytatja a lejátszást</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
           <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
-          <target state="new">Crashes and anonymous usage info are reported to help improve Ambie</target>
+          <target state="translated">Az összeomlásokról és a névtelen használati adatokról a jelentések segítenek az Ambie fejlesztésében</target>
         </trans-unit>
         <trans-unit id="BackgroundImage" translate="yes" xml:space="preserve">
           <source>Background image</source>
-          <target state="new">Background image</target>
+          <target state="translated">Háttérkép</target>
         </trans-unit>
         <trans-unit id="CustomImage" translate="yes" xml:space="preserve">
           <source>Custom image</source>
-          <target state="new">Custom image</target>
+          <target state="translated">Egyéni rendszerkép</target>
         </trans-unit>
         <trans-unit id="SettingsGeneralHeader" translate="yes" xml:space="preserve">
           <source>General settings</source>
-          <target state="new">General settings</target>
+          <target state="translated">Általános beállítások</target>
         </trans-unit>
         <trans-unit id="SettingsTheme" translate="yes" xml:space="preserve">
           <source>Choose your mode</source>
-          <target state="new">Choose your mode</target>
+          <target state="translated">Válassza ki a módot</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDescription" translate="yes" xml:space="preserve">
           <source>Change the colours that appear in Ambie</source>
-          <target state="new">Change the colours that appear in Ambie</target>
+          <target state="translated">Az Ambie alkalmazásban megjelenő színek módosítása</target>
         </trans-unit>
         <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
           <source>Share what you're listening to</source>
-          <target state="new">Share what you're listening to</target>
+          <target state="translated">Ossza meg, amit hallgat</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsMessage" translate="yes" xml:space="preserve">
           <source>Let's see if they can be downloaded.</source>
-          <target state="new">Let's see if they can be downloaded.</target>
+          <target state="translated">Lássuk, letölthetők-e.</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
           <source>You're missing some sounds</source>
-          <target state="new">You're missing some sounds</target>
+          <target state="translated">Hiányzik néhány hang</target>
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="translated">Szemle</target>
+        </trans-unit>
+        <trans-unit id="ShareText" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated">Részvény</target>
+        </trans-unit>
+        <trans-unit id="CopiedText" translate="yes" xml:space="preserve">
+          <source>Copied!</source>
+          <target state="translated">Másolt!</target>
+        </trans-unit>
+        <trans-unit id="CopyText" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated">Másolat</target>
+        </trans-unit>
+        <trans-unit id="OrText" translate="yes" xml:space="preserve">
+          <source>Or</source>
+          <target state="translated">Vagy</target>
+        </trans-unit>
+        <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
+          <source>Unlock this sound</source>
+          <target state="translated">Oldja fel ezt a hangot</target>
         </trans-unit>
       </group>
     </body>

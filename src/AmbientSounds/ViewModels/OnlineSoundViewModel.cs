@@ -47,29 +47,29 @@ namespace AmbientSounds.ViewModels
         [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
         private bool _isOwned;
 
-        public OnlineSoundViewModel(
-            Sound s, 
-            IDownloadManager downloadManager,
-            ISoundService soundService,
-            ITelemetry telemetry,
-            IPreviewService previewService,
-            IIapService iapService,
-            IDialogService dialogService)
-        {
-            Guard.IsNotNull(s);
-            Guard.IsNotNull(downloadManager);
-            Guard.IsNotNull(soundService);
-            Guard.IsNotNull(telemetry);
-            Guard.IsNotNull(iapService);
-            Guard.IsNotNull(previewService);
-            Guard.IsNotNull(dialogService);
-            _sound = s;
-            _downloadManager = downloadManager;
-            _previewService = previewService;
-            _iapService = iapService;
-            _soundService = soundService;
-            _telemetry = telemetry;
-            _dialogService = dialogService;
+    public OnlineSoundViewModel(
+        Sound s, 
+        IDownloadManager downloadManager,
+        ISoundService soundService,
+        ITelemetry telemetry,
+        IPreviewService previewService,
+        IIapService iapService,
+        IDialogService dialogService)
+    {
+        Guard.IsNotNull(s);
+        Guard.IsNotNull(downloadManager);
+        Guard.IsNotNull(soundService);
+        Guard.IsNotNull(telemetry);
+        Guard.IsNotNull(iapService);
+        Guard.IsNotNull(previewService);
+        Guard.IsNotNull(dialogService);
+        _sound = s;
+        _downloadManager = downloadManager;
+        _previewService = previewService;
+        _iapService = iapService;
+        _soundService = soundService;
+        _telemetry = telemetry;
+        _dialogService = dialogService;
 
             _downloadProgress = new Progress<double>();
             _downloadProgress.ProgressChanged += OnProgressChanged;
@@ -77,105 +77,114 @@ namespace AmbientSounds.ViewModels
             _iapService.ProductPurchased += OnProductPurchased;
         }
 
-        private void OnProductPurchased(object sender, string iapId)
+    [ObservableProperty]
+    private bool _canBuyIndividually;
+
+    [ObservableProperty]
+    private string _individualPrice = string.Empty;
+
+    [ObservableProperty]
+    private string? _durableIap;
+
+    private void OnProductPurchased(object sender, string iapId)
+    {
+        if (_sound.IsPremium && _sound.IapIds.Contains(iapId))
         {
-            if (_sound.IsPremium && _sound.IapIds.Contains(iapId))
-            {
-                IsOwned = true;
-            }
+            IsOwned = true;
         }
+    }
 
-        private async void OnSoundDeleted(object sender, string id)
+    private async void OnSoundDeleted(object sender, string id)
+    {
+        if (id == _sound.Id)
         {
-            if (id == _sound.Id)
-            {
-                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id);
-                DownloadProgressValue = 0;
+            IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id);
+            DownloadProgressValue = 0;
 
-                // Note: a non-premium sound is treated as "owned"
-                IsOwned = _sound.IsPremium ? await _iapService.IsAnyOwnedAsync(_sound.IapIds) : true;
-            }
+            // Note: a non-premium sound is treated as "owned"
+            IsOwned = _sound.IsPremium ? await _iapService.IsAnyOwnedAsync(_sound.IapIds) : true;
         }
+    }
 
-        private async void OnProgressChanged(object sender, double e)
+    private async void OnProgressChanged(object sender, double e)
+    {
+        DownloadProgressValue = e;
+        if (e >= 100)
         {
-            DownloadProgressValue = e;
-            if (e >= 100)
-            {
-                IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
-                DownloadProgressValue = 0;
-            }
+            IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
+            DownloadProgressValue = 0;
         }
+    }
 
-        /// <summary>
-        /// Gets or sets the location within the application of this viewmodel.
-        /// This is used for telemetry purposes.
-        /// </summary>
-        public string TelemetryLocation { get; set; } = "catalogue";
+    /// <summary>
+    /// Gets or sets the location within the application of this viewmodel.
+    /// This is used for telemetry purposes.
+    /// </summary>
+    public string TelemetryLocation { get; set; } = "catalogue";
 
-        /// <summary>
-        /// The sound's attribution.
-        /// </summary>
-        public string? Attribution => _sound.Attribution;
+    /// <summary>
+    /// The sound's attribution.
+    /// </summary>
+    public string? Attribution => _sound.Attribution;
 
-        /// <summary>
-        /// Name of the sound.
-        /// </summary>
-        public string? Name => _sound.Name;
+    /// <summary>
+    /// Name of the sound.
+    /// </summary>
+    public string? Name => _sound.Name;
 
-        public string ColourHex => _sound.ColourHex;
+    public string ColourHex => _sound.ColourHex;
 
-        /// <summary>
-        /// Id of the sound.
-        /// </summary>
-        public string Id => _sound.Id;
+    /// <summary>
+    /// Id of the sound.
+    /// </summary>
+    public string Id => _sound.Id;
 
-        /// <summary>
-        /// The path for the image to display for the current sound.
-        /// </summary>
-        public string ImagePath => _sound.ImagePath;
+    /// <summary>
+    /// The path for the image to display for the current sound.
+    /// </summary>
+    public string ImagePath => _sound.ImagePath;
 
-        /// <summary>
-        /// Array of sponsor links provided by sound author
-        /// to be displayed on screen if the links are valid.
-        /// </summary>
-        public string[] ValidSponsorLinks => AreLinksValid
-            ? _sound.SponsorLinks.Where(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute)).ToArray()
-            : Array.Empty<string>();
+    /// <summary>
+    /// Array of sponsor links provided by sound author
+    /// to be displayed on screen if the links are valid.
+    /// </summary>
+    public string[] ValidSponsorLinks => AreLinksValid
+        ? _sound.SponsorLinks.Where(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute)).ToArray()
+        : Array.Empty<string>();
 
-        /// <summary>
-        /// Determines if it's safe to display the links.
-        /// </summary>
-        public bool AreLinksValid => _sound.SponsorLinks is not null && 
-            _sound.SponsorLinks.Length > 0 && 
-            _sound.SponsorLinks.Any(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute));
+    /// <summary>
+    /// Determines if it's safe to display the links.
+    /// </summary>
+    public bool AreLinksValid => _sound.SponsorLinks is not null && 
+        _sound.SponsorLinks.Length > 0 && 
+        _sound.SponsorLinks.Any(static x => Uri.IsWellFormedUriString(x, UriKind.Absolute));
 
-        /// <summary>
-        /// Determines if the sound can be previewed.
-        /// </summary>
-        public bool CanPreview => 
-            !string.IsNullOrWhiteSpace(_sound.PreviewFilePath) && 
-            Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
+    /// <summary>
+    /// Determines if the sound can be previewed.
+    /// </summary>
+    public bool CanPreview => 
+        !string.IsNullOrWhiteSpace(_sound.PreviewFilePath) && 
+        Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
         /// <summary>
         /// Determines if the download button is visible.
         /// </summary>
         public bool DownloadButtonVisible => IsOwned && !DownloadProgressVisible;
 
-        /// <summary>
-        /// True if the sound can be bought.
-        /// </summary>
-        public bool CanBuy => _sound.IsPremium && !_isOwned;
+    /// <summary>
+    /// True if the sound can be bought.
+    /// </summary>
+    public bool CanBuy => _sound.IsPremium && !_isOwned;
 
-        /// <summary>
-        /// Determines if the plus badge is visible.
-        /// </summary>
-        public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
+    /// <summary>
+    /// Determines if the plus badge is visible.
+    /// </summary>
+    public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
 
-        /// <summary>
-        /// Determines if the free badge is visible
-        /// </summary>
-        public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
+    /// <summary>
+    /// Determines if the free badge is visible
+    /// </summary>
+    public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
 
         /// <summary>
         /// True if download progress should be visible.
@@ -195,8 +204,8 @@ namespace AmbientSounds.ViewModels
                 { "id", _sound.Id ?? "" },
             });
 
-            _previewService.Play(_sound.PreviewFilePath);
-        }
+        _previewService.Play(_sound.PreviewFilePath);
+    }
 
         [RelayCommand]
         private async Task BuySoundAsync()
@@ -207,8 +216,8 @@ namespace AmbientSounds.ViewModels
                 { "name", _sound.Name }
             });
 
-            await _dialogService.OpenPremiumAsync();
-        }
+        await _dialogService.OpenPremiumAsync();
+    }
 
         [RelayCommand]
         private async Task DeleteSoundAsync()
@@ -236,20 +245,46 @@ namespace AmbientSounds.ViewModels
                 IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
             }
 
-            // Determine ownership
-            bool isOwned;
-            if (_sound.IsPremium)
-            {
-                isOwned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
-            }
-            else
-            {
-                // a non premium sound is treated as "owned"
-                isOwned = true;
-            }
-
-            IsOwned = isOwned;
+        // Determine ownership
+        bool isOwned;
+        if (_sound.IsPremium)
+        {
+            isOwned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
         }
+        else
+        {
+            // a non premium sound is treated as "owned"
+            isOwned = true;
+        }
+
+        IsOwned = isOwned;
+
+        if (!isOwned)
+        {
+            string? iap = _sound.IapIds.GetDurableIaps().FirstOrDefault();
+
+            if (iap is { Length: > 0 } s)
+            {
+                DurableIap = s;
+                IndividualPrice = await _iapService.GetLatestPriceAsync(s);
+                CanBuyIndividually = true;
+            }
+        }
+    }
+
+    [RelayCommand]
+    private async Task BuyDurableAsync(string? durable)
+    {
+        if (durable is null)
+        {
+            return;
+        }
+
+        var data = new Dictionary<string, string> { { "id", durable } };
+        _telemetry.TrackEvent(TelemetryConstants.BuyDurableClicked, data);
+        var purchased = await _iapService.BuyAsync(durable);
+        _telemetry.TrackEvent(purchased ? TelemetryConstants.BuyDurablePurchased : TelemetryConstants.BuyDurableCanceled, data);
+    }
 
         [RelayCommand]
         private Task DownloadAsync()
@@ -263,41 +298,40 @@ namespace AmbientSounds.ViewModels
                     { "name", _sound.Name }
                 });
 
-                if (FreeBadgeVisible)
-                {
-                    _telemetry.TrackEvent(TelemetryConstants.FreeDownloaded, new Dictionary<string, string>
-                    {
-                        { "id", _sound.Id ?? "" },
-                        { "name", _sound.Name }
-                    });
-                }
-
-                return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
-            }
-
-            return Task.CompletedTask;
-        }
-
-        private void RegisterProgress(IProgress<double> progress)
-        {
-            if (progress is Progress<double> p)
+            if (FreeBadgeVisible)
             {
-                if (_downloadProgress is not null)
+                _telemetry.TrackEvent(TelemetryConstants.FreeDownloaded, new Dictionary<string, string>
                 {
-                    _downloadProgress.ProgressChanged -= OnProgressChanged;
-                }
-
-                _downloadProgress = p;
-                _downloadProgress.ProgressChanged += OnProgressChanged;
+                    { "id", _sound.Id ?? "" },
+                    { "name", _sound.Name }
+                });
             }
+
+            return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
         }
 
-        /// <inheritdoc/>
-        public void Dispose()
+        return Task.CompletedTask;
+    }
+
+    private void RegisterProgress(IProgress<double> progress)
+    {
+        if (progress is Progress<double> p)
         {
-            _iapService.ProductPurchased -= OnProductPurchased;
-            _downloadProgress.ProgressChanged -= OnProgressChanged;
-            _soundService.LocalSoundDeleted -= OnSoundDeleted;
+            if (_downloadProgress is not null)
+            {
+                _downloadProgress.ProgressChanged -= OnProgressChanged;
+            }
+
+            _downloadProgress = p;
+            _downloadProgress.ProgressChanged += OnProgressChanged;
         }
+    }
+
+    /// <inheritdoc/>
+    public void Dispose()
+    {
+        _iapService.ProductPurchased -= OnProductPurchased;
+        _downloadProgress.ProgressChanged -= OnProgressChanged;
+        _soundService.LocalSoundDeleted -= OnSoundDeleted;
     }
 }

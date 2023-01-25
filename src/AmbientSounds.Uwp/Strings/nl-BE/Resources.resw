@@ -21,6 +21,12 @@
   <data name="CloseText" xml:space="preserve">
     <value>Sluiten</value>
   </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>Auteursrecht</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>Auteursrecht Jenius Apps</value>
+  </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
     <value>Hallo vanuit Vancouver</value>
   </data>
@@ -181,6 +187,9 @@
   <data name="DeleteTextBlock.Text" xml:space="preserve">
     <value>Verwijderen</value>
   </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Downloaden</value>
+  </data>
   <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
     <value>Speel willekeurig geluid af</value>
   </data>
@@ -190,10 +199,472 @@
   <data name="ScreensaverMode" xml:space="preserve">
     <value>Screensaver-modus</value>
   </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>Schermbeveiliging</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Geluid kopen</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Voorbeeld van geluid bekijken</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Voorbeeld van geluid bekijken</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Onderbroken</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Spelen</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Geluidsvolume</value>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>Actieve geluiden</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Wis alle actieve geluiden</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Wis alle actieve geluiden</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Opslaan bevestigen</value>
+  </data>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>Wereldwijd volume</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>Naam geluidsmix</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>Facultatief</value>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Aangepaste geluidsmix opslaan</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aangepaste geluidsmix opslaan (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Herdopen</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Herdopen</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Afmelden</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Hierdoor kan de geluidsgalerij op al uw apparaten worden gesynchroniseerd.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Accountopties weergeven</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Accountopties weergeven</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Bladeren</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Naamsvermelding</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>Nieuw geluid</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Opfrissen</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Weet je het zeker?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Facultatief</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Vereist</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Schenken</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Gebruiksvoorwaarden</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Volg ons op Twitter</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Ontslaan</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Bedankt voor het proberen van Ambie. Voor de beste ervaring, probeer ons vast te pinnen op uw taakbalk! Geniet van uw ontspannen verblijf 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Hallo en welkom!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Vastmaken aan taakbalk</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Voorbeeld</value>
+  </data>
   <data name="Catalogue" xml:space="preserve">
     <value>Catalogus</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Thuis</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>Mix en match tot 3 geluiden</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>{0} verwijderen uit de actieve lijst</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>Thema-instellingen</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} per maand</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>Bedankt voor je inschrijving!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>Krijg toegang tot hoogwaardige geluiden van hoge kwaliteit</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>Ondersteuning van ontwikkeling</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Hallo nogmaals 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Geniet je van Ambie? Overweeg ons te beoordelen!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Automatisch hervatten wanneer Ambie wordt geopend</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Downloaden</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>We moeten wat geluiden downloaden om dit af te spelen. Eenmaal gedownload, probeer dit opnieuw te spelen. Downloaden starten?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Ontbrekende geluiden</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Verstek</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Meer screensavers</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Screensaver catalogus</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Bekijk premium info</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Wolken</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Gekleurde rook</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Octagrammen</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Er is een probleem opgetreden bij het weergeven van de screensaver. Probeer Ambie opnieuw op te starten of neem contact met ons op als het probleem zich blijft voordoen.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Het probleem melden</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Rendering fout</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Volledig scherm in-/uitschakelen</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Ambie Plus kopen</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Timer pauzeren</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Timer starten</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Goed gedaan!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Focussessie voltooid</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Tijd om te focussen</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Tijd om uit te rusten</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Rusten</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Focussessie is actief!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Gericht</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Rust</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pauzeren</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Terugstellen</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Timer resetten</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Beginnen</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Focus minuten</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Je kunt hier alle notities noteren 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Wat is het plan?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Blocnote</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Rustminuten</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Herhaalt</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Laat me zien hoe ik het moet gebruiken</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Dit is een intervaltimer geïnspireerd op de pomodoro techniek. Het doel is om je voor een langere periode op een taak te concentreren en vervolgens een kortere rustpauze te nemen. Herhaal deze cyclus om te blijven focussen!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Welkom bij Focus Timer!</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Volgend</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Elke cyclus heeft een focussegment en een rustsegment. Kies hoe lang elk focussegment zal zijn. We raden aan om 25 minuten te beginnen!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Stel focusminuten in</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Elke focus- en rustcyclus kan zich meerdere keren herhalen. Probeer 1 herhaling toe te voegen!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Herhalingen instellen</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Kies nu hoe lang elk rustsegment zal zijn. We raden ongeveer 5 minuten aan voor nu!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Stel rustminuten in</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Start de timer en werk aan uw taken. We sturen je meldingen wanneer het tijd is om uit te rusten. Werk hard!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Klaar, klaar, gaan</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} focusminuten, {1} rustminuten {2} herhalingen.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Lijst met recente focusconfiguraties.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 tot {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Geschiedenis</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Onderbrekingen</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Uw recente geschiedenis wordt hier weergegeven</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Onderbreking van het logboek</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Bevestigen</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Notulen onderbroken</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notities</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Werd je door iets onderbroken? Houd hier uw onderbrekingen bij, zodat u ze later in uw geschiedenis kunt bekijken.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Recente geschiedenis</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Rondes voltooid</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Goede inspanning</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Je bent geweldig</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Voeg taken toe om op te focussen en druk vervolgens op de startknop</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Taken</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Recent opgeleverd</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Bewerken</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Voltooide taken</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Taak {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Gratis deze week!</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Open Ambie Mini bij het scherpstellen</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Duur</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Einde</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Ambie Mini openen</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Met Ambie Mini verkleinen we het venster en geven we alleen de benodigde items weer om u te helpen focussen.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Pauzes</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Download geluiden uit de catalogus</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Startpagina bewerken</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Sleep geluiden om uw startpagina te personaliseren. Probeer het nu!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Sorry daarvoor! We konden de catalogus niet laden. Probeer uw internetverbinding te controleren.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Over Ambie</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini wordt automatisch geopend bij het scherpstellen</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>We laten je weten wanneer er nieuwe geluiden beschikbaar zijn</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Bij de lancering zal Ambie het afspelen automatisch hervatten</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Crashes en anonieme gebruiksinformatie worden gerapporteerd om Ambie te helpen verbeteren</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Achtergrondafbeelding</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Aangepaste afbeelding</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Algemene instellingen</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Kies uw modus</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>De kleuren wijzigen die in Ambie worden weergegeven</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Deel waar je naar luistert</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Laten we eens kijken of ze kunnen worden gedownload.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Je mist wat geluiden</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Recensie</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Delen</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Gekopieerd!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Kopiëren</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Of</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Ontgrendel dit geluid</value>
   </data>
 </root>

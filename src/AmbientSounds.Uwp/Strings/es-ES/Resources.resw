@@ -685,4 +685,19 @@
   <data name="ReviewText" xml:space="preserve">
     <value>Revisar</value>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Cuota</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>¡Copiado!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>o</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Desbloquea este sonido</value>
+  </data>
 </root>
