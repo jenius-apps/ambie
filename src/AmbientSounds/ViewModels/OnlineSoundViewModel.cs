@@ -70,6 +70,8 @@ public partial class OnlineSoundViewModel : ObservableObject
     [ObservableProperty]
     private string? _durableIap;
 
+    public event EventHandler? DownloadCompleted;
+
     private void OnProductPurchased(object sender, string iapId)
     {
         if (_sound.IsPremium && _sound.IapIds.Contains(iapId))
@@ -97,6 +99,10 @@ public partial class OnlineSoundViewModel : ObservableObject
         {
             IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
             DownloadProgressValue = 0;
+            if (IsInstalled)
+            {
+                DownloadCompleted?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 
