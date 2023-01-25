@@ -60,6 +60,8 @@ public partial class OnlineSoundViewModel : ObservableObject
 
     [ObservableProperty]
     private string? _durableIap;
+    
+    public event EventHandler? DownloadCompleted;
 
     /// <summary>
     /// This sound's download progress.
@@ -113,6 +115,10 @@ public partial class OnlineSoundViewModel : ObservableObject
         {
             IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id ?? "");
             DownloadProgressValue = 0;
+            if (IsInstalled)
+            {
+                DownloadCompleted?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 
