@@ -28,9 +28,26 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IShareService _shareService;
     private readonly IDispatcherQueue _dispatcherQueue;
+
+    /// <summary>
+    /// Determines if the rating message is visible.
+    /// </summary>
+    [ObservableProperty]
     private bool _isRatingMessageVisible;
+
+    [ObservableProperty]
     private bool _premiumButtonVisible;
+
+    /// <summary>
+    /// Determines whether or not the focus  time banner control is visible on the page.
+    /// </summary>
+    [ObservableProperty]
     private bool _focusTimeBannerVisible;
+
+    /// <summary>
+    /// Determines whether or not the focus dot is visible.
+    /// </summary>
+    [ObservableProperty]
     private bool _focusDotVisible;
 
     [ObservableProperty]
@@ -100,44 +117,9 @@ public partial class ShellPageViewModel : ObservableObject
     }
 
     /// <summary>
-    /// Determines whether or not the focus
-    /// dot is visible.
-    /// </summary>
-    public bool FocusDotVisible
-    {
-        get => _focusDotVisible;
-        set => SetProperty(ref _focusDotVisible, value);
-    }
-
-    /// <summary>
     /// Determines if the current mix can be saved or not.
     /// </summary>
     public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
-
-    /// <summary>
-    /// Determines whether or not the focus 
-    /// time banner control is visible on the page.
-    /// </summary>
-    public bool FocusTimeBannerVisibile
-    {
-        get => _focusTimeBannerVisible;
-        set => SetProperty(ref _focusTimeBannerVisible, value);
-    }
-        
-    /// <summary>
-    /// Determines if the rating message is visible.
-    /// </summary>
-    public bool IsRatingMessageVisible
-    {
-        get => _isRatingMessageVisible;
-        set => SetProperty(ref _isRatingMessageVisible, value);
-    }
-
-    public bool PremiumButtonVisible
-    {
-        get => _premiumButtonVisible;
-        set => SetProperty(ref _premiumButtonVisible, value);
-    }
 
     /// <summary>
     /// Path to background image.
@@ -345,7 +327,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void UpdateTimeBannerVisibility()
     {
-        FocusTimeBannerVisibile =
+        FocusTimeBannerVisible =
             _navigator.GetContentPageName() != "FocusPage" &&
             _focusService.CurrentState != FocusState.None;
     }

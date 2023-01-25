@@ -7,12 +7,25 @@ using System;
 
 namespace AmbientSounds.ViewModels
 {
-    public class VideoViewModel : ObservableObject
+    public partial class VideoViewModel : ObservableObject
     {
+        [ObservableProperty]
         private bool _isDownloaded;
+
+        [ObservableProperty]
         private bool _isOwned;
-        private double _progressValue;
+
+        /// <summary>
+        /// This sound's download progress.
+        /// </summary>
+        [ObservableProperty]
+        private double _downloadProgressValue;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
         private bool _loading;
+
+        [ObservableProperty]
         private bool _downloadProgressVisible;
 
         public VideoViewModel(
@@ -45,49 +58,6 @@ namespace AmbientSounds.ViewModels
         public IAsyncRelayCommand<VideoViewModel> DeleteCommand { get; }
 
         public Video Video { get; }
-
-        /// <summary>
-        /// This sound's download progress.
-        /// </summary>
-        public double DownloadProgressValue
-        {
-            get => _progressValue;
-            set
-            {
-                SetProperty(ref _progressValue, value);
-            }
-        }
-
-        public bool DownloadProgressVisible
-        {
-            get => _downloadProgressVisible;
-            set => SetProperty(ref _downloadProgressVisible, value);
-        }
-
-        public bool IsDownloaded
-        {
-            get => _isDownloaded;
-            set => SetProperty(ref _isDownloaded, value);
-        }
-
-        public bool IsOwned
-        {
-            get => _isOwned;
-            set 
-            {
-                SetProperty(ref _isOwned, value);
-            }
-        }
-
-        public bool Loading
-        {
-            get => _loading;
-            set
-            {
-                SetProperty(ref _loading, value);
-                OnPropertyChanged(nameof(DownloadProgressVisible));
-            }
-        }
 
         private void OnProgressChanged(object sender, double e)
         {

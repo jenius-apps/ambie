@@ -26,7 +26,7 @@ namespace AmbientSounds.Controls
         {
             if (e.ClickedItem is FocusHistoryViewModel vm)
             {
-                ViewModel.DetailsCommand.Execute(vm);
+                ViewModel.ViewDetailsCommand.Execute(vm);
             }
         }
     }

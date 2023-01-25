@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class FocusTaskModuleViewModel : ObservableObject
+    public partial class FocusTaskModuleViewModel : ObservableObject
     {
         private const int MaxTaskText = 280;
         private readonly IFocusTaskService _taskService;
@@ -26,7 +26,11 @@ namespace AmbientSounds.ViewModels
         private readonly IRelayCommand<FocusTaskViewModel> _completeCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _reopenCommand;
         private readonly IRelayCommand<FocusTaskViewModel> _editCommand;
+
+        [ObservableProperty]
         private string _newTask = string.Empty;
+
+        [ObservableProperty]
         private bool _isCompletedListVisible;
 
         public FocusTaskModuleViewModel(
@@ -64,18 +68,6 @@ namespace AmbientSounds.ViewModels
         public bool OpenTaskListVisible => Tasks.Count > 0;
 
         public bool CanAddMoreTasks => Tasks.Count < 5;
-
-        public string NewTask
-        {
-            get => _newTask;
-            set => SetProperty(ref _newTask, value);
-        }
-
-        public bool IsCompletedListVisible
-        {
-            get => _isCompletedListVisible;
-            set => SetProperty(ref _isCompletedListVisible, value);
-        }
 
         public async Task InitializeAsync()
         {

@@ -136,7 +136,7 @@
                                                 x:Uid="BuyButton"
                                                 Padding="8,0"
                                                 VerticalAlignment="Stretch"
-                                                Command="{x:Bind BuyCommand, Mode=OneWay}"
+                                                Command="{x:Bind BuySoundCommand, Mode=OneWay}"
                                                 Style="{StaticResource SubtleButton}">
                                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                                             </Button>
@@ -205,7 +205,7 @@
                                             x:Uid="DeleteButton"
                                             Padding="8,0"
                                             VerticalAlignment="Stretch"
-                                            Command="{x:Bind DeleteCommand, Mode=OneWay}"
+                                            Command="{x:Bind DeleteSoundCommand, Mode=OneWay}"
                                             Style="{StaticResource SubtleButton}">
                                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />
                                         </Button>

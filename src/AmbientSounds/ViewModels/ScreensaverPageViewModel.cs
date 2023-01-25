@@ -16,7 +16,7 @@ using System.Windows.Input;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ScreensaverPageViewModel : ObservableObject
+    public partial class ScreensaverPageViewModel : ObservableObject
     {
         private const string DefaultId = "default";
         private const string DarkScreenId = "darkscreen";
@@ -30,10 +30,21 @@ namespace AmbientSounds.ViewModels
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly IUserSettings _userSettings;
         private Uri _videoSource = new Uri(DefaultVideoSource);
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(AnimatedBackgroundVisible))]
         private string? _animatedBackgroundName = null;
+
+        [ObservableProperty]
         private bool _settingsButtonVisible;
+
+        [ObservableProperty]
         private bool _loading;
+
+        [ObservableProperty]
         private bool _slideshowVisible;
+
+        [ObservableProperty]
         private bool _isDarkScreen;
 
         /// <summary>
@@ -97,46 +108,12 @@ namespace AmbientSounds.ViewModels
 
         public bool VideoPlayerVisible => VideoSource.AbsoluteUri != DefaultVideoSource;
 
-        public string? AnimatedBackgroundName
-        {
-            get => _animatedBackgroundName;
-            set
-            {
-                SetProperty(ref _animatedBackgroundName, value);
-                OnPropertyChanged(nameof(AnimatedBackgroundVisible));
-            }
-        }
-
         /// <summary>
         /// Determines if the animated background should be shown.
         /// </summary>
         public bool AnimatedBackgroundVisible => AnimatedBackgroundName is not null;
 
         public bool FullScreenVisible => _systemInfoProvider.IsDesktop();
-
-        public bool IsDarkScreen
-        {
-            get => _isDarkScreen;
-            set => SetProperty(ref _isDarkScreen, value);
-        }
-
-        public bool SlideshowVisible
-        {
-            get => _slideshowVisible;
-            set => SetProperty(ref _slideshowVisible, value);
-        }
-
-        public bool SettingsButtonVisible
-        {
-            get => _settingsButtonVisible;
-            set => SetProperty(ref _settingsButtonVisible, value);
-        }
-
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
 
         public async Task InitializeAsync(string? screensaverToSelect = "")
         {

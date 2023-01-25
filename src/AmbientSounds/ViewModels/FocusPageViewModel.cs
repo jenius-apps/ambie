@@ -1,15 +1,16 @@
 ﻿using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class FocusPageViewModel : ObservableObject
+    public partial class FocusPageViewModel : ObservableObject
     {
         private readonly IFocusNotesService _focusNotesService;
         private readonly IFocusService _focusService;
+
+        [ObservableProperty]
         private string _notes = string.Empty;
 
         public FocusPageViewModel(
@@ -33,16 +34,10 @@ namespace AmbientSounds.ViewModels
         /// </remarks>
         public bool TaskModuleVisible => _focusService.CurrentState == FocusState.None;
 
-        public string Notes
+        /// <inheritdoc/>
+        partial void OnNotesChanged(string value)
         {
-            get => _notes;
-            set
-            {
-                if (SetProperty(ref _notes, value))
-                {
-                    _focusNotesService.UpdateNotes(value);
-                }
-            }
+            _focusNotesService.UpdateNotes(value);
         }
 
         public async Task InitializeAsync()

@@ -34,9 +34,9 @@ namespace AmbientSounds.Views
 
         private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(ViewModel.FocusTimeBannerVisibile))
+            if (e.PropertyName == nameof(ViewModel.FocusTimeBannerVisible))
             {
-                if (ViewModel.FocusTimeBannerVisibile)
+                if (ViewModel.FocusTimeBannerVisible)
                 {
                     await ShowTimeBannerAnimations.StartAsync();
                 }

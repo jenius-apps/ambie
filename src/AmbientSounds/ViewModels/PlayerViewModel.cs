@@ -10,7 +10,7 @@ namespace AmbientSounds.ViewModels
     /// <summary>
     /// View model for a player user control.
     /// </summary>
-    public class PlayerViewModel : ObservableObject
+    public partial class PlayerViewModel : ObservableObject
     {
         private readonly IMixMediaPlayerService _player;
         private readonly IUserSettings _userSettings;
@@ -23,20 +23,8 @@ namespace AmbientSounds.ViewModels
             _player = player;
             _userSettings = userSettings;
 
-            TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
-            RandomCommand = new RelayCommand(PlayRandom);
             Volume = userSettings.Get<double>(UserSettingsConstants.Volume);
         }
-
-        /// <summary>
-        /// The <see cref="IAsyncRelayCommand"/> responsible for toggling the play state.
-        /// </summary>
-        public IAsyncRelayCommand TogglePlayStateCommand { get; }
-
-        /// <summary>
-        /// Command for playing a random sound.
-        /// </summary>
-        public IRelayCommand RandomCommand { get; }
 
         /// <summary>
         /// Flag for if the player is playing or is about to.
@@ -65,6 +53,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Toggles the player's state.
         /// </summary>
+        [RelayCommand]
         private async Task TogglePlayStateAsync()
         {
             if (IsPlaying) _player.Pause();
@@ -75,6 +64,7 @@ namespace AmbientSounds.ViewModels
             UpdatePlayState();
         }
 
+        [RelayCommand]
         private void PlayRandom()
         {
             //_player.PlayRandom();

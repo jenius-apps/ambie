@@ -5,9 +5,12 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace AmbientSounds.ViewModels
 {
-    public class FocusTaskViewModel : ObservableObject
+    public partial class FocusTaskViewModel : ObservableObject
     {
+        [ObservableProperty]
         private bool _isCompleted;
+
+        [ObservableProperty]
         private string _text = string.Empty;
 
         public FocusTaskViewModel(
@@ -44,30 +47,17 @@ namespace AmbientSounds.ViewModels
 
         public IRelayCommand<FocusTaskViewModel>? ReopenCommand { get; }
 
-        public bool IsCompleted
+        /// <inheritdoc/>
+        partial void OnIsCompletedChanged(bool value)
         {
-            get => _isCompleted;
-            set
+            if (value is true)
             {
-                bool valueChanged = SetProperty(ref _isCompleted, value);
-                if (valueChanged)
-                {
-                    if (value is true)
-                    {
-                        CompleteCommand?.Execute(this);
-                    }
-                    else
-                    {
-                        ReopenCommand?.Execute(this);
-                    }
-                }
+                CompleteCommand?.Execute(this);
             }
-        }
-
-        public string Text
-        {
-            get => _text;
-            set => SetProperty(ref _text, value);
+            else
+            {
+                ReopenCommand?.Execute(this);
+            }
         }
     }
 }

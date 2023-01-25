@@ -8,17 +8,18 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class VideosMenuViewModel : ObservableObject
+    public partial class VideosMenuViewModel : ObservableObject
     {
         private readonly IVideoService _videoService;
         private readonly ITelemetry _telemetry;
         private readonly ILocalizer _localizer;
         private readonly IIapService _iapService;
+
+        [ObservableProperty]
         private bool _loading;
 
         public VideosMenuViewModel(
@@ -40,12 +41,6 @@ namespace AmbientSounds.ViewModels
         }
 
         public ObservableCollection<VideoViewModel> Videos { get; } = new();
-
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
 
         public async Task InitializeAsync()
         {

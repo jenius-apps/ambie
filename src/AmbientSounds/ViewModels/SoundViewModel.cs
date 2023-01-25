@@ -33,10 +33,20 @@ namespace AmbientSounds.ViewModels
         private readonly IPresenceService _presenceService;
         private readonly IDispatcherQueue _dispatcherQueue;
         private Progress<double>? _downloadProgress;
+
+        [ObservableProperty]
         private int _position;
+
+        [ObservableProperty]
         private int _setSize;
+
+        [ObservableProperty]
         private bool _downloadActive;
+
+        [ObservableProperty]
         private double _downloadProgressValue;
+
+        [ObservableProperty]
         private double _presenceCount = 0;
 
         public SoundViewModel(
@@ -78,22 +88,6 @@ namespace AmbientSounds.ViewModels
             _presenceService = presenceService;
             _dispatcherQueue = dispatcherQueue;
             _onlineSoundDataProvider = onlineSoundDataProvider;
-
-            DeleteCommand = new RelayCommand(DeleteSound);
-            RenameCommand = new AsyncRelayCommand(RenameAsync);
-            PlayCommand = new AsyncRelayCommand(PlayAsync);
-        }
-
-        public int Position
-        {
-            get => _position;
-            set => SetProperty(ref _position, value);
-        }
-
-        public int SetSize
-        {
-            get => _setSize;
-            set => SetProperty(ref _setSize, value);
         }
 
         public IAsyncRelayCommand<IList<string>>? MixUnavailableCommand { get; set; }
@@ -162,42 +156,11 @@ namespace AmbientSounds.ViewModels
         public string? ImagePath => _sound.IsMix ? _sound.ImagePaths[0] : _sound.ImagePath;
 
         /// <summary>
-        /// Command for deleting this sound.
-        /// </summary>
-        public IRelayCommand DeleteCommand { get; }
-
-        public IAsyncRelayCommand RenameCommand { get; }
-
-        public IAsyncRelayCommand PlayCommand { get; }
-
-        /// <summary>
         /// Returns true if the sound is currently playing.
         /// </summary>
         public bool IsCurrentlyPlaying => string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
             ? _playerService.IsSoundPlaying(_sound.Id)
             : _soundMixService.IsMixPlaying(_sound.Id);
-
-        public bool DownloadActive
-        {
-            get => _downloadActive;
-            set => SetProperty(ref _downloadActive, value);
-        }
-
-        public double DownloadProgressValue
-        {
-            get => _downloadProgressValue;
-            set => SetProperty(ref _downloadProgressValue, value);
-        }
-
-        public double PresenceCount
-        {
-            get => _presenceCount;
-            set
-            {
-                SetProperty(ref _presenceCount, value);
-                OnPropertyChanged(nameof(IsPresenceVisible));
-            }
-        }
 
         public bool IsPresenceVisible => PresenceCount > 0 && IsCurrentlyPlaying;
 
@@ -247,6 +210,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Loads this sound into the player and plays it.
         /// </summary>
+        [RelayCommand]
         private async Task PlayAsync()
         {
             if (DownloadActive)
@@ -341,6 +305,7 @@ namespace AmbientSounds.ViewModels
             });
         }
 
+        [RelayCommand]
         private async Task RenameAsync()
         {
             bool renamed = await _renamer.RenameAsync(_sound);
@@ -367,6 +332,7 @@ namespace AmbientSounds.ViewModels
                 _dispatcherQueue.TryEnqueue(() =>
                 {
                     PresenceCount = e.Count;
+                    OnPropertyChanged(nameof(IsPresenceVisible));
                 });
             }
         }
@@ -375,7 +341,8 @@ namespace AmbientSounds.ViewModels
         {
             _dispatcherQueue.TryEnqueue(() =>
             { 
-                PresenceCount = 0; 
+                PresenceCount = 0;
+                OnPropertyChanged(nameof(IsPresenceVisible));
             });
         }
 
@@ -394,6 +361,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        [RelayCommand]
         private async void DeleteSound()
         {
             if (!_sound.IsMix)

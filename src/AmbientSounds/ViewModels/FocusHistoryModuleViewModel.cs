@@ -4,21 +4,23 @@ using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class FocusHistoryModuleViewModel : ObservableObject
+    public partial class FocusHistoryModuleViewModel : ObservableObject
     {
         private readonly IFocusHistoryService _focusHistoryService;
         private readonly ITelemetry _telemetry;
         private readonly IDialogService _dialogService;
+
+        [ObservableProperty]
         private bool _loading;
+
+        [ObservableProperty]
         private bool _placeholderVisible;
 
         public FocusHistoryModuleViewModel(
@@ -33,25 +35,9 @@ namespace AmbientSounds.ViewModels
             _focusHistoryService = focusHistoryService;
             _telemetry = telemetry;
             _dialogService = dialogService;
-
-            DetailsCommand = new AsyncRelayCommand<FocusHistoryViewModel>(ViewDetailsAsync);
         }
 
         public ObservableCollection<FocusHistoryViewModel> Items { get; } = new();
-
-        public IAsyncRelayCommand<FocusHistoryViewModel> DetailsCommand { get; }
-
-        public bool Loading
-        {
-            get => _loading;
-            set => SetProperty(ref _loading, value);
-        }
-
-        public bool PlaceholderVisible
-        {
-            get => _placeholderVisible;
-            set => SetProperty(ref _placeholderVisible, value);
-        }
 
         public async Task InitializeAsync()
         {
@@ -87,6 +73,7 @@ namespace AmbientSounds.ViewModels
             }
         }
 
+        [RelayCommand]
         private async Task ViewDetailsAsync(FocusHistoryViewModel? vm)
         {
             if (vm is null)

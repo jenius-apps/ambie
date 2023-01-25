@@ -21,9 +21,6 @@ public partial class OnlineSoundViewModel : ObservableObject
     private readonly IPreviewService _previewService;
     private readonly IDialogService _dialogService;
     private Progress<double> _downloadProgress;
-    private double _progressValue;
-    private bool _isInstalled;
-    private bool _isOwned;
 
     public OnlineSoundViewModel(
         Sound s, 
@@ -53,12 +50,6 @@ public partial class OnlineSoundViewModel : ObservableObject
         _downloadProgress.ProgressChanged += OnProgressChanged;
         _soundService.LocalSoundDeleted += OnSoundDeleted;
         _iapService.ProductPurchased += OnProductPurchased;
-
-        DownloadCommand = new AsyncRelayCommand(DownloadAsync);
-        LoadCommand = new AsyncRelayCommand(LoadAsync);
-        DeleteCommand = new AsyncRelayCommand(DeleteSound);
-        BuyCommand = new AsyncRelayCommand(BuySoundAsync);
-        PreviewCommand = new RelayCommand(Preview);
     }
 
     [ObservableProperty]
@@ -69,8 +60,33 @@ public partial class OnlineSoundViewModel : ObservableObject
 
     [ObservableProperty]
     private string? _durableIap;
-
+    
     public event EventHandler? DownloadCompleted;
+
+    /// <summary>
+    /// This sound's download progress.
+    /// </summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
+    [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    private double _downloadProgressValue;
+
+    /// <summary>
+    /// True if the item is already installed.
+    /// </summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(NotInstalled))]
+    private bool _isInstalled;
+
+    /// <summary>
+    /// If true, the sound is owned by the user
+    /// and can be downloaded. If false, the sound
+    /// must be purchased first.
+    /// </summary>
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(CanBuy))]
+    [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    private bool _isOwned;
 
     private void OnProductPurchased(object sender, string iapId)
     {
@@ -157,22 +173,6 @@ public partial class OnlineSoundViewModel : ObservableObject
         Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
     /// <summary>
-    /// If true, the sound is owned by the user
-    /// and can be downloaded. If false, the sound
-    /// must be purchased first.
-    /// </summary>
-    public bool IsOwned
-    {
-        get => _isOwned;
-        set 
-        { 
-            SetProperty(ref _isOwned, value);
-            OnPropertyChanged(nameof(CanBuy));
-            OnPropertyChanged(nameof(DownloadButtonVisible));
-        }
-    }
-
-    /// <summary>
     /// Determines if the download button is visible.
     /// </summary>
     public bool DownloadButtonVisible => IsOwned && !DownloadProgressVisible;
@@ -180,7 +180,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// <summary>
     /// True if the sound can be bought.
     /// </summary>
-    public bool CanBuy => _sound.IsPremium && !_isOwned;
+    public bool CanBuy => _sound.IsPremium && !IsOwned;
 
     /// <summary>
     /// Determines if the plus badge is visible.
@@ -193,67 +193,16 @@ public partial class OnlineSoundViewModel : ObservableObject
     public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
 
     /// <summary>
-    /// This sound's download progress.
-    /// </summary>
-    public double DownloadProgressValue
-    {
-        get => _progressValue;
-        set
-        {
-            SetProperty(ref _progressValue, value);
-            OnPropertyChanged(nameof(DownloadProgressVisible));
-            OnPropertyChanged(nameof(DownloadButtonVisible));
-        }
-    }
-
-    /// <summary>
     /// True if download progress should be visible.
     /// </summary>
     public bool DownloadProgressVisible => DownloadProgressValue > 0 && DownloadProgressValue < 100;
-
-    /// <summary>
-    /// True if the item is already installed.
-    /// </summary>
-    public bool IsInstalled
-    {
-        get => _isInstalled;
-        set
-        {
-            SetProperty(ref _isInstalled, value);
-            OnPropertyChanged(nameof(NotInstalled));
-        }
-    }
 
     /// <summary>
     /// True if the item can be downloaded;
     /// </summary>
     public bool NotInstalled => !IsInstalled;
 
-    /// <summary>
-    /// Command for downloading this sound.
-    /// </summary>
-    public IAsyncRelayCommand DownloadCommand { get; }
-
-    /// <summary>
-    /// Command for deleting this sound.
-    /// </summary>
-    public IAsyncRelayCommand DeleteCommand { get; }
-
-    /// <summary>
-    /// Command for buying sound.
-    /// </summary>
-    public IAsyncRelayCommand BuyCommand { get; }
-
-    /// <summary>
-    /// Command for loading this sound.
-    /// </summary>
-    public IAsyncRelayCommand LoadCommand { get; }
-
-    /// <summary>
-    /// Command for previewing this sound.
-    /// </summary>
-    public IRelayCommand PreviewCommand { get; }
-
+    [RelayCommand]
     private void Preview()
     {
         _telemetry.TrackEvent(TelemetryConstants.PreviewClicked, new Dictionary<string, string>
@@ -264,6 +213,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _previewService.Play(_sound.PreviewFilePath);
     }
 
+    [RelayCommand]
     private async Task BuySoundAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
@@ -275,7 +225,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         await _dialogService.OpenPremiumAsync();
     }
 
-    private async Task DeleteSound()
+    [RelayCommand]
+    private async Task DeleteSoundAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.CatalogueDeleteClicked, new Dictionary<string, string>
         {
@@ -284,6 +235,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         await _soundService.DeleteLocalSoundAsync(_sound.Id ?? "");
     }
 
+    [RelayCommand]
     private async Task LoadAsync()
     {
         if (_downloadManager.IsDownloadActive(_sound))
@@ -340,6 +292,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _telemetry.TrackEvent(purchased ? TelemetryConstants.BuyDurablePurchased : TelemetryConstants.BuyDurableCanceled, data);
     }
 
+    [RelayCommand]
     private Task DownloadAsync()
     {
         if (DownloadProgressValue == 0 && NotInstalled)

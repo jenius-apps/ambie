@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
 {
-    public class ActiveTrackListViewModel : ObservableObject
+    public partial class ActiveTrackListViewModel : ObservableObject
     {
         private readonly IMixMediaPlayerService _player;
         private readonly ISoundVmFactory _soundVmFactory;
@@ -61,21 +61,7 @@ namespace AmbientSounds.ViewModels
             _presenceService = presenceService;
             _shareService = shareService;
             _dispatcherQueue = dispatcherQueue;
-
-            RemoveCommand = new RelayCommand<Sound>(RemoveSound);
-            ClearCommand = new RelayCommand(ClearAll);
         }
-
-        /// <summary>
-        /// Clears the active tracks list.
-        /// </summary>
-        public IRelayCommand ClearCommand { get; }
-
-        /// <summary>
-        /// Removes the sound from active list
-        /// and pauses it.
-        /// </summary>
-        public IRelayCommand<Sound> RemoveCommand { get; }
 
         /// <summary>
         /// List of active sounds being played.
@@ -156,6 +142,7 @@ namespace AmbientSounds.ViewModels
             await task;
         }
 
+        [RelayCommand]
         private void ClearAll()
         {
             var count = ActiveTracks.Count;
@@ -219,11 +206,12 @@ namespace AmbientSounds.ViewModels
         {
             if (!ActiveTracks.Any(x => x.Sound?.Id == sound.Id))
             {
-                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(sound, RemoveCommand));
+                ActiveTracks.Add(_soundVmFactory.GetActiveTrackVm(sound, RemoveSoundCommand));
                 UpdateStoredState();
             }
         }
 
+        [RelayCommand]
         private void RemoveSound(Sound? s)
         {
             if (s is not null)
