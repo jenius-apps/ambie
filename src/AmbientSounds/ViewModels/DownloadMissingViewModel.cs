@@ -89,6 +89,7 @@ public partial class DownloadMissingViewModel : ObservableObject
             var sound = await _soundService.GetLocalSoundAsync(vm.Id);
             if (sound is not null)
             {
+                await Task.Delay(300);
                 await _player.ToggleSoundAsync(sound);
             }
         }
