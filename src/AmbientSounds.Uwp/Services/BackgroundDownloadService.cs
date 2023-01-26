@@ -102,7 +102,7 @@ namespace AmbientSounds.Services.Uwp
         /// </summary>
         /// <param name="destinationPath">The destination path of the download.</param>
         /// <param name="url">The URL of the item to download.</param>
-        public async void StartDownload(
+        public void StartDownload(
             StorageFile destinationFile,
             string url,
             IProgress<double>? progress = null,
@@ -122,7 +122,7 @@ namespace AmbientSounds.Services.Uwp
                 _activeProgress.TryAdd(destinationFile.Path, progress);
             }
 
-            await HandleDownloadAsync(download, true);
+            _ = HandleDownloadAsync(download, true);
         }
 
         private void DownloadProgress(DownloadOperation download)
