@@ -264,7 +264,6 @@
                                     Visibility="Visible" />
                                 <TextBlock
                                     x:Name="MenuTextPremium"
-                                    Margin="32,0,0,0"
                                     Text="{x:Bind strings:Resources.GetAmbiePlus}"
                                     Visibility="Collapsed" />
                             </StackPanel>
