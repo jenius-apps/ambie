@@ -568,8 +568,8 @@
           <target state="translated">전체 화면 전환</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie Plus</source>
-          <target state="translated">Ambie 플러스 받기</target>
+          <source>Get Ambie+</source>
+          <target state="translated">앰비+ 구매</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>

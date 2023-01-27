@@ -12,12 +12,12 @@
     <StackPanel Margin="0,0,0,20">
         <Image Width="400" Source="ms-appx:///Assets/ambie_plus_banner.png" />
 
-        <!--  Note: Ambie Plus is the brand name, so it doesn't need to be translated  -->
+        <!--  Note: Ambie+ is the brand name, so it doesn't need to be translated  -->
         <TextBlock
             MaxWidth="300"
             Margin="0,20,0,20"
             FontSize="20"
-            Text="Ambie Plus" />
+            Text="Ambie+" />
 
         <ItemsControl MaxWidth="300" ItemsSource="{x:Bind SubscriptionTexts}">
             <ItemsControl.ItemTemplate>
@@ -31,7 +31,7 @@
                         <TextBlock
                             Margin="0,0,4,0"
                             AutomationProperties.AccessibilityView="Raw"
-                            Text="✔" />
+                            Text="✅" />
                         <TextBlock
                             Grid.Column="1"
                             Text="{x:Bind}"
@@ -81,6 +81,7 @@
             HorizontalAlignment="Stretch"
             AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
             Click="CloseClick"
-            Content="{x:Bind strings:Resources.CloseText}" />
+            Content="{x:Bind strings:Resources.CloseText}"
+            Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
     </StackPanel>
 </UserControl>

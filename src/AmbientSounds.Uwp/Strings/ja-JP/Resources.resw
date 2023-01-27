@@ -434,7 +434,7 @@
     <value>全画面表示切り替え</value>
   </data>
   <data name="GetAmbiePlus" xml:space="preserve">
-    <value>AmbiePlusを購入する</value>
+    <value>アンビエ+を購入する</value>
   </data>
   <data name="FocusText" xml:space="preserve">
     <value>集中</value>

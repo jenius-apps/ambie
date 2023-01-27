@@ -579,8 +579,8 @@
           <target state="translated">Teljes képernyős váltás</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie Plus</source>
-          <target state="translated">Szerezze be az Ambie Plus-t</target>
+          <source>Get Ambie+</source>
+          <target state="translated">Ambie+ vásárlása</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>

@@ -569,8 +569,8 @@
           <target state="translated">Alternar para o modo tela cheia</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie Plus</source>
-          <target state="translated">Obtenha o Ambie Plus</target>
+          <source>Get Ambie+</source>
+          <target state="translated">Comprar Ambie+</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>

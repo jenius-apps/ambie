@@ -579,8 +579,8 @@
           <target state="translated">Passare a schermo intero</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie Plus</source>
-          <target state="translated">Ottieni Ambie Plus</target>
+          <source>Get Ambie+</source>
+          <target state="translated">Ottieni Ambie+</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>

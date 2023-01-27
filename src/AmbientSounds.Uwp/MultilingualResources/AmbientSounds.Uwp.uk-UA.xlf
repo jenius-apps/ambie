@@ -568,8 +568,8 @@
           <target state="translated">Перемкнути повноекранний режим</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie Plus</source>
-          <target state="translated">Отримати Ambie Plus</target>
+          <source>Get Ambie+</source>
+          <target state="translated">Отримати Ambie+</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
