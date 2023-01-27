@@ -565,8 +565,9 @@
           <target state="translated">全画面表示切り替え</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie Plus</source>
-          <target state="translated">AmbiePlusを購入する</target>
+          <source>Get Ambie+</source>
+          <target state="needs-review-translation">AmbiePlusを購入する</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>

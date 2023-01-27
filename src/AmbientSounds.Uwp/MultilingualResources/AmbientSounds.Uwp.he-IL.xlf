@@ -568,8 +568,9 @@
           <target state="translated">דרג אותנו</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
-          <source>Get Ambie Plus</source>
-          <target state="translated">קבלו את אמבי פלוס</target>
+          <source>Get Ambie+</source>
+          <target state="needs-review-translation">קבלו את אמבי פלוס</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>

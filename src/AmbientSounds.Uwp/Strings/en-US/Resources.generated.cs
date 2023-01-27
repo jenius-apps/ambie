@@ -953,7 +953,7 @@ namespace AmbientSounds.Strings{
 
         #region GetAmbiePlus
         /// <summary>
-        ///   Looks up a localized string similar to: Get Ambie Plus
+        ///   Looks up a localized string similar to: Get Ambie+
         /// </summary>
         public static string GetAmbiePlus
         {
