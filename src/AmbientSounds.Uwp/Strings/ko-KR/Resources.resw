@@ -434,7 +434,7 @@
     <value>전체 화면 전환</value>
   </data>
   <data name="GetAmbiePlus" xml:space="preserve">
-    <value>Ambie 플러스 받기</value>
+    <value>앰비+ 구매</value>
   </data>
   <data name="FocusText" xml:space="preserve">
     <value>집중하다</value>
