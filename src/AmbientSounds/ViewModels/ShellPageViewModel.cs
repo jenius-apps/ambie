@@ -186,7 +186,8 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
-    public async void OpenPremiumDialog()
+    [RelayCommand]
+    private async Task OpenPremiumAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked);
         await _dialogService.OpenPremiumAsync();
