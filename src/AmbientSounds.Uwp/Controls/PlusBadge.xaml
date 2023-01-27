@@ -24,7 +24,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Width="44" Height="24">
+    <Grid Width="32" Height="24">
         <Rectangle
             Fill="{ThemeResource BadgeBrush}"
             RadiusX="4"
@@ -38,6 +38,6 @@
             VerticalAlignment="Center"
             AutomationProperties.AccessibilityView="Raw"
             Foreground="White"
-            Text="Plus" />
+            Text="A+" />
     </Grid>
 </UserControl>
