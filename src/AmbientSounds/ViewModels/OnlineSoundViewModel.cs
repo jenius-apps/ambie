@@ -51,15 +51,6 @@ public partial class OnlineSoundViewModel : ObservableObject
         _soundService.LocalSoundDeleted += OnSoundDeleted;
         _iapService.ProductPurchased += OnProductPurchased;
     }
-
-    [ObservableProperty]
-    private bool _canBuyIndividually;
-
-    [ObservableProperty]
-    private string _individualPrice = string.Empty;
-
-    [ObservableProperty]
-    private string? _durableIap;
     
     public event EventHandler? DownloadCompleted;
 
@@ -264,32 +255,6 @@ public partial class OnlineSoundViewModel : ObservableObject
         }
 
         IsOwned = isOwned;
-
-        if (!isOwned)
-        {
-            string? iap = _sound.IapIds.GetDurableIaps().FirstOrDefault();
-
-            if (iap is { Length: > 0 } s)
-            {
-                DurableIap = s;
-                IndividualPrice = await _iapService.GetLatestPriceAsync(s);
-                CanBuyIndividually = true;
-            }
-        }
-    }
-
-    [RelayCommand]
-    private async Task BuyDurableAsync(string? durable)
-    {
-        if (durable is null)
-        {
-            return;
-        }
-
-        var data = new Dictionary<string, string> { { "id", durable } };
-        _telemetry.TrackEvent(TelemetryConstants.BuyDurableClicked, data);
-        var purchased = await _iapService.BuyAsync(durable);
-        _telemetry.TrackEvent(purchased ? TelemetryConstants.BuyDurablePurchased : TelemetryConstants.BuyDurableCanceled, data);
     }
 
     [RelayCommand]

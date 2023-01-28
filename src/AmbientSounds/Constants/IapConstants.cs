@@ -40,20 +40,6 @@ namespace AmbientSounds.Constants
             return (iapId, 0);
         }
 
-        public static IEnumerable<string> GetDurableIaps(this IReadOnlyList<string> ids)
-        {
-            foreach (var id in ids)
-            {
-                if (id.StartsWith(MsStoreAmbiePlusId, StringComparison.OrdinalIgnoreCase) || 
-                    id.StartsWith(MsStoreFreeRotationId, StringComparison.OrdinalIgnoreCase))
-                {
-                    continue;
-                }
-
-                yield return id;
-            }
-        }
-
         private static bool ContainsId(this IReadOnlyList<string> ids, string id)
         {
             if (ids is null || ids.Count == 0)
