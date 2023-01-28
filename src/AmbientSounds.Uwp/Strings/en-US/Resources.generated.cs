@@ -743,6 +743,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region PriceForLifetime
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} lifetime access
+        /// </summary>
+        public static string PriceForLifetime
+        {
+            get
+            {
+                return _resourceLoader.GetString("PriceForLifetime");
+            }
+        }
+        #endregion
+
         #region SubscriptionText1
         /// <summary>
         ///   Looks up a localized string similar to: Access premium, high quality sounds
@@ -2174,6 +2187,7 @@ namespace AmbientSounds.Strings{
             ThemeSettings,
             SettingsResumeOnLaunch,
             PricePerMonth,
+            PriceForLifetime,
             SubscriptionText1,
             SubscriptionText2,
             SubscriptionText3,

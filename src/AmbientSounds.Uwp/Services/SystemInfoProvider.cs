@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
+using System;
 using Windows.UI.ViewManagement;
 
 #nullable enable
@@ -45,5 +46,11 @@ public class SystemInfoProvider : ISystemInfoProvider
     {
         var result = SystemInformation.Instance.OperatingSystemVersion;
         return result.Build >= 22000;
+    }
+
+    /// <inheritdoc/>
+    public DateTime FirstUseDate()
+    {
+        return SystemInformation.Instance.FirstUseTime;
     }
 }

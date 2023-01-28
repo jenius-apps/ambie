@@ -471,7 +471,10 @@
     <value>{0} per month</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} lifetime access</value>
+  </data>
+	<data name="SubscriptionText1" xml:space="preserve">
     <value>Access premium, high quality sounds</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">

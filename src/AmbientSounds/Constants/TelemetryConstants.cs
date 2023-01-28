@@ -26,6 +26,12 @@
         public const string BuyDurablePurchased = Catalogue + "buyDurablePurchased";
         public const string BuyDurableCanceled = Catalogue + "buyDurableCanceled";
 
+        // premium
+        private const string Premium = "premium:";
+        public const string LifetimeClicked = Premium + "lifetimeClicked";
+        public const string LifetimePurchased = Premium + "lifetimePurchased";
+        public const string LifetimeCanceled = Premium + "lifetimeCanceled";
+
         // gallery
         private const string Gallery = "gallery:";
         public const string SoundClicked = Gallery + "soundClicked";

@@ -920,6 +920,10 @@
           <source>Unlock this sound</source>
           <target state="translated">このサウンドのロックを解除</target>
         </trans-unit>
+        <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
+          <source>{0} lifetime access</source>
+          <target state="new">{0} lifetime access</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -8,6 +8,7 @@ namespace AmbientSounds.Constants
     {
         public const string MsStoreAmbiePlusId = "ambieplus";
         public const string MsStoreFreeRotationId = "free";
+        public const string MsStoreAmbiePlusLifetimeId = "lifetimeAmbiePlus";
 
         public static bool ContainsFreeId(this IReadOnlyList<string> ids) => ids.ContainsId(MsStoreFreeRotationId);
 

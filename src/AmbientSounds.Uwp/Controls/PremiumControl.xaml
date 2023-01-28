@@ -19,7 +19,7 @@
             FontSize="20"
             Text="Ambie+" />
 
-        <ItemsControl MaxWidth="300" ItemsSource="{x:Bind SubscriptionTexts}">
+        <ItemsControl MaxWidth="300" ItemsSource="{x:Bind ViewModel.SubscriptionTexts}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="x:String">
                     <Grid Margin="0,0,0,4">
@@ -42,27 +42,57 @@
         </ItemsControl>
 
         <Grid MaxWidth="300" Margin="0,24,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
             <Button
                 Height="40"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                AutomationProperties.Name="{x:Bind Price}"
-                Click="OnPurchaseClicked"
-                Loaded="OnPurchaseButtonLoaded"
+                AutomationProperties.Name="{x:Bind ViewModel.Price, Mode=OneWay}"
+                Command="{x:Bind ViewModel.PurchaseMonthlyCommand}"
                 Style="{ThemeResource AccentButtonStyle}"
-                Visibility="{x:Bind local:UIHelper.InvertVisibility(ThanksTextVisible)}">
+                Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible), Mode=OneWay}">
                 <Grid>
-                    <TextBlock Text="{x:Bind Price}" Visibility="{x:Bind local:UIHelper.InvertVisibility(ButtonLoading)}" />
+                    <TextBlock Text="{x:Bind ViewModel.Price, Mode=OneWay}" Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ButtonLoading), Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
                         Foreground="White"
-                        IsActive="{x:Bind ButtonLoading}"
-                        Visibility="{x:Bind ButtonLoading}" />
+                        IsActive="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}"
+                        Visibility="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}" />
                 </Grid>
             </Button>
 
-            <StackPanel Visibility="{x:Bind ThanksTextVisible}">
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,8"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.OrText.ToUpper()}"
+                TextAlignment="Center" />
+
+            <Button
+                Grid.Row="2"
+                Height="40"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Command="{x:Bind ViewModel.PurchaseLifetimeCommand}">
+                <Grid>
+                    <TextBlock Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}" Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.LifetimeButtonLoading), Mode=OneWay}" />
+                    <winui:ProgressRing
+                        Width="20"
+                        Height="20"
+                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                        IsActive="{x:Bind ViewModel.LifetimeButtonLoading, Mode=OneWay}"
+                        Visibility="{x:Bind ViewModel.LifetimeButtonLoading, Mode=OneWay}" />
+                </Grid>
+            </Button>
+
+
+            <StackPanel Grid.RowSpan="3" Visibility="{x:Bind ViewModel.ThanksTextVisible, Mode=OneWay}">
                 <TextBlock
                     AutomationProperties.AccessibilityView="Raw"
                     Text="😍 🎉 🥳 "
@@ -75,6 +105,7 @@
                     TextWrapping="WrapWholeWords" />
             </StackPanel>
         </Grid>
+
         <HyperlinkButton
             MaxWidth="300"
             Margin="0,8,0,0"
