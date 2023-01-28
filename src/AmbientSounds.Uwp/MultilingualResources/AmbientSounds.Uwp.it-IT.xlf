@@ -936,7 +936,7 @@
         </trans-unit>
         <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
           <source>{0} lifetime</source>
-          <target state="new">{0} lifetime</target>
+          <target state="translated">{0} a vita</target>
         </trans-unit>
       </group>
     </body>

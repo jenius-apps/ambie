@@ -667,4 +667,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Ontgrendel dit geluid</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} levensduur</value>
+  </data>
 </root>

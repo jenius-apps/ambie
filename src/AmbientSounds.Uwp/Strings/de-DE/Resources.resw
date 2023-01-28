@@ -700,4 +700,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Schalte diesen Ton frei</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} Lebenszeit</value>
+  </data>
 </root>

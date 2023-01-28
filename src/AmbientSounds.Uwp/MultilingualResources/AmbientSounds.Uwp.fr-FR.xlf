@@ -927,7 +927,7 @@
         </trans-unit>
         <trans-unit id="OrText" translate="yes" xml:space="preserve">
           <source>Or</source>
-          <target state="new">Ou</target>
+          <target state="translated">Ou</target>
         </trans-unit>
         <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
           <source>Unlock this sound</source>
@@ -935,7 +935,7 @@
         </trans-unit>
         <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
           <source>{0} lifetime</source>
-          <target state="new">{0} lifetime</target>
+          <target state="translated">{0} vie</target>
         </trans-unit>
       </group>
     </body>

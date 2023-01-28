@@ -694,4 +694,10 @@
   <data name="CopyText" xml:space="preserve">
     <value>Copie</value>
   </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Ou</value>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} vie</value>
+  </data>
 </root>
