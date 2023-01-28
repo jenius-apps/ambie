@@ -745,7 +745,7 @@ namespace AmbientSounds.Strings{
 
         #region PriceForLifetime
         /// <summary>
-        ///   Looks up a localized string similar to: {0} lifetime access
+        ///   Looks up a localized string similar to: {0} lifetime
         /// </summary>
         public static string PriceForLifetime
         {

@@ -924,8 +924,8 @@
           <target state="translated">בטל את הנעילה של צליל זה</target>
         </trans-unit>
         <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
-          <source>{0} lifetime access</source>
-          <target state="new">{0} lifetime access</target>
+          <source>{0} lifetime</source>
+          <target state="new">{0} lifetime</target>
         </trans-unit>
       </group>
     </body>
