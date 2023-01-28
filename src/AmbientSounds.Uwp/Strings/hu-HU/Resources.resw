@@ -688,4 +688,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Oldja fel ezt a hangot</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} élettartam</value>
+  </data>
 </root>

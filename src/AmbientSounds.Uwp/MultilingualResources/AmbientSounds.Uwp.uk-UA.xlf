@@ -925,6 +925,10 @@
           <source>Unlock this sound</source>
           <target state="translated">Розблокуйте цей звук</target>
         </trans-unit>
+        <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
+          <source>{0} lifetime</source>
+          <target state="translated">{0} довічна</target>
+        </trans-unit>
       </group>
     </body>
   </file>

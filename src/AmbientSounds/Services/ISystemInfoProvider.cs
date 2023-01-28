@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -45,5 +46,11 @@ namespace AmbientSounds.Services
         /// the built-in fluent system icons.
         /// </summary>
         bool CanUseFluentSystemIcons();
+
+        /// <summary>
+        /// Returns the date time when the app was first used.
+        /// </summary>
+        /// <returns>DateTime when the app was first used.</returns>
+        DateTime FirstUseDate();
     }
 }

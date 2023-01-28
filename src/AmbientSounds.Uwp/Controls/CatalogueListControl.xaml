@@ -140,24 +140,6 @@
                                                 Style="{StaticResource SubtleButton}">
                                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                                             </Button>
-                                            <TextBlock
-                                                Grid.Column="1"
-                                                Margin="4,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="10"
-                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                Text="{x:Bind strings:Resources.OrText.ToUpper()}"
-                                                Visibility="{x:Bind CanBuyIndividually, Mode=OneWay}" />
-                                            <Button
-                                                Padding="8,0"
-                                                VerticalAlignment="Stretch"
-                                                Command="{x:Bind BuyDurableCommand}"
-                                                CommandParameter="{x:Bind DurableIap, Mode=OneWay}"
-                                                Content="{x:Bind IndividualPrice, Mode=OneWay}"
-                                                FontSize="12"
-                                                Style="{StaticResource SubtleButton}"
-                                                ToolTipService.ToolTip="{x:Bind strings:Resources.BuyDurableTooltip}"
-                                                Visibility="{x:Bind CanBuyIndividually, Mode=OneWay}" />
                                         </StackPanel>
 
                                         <!--  download button  -->

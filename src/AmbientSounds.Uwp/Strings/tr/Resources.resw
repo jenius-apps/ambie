@@ -694,4 +694,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Bu sesin kilidini aç</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} ömrü</value>
+  </data>
 </root>

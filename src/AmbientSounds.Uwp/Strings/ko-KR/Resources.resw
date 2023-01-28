@@ -700,4 +700,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>이 소리 잠금 해제</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} 수명</value>
+  </data>
 </root>

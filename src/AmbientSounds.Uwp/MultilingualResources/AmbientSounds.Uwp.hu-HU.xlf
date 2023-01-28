@@ -934,6 +934,10 @@
           <source>Unlock this sound</source>
           <target state="translated">Oldja fel ezt a hangot</target>
         </trans-unit>
+        <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
+          <source>{0} lifetime</source>
+          <target state="translated">{0} élettartam</target>
+        </trans-unit>
       </group>
     </body>
   </file>

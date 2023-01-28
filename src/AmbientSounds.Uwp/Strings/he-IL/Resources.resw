@@ -700,4 +700,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>בטל את הנעילה של צליל זה</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} לכל החיים</value>
+  </data>
 </root>

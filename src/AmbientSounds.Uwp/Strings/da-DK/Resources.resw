@@ -700,4 +700,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Lås denne lyd op</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} levetid</value>
+  </data>
 </root>

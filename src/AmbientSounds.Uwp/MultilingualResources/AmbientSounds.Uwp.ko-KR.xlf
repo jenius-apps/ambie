@@ -924,6 +924,10 @@
           <source>Unlock this sound</source>
           <target state="translated">이 소리 잠금 해제</target>
         </trans-unit>
+        <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
+          <source>{0} lifetime</source>
+          <target state="translated">{0} 수명</target>
+        </trans-unit>
       </group>
     </body>
   </file>

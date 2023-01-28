@@ -700,4 +700,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>解锁这个声音</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0}辈子</value>
+  </data>
 </root>

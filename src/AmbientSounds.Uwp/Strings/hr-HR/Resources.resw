@@ -688,4 +688,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Otključaj ovaj zvuk</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} životni vijek</value>
+  </data>
 </root>

@@ -700,4 +700,7 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Desbloquear este som</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} vitalícia</value>
+  </data>
 </root>
