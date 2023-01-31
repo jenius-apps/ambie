@@ -27,6 +27,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.ContextFlyout>
                     <MenuFlyout>
@@ -50,6 +51,12 @@
                     Margin="0,6,0,0"
                     Text="{x:Bind Text, Mode=OneWay}"
                     TextWrapping="Wrap" />
+                <FontIcon
+                    Grid.Column="2"
+                    Margin="0,6,0,0"
+                    VerticalAlignment="Top"
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="{StaticResource GlyphGripper}" />
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="ClosedTaskTemplate" x:DataType="viewmodels:FocusTaskViewModel">
