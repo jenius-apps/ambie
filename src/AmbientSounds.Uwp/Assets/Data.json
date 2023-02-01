@@ -46,28 +46,28 @@
         "Name": "ビーチ"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "해변"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Strand"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Plaża"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Praia"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Strand"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Plaj"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Пляж"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "海滩"
       }
     }
   },
@@ -118,28 +118,28 @@
         "Name": "鳥のさえずり"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "새소리"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Vogels"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Ptaki"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Pássaros"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Fåglar"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Kuşlar"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Пташки"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "鸟啼"
       }
     }
   },
@@ -190,28 +190,28 @@
         "Name": "市街"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "길거리"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Straat in de stad"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Ulica"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Rua da cidade"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Stadsgata"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Şehir Sokağı"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Міська вулиця"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "城镇街道"
       }
     }
   },
@@ -262,28 +262,28 @@
         "Name": "コーヒーショップ"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "커피숍"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Koffieshop"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Kawiarnia"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Cafeteria"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Kafé"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Kahve dükkanı"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Кав'ярня"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "咖啡馆"
       }
     }
   },
@@ -334,28 +334,28 @@
         "Name": "小川"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "개울"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Kreek"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Strumień"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Riacho"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Bäck"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Dere"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Струмок"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "溪流"
       }
     }
   },
@@ -405,28 +405,28 @@
         "Name": "暖炉"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "벽난로"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Open haard"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Ognisko"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Lareira"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Eldstad"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Şömine"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Багаття"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "壁炉"
       }
     }
   },
@@ -476,28 +476,28 @@
         "Name": "雨"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "비"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Regen"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Deszcz"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Chuva"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Regn"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Yağmur"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Дощ"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "雨天"
       }
     }
   },
@@ -547,28 +547,28 @@
         "Name": "雨の森"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "숲"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Regenwoud"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Las deszczowy"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Floresta tropical"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Regnskog"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Yağmur ormanı"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Тропічний ліс"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "雨林"
       }
     }
   },
@@ -618,28 +618,28 @@
         "Name": "雷"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "천둥"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Donder"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Grzmoty"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Trovões"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Åska"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Gök gürültüsü"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Грім"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "雷鸣"
       }
     }
   },
@@ -689,28 +689,28 @@
         "Name": "水中"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "수중"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Onder water"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Pod wodą"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Embaixo da água"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Under vatten"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Su altı"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Під водою"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "水下"
       }
     }
   },
@@ -761,28 +761,28 @@
         "Name": "滝"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "폭포"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Waterval"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Wodospad"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Cascata"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Vattenfall"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Şelale"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Водоспад"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "瀑布"
       }
     }
   },
@@ -832,28 +832,28 @@
         "Name": "ホワイトノイズ"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "백색 소음"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Witte ruis"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Biały szum"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Ruído branco"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Vitt brus"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Beyaz gürültü"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Білий шум"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "白噪声"
       }
     }
   },
@@ -903,28 +903,28 @@
         "Name": "風"
       },
       "ko": {
-        "Name": "Plaža"
+        "Name": "바람"
       },
       "nl": {
-        "Name": "Plaža"
+        "Name": "Wind"
       },
       "pl": {
-        "Name": "Plaža"
+        "Name": "Wiatr"
       },
       "pt": {
-        "Name": "Plaža"
+        "Name": "Vento"
       },
       "sv": {
-        "Name": "Plaža"
+        "Name": "Vind"
       },
       "tr": {
-        "Name": "Plaža"
+        "Name": "Rüzgar"
       },
       "uk": {
-        "Name": "Plaža"
+        "Name": "Вітер"
       },
       "zh": {
-        "Name": "Plaža"
+        "Name": "风声"
       }
     }
   }
