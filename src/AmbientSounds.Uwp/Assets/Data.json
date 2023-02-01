@@ -29,6 +29,12 @@
       },
       "fr": {
         "Name": "Plage"
+      },
+      "he": {
+        "Name": "החוף"
+      },
+      "hr": {
+        "Name": "Plaža"
       }
     }
   },
@@ -62,6 +68,12 @@
       },
       "fr": {
         "Name": "Oiseaux"
+      },
+      "he": {
+        "Name": "ציפורים"
+      },
+      "hr": {
+        "Name": "Ptice"
       }
     }
   },
@@ -95,6 +107,12 @@
       },
       "fr": {
         "Name": "Rue urbaine"
+      },
+      "he": {
+        "Name": "רחוב העיר"
+      },
+      "hr": {
+        "Name": "Ulična vreva"
       }
     }
   },
@@ -128,6 +146,12 @@
       },
       "fr": {
         "Name": "Café"
+      },
+      "he": {
+        "Name": "בית קפה"
+      },
+      "hr": {
+        "Name": "Kafić"
       }
     }
   },
@@ -161,6 +185,12 @@
       },
       "fr": {
         "Name": "Ruisseau"
+      },
+      "he": {
+        "Name": "הנחל"
+      },
+      "hr": {
+        "Name": "Žuborenje"
       }
     }
   },
@@ -193,6 +223,12 @@
       },
       "fr": {
         "Name": "Cheminée"
+      },
+      "he": {
+        "Name": "אש"
+      },
+      "hr": {
+        "Name": "Kamin"
       }
     }
   },
@@ -225,6 +261,12 @@
       },
       "fr": {
         "Name": "Pluie"
+      },
+      "he": {
+        "Name": "גשם"
+      },
+      "hr": {
+        "Name": "Kiša"
       }
     }
   },
@@ -257,6 +299,12 @@
       },
       "fr": {
         "Name": "Forêt tropicale"
+      },
+      "he": {
+        "Name": "יערות גשם"
+      },
+      "hr": {
+        "Name": "Prašuma"
       }
     }
   },
@@ -289,6 +337,12 @@
       },
       "fr": {
         "Name": "Tonnerre"
+      },
+      "he": {
+        "Name": "רעם"
+      },
+      "hr": {
+        "Name": "Grmljavina"
       }
     }
   },
@@ -321,6 +375,12 @@
       },
       "fr": {
         "Name": "Sous l'eau"
+      },
+      "he": {
+        "Name": "מתחת למים"
+      },
+      "hr": {
+        "Name": "Podmorje"
       }
     }
   },
@@ -354,6 +414,12 @@
       },
       "fr": {
         "Name": "Cascade"
+      },
+      "he": {
+        "Name": "מפל מים"
+      },
+      "hr": {
+        "Name": "Vodopad"
       }
     }
   },
@@ -386,6 +452,12 @@
       },
       "fr": {
         "Name": "Bruit blanc"
+      },
+      "he": {
+        "Name": "רעש לבן"
+      },
+      "hr": {
+        "Name": "Bijeli šum"
       }
     }
   },
@@ -418,6 +490,12 @@
       },
       "fr": {
         "Name": "Vent"
+      },
+      "he": {
+        "Name": "רוח"
+      },
+      "hr": {
+        "Name": "Vjetar"
       }
     }
   }
