@@ -161,7 +161,9 @@ public class WindowsDownloadManager : IDownloadManager
             ScreensaverImagePaths = s.ScreensaverImagePaths,
             IsPremium = s.IsPremium,
             IapIds = s.IapIds.ToArray(),
-            ColourHex = s.ColourHex
+            ColourHex = s.ColourHex,
+            ImagePaths = s.ImagePaths,
+            Localizations = s.Localizations
         };
 
         await _soundService.AddLocalSoundAsync(newSoundInfo);

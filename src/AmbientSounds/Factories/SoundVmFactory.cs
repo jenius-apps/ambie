@@ -74,7 +74,8 @@ namespace AmbientSounds.Factories
                 _telemetry,
                 _previewService,
                 _iapService,
-                _serviceProvider.GetRequiredService<IDialogService>());
+                _serviceProvider.GetRequiredService<IDialogService>(),
+                _serviceProvider.GetRequiredService<IAssetLocalizer>());
         }
 
         /// <inheritdoc/>
@@ -93,7 +94,8 @@ namespace AmbientSounds.Factories
                 _serviceProvider.GetRequiredService<IDownloadManager>(),
                 _serviceProvider.GetRequiredService<IPresenceService>(),
                 _serviceProvider.GetRequiredService<IDispatcherQueue>(),
-                _serviceProvider.GetRequiredService<IOnlineSoundDataProvider>());
+                _serviceProvider.GetRequiredService<IOnlineSoundDataProvider>(),
+                _serviceProvider.GetRequiredService<IAssetLocalizer>());
             vm.Initialize();
             return vm;
         }
@@ -103,7 +105,12 @@ namespace AmbientSounds.Factories
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(removeCommand, nameof(removeCommand));
-            return new ActiveTrackViewModel(s, removeCommand, _player, _userSettings);
+            return new ActiveTrackViewModel(
+                s,
+                removeCommand,
+                _player,
+                _userSettings,
+                _serviceProvider.GetRequiredService<IAssetLocalizer>());
         }
     }
 }
