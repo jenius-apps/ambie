@@ -14,6 +14,7 @@ public partial class ShareViewModel : ObservableObject
     private readonly ISoundService _soundService;
     private readonly IShareService _shareService;
     private readonly IClipboard _clipboard;
+    private readonly IAssetLocalizer _assetLocalizer;
 
     [ObservableProperty]
     private string _shareText = string.Empty;
@@ -30,14 +31,18 @@ public partial class ShareViewModel : ObservableObject
     public ShareViewModel(
         ISoundService soundService,
         IShareService shareService,
-        IClipboard clipboard)
+        IClipboard clipboard,
+        IAssetLocalizer assetLocalizer)
     {
         Guard.IsNotNull(soundService);
         Guard.IsNotNull(shareService);
         Guard.IsNotNull(clipboard);
+        Guard.IsNotNull(assetLocalizer);
+
         _soundService = soundService;
         _shareService = shareService;
         _clipboard = clipboard;
+        _assetLocalizer = assetLocalizer;
     }
 
     public async Task InitializeAsync(IReadOnlyList<string> soundIds)
@@ -45,7 +50,7 @@ public partial class ShareViewModel : ObservableObject
         Loading = true;
         var shareTask = _shareService.GetShareUrlAsync(soundIds);
         var sounds = await _soundService.GetLocalSoundsAsync(soundIds);
-        ShareText = string.Join(" • ", sounds.Select(x => x.Name));
+        ShareText = string.Join(" • ", sounds.Select(_assetLocalizer.GetLocalName));
         ShareUrl = await shareTask;
         Loading = false;
     }

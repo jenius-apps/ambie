@@ -790,7 +790,6 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.nl-BE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pl-PL.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-PT.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ru-RU.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.sv-SE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.tr.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.uk-UA.xlf" />
@@ -815,9 +814,6 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\de-DE\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ru-RU\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\zh-CN\Resources.resw" />

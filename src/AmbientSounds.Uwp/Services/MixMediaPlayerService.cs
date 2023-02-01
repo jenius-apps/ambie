@@ -28,6 +28,7 @@ namespace AmbientSounds.Services.Uwp
         private readonly DispatcherQueue _dispatcherQueue;
         private readonly IUserSettings _userSettings;
         private readonly ISoundService _soundDataProvider;
+        private readonly IAssetLocalizer _assetLocalizer;
 
         /// <inheritdoc/>
         public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -43,13 +44,16 @@ namespace AmbientSounds.Services.Uwp
 
         public MixMediaPlayerService(
             IUserSettings userSettings,
-            ISoundService soundDataProvider)
+            ISoundService soundDataProvider,
+            IAssetLocalizer assetLocalizer)
         {
-            Guard.IsNotNull(userSettings, nameof(userSettings));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(assetLocalizer);
 
             _userSettings = userSettings;
             _soundDataProvider = soundDataProvider;
+            _assetLocalizer = assetLocalizer;
             _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
@@ -218,7 +222,7 @@ namespace AmbientSounds.Services.Uwp
                     _activePlayers.TryAdd(sound.Id, player);
                     _activeSoundDateTimes.TryAdd(sound.Id, DateTimeOffset.Now);
                     Screensavers.TryAdd(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
-                    _soundNames.Add(sound.Id, sound.Name);
+                    _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
                     RefreshSmtcTitle();
 
                     if (keepPaused) Pause();

@@ -60,11 +60,6 @@ public class AssetsReader : IAssetsReader
             return Array.Empty<Sound>();
         }
 
-        foreach (var s in sounds)
-        {
-            s.Name = LocalizationConverter.ConvertSoundName(s.Name);
-        }
-
         return sounds;
     }
 }

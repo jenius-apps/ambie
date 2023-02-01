@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Extensions;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
@@ -20,6 +21,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly IPreviewService _previewService;
     private readonly IDialogService _dialogService;
+    private readonly IAssetLocalizer _assetLocalizer;
     private Progress<double> _downloadProgress;
 
     public OnlineSoundViewModel(
@@ -29,7 +31,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         ITelemetry telemetry,
         IPreviewService previewService,
         IIapService iapService,
-        IDialogService dialogService)
+        IDialogService dialogService,
+        IAssetLocalizer assetLocalizer)
     {
         Guard.IsNotNull(s);
         Guard.IsNotNull(downloadManager);
@@ -38,6 +41,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         Guard.IsNotNull(iapService);
         Guard.IsNotNull(previewService);
         Guard.IsNotNull(dialogService);
+        Guard.IsNotNull(assetLocalizer);
+
         _sound = s;
         _downloadManager = downloadManager;
         _previewService = previewService;
@@ -45,6 +50,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _soundService = soundService;
         _telemetry = telemetry;
         _dialogService = dialogService;
+        _assetLocalizer = assetLocalizer;
 
         _downloadProgress = new Progress<double>();
         _downloadProgress.ProgressChanged += OnProgressChanged;
@@ -127,7 +133,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// <summary>
     /// Name of the sound.
     /// </summary>
-    public string? Name => _sound.Name;
+    public string? Name => _assetLocalizer.GetLocalName(_sound);
 
     public string ColourHex => _sound.ColourHex;
 
