@@ -10,7 +10,27 @@
       "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1474533883693-59a44dbb964e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Beach"
+      },
+      "cs": {
+        "Name": "Pláže"
+      },
+      "da": {
+        "Name": "Stranden"
+      },
+      "de": {
+        "Name": "Strand"
+      },
+      "es": {
+        "Name": "Playa"
+      },
+      "fr": {
+        "Name": "Plage"
+      }
+    }
   },
   {
     "Id": "19a43ab7-c964-4ab5-90f9-26c8a17d4f34",
@@ -23,7 +43,27 @@
       "https://images.unsplash.com/photo-1514412076816-d228b5c0973c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1550030085-00cee362ae48?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1549608276-5786777e6587?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Birds"
+      },
+      "cs": {
+        "Name": "Ptáci"
+      },
+      "da": {
+        "Name": "Fugle"
+      },
+      "de": {
+        "Name": "Vögel"
+      },
+      "es": {
+        "Name": "Aves"
+      },
+      "fr": {
+        "Name": "Oiseaux"
+      }
+    }
   },
   {
     "Id": "f2940c11-0510-4db5-a0ea-5cb27d453bb2",
@@ -36,9 +76,29 @@
       "https://images.unsplash.com/photo-1490555057042-39428536226a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1594385808308-781164365a0a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1534885018726-f7d345782f0f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "City street"
+      },
+      "cs": {
+        "Name": "Ulice"
+      },
+      "da": {
+        "Name": "Storby"
+      },
+      "de": {
+        "Name": "Straße"
+      },
+      "es": {
+        "Name": "Calle urbana"
+      },
+      "fr": {
+        "Name": "Rue urbaine"
+      }
+    }
   },
-    {
+  {
     "Id": "17b2af89-1008-4259-b545-dc8ca4ee473f",
     "Name": "coffeeshop",
     "ColourHex": "#636252",
@@ -49,7 +109,27 @@
       "https://images.unsplash.com/photo-1505275350441-83dcda8eeef5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1494346480775-936a9f0d0877?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1513267048331-5611cad62e41?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Coffee shop"
+      },
+      "cs": {
+        "Name": "Kavárna"
+      },
+      "da": {
+        "Name": "Kaffebar"
+      },
+      "de": {
+        "Name": "Café"
+      },
+      "es": {
+        "Name": "Cafetería"
+      },
+      "fr": {
+        "Name": "Café"
+      }
+    }
   },
   {
     "Id": "f32edd85-871e-4349-9e45-42b14fd5449b",
@@ -62,7 +142,27 @@
       "https://images.unsplash.com/photo-1547041270-d3d54e1263cb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1567345420025-d06eaad626fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1557445194-089ade24cd52?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Creek"
+      },
+      "cs": {
+        "Name": "Potok"
+      },
+      "da": {
+        "Name": "Bæk"
+      },
+      "de": {
+        "Name": "Bach"
+      },
+      "es": {
+        "Name": "Riachuelo"
+      },
+      "fr": {
+        "Name": "Ruisseau"
+      }
+    }
   },
   {
     "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
@@ -74,7 +174,27 @@
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1543393470-b2c833b98dce?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1538250934773-edd3e8e185c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Fireplace"
+      },
+      "cs": {
+        "Name": "Krb"
+      },
+      "da": {
+        "Name": "Pejs"
+      },
+      "de": {
+        "Name": "Kamin"
+      },
+      "es": {
+        "Name": "Hoguera"
+      },
+      "fr": {
+        "Name": "Cheminée"
+      }
+    }
   },
   {
     "Id": "61ae9b16-8254-40f4-b4ae-eff4791f6a80",
@@ -86,7 +206,27 @@
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1428592953211-077101b2021b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1523772721666-22ad3c3b6f90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Rain"
+      },
+      "cs": {
+        "Name": "Déšť"
+      },
+      "da": {
+        "Name": "Regn"
+      },
+      "de": {
+        "Name": "Regen"
+      },
+      "es": {
+        "Name": "Lluvia"
+      },
+      "fr": {
+        "Name": "Pluie"
+      }
+    }
   },
   {
     "Id": "37988c11-b601-417b-9bb4-bb59fe939641",
@@ -98,7 +238,27 @@
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1583470790878-4f4f3811a01f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1584748510731-4e3a25cd01c3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Rainforest"
+      },
+      "cs": {
+        "Name": "Deštný prales"
+      },
+      "da": {
+        "Name": "Regnskov"
+      },
+      "de": {
+        "Name": "Regenwald"
+      },
+      "es": {
+        "Name": "Bosque tropical"
+      },
+      "fr": {
+        "Name": "Forêt tropicale"
+      }
+    }
   },
   {
     "Id": "1628a20d-744e-4f99-b7e3-24088cba5090",
@@ -110,7 +270,27 @@
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1431440869543-efaf3388c585?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1511149755252-35875b273fd6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Thunder"
+      },
+      "cs": {
+        "Name": "Bouřka"
+      },
+      "da": {
+        "Name": "Torden"
+      },
+      "de": {
+        "Name": "Donner"
+      },
+      "es": {
+        "Name": "Trueno"
+      },
+      "fr": {
+        "Name": "Tonnerre"
+      }
+    }
   },
   {
     "Id": "f8424751-d150-41bc-b4ab-c22c41b4b339",
@@ -122,7 +302,27 @@
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1586695571674-bbe48b4be70f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1581345357822-5e482149d0b8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Underwater"
+      },
+      "cs": {
+        "Name": "Pod vodou"
+      },
+      "da": {
+        "Name": "Undervands"
+      },
+      "de": {
+        "Name": "Unterwasser"
+      },
+      "es": {
+        "Name": "Bajo el mar"
+      },
+      "fr": {
+        "Name": "Sous l'eau"
+      }
+    }
   },
   {
     "Id": "e0df152b-7166-402a-902d-c69d3a9f96bb",
@@ -135,7 +335,27 @@
       "https://images.unsplash.com/photo-1564500601744-d5dfe4e7ab72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1498329741116-4d1987b210d0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1558289675-a58aeca7d8cd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Waterfall"
+      },
+      "cs": {
+        "Name": "Vodopád"
+      },
+      "da": {
+        "Name": "Vandfald"
+      },
+      "de": {
+        "Name": "Wasserfall"
+      },
+      "es": {
+        "Name": "Cascada"
+      },
+      "fr": {
+        "Name": "Cascade"
+      }
+    }
   },
   {
     "Id": "aada6607-5dbe-42ff-934d-d5917e597284",
@@ -147,7 +367,27 @@
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1580243117731-a108c2953e2c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1580243117731-a108c2953e2c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "White noise"
+      },
+      "cs": {
+        "Name": "Bílý šum"
+      },
+      "da": {
+        "Name": "Hvid støj"
+      },
+      "de": {
+        "Name": "Weißes Rauschen"
+      },
+      "es": {
+        "Name": "Ruido blanco"
+      },
+      "fr": {
+        "Name": "Bruit blanc"
+      }
+    }
   },
   {
     "Id": "38c73d89-6c2c-445b-8beb-52b2f72689a2",
@@ -159,6 +399,26 @@
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1495401220594-550313c3046b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
       "https://images.unsplash.com/photo-1456356627738-3a96db6e2e33?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-    ]
+    ],
+    "Localizations": {
+      "en": {
+        "Name": "Wind"
+      },
+      "cs": {
+        "Name": "Vítr"
+      },
+      "da": {
+        "Name": "Vind"
+      },
+      "de": {
+        "Name": "Wind"
+      },
+      "es": {
+        "Name": "Viento"
+      },
+      "fr": {
+        "Name": "Vent"
+      }
+    }
   }
 ]
