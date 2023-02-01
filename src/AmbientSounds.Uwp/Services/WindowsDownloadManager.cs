@@ -150,7 +150,7 @@ public class WindowsDownloadManager : IDownloadManager
                 progress);
         }
 
-        var newSoundInfo = new Sound
+        var newSoundInfo = new Sound()
         {
             Id = s.Id,
             ImagePath = localImagePath,
@@ -163,7 +163,9 @@ public class WindowsDownloadManager : IDownloadManager
             IapIds = s.IapIds.ToArray(),
             ColourHex = s.ColourHex,
             ImagePaths = s.ImagePaths,
-            Localizations = s.Localizations
+            Localizations = s.Localizations,
+            MetaDataVersion = s.MetaDataVersion,
+            SoundFileVersion = s.SoundFileVersion
         };
 
         await _soundService.AddLocalSoundAsync(newSoundInfo);
