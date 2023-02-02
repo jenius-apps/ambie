@@ -474,7 +474,7 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} lifetime</value>
   </data>
-	<data name="SubscriptionText1" xml:space="preserve">
+  <data name="SubscriptionText1" xml:space="preserve">
     <value>Access premium, high quality sounds</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
@@ -807,5 +807,17 @@
   </data>
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Unlock this sound</value>
+  </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Check here for updates to your sounds and videos.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Updates contain improvements to translations, sound quality, and more.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Updates</value>
   </data>
 </root>

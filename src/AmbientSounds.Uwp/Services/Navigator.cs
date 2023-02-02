@@ -66,6 +66,7 @@ public class Navigator : INavigator
             ContentPageType.Focus => typeof(FocusPage),
             ContentPageType.Catalogue => typeof(CataloguePage),
             ContentPageType.Settings => typeof(SettingsPage),
+            ContentPageType.Updates => typeof(UpdatesPage),
             _ => typeof(HomePage)
         };
 

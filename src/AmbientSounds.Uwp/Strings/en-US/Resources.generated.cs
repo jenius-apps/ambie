@@ -2120,6 +2120,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region CheckForUpdatesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Check for updates
+        /// </summary>
+        public static string CheckForUpdatesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("CheckForUpdatesText");
+            }
+        }
+        #endregion
+
+        #region UpdatesPageMessage1
+        /// <summary>
+        ///   Looks up a localized string similar to: Check here for updates to your sounds and videos.
+        /// </summary>
+        public static string UpdatesPageMessage1
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPageMessage1");
+            }
+        }
+        #endregion
+
+        #region UpdatesPageMessage2
+        /// <summary>
+        ///   Looks up a localized string similar to: Updates contain improvements to translations, sound quality, and more.
+        /// </summary>
+        public static string UpdatesPageMessage2
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPageMessage2");
+            }
+        }
+        #endregion
+
+        #region UpdatesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Updates
+        /// </summary>
+        public static string UpdatesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2293,6 +2345,10 @@ namespace AmbientSounds.Strings{
             CopyText,
             OrText,
             BuyDurableTooltip,
+            CheckForUpdatesText,
+            UpdatesPageMessage1,
+            UpdatesPageMessage2,
+            UpdatesText,
         }
 
         private static ResourceLoader _resourceLoader;
