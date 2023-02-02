@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,18 +15,22 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+#nullable enable
 
-namespace AmbientSounds.Views
+namespace AmbientSounds.Views;
+
+public sealed partial class UpdatesPage : Page
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class UpdatesPage : Page
+    public UpdatesPage()
     {
-        public UpdatesPage()
-        {
-            this.InitializeComponent();
-        }
+        this.InitializeComponent();
+        this.DataContext = App.Services.GetRequiredService<UpdatesViewModel>();
+    }
+
+    public UpdatesViewModel ViewModel => (UpdatesViewModel)this.DataContext;
+
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.Uninitialize();
     }
 }

@@ -820,4 +820,13 @@
   <data name="UpdatesText" xml:space="preserve">
     <value>Updates</value>
   </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Data version:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>File version:</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Update all</value>
+  </data>
 </root>

@@ -954,6 +954,18 @@
           <source>Updates</source>
           <target state="new">Updates</target>
         </trans-unit>
+        <trans-unit id="UpdateAllText" translate="yes" xml:space="preserve">
+          <source>Update all</source>
+          <target state="new">Update all</target>
+        </trans-unit>
+        <trans-unit id="DataVersionColon" translate="yes" xml:space="preserve">
+          <source>Data version:</source>
+          <target state="new">Data version:</target>
+        </trans-unit>
+        <trans-unit id="FileVersionColon" translate="yes" xml:space="preserve">
+          <source>File version:</source>
+          <target state="new">File version:</target>
+        </trans-unit>
       </group>
     </body>
   </file>

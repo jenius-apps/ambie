@@ -6,24 +6,108 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:vm="using:AmbientSounds.ViewModels"
     mc:Ignorable="d">
 
-    <StackPanel Margin="0,8,16,0">
+    <Grid Margin="0,8,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
         <TextBlock
             FontSize="20"
             Style="{StaticResource BodyStrongTextBlockStyle}"
             Text="{x:Bind strings:Resources.UpdatesText}" />
         <TextBlock
+            Grid.Row="1"
             Margin="0,8,0,0"
             FontSize="12"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Text="{x:Bind strings:Resources.UpdatesPageMessage1}" />
         <TextBlock
+            Grid.Row="2"
             FontSize="12"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Text="{x:Bind strings:Resources.UpdatesPageMessage2}" />
 
-        <Button Margin="0,20,0,0" Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
+        <Grid Grid.Row="3" Margin="0,20,30,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
 
-    </StackPanel>
+            <Button
+                VerticalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.CheckForUpdatesText}"
+                Command="{x:Bind ViewModel.CheckUpdatesCommand}"
+                Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
+
+            <Button
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.UpdateAllText}"
+                Content="{x:Bind strings:Resources.UpdateAllText}"
+                Style="{ThemeResource AccentButtonStyle}"
+                Visibility="{x:Bind ViewModel.UpdateAllVisible, Mode=OneWay}" />
+        </Grid>
+
+        <ListView
+            Grid.Row="4"
+            Margin="-18,20,0,0"
+            Padding="0,0,16,12"
+            HorizontalAlignment="Stretch"
+            ItemsSource="{x:Bind ViewModel.UpdateList}"
+            SelectionMode="None">
+            <Style TargetType="ListViewItem">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:UpdateSoundViewModel">
+                    <Border
+                        Height="80"
+                        Margin="0,0,0,4"
+                        Style="{StaticResource ModuleBorderStyle}">
+                        <Grid CornerRadius="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Grid.ColumnSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
+
+                            <Rectangle HorizontalAlignment="Right" Style="{StaticResource ModuleVerticalDividerRectStyle}" />
+
+                            <StackPanel Grid.Column="1" Margin="24,16,0,0">
+                                <TextBlock Text="{x:Bind Name}" />
+                                <TextBlock FontSize="10" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                                    <Run Text="{x:Bind strings:Resources.DataVersionColon}" />
+                                    <Run Text="{x:Bind MetaDataVersion}" />
+                                </TextBlock>
+                                <TextBlock FontSize="10" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                                    <Run Text="{x:Bind strings:Resources.FileVersionColon}" />
+                                    <Run Text="{x:Bind FileVersion}" />
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="2"
+                                Margin="0,0,12,0"
+                                Orientation="Horizontal">
+                                <Button Style="{StaticResource SubtleIconButton}">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
 </Page>

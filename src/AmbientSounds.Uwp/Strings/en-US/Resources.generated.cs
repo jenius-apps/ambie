@@ -2172,6 +2172,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region DataVersionColon
+        /// <summary>
+        ///   Looks up a localized string similar to: Data version:
+        /// </summary>
+        public static string DataVersionColon
+        {
+            get
+            {
+                return _resourceLoader.GetString("DataVersionColon");
+            }
+        }
+        #endregion
+
+        #region FileVersionColon
+        /// <summary>
+        ///   Looks up a localized string similar to: File version:
+        /// </summary>
+        public static string FileVersionColon
+        {
+            get
+            {
+                return _resourceLoader.GetString("FileVersionColon");
+            }
+        }
+        #endregion
+
+        #region UpdateAllText
+        /// <summary>
+        ///   Looks up a localized string similar to: Update all
+        /// </summary>
+        public static string UpdateAllText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateAllText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2349,6 +2388,9 @@ namespace AmbientSounds.Strings{
             UpdatesPageMessage1,
             UpdatesPageMessage2,
             UpdatesText,
+            DataVersionColon,
+            FileVersionColon,
+            UpdateAllText,
         }
 
         private static ResourceLoader _resourceLoader;
