@@ -147,6 +147,9 @@
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
     <value>Melding voor nieuwe geluiden</value>
   </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>Wind</value>
+  </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Reeds gedownload</value>
     <comment>The sound is already downloaded</comment>
