@@ -238,6 +238,7 @@
             <x:String x:Key="GlyphShare">&#xEB60;</x:String>
             <x:String x:Key="GlyphCheckMarkCircle">&#xE9A2;</x:String>
             <x:String x:Key="GlyphGripper">&#xEB34;</x:String>
+            <x:String x:Key="GlyphUpdates">&#xE91C;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

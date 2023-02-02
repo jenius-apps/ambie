@@ -116,6 +116,9 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
+    [ObservableProperty]
+    private bool _menuLabelsVisible;
+
     /// <summary>
     /// Determines if the current mix can be saved or not.
     /// </summary>
