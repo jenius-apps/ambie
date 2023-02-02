@@ -165,7 +165,7 @@ public class WindowsDownloadManager : IDownloadManager
             ImagePaths = s.ImagePaths,
             Localizations = s.Localizations,
             MetaDataVersion = s.MetaDataVersion,
-            SoundFileVersion = s.SoundFileVersion
+            FileVersion = s.FileVersion
         };
 
         await _soundService.AddLocalSoundAsync(newSoundInfo);

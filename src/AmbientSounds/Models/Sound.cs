@@ -130,7 +130,7 @@ public class Sound : IAsset
     /// <summary>
     /// Version of the sound file itself.
     /// </summary>
-    public int SoundFileVersion { get; set; }
+    public int FileVersion { get; set; }
 
     /// <inheritdoc/>
     public override string ToString()

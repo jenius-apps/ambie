@@ -463,6 +463,7 @@ namespace AmbientSounds
                 .AddSingleton<IUserSettings, LocalSettings>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
+                .AddSingleton<IUpdateService, UpdateService>()
                 .AddSingleton<ILocalizer, ReswLocalizer>()
                 .AddSingleton<IFileWriter, FileWriter>()
                 .AddSingleton<IFilePicker, FilePicker>()
