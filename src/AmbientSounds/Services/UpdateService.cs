@@ -33,8 +33,7 @@ public class UpdateService : IUpdateService
         }
 
         var installedIds = installed.Select(x => x.Id).ToArray();
-        // TODO support checking packaged sounds.
-        var onlineSounds = await _onlineSoundDataProvider.GetOnlineSoundsAsync(installedIds);
+        var onlineSounds = await _onlineSoundDataProvider.GetSoundsAsync(installedIds);
         if (onlineSounds.Count == 0)
         {
             return Array.Empty<Sound>();
@@ -52,7 +51,7 @@ public class UpdateService : IUpdateService
             if (onlineSound.MetaDataVersion > s.MetaDataVersion ||
                 onlineSound.FileVersion > s.FileVersion)
             {
-                availableUpdates.Add(s);
+                availableUpdates.Add(onlineSound);
             }
         }
 
