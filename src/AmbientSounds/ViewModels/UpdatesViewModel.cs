@@ -26,7 +26,7 @@ public partial class UpdatesViewModel : ObservableObject
         _soundVmFactory = soundVmFactory;
     }
 
-    public ObservableCollection<UpdateSoundViewModel> UpdateList { get; } = new();
+    public ObservableCollection<OnlineSoundViewModel> UpdateList { get; } = new();
 
     [ObservableProperty]
     private bool _updateAllVisible;
@@ -39,7 +39,7 @@ public partial class UpdatesViewModel : ObservableObject
         var availableUpdates = await _updateService.CheckForUpdatesAsync();
         foreach (var s in availableUpdates)
         {
-            var vm = _soundVmFactory.GetUpdateViewModel(s);
+            var vm = _soundVmFactory.GetOnlineSoundVm(s);
             UpdateList.Add(vm);
         }
         UpdateAllVisible = UpdateList.Count > 0;

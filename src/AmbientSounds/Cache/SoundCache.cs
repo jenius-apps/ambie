@@ -74,7 +74,7 @@ public class SoundCache : ISoundCache
     {
         await GetInstalledSoundsAsync();
 
-        _installedSounds.TryAdd(sound.Id, sound);
+        _installedSounds.AddOrUpdate(sound.Id, sound, (_, _) => sound);
         await _offlineSoundRepo.SaveLocalSoundsAsync(_installedSounds.Values.ToArray());
     }
 

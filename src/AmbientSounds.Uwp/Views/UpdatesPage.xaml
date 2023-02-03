@@ -68,7 +68,7 @@
                 <Setter Property="Margin" Value="0" />
             </Style>
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="vm:UpdateSoundViewModel">
+                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
                     <Border
                         Height="80"
                         Margin="0,0,0,4"
@@ -98,7 +98,7 @@
                                 Grid.Column="2"
                                 Margin="0,0,12,0"
                                 Orientation="Horizontal">
-                                <Button Style="{StaticResource SubtleIconButton}">
+                                <Button Command="{x:Bind UpdateCommand}" Style="{StaticResource SubtleIconButton}">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
                                 </Button>
                             </StackPanel>

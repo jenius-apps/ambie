@@ -133,7 +133,11 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// <summary>
     /// Name of the sound.
     /// </summary>
-    public string? Name => _assetLocalizer.GetLocalName(_sound);
+    public string Name => _assetLocalizer.GetLocalName(_sound);
+
+    public string MetaDataVersion => _sound.MetaDataVersion.ToString();
+
+    public string FileVersion => _sound.FileVersion.ToString();
 
     public string ColourHex => _sound.ColourHex;
 
@@ -261,6 +265,12 @@ public partial class OnlineSoundViewModel : ObservableObject
         }
 
         IsOwned = isOwned;
+    }
+
+    [RelayCommand]
+    private Task UpdateAsync()
+    {
+        return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress, true);
     }
 
     [RelayCommand]
