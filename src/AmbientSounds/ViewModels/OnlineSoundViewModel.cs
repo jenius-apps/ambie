@@ -60,6 +60,9 @@ public partial class OnlineSoundViewModel : ObservableObject
     
     public event EventHandler? DownloadCompleted;
 
+    [ObservableProperty]
+    private bool _updateAvailable;
+
     /// <summary>
     /// This sound's download progress.
     /// </summary>
@@ -268,9 +271,10 @@ public partial class OnlineSoundViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private Task UpdateAsync()
+    private async Task UpdateAsync()
     {
-        return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress, true);
+        UpdateAvailable = false;
+        await _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress, true);
     }
 
     [RelayCommand]

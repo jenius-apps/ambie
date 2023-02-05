@@ -27,6 +27,7 @@
                         <GradientStop Offset="1" Color="#53BEFF" />
                     </LinearGradientBrush>
 
+                    <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="#32000000" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="#e9e9e9" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FF1F1F1F" />
                     <AcrylicBrush
@@ -52,6 +53,7 @@
                         <GradientStop Offset="1" Color="#539AFF" />
                     </LinearGradientBrush>
 
+                    <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="#32ffffff" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FFE6E6E6" />
                     <AcrylicBrush
@@ -72,6 +74,7 @@
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="CardStrokeBrush" Color="{StaticResource SystemColorWindowTextColor}" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
+                    <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="Transparent" />
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 

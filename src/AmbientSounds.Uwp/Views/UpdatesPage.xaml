@@ -107,14 +107,36 @@
                                     <Run Text="{x:Bind FileVersion}" />
                                 </TextBlock>
                             </StackPanel>
-                            <StackPanel
-                                Grid.Column="2"
-                                Margin="0,0,12,0"
-                                Orientation="Horizontal">
-                                <Button Command="{x:Bind UpdateCommand}" Style="{StaticResource SubtleIconButton}">
+
+                            <Grid Grid.Column="2" Margin="0,0,12,0">
+                                <Button
+                                    Command="{x:Bind UpdateCommand}"
+                                    Style="{StaticResource SubtleIconButton}"
+                                    Visibility="{x:Bind UpdateAvailable, Mode=OneWay}">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
                                 </Button>
-                            </StackPanel>
+
+                                <Grid
+                                    Margin="0,0,12,0"
+                                    VerticalAlignment="Center"
+                                    Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                    <winui:ProgressRing
+                                        Width="20"
+                                        Height="20"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Foreground="{ThemeResource ProgressRingGhostForeground}"
+                                        IsIndeterminate="False"
+                                        Value="100" />
+                                    <winui:ProgressRing
+                                        Width="20"
+                                        Height="20"
+                                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                                        IsIndeterminate="False"
+                                        Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                        Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                </Grid>
+
+                            </Grid>
                         </Grid>
                     </Border>
 

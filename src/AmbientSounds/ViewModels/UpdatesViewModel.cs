@@ -36,11 +36,13 @@ public partial class UpdatesViewModel : ObservableObject
     private async Task CheckUpdatesAsync()
     {
         UpdateAllVisible = false;
-        UpdateList.Clear();
-        var availableUpdates = await _updateService.CheckForUpdatesAsync();
+        var availableUpdatesTask = _updateService.CheckForUpdatesAsync();
+        ClearUpdateList();
+        var availableUpdates = await availableUpdatesTask;
         foreach (var s in availableUpdates)
         {
             var vm = _soundVmFactory.GetOnlineSoundVm(s);
+            vm.UpdateAvailable = true;
             UpdateList.Add(vm);
         }
         UpdateAllVisible = UpdateList.Count > 0;
@@ -61,7 +63,17 @@ public partial class UpdatesViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        ClearUpdateList();
+        UpdateAllVisible = false;
+    }
+
+    private void ClearUpdateList()
+    {
+        foreach (var vm in UpdateList)
+        {
+            vm.Dispose();
+        }
+
         UpdateList.Clear();
-        UpdateAllVisible = UpdateList.Count > 0;
     }
 }
