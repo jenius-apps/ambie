@@ -21,7 +21,11 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="s">The sound to download.</param>
         /// <param name="progress">Progress of download.</param>
-        Task QueueAndDownloadAsync(Sound s, IProgress<double> progress, bool update = false);
+        Task QueueAndDownloadAsync(
+            Sound s,
+            IProgress<double> progress,
+            bool updateData = false,
+            bool updateFile = false);
 
         /// <summary>
         /// Adds video to download queue and starts download.

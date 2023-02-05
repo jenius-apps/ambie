@@ -57,16 +57,6 @@ namespace AmbientSounds.Factories
         }
 
         /// <inheritdoc/>
-        public UpdateSoundViewModel GetUpdateViewModel(Sound s)
-        {
-            Guard.IsNotNull(s);
-
-            return new UpdateSoundViewModel(
-                s,
-                _serviceProvider.GetRequiredService<IAssetLocalizer>());
-        }
-
-        /// <inheritdoc/>
         public OnlineSoundViewModel GetOnlineSoundVm(Sound s)
         {
             Guard.IsNotNull(s);

@@ -105,11 +105,15 @@ public class WindowsDownloadManager : IDownloadManager
     }
 
     /// <inheritdoc/>
-    public async Task QueueAndDownloadAsync(Sound s, IProgress<double> progress, bool update = false)
+    public async Task QueueAndDownloadAsync(
+        Sound s,
+        IProgress<double> progress,
+        bool updateData = false,
+        bool updateFile = false)
     {
         string localImagePath;
         string destinationFilePath;
-        bool performFakeDownload = _assetsReader.IsPathFromPackage(s.FilePath);
+        bool performFakeDownload = updateFile || _assetsReader.IsPathFromPackage(s.FilePath);
 
         if (performFakeDownload)
         {
@@ -124,7 +128,7 @@ public class WindowsDownloadManager : IDownloadManager
             localImagePath = s.ImagePath;
             destinationFilePath = s.FilePath;
         }
-        else
+        else 
         {
             string downloadUrl = await _onlineSoundDataProvider.GetDownloadLinkAsync(s);
             if (string.IsNullOrWhiteSpace(downloadUrl))
@@ -168,11 +172,11 @@ public class WindowsDownloadManager : IDownloadManager
             FileVersion = s.FileVersion
         };
 
-        if (update)
+        if (updateData)
         {
             await _soundService.UpdateSoundAsync(newSoundInfo);
         }
-        else
+        else if (!updateFile && !updateData)
         {
             await _soundService.AddLocalSoundAsync(newSoundInfo);
         }

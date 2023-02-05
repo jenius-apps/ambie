@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid Margin="0,8,0,0">
@@ -37,6 +38,7 @@
         <Grid Grid.Row="3" Margin="0,20,30,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
@@ -47,10 +49,21 @@
                 Command="{x:Bind ViewModel.CheckUpdatesCommand}"
                 Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
 
+            <Grid Grid.Column="1" Margin="12,0,0,0">
+                <winui:ProgressRing
+                    Width="20"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                    IsActive="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}"
+                    Visibility="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}" />
+            </Grid>
+
             <Button
-                Grid.Column="2"
+                Grid.Column="3"
                 VerticalAlignment="Center"
                 AutomationProperties.Name="{x:Bind strings:Resources.UpdateAllText}"
+                Command="{x:Bind ViewModel.UpdateAllCommand}"
                 Content="{x:Bind strings:Resources.UpdateAllText}"
                 Style="{ThemeResource AccentButtonStyle}"
                 Visibility="{x:Bind ViewModel.UpdateAllVisible, Mode=OneWay}" />

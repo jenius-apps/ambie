@@ -10,11 +10,6 @@ namespace AmbientSounds.Factories
     public interface ISoundVmFactory
     {
         /// <summary>
-        /// Creates an viewmodel for sound updates.
-        /// </summary>
-        UpdateSoundViewModel GetUpdateViewModel(Sound s);
-
-        /// <summary>
         /// Creates a new online sound viewmodel.
         /// </summary>
         /// <param name="s">The sound to associate with the viewmodel.</param>

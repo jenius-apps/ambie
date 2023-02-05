@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -43,6 +44,19 @@ public partial class UpdatesViewModel : ObservableObject
             UpdateList.Add(vm);
         }
         UpdateAllVisible = UpdateList.Count > 0;
+    }
+
+    [RelayCommand]
+    private async Task UpdateAllAsync()
+    {
+        List<Task> tasks = new();
+
+        foreach (var vm in UpdateList)
+        {
+            tasks.Add(vm.UpdateCommand.ExecuteAsync(null));
+        }
+
+        await Task.WhenAll(tasks);
     }
 
     public void Uninitialize()
