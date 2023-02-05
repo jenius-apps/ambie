@@ -11,6 +11,9 @@
     mc:Ignorable="d">
 
     <Grid Margin="0,8,0,0">
+        <Grid.ChildrenTransitions>
+            <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+        </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -76,6 +79,12 @@
             HorizontalAlignment="Stretch"
             ItemsSource="{x:Bind ViewModel.UpdateList}"
             SelectionMode="None">
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+
             <Style TargetType="ListViewItem">
                 <Setter Property="Padding" Value="0" />
                 <Setter Property="Margin" Value="0" />
