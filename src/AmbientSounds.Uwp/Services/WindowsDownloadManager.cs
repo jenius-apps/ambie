@@ -113,7 +113,7 @@ public class WindowsDownloadManager : IDownloadManager
     {
         string localImagePath;
         string destinationFilePath;
-        bool performFakeDownload = updateFile || _assetsReader.IsPathFromPackage(s.FilePath);
+        bool performFakeDownload = !updateFile || _assetsReader.IsPathFromPackage(s.FilePath);
 
         if (performFakeDownload)
         {
