@@ -3,8 +3,11 @@ using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -13,6 +16,7 @@ public partial class UpdatesViewModel : ObservableObject
 {
     private readonly IUpdateService _updateService;
     private readonly ISoundVmFactory _soundVmFactory;
+    private CancellationTokenSource _cts;
 
     public UpdatesViewModel(
         IUpdateService updateService,
@@ -25,6 +29,7 @@ public partial class UpdatesViewModel : ObservableObject
 
         _updateService = updateService;
         _soundVmFactory = soundVmFactory;
+        _cts = new();
     }
 
     public ObservableCollection<OnlineSoundViewModel> UpdateList { get; } = new();
@@ -36,15 +41,25 @@ public partial class UpdatesViewModel : ObservableObject
     private async Task CheckUpdatesAsync()
     {
         UpdateAllVisible = false;
-        var availableUpdatesTask = _updateService.CheckForUpdatesAsync();
-        ClearUpdateList();
-        var availableUpdates = await availableUpdatesTask;
-        foreach (var s in availableUpdates)
+
+        try
         {
-            var vm = _soundVmFactory.GetOnlineSoundVm(s);
-            vm.UpdateAvailable = true;
-            UpdateList.Add(vm);
+            var availableUpdatesTask = _updateService.CheckForUpdatesAsync(_cts.Token);
+            ClearUpdateList();
+
+            var availableUpdates = await availableUpdatesTask;
+            foreach (var s in availableUpdates)
+            {
+                var vm = _soundVmFactory.GetOnlineSoundVm(s);
+                vm.UpdateAvailable = true;
+                UpdateList.Add(vm);
+            }
         }
+        catch (OperationCanceledException)
+        {
+            return;
+        }
+
         UpdateAllVisible = UpdateList.Count > 0;
     }
 
@@ -63,8 +78,11 @@ public partial class UpdatesViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        _cts.Cancel();
         ClearUpdateList();
         UpdateAllVisible = false;
+        _cts.Dispose();
+        _cts = new();
     }
 
     private void ClearUpdateList()

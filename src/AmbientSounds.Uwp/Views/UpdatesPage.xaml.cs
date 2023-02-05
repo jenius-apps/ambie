@@ -1,18 +1,9 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
@@ -28,6 +19,17 @@ public sealed partial class UpdatesPage : Page
     }
 
     public UpdatesViewModel ViewModel => (UpdatesViewModel)this.DataContext;
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        var telemetry = App.Services.GetRequiredService<ITelemetry>();
+        telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
+        {
+            { "name", "updates" }
+        });
+
+        await ViewModel.CheckUpdatesCommand.ExecuteAsync(null);
+    }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {

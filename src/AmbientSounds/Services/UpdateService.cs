@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services;
@@ -24,8 +25,10 @@ public class UpdateService : IUpdateService
         _onlineSoundDataProvider = onlineSoundDataProvider;
     }
 
-    public async Task<IReadOnlyList<Sound>> CheckForUpdatesAsync()
+    public async Task<IReadOnlyList<Sound>> CheckForUpdatesAsync(CancellationToken ct)
     {
+        ct.ThrowIfCancellationRequested();
+
         var installed = await _soundService.GetLocalSoundsAsync();
         if (installed.Count == 0)
         {
@@ -33,6 +36,7 @@ public class UpdateService : IUpdateService
         }
 
         var installedIds = installed.Select(x => x.Id).ToArray();
+        ct.ThrowIfCancellationRequested();
         var onlineSounds = await _onlineSoundDataProvider.GetSoundsAsync(installedIds);
         if (onlineSounds.Count == 0)
         {
@@ -42,6 +46,7 @@ public class UpdateService : IUpdateService
         List<Sound> availableUpdates = new();
         foreach (var onlineSound in onlineSounds)
         {
+            ct.ThrowIfCancellationRequested();
             var s = await _soundService.GetLocalSoundAsync(onlineSound.Id);
             if (s is null)
             {
