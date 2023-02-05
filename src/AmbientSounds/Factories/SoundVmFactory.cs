@@ -69,7 +69,8 @@ namespace AmbientSounds.Factories
                 _previewService,
                 _iapService,
                 _serviceProvider.GetRequiredService<IDialogService>(),
-                _serviceProvider.GetRequiredService<IAssetLocalizer>());
+                _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+                _serviceProvider.GetRequiredService<IMixMediaPlayerService>());
         }
 
         /// <inheritdoc/>

@@ -22,6 +22,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     private readonly IPreviewService _previewService;
     private readonly IDialogService _dialogService;
     private readonly IAssetLocalizer _assetLocalizer;
+    private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private Progress<double> _downloadProgress;
 
     public OnlineSoundViewModel(
@@ -32,7 +33,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         IPreviewService previewService,
         IIapService iapService,
         IDialogService dialogService,
-        IAssetLocalizer assetLocalizer)
+        IAssetLocalizer assetLocalizer,
+        IMixMediaPlayerService mixMediaPlayerService)
     {
         Guard.IsNotNull(s);
         Guard.IsNotNull(downloadManager);
@@ -42,6 +44,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         Guard.IsNotNull(previewService);
         Guard.IsNotNull(dialogService);
         Guard.IsNotNull(assetLocalizer);
+        Guard.IsNotNull(mixMediaPlayerService);
 
         _sound = s;
         _downloadManager = downloadManager;
@@ -51,6 +54,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _telemetry = telemetry;
         _dialogService = dialogService;
         _assetLocalizer = assetLocalizer;
+        _mixMediaPlayerService = mixMediaPlayerService;
 
         _downloadProgress = new Progress<double>();
         _downloadProgress.ProgressChanged += OnProgressChanged;
@@ -61,7 +65,10 @@ public partial class OnlineSoundViewModel : ObservableObject
     public event EventHandler? DownloadCompleted;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(CanPlay))]
     private bool _updateAvailable;
+
+    public bool CanPlay => !UpdateAvailable && IsInstalled;
 
     /// <summary>
     /// This sound's download progress.
@@ -76,6 +83,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// </summary>
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(NotInstalled))]
+    [NotifyPropertyChangedFor(nameof(CanPlay))]
     private bool _isInstalled;
 
     /// <summary>
@@ -271,8 +279,22 @@ public partial class OnlineSoundViewModel : ObservableObject
     }
 
     [RelayCommand]
+    private async Task PlayAsync()
+    {
+        if (IsInstalled && !_mixMediaPlayerService.IsSoundPlaying(Id))
+        {
+            await _mixMediaPlayerService.ToggleSoundAsync(_sound);
+        }
+    }
+
+    [RelayCommand]
     private async Task UpdateAsync()
     {
+        if (_mixMediaPlayerService.IsSoundPlaying(Id))
+        {
+            _mixMediaPlayerService.RemoveSound(Id);
+        }
+
         UpdateAvailable = false;
         await _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress, true);
     }

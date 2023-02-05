@@ -116,6 +116,13 @@
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
                                 </Button>
 
+                                <Button
+                                    Command="{x:Bind PlayCommand}"
+                                    Style="{StaticResource SubtleIconButton}"
+                                    Visibility="{x:Bind CanPlay, Mode=OneWay}">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
+                                </Button>
+
                                 <Grid
                                     Margin="0,0,12,0"
                                     VerticalAlignment="Center"
