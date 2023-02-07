@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Factories;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -15,19 +16,21 @@ public partial class UpdatesViewModel : ObservableObject
 {
     private readonly IUpdateService _updateService;
     private readonly ISoundVmFactory _soundVmFactory;
+    private readonly ITelemetry _telemetry;
     private CancellationTokenSource _cts;
 
     public UpdatesViewModel(
         IUpdateService updateService,
         ISoundVmFactory soundVmFactory,
-        IOnlineSoundDataProvider onlineSoundDataProvider)
+        ITelemetry telemetry)
     {
         Guard.IsNotNull(updateService);
         Guard.IsNotNull(soundVmFactory);
-        Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(telemetry);
 
         _updateService = updateService;
         _soundVmFactory = soundVmFactory;
+        _telemetry = telemetry;
         _cts = new();
     }
 
@@ -40,7 +43,7 @@ public partial class UpdatesViewModel : ObservableObject
     private bool _placeholderVisible;
 
     [RelayCommand]
-    private async Task CheckUpdatesAsync()
+    private async Task CheckUpdatesAsync(bool? logTelemetry)
     {
         UpdateAllVisible = false;
         PlaceholderVisible = false;
@@ -65,11 +68,21 @@ public partial class UpdatesViewModel : ObservableObject
 
         UpdateAllVisible = UpdateList.Count > 0;
         PlaceholderVisible = UpdateList.Count == 0;
+
+        if (logTelemetry is true)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.UpdateCheckClicked, new Dictionary<string, string>
+            {
+                { "updateCount", UpdateList.Count.ToString() }
+            });
+        }
     }
 
     [RelayCommand]
     private async Task UpdateAllAsync()
     {
+        _telemetry.TrackEvent(TelemetryConstants.UpdateAllClicked);
+
         List<Task> tasks = new();
 
         foreach (var vm in UpdateList)

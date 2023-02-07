@@ -311,6 +311,12 @@ public partial class OnlineSoundViewModel : ObservableObject
 
         UpdateAvailable = false;
         await _updateService.TriggerUpdateAsync(_sound, _downloadProgress);
+
+        _telemetry.TrackEvent(TelemetryConstants.UpdateSoundClicked, new Dictionary<string, string>
+        {
+            { "id", Id },
+            { "name", _sound.Name }
+        });
     }
 
     [RelayCommand]
