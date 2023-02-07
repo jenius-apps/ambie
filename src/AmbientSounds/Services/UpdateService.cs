@@ -13,18 +13,23 @@ public class UpdateService : IUpdateService
 {
     private readonly ISoundService _soundService;
     private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+    private readonly IDownloadManager _downloadManager;
 
     public UpdateService(
         ISoundService soundService,
-        IOnlineSoundDataProvider onlineSoundDataProvider)
+        IOnlineSoundDataProvider onlineSoundDataProvider,
+        IDownloadManager downloadManager)
     {
         Guard.IsNotNull(soundService);
         Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(downloadManager);
 
         _soundService = soundService;
         _onlineSoundDataProvider = onlineSoundDataProvider;
+        _downloadManager = downloadManager;
     }
 
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> CheckForUpdatesAsync(CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
@@ -53,13 +58,33 @@ public class UpdateService : IUpdateService
                 continue;
             }
 
-            if (onlineSound.MetaDataVersion > s.MetaDataVersion ||
-                onlineSound.FileVersion > s.FileVersion)
+            if (IsUpdateAvailable(onlineSound, s))
             {
                 availableUpdates.Add(onlineSound);
             }
         }
 
         return availableUpdates;
+    }
+
+    /// <inheritdoc/>
+    public async Task TriggerUpdateAsync(Sound onlineSound, IProgress<double> progress)
+    {
+        var installedSound = await _soundService.GetLocalSoundAsync(onlineSound.Id);
+        if (installedSound is null || !IsUpdateAvailable(onlineSound, installedSound))
+        {
+            return;
+        }
+
+        await _downloadManager.QueueUpdateAsync(
+            onlineSound, 
+            progress, 
+            installedSound.FileVersion == onlineSound.FileVersion);
+    }
+
+    private bool IsUpdateAvailable(Sound onlineSound, Sound installedSound)
+    {
+        return onlineSound.MetaDataVersion > installedSound.MetaDataVersion ||
+            onlineSound.FileVersion > installedSound.FileVersion;
     }
 }

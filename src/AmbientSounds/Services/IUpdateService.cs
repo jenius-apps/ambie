@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,5 +15,12 @@ namespace AmbientSounds.Services
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of sounds tht have an update available.</returns>
         Task<IReadOnlyList<Sound>> CheckForUpdatesAsync(CancellationToken ct);
+
+        /// <summary>
+        /// Attempts to trigger an update on the given sound data.
+        /// </summary>
+        /// <param name="latestSoundData">The up-to-date sound data.</param>
+        /// <param name="progress">Download progress tracker object.</param>
+        Task TriggerUpdateAsync(Sound latestSoundData, IProgress<double> progress);
     }
 }

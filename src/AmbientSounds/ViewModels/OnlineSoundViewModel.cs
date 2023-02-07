@@ -23,6 +23,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     private readonly IDialogService _dialogService;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
+    private readonly IUpdateService _updateService;
     private Progress<double> _downloadProgress;
 
     public OnlineSoundViewModel(
@@ -34,7 +35,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         IIapService iapService,
         IDialogService dialogService,
         IAssetLocalizer assetLocalizer,
-        IMixMediaPlayerService mixMediaPlayerService)
+        IMixMediaPlayerService mixMediaPlayerService,
+        IUpdateService updateService)
     {
         Guard.IsNotNull(s);
         Guard.IsNotNull(downloadManager);
@@ -45,6 +47,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         Guard.IsNotNull(dialogService);
         Guard.IsNotNull(assetLocalizer);
         Guard.IsNotNull(mixMediaPlayerService);
+        Guard.IsNotNull(updateService);
 
         _sound = s;
         _downloadManager = downloadManager;
@@ -55,6 +58,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _dialogService = dialogService;
         _assetLocalizer = assetLocalizer;
         _mixMediaPlayerService = mixMediaPlayerService;
+        _updateService = updateService;
 
         _downloadProgress = new Progress<double>();
         _downloadProgress.ProgressChanged += OnProgressChanged;
@@ -302,7 +306,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         }
 
         UpdateAvailable = false;
-        await _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress, true, true);
+        await _updateService.TriggerUpdateAsync(_sound, _downloadProgress);
     }
 
     [RelayCommand]
