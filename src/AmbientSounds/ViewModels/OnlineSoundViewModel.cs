@@ -154,6 +154,10 @@ public partial class OnlineSoundViewModel : ObservableObject
 
     public string FileVersion => _sound.FileVersion.ToString();
 
+    public bool DisplayMetaDataVersion => _sound.MetaDataVersion > 0;
+
+    public bool DisplayFileVersion => _sound.FileVersion > 0;
+
     public string ColourHex => _sound.ColourHex;
 
     /// <summary>
