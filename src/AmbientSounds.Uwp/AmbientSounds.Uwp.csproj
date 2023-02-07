@@ -378,6 +378,7 @@
     <Content Include="Assets\SmallTile.scale-150.png" />
     <Content Include="Assets\SmallTile.scale-200.png" />
     <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\smiling_face_with_sunglasses_3d.png" />
     <Content Include="Assets\SoundEffects\bell.wav" />
     <Content Include="Assets\SoundEffects\chime.mp3" />
     <Content Include="Assets\Sounds\beach.wav" />

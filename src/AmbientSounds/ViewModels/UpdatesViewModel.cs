@@ -6,7 +6,6 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -37,10 +36,14 @@ public partial class UpdatesViewModel : ObservableObject
     [ObservableProperty]
     private bool _updateAllVisible;
 
+    [ObservableProperty]
+    private bool _placeholderVisible;
+
     [RelayCommand]
     private async Task CheckUpdatesAsync()
     {
         UpdateAllVisible = false;
+        PlaceholderVisible = false;
 
         try
         {
@@ -61,6 +64,7 @@ public partial class UpdatesViewModel : ObservableObject
         }
 
         UpdateAllVisible = UpdateList.Count > 0;
+        PlaceholderVisible = UpdateList.Count == 0;
     }
 
     [RelayCommand]
@@ -81,6 +85,7 @@ public partial class UpdatesViewModel : ObservableObject
         _cts.Cancel();
         ClearUpdateList();
         UpdateAllVisible = false;
+        PlaceholderVisible = false;
         _cts.Dispose();
         _cts = new();
     }
