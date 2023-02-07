@@ -132,6 +132,8 @@
                             </Grid.ColumnDefinitions>
                             <Rectangle Grid.ColumnSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
 
+                            <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
+
                             <Rectangle HorizontalAlignment="Right" Style="{StaticResource ModuleVerticalDividerRectStyle}" />
 
                             <StackPanel Grid.Column="1" Margin="24,16,0,0">
