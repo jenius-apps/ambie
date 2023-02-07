@@ -90,7 +90,7 @@
                 MaxWidth="300"
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="Fully up-to-date. You're all set."
+                Text="{x:Bind strings:Resources.UpdatesPlaceholderText}"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
         </StackPanel>

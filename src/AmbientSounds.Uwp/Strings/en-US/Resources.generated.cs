@@ -2211,6 +2211,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region UpdatesPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Fully up-to-date. You're all set.
+        /// </summary>
+        public static string UpdatesPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPlaceholderText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2391,6 +2404,7 @@ namespace AmbientSounds.Strings{
             DataVersionColon,
             FileVersionColon,
             UpdateAllText,
+            UpdatesPlaceholderText,
         }
 
         private static ResourceLoader _resourceLoader;

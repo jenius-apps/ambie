@@ -829,4 +829,7 @@
   <data name="UpdateAllText" xml:space="preserve">
     <value>Update all</value>
   </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Fully up-to-date. You're all set.</value>
+  </data>
 </root>

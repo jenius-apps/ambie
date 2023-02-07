@@ -966,6 +966,10 @@
           <source>File version:</source>
           <target state="new">File version:</target>
         </trans-unit>
+        <trans-unit id="UpdatesPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Fully up-to-date. You're all set.</source>
+          <target state="new">Fully up-to-date. You're all set.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
