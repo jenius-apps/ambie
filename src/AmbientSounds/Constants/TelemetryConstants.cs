@@ -11,6 +11,12 @@
         public const string ShellPagePremiumClicked = ShellPage + "premiumClicked";
         public const string ShellPageShareClicked = ShellPage + "shareClicked";
 
+        // updates
+        private const string Updates = "updates:";
+        public const string UpdateAllClicked = Updates + "updateAllButtonClicked";
+        public const string UpdateCheckClicked = Updates + "checkButtonClicked";
+        public const string UpdateSoundClicked = Updates + "updateSoundClicked";
+
         // catalogue
         private const string Catalogue = "catalogue:";
         public const string DownloadClicked = Catalogue + "downloadClicked";

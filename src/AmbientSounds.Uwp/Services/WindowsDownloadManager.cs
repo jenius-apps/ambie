@@ -105,6 +105,87 @@ public class WindowsDownloadManager : IDownloadManager
     }
 
     /// <inheritdoc/>
+    public async Task QueueUpdateAsync(Sound s, IProgress<double> progress, bool updateDataOnly = false)
+    {
+        bool performFakeDownload = updateDataOnly || _assetsReader.IsPathFromPackage(s.FilePath);
+
+        (string localImagePath, string destinationFilePath) = performFakeDownload
+            ? await QueueFakeAsync(s, progress)
+            : await QueueAsync(s, progress);
+
+        var newSoundInfo = CopySound(s, localImagePath, destinationFilePath);
+        await _soundService.UpdateSoundAsync(newSoundInfo);
+
+        if (performFakeDownload)
+        {
+            // Report completion of fake download here
+            // so downstream event handlers work correctly.
+            // The handlers expect the download completion to happen after
+            // the sound metadata was added.
+            await Task.Delay(300);
+            progress.Report(100);
+        }
+
+        DownloadsCompleted?.Invoke(this, EventArgs.Empty);
+    }
+
+    private Sound CopySound(Sound s, string localImagePath, string destinationFilePath)
+    {
+        return new Sound()
+        {
+            Id = s.Id,
+            ImagePath = localImagePath,
+            Name = s.Name,
+            FilePath = destinationFilePath,
+            Attribution = s.Attribution,
+            FileExtension = s.FileExtension,
+            ScreensaverImagePaths = s.ScreensaverImagePaths,
+            IsPremium = s.IsPremium,
+            IapIds = s.IapIds.ToArray(),
+            ColourHex = s.ColourHex,
+            ImagePaths = s.ImagePaths,
+            Localizations = s.Localizations,
+            MetaDataVersion = s.MetaDataVersion,
+            FileVersion = s.FileVersion
+        };
+    }
+
+    private async Task<(string, string)> QueueFakeAsync(Sound s, IProgress<double> progress)
+    {
+        // Handle "downloading" of a packaged sound
+        // As you might remember, a packaged sound is already local,
+        // so we fake the download UX below to provide a consistent experience
+        // for the user. 
+        progress.Report(25);
+        await Task.Delay(300);
+        progress.Report(50);
+        return (s.ImagePath, s.FilePath);
+    }
+
+    private async Task<(string, string)> QueueAsync(Sound s, IProgress<double> progress)
+    {
+        string downloadUrl = await _onlineSoundDataProvider.GetDownloadLinkAsync(s);
+        if (string.IsNullOrWhiteSpace(downloadUrl))
+        {
+            return (string.Empty, string.Empty);
+        }
+        progress.Report(1);
+        string localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
+            s.ImagePath,
+            s.Id);
+        StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+            $"{SoundsDirectory}\\{s.Id + s.FileExtension}",
+            CreationCollisionOption.ReplaceExisting);
+        string destinationFilePath = destinationFile.Path;
+        BackgroundDownloadService.Instance.StartDownload(
+            destinationFile,
+            downloadUrl,
+            progress);
+
+        return (localImagePath, destinationFilePath);
+    }
+
+    /// <inheritdoc/>
     public async Task QueueAndDownloadAsync(Sound s, IProgress<double> progress)
     {
         string localImagePath;
@@ -117,9 +198,8 @@ public class WindowsDownloadManager : IDownloadManager
             // As you might remember, a packaged sound is already local,
             // so we fake the download UX below to provide a consistent experience
             // for the user. 
-
             progress.Report(25);
-            await Task.Delay(300); 
+            await Task.Delay(300);
             progress.Report(50);
             localImagePath = s.ImagePath;
             destinationFilePath = s.FilePath;
@@ -131,19 +211,14 @@ public class WindowsDownloadManager : IDownloadManager
             {
                 return;
             }
-
             progress.Report(1);
-
             localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
                 s.ImagePath,
                 s.Id);
-
             StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
                 $"{SoundsDirectory}\\{s.Id + s.FileExtension}",
                 CreationCollisionOption.ReplaceExisting);
-
             destinationFilePath = destinationFile.Path;
-
             BackgroundDownloadService.Instance.StartDownload(
                 destinationFile,
                 downloadUrl,
@@ -174,11 +249,9 @@ public class WindowsDownloadManager : IDownloadManager
             // so downstream event handlers work correctly.
             // The handlers expect the download completion to happen after
             // the sound metadata was added.
-
             await Task.Delay(300);
             progress.Report(100);
         }
-
         DownloadsCompleted?.Invoke(this, EventArgs.Empty);
     }
 

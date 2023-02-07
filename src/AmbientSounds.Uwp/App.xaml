@@ -27,6 +27,7 @@
                         <GradientStop Offset="1" Color="#53BEFF" />
                     </LinearGradientBrush>
 
+                    <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="#32000000" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="#e9e9e9" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FF1F1F1F" />
                     <AcrylicBrush
@@ -52,6 +53,7 @@
                         <GradientStop Offset="1" Color="#539AFF" />
                     </LinearGradientBrush>
 
+                    <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="#32ffffff" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FFE6E6E6" />
                     <AcrylicBrush
@@ -72,6 +74,7 @@
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="CardStrokeBrush" Color="{StaticResource SystemColorWindowTextColor}" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
+                    <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="Transparent" />
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
@@ -191,6 +194,12 @@
                 <Setter Property="Fill" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
             </Style>
 
+            <Style x:Key="ModuleVerticalDividerRectStyle" TargetType="Rectangle">
+                <Setter Property="Width" Value="1" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="Fill" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
+            </Style>
+
             <x:Double x:Key="WideWindowBreakpoint">670</x:Double>
             <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
@@ -238,6 +247,7 @@
             <x:String x:Key="GlyphShare">&#xEB60;</x:String>
             <x:String x:Key="GlyphCheckMarkCircle">&#xE9A2;</x:String>
             <x:String x:Key="GlyphGripper">&#xEB34;</x:String>
+            <x:String x:Key="GlyphUpdates">&#xE91C;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

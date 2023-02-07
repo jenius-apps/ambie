@@ -57,15 +57,9 @@ namespace AmbientSounds.Factories
         }
 
         /// <inheritdoc/>
-        public OnlineSoundViewModel? GetOnlineSoundVm(Sound s)
+        public OnlineSoundViewModel GetOnlineSoundVm(Sound s)
         {
-            if (s is null ||
-                s.Id is null ||
-                s.ImagePath is null ||
-                s.FilePath is null)
-            {
-                return null;
-            }
+            Guard.IsNotNull(s);
 
             return new OnlineSoundViewModel(
                 s,
@@ -75,7 +69,9 @@ namespace AmbientSounds.Factories
                 _previewService,
                 _iapService,
                 _serviceProvider.GetRequiredService<IDialogService>(),
-                _serviceProvider.GetRequiredService<IAssetLocalizer>());
+                _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+                _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
+                _serviceProvider.GetRequiredService<IUpdateService>());
         }
 
         /// <inheritdoc/>

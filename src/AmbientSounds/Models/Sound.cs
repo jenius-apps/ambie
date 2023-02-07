@@ -122,6 +122,16 @@ public class Sound : IAsset
     /// </summary>
     public IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; } = new Dictionary<string, DisplayInformation>();
 
+    /// <summary>
+    /// Version of this data file.
+    /// </summary>
+    public int MetaDataVersion { get; set; }
+
+    /// <summary>
+    /// Version of the sound file itself.
+    /// </summary>
+    public int FileVersion { get; set; }
+
     /// <inheritdoc/>
     public override string ToString()
     {

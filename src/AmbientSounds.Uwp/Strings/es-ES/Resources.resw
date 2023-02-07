@@ -703,4 +703,28 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} vida</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Buscar actualizaciones</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Consulta aquí las actualizaciones de tus sonidos y vídeos.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Las actualizaciones contienen mejoras en las traducciones, la calidad del sonido y mucho más.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Actualizaciones</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Actualizar todo</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Versión de datos:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Versión del archivo:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Totalmente actualizado. Ya está todo listo.</value>
+  </data>
 </root>

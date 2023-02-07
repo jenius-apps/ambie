@@ -1,0 +1,199 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.UpdatesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <Grid Margin="0,8,0,0">
+        <Grid.ChildrenTransitions>
+            <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            FontSize="20"
+            Style="{StaticResource BodyStrongTextBlockStyle}"
+            Text="{x:Bind strings:Resources.UpdatesText}" />
+        <TextBlock
+            Grid.Row="1"
+            Margin="0,8,0,0"
+            FontSize="12"
+            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+            Text="{x:Bind strings:Resources.UpdatesPageMessage1}"
+            TextWrapping="WrapWholeWords" />
+        <TextBlock
+            Grid.Row="2"
+            FontSize="12"
+            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+            Text="{x:Bind strings:Resources.UpdatesPageMessage2}"
+            TextWrapping="WrapWholeWords" />
+
+        <Grid Grid.Row="3" Margin="0,20,30,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                VerticalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.CheckForUpdatesText}"
+                Command="{x:Bind ViewModel.CheckUpdatesCommand}"
+                Content="{x:Bind strings:Resources.CheckForUpdatesText}">
+                <Button.CommandParameter>
+                    <x:Boolean>true</x:Boolean>
+                </Button.CommandParameter>
+            </Button>
+
+            <Grid Grid.Column="1" Margin="12,0,0,0">
+                <winui:ProgressRing
+                    Width="20"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                    IsActive="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}"
+                    Visibility="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}" />
+            </Grid>
+
+            <Button
+                Grid.Column="3"
+                VerticalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.UpdateAllText}"
+                Command="{x:Bind ViewModel.UpdateAllCommand}"
+                Content="{x:Bind strings:Resources.UpdateAllText}"
+                Style="{ThemeResource AccentButtonStyle}"
+                Visibility="{x:Bind ViewModel.UpdateAllVisible, Mode=OneWay}" />
+        </Grid>
+
+        <StackPanel
+            Grid.Row="4"
+            Margin="0,0,0,80"
+            VerticalAlignment="Center"
+            Spacing="12"
+            Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </StackPanel.ChildrenTransitions>
+            <Image
+                Width="100"
+                HorizontalAlignment="Center"
+                AutomationProperties.AccessibilityView="Raw"
+                Source="ms-appx:///Assets/smiling_face_with_sunglasses_3d.png" />
+            <TextBlock
+                MaxWidth="300"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.UpdatesPlaceholderText}"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+        </StackPanel>
+
+        <ListView
+            Grid.Row="4"
+            Margin="-18,20,0,0"
+            Padding="0,0,16,12"
+            HorizontalAlignment="Stretch"
+            ItemsSource="{x:Bind ViewModel.UpdateList}"
+            SelectionMode="None">
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+
+            <Style TargetType="ListViewItem">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                    <Border
+                        Height="80"
+                        Margin="0,0,0,4"
+                        Style="{StaticResource ModuleBorderStyle}">
+                        <Grid CornerRadius="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Grid.ColumnSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
+
+                            <Rectangle HorizontalAlignment="Right" Style="{StaticResource ModuleVerticalDividerRectStyle}" />
+
+                            <StackPanel Grid.Column="1" Margin="24,16,0,0">
+                                <TextBlock Text="{x:Bind Name}" />
+                                <TextBlock
+                                    FontSize="10"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Visibility="{x:Bind DisplayMetaDataVersion}">
+                                    <Run Text="{x:Bind strings:Resources.DataVersionColon}" />
+                                    <Run Text="{x:Bind MetaDataVersion}" />
+                                </TextBlock>
+                                <TextBlock
+                                    FontSize="10"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Visibility="{x:Bind DisplayFileVersion}">
+                                    <Run Text="{x:Bind strings:Resources.FileVersionColon}" />
+                                    <Run Text="{x:Bind FileVersion}" />
+                                </TextBlock>
+                            </StackPanel>
+
+                            <Grid Grid.Column="2" Margin="0,0,12,0">
+                                <Button
+                                    Command="{x:Bind UpdateCommand}"
+                                    Style="{StaticResource SubtleIconButton}"
+                                    Visibility="{x:Bind UpdateAvailable, Mode=OneWay}">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
+                                </Button>
+
+                                <Button
+                                    Command="{x:Bind PlayCommand}"
+                                    Style="{StaticResource SubtleIconButton}"
+                                    Visibility="{x:Bind CanPlay, Mode=OneWay}">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
+                                </Button>
+
+                                <Grid
+                                    Margin="0,0,12,0"
+                                    VerticalAlignment="Center"
+                                    Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                    <winui:ProgressRing
+                                        Width="20"
+                                        Height="20"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Foreground="{ThemeResource ProgressRingGhostForeground}"
+                                        IsIndeterminate="False"
+                                        Value="100" />
+                                    <winui:ProgressRing
+                                        Width="20"
+                                        Height="20"
+                                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                                        IsIndeterminate="False"
+                                        Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                        Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                </Grid>
+
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Page>

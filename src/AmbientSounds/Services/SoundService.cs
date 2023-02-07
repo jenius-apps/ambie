@@ -211,10 +211,8 @@ public class SoundService : ISoundService
     {
         if (await GetLocalSoundAsync(updatedSound.Id) is Sound sound)
         {
-            sound.Name = updatedSound.Name;
-            sound.IapIds = updatedSound.IapIds;
+            updatedSound.SortPosition = sound.SortPosition;
+            await _soundCache.AddLocalInstalledSoundAsync(updatedSound);
         }
-
-        await _soundCache.SaveCacheAsync();
     }
 }

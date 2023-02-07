@@ -26,18 +26,13 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-            <VisualStateGroup>
-                <VisualState>
+            <VisualStateGroup x:Name="PageStateGroup" CurrentStateChanged="SizeStateChanged">
+                <VisualState x:Name="WidePageState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowBreakpoint}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="NavMenuWidth.Width" Value="200" />
-                        <Setter Target="MenuTextHome.Visibility" Value="Visible" />
-                        <Setter Target="MenuTextCatalogue.Visibility" Value="Visible" />
-                        <Setter Target="MenuTextFocus.Visibility" Value="Visible" />
-                        <Setter Target="MenuTextSettings.Visibility" Value="Visible" />
-                        <Setter Target="MenuTextPremium.Visibility" Value="Visible" />
                         <Setter Target="MenuIconPremium.Visibility" Value="Collapsed" />
                         <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
                         <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
@@ -199,10 +194,9 @@
                                 <StackPanel Orientation="Horizontal">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphHome}" />
                                     <TextBlock
-                                        Name="MenuTextHome"
                                         Margin="12,0,0,0"
                                         Text="{x:Bind strings:Resources.Home}"
-                                        Visibility="Collapsed" />
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
                                 </StackPanel>
                             </ListViewItem>
                             <ListViewItem
@@ -213,10 +207,9 @@
                                 <StackPanel Orientation="Horizontal">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
                                     <TextBlock
-                                        Name="MenuTextCatalogue"
                                         Margin="12,0,0,0"
                                         Text="{x:Bind strings:Resources.Catalogue}"
-                                        Visibility="Collapsed" />
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
                                 </StackPanel>
                             </ListViewItem>
                             <ListViewItem
@@ -228,10 +221,9 @@
                                     <StackPanel Orientation="Horizontal">
                                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
                                         <TextBlock
-                                            Name="MenuTextFocus"
                                             Margin="12,0,0,0"
                                             Text="{x:Bind strings:Resources.FocusText}"
-                                            Visibility="Collapsed" />
+                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
                                     </StackPanel>
                                     <Grid
                                         x:Name="FocusEllipseGrid"
@@ -262,10 +254,7 @@
                                     FontFamily="{StaticResource FluentUIGlyphs}"
                                     Glyph="{StaticResource GlyphPremium}"
                                     Visibility="Visible" />
-                                <TextBlock
-                                    x:Name="MenuTextPremium"
-                                    Text="{x:Bind strings:Resources.GetAmbiePlus}"
-                                    Visibility="Collapsed" />
+                                <TextBlock Text="{x:Bind strings:Resources.GetAmbiePlus}" Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
                             </StackPanel>
                         </HyperlinkButton>
                         <ListView
@@ -280,16 +269,28 @@
                             <ListView.Items>
                                 <ListViewItem
                                     MinWidth="0"
+                                    AutomationProperties.Name="Updates"
+                                    Tag="updates"
+                                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphUpdates}" />
+                                        <TextBlock
+                                            Margin="12,0,0,0"
+                                            Text="Updates"
+                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem
+                                    MinWidth="0"
                                     AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
                                     Tag="settings"
                                     ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
                                     <StackPanel Orientation="Horizontal">
                                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
                                         <TextBlock
-                                            Name="MenuTextSettings"
                                             Margin="12,0,0,0"
                                             Text="{x:Bind strings:Resources.SettingsText}"
-                                            Visibility="Collapsed" />
+                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
                                     </StackPanel>
                                 </ListViewItem>
                             </ListView.Items>
