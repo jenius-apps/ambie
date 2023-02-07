@@ -281,9 +281,15 @@ public partial class OnlineSoundViewModel : ObservableObject
     [RelayCommand]
     private async Task PlayAsync()
     {
-        if (IsInstalled && !_mixMediaPlayerService.IsSoundPlaying(Id))
+        if (!IsInstalled || _mixMediaPlayerService.IsSoundPlaying(Id))
         {
-            await _mixMediaPlayerService.ToggleSoundAsync(_sound);
+            return;
+        }
+
+        var installedVersion = await _soundService.GetLocalSoundAsync(Id);
+        if (installedVersion is not null)
+        {
+            await _mixMediaPlayerService.ToggleSoundAsync(installedVersion);
         }
     }
 
@@ -296,7 +302,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         }
 
         UpdateAvailable = false;
-        await _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress, true);
+        await _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress, true, true);
     }
 
     [RelayCommand]
