@@ -939,35 +939,35 @@
         </trans-unit>
         <trans-unit id="CheckForUpdatesText" translate="yes" xml:space="preserve">
           <source>Check for updates</source>
-          <target state="new">Check for updates</target>
+          <target state="translated">Rechercher les mises à jour</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage1" translate="yes" xml:space="preserve">
           <source>Check here for updates to your sounds and videos.</source>
-          <target state="new">Check here for updates to your sounds and videos.</target>
+          <target state="translated">Cliquez ici pour les mises à jour de vos sons et vidéos.</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage2" translate="yes" xml:space="preserve">
           <source>Updates contain improvements to translations, sound quality, and more.</source>
-          <target state="new">Updates contain improvements to translations, sound quality, and more.</target>
+          <target state="translated">Les mises à jour contiennent des améliorations apportées aux traductions, à la qualité sonore, etc.</target>
         </trans-unit>
         <trans-unit id="UpdatesText" translate="yes" xml:space="preserve">
           <source>Updates</source>
-          <target state="new">Updates</target>
+          <target state="translated">Mises à jour</target>
         </trans-unit>
         <trans-unit id="UpdateAllText" translate="yes" xml:space="preserve">
           <source>Update all</source>
-          <target state="new">Update all</target>
+          <target state="translated">Tout mettre à jour</target>
         </trans-unit>
         <trans-unit id="DataVersionColon" translate="yes" xml:space="preserve">
           <source>Data version:</source>
-          <target state="new">Data version:</target>
+          <target state="translated">Version des données :</target>
         </trans-unit>
         <trans-unit id="FileVersionColon" translate="yes" xml:space="preserve">
           <source>File version:</source>
-          <target state="new">File version:</target>
+          <target state="translated">Version du fichier :</target>
         </trans-unit>
         <trans-unit id="UpdatesPlaceholderText" translate="yes" xml:space="preserve">
           <source>Fully up-to-date. You're all set.</source>
-          <target state="new">Fully up-to-date. You're all set.</target>
+          <target state="translated">Entièrement à jour. Vous êtes prêt.</target>
         </trans-unit>
       </group>
     </body>

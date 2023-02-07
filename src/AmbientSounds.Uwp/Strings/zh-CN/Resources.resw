@@ -703,4 +703,28 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0}辈子</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>检查更新</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>在此处查看声音和视频的更新。</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>更新包含对翻译、音质等的改进。</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>全部更新</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>数据版本：</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>文件版本：</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>完全最新。一切就绪。</value>
+  </data>
 </root>

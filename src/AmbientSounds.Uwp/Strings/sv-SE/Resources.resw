@@ -703,4 +703,28 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} livstid</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Sök efter uppdateringar</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Kolla här för uppdateringar av dina ljud och videor.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Uppdateringar innehåller förbättringar av översättningar, ljudkvalitet med mera.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Uppdateringar</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Uppdatera alla</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Dataversion:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Filversion:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Fullt uppdaterad. Du är redo.</value>
+  </data>
 </root>

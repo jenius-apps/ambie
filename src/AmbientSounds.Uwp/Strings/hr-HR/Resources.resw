@@ -691,4 +691,28 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} životni vijek</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Provjeri ima li ažuriranja</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Ovdje potražite ažuriranja svojih zvukova i videozapisa.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Ažuriranja sadrže poboljšanja prijevoda, kvalitetu zvuka i još mnogo toga.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Novosti</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Ažuriraj sve</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Verzija podataka:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Verzija datoteke:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Potpuno ažurno. Sve je spremno.</value>
+  </data>
 </root>

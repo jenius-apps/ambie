@@ -31,12 +31,14 @@
             Margin="0,8,0,0"
             FontSize="12"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-            Text="{x:Bind strings:Resources.UpdatesPageMessage1}" />
+            Text="{x:Bind strings:Resources.UpdatesPageMessage1}"
+            TextWrapping="WrapWholeWords" />
         <TextBlock
             Grid.Row="2"
             FontSize="12"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-            Text="{x:Bind strings:Resources.UpdatesPageMessage2}" />
+            Text="{x:Bind strings:Resources.UpdatesPageMessage2}"
+            TextWrapping="WrapWholeWords" />
 
         <Grid Grid.Row="3" Margin="0,20,30,0">
             <Grid.ColumnDefinitions>

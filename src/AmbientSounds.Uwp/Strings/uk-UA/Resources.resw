@@ -703,4 +703,28 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} довічна</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Перевірка наявності оновлень</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Перевірте тут, щоб отримати оновлення своїх звуків і відео.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Оновлення містять покращення перекладів, якості звуку тощо.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Оновлення</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Оновити все</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Версія даних:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Версія файлу:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Повністю актуальний. Все готово.</value>
+  </data>
 </root>

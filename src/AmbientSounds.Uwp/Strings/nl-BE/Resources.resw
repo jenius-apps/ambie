@@ -673,4 +673,25 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} levensduur</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Controleren op updates</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Kijk hier voor updates van je geluiden en video's.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Updates bevatten verbeteringen in vertalingen, geluidskwaliteit en meer.</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Alles bijwerken</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Data versie:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Bestandsversie:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Volledig up-to-date. Je bent er helemaal klaar voor.</value>
+  </data>
 </root>
