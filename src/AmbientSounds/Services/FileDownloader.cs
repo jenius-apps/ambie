@@ -59,7 +59,7 @@ namespace AmbientSounds.Services
             }
             catch (Exception e)
             {
-                // GetExtension can crash if the contentType has on natural mapping.
+                // GetExtension can crash if the contentType has no natural mapping.
                 // This can happen if the image or URL is corrupted.
                 // So we fall back to no extension, which fine.
                 nameWithExt = name;

@@ -63,6 +63,11 @@ namespace AmbientSounds.Services
         /// <param name="s">The new sound data.</param>
         /// <param name="progress">Progress of download.</param>
         /// <param name="updateDataOnly">If true, the sound file will not be redownloaded.</param>
-        Task QueueUpdateAsync(Sound s, IProgress<double> progress, bool updateDataOnly = false);
+        Task QueueUpdateAsync(
+            Sound s,
+            IProgress<double> progress,
+            string previousImagePath,
+            string previousFilePath, 
+            bool updateDataOnly = false);
     }
 }

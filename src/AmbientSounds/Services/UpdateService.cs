@@ -78,7 +78,9 @@ public class UpdateService : IUpdateService
 
         await _downloadManager.QueueUpdateAsync(
             onlineSound, 
-            progress, 
+            progress,
+            installedSound.ImagePath,
+            installedSound.FilePath,
             installedSound.FileVersion == onlineSound.FileVersion);
     }
 

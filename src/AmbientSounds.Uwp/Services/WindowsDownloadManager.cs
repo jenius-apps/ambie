@@ -105,13 +105,25 @@ public class WindowsDownloadManager : IDownloadManager
     }
 
     /// <inheritdoc/>
-    public async Task QueueUpdateAsync(Sound s, IProgress<double> progress, bool updateDataOnly = false)
+    public async Task QueueUpdateAsync(
+        Sound s,
+        IProgress<double> progress,
+        string previousImagePath,
+        string previousFilePath,
+        bool updateDataOnly = false)
     {
         bool performFakeDownload = updateDataOnly || _assetsReader.IsPathFromPackage(s.FilePath);
+        string localImagePath = previousImagePath;
+        string destinationFilePath = previousFilePath;
 
-        (string localImagePath, string destinationFilePath) = performFakeDownload
-            ? await QueueFakeAsync(s, progress)
-            : await QueueAsync(s, progress);
+        if (performFakeDownload)
+        {
+            await QueueFakeAsync(progress);
+        }
+        else
+        {
+            (localImagePath, destinationFilePath) = await QueueAsync(s, progress);
+        }
 
         var newSoundInfo = CopySound(s, localImagePath, destinationFilePath);
         await _soundService.UpdateSoundAsync(newSoundInfo);
@@ -150,7 +162,7 @@ public class WindowsDownloadManager : IDownloadManager
         };
     }
 
-    private async Task<(string, string)> QueueFakeAsync(Sound s, IProgress<double> progress)
+    private async Task QueueFakeAsync(IProgress<double> progress)
     {
         // Handle "downloading" of a packaged sound
         // As you might remember, a packaged sound is already local,
@@ -159,7 +171,6 @@ public class WindowsDownloadManager : IDownloadManager
         progress.Report(25);
         await Task.Delay(300);
         progress.Report(50);
-        return (s.ImagePath, s.FilePath);
     }
 
     private async Task<(string, string)> QueueAsync(Sound s, IProgress<double> progress)
