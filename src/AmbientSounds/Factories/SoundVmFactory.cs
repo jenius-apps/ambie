@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using System;
+using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.Factories
 {
@@ -71,7 +72,8 @@ namespace AmbientSounds.Factories
                 _serviceProvider.GetRequiredService<IDialogService>(),
                 _serviceProvider.GetRequiredService<IAssetLocalizer>(),
                 _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
-                _serviceProvider.GetRequiredService<IUpdateService>());
+                _serviceProvider.GetRequiredService<IUpdateService>(),
+                _serviceProvider.GetRequiredService<ILocalizer>());
         }
 
         /// <inheritdoc/>

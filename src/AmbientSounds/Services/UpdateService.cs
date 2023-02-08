@@ -30,14 +30,14 @@ public class UpdateService : IUpdateService
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Sound>> CheckForUpdatesAsync(CancellationToken ct)
+    public async Task<IReadOnlyList<(Sound, UpdateReason)>> CheckForUpdatesAsync(CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
 
         var installed = await _soundService.GetLocalSoundsAsync();
         if (installed.Count == 0)
         {
-            return Array.Empty<Sound>();
+            return Array.Empty<(Sound, UpdateReason)>();
         }
 
         var installedIds = installed.Select(x => x.Id).ToArray();
@@ -45,10 +45,10 @@ public class UpdateService : IUpdateService
         var onlineSounds = await _onlineSoundDataProvider.GetSoundsAsync(installedIds);
         if (onlineSounds.Count == 0)
         {
-            return Array.Empty<Sound>();
+            return Array.Empty<(Sound, UpdateReason)>();
         }
 
-        List<Sound> availableUpdates = new();
+        List<(Sound, UpdateReason)> availableUpdates = new();
         foreach (var onlineSound in onlineSounds)
         {
             ct.ThrowIfCancellationRequested();
@@ -58,9 +58,9 @@ public class UpdateService : IUpdateService
                 continue;
             }
 
-            if (IsUpdateAvailable(onlineSound, s))
+            if (GetUpdateReason(onlineSound, s) is UpdateReason r && r != UpdateReason.None)
             {
-                availableUpdates.Add(onlineSound);
+                availableUpdates.Add((onlineSound, r));
             }
         }
 
@@ -71,7 +71,7 @@ public class UpdateService : IUpdateService
     public async Task TriggerUpdateAsync(Sound onlineSound, IProgress<double> progress)
     {
         var installedSound = await _soundService.GetLocalSoundAsync(onlineSound.Id);
-        if (installedSound is null || !IsUpdateAvailable(onlineSound, installedSound))
+        if (installedSound is null || GetUpdateReason(onlineSound, installedSound) == UpdateReason.None)
         {
             return;
         }
@@ -82,9 +82,22 @@ public class UpdateService : IUpdateService
             installedSound.FileVersion == onlineSound.FileVersion);
     }
 
-    private bool IsUpdateAvailable(Sound onlineSound, Sound installedSound)
+    private UpdateReason GetUpdateReason(Sound o, Sound i)
     {
-        return onlineSound.MetaDataVersion > installedSound.MetaDataVersion ||
-            onlineSound.FileVersion > installedSound.FileVersion;
+        if (o.MetaDataVersion > i.MetaDataVersion &&
+            o.FileVersion > i.FileVersion)
+        {
+            return UpdateReason.MetaDataAndFile;
+        }
+        else if (o.MetaDataVersion > i.MetaDataVersion)
+        {
+            return UpdateReason.MetaData;
+        }
+        else if (o.FileVersion > i.FileVersion)
+        {
+            return UpdateReason.File;
+        }
+
+        return UpdateReason.None;
     }
 }

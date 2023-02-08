@@ -5,6 +5,7 @@ using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IUpdateService _updateService;
+    private readonly ILocalizer _localizer;
     private Progress<double> _downloadProgress;
 
     public OnlineSoundViewModel(
@@ -36,7 +38,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         IDialogService dialogService,
         IAssetLocalizer assetLocalizer,
         IMixMediaPlayerService mixMediaPlayerService,
-        IUpdateService updateService)
+        IUpdateService updateService,
+        ILocalizer localizer)
     {
         Guard.IsNotNull(s);
         Guard.IsNotNull(downloadManager);
@@ -48,6 +51,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         Guard.IsNotNull(assetLocalizer);
         Guard.IsNotNull(mixMediaPlayerService);
         Guard.IsNotNull(updateService);
+        Guard.IsNotNull(localizer);
 
         _sound = s;
         _downloadManager = downloadManager;
@@ -59,6 +63,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         _assetLocalizer = assetLocalizer;
         _mixMediaPlayerService = mixMediaPlayerService;
         _updateService = updateService;
+        _localizer = localizer;
 
         _downloadProgress = new Progress<double>();
         _downloadProgress.ProgressChanged += OnProgressChanged;
@@ -70,9 +75,21 @@ public partial class OnlineSoundViewModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(CanPlay))]
-    private bool _updateAvailable;
+    [NotifyPropertyChangedFor(nameof(UpdateAvailable))]
+    [NotifyPropertyChangedFor(nameof(UpdateReasonText))]
+    private UpdateReason _updateReason;
 
-    public bool CanPlay => !UpdateAvailable && IsInstalled;
+    public bool UpdateAvailable => UpdateReason != UpdateReason.None;
+
+    public bool CanPlay => UpdateReason == UpdateReason.None && IsInstalled;
+
+    public string UpdateReasonText => UpdateReason switch
+    {
+        UpdateReason.MetaData => "Improves translations and other metadata",
+        UpdateReason.File => "Improves playback quality",
+        UpdateReason.MetaDataAndFile => "Improves playback quality, translatoins, and other metadata",
+        _ => string.Empty
+    };
 
     /// <summary>
     /// This sound's download progress.
@@ -149,14 +166,6 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// Name of the sound.
     /// </summary>
     public string Name => _assetLocalizer.GetLocalName(_sound);
-
-    public string MetaDataVersion => _sound.MetaDataVersion.ToString();
-
-    public string FileVersion => _sound.FileVersion.ToString();
-
-    public bool DisplayMetaDataVersion => _sound.MetaDataVersion > 0;
-
-    public bool DisplayFileVersion => _sound.FileVersion > 0;
 
     public string ColourHex => _sound.ColourHex;
 
@@ -309,7 +318,7 @@ public partial class OnlineSoundViewModel : ObservableObject
             _mixMediaPlayerService.RemoveSound(Id);
         }
 
-        UpdateAvailable = false;
+        UpdateReason = UpdateReason.None;
         await _updateService.TriggerUpdateAsync(_sound, _downloadProgress);
 
         _telemetry.TrackEvent(TelemetryConstants.UpdateSoundClicked, new Dictionary<string, string>

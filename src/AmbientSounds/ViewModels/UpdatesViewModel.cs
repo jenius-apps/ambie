@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Factories;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -54,10 +55,10 @@ public partial class UpdatesViewModel : ObservableObject
             ClearUpdateList();
 
             var availableUpdates = await availableUpdatesTask;
-            foreach (var s in availableUpdates)
+            foreach ((Sound s, UpdateReason r) in availableUpdates)
             {
                 var vm = _soundVmFactory.GetOnlineSoundVm(s);
-                vm.UpdateAvailable = true;
+                vm.UpdateReason = r;
                 UpdateList.Add(vm);
             }
         }

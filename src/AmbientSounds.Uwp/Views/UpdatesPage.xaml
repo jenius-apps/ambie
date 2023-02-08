@@ -136,22 +136,16 @@
 
                             <Rectangle HorizontalAlignment="Right" Style="{StaticResource ModuleVerticalDividerRectStyle}" />
 
-                            <StackPanel Grid.Column="1" Margin="24,16,0,0">
+                            <StackPanel
+                                Grid.Column="1"
+                                Margin="24,0,0,0"
+                                VerticalAlignment="Center">
                                 <TextBlock Text="{x:Bind Name}" />
                                 <TextBlock
                                     FontSize="10"
                                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                    Visibility="{x:Bind DisplayMetaDataVersion}">
-                                    <Run Text="{x:Bind strings:Resources.DataVersionColon}" />
-                                    <Run Text="{x:Bind MetaDataVersion}" />
-                                </TextBlock>
-                                <TextBlock
-                                    FontSize="10"
-                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                    Visibility="{x:Bind DisplayFileVersion}">
-                                    <Run Text="{x:Bind strings:Resources.FileVersionColon}" />
-                                    <Run Text="{x:Bind FileVersion}" />
-                                </TextBlock>
+                                    Text="{x:Bind UpdateReasonText, Mode=OneWay}"
+                                    TextWrapping="WrapWholeWords" />
                             </StackPanel>
 
                             <Grid Grid.Column="2" Margin="0,0,12,0">
