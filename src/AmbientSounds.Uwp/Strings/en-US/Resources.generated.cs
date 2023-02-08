@@ -2224,6 +2224,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region UpdateReasonFile
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves playback quality
+        /// </summary>
+        public static string UpdateReasonFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonFile");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonMetaData
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves translations and other metadata
+        /// </summary>
+        public static string UpdateReasonMetaData
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonMetaData");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonMetaDataAndFile
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves playback quality, translatoins, and other metadata
+        /// </summary>
+        public static string UpdateReasonMetaDataAndFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonMetaDataAndFile");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2405,6 +2444,9 @@ namespace AmbientSounds.Strings{
             FileVersionColon,
             UpdateAllText,
             UpdatesPlaceholderText,
+            UpdateReasonFile,
+            UpdateReasonMetaData,
+            UpdateReasonMetaDataAndFile,
         }
 
         private static ResourceLoader _resourceLoader;

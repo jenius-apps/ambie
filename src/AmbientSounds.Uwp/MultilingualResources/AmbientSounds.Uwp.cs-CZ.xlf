@@ -960,6 +960,18 @@
           <source>Fully up-to-date. You're all set.</source>
           <target state="translated">Plně aktuální. Vše je připraveno.</target>
         </trans-unit>
+        <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality</source>
+          <target state="translated">Zlepšuje kvalitu přehrávání</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
+          <source>Improves translations and other metadata</source>
+          <target state="translated">Vylepšuje překlady a další metadata</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality, translatoins, and other metadata</source>
+          <target state="translated">Zlepšuje kvalitu přehrávání, přepisy a další metadata</target>
+        </trans-unit>
       </group>
     </body>
   </file>

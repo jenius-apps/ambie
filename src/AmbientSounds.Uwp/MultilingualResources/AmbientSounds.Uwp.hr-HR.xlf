@@ -963,6 +963,18 @@
           <source>Fully up-to-date. You're all set.</source>
           <target state="translated">Potpuno ažurno. Sve je spremno.</target>
         </trans-unit>
+        <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality</source>
+          <target state="translated">Poboljšava kvalitetu reprodukcije</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
+          <source>Improves translations and other metadata</source>
+          <target state="translated">Poboljšava prijevode i druge metapodatke</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality, translatoins, and other metadata</source>
+          <target state="translated">Poboljšava kvalitetu reprodukcije, translatoine i druge metapodatke</target>
+        </trans-unit>
       </group>
     </body>
   </file>

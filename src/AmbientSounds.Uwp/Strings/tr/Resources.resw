@@ -721,4 +721,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Tamamen güncel. Hepiniz hazırsınız.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Oynatma kalitesini artırır</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Çevirileri ve diğer meta verileri geliştirir</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Kayıttan yürütme kalitesini, çevirileri ve diğer meta verileri iyileştirir</value>
+  </data>
 </root>

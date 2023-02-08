@@ -727,4 +727,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Fuldt opdateret. Du er klar.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Forbedrer afspilningskvaliteten</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Forbedrer oversættelser og andre metadata</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Forbedrer afspilningskvaliteten, translatoinerne og andre metadata</value>
+  </data>
 </root>

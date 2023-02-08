@@ -727,4 +727,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>מעודכן לחלוטין. הכל מוכן.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>משפר את איכות ההפעלה</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>משפר תרגומים ומטה-נתונים אחרים</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>משפר את איכות ההפעלה, הטרנסלטוינים ומטה-נתונים אחרים</value>
+  </data>
 </root>

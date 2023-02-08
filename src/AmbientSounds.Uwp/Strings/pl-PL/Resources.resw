@@ -727,4 +727,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>W pełni aktualne. Wszystko gotowe.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Poprawia jakość odtwarzania</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Poprawia tłumaczenia i inne metadane</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Poprawia jakość odtwarzania, tłumaczenia i inne metadane</value>
+  </data>
 </root>

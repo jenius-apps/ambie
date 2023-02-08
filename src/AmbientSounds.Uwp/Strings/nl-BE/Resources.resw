@@ -694,4 +694,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Volledig up-to-date. Je bent er helemaal klaar voor.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Verbetert de afspeelkwaliteit</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Verbetert vertalingen en andere metadata</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Verbetert de afspeelkwaliteit, translatoins en andere metagegevens</value>
+  </data>
 </root>

@@ -727,4 +727,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>完全最新。一切就绪。</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>提高播放质量</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>改进翻译和其他元数据</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>改进了播放质量、翻译和其他元数据</value>
+  </data>
 </root>

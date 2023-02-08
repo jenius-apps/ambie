@@ -715,4 +715,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Teljesen naprakész. Minden készen áll.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Javítja a lejátszás minőségét</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Javítja a fordításokat és más metaadatokat</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Javítja a lejátszás minőségét, a fordításokat és más metaadatokat</value>
+  </data>
 </root>

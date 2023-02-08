@@ -962,6 +962,18 @@
           <source>Fully up-to-date. You're all set.</source>
           <target state="translated">Fullt uppdaterad. Du är redo.</target>
         </trans-unit>
+        <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality</source>
+          <target state="translated">Förbättrar uppspelningskvaliteten</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
+          <source>Improves translations and other metadata</source>
+          <target state="translated">Förbättrar översättningar och andra metadata</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality, translatoins, and other metadata</source>
+          <target state="translated">Förbättrar uppspelningskvaliteten, översättningar och andra metadata</target>
+        </trans-unit>
       </group>
     </body>
   </file>

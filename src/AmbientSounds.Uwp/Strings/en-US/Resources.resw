@@ -832,4 +832,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Fully up-to-date. You're all set.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Improves playback quality</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Improves translations and other metadata</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Improves playback quality, translatoins, and other metadata</value>
+  </data>
 </root>

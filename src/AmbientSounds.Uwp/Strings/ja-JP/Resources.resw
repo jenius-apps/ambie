@@ -727,4 +727,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>完全に最新です。これで準備は完了です。</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>再生品質の向上</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>翻訳やその他のメタデータを改善</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>再生品質、翻訳、その他のメタデータを改善</value>
+  </data>
 </root>

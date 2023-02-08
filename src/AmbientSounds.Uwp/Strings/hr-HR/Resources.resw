@@ -715,4 +715,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Potpuno ažurno. Sve je spremno.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Poboljšava kvalitetu reprodukcije</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Poboljšava prijevode i druge metapodatke</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Poboljšava kvalitetu reprodukcije, translatoine i druge metapodatke</value>
+  </data>
 </root>

@@ -144,7 +144,7 @@
                                 <TextBlock
                                     FontSize="10"
                                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                    Text="{x:Bind UpdateReasonText, Mode=OneWay}"
+                                    Text="{x:Bind UpdateReasonText, Mode=OneTime}"
                                     TextWrapping="WrapWholeWords" />
                             </StackPanel>
 

@@ -85,9 +85,9 @@ public partial class OnlineSoundViewModel : ObservableObject
 
     public string UpdateReasonText => UpdateReason switch
     {
-        UpdateReason.MetaData => "Improves translations and other metadata",
-        UpdateReason.File => "Improves playback quality",
-        UpdateReason.MetaDataAndFile => "Improves playback quality, translatoins, and other metadata",
+        UpdateReason.MetaData => _localizer.GetString("UpdateReasonMetaData"),
+        UpdateReason.File => _localizer.GetString("UpdateReasonFile"),
+        UpdateReason.MetaDataAndFile => _localizer.GetString("UpdateReasonMetaDataAndFile"),
         _ => string.Empty
     };
 

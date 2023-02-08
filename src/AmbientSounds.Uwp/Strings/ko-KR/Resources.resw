@@ -727,4 +727,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>완전히 최신 상태입니다. 모든 준비가 완료되었습니다.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>재생 품질 향상</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>번역 및 기타 메타데이터 개선</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>재생 품질, 번역 및 기타 메타데이터 개선</value>
+  </data>
 </root>

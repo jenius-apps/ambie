@@ -724,4 +724,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Entièrement à jour. Vous êtes prêt.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Améliore la qualité de lecture</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Améliore les traductions et autres métadonnées</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Améliore la qualité de lecture, les traductions et autres métadonnées</value>
+  </data>
 </root>

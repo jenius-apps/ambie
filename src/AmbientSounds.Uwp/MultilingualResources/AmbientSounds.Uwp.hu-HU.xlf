@@ -970,6 +970,18 @@
           <source>Fully up-to-date. You're all set.</source>
           <target state="translated">Teljesen naprakész. Minden készen áll.</target>
         </trans-unit>
+        <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality</source>
+          <target state="translated">Javítja a lejátszás minőségét</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
+          <source>Improves translations and other metadata</source>
+          <target state="translated">Javítja a fordításokat és más metaadatokat</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality, translatoins, and other metadata</source>
+          <target state="translated">Javítja a lejátszás minőségét, a fordításokat és más metaadatokat</target>
+        </trans-unit>
       </group>
     </body>
   </file>

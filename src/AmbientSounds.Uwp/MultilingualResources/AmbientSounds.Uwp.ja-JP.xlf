@@ -956,6 +956,18 @@
           <source>Fully up-to-date. You're all set.</source>
           <target state="translated">完全に最新です。これで準備は完了です。</target>
         </trans-unit>
+        <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality</source>
+          <target state="translated">再生品質の向上</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
+          <source>Improves translations and other metadata</source>
+          <target state="translated">翻訳やその他のメタデータを改善</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality, translatoins, and other metadata</source>
+          <target state="translated">再生品質、翻訳、その他のメタデータを改善</target>
+        </trans-unit>
       </group>
     </body>
   </file>

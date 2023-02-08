@@ -727,4 +727,13 @@
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Plně aktuální. Vše je připraveno.</value>
   </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Zlepšuje kvalitu přehrávání</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Vylepšuje překlady a další metadata</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Zlepšuje kvalitu přehrávání, přepisy a další metadata</value>
+  </data>
 </root>
