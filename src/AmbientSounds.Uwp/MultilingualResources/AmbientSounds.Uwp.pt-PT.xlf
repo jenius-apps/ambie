@@ -928,6 +928,50 @@
           <source>{0} lifetime</source>
           <target state="translated">{0} vitalícia</target>
         </trans-unit>
+        <trans-unit id="CheckForUpdatesText" translate="yes" xml:space="preserve">
+          <source>Check for updates</source>
+          <target state="translated">Verificar se há atualizações</target>
+        </trans-unit>
+        <trans-unit id="UpdatesPageMessage1" translate="yes" xml:space="preserve">
+          <source>Check here for updates to your sounds and videos.</source>
+          <target state="translated">Confira aqui as atualizações de seus sons e vídeos.</target>
+        </trans-unit>
+        <trans-unit id="UpdatesPageMessage2" translate="yes" xml:space="preserve">
+          <source>Updates contain improvements to translations, sound quality, and more.</source>
+          <target state="translated">As atualizações contêm melhorias nas traduções, na qualidade do som e muito mais.</target>
+        </trans-unit>
+        <trans-unit id="UpdatesText" translate="yes" xml:space="preserve">
+          <source>Updates</source>
+          <target state="translated">Atualizações</target>
+        </trans-unit>
+        <trans-unit id="UpdateAllText" translate="yes" xml:space="preserve">
+          <source>Update all</source>
+          <target state="translated">Atualizar tudo</target>
+        </trans-unit>
+        <trans-unit id="DataVersionColon" translate="yes" xml:space="preserve">
+          <source>Data version:</source>
+          <target state="translated">Versão dos dados:</target>
+        </trans-unit>
+        <trans-unit id="FileVersionColon" translate="yes" xml:space="preserve">
+          <source>File version:</source>
+          <target state="translated">Versão do arquivo:</target>
+        </trans-unit>
+        <trans-unit id="UpdatesPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Fully up-to-date. You're all set.</source>
+          <target state="translated">Totalmente atualizado. Você está pronto.</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality</source>
+          <target state="translated">Melhora a qualidade da reprodução</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
+          <source>Improves translations and other metadata</source>
+          <target state="translated">Melhora as traduções e outros metadados</target>
+        </trans-unit>
+        <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
+          <source>Improves playback quality, translatoins, and other metadata</source>
+          <target state="translated">Melhora a qualidade da reprodução, translatoínas e outros metadados</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -703,4 +703,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} levetid</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Søg efter opdateringer</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Se her for opdateringer til dine lyde og videoer.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Opdateringer indeholder forbedringer af oversættelser, lydkvalitet og meget mere.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Opdateringer</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Opdater alle</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Dataversion:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Filversion:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Fuldt opdateret. Du er klar.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Forbedrer afspilningskvaliteten</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Forbedrer oversættelser og andre metadata</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Forbedrer afspilningskvaliteten, translatoinerne og andre metadata</value>
+  </data>
 </root>

@@ -703,4 +703,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} životnost</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Vyhledat aktualizace</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Zde najdete aktualizace zvuků a videí.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Aktualizace obsahují vylepšení překladů, kvality zvuku a dalších.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Aktualizace</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Aktualizovat vše</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Verze dat:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Verze souboru:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Plně aktuální. Vše je připraveno.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Zlepšuje kvalitu přehrávání</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Vylepšuje překlady a další metadata</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Zlepšuje kvalitu přehrávání, přepisy a další metadata</value>
+  </data>
 </root>

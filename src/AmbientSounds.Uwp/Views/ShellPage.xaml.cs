@@ -24,6 +24,7 @@ namespace AmbientSounds.Views
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
+            ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState == WidePageState;
 
             if (App.IsTenFoot)
             {
@@ -114,8 +115,16 @@ namespace AmbientSounds.Views
                     case "settings":
                         ViewModel.Navigate(ContentPageType.Settings);
                         break;
+                    case "updates":
+                        ViewModel.Navigate(ContentPageType.Updates);
+                        break;
                 }
             }
+        }
+
+        private void SizeStateChanged(object sender, VisualStateChangedEventArgs e)
+        {
+            ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState == WidePageState;
         }
     }
 }

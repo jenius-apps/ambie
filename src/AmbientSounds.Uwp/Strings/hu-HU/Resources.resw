@@ -691,4 +691,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} élettartam</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Frissítések keresése</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Itt megtekintheti a hangok és videók frissítéseit.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>A frissítések a fordítások, a hangminőség és egyebek fejlesztéseit tartalmazzák.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Frissítések</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Az összes frissítése</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Adatverzió:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Fájl verzió:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Teljesen naprakész. Minden készen áll.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Javítja a lejátszás minőségét</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Javítja a fordításokat és más metaadatokat</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Javítja a lejátszás minőségét, a fordításokat és más metaadatokat</value>
+  </data>
 </root>

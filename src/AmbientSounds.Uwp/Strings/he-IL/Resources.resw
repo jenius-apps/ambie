@@ -703,4 +703,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} לכל החיים</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>בדוק אם קיימים עדכונים</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>בדוק כאן לקבלת עדכונים לצלילים ולסרטונים שלך.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>עדכונים מכילים שיפורים בתרגומים, באיכות הצליל ועוד.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>עדכונים</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>עדכן הכל</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>גרסת נתונים:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>גרסת הקובץ:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>מעודכן לחלוטין. הכל מוכן.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>משפר את איכות ההפעלה</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>משפר תרגומים ומטה-נתונים אחרים</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>משפר את איכות ההפעלה, הטרנסלטוינים ומטה-נתונים אחרים</value>
+  </data>
 </root>

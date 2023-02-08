@@ -703,4 +703,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} a vita</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Verificare la disponibilità di aggiornamenti</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Controlla qui per aggiornamenti ai tuoi suoni e video.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Gli aggiornamenti contengono miglioramenti alle traduzioni, alla qualità del suono e altro ancora.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Aggiornamenti</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Aggiorna tutto</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Versione dei dati:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Versione file:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Completamente aggiornato. È tutto pronto.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Migliora la qualità della riproduzione</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Migliora le traduzioni e altri metadati</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Migliora la qualità di riproduzione, le traduzioni e altri metadati</value>
+  </data>
 </root>

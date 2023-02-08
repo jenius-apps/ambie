@@ -72,8 +72,16 @@ public class OnlineSoundDataProvider : IOnlineSoundDataProvider
         }
 
         var url = _url + $"?culture={_systemInfoProvider.GetCulture()}&premium=true";
-        using Stream result = await _client.GetStreamAsync(url);
-        var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
+        Sound[]? results = null;
+        try
+        {
+            using Stream result = await _client.GetStreamAsync(url);
+            results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
+        }
+        catch
+        {
+            // online failed but we can still return local packages.
+        }
 
         var packagedSounds = await _assetsReader.GetPreinstalledSoundsAsync();
 

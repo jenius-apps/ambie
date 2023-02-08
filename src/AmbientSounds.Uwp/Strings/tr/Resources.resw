@@ -697,4 +697,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} ömrü</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Güncellemeleri kontrol edin</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Seslerinize ve videolarınıza yönelik güncellemeler için burayı kontrol edin.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Güncelleştirmeler çeviriler, ses kalitesi ve daha fazlasında iyileştirmeler içerir.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Güncelleştirme</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Tümünü güncelle</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Veri sürümü:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Dosya sürümü:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Tamamen güncel. Hepiniz hazırsınız.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Oynatma kalitesini artırır</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Çevirileri ve diğer meta verileri geliştirir</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Kayıttan yürütme kalitesini, çevirileri ve diğer meta verileri iyileştirir</value>
+  </data>
 </root>

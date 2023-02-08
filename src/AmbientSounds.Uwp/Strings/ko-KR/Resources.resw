@@ -703,4 +703,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} 수명</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>업데이트 확인</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>여기에서 사운드 및 비디오에 대한 업데이트를 확인하세요.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>업데이트에는 번역, 음질 등에 대한 개선 사항이 포함되어 있습니다.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>업데이트</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>모두 업데이트</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>데이터 버전:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>파일 버전:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>완전히 최신 상태입니다. 모든 준비가 완료되었습니다.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>재생 품질 향상</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>번역 및 기타 메타데이터 개선</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>재생 품질, 번역 및 기타 메타데이터 개선</value>
+  </data>
 </root>

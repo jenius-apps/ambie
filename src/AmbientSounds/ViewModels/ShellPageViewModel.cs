@@ -116,6 +116,9 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
+    [ObservableProperty]
+    private bool _menuLabelsVisible;
+
     /// <summary>
     /// Determines if the current mix can be saved or not.
     /// </summary>
@@ -138,37 +141,9 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void Navigate(ContentPageType pageType)
     {
-        int navMenuIndex = pageType switch
-        {
-            ContentPageType.Settings => -1,
-            _ => (int)pageType
-        };
-
-        int footerMenuIndex = pageType switch
-        {
-            ContentPageType.Settings => 0,
-            _ => -1
-        };
-
-        bool changed = false;
-        if (footerMenuIndex != FooterMenuIndex)
-        {
-            NavMenuIndex = -1;
-            FooterMenuIndex = footerMenuIndex;
-            changed = true;
-        }
-        if (NavMenuIndex != navMenuIndex)
-        {
-            NavMenuIndex = navMenuIndex;
-            FooterMenuIndex = -1;
-            changed = true;
-        }
-
-        if (changed)
+        if (HandleNavigationRequest(pageType) is true)
         {
             _navigator.NavigateTo(pageType);
-            UpdateTimeBannerVisibility();
-            UpdateFocusDotVisibility();
         }
     }
 
@@ -244,24 +219,23 @@ public partial class ShellPageViewModel : ObservableObject
         IsMissingSoundsMessageVisible = false;
     }
 
-    private void OnContentPageChanged(object sender, ContentPageType e)
+    private bool HandleNavigationRequest(ContentPageType pageType)
     {
-        int navMenuIndex = e switch
+        int navMenuIndex = pageType switch
         {
+            ContentPageType.Updates => -1,
             ContentPageType.Settings => -1,
-            _ => (int)e
+            _ => (int)pageType
         };
 
-        int footerMenuIndex = e switch
+        int footerMenuIndex = pageType switch
         {
-            ContentPageType.Settings => 0,
+            ContentPageType.Updates => 0,
+            ContentPageType.Settings => 1,
             _ => -1
         };
 
         bool changesMade = false;
-        // This ensures that the nav menu selects the correct
-        // index. Previously, it could become out of sync when the content page
-        // is changed programmatically (rather than the user selecting the nav item).
         if (NavMenuIndex != navMenuIndex)
         {
             NavMenuIndex = navMenuIndex;
@@ -279,6 +253,13 @@ public partial class ShellPageViewModel : ObservableObject
             UpdateTimeBannerVisibility();
             UpdateFocusDotVisibility();
         }
+
+        return changesMade;
+    }
+
+    private void OnContentPageChanged(object sender, ContentPageType e)
+    {
+        HandleNavigationRequest(e);
     }
 
     public void Dispose()

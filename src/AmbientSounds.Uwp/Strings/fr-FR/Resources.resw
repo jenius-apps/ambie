@@ -700,4 +700,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} vie</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Rechercher les mises à jour</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Cliquez ici pour les mises à jour de vos sons et vidéos.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Les mises à jour contiennent des améliorations apportées aux traductions, à la qualité sonore, etc.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Mises à jour</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Tout mettre à jour</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Version des données :</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Version du fichier :</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Entièrement à jour. Vous êtes prêt.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Améliore la qualité de lecture</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Améliore les traductions et autres métadonnées</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Améliore la qualité de lecture, les traductions et autres métadonnées</value>
+  </data>
 </root>

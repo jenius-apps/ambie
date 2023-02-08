@@ -2120,6 +2120,149 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region CheckForUpdatesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Check for updates
+        /// </summary>
+        public static string CheckForUpdatesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("CheckForUpdatesText");
+            }
+        }
+        #endregion
+
+        #region UpdatesPageMessage1
+        /// <summary>
+        ///   Looks up a localized string similar to: Check here for updates to your sounds and videos.
+        /// </summary>
+        public static string UpdatesPageMessage1
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPageMessage1");
+            }
+        }
+        #endregion
+
+        #region UpdatesPageMessage2
+        /// <summary>
+        ///   Looks up a localized string similar to: Updates contain improvements to translations, sound quality, and more.
+        /// </summary>
+        public static string UpdatesPageMessage2
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPageMessage2");
+            }
+        }
+        #endregion
+
+        #region UpdatesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Updates
+        /// </summary>
+        public static string UpdatesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesText");
+            }
+        }
+        #endregion
+
+        #region DataVersionColon
+        /// <summary>
+        ///   Looks up a localized string similar to: Data version:
+        /// </summary>
+        public static string DataVersionColon
+        {
+            get
+            {
+                return _resourceLoader.GetString("DataVersionColon");
+            }
+        }
+        #endregion
+
+        #region FileVersionColon
+        /// <summary>
+        ///   Looks up a localized string similar to: File version:
+        /// </summary>
+        public static string FileVersionColon
+        {
+            get
+            {
+                return _resourceLoader.GetString("FileVersionColon");
+            }
+        }
+        #endregion
+
+        #region UpdateAllText
+        /// <summary>
+        ///   Looks up a localized string similar to: Update all
+        /// </summary>
+        public static string UpdateAllText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateAllText");
+            }
+        }
+        #endregion
+
+        #region UpdatesPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Fully up-to-date. You're all set.
+        /// </summary>
+        public static string UpdatesPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPlaceholderText");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonFile
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves playback quality
+        /// </summary>
+        public static string UpdateReasonFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonFile");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonMetaData
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves translations and other metadata
+        /// </summary>
+        public static string UpdateReasonMetaData
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonMetaData");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonMetaDataAndFile
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves playback quality, translatoins, and other metadata
+        /// </summary>
+        public static string UpdateReasonMetaDataAndFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonMetaDataAndFile");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2293,6 +2436,17 @@ namespace AmbientSounds.Strings{
             CopyText,
             OrText,
             BuyDurableTooltip,
+            CheckForUpdatesText,
+            UpdatesPageMessage1,
+            UpdatesPageMessage2,
+            UpdatesText,
+            DataVersionColon,
+            FileVersionColon,
+            UpdateAllText,
+            UpdatesPlaceholderText,
+            UpdateReasonFile,
+            UpdateReasonMetaData,
+            UpdateReasonMetaDataAndFile,
         }
 
         private static ResourceLoader _resourceLoader;
