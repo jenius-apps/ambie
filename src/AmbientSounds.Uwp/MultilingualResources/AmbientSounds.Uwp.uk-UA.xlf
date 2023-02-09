@@ -970,8 +970,8 @@
           <target state="translated">Покращує переклади та інші метадані</target>
         </trans-unit>
         <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
-          <source>Improves playback quality, translatoins, and other metadata</source>
-          <target state="translated">Покращує якість відтворення, транслатуїнів та інших метаданих</target>
+          <source>Improves playback quality, translations, and other metadata</source>
+          <target state="translated">Покращує якість відтворення, перекладів та інших метаданих</target>
         </trans-unit>
       </group>
     </body>

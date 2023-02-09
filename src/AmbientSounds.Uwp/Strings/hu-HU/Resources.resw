@@ -722,6 +722,6 @@
     <value>Javítja a fordításokat és más metaadatokat</value>
   </data>
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
-    <value>Javítja a lejátszás minőségét, a fordításokat és más metaadatokat</value>
+    <value>Javítja a lejátszás minőségét, a fordításokat és az egyéb metaadatokat</value>
   </data>
 </root>

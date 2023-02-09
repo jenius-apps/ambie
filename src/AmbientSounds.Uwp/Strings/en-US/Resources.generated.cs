@@ -2253,7 +2253,7 @@ namespace AmbientSounds.Strings{
 
         #region UpdateReasonMetaDataAndFile
         /// <summary>
-        ///   Looks up a localized string similar to: Improves playback quality, translatoins, and other metadata
+        ///   Looks up a localized string similar to: Improves playback quality, translations, and other metadata
         /// </summary>
         public static string UpdateReasonMetaDataAndFile
         {
