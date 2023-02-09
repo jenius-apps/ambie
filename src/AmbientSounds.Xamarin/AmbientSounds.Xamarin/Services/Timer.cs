@@ -14,7 +14,7 @@ namespace AmbientSounds.Services.Xamarin
 
         /// <inheritdoc/>
 
-        public event EventHandler<int> IntervalElapsed;
+        public event EventHandler<TimeSpan> IntervalElapsed;
 
         /// <inheritdoc/>
         public void Start()

@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using System;
 using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
 using Xamarin.Essentials;
 
 namespace AmbientSounds.Services.Xamarin
@@ -98,6 +99,11 @@ namespace AmbientSounds.Services.Xamarin
             return (T)UserSettingsConstants.Defaults[settingKey];
         }
 
+        public T GetAndDeserialize<T>(string settingKey, JsonTypeInfo<T> jsonTypeInfo)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <inheritdoc/>
         public void Set<T>(string settingKey, T value)
         {
@@ -142,6 +148,11 @@ namespace AmbientSounds.Services.Xamarin
         {
             string serialized = JsonSerializer.Serialize(value);
             Set(settingKey, serialized);
+        }
+
+        public void SetAndSerialize<T>(string settingKey, T value, JsonTypeInfo<T> jsonTypeInfo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -14,5 +14,8 @@ namespace AmbientSounds.Services.Xamarin
         public string CloudSyncFileUrl { get; set; }
         public string UploadUrl { get; set; }
         public string CatalogueScope { get; set; }
+        public string VideosUrl { get; set; }
+        public string ShareUrl { get; set; }
+        public string PresenceUrl { get; set; }
     }
 }

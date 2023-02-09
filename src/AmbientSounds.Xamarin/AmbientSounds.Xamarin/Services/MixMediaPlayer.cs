@@ -49,6 +49,11 @@ namespace AmbientSounds.Services.Xamarin
             throw new NotImplementedException();
         }
 
+        public Task PlayRandomAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public void RemoveAll()
         {
             throw new NotImplementedException();

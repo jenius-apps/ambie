@@ -9,5 +9,6 @@
     <TabbedPage.Children>
         <views:HomePage Title="Home" />
         <ContentPage Title="Catalogue" />
+        <ContentPage Title="Focus" />
     </TabbedPage.Children>
 </TabbedPage>
