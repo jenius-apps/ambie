@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Models;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System.Threading.Tasks;
+
+#nullable enable
 
 namespace AmbientSounds.Services
 {
@@ -10,11 +12,11 @@ namespace AmbientSounds.Services
     /// </summary>
     public class Renamer : IRenamer
     {
-        private readonly ISoundDataProvider _soundDataProvider;
+        private readonly ISoundService _soundDataProvider;
         private readonly IDialogService _dialogService;
 
         public Renamer(
-            ISoundDataProvider soundDataProvider,
+            ISoundService soundDataProvider,
             IDialogService dialogService)
         {
             Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
@@ -39,7 +41,7 @@ namespace AmbientSounds.Services
             }
 
             sound.Name = newName.Trim();
-            await _soundDataProvider.UpdateLocalSoundAsync(new Sound[] { sound });
+            await _soundDataProvider.UpdateSoundAsync(sound);
             return true;
         }
     }

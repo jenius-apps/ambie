@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.TimeBanner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid
+        Height="18"
+        BorderBrush="{ThemeResource AccentFillColorDefaultBrush}"
+        BorderThickness="1"
+        CornerRadius="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="2,0,0,2">
+            <TextBlock
+                Margin="8,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="10"
+                FontWeight="SemiBold"
+                Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" />
+        </Grid>
+        <TextBlock
+            Grid.Column="1"
+            Margin="8,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="10"
+            FontWeight="SemiBold"
+            Text="{x:Bind ViewModel.TimeText, Mode=OneWay}" />
+    </Grid>
+</UserControl>

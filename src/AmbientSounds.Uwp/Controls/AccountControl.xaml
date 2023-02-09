@@ -18,7 +18,7 @@
             x:Uid="SignInButton"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Style="{StaticResource TransparentRoundButtonStyle}"
+            Style="{StaticResource SubtleIconButton}"
             Visibility="{x:Bind convert:VisibilityConverter.InvertBool(ViewModel.SignedIn), Mode=OneWay}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAFF;" />
             <Button.Flyout>
@@ -70,14 +70,6 @@
             <Button.Flyout>
                 <winui:CommandBarFlyout Placement="BottomEdgeAlignedRight">
                     <winui:CommandBarFlyout.SecondaryCommands>
-                        <!--<AppBarButton
-                            x:Uid="MoreButtonUpload"
-                            Command="{x:Bind ViewModel.OpenUploadPageCommand}"
-                            Visibility="{x:Bind ViewModel.IsNotTenFoot}">
-                            <AppBarButton.Icon>
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9B8;" />
-                            </AppBarButton.Icon>
-                        </AppBarButton>-->
                         <AppBarButton x:Uid="SyncAppBarButton" Command="{x:Bind ViewModel.SyncCommand}">
                             <AppBarButton.Icon>
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE932;" />

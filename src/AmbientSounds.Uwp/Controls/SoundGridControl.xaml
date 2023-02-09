@@ -5,22 +5,85 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:AmbientSounds.Strings"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <Style
+            x:Key="RegularItemContainerStyle"
+            BasedOn="{StaticResource DefaultGridViewItemStyle}"
+            TargetType="GridViewItem">
+            <Setter Property="Margin" Value="0,0,8,8" />
+        </Style>
+        <Style
+            x:Key="CompactItemContainerStyle"
+            BasedOn="{StaticResource DefaultGridViewItemStyle}"
+            TargetType="GridViewItem">
+            <Setter Property="Margin" Value="0,0,6,6" />
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-        <ScrollViewer>
-            <muxc:ItemsRepeater
-                x:Name="SoundsGridView"
-                x:Uid="SoundsGridView"
-                Margin="{x:Bind InnerMargin, Mode=OneWay}"
-                ElementPrepared="OnElementPrepared"
-                ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
-                ItemsSource="{x:Bind ViewModel.Sounds}"
-                Layout="{x:Bind Layout, Mode=OneWay}"
-                TabFocusNavigation="Once" />
-        </ScrollViewer>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsCompact, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGridView.ItemContainerStyle" Value="{StaticResource CompactItemContainerStyle}" />
+                        <Setter Target="CatalogueButton.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <GridView
+            x:Name="MainGridView"
+            AllowDrop="True"
+            CanDragItems="True"
+            CanReorderItems="True"
+            ItemContainerStyle="{StaticResource RegularItemContainerStyle}"
+            ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
+            ItemsSource="{x:Bind ViewModel.Sounds}"
+            SelectionMode="None">
+            <GridView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
+                </TransitionCollection>
+            </GridView.ItemContainerTransitions>
+        </GridView>
+
+        <StackPanel
+            VerticalAlignment="Center"
+            Spacing="12"
+            Visibility="{x:Bind ViewModel.EmptyMessageVisible, Mode=OneWay}">
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </StackPanel.ChildrenTransitions>
+            <Image
+                Width="100"
+                HorizontalAlignment="Center"
+                AutomationProperties.AccessibilityView="Raw"
+                Source="ms-appx:///Assets/headphone_3d.png" />
+            <TextBlock
+                MaxWidth="300"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.EmptyHomeMessage}"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <Button
+                x:Name="CatalogueButton"
+                Height="36"
+                MinWidth="180"
+                HorizontalAlignment="Center"
+                AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
+                Command="{x:Bind ViewModel.OpenCatalogueCommand}"
+                Content="{x:Bind strings:Resources.Catalogue}" />
+        </StackPanel>
 
         <muxc:ProgressRing
             x:Uid="SoundsLoadingRing"

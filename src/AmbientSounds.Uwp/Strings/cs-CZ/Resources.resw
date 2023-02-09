@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Zavřít kompaktní režim</value>
+    <value>Zavřete Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Zavřít kompaktní režim</value>
+    <value>Zavřete Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Zavřít</value>
@@ -33,34 +33,13 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>Klikněte zde pro zobrazení informací o aplikaci</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 minut</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 minut</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 minut</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 minut</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 minut</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Klikněte zde pro zobrazení více možností</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Kontaktuje tvůrce aplikace</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Diskutujte na Discordu</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>Zobrazit aplikaci na GitHubu</value>
-  </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>Ohodnoťte nás</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
@@ -120,9 +99,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Krb</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Více již brzy</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Déšť</value>
   </data>
@@ -149,24 +125,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Změnit hlasitost zvuku</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Chcete více zvuků? Pošlete nám na ně návrh.</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Návrh</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Chcete více zvuků? Pošlete nám na ně návrh.</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Poslat návrh</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Klikněte zde pro poslání návrhu.</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Děkujeme</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Motiv aplikace</value>
@@ -201,6 +159,10 @@
   </data>
   <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Stáhnout zvuk</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Již staženo</value>
+    <comment>The sound is already downloaded</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
     <value>Může být stáhnut</value>
@@ -237,23 +199,11 @@
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Přehrát náhodný zvuk</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Spořič obrazovky</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Spořič obrazovky</value>
-  </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Použít tmavou stránku jako spořič obrazovky</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 hodiny</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 hodiny</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 hodin</value>
   </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
     <value>Nakoupit zvuk</value>
@@ -287,11 +237,8 @@
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
     <value>Potvrdit uložení</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Odstraňte zvuk za účelem vytvoření místa pro jiný zvuk.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Dosáhli jste limitu!</value>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>Globální hlasitost</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
     <value>Název zvukového mixu</value>
@@ -314,26 +261,14 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Přejmenovat</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
-    <value>Kompaktní režim</value>
-  </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Sdílet odkaz na mix zvuku</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Sdílet odkaz na zvukový mix</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Chybějící zvuky</value>
-  </data>
-  <data name="ShareResultsMessage.Text" xml:space="preserve">
-    <value>Chybí vám nějaké zvuky! Můžete si je stáhnout zde, a pak si je můžete přehrát až budete připraveni.</value>
+  <data name="CompactMode" xml:space="preserve">
+    <value>Ambie Mini</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Odhlásit se</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>Tohle vám umožní synchronizovat zvukovou galerii napříč vámi využívanými zařízeními. A také můžete nahrát vlastní zvuky.</value>
+    <value>Toto vám umožní synchronizovat zvukovou galerii napříč všemi svými zařízeními.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>Zobrazit možnosti účtu</value>
@@ -350,26 +285,14 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Synchronizovat</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Nahrát zvuky</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Nahrané zvuky</value>
-  </data>
   <data name="Soundbeach" xml:space="preserve">
     <value>Pláže</value>
   </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Procházet</value>
   </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>URL obrázku</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Cesta ke zvuku</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Nahrát zvuk</value>
+  <data name="Attribution" xml:space="preserve">
+    <value>Atribuce</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Jméno</value>
@@ -377,21 +300,12 @@
   <data name="NewSound" xml:space="preserve">
     <value>Nový zvuk</value>
   </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Probíhá revize</value>
-  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Aktualizovat</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Nahrajte relaxující zvuky do katalogu Ambie a umožněte ostatním poslouchat vaše zvuky!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Přihlásit se</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Souhlasím s podmínkami použití</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Jste si jistí?</value>
@@ -399,17 +313,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Ano</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>URL pro darování</value>
+  <data name="Optional" xml:space="preserve">
+    <value>Volitelné</value>
   </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Vytvořil jsem tento zvuk nebo mám povolení ho nahrát</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Nahráli jste příliš velký soubor! Zkuste znovu se souborem, který je menší než {0} MB.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Dosáhli jste limitu! Můžete mít jen {0} zvuků.</value>
+  <data name="Required" xml:space="preserve">
+    <value>Požadované</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Darovat</value>
@@ -420,6 +328,9 @@
   <data name="FollowTwitter" xml:space="preserve">
     <value>Sledujte nás na Twitteru</value>
   </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
   <data name="FirstLaunchMessage" xml:space="preserve">
     <value>Děkujeme za vyzkoušení Ambie. Pro snazší používání si můžete tuto aplikaci připnout na hlavní panel! Doufáme, že si užijete váš relaxující pobyt 🏝</value>
   </data>
@@ -428,9 +339,6 @@
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
     <value>Připnout na hlavní panel</value>
-  </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>Transparentnost</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Náhled</value>
@@ -442,7 +350,7 @@
     <value>Domov</value>
   </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
-    <value>Mixujte a spojujte až 3 zvuky</value>
+    <value>Mixujte a spojujte dohromady až 3 zvuky</value>
   </data>
   <data name="RemoveActiveButton" xml:space="preserve">
     <value>Odstranit {0} z listu aktivních zvuků</value>
@@ -460,12 +368,372 @@
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
-    <value>Získejte přístup k prémiovým zvukům s vysokou kvalitou!</value>
+    <value>Získejte přístup k prémiovým zvukům s vysokou kvalitou</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Rostoucí katalog!</value>
+    <value>Stáhnout spořiče obrazovky</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>Podpořte vývoj!</value>
+    <value>Podpořte vývoj</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Znovu zdravíme 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Líbí se vám Ambie? Prosíme ohodnoťte nás!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Automaticky pokračovat, když se Ambie spustí</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Stáhnout</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Než tento zvuk budeme moci přehrát, budeme jej muset stáhnout. Až bude stažen, zkuste to prosím znova. Chcete začít stahovat?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Chybějící zvuky</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Výchozí</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Smazat</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Více spořičů obrazovky</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Katalog spořičů obrazovky</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Zobrazit prémiové informace</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Mraky</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Barevný kouř</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Oktagramy</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Nastala chyba při zobrazování spořiče obrazovky. Zkuste nejprve restartovat Ambie, případně pokud tato chyba bude přetrvávat nás kontaktujte.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Nahlásit chybu</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Chyba vykreslování</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Přepnout na celou obrazovku</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Získat Ambie+</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Soustředění</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Pozastavit časovač</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Zapnout časovač</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Skvělá práce!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Relace soustředění dokončena</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Čas na soustředění</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Čas na odpočinek</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Odpočinek</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Relace soustředění je aktivní!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Soustředění</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Odpočívání</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pauza</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Resetovat</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Resetovat časovač</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Spustit</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Minuty pro soustředění</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Zde si můžete poznamenat jakékoli poznámky</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Co máte v plánu?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Poznámkový blok</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Minuty pro odpočinek</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Opakuje se</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Ukažte mi, jak jej používat</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Toto je časovač úseku inspirovaný technikou pomodoro. Cílem je soustředit se na určitý úkol po dlouhý časový úsek a poté si dát kratší odpočinek. Tento cyklus se opakuje, abyste se nepřestali soustředit.</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Vítejte v Časovači Soustředění</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Pomoct</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Další</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Každý cyklus se skládá ze soustředění a odpočinku. Zvolte, jak dlouhý bude každý segment pro soustředění. Pro začátek doporučujeme 25 minut!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Nastavit minuty soustředění</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Každý cyklus soustředění a odpočinku se může opakovat několikrát. Zkuste přidat 1 opakování!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Nastavit opakování</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Nyní vyberte, jak dlouhý každý ze segmentů bude. Prozatím doporučujeme 5 minut!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Nastavit minuty pro odpočinek</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Zapněte časovač a pracujte na svých úkolech. Dáme vědět, až bude čas pro odpočinek. Pracujte tvrdě!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Připravit, pozor, teď</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} minuty pro soustředění, {1} minuty pro odpočinek, {2} opakování.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Seznam nedávných konfigurací soustředění.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 na {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Historie</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Přerušení</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Vaše nedávná historie bude zde</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Záznam přerušení</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrdit</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Minuty přerušení</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Poznámky</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Něčím přerušen? Zde můžete sledovat všechna svá přerušení a zhodnotit jej později.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Nedávná historie</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Cykly dokončeny</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Dobrá snaha</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Jste skvělý</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Ambie</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Přidejte úkoly, na které se chcete zaměřit, a stiskněte tlačítko Start</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Úkoly</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Nedávno dokončeno</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Úkoly dokončeny</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Časovač</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Úkol {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Tento týden zdarma</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Při ostření otevřete Ambie Mini</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Doba trvání</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Konec</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Otevřete Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>S Ambie Mini zmenšíme okno a zobrazíme pouze nezbytné položky, které vám pomohou soustředit se.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Pauzy</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Stáhněte si zvuky z katalogu</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Upravit úvodní stránku</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Přetažením zvuků přizpůsobte svou domovskou stránku. Zkus to nyní!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Omlouvám se za to! Katalog se nám nepodařilo načíst. Zkuste zkontrolovat připojení k internetu.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Informace o aplikaci</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini se automaticky otevře při zaostřování</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Upozorníme vás, až budou k dispozici nové zvuky</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Při spuštění bude Ambie pokračovat v automatickém přehrávání</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Chyby a anonymní informace o používání jsou hlášeny, aby pomohly vylepšit Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Obrázek na pozadí</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Vlastní obrázek</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Obecná nastavení</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Vyberte si režim</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Změna barev, které se zobrazují v Ambie</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Sdílejte, co posloucháte</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Podívejme se, zda se dají stáhnout.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Chybí vám hudba</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Posouzení</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Podíl</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Zkopírováno!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Kopírovat</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>nebo</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Odemkněte tento zvuk</value>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} životnost</value>
+  </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Vyhledat aktualizace</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Zde najdete aktualizace zvuků a videí.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Aktualizace obsahují vylepšení překladů, kvality zvuku a dalších.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Aktualizace</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Aktualizovat vše</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Verze dat:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Verze souboru:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Plně aktuální. Vše je připraveno.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Zlepšuje kvalitu přehrávání</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Vylepšuje překlady a další metadata</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Zlepšuje kvalitu přehrávání, překlady a další metadata</value>
   </data>
 </root>

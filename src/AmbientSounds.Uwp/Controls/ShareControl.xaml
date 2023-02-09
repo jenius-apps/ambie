@@ -1,0 +1,47 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.ShareControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AmbientSounds.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid MinWidth="300" MinHeight="100">
+        <winui:ProgressRing
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsActive="{x:Bind ViewModel.Loading, Mode=OneWay}"
+            IsIndeterminate="True"
+            Visibility="{x:Bind ViewModel.Loading, Mode=OneWay}" />
+
+        <StackPanel Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.Loading), Mode=OneWay}">
+            <TextBlock
+                MaxWidth="300"
+                HorizontalAlignment="Left"
+                Text="{x:Bind ViewModel.ShareText, Mode=OneWay}"
+                TextWrapping="Wrap" />
+            <TextBox
+                Grid.Row="1"
+                MaxWidth="300"
+                Margin="0,12,0,0"
+                IsReadOnly="True"
+                Text="{x:Bind ViewModel.ShareUrl, Mode=OneWay}" />
+            <HyperlinkButton
+                Grid.Row="2"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Stretch"
+                Command="{x:Bind ViewModel.CopyCommand}"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                <TextBlock Text="{x:Bind GetCopyText(ViewModel.CopySuccessful), Mode=OneWay}" />
+            </HyperlinkButton>
+        </StackPanel>
+    </Grid>
+</UserControl>

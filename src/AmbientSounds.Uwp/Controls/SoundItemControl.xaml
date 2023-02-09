@@ -10,30 +10,57 @@
     xmlns:loc="using:AmbientSounds.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
-    AutomationProperties.LocalizedControlType="button"
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
-    AutomationProperties.PositionInSet="{x:Bind ViewModel.Position, Mode=OneWay}"
-    AutomationProperties.SizeOfSet="{x:Bind ViewModel.SetSize, Mode=OneWay}"
-    GettingFocus="OnGettingFocus"
-    IsTabStop="True"
     KeyDown="OnControlKeyDown"
-    LosingFocus="OnLosingFocus"
     mc:Ignorable="d">
 
     <Grid x:Name="Root">
-        <ani:Implicit.ShowAnimations>
-            <ani:OpacityAnimation
-                Delay="0:0:0.5"
-                From="0"
-                To="1"
-                Duration="0:0:1" />
-        </ani:Implicit.ShowAnimations>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsCompact, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Width" Value="{StaticResource CompactImageCardWidth}" />
+                        <Setter Target="MainGrid.Height" Value="{StaticResource CompactImageCardHeight}" />
+                        <Setter Target="ShadowRect.Width" Value="{StaticResource CompactImageCardShadowWidth}" />
+                        <Setter Target="ShadowRect.Height" Value="{StaticResource CompactImageCardHeight}" />
+                        <Setter Target="MainGrid.CornerRadius" Value="4" />
+                        <Setter Target="ShadowRect.RadiusX" Value="4" />
+                        <Setter Target="ShadowRect.RadiusY" Value="4" />
+                        <Setter Target="NameText.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="PresenceCount"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                    </Storyboard>
+                    <VisualState.Setters>
+                        <Setter Target="PresenceCount.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsPresenceVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
 
         <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
             <Rectangle
+                x:Name="ShadowRect"
                 Width="{StaticResource ImageCardShadowWidth}"
                 Height="{StaticResource ImageCardHeight}"
                 Fill="Black"
@@ -43,6 +70,7 @@
         </toolkit:DropShadowPanel>
 
         <Grid
+            x:Name="MainGrid"
             Width="{StaticResource ImageCardWidth}"
             Height="{StaticResource ImageCardHeight}"
             CornerRadius="8"
@@ -68,6 +96,7 @@
                                 <BitmapImage
                                     DecodePixelHeight="240"
                                     DecodePixelType="Logical"
+                                    ImageFailed="BitmapImage_ImageFailed"
                                     UriSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" />
                             </ImageBrush.ImageSource>
                         </ImageBrush>
@@ -81,7 +110,10 @@
                     </Grid.RowDefinitions>
                     <Image Grid.Row="1" Stretch="UniformToFill">
                         <Image.Source>
-                            <BitmapImage DecodePixelHeight="120" UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
+                            <BitmapImage
+                                DecodePixelHeight="120"
+                                ImageFailed="BitmapImage_ImageFailed"
+                                UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
                 </Grid>
@@ -97,6 +129,7 @@
                             <BitmapImage
                                 DecodePixelHeight="80"
                                 DecodePixelType="Logical"
+                                ImageFailed="BitmapImage_ImageFailed"
                                 UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
@@ -105,6 +138,7 @@
                             <BitmapImage
                                 DecodePixelHeight="80"
                                 DecodePixelType="Logical"
+                                ImageFailed="BitmapImage_ImageFailed"
                                 UriSource="{x:Bind ViewModel.ThirdImagePath, Mode=OneWay}" />
                         </Image.Source>
                     </Image>
@@ -120,6 +154,17 @@
                 </Rectangle.Fill>
             </Rectangle>
 
+            <muxc:ProgressRing
+                x:Name="DownloadProgressRingBackground"
+                Width="20"
+                Height="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                x:Load="{x:Bind ViewModel.DownloadActive, Mode=OneWay}"
+                Foreground="White"
+                IsIndeterminate="False"
+                Opacity="0.5"
+                Value="100" />
             <muxc:ProgressRing
                 x:Name="DownloadProgressRing"
                 Width="20"
@@ -158,34 +203,64 @@
                     HorizontalAlignment="Left"
                     x:Load="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
 
-                <TextBlock
-                    Grid.Row="1"
-                    VerticalAlignment="Bottom"
-                    Foreground="White"
-                    Text="{x:Bind ViewModel.Name, Mode=OneWay}"
-                    TextTrimming="CharacterEllipsis"
-                    TextWrapping="Wrap">
-                    <ToolTipService.ToolTip>
-                        <Grid MaxWidth="300">
-                            <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                        </Grid>
-                    </ToolTipService.ToolTip>
-                </TextBlock>
+                <controls:FreeBadge
+                    x:Name="FreeBadge"
+                    HorizontalAlignment="Left"
+                    x:Load="{x:Bind ViewModel.FreeBadgeVisible, Mode=OneWay}" />
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                    <StackPanel
+                        x:Name="PresenceCount"
+                        Margin="0,0,0,4"
+                        Orientation="Horizontal"
+                        Visibility="Collapsed">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="14"
+                            Foreground="White"
+                            Glyph="&#xEAF7;" />
+                        <TextBlock
+                            Margin="4,0,0,0"
+                            FontSize="12"
+                            Foreground="White"
+                            Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
+                    </StackPanel>
+                    <TextBlock
+                        x:Name="NameText"
+                        Foreground="White"
+                        Text="{x:Bind ViewModel.Name, Mode=OneWay}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="Wrap">
+                        <ToolTipService.ToolTip>
+                            <Grid MaxWidth="300">
+                                <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
+                            </Grid>
+                        </ToolTipService.ToolTip>
+                    </TextBlock>
+                </StackPanel>
             </Grid>
 
             <Grid.ContextFlyout>
                 <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                     <muxc:CommandBarFlyout.SecondaryCommands>
                         <AppBarButton
+                            Command="{x:Bind ViewModel.ShareCommand, Mode=OneWay}"
+                            Icon="Share"
+                            Label="{x:Bind strings:Resources.ShareText}" />
+                        <AppBarButton
                             x:Uid="DeleteAppBarButton"
-                            Command="{x:Bind ViewModel.DeleteCommand, Mode=OneWay}"
-                            Icon="Delete"
-                            Visibility="{x:Bind ViewModel.CanDelete, Mode=OneWay}" />
+                            Command="{x:Bind ViewModel.DeleteSoundCommand, Mode=OneWay}"
+                            Icon="Delete" />
                         <AppBarButton
                             x:Uid="RenameAppBarButton"
                             Command="{x:Bind ViewModel.RenameCommand, Mode=OneWay}"
                             Icon="Rename"
                             Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
+                        <AppBarButton Click="OnEditHomePageClicked" Label="{x:Bind strings:Resources.EditHomePage}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphEditHome}" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                         <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
                             <StackPanel Width="300" Margin="12">
                                 <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
@@ -200,36 +275,5 @@
                 </muxc:CommandBarFlyout>
             </Grid.ContextFlyout>
         </Grid>
-
-        <Rectangle
-            x:Name="FocusVisualWhite"
-            IsHitTestVisible="False"
-            RadiusX="8"
-            RadiusY="8"
-            Stroke="{ThemeResource FocusVisualWhiteStrokeThemeBrush}"
-            StrokeThickness="4"
-            Visibility="Collapsed" />
-
-        <Rectangle
-            x:Name="FocusVisualBlack"
-            IsHitTestVisible="False"
-            RadiusX="8"
-            RadiusY="8"
-            Stroke="{ThemeResource FocusVisualBlackStrokeThemeBrush}"
-            StrokeThickness="2"
-            Visibility="Collapsed" />
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="FocusStates">
-                <VisualState x:Name="Focused">
-                    <VisualState.Setters>
-                        <Setter Target="FocusVisualBlack.Visibility" Value="Visible" />
-                        <Setter Target="FocusVisualWhite.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Unfocused" />
-                <VisualState x:Name="PointerFocused" />
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

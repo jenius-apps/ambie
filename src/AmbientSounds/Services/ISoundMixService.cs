@@ -20,7 +20,7 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="sounds">List of sounds to save.</param>
         /// <returns>The string Id of the new sound mix.</returns>
-        Task<string> SaveMixAsync(IList<Sound> sounds, string name = "");
+        Task<string> SaveMixAsync(IReadOnlyList<Sound> sounds, string name = "");
 
         /// <summary>
         /// Reconstructs the given sound mixes and adds them to
@@ -34,5 +34,25 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="mix">The mix to play.</param>
         Task<bool> LoadMixAsync(Sound mix);
+
+        /// <summary>
+        /// Returns enumerable
+        /// of sound IDs that aren't available.
+        /// Null or mpty if no unavailable sounds
+        /// are found.
+        /// </summary>
+        Task<IEnumerable<string>> GetUnavailableSoundsAsync(Sound mix);
+
+        /// <summary>
+        /// Saves the current active sounds into a mix.
+        /// </summary>
+        /// <param name="name">Optional name for the mix.</param>
+        /// <returns>The string Id of the new sound mix.</returns>
+        Task<string> SaveCurrentMixAsync(string name = "");
+        
+        /// <summary>
+        /// Returns true if the current mix can be saved.
+        /// </summary>
+        bool CanSaveCurrentMix();
     }
 }

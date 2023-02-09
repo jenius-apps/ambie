@@ -82,6 +82,8 @@ namespace AmbientSounds.Services.Uwp
                 List<Task> tasks = new List<Task>();
                 foreach (DownloadOperation download in downloads)
                 {
+                    _activeProgress.TryAdd(download.ResultFile.Path, new Progress<double>());
+
                     // Attach progress and completion handlers.
                     tasks.Add(HandleDownloadAsync(download, false));
                 }
@@ -100,7 +102,7 @@ namespace AmbientSounds.Services.Uwp
         /// </summary>
         /// <param name="destinationPath">The destination path of the download.</param>
         /// <param name="url">The URL of the item to download.</param>
-        public async void StartDownload(
+        public void StartDownload(
             StorageFile destinationFile,
             string url,
             IProgress<double>? progress = null,
@@ -120,7 +122,7 @@ namespace AmbientSounds.Services.Uwp
                 _activeProgress.TryAdd(destinationFile.Path, progress);
             }
 
-            await HandleDownloadAsync(download, true);
+            _ = HandleDownloadAsync(download, true);
         }
 
         private void DownloadProgress(DownloadOperation download)
@@ -131,7 +133,18 @@ namespace AmbientSounds.Services.Uwp
                 double percent = download.Progress.BytesReceived * 100 / download.Progress.TotalBytesToReceive;
                 _dispatcherQueue.TryEnqueue(() => 
                 {
-                    if (_activeProgress.ContainsKey(resultFilePath))
+                    if (!_activeProgress.ContainsKey(resultFilePath))
+                    {
+                        return;
+                    }
+
+                    if (percent >= 100)
+                    {
+                        var progress = _activeProgress[resultFilePath];
+                        _activeProgress.Remove(resultFilePath);
+                        progress.Report(percent);
+                    }
+                    else
                     {
                         _activeProgress[resultFilePath].Report(percent);
                     }
@@ -167,8 +180,6 @@ namespace AmbientSounds.Services.Uwp
                     // The download was already running when the application started, re-attach the progress handler.
                     await download.AttachAsync().AsTask(_cts.Token, progressCallback);
                 }
-
-                ResponseInformation response = download.GetResponseInformation();
             }
             catch (TaskCanceledException)
             {

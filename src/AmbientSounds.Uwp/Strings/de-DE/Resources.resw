@@ -13,10 +13,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
-    <value>Kompakt-Modus verlassen</value>
+    <value>Schließen Sie Ambie Mini</value>
   </data>
   <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Kompakt-Modus verlassen</value>
+    <value>Schließen Sie Ambie Mini</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Schließen</value>
@@ -33,37 +33,16 @@
   <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
     <value>App-Informationen</value>
   </data>
-  <data name="Minutes10Button.Label" xml:space="preserve">
-    <value>10 Minuten</value>
-  </data>
-  <data name="Minutes15Button.Label" xml:space="preserve">
-    <value>15 Minuten</value>
-  </data>
-  <data name="Minutes30Button.Label" xml:space="preserve">
-    <value>30 Minuten</value>
-  </data>
-  <data name="Minutes5Button.Label" xml:space="preserve">
-    <value>5 Minuten</value>
-  </data>
-  <data name="Minutes60Button.Label" xml:space="preserve">
-    <value>60 Minuten</value>
-  </data>
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Weitere Optionen</value>
   </data>
-  <data name="MoreButtonCompact.AutomationProperties.Name" xml:space="preserve">
-    <value>Kompakt-Modus</value>
+  <data name="CompactMode" xml:space="preserve">
+    <value>Ambie Mini</value>
   </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Entwickler kontaktieren</value>
   </data>
-  <data name="MoreButtonDiscord.Label" xml:space="preserve">
-    <value>Chat auf Discord</value>
-  </data>
-  <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>GitHub anzeigen</value>
-  </data>
-  <data name="MoreButtonRate.Label" xml:space="preserve">
+  <data name="RateUsText" xml:space="preserve">
     <value>Bewerten Sie uns</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
@@ -126,9 +105,6 @@
   <data name="Soundfireplace" xml:space="preserve">
     <value>Kamin</value>
   </data>
-  <data name="Soundmore" xml:space="preserve">
-    <value>Demnächst mehr</value>
-  </data>
   <data name="Soundrain" xml:space="preserve">
     <value>Regen</value>
   </data>
@@ -145,10 +121,10 @@
     <value>Weißes Rauschen</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
-    <value>Töne werden geladen</value>
+    <value>Klänge werden geladen</value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
-    <value>Ton kann nicht abgespielt werden</value>
+    <value>Klang kann nicht abgespielt werden</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Timer stoppen und Zeit zurücksetzen</value>
@@ -157,28 +133,10 @@
     <value>Gesamtlautstärke</value>
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>Ton Lautstärke</value>
-  </data>
-  <data name="SuggestionHeader.Text" xml:space="preserve">
-    <value>Wollen Sie mehr Töne? Senden Sie Vorschläge!</value>
-  </data>
-  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
-    <value>Vorschlag</value>
-  </data>
-  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
-    <value>Wollen Sie mehr Töne? Senden Sie Vorschläge!</value>
-  </data>
-  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Vorschlag senden</value>
-  </data>
-  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Vorschlag senden</value>
-  </data>
-  <data name="ThankYouTextBlock.Text" xml:space="preserve">
-    <value>Vielen Dank!</value>
+    <value>Klang Lautstärke</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
-    <value>Thema (erfordert Neustart)</value>
+    <value>Thema</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
     <value>Automatisch</value>
@@ -196,7 +154,7 @@
     <value>Donner</value>
   </data>
   <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
-    <value>Benachrichtigung für neue Töne</value>
+    <value>Benachrichtigung für neue Klänge</value>
   </data>
   <data name="Soundwind" xml:space="preserve">
     <value>Wind</value>
@@ -214,16 +172,16 @@
     <comment>The sound can be downloaded</comment>
   </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ton herunterladen</value>
+    <value>Klang herunterladen</value>
   </data>
   <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Ton herunterladen</value>
+    <value>Klang herunterladen</value>
   </data>
   <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Tonkatalog</value>
+    <value>Klangkatalog</value>
   </data>
   <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
-    <value>Töne</value>
+    <value>Klänge</value>
     <comment>List of sounds</comment>
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
@@ -236,7 +194,7 @@
     <value>Löschen</value>
   </data>
   <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ton löschen</value>
+    <value>Klang löschen</value>
   </data>
   <data name="DeleteTextBlock.Text" xml:space="preserve">
     <value>Löschen</value>
@@ -245,37 +203,25 @@
     <value>Herunterladen</value>
   </data>
   <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Zufälligen Ton abspielen</value>
+    <value>Zufälligen Klang abspielen</value>
   </data>
   <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Zufälligen Ton abspielen</value>
+    <value>Zufälligen Klang abspielen</value>
   </data>
-  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+  <data name="ScreensaverMode" xml:space="preserve">
     <value>Bildschirmschoner-Modus</value>
   </data>
   <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
     <value>Bildschirmschoner</value>
   </data>
-  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
-    <value>Leere Seite als Bildschirmschoner verwenden</value>
-  </data>
-  <data name="Hours2Button.Label" xml:space="preserve">
-    <value>2 Stunden</value>
-  </data>
-  <data name="Hours4Button.Label" xml:space="preserve">
-    <value>4 Stunden</value>
-  </data>
-  <data name="Hours8Button.Label" xml:space="preserve">
-    <value>8 Stunden</value>
-  </data>
   <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Ton kaufen</value>
+    <value>Klang kaufen</value>
   </data>
   <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Tonvorschau</value>
+    <value>Klangvorschau</value>
   </data>
   <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Tonvorschau</value>
+    <value>Klangvorschau</value>
   </data>
   <data name="Paused" xml:space="preserve">
     <value>Pausiert</value>
@@ -286,13 +232,13 @@
     <comment>Sound is playing</comment>
   </data>
   <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
-    <value>Aktive Töne</value>
+    <value>Aktive Klänge</value>
   </data>
   <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Alle aktiven Töne entfernen</value>
+    <value>Alle aktiven Klänge entfernen</value>
   </data>
   <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Alle aktiven Töne entfernen</value>
+    <value>Alle aktiven Klänge entfernen</value>
   </data>
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
     <value>Speichern bestätigen</value>
@@ -300,23 +246,17 @@
   <data name="GlobalVolume" xml:space="preserve">
     <value>Gesamtlautstärke</value>
   </data>
-  <data name="LimitReachedMessage.Text" xml:space="preserve">
-    <value>Entferne Ton, um Platz für einen anderen zu schaffen.</value>
-  </data>
-  <data name="LimitReachedTitle.Text" xml:space="preserve">
-    <value>Limit erreicht!</value>
-  </data>
   <data name="NameInputBox.Header" xml:space="preserve">
-    <value>Name der Tonmischung</value>
+    <value>Name der Klangmischung</value>
   </data>
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>Optional</value>
   </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Benutzerdefinierte Tonmischung speichern</value>
+    <value>Benutzerdefinierte Klangmischung speichern</value>
   </data>
   <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Benutzerdefinierte Tonmischung speichern (Strg+S)</value>
+    <value>Benutzerdefinierte Klangmischung speichern (Strg+S)</value>
   </data>
   <data name="CancelText" xml:space="preserve">
     <value>Abbrechen</value>
@@ -327,20 +267,11 @@
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Umbenennen</value>
   </data>
-  <data name="ShareMixButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Tonmischung teilen</value>
-  </data>
-  <data name="ShareMixButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Tonmischung teilen</value>
-  </data>
-  <data name="MissingSoundsTitle" xml:space="preserve">
-    <value>Fehlende Töne</value>
-  </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Abmelden</value>
   </data>
   <data name="SignInDescriptionText" xml:space="preserve">
-    <value>Dies aktiviert die Synchronisation der Tongallerie zwischen deinen Geräten. Sie können auch Töne hochladen.</value>
+    <value>Dies aktiviert die Synchronisation der Klanggalerie zwischen deinen Geräten.</value>
   </data>
   <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
     <value>Konto Optionen anzeigen</value>
@@ -357,26 +288,8 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Sync</value>
   </data>
-  <data name="MoreButtonUpload.Label" xml:space="preserve">
-    <value>Töne hochladen</value>
-  </data>
-  <data name="UploadedSoundsList.AutomationProperties.Name" xml:space="preserve">
-    <value>Hochgeladene Töne</value>
-  </data>
-  <data name="UploadPortal.Text" xml:space="preserve">
-    <value>Upload Portal - Beta</value>
-  </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Durchsuchen</value>
-  </data>
-  <data name="ImageUrl" xml:space="preserve">
-    <value>Bild URL</value>
-  </data>
-  <data name="PathToSound" xml:space="preserve">
-    <value>Pfad zum Ton</value>
-  </data>
-  <data name="UploadSubmitButton" xml:space="preserve">
-    <value>Ton hochladen</value>
   </data>
   <data name="Attribution" xml:space="preserve">
     <value>Zuschreibung</value>
@@ -385,35 +298,14 @@
     <value>Name</value>
   </data>
   <data name="NewSound" xml:space="preserve">
-    <value>Neuer Ton</value>
-  </data>
-  <data name="PublishStateNone" xml:space="preserve">
-    <value>Nichts</value>
-  </data>
-  <data name="PublishStatePublished" xml:space="preserve">
-    <value>Veröffentlicht</value>
-  </data>
-  <data name="PublishStateRejected" xml:space="preserve">
-    <value>Abgelehnt</value>
-  </data>
-  <data name="PublishStateUnderReview" xml:space="preserve">
-    <value>Wird geprüft</value>
-  </data>
-  <data name="PublishStateUnpublished" xml:space="preserve">
-    <value>Unveröffentlicht</value>
+    <value>Neuer Klang</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Aktualisieren</value>
     <comment>Text for a button that will refresh a list with new data</comment>
   </data>
-  <data name="UploadPlaceholderMessage" xml:space="preserve">
-    <value>Laden Sie entspannende Sounds in den Ambie-Katalog hoch und lassen Sie andere Ihre Arbeit hören!</value>
-  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Anmelden</value>
-  </data>
-  <data name="UploadTermsMessage" xml:space="preserve">
-    <value>Ich stimme den Nutzungsbedingungen zu</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
     <value>Sind Sie sicher?</value>
@@ -421,23 +313,11 @@
   <data name="Yes" xml:space="preserve">
     <value>Ja</value>
   </data>
-  <data name="DonateUrl" xml:space="preserve">
-    <value>Spenden-URL</value>
-  </data>
   <data name="Optional" xml:space="preserve">
     <value>Optional</value>
   </data>
   <data name="Required" xml:space="preserve">
     <value>Erforderlich</value>
-  </data>
-  <data name="UploadPermissionsMessage" xml:space="preserve">
-    <value>Ich habe diesen Ton erstellt oder ich habe die Erlaubnis, ihn hochzuladen</value>
-  </data>
-  <data name="ErrorBigFile" xml:space="preserve">
-    <value>Das ist eine große Datei! Versuchen Sie es erneut mit einer Datei, die kleiner als {0} MB ist.</value>
-  </data>
-  <data name="ErrorUploadCount" xml:space="preserve">
-    <value>Sie haben das Limit erreicht! Sie können nur {0} Töne nutzen.</value>
   </data>
   <data name="Donate" xml:space="preserve">
     <value>Spenden</value>
@@ -460,13 +340,400 @@
   <data name="PinToTaskbar" xml:space="preserve">
     <value>An Taskbar anpinnen</value>
   </data>
-  <data name="Transparency" xml:space="preserve">
-    <value>Transparenz</value>
+  <data name="Preview" xml:space="preserve">
+    <value>Vorschau</value>
   </data>
   <data name="Catalogue" xml:space="preserve">
     <value>Katalog</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Startseite</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>Bis zu 3 Klänge mischen und kombinieren</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>{0} aus der aktiven Liste entfernen</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>Themen-Einstellungen</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} im Monat</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>Vielen Dank für das Abonnement!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>Greifen Sie auf erstklassige, hochwertige Sounds zu</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>Videos herunterladen</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>Unterstützen Sie die Entwicklung</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Nochmals Hallo 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Gefällt Ihnen Ambie? Bitte bewerten Sie uns!</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Musik fortsetzen, wenn Ambie anfängt</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Herunterladen</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Wir müssen einige Sounds herunterladen, um dies abzuspielen. Versuchen Sie nach dem Herunterladen, dies erneut abzuspielen. Download starten?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Fehlende Musik</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Vorgabe</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Weitere Videos</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Videokatalog</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Premium-Informationen anzeigen</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Wolken</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Bunter Rauch</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Oktogramme</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Beim Anzeigen des Bildschirmschoners ist ein Problem aufgetreten. Versuchen Sie, Ambie neu zu starten, oder kontaktieren Sie uns, wenn das Problem weiterhin besteht.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Melden Sie das Problem</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Renderfehler</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Vollbild umschalten</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Ambie+ kaufen</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Fokus</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Timer anhalten</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Timer starten</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Gut erledigt!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Fokussitzung abgeschlossen</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Zeit zum fokussieren</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Zeit zum ausruhen</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Sich ausruhen</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Fokussitzung ist aktiv</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Fokussierung</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Ausruhen</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Timer zurücksetzen</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Minuten konzentrieren</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Hier können Sie sich Notizen machen 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Wie ist der Plan?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Anmerkungen</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Ruheminuten</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Wiederholungen</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Zeig mir, wie man es benutzt</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Dies ist ein Intervall-Timer, der von der Pomodoro-Technik inspiriert ist. Ziel ist es, sich über einen längeren Zeitraum auf eine Aufgabe zu konzentrieren und dann eine kürzere Ruhepause einzulegen. Wiederholen Sie diesen Zyklus, um sich weiter zu konzentrieren!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Willkommen beim Fokus-Timer!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Nächste</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Jeder Zyklus hat ein Fokussegment und ein Ruhesegment. Wählen Sie aus, wie lang jedes Fokussegment sein soll. Wir empfehlen 25 Minuten zu Beginn!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Fokusminuten einstellen</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Jeder Fokus- und Ruhezyklus kann sich mehrmals wiederholen. Versuchen Sie, 1 Wiederholung hinzuzufügen!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Wiederholungen einstellen</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Wählen Sie nun aus, wie lange jedes Ruhesegment dauern soll. Wir empfehlen vorerst etwa 5 Minuten!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Ruheminuten einstellen</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Starte den Timer und arbeite an deinen Aufgaben. Wir senden Ihnen Benachrichtigungen, wenn es Zeit ist, sich auszuruhen. Hart arbeiten!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Achtung, fertig, los</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} Fokusminuten, {1} Ruheminuten, {2} Wiederholungen.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Liste der letzten Fokuskonfigurationen.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 bis {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Geschichte</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Unterbrechungen</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Ihr aktueller Verlauf wird hier angezeigt</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Protokollieren Sie die Unterbrechung</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Bestätigen</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Minuten unterbrochen</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Anmerkungen</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Wurden Sie durch etwas unterbrochen? Verfolgen Sie hier Ihre Unterbrechungen, damit Sie sie später in Ihrem Verlauf überprüfen können.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Neuere Geschichte</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Runden abgeschlossen</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Guter Versuch</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Du bist fantastisch</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Ambie</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Fügen Sie Aufgaben hinzu und drücken Sie dann die Starttaste</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Aufgaben</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Abgeschlossen</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Aufgaben erledigt</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Aufgabe {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Diese Woche kostenlos</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Öffnen Sie Ambie Mini beim Fokussieren</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Ende</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Öffnen Sie Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Mit Ambie Mini verkleinern wir das Fenster und zeigen nur die notwendigen Elemente an, damit Sie sich besser konzentrieren können.</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Pausen</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Sounds aus dem Katalog herunterladen</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Startseite bearbeiten</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Drag-and-Drop-Sounds, um Ihr Startalter zu personalisieren. Versuchen Sie es jetzt!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Das tut mir leid! Der Katalog konnte nicht geladen werden. Versuchen Sie, Ihre Internetverbindung zu überprüfen.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Anwendungsinformation</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Ambie Mini öffnet sich automatisch beim Fokussieren</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Wir informieren Sie, wenn neue Sounds verfügbar sind</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Beim Start wird Ambie die Wiedergabe automatisch fortsetzen</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Fehler und anonyme Nutzungsinformationen werden gemeldet, um Ambie zu verbessern</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Hintergrundbild</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Benutzerdefiniertes Bild</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Allgemeine Einstellungen</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Wählen Sie Ihren Modus</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Ändern der Farben, die in Ambie angezeigt werden</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Teilen Sie mit, was Sie gerade hören</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Mal sehen, ob sie heruntergeladen werden können.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Dir fehlt Musik</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Rezension</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Teilen</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Kopiert!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>oder</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Schalte diesen Ton frei</value>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} Lebenszeit</value>
+  </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Nach Updates suchen</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Hier finden Sie Updates für Ihre Sounds und Videos.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Updates enthalten Verbesserungen an Übersetzungen, Klangqualität und mehr.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Aktualisierungen</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Alle aktualisieren</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Datenversion:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Dateiversion:</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Absolut up-to-date. Sie sind fertig.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Verbessert die Wiedergabequalität</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Verbessert Übersetzungen und andere Metadaten</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Verbessert die Wiedergabequalität, Übersetzungen und andere Metadaten</value>
   </data>
 </root>

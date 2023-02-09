@@ -12,7 +12,7 @@ namespace AmbientSounds.Services.Uwp
     public class TimerService : ITimerService
     {
         /// <inheritdoc/>
-        public event EventHandler<int>? IntervalElapsed;
+        public event EventHandler<TimeSpan>? IntervalElapsed;
 
         private readonly Timer _timer;
         private readonly DispatcherQueue _dispatcherQueue;
@@ -49,7 +49,7 @@ namespace AmbientSounds.Services.Uwp
         private void TimerIntervalElapsed(object sender, object e)
         {
             Remaining -= TimeSpan.FromMilliseconds(Interval);
-            _dispatcherQueue.TryEnqueue(() => IntervalElapsed?.Invoke(sender, Interval));
+            _dispatcherQueue.TryEnqueue(() => IntervalElapsed?.Invoke(sender, Remaining));
         }
     }
 }

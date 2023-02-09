@@ -1,47 +1,329 @@
-﻿<Page
+﻿
+<Page
     x:Class="AmbientSounds.Views.ShellPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:c="using:AmbientSounds.Converters"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
-    Background="{ThemeResource ContentBackgroundBrush}"
+    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
+
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TopPlayerPanel.Margin" Value="0,48,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="PageStateGroup" CurrentStateChanged="SizeStateChanged">
+                <VisualState x:Name="WidePageState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowBreakpoint}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NavMenuWidth.Width" Value="200" />
+                        <Setter Target="MenuIconPremium.Visibility" Value="Collapsed" />
+                        <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
+                        <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
+                        <Setter Target="TitleBar.Margin" Value="16,14,0,0" />
+                        <Setter Target="PlayerPanelBorder.Margin" Value="16,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="16,0" />
+                        <Setter Target="NavViewGrid.Margin" Value="16,0,0,12" />
+                        <Setter Target="MainFrame.Margin" Value="8,0,0,0" />
+                        <Setter Target="TrackList.ShowList" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!--  Custom background  -->
         <toolkit:ImageEx
             x:Name="BackgroundImage"
             x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
             IsCacheEnabled="True"
             Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
             Stretch="UniformToFill" />
+        <Rectangle
+            x:Name="AcrylicLayer"
+            x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
+            Fill="{ThemeResource SystemControlAcrylicElementBrush}"
+            Stretch="Fill" />
 
-        <Frame x:Name="MainFrame" />
-
+        <!--  title bar content  -->
         <StackPanel
-            Margin="0,12,0,0"
-            HorizontalAlignment="Center"
+            x:Name="TitleBar"
+            Margin="12,14,0,0"
             VerticalAlignment="Top"
-            Orientation="Horizontal">
-            <Image Height="18" Source="ms-appx:///Assets/logo.png" />
-            <TextBlock
-                Margin="8,0,0,0"
-                VerticalAlignment="Center"
-                FontSize="12"
-                Text="Ambie" />
+            Canvas.ZIndex="1"
+            Orientation="Horizontal"
+            Visibility="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}">
+
+            <!--  Ambie title bar name  -->
+            <controls:TitleBarLogo />
+
+            <!--  Focus time banner  -->
+            <controls:TimeBanner Margin="12,0,0,0" Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
+                <animations:Implicit.HideAnimations>
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.5" />
+                    <animations:TranslationAnimation To="0,-60,0" Duration="0:0:0.5" />
+                </animations:Implicit.HideAnimations>
+                <animations:Explicit.Animations>
+                    <animations:AnimationSet x:Name="ShowTimeBannerAnimations">
+                        <animations:TranslationAnimation
+                            From="0,-60,0"
+                            To="0,0,0"
+                            Duration="0:0:0.5" />
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.5" />
+                    </animations:AnimationSet>
+                </animations:Explicit.Animations>
+            </controls:TimeBanner>
         </StackPanel>
+
+        <!--  Top player panel  -->
+        <Grid x:Name="TopPlayerPanel" Margin="0,12,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border
+                Name="PlayerPanelBorder"
+                Height="80"
+                Margin="12,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="8">
+                <Rectangle
+                    Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    RadiusX="8"
+                    RadiusY="8" />
+            </Border>
+            <Grid
+                Name="PlayerPanelGrid"
+                Height="80"
+                Margin="12,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <controls:PlayerControl Margin="16,0,0,0" />
+
+                <controls:ActiveTrackList
+                    x:Name="TrackList"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    ShowList="False"
+                    TrackListChanged="{x:Bind ViewModel.UpdateCanSave}" />
+
+                <StackPanel
+                    Grid.Column="2"
+                    Margin="0,0,16,0"
+                    Orientation="Horizontal">
+                    <controls:SaveMixButton MixSaved="{x:Bind ViewModel.UpdateCanSave}" Visibility="{x:Bind ViewModel.CanSaveMix, Mode=OneWay}">
+                        <animations:Implicit.ShowAnimations>
+                            <animations:OpacityAnimation
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.5" />
+                        </animations:Implicit.ShowAnimations>
+                    </controls:SaveMixButton>
+                    <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
+                        Click="{x:Bind ViewModel.GoToScreensaver}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
+                    </Button>
+                    <Button
+                        x:Name="ShareButton"
+                        AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
+                        Command="{x:Bind ViewModel.OpenShareCommand}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.ShareMessage}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphShare}" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!--  Content below player panel  -->
+            <Grid Grid.Row="1" Margin="0,8,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="NavMenuWidth" Width="64" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid x:Name="NavViewGrid" Margin="12,0,0,12">
+                    <!--  Nav menu  -->
+                    <ListView
+                        IsItemClickEnabled="True"
+                        ItemClick="OnMenuItemClicked"
+                        SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}">
+                        <ListView.ItemContainerStyle>
+                            <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.Items>
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="{x:Bind strings:Resources.Home}"
+                                Tag="home"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.Home}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphHome}" />
+                                    <TextBlock
+                                        Margin="12,0,0,0"
+                                        Text="{x:Bind strings:Resources.Home}"
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
+                                Tag="catalogue"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.Catalogue}">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
+                                    <TextBlock
+                                        Margin="12,0,0,0"
+                                        Text="{x:Bind strings:Resources.Catalogue}"
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="{x:Bind strings:Resources.FocusText}"
+                                Tag="focus"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.FocusText}">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
+                                        <TextBlock
+                                            Margin="12,0,0,0"
+                                            Text="{x:Bind strings:Resources.FocusText}"
+                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                    </StackPanel>
+                                    <Grid
+                                        x:Name="FocusEllipseGrid"
+                                        HorizontalAlignment="Right"
+                                        Visibility="Collapsed">
+                                        <Ellipse
+                                            Width="8"
+                                            Height="8"
+                                            Fill="{ThemeResource AccentFillColorDefaultBrush}"
+                                            ToolTipService.ToolTip="{x:Bind strings:Resources.FocusDotTooltip}"
+                                            Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}" />
+                                    </Grid>
+                                </Grid>
+                            </ListViewItem>
+                        </ListView.Items>
+                    </ListView>
+
+                    <StackPanel x:Name="NavMenuFooter" VerticalAlignment="Bottom">
+                        <HyperlinkButton
+                            Margin="4,0,3,0"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Command="{x:Bind ViewModel.OpenPremiumCommand}"
+                            Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon
+                                    x:Name="MenuIconPremium"
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    Glyph="{StaticResource GlyphPremium}"
+                                    Visibility="Visible" />
+                                <TextBlock Text="{x:Bind strings:Resources.GetAmbiePlus}" Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                            </StackPanel>
+                        </HyperlinkButton>
+                        <ListView
+                            IsItemClickEnabled="True"
+                            ItemClick="OnMenuItemClicked"
+                            SelectedIndex="{x:Bind ViewModel.FooterMenuIndex, Mode=OneWay}">
+                            <ListView.ItemContainerStyle>
+                                <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.Items>
+                                <ListViewItem
+                                    MinWidth="0"
+                                    AutomationProperties.Name="Updates"
+                                    Tag="updates"
+                                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphUpdates}" />
+                                        <TextBlock
+                                            Margin="12,0,0,0"
+                                            Text="Updates"
+                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                    </StackPanel>
+                                </ListViewItem>
+                                <ListViewItem
+                                    MinWidth="0"
+                                    AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                                    Tag="settings"
+                                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+                                        <TextBlock
+                                            Margin="12,0,0,0"
+                                            Text="{x:Bind strings:Resources.SettingsText}"
+                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                    </StackPanel>
+                                </ListViewItem>
+                            </ListView.Items>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+
+                <!--  Main content frame  -->
+                <Frame
+                    x:Name="MainFrame"
+                    Grid.Column="1"
+                    Margin="4,0,0,0" />
+            </Grid>
+        </Grid>
 
         <winui:TeachingTip
             Title="{x:Bind strings:Resources.HelloAgain}"
             ActionButtonClick="TeachingTip_ActionButtonClick"
-            ActionButtonContent="{x:Bind RateUs}"
+            ActionButtonContent="{x:Bind strings:Resources.RateUsText}"
+            CloseButtonClick="TeachingTip_CloseButtonClick"
             CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
             IsOpen="{x:Bind ViewModel.IsRatingMessageVisible, Mode=OneWay}"
             PreferredPlacement="BottomRight"
             Subtitle="{x:Bind strings:Resources.RateUsMessage}" />
+
+        <winui:TeachingTip
+            Title="{x:Bind strings:Resources.MissingShareSoundsTitle}"
+            ActionButtonCommand="{x:Bind ViewModel.OpenMissingDialogCommand}"
+            ActionButtonContent="{x:Bind strings:Resources.ReviewText}"
+            CloseButtonCommand="{x:Bind ViewModel.DismissMissingDialogCommand}"
+            CloseButtonContent="{x:Bind strings:Resources.Dismiss}"
+            IsOpen="{x:Bind ViewModel.IsMissingSoundsMessageVisible, Mode=OneWay}"
+            PreferredPlacement="Bottom"
+            Subtitle="{x:Bind strings:Resources.MissingShareSoundsMessage}" />
     </Grid>
 </Page>

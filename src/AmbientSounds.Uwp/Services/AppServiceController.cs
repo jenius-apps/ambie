@@ -1,4 +1,4 @@
-﻿using Microsoft.Toolkit.Diagnostics;
+﻿using CommunityToolkit.Diagnostics;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.AppService;

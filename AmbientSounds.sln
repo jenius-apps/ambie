@@ -1,7 +1,6 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Uwp", "src\AmbientSounds.Uwp\AmbientSounds.Uwp.csproj", "{B0BA021E-FA43-4921-A25A-0004A43F7C40}"
 EndProject

@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using System;
+using System.Text.Json.Serialization.Metadata;
 
 namespace AmbientSounds.Services
 {
@@ -46,8 +47,9 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <typeparam name="T">Type of the value.</typeparam>
         /// <param name="settingKey">The settings key, generally found in <see cref="UserSettingsConstants"/>.</param>
+        /// <param name="jsonTypeInfo">The <see cref="JsonTypeInfo{T}"/> instance to deserialize <typeparamref name="T"/> values.</param>
         /// <returns>The desired value or returns the default.</returns>
-        T? GetAndDeserialize<T>(string settingKey);
+        T? GetAndDeserialize<T>(string settingKey, JsonTypeInfo<T> jsonTypeInfo);
 
         /// <summary>
         /// Saves settings into persistent local storage
@@ -56,6 +58,7 @@ namespace AmbientSounds.Services
         /// <typeparam name="T">Type of the value.</typeparam>
         /// <param name="settingKey">The settings key, generally found in <see cref="UserSettingsConstants"/>.</param>
         /// <param name="value">The value to save.</param>
-        void SetAndSerialize<T>(string settingKey, T value);
+        /// <param name="jsonTypeInfo">The <see cref="JsonTypeInfo{T}"/> instance to serialize <typeparamref name="T"/> values.</param>
+        void SetAndSerialize<T>(string settingKey, T value, JsonTypeInfo<T> jsonTypeInfo);
     }
 }

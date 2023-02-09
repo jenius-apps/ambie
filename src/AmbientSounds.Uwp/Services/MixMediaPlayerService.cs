@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
 using AmbientSounds.Models;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,16 @@ namespace AmbientSounds.Services.Uwp
     public class MixMediaPlayerService : IMixMediaPlayerService
     {
         private readonly Dictionary<string, MediaPlayer> _activePlayers = new();
+        private readonly Dictionary<string, string> _soundNames = new();
         private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new();
         private readonly int _maxActive;
         private double _globalVolume;
         private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
         private readonly SystemMediaTransportControls _smtc;
         private readonly DispatcherQueue _dispatcherQueue;
+        private readonly IUserSettings _userSettings;
+        private readonly ISoundService _soundDataProvider;
+        private readonly IAssetLocalizer _assetLocalizer;
 
         /// <inheritdoc/>
         public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -37,10 +42,21 @@ namespace AmbientSounds.Services.Uwp
         /// <inheritdoc/>
         public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
-        public MixMediaPlayerService(IUserSettings userSettings)
+        public MixMediaPlayerService(
+            IUserSettings userSettings,
+            ISoundService soundDataProvider,
+            IAssetLocalizer assetLocalizer)
         {
-            _maxActive = userSettings?.Get<int>(UserSettingsConstants.MaxActive) ?? 3;
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(soundDataProvider);
+            Guard.IsNotNull(assetLocalizer);
+
+            _userSettings = userSettings;
+            _soundDataProvider = soundDataProvider;
+            _assetLocalizer = assetLocalizer;
+            _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
             _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
             _smtc = SystemMediaTransportControls.GetForCurrentView();
             InitializeSmtc();
         }
@@ -86,9 +102,9 @@ namespace AmbientSounds.Services.Uwp
                 _playbackState = value;
                 PlaybackStateChanged?.Invoke(this, value);
 
-                if (value == MediaPlaybackState.Playing) 
+                if (value == MediaPlaybackState.Playing)
                     _smtc.PlaybackStatus = MediaPlaybackStatus.Playing;
-                else if (value == MediaPlaybackState.Paused) 
+                else if (value == MediaPlaybackState.Paused)
                     _smtc.PlaybackStatus = MediaPlaybackStatus.Paused;
             }
         }
@@ -135,6 +151,17 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
+        public async Task PlayRandomAsync()
+        {
+            RemoveAll();
+            var sound = await _soundDataProvider.GetRandomSoundAsync();
+            if (sound is not null)
+            {
+                await ToggleSoundAsync(sound);
+            }
+        }
+
+        /// <inheritdoc/>
         public string[] GetSoundIds() => _activePlayers.Keys.ToArray();
 
         /// <inheritdoc/>
@@ -157,7 +184,7 @@ namespace AmbientSounds.Services.Uwp
                 var oldestSoundId = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
                 RemoveSound(oldestSoundId);
             }
-            
+
             if (_activePlayers.Count < _maxActive)
             {
                 MediaSource? mediaSource = null;
@@ -176,20 +203,27 @@ namespace AmbientSounds.Services.Uwp
                     }
                     catch
                     {
-                        // todo log
                         return;
                     }
                 }
-                
+
                 if (mediaSource is not null)
                 {
+                    // This code here (combined with a wav source file) allows for gapless playback!
+                    var item = new MediaPlaybackItem(mediaSource);
+                    var playbackList = new MediaPlaybackList() { AutoRepeatEnabled = true };
+                    playbackList.Items.Add(item);
+                    // End gapless playback code.
+
                     CurrentMixId = parentMixId;
-                    var player = CreateLoopingPlayer();
+                    var player = CreatePlayer();
                     player.Volume *= _globalVolume;
-                    player.Source = mediaSource;
+                    player.Source = playbackList;
                     _activePlayers.TryAdd(sound.Id, player);
                     _activeSoundDateTimes.TryAdd(sound.Id, DateTimeOffset.Now);
                     Screensavers.TryAdd(sound.Id, sound.ScreensaverImagePaths ?? Array.Empty<string>());
+                    _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
+                    RefreshSmtcTitle();
 
                     if (keepPaused) Pause();
                     else Play();
@@ -247,12 +281,6 @@ namespace AmbientSounds.Services.Uwp
         }
 
         /// <inheritdoc/>
-        public IList<string> GetActiveIds()
-        {
-            return _activePlayers.Keys.ToArray();
-        }
-
-        /// <inheritdoc/>
         public void RemoveSound(string soundId)
         {
             if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId))
@@ -267,7 +295,9 @@ namespace AmbientSounds.Services.Uwp
             _activePlayers[soundId] = null!;
             _activePlayers.Remove(soundId);
             _activeSoundDateTimes.Remove(soundId);
+            _soundNames.Remove(soundId);
             Screensavers.Remove(soundId);
+            RefreshSmtcTitle();
 
             // Any time we remove a sound,
             // we are guaranteed to "destruct"
@@ -298,17 +328,22 @@ namespace AmbientSounds.Services.Uwp
             _smtc.IsNextEnabled = false;
             _smtc.IsPreviousEnabled = false;
             _smtc.ButtonPressed += SmtcButtonPressed;
+            RefreshSmtcTitle();
         }
 
-        private MediaPlayer CreateLoopingPlayer()
+        private void RefreshSmtcTitle()
         {
-            var player = new MediaPlayer()
-            {
-                IsLoopingEnabled = true,
-            };
+            _smtc.DisplayUpdater.Type = MediaPlaybackType.Music;
+            _smtc.DisplayUpdater.MusicProperties.Title = _soundNames.Count == 0 ? "Ambie" : string.Join(" / ", _soundNames.Values); ;
+            _smtc.DisplayUpdater.MusicProperties.Artist = "Ambie";
+            _smtc.DisplayUpdater.Update();
+        }
 
+        private MediaPlayer CreatePlayer()
+        {
+            var player = new MediaPlayer();
             player.CommandManager.IsEnabled = false;
             return player;
-        } 
+        }
     }
 }

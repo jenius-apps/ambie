@@ -11,7 +11,7 @@ namespace AmbientSounds.Services
         /// Triggered when the interval elapses.
         /// Interval is milliseconds.
         /// </summary>
-        event EventHandler<int> IntervalElapsed;
+        event EventHandler<TimeSpan> IntervalElapsed;
 
         /// <summary>
         /// Interval in milliseconds.

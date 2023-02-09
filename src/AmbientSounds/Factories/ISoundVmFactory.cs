@@ -1,6 +1,6 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.ViewModels;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AmbientSounds.Factories
 {
@@ -14,14 +14,7 @@ namespace AmbientSounds.Factories
         /// </summary>
         /// <param name="s">The sound to associate with the viewmodel.</param>
         /// <returns>An online sound viewmodel.</returns>
-        OnlineSoundViewModel? GetOnlineSoundVm(Sound s);
-
-        /// <summary>
-        /// Creates a new uploaded sound viewmodel.
-        /// </summary>
-        /// <param name="s">The sound to associate with the viewmodel.</param>
-        /// <returns>An uploaded sound viewmodel.</returns>
-        UploadedSoundViewModel GetUploadedSoundVm(Sound s);
+        OnlineSoundViewModel GetOnlineSoundVm(Sound s);
 
         /// <summary>
         /// Creates new sound viewmodel.

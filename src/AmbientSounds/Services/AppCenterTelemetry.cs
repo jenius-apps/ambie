@@ -2,7 +2,7 @@
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 
@@ -14,8 +14,7 @@ namespace AmbientSounds.Services
 
         public AppCenterTelemetry(
             IUserSettings userSettings,
-            IAppSettings appSettings,
-            ISystemInfoProvider systemInfoProvider)
+            IAppSettings appSettings)
         {
             Guard.IsNotNull(userSettings, nameof(userSettings));
             _userSettings = userSettings;

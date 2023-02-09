@@ -49,7 +49,7 @@
                             </Grid.Resources>
                             <ani:Implicit.ShowAnimations>
                                 <ani:OpacityAnimation
-                                    Delay="0:0:0.5"
+                                    Delay="0:0:0.1"
                                     From="0"
                                     To="1"
                                     Duration="0:0:1" />
@@ -89,11 +89,18 @@
                                 </Rectangle>
 
                                 <controls:PlusBadge
-                                    x:Name="Badge"
+                                    x:Name="PlusBadge"
                                     Margin="12,12,0,0"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
                                     x:Load="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
+
+                                <controls:FreeBadge
+                                    x:Name="FreeBadge"
+                                    Margin="12,12,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    x:Load="{x:Bind FreeBadgeVisible, Mode=OneWay}" />
 
                                 <Grid Grid.Row="1" Margin="12,0">
                                     <TextBlock
@@ -113,7 +120,7 @@
                                 <Grid
                                     Grid.Row="2"
                                     Height="36"
-                                    Margin="8,4"
+                                    Margin="4,4"
                                     VerticalAlignment="Bottom">
                                     <StackPanel
                                         x:Name="DownloadPanel"
@@ -123,41 +130,53 @@
                                         <!--  buy button  -->
                                         <StackPanel
                                             x:Name="BuyPanel"
-                                            x:Load="{x:Bind CanBuy, Mode=OneWay}"
-                                            Orientation="Horizontal">
+                                            Orientation="Horizontal"
+                                            Visibility="{x:Bind CanBuy, Mode=OneWay}">
                                             <Button
                                                 x:Uid="BuyButton"
+                                                Padding="8,0"
                                                 VerticalAlignment="Stretch"
-                                                Command="{x:Bind BuyCommand, Mode=OneWay}"
-                                                Style="{StaticResource ActionButtonStyle}">
-                                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB28;" />
+                                                Command="{x:Bind BuySoundCommand, Mode=OneWay}"
+                                                Style="{StaticResource SubtleButton}">
+                                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                                             </Button>
                                         </StackPanel>
-
 
                                         <!--  download button  -->
                                         <Button
                                             x:Uid="DownloadSoundButton"
+                                            Padding="8,0"
+                                            VerticalAlignment="Stretch"
                                             Command="{x:Bind DownloadCommand, Mode=OneWay}"
-                                            Style="{StaticResource ActionButtonStyle}"
+                                            Style="{StaticResource SubtleButton}"
                                             Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                             <StackPanel Orientation="Horizontal">
                                                 <FontIcon
                                                     VerticalAlignment="Center"
                                                     FontFamily="{StaticResource FluentUIGlyphs}"
-                                                    Glyph="&#xE9B9;" />
+                                                    Glyph="{StaticResource GlyphDownload}" />
                                             </StackPanel>
                                         </Button>
 
-                                        <muxc:ProgressRing
-                                            Width="20"
-                                            Height="20"
+                                        <Grid
                                             Margin="8,0,0,0"
                                             VerticalAlignment="Center"
-                                            Foreground="White"
-                                            IsIndeterminate="False"
-                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
-                                            Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                            <muxc:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                AutomationProperties.AccessibilityView="Raw"
+                                                Foreground="#32ffffff"
+                                                IsIndeterminate="False"
+                                                Value="100" />
+                                            <muxc:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="White"
+                                                IsIndeterminate="False"
+                                                Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                        </Grid>
                                     </StackPanel>
 
                                     <StackPanel
@@ -166,9 +185,11 @@
                                         Orientation="Horizontal">
                                         <Button
                                             x:Uid="DeleteButton"
-                                            Command="{x:Bind DeleteCommand, Mode=OneWay}"
-                                            Style="{StaticResource ActionButtonStyle}">
-                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9ED;" />
+                                            Padding="8,0"
+                                            VerticalAlignment="Stretch"
+                                            Command="{x:Bind DeleteSoundCommand, Mode=OneWay}"
+                                            Style="{StaticResource SubtleButton}">
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />
                                         </Button>
                                     </StackPanel>
                                 </Grid>
@@ -178,6 +199,27 @@
                 </muxc:ItemsRepeater.ItemTemplate>
             </muxc:ItemsRepeater>
         </ScrollViewer>
+
+        <StackPanel
+            VerticalAlignment="Center"
+            Spacing="12"
+            Visibility="{x:Bind ViewModel.EmptyMessageVisible, Mode=OneWay}">
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </StackPanel.ChildrenTransitions>
+            <Image
+                Width="100"
+                HorizontalAlignment="Center"
+                AutomationProperties.AccessibilityView="Raw"
+                Source="ms-appx:///Assets/construction_3d.png" />
+            <TextBlock
+                MaxWidth="300"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.EmptyCatalogueMessage}"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+        </StackPanel>
 
         <muxc:ProgressRing
             x:Name="CatalogueProgressRing"

@@ -55,6 +55,12 @@ namespace AmbientSounds.Services
         MediaPlaybackState PlaybackState { get; set; }
 
         /// <summary>
+        /// Cancels any current playback
+        /// and plays a random sound instead.
+        /// </summary>
+        Task PlayRandomAsync();
+
+        /// <summary>
         /// Resumes playback.
         /// </summary>
         void Play();
@@ -114,10 +120,5 @@ namespace AmbientSounds.Services
         /// Sets the volume for the given sound.
         /// </summary>
         void SetVolume(string soundId, double value);
-
-        /// <summary>
-        /// Returns list of active sound Ids.
-        /// </summary>
-        IList<string> GetActiveIds();
     }
 }

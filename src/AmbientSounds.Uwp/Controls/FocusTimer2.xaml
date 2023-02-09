@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.FocusTimer2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid>
+        <winui:ProgressRing
+            Width="{x:Bind ActualWidth}"
+            Height="{x:Bind ActualHeight}"
+            Foreground="{ThemeResource SystemAccentColor}"
+            IsIndeterminate="False"
+            Opacity="0.1"
+            Value="100" />
+        <winui:ProgressRing
+            Width="{x:Bind ActualWidth}"
+            Height="{x:Bind ActualHeight}"
+            Foreground="{ThemeResource SystemAccentColor}"
+            IsIndeterminate="False"
+            Maximum="{x:Bind FocusLength, Mode=OneWay}"
+            Visibility="{x:Bind FocusRingVisible, Mode=OneWay}"
+            Value="{x:Bind FocusLengthProgress, Mode=OneWay}" />
+        <winui:ProgressRing
+            Width="{x:Bind ActualWidth}"
+            Height="{x:Bind ActualHeight}"
+            Foreground="{ThemeResource SystemAccentColorDark1}"
+            IsIndeterminate="False"
+            Maximum="{x:Bind RestLength, Mode=OneWay}"
+            Visibility="{x:Bind RestRingVisible, Mode=OneWay}"
+            Value="{x:Bind RestLengthProgress, Mode=OneWay}" />
+    </Grid>
+</UserControl>

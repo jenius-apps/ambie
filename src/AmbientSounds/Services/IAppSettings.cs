@@ -42,8 +42,23 @@
         string UploadUrl { get; set; }
 
         /// <summary>
+        /// URL to access the videos list.
+        /// </summary>
+        string VideosUrl { get; set; }
+
+        /// <summary>
+        /// URL to access the share endpoint.
+        /// </summary>
+        string ShareUrl { get; set; }
+
+        /// <summary>
         /// The API scope for catalogue access.
         /// </summary>
         string CatalogueScope { get; set; }
+
+        /// <summary>
+        /// The URL to enable presence features.
+        /// </summary>
+        string PresenceUrl { get; set; }
     }
 }

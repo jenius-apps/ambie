@@ -11,55 +11,55 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition x:Name="SecondColumn" Width="120" />
+        </Grid.ColumnDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsCompact, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PlayButton.Style" Value="{StaticResource SmallSubtleIconButton}" />
+                        <Setter Target="PlayIcon.FontSize" Value="{StaticResource SmallIconSize}" />
+                        <Setter Target="PauseIcon.FontSize" Value="{StaticResource SmallIconSize}" />
+                        <Setter Target="SecondColumn.Width" Value="*" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Button
+            x:Name="PlayButton"
             AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
             Command="{x:Bind ViewModel.TogglePlayStateCommand}"
-            CornerRadius="30"
-            Style="{StaticResource TransparentRoundButtonStyle}"
+            Style="{StaticResource SubtleIconButton}"
             ToolTipService.ToolTip="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}">
             <Grid>
                 <!--  play  -->
                 <FontIcon
+                    x:Name="PlayIcon"
                     FontFamily="{StaticResource FluentUIGlyphs}"
-                    Glyph="&#xEB21;"
+                    Glyph="{StaticResource GlyphPlay}"
                     Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}" />
 
                 <!--  pause  -->
                 <FontIcon
+                    x:Name="PauseIcon"
                     FontFamily="{StaticResource FluentUIGlyphs}"
-                    Glyph="&#xEAF4;"
+                    Glyph="{StaticResource GlyphPause}"
                     Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}" />
             </Grid>
         </Button>
-        <Button
+        <Slider
+            Grid.Column="1"
             Margin="12,0,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
             AutomationProperties.Name="{x:Bind strings:Resources.GlobalVolume}"
-            Style="{StaticResource TransparentRoundButtonStyle}"
-            ToolTipService.ToolTip="{x:Bind strings:Resources.GlobalVolume}">
-            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind GetDynamicIcon(ViewModel.Volume), Mode=OneWay}" />
-            <Button.Flyout>
-                <Flyout Placement="Bottom">
-                    <StackPanel Margin="4" Background="Transparent">
-                        <TextBlock HorizontalAlignment="Center" Text="{x:Bind strings:Resources.GlobalVolume}" />
-                        <Slider
-                            Width="120"
-                            Margin="0,4,0,0"
-                            AutomationProperties.Name="{x:Bind strings:Resources.GlobalVolume}"
-                            Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
-                    </StackPanel>
-                </Flyout>
-            </Button.Flyout>
-        </Button>
-
-        <!--<Button
-            x:Uid="RandomButton"
-            Margin="12,0,0,0"
-            Command="{x:Bind ViewModel.RandomCommand}"
-            Style="{StaticResource TransparentRoundButtonStyle}"
-            Visibility="Collapsed">
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE14B;" />
-        </Button>-->
-
-    </StackPanel>
+            ToolTipService.ToolTip="{x:Bind strings:Resources.GlobalVolume}"
+            Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
+    </Grid>
 </UserControl>

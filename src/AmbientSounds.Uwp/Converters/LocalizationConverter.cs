@@ -20,28 +20,6 @@ namespace AmbientSounds.Converters
         }
 
         /// <summary>
-        /// Attempts to localize a sound's name.
-        /// </summary>
-        /// <param name="value">The <see cref="Models.Sound.Name"/> property.</param>
-        /// <returns>A localized string of the sound if a localization exists.</returns>
-        public static string ConvertSoundName(string value)
-        {
-            InitializeLoader();
-
-            if (value is string soundName)
-            {
-                var translatedName = _loader.GetString("Sound" + soundName);
-                return string.IsNullOrWhiteSpace(translatedName)
-                    ? soundName
-                    : translatedName;
-            }
-            else
-            {
-                return value;
-            }
-        }
-
-        /// <summary>
         /// Returns localized words for whether the player
         /// button can be paused or played.
         /// </summary>
@@ -63,6 +41,24 @@ namespace AmbientSounds.Converters
             {
                 return _loader.GetString("Paused");
             }
+        }
+
+        public static string RecentFocusAccessibleName(int focusMinutes, int restMinutes, int repeats)
+        {
+            InitializeLoader();
+            return string.Format(
+                _loader.GetString("RecentFocusAccessibleName"),
+                focusMinutes.ToString(),
+                restMinutes.ToString(),
+                repeats.ToString());
+        }
+
+        public static string SliderHelpText(double max)
+        {
+            InitializeLoader();
+            return string.Format(
+                _loader.GetString("ZeroToMax"),
+                max.ToString());
         }
 
         /// <summary>

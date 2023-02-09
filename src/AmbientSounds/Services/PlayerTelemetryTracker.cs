@@ -1,5 +1,5 @@
 ﻿using AmbientSounds.Constants;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,14 +88,12 @@ namespace AmbientSounds.Services
             }
 
             string roundedDiff = GetRoundedDiff(pauseTime - PlayStart);
-            string ids = string.Join(",", _mixMediaPlayerService.GetActiveIds().OrderBy(static x => x));
 
             if (!string.IsNullOrWhiteSpace(roundedDiff))
             {
                 _telemetry.TrackEvent(TelemetryConstants.PlaybackTime, new Dictionary<string, string>
                 {
-                    { "time", roundedDiff },
-                    { "ids",  ids }
+                    { "time", roundedDiff }
                 });
             }
 

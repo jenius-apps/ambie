@@ -1,44 +1,75 @@
-﻿using System.Collections.Generic;
+﻿using AmbientSounds.Models;
+using AmbientSounds.ViewModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmbientSounds.Services
+#nullable enable
+
+namespace AmbientSounds.Services;
+
+/// <summary>
+/// Interface for triggering a dialog
+/// or modal pop up.
+/// </summary>
+public interface IDialogService
 {
     /// <summary>
-    /// Interface for triggering a dialog
-    /// or modal pop up.
+    /// Opens a rename dialog.
     /// </summary>
-    public interface IDialogService
-    {
-        /// <summary>
-        /// Opens a settings dialog.
-        /// </summary>
-        Task OpenSettingsAsync();
+    /// <param name="currentName">The current name use to pre-populate the field.</param>
+    /// <returns>The raw value from the input text field. This can be the same as the currentName value.</returns>
+    Task<string> RenameAsync(string currentName);
 
-        /// <summary>
-        /// Opens the theme settings dialog.
-        /// </summary>
-        Task OpenThemeSettingsAsync();
+    /// <summary>
+    /// Opens the premium dialog where users can purchase
+    /// ambie plus.
+    /// </summary>
+    Task OpenPremiumAsync();
 
-        /// <summary>
-        /// Opens a rename dialog.
-        /// </summary>
-        /// <param name="currentName">The current name use to pre-populate the field.</param>
-        /// <returns>The raw value from the input text field. This can be the same as the currentName value.</returns>
-        Task<string> RenameAsync(string currentName);
+    /// <summary>
+    /// Opens dialog regarding missing sounds.
+    /// Returns true if user chooses to
+    /// download missing sounds.
+    /// </summary>
+    Task<bool> MissingSoundsDialogAsync();
 
-        /// <summary>
-        /// Open dialog that shows the results of
-        /// clicking on a share link.
-        /// </summary>
-        /// <param name="soundIds">List of Ids to preview.</param>
-        /// <returns>List of sound Ids that are installed and user wants to play.
-        /// Empty list if operation was cancelled.</returns>
-        Task<IList<string>> OpenShareResultsAsync(IList<string> soundIds);
+    /// <summary>
+    /// Opens videos menu dialog.
+    /// </summary>
+    Task OpenVideosMenuAsync();
 
-        /// <summary>
-        /// Opens the premium dialog where users can purchase
-        /// ambie plus.
-        /// </summary>
-        Task OpenPremiumAsync();
-    }
+    /// <summary>
+    /// Opens interruption dialog.
+    /// </summary>
+    Task<(double, string)> OpenInterruptionAsync();
+
+    /// <summary>
+    /// Opens dialog for the given history details.
+    /// </summary>
+    Task OpenHistoryDetailsAsync(FocusHistoryViewModel historyViewModel);
+
+    /// <summary>
+    /// Opens a dialog that will edit the prepopulated string.
+    /// </summary>
+    /// <param name="prepopulatedText">Text to prepopulate the UI.</param>
+    /// <param name="maxSize">Optional max length for the string input.</param>
+    /// <returns>
+    /// Returns a real string if the operation was confirmed, the text was valid, and if the text was changed.
+    /// </returns>
+    Task<string?> EditTextAsync(string prepopulatedText, int? maxSize = null);
+    
+    /// <summary>
+    /// Opens the tutorial dialog.
+    /// </summary>
+    Task OpenTutorialAsync();
+
+    /// <summary>
+    /// Opens the share dialog.
+    /// </summary>
+    Task OpenShareAsync(IReadOnlyList<string> soundIds);
+
+    /// <summary>
+    /// Opens the missing shared sounds dialog.
+    /// </summary>
+    Task MissingShareSoundsDialogAsync();
 }

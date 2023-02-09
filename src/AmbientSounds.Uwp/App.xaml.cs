@@ -1,12 +1,19 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Constants;
 using AmbientSounds.Factories;
+using AmbientSounds.Repositories;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
+using AmbientSounds.Tools;
+using AmbientSounds.Tools.Uwp;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Tools;
+using JeniusApps.Common.Tools.Uwp;
 using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client.Extensibility;
-using Microsoft.Toolkit.Diagnostics;
+using CommunityToolkit.Diagnostics;
+using Microsoft.Toolkit.Uwp.Connectivity;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -15,8 +22,10 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
+using Windows.Graphics.Display;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -24,6 +33,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Gaming.XboxGameBar;
 
 #nullable enable
 
@@ -41,6 +51,7 @@ namespace AmbientSounds
         private static PlayerTelemetryTracker? _playerTracker;
         private IUserSettings? _userSettings;
         private static Frame? AppFrame;
+        //private XboxGameBarWidget? _widget;
 
         /// <summary>
         /// Initializes the singleton application object.
@@ -49,25 +60,83 @@ namespace AmbientSounds
         {
             this.InitializeComponent();
             this.Suspending += OnSuspension;
+            this.Resuming += OnResuming;
+            NetworkHelper.Instance.NetworkChanged += OnNetworkChanged;
 
             if (IsTenFoot)
             {
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
-                this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+                //this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
 
                 // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
                 this.FocusVisualKind = FocusVisualKind.Reveal;
             }
         }
 
-        private void OnSuspension(object sender, SuspendingEventArgs e)
+        private async void OnNetworkChanged(object sender, EventArgs e)
+        {
+            var presence = _serviceProvider?.GetService<IPresenceService>();
+            if (presence is null)
+            {
+                return;
+            }
+
+            if (NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
+            {
+                await presence.EnsureInitializedAsync();
+            }
+            else
+            {
+                await presence.DisconnectAsync();
+            }
+        }
+
+        private async void OnResuming(object sender, object e)
+        {
+            if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+            {
+                await presenceService.EnsureInitializedAsync();
+            }
+        }
+
+        private async void OnSuspension(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             _playerTracker?.TrackDuration(DateTimeOffset.Now);
+            if (_serviceProvider?.GetService<IFocusService>() is IFocusService focusService &&
+                focusService.CurrentState == AmbientSounds.Services.FocusState.Active)
+            {
+                // We don't support focus sessions when ambie is suspended,
+                // and we want to make sure notifications are cancelled.
+                // Note: If music is playing, then ambie won't suspend on minimize.
+                focusService.PauseTimer();
+            }
+
+            if (_serviceProvider?.GetService<IFocusNotesService>() is IFocusNotesService notesService)
+            {
+                await notesService.SaveNotesToStorageAsync();
+            }
+
+            if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+            {
+                await presenceService.DisconnectAsync();
+            }
+
             deferral.Complete();
         }
 
+        public static bool IsDesktop => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Desktop";
+
         public static bool IsTenFoot => AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || _isTenFootPc;
+
+        public static bool IsRightToLeftLanguage
+        {
+            get
+            {
+                string flowDirectionSetting = ResourceContext.GetForCurrentView().QualifierValues["LayoutDirection"];
+                return flowDirectionSetting == "RTL";
+            }
+        }
 
         /// <summary>
         /// Gets the <see cref="IServiceProvider"/> instance for the current application instance.
@@ -91,28 +160,45 @@ namespace AmbientSounds
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             await ActivateAsync(e.PrelaunchActivated);
+            if (e is IActivatedEventArgs activatedEventArgs
+                && activatedEventArgs is IProtocolActivatedEventArgs protocolArgs)
+            {
+                HandleProtocolLaunch(protocolArgs);
+            }
+
+            // Ensure previously scheduled toasts are closed on a fresh new launch.
+            App.Services.GetRequiredService<IToastService>().ClearScheduledToasts();
         }
 
         /// <inheritdoc/>
         protected override async void OnActivated(IActivatedEventArgs args)
         {
-
             if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
             {
                 new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
                 await ActivateAsync(false);
             }
-            else if (args.Kind == ActivationKind.Protocol && args is ProtocolActivatedEventArgs e)
+            else if (args is IProtocolActivatedEventArgs protocolActivatedEventArgs)
             {
-                // Ensure that the app does not try to load
-                // previous state of active sounds. This prevents
-                // conflicts with processing the url and loading
-                // sounds from the url.
-                await ActivateAsync(false, new AppSettings { LoadPreviousState = false });
-                var processor = App.Services.GetRequiredService<ILinkProcessor>();
-                processor.Process(e.Uri);
+                if (protocolActivatedEventArgs.Uri.AbsoluteUri.StartsWith("ms-gamebarwidget"))
+                {
+                    //await ActivateAsync(false, widgetMode: true);
+                    //_widget = new XboxGameBarWidget(args as XboxGameBarWidgetActivatedEventArgs, Window.Current.CoreWindow, AppFrame);
+                    //Window.Current.Closed += OnWidgetClosed;
+                }
+                else
+                {
+                    await ActivateAsync(false);
+                    HandleProtocolLaunch(protocolActivatedEventArgs);
+                }
             }
         }
+
+        //private void OnWidgetClosed(object sender, Windows.UI.Core.CoreWindowEventArgs e)
+        //{
+        //    _widget = null;
+        //    Window.Current.Closed -= OnWidgetClosed;
+        //}
 
         protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
         {
@@ -155,7 +241,7 @@ namespace AmbientSounds
             _appServiceDeferral?.Complete();
         }
 
-        private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null)
+        private async Task ActivateAsync(bool prelaunched, IAppSettings? appsettings = null, bool widgetMode = false)
         {
             // Do not repeat app initialization when the Window already has content
             if (Window.Current.Content is not Frame rootFrame)
@@ -182,19 +268,47 @@ namespace AmbientSounds
                 // Navigate to the root page if one isn't loaded already
                 if (rootFrame.Content is null)
                 {
-                    rootFrame.Navigate(typeof(Views.ShellPage));
+                    rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
+                    {
+                        IsGameBarWidget = widgetMode
+                    });
                 }
 
-                // Ensure the current window is active
                 Window.Current.Activate();
             }
 
             AppFrame = rootFrame;
+            if (IsRightToLeftLanguage)
+            {
+                rootFrame.FlowDirection = FlowDirection.RightToLeft;
+            }
             SetAppRequestedTheme();
             Services.GetRequiredService<INavigator>().RootFrame = rootFrame;
             CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
             await TryRegisterNotifications();
             await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
+        }
+
+        private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
+        {
+            try
+            {
+                var uri = protocolArgs.Uri;
+                var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
+
+                if (uri.Host is "launch")
+                {
+                    Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
+                }
+                else if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
+                {
+                    controller.ProcessShareProtocolArguments(arg);
+                }
+            }
+            catch (UriFormatException)
+            {
+                // An invalid Uri may have been passed in.
+            }
         }
 
         private void OnSettingSet(object sender, string key)
@@ -289,45 +403,80 @@ namespace AmbientSounds
                 // if viewmodel, then always transient unless otherwise stated
                 .AddSingleton<SoundListViewModel>() // shared in main and compact pages
                 .AddTransient<CatalogueListViewModel>()
-                .AddTransient<SoundSuggestionViewModel>()
                 .AddTransient<ScreensaverViewModel>()
-                .AddTransient<SettingsViewModel>()
-                .AddTransient<ThemeSettingsViewModel>()
-                .AddTransient<UploadFormViewModel>()
+                .AddSingleton<ScreensaverPageViewModel>()
+                .AddSingleton<SettingsViewModel>()
                 .AddTransient<CataloguePageViewModel>()
-                .AddTransient<UploadPageViewModel>()
-                .AddTransient<MainPageViewModel>()
-                .AddTransient<ShellPageViewModel>()
-                .AddTransient<ShareResultsViewModel>()
+                .AddSingleton<FocusTaskModuleViewModel>()
+                .AddSingleton<PremiumControlViewModel>()
+                .AddSingleton<FocusTimerModuleViewModel>()
+                .AddSingleton<ShellPageViewModel>()
                 .AddSingleton<PlayerViewModel>() // shared in main and compact pages
                 .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
+                .AddSingleton<FocusHistoryModuleViewModel>()
+                .AddSingleton<VideosMenuViewModel>()
+                .AddSingleton<TimeBannerViewModel>()
+                .AddSingleton<UpdatesViewModel>()
+                .AddSingleton<InterruptionPageViewModel>()
+                .AddSingleton<DownloadMissingViewModel>()
+                .AddSingleton<ShareViewModel>()
+                .AddSingleton<FocusPageViewModel>()
+                .AddSingleton<CompactPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
                 .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
-                .AddTransient<UploadedSoundsListViewModel>()
                 .AddSingleton<AppServiceController>()
+                .AddSingleton<ProtocolLaunchController>()
                 // object tree is all transient
                 .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
                 .AddTransient<IImagePicker, ImagePicker>()
+                .AddTransient<IClipboard, WindowsClipboard>()
+                .AddSingleton<IAppStoreRatings, MicrosoftStoreRatings>()
                 // Must be transient because this is basically
                 // a timer factory.
                 .AddTransient<ITimerService, TimerService>()
                 // exposes events or object tree has singleton, so singleton.
+                .AddSingleton<IDispatcherQueue, WindowsDispatcherQueue>()
+                .AddSingleton<IFocusNotesService, FocusNotesService>()
+                .AddSingleton<IFocusService, FocusService>()
+                .AddSingleton<IFocusHistoryService, FocusHistoryService>()
+                .AddSingleton<IFocusTaskService, FocusTaskService>()
+                .AddSingleton<IRecentFocusService, RecentFocusService>()
                 .AddSingleton<IDialogService, DialogService>()
+                .AddSingleton<IShareService, ShareService>()
+                .AddSingleton<IPresenceService, PresenceService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
+                .AddSingleton<IVideoService, VideoService>()
+                .AddSingleton<IFocusTaskCache, FocusTaskCache>()
+                .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
+                .AddSingleton<IVideoCache, VideoCache>()
+                .AddSingleton<IAssetLocalizer, AssetLocalizer>()
+                .AddSingleton<IShareDetailCache, ShareDetailCache>()
+                .AddSingleton<IShareDetailRepository, ShareDetailRepository>()
+                .AddSingleton<IFocusTaskRepository, FocusTaskRepository>()
+                .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
+                .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
+                .AddSingleton<IOfflineSoundRepository, OfflineSoundRepository>()
+                .AddSingleton<ISoundCache, SoundCache>()
+                .AddSingleton<ISoundService, SoundService>()
+                .AddSingleton<IFocusHistoryRepository, FocusHistoryRepository>()
                 .AddSingleton<IUserSettings, LocalSettings>()
-                .AddSingleton<IShareLinkBuilder, ShareLinkBuilder>()
                 .AddSingleton<ISoundMixService, SoundMixService>()
                 .AddSingleton<IRenamer, Renamer>()
-                .AddSingleton<ILinkProcessor, LinkProcessor>()
+                .AddSingleton<IUpdateService, UpdateService>()
+                .AddSingleton<ILocalizer, ReswLocalizer>()
                 .AddSingleton<IFileWriter, FileWriter>()
-                .AddSingleton<IUploadService, UploadService>()
                 .AddSingleton<IFilePicker, FilePicker>()
+                .AddSingleton<IFocusToastService, FocusToastService>()
                 .AddSingleton<ICustomWebUi, CustomAuthUiService>()
+                .AddSingleton<IToastService, ToastService>()
                 .AddSingleton<IMsaAuthClient, MsalClient>()
                 .AddSingleton<INavigator, Navigator>()
+                .AddSingleton<ICompactNavigator, CompactNavigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()
                 .AddSingleton<PlayerTelemetryTracker>()
+                .AddSingleton<IMediaPlayer, WindowsMediaPlayer>()
+                .AddSingleton<ISoundEffectsService, SoundEffectsService>()
                 .AddSingleton<ISyncEngine, SyncEngine>()
                 .AddSingleton<IAccountManager, AccountManager>()
                 .AddSingleton<IPreviewService, PreviewService>()
@@ -337,8 +486,8 @@ namespace AmbientSounds
                 .AddSingleton<ITelemetry, AppCenterTelemetry>()
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
+                .AddSingleton<IAssetsReader, AssetsReader>()
                 .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
-                .AddSingleton<ISoundDataProvider, SoundDataProvider>()
                 .AddSingleton(appsettings ?? new AppSettings())
                 .BuildServiceProvider(true);
 
@@ -349,6 +498,7 @@ namespace AmbientSounds
             // preload appservice controller to ensure its
             // dispatcher queue loads properly on the ui thread.
             provider.GetService<AppServiceController>();
+            provider.GetService<ProtocolLaunchController>();
             _playerTracker = provider.GetRequiredService<PlayerTelemetryTracker>();
             return provider;
         }

@@ -1,10 +1,12 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Toolkit.Diagnostics;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Diagnostics;
+using CommunityToolkit.Mvvm.Input;
 using System;
+using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.Factories
 {
@@ -14,7 +16,6 @@ namespace AmbientSounds.Factories
     public class SoundVmFactory : ISoundVmFactory
     {
         private readonly IDownloadManager _downloadManager;
-        private readonly ISoundDataProvider _soundDataProvider;
         private readonly IMixMediaPlayerService _player;
         private readonly ITelemetry _telemetry;
         private readonly IIapService _iapService;
@@ -22,7 +23,6 @@ namespace AmbientSounds.Factories
         private readonly IUserSettings _userSettings;
         private readonly ISoundMixService _soundMixService;
         private readonly IRenamer _renamer;
-        private readonly IUploadService _uploadService;
         private readonly IServiceProvider _serviceProvider;
 
         public SoundVmFactory(
@@ -30,16 +30,13 @@ namespace AmbientSounds.Factories
             IMixMediaPlayerService player,
             ITelemetry telemetry,
             IPreviewService previewService,
-            ISoundDataProvider soundDataProvider,
             ISoundMixService soundMixService,
             IUserSettings userSettings,
             IIapService iapService,
-            IUploadService uploadService,
             IRenamer renamer,
             IServiceProvider serviceProvider)
         {
             Guard.IsNotNull(downloadManager, nameof(downloadManager));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(telemetry, nameof(telemetry));
             Guard.IsNotNull(iapService, nameof(iapService));
@@ -47,7 +44,6 @@ namespace AmbientSounds.Factories
             Guard.IsNotNull(userSettings, nameof(userSettings));
             Guard.IsNotNull(soundMixService, nameof(soundMixService));
             Guard.IsNotNull(renamer, nameof(renamer));
-            Guard.IsNotNull(uploadService, nameof(uploadService));
             Guard.IsNotNull(serviceProvider, nameof(serviceProvider));
 
             _userSettings = userSettings;
@@ -55,43 +51,29 @@ namespace AmbientSounds.Factories
             _previewService = previewService;
             _soundMixService = soundMixService;
             _iapService = iapService;
-            _soundDataProvider = soundDataProvider;
             _player = player;
             _renamer = renamer;
             _telemetry = telemetry;
-            _uploadService = uploadService;
             _serviceProvider = serviceProvider;
         }
 
         /// <inheritdoc/>
-        public OnlineSoundViewModel? GetOnlineSoundVm(Sound s)
+        public OnlineSoundViewModel GetOnlineSoundVm(Sound s)
         {
-            if (s is null ||
-                s.Id is null ||
-                s.ImagePath is null ||
-                s.FilePath is null)
-            {
-                return null;
-            }
-
-            var dialogService = _serviceProvider.GetService(typeof(IDialogService)) as IDialogService;
-            Guard.IsNotNull(dialogService, nameof(dialogService));
+            Guard.IsNotNull(s);
 
             return new OnlineSoundViewModel(
                 s,
                 _downloadManager,
-                _soundDataProvider,
+                _serviceProvider.GetRequiredService<ISoundService>(),
                 _telemetry,
                 _previewService,
                 _iapService,
-                dialogService);
-        }
-
-        /// <inheritdoc/>
-        public UploadedSoundViewModel GetUploadedSoundVm(Sound s)
-        {
-            Guard.IsNotNull(s, nameof(s));
-            return new UploadedSoundViewModel(s, _uploadService);
+                _serviceProvider.GetRequiredService<IDialogService>(),
+                _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+                _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
+                _serviceProvider.GetRequiredService<IUpdateService>(),
+                _serviceProvider.GetRequiredService<ILocalizer>());
         }
 
         /// <inheritdoc/>
@@ -101,13 +83,17 @@ namespace AmbientSounds.Factories
             var vm = new SoundViewModel(
                 s,
                 _player,
-                _soundDataProvider,
+                _serviceProvider.GetRequiredService<ISoundService>(),
                 _soundMixService,
                 _telemetry,
                 _renamer,
                 _serviceProvider.GetRequiredService<IDialogService>(),
                 _serviceProvider.GetRequiredService<IIapService>(),
-                _serviceProvider.GetRequiredService<IDownloadManager>());
+                _serviceProvider.GetRequiredService<IDownloadManager>(),
+                _serviceProvider.GetRequiredService<IPresenceService>(),
+                _serviceProvider.GetRequiredService<IDispatcherQueue>(),
+                _serviceProvider.GetRequiredService<IOnlineSoundDataProvider>(),
+                _serviceProvider.GetRequiredService<IAssetLocalizer>());
             vm.Initialize();
             return vm;
         }
@@ -117,7 +103,12 @@ namespace AmbientSounds.Factories
         {
             Guard.IsNotNull(s, nameof(s));
             Guard.IsNotNull(removeCommand, nameof(removeCommand));
-            return new ActiveTrackViewModel(s, removeCommand, _player, _userSettings);
+            return new ActiveTrackViewModel(
+                s,
+                removeCommand,
+                _player,
+                _userSettings,
+                _serviceProvider.GetRequiredService<IAssetLocalizer>());
         }
     }
 }

@@ -28,6 +28,32 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region CompactMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Ambie Mini
+        /// </summary>
+        public static string CompactMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("CompactMode");
+            }
+        }
+        #endregion
+
+        #region RateUsText
+        /// <summary>
+        ///   Looks up a localized string similar to: Rate us
+        /// </summary>
+        public static string RateUsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RateUsText");
+            }
+        }
+        #endregion
+
         #region PlayerPauseText
         /// <summary>
         ///   Looks up a localized string similar to: Pause
@@ -154,19 +180,6 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("Soundfireplace");
-            }
-        }
-        #endregion
-
-        #region Soundmore
-        /// <summary>
-        ///   Looks up a localized string similar to: More coming soon
-        /// </summary>
-        public static string Soundmore
-        {
-            get
-            {
-                return _resourceLoader.GetString("Soundmore");
             }
         }
         #endregion
@@ -314,6 +327,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region ScreensaverMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Screensaver mode
+        /// </summary>
+        public static string ScreensaverMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("ScreensaverMode");
+            }
+        }
+        #endregion
+
         #region Paused
         /// <summary>
         ///   Looks up a localized string similar to: Paused
@@ -392,19 +418,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region MissingSoundsTitle
-        /// <summary>
-        ///   Looks up a localized string similar to: Missing sounds
-        /// </summary>
-        public static string MissingSoundsTitle
-        {
-            get
-            {
-                return _resourceLoader.GetString("MissingSoundsTitle");
-            }
-        }
-        #endregion
-
         #region SignInDescriptionText
         /// <summary>
         ///   Looks up a localized string similar to: This will enable sound gallery sync across your devices.
@@ -444,19 +457,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region ImageUrl
-        /// <summary>
-        ///   Looks up a localized string similar to: Image URL
-        /// </summary>
-        public static string ImageUrl
-        {
-            get
-            {
-                return _resourceLoader.GetString("ImageUrl");
-            }
-        }
-        #endregion
-
         #region Name
         /// <summary>
         ///   Looks up a localized string similar to: Name
@@ -483,97 +483,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region PathToSound
-        /// <summary>
-        ///   Looks up a localized string similar to: Path to sound
-        /// </summary>
-        public static string PathToSound
-        {
-            get
-            {
-                return _resourceLoader.GetString("PathToSound");
-            }
-        }
-        #endregion
-
-        #region UploadSubmitButton
-        /// <summary>
-        ///   Looks up a localized string similar to: Upload sound
-        /// </summary>
-        public static string UploadSubmitButton
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadSubmitButton");
-            }
-        }
-        #endregion
-
-        #region PublishStateNone
-        /// <summary>
-        ///   Looks up a localized string similar to: None
-        /// </summary>
-        public static string PublishStateNone
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateNone");
-            }
-        }
-        #endregion
-
-        #region PublishStatePublished
-        /// <summary>
-        ///   Looks up a localized string similar to: Published
-        /// </summary>
-        public static string PublishStatePublished
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStatePublished");
-            }
-        }
-        #endregion
-
-        #region PublishStateRejected
-        /// <summary>
-        ///   Looks up a localized string similar to: Rejected
-        /// </summary>
-        public static string PublishStateRejected
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateRejected");
-            }
-        }
-        #endregion
-
-        #region PublishStateUnderReview
-        /// <summary>
-        ///   Looks up a localized string similar to: Under review
-        /// </summary>
-        public static string PublishStateUnderReview
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateUnderReview");
-            }
-        }
-        #endregion
-
-        #region PublishStateUnpublished
-        /// <summary>
-        ///   Looks up a localized string similar to: Unpublished
-        /// </summary>
-        public static string PublishStateUnpublished
-        {
-            get
-            {
-                return _resourceLoader.GetString("PublishStateUnpublished");
-            }
-        }
-        #endregion
-
         #region Refresh
         /// <summary>
         ///   Looks up a localized string similar to: Refresh
@@ -587,19 +496,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region UploadPlaceholderMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: Upload relaxing sounds into Ambie's catalogue and have others listen to your work!
-        /// </summary>
-        public static string UploadPlaceholderMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadPlaceholderMessage");
-            }
-        }
-        #endregion
-
         #region SignIn
         /// <summary>
         ///   Looks up a localized string similar to: Sign in
@@ -609,19 +505,6 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("SignIn");
-            }
-        }
-        #endregion
-
-        #region UploadTermsMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: I agree to the Terms of Use
-        /// </summary>
-        public static string UploadTermsMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadTermsMessage");
             }
         }
         #endregion
@@ -652,19 +535,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region DonateUrl
-        /// <summary>
-        ///   Looks up a localized string similar to: Donation URL
-        /// </summary>
-        public static string DonateUrl
-        {
-            get
-            {
-                return _resourceLoader.GetString("DonateUrl");
-            }
-        }
-        #endregion
-
         #region Optional
         /// <summary>
         ///   Looks up a localized string similar to: Optional
@@ -687,45 +557,6 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("Required");
-            }
-        }
-        #endregion
-
-        #region UploadPermissionsMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: I created this sound or I have permission to upload it
-        /// </summary>
-        public static string UploadPermissionsMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("UploadPermissionsMessage");
-            }
-        }
-        #endregion
-
-        #region ErrorBigFile
-        /// <summary>
-        ///   Looks up a localized string similar to: That's a big file! Try again with a file smaller than {0} MB.
-        /// </summary>
-        public static string ErrorBigFile
-        {
-            get
-            {
-                return _resourceLoader.GetString("ErrorBigFile");
-            }
-        }
-        #endregion
-
-        #region ErrorUploadCount
-        /// <summary>
-        ///   Looks up a localized string similar to: You're at the limit! You can only have {0} sounds.
-        /// </summary>
-        public static string ErrorUploadCount
-        {
-            get
-            {
-                return _resourceLoader.GetString("ErrorUploadCount");
             }
         }
         #endregion
@@ -821,19 +652,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region Transparency
-        /// <summary>
-        ///   Looks up a localized string similar to: Transparency
-        /// </summary>
-        public static string Transparency
-        {
-            get
-            {
-                return _resourceLoader.GetString("Transparency");
-            }
-        }
-        #endregion
-
         #region Preview
         /// <summary>
         ///   Looks up a localized string similar to: Preview
@@ -873,19 +691,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region ScreensaverOn
-        /// <summary>
-        ///   Looks up a localized string similar to: Auto launch after 1 min
-        /// </summary>
-        public static string ScreensaverOn
-        {
-            get
-            {
-                return _resourceLoader.GetString("ScreensaverOn");
-            }
-        }
-        #endregion
-
         #region SelectSoundsPlaceholder
         /// <summary>
         ///   Looks up a localized string similar to: Mix and match up to 3 sounds
@@ -912,6 +717,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region SettingsResumeOnLaunch
+        /// <summary>
+        ///   Looks up a localized string similar to: Auto resume when Ambie opens
+        /// </summary>
+        public static string SettingsResumeOnLaunch
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsResumeOnLaunch");
+            }
+        }
+        #endregion
+
         #region PricePerMonth
         /// <summary>
         ///   Looks up a localized string similar to: {0} per month
@@ -925,9 +743,22 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region PriceForLifetime
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} lifetime
+        /// </summary>
+        public static string PriceForLifetime
+        {
+            get
+            {
+                return _resourceLoader.GetString("PriceForLifetime");
+            }
+        }
+        #endregion
+
         #region SubscriptionText1
         /// <summary>
-        ///   Looks up a localized string similar to: Access premium, high quality sounds!
+        ///   Looks up a localized string similar to: Access premium, high quality sounds
         /// </summary>
         public static string SubscriptionText1
         {
@@ -940,7 +771,7 @@ namespace AmbientSounds.Strings{
 
         #region SubscriptionText2
         /// <summary>
-        ///   Looks up a localized string similar to: Growing catalogue!
+        ///   Looks up a localized string similar to: Download video screensavers
         /// </summary>
         public static string SubscriptionText2
         {
@@ -953,7 +784,7 @@ namespace AmbientSounds.Strings{
 
         #region SubscriptionText3
         /// <summary>
-        ///   Looks up a localized string similar to: Support development!
+        ///   Looks up a localized string similar to: Support development
         /// </summary>
         public static string SubscriptionText3
         {
@@ -1002,6 +833,1436 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region DownloadText
+        /// <summary>
+        ///   Looks up a localized string similar to: Download
+        /// </summary>
+        public static string DownloadText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DownloadText");
+            }
+        }
+        #endregion
+
+        #region MissingSoundsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?
+        /// </summary>
+        public static string MissingSoundsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingSoundsMessage");
+            }
+        }
+        #endregion
+
+        #region MissingSoundsTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Missing sounds
+        /// </summary>
+        public static string MissingSoundsTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingSoundsTitle");
+            }
+        }
+        #endregion
+
+        #region Default
+        /// <summary>
+        ///   Looks up a localized string similar to: Default
+        /// </summary>
+        public static string Default
+        {
+            get
+            {
+                return _resourceLoader.GetString("Default");
+            }
+        }
+        #endregion
+
+        #region DeleteText
+        /// <summary>
+        ///   Looks up a localized string similar to: Delete
+        /// </summary>
+        public static string DeleteText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DeleteText");
+            }
+        }
+        #endregion
+
+        #region SizeMegaByte
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} MB
+        /// </summary>
+        public static string SizeMegaByte
+        {
+            get
+            {
+                return _resourceLoader.GetString("SizeMegaByte");
+            }
+        }
+        #endregion
+
+        #region MoreScreensavers
+        /// <summary>
+        ///   Looks up a localized string similar to: More screensavers
+        /// </summary>
+        public static string MoreScreensavers
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoreScreensavers");
+            }
+        }
+        #endregion
+
+        #region ScreensaverCatalogue
+        /// <summary>
+        ///   Looks up a localized string similar to: Screensaver catalogue
+        /// </summary>
+        public static string ScreensaverCatalogue
+        {
+            get
+            {
+                return _resourceLoader.GetString("ScreensaverCatalogue");
+            }
+        }
+        #endregion
+
+        #region ViewPremiumInfo
+        /// <summary>
+        ///   Looks up a localized string similar to: View premium info
+        /// </summary>
+        public static string ViewPremiumInfo
+        {
+            get
+            {
+                return _resourceLoader.GetString("ViewPremiumInfo");
+            }
+        }
+        #endregion
+
+        #region ToggleFullscreen
+        /// <summary>
+        ///   Looks up a localized string similar to: Toggle fullscreen
+        /// </summary>
+        public static string ToggleFullscreen
+        {
+            get
+            {
+                return _resourceLoader.GetString("ToggleFullscreen");
+            }
+        }
+        #endregion
+
+        #region GetAmbiePlus
+        /// <summary>
+        ///   Looks up a localized string similar to: Get Ambie+
+        /// </summary>
+        public static string GetAmbiePlus
+        {
+            get
+            {
+                return _resourceLoader.GetString("GetAmbiePlus");
+            }
+        }
+        #endregion
+
+        #region FocusText
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus
+        /// </summary>
+        public static string FocusText
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusText");
+            }
+        }
+        #endregion
+
+        #region PauseTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Pause timer
+        /// </summary>
+        public static string PauseTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("PauseTimer");
+            }
+        }
+        #endregion
+
+        #region StartTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Start timer
+        /// </summary>
+        public static string StartTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("StartTimer");
+            }
+        }
+        #endregion
+
+        #region FocusSessionCompleteMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Well done!
+        /// </summary>
+        public static string FocusSessionCompleteMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionCompleteMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionCompleteTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus session complete
+        /// </summary>
+        public static string FocusSessionCompleteTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionCompleteTitle");
+            }
+        }
+        #endregion
+
+        #region FocusSessionFocusMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Time to focus
+        /// </summary>
+        public static string FocusSessionFocusMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionFocusMessage");
+            }
+        }
+        #endregion
+
+        #region FocusSessionRestMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Time to rest
+        /// </summary>
+        public static string FocusSessionRestMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSessionRestMessage");
+            }
+        }
+        #endregion
+
+        #region RestText
+        /// <summary>
+        ///   Looks up a localized string similar to: Rest
+        /// </summary>
+        public static string RestText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RestText");
+            }
+        }
+        #endregion
+
+        #region FocusDotTooltip
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus session is active!
+        /// </summary>
+        public static string FocusDotTooltip
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusDotTooltip");
+            }
+        }
+        #endregion
+
+        #region SessionTypeFocus
+        /// <summary>
+        ///   Looks up a localized string similar to: Focusing
+        /// </summary>
+        public static string SessionTypeFocus
+        {
+            get
+            {
+                return _resourceLoader.GetString("SessionTypeFocus");
+            }
+        }
+        #endregion
+
+        #region SessionTypeRest
+        /// <summary>
+        ///   Looks up a localized string similar to: Resting
+        /// </summary>
+        public static string SessionTypeRest
+        {
+            get
+            {
+                return _resourceLoader.GetString("SessionTypeRest");
+            }
+        }
+        #endregion
+
+        #region Pause
+        /// <summary>
+        ///   Looks up a localized string similar to: Pause
+        /// </summary>
+        public static string Pause
+        {
+            get
+            {
+                return _resourceLoader.GetString("Pause");
+            }
+        }
+        #endregion
+
+        #region Reset
+        /// <summary>
+        ///   Looks up a localized string similar to: Reset
+        /// </summary>
+        public static string Reset
+        {
+            get
+            {
+                return _resourceLoader.GetString("Reset");
+            }
+        }
+        #endregion
+
+        #region ResetTimer
+        /// <summary>
+        ///   Looks up a localized string similar to: Reset timer
+        /// </summary>
+        public static string ResetTimer
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResetTimer");
+            }
+        }
+        #endregion
+
+        #region Start
+        /// <summary>
+        ///   Looks up a localized string similar to: Start
+        /// </summary>
+        public static string Start
+        {
+            get
+            {
+                return _resourceLoader.GetString("Start");
+            }
+        }
+        #endregion
+
+        #region FocusLength
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus minutes
+        /// </summary>
+        public static string FocusLength
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusLength");
+            }
+        }
+        #endregion
+
+        #region FocusNotesPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: You can jot down any notes here 🙂
+        /// </summary>
+        public static string FocusNotesPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusNotesPlaceholder");
+            }
+        }
+        #endregion
+
+        #region FocusPlanningHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: What's the plan?
+        /// </summary>
+        public static string FocusPlanningHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusPlanningHeader");
+            }
+        }
+        #endregion
+
+        #region Notepad
+        /// <summary>
+        ///   Looks up a localized string similar to: Notepad
+        /// </summary>
+        public static string Notepad
+        {
+            get
+            {
+                return _resourceLoader.GetString("Notepad");
+            }
+        }
+        #endregion
+
+        #region Repeats
+        /// <summary>
+        ///   Looks up a localized string similar to: Repeats
+        /// </summary>
+        public static string Repeats
+        {
+            get
+            {
+                return _resourceLoader.GetString("Repeats");
+            }
+        }
+        #endregion
+
+        #region RestLength
+        /// <summary>
+        ///   Looks up a localized string similar to: Rest minutes
+        /// </summary>
+        public static string RestLength
+        {
+            get
+            {
+                return _resourceLoader.GetString("RestLength");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpAction
+        /// <summary>
+        ///   Looks up a localized string similar to: Show me how to use it
+        /// </summary>
+        public static string FocusTimerHelpAction
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpAction");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!
+        /// </summary>
+        public static string FocusTimerHelpMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpMessage");
+            }
+        }
+        #endregion
+
+        #region FocusTimerHelpTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Welcome to Focus Timer!
+        /// </summary>
+        public static string FocusTimerHelpTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusTimerHelpTitle");
+            }
+        }
+        #endregion
+
+        #region Help
+        /// <summary>
+        ///   Looks up a localized string similar to: Help
+        /// </summary>
+        public static string Help
+        {
+            get
+            {
+                return _resourceLoader.GetString("Help");
+            }
+        }
+        #endregion
+
+        #region Next
+        /// <summary>
+        ///   Looks up a localized string similar to: Next
+        /// </summary>
+        public static string Next
+        {
+            get
+            {
+                return _resourceLoader.GetString("Next");
+            }
+        }
+        #endregion
+
+        #region TipFocusMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!
+        /// </summary>
+        public static string TipFocusMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipFocusMessage");
+            }
+        }
+        #endregion
+
+        #region TipFocusTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set focus minutes
+        /// </summary>
+        public static string TipFocusTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipFocusTitle");
+            }
+        }
+        #endregion
+
+        #region TipRepeatsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!
+        /// </summary>
+        public static string TipRepeatsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRepeatsMessage");
+            }
+        }
+        #endregion
+
+        #region TipRepeatsTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set repeats
+        /// </summary>
+        public static string TipRepeatsTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRepeatsTitle");
+            }
+        }
+        #endregion
+
+        #region TipRestMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Now, choose how long each rest segment will be. We recommend about 5 minutes for now!
+        /// </summary>
+        public static string TipRestMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRestMessage");
+            }
+        }
+        #endregion
+
+        #region TipRestTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Set rest minutes
+        /// </summary>
+        public static string TipRestTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipRestTitle");
+            }
+        }
+        #endregion
+
+        #region TipStartButtonMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!
+        /// </summary>
+        public static string TipStartButtonMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipStartButtonMessage");
+            }
+        }
+        #endregion
+
+        #region TipStartButtonTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Ready, set, go
+        /// </summary>
+        public static string TipStartButtonTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TipStartButtonTitle");
+            }
+        }
+        #endregion
+
+        #region RecentFocusAccessibleName
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} focus minutes, {1} rest minutes, {2} repeats.
+        /// </summary>
+        public static string RecentFocusAccessibleName
+        {
+            get
+            {
+                return _resourceLoader.GetString("RecentFocusAccessibleName");
+            }
+        }
+        #endregion
+
+        #region RecentFocusList
+        /// <summary>
+        ///   Looks up a localized string similar to: List of recent focus configurations.
+        /// </summary>
+        public static string RecentFocusList
+        {
+            get
+            {
+                return _resourceLoader.GetString("RecentFocusList");
+            }
+        }
+        #endregion
+
+        #region ZeroToMax
+        /// <summary>
+        ///   Looks up a localized string similar to: 0 to {0}
+        /// </summary>
+        public static string ZeroToMax
+        {
+            get
+            {
+                return _resourceLoader.GetString("ZeroToMax");
+            }
+        }
+        #endregion
+
+        #region History
+        /// <summary>
+        ///   Looks up a localized string similar to: History
+        /// </summary>
+        public static string History
+        {
+            get
+            {
+                return _resourceLoader.GetString("History");
+            }
+        }
+        #endregion
+
+        #region Interruptions
+        /// <summary>
+        ///   Looks up a localized string similar to: Interruptions
+        /// </summary>
+        public static string Interruptions
+        {
+            get
+            {
+                return _resourceLoader.GetString("Interruptions");
+            }
+        }
+        #endregion
+
+        #region FocusHistoryPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Your recent history will appear here
+        /// </summary>
+        public static string FocusHistoryPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusHistoryPlaceholderText");
+            }
+        }
+        #endregion
+
+        #region LogInterruption
+        /// <summary>
+        ///   Looks up a localized string similar to: Log interruption
+        /// </summary>
+        public static string LogInterruption
+        {
+            get
+            {
+                return _resourceLoader.GetString("LogInterruption");
+            }
+        }
+        #endregion
+
+        #region Confirm
+        /// <summary>
+        ///   Looks up a localized string similar to: Confirm
+        /// </summary>
+        public static string Confirm
+        {
+            get
+            {
+                return _resourceLoader.GetString("Confirm");
+            }
+        }
+        #endregion
+
+        #region InterruptionMinutesTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Minutes interrupted
+        /// </summary>
+        public static string InterruptionMinutesTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionMinutesTitle");
+            }
+        }
+        #endregion
+
+        #region Notes
+        /// <summary>
+        ///   Looks up a localized string similar to: Notes
+        /// </summary>
+        public static string Notes
+        {
+            get
+            {
+                return _resourceLoader.GetString("Notes");
+            }
+        }
+        #endregion
+
+        #region InterruptionMinutesHelpMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.
+        /// </summary>
+        public static string InterruptionMinutesHelpMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionMinutesHelpMessage");
+            }
+        }
+        #endregion
+
+        #region HistoryRecent
+        /// <summary>
+        ///   Looks up a localized string similar to: Recent history
+        /// </summary>
+        public static string HistoryRecent
+        {
+            get
+            {
+                return _resourceLoader.GetString("HistoryRecent");
+            }
+        }
+        #endregion
+
+        #region RoundsCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Rounds completed
+        /// </summary>
+        public static string RoundsCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("RoundsCompleted");
+            }
+        }
+        #endregion
+
+        #region ResultMessageFail1
+        /// <summary>
+        ///   Looks up a localized string similar to: Good effort
+        /// </summary>
+        public static string ResultMessageFail1
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResultMessageFail1");
+            }
+        }
+        #endregion
+
+        #region ResultMessageSuccess1
+        /// <summary>
+        ///   Looks up a localized string similar to: You're amazing
+        /// </summary>
+        public static string ResultMessageSuccess1
+        {
+            get
+            {
+                return _resourceLoader.GetString("ResultMessageSuccess1");
+            }
+        }
+        #endregion
+
+        #region AppDisplayName
+        /// <summary>
+        ///   Looks up a localized string similar to: Ambie
+        /// </summary>
+        public static string AppDisplayName
+        {
+            get
+            {
+                return _resourceLoader.GetString("AppDisplayName");
+            }
+        }
+        #endregion
+
+        #region TaskModuleNewTaskPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Add tasks to focus on, then press the start button
+        /// </summary>
+        public static string TaskModuleNewTaskPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleNewTaskPlaceholder");
+            }
+        }
+        #endregion
+
+        #region TaskModuleTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Tasks
+        /// </summary>
+        public static string TaskModuleTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleTitle");
+            }
+        }
+        #endregion
+
+        #region TaskModuleRecentCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Recently completed
+        /// </summary>
+        public static string TaskModuleRecentCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskModuleRecentCompleted");
+            }
+        }
+        #endregion
+
+        #region EditText
+        /// <summary>
+        ///   Looks up a localized string similar to: Edit
+        /// </summary>
+        public static string EditText
+        {
+            get
+            {
+                return _resourceLoader.GetString("EditText");
+            }
+        }
+        #endregion
+
+        #region TasksCompleted
+        /// <summary>
+        ///   Looks up a localized string similar to: Tasks completed
+        /// </summary>
+        public static string TasksCompleted
+        {
+            get
+            {
+                return _resourceLoader.GetString("TasksCompleted");
+            }
+        }
+        #endregion
+
+        #region Timer
+        /// <summary>
+        ///   Looks up a localized string similar to: Timer
+        /// </summary>
+        public static string Timer
+        {
+            get
+            {
+                return _resourceLoader.GetString("Timer");
+            }
+        }
+        #endregion
+
+        #region TaskTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Task {0}
+        /// </summary>
+        public static string TaskTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("TaskTitle");
+            }
+        }
+        #endregion
+
+        #region FreeBadgeInfo
+        /// <summary>
+        ///   Looks up a localized string similar to: Free this week!
+        /// </summary>
+        public static string FreeBadgeInfo
+        {
+            get
+            {
+                return _resourceLoader.GetString("FreeBadgeInfo");
+            }
+        }
+        #endregion
+
+        #region SettingsCompactMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Open Ambie Mini when focusing
+        /// </summary>
+        public static string SettingsCompactMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsCompactMode");
+            }
+        }
+        #endregion
+
+        #region CompactModeTooltipTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Open Ambie Mini
+        /// </summary>
+        public static string CompactModeTooltipTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("CompactModeTooltipTitle");
+            }
+        }
+        #endregion
+
+        #region CompactModeTooltipMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.
+        /// </summary>
+        public static string CompactModeTooltipMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("CompactModeTooltipMessage");
+            }
+        }
+        #endregion
+
+        #region DurationText
+        /// <summary>
+        ///   Looks up a localized string similar to: Duration
+        /// </summary>
+        public static string DurationText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DurationText");
+            }
+        }
+        #endregion
+
+        #region EndTimeText
+        /// <summary>
+        ///   Looks up a localized string similar to: End
+        /// </summary>
+        public static string EndTimeText
+        {
+            get
+            {
+                return _resourceLoader.GetString("EndTimeText");
+            }
+        }
+        #endregion
+
+        #region MiniText
+        /// <summary>
+        ///   Looks up a localized string similar to: Mini
+        /// </summary>
+        public static string MiniText
+        {
+            get
+            {
+                return _resourceLoader.GetString("MiniText");
+            }
+        }
+        #endregion
+
+        #region PausesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Pauses
+        /// </summary>
+        public static string PausesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("PausesText");
+            }
+        }
+        #endregion
+
+        #region EmptyHomeMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Download sounds from the catalogue
+        /// </summary>
+        public static string EmptyHomeMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EmptyHomeMessage");
+            }
+        }
+        #endregion
+
+        #region EditHomePage
+        /// <summary>
+        ///   Looks up a localized string similar to: Edit home page
+        /// </summary>
+        public static string EditHomePage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EditHomePage");
+            }
+        }
+        #endregion
+
+        #region EditHomePageMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Drag and drop sounds to personalize your home page. Try it now!
+        /// </summary>
+        public static string EditHomePageMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EditHomePageMessage");
+            }
+        }
+        #endregion
+
+        #region EmptyCatalogueMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Sorry about that! We couldn't load the catalogue. Try checking your internet connection.
+        /// </summary>
+        public static string EmptyCatalogueMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("EmptyCatalogueMessage");
+            }
+        }
+        #endregion
+
+        #region AboutAmbie
+        /// <summary>
+        ///   Looks up a localized string similar to: About Ambie
+        /// </summary>
+        public static string AboutAmbie
+        {
+            get
+            {
+                return _resourceLoader.GetString("AboutAmbie");
+            }
+        }
+        #endregion
+
+        #region SettingsCompactModeDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Ambie Mini will open automatically when focusing
+        /// </summary>
+        public static string SettingsCompactModeDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsCompactModeDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsNotificationsSwitchDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: We'll notify you know when new sounds are available
+        /// </summary>
+        public static string SettingsNotificationsSwitchDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsNotificationsSwitchDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsResumeOnLaunchDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: On launch, Ambie will resume playing automatically
+        /// </summary>
+        public static string SettingsResumeOnLaunchDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsResumeOnLaunchDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsTelemetrySwitchDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Crashes and anonymous usage info are reported to help improve Ambie
+        /// </summary>
+        public static string SettingsTelemetrySwitchDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsTelemetrySwitchDescription");
+            }
+        }
+        #endregion
+
+        #region BackgroundImage
+        /// <summary>
+        ///   Looks up a localized string similar to: Background image
+        /// </summary>
+        public static string BackgroundImage
+        {
+            get
+            {
+                return _resourceLoader.GetString("BackgroundImage");
+            }
+        }
+        #endregion
+
+        #region CustomImage
+        /// <summary>
+        ///   Looks up a localized string similar to: Custom image
+        /// </summary>
+        public static string CustomImage
+        {
+            get
+            {
+                return _resourceLoader.GetString("CustomImage");
+            }
+        }
+        #endregion
+
+        #region SettingsGeneralHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: General settings
+        /// </summary>
+        public static string SettingsGeneralHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsGeneralHeader");
+            }
+        }
+        #endregion
+
+        #region SettingsTheme
+        /// <summary>
+        ///   Looks up a localized string similar to: Choose your mode
+        /// </summary>
+        public static string SettingsTheme
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsTheme");
+            }
+        }
+        #endregion
+
+        #region SettingsThemeDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Change the colours that appear in Ambie
+        /// </summary>
+        public static string SettingsThemeDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsThemeDescription");
+            }
+        }
+        #endregion
+
+        #region ShareMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Share what you're listening to
+        /// </summary>
+        public static string ShareMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("ShareMessage");
+            }
+        }
+        #endregion
+
+        #region MissingShareSoundsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Let's see if they can be downloaded.
+        /// </summary>
+        public static string MissingShareSoundsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingShareSoundsMessage");
+            }
+        }
+        #endregion
+
+        #region MissingShareSoundsTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: You're missing some sounds
+        /// </summary>
+        public static string MissingShareSoundsTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("MissingShareSoundsTitle");
+            }
+        }
+        #endregion
+
+        #region ReviewText
+        /// <summary>
+        ///   Looks up a localized string similar to: Review
+        /// </summary>
+        public static string ReviewText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ReviewText");
+            }
+        }
+        #endregion
+
+        #region ShareText
+        /// <summary>
+        ///   Looks up a localized string similar to: Share
+        /// </summary>
+        public static string ShareText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ShareText");
+            }
+        }
+        #endregion
+
+        #region CopiedText
+        /// <summary>
+        ///   Looks up a localized string similar to: Copied!
+        /// </summary>
+        public static string CopiedText
+        {
+            get
+            {
+                return _resourceLoader.GetString("CopiedText");
+            }
+        }
+        #endregion
+
+        #region CopyText
+        /// <summary>
+        ///   Looks up a localized string similar to: Copy
+        /// </summary>
+        public static string CopyText
+        {
+            get
+            {
+                return _resourceLoader.GetString("CopyText");
+            }
+        }
+        #endregion
+
+        #region OrText
+        /// <summary>
+        ///   Looks up a localized string similar to: Or
+        /// </summary>
+        public static string OrText
+        {
+            get
+            {
+                return _resourceLoader.GetString("OrText");
+            }
+        }
+        #endregion
+
+        #region BuyDurableTooltip
+        /// <summary>
+        ///   Looks up a localized string similar to: Unlock this sound
+        /// </summary>
+        public static string BuyDurableTooltip
+        {
+            get
+            {
+                return _resourceLoader.GetString("BuyDurableTooltip");
+            }
+        }
+        #endregion
+
+        #region CheckForUpdatesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Check for updates
+        /// </summary>
+        public static string CheckForUpdatesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("CheckForUpdatesText");
+            }
+        }
+        #endregion
+
+        #region UpdatesPageMessage1
+        /// <summary>
+        ///   Looks up a localized string similar to: Check here for updates to your sounds and videos.
+        /// </summary>
+        public static string UpdatesPageMessage1
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPageMessage1");
+            }
+        }
+        #endregion
+
+        #region UpdatesPageMessage2
+        /// <summary>
+        ///   Looks up a localized string similar to: Updates contain improvements to translations, sound quality, and more.
+        /// </summary>
+        public static string UpdatesPageMessage2
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPageMessage2");
+            }
+        }
+        #endregion
+
+        #region UpdatesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Updates
+        /// </summary>
+        public static string UpdatesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesText");
+            }
+        }
+        #endregion
+
+        #region DataVersionColon
+        /// <summary>
+        ///   Looks up a localized string similar to: Data version:
+        /// </summary>
+        public static string DataVersionColon
+        {
+            get
+            {
+                return _resourceLoader.GetString("DataVersionColon");
+            }
+        }
+        #endregion
+
+        #region FileVersionColon
+        /// <summary>
+        ///   Looks up a localized string similar to: File version:
+        /// </summary>
+        public static string FileVersionColon
+        {
+            get
+            {
+                return _resourceLoader.GetString("FileVersionColon");
+            }
+        }
+        #endregion
+
+        #region UpdateAllText
+        /// <summary>
+        ///   Looks up a localized string similar to: Update all
+        /// </summary>
+        public static string UpdateAllText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateAllText");
+            }
+        }
+        #endregion
+
+        #region UpdatesPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Fully up-to-date. You're all set.
+        /// </summary>
+        public static string UpdatesPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesPlaceholderText");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonFile
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves playback quality
+        /// </summary>
+        public static string UpdateReasonFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonFile");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonMetaData
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves translations and other metadata
+        /// </summary>
+        public static string UpdateReasonMetaData
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonMetaData");
+            }
+        }
+        #endregion
+
+        #region UpdateReasonMetaDataAndFile
+        /// <summary>
+        ///   Looks up a localized string similar to: Improves playback quality, translations, and other metadata
+        /// </summary>
+        public static string UpdateReasonMetaDataAndFile
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdateReasonMetaDataAndFile");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -1014,6 +2275,8 @@ namespace AmbientSounds.Strings{
         {
             __Undefined = 0,
             CloseText,
+            CompactMode,
+            RateUsText,
             PlayerPauseText,
             PlayerPlayText,
             ReadyToPlayText,
@@ -1024,7 +2287,6 @@ namespace AmbientSounds.Strings{
             Soundcoffeeshop,
             Soundcreek,
             Soundfireplace,
-            Soundmore,
             Soundrain,
             Soundrainforest,
             Soundunderwater,
@@ -1036,38 +2298,24 @@ namespace AmbientSounds.Strings{
             Soundwind,
             AlreadyDownloaded,
             CanDownload,
+            ScreensaverMode,
             Paused,
             Playing,
             GlobalVolume,
             RemoveActiveButton,
             CancelText,
             RenameText,
-            MissingSoundsTitle,
             SignInDescriptionText,
             Attribution,
             BrowseText,
-            ImageUrl,
             Name,
             NewSound,
-            PathToSound,
-            UploadSubmitButton,
-            PublishStateNone,
-            PublishStatePublished,
-            PublishStateRejected,
-            PublishStateUnderReview,
-            PublishStateUnpublished,
             Refresh,
-            UploadPlaceholderMessage,
             SignIn,
-            UploadTermsMessage,
             AreYouSure,
             Yes,
-            DonateUrl,
             Optional,
             Required,
-            UploadPermissionsMessage,
-            ErrorBigFile,
-            ErrorUploadCount,
             Donate,
             TermsOfUse,
             FollowTwitter,
@@ -1075,20 +2323,130 @@ namespace AmbientSounds.Strings{
             FirstLaunchMessage,
             HelloAndWelcome,
             PinToTaskbar,
-            Transparency,
             Preview,
             Catalogue,
             Home,
-            ScreensaverOn,
             SelectSoundsPlaceholder,
             ThemeSettings,
+            SettingsResumeOnLaunch,
             PricePerMonth,
+            PriceForLifetime,
             SubscriptionText1,
             SubscriptionText2,
             SubscriptionText3,
             ThankYouForSub,
             HelloAgain,
             RateUsMessage,
+            DownloadText,
+            MissingSoundsMessage,
+            MissingSoundsTitle,
+            Default,
+            DeleteText,
+            SizeMegaByte,
+            MoreScreensavers,
+            ScreensaverCatalogue,
+            ViewPremiumInfo,
+            ToggleFullscreen,
+            GetAmbiePlus,
+            FocusText,
+            PauseTimer,
+            StartTimer,
+            FocusSessionCompleteMessage,
+            FocusSessionCompleteTitle,
+            FocusSessionFocusMessage,
+            FocusSessionRestMessage,
+            RestText,
+            FocusDotTooltip,
+            SessionTypeFocus,
+            SessionTypeRest,
+            Pause,
+            Reset,
+            ResetTimer,
+            Start,
+            FocusLength,
+            FocusNotesPlaceholder,
+            FocusPlanningHeader,
+            Notepad,
+            Repeats,
+            RestLength,
+            FocusTimerHelpAction,
+            FocusTimerHelpMessage,
+            FocusTimerHelpTitle,
+            Help,
+            Next,
+            TipFocusMessage,
+            TipFocusTitle,
+            TipRepeatsMessage,
+            TipRepeatsTitle,
+            TipRestMessage,
+            TipRestTitle,
+            TipStartButtonMessage,
+            TipStartButtonTitle,
+            RecentFocusAccessibleName,
+            RecentFocusList,
+            ZeroToMax,
+            History,
+            Interruptions,
+            FocusHistoryPlaceholderText,
+            LogInterruption,
+            Confirm,
+            InterruptionMinutesTitle,
+            Notes,
+            InterruptionMinutesHelpMessage,
+            HistoryRecent,
+            RoundsCompleted,
+            ResultMessageFail1,
+            ResultMessageSuccess1,
+            AppDisplayName,
+            TaskModuleNewTaskPlaceholder,
+            TaskModuleTitle,
+            TaskModuleRecentCompleted,
+            EditText,
+            TasksCompleted,
+            Timer,
+            TaskTitle,
+            FreeBadgeInfo,
+            SettingsCompactMode,
+            CompactModeTooltipTitle,
+            CompactModeTooltipMessage,
+            DurationText,
+            EndTimeText,
+            MiniText,
+            PausesText,
+            EmptyHomeMessage,
+            EditHomePage,
+            EditHomePageMessage,
+            EmptyCatalogueMessage,
+            AboutAmbie,
+            SettingsCompactModeDescription,
+            SettingsNotificationsSwitchDescription,
+            SettingsResumeOnLaunchDescription,
+            SettingsTelemetrySwitchDescription,
+            BackgroundImage,
+            CustomImage,
+            SettingsGeneralHeader,
+            SettingsTheme,
+            SettingsThemeDescription,
+            ShareMessage,
+            MissingShareSoundsMessage,
+            MissingShareSoundsTitle,
+            ReviewText,
+            ShareText,
+            CopiedText,
+            CopyText,
+            OrText,
+            BuyDurableTooltip,
+            CheckForUpdatesText,
+            UpdatesPageMessage1,
+            UpdatesPageMessage2,
+            UpdatesText,
+            DataVersionColon,
+            FileVersionColon,
+            UpdateAllText,
+            UpdatesPlaceholderText,
+            UpdateReasonFile,
+            UpdateReasonMetaData,
+            UpdateReasonMetaDataAndFile,
         }
 
         private static ResourceLoader _resourceLoader;

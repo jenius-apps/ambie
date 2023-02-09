@@ -1,84 +1,289 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
+using ComputeSharp;
+using ComputeSharp.Uwp;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Xaml.Controls;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Timers;
+using Windows.Media.Core;
 using Windows.System;
+using Windows.System.Display;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
 
-namespace AmbientSounds.Views
+namespace AmbientSounds.Views;
+
+public sealed partial class ScreensaverPage : Page
 {
-    public sealed partial class ScreensaverPage : Page
+    private readonly DisplayRequest _displayRequest;
+
+    public ScreensaverPage()
     {
-        public ScreensaverPage()
+        this.InitializeComponent();
+        this.DataContext = App.Services.GetRequiredService<ScreensaverPageViewModel>();
+        IsButtonsHidden = false;
+        Queue = DispatcherQueue.GetForCurrentThread();
+        SetTimer();
+        ViewModel.Loaded += OnViewModelLoaded;
+        ViewModel.PropertyChanged += OnViewModelPropertyChanged;
+        _displayRequest = new DisplayRequest();
+    }
+
+    public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
+
+    private bool IsFullscreen { get; set; }
+
+    private bool IsButtonsHidden { get; set; }
+
+    private DispatcherQueueTimer? InactiveTimer { get; set; }
+
+    private DispatcherQueue Queue { get; set; }
+
+    private const int SecondsToHide = 5;
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        var settings = App.Services.GetRequiredService<IUserSettings>();
+        await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
+
+        var telemetry = App.Services.GetRequiredService<ITelemetry>();
+        telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
         {
-            this.InitializeComponent();
+            { "name", "screensaver" }
+        });
+
+        var coreWindow = CoreWindow.GetForCurrentThread();
+        coreWindow.KeyDown += CoreWindow_KeyDown;
+        coreWindow.SizeChanged += CoreWindow_SizeChanged;
+        var navigator = SystemNavigationManager.GetForCurrentView();
+        navigator.BackRequested += OnBackRequested;
+        var device = GraphicsDevice.GetDefault();
+        device.DeviceLost += Device_DeviceLost;
+
+        var view = ApplicationView.GetForCurrentView();
+        IsFullscreen = view.IsFullScreenMode;
+
+        if (App.IsTenFoot)
+        {
+            GoBackButton.Focus(Windows.UI.Xaml.FocusState.Programmatic);
         }
 
-        private bool ShowBackButton => !App.IsTenFoot;
+        _displayRequest.RequestActive();
+    }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.Loaded -= OnViewModelLoaded;
+        ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
+
+        var coreWindow = CoreWindow.GetForCurrentThread();
+        coreWindow.KeyDown -= CoreWindow_KeyDown;
+        coreWindow.SizeChanged -= CoreWindow_SizeChanged;
+        var navigator = SystemNavigationManager.GetForCurrentView();
+        navigator.BackRequested -= OnBackRequested;
+        var device = GraphicsDevice.GetDefault();
+        device.DeviceLost -= Device_DeviceLost;
+
+        SettingsFlyout?.Items?.Clear();
+        _displayRequest.RequestRelease();
+    }
+
+    private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(ViewModel.VideoSource))
         {
-            var settings = App.Services.GetRequiredService<IUserSettings>();
-            bool useDarkScreensaver = settings.Get<bool>(UserSettingsConstants.DarkScreensasver);
-            if (useDarkScreensaver)
+            VideoPlayer.MediaPlayer.IsLoopingEnabled = true;
+            VideoPlayer.MediaPlayer.Source = MediaSource.CreateFromUri(ViewModel.VideoSource);
+        }
+    }
+
+    private void OnViewModelLoaded(object sender, EventArgs e)
+    {
+        if (!ViewModel.SettingsButtonVisible)
+        {
+            return;
+        }
+
+        SettingsFlyout.Items.Clear();
+
+        foreach (var item in ViewModel.MenuItems)
+        {
+            MenuFlyoutItem menuItem;
+
+            if (item.IsToggle)
             {
-                VisualStateManager.GoToState(this, nameof(DarkScreensaverState), false);
+                menuItem = new ToggleMenuFlyoutItem()
+                {
+                    IsChecked = item == ViewModel.CurrentSelection
+                };
             }
             else
             {
-                FindName(nameof(ScreensaverControl));
+                menuItem = new MenuFlyoutItem();
             }
 
+            menuItem.DataContext = item;
+            menuItem.Text = item.Text;
+            menuItem.Click += OnMenuItemClicked;
+
+            SettingsFlyout.Items.Add(menuItem);
+        }
+    }
+
+    private void OnMenuItemClicked(object sender, RoutedEventArgs e)
+    {
+        if (sender is MenuFlyoutItem flyoutItem &&
+            flyoutItem.DataContext is FlyoutMenuItem dc)
+        {
+
+            if (flyoutItem is ToggleMenuFlyoutItem)
+            {
+                foreach (var item in SettingsFlyout.Items)
+                {
+                    if (item is ToggleMenuFlyoutItem menuItem)
+                    {
+                        menuItem.IsChecked = menuItem == flyoutItem;
+                    }
+                }
+            }
+
+            dc.Command.Execute(dc.CommandParameter);
+        }
+    }
+
+    private void OnBackRequested(object sender, BackRequestedEventArgs e)
+    {
+        e.Handled = true;
+        GoBack();
+    }
+
+    private void CoreWindow_KeyDown(CoreWindow sender, KeyEventArgs args)
+    {
+        if (args.VirtualKey == VirtualKey.Escape)
+        {
+            GoBack();
+            args.Handled = true;
+        }
+    }
+
+    private void CoreWindow_SizeChanged(CoreWindow sender, WindowSizeChangedEventArgs args)
+    {
+        var view = ApplicationView.GetForCurrentView();
+
+        IsFullscreen = view.IsFullScreenMode;
+
+        // We hide the back button when in full screen mode
+        // to avoid the opacity animation bug that occurs
+        // when navigating back to home page while in full screen mode.
+        GoBackButton.Visibility = view.IsFullScreenMode
+            ? Visibility.Collapsed
+            : Visibility.Visible;
+
+        this.Bindings.Update();
+    }
+
+    private void Device_DeviceLost(object sender, DeviceLostEventArgs e)
+    {
+        var telemetry = App.Services.GetRequiredService<ITelemetry>();
+
+        telemetry.TrackEvent(TelemetryConstants.ShaderDeviceLost, new Dictionary<string, string>()
+        {
+            { "reason", e.Reason.ToString() }
+        });
+    }
+
+    private void GoBack()
+    {
+        var view = ApplicationView.GetForCurrentView();
+        if (view.IsFullScreenMode)
+        {
+            view.ExitFullScreenMode();
+        }
+
+        var navigator = App.Services.GetRequiredService<INavigator>();
+        navigator.GoBack(nameof(ScreensaverPage));
+    }
+
+    private void GoBack(object sender, RoutedEventArgs e)
+    {
+        GoBack();
+    }
+
+    private void AnimatedComputeShaderPanel_RenderingFailed(AnimatedComputeShaderPanel sender, RenderingFailedEventArgs args)
+    {
+        var telemetry = App.Services.GetRequiredService<ITelemetry>();
+
+        telemetry.TrackError(args.Exception, new Dictionary<string, string>()
+        {
+            { "name", ViewModel.AnimatedBackgroundName ?? string.Empty },
+        });
+
+        InfoBar infoBar = (InfoBar)FindName(nameof(RenderingErrorInfoBar));
+
+        infoBar.IsOpen = true;
+    }
+
+    private void OnToggleFullscreen(object sender, RoutedEventArgs e)
+    {
+        var view = ApplicationView.GetForCurrentView();
+        if (view.IsFullScreenMode)
+        {
+
+            view.ExitFullScreenMode();
+        }
+        else
+        {
+            view.TryEnterFullScreenMode();
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
-            telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
+            telemetry.TrackEvent(TelemetryConstants.ScreensaverFullscreen, new Dictionary<string, string>
             {
-                { "name", "screensaver" },
-                { "darkscreensaver", useDarkScreensaver ? "true" : "false" }
+                { "id", ViewModel.CurrentSelection?.Id ?? "null" },
+                { "name", ViewModel.CurrentSelection?.Text ?? string.Empty }
             });
-
-            var coreWindow = CoreWindow.GetForCurrentThread();
-            coreWindow.KeyDown += CataloguePage_KeyDown;
-            var navigator = SystemNavigationManager.GetForCurrentView();
-            navigator.BackRequested += OnBackRequested;
         }
+    }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
+    private void SetTimer()
+    {
+        InactiveTimer = Queue.CreateTimer();
+        InactiveTimer.Interval = new TimeSpan(0, 0, SecondsToHide);
+        InactiveTimer.IsRepeating = false;
+        InactiveTimer.Tick += OnInactive;
+    }
+
+    private void OnInactive(DispatcherQueueTimer t, object sender)
+    {
+        if (!IsButtonsHidden)
         {
-            var coreWindow = CoreWindow.GetForCurrentThread();
-            coreWindow.KeyDown -= CataloguePage_KeyDown;
-            var navigator = SystemNavigationManager.GetForCurrentView();
-            navigator.BackRequested -= OnBackRequested;
+
+            GoBackButton.Visibility = Visibility.Collapsed;
+            ActionButtons.Visibility = Visibility.Collapsed;
+            IsButtonsHidden = true;
+
         }
 
-        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        InactiveTimer?.Stop();
+    }
+
+    private void RootPage_OnPointerMoved(object sender, PointerRoutedEventArgs e)
+    {
+        if (IsButtonsHidden)
         {
-            e.Handled = true;
-            GoBack();
+            GoBackButton.Visibility = Visibility.Visible;
+            ActionButtons.Visibility = Visibility.Visible;
+            IsButtonsHidden = false;
         }
 
-        private void CataloguePage_KeyDown(CoreWindow sender, KeyEventArgs args)
-        {
-            if (args.VirtualKey == VirtualKey.Escape)
-            {
-                GoBack();
-                args.Handled = true;
-            }
-        }
-
-        private void GoBack()
-        {
-            var navigator = App.Services.GetRequiredService<INavigator>();
-            navigator.GoBack(nameof(ScreensaverPage));
-        }
-
-        private void GoBack(object sender, RoutedEventArgs e)
-        {
-            GoBack();
-        }
+        InactiveTimer?.Start();
     }
 }

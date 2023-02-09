@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.BlankPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="Transparent"
+    mc:Ignorable="d">
+
+    <!--
+        Page left intentionally blank.
+        This is used to clear out the content frame stack.
+    -->
+    <Grid />
+</Page>

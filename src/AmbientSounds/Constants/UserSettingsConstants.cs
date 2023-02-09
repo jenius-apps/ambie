@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 
 namespace AmbientSounds.Constants
@@ -13,6 +14,16 @@ namespace AmbientSounds.Constants
         /// for this installation.
         /// </summary>
         public const string HasRated = "HasRated";
+
+        /// <summary>
+        /// Key to remember recent focus settings.
+        /// </summary>
+        public const string RecentFocusKey = "RecentFocusSettings";
+
+        /// <summary>
+        /// Key to remember the UTC date that the user dismissed the rating prompt.
+        /// </summary>
+        public const string RatingDismissed = "RatingDismissed";
 
         /// <summary>
         /// Key to remember the user's background image.
@@ -40,16 +51,6 @@ namespace AmbientSounds.Constants
         public const string Notifications = "NotificationSetting";
 
         /// <summary>
-        /// If true, screen saver will be triggered automatically.
-        /// </summary>
-        public const string EnableScreenSaver = "EnableScreenSaver";
-
-        /// <summary>
-        /// If true, the screensaver will just be a dark, blank page.
-        /// </summary>
-        public const string DarkScreensasver = "DarkScreensaver";
-
-        /// <summary>
         /// The number of max active tracks.
         /// </summary>
         public const string MaxActive = "MaxActive";
@@ -75,6 +76,52 @@ namespace AmbientSounds.Constants
         public const string CurrentUserId = "CurrentUserId";
 
         /// <summary>
+        /// Used to remember if Ambie should resume playing sounds immediately
+        /// after launching.
+        /// </summary>
+        public const string ResumeOnLaunchKey = "ResumeOnLaunch";
+
+        /// <summary>
+        /// User to remember if Ambie should integrate with
+        /// OS media controls
+        /// </summary>
+        public const string DisableSmtcSupportKey = "DisableSmtcSupportKey";
+
+        /// <summary>
+        /// Used to remember what was the last used screensaver ID.
+        /// </summary>
+        public const string LastUsedScreensaverKey = "LastUsedScreensaver";
+
+        /// <summary>
+        /// Used to remember if the user has closed the focus help message
+        /// at least once.
+        /// </summary>
+        public const string HasClosedFocusHelpMessageKey = "HasClosedFocusHelpMessage";
+
+        /// <summary>
+        /// Used to remember if the user has closed the interruption help
+        /// at least once.
+        /// </summary>
+        public const string HasClosedInterruptionMessageKey = "HasClosedInterruptionMessage";
+
+        /// <summary>
+        /// Used to remember a unique device ID for the purposes of tracking presence counts.
+        /// </summary>
+        public const string DevicePresenceIdKey = "DevicePresenceId";
+
+        /// <summary>
+        /// Used to remember if compact mode should be
+        /// automatically opened when starting a focus session.
+        /// </summary>
+        public const string CompactOnFocusKey = "CompactOnFocus";
+
+        /// <summary>
+        /// Used to remember if packaged sounds have already been loaded,
+        /// which usually occurs on first run of the app.
+        /// </summary>
+        public const string HasLoadedPackagedSoundsKey = "HasLoadedPackagedSounds";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -82,8 +129,6 @@ namespace AmbientSounds.Constants
             { Volume, 80d },
             { TelemetryOn, true },
             { Notifications, true },
-            { EnableScreenSaver, false },
-            { DarkScreensasver, false },
             { MaxActive, 3 },
             { ActiveTracks, Array.Empty<string>() },
             { ActiveMixId, string.Empty },
@@ -91,7 +136,17 @@ namespace AmbientSounds.Constants
             { CurrentUserProviderId, string.Empty },
             { Theme, "default" },
             { BackgroundImage, string.Empty },
-            { HasRated, false }
+            { HasRated, false },
+            { RatingDismissed, DateTime.MinValue },
+            { ResumeOnLaunchKey, false },
+            { DisableSmtcSupportKey, false },
+            { LastUsedScreensaverKey, string.Empty },
+            { HasClosedFocusHelpMessageKey, false },
+            { HasClosedInterruptionMessageKey, false },
+            { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
+            { DevicePresenceIdKey, string.Empty },
+            { CompactOnFocusKey, true },
+            { HasLoadedPackagedSoundsKey, false },
         };
     }
 }

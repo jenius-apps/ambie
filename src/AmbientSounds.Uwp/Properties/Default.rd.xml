@@ -17,10 +17,12 @@
 
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
   <Application>
-    <!--
-      An Assembly element with Name="*Application*" applies to all assemblies in
-      the application package. The asterisks are not wildcards.
-    -->
-	  <Type Name="System.Text.Json.JsonSerializer" Serialize="Required All" />
+
+    <!-- Required for signalr to work in release mode -->
+    <Namespace Name="Microsoft.Extensions.Options" Dynamic="Required Public"/>
+    <Type Name="Microsoft.AspNetCore.SignalR.JsonHubProtocolOptions" Activate="Required Public" />
+    <Type Name="Microsoft.Extensions.Logging.LoggerFactoryOptions" Activate="Required Public" />
+    <Type Name="Microsoft.Extensions.Logging.LoggerFilterOptions" Activate="Required Public" />
+    <Type Name="Microsoft.AspNetCore.Http.Connections.Client.HttpConnectionOptions" Activate="Required Public" />
   </Application>
 </Directives>

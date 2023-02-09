@@ -1,0 +1,669 @@
+﻿
+<UserControl
+    x:Class="AmbientSounds.Controls.FocusTimerModule"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:converters="using:AmbientSounds.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:AmbientSounds.Models"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style x:Key="HorizontalSnappingListView" TargetType="ListView">
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="TabNavigation" Value="Once" />
+            <Setter Property="IsSwipeEnabled" Value="True" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
+            <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False" />
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Enabled" />
+            <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="True" />
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
+            <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True" />
+            <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+            <Setter Property="ItemContainerTransitions">
+                <Setter.Value>
+                    <TransitionCollection>
+                        <AddDeleteThemeTransition />
+                        <ContentThemeTransition />
+                        <ReorderThemeTransition />
+                        <EntranceThemeTransition IsStaggeringEnabled="False" />
+                    </TransitionCollection>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <!--  this was changed to horizontal  -->
+                        <ItemsStackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListView">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+
+                            <!--  this was changed to add the two snap properties  -->
+                            <ScrollViewer
+                                x:Name="ScrollViewer"
+                                AutomationProperties.AccessibilityView="Raw"
+                                BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}"
+                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                                HorizontalSnapPointsAlignment="Near"
+                                HorizontalSnapPointsType="Mandatory"
+                                IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
+                                IsHorizontalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsHorizontalScrollChainingEnabled}"
+                                IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
+                                IsVerticalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsVerticalScrollChainingEnabled}"
+                                TabNavigation="{TemplateBinding TabNavigation}"
+                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                                ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
+                                <ItemsPresenter
+                                    Padding="{TemplateBinding Padding}"
+                                    Footer="{TemplateBinding Footer}"
+                                    FooterTemplate="{TemplateBinding FooterTemplate}"
+                                    FooterTransitions="{TemplateBinding FooterTransitions}"
+                                    Header="{TemplateBinding Header}"
+                                    HeaderTemplate="{TemplateBinding HeaderTemplate}"
+                                    HeaderTransitions="{TemplateBinding HeaderTransitions}" />
+                            </ScrollViewer>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="StartButton.(Grid.ColumnSpan)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.CanUseFluentSystemIcons}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PauseIcon.Style" Value="{StaticResource FluentPauseTimerIcon}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="890" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainContentRow.Height" Value="*" />
+                        <Setter Target="FocusTimerGrid.Margin" Value="24,12,0,12" />
+                        <Setter Target="FocusTimerGrid.HorizontalAlignment" Value="Left" />
+                        <Setter Target="FocusTimerGrid.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="SlidersPanel.Margin" Value="12,12,0,12" />
+                        <Setter Target="SlidersPanel.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="DataText.(Grid.Row)" Value="0" />
+                        <Setter Target="DataText.(Grid.Column)" Value="1" />
+                        <Setter Target="DataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="DataText.Margin" Value="32,0" />
+                        <Setter Target="DataText.VerticalAlignment" Value="Center" />
+                        <Setter Target="ActiveDataText.(Grid.Row)" Value="0" />
+                        <Setter Target="ActiveDataText.(Grid.Column)" Value="1" />
+                        <Setter Target="ActiveDataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ActiveDataText.Orientation" Value="Vertical" />
+                        <Setter Target="ActiveDataText.Margin" Value="32,0" />
+                        <Setter Target="ActiveDataText.VerticalAlignment" Value="Center" />
+                        <Setter Target="CountdownTimerPanel.(Grid.Row)" Value="0" />
+                        <Setter Target="CountdownTimerPanel.(Grid.Column)" Value="1" />
+                        <Setter Target="CountdownTimerPanel.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ButtonPanelColumn1.Width" Value="110" />
+                        <Setter Target="ButtonPanelColumn2.Width" Value="110" />
+                        <Setter Target="ModuleColumn1.Width" Value="248" />
+                        <Setter Target="TaskActiveDataText.(Grid.Row)" Value="0" />
+                        <Setter Target="TaskActiveDataText.(Grid.Column)" Value="1" />
+                        <Setter Target="TaskActiveDataText.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="TaskActiveDataText.Orientation" Value="Vertical" />
+                        <Setter Target="TaskActiveDataText.Columns" Value="1" />
+                        <Setter Target="TaskActiveDataText.Rows" Value="2" />
+                        <Setter Target="TaskActiveDataText.Width" Value="120" />
+                        <Setter Target="TaskActiveDataText.Margin" Value="24,0,36,0" />
+                        <Setter Target="TaskActiveDataText.RowSpacing" Value="24" />
+                        <Setter Target="TaskActiveDataText.ColumnSpacing" Value="0" />
+                        <Setter Target="TaskActiveDataText.VerticalAlignment" Value="Center" />
+                        <Setter Target="TaskFlipView.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="TaskFlipView.Margin" Value="12,12,0,12" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <winui:InfoBar
+            Title="{x:Bind strings:Resources.FocusTimerHelpTitle}"
+            Margin="0,0,0,8"
+            IsOpen="{x:Bind ViewModel.IsHelpMessageVisible, Mode=TwoWay}"
+            Message="{x:Bind strings:Resources.FocusTimerHelpMessage}"
+            Visibility="{x:Bind ViewModel.IsHelpMessageVisible, Mode=OneWay}">
+            <winui:InfoBar.ActionButton>
+                <HyperlinkButton
+                    Click="StartTutorial"
+                    Content="{x:Bind strings:Resources.FocusTimerHelpAction}"
+                    Visibility="{x:Bind IsDesktop}" />
+            </winui:InfoBar.ActionButton>
+        </winui:InfoBar>
+
+        <!--  Module container  -->
+        <Border Style="{StaticResource ModuleBorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Rectangle Grid.RowSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
+
+                <TextBlock
+                    Margin="24,12,0,12"
+                    FontWeight="SemiBold"
+                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                    Text="{x:Bind strings:Resources.Timer}" />
+
+                <!--  Header action buttons at top right of module  -->
+                <Grid
+                    Margin="12,8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top">
+
+                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.Help}"
+                            Click="{x:Bind ViewModel.ShowHelpMessage}"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.Help}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphHelp}" />
+                        </HyperlinkButton>
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                            Click="OnSettingsClicked"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphSettings}" />
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout Placement="BottomEdgeAlignedRight">
+                                    <ToggleMenuFlyoutItem
+                                        Click="OnCompactToggled"
+                                        IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}"
+                                        Text="{x:Bind strings:Resources.SettingsCompactMode}" />
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </HyperlinkButton>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
+                            Command="{x:Bind ViewModel.OpenCompactModeCommand}"
+                            Visibility="{x:Bind IsDesktop}">
+                            <ToolTipService.ToolTip>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                        FontWeight="SemiBold"
+                                        Text="{x:Bind strings:Resources.CompactModeTooltipTitle}"
+                                        TextWrapping="Wrap" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Text="{x:Bind strings:Resources.CompactModeTooltipMessage}"
+                                        TextWrapping="WrapWholeWords" />
+                                </Grid>
+                            </ToolTipService.ToolTip>
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphCompact}" />
+                        </HyperlinkButton>
+
+                        <HyperlinkButton
+                            Padding="8,4"
+                            AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                            Command="{x:Bind ViewModel.InterruptionCommand}"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphInterruption}" />
+                        </HyperlinkButton>
+                    </StackPanel>
+                </Grid>
+
+                <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
+
+                <Rectangle
+                    Grid.Row="2"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource ModuleDividerRectStyle}" />
+
+                <!--  Module body  -->
+                <Grid Grid.Row="1" MinHeight="120">
+                    <Grid.RowDefinitions>
+                        <RowDefinition x:Name="MainContentRow" Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="ModuleColumn1" Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Sliders  -->
+                    <StackPanel
+                        x:Name="SlidersPanel"
+                        Grid.ColumnSpan="2"
+                        Margin="12,12,12,0"
+                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
+                        <StackPanel>
+                            <local:TimerSlider
+                                x:Name="Slider1"
+                                Margin="12,0,0,0"
+                                AutomationName="{x:Bind strings:Resources.FocusLength}"
+                                Header="{x:Bind strings:Resources.FocusLength}"
+                                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                                Maximum="60"
+                                StepFrequency="5"
+                                TickFrequency="15"
+                                Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
+
+                            <winui:TeachingTip
+                                x:Name="TeachingTip1"
+                                Title="{x:Bind strings:Resources.TipFocusTitle}"
+                                ActionButtonClick="ShowTip2"
+                                ActionButtonContent="{x:Bind strings:Resources.Next}"
+                                PreferredPlacement="Bottom"
+                                Subtitle="{x:Bind strings:Resources.TipFocusMessage}"
+                                Target="{x:Bind Slider1}" />
+                        </StackPanel>
+
+                        <StackPanel>
+                            <local:TimerSlider
+                                x:Name="Slider2"
+                                Margin="12,24,0,0"
+                                AutomationName="{x:Bind strings:Resources.RestLength}"
+                                Header="{x:Bind strings:Resources.RestLength}"
+                                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                                Maximum="60"
+                                StepFrequency="5"
+                                TickFrequency="15"
+                                Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
+
+                            <winui:TeachingTip
+                                x:Name="TeachingTip2"
+                                Title="{x:Bind strings:Resources.TipRestTitle}"
+                                ActionButtonClick="ShowTip3"
+                                ActionButtonContent="{x:Bind strings:Resources.Next}"
+                                PreferredPlacement="Bottom"
+                                Subtitle="{x:Bind strings:Resources.TipRestMessage}"
+                                Target="{x:Bind Slider2}" />
+                        </StackPanel>
+
+                        <StackPanel>
+                            <local:TimerSlider
+                                x:Name="Slider3"
+                                Margin="12,24,0,0"
+                                AutomationName="{x:Bind strings:Resources.Repeats}"
+                                Header="{x:Bind strings:Resources.Repeats}"
+                                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                                Maximum="8"
+                                TickFrequency="2"
+                                Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
+
+                            <winui:TeachingTip
+                                x:Name="TeachingTip3"
+                                Title="{x:Bind strings:Resources.TipRepeatsTitle}"
+                                ActionButtonClick="ShowTip4"
+                                ActionButtonContent="{x:Bind strings:Resources.Next}"
+                                PreferredPlacement="Bottom"
+                                Subtitle="{x:Bind strings:Resources.TipRepeatsMessage}"
+                                Target="{x:Bind Slider3}" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--  timer  -->
+                    <Grid
+                        x:Name="FocusTimerGrid"
+                        Grid.ColumnSpan="2"
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <local:FocusTimer2
+                            Width="200"
+                            Height="200"
+                            FocusLength="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
+                            FocusLengthProgress="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}"
+                            FocusRingVisible="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
+                            RestLength="{x:Bind ViewModel.RestLength, Mode=OneWay}"
+                            RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
+                            RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
+
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid>
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="14"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Glyph="{StaticResource GlyphFocus}"
+                                    Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}" />
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="14"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    Glyph="{StaticResource GlyphSleep}"
+                                    Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
+                            </Grid>
+                            <TextBlock
+                                x:Name="StatusText"
+                                Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
+                                TextAlignment="Center" />
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
+                                <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <ItemsControl
+                            Grid.Row="1"
+                            Margin="0,12,0,0"
+                            ItemTemplate="{StaticResource FocusSegmentTemplate}"
+                            ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
+                            ItemsSource="{x:Bind ViewModel.Segments}" />
+                    </Grid>
+
+                    <!--  Setup data  -->
+                    <Grid
+                        x:Name="DataText"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="24,12"
+                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
+                        <toolkit:UniformGrid
+                            ColumnSpacing="12"
+                            Columns="2"
+                            Orientation="Vertical"
+                            RowSpacing="24"
+                            Rows="2">
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.EndTimeText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphClock}"
+                                Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.DurationText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphStopwatch}"
+                                Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.FocusText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFocus}"
+                                Text="{x:Bind ViewModel.TotalFocus, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.RestText}"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphSleep}"
+                                Text="{x:Bind ViewModel.TotalRest, Mode=OneWay}" />
+                        </toolkit:UniformGrid>
+                    </Grid>
+
+                    <!--  Tasks  -->
+                    <Grid
+                        x:Name="CountdownTimerPanel"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <FlipView
+                            x:Name="TaskFlipView"
+                            Grid.ColumnSpan="2"
+                            MaxHeight="200"
+                            Margin="12,12,12,0"
+                            Background="Transparent"
+                            ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
+                            ItemsSource="{x:Bind ViewModel.FocusTasks}"
+                            SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}">
+                            <animations:Implicit.ShowAnimations>
+                                <animations:OpacityAnimation
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:2" />
+                                <animations:TranslationAnimation
+                                    From="0,20,0"
+                                    To="0"
+                                    Duration="0:0:2" />
+                            </animations:Implicit.ShowAnimations>
+                        </FlipView>
+
+                        <toolkit:UniformGrid
+                            x:Name="TaskActiveDataText"
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Margin="24,12"
+                            ColumnSpacing="12"
+                            Columns="2"
+                            Orientation="Horizontal">
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.Start}"
+                                Glyph="{StaticResource GlyphPlay}"
+                                Text="{x:Bind ViewModel.StartTime, Mode=OneWay}" />
+                            <local:TimerData
+                                Title="{x:Bind strings:Resources.EndTimeText}"
+                                Glyph="{StaticResource GlyphClock}"
+                                Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+                        </toolkit:UniformGrid>
+                    </Grid>
+
+                    <!--  Active data  -->
+                    <toolkit:UniformGrid
+                        x:Name="ActiveDataText"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="24,12"
+                        ColumnSpacing="12"
+                        Columns="2"
+                        Orientation="Horizontal"
+                        RowSpacing="24"
+                        Rows="2"
+                        Visibility="{x:Bind ViewModel.ActiveDataVisible, Mode=OneWay}">
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.Start}"
+                            Glyph="{StaticResource GlyphPlay}"
+                            Text="{x:Bind ViewModel.StartTime, Mode=OneWay}" />
+
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.EndTimeText}"
+                            Glyph="{StaticResource GlyphClock}"
+                            Text="{x:Bind ViewModel.EndTime, Mode=OneWay}" />
+
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.Interruptions}"
+                            Glyph="{StaticResource GlyphInterruption}"
+                            Text="{x:Bind ViewModel.InterruptionCount, Mode=OneWay}" />
+
+                        <local:TimerData
+                            Title="{x:Bind strings:Resources.PausesText}"
+                            Glyph="{StaticResource GlyphPause}"
+                            Text="{x:Bind ViewModel.Pauses, Mode=OneWay}" />
+
+                    </toolkit:UniformGrid>
+                </Grid>
+
+                <Grid
+                    x:Name="ButtonsPanel"
+                    Grid.Row="2"
+                    Padding="12"
+                    ColumnSpacing="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="ButtonPanelColumn1" Width="*" />
+                        <ColumnDefinition x:Name="ButtonPanelColumn2" Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="StartButton"
+                        Grid.ColumnSpan="2"
+                        AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
+                        Click="{x:Bind ViewModel.PlayOrPause}"
+                        IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
+                        Style="{StaticResource TimerActionButton}">
+                        <Grid>
+                            <FontIcon Style="{StaticResource PlayTimerIcon}" Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
+                            <FontIcon
+                                x:Name="PauseIcon"
+                                Style="{StaticResource MDL2PauseTimerIcon}"
+                                Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
+                        </Grid>
+                    </Button>
+
+                    <winui:TeachingTip
+                        x:Name="TeachingTip4"
+                        Title="{x:Bind strings:Resources.TipStartButtonTitle}"
+                        CloseButtonClick="OnTutorialEnded"
+                        CloseButtonContent="{x:Bind strings:Resources.CloseText}"
+                        PreferredPlacement="Bottom"
+                        Subtitle="{x:Bind strings:Resources.TipStartButtonMessage}"
+                        Target="{x:Bind StartButton}" />
+
+                    <Button
+                        x:Name="StopButton"
+                        Grid.Column="1"
+                        AutomationProperties.Name="{x:Bind strings:Resources.ResetTimer}"
+                        Click="OnResetClicked"
+                        Style="{StaticResource TimerActionButton}"
+                        Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                        <FontIcon Style="{StaticResource StopTimerIcon}" />
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!--  recents module  -->
+        <Grid
+            Margin="0,6,0,0"
+            HorizontalAlignment="Stretch"
+            Visibility="{x:Bind ViewModel.IsRecentVisible, Mode=OneWay}">
+            <animations:Implicit.Animations>
+                <animations:OffsetAnimation Duration="0:0:0.15" />
+            </animations:Implicit.Animations>
+
+            <ListView
+                Padding="0,0,200,0"
+                AutomationProperties.Name="{x:Bind strings:Resources.RecentFocusList}"
+                IsItemClickEnabled="True"
+                ItemClick="OnRecentClicked"
+                ItemsSource="{x:Bind ViewModel.RecentSettings}"
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                ScrollViewer.HorizontalScrollMode="Auto"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollMode="Disabled"
+                SelectionMode="None"
+                Style="{StaticResource HorizontalSnappingListView}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:RecentFocusSettingsViewModel">
+                        <ListViewItem AutomationProperties.Name="{x:Bind converters:LocalizationConverter.RecentFocusAccessibleName(Settings.FocusMinutes, Settings.RestMinutes, Settings.Repeats)}">
+                            <Grid
+                                Width="200"
+                                Padding="6,16"
+                                Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <local:RecentFocusSettingsControl
+                                    Foreground="SkyBlue"
+                                    MaxValue="60"
+                                    Text="{x:Bind strings:Resources.FocusText}"
+                                    Value="{x:Bind Settings.FocusMinutes}" />
+                                <local:RecentFocusSettingsControl
+                                    Grid.Column="1"
+                                    Foreground="Green"
+                                    MaxValue="60"
+                                    Text="{x:Bind strings:Resources.RestText}"
+                                    Value="{x:Bind Settings.RestMinutes}" />
+                                <local:RecentFocusSettingsControl
+                                    Grid.Column="2"
+                                    Foreground="DeepPink"
+                                    MaxValue="8"
+                                    Text="{x:Bind strings:Resources.Repeats}"
+                                    Value="{x:Bind Settings.Repeats}" />
+
+                                <Grid.ContextFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem
+                                            Command="{x:Bind DeleteCommand}"
+                                            CommandParameter="{x:Bind}"
+                                            Icon="Delete"
+                                            Text="{x:Bind strings:Resources.DeleteText}" />
+                                    </MenuFlyout>
+                                </Grid.ContextFlyout>
+                            </Grid>
+                        </ListViewItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackPanel>
+</UserControl>

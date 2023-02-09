@@ -18,191 +18,180 @@
     <UserControl.Resources>
         <!--  Makes save button disabled background transparent.  -->
         <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
+
+        <winui:UniformGridLayout
+            x:Name="UniformLayout"
+            MinColumnSpacing="8"
+            MinRowSpacing="8" />
     </UserControl.Resources>
 
     <Grid>
-        <Border
-            x:Name="BorderBackplate"
-            Width="220"
-            Height="{x:Bind MainGrid.Height, Mode=OneWay}"
-            Background="{ThemeResource AcrylicBackplateBrush}"
-            BorderBrush="{ThemeResource CardStrokeBrush}"
-            BorderThickness="1"
-            CornerRadius="8" />
-
-        <Grid
-            x:Name="MainGrid"
-            Width="220"
-            Padding="0"
-            CornerRadius="8">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel
-                x:Name="ControlsPanel"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
-
-                <local:PlayerControl />
-
-                <Button
-                    x:Uid="ClearActiveButton"
-                    Margin="12,0,0,0"
-                    Command="{x:Bind ViewModel.ClearCommand}"
-                    Style="{StaticResource TransparentRoundButtonStyle}">
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9F9;" />
-                </Button>
-
-                <Button
-                    x:Uid="SaveMixButton"
-                    Margin="12,0,0,0"
-                    IsEnabled="{x:Bind ViewModel.CanSave, Mode=OneWay}"
-                    Style="{StaticResource TransparentRoundButtonStyle}">
-                    <Button.KeyboardAccelerators>
-                        <KeyboardAccelerator Key="S" Modifiers="Control" />
-                    </Button.KeyboardAccelerators>
-
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
-                    <Button.Flyout>
-                        <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
-                                <TextBox
-                                    x:Name="NameInput"
-                                    x:Uid="NameInputBox"
-                                    Width="200"
-                                    KeyDown="NameInput_KeyDown"
-                                    MaxLength="30" />
-                                <Button
-                                    x:Uid="ConfirmSaveButton"
-                                    Grid.Column="1"
-                                    Margin="4,0,0,0"
-                                    VerticalAlignment="Bottom"
-                                    Background="Transparent"
-                                    Click="Button_Click"
-                                    Command="{x:Bind ViewModel.SaveCommand}"
-                                    CommandParameter="{x:Bind NameInput.Text, Mode=OneWay}">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
-                                </Button>
-                            </Grid>
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>
-            </StackPanel>
-
-            <Grid
-                Grid.Row="1"
-                Margin="8,24,8,0"
-                Visibility="{x:Bind ShowList, Mode=OneWay}">
-                <winui:ItemsRepeater
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="ShowListState">
+                    <VisualState.Setters>
+                        <!--<Setter Target="MainGrid.Height" Value="300" />
+                        <Setter Target="MainGrid.Padding" Value="12" />
+                        <Setter Target="ControlsPanel.(Grid.Row)" Value="0" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="HideListState">
+                    <VisualState.Setters>
+                        <!--<Setter Target="MainGrid.Height" Value="60" />
+                        <Setter Target="MainGrid.Padding" Value="0" />
+                        <Setter Target="ControlsPanel.(Grid.Row)" Value="1" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid>
+            <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
+                <ListView
                     x:Uid="ActiveTrackListView"
                     ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
                     Loaded="OnListLoaded"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                    ScrollViewer.HorizontalScrollMode="Auto"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollMode="Disabled"
+                    SelectionMode="None"
                     TabFocusNavigation="Local">
-                    <winui:ItemsRepeater.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Padding" Value="6,0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                            <Grid Margin="0,0,0,16">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
-                                    <RowDefinition Height="auto" />
-                                </Grid.RowDefinitions>
+                            <Grid
+                                Width="160"
+                                BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                                BorderThickness="1"
+                                CornerRadius="8">
 
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="auto" />
-                                    </Grid.ColumnDefinitions>
+                                <Border BorderThickness="1" CornerRadius="8">
+                                    <Border.Background>
+                                        <ImageBrush Stretch="UniformToFill">
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage
+                                                    DecodePixelType="Logical"
+                                                    DecodePixelWidth="140"
+                                                    UriSource="{x:Bind ImagePath}" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Border.Background>
+                                </Border>
 
-                                    <TextBlock
-                                        VerticalAlignment="Center"
-                                        Text="{x:Bind Name, Mode=OneWay}"
-                                        TextTrimming="CharacterEllipsis"
-                                        ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
-                                    <Button
-                                        Grid.Column="1"
-                                        Padding="2"
-                                        AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
-                                        Background="Transparent"
-                                        Command="{x:Bind RemoveCommand, Mode=OneWay}"
-                                        CommandParameter="{x:Bind Sound, Mode=OneWay}">
-                                        <FontIcon
-                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                <Border Background="{ThemeResource AcrylicBackplateBrush}" CornerRadius="8" />
+
+                                <Grid Padding="12,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock
+                                            Margin="0,8,0,0"
+                                            VerticalAlignment="Center"
                                             FontSize="12"
-                                            Glyph="&#xE9F9;" />
-                                    </Button>
-                                </Grid>
+                                            Text="{x:Bind Name, Mode=OneWay}"
+                                            TextTrimming="CharacterEllipsis"
+                                            ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
+                                        <Button
+                                            Grid.Column="1"
+                                            Margin="0,-1,-13,0"
+                                            AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
+                                            Command="{x:Bind RemoveCommand, Mode=OneWay}"
+                                            CommandParameter="{x:Bind Sound, Mode=OneWay}"
+                                            CornerRadius="0,8,0,0">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="14"
+                                                Glyph="{StaticResource GlyphCancel}" />
+                                            <Button.Resources>
+                                                <ResourceDictionary>
+                                                    <!--  Lightweight styling to mimic red close button  -->
+                                                    <ResourceDictionary.ThemeDictionaries>
+                                                        <ResourceDictionary x:Key="Dark">
+                                                            <SolidColorBrush x:Key="ButtonBackground" Color="#00c42b1c" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#c42b1c" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#b5291e" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="LightGray" />
+                                                        </ResourceDictionary>
+                                                        <ResourceDictionary x:Key="Light">
+                                                            <SolidColorBrush x:Key="ButtonBackground" Color="#00c42b1c" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="#c42b1c" />
+                                                            <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="#b5291e" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrush" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />
+                                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
+                                                            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="LightGray" />
+                                                        </ResourceDictionary>
+                                                    </ResourceDictionary.ThemeDictionaries>
+                                                </ResourceDictionary>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
 
-                                <Slider
-                                    x:Uid="VolumeSliderSound"
-                                    Grid.Row="1"
-                                    HorizontalAlignment="Stretch"
-                                    Value="{x:Bind Volume, Mode=TwoWay}" />
+                                    <Slider
+                                        x:Uid="VolumeSliderSound"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Stretch"
+                                        Value="{x:Bind Volume, Mode=TwoWay}" />
+                                </Grid>
                             </Grid>
                         </DataTemplate>
-                    </winui:ItemsRepeater.ItemTemplate>
-                </winui:ItemsRepeater>
-
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <StackPanel
                     Grid.Row="1"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                    Orientation="Horizontal"
                     Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
                     <ani:Implicit.ShowAnimations>
                         <ani:ScaleAnimation
                             Delay="0:0:0.1"
-                            From="0.90"
+                            From="0.95"
                             To="1"
                             Duration="0:0:0.5" />
                         <ani:OpacityAnimation
                             Delay="0:0:0.1"
                             From="0"
                             To="1"
-                            Duration="0:0:0.3" />
+                            Duration="0:0:0.5" />
                     </ani:Implicit.ShowAnimations>
 
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAD4;" />
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        Glyph="&#xEAD4;" />
                     <TextBlock
-                        MaxWidth="120"
-                        Margin="0,4,0,0"
+                        Margin="16,0,0,0"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                         Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
                         TextAlignment="Center"
                         TextWrapping="Wrap" />
                 </StackPanel>
             </Grid>
         </Grid>
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="ShowListState">
-                    <VisualState.Setters>
-                        <Setter Target="MainGrid.Height" Value="300" />
-                        <Setter Target="MainGrid.Padding" Value="12" />
-                        <Setter Target="ControlsPanel.(Grid.Row)" Value="0" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="HideListState">
-                    <VisualState.Setters>
-                        <Setter Target="MainGrid.Height" Value="60" />
-                        <Setter Target="MainGrid.Padding" Value="0" />
-                        <Setter Target="ControlsPanel.(Grid.Row)" Value="1" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-            <VisualStateGroup>
-                <VisualState x:Name="RegularBackgroundState" />
-                <VisualState x:Name="ImageBackgroundState">
-                    <VisualState.Setters>
-                        <Setter Target="BorderBackplate.BorderBrush" Value="Transparent" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

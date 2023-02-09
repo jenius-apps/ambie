@@ -18,7 +18,10 @@ namespace AmbientSounds.Services.Uwp
             MsaClientId = resourceLoader.GetString(nameof(MsaClientId));
             CloudSyncFileUrl = resourceLoader.GetString(nameof(CloudSyncFileUrl));
             UploadUrl = resourceLoader.GetString(nameof(UploadUrl));
+            VideosUrl = resourceLoader.GetString(nameof(VideosUrl));
+            ShareUrl = resourceLoader.GetString(nameof(ShareUrl));
             CatalogueScope = resourceLoader.GetString(nameof(CatalogueScope));
+            PresenceUrl = resourceLoader.GetString(nameof(PresenceUrl));
         }
 
         /// <inheritdoc/>
@@ -43,6 +46,15 @@ namespace AmbientSounds.Services.Uwp
         public string UploadUrl { get; set; }
 
         /// <inheritdoc/>
+        public string VideosUrl { get; set; }
+
+        /// <inheritdoc/>
+        public string ShareUrl { get; set; }
+
+        /// <inheritdoc/>
         public string CatalogueScope { get; set; }
+
+        /// <inheritdoc/>
+        public string PresenceUrl { get; set; }
     }
 }

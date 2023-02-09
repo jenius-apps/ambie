@@ -3,11 +3,12 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+trigger: none
+
+pr: none
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2022'
 
 variables:
   - group: ambie-variables
@@ -21,14 +22,29 @@ variables:
     value: '$(build.artifactStagingDirectory)\AppxPackages\\'
 
 steps:
+
+## This is required because the windows-2022 image dropped
+## support for this Store Engagement SDK, and Ambie uses it.
+- task: PowerShell@2
+  displayName: 'Installing Microsoft Store Engagement SDK'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $sdkUrl = '$(EngagementSdkMsiUrl)'
+      $msiPath = Join-Path $env:TEMP "Setup.msi"
+
+      Write-Output "downloading $sdkUrl"
+      Invoke-WebRequest -Uri $sdkUrl -OutFile $msiPath
+
+      Write-Output "Installing $msiPath"
+      Start-Process $msiPath -ArgumentList "/q" -Wait
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
     script: |
       [xml]$xmlDoc = Get-Content $(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest
       $xmlDoc.Package.Identity.Name="43891JeniusApps.Ambie"
-      $xmlDoc.Package.Properties.DisplayName="Ambie"
-      $xmlDoc.Package.Applications.Application.VisualElements.DisplayName="Ambie"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\Package.appxmanifest')
     failOnStderr: true
 
@@ -43,7 +59,10 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='CloudSyncFileUrl']").Value = "$(CloudSyncFileUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='UploadUrl']").Value = "$(UploadUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='MySoundsUrl']").Value = "$(MySoundsUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='VideosUrl']").Value = "$(VideosUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='CatalogueScope']").Value = "$(CatalogueScope)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='PresenceUrl']").Value = "$(PresenceUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='ShareUrl']").Value = "$(ShareUrl)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 
@@ -52,6 +71,8 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+    nugetConfigPath: 'nuget.config'
+    feedsToUse: 'config'
 
 - task: VSBuild@1
   inputs:

@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.FocusPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}" HorizontalScrollMode="Disabled">
+            <StackPanel Margin="0,0,16,40">
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+                </StackPanel.ChildrenTransitions>
+
+                <!--  Timer module  -->
+                <controls:FocusTimerModule x:Name="TimerModule">
+                    <controls:FocusTimerModule.Transitions>
+                        <RepositionThemeTransition />
+                    </controls:FocusTimerModule.Transitions>
+                </controls:FocusTimerModule>
+
+                <!--  Task module  -->
+                <controls:FocusTaskModule
+                    x:Name="TaskModule"
+                    Margin="0,8,0,0"
+                    Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}">
+                    <controls:FocusTaskModule.Transitions>
+                        <RepositionThemeTransition />
+                    </controls:FocusTaskModule.Transitions>
+                </controls:FocusTaskModule>
+
+                <!--  notepad module  -->
+                <Border
+                    Height="200"
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Stretch"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                    <Border.Transitions>
+                        <RepositionThemeTransition />
+                    </Border.Transitions>
+                    <Grid>
+                        <Rectangle
+                            Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                            RadiusX="8"
+                            RadiusY="8" />
+
+                        <StackPanel Padding="12,0,12,0">
+                            <TextBlock
+                                Margin="12,12,0,0"
+                                FontWeight="SemiBold"
+                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                Text="{x:Bind strings:Resources.Notepad}" />
+                            <Rectangle
+                                Height="1"
+                                Margin="-12,12,-12,0"
+                                HorizontalAlignment="Stretch"
+                                Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                            <TextBox
+                                Height="130"
+                                Margin="0,12,0,0"
+                                AcceptsReturn="True"
+                                AutomationProperties.Name="{x:Bind strings:Resources.Notepad}"
+                                FontSize="12"
+                                MaxLength="1024"
+                                PlaceholderText="{x:Bind strings:Resources.FocusNotesPlaceholder}"
+                                Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                TextWrapping="Wrap"
+                                Unloaded="OnUnloaded" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,8,0,0">
+                    <controls:FocusHistoryModule.Transitions>
+                        <RepositionThemeTransition />
+                    </controls:FocusHistoryModule.Transitions>
+                </controls:FocusHistoryModule>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
