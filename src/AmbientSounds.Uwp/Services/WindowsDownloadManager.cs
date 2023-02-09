@@ -205,53 +205,16 @@ public class WindowsDownloadManager : IDownloadManager
 
         if (performFakeDownload)
         {
-            // Handle "downloading" of a packaged sound
-            // As you might remember, a packaged sound is already local,
-            // so we fake the download UX below to provide a consistent experience
-            // for the user. 
-            progress.Report(25);
-            await Task.Delay(300);
-            progress.Report(50);
             localImagePath = s.ImagePath;
             destinationFilePath = s.FilePath;
+            await QueueFakeAsync(progress);
         }
         else
         {
-            string downloadUrl = await _onlineSoundDataProvider.GetDownloadLinkAsync(s);
-            if (string.IsNullOrWhiteSpace(downloadUrl))
-            {
-                return;
-            }
-            progress.Report(1);
-            localImagePath = await _fileDownloader.ImageDownloadAndSaveAsync(
-                s.ImagePath,
-                s.Id);
-            StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                $"{SoundsDirectory}\\{s.Id + s.FileExtension}",
-                CreationCollisionOption.ReplaceExisting);
-            destinationFilePath = destinationFile.Path;
-            BackgroundDownloadService.Instance.StartDownload(
-                destinationFile,
-                downloadUrl,
-                progress);
+            (localImagePath, destinationFilePath) = await QueueAsync(s, progress);
         }
 
-        var newSoundInfo = new Sound
-        {
-            Id = s.Id,
-            ImagePath = localImagePath,
-            Name = s.Name,
-            FilePath = destinationFilePath,
-            Attribution = s.Attribution,
-            FileExtension = s.FileExtension,
-            ScreensaverImagePaths = s.ScreensaverImagePaths,
-            IsPremium = s.IsPremium,
-            IapIds = s.IapIds.ToArray(),
-            ColourHex = s.ColourHex,
-            ImagePaths = s.ImagePaths,
-            Localizations = s.Localizations
-        };
-
+        var newSoundInfo = CopySound(s, localImagePath, destinationFilePath);
         await _soundService.AddLocalSoundAsync(newSoundInfo);
 
         if (performFakeDownload)
@@ -263,6 +226,7 @@ public class WindowsDownloadManager : IDownloadManager
             await Task.Delay(300);
             progress.Report(100);
         }
+
         DownloadsCompleted?.Invoke(this, EventArgs.Empty);
     }
 
