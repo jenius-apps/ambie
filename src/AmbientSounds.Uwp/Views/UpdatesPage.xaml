@@ -103,8 +103,8 @@
 
         <ListView
             Grid.Row="4"
-            Margin="-18,20,0,0"
-            Padding="0,0,16,12"
+            Margin="0,20,0,0"
+            Padding="0,0,28,12"
             HorizontalAlignment="Stretch"
             ItemsSource="{x:Bind ViewModel.UpdateList}"
             SelectionMode="None">
@@ -114,10 +114,13 @@
                 </TransitionCollection>
             </ListView.ItemContainerTransitions>
 
-            <Style TargetType="ListViewItem">
-                <Setter Property="Padding" Value="0" />
-                <Setter Property="Margin" Value="0" />
-            </Style>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
                     <Border
