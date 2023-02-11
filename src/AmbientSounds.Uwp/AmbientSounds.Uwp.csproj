@@ -784,6 +784,7 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.bg.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.da-DK.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.de-DE.xlf" />
@@ -844,7 +845,9 @@
   <ItemGroup>
     <PRIResource Include="Strings\uk-UA\Resources.resw" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PRIResource Include="Strings\bg\Resources.resw" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

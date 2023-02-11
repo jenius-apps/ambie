@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>Затвори Амби Мини</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Затвори Амби Мини</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Затвори</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>Авторско право</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>Авторско право Jenius Apps</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>Здравейте от Ванкувър</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Преглед на информацията за приложението</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Виж още опции</value>
+  </data>
+  <data name="CompactMode" xml:space="preserve">
+    <value>Ambie Mini</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>Свържете се със създателя</value>
+  </data>
+  <data name="RateUsText" xml:space="preserve">
+    <value>Оценете ни</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Нaстройки</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>Споделяне на линк за Ambie</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>Добавяне или подобряване на преводи</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Изключено</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Включено</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Паузирай таймера</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>Пауза</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>Пусни</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Продължи таймера</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>Готов за възпроизвеждане</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Телеметрия</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Преглед на опциите на таймера за заспиване</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Преглед на опциите на таймера за заспиване</value>
+  </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Плаж</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>Птици</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>Градска улица</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>Кафене</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>Тясно заливче</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>Камина</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>Дъжд</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>Дъждовна гора</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>Под вода</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>Водопад</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>Бял шумe</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>Звуците се зареждат</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>Звукът не може да се възпроизведе</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Спри таймера и изчисти времето</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>Глобална сила на звука</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Сила на звука</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>Автоматично</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>Тъмна</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>Светла</value>
+  </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>Прахосмукачка</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>Гръмотевица</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Известие при нови звуци</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>Вятър</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Вече е изтеглен</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Назад</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Не може да бъде изтеглен</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Изтегли звука</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Изтегли звука</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Звуков каталог</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Звуци</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Политика за поверителност</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Политика за поверителност</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Изтрий</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Изтрий звука</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Изтрий</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Изтегли</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Пусни случаен звук</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Пусни случаен звук</value>
+  </data>
+  <data name="ScreensaverMode" xml:space="preserve">
+    <value>Режим на скрийнсейвър</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>Скрийнсейвър</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Поръчай звука</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Прегледай звука</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Прегледай звука</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Пауза</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Свири</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>Активни звуци</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Изчисти всички активни звуци</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Изчисти всички активни звуци</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Потвърди запис</value>
+  </data>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>Глобална сила на звука</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>Име на звуковия микс</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>Опционално</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>Премахни {0} от активния лист</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Запазване на персонализиран звуков микс</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Запазване на персонализиран звуков микс (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Отказ</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Преименувай</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Преименувай</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Изход</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Това ще позволи синхронизирането на звуковата галерия на вашите устройства.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Преглед на опциите на акаунта</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Преглед на опциите на акаунта</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>Синхронизация</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Признание</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Преглед</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Име</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>Нов звук</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Обнови</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Сигурни ли сте?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Опционално</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Задължително</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Дари</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Условия за ползване</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Последвай ни в Twitter</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Отхвърли</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Благодаря ти, че опита Амби. За най-добро преживяване, опитайте да ни прикрепите към лентата на задачите си! Насладете се на релаксиращия си престой 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Здравейте и добре дошли!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Закачване към лентата на задачите</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Преглед</value>
+  </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Каталог</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>Смесете и съчетайте до 3 звука</value>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>Настройки на темата</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Автоматично възобновяване, когато Амби се отвори</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} на месец</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>Достъп до първокласни, висококачествени звуци</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>Изтегляне на видео скрийнсейвъри</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>Подкрепете развитието</value>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>Благодарим ви, че се абонирахте!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Здравей отново 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Харесвате ли Амби? Моля, помислете дали да ни оцените!</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Изтегли</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Трябва да изтеглим някои звуци, за да пуснем това. След като го изтеглите, опитайте да го пуснете отново. Започни сваляне?</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Липсващи звуци</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>По подразбиране</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Изтрий</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Още скрийнсейвъри</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Скрийнсайвър каталог</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Виж информация за премиум</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Облаци</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Цветен дим</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Октаграми</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Имаше проблем с показването на скрийнсейвъра. Опитайте да рестартирате Амби или се свържете с нас, ако проблемът продължава.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Докладвайте проблем</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Грешка при рендиране</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Превключване на цял екран</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Вземете Амби Плюс</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Фокус</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Таймер за пауза</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Стартирайте таймера</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Много добре!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Сесията за фокусиране е завършена</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Време за фокусиране</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Време за почивка</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Почивка</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Сесията за фокусиране е активна!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Фокусиране</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Почивка</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Пауза</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Нулиране</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Нулиране на таймера</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Старт</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Минути за фокусиране</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Можете да напишете всякакви бележки тук 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Какъв е планът?</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Бележник</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Повторения</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Минути за почивка</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Покажи ми как да го използвам</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Това е интервален таймер, вдъхновен от техниката помодоро. Целта е да се съсредоточите върху дадена задача за продължителен период от време, след което да вземете по-кратка почивка. Повторете този цикъл, за да продължите да се фокусирате!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Добре дошли в таймера за фокусиране!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Помощ</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Следващ</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Всеки цикъл има фокусен сегмент и сегмент за почивка. Изберете колко дълъг ще бъде всеки фокусен сегмент. Препоръчваме 25 минути за начало!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Задайте минути за фокусиране</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Всеки цикъл на фокусиране и почивка може да се повтаря многократно. Опитайте да добавите 1 повторение!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Задайте повторения</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Сега изберете колко дълъг ще бъде всеки сегмент за почивка. Препоръчваме около 5 минути за сега!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Задайте минути за почивка</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Стартирайте таймера и работете върху задачите си. Ще ви изпращаме известия, когато е време за почивка. Работи здраво!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Готови, старт</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} минути съсредоточаване, {1} минути почивка, {2} повторения.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Списък на последните конфигурации за фокусиране.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 от {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Изтория</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Прекъсвания</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Скорошната ви история ще се покаже тук</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Регистър на прекъсванията</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Потвърди</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Прекъснати минути</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Бележки</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Бяхте ли прекъснати от нещо? Следете вашите прекъсвания тук, за да можете да ги прегледате по-късно в хронологията си.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Скорошна история</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Завършени кръгове</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Добър опит</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Вие сте невероятни</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Амби</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Добавете задачи, върху които да се съсредоточите, след което натиснете бутона за стартиране</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Задачи</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Наскоро изпълнени</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Редакция</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Изпълнени задачи</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>Таймер</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>Задача {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Безплатно тази седмица!</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Отворете Амби Мини при фокусиране</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Отвори Амби Мини</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>С Амби Мини ще свием прозореца и ще покажем само необходимите елементи, за да ви помогнем да се фокусирате.</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Продължителност</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Край</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Мини</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Паузи</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Изтегляне на звуци от каталога</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Редактиране на начална страница</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Плъзнете и пуснете звуци, за да персонализирате началната си страница. Опитай сега!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Съжалявам за това! Не можахме да заредим каталога. Опитайте да проверите вашата интернет връзка.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>За Амби</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Амби Мини ще се отвори автоматично при фокусиране</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Ще ви уведомим, когато са налични нови звуци</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>При стартиране Амби ще възобнови възпроизвеждането автоматично</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Сривове и информация за анонимно използване се съобщават, за да помогнат за подобряването на Амби</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Фоново изображение</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Персонализирано изображение</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Основни настройки</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Изберете своя режим</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Променете цветовете, които се появяват в Амби</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Споделете това, което слушате</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Да видим дали могат да бъдат изтеглени.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Липсват някои звуци</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Преглед</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Сподели</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Копирано!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Копирай</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Или</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Отключи този звук</value>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} доживот</value>
+  </data>
+</root>
