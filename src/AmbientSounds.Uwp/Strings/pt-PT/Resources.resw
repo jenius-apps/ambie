@@ -742,4 +742,7 @@
   <data name="RecentInterruptionsText" xml:space="preserve">
     <value>Interrupções recentes</value>
   </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Precisa de ajuda com interrupções?</value>
+  </data>
 </root>

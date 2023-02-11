@@ -992,7 +992,7 @@
         </trans-unit>
         <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
           <source>Need help with interruptions?</source>
-          <target state="new">Need help with interruptions?</target>
+          <target state="translated">Kesintilerle ilgili yardıma mı ihtiyacınız var?</target>
         </trans-unit>
       </group>
     </body>

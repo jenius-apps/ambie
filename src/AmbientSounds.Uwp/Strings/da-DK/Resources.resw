@@ -742,4 +742,7 @@
   <data name="RecentInterruptionsText" xml:space="preserve">
     <value>Nylige afbrydelser</value>
   </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Har du brug for hjælp til afbrydelser?</value>
+  </data>
 </root>

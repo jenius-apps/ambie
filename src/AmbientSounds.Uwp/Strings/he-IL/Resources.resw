@@ -742,4 +742,7 @@
   <data name="RecentInterruptionsText" xml:space="preserve">
     <value>הפרעות אחרונות</value>
   </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>זקוק לעזרה עם הפרעות?</value>
+  </data>
 </root>

@@ -742,4 +742,7 @@
   <data name="RecentInterruptionsText" xml:space="preserve">
     <value>Nedávná přerušení</value>
   </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Potřebujete pomoc s vyrušováním?</value>
+  </data>
 </root>

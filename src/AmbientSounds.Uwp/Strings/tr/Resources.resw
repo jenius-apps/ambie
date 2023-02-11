@@ -736,4 +736,7 @@
   <data name="RecentInterruptionsText" xml:space="preserve">
     <value>Son kesintiler</value>
   </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Kesintilerle ilgili yardıma mı ihtiyacınız var?</value>
+  </data>
 </root>

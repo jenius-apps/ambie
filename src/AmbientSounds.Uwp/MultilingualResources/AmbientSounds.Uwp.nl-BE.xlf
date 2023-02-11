@@ -987,7 +987,7 @@
         </trans-unit>
         <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
           <source>Need help with interruptions?</source>
-          <target state="new">Need help with interruptions?</target>
+          <target state="translated">Hulp nodig bij onderbrekingen?</target>
         </trans-unit>
       </group>
     </body>
