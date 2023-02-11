@@ -2263,6 +2263,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region InterruptionInsightsMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Is there anything we can learn to avoid future interruptions?
+        /// </summary>
+        public static string InterruptionInsightsMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionInsightsMessage");
+            }
+        }
+        #endregion
+
+        #region RecentInterruptionsText
+        /// <summary>
+        ///   Looks up a localized string similar to: Recent interruptions
+        /// </summary>
+        public static string RecentInterruptionsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RecentInterruptionsText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2447,6 +2473,8 @@ namespace AmbientSounds.Strings{
             UpdateReasonFile,
             UpdateReasonMetaData,
             UpdateReasonMetaDataAndFile,
+            InterruptionInsightsMessage,
+            RecentInterruptionsText,
         }
 
         private static ResourceLoader _resourceLoader;

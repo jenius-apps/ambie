@@ -841,4 +841,10 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>Improves playback quality, translations, and other metadata</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Is there anything we can learn to avoid future interruptions?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Recent interruptions</value>
+  </data>
 </root>

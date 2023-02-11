@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:vm="using:AmbientSounds.ViewModels"
     mc:Ignorable="d">
 
@@ -14,32 +15,27 @@
             <RowDefinition Height="300" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Here were you recent interruptions. Can you take action now to avoid having them in your next focus session?" TextWrapping="WrapWholeWords" />
+        <TextBlock Text="{x:Bind strings:Resources.InterruptionInsightsMessage}" TextWrapping="WrapWholeWords" />
 
         <ListView
             Grid.Row="1"
-            Margin="-24,12,-24,0"
+            Margin="-24,12,-24,-24"
             ItemsSource="{x:Bind ViewModel.Interruptions}"
             SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:InterruptionViewModel">
-                    <Grid Margin="10,0,24,12">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                        </Grid.RowDefinitions>
-
+                    <StackPanel Margin="10,0,24,12">
+                        <TextBlock FontSize="12" Text="{x:Bind MinutesInterrupted}" />
                         <TextBlock
                             FontSize="12"
-                            Text="{x:Bind MinutesInterrupted, Mode=OneWay}"
+                            Text="{x:Bind DateTimeString}"
                             TextTrimming="CharacterEllipsis" />
                         <TextBlock
-                            Grid.Row="1"
                             FontSize="12"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                            Text="{x:Bind Notes, Mode=OneWay}"
+                            Text="{x:Bind Notes}"
                             TextWrapping="WrapWholeWords" />
-                    </Grid>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

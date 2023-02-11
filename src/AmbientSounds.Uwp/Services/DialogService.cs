@@ -277,7 +277,7 @@ public class DialogService : IDialogService
 
         var dialog = new ContentDialog()
         {
-            Title = Strings.Resources.Interruptions,
+            Title = Strings.Resources.RecentInterruptionsText,
             CloseButtonText = Strings.Resources.CloseText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
             Content = content

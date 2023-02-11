@@ -2,8 +2,6 @@
 using Humanizer;
 using Humanizer.Localisation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AmbientSounds.ViewModels
 {
@@ -14,6 +12,9 @@ namespace AmbientSounds.ViewModels
             MinutesInterrupted = TimeSpan.FromMinutes(interruption.Minutes).Humanize(maxUnit: TimeUnit.Minute);
             Notes = interruption.Notes;
             IsLast = isLast;
+            DateTimeString = new DateTime(interruption.UtcTime, DateTimeKind.Utc)
+                .ToLocalTime()
+                .ToLongDateString();
         }
 
         public string MinutesInterrupted { get; }
@@ -21,5 +22,7 @@ namespace AmbientSounds.ViewModels
         public string Notes { get; }
 
         public bool IsLast { get; }
+
+        public string DateTimeString { get; }
     }
 }
