@@ -2289,6 +2289,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region InterruptionInsightsButtonText
+        /// <summary>
+        ///   Looks up a localized string similar to: Need help with interruptions?
+        /// </summary>
+        public static string InterruptionInsightsButtonText
+        {
+            get
+            {
+                return _resourceLoader.GetString("InterruptionInsightsButtonText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2475,6 +2488,7 @@ namespace AmbientSounds.Strings{
             UpdateReasonMetaDataAndFile,
             InterruptionInsightsMessage,
             RecentInterruptionsText,
+            InterruptionInsightsButtonText,
         }
 
         private static ResourceLoader _resourceLoader;

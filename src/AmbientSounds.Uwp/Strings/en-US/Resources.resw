@@ -847,4 +847,7 @@
   <data name="RecentInterruptionsText" xml:space="preserve">
     <value>Recent interruptions</value>
   </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Need help with interruptions?</value>
+  </data>
 </root>

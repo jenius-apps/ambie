@@ -606,7 +606,7 @@
 
                         <HyperlinkButton
                             Command="{x:Bind ViewModel.OpenInterruptionsCommand}"
-                            Content="You've had some interruptions lately. Maybe we can avoid them."
+                            Content="{x:Bind strings:Resources.InterruptionInsightsButtonText}"
                             FontSize="11"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             Visibility="{x:Bind ViewModel.InsightsVisible, Mode=OneWay}" />
