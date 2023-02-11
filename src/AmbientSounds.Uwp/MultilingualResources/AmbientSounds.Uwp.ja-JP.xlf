@@ -968,6 +968,18 @@
           <source>Improves playback quality, translations, and other metadata</source>
           <target state="translated">再生品質、翻訳、その他のメタデータを改善</target>
         </trans-unit>
+        <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
+          <source>Is there anything we can learn to avoid future interruptions?</source>
+          <target state="translated">将来の中断を避けるために学ぶことができることはありますか?</target>
+        </trans-unit>
+        <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
+          <source>Recent interruptions</source>
+          <target state="translated">最近の中断</target>
+        </trans-unit>
+        <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
+          <source>Need help with interruptions?</source>
+          <target state="translated">中断についてサポートが必要ですか?</target>
+        </trans-unit>
       </group>
     </body>
   </file>

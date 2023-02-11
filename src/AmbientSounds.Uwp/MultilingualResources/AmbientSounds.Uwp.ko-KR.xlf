@@ -972,6 +972,18 @@
           <source>Improves playback quality, translations, and other metadata</source>
           <target state="translated">재생 품질, 번역 및 기타 메타데이터 개선</target>
         </trans-unit>
+        <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
+          <source>Is there anything we can learn to avoid future interruptions?</source>
+          <target state="translated">미래의 중단을 피하기 위해 배울 수있는 것이 있습니까?</target>
+        </trans-unit>
+        <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
+          <source>Recent interruptions</source>
+          <target state="translated">최근 중단</target>
+        </trans-unit>
+        <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
+          <source>Need help with interruptions?</source>
+          <target state="translated">방해와 관련하여 도움이 필요하십니까?</target>
+        </trans-unit>
       </group>
     </body>
   </file>

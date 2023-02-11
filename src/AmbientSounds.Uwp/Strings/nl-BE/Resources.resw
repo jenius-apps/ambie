@@ -703,4 +703,13 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>Verbetert de afspeelkwaliteit, vertalingen en andere metagegevens</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Is er iets dat we kunnen leren om toekomstige onderbrekingen te voorkomen?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Recente onderbrekingen</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Hulp nodig bij onderbrekingen?</value>
+  </data>
 </root>

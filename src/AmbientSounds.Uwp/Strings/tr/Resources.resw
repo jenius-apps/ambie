@@ -730,4 +730,13 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>Oynatma kalitesini, çevirileri ve diğer meta verileri iyileştirir</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Gelecekteki kesintilerden kaçınmak için öğrenebileceğimiz bir şey var mı?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Son kesintiler</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Kesintilerle ilgili yardıma mı ihtiyacınız var?</value>
+  </data>
 </root>

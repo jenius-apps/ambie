@@ -144,6 +144,7 @@
                         <Setter Target="CountdownTimerPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="ButtonPanelColumn1.Width" Value="110" />
                         <Setter Target="ButtonPanelColumn2.Width" Value="110" />
+                        <Setter Target="TipColumn.Visibility" Value="Visible" />
                         <Setter Target="ModuleColumn1.Width" Value="248" />
                         <Setter Target="TaskActiveDataText.(Grid.Row)" Value="0" />
                         <Setter Target="TaskActiveDataText.(Grid.Column)" Value="1" />
@@ -559,6 +560,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="ButtonPanelColumn1" Width="*" />
                         <ColumnDefinition x:Name="ButtonPanelColumn2" Width="*" />
+                        <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
                     <Button
                         x:Name="StartButton"
@@ -594,6 +596,22 @@
                         Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                         <FontIcon Style="{StaticResource StopTimerIcon}" />
                     </Button>
+
+                    <Grid
+                        x:Name="TipColumn"
+                        Grid.Column="2"
+                        Margin="4,0,0,0"
+                        VerticalAlignment="Center"
+                        Visibility="Collapsed">
+
+                        <HyperlinkButton
+                            Command="{x:Bind ViewModel.OpenInterruptionsCommand}"
+                            Content="{x:Bind strings:Resources.InterruptionInsightsButtonText}"
+                            FontSize="11"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            Visibility="{x:Bind ViewModel.InsightsVisible, Mode=OneWay}" />
+
+                    </Grid>
                 </Grid>
             </Grid>
         </Border>

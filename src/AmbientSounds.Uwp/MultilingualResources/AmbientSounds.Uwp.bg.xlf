@@ -968,6 +968,18 @@
           <source>Improves playback quality, translations, and other metadata</source>
           <target state="translated">Подобрява качеството на възпроизвеждане, преводите и други метаданни</target>
         </trans-unit>
+        <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
+          <source>Is there anything we can learn to avoid future interruptions?</source>
+          <target state="translated">Има ли нещо, което можем да научим, за да избегнем бъдещи прекъсвания?</target>
+        </trans-unit>
+        <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
+          <source>Recent interruptions</source>
+          <target state="translated">Последни прекъсвания</target>
+        </trans-unit>
+        <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
+          <source>Need help with interruptions?</source>
+          <target state="translated">Имате нужда от помощ при прекъсвания?</target>
+        </trans-unit>
       </group>
     </body>
   </file>

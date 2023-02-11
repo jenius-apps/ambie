@@ -736,4 +736,13 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>Melhora a qualidade da reprodução, traduções e outros metadados</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Existe alguma coisa que possamos aprender para evitar futuras interrupções?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Interrupções recentes</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Precisa de ajuda com interrupções?</value>
+  </data>
 </root>

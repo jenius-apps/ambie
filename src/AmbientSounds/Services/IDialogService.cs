@@ -72,4 +72,9 @@ public interface IDialogService
     /// Opens the missing shared sounds dialog.
     /// </summary>
     Task MissingShareSoundsDialogAsync();
+
+    /// <summary>
+    /// Opens dialog for recent interruptions.
+    /// </summary>
+    Task RecentInterruptionsAsync();
 }
