@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AmbientSounds.Cache;
@@ -11,21 +12,17 @@ namespace AmbientSounds.Services
     public sealed class FocusHistoryService : IFocusHistoryService
     {
         private readonly IFocusHistoryCache _focusHistoryCache;
-        private readonly IDialogService _dialogService;
         private readonly HashSet<string> _taskIdsCompleted = new();
         private FocusHistory? _activeHistory;
 
         public event EventHandler<FocusHistory?>? HistoryAdded;
 
         public FocusHistoryService(
-            IFocusHistoryCache focusHistoryCache,
-            IDialogService dialogService)
+            IFocusHistoryCache focusHistoryCache)
         {
             Guard.IsNotNull(focusHistoryCache, nameof(focusHistoryCache));
-            Guard.IsNotNull(dialogService, nameof(dialogService));
 
             _focusHistoryCache = focusHistoryCache;
-            _dialogService = dialogService;
         }
 
         public int GetInterruptionCount()
@@ -42,6 +39,28 @@ namespace AmbientSounds.Services
         public Task<IReadOnlyList<FocusHistory>> GetRecentAsync()
         {
             return _focusHistoryCache.GetRecentAsync();
+        }
+
+        /// <inheritdoc/>
+        public async Task<IReadOnlyList<FocusInterruption>> GetRecentInterruptionsAsync()
+        {
+            var histories = await GetRecentAsync();
+
+            if (histories.Count > 0 && histories[0] is { Interruptions.Count: > 0 })
+            {
+                List<FocusInterruption> results = new();
+                foreach (var h in histories)
+                {
+                    results.AddRange(h.Interruptions);
+                }
+
+                if (results.Count >= 3)
+                {
+                    return results;
+                }
+            }
+
+            return Array.Empty<FocusInterruption>();
         }
 
         public void TrackHistoryCompletion(long utcTicks, SessionType lastCompletedSegmentType)

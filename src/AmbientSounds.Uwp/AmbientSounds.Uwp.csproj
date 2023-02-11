@@ -184,6 +184,9 @@
     <Compile Include="Controls\InterruptionDialog.xaml.cs">
       <DependentUpon>InterruptionDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\InterruptionInsights.xaml.cs">
+      <DependentUpon>InterruptionInsights.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LogoControl.xaml.cs">
       <DependentUpon>LogoControl.xaml</DependentUpon>
     </Compile>
@@ -516,6 +519,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\InterruptionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InterruptionInsights.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

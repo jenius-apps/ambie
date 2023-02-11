@@ -9,7 +9,7 @@ namespace AmbientSounds.ViewModels
 {
     public class InterruptionViewModel
     {
-        public InterruptionViewModel(FocusInterruption interruption, bool isLast)
+        public InterruptionViewModel(FocusInterruption interruption, bool isLast = false)
         {
             MinutesInterrupted = TimeSpan.FromMinutes(interruption.Minutes).Humanize(maxUnit: TimeUnit.Minute);
             Notes = interruption.Notes;

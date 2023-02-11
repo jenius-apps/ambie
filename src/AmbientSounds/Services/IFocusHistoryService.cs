@@ -76,5 +76,12 @@ namespace AmbientSounds.Services
         DateTime GetStartTime();
         void LogPause();
         int GetPauses();
+
+        /// <summary>
+        /// Retrieves the recent list of
+        /// interruptions.
+        /// </summary>
+        /// <returns>List of recent interruptions.</returns>
+        Task<IReadOnlyList<FocusInterruption>> GetRecentInterruptionsAsync();
     }
 }

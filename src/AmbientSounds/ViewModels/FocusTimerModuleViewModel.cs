@@ -568,6 +568,12 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         });
     }
 
+    [RelayCommand]
+    private async Task OpenInterruptionsAsync()
+    {
+        await _dialogService.RecentInterruptionsAsync();
+    }
+
     private void OnTimeUpdated(object sender, FocusSession e)
     {
         if (e.SessionType == SessionType.None)

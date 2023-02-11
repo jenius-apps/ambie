@@ -263,4 +263,29 @@ public class DialogService : IDialogService
         content.Uninitialize();
         IsDialogOpen = false;
     }
+
+    public async Task RecentInterruptionsAsync()
+    {
+        if (IsDialogOpen)
+        {
+            return;
+        }
+
+        IsDialogOpen = true;
+        var content = new InterruptionInsights();
+        _ = content.InitializeAsync();
+
+        var dialog = new ContentDialog()
+        {
+            Title = Strings.Resources.Interruptions,
+            CloseButtonText = Strings.Resources.CloseText,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Content = content
+        };
+
+        await dialog.ShowAsync();
+        content.Uninitialize();
+
+        IsDialogOpen = false;
+    }
 }

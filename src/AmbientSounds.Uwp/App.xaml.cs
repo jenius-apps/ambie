@@ -418,6 +418,7 @@ namespace AmbientSounds
                 .AddSingleton<TimeBannerViewModel>()
                 .AddSingleton<UpdatesViewModel>()
                 .AddSingleton<InterruptionPageViewModel>()
+                .AddSingleton<InterruptionInsightsViewModel>()
                 .AddSingleton<DownloadMissingViewModel>()
                 .AddSingleton<ShareViewModel>()
                 .AddSingleton<FocusPageViewModel>()
