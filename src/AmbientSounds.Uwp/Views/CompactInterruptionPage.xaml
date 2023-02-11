@@ -44,7 +44,8 @@
             Header="{x:Bind strings:Resources.Notes}"
             MaxLength="280"
             PlaceholderText="{x:Bind strings:Resources.Optional}"
-            Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            TextWrapping="Wrap" />
 
         <Border
             Grid.Row="3"
