@@ -205,17 +205,17 @@
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>
           <target state="translated">Вече е изтеглен</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Звукът вече е изтеглен</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
           <target state="translated">Назад</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Връщане към предишната страница</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
           <target state="translated">Не може да бъде изтеглен</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Звукът може да бъде изтеглен</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Download sound</source>
@@ -232,7 +232,7 @@
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
           <target state="translated">Звуци</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Списък със звуци</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
           <source>Privacy policy</source>
@@ -289,12 +289,12 @@
         <trans-unit id="Paused" translate="yes" xml:space="preserve">
           <source>Paused</source>
           <target state="translated">Пауза</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Звукът е на пауза</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
         </trans-unit>
         <trans-unit id="Playing" translate="yes" xml:space="preserve">
           <source>Playing</source>
           <target state="translated">Свири</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Звука свири</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
         </trans-unit>
         <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Active sounds</source>
@@ -327,7 +327,7 @@
         <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
           <source>Remove {0} from active list</source>
           <target state="translated">Премахни {0} от активния лист</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Премахнете звук от списъка с активни възпроизвеждани звуци. Параметърът е името на звука за премахване.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
         </trans-unit>
         <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Save custom sound mix</source>
@@ -396,7 +396,7 @@
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
           <target state="translated">Обнови</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Текст за бутон, който ще обнови списък с нови данни</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign in</source>
@@ -473,7 +473,7 @@
         <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
           <source>{0} per month</source>
           <target state="translated">{0} на месец</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Цена на месец, където параметърът {0} е цена като $1,00.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
         </trans-unit>
         <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
           <source>Access premium, high quality sounds</source>
@@ -490,7 +490,7 @@
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">Благодарим ви, че се абонирахте!</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Благодарствено съобщение, което се показва, след като потребителят закупи абонамент.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
@@ -965,7 +965,7 @@
           <target state="translated">Подобрява преводите и други метаданни</target>
         </trans-unit>
         <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
-          <source>Improves playback quality, translatoins, and other metadata</source>
+          <source>Improves playback quality, translations, and other metadata</source>
           <target state="translated">Подобрява качеството на възпроизвеждане, преводите и други метаданни</target>
         </trans-unit>
       </group>

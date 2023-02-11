@@ -703,4 +703,37 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} доживот</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Провери за актуализации</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Проверете тук за актуализации на вашите звуци и видеоклипове.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Актуализациите съдържат подобрения в преводите, качеството на звука и др.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Актуализации</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Версия на данни:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Файлова версия:</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Актуализирай всички</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Напълно актуален. Готов си.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Подобрява качеството на възпроизвеждане</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Подобрява преводите и други метаданни</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Подобрява качеството на възпроизвеждане, преводите и други метаданни</value>
+  </data>
 </root>
