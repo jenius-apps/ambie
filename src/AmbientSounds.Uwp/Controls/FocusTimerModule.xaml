@@ -608,7 +608,8 @@
                             Command="{x:Bind ViewModel.OpenInterruptionsCommand}"
                             Content="You've had some interruptions lately. Maybe we can avoid them."
                             FontSize="11"
-                            Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            Visibility="{x:Bind ViewModel.InsightsVisible, Mode=OneWay}" />
 
                     </Grid>
                 </Grid>

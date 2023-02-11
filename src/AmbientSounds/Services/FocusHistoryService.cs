@@ -46,7 +46,7 @@ namespace AmbientSounds.Services
         {
             var histories = await GetRecentAsync();
 
-            if (histories.Count > 0 && histories[0] is { Interruptions.Count: > 0 })
+            if (histories.OrderByDescending(x => x.StartUtcTicks).FirstOrDefault() is { Interruptions.Count: > 0 })
             {
                 List<FocusInterruption> results = new();
                 foreach (var h in histories)
