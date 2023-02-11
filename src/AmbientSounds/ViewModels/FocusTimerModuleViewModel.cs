@@ -556,12 +556,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         if (minutes > 0)
         {
             OnPropertyChanged(nameof(InterruptionCount));
-            _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
-            {
-                { "minutes", minutes.ToString() },
-                { "hasNotes", (!string.IsNullOrWhiteSpace(notes)).ToString() },
-                { "isCompact", "false" }
-            });
+            _telemetry.TrackEvent(
+                TelemetryConstants.FocusInterruptionLogged,
+                _focusHistoryService.GatherInterruptionTelemetry(minutes, notes, false));
         }
     }
 

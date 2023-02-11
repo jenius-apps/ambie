@@ -83,5 +83,11 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <returns>List of recent interruptions.</returns>
         Task<IReadOnlyList<FocusInterruption>> GetRecentInterruptionsAsync();
+        
+        /// <summary>
+        /// Prepares a dictionary of data
+        /// to be used for telemetry.
+        /// </summary>
+        Dictionary<string, string> GatherInterruptionTelemetry(double minutes, string notes, bool isCompact);
     }
 }

@@ -172,5 +172,27 @@ namespace AmbientSounds.Services
         {
             _taskIdsCompleted.Remove(taskId);
         }
+
+        /// <inheritdoc/>
+        public Dictionary<string, string> GatherInterruptionTelemetry(
+            double minutes,
+            string notes,
+            bool isCompact)
+        {
+            bool hasNotes = !string.IsNullOrWhiteSpace(notes);
+            var data = new Dictionary<string, string>
+            {
+                { "minutes", minutes.ToString() },
+                { "hasNotes", hasNotes.ToString().ToLower() },
+                { "isCompact", isCompact.ToString().ToLower() }
+            };
+
+            if (hasNotes)
+            {
+                data.Add("notes", notes);
+            }
+
+            return data;
+        }
     }
 }
