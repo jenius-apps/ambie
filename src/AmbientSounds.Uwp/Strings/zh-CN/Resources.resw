@@ -736,4 +736,10 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>改进了播放质量、翻译和其他元数据</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>我们可以学到什么来避免未来的中断吗？</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>最近的中断</value>
+  </data>
 </root>

@@ -983,11 +983,11 @@
         </trans-unit>
         <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
           <source>Is there anything we can learn to avoid future interruptions?</source>
-          <target state="new">Is there anything we can learn to avoid future interruptions?</target>
+          <target state="translated">Y a-t-il quelque chose que nous pouvons apprendre pour éviter de futures interruptions?</target>
         </trans-unit>
         <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
           <source>Recent interruptions</source>
-          <target state="new">Recent interruptions</target>
+          <target state="translated">Interruptions récentes</target>
         </trans-unit>
       </group>
     </body>

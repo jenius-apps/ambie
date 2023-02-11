@@ -736,4 +736,10 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>Zlepšuje kvalitu přehrávání, překlady a další metadata</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Můžeme se naučit něco, abychom se vyhnuli budoucím přerušením?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Nedávná přerušení</value>
+  </data>
 </root>

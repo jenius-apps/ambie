@@ -736,4 +736,10 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>재생 품질, 번역 및 기타 메타데이터 개선</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>미래의 중단을 피하기 위해 배울 수있는 것이 있습니까?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>최근 중단</value>
+  </data>
 </root>

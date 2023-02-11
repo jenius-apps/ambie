@@ -970,11 +970,11 @@
         </trans-unit>
         <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
           <source>Is there anything we can learn to avoid future interruptions?</source>
-          <target state="new">Is there anything we can learn to avoid future interruptions?</target>
+          <target state="translated">Има ли нещо, което можем да научим, за да избегнем бъдещи прекъсвания?</target>
         </trans-unit>
         <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
           <source>Recent interruptions</source>
-          <target state="new">Recent interruptions</target>
+          <target state="translated">Последни прекъсвания</target>
         </trans-unit>
       </group>
     </body>
