@@ -488,7 +488,9 @@ namespace AmbientSounds
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IAssetsReader, AssetsReader>()
-                .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
+                .AddSingleton<IMixMediaPlayerService, Services.MixMediaPlayerService>()
+                .AddSingleton<ISystemMediaControlsFactory, WindowsSystemMediaControlsFactory>()
+                .AddSingleton<IMediaPlayerFactory, WindowsMediaPlayerFactory>()
                 .AddSingleton(appsettings ?? new AppSettings())
                 .BuildServiceProvider(true);
 

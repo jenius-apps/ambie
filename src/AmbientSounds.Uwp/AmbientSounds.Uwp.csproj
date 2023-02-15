@@ -280,7 +280,6 @@
     <Compile Include="Services\DispatcherExtensions.cs" />
     <Compile Include="Services\FilePicker.cs" />
     <Compile Include="Services\ImagePicker.cs" />
-    <Compile Include="Services\MixMediaPlayerService.cs" />
     <Compile Include="Services\MsalClient.cs" />
     <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Services\ProtocolLaunchController.cs" />
@@ -306,6 +305,9 @@
     <Compile Include="Tools\WindowsClipboard.cs" />
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
+    <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
+    <Compile Include="Tools\WindowsSystemMediaControls.cs" />
+    <Compile Include="Tools\WindowsSystemMediaControlsFactory.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>

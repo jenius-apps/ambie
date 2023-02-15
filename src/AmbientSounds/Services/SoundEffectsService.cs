@@ -28,7 +28,7 @@ namespace AmbientSounds.Services
         {
             if (_pathCache.TryGetValue(effect, out string path))
             {
-                _mediaPlayer.SetSource(path);
+                _mediaPlayer.SetUriSource(new Uri(path));
                 _mediaPlayer.Play();
                 return;
             }
@@ -43,7 +43,7 @@ namespace AmbientSounds.Services
                 _pathCache.TryAdd(effect, effectPath);
 
                 // Don't forget to play the effect :)
-                _mediaPlayer.SetSource(effectPath);
+                _mediaPlayer.SetUriSource(new Uri(effectPath));
                 _mediaPlayer.Play();
             }
         }

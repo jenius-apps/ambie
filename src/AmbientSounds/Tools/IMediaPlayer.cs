@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace AmbientSounds.Tools
+namespace AmbientSounds.Tools;
+
+public interface IMediaPlayer
 {
-    public interface IMediaPlayer
-    {
-        void Pause();
-        void Play();
-        void SetSource(string pathToFile);
-    }
+    double Volume { get; set; }
+
+    void Pause();
+
+    void Play();
+
+    Task<bool> SetSourceAsync(string pathToFile, bool enableGaplessLoop = false);
+
+    bool SetUriSource(Uri uriSource, bool enableGaplessLoop = false);
+
+    void Dispose();
 }
