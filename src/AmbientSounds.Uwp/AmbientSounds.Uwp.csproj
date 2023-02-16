@@ -307,7 +307,6 @@
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
     <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
     <Compile Include="Tools\WindowsSystemMediaControls.cs" />
-    <Compile Include="Tools\WindowsSystemMediaControlsFactory.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>

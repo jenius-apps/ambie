@@ -44,7 +44,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         IDispatcherQueue dispatcherQueue,
         IMediaPlayerFactory mediaPlayerFactory,
         ISystemInfoProvider systemInfoProvider,
-        ISystemMediaControlsFactory systemMediaControlsFactory)
+        ISystemMediaControls systemMediaControls)
     {
         Guard.IsNotNull(userSettings);
         Guard.IsNotNull(soundDataProvider);
@@ -52,7 +52,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         Guard.IsNotNull(dispatcherQueue);
         Guard.IsNotNull(mediaPlayerFactory);
         Guard.IsNotNull(systemInfoProvider);
-        Guard.IsNotNull(systemMediaControlsFactory);
+        Guard.IsNotNull(systemMediaControls);
 
         _soundDataProvider = soundDataProvider;
         _assetLocalizer = assetLocalizer;
@@ -60,8 +60,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         _dispatcherQueue = dispatcherQueue;
         _mediaPlayerFactory = mediaPlayerFactory;
         _localDataFolderPath = systemInfoProvider.LocalFolderPath();
-
-        _smtc = systemMediaControlsFactory.Create();
+        _smtc = systemMediaControls;
         InitializeSmtc();
     }
 

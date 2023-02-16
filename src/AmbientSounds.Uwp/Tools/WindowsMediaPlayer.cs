@@ -8,6 +8,9 @@ using Windows.Storage;
 
 namespace AmbientSounds.Tools.Uwp;
 
+/// <summary>
+/// Wrapper around <see cref="MediaPlayer"/>.
+/// </summary>
 public class WindowsMediaPlayer : IMediaPlayer
 {
     private readonly MediaPlayer _player;
@@ -22,18 +25,23 @@ public class WindowsMediaPlayer : IMediaPlayer
         _player = player;
     }
 
+    /// <inheritdoc/>
     public double Volume
     {
         get => _player.Volume;
         set => _player.Volume = value;
     }
 
+    /// <inheritdoc/>
     public void Play() => _player.Play();
 
+    /// <inheritdoc/>
     public void Pause() => _player.Pause();
 
+    /// <inheritdoc/>
     public void Dispose() => _player.Dispose();
 
+    /// <inheritdoc/>
     public bool SetUriSource(Uri uriSource, bool enableGaplessLoop = false)
     {
         try
@@ -49,6 +57,7 @@ public class WindowsMediaPlayer : IMediaPlayer
         return true;
     }
 
+    /// <inheritdoc/>
     public async Task<bool> SetSourceAsync(string pathToFile, bool enableGaplessLoop = false)
     {
         try
