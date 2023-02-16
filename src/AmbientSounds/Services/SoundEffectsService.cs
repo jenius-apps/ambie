@@ -15,11 +15,11 @@ namespace AmbientSounds.Services
         private readonly Lazy<Task<IReadOnlyList<string>>> _soundEffectsLazy;
 
         public SoundEffectsService(
-            IMediaPlayer mediaPlayer,
+            IMediaPlayerFactory mediaPlayerFactory,
             IAssetsReader assetsReader)
         {
-            Guard.IsNotNull(mediaPlayer);
-            _mediaPlayer = mediaPlayer;
+            Guard.IsNotNull(mediaPlayerFactory);
+            _mediaPlayer = mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
             _soundEffectsLazy = new Lazy<Task<IReadOnlyList<string>>>(assetsReader.GetSoundEffectsAsync);
         }
 
@@ -28,7 +28,7 @@ namespace AmbientSounds.Services
         {
             if (_pathCache.TryGetValue(effect, out string path))
             {
-                _mediaPlayer.SetSource(path);
+                _mediaPlayer.SetUriSource(new Uri(path));
                 _mediaPlayer.Play();
                 return;
             }
@@ -43,7 +43,7 @@ namespace AmbientSounds.Services
                 _pathCache.TryAdd(effect, effectPath);
 
                 // Don't forget to play the effect :)
-                _mediaPlayer.SetSource(effectPath);
+                _mediaPlayer.SetUriSource(new Uri(effectPath));
                 _mediaPlayer.Play();
             }
         }
