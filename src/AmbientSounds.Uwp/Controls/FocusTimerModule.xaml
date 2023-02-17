@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:constants="using:AmbientSounds.Constants"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
@@ -308,7 +309,7 @@
                                 AutomationName="{x:Bind strings:Resources.FocusLength}"
                                 Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                                Maximum="60"
+                                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
                                 StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
@@ -330,7 +331,7 @@
                                 AutomationName="{x:Bind strings:Resources.RestLength}"
                                 Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                                Maximum="60"
+                                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
                                 StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
@@ -651,13 +652,13 @@
 
                                 <local:RecentFocusSettingsControl
                                     Foreground="SkyBlue"
-                                    MaxValue="60"
+                                    MaxValue="{x:Bind (x:Int32)constants:FocusConstants.TimerLimit}"
                                     Text="{x:Bind strings:Resources.FocusText}"
                                     Value="{x:Bind Settings.FocusMinutes}" />
                                 <local:RecentFocusSettingsControl
                                     Grid.Column="1"
                                     Foreground="Green"
-                                    MaxValue="60"
+                                    MaxValue="{x:Bind (x:Int32)constants:FocusConstants.TimerLimit}"
                                     Text="{x:Bind strings:Resources.RestText}"
                                     Value="{x:Bind Settings.RestMinutes}" />
                                 <local:RecentFocusSettingsControl
