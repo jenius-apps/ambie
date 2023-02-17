@@ -1,5 +1,4 @@
-﻿
-<Page
+﻿<Page
     x:Class="AmbientSounds.Views.ShellPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -22,7 +21,7 @@
                         <StateTrigger IsActive="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="TopPlayerPanel.Margin" Value="0,48,0,0" />
+                        <Setter Target="TopPlayerPanel.Margin" Value="0,44,0,0" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
