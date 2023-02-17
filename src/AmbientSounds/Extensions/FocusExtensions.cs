@@ -66,7 +66,7 @@ namespace AmbientSounds.Extensions
             }
 
             double totalFocusTime = history.FocusLength * numOfRounds;
-            double focusTimeCompleted = history.FocusSegmentsCompleted * numOfRounds;
+            double focusTimeCompleted = history.FocusLength * history.FocusSegmentsCompleted;
             if (history.PartialSegmentType == SessionType.Focus)
             {
                 focusTimeCompleted += TimeSpan.FromTicks(history.PartialSegmentTicks).TotalMinutes;
