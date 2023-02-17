@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>Κλείσιμο Ambie Mini</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Κλείσιμο Ambie Mini</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>Copyright Jenius Apps</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>Γεια σας από το Βανκούβερ</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Προβολή πληροφοριών εφαρμογής</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Προβολή περισσότερων επιλογών</value>
+  </data>
+  <data name="CompactMode" xml:space="preserve">
+    <value>Ambie Mini</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>Επικοινωνήστε με τον δημιουργό</value>
+  </data>
+  <data name="RateUsText" xml:space="preserve">
+    <value>Βαθμολογήστε μας</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>Κοινή χρήση συνδέσμου για Ambie</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>Προσθήκη ή βελτίωση μεταφράσεων</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Κλειστό</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Ανοιχτό</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Παύση του χρονόμετρου</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>Παύση</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>Αναπαραγωγή</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Ενεργoποίηση χρονόμετρου</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>Έτοιμο για έναρξη</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Τηλεμετρία</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Προβολή επιλογών χρονόμετρου ύπνου</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Προβολή επιλογών χρονόμετρου ύπνου</value>
+  </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>Παραλία</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>Πουλιά</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>Οδός της πόλης</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>Καφετέρια</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>Ποταμάκι</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>Τζάκι</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>Βροχή</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>Τροπικό δάσος</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>Υποβρύχιος</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>Καταράχτης</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>Λευκός θόρυβος</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>Οι ήχοι φορτώνονται</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>Δεν είναι δυνατή η αναπαραγωγή ήχου</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Σταματήστε το χρονόμετρο και διαγράψτε την ώρα</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>Συνολικός όγκος</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Ενταση ήχου</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>Θέμα</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>Αυτόματα</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>Σκοτάδι</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>Φως</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Ειδοποίηση για νέους ήχους</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>Άνεμος</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Έχει ήδη ληφθεί</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Μετάβαση προς τα πίσο</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Μπορεί να γίνει λήψη</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Λήψη ήχου</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Λήψη ήχου</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Κατάλογος ήχου</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Ήχοι</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Πολιτική απορρήτου</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Πολιτική απορρήτου</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Διαγραφή ήχου</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Λήψη</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Παίξτε τυχαίο ήχο</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Παίξτε τυχαίο ήχο</value>
+  </data>
+  <data name="ScreensaverMode" xml:space="preserve">
+    <value>Λειτουργία προφύλαξη οθόνης</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>Προφύλαξη οθόνης</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Αγορά ήχου</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Προεπισκόπηση ήχου</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Προεπισκόπηση ήχου</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Σε παύση</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>Τώρα παίζει</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>Ενεργοί ήχοι</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Διαγράψτε όλους τους ενεργούς ήχους</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Διαγράψτε όλους τους ενεργούς ήχους</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Επιβεβαιώστε την αποθήκευση</value>
+  </data>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>Συνολικός όγκος</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>Όνομα μίξης ήχου</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>Προαιρετικό</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>Καταργήστε το {0} από την ενεργή λίστα</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Αποθηκεύστε προσαρμοσμένη μίξη ήχου</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Αποθήκευση προσαρμοσμένης μίξης ήχου (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>Mετονομασία</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>Mετονομασία</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>Αποσύνδεση</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>Αυτό θα επιτρέψει τον συγχρονισμό της συλλογής ήχου στις συσκευές σας.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Προβολή επιλογών λογαριασμού</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Προβολή επιλογών λογαριασμού</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>Συγχρονισμός</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Απόδοση</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>Περιήγηση</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Όνομα</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>Νέος ήχος</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Ανανέωση</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Σύνδεση</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Είστε σίγουροι;</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ναί</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>Προαιρετικό</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Υποχρεωτικό</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>Δωρίστε</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Όροι χρήσης</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>Ακολουθήστε μας στο Twitter</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Απόρριψη</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>Σας ευχαριστούμε που δοκιμάσατε το Ambie. Για την καλύτερη εμπειρία, δοκιμάστε να μας καρφιτσώσετε στη γραμμή εργασιών σας! Απολαύστε τη χαλαρωτική σας διαμονή 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>Γειά σας και καλώς ήρθατε!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>Καρφίτσωμα στη γραμμή εργασιών</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Προεπισκόπηση</value>
+  </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>Κατάλογος</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Σπίτι</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value> Μιξάρεται και συνδυάστε έως και 3 ήχους</value>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>Ρυθμίσεις θέματος</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Αυτόματη συνέχιση όταν ανοίξει το Ambie</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} ανά μήνα</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} διάρκεια ζωής</value>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>Αποκτήστε πρόσβαση σε ήχους υψηλής ποιότητας</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>Λήψη προφύλαξης οθόνης βίντεο</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>Υποστήριξη ανάπτυξης</value>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>Ευχαριστώ για την εγγραφή!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>Γειά σου και πάλι 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>Απολαμβάνεις το Ambie; Σκεφτείτε να μας αξιολογήσετε!</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>Λήψη</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>Πρέπει να κατεβάσουμε κάποιους ήχους για να το παίξουμε. Μετά τη λήψη, δοκιμάστε να το παίξετε ξανά. Έναρξη λήψης;</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>Λείπουν ήχοι</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Προκαθορισμένο</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>Περισσότερες προφυλάξεις οθόνης</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>Κατάλογος προφύλαξης οθόνης</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>Προβολή πληροφοριών premium</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>Σύννεφα</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>Χρωματιστός καπνός</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>Οκτάγραμμα</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>Παρουσιάστηκε πρόβλημα με την εμφάνιση της προφύλαξης οθόνης. Δοκιμάστε να επανεκκινήσετε το Ambie ή επικοινωνήστε μαζί μας εάν το πρόβλημα παραμένει.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>Αναφέρετε το ζήτημα</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>Σφάλμα απόδοσης</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>Λειτουργεία πλήρους οθόνης</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>Αποκτήστε το Ambie+</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>Εστίαση</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>Παύση χρονομέτροθ</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>Έναρξη χρονομέτρου</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>Μπράβο!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>Η συνεδρία εστίασης ολοκληρώθηκε</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>Ώρα για εστίαση</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>Ωρα για ξεκούραση</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>Ανάπαυση</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>Η συνεδρία εστίασης είναι ενεργή!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>Εστίαση</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>Ξεκούραση</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Παύση</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Επαναφορά</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>Επαναφορά χρονομέτρου</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Αναπαραγωγή</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>Λεπτά εστίασης</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>Μπορείτε να σημειώσετε οποιεσδήποτε σημειώσεις εδώ 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>Ποιο είναι το σχέδιο;</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Επαναλήψεις</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>Λεπτά ανάπαυσης</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>Δείξε μου πώς να το χρησιμοποιήσω</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>Πρόκειται για ένα χρονόμετρο διαστήματος εμπνευσμένο από την τεχνική pomodoro. Ο στόχος είναι να εστιάσετε σε μια εργασία για μεγάλο χρονικό διάστημα και μετά να κάνετε ένα μικρότερο διάλειμμα ανάπαυσης. Επαναλάβετε αυτόν τον κύκλο για να συνεχίσετε να εστιάζετε!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>Καλώς ορίσατε στο χρονόμετρο εστίασης!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Βοήθεια</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Επόμενο</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>Κάθε κύκλος έχει ένα τμήμα εστίασης και ένα τμήμα ανάπαυσης. Επιλέξτε πόσο καιρό θα είναι κάθε τμήμα εστίασης. Σας προτείνουμε 25 λεπτά για να ξεκινήσετε!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>Ορίστε λεπτά εστίασης</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>Κάθε κύκλος εστίασης και ανάπαυσης μπορεί να επαναληφθεί πολλές φορές. Δοκιμάστε να προσθέσετε 1 επανάληψη!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>Ορίστε επαναλήψεις</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>Τώρα, επιλέξτε πόσο καιρό θα είναι κάθε τμήμα ανάπαυσης. Προτείνουμε περίπου 5 λεπτά προς το παρόν!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>Ορίστε λεπτά ανάπαυσης</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>Ξεκινήστε το χρονόμετρο και επεξεργαστείτε τις εργασίες σας. Θα σας στείλουμε ειδοποιήσεις όταν έρθει η ώρα για ξεκούραση. Δούλεψε σκληρά!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>Έτοιμοι, σετ, πάμε</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} λεπτά εστίασης, {1} λεπτά ανάπαυσης, {2} επαναλήψεις.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>Λίστα πρόσφατων διαμορφώσεων εστίασης.</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 έως {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Ιστορικό</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>Διακοπές</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>Το πρόσφατο ιστορικό σας θα εμφανιστεί εδώ</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>Διακοπή καταγραφής</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Επιβεβαίωση</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>Λεπτά διακόπηκαν</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Σημειώσεις</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>Σας διέκοψε κάτι; Παρακολουθήστε τις διακοπές σας εδώ, ώστε να μπορείτε να τις ελέγξετε αργότερα στο ιστορικό σας.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>Πρόσφατη ιστορία</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>Ολοκληρώθηκαν οι γύροι</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>Καλή προσπάθεια</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>Είστε καταπληκτικοί</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Ambie</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>Προσθέστε εργασίες στις οποίες θα εστιάσετε και, στη συνέχεια, πατήστε το κουμπί έναρξης</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>Καθήκοντα</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>Ολοκληρώθηκε πρόσφατα</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>Εργασίες Ολοκληρώθηκαν</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>Δωρεάν αυτή την εβδομάδα!</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>Ανοίξτε το Ambie Mini κατά την εστίαση</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Άνοιγμα Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Με το Ambie Mini, θα μικρύνουμε το παράθυρο και θα εμφανίσουμε μόνο τα απαραίτητα στοιχεία που θα σας βοηθήσουν να εστιάσετε.</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>Διάρκεια</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>Τέλος</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>Παύσεις</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>Κατεβάστε ήχους από τον κατάλογο</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>Επεξεργασία αρχικής σελίδας</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>Σύρετε και αποθέστε ήχους για να εξατομικεύσετε την αρχική σας σελίδα. Δοκίμασέ το τώρα!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>Συγνώμη για αυτό! Δεν μπορέσαμε να φορτώσουμε τον κατάλογο. Δοκιμάστε να ελέγξετε τη σύνδεσή σας στο διαδίκτυο.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>Σχετικά με το Ambie</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>Το Ambie Mini θα ανοίξει αυτόματα κατά την εστίαση</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>Θα σας ειδοποιήσουμε όταν είναι διαθέσιμοι νέοι ήχοι</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>Κατά την εκκίνηση, το Ambie θα συνεχίσει να παίζει αυτόματα</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>Αναφέρονται σφάλματα και ανώνυμες πληροφορίες χρήσης που συμβάλλουν στη βελτίωση του Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>Εικόνα φόντου</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>Προσαρμοσμένη εικόνα</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>Γενικές Ρυθμίσεις</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>Επιλέξτε τη λειτουργία σας</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>Αλλάξτε τα χρώματα που εμφανίζονται στο Ambie</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>Μοιραστείτε αυτό που ακούτε</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>Ας δούμε αν μπορούν να ληφθούν.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>Σου λείπουν κάποιοι ήχοι</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>Ανασκόπηση</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>Αντιγράφηκε!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Αντιγραφή</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>Ή</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>Ξεκλειδώστε αυτόν τον ήχο</value>
+  </data>
+</root>

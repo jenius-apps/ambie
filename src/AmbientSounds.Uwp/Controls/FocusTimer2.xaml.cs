@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using AmbientSounds.Constants;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -23,13 +24,13 @@ public sealed partial class FocusTimer2 : UserControl
         nameof(FocusLength),
         typeof(double),
         typeof(FocusTimer2),
-        new PropertyMetadata(60d));
+        new PropertyMetadata(FocusConstants.TimerLimit));
 
     public static readonly DependencyProperty RestLengthProperty = DependencyProperty.Register(
         nameof(RestLength),
         typeof(double),
         typeof(FocusTimer2),
-        new PropertyMetadata(60d));
+        new PropertyMetadata(FocusConstants.TimerLimit));
 
     public static readonly DependencyProperty FocusRingVisibleProperty = DependencyProperty.Register(
         nameof(FocusRingVisible),

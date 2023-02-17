@@ -165,9 +165,6 @@
     <Compile Include="Controls\FocusTaskModule.xaml.cs">
       <DependentUpon>FocusTaskModule.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FocusTimer.xaml.cs">
-      <DependentUpon>FocusTimer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\FocusTimer2.xaml.cs">
       <DependentUpon>FocusTimer2.xaml</DependentUpon>
     </Compile>
@@ -280,7 +277,6 @@
     <Compile Include="Services\DispatcherExtensions.cs" />
     <Compile Include="Services\FilePicker.cs" />
     <Compile Include="Services\ImagePicker.cs" />
-    <Compile Include="Services\MixMediaPlayerService.cs" />
     <Compile Include="Services\MsalClient.cs" />
     <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Services\ProtocolLaunchController.cs" />
@@ -306,6 +302,8 @@
     <Compile Include="Tools\WindowsClipboard.cs" />
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
+    <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
+    <Compile Include="Tools\WindowsSystemMediaControls.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>
@@ -495,10 +493,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FocusTaskModule.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\FocusTimer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -795,6 +789,7 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.da-DK.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.de-DE.xlf" />
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.el.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.es-ES.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fa-IR.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.fr-FR.xlf" />
@@ -857,6 +852,9 @@
     <PRIResource Include="Strings\bg\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
+    <PRIResource Include="Strings\el\Resources.resw" />
+  </ItemGroup>
+    <ItemGroup>
     <PRIResource Include="Strings\fa-IR\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

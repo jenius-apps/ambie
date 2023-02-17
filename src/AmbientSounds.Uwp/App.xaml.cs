@@ -476,7 +476,6 @@ namespace AmbientSounds
                 .AddSingleton<ICompactNavigator, CompactNavigator>()
                 .AddSingleton<ICloudFileWriter, CloudFileWriter>()
                 .AddSingleton<PlayerTelemetryTracker>()
-                .AddSingleton<IMediaPlayer, WindowsMediaPlayer>()
                 .AddSingleton<ISoundEffectsService, SoundEffectsService>()
                 .AddSingleton<ISyncEngine, SyncEngine>()
                 .AddSingleton<IAccountManager, AccountManager>()
@@ -488,7 +487,9 @@ namespace AmbientSounds
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IAssetsReader, AssetsReader>()
-                .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
+                .AddSingleton<IMixMediaPlayerService, Services.MixMediaPlayerService>()
+                .AddSingleton<ISystemMediaControls, WindowsSystemMediaControls>()
+                .AddSingleton<IMediaPlayerFactory, WindowsMediaPlayerFactory>()
                 .AddSingleton(appsettings ?? new AppSettings())
                 .BuildServiceProvider(true);
 

@@ -2,8 +2,6 @@
 using AmbientSounds.Services;
 using JeniusApps.Common.Tools;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AmbientSounds.Extensions
 {
@@ -11,12 +9,19 @@ namespace AmbientSounds.Extensions
     {
         public static string ToCountdownFormat(this TimeSpan remaining)
         {
-            if (remaining.TotalMinutes == 60)
+            string minuteString = ((int)remaining.TotalMinutes).ToString();
+            string secondString = remaining.Seconds.ToString();
+            return $"{minuteString.EnsureDoubleDigit()}:{secondString.EnsureDoubleDigit()}";
+        }
+
+        private static string EnsureDoubleDigit(this string time)
+        {
+            if (time.Length == 1)
             {
-                return "60:00";
+                time = "0" + time;
             }
 
-            return remaining.ToString(@"mm\:ss");
+            return time;
         }
 
         public static string ToDisplayString(this SessionType sessionType, ILocalizer localizer)
@@ -61,7 +66,7 @@ namespace AmbientSounds.Extensions
             }
 
             double totalFocusTime = history.FocusLength * numOfRounds;
-            double focusTimeCompleted = history.FocusSegmentsCompleted * numOfRounds;
+            double focusTimeCompleted = history.FocusLength * history.FocusSegmentsCompleted;
             if (history.PartialSegmentType == SessionType.Focus)
             {
                 focusTimeCompleted += TimeSpan.FromTicks(history.PartialSegmentTicks).TotalMinutes;

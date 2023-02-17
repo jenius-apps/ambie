@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
+using Windows.Storage;
 using Windows.UI.ViewManagement;
 
 #nullable enable
@@ -52,5 +53,11 @@ public class SystemInfoProvider : ISystemInfoProvider
     public DateTime FirstUseDate()
     {
         return SystemInformation.Instance.FirstUseTime;
+    }
+
+    /// <inheritdoc/>
+    public string LocalFolderPath()
+    {
+        return ApplicationData.Current.LocalFolder.Path;
     }
 }
