@@ -1,780 +1,772 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="fr-FR" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+  <file datatype="xml" source-language="en-US" target-language="el" original="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
-      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="1.0.0.0" tool-company="Microsoft" />
     </header>
     <body>
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="translated">Fermer Ambie Mini</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Κλείσιμο Ambie Mini</target>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="translated">Fermer Ambie Mini</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Κλείσιμο Ambie Mini</target>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="translated">Fermer</target>
+          <target state="translated">Κλείσιμο</target>
         </trans-unit>
         <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
           <source>Copyright</source>
-          <target state="translated">Droits d’auteur</target>
+          <target state="translated">Copyright</target>
         </trans-unit>
         <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
           <source>Copyright Jenius Apps</source>
-          <target state="translated">Droits d'auteur Jenius Apps</target>
+          <target state="translated">Copyright Jenius Apps</target>
         </trans-unit>
         <trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
           <source>Hello from Vancouver</source>
-          <target state="translated">Salutations de Vancouver</target>
+          <target state="translated">Γεια σας από το Βανκούβερ</target>
         </trans-unit>
         <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View app information</source>
-          <target state="translated">Voir les informations de l'application</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Προβολή πληροφοριών εφαρμογής</target>
         </trans-unit>
         <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more options</source>
-          <target state="translated">Voir plus d'options</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
-          <source>Contact the creator</source>
-          <target state="translated">Contacter le créateur</target>
-        </trans-unit>
-        <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
-          <source>Rate us</source>
-          <target state="translated">Évaluez-nous</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
-          <source>Settings</source>
-          <target state="translated">Paramètres</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
-          <source>Share link for Ambie</source>
-          <target state="translated">Partager le lien pour Ambie</target>
-        </trans-unit>
-        <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
-          <source>Add or improve translations</source>
-          <target state="translated">Ajouter ou améliorer les traductions</target>
-        </trans-unit>
-        <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Off</source>
-          <target state="translated">Inactif</target>
-        </trans-unit>
-        <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>On</source>
-          <target state="translated">Actif</target>
-        </trans-unit>
-        <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Pause the timer</source>
-          <target state="translated">Suspendre le minuteur</target>
-        </trans-unit>
-        <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
-          <source>Pause</source>
-          <target state="translated">Mettre le son en pause</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
-          <source>Play</source>
-          <target state="translated">Lire le son</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Continue the timer</source>
-          <target state="translated">Continuer le minuteur</target>
-        </trans-unit>
-        <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
-          <source>Ready to play</source>
-          <target state="translated">Prêt à jouer</target>
-        </trans-unit>
-        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target state="translated">Télémétrie</target>
-        </trans-unit>
-        <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
-          <source>Settings</source>
-          <target state="translated">Paramètres</target>
-        </trans-unit>
-        <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>View sleep timer options</source>
-          <target state="translated">Voir les options du minuteur de mise en veille.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>View sleep timer options</source>
-          <target state="translated">Voir les options du minuteur de mise en veille.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
-          <source>Beach</source>
-          <target state="translated">Plage</target>
-        </trans-unit>
-        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
-          <source>Birds</source>
-          <target state="translated">Oiseaux</target>
-        </trans-unit>
-        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
-          <source>City street</source>
-          <target state="translated">Rue urbaine</target>
-        </trans-unit>
-        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
-          <source>Coffee shop</source>
-          <target state="translated">Café-restaurant</target>
-        </trans-unit>
-        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
-          <source>Creek</source>
-          <target state="translated">Ruisseau</target>
-        </trans-unit>
-        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
-          <source>Fireplace</source>
-          <target state="translated">Cheminée</target>
-        </trans-unit>
-        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
-          <source>Rain</source>
-          <target state="translated">Pluie</target>
-        </trans-unit>
-        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
-          <source>Rainforest</source>
-          <target state="translated">Forêt tropicale</target>
-        </trans-unit>
-        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
-          <source>Underwater</source>
-          <target state="translated">Sous l'eau</target>
-        </trans-unit>
-        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
-          <source>Waterfall</source>
-          <target state="translated">Cascade</target>
-        </trans-unit>
-        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
-          <source>White noise</source>
-          <target state="translated">Bruit blanc</target>
-        </trans-unit>
-        <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sounds are loading</source>
-          <target state="translated">Chargement des sons</target>
-        </trans-unit>
-        <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
-          <source>Cannot play sound</source>
-          <target state="translated">Impossible de lire le son</target>
-        </trans-unit>
-        <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Stop the timer and clear the time</source>
-          <target state="translated">Arrêter et reinitialiser le minuteur</target>
-        </trans-unit>
-        <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Global volume</source>
-          <target state="translated">Volume général</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
-          <source>Theme</source>
-          <target state="translated">Thème</target>
-        </trans-unit>
-        <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
-          <source>Auto</source>
-          <target state="translated">Auto</target>
-        </trans-unit>
-        <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
-          <source>Dark</source>
-          <target state="translated">Sombre</target>
-        </trans-unit>
-        <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
-          <source>Light</source>
-          <target state="translated">Clair</target>
-        </trans-unit>
-        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
-          <source>Vacuum</source>
-          <target state="translated">Aspirateur</target>
-        </trans-unit>
-        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
-          <source>Thunder</source>
-          <target state="translated">Tonnerre</target>
-        </trans-unit>
-        <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
-          <source>Notification for new sounds</source>
-          <target state="translated">Notification pour les nouveaux sons</target>
-        </trans-unit>
-        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
-          <source>Wind</source>
-          <target state="translated">Vent</target>
-        </trans-unit>
-        <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
-          <source>Already downloaded</source>
-          <target state="translated">Le son est déjà téléchargé</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
-        </trans-unit>
-        <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Go back</source>
-          <target state="translated">Retournez à la page précédente</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
-        </trans-unit>
-        <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
-          <source>Can be downloaded</source>
-          <target state="translated">Le son peut être téléchargé</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
-        </trans-unit>
-        <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Download sound</source>
-          <target state="translated">Télécharger le son</target>
-        </trans-unit>
-        <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Download sound</source>
-          <target state="translated">Télécharger le son</target>
-        </trans-unit>
-        <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sound catalogue</source>
-          <target state="translated">Catalogue de son</target>
-        </trans-unit>
-        <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sounds</source>
-          <target state="translated">Liste des sons</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
-        </trans-unit>
-        <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
-          <source>Privacy policy</source>
-          <target state="translated">Politique de confidentialité</target>
-        </trans-unit>
-        <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Privacy policy</source>
-          <target state="translated">Politique de confidentialité</target>
-        </trans-unit>
-        <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Delete</source>
-          <target state="translated">Supprimer</target>
-        </trans-unit>
-        <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Delete sound</source>
-          <target state="translated">Supprimer le son</target>
-        </trans-unit>
-        <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Delete</source>
-          <target state="translated">Supprimer</target>
-        </trans-unit>
-        <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
-          <source>Download</source>
-          <target state="translated">Télécharger</target>
-        </trans-unit>
-        <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Play random sound</source>
-          <target state="translated">Lire un son au hasard</target>
-        </trans-unit>
-        <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Play random sound</source>
-          <target state="translated">Lire un son au hasard</target>
-        </trans-unit>
-        <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
-          <source>Screensaver mode</source>
-          <target state="translated">Mode économiseur d'écran</target>
-        </trans-unit>
-        <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
-          <source>Screensaver</source>
-          <target state="translated">Économiseur d'écran</target>
-        </trans-unit>
-        <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Purchase sound</source>
-          <target state="translated">Acheter ce son</target>
-        </trans-unit>
-        <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Preview sound</source>
-          <target state="translated">Aperçu du son</target>
-        </trans-unit>
-        <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Preview sound</source>
-          <target state="translated">Aperçu du son</target>
-        </trans-unit>
-        <trans-unit id="Paused" translate="yes" xml:space="preserve">
-          <source>Paused</source>
-          <target state="translated">Interrompu</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
-        </trans-unit>
-        <trans-unit id="Playing" translate="yes" xml:space="preserve">
-          <source>Playing</source>
-          <target state="translated">En cours de lecture</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
-        </trans-unit>
-        <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Sound volume</source>
-          <target state="translated">Volume</target>
-        </trans-unit>
-        <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Active sounds</source>
-          <target state="translated">Sons actifs</target>
-        </trans-unit>
-        <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Clear all active sounds</source>
-          <target state="translated">Effacer tous les sons actifs</target>
-        </trans-unit>
-        <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Clear all active sounds</source>
-          <target state="translated">Effacer tous les sons actifs</target>
-        </trans-unit>
-        <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Confirm save</source>
-          <target state="translated">Confirmer la sauvegarde</target>
-        </trans-unit>
-        <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
-          <source>Global volume</source>
-          <target state="translated">Volume général</target>
-        </trans-unit>
-        <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
-          <source>Sound mix name</source>
-          <target state="translated">Nom du mélange de sons</target>
-        </trans-unit>
-        <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
-          <source>Optional</source>
-          <target state="translated">Facultatif</target>
-        </trans-unit>
-        <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Save custom sound mix</source>
-          <target state="translated">Sauvegarder ce mélange de sons personnalisé</target>
-        </trans-unit>
-        <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Save custom sound mix (Ctrl+S)</source>
-          <target state="translated">Sauvegarder ce mélange de sons personnalisé (Ctrl+S)</target>
-        </trans-unit>
-        <trans-unit id="CancelText" translate="yes" xml:space="preserve">
-          <source>Cancel</source>
-          <target state="translated">Annuler</target>
-        </trans-unit>
-        <trans-unit id="RenameText" translate="yes" xml:space="preserve">
-          <source>Rename</source>
-          <target state="translated">Renommer</target>
-        </trans-unit>
-        <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
-          <source>Rename</source>
-          <target state="translated">Renommer</target>
+          <target state="translated">Προβολή περισσότερων επιλογών</target>
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Ambie Mini</source>
           <target state="translated">Ambie Mini</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
+          <source>Contact the creator</source>
+          <target state="translated">Επικοινωνήστε με τον δημιουργό</target>
+        </trans-unit>
+        <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
+          <source>Rate us</source>
+          <target state="translated">Βαθμολογήστε μας</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Ρυθμίσεις</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
+          <source>Share link for Ambie</source>
+          <target state="translated">Κοινή χρήση συνδέσμου για Ambie</target>
+        </trans-unit>
+        <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
+          <source>Add or improve translations</source>
+          <target state="translated">Προσθήκη ή βελτίωση μεταφράσεων</target>
+        </trans-unit>
+        <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Off</source>
+          <target state="translated">Κλειστό</target>
+        </trans-unit>
+        <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>On</source>
+          <target state="translated">Ανοιχτό</target>
+        </trans-unit>
+        <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Pause the timer</source>
+          <target state="translated">Παύση του χρονόμετρου</target>
+        </trans-unit>
+        <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
+          <source>Pause</source>
+          <target state="translated">Παύση</target>
+        </trans-unit>
+        <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
+          <source>Play</source>
+          <target state="translated">Αναπαραγωγή</target>
+        </trans-unit>
+        <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Continue the timer</source>
+          <target state="translated">Ενεργoποίηση χρονόμετρου</target>
+        </trans-unit>
+        <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
+          <source>Ready to play</source>
+          <target state="translated">Έτοιμο για έναρξη</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">Τηλεμετρία</target>
+        </trans-unit>
+        <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">Ρυθμίσεις</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>View sleep timer options</source>
+          <target state="translated">Προβολή επιλογών χρονόμετρου ύπνου</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>View sleep timer options</source>
+          <target state="translated">Προβολή επιλογών χρονόμετρου ύπνου</target>
+        </trans-unit>
+        <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
+          <source>Beach</source>
+          <target state="translated">Παραλία</target>
+        </trans-unit>
+        <trans-unit id="Soundbirds" translate="yes" xml:space="preserve">
+          <source>Birds</source>
+          <target state="translated">Πουλιά</target>
+        </trans-unit>
+        <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
+          <source>City street</source>
+          <target state="translated">Οδός της πόλης</target>
+        </trans-unit>
+        <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
+          <source>Coffee shop</source>
+          <target state="translated">Καφετέρια</target>
+        </trans-unit>
+        <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
+          <source>Creek</source>
+          <target state="translated">Ποταμάκι</target>
+        </trans-unit>
+        <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
+          <source>Fireplace</source>
+          <target state="translated">Τζάκι</target>
+        </trans-unit>
+        <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
+          <source>Rain</source>
+          <target state="translated">Βροχή</target>
+        </trans-unit>
+        <trans-unit id="Soundrainforest" translate="yes" xml:space="preserve">
+          <source>Rainforest</source>
+          <target state="translated">Τροπικό δάσος</target>
+        </trans-unit>
+        <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
+          <source>Underwater</source>
+          <target state="translated">Υποβρύχιος</target>
+        </trans-unit>
+        <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
+          <source>Waterfall</source>
+          <target state="translated">Καταράχτης</target>
+        </trans-unit>
+        <trans-unit id="Soundwhitenoise" translate="yes" xml:space="preserve">
+          <source>White noise</source>
+          <target state="translated">Λευκός θόρυβος</target>
+        </trans-unit>
+        <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sounds are loading</source>
+          <target state="translated">Οι ήχοι φορτώνονται</target>
+        </trans-unit>
+        <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
+          <source>Cannot play sound</source>
+          <target state="translated">Δεν είναι δυνατή η αναπαραγωγή ήχου</target>
+        </trans-unit>
+        <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Stop the timer and clear the time</source>
+          <target state="translated">Σταματήστε το χρονόμετρο και διαγράψτε την ώρα</target>
+        </trans-unit>
+        <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Global volume</source>
+          <target state="translated">Συνολικός όγκος</target>
+        </trans-unit>
+        <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sound volume</source>
+          <target state="translated">Ενταση ήχου</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated">Θέμα</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
+          <source>Auto</source>
+          <target state="translated">Αυτόματα</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="translated">Σκοτάδι</target>
+        </trans-unit>
+        <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="translated">Φως</target>
+        </trans-unit>
+        <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
+          <source>Vacuum</source>
+          <target state="new">Κενό</target>
+        </trans-unit>
+        <trans-unit id="Soundthunder" translate="yes" xml:space="preserve">
+          <source>Thunder</source>
+          <target state="new">Βροντή</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
+          <source>Notification for new sounds</source>
+          <target state="translated">Ειδοποίηση για νέους ήχους</target>
+        </trans-unit>
+        <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
+          <source>Wind</source>
+          <target state="translated">Άνεμος</target>
+        </trans-unit>
+        <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
+          <source>Already downloaded</source>
+          <target state="translated">Έχει ήδη ληφθεί</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
+        </trans-unit>
+        <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Go back</source>
+          <target state="translated">Μετάβαση προς τα πίσο</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
+        </trans-unit>
+        <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
+          <source>Can be downloaded</source>
+          <target state="translated">Μπορεί να γίνει λήψη</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
+        </trans-unit>
+        <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Download sound</source>
+          <target state="translated">Λήψη ήχου</target>
+        </trans-unit>
+        <trans-unit id="DownloadSoundButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Download sound</source>
+          <target state="translated">Λήψη ήχου</target>
+        </trans-unit>
+        <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sound catalogue</source>
+          <target state="translated">Κατάλογος ήχου</target>
+        </trans-unit>
+        <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Sounds</source>
+          <target state="translated">Ήχοι</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
+          <source>Privacy policy</source>
+          <target state="translated">Πολιτική απορρήτου</target>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Privacy policy</source>
+          <target state="translated">Πολιτική απορρήτου</target>
+        </trans-unit>
+        <trans-unit id="DeleteAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">Διαγραφή</target>
+        </trans-unit>
+        <trans-unit id="DeleteButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Delete sound</source>
+          <target state="translated">Διαγραφή ήχου</target>
+        </trans-unit>
+        <trans-unit id="DeleteTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated">Διαγραφή</target>
+        </trans-unit>
+        <trans-unit id="DownloadTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Download</source>
+          <target state="translated">Λήψη</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="translated">Παίξτε τυχαίο ήχο</target>
+        </trans-unit>
+        <trans-unit id="RandomButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="translated">Παίξτε τυχαίο ήχο</target>
+        </trans-unit>
+        <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
+          <source>Screensaver mode</source>
+          <target state="translated">Λειτουργία προφύλαξη οθόνης</target>
+        </trans-unit>
+        <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
+          <source>Screensaver</source>
+          <target state="translated">Προφύλαξη οθόνης</target>
+        </trans-unit>
+        <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Purchase sound</source>
+          <target state="translated">Αγορά ήχου</target>
+        </trans-unit>
+        <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Preview sound</source>
+          <target state="translated">Προεπισκόπηση ήχου</target>
+        </trans-unit>
+        <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Preview sound</source>
+          <target state="translated">Προεπισκόπηση ήχου</target>
+        </trans-unit>
+        <trans-unit id="Paused" translate="yes" xml:space="preserve">
+          <source>Paused</source>
+          <target state="translated">Σε παύση</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
+        </trans-unit>
+        <trans-unit id="Playing" translate="yes" xml:space="preserve">
+          <source>Playing</source>
+          <target state="translated">Τώρα παίζει</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
+        </trans-unit>
+        <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Active sounds</source>
+          <target state="translated">Ενεργοί ήχοι</target>
+        </trans-unit>
+        <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Clear all active sounds</source>
+          <target state="translated">Διαγράψτε όλους τους ενεργούς ήχους</target>
+        </trans-unit>
+        <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Clear all active sounds</source>
+          <target state="translated">Διαγράψτε όλους τους ενεργούς ήχους</target>
+        </trans-unit>
+        <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Confirm save</source>
+          <target state="translated">Επιβεβαιώστε την αποθήκευση</target>
+        </trans-unit>
+        <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
+          <source>Global volume</source>
+          <target state="translated">Συνολικός όγκος</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
+          <source>Sound mix name</source>
+          <target state="translated">Όνομα μίξης ήχου</target>
+        </trans-unit>
+        <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Optional</source>
+          <target state="translated">Προαιρετικό</target>
+        </trans-unit>
+        <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
+          <source>Remove {0} from active list</source>
+          <target state="translated">Καταργήστε το {0} από την ενεργή λίστα</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix</source>
+          <target state="translated">Αποθηκεύστε προσαρμοσμένη μίξη ήχου</target>
+        </trans-unit>
+        <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Save custom sound mix (Ctrl+S)</source>
+          <target state="translated">Αποθήκευση προσαρμοσμένης μίξης ήχου (Ctrl+S)</target>
+        </trans-unit>
+        <trans-unit id="CancelText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">Ακύρωση</target>
+        </trans-unit>
+        <trans-unit id="RenameText" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="translated">Mετονομασία</target>
+        </trans-unit>
+        <trans-unit id="RenameAppBarButton.Label" translate="yes" xml:space="preserve">
+          <source>Rename</source>
+          <target state="translated">Mετονομασία</target>
         </trans-unit>
         <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sign out</source>
-          <target state="translated">Se déconnecter</target>
+          <target state="translated">Αποσύνδεση</target>
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="translated">Cela activera la galerie de sons partagée entre tous vos appareils. De plus, vous pourrez publier des sons.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Αυτό θα επιτρέψει τον συγχρονισμό της συλλογής ήχου στις συσκευές σας.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="translated">Voir les options du compte</target>
+          <target state="translated">Προβολή επιλογών λογαριασμού</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="translated">Voir les options du compte</target>
+          <target state="translated">Προβολή επιλογών λογαριασμού</target>
         </trans-unit>
         <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="translated">Se connecter</target>
+          <target state="translated">Σύνδεση</target>
         </trans-unit>
         <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="translated">Se connecter</target>
+          <target state="translated">Σύνδεση</target>
         </trans-unit>
         <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sync</source>
-          <target state="translated">Synchroniser</target>
-        </trans-unit>
-        <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
-          <source>Browse</source>
-          <target state="translated">Parcourir</target>
+          <target state="translated">Συγχρονισμός</target>
         </trans-unit>
         <trans-unit id="Attribution" translate="yes" xml:space="preserve">
           <source>Attribution</source>
-          <target state="translated">Attribution</target>
+          <target state="translated">Απόδοση</target>
+        </trans-unit>
+        <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
+          <source>Browse</source>
+          <target state="translated">Περιήγηση</target>
         </trans-unit>
         <trans-unit id="Name" translate="yes" xml:space="preserve">
           <source>Name</source>
-          <target state="translated">Nom</target>
+          <target state="translated">Όνομα</target>
         </trans-unit>
         <trans-unit id="NewSound" translate="yes" xml:space="preserve">
           <source>New sound</source>
-          <target state="translated">Nouveau son</target>
+          <target state="translated">Νέος ήχος</target>
         </trans-unit>
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
-          <target state="translated">Actualiser</target>
+          <target state="translated">Ανανέωση</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="translated">Se connecter</target>
+          <target state="translated">Σύνδεση</target>
         </trans-unit>
         <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
           <source>Are you sure?</source>
-          <target state="translated">Êtes vous sûr.e ?</target>
+          <target state="translated">Είστε σίγουροι;</target>
         </trans-unit>
         <trans-unit id="Yes" translate="yes" xml:space="preserve">
           <source>Yes</source>
-          <target state="translated">Oui</target>
+          <target state="translated">Ναί</target>
         </trans-unit>
         <trans-unit id="Optional" translate="yes" xml:space="preserve">
           <source>Optional</source>
-          <target state="translated">Optionel</target>
+          <target state="translated">Προαιρετικό</target>
         </trans-unit>
         <trans-unit id="Required" translate="yes" xml:space="preserve">
           <source>Required</source>
-          <target state="translated">Requis</target>
+          <target state="translated">Υποχρεωτικό</target>
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>
-          <target state="translated">Faire un don</target>
+          <target state="translated">Δωρίστε</target>
         </trans-unit>
         <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
           <source>Terms of Use</source>
-          <target state="translated">Conditions d'Utilisation</target>
+          <target state="translated">Όροι χρήσης</target>
         </trans-unit>
         <trans-unit id="FollowTwitter" translate="yes" xml:space="preserve">
           <source>Follow us on Twitter</source>
-          <target state="translated">Suivez-nous sur Twitter</target>
+          <target state="translated">Ακολουθήστε μας στο Twitter</target>
         </trans-unit>
         <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
           <source>Dismiss</source>
-          <target state="translated">Faire disparaître</target>
+          <target state="translated">Απόρριψη</target>
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="translated">Merci d'essayer Ambie. Pour une expérience optimale, essayez de nous attacher à votre barre des tâches ! Profitez de votre séjour relaxant 🏝</target>
+          <target state="translated">Σας ευχαριστούμε που δοκιμάσατε το Ambie. Για την καλύτερη εμπειρία, δοκιμάστε να μας καρφιτσώσετε στη γραμμή εργασιών σας! Απολαύστε τη χαλαρωτική σας διαμονή 🏝</target>
         </trans-unit>
         <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
           <source>Hello and welcome!</source>
-          <target state="translated">Bonjour et bienvenue !</target>
+          <target state="translated">Γειά σας και καλώς ήρθατε!</target>
         </trans-unit>
         <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
           <source>Pin to taskbar</source>
-          <target state="translated">Attacher à la barre des tâches</target>
+          <target state="translated">Καρφίτσωμα στη γραμμή εργασιών</target>
         </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
-          <target state="translated">Aperçu</target>
+          <target state="translated">Προεπισκόπηση</target>
         </trans-unit>
         <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
           <source>Catalogue</source>
-          <target state="translated">Catalogue</target>
+          <target state="translated">Κατάλογος</target>
         </trans-unit>
         <trans-unit id="Home" translate="yes" xml:space="preserve">
           <source>Home</source>
-          <target state="translated">Accueil</target>
+          <target state="translated">Σπίτι</target>
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
-          <target state="translated">Mélanger jusqu'à 3 sons</target>
-        </trans-unit>
-        <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
-          <source>Remove {0} from active list</source>
-          <target state="translated">Retirer {0} de la liste d'écoute active</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
+          <target state="translated"> Μιξάρεται και συνδυάστε έως και 3 ήχους</target>
         </trans-unit>
         <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
           <source>Theme settings</source>
-          <target state="translated">Paramètres du thème</target>
-        </trans-unit>
-        <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
-          <source>{0} per month</source>
-          <target state="translated">{0} par mois</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
-        </trans-unit>
-        <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
-          <source>Thank you for subscribing!</source>
-          <target state="translated">Merci de vous être abonné!</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
-        </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">Accédez à des sons de haute qualité</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">Télécharger des vidéos</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">Soutenir le développement</target>
-        </trans-unit>
-        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
-          <source>Hello again 👋🏽</source>
-          <target state="translated">Rebonjour 👋🏽</target>
-        </trans-unit>
-        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
-          <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="translated">Veuillez nous évaluer</target>
+          <target state="translated">Ρυθμίσεις θέματος</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
           <source>Auto resume when Ambie opens</source>
-          <target state="translated">Reprendre à l'ouverture d'Ambie</target>
+          <target state="translated">Αυτόματη συνέχιση όταν ανοίξει το Ambie</target>
+        </trans-unit>
+        <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
+          <source>{0} per month</source>
+          <target state="translated">{0} ανά μήνα</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
+        </trans-unit>
+        <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
+          <source>{0} lifetime</source>
+          <target state="translated">{0} διάρκεια ζωής</target>
+        </trans-unit>
+        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
+          <source>Access premium, high quality sounds</source>
+          <target state="translated">Αποκτήστε πρόσβαση σε ήχους υψηλής ποιότητας</target>
+        </trans-unit>
+        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
+          <source>Download video screensavers</source>
+          <target state="translated">Λήψη προφύλαξης οθόνης βίντεο</target>
+        </trans-unit>
+        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
+          <source>Support development</source>
+          <target state="translated">Υποστήριξη ανάπτυξης</target>
+        </trans-unit>
+        <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
+          <source>Thank you for subscribing!</source>
+          <target state="translated">Ευχαριστώ για την εγγραφή!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
+        </trans-unit>
+        <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
+          <source>Hello again 👋🏽</source>
+          <target state="translated">Γειά σου και πάλι 👋🏽</target>
+        </trans-unit>
+        <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
+          <source>Enjoying Ambie? Please consider rating us!</source>
+          <target state="translated">Απολαμβάνεις το Ambie; Σκεφτείτε να μας αξιολογήσετε!</target>
         </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
-          <target state="translated">Télécharger</target>
+          <target state="translated">Λήψη</target>
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="translated">Nous avons besoin de télécharger des sons pour jouer cela. Une fois téléchargé, essayez de jouer à nouveau. Commencer Le Téléchargement?</target>
+          <target state="translated">Πρέπει να κατεβάσουμε κάποιους ήχους για να το παίξουμε. Μετά τη λήψη, δοκιμάστε να το παίξετε ξανά. Έναρξη λήψης;</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
-          <target state="translated">Sons manquants</target>
+          <target state="translated">Λείπουν ήχοι</target>
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="translated">Défaut</target>
+          <target state="translated">Προκαθορισμένο</target>
         </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="translated">Effacer</target>
+          <target state="translated">Διαγραφή</target>
         </trans-unit>
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
-          <target state="translated">{0} Mo</target>
+          <target state="translated">{0} MB</target>
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="translated">Plus d'économiseurs d'écran</target>
+          <target state="translated">Περισσότερες προφυλάξεις οθόνης</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="translated">Catalogue d'économiseurs d'écran</target>
+          <target state="translated">Κατάλογος προφύλαξης οθόνης</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="translated">Afficher les informations sur les primes</target>
+          <target state="translated">Προβολή πληροφοριών premium</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
-          <target state="translated">Des nuages</target>
+          <target state="translated">Σύννεφα</target>
         </trans-unit>
         <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
-          <target state="translated">Fumée colorée</target>
+          <target state="translated">Χρωματιστός καπνός</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
-          <target state="translated">Octagrammes</target>
+          <target state="translated">Οκτάγραμμα</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">Un problème est survenu lors de l'affichage de l'économiseur d'écran. Essayez de redémarrer Ambie ou contactez-nous si le problème persiste.</target>
+          <target state="translated">Παρουσιάστηκε πρόβλημα με την εμφάνιση της προφύλαξης οθόνης. Δοκιμάστε να επανεκκινήσετε το Ambie ή επικοινωνήστε μαζί μας εάν το πρόβλημα παραμένει.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
-          <target state="translated">Signaler le problème</target>
+          <target state="translated">Αναφέρετε το ζήτημα</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="translated">Erreur</target>
+          <target state="translated">Σφάλμα απόδοσης</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="translated">Passer en plein écran</target>
+          <target state="translated">Λειτουργεία πλήρους οθόνης</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie+</source>
-          <target state="translated">Obtenez Ambie+</target>
+          <target state="translated">Αποκτήστε το Ambie+</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="translated">Se concentrer</target>
+          <target state="translated">Εστίαση</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
-          <target state="translated">Pause minuterie</target>
+          <target state="translated">Παύση χρονομέτροθ</target>
         </trans-unit>
         <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
           <source>Start timer</source>
-          <target state="translated">Démarrer la minuterie</target>
+          <target state="translated">Έναρξη χρονομέτρου</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="translated">Bon travail!</target>
+          <target state="translated">Μπράβο!</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="translated">Séance de mise au point terminée</target>
+          <target state="translated">Η συνεδρία εστίασης ολοκληρώθηκε</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="translated">Le temps de se concentrer</target>
+          <target state="translated">Ώρα για εστίαση</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="translated">Temps de repos</target>
+          <target state="translated">Ωρα για ξεκούραση</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="translated">Le repos</target>
+          <target state="translated">Ανάπαυση</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="translated">La session de mise au point est active</target>
+          <target state="translated">Η συνεδρία εστίασης είναι ενεργή!</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">Mise au point</target>
+          <target state="translated">Εστίαση</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="translated">Repos</target>
+          <target state="translated">Ξεκούραση</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="translated">Pause</target>
+          <target state="translated">Παύση</target>
         </trans-unit>
         <trans-unit id="Reset" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="translated">Réinitialiser</target>
+          <target state="translated">Επαναφορά</target>
         </trans-unit>
         <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
           <source>Reset timer</source>
-          <target state="translated">Réinitialiser la minuterie</target>
+          <target state="translated">Επαναφορά χρονομέτρου</target>
         </trans-unit>
         <trans-unit id="Start" translate="yes" xml:space="preserve">
           <source>Start</source>
-          <target state="translated">Début</target>
+          <target state="translated">Αναπαραγωγή</target>
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="translated">Minutes de concentration</target>
+          <target state="translated">Λεπτά εστίασης</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
-          <target state="translated">Vous pouvez écrire des notes ici</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Μπορείτε να σημειώσετε οποιεσδήποτε σημειώσεις εδώ 🙂</target>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="translated">Quel est le plan?</target>
+          <target state="translated">Ποιο είναι το σχέδιο;</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
-          <target state="translated">Bloc-notes</target>
-        </trans-unit>
-        <trans-unit id="RestLength" translate="yes" xml:space="preserve">
-          <source>Rest minutes</source>
-          <target state="translated">Minutes de repos</target>
+          <target state="new">Μπλοκ Σημειώσεων</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="translated">Répète</target>
+          <target state="translated">Επαναλήψεις</target>
+        </trans-unit>
+        <trans-unit id="RestLength" translate="yes" xml:space="preserve">
+          <source>Rest minutes</source>
+          <target state="translated">Λεπτά ανάπαυσης</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="translated">Montre moi comment l'utiliser</target>
+          <target state="translated">Δείξε μου πώς να το χρησιμοποιήσω</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="translated">Il s'agit d'un minuteur d'intervalle inspiré de la technique Pomodoro. L'objectif est de se concentrer sur une tâche pendant une longue période de temps, puis de prendre une pause plus courte. Répétez ce cycle pour continuer à vous concentrer !</target>
+          <target state="translated">Πρόκειται για ένα χρονόμετρο διαστήματος εμπνευσμένο από την τεχνική pomodoro. Ο στόχος είναι να εστιάσετε σε μια εργασία για μεγάλο χρονικό διάστημα και μετά να κάνετε ένα μικρότερο διάλειμμα ανάπαυσης. Επαναλάβετε αυτόν τον κύκλο για να συνεχίσετε να εστιάζετε!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="translated">Bienvenue à la minuterie de mise au point</target>
+          <target state="translated">Καλώς ορίσατε στο χρονόμετρο εστίασης!</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="translated">Aider</target>
+          <target state="translated">Βοήθεια</target>
         </trans-unit>
         <trans-unit id="Next" translate="yes" xml:space="preserve">
           <source>Next</source>
-          <target state="translated">Suivant</target>
+          <target state="translated">Επόμενο</target>
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">Chaque cycle comporte un segment de mise au point et un segment de repos. Choisissez la durée de chaque segment de mise au point. Nous recommandons 25 minutes pour commencer !</target>
+          <target state="translated">Κάθε κύκλος έχει ένα τμήμα εστίασης και ένα τμήμα ανάπαυσης. Επιλέξτε πόσο καιρό θα είναι κάθε τμήμα εστίασης. Σας προτείνουμε 25 λεπτά για να ξεκινήσετε!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="translated">Définir les minutes de mise au point</target>
+          <target state="translated">Ορίστε λεπτά εστίασης</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="translated">Chaque cycle de mise au point et de repos peut se répéter plusieurs fois. Essayez d'ajouter 1 répétition !</target>
+          <target state="translated">Κάθε κύκλος εστίασης και ανάπαυσης μπορεί να επαναληφθεί πολλές φορές. Δοκιμάστε να προσθέσετε 1 επανάληψη!</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
-          <target state="translated">Définir des répétitions</target>
+          <target state="translated">Ορίστε επαναλήψεις</target>
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="translated">Maintenant, choisissez la durée de chaque segment de repos. Nous recommandons environ 5 minutes pour l'instant !</target>
+          <target state="translated">Τώρα, επιλέξτε πόσο καιρό θα είναι κάθε τμήμα ανάπαυσης. Προτείνουμε περίπου 5 λεπτά προς το παρόν!</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="translated">Définir les minutes de repos</target>
+          <target state="translated">Ορίστε λεπτά ανάπαυσης</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="translated">Démarrez le chronomètre et travaillez sur vos tâches. Nous vous enverrons des notifications lorsqu'il sera temps de vous reposer. Travailler dur!</target>
+          <target state="translated">Ξεκινήστε το χρονόμετρο και επεξεργαστείτε τις εργασίες σας. Θα σας στείλουμε ειδοποιήσεις όταν έρθει η ώρα για ξεκούραση. Δούλεψε σκληρά!</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="translated">Prêt, prêt, partez</target>
+          <target state="translated">Έτοιμοι, σετ, πάμε</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="translated">{0} minutes de concentration, {1} minutes de repos, {2} répétitions.</target>
+          <target state="translated">{0} λεπτά εστίασης, {1} λεπτά ανάπαυσης, {2} επαναλήψεις.</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="translated">Liste des configurations de focus récentes.</target>
+          <target state="translated">Λίστα πρόσφατων διαμορφώσεων εστίασης.</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
-          <target state="translated">0 à {0}</target>
+          <target state="translated">0 έως {0}</target>
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="translated">Histoire</target>
+          <target state="translated">Ιστορικό</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
-          <target state="translated">Interruptions</target>
+          <target state="translated">Διακοπές</target>
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
-          <target state="translated">Votre historique récent apparaîtra ici</target>
+          <target state="translated">Το πρόσφατο ιστορικό σας θα εμφανιστεί εδώ</target>
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="translated">Enregistrer l'interruption</target>
+          <target state="translated">Διακοπή καταγραφής</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="translated">Confirmer</target>
+          <target state="translated">Επιβεβαίωση</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="translated">Minutes interrompues</target>
+          <target state="translated">Λεπτά διακόπηκαν</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
-          <target state="translated">Remarques</target>
+          <target state="translated">Σημειώσεις</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="translated">Avez-vous été interrompu par quelque chose ? Gardez une trace de vos interruptions ici, afin de pouvoir les revoir plus tard dans votre historique.</target>
+          <target state="translated">Σας διέκοψε κάτι; Παρακολουθήστε τις διακοπές σας εδώ, ώστε να μπορείτε να τις ελέγξετε αργότερα στο ιστορικό σας.</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="translated">Histoire récente</target>
+          <target state="translated">Πρόσφατη ιστορία</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="translated">Tours terminés</target>
+          <target state="translated">Ολοκληρώθηκαν οι γύροι</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="translated">Bon effort</target>
+          <target state="translated">Καλή προσπάθεια</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="translated">Tu es incroyable</target>
+          <target state="translated">Είστε καταπληκτικοί</target>
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
@@ -782,216 +774,211 @@
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>
-          <target state="translated">Ajoutez des tâches, puis appuyez sur le bouton de démarrage</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Προσθέστε εργασίες στις οποίες θα εστιάσετε και, στη συνέχεια, πατήστε το κουμπί έναρξης</target>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
-          <target state="translated">Tâches</target>
+          <target state="translated">Καθήκοντα</target>
         </trans-unit>
         <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
           <source>Recently completed</source>
-          <target state="translated">Complété</target>
+          <target state="translated">Ολοκληρώθηκε πρόσφατα</target>
         </trans-unit>
         <trans-unit id="EditText" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="translated">Éditer</target>
+          <target state="translated">Επεξεργασία</target>
         </trans-unit>
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
-          <target state="translated">Tâches terminées</target>
+          <target state="translated">Εργασίες Ολοκληρώθηκαν</target>
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="translated">Minuteur</target>
+          <target state="new">Χρονόμετρο</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
-          <target state="translated">Tache {0}</target>
+          <target state="new">Εργασία {0}</target>
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="translated">Libre cette semaine</target>
+          <target state="translated">Δωρεάν αυτή την εβδομάδα!</target>
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="translated">Ouvrez Ambie Mini lors de la mise au point</target>
+          <target state="translated">Ανοίξτε το Ambie Mini κατά την εστίαση</target>
+        </trans-unit>
+        <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
+          <source>Open Ambie Mini</source>
+          <target state="translated">Άνοιγμα Ambie Mini</target>
+        </trans-unit>
+        <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
+          <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
+          <target state="translated">Με το Ambie Mini, θα μικρύνουμε το παράθυρο και θα εμφανίσουμε μόνο τα απαραίτητα στοιχεία που θα σας βοηθήσουν να εστιάσετε.</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
-          <target state="translated">Durée</target>
+          <target state="translated">Διάρκεια</target>
         </trans-unit>
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
-          <target state="translated">Fin</target>
+          <target state="translated">Τέλος</target>
         </trans-unit>
         <trans-unit id="MiniText" translate="yes" xml:space="preserve">
           <source>Mini</source>
           <target state="translated">Mini</target>
         </trans-unit>
-        <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
-          <source>Open Ambie Mini</source>
-          <target state="translated">Ouvrir Ambie Mini</target>
-        </trans-unit>
-        <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
-          <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="translated">Avec Ambie Mini, nous réduirons la fenêtre et n'afficherons que les éléments nécessaires pour vous aider à vous concentrer.</target>
-        </trans-unit>
         <trans-unit id="PausesText" translate="yes" xml:space="preserve">
           <source>Pauses</source>
-          <target state="translated">Pauses</target>
+          <target state="translated">Παύσεις</target>
         </trans-unit>
         <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
           <source>Download sounds from the catalogue</source>
-          <target state="translated">Télécharger des sons du catalogue</target>
+          <target state="translated">Κατεβάστε ήχους από τον κατάλογο</target>
         </trans-unit>
         <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
           <source>Edit home page</source>
-          <target state="translated">Modifier la page de démarrage</target>
+          <target state="translated">Επεξεργασία αρχικής σελίδας</target>
         </trans-unit>
         <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="translated">Faites glisser et déposez des sons pour personnaliser votre âge de départ. Essayez-le maintenant!</target>
+          <target state="translated">Σύρετε και αποθέστε ήχους για να εξατομικεύσετε την αρχική σας σελίδα. Δοκίμασέ το τώρα!</target>
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
-          <target state="translated">Désolé pour ça! Nous n'avons pas pu charger le catalogue. Essayez de vérifier votre connexion Internet.</target>
+          <target state="translated">Συγνώμη για αυτό! Δεν μπορέσαμε να φορτώσουμε τον κατάλογο. Δοκιμάστε να ελέγξετε τη σύνδεσή σας στο διαδίκτυο.</target>
         </trans-unit>
         <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
           <source>About Ambie</source>
-          <target state="translated">Informations sur l’application</target>
+          <target state="translated">Σχετικά με το Ambie</target>
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="translated">Ambie Mini s’ouvre automatiquement lors de la mise au point</target>
+          <target state="translated">Το Ambie Mini θα ανοίξει αυτόματα κατά την εστίαση</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
-          <target state="translated">Nous vous informerons lorsque de nouveaux sons seront disponibles</target>
+          <target state="translated">Θα σας ειδοποιήσουμε όταν είναι διαθέσιμοι νέοι ήχοι</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
           <source>On launch, Ambie will resume playing automatically</source>
-          <target state="translated">Au lancement, Ambie reprendra le jeu automatiquement</target>
+          <target state="translated">Κατά την εκκίνηση, το Ambie θα συνεχίσει να παίζει αυτόματα</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
           <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
-          <target state="translated">Des erreurs et des informations d’utilisation anonymes sont signalées pour aider à améliorer Ambie</target>
+          <target state="translated">Αναφέρονται σφάλματα και ανώνυμες πληροφορίες χρήσης που συμβάλλουν στη βελτίωση του Ambie</target>
         </trans-unit>
         <trans-unit id="BackgroundImage" translate="yes" xml:space="preserve">
           <source>Background image</source>
-          <target state="translated">Image d’arrière-plan</target>
+          <target state="translated">Εικόνα φόντου</target>
         </trans-unit>
         <trans-unit id="CustomImage" translate="yes" xml:space="preserve">
           <source>Custom image</source>
-          <target state="translated">Image personnalisée</target>
+          <target state="translated">Προσαρμοσμένη εικόνα</target>
         </trans-unit>
         <trans-unit id="SettingsGeneralHeader" translate="yes" xml:space="preserve">
           <source>General settings</source>
-          <target state="translated">Paramètres généraux</target>
+          <target state="translated">Γενικές Ρυθμίσεις</target>
         </trans-unit>
         <trans-unit id="SettingsTheme" translate="yes" xml:space="preserve">
           <source>Choose your mode</source>
-          <target state="translated">Choisissez votre mode</target>
+          <target state="translated">Επιλέξτε τη λειτουργία σας</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDescription" translate="yes" xml:space="preserve">
           <source>Change the colours that appear in Ambie</source>
-          <target state="translated">Modifier les couleurs qui apparaissent dans Ambie</target>
+          <target state="translated">Αλλάξτε τα χρώματα που εμφανίζονται στο Ambie</target>
         </trans-unit>
         <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
           <source>Share what you're listening to</source>
-          <target state="translated">Partagez ce que vous écoutez</target>
+          <target state="translated">Μοιραστείτε αυτό που ακούτε</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsMessage" translate="yes" xml:space="preserve">
           <source>Let's see if they can be downloaded.</source>
-          <target state="translated">Voyons s'ils peuvent être téléchargés.</target>
+          <target state="translated">Ας δούμε αν μπορούν να ληφθούν.</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
           <source>You're missing some sounds</source>
-          <target state="translated">La musique te manque</target>
+          <target state="translated">Σου λείπουν κάποιοι ήχοι</target>
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="translated">Revoir</target>
+          <target state="translated">Ανασκόπηση</target>
         </trans-unit>
         <trans-unit id="ShareText" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="translated">Partager</target>
+          <target state="translated">Share</target>
         </trans-unit>
         <trans-unit id="CopiedText" translate="yes" xml:space="preserve">
           <source>Copied!</source>
-          <target state="translated">Copié!</target>
+          <target state="translated">Αντιγράφηκε!</target>
         </trans-unit>
         <trans-unit id="CopyText" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target state="translated">Copie</target>
+          <target state="translated">Αντιγραφή</target>
         </trans-unit>
         <trans-unit id="OrText" translate="yes" xml:space="preserve">
           <source>Or</source>
-          <target state="translated">Ou</target>
+          <target state="translated">Ή</target>
         </trans-unit>
         <trans-unit id="BuyDurableTooltip" translate="yes" xml:space="preserve">
           <source>Unlock this sound</source>
-          <target state="new">Débloquez ce son</target>
-        </trans-unit>
-        <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
-          <source>{0} lifetime</source>
-          <target state="translated">{0} vie</target>
+          <target state="translated">Ξεκλειδώστε αυτόν τον ήχο</target>
         </trans-unit>
         <trans-unit id="CheckForUpdatesText" translate="yes" xml:space="preserve">
           <source>Check for updates</source>
-          <target state="translated">Rechercher les mises à jour</target>
+          <target state="new">Check for updates</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage1" translate="yes" xml:space="preserve">
           <source>Check here for updates to your sounds and videos.</source>
-          <target state="translated">Cliquez ici pour les mises à jour de vos sons et vidéos.</target>
+          <target state="new">Check here for updates to your sounds and videos.</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage2" translate="yes" xml:space="preserve">
           <source>Updates contain improvements to translations, sound quality, and more.</source>
-          <target state="translated">Les mises à jour contiennent des améliorations apportées aux traductions, à la qualité sonore, etc.</target>
+          <target state="new">Updates contain improvements to translations, sound quality, and more.</target>
         </trans-unit>
         <trans-unit id="UpdatesText" translate="yes" xml:space="preserve">
           <source>Updates</source>
-          <target state="translated">Mises à jour</target>
-        </trans-unit>
-        <trans-unit id="UpdateAllText" translate="yes" xml:space="preserve">
-          <source>Update all</source>
-          <target state="translated">Tout mettre à jour</target>
+          <target state="new">Updates</target>
         </trans-unit>
         <trans-unit id="DataVersionColon" translate="yes" xml:space="preserve">
           <source>Data version:</source>
-          <target state="translated">Version des données :</target>
+          <target state="new">Data version:</target>
         </trans-unit>
         <trans-unit id="FileVersionColon" translate="yes" xml:space="preserve">
           <source>File version:</source>
-          <target state="translated">Version du fichier :</target>
+          <target state="new">File version:</target>
+        </trans-unit>
+        <trans-unit id="UpdateAllText" translate="yes" xml:space="preserve">
+          <source>Update all</source>
+          <target state="new">Update all</target>
         </trans-unit>
         <trans-unit id="UpdatesPlaceholderText" translate="yes" xml:space="preserve">
           <source>Fully up-to-date. You're all set.</source>
-          <target state="translated">Entièrement à jour. Vous êtes prêt.</target>
+          <target state="new">Fully up-to-date. You're all set.</target>
         </trans-unit>
         <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
           <source>Improves playback quality</source>
-          <target state="translated">Améliore la qualité de lecture</target>
+          <target state="new">Improves playback quality</target>
         </trans-unit>
         <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
           <source>Improves translations and other metadata</source>
-          <target state="translated">Améliore les traductions et autres métadonnées</target>
+          <target state="new">Improves translations and other metadata</target>
         </trans-unit>
         <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
           <source>Improves playback quality, translations, and other metadata</source>
-          <target state="translated">Améliore la qualité de lecture, les traductions et d’autres métadonnées</target>
+          <target state="new">Improves playback quality, translations, and other metadata</target>
         </trans-unit>
         <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
           <source>Is there anything we can learn to avoid future interruptions?</source>
-          <target state="translated">Y a-t-il quelque chose que nous pouvons apprendre pour éviter de futures interruptions?</target>
+          <target state="new">Is there anything we can learn to avoid future interruptions?</target>
         </trans-unit>
         <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
           <source>Recent interruptions</source>
-          <target state="translated">Interruptions récentes</target>
+          <target state="new">Recent interruptions</target>
         </trans-unit>
         <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
           <source>Need help with interruptions?</source>
-          <target state="translated">Besoin d’aide en cas d’interruption?</target>
+          <target state="new">Need help with interruptions?</target>
         </trans-unit>
       </group>
     </body>

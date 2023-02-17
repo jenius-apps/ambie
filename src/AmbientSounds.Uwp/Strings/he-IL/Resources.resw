@@ -736,4 +736,13 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>משפר את איכות ההפעלה, התרגומים ומטה-נתונים אחרים</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>האם יש משהו שאנחנו יכולים ללמוד כדי למנוע הפרעות עתידיות?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>הפרעות אחרונות</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>זקוק לעזרה עם הפרעות?</value>
+  </data>
 </root>

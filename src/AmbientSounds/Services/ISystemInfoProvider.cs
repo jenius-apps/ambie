@@ -52,5 +52,10 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <returns>DateTime when the app was first used.</returns>
         DateTime FirstUseDate();
+
+        /// <summary>
+        /// Returns the local folder path for application data.
+        /// </summary>
+        string LocalFolderPath();
     }
 }

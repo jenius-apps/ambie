@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AmbientSounds.Cache;
@@ -11,21 +12,17 @@ namespace AmbientSounds.Services
     public sealed class FocusHistoryService : IFocusHistoryService
     {
         private readonly IFocusHistoryCache _focusHistoryCache;
-        private readonly IDialogService _dialogService;
         private readonly HashSet<string> _taskIdsCompleted = new();
         private FocusHistory? _activeHistory;
 
         public event EventHandler<FocusHistory?>? HistoryAdded;
 
         public FocusHistoryService(
-            IFocusHistoryCache focusHistoryCache,
-            IDialogService dialogService)
+            IFocusHistoryCache focusHistoryCache)
         {
             Guard.IsNotNull(focusHistoryCache, nameof(focusHistoryCache));
-            Guard.IsNotNull(dialogService, nameof(dialogService));
 
             _focusHistoryCache = focusHistoryCache;
-            _dialogService = dialogService;
         }
 
         public int GetInterruptionCount()
@@ -42,6 +39,28 @@ namespace AmbientSounds.Services
         public Task<IReadOnlyList<FocusHistory>> GetRecentAsync()
         {
             return _focusHistoryCache.GetRecentAsync();
+        }
+
+        /// <inheritdoc/>
+        public async Task<IReadOnlyList<FocusInterruption>> GetRecentInterruptionsAsync()
+        {
+            var histories = await GetRecentAsync();
+
+            if (histories.OrderByDescending(x => x.StartUtcTicks).FirstOrDefault() is { Interruptions.Count: > 0 })
+            {
+                List<FocusInterruption> results = new();
+                foreach (var h in histories)
+                {
+                    results.AddRange(h.Interruptions);
+                }
+
+                if (results.Count >= 3)
+                {
+                    return results;
+                }
+            }
+
+            return Array.Empty<FocusInterruption>();
         }
 
         public void TrackHistoryCompletion(long utcTicks, SessionType lastCompletedSegmentType)
@@ -152,6 +171,28 @@ namespace AmbientSounds.Services
         public void RevertTaskCompleted(string taskId)
         {
             _taskIdsCompleted.Remove(taskId);
+        }
+
+        /// <inheritdoc/>
+        public Dictionary<string, string> GatherInterruptionTelemetry(
+            double minutes,
+            string notes,
+            bool isCompact)
+        {
+            bool hasNotes = !string.IsNullOrWhiteSpace(notes);
+            var data = new Dictionary<string, string>
+            {
+                { "minutes", minutes.ToString() },
+                { "hasNotes", hasNotes.ToString().ToLower() },
+                { "isCompact", isCompact.ToString().ToLower() }
+            };
+
+            if (hasNotes)
+            {
+                data.Add("notes", notes);
+            }
+
+            return data;
         }
     }
 }

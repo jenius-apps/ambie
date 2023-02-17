@@ -724,4 +724,13 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>Javítja a lejátszás minőségét, a fordításokat és az egyéb metaadatokat</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Van valami, amit megtanulhatunk a jövőbeli megszakítások elkerülése érdekében?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Legutóbbi megszakítások</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Segítségre van szüksége a megszakításokkal kapcsolatban?</value>
+  </data>
 </root>

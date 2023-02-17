@@ -2,14 +2,12 @@
     x:Class="AmbientSounds.Controls.CompactFocusTimerModule"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:constants="using:AmbientSounds.Constants"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
-    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:viewmodels="using:AmbientSounds.ViewModels"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -70,7 +68,7 @@
                 AutomationName="{x:Bind strings:Resources.FocusLength}"
                 Header="{x:Bind strings:Resources.FocusLength}"
                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                Maximum="60"
+                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
                 StepFrequency="5"
                 TickFrequency="15"
                 Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
@@ -80,7 +78,7 @@
                 AutomationName="{x:Bind strings:Resources.RestLength}"
                 Header="{x:Bind strings:Resources.RestLength}"
                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                Maximum="60"
+                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
                 StepFrequency="5"
                 TickFrequency="15"
                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />

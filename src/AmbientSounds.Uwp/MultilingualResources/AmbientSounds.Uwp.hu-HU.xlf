@@ -982,6 +982,18 @@
           <source>Improves playback quality, translations, and other metadata</source>
           <target state="translated">Javítja a lejátszás minőségét, a fordításokat és az egyéb metaadatokat</target>
         </trans-unit>
+        <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
+          <source>Is there anything we can learn to avoid future interruptions?</source>
+          <target state="translated">Van valami, amit megtanulhatunk a jövőbeli megszakítások elkerülése érdekében?</target>
+        </trans-unit>
+        <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
+          <source>Recent interruptions</source>
+          <target state="translated">Legutóbbi megszakítások</target>
+        </trans-unit>
+        <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
+          <source>Need help with interruptions?</source>
+          <target state="translated">Segítségre van szüksége a megszakításokkal kapcsolatban?</target>
+        </trans-unit>
       </group>
     </body>
   </file>

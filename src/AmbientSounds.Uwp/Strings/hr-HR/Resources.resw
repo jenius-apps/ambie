@@ -724,4 +724,13 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>Poboljšava kvalitetu reprodukcije, prijevode i druge metapodatke</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Možemo li išta naučiti kako bismo izbjegli buduće prekide?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Nedavni prekidi</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Trebate pomoć s prekidima?</value>
+  </data>
 </root>

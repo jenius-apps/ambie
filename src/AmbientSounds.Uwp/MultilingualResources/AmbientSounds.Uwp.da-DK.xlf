@@ -977,6 +977,18 @@
           <source>Improves playback quality, translations, and other metadata</source>
           <target state="translated">Forbedrer afspilningskvaliteten, oversættelser og andre metadata</target>
         </trans-unit>
+        <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
+          <source>Is there anything we can learn to avoid future interruptions?</source>
+          <target state="translated">Er der noget, vi kan lære for at undgå fremtidige afbrydelser?</target>
+        </trans-unit>
+        <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
+          <source>Recent interruptions</source>
+          <target state="translated">Nylige afbrydelser</target>
+        </trans-unit>
+        <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
+          <source>Need help with interruptions?</source>
+          <target state="translated">Har du brug for hjælp til afbrydelser?</target>
+        </trans-unit>
       </group>
     </body>
   </file>

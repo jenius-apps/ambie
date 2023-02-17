@@ -6,6 +6,11 @@
     /// </summary>
     public class TelemetryConstants
     {
+        // insights
+        private const string Insights = "insights:";
+        public const string InterruptionInsightsDisplayed = Insights + "interruptionInsightsDisplayed";
+        public const string InterruptionInsightsClicked = Insights + "interruptionInsightsClicked";
+
         // shell page
         private const string ShellPage = "shellpage:";
         public const string ShellPagePremiumClicked = ShellPage + "premiumClicked";

@@ -736,4 +736,13 @@
   <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
     <value>再生品質、翻訳、その他のメタデータを改善</value>
   </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>将来の中断を避けるために学ぶことができることはありますか?</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>最近の中断</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>中断についてサポートが必要ですか?</value>
+  </data>
 </root>

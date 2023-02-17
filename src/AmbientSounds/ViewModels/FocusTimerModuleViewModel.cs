@@ -121,6 +121,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
     }
 
+    [ObservableProperty]
+    private bool _insightsVisible;
+
     public ObservableCollection<RecentFocusSettingsViewModel> RecentSettings { get; } = new();
 
     public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
@@ -258,6 +261,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         await InitializeTasksAsync();
         InitializeSegments();
+        var recentInterruptionTask = _focusHistoryService.GetRecentInterruptionsAsync();
 
         // Initialize recent list
         if (RecentSettings.Count > 0)
@@ -276,7 +280,14 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             LoadRecentSettings(s);
         }
 
+        var interruptions = await recentInterruptionTask;
+        InsightsVisible = interruptions.Count > 0;
         OnPropertyChanged(nameof(IsRecentVisible));
+
+        if (InsightsVisible)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.InterruptionInsightsDisplayed);
+        }
     }
 
     public void Uninitialize()
@@ -286,6 +297,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         _userSettings.SettingSet -= OnSettingChanged;
 
         SelectedTaskIndex = 0;
+        InsightsVisible = false;
         RecentSettings.Clear();
         FocusTasks.Clear();
         Segments.Clear();
@@ -544,12 +556,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         if (minutes > 0)
         {
             OnPropertyChanged(nameof(InterruptionCount));
-            _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
-            {
-                { "minutes", minutes.ToString() },
-                { "hasNotes", (!string.IsNullOrWhiteSpace(notes)).ToString() },
-                { "isCompact", "false" }
-            });
+            _telemetry.TrackEvent(
+                TelemetryConstants.FocusInterruptionLogged,
+                _focusHistoryService.GatherInterruptionTelemetry(minutes, notes, false));
         }
     }
 
@@ -566,6 +575,13 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             { "page", "focus" }
         });
+    }
+
+    [RelayCommand]
+    private async Task OpenInterruptionsAsync()
+    {
+        _telemetry.TrackEvent(TelemetryConstants.InterruptionInsightsClicked);
+        await _dialogService.RecentInterruptionsAsync();
     }
 
     private void OnTimeUpdated(object sender, FocusSession e)

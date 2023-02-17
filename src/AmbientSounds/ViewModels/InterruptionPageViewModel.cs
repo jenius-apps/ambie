@@ -56,12 +56,9 @@ public partial class InterruptionPageViewModel : ObservableObject
 
         _focusHistoryService.LogInterruption(MinutesLogged, Notes);
         bool isCompact = _systemInfoProvider.IsCompact();
-        _telemetry.TrackEvent(TelemetryConstants.FocusInterruptionLogged, new Dictionary<string, string>
-        {
-            { "minutes", MinutesLogged.ToString() },
-            { "hasNotes", (!string.IsNullOrWhiteSpace(Notes)).ToString() },
-            { "isCompact", isCompact.ToString().ToLower() }
-        });
+        _telemetry.TrackEvent(
+            TelemetryConstants.FocusInterruptionLogged,
+            _focusHistoryService.GatherInterruptionTelemetry(MinutesLogged, Notes, isCompact));
 
         MinutesLogged = 0;
         Notes = string.Empty;

@@ -971,6 +971,18 @@
           <source>Improves playback quality, translations, and other metadata</source>
           <target state="translated">משפר את איכות ההפעלה, התרגומים ומטה-נתונים אחרים</target>
         </trans-unit>
+        <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
+          <source>Is there anything we can learn to avoid future interruptions?</source>
+          <target state="translated">האם יש משהו שאנחנו יכולים ללמוד כדי למנוע הפרעות עתידיות?</target>
+        </trans-unit>
+        <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
+          <source>Recent interruptions</source>
+          <target state="translated">הפרעות אחרונות</target>
+        </trans-unit>
+        <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
+          <source>Need help with interruptions?</source>
+          <target state="translated">זקוק לעזרה עם הפרעות?</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:constants="using:AmbientSounds.Constants"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
@@ -144,6 +145,7 @@
                         <Setter Target="CountdownTimerPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="ButtonPanelColumn1.Width" Value="110" />
                         <Setter Target="ButtonPanelColumn2.Width" Value="110" />
+                        <!--<Setter Target="TipColumn.Visibility" Value="Visible" />-->
                         <Setter Target="ModuleColumn1.Width" Value="248" />
                         <Setter Target="TaskActiveDataText.(Grid.Row)" Value="0" />
                         <Setter Target="TaskActiveDataText.(Grid.Column)" Value="1" />
@@ -307,7 +309,7 @@
                                 AutomationName="{x:Bind strings:Resources.FocusLength}"
                                 Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                                Maximum="60"
+                                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
                                 StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
@@ -329,7 +331,7 @@
                                 AutomationName="{x:Bind strings:Resources.RestLength}"
                                 Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                                Maximum="60"
+                                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
                                 StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
@@ -559,6 +561,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="ButtonPanelColumn1" Width="*" />
                         <ColumnDefinition x:Name="ButtonPanelColumn2" Width="*" />
+                        <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
                     <Button
                         x:Name="StartButton"
@@ -594,6 +597,21 @@
                         Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                         <FontIcon Style="{StaticResource StopTimerIcon}" />
                     </Button>
+
+                    <!--  Diabled until more data is available  -->
+                    <!--<Grid
+                        x:Name="TipColumn"
+                        Grid.Column="2"
+                        Margin="4,0,0,0"
+                        VerticalAlignment="Center"
+                        Visibility="Collapsed">
+                        <HyperlinkButton
+                            Command="{x:Bind ViewModel.OpenInterruptionsCommand}"
+                            Content="{x:Bind strings:Resources.InterruptionInsightsButtonText}"
+                            FontSize="11"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            Visibility="{x:Bind ViewModel.InsightsVisible, Mode=OneWay}" />
+                    </Grid>-->
                 </Grid>
             </Grid>
         </Border>
@@ -634,13 +652,13 @@
 
                                 <local:RecentFocusSettingsControl
                                     Foreground="SkyBlue"
-                                    MaxValue="60"
+                                    MaxValue="{x:Bind (x:Int32)constants:FocusConstants.TimerLimit}"
                                     Text="{x:Bind strings:Resources.FocusText}"
                                     Value="{x:Bind Settings.FocusMinutes}" />
                                 <local:RecentFocusSettingsControl
                                     Grid.Column="1"
                                     Foreground="Green"
-                                    MaxValue="60"
+                                    MaxValue="{x:Bind (x:Int32)constants:FocusConstants.TimerLimit}"
                                     Text="{x:Bind strings:Resources.RestText}"
                                     Value="{x:Bind Settings.RestMinutes}" />
                                 <local:RecentFocusSettingsControl
