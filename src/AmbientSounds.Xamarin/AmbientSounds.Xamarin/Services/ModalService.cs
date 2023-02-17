@@ -68,6 +68,11 @@ namespace AmbientSounds.Services.Xamarin
             throw new NotImplementedException();
         }
 
+        public Task RecentInterruptionsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<string> RenameAsync(string currentName)
         {
             throw new NotImplementedException();
