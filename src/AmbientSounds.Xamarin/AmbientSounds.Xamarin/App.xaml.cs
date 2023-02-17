@@ -1,10 +1,7 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.Services.Xamarin;
 using AmbientSounds.ViewModels;
-using AmbientSounds.Xamarin.Native;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace AmbientSounds.Xamarin
 {
@@ -13,13 +10,12 @@ namespace AmbientSounds.Xamarin
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            RegisterDependencies(); // TODO replace this with the dependency injection extension by MS
+            MainPage = new Views.TabbedShellPage();
         }
 
         protected override void OnStart()
         {
-            RegisterDependencies();
         }
 
         protected override void OnSleep()
