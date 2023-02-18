@@ -288,7 +288,6 @@
     <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\PartnerCentreNotificationRegistrar.cs" />
     <Compile Include="Services\ScreensaverService.cs" />
-    <Compile Include="Services\TimerService.cs" />
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\WindowsDownloadManager.cs" />
     <Compile Include="StateTriggers\TenFootTrigger.cs" />
@@ -854,7 +853,7 @@
   <ItemGroup>
     <PRIResource Include="Strings\el\Resources.resw" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <PRIResource Include="Strings\fa-IR\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

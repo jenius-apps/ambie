@@ -280,7 +280,7 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _ratingTimer.Stop();
         _ratingTimer.IntervalElapsed -= OnIntervalLapsed;
-        IsRatingMessageVisible = true;
+        _dispatcherQueue.TryEnqueue(() => { IsRatingMessageVisible = true; });
         _telemetry.TrackEvent(TelemetryConstants.RatingMessageShown);
     }
 
