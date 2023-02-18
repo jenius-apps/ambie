@@ -770,7 +770,7 @@
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
-          <target state="translated">Ambie</target>
+          <target state="translated">امبی</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>

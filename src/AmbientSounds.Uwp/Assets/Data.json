@@ -1,7 +1,7 @@
 ﻿[
   {
     "Id": "9947a323-8223-4593-8a82-04d9edfd4d4a",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "beach",
     "ColourHex": "#c59758",
     "ImagePath": "ms-appx:///Assets/Images/beach.png",
@@ -69,12 +69,21 @@
       },
       "zh": {
         "Name": "海滩"
+      },
+      "fa": {
+        "Name": "ساحل"
+      },
+      "el": {
+        "Name": "Παραλία"
+      },
+      "bg": {
+        "Name": "Плаж"
       }
     }
   },
   {
     "Id": "19a43ab7-c964-4ab5-90f9-26c8a17d4f34",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "birds",
     "ColourHex": "#5a8391",
     "ImagePath": "ms-appx:///Assets/Images/birds.png",
@@ -142,12 +151,21 @@
       },
       "zh": {
         "Name": "鸟啼"
+      },
+      "fa": {
+        "Name": "پرندگان"
+      },
+      "el": {
+        "Name": "Πουλιά"
+      },
+      "bg": {
+        "Name": "Птици"
       }
     }
   },
   {
     "Id": "f2940c11-0510-4db5-a0ea-5cb27d453bb2",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "citystreet",
     "ColourHex": "#a2775c",
     "ImagePath": "ms-appx:///Assets/Images/citystreet.png",
@@ -215,12 +233,24 @@
       },
       "zh": {
         "Name": "城镇街道"
+      },
+      "fa": {
+        "Name": "خیابان شهر",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Οδός της πόλης",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Градска улица",
+        "Description": ""
       }
     }
   },
   {
     "Id": "17b2af89-1008-4259-b545-dc8ca4ee473f",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "coffeeshop",
     "ColourHex": "#636252",
     "ImagePath": "ms-appx:///Assets/Images/coffeeshop.png",
@@ -288,12 +318,24 @@
       },
       "zh": {
         "Name": "咖啡馆"
+      },
+      "fa": {
+        "Name": "کافی شاپ",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Καφετέρια",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Кафе-сладкарница",
+        "Description": ""
       }
     }
   },
   {
     "Id": "f32edd85-871e-4349-9e45-42b14fd5449b",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "creek",
     "ColourHex": "#27281c",
     "ImagePath": "ms-appx:///Assets/Images/creek.png",
@@ -361,12 +403,24 @@
       },
       "zh": {
         "Name": "溪流"
+      },
+      "fa": {
+        "Name": "کریک",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Κολπίσκος",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Тясно заливче",
+        "Description": ""
       }
     }
   },
   {
     "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "fireplace",
     "ColourHex": "#442f12",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
@@ -433,12 +487,24 @@
       },
       "zh": {
         "Name": "壁炉"
+      },
+      "fa": {
+        "Name": "شومینه",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Εστία",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Камина",
+        "Description": ""
       }
     }
   },
   {
     "Id": "61ae9b16-8254-40f4-b4ae-eff4791f6a80",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "rain",
     "ColourHex": "#334337",
     "ImagePath": "ms-appx:///Assets/Images/rain.png",
@@ -505,12 +571,24 @@
       },
       "zh": {
         "Name": "雨天"
+      },
+      "fa": {
+        "Name": "باران",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Βροχή",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Дъжд",
+        "Description": ""
       }
     }
   },
   {
     "Id": "37988c11-b601-417b-9bb4-bb59fe939641",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "rainforest",
     "ColourHex": "#152d0c",
     "ImagePath": "ms-appx:///Assets/Images/rainforest.png",
@@ -577,12 +655,24 @@
       },
       "zh": {
         "Name": "雨林"
+      },
+      "fa": {
+        "Name": "جنگل",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Τροπικό δάσος",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Гори",
+        "Description": ""
       }
     }
   },
   {
     "Id": "1628a20d-744e-4f99-b7e3-24088cba5090",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "thunder",
     "ColourHex": "#00266f",
     "ImagePath": "ms-appx:///Assets/Images/thunder.png",
@@ -649,12 +739,24 @@
       },
       "zh": {
         "Name": "雷鸣"
+      },
+      "fa": {
+        "Name": "تندر",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Βροντή",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Гръм",
+        "Description": ""
       }
     }
   },
   {
     "Id": "f8424751-d150-41bc-b4ab-c22c41b4b339",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "underwater",
     "ColourHex": "#00c3d0",
     "ImagePath": "ms-appx:///Assets/Images/underwater.png",
@@ -721,12 +823,24 @@
       },
       "zh": {
         "Name": "水下"
+      },
+      "fa": {
+        "Name": "زیر",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Υποβρύχιος",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Подводни",
+        "Description": ""
       }
     }
   },
   {
     "Id": "e0df152b-7166-402a-902d-c69d3a9f96bb",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "waterfall",
     "ColourHex": "#8bbdd4",
     "ImagePath": "ms-appx:///Assets/Images/waterfall.png",
@@ -794,12 +908,24 @@
       },
       "zh": {
         "Name": "瀑布"
+      },
+      "fa": {
+        "Name": "آبشار",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Καταρράκτης",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Водопад",
+        "Description": ""
       }
     }
   },
   {
     "Id": "aada6607-5dbe-42ff-934d-d5917e597284",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "whitenoise",
     "ColourHex": "#5e5b49",
     "ImagePath": "ms-appx:///Assets/Images/whitenoise.png",
@@ -866,12 +992,24 @@
       },
       "zh": {
         "Name": "白噪声"
+      },
+      "fa": {
+        "Name": "سر و صدای سفید",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Λευκός θόρυβος",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Бял шум",
+        "Description": ""
       }
     }
   },
   {
     "Id": "38c73d89-6c2c-445b-8beb-52b2f72689a2",
-    "MetaDataVersion": 2,
+    "MetaDataVersion": 3,
     "Name": "wind",
     "ColourHex": "#0b2354",
     "ImagePath": "ms-appx:///Assets/Images/wind.png",
@@ -938,6 +1076,18 @@
       },
       "zh": {
         "Name": "风声"
+      },
+      "fa": {
+        "Name": "باد",
+        "Description": ""
+      },
+      "el": {
+        "Name": "Άνεμος",
+        "Description": ""
+      },
+      "bg": {
+        "Name": "Вятър",
+        "Description": ""
       }
     }
   }
