@@ -1,5 +1,5 @@
 ﻿using AmbientSounds.ViewModels;
-
+using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +11,7 @@ public partial class TabbedShellPage : TabbedPage
     public TabbedShellPage()
     {
         InitializeComponent();
-        BindingContext = DependencyService.Resolve<ShellPageViewModel>();
+        BindingContext = App.Services.GetRequiredService<ShellPageViewModel>();
     }
 
     public ShellPageViewModel ViewModel => (ShellPageViewModel)BindingContext;

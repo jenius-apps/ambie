@@ -1,17 +1,39 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.Services.Xamarin;
 using AmbientSounds.ViewModels;
+using CommunityToolkit.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using Xamarin.Forms;
+
+#nullable enable
 
 namespace AmbientSounds.Xamarin
 {
     public partial class App : Application
     {
+        private IServiceProvider? _serviceProvider;
+
         public App()
         {
             InitializeComponent();
-            RegisterDependencies(); // TODO replace this with the dependency injection extension by MS
+            _serviceProvider = RegisterDependencies();
             MainPage = new Views.TabbedShellPage();
+        }
+
+        public static IServiceProvider Services
+        {
+            get
+            {
+                IServiceProvider? serviceProvider = ((App)Current)._serviceProvider;
+
+                if (serviceProvider is null)
+                {
+                    ThrowHelper.ThrowInvalidOperationException("The service provider is not initialized");
+                }
+
+                return serviceProvider;
+            }
         }
 
         protected override void OnStart()
@@ -26,16 +48,23 @@ namespace AmbientSounds.Xamarin
         {
         }
 
-        private void RegisterDependencies()
+        private IServiceProvider RegisterDependencies()
         {
-            DependencyService.Register<ShellPageViewModel>();
-            DependencyService.Register<IUserSettings, UserSettings>();
-            DependencyService.Register<IScreensaverService, ScreensaverService>();
-            DependencyService.Register<INavigator, Navigator>();
-            DependencyService.Register<IDialogService, ModalService>();
-            DependencyService.Register<IMixMediaPlayerService, MixMediaPlayer>();
-            DependencyService.Register<ITelemetry, AppCenterTelemetry>();
-            DependencyService.Register<IAppSettings, AppSettings>();
+            var provider = new ServiceCollection()
+                .AddSingleton<ShellPageViewModel>()
+                .AddSingleton<IUserSettings, UserSettings>()
+                .AddSingleton<IScreensaverService, ScreensaverService>()
+                .AddSingleton<INavigator, Navigator>()
+                .AddSingleton<IDialogService, ModalService>()
+                .AddSingleton<IMixMediaPlayerService, MixMediaPlayer>()
+                .AddSingleton<ITelemetry, AppCenterTelemetry>()
+                .AddSingleton<IAppSettings, AppSettings>()
+                // Must be transient because this is basically
+                // a timer factory.
+                .AddTransient<ITimerService, TimerService>()
+                .BuildServiceProvider();
+
+            return provider;
         }
     }
 }
