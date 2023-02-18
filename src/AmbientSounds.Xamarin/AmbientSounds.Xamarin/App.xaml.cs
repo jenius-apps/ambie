@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.Services.Xamarin;
+using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
@@ -56,7 +57,7 @@ namespace AmbientSounds.Xamarin
                 .AddSingleton<IScreensaverService, ScreensaverService>()
                 .AddSingleton<INavigator, Navigator>()
                 .AddSingleton<IDialogService, ModalService>()
-                .AddSingleton<IMixMediaPlayerService, MixMediaPlayer>()
+                .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
                 .AddSingleton<ITelemetry, AppCenterTelemetry>()
                 .AddSingleton<IAppSettings, AppSettings>()
                 // Must be transient because this is basically
