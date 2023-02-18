@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>بستن حالت فشرده</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>بستن حالت فشرده</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>حقوق انحصاری</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>حقوق مادی و معنوی متعلق به Jenius Apps است</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>درود از ونکوور</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>اطلاعات برنامه</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>گزینه های بیشتر</value>
+  </data>
+  <data name="CompactMode" xml:space="preserve">
+    <value>حالت فشرده</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+  <data name="RateUsText" xml:space="preserve">
+    <value>به ما رای دهید</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>اشتراک گذاری لینک Ambie</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>افزودن یا بهبود ترجمه</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>غیر فعال</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>توقف تایمر</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>توقف</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>پخش</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>ادامه تایمر</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>آماده پخش</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>دور سنجی</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>تنظیمات</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>گزینه های تایمر خواب</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>گزینه های تایمر خواب</value>
+  </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>ساحل دریا</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>پرنده ها</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>خیابان شهر</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>کافی شاپ</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>جوی آب</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>شومینه</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>باران</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>جنگل بارانی</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>زیر آب</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>آبشار</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>نویز سفید</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>صداها درحال بارگیری هستند</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>قادر به پخش صدا نیست</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>توقف و تنظیم مجدد تایمر</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>بلندی صدای کلی</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>بلندی صدا</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>پوسته</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>خودکار</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>تیره</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>روشن</value>
+  </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>جاروبرقی</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>رعد و برق</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>اعلان برای صداهای جدید</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>باد</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>قبلاً دانلود شده است</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>بازگشت</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>قابل دانلود است</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>دانلود صدا</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>دانلود صدا</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>فهرست صداها</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>صداها</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>سیاست حفظ حریم خصوصی</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>سیاست حفظ حریم خصوصی</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>حذف صدا</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>دانلود</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>پخش صدای تصادفی</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>پخش صدای تصادفی</value>
+  </data>
+  <data name="ScreensaverMode" xml:space="preserve">
+    <value>حالت محافظ صفحه نمایش</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>محافظ صفحه نمایش</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>خرید صدا</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>پیش نمایش صدا</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>پیش نمایش صدا</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>متوقف شده است</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>در حال پخش</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>صداهای فعال</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>پاک کردن تمام صداهای فعال</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>پاک کردن تمام صداهای فعال</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>تایید ذخیره</value>
+  </data>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>بلندی صدای کلی</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>نام صدای میکس</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>اختیاری</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>حذف {0} از لیست فعال</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>ذخیره میکس سفارشی</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>ذخیره میکس سفارشی (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>تغییر نام</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>تغییر نام</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>خروج از سیستم</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>این کار همگام سازی گالری صدا را در دستگاه های شما فعال می کند.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>گزینه های حساب کاربری</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>گزینه های حساب کاربری</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>ورود به سیستم</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>ورود به سیستم</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>همگام سازی</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>انتساب</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>صدای جدید</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>تازه سازی</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>ورود به سیستم</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>مطمئنی؟</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>بله</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>اختیاری</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>ضروری</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>حمایت مالی</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>شرایط استفاده</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>ما را در توییتر دنبال کنید</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>ممنون که Ambie را امتحان کردید. برای بهترین تجربه، ما را به نوار وظیفه خود سنجاق کنید! از لحظات آرامش بخش خود لذت ببرید 🏝 </value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>درود و خوش آمدید!</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>سنجاق کردن به نوار وظیفه</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>پیش نمایش</value>
+  </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>فهرست</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>حداکثر 3 صدا را با هم میکس کنید</value>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>تنظیمات پوسته</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>پس از راه‌اندازی Ambie پخش را از سر بگیر</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} در ماه</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} بدون محدودیت زمانی</value>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>به صداهای ممتاز و با کیفیت بالا دسترسی داشته باشید</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>دانلود فیلم محافظ صفحه نمایش</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>پشتیبانی از توسعه</value>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>با تشکر از شما برای گرفتن اشتراک!</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>درود دوباره 👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>از Ambie لذت می برید؟ لطفا به ما امتیاز دهید!</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>دانلود</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>برای پخش این کار باید چند صدا را دانلود کنیم. پس از دانلود، دوباره آن را پخش کنید. دانلود شروع شود؟</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>صداهای از دست رفته</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>پیش فرض</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>محافظ های صفحه نمایش بیشتر</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>فهرست محافظ صفحه نمایش</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>اطلاعات بخش ویژه</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>ابرها</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>دود رنگی</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>هشت ضلعی</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>مشکلی در نمایش محافظ صفحه وجود داشت. Ambie را مجدداً راه‌اندازی کنید، یا اگر مشکل ادامه داشت با ما تماس بگیرید.</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>گزارش مشکل</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>خطای نمایش</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>حالت تمام صفحه</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>دریافت Ambie+</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>تمرکز</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>توقف تایمر</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>شروع تایمر</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>عالی بود!</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>جلسه تمرکز کامل شد</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>زمان تمرکز</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>زمان استراحت</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>استراحت</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>جلسه تمرکز فعال است!</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>در حال تمرکز</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>در حال استراحت</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>توقف</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>بازنشانی</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>تنظیم مجدد تایمر</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>شروع</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>دقایق تمرکز</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>شما می توانید هر یادداشتی را در اینجا یادداشت کنید 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>برنامه چیه؟</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>یادداشت</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>تکرار</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>دقایق استراحت</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>نحوه استفاده را نشان بده</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>این یک تایمر دوره ای است که از تکنیک پومودورو الهام گرفته است. هدف این است که برای مدت طولانی روی یک کار تمرکز کنید، سپس استراحت کوتاهی داشته باشید. برای حفظ تمرکز، این چرخه را تکرار کنید!</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>به تایمر تمرکز خوش آمدید!</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>راهنما</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>هر چرخه دارای یک بخش تمرکز و یک بخش استراحت است. مدت زمان هر بخش تمرکز را انتخاب کنید. توصیه میکنیم از 25 دقیقه شروع کنید!</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>زمان تمرکز را تنظیم کنید</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>هر چرخه تمرکز و استراحت می تواند چندین بار تکرار شود. 1 تکرار اضافه کنید!</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>تعداد تکرارها را تنظیم کنید</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>اکنون، مدت زمان هر بخش استراحت را انتخاب کنید. ما در حال حاضر حدود 5 دقیقه را توصیه می کنیم!</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>زمان استراحت را تنظیم کنید</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>تایمر را شروع کنید و روی کار خود تمرکز کنید. زمان استراحت به شما اطلاع داده خواهد شد. قوی باش!</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>آماده، تنظیم، شروع</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>{0} دقیقه تمرکز، {1} دقیقه استراحت، {2} تکرار.</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>فهرست پیکربندی‌ تمرکزهای اخیر</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 تا {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>تاریخچه</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>وقفه ها</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>سابقه اخیر شما در اینجا ظاهر می شود</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>گزارش وقفه</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>دقایق وقفه ها</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>یادداشت ها</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>آیا چیزی شما را متوقف کرد؟ عوامل حواس پرتی خود را در اینجا دنبال کنید تا بتوانید بعداً در تاریخچه خود آنها را مشاهده کنید.</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>تاریخچه اخیر</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>چرخه ها تکمیل شد</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>تلاش خوبی بود</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>شما عالی بودید</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>امبی</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>کارهایی را برای تمرکز بر روی آنها اضافه کنید، سپس دکمه شروع را فشار دهید</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>کارها</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>اخیرا کامل شده</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>کارهای تکمیل شده</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>تایمر</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>کار {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>این هفته رایگان!</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>زمان تمرکز حالت فشرده را باز کن</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>حالت فشرده را باز کن</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>با حالت فشرده، پنجره را کوچک می کنیم و فقط موارد ضروری را برای کمک به تمرکز شما نمایش می دهیم.</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>مدت زمان</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>پایان</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>فشرده</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>وقفه ها</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>دانلود صداها از فهرست</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>ویرایش صفحه اصلی</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>برای شخصی سازی صفحه اصلی خود صداها را بکشید و رها کنید. اکنون امتحانش کن!</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>متاسفم! نتوانستم فهرست را بارگیری کنیم. اتصال اینترنت خود را بررسی کنید.</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>درباره Ambie</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>حالت فشرده به طور خودکار هنگام تمرکز باز می شود</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>زمانی که صداهای جدید در دسترس باشد به شما اطلاع خواهیم داد</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>پس از راه اندازی، Ambie پخش صدا را ادامه می دهد</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>خرابی های گزارش شده و اطلاعات استفاده ناشناس به بهبود Ambie کمک می کند</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>تصویر پس زمینه</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>تصویر سفارشی</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>تنظیمات عمومی</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>حالت خود را انتخاب کنید</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>تغییر رنگ هایی که در Ambie استفاده می شوند</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>آنچه را که به آن گوش می دهید به اشتراک بگذارید</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>بیایید ببینیم آنها قابل دانلود هستند.</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>شما برخی از صداها را از دست داده اید</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>مرور</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>اشتراک گذاری</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>کپی شد!</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>کپی</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>یا</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>باز کردن قفل این صدا</value>
+  </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>بررسی به روزرسانی ها</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>برای به‌روزرسانی صداها و ویدیوهای خود اینجا را بررسی کنید.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>به‌روزرسانی‌ها شامل بهبودهایی در ترجمه‌ها، کیفیت صدا و موارد دیگر هستند.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>به روزرسانی ها</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>نسخه داده:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>نسخه فایل:</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>به روزرسانی همه</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>کاملا به روز. همه چیز آماده است.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>بهبود کیفیت پخش صدا</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>بهبود ترجمه ها و سایر داده ها</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>بهبود کیفیت پخش، ترجمه ها و سایر داده ها</value>
+  </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>آیا چیزی هست که بتوانیم یاد بگیریم تا از وقفه های بعدی جلوگیری کنیم؟</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>وقفه های اخیر</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>برای وقفه ها به کمک نیاز دارید؟</value>
+  </data>
+</root>

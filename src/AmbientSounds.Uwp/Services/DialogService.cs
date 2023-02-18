@@ -1,12 +1,12 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Controls;
 using AmbientSounds.Converters;
-using AmbientSounds.Models;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -50,6 +50,7 @@ public class DialogService : IDialogService
         IsDialogOpen = true;
         var dialog = new TutorialDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme()
         };
 
@@ -68,6 +69,7 @@ public class DialogService : IDialogService
         IsDialogOpen = true;
         var dialog = new ContentDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
             Title = Strings.Resources.MissingSoundsTitle,
             PrimaryButtonText = Strings.Resources.DownloadText,
@@ -91,6 +93,7 @@ public class DialogService : IDialogService
         bool enterClicked = false;
         var dialog = new ContentDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             Title = Strings.Resources.RenameText,
             CloseButtonText = Strings.Resources.CancelText,
             PrimaryButtonText = Strings.Resources.RenameText,
@@ -116,6 +119,7 @@ public class DialogService : IDialogService
         var content = new PremiumControl();
         var dialog = new NoPaddingDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
             Content = content
         };
@@ -136,6 +140,7 @@ public class DialogService : IDialogService
         IsDialogOpen = true;
         var dialog = new ContentDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             Title = Strings.Resources.ScreensaverCatalogue,
             CloseButtonText = Strings.Resources.CloseText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
@@ -157,6 +162,7 @@ public class DialogService : IDialogService
         IsDialogOpen = true;
         var dialog = new InterruptionDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
         };
 
@@ -179,6 +185,7 @@ public class DialogService : IDialogService
         IsDialogOpen = true;
         var dialog = new ContentDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             Title = Strings.Resources.History,
             CloseButtonText = Strings.Resources.CloseText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
@@ -202,6 +209,7 @@ public class DialogService : IDialogService
         IsDialogOpen = true;
         var dialog = new EditTextDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             Text = prepopulatedText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
         };
@@ -231,6 +239,7 @@ public class DialogService : IDialogService
 
         var dialog = new ShareDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
         };
 
@@ -253,6 +262,7 @@ public class DialogService : IDialogService
         _ = content.InitializeAsync();
         var dialog = new ContentDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             Title = Strings.Resources.MissingSoundsTitle,
             CloseButtonText = Strings.Resources.CloseText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
@@ -277,6 +287,7 @@ public class DialogService : IDialogService
 
         var dialog = new ContentDialog()
         {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
             Title = Strings.Resources.RecentInterruptionsText,
             CloseButtonText = Strings.Resources.CloseText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
