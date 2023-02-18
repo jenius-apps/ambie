@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
@@ -7,159 +8,162 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AmbientSounds.ViewModels
+namespace AmbientSounds.ViewModels;
+
+public partial class ScreensaverViewModel : ObservableObject
 {
-    public partial class ScreensaverViewModel : ObservableObject
+    private const int ImageTimeLength = 30000; // milliseconds
+    private readonly ITimerService _timerService;
+    private readonly IMixMediaPlayerService _mediaPlayerService;
+    private readonly ITelemetry _telemetry;
+    private readonly ISoundService _soundDataProvider;
+    private readonly IDispatcherQueue _dispatcherQueue;
+    private IList<string> _images = new List<string>();
+
+    [ObservableProperty]
+    private string _imageSource1 = "https://localhost:8080";
+
+    [ObservableProperty]
+    private string _imageSource2 = "https://localhost:8080";
+
+    [ObservableProperty]
+    private bool _imageVisible1;
+
+    [ObservableProperty]
+    private bool _imageVisible2;
+    private int _imageIndex1;
+    private int _imageIndex2;
+
+    [ObservableProperty]
+    private bool _loading;
+
+    public ScreensaverViewModel(
+        ITimerService timerService,
+        IMixMediaPlayerService mediaPlayerService,
+        ISoundService soundDataProvider,
+        ITelemetry telemetry,
+        IDispatcherQueue dispatcherQueue)
     {
-        private const int ImageTimeLength = 30000; // milliseconds
-        private readonly ITimerService _timerService;
-        private readonly IMixMediaPlayerService _mediaPlayerService;
-        private readonly ITelemetry _telemetry;
-        private readonly ISoundService _soundDataProvider;
-        private IList<string> _images = new List<string>();
+        Guard.IsNotNull(timerService);
+        Guard.IsNotNull(mediaPlayerService);
+        Guard.IsNotNull(telemetry);
+        Guard.IsNotNull(soundDataProvider);
+        Guard.IsNotNull(dispatcherQueue);
 
-        [ObservableProperty]
-        private string _imageSource1 = "https://localhost:8080";
+        _telemetry = telemetry;
+        _mediaPlayerService = mediaPlayerService;
+        _timerService = timerService;
+        _soundDataProvider = soundDataProvider;
+        _dispatcherQueue = dispatcherQueue;
+        _timerService.Interval = ImageTimeLength;
+    }
 
-        [ObservableProperty]
-        private string _imageSource2 = "https://localhost:8080";
+    public async void LoadAsync()
+    {
+        _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
 
-        [ObservableProperty]
-        private bool _imageVisible1;
-
-        [ObservableProperty]
-        private bool _imageVisible2;
-        private int _imageIndex1;
-        private int _imageIndex2;
-
-        [ObservableProperty]
-        private bool _loading;
-
-        public ScreensaverViewModel(
-            ITimerService timerService,
-            IMixMediaPlayerService mediaPlayerService,
-            ISoundService soundDataProvider,
-            ITelemetry telemetry)
+        if (_mediaPlayerService.Screensavers.Count > 0)
         {
-            Guard.IsNotNull(timerService, nameof(timerService));
-            Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(soundDataProvider, nameof(soundDataProvider));
+            var images = new List<string>();
+            foreach (var list in _mediaPlayerService.Screensavers.Values)
+            {
+                images.AddRange(list);
+            }
 
-            _telemetry = telemetry;
-            _mediaPlayerService = mediaPlayerService;
-            _timerService = timerService;
-            _soundDataProvider = soundDataProvider;
-            _timerService.Interval = ImageTimeLength;
+            _images = images;
         }
 
-        public async void LoadAsync()
+        if (_images is null || _images.Count < 2)
         {
-            _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
+            var firstSound = (await _soundDataProvider.GetLocalSoundsAsync()).FirstOrDefault();
+            _images = firstSound?.ScreensaverImagePaths ?? Array.Empty<string>();
+        }
 
-            if (_mediaPlayerService.Screensavers.Count > 0)
-            {
-                var images = new List<string>();
-                foreach (var list in _mediaPlayerService.Screensavers.Values)
-                {
-                    images.AddRange(list);
-                }
+        if (_images is null || _images.Count < 2)
+        {
+            return;
+        }
 
-                _images = images;
-            }
+        Loading = true;
+        _imageIndex1 = 0;
+        _imageIndex2 = 1;
+        ImageSource1 = _images[_imageIndex1];
+        IncrementIndex(ref _imageIndex1);
+        await Task.Delay(3000);
+        Loading = false;
+        ImageVisible1 = true;
+        ImageVisible2 = false;
 
-            if (_images is null || _images.Count < 2)
-            {
-                var firstSound = (await _soundDataProvider.GetLocalSoundsAsync()).FirstOrDefault();
-                _images = firstSound?.ScreensaverImagePaths ?? Array.Empty<string>();
-            }
+        // Preload next
+        ImageSource2 = _images[_imageIndex2];
 
-            if (_images is null || _images.Count < 2)
-            {
-                return;
-            }
+        _timerService.Start();
+    }
 
-            Loading = true;
-            _imageIndex1 = 0;
-            _imageIndex2 = 1;
-            ImageSource1 = _images[_imageIndex1];
-            IncrementIndex(ref _imageIndex1);
-            await Task.Delay(3000);
-            Loading = false;
-            ImageVisible1 = true;
-            ImageVisible2 = false;
+    public void Unload()
+    {
+        _timerService.Stop();
+    }
+
+    private void TimerIntervalElapsed(object sender, TimeSpan e)
+    {
+        _dispatcherQueue.TryEnqueue(CycleImages);
+    }
+
+    private async void CycleImages()
+    {
+        if (_images is null || _images.Count < 2)
+        {
+            return;
+        }
+
+        if (ImageVisible1)
+        {
+            ImageVisible1 = false;
+            ImageVisible2 = true;
+            IncrementIndex(ref _imageIndex2);
 
             // Preload next
+            await Task.Delay(3000);
+            ImageSource1 = _images[_imageIndex1];
+        }
+        else
+        {
+            ImageVisible1 = true;
+            ImageVisible2 = false;
+            IncrementIndex(ref _imageIndex1);
+
+            // Preload next
+            await Task.Delay(3000);
             ImageSource2 = _images[_imageIndex2];
-
-            _timerService.Start();
         }
+    }
 
-        public void Unload()
+    private void IncrementIndex(ref int index)
+    {
+        if (_images is null || _images.Count < 2)
         {
-            _timerService.Stop();
+            return;
         }
 
-        private void TimerIntervalElapsed(object sender, TimeSpan e)
+        index += 2;
+        if (index == _images.Count)
         {
-            CycleImages();
+            index = 0;
         }
-
-        private async void CycleImages()
+        else if (index > _images.Count)
         {
-            if (_images is null || _images.Count < 2)
-            {
-                return;
-            }
-
-            if (ImageVisible1)
-            {
-                ImageVisible1 = false;
-                ImageVisible2 = true;
-                IncrementIndex(ref _imageIndex2);
-
-                // Preload next
-                await Task.Delay(3000);
-                ImageSource1 = _images[_imageIndex1];
-            }
-            else
-            {
-                ImageVisible1 = true;
-                ImageVisible2 = false;
-                IncrementIndex(ref _imageIndex1);
-
-                // Preload next
-                await Task.Delay(3000);
-                ImageSource2 = _images[_imageIndex2];
-            }
+            index = 1;
         }
+    }
 
-        private void IncrementIndex(ref int index)
-        {
-            if (_images is null || _images.Count < 2)
-            {
-                return;
-            }
+    public void Initialize()
+    {
+        _timerService.IntervalElapsed += TimerIntervalElapsed;
+    }
 
-            index += 2;
-            if (index == _images.Count)
-            {
-                index = 0;
-            }
-            else if (index > _images.Count)
-            {
-                index = 1;
-            }
-        }
-
-        public void Initialize()
-        {
-            _timerService.IntervalElapsed += TimerIntervalElapsed;
-        }
-
-        public void Dispose()
-        {
-            _timerService.IntervalElapsed -= TimerIntervalElapsed;
-        }
+    public void Dispose()
+    {
+        _timerService.IntervalElapsed -= TimerIntervalElapsed;
     }
 }
