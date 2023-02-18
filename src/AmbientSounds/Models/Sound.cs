@@ -49,7 +49,7 @@ public class Sound : IAsset
     /// The list of image paths to be used
     /// for the screensaver.
     /// </summary>
-    public string[] ScreensaverImagePaths { get; set; } = Array.Empty<string>();
+    public string[]? ScreensaverImagePaths { get; set; } = Array.Empty<string>();
 
     /// <summary>
     /// True if sound is premium.

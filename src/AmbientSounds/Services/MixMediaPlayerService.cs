@@ -190,7 +190,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
                 player.Volume *= _globalVolume;
                 if (!_activePlayers.ContainsKey(sound.Id)) _activePlayers.Add(sound.Id, player);
                 if (!_activeSoundDateTimes.ContainsKey(sound.Id)) _activeSoundDateTimes.Add(sound.Id, DateTimeOffset.Now);
-                if (!Screensavers.ContainsKey(sound.Id)) Screensavers.Add(sound.Id, sound.ScreensaverImagePaths);
+                if (!Screensavers.ContainsKey(sound.Id) && sound.ScreensaverImagePaths is { Length: > 0 } images) Screensavers.Add(sound.Id, images);
                 _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
                 RefreshSmtcTitle();
 
