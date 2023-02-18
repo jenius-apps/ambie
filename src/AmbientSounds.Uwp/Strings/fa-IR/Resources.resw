@@ -502,6 +502,9 @@
   <data name="RestLength" xml:space="preserve">
     <value>دقایق استراحت</value>
   </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>نحوه استفاده را نشان بده</value>
+  </data>
   <data name="FocusTimerHelpMessage" xml:space="preserve">
     <value>این یک تایمر دوره ای است که از تکنیک پومودورو الهام گرفته است. هدف این است که برای مدت طولانی روی یک کار تمرکز کنید، سپس استراحت کوتاهی داشته باشید. برای حفظ تمرکز، این چرخه را تکرار کنید!</value>
   </data>
