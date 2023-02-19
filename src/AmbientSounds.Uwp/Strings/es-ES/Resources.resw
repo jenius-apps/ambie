@@ -347,7 +347,7 @@
     <value>Catálogo</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Hogar</value>
+    <value>Inicio</value>
   </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mezcla 3 sonidos</value>
