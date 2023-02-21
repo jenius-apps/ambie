@@ -1,26 +1,46 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Models;
+using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
-namespace AmbientSounds.ViewModels
+namespace AmbientSounds.ViewModels;
+
+/// <summary>
+/// ViewModel representing the catalogue page.
+/// </summary>
+public class CataloguePageViewModel : ObservableObject
 {
-    /// <summary>
-    /// ViewModel representing the catalogue page.
-    /// </summary>
-    public class CataloguePageViewModel : ObservableObject
+    private readonly INavigator _navigator;
+    private readonly ICatalogueService _catalogueService;
+
+    public CataloguePageViewModel(
+        INavigator navigator,
+        ICatalogueService catalogueService)
     {
-        private readonly INavigator _navigator;
+        Guard.IsNotNull(navigator);
+        Guard.IsNotNull(catalogueService);
 
-        public CataloguePageViewModel(INavigator navigator)
+        _navigator = navigator;
+        _catalogueService = catalogueService;
+    }
+
+    public ObservableCollection<CatalogueRow> Rows { get; } = new();
+
+    public void GoBack() => _navigator.GoBack();
+
+    public async Task InitializeAsync()
+    {
+        var rows = await _catalogueService.GetCatalogueRowsAsync();
+        foreach (var row in rows)
         {
-            Guard.IsNotNull(navigator, nameof(navigator));
-
-            _navigator = navigator;
+            Rows.Add(row);
         }
+    }
 
-        /// <summary>
-        /// Navigates the frame backwards.
-        /// </summary>
-        public void GoBack() => _navigator.GoBack();
+    public void Uninitialize()
+    {
+        Rows.Clear();
     }
 }

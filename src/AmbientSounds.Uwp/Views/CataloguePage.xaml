@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Grid>
+    <!--<Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="NarrowLayout" />
@@ -27,5 +28,15 @@
         </VisualStateManager.VisualStateGroups>
 
         <controls:CatalogueListControl x:Name="CatalogueList" InnerMargin="0" />
-    </Grid>
+    </Grid>-->
+
+    <ScrollViewer Margin="0,8,0,0">
+        <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="models:CatalogueRow">
+                    <controls:CatalogueRowControl Margin="0,0,0,8" RowData="{x:Bind}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
 </Page>

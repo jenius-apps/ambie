@@ -404,9 +404,10 @@ namespace AmbientSounds
                 .AddSingleton<SoundListViewModel>() // shared in main and compact pages
                 .AddTransient<CatalogueListViewModel>()
                 .AddTransient<ScreensaverViewModel>()
+                .AddTransient<CatalogueRowViewModel>() // must be transient since we're using this as a factory
                 .AddSingleton<ScreensaverPageViewModel>()
                 .AddSingleton<SettingsViewModel>()
-                .AddTransient<CataloguePageViewModel>()
+                .AddSingleton<CataloguePageViewModel>()
                 .AddSingleton<FocusTaskModuleViewModel>()
                 .AddSingleton<PremiumControlViewModel>()
                 .AddSingleton<FocusTimerModuleViewModel>()
@@ -447,6 +448,7 @@ namespace AmbientSounds
                 .AddSingleton<IPresenceService, PresenceService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
+                .AddSingleton<ICatalogueService, CatalogueService>()
                 .AddSingleton<IVideoService, VideoService>()
                 .AddSingleton<IFocusTaskCache, FocusTaskCache>()
                 .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
@@ -487,7 +489,7 @@ namespace AmbientSounds
                 .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IAssetsReader, AssetsReader>()
-                .AddSingleton<IMixMediaPlayerService, Services.MixMediaPlayerService>()
+                .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
                 .AddSingleton<ISystemMediaControls, WindowsSystemMediaControls>()
                 .AddSingleton<IMediaPlayerFactory, WindowsMediaPlayerFactory>()
                 .AddSingleton(appsettings ?? new AppSettings())
