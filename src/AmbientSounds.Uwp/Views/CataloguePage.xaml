@@ -34,7 +34,7 @@
         <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="models:CatalogueRow">
-                    <controls:CatalogueRowControl Margin="0,0,0,8" RowData="{x:Bind}" />
+                    <controls:CatalogueRowControl Margin="0,0,0,24" RowData="{x:Bind}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
