@@ -5,6 +5,7 @@ using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -40,31 +41,29 @@ public partial class CatalogueRowViewModel : ObservableObject
 
         Title = _assetLocalizer.GetLocalName(row);
 
-        await Task.Delay(1);
+        IList<Sound> sounds;
 
-        //IList<Sound> sounds;
+        try
+        {
+            sounds = await _dataProvider.GetSoundsAsync(row.SoundIds.ToList());
+        }
+        catch
+        {
+            return;
+        }
 
-        //try
-        //{
-        //    sounds = await _dataProvider.GetSoundsAsync();
-        //}
-        //catch 
-        //{
-        //    return;
-        //}
+        List<Task> tasks = new(sounds.Count);
+        foreach (var sound in sounds)
+        {
+            var vm = _soundVmFactory.GetOnlineSoundVm(sound);
+            if (vm is not null)
+            {
+                tasks.Add(vm.LoadCommand.ExecuteAsync(null));
+                Sounds.Add(vm);
+            }
+        }
 
-        //List<Task> tasks = new(sounds.Count);
-        //foreach (var sound in sounds)
-        //{
-        //    var vm = _soundVmFactory.GetOnlineSoundVm(sound);
-        //    if (vm is not null)
-        //    {
-        //        tasks.Add(vm.LoadCommand.ExecuteAsync(null));
-        //        Sounds.Add(vm);
-        //    }
-        //}
-
-        //await Task.WhenAll(tasks);
+        await Task.WhenAll(tasks);
     }
 
     public void Uninitialize()
