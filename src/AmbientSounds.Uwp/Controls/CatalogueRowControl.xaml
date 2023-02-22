@@ -2,9 +2,13 @@
     x:Class="AmbientSounds.Controls.CatalogueRowControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     Unloaded="{x:Bind ViewModel.Uninitialize}"
@@ -30,12 +34,155 @@
             </ListView.ItemsPanel>
 
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Rectangle
-                        Width="100"
-                        Height="160"
-                        Margin="0,0,4,0"
-                        Fill="Blue" />
+                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                    <Grid Margin="0,0,4,0" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
+                        <Grid.Resources>
+                            <!--  override keys so that the buttons on the cards are white in both dark and light theme  -->
+                            <SolidColorBrush x:Key="ButtonForeground" Color="White" />
+                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
+                            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
+                        </Grid.Resources>
+
+                        <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
+                            <Rectangle
+                                Width="{StaticResource ImageCardShadowWidth}"
+                                Height="{StaticResource ImageCardHeight}"
+                                Fill="Black"
+                                RadiusX="8"
+                                RadiusY="8"
+                                Stretch="Fill" />
+                        </toolkit:DropShadowPanel>
+
+                        <Grid
+                            x:Name="ImageGrid"
+                            Width="{StaticResource ImageCardWidth}"
+                            Height="{StaticResource ImageCardHeight}"
+                            CornerRadius="8">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Rectangle Grid.RowSpan="3">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                        <GradientStop Offset="0" Color="#00000000" />
+                                        <GradientStop Offset="1" Color="{x:Bind local:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+
+                            <local:PlusBadge
+                                x:Name="PlusBadge"
+                                Margin="12,12,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                x:Load="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
+
+                            <local:FreeBadge
+                                x:Name="FreeBadge"
+                                Margin="12,12,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                x:Load="{x:Bind FreeBadgeVisible, Mode=OneWay}" />
+
+                            <Grid Grid.Row="1" Margin="12,0">
+                                <TextBlock
+                                    Foreground="White"
+                                    MaxLines="2"
+                                    Text="{x:Bind Name, Mode=OneWay}"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="Wrap">
+                                    <ToolTipService.ToolTip>
+                                        <Grid MaxWidth="300">
+                                            <TextBlock Text="{x:Bind Attribution, Mode=OneWay}" TextWrapping="Wrap" />
+                                        </Grid>
+                                    </ToolTipService.ToolTip>
+                                </TextBlock>
+                            </Grid>
+
+                            <Grid
+                                Grid.Row="2"
+                                Height="36"
+                                Margin="4,4"
+                                VerticalAlignment="Bottom">
+                                <StackPanel
+                                    x:Name="DownloadPanel"
+                                    x:Load="{x:Bind NotInstalled, Mode=OneWay}"
+                                    Orientation="Horizontal">
+
+                                    <!--  buy button  -->
+                                    <StackPanel
+                                        x:Name="BuyPanel"
+                                        Orientation="Horizontal"
+                                        Visibility="{x:Bind CanBuy, Mode=OneWay}">
+                                        <Button
+                                            x:Uid="BuyButton"
+                                            Padding="8,0"
+                                            VerticalAlignment="Stretch"
+                                            Command="{x:Bind BuySoundCommand, Mode=OneWay}"
+                                            Style="{StaticResource SubtleButton}">
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
+                                        </Button>
+                                    </StackPanel>
+
+                                    <!--  download button  -->
+                                    <Button
+                                        x:Uid="DownloadSoundButton"
+                                        Padding="8,0"
+                                        VerticalAlignment="Stretch"
+                                        Command="{x:Bind DownloadCommand, Mode=OneWay}"
+                                        Style="{StaticResource SubtleButton}"
+                                        Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                Glyph="{StaticResource GlyphDownload}" />
+                                        </StackPanel>
+                                    </Button>
+
+                                    <Grid
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                        <winui:ProgressRing
+                                            Width="20"
+                                            Height="20"
+                                            AutomationProperties.AccessibilityView="Raw"
+                                            Foreground="#32ffffff"
+                                            IsIndeterminate="False"
+                                            Value="100" />
+                                        <winui:ProgressRing
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="White"
+                                            IsIndeterminate="False"
+                                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                            Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                    </Grid>
+                                </StackPanel>
+
+                                <StackPanel
+                                    x:Name="InstalledPanel"
+                                    x:Load="{x:Bind IsInstalled, Mode=OneWay}"
+                                    Orientation="Horizontal">
+                                    <Button
+                                        x:Uid="DeleteButton"
+                                        Padding="8,0"
+                                        VerticalAlignment="Stretch"
+                                        Command="{x:Bind DeleteSoundCommand, Mode=OneWay}"
+                                        Style="{StaticResource SubtleButton}">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
