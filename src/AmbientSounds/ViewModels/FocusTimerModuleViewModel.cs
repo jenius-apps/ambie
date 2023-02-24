@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using AmbientSounds.Tools;
 
 namespace AmbientSounds.ViewModels;
 
@@ -33,6 +34,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly IDialogService _dialogService;
     private readonly ICompactNavigator _compactNavigator;
+    private readonly IDispatcherQueue _dispatcherQueue;
     private bool _isHelpMessageVisible;
     private int _focusLength;
     private int _restLength;
@@ -92,7 +94,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         INavigator navigator,
         ISystemInfoProvider systemInfoProvider,
         IDialogService dialogService,
-        ICompactNavigator compactNavigator)
+        ICompactNavigator compactNavigator,
+        IDispatcherQueue dispatcherQueue)
     {
         Guard.IsNotNull(focusService);
         Guard.IsNotNull(userSettings);
@@ -105,6 +108,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         Guard.IsNotNull(systemInfoProvider);
         Guard.IsNotNull(dialogService);
         Guard.IsNotNull(compactNavigator);
+        Guard.IsNotNull(dispatcherQueue);
         _focusService = focusService;
         _userSettings = userSettings;
         _localizer = localizer;
@@ -116,6 +120,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         _systemInfoProvider = systemInfoProvider;
         _dialogService = dialogService;
         _compactNavigator = compactNavigator;
+        _dispatcherQueue = dispatcherQueue;
         IsHelpMessageVisible = !userSettings.Get<bool>(UserSettingsConstants.HasClosedFocusHelpMessageKey);
         UpdateButtonStates();
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
@@ -585,6 +590,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     }
 
     private void OnTimeUpdated(object sender, FocusSession e)
+    {
+        _dispatcherQueue.TryEnqueue(() => HandleTimeUpdated(e));
+    }
+
+    private void HandleTimeUpdated(FocusSession e)
     {
         if (e.SessionType == SessionType.None)
         {

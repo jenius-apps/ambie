@@ -15,7 +15,7 @@ variables:
   - name: solution
     value: '**/*.sln'
   - name: buildPlatform
-    value: 'x86|x64|ARM64'
+    value: 'x64|ARM64'
   - name: buildConfiguration
     value: 'Release'
   - name: appxPackageDir
