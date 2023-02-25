@@ -676,6 +676,9 @@
     <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
       <Version>0.0.11</Version>
     </PackageReference>
+    <PackageReference Include="Humanizer.Core">
+      <Version>2.14.1</Version>
+    </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
       <Version>0.0.3-preview</Version>
     </PackageReference>
@@ -784,6 +787,7 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ar.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.bg.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.cs-CZ.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.da-DK.xlf" />
@@ -855,6 +859,9 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\fa-IR\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ar\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
