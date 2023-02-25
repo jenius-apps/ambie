@@ -143,10 +143,10 @@ public readonly partial struct ProteanClouds : ID2D1PixelShader
     /// <inheritdoc/>
     public float4 Execute()
     {
-        int2 xy = (int2)D2D.GetScenePosition().XY;
-        float2 q = (float2)xy / this.dispatchSize;
-        float2 p = (xy - (0.5f * (float2)this.dispatchSize)) / this.dispatchSize.Y;
-        float2 bsMo = -0.5f * (float2)this.dispatchSize / this.dispatchSize.Y;
+        int2 xy = (int2)D2D.GetScenePosition().XY + 4;
+        float2 q = (float2)xy / (this.dispatchSize + 4);
+        float2 p = (xy - (0.5f * ((float2)this.dispatchSize + 4))) / (this.dispatchSize.Y + 4);
+        float2 bsMo = -0.5f * ((float2)this.dispatchSize + 4) / (this.dispatchSize.Y + 4);
         float scaledTime = this.time * 3.0f;
         float3 ro = new(0, 0, scaledTime);
 
