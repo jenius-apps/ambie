@@ -2,7 +2,6 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Shaders;
-using ComputeSharp;
 using JeniusApps.Common.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -130,9 +129,8 @@ namespace AmbientSounds.ViewModels
             MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
             MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), screensaverCommand, DarkScreenId, true));
 
-            // Only enable compute shaders on desktop and when not using the WARP device
-            if (_systemInfoProvider.IsDesktop() &&
-                GraphicsDevice.GetDefault().IsHardwareAccelerated)
+            // Only enable compute shaders on desktop
+            if (_systemInfoProvider.IsDesktop())
             {
                 // Animated backgrounds
                 MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ColorfulInfinity)}", _localizer.GetString("ComputeShader/ColoredSmoke"), screensaverCommand, $"[CS]{nameof(ColorfulInfinity)}", true));

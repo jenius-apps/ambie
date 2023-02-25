@@ -1,14 +1,16 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Effects;
 using AmbientSounds.Services;
+using AmbientSounds.Shaders;
 using AmbientSounds.ViewModels;
-using ComputeSharp;
-using ComputeSharp.Uwp;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Graphics.Canvas;
+using Microsoft.Graphics.Canvas.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Timers;
+using Windows.Foundation;
 using Windows.Media.Core;
 using Windows.System;
 using Windows.System.Display;
@@ -26,6 +28,8 @@ namespace AmbientSounds.Views;
 public sealed partial class ScreensaverPage : Page
 {
     private readonly DisplayRequest _displayRequest;
+    private AnimatedWallpaperEffect? _animatedWallpaperEffect;
+    private double _resolutionScale;
 
     public ScreensaverPage()
     {
@@ -37,6 +41,9 @@ public sealed partial class ScreensaverPage : Page
         ViewModel.Loaded += OnViewModelLoaded;
         ViewModel.PropertyChanged += OnViewModelPropertyChanged;
         _displayRequest = new DisplayRequest();
+
+        // Set the wallpapers to run at 24fps to save resources (the animations are very slow, so not noticeable)
+        WallpaperCanvasControl.TargetElapsedTime = TimeSpan.FromSeconds(1 / 24.0f);
     }
 
     public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
@@ -67,8 +74,6 @@ public sealed partial class ScreensaverPage : Page
         coreWindow.SizeChanged += CoreWindow_SizeChanged;
         var navigator = SystemNavigationManager.GetForCurrentView();
         navigator.BackRequested += OnBackRequested;
-        var device = GraphicsDevice.GetDefault();
-        device.DeviceLost += Device_DeviceLost;
 
         var view = ApplicationView.GetForCurrentView();
         IsFullscreen = view.IsFullScreenMode;
@@ -91,8 +96,6 @@ public sealed partial class ScreensaverPage : Page
         coreWindow.SizeChanged -= CoreWindow_SizeChanged;
         var navigator = SystemNavigationManager.GetForCurrentView();
         navigator.BackRequested -= OnBackRequested;
-        var device = GraphicsDevice.GetDefault();
-        device.DeviceLost -= Device_DeviceLost;
 
         SettingsFlyout?.Items?.Clear();
         _displayRequest.RequestRelease();
@@ -104,6 +107,30 @@ public sealed partial class ScreensaverPage : Page
         {
             VideoPlayer.MediaPlayer.IsLoopingEnabled = true;
             VideoPlayer.MediaPlayer.Source = MediaSource.CreateFromUri(ViewModel.VideoSource);
+        }
+        else if (e.PropertyName == nameof(ViewModel.AnimatedBackgroundName))
+        {
+            string? animatedBackgroundName = ViewModel.AnimatedBackgroundName;
+
+            // We need explicit references to all type to help the .NET Native linker resolve all type dependencies
+            _animatedWallpaperEffect = animatedBackgroundName switch
+            {
+                nameof(ColorfulInfinity) => new AnimatedWallpaperEffect.For<ColorfulInfinity>((width, height, time) => new ColorfulInfinity((float)time.TotalSeconds / 16f, new int2(width, height))),
+                nameof(Octagrams) => new AnimatedWallpaperEffect.For<Octagrams>((width, height, time) => new Octagrams((float)time.TotalSeconds / 16f, new int2(width, height))),
+                nameof(ProteanClouds) => new AnimatedWallpaperEffect.For<ProteanClouds>((width, height, time) => new ProteanClouds((float)time.TotalSeconds / 16f, new int2(width, height))),
+                _ => null
+            };
+
+            // Configure the solution scale, to save GPU computation. The scale is picked to
+            // maintain enough visual quality, so it depends on the visuals of each shader.
+            // In general, shaders with more fine grained details need a higher resolution.
+            _resolutionScale = animatedBackgroundName switch
+            {
+                nameof(ColorfulInfinity) => 0.5,
+                nameof(Octagrams) => 0.8,
+                nameof(ProteanClouds) => 0.4,
+                _ => 1.0
+            };
         }
     }
 
@@ -192,16 +219,6 @@ public sealed partial class ScreensaverPage : Page
         this.Bindings.Update();
     }
 
-    private void Device_DeviceLost(object sender, DeviceLostEventArgs e)
-    {
-        var telemetry = App.Services.GetRequiredService<ITelemetry>();
-
-        telemetry.TrackEvent(TelemetryConstants.ShaderDeviceLost, new Dictionary<string, string>()
-        {
-            { "reason", e.Reason.ToString() }
-        });
-    }
-
     private void GoBack()
     {
         var view = ApplicationView.GetForCurrentView();
@@ -217,20 +234,6 @@ public sealed partial class ScreensaverPage : Page
     private void GoBack(object sender, RoutedEventArgs e)
     {
         GoBack();
-    }
-
-    private void AnimatedComputeShaderPanel_RenderingFailed(AnimatedComputeShaderPanel sender, RenderingFailedEventArgs args)
-    {
-        var telemetry = App.Services.GetRequiredService<ITelemetry>();
-
-        telemetry.TrackError(args.Exception, new Dictionary<string, string>()
-        {
-            { "name", ViewModel.AnimatedBackgroundName ?? string.Empty },
-        });
-
-        InfoBar infoBar = (InfoBar)FindName(nameof(RenderingErrorInfoBar));
-
-        infoBar.IsOpen = true;
     }
 
     private void OnToggleFullscreen(object sender, RoutedEventArgs e)
@@ -285,5 +288,50 @@ public sealed partial class ScreensaverPage : Page
         }
 
         InactiveTimer?.Start();
+    }
+
+    private void CanvasAnimatedControl_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
+    {
+        // We do need an effect to draw (which should be available)
+        if (_animatedWallpaperEffect is not { } animatedWallpaperEffect)
+        {
+            return;
+        }
+
+        try
+        {
+            Size canvasSize = sender.Size;
+            Size renderSize = new(canvasSize.Width * _resolutionScale, canvasSize.Height * _resolutionScale);
+
+            // Set the constant buffer
+            animatedWallpaperEffect.ElapsedTime = args.Timing.TotalTime;
+            animatedWallpaperEffect.ScreenWidth = sender.ConvertDipsToPixels((float)renderSize.Width, CanvasDpiRounding.Round);
+            animatedWallpaperEffect.ScreenHeight = sender.ConvertDipsToPixels((float)renderSize.Height, CanvasDpiRounding.Round);
+
+            // Draw the shader with the requested resolution scale
+            args.DrawingSession.DrawImage(
+                image: animatedWallpaperEffect,
+                destinationRectangle: new Rect(0, 0, canvasSize.Width, canvasSize.Height),
+                sourceRectangle: new Rect(0, 0, renderSize.Width, renderSize.Height));
+        }
+        catch (Exception e)
+        {
+            // Pause rendering
+            sender.Paused = true;
+
+            // Log the error to telemetry
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+
+            telemetry.TrackError(e, new Dictionary<string, string>()
+            {
+                { "name", ViewModel.AnimatedBackgroundName ?? string.Empty },
+                { "deviceLostReason", $"0x{args.DrawingSession.Device.GetDeviceLostReason():X8}" }
+            });
+
+            // Show the error banner
+            InfoBar infoBar = (InfoBar)FindName(nameof(RenderingErrorInfoBar));
+
+            infoBar.IsOpen = true;
+        }
     }
 }
