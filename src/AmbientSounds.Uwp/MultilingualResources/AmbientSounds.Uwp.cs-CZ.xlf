@@ -984,6 +984,14 @@
           <source>Need help with interruptions?</source>
           <target state="translated">Potřebujete pomoc s vyrušováním?</target>
         </trans-unit>
+        <trans-unit id="ScrollLeftText" translate="yes" xml:space="preserve">
+          <source>Scroll left</source>
+          <target state="new">Scroll left</target>
+        </trans-unit>
+        <trans-unit id="ScrollRightText" translate="yes" xml:space="preserve">
+          <source>Scroll right</source>
+          <target state="new">Scroll right</target>
+        </trans-unit>
       </group>
     </body>
   </file>

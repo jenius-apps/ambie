@@ -31,7 +31,7 @@
         <controls:CatalogueListControl x:Name="CatalogueList" InnerMargin="0" />
     </Grid>-->
 
-    <ScrollViewer Margin="0,8,0,0">
+    <ScrollViewer Margin="0,4,0,0">
         <Grid>
             <winui:ItemsRepeater ItemsSource="{x:Bind ViewModel.Rows}">
                 <winui:ItemsRepeater.ItemTemplate>

@@ -850,4 +850,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Need help with interruptions?</value>
   </data>
+  <data name="ScrollLeftText" xml:space="preserve">
+    <value>Scroll left</value>
+  </data>
+  <data name="ScrollRightText" xml:space="preserve">
+    <value>Scroll right</value>
+  </data>
 </root>

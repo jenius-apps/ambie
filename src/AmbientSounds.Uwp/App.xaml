@@ -112,6 +112,15 @@
             </Style>
 
             <Style
+                x:Key="TinySubtleIconButton"
+                BasedOn="{StaticResource SubtleButton}"
+                TargetType="Button">
+                <Setter Property="Width" Value="28" />
+                <Setter Property="Height" Value="28" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+
+            <Style
                 x:Key="IconButton"
                 BasedOn="{StaticResource DefaultButtonStyle}"
                 TargetType="Button">
@@ -235,6 +244,7 @@
             <x:String x:Key="GlyphChevronRight">&#xE9A8;</x:String>
             <x:String x:Key="GlyphSaleTag">&#xEBAA;</x:String>
             <x:String x:Key="GlyphBack">&#xE921;</x:String>
+            <x:String x:Key="GlyphForward">&#xE92B;</x:String>
             <x:String x:Key="GlyphDiagnostics">&#xE902;</x:String>
             <x:String x:Key="GlyphThreeDots">&#xEAD0;</x:String>
             <x:String x:Key="GlyphStopwatch">&#xEBFE;</x:String>
