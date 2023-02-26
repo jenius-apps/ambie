@@ -14,28 +14,49 @@
     Unloaded="{x:Bind ViewModel.Uninitialize}"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <TextBlock Style="{ThemeResource BodyStrongTextBlockStyle}" Text="{x:Bind ViewModel.Title, Mode=OneWay}" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Style="{ThemeResource BodyStrongTextBlockStyle}" Text="{x:Bind ViewModel.Title, Mode=OneWay}" />
+
+            <Button
+                Grid.Column="2"
+                Click="OnLeftClicked"
+                Content="left" />
+            <Button
+                Grid.Column="3"
+                Click="OnRightClicked"
+                Content="right" />
+        </Grid>
         <ListView
-            Margin="0,8,0,0"
+            x:Name="SoundListView"
+            Grid.Row="1"
+            Padding="0,0,200,12"
             ItemsSource="{x:Bind ViewModel.Sounds}"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            ScrollViewer.HorizontalScrollMode="Enabled"
             ScrollViewer.VerticalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollMode="Disabled"
-            SelectionMode="None">
+            SelectionMode="None"
+            Style="{StaticResource HorizontalSnappingListView}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Padding" Value="0,0,4,8" />
                 </Style>
             </ListView.ItemContainerStyle>
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
 
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
-                    <Grid Margin="0,0,4,0" AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
+                    <Grid AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
                         <Grid.Resources>
                             <!--  override keys so that the buttons on the cards are white in both dark and light theme  -->
                             <SolidColorBrush x:Key="ButtonForeground" Color="White" />
@@ -186,5 +207,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackPanel>
+    </Grid>
 </UserControl>
