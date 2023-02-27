@@ -518,107 +518,107 @@
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="new">Default</target>
+          <target translated="new">الإفتراضي</target>
         </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target translated="new">حذف</target>
         </trans-unit>
         <trans-unit id="SizeMegaByte" translate="yes" xml:space="preserve">
           <source>{0} MB</source>
-          <target state="new">{0} MB</target>
+          <target translated="new">{0} ميغابايت</target>
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="new">More screensavers</target>
+          <target translated="new">المزيد من شاشات التوقف</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="new">Screensaver catalogue</target>
+          <target translated="new">فهرس شاشات التوقف</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="new">View premium info</target>
+          <target translated="new">عرض المعلومات المتميزة</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
-          <target state="new">Clouds</target>
+          <target translated="new">السحب</target>
         </trans-unit>
         <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
           <source>Colored smoke</source>
-          <target state="new">Colored smoke</target>
+          <target translated="new">دخان ملون</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
           <source>Octagrams</source>
-          <target state="new">Octagrams</target>
+          <target translated="new">نجمة ثمانية</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="new">There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</target>
+          <target translated="new">.حدثت مشكلة في عرض شاشة التوقف. حاول إعادة تشغيل أمبي ، أو إتصل بنا إذا استمرت المشكلة</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
-          <target state="new">Report the issue</target>
+          <target translated="new">أبلغ عن المشكلة</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="new">Rendering error</target>
+          <target translated="new">خطأ في التصيير</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
-          <target state="new">Toggle fullscreen</target>
+          <target translated="new">تبديل تكبير الشاشة</target>
         </trans-unit>
         <trans-unit id="GetAmbiePlus" translate="yes" xml:space="preserve">
           <source>Get Ambie+</source>
-          <target state="new">Get Ambie+</target>
+          <target translated="new">+أحصل على أمبي</target>
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="new">Focus</target>
+          <target translated="new">تركيز</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
-          <target state="new">Pause timer</target>
+          <target translated="new">توقيف المؤقت</target>
         </trans-unit>
         <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
           <source>Start timer</source>
-          <target state="new">Start timer</target>
+          <target translated="new">بدء المؤقت</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="new">Well done!</target>
+          <target translated="new">!أحسنت</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
-          <target state="new">Focus session complete</target>
+          <target translated="new">إكتملت فترة التركيز</target>
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="new">Time to focus</target>
+          <target translated="new">وقت للتركيز</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="new">Time to rest</target>
+          <target translated="new">وقت للراحة</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="new">Rest</target>
+          <target translated="new">إسترح</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="new">Focus session is active!</target>
+          <target translated="new">!فترة التركيز ناشط</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="new">Focusing</target>
+          <target translated="new">تركيز</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="new">Resting</target>
+          <target translated="new">إستراحة</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="new">Pause</target>
+          <target translated="new">توقيف</target>
         </trans-unit>
         <trans-unit id="Reset" translate="yes" xml:space="preserve">
           <source>Reset</source>
