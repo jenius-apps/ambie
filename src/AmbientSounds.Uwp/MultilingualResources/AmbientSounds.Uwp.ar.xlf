@@ -678,15 +678,15 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="new">Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</target>
+          <target translated="new">!تحتوي كل دورة على جزء للتركيز وقسم للراحة. اختر المدة التي سيستغرقها كل جزء تركيز. نوصي بـ ٢٥ دقيقة للبدء</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="new">Set focus minutes</target>
+          <target translated="new">حدد دقائق التركيز</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="new">Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</target>
+          <target translated="new">! يمكن تكرار كل دورة تركيز ودورة راحة عدة مرات. حاول إضافة  تكرير ١</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
