@@ -8,6 +8,8 @@ namespace AmbientSounds.Services;
 
 public class CatalogueService : ICatalogueService
 {
+    // TODO flesh out with cache and repository
+    // TODO migrate online sound provider to cache and repo pattern
     public async Task<IReadOnlyList<CatalogueRow>> GetCatalogueRowsAsync()
     {
         await Task.Delay(1);
