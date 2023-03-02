@@ -57,6 +57,7 @@ public partial class CatalogueRowViewModel : ObservableObject
 
         if (sounds is not null)
         {
+            Sounds.Clear();
             List<Task> tasks = new(sounds.Count);
             foreach (var sound in sounds)
             {
