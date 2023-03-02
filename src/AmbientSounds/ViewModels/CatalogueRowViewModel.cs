@@ -15,6 +15,7 @@ public partial class CatalogueRowViewModel : ObservableObject
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IOnlineSoundDataProvider _dataProvider;
     private readonly ISoundVmFactory _soundVmFactory;
+    private bool _loading;
 
     public CatalogueRowViewModel(
         IAssetLocalizer assetLocalizer,
@@ -39,31 +40,38 @@ public partial class CatalogueRowViewModel : ObservableObject
     {
         Guard.IsNotNull(row);
 
-        Title = _assetLocalizer.GetLocalName(row);
+        if (_loading)
+        {
+            return;
+        }
 
-        IList<Sound> sounds;
+        _loading = true;
+        Title = _assetLocalizer.GetLocalName(row);
+        IList<Sound>? sounds = null;
 
         try
         {
             sounds = await _dataProvider.GetSoundsAsync(row.SoundIds.ToList());
         }
-        catch
-        {
-            return;
-        }
+        catch { }
 
-        List<Task> tasks = new(sounds.Count);
-        foreach (var sound in sounds)
+        if (sounds is not null)
         {
-            var vm = _soundVmFactory.GetOnlineSoundVm(sound);
-            if (vm is not null)
+            List<Task> tasks = new(sounds.Count);
+            foreach (var sound in sounds)
             {
-                tasks.Add(vm.LoadCommand.ExecuteAsync(null));
-                Sounds.Add(vm);
+                var vm = _soundVmFactory.GetOnlineSoundVm(sound);
+                if (vm is not null)
+                {
+                    tasks.Add(vm.LoadCommand.ExecuteAsync(null));
+                    Sounds.Add(vm);
+                }
             }
+
+            await Task.WhenAll(tasks);
         }
 
-        await Task.WhenAll(tasks);
+        _loading = false;
     }
 
     public void Uninitialize()

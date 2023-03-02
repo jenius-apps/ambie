@@ -1,10 +1,13 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Controls;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using System.Linq;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using WinUI = Microsoft.UI.Xaml.Controls;
 
 #nullable enable
 
@@ -36,6 +39,22 @@ namespace AmbientSounds.Views
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             ViewModel.Uninitialize();
+        }
+
+        private void OnElementPrepared(WinUI.ItemsRepeater sender, WinUI.ItemsRepeaterElementPreparedEventArgs args)
+        {
+            if (args.Element is CatalogueRowControl c)
+            {
+                c.RowData = ViewModel.Rows.ElementAtOrDefault(args.Index);
+            }
+        }
+
+        private void OnElementClearing(WinUI.ItemsRepeater sender, WinUI.ItemsRepeaterElementClearingEventArgs args)
+        {
+            if (args.Element is CatalogueRowControl c)
+            {
+                c.RowData = null;
+            }
         }
     }
 }
