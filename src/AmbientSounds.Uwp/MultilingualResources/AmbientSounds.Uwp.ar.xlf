@@ -730,131 +730,131 @@
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
-          <target state="new">Your recent history will appear here</target>
+          <target translated="new">سيظهر تاريخك الأخير هنا</target>
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="new">Log interruption</target>
+          <target translated="new">سجل الإنقطاعات</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="new">Confirm</target>
+          <target translated="new">أكد</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
-          <target state="new">Minutes interrupted</target>
+          <target translated="new">دقائق الإنقطاعات</target>
         </trans-unit>
         <trans-unit id="Notes" translate="yes" xml:space="preserve">
           <source>Notes</source>
-          <target state="new">Notes</target>
+          <target translated="new">ملحوظات</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="new">Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</target>
+          <target translated="new">.هل قاطعك شيء ما؟ إتبع الإنقطاعات الخاصة بك هنا ، حتى تتمكن من مراجعتها لاحقًا في ستاريخك</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="new">Recent history</target>
+          <target translated="new">تاريخ الأخير</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
-          <target state="new">Rounds completed</target>
+          <target translated="new">الجولات المكتملة</target>
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="new">Good effort</target>
+          <target translated="new">جهدا طيبا</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="new">You're amazing</target>
+          <target translated="new">أنت مدهش</target>
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
-          <target state="new">Ambie</target>
+          <target translated="new">أمبي</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>
-          <target state="new">Add tasks to focus on, then press the start button</target>
+          <target translated="new">أضف مهمة للتركيز عليها ، ثم اضغط على زر البدء</target>
         </trans-unit>
         <trans-unit id="TaskModuleTitle" translate="yes" xml:space="preserve">
           <source>Tasks</source>
-          <target state="new">Tasks</target>
+          <target translated="new">مهام</target>
         </trans-unit>
         <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
           <source>Recently completed</source>
-          <target state="new">Recently completed</target>
+          <target translated="new">المكتملة مؤخرا</target>
         </trans-unit>
         <trans-unit id="EditText" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="new">Edit</target>
+          <target translated="new">تحرير</target>
         </trans-unit>
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
-          <target state="new">Tasks completed</target>
+          <target translated="new">المهام المكتملة</target>
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="new">Timer</target>
+          <target translated="new">مؤقت</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
-          <target state="new">Task {0}</target>
+          <target translated="new">{0}مهمة</target>
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="new">Free this week!</target>
+          <target translated="new">!مجاني هذا الأسبوع</target>
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="new">Open Ambie Mini when focusing</target>
+          <target translated="new">إفتح أمبي المصغر عند التركيز</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini</source>
-          <target state="new">Open Ambie Mini</target>
+          <target translated="new">إفتح أمبي المصغر</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="new">With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</target>
+          <target translated="new">بإستخدام أمبي المصغر، سنقوم بتقليص النافذة وعرض العناصر الضرورية فقط لمساعدتك على التركيز</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
-          <target state="new">Duration</target>
+          <target translated="new">المدة</target>
         </trans-unit>
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
-          <target state="new">End</target>
+          <target translated="new">النهاية</target>
         </trans-unit>
         <trans-unit id="MiniText" translate="yes" xml:space="preserve">
           <source>Mini</source>
-          <target state="new">Mini</target>
+          <target translated="new">مصغر</target>
         </trans-unit>
         <trans-unit id="PausesText" translate="yes" xml:space="preserve">
           <source>Pauses</source>
-          <target state="new">Pauses</target>
+          <target translated="new">توقيف</target>
         </trans-unit>
         <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
           <source>Download sounds from the catalogue</source>
-          <target state="new">Download sounds from the catalogue</target>
+          <target translated="new">تنزيل الأصوات من الفهرس</target>
         </trans-unit>
         <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
           <source>Edit home page</source>
-          <target state="new">Edit home page</target>
+          <target translated="new">تحرير الصفحة الرئيسية</target>
         </trans-unit>
         <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="new">Drag and drop sounds to personalize your home page. Try it now!</target>
+          <target translated="new">!قم بسحب وإفلات الأصوات لتخصيص صفحتك الرئيسية. حاول الآن</target>
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
-          <target state="new">Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</target>
+          <target translated="new">.عذرا! لم نتمكن من تحميل الفهرس. حاول التحقق من الإتصالك بالإنترنت</target>
         </trans-unit>
         <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
           <source>About Ambie</source>
-          <target state="new">About Ambie</target>
+          <target translated="new">عن أمبي</target>
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="new">Ambie Mini will open automatically when focusing</target>
+          <target translated="new">سيتم فتح أمبي المصغر تلقائيًا عند التركيز</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
