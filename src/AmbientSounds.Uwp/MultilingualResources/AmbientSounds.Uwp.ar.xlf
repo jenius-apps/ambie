@@ -690,43 +690,43 @@
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
-          <target state="new">Set repeats</target>
+          <target translated="new">ضبط التكرار</target>
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="new">Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</target>
+          <target translated="new">!الآن ، إختر المدة التي ستكون فيها كل قسم راحة. نوصي بحوالي ٥ دقائق في الوقت الحالي</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="new">Set rest minutes</target>
+          <target translated="new">ضبط دقائق الراحة</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="new">Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</target>
+          <target translated="new">!إبدأ الموقت واعمل على مهامك. سنرسل إليك إشعارات عندما يحين وقت الراحة. إعمل بجد</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="new">Ready, set, go</target>
+          <target translated="new">إستعد، جاهز، إنطلق</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
-          <target state="new">{0} focus minutes, {1} rest minutes, {2} repeats.</target>
+          <target translated="new">. {2} دقائق التركيز {0}،دقائق راحة {1} ،التكرار</target>
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="new">List of recent focus configurations.</target>
+          <target translated="new">.قائمة إعدادات التركيز الأخيرة</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
-          <target state="new">0 to {0}</target>
+          <target translated="new">{0} ٠ إلى</target>
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="new">History</target>
+          <target translated="new">تاريخ</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
-          <target state="new">Interruptions</target>
+          <target translated="new">الإنقطاعات</target>
         </trans-unit>
         <trans-unit id="FocusHistoryPlaceholderText" translate="yes" xml:space="preserve">
           <source>Your recent history will appear here</source>
