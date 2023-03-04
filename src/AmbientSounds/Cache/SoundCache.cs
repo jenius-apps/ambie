@@ -16,7 +16,7 @@ public class SoundCache : ISoundCache
     private readonly SemaphoreSlim _onlineSoundsLock = new(1, 1);
     private readonly ConcurrentDictionary<string, Sound> _installedSounds = new();
     private readonly ConcurrentDictionary<string, Sound> _preinstalled = new();
-    private readonly ConcurrentDictionary<string, Sound> _online = new();
+    private readonly Dictionary<string, Sound> _online = new();
     private readonly IOfflineSoundRepository _offlineSoundRepo;
     private readonly IOnlineSoundRepository _onlineSoundRepo;
     private readonly IAssetsReader _assetsReader;
@@ -42,7 +42,7 @@ public class SoundCache : ISoundCache
     public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync()
     {
         await _onlineSoundsLock.WaitAsync();
-        if (_online.IsEmpty || _onlineSoundCacheTime.AddHours(1) < DateTime.Now)
+        if (_online.Count == 0 || _onlineSoundCacheTime.AddHours(1) < DateTime.Now)
         {
             IReadOnlyList<Sound> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync();
             foreach (var s in sounds)
@@ -54,7 +54,7 @@ public class SoundCache : ISoundCache
         }
         _onlineSoundsLock.Release();
 
-        return _online.Values as IReadOnlyList<Sound> ?? Array.Empty<Sound>();
+        return _online.Values.ToArray();
     }
 
     /// <inheritdoc/>
@@ -63,7 +63,7 @@ public class SoundCache : ISoundCache
         string? iapId = null)
     {
         await _onlineSoundsLock.WaitAsync();
-        if (_online.IsEmpty || _onlineSoundCacheTime.AddHours(1) < DateTime.Now)
+        if (_online.Count == 0 || _onlineSoundCacheTime.AddHours(1) < DateTime.Now)
         {
             IReadOnlyList<Sound> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(
                 soundIds,
@@ -78,7 +78,7 @@ public class SoundCache : ISoundCache
         }
         _onlineSoundsLock.Release();
 
-        if (_online.IsEmpty)
+        if (_online.Count == 0)
         {
             return Array.Empty<Sound>();
         }
