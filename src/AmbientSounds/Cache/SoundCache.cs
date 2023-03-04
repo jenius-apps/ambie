@@ -20,7 +20,7 @@ public class SoundCache : ISoundCache
     private readonly IOfflineSoundRepository _offlineSoundRepo;
     private readonly IOnlineSoundRepository _onlineSoundRepo;
     private readonly IAssetsReader _assetsReader;
-    private DateTime _onlineSoundCacheTime;
+    private DateTime _globalOnlineSoundCacheTime;
 
     public SoundCache(
         IOfflineSoundRepository offlineSoundRepository,
@@ -42,7 +42,7 @@ public class SoundCache : ISoundCache
     public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync()
     {
         await _onlineSoundsLock.WaitAsync();
-        if (_online.Count == 0 || _onlineSoundCacheTime.AddHours(1) < DateTime.Now)
+        if (_online.Count == 0 || _globalOnlineSoundCacheTime.AddHours(1) < DateTime.Now)
         {
             IReadOnlyList<Sound> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync();
             foreach (var s in sounds)
@@ -50,7 +50,7 @@ public class SoundCache : ISoundCache
                 _online[s.Id] = s;
             }
 
-            _onlineSoundCacheTime = DateTime.Now;
+            _globalOnlineSoundCacheTime = DateTime.Now;
         }
         _onlineSoundsLock.Release();
 
@@ -58,41 +58,44 @@ public class SoundCache : ISoundCache
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
-        IReadOnlyList<string> soundIds,
-        string? iapId = null)
+    public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(IReadOnlyList<string> soundIds)
     {
-        await _onlineSoundsLock.WaitAsync();
-        if (_online.Count == 0 || _onlineSoundCacheTime.AddHours(1) < DateTime.Now)
-        {
-            IReadOnlyList<Sound> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(
-                soundIds,
-                iapId);
-
-            foreach (var s in sounds)
-            {
-                _online[s.Id] = s;
-            }
-
-            _onlineSoundCacheTime = DateTime.Now;
-        }
-        _onlineSoundsLock.Release();
-
-        if (_online.Count == 0)
+        if (soundIds.Count == 0)
         {
             return Array.Empty<Sound>();
         }
 
-        List<Sound> result = new(soundIds.Count);
-        foreach (var s in soundIds)
+        var results = new List<Sound>(soundIds.Count);
+        var notCachedSoundIds = new List<string>(soundIds.Count);
+        await _onlineSoundsLock.WaitAsync();
+
+        foreach (var id in soundIds)
         {
-            if (_online.TryGetValue(s, out Sound item))
+            if (_online.TryGetValue(id, out var sound))
             {
-                result.Add(item);
+                results.Add(sound);
+            }
+            else
+            {
+                notCachedSoundIds.Add(id);
             }
         }
 
-        return result;
+        if (notCachedSoundIds.Count > 0)
+        {
+            var sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(notCachedSoundIds);
+            foreach (var s in sounds)
+            {
+                _online[s.Id] = s;
+                results.Add(s);
+            }
+            // note: we are purposefully not updating
+            // the cache date here because that date represents
+            // a global cache fetch, not a specific sound fetch.
+        }
+
+        _onlineSoundsLock.Release();
+        return results;
     }
 
     /// <inheritdoc/>
