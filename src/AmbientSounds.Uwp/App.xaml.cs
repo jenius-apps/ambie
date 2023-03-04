@@ -424,7 +424,6 @@ namespace AmbientSounds
                 .AddSingleton<FocusPageViewModel>()
                 .AddSingleton<CompactPageViewModel>()
                 .AddTransient<ActiveTrackListViewModel>()
-                .AddSingleton<AccountControlViewModel>() // singleton to avoid re-signing in every navigation
                 .AddSingleton<AppServiceController>()
                 .AddSingleton<ProtocolLaunchController>()
                 // object tree is all transient
@@ -478,14 +477,12 @@ namespace AmbientSounds
                 .AddSingleton<PlayerTelemetryTracker>()
                 .AddSingleton<ISoundEffectsService, SoundEffectsService>()
                 .AddSingleton<ICatalogueService, CatalogueService>()
-                .AddSingleton<ISyncEngine, SyncEngine>()
                 .AddSingleton<IAccountManager, AccountManager>()
                 .AddSingleton<IPreviewService, PreviewService>()
                 .AddSingleton<IIapService, StoreService>()
                 .AddSingleton<IDownloadManager, WindowsDownloadManager>()
                 .AddSingleton<IScreensaverService, ScreensaverService>()
                 .AddSingleton<ITelemetry, AppCenterTelemetry>()
-                .AddSingleton<IOnlineSoundDataProvider, OnlineSoundDataProvider>()
                 .AddSingleton<IOnlineSoundRepository, OnlineSoundRepository>()
                 .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
                 .AddSingleton<IAssetsReader, AssetsReader>()
