@@ -133,7 +133,7 @@
     <value>全局音量</value>
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>媒体音量</value>
+    <value>音效音量</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>主题</value>
@@ -413,16 +413,16 @@
     <value>查看高级信息</value>
   </data>
   <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>云</value>
+    <value>云层</value>
   </data>
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>彩色的烟雾</value>
+    <value>幻彩烟雾</value>
   </data>
   <data name="ComputeShader.Octagrams" xml:space="preserve">
     <value>八角星</value>
   </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>显示屏幕保护程序时出现问题。尝试重新启动 Ambie，如果问题仍然存在，请联系我们。</value>
+    <value>显示屏幕保护程序时遭遇问题。请尝试重新启动 Ambie，如果问题仍然存在，请联系我们。</value>
   </data>
   <data name="RenderingErrorLink.Content" xml:space="preserve">
     <value>报告问题</value>
@@ -452,10 +452,10 @@
     <value>专注任务完成</value>
   </data>
   <data name="FocusSessionFocusMessage" xml:space="preserve">
-    <value>时间集中</value>
+    <value>该专注了</value>
   </data>
   <data name="FocusSessionRestMessage" xml:space="preserve">
-    <value>休息时间</value>
+    <value>该休息了</value>
   </data>
   <data name="RestText" xml:space="preserve">
     <value>休息</value>
@@ -485,7 +485,7 @@
     <value>专注时长（分钟）</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>你可以在这里写下任何笔记</value>
+    <value>在这里可以随手记下笔记 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>在这里设置专注计划</value>
@@ -587,13 +587,13 @@
     <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
-    <value>添加任务，然后按开始按钮</value>
+    <value>添加专注任务，然后按下开始按钮</value>
   </data>
   <data name="TaskModuleTitle" xml:space="preserve">
     <value>任务</value>
   </data>
   <data name="TaskModuleRecentCompleted" xml:space="preserve">
-    <value>完全的</value>
+    <value>最近完成</value>
   </data>
   <data name="EditText" xml:space="preserve">
     <value>编辑</value>
@@ -605,13 +605,13 @@
     <value>计时器</value>
   </data>
   <data name="TaskTitle" xml:space="preserve">
-    <value>任务{0}</value>
+    <value>任务 {0}</value>
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>本周免费</value>
+    <value>本周免费！</value>
   </data>
   <data name="SettingsCompactMode" xml:space="preserve">
-    <value>对焦时打开Ambie Mini</value>
+    <value>专注时开启 Ambie Mini</value>
   </data>
   <data name="DurationText" xml:space="preserve">
     <value>期间</value>
@@ -632,58 +632,58 @@
     <value>暂停</value>
   </data>
   <data name="EmptyHomeMessage" xml:space="preserve">
-    <value>从目录下载声音</value>
+    <value>从音效目录下载音效</value>
   </data>
   <data name="EditHomePage" xml:space="preserve">
-    <value>编辑起始页</value>
+    <value>编辑主页</value>
   </data>
   <data name="EditHomePageMessage" xml:space="preserve">
-    <value>拖放声音以个性化您的开始年龄。 现在就试试！</value>
+    <value>您可以在主页上进行拖放来自定义音效顺序。 现在就试试！</value>
   </data>
   <data name="EmptyCatalogueMessage" xml:space="preserve">
-    <value>对于那个很抱歉！ 我们无法加载目录。 尝试检查您的互联网连接。</value>
+    <value>非常抱歉！ 音效目录加载失败。 请尝试检查您的互联网连接。</value>
   </data>
   <data name="AboutAmbie" xml:space="preserve">
-    <value>应用信息</value>
+    <value>关于 Ambie</value>
   </data>
   <data name="SettingsCompactModeDescription" xml:space="preserve">
-    <value>Ambie Mini将在对焦时自动打开</value>
+    <value>Ambie Mini 将在对焦时自动打开</value>
   </data>
   <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
-    <value>当有新声音可用时，我们会通知您</value>
+    <value>当有新音效可用时，我们会通知您</value>
   </data>
   <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
-    <value>发布后，Ambie 将自动恢复播放</value>
+    <value>启动时 Ambie 将自动恢复播放</value>
   </data>
   <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
-    <value>报告错误和匿名使用信息以帮助改进 Ambie</value>
+    <value>报告程序崩溃和匿名使用信息以帮助改进 Ambie</value>
   </data>
   <data name="BackgroundImage" xml:space="preserve">
     <value>背景图片</value>
   </data>
   <data name="CustomImage" xml:space="preserve">
-    <value>自定义镜像</value>
+    <value>自定义图片</value>
   </data>
   <data name="SettingsGeneralHeader" xml:space="preserve">
     <value>常规设置</value>
   </data>
   <data name="SettingsTheme" xml:space="preserve">
-    <value>选择您的模式</value>
+    <value>选择界面主题</value>
   </data>
   <data name="SettingsThemeDescription" xml:space="preserve">
     <value>更改 Ambie 中显示的颜色</value>
   </data>
   <data name="ShareMessage" xml:space="preserve">
-    <value>分享您正在收听的内容</value>
+    <value>分享您正在收听的音效</value>
   </data>
   <data name="MissingShareSoundsMessage" xml:space="preserve">
-    <value>看看能不能下载.</value>
+    <value>去看看能不能下载缺失的音效。</value>
   </data>
   <data name="MissingShareSoundsTitle" xml:space="preserve">
-    <value>你缺少音乐</value>
+    <value>有部分音效缺失了</value>
   </data>
   <data name="ReviewText" xml:space="preserve">
-    <value>审查</value>
+    <value>检查</value>
   </data>
   <data name="ShareText" xml:space="preserve">
     <value>分享</value>
@@ -701,7 +701,7 @@
     <value>解锁这个声音</value>
   </data>
   <data name="PriceForLifetime" xml:space="preserve">
-    <value>{0}辈子</value>
+    <value>终身 {0}</value>
   </data>
   <data name="CheckForUpdatesText" xml:space="preserve">
     <value>检查更新</value>
