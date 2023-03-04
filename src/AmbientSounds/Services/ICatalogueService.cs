@@ -16,5 +16,6 @@ namespace AmbientSounds.Services
         /// on the catalogue.
         /// </summary>
         Task<IReadOnlyList<Sound>> GetSoundsAsync();
+        Task<IReadOnlyList<Sound>> GetSoundsAsync(IReadOnlyList<string> soundIds);
     }
 }

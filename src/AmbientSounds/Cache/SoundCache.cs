@@ -59,7 +59,7 @@ public class SoundCache : ISoundCache
 
     /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
-        IList<string> soundIds,
+        IReadOnlyList<string> soundIds,
         string? iapId = null)
     {
         await _onlineSoundsLock.WaitAsync();

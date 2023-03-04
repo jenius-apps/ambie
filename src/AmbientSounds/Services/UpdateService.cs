@@ -12,20 +12,20 @@ namespace AmbientSounds.Services;
 public class UpdateService : IUpdateService
 {
     private readonly ISoundService _soundService;
-    private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+    private readonly ICatalogueService _catalogueService;
     private readonly IDownloadManager _downloadManager;
 
     public UpdateService(
         ISoundService soundService,
-        IOnlineSoundDataProvider onlineSoundDataProvider,
+        ICatalogueService catalogueService,
         IDownloadManager downloadManager)
     {
         Guard.IsNotNull(soundService);
-        Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(catalogueService);
         Guard.IsNotNull(downloadManager);
 
         _soundService = soundService;
-        _onlineSoundDataProvider = onlineSoundDataProvider;
+        _catalogueService = catalogueService;
         _downloadManager = downloadManager;
     }
 
@@ -42,7 +42,7 @@ public class UpdateService : IUpdateService
 
         var installedIds = installed.Select(x => x.Id).ToArray();
         ct.ThrowIfCancellationRequested();
-        var onlineSounds = await _onlineSoundDataProvider.GetSoundsAsync(installedIds);
+        var onlineSounds = await _catalogueService.GetSoundsAsync(installedIds);
         if (onlineSounds.Count == 0)
         {
             return Array.Empty<(Sound, UpdateReason)>();

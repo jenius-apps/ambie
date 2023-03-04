@@ -64,7 +64,7 @@ public class OnlineSoundRepository : IOnlineSoundRepository
 
     /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
-        IList<string> soundIds,
+        IReadOnlyList<string> soundIds,
         string? iapId = null)
     {
         if (soundIds.Count == 0)
