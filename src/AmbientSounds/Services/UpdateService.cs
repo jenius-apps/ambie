@@ -3,7 +3,6 @@ using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -84,18 +83,18 @@ public class UpdateService : IUpdateService
             installedSound.FileVersion == onlineSound.FileVersion);
     }
 
-    private UpdateReason GetUpdateReason(Sound o, Sound i)
+    private UpdateReason GetUpdateReason(Sound newSound, Sound oldSound)
     {
-        if (o.MetaDataVersion > i.MetaDataVersion &&
-            o.FileVersion > i.FileVersion)
+        if (newSound.MetaDataVersion > oldSound.MetaDataVersion &&
+            newSound.FileVersion > oldSound.FileVersion)
         {
             return UpdateReason.MetaDataAndFile;
         }
-        else if (o.MetaDataVersion > i.MetaDataVersion)
+        else if (newSound.MetaDataVersion > oldSound.MetaDataVersion)
         {
             return UpdateReason.MetaData;
         }
-        else if (o.FileVersion > i.FileVersion)
+        else if (newSound.FileVersion > oldSound.FileVersion)
         {
             return UpdateReason.File;
         }
