@@ -20,7 +20,7 @@ public class WindowsDownloadManager : IDownloadManager
 {
     private const string SoundsDirectory = "sounds";
     private const string VideosDirectory = "videos";
-    private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+    private readonly ICatalogueService _catalogueService;
     private readonly IFileDownloader _fileDownloader;
     private readonly ISoundService _soundService;
     private readonly IAssetsReader _assetsReader;
@@ -30,17 +30,17 @@ public class WindowsDownloadManager : IDownloadManager
     public WindowsDownloadManager(
         IFileDownloader fileDownloader,
         ISoundService soundService,
-        IOnlineSoundDataProvider onlineSoundDataProvider,
+        ICatalogueService catalogueService,
         IAssetsReader assetsReader)
     {
         Guard.IsNotNull(fileDownloader);
         Guard.IsNotNull(soundService);
-        Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(catalogueService);
         Guard.IsNotNull(assetsReader);
 
         _fileDownloader = fileDownloader;
         _soundService = soundService;
-        _onlineSoundDataProvider = onlineSoundDataProvider;
+        _catalogueService = catalogueService;
         _assetsReader = assetsReader;
     }
 
@@ -72,7 +72,7 @@ public class WindowsDownloadManager : IDownloadManager
             return;
         }
 
-        var sounds = await _onlineSoundDataProvider.GetSoundsAsync(onlineSoundIds);
+        var sounds = await _catalogueService.GetSoundsAsync(onlineSoundIds.ToArray());
         if (sounds is null)
         {
             return;
@@ -175,7 +175,7 @@ public class WindowsDownloadManager : IDownloadManager
 
     private async Task<(string, string)> QueueAsync(Sound s, IProgress<double> progress)
     {
-        string downloadUrl = await _onlineSoundDataProvider.GetDownloadLinkAsync(s);
+        string downloadUrl = await _catalogueService.GetDownloadLinkAsync(s);
         if (string.IsNullOrWhiteSpace(downloadUrl))
         {
             return (string.Empty, string.Empty);

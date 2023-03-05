@@ -13,4 +13,6 @@ public interface ISoundCache
     Task RemoveLocalInstalledSoundAsync(string stringId);
     Task<Sound?> GetInstalledSoundAsync(string stringId);
     Task SaveCacheAsync();
+    Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync();
+    Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(IReadOnlyList<string> soundIds);
 }

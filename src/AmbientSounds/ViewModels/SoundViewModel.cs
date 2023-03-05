@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 using AmbientSounds.Tools;
+using AmbientSounds.Repositories;
 
 #nullable enable
 
@@ -23,7 +24,7 @@ public partial class SoundViewModel : ObservableObject
     private readonly Sound _sound;
     private readonly IMixMediaPlayerService _playerService;
     private readonly ISoundService _soundService;
-    private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+    private readonly IOnlineSoundRepository _onlineSoundRepo;
     private readonly ISoundMixService _soundMixService;
     private readonly ITelemetry _telemetry;
     private readonly IRenamer _renamer;
@@ -62,7 +63,7 @@ public partial class SoundViewModel : ObservableObject
         IDownloadManager downloadManager,
         IPresenceService presenceService,
         IDispatcherQueue dispatcherQueue,
-        IOnlineSoundDataProvider onlineSoundDataProvider,
+        IOnlineSoundRepository onlineSoundRepo,
         IAssetLocalizer assetLocalizer)
     {
         Guard.IsNotNull(s);
@@ -76,7 +77,7 @@ public partial class SoundViewModel : ObservableObject
         Guard.IsNotNull(downloadManager);
         Guard.IsNotNull(presenceService);
         Guard.IsNotNull(dispatcherQueue);
-        Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(onlineSoundRepo);
         Guard.IsNotNull(assetLocalizer);
 
         _sound = s;
@@ -90,7 +91,7 @@ public partial class SoundViewModel : ObservableObject
         _downloadManager = downloadManager;
         _presenceService = presenceService;
         _dispatcherQueue = dispatcherQueue;
-        _onlineSoundDataProvider = onlineSoundDataProvider;
+        _onlineSoundRepo = onlineSoundRepo;
         _assetLocalizer = assetLocalizer;
     }
 
@@ -235,7 +236,7 @@ public partial class SoundViewModel : ObservableObject
                 bool stillFree;
                 try
                 {
-                    var items = await _onlineSoundDataProvider.GetOnlineSoundsAsync(
+                    var items = await _onlineSoundRepo.GetOnlineSoundsAsync(
                         new string[] { _sound.Id },
                         IapConstants.MsStoreFreeRotationId);
                     stillFree = items.Count >= 1;

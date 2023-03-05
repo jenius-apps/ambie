@@ -6,25 +6,32 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Cache;
 
 public class SoundCache : ISoundCache
 {
+    private readonly SemaphoreSlim _onlineSoundsLock = new(1, 1);
     private readonly ConcurrentDictionary<string, Sound> _installedSounds = new();
     private readonly ConcurrentDictionary<string, Sound> _preinstalled = new();
+    private readonly Dictionary<string, Sound> _online = new();
     private readonly IOfflineSoundRepository _offlineSoundRepo;
+    private readonly IOnlineSoundRepository _onlineSoundRepo;
     private readonly IAssetsReader _assetsReader;
+    private DateTime _globalOnlineSoundCacheTime;
 
     public SoundCache(
         IOfflineSoundRepository offlineSoundRepository,
+        IOnlineSoundRepository onlineSoundRepository,
         IAssetsReader assetsReader)
     {
         Guard.IsNotNull(offlineSoundRepository);
+        Guard.IsNotNull(onlineSoundRepository);
         Guard.IsNotNull(assetsReader);
         _offlineSoundRepo = offlineSoundRepository;
+        _onlineSoundRepo = onlineSoundRepository;
         _assetsReader = assetsReader;
     }
 
@@ -32,14 +39,74 @@ public class SoundCache : ISoundCache
     public int InstallSoundsCount => _installedSounds.Count;
 
     /// <inheritdoc/>
+    public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync()
+    {
+        await _onlineSoundsLock.WaitAsync();
+        if (_online.Count == 0 || _globalOnlineSoundCacheTime.AddHours(1) < DateTime.Now)
+        {
+            IReadOnlyList<Sound> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync();
+            foreach (var s in sounds)
+            {
+                _online[s.Id] = s;
+            }
+
+            _globalOnlineSoundCacheTime = DateTime.Now;
+        }
+        _onlineSoundsLock.Release();
+
+        return _online.Values.ToArray();
+    }
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(IReadOnlyList<string> soundIds)
+    {
+        if (soundIds.Count == 0)
+        {
+            return Array.Empty<Sound>();
+        }
+
+        var results = new List<Sound>(soundIds.Count);
+        var notCachedSoundIds = new List<string>(soundIds.Count);
+        await _onlineSoundsLock.WaitAsync();
+
+        foreach (var id in soundIds)
+        {
+            if (_online.TryGetValue(id, out var sound))
+            {
+                results.Add(sound);
+            }
+            else
+            {
+                notCachedSoundIds.Add(id);
+            }
+        }
+
+        if (notCachedSoundIds.Count > 0)
+        {
+            var sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(notCachedSoundIds);
+            foreach (var s in sounds)
+            {
+                _online[s.Id] = s;
+                results.Add(s);
+            }
+            // note: we are purposefully not updating
+            // the cache date here because that date represents
+            // a global cache fetch, not a specific sound fetch.
+        }
+
+        _onlineSoundsLock.Release();
+        return results;
+    }
+
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetPreinstalledSoundsAsync()
     {
-        if (_preinstalled.Count == 0)
+        if (_preinstalled.IsEmpty)
         {
-            IReadOnlyList<Sound> videos = await _assetsReader.GetPackagedSoundsAsync();
-            foreach (var v in videos)
+            IReadOnlyList<Sound> sounds = await _assetsReader.GetPackagedSoundsAsync();
+            foreach (var s in sounds)
             {
-                _preinstalled.TryAdd(v.Id, v);
+                _preinstalled.TryAdd(s.Id, s);
             }
         }
 
@@ -57,7 +124,7 @@ public class SoundCache : ISoundCache
     /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetInstalledSoundsAsync()
     {
-        if (_installedSounds.Count == 0)
+        if (_installedSounds.IsEmpty)
         {
             IReadOnlyList<Sound> videos = await _offlineSoundRepo.GetLocalSoundsAsync();
             foreach (var v in videos)

@@ -13,7 +13,7 @@ namespace AmbientSounds.ViewModels
 {
     public partial class CatalogueListViewModel : ObservableObject
     {
-        private readonly IOnlineSoundDataProvider _dataProvider;
+        private readonly ICatalogueService _dataProvider;
         private readonly ISoundVmFactory _soundVmFactory;
 
         [ObservableProperty]
@@ -21,7 +21,7 @@ namespace AmbientSounds.ViewModels
         private bool _loading;
 
         public CatalogueListViewModel(
-            IOnlineSoundDataProvider dataProvider,
+            ICatalogueService dataProvider,
             ISoundVmFactory soundVmFactory)
         {
             Guard.IsNotNull(dataProvider, nameof(dataProvider));
@@ -57,7 +57,7 @@ namespace AmbientSounds.ViewModels
             }
 
             Loading = true;
-            IList<Sound> sounds;
+            IReadOnlyList<Sound> sounds;
 
             try
             {

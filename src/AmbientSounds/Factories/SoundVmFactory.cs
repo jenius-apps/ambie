@@ -7,6 +7,7 @@ using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using JeniusApps.Common.Tools;
+using AmbientSounds.Repositories;
 
 namespace AmbientSounds.Factories
 {
@@ -92,7 +93,7 @@ namespace AmbientSounds.Factories
                 _serviceProvider.GetRequiredService<IDownloadManager>(),
                 _serviceProvider.GetRequiredService<IPresenceService>(),
                 _serviceProvider.GetRequiredService<IDispatcherQueue>(),
-                _serviceProvider.GetRequiredService<IOnlineSoundDataProvider>(),
+                _serviceProvider.GetRequiredService<IOnlineSoundRepository>(),
                 _serviceProvider.GetRequiredService<IAssetLocalizer>());
             vm.Initialize();
             return vm;
