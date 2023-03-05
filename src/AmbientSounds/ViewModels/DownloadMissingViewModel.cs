@@ -16,7 +16,7 @@ public partial class DownloadMissingViewModel : ObservableObject
 {
     private const string TelemetryLocation = "shareSoundsMissingList";
     private readonly IShareService _shareService;
-    private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+    private readonly ICatalogueService _catalogueService;
     private readonly ISoundVmFactory _vmFactory;
     private readonly ITelemetry _telemetry;
     private readonly ISoundService _soundService;
@@ -27,21 +27,21 @@ public partial class DownloadMissingViewModel : ObservableObject
 
     public DownloadMissingViewModel(
         IShareService shareService,
-        IOnlineSoundDataProvider onlineSoundDataProvider,
+        ICatalogueService catalogueService,
         ISoundVmFactory vmFactory,
         ITelemetry telemetry,
         ISoundService soundService,
         IMixMediaPlayerService player)
     {
         Guard.IsNotNull(shareService);
-        Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(catalogueService);
         Guard.IsNotNull(vmFactory);
         Guard.IsNotNull(telemetry);
         Guard.IsNotNull(soundService);
         Guard.IsNotNull(player);
 
         _shareService = shareService;
-        _onlineSoundDataProvider = onlineSoundDataProvider;
+        _catalogueService = catalogueService;
         _vmFactory = vmFactory;
         _telemetry = telemetry;
         _soundService = soundService;
@@ -61,7 +61,7 @@ public partial class DownloadMissingViewModel : ObservableObject
         IReadOnlyList<string>? soundIdsToInvestigate = _shareService.FailedSoundIds;
         if (soundIdsToInvestigate is { Count: > 0 })
         {
-            IReadOnlyList<Sound> onlineSounds = await _onlineSoundDataProvider.GetOnlineSoundsAsync(soundIdsToInvestigate);
+            IReadOnlyList<Sound> onlineSounds = await _catalogueService.GetSoundsAsync(soundIdsToInvestigate);
             foreach (var s in onlineSounds)
             {
                 if (_vmFactory.GetOnlineSoundVm(s) is { } vm)

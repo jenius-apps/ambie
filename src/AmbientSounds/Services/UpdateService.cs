@@ -3,7 +3,6 @@ using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,20 +11,20 @@ namespace AmbientSounds.Services;
 public class UpdateService : IUpdateService
 {
     private readonly ISoundService _soundService;
-    private readonly IOnlineSoundDataProvider _onlineSoundDataProvider;
+    private readonly ICatalogueService _catalogueService;
     private readonly IDownloadManager _downloadManager;
 
     public UpdateService(
         ISoundService soundService,
-        IOnlineSoundDataProvider onlineSoundDataProvider,
+        ICatalogueService catalogueService,
         IDownloadManager downloadManager)
     {
         Guard.IsNotNull(soundService);
-        Guard.IsNotNull(onlineSoundDataProvider);
+        Guard.IsNotNull(catalogueService);
         Guard.IsNotNull(downloadManager);
 
         _soundService = soundService;
-        _onlineSoundDataProvider = onlineSoundDataProvider;
+        _catalogueService = catalogueService;
         _downloadManager = downloadManager;
     }
 
@@ -42,7 +41,7 @@ public class UpdateService : IUpdateService
 
         var installedIds = installed.Select(x => x.Id).ToArray();
         ct.ThrowIfCancellationRequested();
-        var onlineSounds = await _onlineSoundDataProvider.GetSoundsAsync(installedIds);
+        var onlineSounds = await _catalogueService.GetSoundsAsync(installedIds);
         if (onlineSounds.Count == 0)
         {
             return Array.Empty<(Sound, UpdateReason)>();
@@ -84,18 +83,18 @@ public class UpdateService : IUpdateService
             installedSound.FileVersion == onlineSound.FileVersion);
     }
 
-    private UpdateReason GetUpdateReason(Sound o, Sound i)
+    private UpdateReason GetUpdateReason(Sound newSound, Sound oldSound)
     {
-        if (o.MetaDataVersion > i.MetaDataVersion &&
-            o.FileVersion > i.FileVersion)
+        if (newSound.MetaDataVersion > oldSound.MetaDataVersion &&
+            newSound.FileVersion > oldSound.FileVersion)
         {
             return UpdateReason.MetaDataAndFile;
         }
-        else if (o.MetaDataVersion > i.MetaDataVersion)
+        else if (newSound.MetaDataVersion > oldSound.MetaDataVersion)
         {
             return UpdateReason.MetaData;
         }
-        else if (o.FileVersion > i.FileVersion)
+        else if (newSound.FileVersion > oldSound.FileVersion)
         {
             return UpdateReason.File;
         }
