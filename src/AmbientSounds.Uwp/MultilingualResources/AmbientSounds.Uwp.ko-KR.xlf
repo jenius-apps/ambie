@@ -984,6 +984,14 @@
           <source>Need help with interruptions?</source>
           <target state="translated">방해와 관련하여 도움이 필요하십니까?</target>
         </trans-unit>
+        <trans-unit id="SettingsOutputDevice" translate="yes" xml:space="preserve">
+          <source>Output device</source>
+          <target state="new">Output device</target>
+        </trans-unit>
+        <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
+          <source>Choose where to play sound</source>
+          <target state="new">Choose where to play sound</target>
+        </trans-unit>
       </group>
     </body>
   </file>

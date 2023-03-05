@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>需要中断方面的帮助？</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>输出设备</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>选择用来播放音效的设备</value>
+  </data>
 </root>

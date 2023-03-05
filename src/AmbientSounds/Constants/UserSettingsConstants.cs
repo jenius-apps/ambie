@@ -122,6 +122,11 @@ namespace AmbientSounds.Constants
         public const string HasLoadedPackagedSoundsKey = "HasLoadedPackagedSounds";
 
         /// <summary>
+        /// Used to remember the ID of the input audio device.
+        /// </summary>
+        public const string OutputAudioDeviceId = "OutputAudioDeviceId";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -147,6 +152,7 @@ namespace AmbientSounds.Constants
             { DevicePresenceIdKey, string.Empty },
             { CompactOnFocusKey, true },
             { HasLoadedPackagedSoundsKey, false },
+            { OutputAudioDeviceId, string.Empty }, 
         };
     }
 }
