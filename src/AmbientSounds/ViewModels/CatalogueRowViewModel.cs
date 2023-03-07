@@ -13,13 +13,13 @@ namespace AmbientSounds.ViewModels;
 public partial class CatalogueRowViewModel : ObservableObject
 {
     private readonly IAssetLocalizer _assetLocalizer;
-    private readonly IOnlineSoundDataProvider _dataProvider;
+    private readonly ICatalogueService _dataProvider;
     private readonly ISoundVmFactory _soundVmFactory;
     private bool _loading;
 
     public CatalogueRowViewModel(
         IAssetLocalizer assetLocalizer,
-        IOnlineSoundDataProvider dataProvider,
+        ICatalogueService dataProvider,
         ISoundVmFactory soundVmFactory)
     {
         Guard.IsNotNull(assetLocalizer);
@@ -47,11 +47,11 @@ public partial class CatalogueRowViewModel : ObservableObject
 
         _loading = true;
         Title = _assetLocalizer.GetLocalName(row);
-        IList<Sound>? sounds = null;
+        IReadOnlyList<Sound>? sounds = null;
 
         try
         {
-            sounds = await _dataProvider.GetSoundsAsync(row.SoundIds.ToList());
+            sounds = await _dataProvider.GetSoundsAsync(row.SoundIds);
         }
         catch { }
 
