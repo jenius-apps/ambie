@@ -2302,32 +2302,6 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
-
-        #region ScrollLeftText
-        /// <summary>
-        ///   Looks up a localized string similar to: Scroll left
-        /// </summary>
-        public static string ScrollLeftText
-        {
-            get
-            {
-                return _resourceLoader.GetString("ScrollLeftText");
-            }
-        }
-        #endregion
-
-        #region ScrollRightText
-        /// <summary>
-        ///   Looks up a localized string similar to: Scroll right
-        /// </summary>
-        public static string ScrollRightText
-        {
-            get
-            {
-                return _resourceLoader.GetString("ScrollRightText");
-            }
-        }
-        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2515,8 +2489,6 @@ namespace AmbientSounds.Strings{
             InterruptionInsightsMessage,
             RecentInterruptionsText,
             InterruptionInsightsButtonText,
-            ScrollLeftText,
-            ScrollRightText,
         }
 
         private static ResourceLoader _resourceLoader;

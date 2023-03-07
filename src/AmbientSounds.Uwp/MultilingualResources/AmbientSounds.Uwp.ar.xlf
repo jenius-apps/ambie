@@ -10,83 +10,83 @@
           <source>Close Ambie Mini</source>
           <target state="translated">أغلق أمبي المصغر</target>
         </trans-unit>
-		<trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+        <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
           <target state="translated">أغلق أمبي المصغر</target>
         </trans-unit>
-		<trans-unit id="CloseText" translate="yes" xml:space="preserve">
+        <trans-unit id="CloseText" translate="yes" xml:space="preserve">
           <source>Close</source>
           <target state="translated">أغلق</target>
         </trans-unit>
-		<trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="Copyright.Text" translate="yes" xml:space="preserve">
           <source>Copyright</source>
           <target state="translated">حقوق النشر</target>
         </trans-unit>
-		<trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="CopyrightJeniusApps.Text" translate="yes" xml:space="preserve">
           <source>Copyright Jenius Apps</source>
           <target state="translated">حقوق النشر تطبيقات جينيوس</target>
         </trans-unit>
-		<trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="HelloFromVancouver.Text" translate="yes" xml:space="preserve">
           <source>Hello from Vancouver</source>
           <target state="translated">مرحبًا من فانكوفر</target>
         </trans-unit>
-		<trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+        <trans-unit id="LogoButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View app information</source>
           <target state="translated">عرض معلومات التطبيق</target>
         </trans-unit>
-		<trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+        <trans-unit id="MoreButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View more options</source>
           <target state="translated">عرض المزيد من الخيارات</target>
         </trans-unit>
-		<trans-unit id="CompactMode" translate="yes" xml:space="preserve">
+        <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Ambie Mini</source>
           <target state="translated">أمبي المصغر</target>
         </trans-unit>
-		<trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
+        <trans-unit id="MoreButtonContact.Label" translate="yes" xml:space="preserve">
           <source>Contact the creator</source>
           <target state="translated">إتصل بمطور التطبيقات</target>
         </trans-unit>
-		<trans-unit id="RateUsText" translate="yes" xml:space="preserve">
+        <trans-unit id="RateUsText" translate="yes" xml:space="preserve">
           <source>Rate us</source>
           <target state="translated">قيمنا</target>
         </trans-unit>
-		<trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
+        <trans-unit id="MoreButtonSettings.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
           <target state="translated">إعدادات</target>
         </trans-unit>
-		<trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
+        <trans-unit id="MoreButtonShare.Label" translate="yes" xml:space="preserve">
           <source>Share link for Ambie</source>
           <target state="translated">شارك الرابط للأمبي</target>
         </trans-unit>
-		<trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
+        <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
           <source>Add or improve translations</source>
           <target state="translated">إضافة أو تحسين الترجمات</target>
         </trans-unit>
-		<trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Off</source>
           <target state="translated">إطفاء</target>
         </trans-unit>
-		<trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="OnTextBlock.Text" translate="yes" xml:space="preserve">
           <source>On</source>
           <target state="translated">تشغيل</target>
         </trans-unit>
-		<trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+        <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Pause the timer</source>
           <target state="translated">إيقاف مؤقت</target>
         </trans-unit>
-		<trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
+        <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
           <source>Pause</source>
           <target state="translated">إيقاف</target>
         </trans-unit>
-		<trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
+        <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
           <source>Play</source>
           <target state="translated">بدء</target>
         </trans-unit>
-		<trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
+        <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Continue the timer</source>
           <target state="translated">إستمرار مؤقت</target>
         </trans-unit>
-		<trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
+        <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
           <source>Ready to play</source>
           <target state="translated">مستعد للبدء</target>
         </trans-unit>
