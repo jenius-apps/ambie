@@ -128,9 +128,6 @@ namespace AmbientSounds.ViewModels
                 // every time the settings page is opened, and we use a two way
                 // binding for the ComboBox, we don't want to set CurrentOutputDeviceId
                 // before the list is updated.
-                // Here we also check if the target Id is in the list of available devices.
-                // If not, set the current device to empty which means Ambie will
-                // chooses the default device next time.
                 if (OutputDevices.Count > 0)
                 {
                     CurrentOutputDeviceId = targetId;
