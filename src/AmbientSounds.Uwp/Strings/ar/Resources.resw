@@ -12,4 +12,737 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>أغلق أمبي المصغر</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>أغلق أمبي المصغر</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>أغلق</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>حقوق النشر</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>حقوق النشر تطبيقات جينيوس</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>مرحبًا من فانكوفر</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>عرض معلومات التطبيق</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>عرض المزيد من الخيارات</value>
+  </data>
+  <data name="CompactMode" xml:space="preserve">
+    <value>أمبي المصغر</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>إتصل بمطور التطبيقات</value>
+  </data>
+  <data name="RateUsText" xml:space="preserve">
+    <value>قيمنا</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>إعدادات</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>شارك الرابط للأمبي</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>إضافة أو تحسين الترجمات</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>إطفاء</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>تشغيل</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>إيقاف مؤقت</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>بدء</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>إستمرار مؤقت</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>مستعد للبدء</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>القياس عن بعد</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>إعدادات</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>عرض خيارات مؤقت السكون</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>عرض خيارات مؤقت السكون</value>
+  </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>شاطئ</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>طيور</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>شارع مدينة</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>مقهى</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>نهر</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>موقد نار</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>مطر</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>غابة مطيرة</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>تحت الماء</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>شلال</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>الضوضاء البيضاء</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>يتم تحميل الأصوات</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>لا يمكن تشغيل الصوت</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>إيقاف المؤقت وإمساح الوقت</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>صوت الشامل</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>حجم الصوت</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>مظهر</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>آلي</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>مظلم</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>ضوء</value>
+  </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>مكنسة</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>رعد</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>إعلام عن الأصوات الجديدة</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>رياح</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>تم تنزيله سابقا</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>الرجوع</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>يمكن التحميل</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>تحميل الصوت</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تحميل الصوت</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>فهرس الأصوات</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>الأصوات</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>حذف الصوت</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>تشغيل صوت عشوائي</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تشغيل صوت عشوائي</value>
+  </data>
+  <data name="ScreensaverMode" xml:space="preserve">
+    <value>وضع شاشة التوقف</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>شاشة التوقف</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>شراء الصوت</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>معاينة الصوت</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>معاينة الصوت</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>متوقف</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>جاري</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>أصوات مشتغل</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>مسح كل الأصوات المشتغلة</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>مسح كل الأصوات المشتغلة</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>تأكيد الحفظ</value>
+  </data>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>صوت الشامل</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>إسم مزيج الصوت</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>إختياري</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>إزالة {0} من القائمة النشيطة</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>حفظ مزيج الصوت المخصص</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>حفظ مزيج الصوت المخصص (Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>تغيير الإسم</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>تغيير الإسم</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>تسجيل الخروج</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>سيؤدي هذا إلى تمكين مزامنة معرض الصوت عبر أجهزتك.</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>عرض خيارات الحساب</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>عرض خيارات الحساب</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>مزامنة</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>الإسناد</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>إستعراض</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>إسم</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>صوت جديد</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>تحديث</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>هل أنت متأكد؟</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>إختياري</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>مطلوب</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>تبرع</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>شروط الإستخدام</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>تابعنا على تويتر</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>فصل</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>🏝 شكرا لمحاولة أمبي. للحصول على أفضل تجربة ، حاول تثبيتنا على شريط المهام الخاص بك! استمتع بإقامتك المريحة</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>!أهلا ومرحبا</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>تثبيت إلى شريط المهام</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>معاينة</value>
+  </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>فهرس</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>إمزج وطابق ما يصل إلى ٣ أصوات</value>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>إعدادات المظهر</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>استمرار تلقائي عند فتح أمبي</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>{0} شهريا</value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} طول العمر</value>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>إحصل علي أصوات عالية الجودة ومتميزة</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>تحميل فيديو شاشة التوقف</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>دعم التنمية</value>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>!شكرا على الإشتراك</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>👋🏽 مرحبا مرة أخرى</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>!هل تستمتع بأمبي؟ رجاءا قم بتقييمنا</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>نحتاج إلى تنزيل بعض الأصوات للتشغيل. بعد التنزيل ، حاول التشغيل مرة أخرى. بدء تحميل؟</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>أصوات مفقودة</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>الإفتراضي</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} ميغابايت</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>المزيد من شاشات التوقف</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>فهرس شاشات التوقف</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>عرض المعلومات المتميزة</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>السحب</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>دخان ملون</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>نجمة ثمانية</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>.حدثت مشكلة في عرض شاشة التوقف. حاول إعادة تشغيل أمبي ، أو إتصل بنا إذا استمرت المشكلة</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>أبلغ عن المشكلة</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>خطأ في التصيير</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>تبديل تكبير الشاشة</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>+أحصل على أمبي</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>تركيز</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>توقيف المؤقت</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>بدء المؤقت</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>!أحسنت</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>إكتملت فترة التركيز</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>وقت للتركيز</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>وقت للراحة</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>إسترح</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>!فترة التركيز ناشط</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>تركيز</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>إستراحة</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>توقيف</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>إعادة ضبط</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>إعادة ضبط المؤقت</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>بدء</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>دقائق التركيز</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>🙂 يمكنك كتابة أي ملاحظات هنا</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>ما هي الخطة؟</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>المفكرة</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>تكرر</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>دقائق الإستراحة</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>أرني كيفية الإستخدام</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>!هذا مؤقت فاصل مستنشق من تقنية بومودورو. الهدف هو التركيز على مهمة لفترة طويلة من الوقت ، ثم أخذ إستراحة  قصيرة. كرر هذه الدورة لمواصلة التركيز</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>!مرحبا بك في مؤقت التركيز</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>مساعدة</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>!تحتوي كل دورة على جزء للتركيز وقسم للراحة. اختر المدة التي سيستغرقها كل جزء تركيز. نوصي بـ ٢٥ دقيقة للبدء</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>حدد دقائق التركيز</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>! يمكن تكرار كل دورة تركيز ودورة راحة عدة مرات. حاول إضافة  تكرير ١</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>ضبط التكرار</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>!الآن ، إختر المدة التي ستكون فيها كل قسم راحة. نوصي بحوالي ٥ دقائق في الوقت الحالي</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>ضبط دقائق الراحة</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>!إبدأ الموقت واعمل على مهامك. سنرسل إليك إشعارات عندما يحين وقت الراحة. إعمل بجد</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>إستعد، جاهز، إنطلق</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>. {2} دقائق التركيز {0}،دقائق راحة {1} ،التكرار</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>.قائمة إعدادات التركيز الأخيرة</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>{0} ٠ إلى</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>تاريخ</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>الإنقطاعات</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>سيظهر تاريخك الأخير هنا</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>سجل الإنقطاعات</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>أكد</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>دقائق الإنقطاعات</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ملحوظات</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>.هل قاطعك شيء ما؟ إتبع الإنقطاعات الخاصة بك هنا ، حتى تتمكن من مراجعتها لاحقًا في ستاريخك</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>تاريخ الأخير</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>الجولات المكتملة</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>جهدا طيبا</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>أنت مدهش</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>أمبي</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>أضف مهمة للتركيز عليها ، ثم اضغط على زر البدء</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>مهام</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>المكتملة مؤخرا</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>تحرير</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>المهام المكتملة</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>مؤقت</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>{0}مهمة</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>!مجاني هذا الأسبوع</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>إفتح أمبي المصغر عند التركيز</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>إفتح أمبي المصغر</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>بإستخدام أمبي المصغر، سنقوم بتقليص النافذة وعرض العناصر الضرورية فقط لمساعدتك على التركيز</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>المدة</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>النهاية</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>مصغر</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>توقيف</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>تنزيل الأصوات من الفهرس</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>تحرير الصفحة الرئيسية</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>!قم بسحب وإفلات الأصوات لتخصيص صفحتك الرئيسية. حاول الآن</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>.عذرا! لم نتمكن من تحميل الفهرس. حاول التحقق من الإتصالك بالإنترنت</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>عن أمبي</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>سيتم فتح أمبي المصغر تلقائيًا عند التركيز</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>سنقوم بإعلامك ومعرفة متى تتوفر أصوات جديدة</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>في بدء تشغيل سيستأنف أمبي اللعب تلقائيًا</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>يتم الإبلاغ عن الأعطال ومعلومات الإستخدام المجهولة للمساعدة في تحسين أمبي</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>الصورة الخلفية</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>صورة مخصصة</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>الإعدادات العامة</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>إختر الوضع الخاص بك</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>غيّر الألوان التي تظهر في أمبي</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>شارك بما تستمع إليه</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>.دعنا نرى إذا كان يمكن تنزيلهم</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>تفتقد بعض الأصوات</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>إستعراض</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>شارك</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>!منسوخة</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>أو</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>إفتح هذا الصوت</value>
+  </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>تحقق من وجود تحديثات</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>.تحقق هنا للحصول على تحديثات للأصوات ومقاطع الفيديو الخاصة بك</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>.تحتوي التحديثات على تحسينات في الترجمات وجودة الصوت والمزيد</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>التحديثات</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>:إصدار البيانات</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>:إصدار الملف</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>تحديث الجميع</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>.محدث بالكامل. أنت جاهز تمامًا</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>يحسن جودة التشغيل</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>يحسن الترجمات والبيانات الوصفية الأخرى</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>يحسن جودة التشغيل والترجمات والبيانات الوصفية الأخرى</value>
+  </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>هل هناك أي شيء يمكننا تعلمه لتجنب الانقطاعات المستقبلية؟</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>الإنقطاعات الأخيرة</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>بحاجة إلى مساعدة في الانقطاعات؟</value>
+  </data>
 </root>
