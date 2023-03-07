@@ -101,7 +101,7 @@ namespace AmbientSounds.ViewModels
             get => _currentOutputDeviceId;
             set
             {
-                if(_currentOutputDeviceId != value)
+                if (_currentOutputDeviceId != value)
                 {
                     _currentOutputDeviceId = value;
                     _userSettings.Set(UserSettingsConstants.OutputAudioDeviceId, value);
@@ -117,14 +117,23 @@ namespace AmbientSounds.ViewModels
             get
             {
                 var id = CurrentOutputDeviceId;
-                return OutputDevices.Where(x => x.DeviceId == id).FirstOrDefault();
+                return OutputDevices.Where(x => x.DeviceId == id).FirstOrDefault()
+                    ?? _audioDeviceService.GetDefaultAudioDeviceDescriptor();
             }
 
             set
             {
-                if (OutputDevices.Any())
+                var targetId = value?.DeviceId ?? string.Empty;
+                // Since it is intended to update the list of available audio devices
+                // every time the settings page is opened, and we use a two way
+                // binding for the ComboBox, we don't want to set CurrentOutputDeviceId
+                // before the list is updated.
+                // Here we also check if the target Id is in the list of available devices.
+                // If not, set the current device to empty which means Ambie will
+                // chooses the default device next time.
+                if (OutputDevices.Count > 0)
                 {
-                    CurrentOutputDeviceId = value?.DeviceId ?? string.Empty;
+                    CurrentOutputDeviceId = targetId;
                 }
             }
         }
@@ -252,7 +261,7 @@ namespace AmbientSounds.ViewModels
         }
 
         [RelayCommand]
-        private async Task LoadOutputDevices()
+        private async Task LoadOutputDevicesAsync()
         {
             OutputDevices.Clear();
 
@@ -262,6 +271,13 @@ namespace AmbientSounds.ViewModels
             }
 
             _currentOutputDeviceId = _userSettings.Get<string>(UserSettingsConstants.OutputAudioDeviceId);
+
+            // If the remembered device doesn't exist anymore, reset the _currentOutputDeviceId to be empty, 
+            // which means Ambie will chooses the default device then.
+            if (!OutputDevices.Any(x => x.DeviceId == _currentOutputDeviceId))
+            {
+                _currentOutputDeviceId = string.Empty;
+            }
 
             OnPropertyChanged(nameof(CurrentOutputDevice));
         }

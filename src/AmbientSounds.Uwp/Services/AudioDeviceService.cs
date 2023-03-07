@@ -8,52 +8,56 @@ using JeniusApps.Common.Tools;
 using Windows.Devices.Enumeration;
 using Windows.Media.Devices;
 
-namespace AmbientSounds.Services
+#nullable enable
+
+namespace AmbientSounds.Services;
+
+/// <summary>
+/// Class for getting audio device information.
+/// </summary>
+public class AudioDeviceService : IAudioDeviceService
 {
-    public class AudioDeviceService : IAudioDeviceService
+    private readonly ILocalizer _localizer;
+
+    public AudioDeviceService(ILocalizer localizer)
     {
-        private readonly ILocalizer _localizer;
+        _localizer = localizer;
+    }
 
-        public AudioDeviceService(ILocalizer localizer)
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<AudioDeviceDescriptor>> GetAudioDeviceDescriptorsAsync()
+    {
+        string audioSelector = MediaDevice.GetAudioRenderSelector();
+        var outputDevices = await DeviceInformation.FindAllAsync(audioSelector);
+
+        var list = outputDevices.Select(x => new AudioDeviceDescriptor
         {
-            _localizer = localizer;
-        }
+            DeviceId = x.Id,
+            DeviceName = x.Name
+        }).ToList();
 
-        /// <inheritdoc/>
-        public async Task<IReadOnlyList<AudioDeviceDescriptor>> GetAudioDeviceDescriptorsAsync()
+        if (list is null)
         {
-            string audioSelector = MediaDevice.GetAudioRenderSelector();
-            var outputDevices = await DeviceInformation.FindAllAsync(audioSelector);
-
-            var list = outputDevices.Select(x => new AudioDeviceDescriptor
+            list = new List<AudioDeviceDescriptor>()
             {
-                DeviceId = x.Id,
-                DeviceName = x.Name
-            }).ToList();
-
-            if (list is null)
-            {
-                list = new List<AudioDeviceDescriptor>()
-                {
-                    GetDefaultAudioDeviceDescriptor()
-                };
-            }
-            else
-            {
-                list.Insert(0, GetDefaultAudioDeviceDescriptor());
-            }
-
-            return list;
-        }
-
-        /// <inheritdoc/>
-        public AudioDeviceDescriptor GetDefaultAudioDeviceDescriptor()
-        {
-            return new AudioDeviceDescriptor
-            {
-                DeviceId = string.Empty,
-                DeviceName = _localizer.GetString("Default")
+                GetDefaultAudioDeviceDescriptor()
             };
         }
+        else
+        {
+            list.Insert(0, GetDefaultAudioDeviceDescriptor());
+        }
+
+        return list;
+    }
+
+    /// <inheritdoc/>
+    public AudioDeviceDescriptor GetDefaultAudioDeviceDescriptor()
+    {
+        return new AudioDeviceDescriptor
+        {
+            DeviceId = string.Empty,
+            DeviceName = _localizer.GetString("Default")
+        };
     }
 }

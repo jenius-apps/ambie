@@ -22,9 +22,9 @@ public class WindowsMediaPlayer : IMediaPlayer
     private readonly MediaPlayer _player;
     private readonly IUserSettings _userSettings;
     private string _lastUsedOutputDeviceId = string.Empty;
-    private TaskCompletionSource<bool> _mediaOpenCompletionSource = null;
+    private TaskCompletionSource<bool>? _mediaOpenCompletionSource = null;
 
-    public WindowsMediaPlayer(bool disableSystemControls = false)
+    public WindowsMediaPlayer(IUserSettings userSettings, bool disableSystemControls = false)
     {
         var player = new MediaPlayer();
         if (disableSystemControls)
@@ -35,7 +35,7 @@ public class WindowsMediaPlayer : IMediaPlayer
         _player.MediaOpened += _player_MediaOpened;
         _player.MediaFailed += _player_MediaFailed;
 
-        _userSettings = App.Services.GetRequiredService<IUserSettings>();
+        _userSettings = userSettings;
         _userSettings.SettingSet += _userSettings_SettingSet;
     }
 
@@ -124,6 +124,9 @@ public class WindowsMediaPlayer : IMediaPlayer
             return;
         }
 
+        // Fallback to use the currently selected default audio device if we can't find a valid device
+        // Id from the settings. And also subscribed the event to listen to the change of the default
+        // audio device.
         if (string.IsNullOrEmpty(outputDeviceId))
         {
             outputDeviceId = MediaDevice.GetDefaultAudioRenderId(AudioDeviceRole.Default);
