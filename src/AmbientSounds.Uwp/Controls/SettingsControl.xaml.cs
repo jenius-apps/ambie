@@ -27,7 +27,7 @@ namespace AmbientSounds.Controls
             }
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnThemeSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems is [ComboBoxItem c, ..] && c.Tag is string s)
             {

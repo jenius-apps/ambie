@@ -29,7 +29,7 @@
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPaintBrush}" />
             </labs:SettingsCard.HeaderIcon>
 
-            <ComboBox SelectedIndex="{x:Bind ViewModel.CurrentThemeIndex, Mode=OneWay}" SelectionChanged="OnSelectionChanged">
+            <ComboBox SelectedIndex="{x:Bind ViewModel.CurrentThemeIndex, Mode=OneWay}" SelectionChanged="OnThemeSelectionChanged">
                 <ComboBoxItem x:Uid="SettingsThemeDefaultRadio" Tag="default" />
                 <ComboBoxItem x:Uid="SettingsThemeDarkRadio" Tag="dark" />
                 <ComboBoxItem x:Uid="SettingsThemeLightRadio" Tag="light" />
@@ -138,6 +138,24 @@
             </ToggleSwitch>
         </labs:SettingsCard>
 
+        <!--  Audio device selector  -->
+        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsOutputDeviceDescription}" Header="{x:Bind strings:Resources.SettingsOutputDevice}">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Loaded">
+                    <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadOutputDevicesCommand}" />
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphAudioDevice}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <ComboBox
+                DisplayMemberPath="DeviceName"
+                ItemsSource="{x:Bind ViewModel.OutputDevices}"
+                SelectedItem="{x:Bind ViewModel.CurrentOutputDevice, Mode=TwoWay}" />
+        </labs:SettingsCard>
+
         <!--  Ambie Mini on focus  -->
         <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsCompactModeDescription}" Header="{x:Bind strings:Resources.SettingsCompactMode}">
             <labs:SettingsCard.HeaderIcon>
@@ -159,11 +177,11 @@
                 <TextBlock Text="© Jenius Apps" />
             </labs:SettingsExpander.Description>
             <labs:SettingsExpander.HeaderIcon>
-                <BitmapIcon UriSource="ms-appx:///Assets/logo.png" ShowAsMonochrome="False"/>
+                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/logo.png" />
             </labs:SettingsExpander.HeaderIcon>
             <TextBlock
-                IsTextSelectionEnabled="True"
                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                IsTextSelectionEnabled="True"
                 Style="{StaticResource CaptionTextBlockStyle}"
                 Text="{x:Bind Version}" />
             <labs:SettingsExpander.Items>

@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
@@ -6,6 +7,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -19,7 +21,9 @@ namespace AmbientSounds.ViewModels
         private readonly IStoreNotificationRegistrar _notifications;
         private readonly ITelemetry _telemetry;
         private readonly IAppStoreRatings _appStoreRatings;
+        private readonly IAudioDeviceService _audioDeviceService;
         private bool _notificationsLoading;
+        private string _currentOutputDeviceId = string.Empty;
 
         public SettingsViewModel(
             IUserSettings userSettings,
@@ -27,7 +31,8 @@ namespace AmbientSounds.ViewModels
             ITelemetry telemetry,
             IAssetsReader assetsReader,
             IImagePicker imagePicker,
-            IAppStoreRatings appStoreRatings)
+            IAppStoreRatings appStoreRatings,
+            IAudioDeviceService audioDeviceService)
         {
             Guard.IsNotNull(userSettings);
             Guard.IsNotNull(notifications);
@@ -41,6 +46,7 @@ namespace AmbientSounds.ViewModels
             _assetsReader = assetsReader;
             _imagePicker = imagePicker;
             _appStoreRatings = appStoreRatings;
+            _audioDeviceService = audioDeviceService;
         }
 
         /// <summary>
@@ -86,6 +92,53 @@ namespace AmbientSounds.ViewModels
             get => _userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey);
             set => _userSettings.Set(UserSettingsConstants.ResumeOnLaunchKey, value);
         }
+
+        /// <summary>
+        /// The id of the current output device.
+        /// </summary>
+        public string CurrentOutputDeviceId
+        {
+            get => _currentOutputDeviceId;
+            set
+            {
+                if (_currentOutputDeviceId != value)
+                {
+                    _currentOutputDeviceId = value;
+                    _userSettings.Set(UserSettingsConstants.OutputAudioDeviceId, value);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The current output device.
+        /// </summary>
+        public AudioDeviceDescriptor CurrentOutputDevice
+        {
+            get
+            {
+                var id = CurrentOutputDeviceId;
+                return OutputDevices.Where(x => x.DeviceId == id).FirstOrDefault()
+                    ?? _audioDeviceService.GetDefaultAudioDeviceDescriptor();
+            }
+
+            set
+            {
+                var targetId = value?.DeviceId ?? string.Empty;
+                // Since it is intended to update the list of available audio devices
+                // every time the settings page is opened, and we use a two way
+                // binding for the ComboBox, we don't want to set CurrentOutputDeviceId
+                // before the list is updated.
+                if (OutputDevices.Count > 0)
+                {
+                    CurrentOutputDeviceId = targetId;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Audio devices available for rendering sound.
+        /// </summary>
+        public ObservableCollection<AudioDeviceDescriptor> OutputDevices { get; } = new();
 
         /// <summary>
         /// Settings flag for resume on launch.
@@ -202,6 +255,28 @@ namespace AmbientSounds.ViewModels
             {
                 _userSettings.Set(UserSettingsConstants.HasRated, true);
             }
+        }
+
+        [RelayCommand]
+        private async Task LoadOutputDevicesAsync()
+        {
+            OutputDevices.Clear();
+
+            foreach (var item in await _audioDeviceService.GetAudioDeviceDescriptorsAsync())
+            {
+                OutputDevices.Add(item);
+            }
+
+            _currentOutputDeviceId = _userSettings.Get<string>(UserSettingsConstants.OutputAudioDeviceId);
+
+            // If the remembered device doesn't exist anymore, reset the _currentOutputDeviceId to be empty, 
+            // which means Ambie will chooses the default device then.
+            if (!OutputDevices.Any(x => x.DeviceId == _currentOutputDeviceId))
+            {
+                _currentOutputDeviceId = string.Empty;
+            }
+
+            OnPropertyChanged(nameof(CurrentOutputDevice));
         }
     }
 }

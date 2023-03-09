@@ -1,4 +1,5 @@
 // File generated automatically by ReswPlus. https://github.com/DotNetPlus/ReswPlus
+// The NuGet package ReswPlusLib is necessary to support Pluralization.
 using System;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Markup;
@@ -2302,6 +2303,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsOutputDevice
+        /// <summary>
+        ///   Looks up a localized string similar to: Output device
+        /// </summary>
+        public static string SettingsOutputDevice
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsOutputDevice");
+            }
+        }
+        #endregion
+
+        #region SettingsOutputDeviceDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Choose where to play sound
+        /// </summary>
+        public static string SettingsOutputDeviceDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsOutputDeviceDescription");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2489,6 +2516,8 @@ namespace AmbientSounds.Strings{
             InterruptionInsightsMessage,
             RecentInterruptionsText,
             InterruptionInsightsButtonText,
+            SettingsOutputDevice,
+            SettingsOutputDeviceDescription,
         }
 
         private static ResourceLoader _resourceLoader;
