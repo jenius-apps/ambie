@@ -23,11 +23,4 @@ public interface ICatalogueService
     /// <param name="soundIds">List of sounds to fetch.</param>
     /// <returns>List of sounds.</returns>
     Task<IReadOnlyList<Sound>> GetSoundsAsync(IReadOnlyList<string> soundIds);
-
-    /// <summary>
-    /// Retrieve list of catalogue rows to display.
-    /// </summary>
-    /// <returns>List of catalogue rows.</returns>
-    Task<IReadOnlyList<CatalogueRow>> GetCatalogueRowsAsync();
-
 }

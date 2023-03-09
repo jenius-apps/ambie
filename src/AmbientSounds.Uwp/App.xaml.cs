@@ -452,6 +452,8 @@ namespace AmbientSounds
                 .AddSingleton<IFocusTaskCache, FocusTaskCache>()
                 .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
                 .AddSingleton<IVideoCache, VideoCache>()
+                .AddSingleton<IPageCache, PageCache>()
+                .AddSingleton<IPagesRepository, PagesRepository>()
                 .AddSingleton<IAssetLocalizer, AssetLocalizer>()
                 .AddSingleton<IShareDetailCache, ShareDetailCache>()
                 .AddSingleton<IShareDetailRepository, ShareDetailRepository>()

@@ -1,6 +1,6 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -13,17 +13,14 @@ namespace AmbientSounds.ViewModels;
 public class CataloguePageViewModel : ObservableObject
 {
     private readonly INavigator _navigator;
-    private readonly ICatalogueService _catalogueService;
+    private readonly IPageCache _pageCache;
 
     public CataloguePageViewModel(
-        INavigator navigator,
-        ICatalogueService catalogueService)
+        IPageCache pageCache,
+        INavigator navigator)
     {
-        Guard.IsNotNull(navigator);
-        Guard.IsNotNull(catalogueService);
-
+        _pageCache = pageCache;
         _navigator = navigator;
-        _catalogueService = catalogueService;
     }
 
     public ObservableCollection<CatalogueRow> Rows { get; } = new();
@@ -32,7 +29,7 @@ public class CataloguePageViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
-        var rows = await _catalogueService.GetCatalogueRowsAsync();
+        var rows = await _pageCache.GetCatalogueRowsAsync();
         foreach (var row in rows)
         {
             Rows.Add(row);

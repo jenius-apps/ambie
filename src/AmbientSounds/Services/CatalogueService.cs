@@ -45,9 +45,4 @@ public class CatalogueService : ICatalogueService
     {
         return _onlineSoundRepo.GetDownloadLinkAsync(s);
     }
-
-    public Task<IReadOnlyList<CatalogueRow>> GetCatalogueRowsAsync()
-    {
-        throw new System.NotImplementedException();
-    }
 }
