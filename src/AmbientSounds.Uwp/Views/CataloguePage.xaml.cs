@@ -40,21 +40,5 @@ namespace AmbientSounds.Views
         {
             ViewModel.Uninitialize();
         }
-
-        private void OnElementPrepared(WinUI.ItemsRepeater sender, WinUI.ItemsRepeaterElementPreparedEventArgs args)
-        {
-            if (args.Element is CatalogueRowControl c)
-            {
-                c.RowData = ViewModel.Rows.ElementAtOrDefault(args.Index);
-            }
-        }
-
-        private void OnElementClearing(WinUI.ItemsRepeater sender, WinUI.ItemsRepeaterElementClearingEventArgs args)
-        {
-            if (args.Element is CatalogueRowControl c)
-            {
-                c.RowData = null;
-            }
-        }
     }
 }

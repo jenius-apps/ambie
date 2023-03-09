@@ -3,7 +3,6 @@ using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 
 #nullable enable
 

@@ -15,6 +15,13 @@
     Unloaded="{x:Bind ViewModel.Uninitialize}"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <winui:UniformGridLayout
+            x:Name="UniformLayout"
+            MinColumnSpacing="8"
+            MinRowSpacing="8" />
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -28,29 +35,19 @@
 
             <TextBlock
                 VerticalAlignment="Center"
-                Style="{ThemeResource BodyStrongTextBlockStyle}"
+                FontSize="18"
+                FontWeight="SemiBold"
                 Text="{x:Bind ViewModel.Title, Mode=OneWay}" />
         </Grid>
 
-        <ListView
+        <winui:ItemsRepeater
             x:Name="SoundListView"
             Grid.Row="1"
-            Margin="0,0,16,0"
-            Padding="0,8,0,0"
+            Margin="0,8,16,0"
             ItemsSource="{x:Bind ViewModel.Sounds}"
-            SelectionMode="None">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Padding" Value="0,0,0,4" />
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <toolkit:WrapPanel HorizontalSpacing="4" VerticalSpacing="0" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+            Layout="{StaticResource UniformLayout}">
 
-            <ListView.ItemTemplate>
+            <winui:ItemsRepeater.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
                     <Grid AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
                         <Grid.Resources>
@@ -76,7 +73,7 @@
                             Height="{StaticResource ImageCardHeight}"
                             CornerRadius="8">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                                <ImageBrush ImageSource="{x:Bind ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
                             </Grid.Background>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -201,7 +198,7 @@
                         </Grid>
                     </Grid>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </winui:ItemsRepeater.ItemTemplate>
+        </winui:ItemsRepeater>
     </Grid>
 </UserControl>

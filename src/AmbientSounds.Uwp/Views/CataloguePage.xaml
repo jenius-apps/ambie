@@ -15,13 +15,10 @@
 
     <ScrollViewer Margin="0,4,0,0">
         <Grid Padding="0,4,0,0">
-            <winui:ItemsRepeater
-                ElementClearing="OnElementClearing"
-                ElementPrepared="OnElementPrepared"
-                ItemsSource="{x:Bind ViewModel.Rows}">
+            <winui:ItemsRepeater ItemsSource="{x:Bind ViewModel.Rows}">
                 <winui:ItemsRepeater.ItemTemplate>
                     <DataTemplate x:DataType="models:CatalogueRow">
-                        <controls:CatalogueRowControl Margin="0,0,0,12" />
+                        <controls:CatalogueRowControl Margin="0,0,0,24" RowData="{x:Bind}" />
                     </DataTemplate>
                 </winui:ItemsRepeater.ItemTemplate>
             </winui:ItemsRepeater>
