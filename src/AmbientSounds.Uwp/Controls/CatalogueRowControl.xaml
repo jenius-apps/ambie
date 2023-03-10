@@ -12,7 +12,6 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    Unloaded="{x:Bind ViewModel.Uninitialize}"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -37,14 +36,14 @@
                 VerticalAlignment="Center"
                 FontSize="18"
                 FontWeight="SemiBold"
-                Text="{x:Bind ViewModel.Title, Mode=OneWay}" />
+                Text="{x:Bind TitleText, Mode=OneWay}" />
         </Grid>
 
         <winui:ItemsRepeater
             x:Name="SoundListView"
             Grid.Row="1"
             Margin="0,8,16,0"
-            ItemsSource="{x:Bind ViewModel.Sounds}"
+            ItemsSource="{x:Bind ItemsSource, Mode=OneWay}"
             Layout="{StaticResource UniformLayout}">
 
             <winui:ItemsRepeater.ItemTemplate>

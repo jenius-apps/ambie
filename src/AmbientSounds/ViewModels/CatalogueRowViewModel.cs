@@ -5,7 +5,6 @@ using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -15,17 +14,21 @@ public partial class CatalogueRowViewModel : ObservableObject
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ICatalogueService _dataProvider;
     private readonly ISoundVmFactory _soundVmFactory;
+    private readonly CatalogueRow _row;
     private bool _loading;
 
     public CatalogueRowViewModel(
+        CatalogueRow row,
         IAssetLocalizer assetLocalizer,
         ICatalogueService dataProvider,
         ISoundVmFactory soundVmFactory)
     {
+        Guard.IsNotNull(row);
         Guard.IsNotNull(assetLocalizer);
         Guard.IsNotNull(dataProvider);
         Guard.IsNotNull(soundVmFactory);
 
+        _row = row;
         _dataProvider = dataProvider;
         _soundVmFactory = soundVmFactory;
         _assetLocalizer = assetLocalizer;
@@ -36,22 +39,20 @@ public partial class CatalogueRowViewModel : ObservableObject
 
     public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
 
-    public async Task LoadAsync(CatalogueRow row)
+    public async Task LoadAsync()
     {
-        Guard.IsNotNull(row);
-
         if (_loading)
         {
             return;
         }
 
         _loading = true;
-        Title = _assetLocalizer.GetLocalName(row);
+        Title = _assetLocalizer.GetLocalName(_row);
         IReadOnlyList<Sound>? sounds = null;
 
         try
         {
-            sounds = await _dataProvider.GetSoundsAsync(row.SoundIds);
+            sounds = await _dataProvider.GetSoundsAsync(_row.SoundIds);
         }
         catch { }
 

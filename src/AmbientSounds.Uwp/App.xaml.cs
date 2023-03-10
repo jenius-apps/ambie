@@ -404,7 +404,6 @@ namespace AmbientSounds
                 .AddSingleton<SoundListViewModel>() // shared in main and compact pages
                 .AddTransient<CatalogueListViewModel>()
                 .AddTransient<ScreensaverViewModel>()
-                .AddTransient<CatalogueRowViewModel>() // must be transient since we're using this as a factory
                 .AddSingleton<ScreensaverPageViewModel>()
                 .AddSingleton<SettingsViewModel>()
                 .AddSingleton<CataloguePageViewModel>()
@@ -447,6 +446,7 @@ namespace AmbientSounds
                 .AddSingleton<IPresenceService, PresenceService>()
                 .AddSingleton<IFileDownloader, FileDownloader>()
                 .AddSingleton<ISoundVmFactory, SoundVmFactory>()
+                .AddSingleton<CatalogueRowVmFactory>()
                 .AddSingleton<ICatalogueService, CatalogueService>()
                 .AddSingleton<IVideoService, VideoService>()
                 .AddSingleton<IFocusTaskCache, FocusTaskCache>()
