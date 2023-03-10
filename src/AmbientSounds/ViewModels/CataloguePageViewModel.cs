@@ -4,6 +4,7 @@ using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -31,14 +32,17 @@ public class CataloguePageViewModel : ObservableObject
 
     public void GoBack() => _navigator.GoBack();
 
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(CancellationToken ct)
     {
+        ct.ThrowIfCancellationRequested();
         List<Task> tasks = new();
         var rows = await _pageCache.GetCatalogueRowsAsync();
+        ct.ThrowIfCancellationRequested();
         foreach (var row in rows)
         {
+            ct.ThrowIfCancellationRequested();
             CatalogueRowViewModel vm = _vmFactory.Create(row);
-            tasks.Add(vm.LoadAsync());
+            tasks.Add(vm.LoadAsync(ct));
             Rows.Add(vm);
         }
         await Task.WhenAll(tasks);

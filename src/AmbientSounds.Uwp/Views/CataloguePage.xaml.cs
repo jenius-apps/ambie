@@ -1,13 +1,12 @@
 ﻿using AmbientSounds.Constants;
-using AmbientSounds.Controls;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using WinUI = Microsoft.UI.Xaml.Controls;
 
 #nullable enable
 
@@ -15,6 +14,8 @@ namespace AmbientSounds.Views
 {
     public sealed partial class CataloguePage : Page
     {
+        private CancellationTokenSource? _cts;
+
         public CataloguePage()
         {
             this.InitializeComponent();
@@ -25,7 +26,8 @@ namespace AmbientSounds.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            var initializeTask = ViewModel.InitializeAsync();
+            _cts = new CancellationTokenSource();
+            var initializeTask = ViewModel.InitializeAsync(_cts.Token);
 
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
             telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
@@ -33,11 +35,21 @@ namespace AmbientSounds.Views
                 { "name", "catalogue" }
             });
 
-            await initializeTask;
+            try
+            {
+                await initializeTask;
+            }
+            catch (OperationCanceledException)
+            {
+                _cts.Dispose();
+                _cts = null;
+                return;
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            _cts?.Cancel();
             ViewModel.Uninitialize();
         }
     }

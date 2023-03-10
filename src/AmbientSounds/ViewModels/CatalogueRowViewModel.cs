@@ -5,6 +5,7 @@ using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -39,14 +40,10 @@ public partial class CatalogueRowViewModel : ObservableObject
 
     public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
 
-    public async Task LoadAsync()
+    public async Task LoadAsync(CancellationToken ct)
     {
-        if (_loading)
-        {
-            return;
-        }
+        ct.ThrowIfCancellationRequested();
 
-        _loading = true;
         Title = _assetLocalizer.GetLocalName(_row);
         IReadOnlyList<Sound>? sounds = null;
 
@@ -56,12 +53,14 @@ public partial class CatalogueRowViewModel : ObservableObject
         }
         catch { }
 
+        ct.ThrowIfCancellationRequested();
         if (sounds is not null)
         {
             Sounds.Clear();
             List<Task> tasks = new(sounds.Count);
             foreach (var sound in sounds)
             {
+                ct.ThrowIfCancellationRequested();
                 var vm = _soundVmFactory.GetOnlineSoundVm(sound);
                 if (vm is not null)
                 {
@@ -72,8 +71,6 @@ public partial class CatalogueRowViewModel : ObservableObject
 
             await Task.WhenAll(tasks);
         }
-
-        _loading = false;
     }
 
     public void Uninitialize()
