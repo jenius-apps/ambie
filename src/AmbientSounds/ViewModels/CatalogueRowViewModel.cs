@@ -16,7 +16,6 @@ public partial class CatalogueRowViewModel : ObservableObject
     private readonly ICatalogueService _dataProvider;
     private readonly ISoundVmFactory _soundVmFactory;
     private readonly CatalogueRow _row;
-    private bool _loading;
 
     public CatalogueRowViewModel(
         CatalogueRow row,
