@@ -65,29 +65,33 @@ public class SoundCache : ISoundCache
             return Array.Empty<Sound>();
         }
 
-        var results = new List<Sound>(soundIds.Count);
-        var notCachedSoundIds = new List<string>(soundIds.Count);
+        Sound[] orderedResults = new Sound[soundIds.Count];
+        var notCachedSoundIds = new Dictionary<string, int>();
         await _onlineSoundsLock.WaitAsync();
 
+        int index = 0;
         foreach (var id in soundIds)
         {
             if (_online.TryGetValue(id, out var sound))
             {
-                results.Add(sound);
+                orderedResults[index] = sound;
             }
             else
             {
-                notCachedSoundIds.Add(id);
+                notCachedSoundIds.Add(id, index);
             }
+
+            index++;
         }
 
         if (notCachedSoundIds.Count > 0)
         {
-            var sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(notCachedSoundIds);
+            var sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(notCachedSoundIds.Keys.ToArray());
+            
             foreach (var s in sounds)
             {
                 _online[s.Id] = s;
-                results.Add(s);
+                orderedResults[notCachedSoundIds[s.Id]] = s;
             }
             // note: we are purposefully not updating
             // the cache date here because that date represents
@@ -95,7 +99,7 @@ public class SoundCache : ISoundCache
         }
 
         _onlineSoundsLock.Release();
-        return results;
+        return orderedResults.Where(x => x is not null).ToArray();
     }
 
     /// <inheritdoc/>
