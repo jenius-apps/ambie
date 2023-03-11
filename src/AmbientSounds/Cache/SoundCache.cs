@@ -16,7 +16,7 @@ public class SoundCache : ISoundCache
     private readonly SemaphoreSlim _onlineSoundsLock = new(1, 1);
     private readonly ConcurrentDictionary<string, Sound> _installedSounds = new();
     private readonly ConcurrentDictionary<string, Sound> _preinstalled = new();
-    private readonly Dictionary<string, Sound> _online = new();
+    private readonly Dictionary<string, Sound?> _online = new();
     private readonly IOfflineSoundRepository _offlineSoundRepo;
     private readonly IOnlineSoundRepository _onlineSoundRepo;
     private readonly IAssetsReader _assetsReader;
@@ -54,7 +54,7 @@ public class SoundCache : ISoundCache
         }
         _onlineSoundsLock.Release();
 
-        return _online.Values.ToArray();
+        return RemoveNullsFrom(_online.Values);
     }
 
     /// <inheritdoc/>
@@ -65,14 +65,14 @@ public class SoundCache : ISoundCache
             return Array.Empty<Sound>();
         }
 
-        Sound[] orderedResults = new Sound[soundIds.Count];
+        Sound?[] orderedResults = new Sound?[soundIds.Count];
         var notCachedSoundIds = new Dictionary<string, int>();
         await _onlineSoundsLock.WaitAsync();
 
         int index = 0;
         foreach (var id in soundIds)
         {
-            if (_online.TryGetValue(id, out var sound))
+            if (_online.TryGetValue(id, out Sound? sound))
             {
                 orderedResults[index] = sound;
             }
@@ -86,20 +86,35 @@ public class SoundCache : ISoundCache
 
         if (notCachedSoundIds.Count > 0)
         {
-            var sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(notCachedSoundIds.Keys.ToArray());
+            IReadOnlyDictionary<string, Sound?> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(
+                notCachedSoundIds.Keys.ToArray());
             
-            foreach (var s in sounds)
+            foreach (KeyValuePair<string, Sound?> s in sounds)
             {
-                _online[s.Id] = s;
-                orderedResults[notCachedSoundIds[s.Id]] = s;
+                // Update cache so we don't fetch this again in the future.
+                _online[s.Key] = s.Value;
+
+                // And for speed, add the retrieved values
+                // to the ordered results.
+                orderedResults[notCachedSoundIds[s.Key]] = s.Value;
             }
-            // note: we are purposefully not updating
-            // the cache date here because that date represents
-            // a global cache fetch, not a specific sound fetch.
         }
 
         _onlineSoundsLock.Release();
-        return orderedResults.Where(x => x is not null).ToArray();
+        return RemoveNullsFrom(orderedResults);
+    }
+
+    private static List<Sound> RemoveNullsFrom(IEnumerable<Sound?> sounds)
+    {
+        var list = new List<Sound>();
+        foreach (var s in sounds)
+        {
+            if (s is not null)
+            {
+                list.Add(s);
+            }
+        }
+        return list;
     }
 
     /// <inheritdoc/>
