@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using ComputeSharp.D2D1;
 using ComputeSharp.D2D1.Uwp;
 using Microsoft.Graphics.Canvas;
@@ -33,7 +34,7 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
     public int ScreenWidth
     {
         get => _screenWidth;
-        set => SetAndInvalidateCanvasImage(ref _screenWidth, value);
+        set => SetAndInvalidateEffectGraph(ref _screenWidth, value);
     }
 
     /// <summary>
@@ -42,7 +43,7 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
     public int ScreenHeight
     {
         get => _screenHeight;
-        set => SetAndInvalidateCanvasImage(ref _screenHeight, value);
+        set => SetAndInvalidateEffectGraph(ref _screenHeight, value);
     }
 
     /// <summary>
@@ -51,7 +52,7 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
     public TimeSpan ElapsedTime
     {
         get => _elapsedTime;
-        set => SetAndInvalidateCanvasImage(ref _elapsedTime, value);
+        set => SetAndInvalidateEffectGraph(ref _elapsedTime, value);
     }
 
     /// <summary>
@@ -81,7 +82,8 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
         }
 
         /// <inheritdoc/>
-        protected override ICanvasImage CreateCanvasImage()
+        [MemberNotNull(nameof(_effect))]
+        protected override ICanvasImage BuildEffectGraph()
         {
             _effect = new PixelShaderEffect<T>();
 
@@ -89,7 +91,7 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
         }
 
         /// <inheritdoc/>
-        protected override void ConfigureCanvasImage()
+        protected override void ConfigureEffectGraph()
         {
             _effect!.ConstantBuffer = _factory(ScreenWidth, ScreenHeight, ElapsedTime);
         }

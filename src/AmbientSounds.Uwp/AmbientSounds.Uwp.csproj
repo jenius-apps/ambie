@@ -676,7 +676,7 @@
       <Version>0.0.11</Version>
     </PackageReference>
     <PackageReference Include="ComputeSharp.D2D1.Uwp">
-      <Version>2.1.0-alpha.4262106348</Version>
+      <Version>2.1.0-alpha.4395539716</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
       <Version>0.0.3-preview</Version>
