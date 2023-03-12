@@ -6,26 +6,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:strings="using:AmbientSounds.Strings"
-    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="NarrowLayout" />
-                <VisualState x:Name="WideLayout">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideWindowBreakpoint}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="CatalogueList.InnerMargin" Value="0,0,16,40" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <controls:CatalogueListControl x:Name="CatalogueList" InnerMargin="0" />
-    </Grid>
+    <ScrollViewer Margin="0,4,0,0">
+        <Grid Padding="0,4,0,0">
+            <winui:ItemsRepeater ItemsSource="{x:Bind ViewModel.Rows}">
+                <winui:ItemsRepeater.ItemTemplate>
+                    <DataTemplate x:DataType="vm:CatalogueRowViewModel">
+                        <controls:CatalogueRowControl
+                            Margin="0,0,0,24"
+                            ItemsSource="{x:Bind Sounds, Mode=OneWay}"
+                            SoundsVisible="{x:Bind RowVisible, Mode=OneWay}"
+                            TitleText="{x:Bind Title, Mode=OneWay}" />
+                    </DataTemplate>
+                </winui:ItemsRepeater.ItemTemplate>
+            </winui:ItemsRepeater>
+        </Grid>
+    </ScrollViewer>
 </Page>

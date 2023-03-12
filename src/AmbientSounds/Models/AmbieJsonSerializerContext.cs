@@ -38,12 +38,14 @@ namespace AmbientSounds.Models;
 /// That is, pass the generated <see cref="System.Text.Json.Serialization.Metadata.JsonTypeInfo{T}"/> property that matches that model type. Same to deserialize.
 /// </para>
 /// </remarks>
+[JsonSerializable(typeof(CatalogueRow))]
 [JsonSerializable(typeof(FocusHistory))]
 [JsonSerializable(typeof(ShareDetail))]
 [JsonSerializable(typeof(FocusHistorySummary))]
 [JsonSerializable(typeof(FocusTask[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(IEnumerable<FocusTask>))]
 [JsonSerializable(typeof(Video[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
+[JsonSerializable(typeof(CatalogueRow[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(IList<Video>))]
 [JsonSerializable(typeof(SyncData))]
 [JsonSerializable(typeof(Sound[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize

@@ -27,7 +27,7 @@ public interface IOnlineSoundRepository
     /// <param name="soundIds">The IDs of the sounds to fetch.</param>
     /// <param name="iapId">The iap id filter to apply to the query.</param>
     /// <returns>A list of <see cref="Sound"/> instances.</returns>
-    Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
+    Task<IReadOnlyDictionary<string, Sound?>> GetOnlineSoundsAsync(
         IReadOnlyList<string> soundIds,
         string? iapId = null);
 }

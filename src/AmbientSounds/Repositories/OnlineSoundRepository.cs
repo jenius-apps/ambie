@@ -63,13 +63,13 @@ public class OnlineSoundRepository : IOnlineSoundRepository
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(
+    public async Task<IReadOnlyDictionary<string, Sound?>> GetOnlineSoundsAsync(
         IReadOnlyList<string> soundIds,
         string? iapId = null)
     {
         if (soundIds.Count == 0)
         {
-            return Array.Empty<Sound>();
+            return new Dictionary<string, Sound?>();
         }
 
         var url = _url + $"/sounds?{string.Join("&", soundIds.Select(x => "ids=" + x))}";
@@ -78,15 +78,29 @@ public class OnlineSoundRepository : IOnlineSoundRepository
             url += $"&iapId={iapId}";
         }
 
+        var dict = new Dictionary<string, Sound?>();
+        foreach (var id in soundIds)
+        {
+            dict.Add(id, null);
+        }
+
         try
         {
             using Stream result = await _client.GetStreamAsync(url);
             var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
-            return results ?? Array.Empty<Sound>();
+            if (results is not null)
+            {
+                foreach (var s in results)
+                {
+                    if (dict.ContainsKey(s.Id))
+                    {
+                        dict[s.Id] = s;
+                    }
+                }
+            }
         }
-        catch
-        {
-            return Array.Empty<Sound>();
-        }
+        catch { }
+
+        return dict;
     }
 }

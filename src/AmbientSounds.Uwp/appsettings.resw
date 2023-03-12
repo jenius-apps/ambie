@@ -147,4 +147,7 @@
   <data name="ShareUrl" xml:space="preserve">
     <value>http://localhost</value>
   </data>
+  <data name="PagesUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
 </root>
