@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>中断についてサポートが必要ですか?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>出力装置</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>サウンドを再生する場所を選択する</value>
+  </data>
 </root>

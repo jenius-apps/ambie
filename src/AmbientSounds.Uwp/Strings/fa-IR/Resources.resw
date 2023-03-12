@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>برای وقفه ها به کمک نیاز دارید؟</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>دستگاه خروجی</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>انتخاب کنید که در آن به پخش صدا</value>
+  </data>
 </root>

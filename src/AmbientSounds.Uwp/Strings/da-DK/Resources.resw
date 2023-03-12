@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Har du brug for hjælp til afbrydelser?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Output enhed</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Vælg, hvor du vil afspille lyd</value>
+  </data>
 </root>

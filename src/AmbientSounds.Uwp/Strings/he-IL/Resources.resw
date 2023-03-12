@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>זקוק לעזרה עם הפרעות?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>התקן פלט</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>בחר היכן להשמיע צליל</value>
+  </data>
 </root>

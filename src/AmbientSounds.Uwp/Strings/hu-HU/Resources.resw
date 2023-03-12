@@ -733,4 +733,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Segítségre van szüksége a megszakításokkal kapcsolatban?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Kimeneti eszköz</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Válassza ki, hol szeretné lejátszani a hangot</value>
+  </data>
 </root>

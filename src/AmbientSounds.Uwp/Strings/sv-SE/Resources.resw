@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Behöver du hjälp med avbrott?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Utmatningsenhet</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Välj var du vill spela upp ljud</value>
+  </data>
 </root>

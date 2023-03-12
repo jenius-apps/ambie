@@ -926,67 +926,67 @@
         </trans-unit>
         <trans-unit id="CheckForUpdatesText" translate="yes" xml:space="preserve">
           <source>Check for updates</source>
-          <target state="new">Check for updates</target>
+          <target state="translated">Έλεγχος για ενημερώσεις</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage1" translate="yes" xml:space="preserve">
           <source>Check here for updates to your sounds and videos.</source>
-          <target state="new">Check here for updates to your sounds and videos.</target>
+          <target state="translated">Ελέγξτε εδώ για ενημερώσεις στους ήχους και τα βίντεό σας.</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage2" translate="yes" xml:space="preserve">
           <source>Updates contain improvements to translations, sound quality, and more.</source>
-          <target state="new">Updates contain improvements to translations, sound quality, and more.</target>
+          <target state="translated">Οι ενημερώσεις περιέχουν βελτιώσεις στις μεταφράσεις, την ποιότητα ήχου και πολλά άλλα.</target>
         </trans-unit>
         <trans-unit id="UpdatesText" translate="yes" xml:space="preserve">
           <source>Updates</source>
-          <target state="new">Updates</target>
+          <target state="translated">Ενημερώσεις</target>
         </trans-unit>
         <trans-unit id="DataVersionColon" translate="yes" xml:space="preserve">
           <source>Data version:</source>
-          <target state="new">Data version:</target>
+          <target state="translated">Έκδοση δεδομένων:</target>
         </trans-unit>
         <trans-unit id="FileVersionColon" translate="yes" xml:space="preserve">
           <source>File version:</source>
-          <target state="new">File version:</target>
+          <target state="translated">Έκδοση αρχείου:</target>
         </trans-unit>
         <trans-unit id="UpdateAllText" translate="yes" xml:space="preserve">
           <source>Update all</source>
-          <target state="new">Update all</target>
+          <target state="translated">Ενημέρωση όλων</target>
         </trans-unit>
         <trans-unit id="UpdatesPlaceholderText" translate="yes" xml:space="preserve">
           <source>Fully up-to-date. You're all set.</source>
-          <target state="new">Fully up-to-date. You're all set.</target>
+          <target state="translated">Πλήρως ενημερωμένο. Είστε έτοιμοι.</target>
         </trans-unit>
         <trans-unit id="UpdateReasonFile" translate="yes" xml:space="preserve">
           <source>Improves playback quality</source>
-          <target state="new">Improves playback quality</target>
+          <target state="translated">Βελτιώνει την ποιότητα αναπαραγωγής</target>
         </trans-unit>
         <trans-unit id="UpdateReasonMetaData" translate="yes" xml:space="preserve">
           <source>Improves translations and other metadata</source>
-          <target state="new">Improves translations and other metadata</target>
+          <target state="translated">Βελτιώνει τις μεταφράσεις και άλλα μεταδεδομένα</target>
         </trans-unit>
         <trans-unit id="UpdateReasonMetaDataAndFile" translate="yes" xml:space="preserve">
           <source>Improves playback quality, translations, and other metadata</source>
-          <target state="new">Improves playback quality, translations, and other metadata</target>
+          <target state="translated">Βελτιώνει την ποιότητα αναπαραγωγής, τις μεταφράσεις και άλλα μεταδεδομένα</target>
         </trans-unit>
         <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
           <source>Is there anything we can learn to avoid future interruptions?</source>
-          <target state="new">Is there anything we can learn to avoid future interruptions?</target>
+          <target state="translated">Υπάρχει κάτι που μπορούμε να μάθουμε για να αποφύγουμε μελλοντικές διακοπές;</target>
         </trans-unit>
         <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
           <source>Recent interruptions</source>
-          <target state="new">Recent interruptions</target>
+          <target state="translated">Πρόσφατες διακοπές</target>
         </trans-unit>
         <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
           <source>Need help with interruptions?</source>
-          <target state="new">Need help with interruptions?</target>
+          <target state="translated">Χρειάζεστε βοήθεια με τις διακοπές;</target>
         </trans-unit>
         <trans-unit id="SettingsOutputDevice" translate="yes" xml:space="preserve">
           <source>Output device</source>
-          <target state="new">Output device</target>
+          <target state="translated">Συσκευή εξόδου</target>
         </trans-unit>
         <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
           <source>Choose where to play sound</source>
-          <target state="new">Choose where to play sound</target>
+          <target state="translated">Επιλέξτε τη θέση αναπαραγωγής του ήχου</target>
         </trans-unit>
       </group>
     </body>

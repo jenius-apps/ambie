@@ -980,6 +980,14 @@
           <source>Need help with interruptions?</source>
           <target state="translated">بحاجة إلى مساعدة في الانقطاعات؟</target>
         </trans-unit>
+        <trans-unit id="SettingsOutputDevice" translate="yes" xml:space="preserve">
+          <source>Output device</source>
+          <target state="translated">جهاز الإخراج</target>
+        </trans-unit>
+        <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
+          <source>Choose where to play sound</source>
+          <target state="translated">اختيار مكان تشغيل الصوت</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -733,4 +733,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Trebate pomoć s prekidima?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Izlazni uređaj</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Odaberite mjesto za reprodukciju zvuka</value>
+  </data>
 </root>

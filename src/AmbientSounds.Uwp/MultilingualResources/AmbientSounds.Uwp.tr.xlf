@@ -996,11 +996,11 @@
         </trans-unit>
         <trans-unit id="SettingsOutputDevice" translate="yes" xml:space="preserve">
           <source>Output device</source>
-          <target state="new">Output device</target>
+          <target state="translated">Çıkış aygıtı</target>
         </trans-unit>
         <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
           <source>Choose where to play sound</source>
-          <target state="new">Choose where to play sound</target>
+          <target state="translated">Sesin nerede çalınacağını seçme</target>
         </trans-unit>
       </group>
     </body>

@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>بحاجة إلى مساعدة في الانقطاعات؟</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>جهاز الإخراج</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>اختيار مكان تشغيل الصوت</value>
+  </data>
 </root>

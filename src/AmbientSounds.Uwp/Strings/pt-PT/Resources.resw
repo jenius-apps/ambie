@@ -745,4 +745,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Precisa de ajuda com interrupções?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Dispositivo de saída</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Escolha onde reproduzir o som</value>
+  </data>
 </root>

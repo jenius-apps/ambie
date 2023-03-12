@@ -989,11 +989,11 @@
         </trans-unit>
         <trans-unit id="SettingsOutputDevice" translate="yes" xml:space="preserve">
           <source>Output device</source>
-          <target state="new">Output device</target>
+          <target state="translated">Izlazni uređaj</target>
         </trans-unit>
         <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
           <source>Choose where to play sound</source>
-          <target state="new">Choose where to play sound</target>
+          <target state="translated">Odaberite mjesto za reprodukciju zvuka</target>
         </trans-unit>
       </group>
     </body>

@@ -712,4 +712,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Hulp nodig bij onderbrekingen?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Uitvoerapparaat</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Kiezen waar u geluid wilt afspelen</value>
+  </data>
 </root>

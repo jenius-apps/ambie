@@ -688,4 +688,52 @@
   <data name="BuyDurableTooltip" xml:space="preserve">
     <value>Ξεκλειδώστε αυτόν τον ήχο</value>
   </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>Έλεγχος για ενημερώσεις</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>Ελέγξτε εδώ για ενημερώσεις στους ήχους και τα βίντεό σας.</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>Οι ενημερώσεις περιέχουν βελτιώσεις στις μεταφράσεις, την ποιότητα ήχου και πολλά άλλα.</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>Ενημερώσεις</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>Έκδοση δεδομένων:</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>Έκδοση αρχείου:</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Ενημέρωση όλων</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>Πλήρως ενημερωμένο. Είστε έτοιμοι.</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>Βελτιώνει την ποιότητα αναπαραγωγής</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>Βελτιώνει τις μεταφράσεις και άλλα μεταδεδομένα</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>Βελτιώνει την ποιότητα αναπαραγωγής, τις μεταφράσεις και άλλα μεταδεδομένα</value>
+  </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>Υπάρχει κάτι που μπορούμε να μάθουμε για να αποφύγουμε μελλοντικές διακοπές;</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>Πρόσφατες διακοπές</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>Χρειάζεστε βοήθεια με τις διακοπές;</value>
+  </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Συσκευή εξόδου</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Επιλέξτε τη θέση αναπαραγωγής του ήχου</value>
+  </data>
 </root>

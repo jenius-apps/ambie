@@ -739,4 +739,10 @@
   <data name="InterruptionInsightsButtonText" xml:space="preserve">
     <value>Kesintilerle ilgili yardıma mı ihtiyacınız var?</value>
   </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>Çıkış aygıtı</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>Sesin nerede çalınacağını seçme</value>
+  </data>
 </root>
