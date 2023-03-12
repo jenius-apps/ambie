@@ -37,11 +37,15 @@ public partial class CatalogueRowViewModel : ObservableObject
     [ObservableProperty]
     private string _title = string.Empty;
 
+    [ObservableProperty]
+    private bool _rowVisible;
+
     public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
 
     public async Task LoadAsync(CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
+        RowVisible = false;
 
         Title = _assetLocalizer.GetLocalName(_row);
         IReadOnlyList<Sound>? sounds = null;
@@ -65,6 +69,7 @@ public partial class CatalogueRowViewModel : ObservableObject
                 {
                     tasks.Add(vm.LoadCommand.ExecuteAsync(null));
                     Sounds.Add(vm);
+                    RowVisible = true;
                 }
             }
 
@@ -74,6 +79,8 @@ public partial class CatalogueRowViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        RowVisible = false;
+
         foreach (var s in Sounds)
         {
             s.Dispose();

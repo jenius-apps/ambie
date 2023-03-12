@@ -27,16 +27,12 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
             <TextBlock
                 VerticalAlignment="Center"
                 FontSize="18"
                 FontWeight="SemiBold"
-                Text="{x:Bind TitleText, Mode=OneWay}" />
+                Text="{x:Bind TitleText, Mode=OneWay}"
+                TextTrimming="CharacterEllipsis" />
         </Grid>
 
         <winui:ItemsRepeater
@@ -206,5 +202,16 @@
                 </DataTemplate>
             </winui:ItemsRepeater.ItemTemplate>
         </winui:ItemsRepeater>
+
+        <Rectangle
+            Grid.Row="1"
+            Height="{StaticResource ImageCardHeight}"
+            Margin="0,8,16,0"
+            HorizontalAlignment="Stretch"
+            AutomationProperties.AccessibilityView="Raw"
+            Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            RadiusX="4"
+            RadiusY="4"
+            Visibility="{x:Bind converters:VisibilityConverter.InvertBool(SoundsVisible), Mode=OneWay}" />
     </Grid>
 </UserControl>

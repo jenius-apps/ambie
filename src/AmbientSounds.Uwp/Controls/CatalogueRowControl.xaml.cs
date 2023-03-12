@@ -21,6 +21,13 @@ public sealed partial class CatalogueRowControl : UserControl
             typeof(CatalogueRowControl),
             new PropertyMetadata(null));
 
+    public static readonly DependencyProperty SoundsVisibleProperty =
+        DependencyProperty.Register(
+            nameof(SoundsVisible),
+            typeof(bool),
+            typeof(CatalogueRowControl),
+            new PropertyMetadata(false));
+
     public CatalogueRowControl()
     {
         this.InitializeComponent();
@@ -36,5 +43,11 @@ public sealed partial class CatalogueRowControl : UserControl
     {
         get => GetValue(ItemsSourceProperty);
         set => SetValue(ItemsSourceProperty, value);
+    }
+
+    public bool SoundsVisible
+    {
+        get => (bool)GetValue(SoundsVisibleProperty);
+        set => SetValue(SoundsVisibleProperty, value);
     }
 }
