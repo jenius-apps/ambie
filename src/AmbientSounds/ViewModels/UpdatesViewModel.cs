@@ -59,6 +59,7 @@ public partial class UpdatesViewModel : ObservableObject
             {
                 var vm = _soundVmFactory.GetOnlineSoundVm(s);
                 vm.UpdateReason = r;
+                await vm.LoadCommand.ExecuteAsync(null);
                 UpdateList.Add(vm);
             }
         }
