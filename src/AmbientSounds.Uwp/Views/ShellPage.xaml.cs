@@ -101,24 +101,18 @@ namespace AmbientSounds.Views
         {
             if (e.ClickedItem is FrameworkElement f && f.FindParent<ListViewItem>() is { Tag: string tag })
             {
-                switch (tag)
+                ContentPageType pageType = tag switch
                 {
-                    case "focus":
-                        ViewModel.Navigate(ContentPageType.Focus);
-                        break;
-                    case "catalogue":
-                        ViewModel.Navigate(ContentPageType.Catalogue);
-                        break;
-                    case "home":
-                        ViewModel.Navigate(ContentPageType.Home);
-                        break;
-                    case "settings":
-                        ViewModel.Navigate(ContentPageType.Settings);
-                        break;
-                    case "updates":
-                        ViewModel.Navigate(ContentPageType.Updates);
-                        break;
-                }
+                    "focus" => ContentPageType.Focus,
+                    "catalogue" => ContentPageType.Catalogue,
+                    "home" => ContentPageType.Home,
+                    "settings" => ContentPageType.Settings,
+                    "updates" => ContentPageType.Updates,
+                    "meditate" => ContentPageType.Meditate,
+                    _ => ContentPageType.Home
+                };
+
+                ViewModel.Navigate(pageType);
             }
         }
 

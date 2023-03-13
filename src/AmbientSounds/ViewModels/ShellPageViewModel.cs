@@ -223,9 +223,13 @@ public partial class ShellPageViewModel : ObservableObject
     {
         int navMenuIndex = pageType switch
         {
+            ContentPageType.Home => 0,
+            ContentPageType.Catalogue => 1,
+            ContentPageType.Focus => 2,
+            ContentPageType.Meditate => 3,
             ContentPageType.Updates => -1,
             ContentPageType.Settings => -1,
-            _ => (int)pageType
+            _ => 0
         };
 
         int footerMenuIndex = pageType switch

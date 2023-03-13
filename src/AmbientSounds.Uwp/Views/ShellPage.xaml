@@ -237,6 +237,19 @@
                                     </Grid>
                                 </Grid>
                             </ListViewItem>
+                            <ListViewItem
+                                MinWidth="0"
+                                AutomationProperties.Name="Meditate"
+                                Tag="meditate"
+                                ToolTipService.ToolTip="Meditate">
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
+                                    <TextBlock
+                                        Margin="12,0,0,0"
+                                        Text="Meditate"
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                </StackPanel>
+                            </ListViewItem>
                         </ListView.Items>
                     </ListView>
 
