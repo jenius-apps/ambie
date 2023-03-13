@@ -402,7 +402,6 @@ namespace AmbientSounds
                 .AddSingleton(client)
                 // if viewmodel, then always transient unless otherwise stated
                 .AddSingleton<SoundListViewModel>() // shared in main and compact pages
-                .AddTransient<CatalogueListViewModel>()
                 .AddTransient<ScreensaverViewModel>()
                 .AddSingleton<ScreensaverPageViewModel>()
                 .AddSingleton<SettingsViewModel>()

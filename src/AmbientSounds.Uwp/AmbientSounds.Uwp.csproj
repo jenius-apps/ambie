@@ -138,9 +138,6 @@
     <Compile Include="Controls\AuthDialog.xaml.cs">
       <DependentUpon>AuthDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CatalogueListControl.xaml.cs">
-      <DependentUpon>CatalogueListControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\CatalogueRowControl.xaml.cs">
       <DependentUpon>CatalogueRowControl.xaml</DependentUpon>
     </Compile>
@@ -457,10 +454,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\AuthDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\CatalogueListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
