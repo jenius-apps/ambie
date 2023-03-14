@@ -273,7 +273,11 @@ public partial class ShellPageViewModel : ObservableObject
 
     private async Task LoadPremiumButtonAsync()
     {
-        PremiumButtonVisible = !await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
+        PremiumButtonVisible = !await _iapService.IsAnyOwnedAsync(new string[] 
+        {
+            IapConstants.MsStoreAmbiePlusId,
+            IapConstants.MsStoreAmbiePlusLifetimeId
+        });
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)
@@ -295,7 +299,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnProductPurchased(object sender, string iapId)
     {
-        if (iapId == IapConstants.MsStoreAmbiePlusId)
+        if (iapId is IapConstants.MsStoreAmbiePlusId 
+            or IapConstants.MsStoreAmbiePlusLifetimeId)
         {
             PremiumButtonVisible = false;
         }
