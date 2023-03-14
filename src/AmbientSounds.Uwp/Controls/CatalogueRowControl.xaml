@@ -75,7 +75,11 @@
                             Height="{StaticResource ImageCardHeight}"
                             CornerRadius="8">
                             <Grid.Background>
-                                <ImageBrush ImageSource="{x:Bind ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+                                <ImageBrush Stretch="UniformToFill">
+                                    <ImageBrush.ImageSource>
+                                        <BitmapImage DecodePixelHeight="208" UriSource="{x:Bind ImagePath, Mode=OneWay}" />
+                                    </ImageBrush.ImageSource>
+                                </ImageBrush>
                             </Grid.Background>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
