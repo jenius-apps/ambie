@@ -97,11 +97,15 @@ namespace AmbientSounds.ViewModels
                 }
             }
 
-            _telemetry.TrackEvent(TelemetryConstants.TasksLoaded, new Dictionary<string, string>
+            if (Tasks.Count > 0)
             {
-                { "openCount", Tasks.Count.ToString() },
-                { "completedCount", CompletedTasks.Count.ToString() },
-            });
+                // require >0 to reduce telemetry noise.
+                _telemetry.TrackEvent(TelemetryConstants.TasksLoaded, new Dictionary<string, string>
+                {
+                    { "openCount", Tasks.Count.ToString() },
+                    { "completedCount", CompletedTasks.Count.ToString() },
+                });
+            }
         }
 
         public void Uninitialize()
