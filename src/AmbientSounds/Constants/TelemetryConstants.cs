@@ -6,6 +6,10 @@
     /// </summary>
     public class TelemetryConstants
     {
+        // launch
+        private const string Launch = "launch:";
+        public const string LaunchViaToast = Launch + "toast";
+
         // insights
         private const string Insights = "insights:";
         public const string InterruptionInsightsDisplayed = Insights + "interruptionInsightsDisplayed";

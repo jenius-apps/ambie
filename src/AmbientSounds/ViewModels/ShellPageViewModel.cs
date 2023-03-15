@@ -51,7 +51,7 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _focusDotVisible;
 
     [ObservableProperty]
-    private bool _titleBarVisible;
+    private bool _titleBarVisible = true;
 
     [ObservableProperty]
     private int _navMenuIndex = -1;
@@ -178,7 +178,7 @@ public partial class ShellPageViewModel : ObservableObject
         _navigator.ToScreensaver();
     }
 
-    public async Task InitializeAsync(ShellPageNavigationArgs? args = null)
+    public async Task InitializeAsync()
     {
         _iapService.ProductPurchased += OnProductPurchased;
         _userSettings.SettingSet += OnSettingSet;
@@ -187,11 +187,6 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService.ShareFailed += OnShareFailed;
 
         await LoadPremiumButtonAsync();
-
-        if (args is not null)
-        {
-            TitleBarVisible = !args.IsGameBarWidget;
-        }
     }
 
     private void OnShareFailed(object sender, EventArgs e)

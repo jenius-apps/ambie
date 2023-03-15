@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AmbientSounds.Services;
 
-namespace AmbientSounds.ViewModels
+namespace AmbientSounds.ViewModels;
+
+public sealed class ShellPageNavigationArgs
 {
-    public sealed class ShellPageNavigationArgs
-    {
-        /// <summary>
-        /// If true, describes that Ambie was activated
-        /// as an Xbox Game Bar widget.
-        /// </summary>
-        public bool IsGameBarWidget { get; set; }
-    }
+    public ContentPageType? FirstPageOverride { get; init; }
 }
