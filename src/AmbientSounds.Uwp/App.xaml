@@ -22,6 +22,8 @@
                     <Color x:Key="SystemAccentColorDark2">#FFB85300</Color>
                     <Color x:Key="SystemAccentColorDark3">#FFA34100</Color>
 
+                    <SvgImageSource x:Key="MeditateIcon" UriSource="ms-appx:///Assets/lotus1.svg" />
+
                     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#539AFF" />
                         <GradientStop Offset="1" Color="#53BEFF" />
@@ -53,6 +55,7 @@
                         <GradientStop Offset="1" Color="#539AFF" />
                     </LinearGradientBrush>
 
+                    <SvgImageSource x:Key="MeditateIcon" UriSource="ms-appx:///Assets/lotus1-white.svg" />
                     <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="#32ffffff" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="#FFE6E6E6" />
@@ -75,6 +78,7 @@
                     <SolidColorBrush x:Key="CardStrokeBrush" Color="{StaticResource SystemColorWindowTextColor}" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="Transparent" />
+                    <SvgImageSource x:Key="MeditateIcon" UriSource="ms-appx:///Assets/lotus1-white.svg" />
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
