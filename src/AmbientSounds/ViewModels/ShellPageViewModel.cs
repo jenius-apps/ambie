@@ -144,6 +144,8 @@ public partial class ShellPageViewModel : ObservableObject
         if (HandleNavigationRequest(pageType) is true)
         {
             _navigator.NavigateTo(pageType);
+            UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
         }
     }
 
@@ -243,18 +245,14 @@ public partial class ShellPageViewModel : ObservableObject
             changesMade = true;
         }
 
-        if (changesMade)
-        {
-            UpdateTimeBannerVisibility();
-            UpdateFocusDotVisibility();
-        }
-
         return changesMade;
     }
 
     private void OnContentPageChanged(object sender, ContentPageType e)
     {
         HandleNavigationRequest(e);
+        UpdateTimeBannerVisibility();
+        UpdateFocusDotVisibility();
     }
 
     public void Dispose()
