@@ -398,13 +398,16 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     private void OnFocusStateChanged(object sender, FocusState e)
     {
-        OnPropertyChanged(nameof(IsRecentVisible));
-        UpdateButtonStates();
-        if (e == FocusState.Paused)
+        _dispatcherQueue.TryEnqueue(() =>
         {
-            _focusHistoryService.LogPause();
-            OnPropertyChanged(nameof(Pauses));
-        }
+            OnPropertyChanged(nameof(IsRecentVisible));
+            UpdateButtonStates();
+            if (e == FocusState.Paused)
+            {
+                _focusHistoryService.LogPause();
+                OnPropertyChanged(nameof(Pauses));
+            }
+        });
     }
 
     private void OnSettingChanged(object sender, string settingKey)

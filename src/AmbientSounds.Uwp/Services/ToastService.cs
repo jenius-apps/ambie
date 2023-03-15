@@ -46,6 +46,7 @@ namespace AmbientSounds.Services.Uwp
                 .AddButton(_dismissButton.Value)
                 .AddText(title)
                 .AddText(message)
+                .AddArgument("scheduledToast")
                 .Schedule(scheduleDateTime, toast =>
                 {
                     toast.ExpirationTime = new DateTimeOffset(scheduleDateTime).AddMinutes(1);
@@ -58,6 +59,7 @@ namespace AmbientSounds.Services.Uwp
                 .AddButton(_dismissButton.Value)
                 .AddText(title)
                 .AddText(message)
+                .AddArgument("singleToast")
                 .Show(toast =>
                 {
                     toast.ExpirationTime = DateTimeOffset.Now.AddMinutes(1);

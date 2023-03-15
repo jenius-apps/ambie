@@ -73,7 +73,7 @@
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                 Text="{x:Bind strings:Resources.OrText.ToUpper()}"
                 TextAlignment="Center"
-                Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible)}" />
+                Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible), Mode=OneWay}" />
 
             <Button
                 Grid.Row="2"
@@ -81,7 +81,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
-                Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible)}">
+                Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible), Mode=OneWay}">
                 <Grid>
                     <TextBlock Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}" Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.LifetimeButtonLoading), Mode=OneWay}" />
                     <winui:ProgressRing

@@ -12,7 +12,7 @@ namespace AmbientSounds.ViewModels;
 /// <summary>
 /// ViewModel representing the catalogue page.
 /// </summary>
-public class CataloguePageViewModel : ObservableObject
+public partial class CataloguePageViewModel : ObservableObject
 {
     private readonly INavigator _navigator;
     private readonly IPageCache _pageCache;
@@ -30,22 +30,39 @@ public class CataloguePageViewModel : ObservableObject
 
     public ObservableCollection<CatalogueRowViewModel> Rows { get; } = new();
 
-    public void GoBack() => _navigator.GoBack();
+    [ObservableProperty]
+    private bool _loading;
 
     public async Task InitializeAsync(CancellationToken ct)
     {
-        ct.ThrowIfCancellationRequested();
-        List<Task> tasks = new();
-        var rows = await _pageCache.GetCatalogueRowsAsync();
-        ct.ThrowIfCancellationRequested();
-        foreach (var row in rows)
+        try
         {
+            Loading = true;
             ct.ThrowIfCancellationRequested();
-            CatalogueRowViewModel vm = _vmFactory.Create(row);
-            tasks.Add(vm.LoadAsync(ct));
-            Rows.Add(vm);
+            List<Task> tasks = new();
+            await Task.Delay(150, CancellationToken.None); // added to improve nav perf
+            ct.ThrowIfCancellationRequested();
+            var rows = await _pageCache.GetCatalogueRowsAsync();
+            ct.ThrowIfCancellationRequested();
+            foreach (var row in rows)
+            {
+                ct.ThrowIfCancellationRequested();
+                CatalogueRowViewModel vm = _vmFactory.Create(row);
+                tasks.Add(vm.LoadAsync(ct));
+                Rows.Add(vm);
+
+                if (Loading)
+                {
+                    Loading = false;
+                }
+            }
+
+            await Task.WhenAll(tasks);
         }
-        await Task.WhenAll(tasks);
+        finally
+        {
+            Loading = false;
+        }
     }
 
     public void Uninitialize()

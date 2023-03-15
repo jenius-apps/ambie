@@ -1,65 +1,73 @@
 ﻿using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Threading.Tasks;
 
-namespace AmbientSounds.ViewModels
+namespace AmbientSounds.ViewModels;
+
+public partial class FocusPageViewModel : ObservableObject
 {
-    public partial class FocusPageViewModel : ObservableObject
+    private readonly IFocusNotesService _focusNotesService;
+    private readonly IFocusService _focusService;
+    private readonly IDispatcherQueue _dispatcherQueue;
+
+    [ObservableProperty]
+    private string _notes = string.Empty;
+
+    public FocusPageViewModel(
+        IFocusNotesService focusNotesService,
+        IFocusService focusService,
+        IDispatcherQueue dispatcherQueue)
     {
-        private readonly IFocusNotesService _focusNotesService;
-        private readonly IFocusService _focusService;
+        Guard.IsNotNull(focusNotesService);
+        Guard.IsNotNull(focusService);
+        Guard.IsNotNull(dispatcherQueue);
 
-        [ObservableProperty]
-        private string _notes = string.Empty;
+        _focusNotesService = focusNotesService;
+        _focusService = focusService;
+        _dispatcherQueue = dispatcherQueue;
+    }
 
-        public FocusPageViewModel(
-            IFocusNotesService focusNotesService,
-            IFocusService focusService)
-        {
-            Guard.IsNotNull(focusNotesService);
-            _focusNotesService = focusNotesService;
-            Guard.IsNotNull(focusService);
-            _focusService = focusService;
-        }
+    /// <summary>
+    /// Determines if the task module is visible.
+    /// </summary>
+    /// <remarks>
+    /// With the introduction of the timer module's new
+    /// Focused Task feature, we hide the task module to prevent 
+    /// tasks from being edited during a focus session. This avoids
+    /// the need to synchronize the data in real-time.
+    /// </remarks>
+    public bool TaskModuleVisible => _focusService.CurrentState == FocusState.None;
 
-        /// <summary>
-        /// Determines if the task module is visible.
-        /// </summary>
-        /// <remarks>
-        /// With the introduction of the timer module's new
-        /// Focused Task feature, we hide the task module to prevent 
-        /// tasks from being edited during a focus session. This avoids
-        /// the need to synchronize the data in real-time.
-        /// </remarks>
-        public bool TaskModuleVisible => _focusService.CurrentState == FocusState.None;
+    /// <inheritdoc/>
+    partial void OnNotesChanged(string value)
+    {
+        _focusNotesService.UpdateNotes(value);
+    }
 
-        /// <inheritdoc/>
-        partial void OnNotesChanged(string value)
-        {
-            _focusNotesService.UpdateNotes(value);
-        }
+    public async Task InitializeAsync()
+    {
+        _focusService.FocusStateChanged += OnFocusStateChanged;
+        _notes = await _focusNotesService.GetStoredNotesAsync();
+        OnPropertyChanged(nameof(Notes));
+    }
 
-        public async Task InitializeAsync()
-        {
-            _focusService.FocusStateChanged += OnFocusStateChanged;
-            _notes = await _focusNotesService.GetStoredNotesAsync();
-            OnPropertyChanged(nameof(Notes));
-        }
+    public void Uninitialize()
+    {
+        _focusService.FocusStateChanged -= OnFocusStateChanged;
+    }
 
-        public void Uninitialize()
-        {
-            _focusService.FocusStateChanged -= OnFocusStateChanged;
-        }
+    public Task SaveNotesToStorageAsync()
+    {
+        return _focusNotesService.SaveNotesToStorageAsync();
+    }
 
-        public Task SaveNotesToStorageAsync()
-        {
-            return _focusNotesService.SaveNotesToStorageAsync();
-        }
-
-        private void OnFocusStateChanged(object sender, FocusState e)
+    private void OnFocusStateChanged(object sender, FocusState e)
+    {
+        _dispatcherQueue.TryEnqueue(() =>
         {
             OnPropertyChanged(nameof(TaskModuleVisible));
-        }
+        });
     }
 }

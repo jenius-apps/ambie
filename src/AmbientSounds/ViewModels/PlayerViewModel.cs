@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -14,14 +15,20 @@ namespace AmbientSounds.ViewModels
     {
         private readonly IMixMediaPlayerService _player;
         private readonly IUserSettings _userSettings;
+        private readonly IDispatcherQueue _dispatcherQueue;
 
-        public PlayerViewModel(IMixMediaPlayerService player, IUserSettings userSettings)
+        public PlayerViewModel(
+            IMixMediaPlayerService player,
+            IUserSettings userSettings,
+            IDispatcherQueue dispatcherQueue)
         {
-            Guard.IsNotNull(player, nameof(player));
-            Guard.IsNotNull(userSettings, nameof(userSettings));
+            Guard.IsNotNull(player);
+            Guard.IsNotNull(userSettings);
+            Guard.IsNotNull(dispatcherQueue);
 
             _player = player;
             _userSettings = userSettings;
+            _dispatcherQueue = dispatcherQueue;
 
             Volume = userSettings.Get<double>(UserSettingsConstants.Volume);
         }
@@ -78,7 +85,7 @@ namespace AmbientSounds.ViewModels
 
         private void PlaybackStateChanged(object sender, MediaPlaybackState state)
         {
-            UpdatePlayState();
+            _dispatcherQueue.TryEnqueue(UpdatePlayState);
         }
 
         public void Initialize()

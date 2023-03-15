@@ -51,7 +51,7 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _focusDotVisible;
 
     [ObservableProperty]
-    private bool _titleBarVisible;
+    private bool _titleBarVisible = true;
 
     [ObservableProperty]
     private int _navMenuIndex = -1;
@@ -144,6 +144,8 @@ public partial class ShellPageViewModel : ObservableObject
         if (HandleNavigationRequest(pageType) is true)
         {
             _navigator.NavigateTo(pageType);
+            UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
         }
     }
 
@@ -178,7 +180,7 @@ public partial class ShellPageViewModel : ObservableObject
         _navigator.ToScreensaver();
     }
 
-    public async Task InitializeAsync(ShellPageNavigationArgs? args = null)
+    public async Task InitializeAsync()
     {
         _iapService.ProductPurchased += OnProductPurchased;
         _userSettings.SettingSet += OnSettingSet;
@@ -187,11 +189,6 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService.ShareFailed += OnShareFailed;
 
         await LoadPremiumButtonAsync();
-
-        if (args is not null)
-        {
-            TitleBarVisible = !args.IsGameBarWidget;
-        }
     }
 
     private void OnShareFailed(object sender, EventArgs e)
@@ -252,18 +249,14 @@ public partial class ShellPageViewModel : ObservableObject
             changesMade = true;
         }
 
-        if (changesMade)
-        {
-            UpdateTimeBannerVisibility();
-            UpdateFocusDotVisibility();
-        }
-
         return changesMade;
     }
 
     private void OnContentPageChanged(object sender, ContentPageType e)
     {
         HandleNavigationRequest(e);
+        UpdateTimeBannerVisibility();
+        UpdateFocusDotVisibility();
     }
 
     public void Dispose()
@@ -277,7 +270,11 @@ public partial class ShellPageViewModel : ObservableObject
 
     private async Task LoadPremiumButtonAsync()
     {
-        PremiumButtonVisible = !await _iapService.IsOwnedAsync(IapConstants.MsStoreAmbiePlusId);
+        PremiumButtonVisible = !await _iapService.IsAnyOwnedAsync(new string[] 
+        {
+            IapConstants.MsStoreAmbiePlusId,
+            IapConstants.MsStoreAmbiePlusLifetimeId
+        });
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)
@@ -299,7 +296,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnProductPurchased(object sender, string iapId)
     {
-        if (iapId == IapConstants.MsStoreAmbiePlusId)
+        if (iapId is IapConstants.MsStoreAmbiePlusId 
+            or IapConstants.MsStoreAmbiePlusLifetimeId)
         {
             PremiumButtonVisible = false;
         }
@@ -307,8 +305,11 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnFocusStateChanged(object sender, FocusState e)
     {
-        UpdateTimeBannerVisibility();
-        UpdateFocusDotVisibility();
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            UpdateTimeBannerVisibility();
+            UpdateFocusDotVisibility();
+        });
     }
 
     private void UpdateTimeBannerVisibility()
