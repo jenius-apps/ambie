@@ -67,7 +67,7 @@ namespace AmbientSounds.ViewModels
 
         public bool OpenTaskListVisible => Tasks.Count > 0;
 
-        public bool CanAddMoreTasks => Tasks.Count < 5;
+        public bool CanAddMoreTasks => Tasks.Count < 10;
 
         public async Task InitializeAsync()
         {
