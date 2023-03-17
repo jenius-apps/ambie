@@ -12,4 +12,11 @@ public interface IAssetLocalizer
     /// <param name="asset">The asset whose name to extract.</param>
     /// <returns>Localized name of the asset.</returns>
     string GetLocalName(IAsset asset);
+
+    /// <summary>
+    /// Extracts localized description from the given asset.
+    /// </summary>
+    /// <param name="asset">The asset whose description to extract.</param>
+    /// <returns>Localized description of the asset.</returns>
+    string GetDescription(IAsset asset);
 }

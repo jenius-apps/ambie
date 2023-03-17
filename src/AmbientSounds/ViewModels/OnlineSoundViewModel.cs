@@ -170,6 +170,11 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// </summary>
     public string Name => _assetLocalizer.GetLocalName(_sound);
 
+    /// <summary>
+    /// Localized description of sound.
+    /// </summary>
+    public string Description => _assetLocalizer.GetDescription(_sound);
+
     public string ColourHex => _sound.ColourHex;
 
     /// <summary>

@@ -5,10 +5,49 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Meditation guides" />
+        <toolkit:ListDetailsView
+            BackButtonBehavior="Inline"
+            Background="Transparent"
+            CompactModeThresholdWidth="720"
+            ItemsSource="{x:Bind ViewModel.Guides}"
+            ListPaneWidth="500"
+            NoSelectionContent="Get started by selecting a guide">
+            <toolkit:ListDetailsView.ItemTemplate>
+                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                    <Grid Margin="0,8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border CornerRadius="4">
+                            <Image
+                                Height="80"
+                                Source="{x:Bind ImagePath}"
+                                Stretch="UniformToFill" />
+                        </Border>
+                        <StackPanel Grid.Column="1" Margin="8,0,0,0">
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                FontSize="16"
+                                FontWeight="SemiBold"
+                                Text="{x:Bind Name}"
+                                TextTrimming="CharacterEllipsis" />
+                            <TextBlock
+                                MaxLines="2"
+                                Text="{x:Bind Description}"
+                                TextTrimming="CharacterEllipsis"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+
+            </toolkit:ListDetailsView.ItemTemplate>
+        </toolkit:ListDetailsView>
     </Grid>
 </Page>

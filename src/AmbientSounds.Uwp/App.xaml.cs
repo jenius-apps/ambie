@@ -415,6 +415,7 @@ sealed partial class App : Application
             .AddSingleton<ScreensaverPageViewModel>()
             .AddSingleton<SettingsViewModel>()
             .AddSingleton<CataloguePageViewModel>()
+            .AddSingleton<MeditatePageViewModel>()
             .AddSingleton<FocusTaskModuleViewModel>()
             .AddSingleton<PremiumControlViewModel>()
             .AddSingleton<FocusTimerModuleViewModel>()
