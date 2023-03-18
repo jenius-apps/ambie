@@ -64,6 +64,24 @@ namespace AmbientSounds.Controls
             }
         }
 
+        public static void ScaleUpBorder(object sender, PointerRoutedEventArgs e)
+        {
+            if (sender is UIElement parent)
+            {
+                Border element = parent.FindControl<Border>("ImageBorder");
+                GridScaleUp(element, e);
+            }
+        }
+
+        public static void ScaleNormalBorder(object sender, PointerRoutedEventArgs e)
+        {
+            if (sender is UIElement parent)
+            {
+                Border element = parent.FindControl<Border>("ImageBorder");
+                GridScaleNormal(element, e);
+            }
+        }
+
         public static T FindControl<T>(this UIElement parent, string ControlName) where T : FrameworkElement
         {
             // Source: https://stackoverflow.com/a/58091583/10953422
