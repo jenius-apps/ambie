@@ -11,43 +11,40 @@
     mc:Ignorable="d">
 
     <Grid>
-        <toolkit:ListDetailsView
-            BackButtonBehavior="Inline"
-            Background="Transparent"
-            CompactModeThresholdWidth="720"
+        <toolkit:AdaptiveGridView
+            Padding="0,0,14,0"
+            DesiredWidth="400"
+            IsItemClickEnabled="True"
             ItemsSource="{x:Bind ViewModel.Guides}"
-            ListPaneWidth="500"
-            NoSelectionContent="Get started by selecting a guide">
-            <toolkit:ListDetailsView.ItemTemplate>
+            SelectionMode="None"
+            StretchContentForSingleRow="False">
+            <toolkit:AdaptiveGridView.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
-                    <Grid Margin="0,8">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Border CornerRadius="4">
-                            <Image
-                                Height="80"
-                                Source="{x:Bind ImagePath}"
-                                Stretch="UniformToFill" />
+                    <StackPanel Padding="0,20">
+                        <Border
+                            Width="300"
+                            Height="200"
+                            CornerRadius="8">
+                            <toolkit:ImageEx Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
                         </Border>
-                        <StackPanel Grid.Column="1" Margin="8,0,0,0">
-                            <TextBlock
-                                Margin="0,8,0,0"
-                                FontSize="16"
-                                FontWeight="SemiBold"
-                                Text="{x:Bind Name}"
-                                TextTrimming="CharacterEllipsis" />
-                            <TextBlock
-                                MaxLines="2"
-                                Text="{x:Bind Description}"
-                                TextTrimming="CharacterEllipsis"
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                    </Grid>
+                        <TextBlock
+                            Margin="0,12,0,0"
+                            FontWeight="SemiBold"
+                            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                            Text="{x:Bind Name}"
+                            TextAlignment="Center"
+                            TextTrimming="CharacterEllipsis" />
+                        <TextBlock
+                            MaxWidth="300"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            MaxLines="2"
+                            Text="{x:Bind Description}"
+                            TextAlignment="Center"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="WrapWholeWords" />
+                    </StackPanel>
                 </DataTemplate>
-
-            </toolkit:ListDetailsView.ItemTemplate>
-        </toolkit:ListDetailsView>
+            </toolkit:AdaptiveGridView.ItemTemplate>
+        </toolkit:AdaptiveGridView>
     </Grid>
 </Page>
