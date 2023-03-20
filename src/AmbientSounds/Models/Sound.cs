@@ -16,6 +16,12 @@ public class Sound : IAsset
     public string Id { get; set; } = "";
 
     /// <summary>
+    /// Used to differentiate what type of sound this object is.
+    /// E.g. Guide, Sound, etc.
+    /// </summary>
+    public string Type { get; set; } = string.Empty;
+
+    /// <summary>
     /// Path to image file.
     /// </summary>
     public string ImagePath { get; set; } = "";

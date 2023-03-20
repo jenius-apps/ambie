@@ -236,7 +236,7 @@ public partial class SoundViewModel : ObservableObject
                 bool stillFree;
                 try
                 {
-                    var items = await _onlineSoundRepo.GetOnlineSoundsAsync(
+                    var items = await _onlineSoundRepo.GetOnlineSoundsAsync<Sound>(
                         new string[] { _sound.Id },
                         IapConstants.MsStoreFreeRotationId);
                     stillFree = items.Any(x => x.Value is not null);

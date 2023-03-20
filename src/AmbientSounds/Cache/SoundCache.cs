@@ -86,7 +86,7 @@ public class SoundCache : ISoundCache
 
         if (notCachedSoundIds.Count > 0)
         {
-            IReadOnlyDictionary<string, Sound?> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync(
+            IReadOnlyDictionary<string, Sound?> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync<Sound>(
                 notCachedSoundIds.Keys.ToArray());
             
             foreach (KeyValuePair<string, Sound?> s in sounds)

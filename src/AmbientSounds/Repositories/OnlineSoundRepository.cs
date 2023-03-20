@@ -63,13 +63,25 @@ public class OnlineSoundRepository : IOnlineSoundRepository
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyDictionary<string, Sound?>> GetOnlineSoundsAsync(
+    public async Task<IReadOnlyDictionary<string, T?>> GetOnlineSoundsAsync<T>(
         IReadOnlyList<string> soundIds,
-        string? iapId = null)
+        string? iapId = null) where T : Sound
     {
         if (soundIds.Count == 0)
         {
-            return new Dictionary<string, Sound?>();
+            return new Dictionary<string, T?>();
+        }
+
+        string? endpoint = typeof(T).Name switch
+        {
+            nameof(Sound) => "sounds",
+            nameof(Guide) => "guides",
+            _ => null
+        };
+
+        if (endpoint is null)
+        {
+            return new Dictionary<string, T?>();
         }
 
         var url = _url + $"/sounds?{string.Join("&", soundIds.Select(x => "ids=" + x))}";
@@ -78,16 +90,16 @@ public class OnlineSoundRepository : IOnlineSoundRepository
             url += $"&iapId={iapId}";
         }
 
-        var dict = new Dictionary<string, Sound?>();
+        var dict = new Dictionary<string, T?>();
         foreach (var id in soundIds)
         {
-            dict.Add(id, null);
+            dict.Add(id, default);
         }
 
         try
         {
             using Stream result = await _client.GetStreamAsync(url);
-            var results = await JsonSerializer.DeserializeAsync(result, AmbieJsonSerializerContext.CaseInsensitive.SoundArray);
+            var results = await JsonSerializer.DeserializeAsync<T[]>(result, AmbieJsonSerializerContext.CaseInsensitive.Options);
             if (results is not null)
             {
                 foreach (var s in results)
