@@ -58,23 +58,23 @@ public class SoundCache : ISoundCache
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(IReadOnlyList<string> soundIds)
+    public async Task<IReadOnlyList<T>> GetOnlineSoundsAsync<T>(IReadOnlyList<string> soundIds) where T : Sound
     {
         if (soundIds.Count == 0)
         {
-            return Array.Empty<Sound>();
+            return Array.Empty<T>();
         }
 
-        Sound?[] orderedResults = new Sound?[soundIds.Count];
+        T?[] orderedResults = new T?[soundIds.Count];
         var notCachedSoundIds = new Dictionary<string, int>();
         await _onlineSoundsLock.WaitAsync();
 
         int index = 0;
         foreach (var id in soundIds)
         {
-            if (_online.TryGetValue(id, out Sound? sound))
+            if (_online.TryGetValue(id, out var sound) && sound is T s)
             {
-                orderedResults[index] = sound;
+                orderedResults[index] = s;
             }
             else
             {
@@ -86,10 +86,10 @@ public class SoundCache : ISoundCache
 
         if (notCachedSoundIds.Count > 0)
         {
-            IReadOnlyDictionary<string, Sound?> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync<Sound>(
+            IReadOnlyDictionary<string, T?> sounds = await _onlineSoundRepo.GetOnlineSoundsAsync<T>(
                 notCachedSoundIds.Keys.ToArray());
             
-            foreach (KeyValuePair<string, Sound?> s in sounds)
+            foreach (KeyValuePair<string, T?> s in sounds)
             {
                 // Update cache so we don't fetch this again in the future.
                 _online[s.Key] = s.Value;
@@ -104,9 +104,9 @@ public class SoundCache : ISoundCache
         return RemoveNullsFrom(orderedResults);
     }
 
-    private static List<Sound> RemoveNullsFrom(IEnumerable<Sound?> sounds)
+    private static List<T> RemoveNullsFrom<T>(IEnumerable<T?> sounds)
     {
-        var list = new List<Sound>();
+        var list = new List<T>();
         foreach (var s in sounds)
         {
             if (s is not null)

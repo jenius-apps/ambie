@@ -33,7 +33,7 @@ public class CatalogueService : ICatalogueService
     /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetSoundsAsync(IReadOnlyList<string> soundIds)
     {
-        var onlineSoundsTask = _soundCache.GetOnlineSoundsAsync(soundIds);
+        var onlineSoundsTask = _soundCache.GetOnlineSoundsAsync<Sound>(soundIds);
         var preinstalled = await _soundCache.GetPreinstalledSoundsAsync();
         var result = new List<Sound>(preinstalled.Where(x => soundIds.Contains(x.Id)));
         result.AddRange(await onlineSoundsTask);

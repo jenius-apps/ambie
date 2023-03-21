@@ -14,5 +14,5 @@ public interface ISoundCache
     Task<Sound?> GetInstalledSoundAsync(string stringId);
     Task SaveCacheAsync();
     Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync();
-    Task<IReadOnlyList<Sound>> GetOnlineSoundsAsync(IReadOnlyList<string> soundIds);
+    Task<IReadOnlyList<T>> GetOnlineSoundsAsync<T>(IReadOnlyList<string> soundIds) where T : Sound;
 }
