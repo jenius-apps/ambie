@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Factories;
+using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,17 @@ namespace AmbientSounds.ViewModels;
 
 public partial class MeditatePageViewModel : ObservableObject
 {
-    private readonly ISoundCache _soundCache;
+    private readonly IPageCache _pageCache;
+    private readonly IGuideService _guideService;
     private readonly ISoundVmFactory _soundVmFactory;
 
     public MeditatePageViewModel(
-        ISoundCache soundCache,
+        IPageCache pageCache,
+        IGuideService guideService,
         ISoundVmFactory soundVmFactory)
     {
-        _soundCache = soundCache;
+        _pageCache = pageCache;
+        _guideService = guideService;
         _soundVmFactory = soundVmFactory;
     }
 
@@ -26,8 +30,9 @@ public partial class MeditatePageViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
-        var sounds = await _soundCache.GetOnlineSoundsAsync();
-        foreach (var s in sounds)
+        var guideIds = await _pageCache.GetGuidePageAsync();
+        var guides = await _guideService.GetGuidesAsync(guideIds);
+        foreach (var s in guides)
         {
             var vm = _soundVmFactory.GetOnlineSoundVm(s);
             // TODO initialize vm

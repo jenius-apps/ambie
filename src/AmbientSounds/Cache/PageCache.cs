@@ -32,4 +32,18 @@ public class PageCache : IPageCache
         _catalogueRowCacheLock.Release();
         return _catalogueRowsCache;
     }
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<string>> GetGuidePageAsync()
+    {
+        await Task.Delay(1);
+        return new string[]
+        {
+            "582f9db1-efdc-4276-8cee-99c8a33ae125",
+            "b1fb26ca-ba24-4beb-abc8-530b510ca0db",
+            "43e66adc-4762-47a7-9b08-5c3e96bde0ab",
+            "3b0ed907-5e93-405d-8059-eca1ceba0573",
+            "5bac41f6-3c00-4250-b5d5-2e115409cb6e"
+        };
+    }
 }

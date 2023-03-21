@@ -14,4 +14,10 @@ public interface IPageCache
     /// </summary>
     /// <returns>List of catalogue rows that define the page.</returns>
     Task<IReadOnlyList<CatalogueRow>> GetCatalogueRowsAsync();
+
+    /// <summary>
+    /// Retrieves list of guide IDs to be displayed on the guide page.
+    /// </summary>
+    /// <returns>List of guide IDs for the guide page.</returns>
+    Task<IReadOnlyList<string>> GetGuidePageAsync();
 }

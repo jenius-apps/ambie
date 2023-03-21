@@ -457,6 +457,7 @@ sealed partial class App : Application
             .AddSingleton<ISoundVmFactory, SoundVmFactory>()
             .AddSingleton<CatalogueRowVmFactory>()
             .AddSingleton<ICatalogueService, CatalogueService>()
+            .AddSingleton<IGuideService, GuideService>()
             .AddSingleton<IVideoService, VideoService>()
             .AddSingleton<IFocusTaskCache, FocusTaskCache>()
             .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
