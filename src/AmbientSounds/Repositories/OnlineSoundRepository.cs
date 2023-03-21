@@ -84,7 +84,7 @@ public class OnlineSoundRepository : IOnlineSoundRepository
             return new Dictionary<string, T?>();
         }
 
-        var url = _url + $"/sounds?{string.Join("&", soundIds.Select(x => "ids=" + x))}";
+        var url = _url + $"/{endpoint}?{string.Join("&", soundIds.Select(x => "ids=" + x))}";
         if (!string.IsNullOrEmpty(iapId))
         {
             url += $"&iapId={iapId}";
