@@ -1,9 +1,11 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
+using CommunityToolkit.Mvvm.Input;
 using Humanizer;
 using Humanizer.Localisation;
 using JeniusApps.Common.Tools;
 using System;
+using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
 
@@ -44,4 +46,10 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
     public string Minutes { get; }
 
     public string PreviewText { get; }
+
+    [RelayCommand]
+    private async Task OpenDetailsAsync()
+    {
+        await _dialogService.OpenGuideDetailsAsync(this);
+    }
 }
