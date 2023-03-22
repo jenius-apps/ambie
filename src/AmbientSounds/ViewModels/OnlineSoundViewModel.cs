@@ -16,17 +16,17 @@ namespace AmbientSounds.ViewModels;
 public partial class OnlineSoundViewModel : ObservableObject
 {
     private readonly SemaphoreSlim _loadingLock = new(1, 1);
-    private readonly Sound _sound;
-    private readonly IDownloadManager _downloadManager;
-    private readonly ISoundService _soundService;
-    private readonly ITelemetry _telemetry;
-    private readonly IIapService _iapService;
-    private readonly IPreviewService _previewService;
-    private readonly IDialogService _dialogService;
-    private readonly IAssetLocalizer _assetLocalizer;
-    private readonly IMixMediaPlayerService _mixMediaPlayerService;
-    private readonly IUpdateService _updateService;
-    private readonly ILocalizer _localizer;
+    protected readonly Sound _sound;
+    protected readonly IDownloadManager _downloadManager;
+    protected readonly ISoundService _soundService;
+    protected readonly ITelemetry _telemetry;
+    protected readonly IIapService _iapService;
+    protected readonly IPreviewService _previewService;
+    protected readonly IDialogService _dialogService;
+    protected readonly IAssetLocalizer _assetLocalizer;
+    protected readonly IMixMediaPlayerService _mixMediaPlayerService;
+    protected readonly IUpdateService _updateService;
+    protected readonly ILocalizer _localizer;
     private Progress<double> _downloadProgress;
     private bool _loading;
     private bool _initialized;

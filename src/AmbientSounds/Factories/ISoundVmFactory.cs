@@ -30,5 +30,11 @@ namespace AmbientSounds.Factories
         /// <param name="removeCommand">A command that removes the active track from the active track list.</param>
         /// <returns>An active track viewmodel.</returns>
         ActiveTrackViewModel GetActiveTrackVm(Sound s, IRelayCommand<Sound> removeCommand);
+
+        /// <summary>
+        /// Creates new online guide viewmodel.
+        /// </summary>
+        /// <param name="g">The guide object to use.</param>
+        OnlineGuideViewModel GetOnlineGuideVm(Guide g);
     }
 }

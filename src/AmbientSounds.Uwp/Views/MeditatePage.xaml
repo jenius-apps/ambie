@@ -20,7 +20,7 @@
             SelectionMode="None"
             StretchContentForSingleRow="False">
             <toolkit:AdaptiveGridView.ItemTemplate>
-                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                <DataTemplate x:DataType="vm:OnlineGuideViewModel">
                     <StackPanel
                         Padding="0,20"
                         PointerEntered="{x:Bind controls:UIHelper.ScaleUpBorder}"
@@ -50,7 +50,7 @@
                             MaxWidth="300"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             MaxLines="2"
-                            Text="{x:Bind Description}"
+                            Text="{x:Bind PreviewText}"
                             TextAlignment="Center"
                             TextTrimming="CharacterEllipsis"
                             TextWrapping="WrapWholeWords" />

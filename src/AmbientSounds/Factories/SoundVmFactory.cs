@@ -54,6 +54,25 @@ namespace AmbientSounds.Factories
         }
 
         /// <inheritdoc/>
+        public OnlineGuideViewModel GetOnlineGuideVm(Guide g)
+        {
+            var newVm = new OnlineGuideViewModel(
+                g,
+                _serviceProvider.GetRequiredService<IDownloadManager>(),
+                _serviceProvider.GetRequiredService<ISoundService>(),
+                _serviceProvider.GetRequiredService<ITelemetry>(),
+                _serviceProvider.GetRequiredService<IPreviewService>(),
+                _serviceProvider.GetRequiredService<IIapService>(),
+                _serviceProvider.GetRequiredService<IDialogService>(),
+                _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+                _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
+                _serviceProvider.GetRequiredService<IUpdateService>(),
+                _serviceProvider.GetRequiredService<ILocalizer>());
+
+            return newVm;
+        }
+
+        /// <inheritdoc/>
         public SoundViewModel GetSoundVm(Sound s)
         {
             Guard.IsNotNull(s, nameof(s));

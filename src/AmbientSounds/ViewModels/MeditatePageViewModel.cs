@@ -2,10 +2,7 @@
 using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -26,7 +23,7 @@ public partial class MeditatePageViewModel : ObservableObject
         _soundVmFactory = soundVmFactory;
     }
 
-    public ObservableCollection<OnlineSoundViewModel> Guides { get; } = new();
+    public ObservableCollection<OnlineGuideViewModel> Guides { get; } = new();
 
     public async Task InitializeAsync()
     {
@@ -34,7 +31,7 @@ public partial class MeditatePageViewModel : ObservableObject
         var guides = await _guideService.GetGuidesAsync(guideIds);
         foreach (var s in guides)
         {
-            var vm = _soundVmFactory.GetOnlineSoundVm(s);
+            var vm = _soundVmFactory.GetOnlineGuideVm(s);
             // TODO initialize vm
             Guides.Add(vm);
         }
@@ -42,6 +39,11 @@ public partial class MeditatePageViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        foreach (var g in Guides)
+        {
+            g.Dispose();
+        }
+
         Guides.Clear();
     }
 }
