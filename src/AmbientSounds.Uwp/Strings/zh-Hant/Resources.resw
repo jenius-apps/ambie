@@ -1,0 +1,754 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>關閉 Ambie Mini</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>關閉 Ambie Mini</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Copyright.Text" xml:space="preserve">
+    <value>版權所有</value>
+  </data>
+  <data name="CopyrightJeniusApps.Text" xml:space="preserve">
+    <value>版權所有 Jenius Apps</value>
+  </data>
+  <data name="HelloFromVancouver.Text" xml:space="preserve">
+    <value>來自溫哥華的問候</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value>查閱 App 資料</value>
+  </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value>查閱更多選項</value>
+  </data>
+  <data name="CompactMode" xml:space="preserve">
+    <value>Ambie Mini</value>
+  </data>
+  <data name="MoreButtonContact.Label" xml:space="preserve">
+    <value>聯絡開發者</value>
+  </data>
+  <data name="RateUsText" xml:space="preserve">
+    <value>評價我們</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="MoreButtonShare.Label" xml:space="preserve">
+    <value>分享 Ambie 的連結</value>
+  </data>
+  <data name="MoreButtonTranslate.Label" xml:space="preserve">
+    <value>新增或改善翻譯</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>關</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>開</value>
+  </data>
+  <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>暫停計時器</value>
+  </data>
+  <data name="PlayerPauseText" xml:space="preserve">
+    <value>暫停</value>
+  </data>
+  <data name="PlayerPlayText" xml:space="preserve">
+    <value>播放</value>
+  </data>
+  <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>繼續計時器</value>
+  </data>
+  <data name="ReadyToPlayText" xml:space="preserve">
+    <value>可以播放</value>
+  </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>診斷資料</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>查閱睡眠計時器選項</value>
+  </data>
+  <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>查閱睡眠計時器選項</value>
+  </data>
+  <data name="Soundbeach" xml:space="preserve">
+    <value>海灘</value>
+  </data>
+  <data name="Soundbirds" xml:space="preserve">
+    <value>鳥啼</value>
+  </data>
+  <data name="Soundcitystreet" xml:space="preserve">
+    <value>城鎮街道</value>
+  </data>
+  <data name="Soundcoffeeshop" xml:space="preserve">
+    <value>咖啡廳</value>
+  </data>
+  <data name="Soundcreek" xml:space="preserve">
+    <value>溪流</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
+    <value>壁爐</value>
+  </data>
+  <data name="Soundrain" xml:space="preserve">
+    <value>雨天</value>
+  </data>
+  <data name="Soundrainforest" xml:space="preserve">
+    <value>雨林</value>
+  </data>
+  <data name="Soundunderwater" xml:space="preserve">
+    <value>水底</value>
+  </data>
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>瀑布</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
+    <value>白噪音</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value>讀取音效中</value>
+  </data>
+  <data name="SoundUnplayable" xml:space="preserve">
+    <value>無法播放音效</value>
+  </data>
+  <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
+    <value>停止計時器並清空計時</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value>主音量</value>
+  </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>音效音量</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>主題</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>淡色</value>
+  </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>吸塵器</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>雷鳴</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>新音效通知</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>風聲</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>已下載</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>返回</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>可供下載</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>下載音效</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>下載音效</value>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>音效類別</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>音效</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>私隱政策</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>私隱政策</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>刪除音效</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>刪除音效</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>隨機播放音效</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>隨機播放音效</value>
+  </data>
+  <data name="ScreensaverMode" xml:space="preserve">
+    <value>螢幕保護模式</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>螢幕保護</value>
+  </data>
+  <data name="BuyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>購買音效</value>
+  </data>
+  <data name="PreviewButton.AutomationProperties.Name" xml:space="preserve">
+    <value>預覽音效</value>
+  </data>
+  <data name="PreviewButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>預覽音效</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>已暫停</value>
+    <comment>Sound is paused</comment>
+  </data>
+  <data name="Playing" xml:space="preserve">
+    <value>正在播放</value>
+    <comment>Sound is playing</comment>
+  </data>
+  <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
+    <value>播放中的音效</value>
+  </data>
+  <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>清除所有播放中的音效</value>
+  </data>
+  <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>清除所有播放中的音效</value>
+  </data>
+  <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
+    <value>確認儲存</value>
+  </data>
+  <data name="GlobalVolume" xml:space="preserve">
+    <value>主音量</value>
+  </data>
+  <data name="NameInputBox.Header" xml:space="preserve">
+    <value>混音名稱</value>
+  </data>
+  <data name="NameInputBox.PlaceholderText" xml:space="preserve">
+    <value>選擇性</value>
+  </data>
+  <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
+    <value>儲存自定混音</value>
+  </data>
+  <data name="SaveMixButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>儲存自定混音(Ctrl+S)</value>
+  </data>
+  <data name="CancelText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="RenameText" xml:space="preserve">
+    <value>重新命名</value>
+  </data>
+  <data name="RenameAppBarButton.Label" xml:space="preserve">
+    <value>重新命名</value>
+  </data>
+  <data name="SignOutAppBarButton.Label" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="SignInDescriptionText" xml:space="preserve">
+    <value>登入以跨裝置同步音效</value>
+  </data>
+  <data name="AccountOptionsButton.AutomationProperties.Name" xml:space="preserve">
+    <value>查閱帳戶選項</value>
+  </data>
+  <data name="AccountOptionsButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>查閱帳戶選項</value>
+  </data>
+  <data name="SignInButton.AutomationProperties.Name" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="SignInButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="SyncAppBarButton.Label" xml:space="preserve">
+    <value>同步</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>出處</value>
+  </data>
+  <data name="BrowseText" xml:space="preserve">
+    <value>瀏覽</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="NewSound" xml:space="preserve">
+    <value>新增音效</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>重新整理</value>
+    <comment>Text for a button that will refresh a list with new data</comment>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>是否確定？</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Optional" xml:space="preserve">
+    <value>選擇性</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>必須</value>
+  </data>
+  <data name="Donate" xml:space="preserve">
+    <value>捐贈</value>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>使用條款</value>
+  </data>
+  <data name="FollowTwitter" xml:space="preserve">
+    <value>在 Twitter 上追蹤我們</value>
+  </data>
+  <data name="Dismiss" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="FirstLaunchMessage" xml:space="preserve">
+    <value>感謝使用 Ambie。試試將 Ambie 釘選在工作列上，可以獲得最佳的使用體驗喔！請慢慢享受放鬆的時刻 🏝</value>
+  </data>
+  <data name="HelloAndWelcome" xml:space="preserve">
+    <value>你好，歡迎使用！</value>
+  </data>
+  <data name="PinToTaskbar" xml:space="preserve">
+    <value>釘選到工作列</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>預覽</value>
+  </data>
+  <data name="Catalogue" xml:space="preserve">
+    <value>目錄</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>主頁</value>
+  </data>
+  <data name="SelectSoundsPlaceholder" xml:space="preserve">
+    <value>選擇至多 3 個音效進行混音</value>
+  </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>從播放清單中移除 {0}</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
+  <data name="ThemeSettings" xml:space="preserve">
+    <value>主題設定</value>
+  </data>
+  <data name="PricePerMonth" xml:space="preserve">
+    <value>每月 {0} </value>
+    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+  </data>
+  <data name="ThankYouForSub" xml:space="preserve">
+    <value>感謝您訂閱！</value>
+    <comment>Thank you message shown after user purchases a subscription.</comment>
+  </data>
+  <data name="SubscriptionText1" xml:space="preserve">
+    <value>享用高級優質音效</value>
+  </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>下載螢幕保護影片</value>
+  </data>
+  <data name="SubscriptionText3" xml:space="preserve">
+    <value>支持開發</value>
+  </data>
+  <data name="HelloAgain" xml:space="preserve">
+    <value>嗨！又見面了！👋🏽</value>
+  </data>
+  <data name="RateUsMessage" xml:space="preserve">
+    <value>喜歡 Ambie 嗎？請考慮為我們評分！</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>開啟 Ambie 時自動恢復播放</value>
+  </data>
+  <data name="DownloadText" xml:space="preserve">
+    <value>下載</value>
+  </data>
+  <data name="MissingSoundsMessage" xml:space="preserve">
+    <value>我們須要下載一些音效才能播放此內容。請在下載後重新播放。開始下載嗎？</value>
+  </data>
+  <data name="MissingSoundsTitle" xml:space="preserve">
+    <value>缺乏音效</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>預設</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="SizeMegaByte" xml:space="preserve">
+    <value>{0} MB</value>
+  </data>
+  <data name="MoreScreensavers" xml:space="preserve">
+    <value>更多螢幕保護</value>
+  </data>
+  <data name="ScreensaverCatalogue" xml:space="preserve">
+    <value>螢幕保護目錄</value>
+  </data>
+  <data name="ViewPremiumInfo" xml:space="preserve">
+    <value>查閱高級資料</value>
+  </data>
+  <data name="ComputeShader.Clouds" xml:space="preserve">
+    <value>雲層</value>
+  </data>
+  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
+    <value>幻彩煙霧</value>
+  </data>
+  <data name="ComputeShader.Octagrams" xml:space="preserve">
+    <value>八角星</value>
+  </data>
+  <data name="RenderingErrorInfo.Message" xml:space="preserve">
+    <value>顯示螢幕保護程式時遇到問題。請嘗試重新啟動 Ambie，如果問題持續，請聯絡我們。</value>
+  </data>
+  <data name="RenderingErrorLink.Content" xml:space="preserve">
+    <value>回報問題</value>
+  </data>
+  <data name="RenderingErrorInfo.Title" xml:space="preserve">
+    <value>渲染錯誤</value>
+  </data>
+  <data name="ToggleFullscreen" xml:space="preserve">
+    <value>全螢幕</value>
+  </data>
+  <data name="GetAmbiePlus" xml:space="preserve">
+    <value>取得 Ambie+</value>
+  </data>
+  <data name="FocusText" xml:space="preserve">
+    <value>集中</value>
+  </data>
+  <data name="PauseTimer" xml:space="preserve">
+    <value>暫停計時器</value>
+  </data>
+  <data name="StartTimer" xml:space="preserve">
+    <value>開始計時器</value>
+  </data>
+  <data name="FocusSessionCompleteMessage" xml:space="preserve">
+    <value>不錯！</value>
+  </data>
+  <data name="FocusSessionCompleteTitle" xml:space="preserve">
+    <value>集中任務完成</value>
+  </data>
+  <data name="FocusSessionFocusMessage" xml:space="preserve">
+    <value>該集中了</value>
+  </data>
+  <data name="FocusSessionRestMessage" xml:space="preserve">
+    <value>該休息了</value>
+  </data>
+  <data name="RestText" xml:space="preserve">
+    <value>休息</value>
+  </data>
+  <data name="FocusDotTooltip" xml:space="preserve">
+    <value>正在進行集中任務！</value>
+  </data>
+  <data name="SessionTypeFocus" xml:space="preserve">
+    <value>正在集中</value>
+  </data>
+  <data name="SessionTypeRest" xml:space="preserve">
+    <value>休息中</value>
+  </data>
+  <data name="Pause" xml:space="preserve">
+    <value>暫停</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="ResetTimer" xml:space="preserve">
+    <value>重置計時器</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>開始</value>
+  </data>
+  <data name="FocusLength" xml:space="preserve">
+    <value>集中時間（分鐘）</value>
+  </data>
+  <data name="FocusNotesPlaceholder" xml:space="preserve">
+    <value>你可以在這裡做筆記 🙂</value>
+  </data>
+  <data name="FocusPlanningHeader" xml:space="preserve">
+    <value>你的計劃是？</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>記事本</value>
+  </data>
+  <data name="RestLength" xml:space="preserve">
+    <value>休息時間（分鐘）</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>重覆次數</value>
+  </data>
+  <data name="FocusTimerHelpAction" xml:space="preserve">
+    <value>示範使用方法</value>
+  </data>
+  <data name="FocusTimerHelpMessage" xml:space="preserve">
+    <value>這是一個受蕃茄工作法啟發的間隔計時器。目標是長時間集中於一個任務，然後進行較短時間的休息。重覆此循環以保持集中！</value>
+  </data>
+  <data name="FocusTimerHelpTitle" xml:space="preserve">
+    <value>歡迎使用集中計時器</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>幫助</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>下一個</value>
+  </data>
+  <data name="TipFocusMessage" xml:space="preserve">
+    <value>每個循環都有一個集中時段和一個休息時段。請選擇每個集中時間的長度。作為開始，我們建議你設定為 25 分鐘！</value>
+  </data>
+  <data name="TipFocusTitle" xml:space="preserve">
+    <value>設定集中時間（分鐘）</value>
+  </data>
+  <data name="TipRepeatsMessage" xml:space="preserve">
+    <value>每個集中和休息循環都可以重覆幾次。試試新增 1 次重覆！</value>
+  </data>
+  <data name="TipRepeatsTitle" xml:space="preserve">
+    <value>設定重覆</value>
+  </data>
+  <data name="TipRestMessage" xml:space="preserve">
+    <value>現在選擇每個休息時段的長度。我們目前建議設定為 5 分鐘！</value>
+  </data>
+  <data name="TipRestTitle" xml:space="preserve">
+    <value>設定休息時間（分鐘）</value>
+  </data>
+  <data name="TipStartButtonMessage" xml:space="preserve">
+    <value>開始計時並進行你的任務。到了休息時間，我們會向你發送通知。加油吧！</value>
+  </data>
+  <data name="TipStartButtonTitle" xml:space="preserve">
+    <value>預們，開始！</value>
+  </data>
+  <data name="RecentFocusAccessibleName" xml:space="preserve">
+    <value>集中 {0} 分鐘，休息 {1} 分鐘，重覆 {2} 次。</value>
+  </data>
+  <data name="RecentFocusList" xml:space="preserve">
+    <value>最近的集中設定</value>
+  </data>
+  <data name="ZeroToMax" xml:space="preserve">
+    <value>0 到 {0}</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>記錄</value>
+  </data>
+  <data name="Interruptions" xml:space="preserve">
+    <value>中斷</value>
+  </data>
+  <data name="FocusHistoryPlaceholderText" xml:space="preserve">
+    <value>你最近的記錄將顯示於比</value>
+  </data>
+  <data name="LogInterruption" xml:space="preserve">
+    <value>記錄中斷</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="InterruptionMinutesTitle" xml:space="preserve">
+    <value>計時中斷</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>筆記</value>
+  </data>
+  <data name="InterruptionMinutesHelpMessage" xml:space="preserve">
+    <value>你是不是被什麼東西打斷了？在這裡記下您每一次中斷，以便你稍後在記錄中檢視。</value>
+  </data>
+  <data name="HistoryRecent" xml:space="preserve">
+    <value>最近的記錄</value>
+  </data>
+  <data name="RoundsCompleted" xml:space="preserve">
+    <value>已完成的循環</value>
+  </data>
+  <data name="ResultMessageFail1" xml:space="preserve">
+    <value>做得好</value>
+  </data>
+  <data name="ResultMessageSuccess1" xml:space="preserve">
+    <value>你太棒了</value>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Ambie</value>
+  </data>
+  <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
+    <value>新增集中任務，然後按開始</value>
+  </data>
+  <data name="TaskModuleTitle" xml:space="preserve">
+    <value>任務</value>
+  </data>
+  <data name="TaskModuleRecentCompleted" xml:space="preserve">
+    <value>最近已完成</value>
+  </data>
+  <data name="EditText" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="TasksCompleted" xml:space="preserve">
+    <value>已完成的任務</value>
+  </data>
+  <data name="Timer" xml:space="preserve">
+    <value>計時器</value>
+  </data>
+  <data name="TaskTitle" xml:space="preserve">
+    <value>任務 {0}</value>
+  </data>
+  <data name="FreeBadgeInfo" xml:space="preserve">
+    <value>本周免費！</value>
+  </data>
+  <data name="SettingsCompactMode" xml:space="preserve">
+    <value>集中時開啟 Ambie Mini</value>
+  </data>
+  <data name="DurationText" xml:space="preserve">
+    <value>長度</value>
+  </data>
+  <data name="EndTimeText" xml:space="preserve">
+    <value>結尾</value>
+  </data>
+  <data name="MiniText" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>打开 Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>使用 Ambie Mini，我們將縮小視窗並僅顯示必要項目以幫助你集中。</value>
+  </data>
+  <data name="PausesText" xml:space="preserve">
+    <value>暫停</value>
+  </data>
+  <data name="EmptyHomeMessage" xml:space="preserve">
+    <value>從目錄中下載音效</value>
+  </data>
+  <data name="EditHomePage" xml:space="preserve">
+    <value>編輯主頁</value>
+  </data>
+  <data name="EditHomePageMessage" xml:space="preserve">
+    <value>拖放音效以自訂主頁。 試試看！</value>
+  </data>
+  <data name="EmptyCatalogueMessage" xml:space="preserve">
+    <value>非常抱歉！我們無法讀取目錄。請檢查你的網絡。</value>
+  </data>
+  <data name="AboutAmbie" xml:space="preserve">
+    <value>關於 Ambie</value>
+  </data>
+  <data name="SettingsCompactModeDescription" xml:space="preserve">
+    <value>在集中時開啟 Ambie Mini</value>
+  </data>
+  <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
+    <value>當有新音效時，我們會通知你</value>
+  </data>
+  <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
+    <value>開啟 Ambie 時自動恢復播放</value>
+  </data>
+  <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
+    <value>回報當機及匿名化使用資料以助改善 Ambie</value>
+  </data>
+  <data name="BackgroundImage" xml:space="preserve">
+    <value>背景圖片</value>
+  </data>
+  <data name="CustomImage" xml:space="preserve">
+    <value>自訂圖片</value>
+  </data>
+  <data name="SettingsGeneralHeader" xml:space="preserve">
+    <value>一般設定</value>
+  </data>
+  <data name="SettingsTheme" xml:space="preserve">
+    <value>選擇主題</value>
+  </data>
+  <data name="SettingsThemeDescription" xml:space="preserve">
+    <value>更改 Ambie 中的顏色</value>
+  </data>
+  <data name="ShareMessage" xml:space="preserve">
+    <value>分享你正在收聽的音效</value>
+  </data>
+  <data name="MissingShareSoundsMessage" xml:space="preserve">
+    <value>試試看能不能下載缺少的音效。</value>
+  </data>
+  <data name="MissingShareSoundsTitle" xml:space="preserve">
+    <value>缺乏某些音效</value>
+  </data>
+  <data name="ReviewText" xml:space="preserve">
+    <value>評論</value>
+  </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="CopiedText" xml:space="preserve">
+    <value>已複製！</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="OrText" xml:space="preserve">
+    <value>或</value>
+  </data>
+  <data name="BuyDurableTooltip" xml:space="preserve">
+    <value>解鎖這個音效</value>
+  </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>終身 {0}</value>
+  </data>
+  <data name="CheckForUpdatesText" xml:space="preserve">
+    <value>檢查更新</value>
+  </data>
+  <data name="UpdatesPageMessage1" xml:space="preserve">
+    <value>在此查閱音效和影片的更新。</value>
+  </data>
+  <data name="UpdatesPageMessage2" xml:space="preserve">
+    <value>更新包括翻譯、音質等改良。</value>
+  </data>
+  <data name="UpdatesText" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>全部更新</value>
+  </data>
+  <data name="DataVersionColon" xml:space="preserve">
+    <value>數據版本：</value>
+  </data>
+  <data name="FileVersionColon" xml:space="preserve">
+    <value>檔案版本：</value>
+  </data>
+  <data name="UpdatesPlaceholderText" xml:space="preserve">
+    <value>已經是最新版本。一切就绪。</value>
+  </data>
+  <data name="UpdateReasonFile" xml:space="preserve">
+    <value>提升播放品質</value>
+  </data>
+  <data name="UpdateReasonMetaData" xml:space="preserve">
+    <value>改善翻譯及其他元資料</value>
+  </data>
+  <data name="UpdateReasonMetaDataAndFile" xml:space="preserve">
+    <value>提升播放品質，翻譯及其他元資料</value>
+  </data>
+  <data name="InterruptionInsightsMessage" xml:space="preserve">
+    <value>我们可以學到什麼來避免將來再受打斷？</value>
+  </data>
+  <data name="RecentInterruptionsText" xml:space="preserve">
+    <value>最近的的中斷</value>
+  </data>
+  <data name="InterruptionInsightsButtonText" xml:space="preserve">
+    <value>需要中斷方面的協助？</value>
+  </data>
+  <data name="SettingsOutputDevice" xml:space="preserve">
+    <value>輸出裝置</value>
+  </data>
+  <data name="SettingsOutputDeviceDescription" xml:space="preserve">
+    <value>選擇播放裝置</value>
+  </data>
+</root>
