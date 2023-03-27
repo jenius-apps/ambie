@@ -43,15 +43,6 @@ namespace AmbientSounds.Controls
             set => SetValue(IsCompactProperty, value);
         }
 
-        private async void OnControlKeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
-        {
-            if (e.Key is VirtualKey.Enter or VirtualKey.Space or VirtualKey.GamepadA)
-            {
-                e.Handled = true;
-                await ViewModel.PlayCommand.ExecuteAsync(null);
-            }
-        }
-
         private void BitmapImage_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
             if (sender is BitmapImage img)

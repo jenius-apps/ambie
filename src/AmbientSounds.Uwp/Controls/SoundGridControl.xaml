@@ -45,6 +45,8 @@
             AllowDrop="True"
             CanDragItems="True"
             CanReorderItems="True"
+            IsItemClickEnabled="True"
+            ItemClick="OnItemClick"
             ItemContainerStyle="{StaticResource RegularItemContainerStyle}"
             ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
             ItemsSource="{x:Bind ViewModel.Sounds}"
