@@ -183,6 +183,7 @@ sealed partial class App : Application
                 {
                     { "args", toastActivationArgs.Argument }
                 });
+            await ActivateAsync(false);
         }
         else if (args is IProtocolActivatedEventArgs protocolActivatedEventArgs)
         {
@@ -194,7 +195,7 @@ sealed partial class App : Application
             }
             else
             {
-                    await ActivateAsync(false);
+                await ActivateAsync(false);
                 HandleProtocolLaunch(protocolActivatedEventArgs);
             }
         }
