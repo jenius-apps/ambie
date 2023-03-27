@@ -176,14 +176,16 @@ sealed partial class App : Application
     {
         if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
         {
-            new PartnerCentreNotificationRegistrar().TrackLaunch(toastActivationArgs.Argument);
+            await ActivateAsync(false);
+
+            // Must be performed after activate async
+            // because the services are setup in that method.
             Services.GetRequiredService<ITelemetry>().TrackEvent(
                 TelemetryConstants.LaunchViaToast,
                 new Dictionary<string, string>
                 {
                     { "args", toastActivationArgs.Argument }
                 });
-            await ActivateAsync(false);
         }
         else if (args is IProtocolActivatedEventArgs protocolActivatedEventArgs)
         {
