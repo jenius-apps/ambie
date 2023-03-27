@@ -15,7 +15,6 @@
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     AutomationProperties.ItemStatus="{x:Bind loc:LocalizationConverter.SoundStatus(ViewModel.IsCurrentlyPlaying), Mode=OneWay}"
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
-    KeyDown="OnControlKeyDown"
     mc:Ignorable="d">
 
     <Grid x:Name="Root">
@@ -78,11 +77,6 @@
             PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
             PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
             PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildImage}">
-            <interactivity:Interaction.Behaviors>
-                <core:EventTriggerBehavior EventName="Tapped">
-                    <core:InvokeCommandAction Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}" />
-                </core:EventTriggerBehavior>
-            </interactivity:Interaction.Behaviors>
 
             <Grid x:Name="ImageGrid" ui:VisualExtensions.NormalizedCenterPoint="0.5">
                 <ani:Implicit.Animations>

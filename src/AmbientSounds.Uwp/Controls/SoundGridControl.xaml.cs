@@ -43,5 +43,13 @@ namespace AmbientSounds.Controls
             get => (bool)GetValue(IsCompactProperty);
             set => SetValue(IsCompactProperty, value);
         }
+
+        private async void OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (e.ClickedItem is SoundViewModel vm)
+            {
+                await vm.PlayCommand.ExecuteAsync(null);
+            }
+        }
     }
 }
