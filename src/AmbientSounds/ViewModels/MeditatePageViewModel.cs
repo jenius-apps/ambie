@@ -32,7 +32,7 @@ public partial class MeditatePageViewModel : ObservableObject
         foreach (var s in guides)
         {
             var vm = _soundVmFactory.GetOnlineGuideVm(s);
-            // TODO initialize vm
+            await vm.LoadCommand.ExecuteAsync(null);
             Guides.Add(vm);
         }
     }

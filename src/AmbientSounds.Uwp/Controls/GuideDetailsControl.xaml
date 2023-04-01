@@ -2,11 +2,13 @@
     x:Class="AmbientSounds.Controls.GuideDetailsControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     MaxWidth="400"
     d:DesignHeight="300"
     d:DesignWidth="400"
@@ -47,12 +49,36 @@
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                     Text="{x:Bind ViewModel.Minutes}"
                     TextTrimming="CharacterEllipsis" />
+                <Grid Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.IsInstalled), Mode=OneWay}">
+                    <Button
+                        MinHeight="44"
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.DownloadCommand}"
+                        Content="{x:Bind strings:Resources.DownloadText}"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="{x:Bind ViewModel.DownloadButtonVisible, Mode=OneWay}" />
+                </Grid>
                 <Button
                     MinHeight="44"
                     Margin="0,12,0,0"
                     HorizontalAlignment="Stretch"
-                    Content="{x:Bind strings:Resources.DownloadText}"
-                    Style="{StaticResource AccentButtonStyle}" />
+                    IsEnabled="False"
+                    Visibility="{x:Bind ViewModel.DownloadProgressVisible, Mode=OneWay}">
+                    <winui:ProgressRing
+                        Width="20"
+                        Height="20"
+                        IsIndeterminate="False"
+                        Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
+                </Button>
+                <Button
+                    MinHeight="44"
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Stretch"
+                    Command="{x:Bind ViewModel.PlayCommand}"
+                    Content="{x:Bind strings:Resources.PlayerPlayText}"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Visibility="{x:Bind ViewModel.IsInstalled, Mode=OneWay}" />
                 <TextBlock Margin="0,12,0,0" Text="{x:Bind strings:Resources.DescriptionText}" />
                 <TextBlock
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
