@@ -5,12 +5,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    MaxWidth="400"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <Button
             Width="44"
             Height="44"
@@ -24,30 +30,35 @@
                 FontWeight="Bold"
                 Glyph="{StaticResource GlyphCancel}" />
         </Button>
-        <StackPanel>
-            <Border
-                x:Name="ImageBorder"
-                Height="300"
-                Margin="8,8,8,0"
-                CornerRadius="8">
-                <toolkit:ImageEx
-                    CornerRadius="8"
-                    Source="{x:Bind ViewModel.ImagePath}"
-                    Stretch="UniformToFill" />
-            </Border>
-            <TextBlock
-                Margin="0,12,0,0"
-                FontWeight="SemiBold"
-                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                Text="{x:Bind ViewModel.Name}"
-                TextTrimming="CharacterEllipsis" />
-            <TextBlock
-                MaxWidth="300"
-                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                MaxLines="2"
-                Text="{x:Bind ViewModel.Description}"
-                TextTrimming="CharacterEllipsis"
-                TextWrapping="WrapWholeWords" />
-        </StackPanel>
+
+        <Border x:Name="ImageBorder" Height="200">
+            <toolkit:ImageEx Source="{x:Bind ViewModel.ImagePath}" Stretch="UniformToFill" />
+        </Border>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="20,0,20,20">
+                <TextBlock
+                    Margin="0,12,0,0"
+                    FontWeight="SemiBold"
+                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                    Text="{x:Bind ViewModel.Name}"
+                    TextTrimming="CharacterEllipsis" />
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind ViewModel.Minutes}"
+                    TextTrimming="CharacterEllipsis" />
+                <Button
+                    MinHeight="44"
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Stretch"
+                    Content="{x:Bind strings:Resources.DownloadText}"
+                    Style="{StaticResource AccentButtonStyle}" />
+                <TextBlock Margin="0,12,0,0" Text="{x:Bind strings:Resources.DescriptionText}" />
+                <TextBlock
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind ViewModel.Description}"
+                    TextWrapping="WrapWholeWords" />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

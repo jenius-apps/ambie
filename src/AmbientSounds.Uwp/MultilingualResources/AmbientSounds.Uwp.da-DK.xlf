@@ -997,6 +997,10 @@
           <source>Choose where to play sound</source>
           <target state="translated">Vælg, hvor du vil afspille lyd</target>
         </trans-unit>
+        <trans-unit id="DescriptionText" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
       </group>
     </body>
   </file>

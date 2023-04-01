@@ -988,6 +988,10 @@
           <source>Choose where to play sound</source>
           <target state="translated">サウンドを再生する場所を選択する</target>
         </trans-unit>
+        <trans-unit id="DescriptionText" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -856,4 +856,7 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Choose where to play sound</value>
   </data>
+  <data name="DescriptionText" xml:space="preserve">
+    <value>Description</value>
+  </data>
 </root>
