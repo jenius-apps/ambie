@@ -19,7 +19,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border BorderThickness="1">
+        <!--  -1 margin required to get of border artifact  -->
+        <Border Margin="-1">
             <Border.Background>
                 <ImageBrush Stretch="UniformToFill">
                     <ImageBrush.ImageSource>
@@ -32,7 +33,8 @@
             </Border.Background>
         </Border>
 
-        <Border Background="{ThemeResource AcrylicBackplateBrush}" />
+        <!--  -1 margin required to get of border artifact  -->
+        <Border Margin="-1" Background="{ThemeResource AcrylicBackplateBrush}" />
 
         <Button
             Width="44"
@@ -103,6 +105,44 @@
                         Style="{StaticResource AccentButtonStyle}"
                         Visibility="{x:Bind ViewModel.IsInstalled, Mode=OneWay}" />
                 </Grid>
+
+                <Button
+                    MinHeight="44"
+                    Margin="0,4,0,0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Stretch"
+                    Style="{StaticResource SubtleButton}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <FontIcon
+                            Margin="8,0,0,0"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            Glyph="{StaticResource GlyphSound}" />
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock
+                                FontSize="10"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="BACKGROUND SOUNDS"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="12"
+                                Text="Current selection"
+                                TextAlignment="Center" />
+                        </StackPanel>
+
+                        <FontIcon
+                            Grid.Column="2"
+                            Margin="0,0,8,0"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            Glyph="{StaticResource GlyphChevronRight}" />
+                    </Grid>
+                </Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>
