@@ -859,4 +859,7 @@
   <data name="DescriptionText" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="BackgroundSoundsText" xml:space="preserve">
+    <value>Background sounds</value>
+  </data>
 </root>

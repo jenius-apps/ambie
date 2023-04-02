@@ -996,6 +996,10 @@
           <source>Description</source>
           <target state="new">Description</target>
         </trans-unit>
+        <trans-unit id="BackgroundSoundsText" translate="yes" xml:space="preserve">
+          <source>Background sounds</source>
+          <target state="new">Background sounds</target>
+        </trans-unit>
       </group>
     </body>
   </file>

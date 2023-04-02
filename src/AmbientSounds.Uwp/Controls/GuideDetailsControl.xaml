@@ -146,7 +146,7 @@
                             <TextBlock
                                 FontSize="10"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                Text="BACKGROUND SOUNDS"
+                                Text="{x:Bind strings:Resources.BackgroundSoundsText.ToUpper()}"
                                 TextAlignment="Center" />
                             <TextBlock
                                 FontSize="12"
