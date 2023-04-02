@@ -16,15 +16,32 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <Border BorderThickness="1">
+            <Border.Background>
+                <ImageBrush Stretch="UniformToFill">
+                    <ImageBrush.ImageSource>
+                        <BitmapImage
+                            DecodePixelType="Logical"
+                            DecodePixelWidth="400"
+                            UriSource="{x:Bind ViewModel.ImagePath}" />
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+
+        <Border Background="{ThemeResource AcrylicBackplateBrush}" />
+
         <Button
             Width="44"
             Height="44"
-            Margin="0,20,20,0"
+            Margin="0,12,12,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
+            Background="Transparent"
+            BorderBrush="Transparent"
             Canvas.ZIndex="1"
             Click="OnCloseClick">
             <FontIcon
@@ -33,14 +50,11 @@
                 Glyph="{StaticResource GlyphCancel}" />
         </Button>
 
-        <Border x:Name="ImageBorder" Height="200">
-            <toolkit:ImageEx Source="{x:Bind ViewModel.ImagePath}" Stretch="UniformToFill" />
-        </Border>
-
-        <ScrollViewer Grid.Row="1">
-            <StackPanel Margin="20,0,20,20">
+        <ScrollViewer>
+            <StackPanel Margin="20,8,20,20">
                 <TextBlock
                     Margin="0,12,0,0"
+                    FontSize="18"
                     FontWeight="SemiBold"
                     Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                     Text="{x:Bind ViewModel.Name}"
@@ -49,41 +63,46 @@
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                     Text="{x:Bind ViewModel.Minutes}"
                     TextTrimming="CharacterEllipsis" />
-                <Grid Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.IsInstalled), Mode=OneWay}">
+
+                <TextBlock
+                    Margin="0,20,0,20"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind ViewModel.Description}"
+                    TextWrapping="WrapWholeWords" />
+
+                <!--  Download/play button grid  -->
+                <Grid>
+                    <Grid Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.IsInstalled), Mode=OneWay}">
+                        <Button
+                            MinHeight="44"
+                            Margin="0,12,0,0"
+                            HorizontalAlignment="Stretch"
+                            Command="{x:Bind ViewModel.DownloadCommand}"
+                            Content="{x:Bind strings:Resources.DownloadText}"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Visibility="{x:Bind ViewModel.DownloadButtonVisible, Mode=OneWay}" />
+                    </Grid>
                     <Button
                         MinHeight="44"
                         Margin="0,12,0,0"
                         HorizontalAlignment="Stretch"
-                        Command="{x:Bind ViewModel.DownloadCommand}"
-                        Content="{x:Bind strings:Resources.DownloadText}"
+                        IsEnabled="False"
+                        Visibility="{x:Bind ViewModel.DownloadProgressVisible, Mode=OneWay}">
+                        <winui:ProgressRing
+                            Width="20"
+                            Height="20"
+                            IsIndeterminate="False"
+                            Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
+                    </Button>
+                    <Button
+                        MinHeight="44"
+                        Margin="0,12,0,0"
+                        HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.PlayCommand}"
+                        Content="{x:Bind strings:Resources.PlayerPlayText}"
                         Style="{StaticResource AccentButtonStyle}"
-                        Visibility="{x:Bind ViewModel.DownloadButtonVisible, Mode=OneWay}" />
+                        Visibility="{x:Bind ViewModel.IsInstalled, Mode=OneWay}" />
                 </Grid>
-                <Button
-                    MinHeight="44"
-                    Margin="0,12,0,0"
-                    HorizontalAlignment="Stretch"
-                    IsEnabled="False"
-                    Visibility="{x:Bind ViewModel.DownloadProgressVisible, Mode=OneWay}">
-                    <winui:ProgressRing
-                        Width="20"
-                        Height="20"
-                        IsIndeterminate="False"
-                        Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
-                </Button>
-                <Button
-                    MinHeight="44"
-                    Margin="0,12,0,0"
-                    HorizontalAlignment="Stretch"
-                    Command="{x:Bind ViewModel.PlayCommand}"
-                    Content="{x:Bind strings:Resources.PlayerPlayText}"
-                    Style="{StaticResource AccentButtonStyle}"
-                    Visibility="{x:Bind ViewModel.IsInstalled, Mode=OneWay}" />
-                <TextBlock Margin="0,12,0,0" Text="{x:Bind strings:Resources.DescriptionText}" />
-                <TextBlock
-                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Text="{x:Bind ViewModel.Description}"
-                    TextWrapping="WrapWholeWords" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
