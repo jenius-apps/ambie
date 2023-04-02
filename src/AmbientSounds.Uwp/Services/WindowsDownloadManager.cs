@@ -143,23 +143,38 @@ public class WindowsDownloadManager : IDownloadManager
 
     private Sound CopySound(Sound s, string localImagePath, string destinationFilePath)
     {
-        return new Sound()
+        Sound result;
+
+        if (s is Guide g)
         {
-            Id = s.Id,
-            ImagePath = localImagePath,
-            Name = s.Name,
-            FilePath = destinationFilePath,
-            Attribution = s.Attribution,
-            FileExtension = s.FileExtension,
-            ScreensaverImagePaths = s.ScreensaverImagePaths,
-            IsPremium = s.IsPremium,
-            IapIds = s.IapIds.ToArray(),
-            ColourHex = s.ColourHex,
-            ImagePaths = s.ImagePaths,
-            Localizations = s.Localizations,
-            MetaDataVersion = s.MetaDataVersion,
-            FileVersion = s.FileVersion
-        };
+            result = new Guide()
+            {
+                MinutesLength = g.MinutesLength,
+                SuggestedBackgroundSounds = g.SuggestedBackgroundSounds
+            };
+        }
+        else
+        {
+            result = new Sound();
+        }
+
+        result.Type = s.Type;
+        result.Id = s.Id;
+        result.ImagePath = localImagePath;
+        result.Name = s.Name;
+        result.FilePath = destinationFilePath;
+        result.Attribution = s.Attribution;
+        result.FileExtension = s.FileExtension;
+        result.ScreensaverImagePaths = s.ScreensaverImagePaths;
+        result.IsPremium = s.IsPremium;
+        result.IapIds = s.IapIds.ToArray();
+        result.ColourHex = s.ColourHex;
+        result.ImagePaths = s.ImagePaths;
+        result.Localizations = s.Localizations;
+        result.MetaDataVersion = s.MetaDataVersion;
+        result.FileVersion = s.FileVersion;
+
+        return result;
     }
 
     private async Task QueueFakeAsync(IProgress<double> progress)

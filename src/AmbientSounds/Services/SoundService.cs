@@ -49,15 +49,19 @@ public class SoundService : ISoundService
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(IReadOnlyList<string>? soundIds = null)
+    public async Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(
+        IReadOnlyList<string>? soundIds = null)
     {
-        var localSounds = await _soundCache.GetInstalledSoundsAsync();
-        if (soundIds is null)
+        IEnumerable<Sound> result = await _soundCache.GetInstalledSoundsAsync();
+
+        if (soundIds is not null)
         {
-            return localSounds;
+            result = result.Where(x => soundIds.Contains(x.Id));
         }
 
-        return localSounds.Where(x => soundIds.Contains(x.Id)).ToArray();
+        result = result.Where(x => x.Type != nameof(Guide));
+
+        return result.ToArray();
     }
 
     /// <inheritdoc/>
