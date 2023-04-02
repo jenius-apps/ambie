@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
@@ -112,6 +113,23 @@
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Stretch"
                     Style="{StaticResource SubtleButton}">
+                    <Button.Flyout>
+                        <Flyout x:Name="BackgroundSoundsFlyout" Placement="Right">
+                            <ListView
+                                Margin="-12"
+                                IsItemClickEnabled="True"
+                                ItemClick="OnBackgroundSoundSelected"
+                                ItemsSource="{x:Bind ViewModel.MixOptions}"
+                                SelectedItem="{x:Bind ViewModel.SelectedMix, Mode=TwoWay}"
+                                SelectionMode="Single">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="models:Sound">
+                                        <TextBlock Text="{x:Bind Name}" />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Flyout>
+                    </Button.Flyout>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
@@ -132,7 +150,7 @@
                                 TextAlignment="Center" />
                             <TextBlock
                                 FontSize="12"
-                                Text="Current selection"
+                                Text="{x:Bind ViewModel.SelectedMix.Name, Mode=OneWay}"
                                 TextAlignment="Center" />
                         </StackPanel>
 

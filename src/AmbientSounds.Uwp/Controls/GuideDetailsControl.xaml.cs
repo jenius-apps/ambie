@@ -34,4 +34,9 @@ public sealed partial class GuideDetailsControl : UserControl
     {
         CloseRequested?.Invoke(this, EventArgs.Empty);
     }
+
+    private void OnBackgroundSoundSelected(object sender, ItemClickEventArgs e)
+    {
+        BackgroundSoundsFlyout.Hide();
+    }
 }
