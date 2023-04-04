@@ -141,6 +141,17 @@ public class SoundCache : ISoundCache
     }
 
     /// <inheritdoc/>
+    public async Task<IReadOnlyList<Sound>> GetInstalledSoundsAsync(IEnumerable<string> soundIds)
+    {
+        await GetInstalledSoundsAsync();
+
+        return _installedSounds
+            .Where(x => soundIds.Contains(x.Key))
+            .Select(x => x.Value)
+            .ToList();
+    }
+
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<Sound>> GetInstalledSoundsAsync()
     {
         if (_installedSounds.IsEmpty)

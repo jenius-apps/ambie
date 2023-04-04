@@ -13,6 +13,8 @@ namespace AmbientSounds.ViewModels;
 
 public partial class OnlineGuideViewModel : OnlineSoundViewModel
 {
+    private readonly IGuideService _guideService;
+
     public OnlineGuideViewModel(
         Guide g,
         IDownloadManager downloadManager,
@@ -24,7 +26,8 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
         IAssetLocalizer assetLocalizer,
         IMixMediaPlayerService mixMediaPlayerService,
         IUpdateService updateService,
-        ILocalizer localizer)
+        ILocalizer localizer,
+        IGuideService guideService)
         : base(g,
             downloadManager,
             soundService,
@@ -37,6 +40,8 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
             updateService,
             localizer)
     {
+        _guideService = guideService;
+
         Minutes = TimeSpan.FromMinutes(g.MinutesLength).Humanize(maxUnit: TimeUnit.Minute);
         PreviewText = string.Join(" • ", new string[]
         {
@@ -51,31 +56,27 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
 
     protected Guide Guide => (Guide)base._sound;
 
-    public ObservableCollection<Sound> MixOptions { get; } = new();
+    public ObservableCollection<SuggestedSoundViewModel> MixOptions { get; } = new();
 
     [ObservableProperty]
-    private Sound _selectedMix = GetOrCreateCurrentSelection();
+    private SuggestedSoundViewModel _selectedMix = GetOrCreateCurrentSelection();
 
     public async Task LoadGuideAsync()
     {
         await LoadCommand.ExecuteAsync(null);
-
         MixOptions.Clear();
 
+        // Add the default current selection item.
         MixOptions.Add(GetOrCreateCurrentSelection());
 
-        foreach (var idList in Guide.SuggestedBackgroundSounds)
+        // Populate the rest of the suggested sounds
+        var suggestedSoundMixes = await _guideService.GetSuggestedSoundMixesAsync(Guide);
+        foreach (var soundMix in suggestedSoundMixes)
         {
-            string[] split = idList.Split(';');
-            var tempMix = new Sound
+            MixOptions.Add(new SuggestedSoundViewModel(soundMix)
             {
-                IsMix = true,
-                Id = Guid.NewGuid().ToString(),
-                Name = split[0],
-                SoundIds = split
-            };
-
-            MixOptions.Add(tempMix);
+                Header = "Recommended"
+            });
         }
     }
 
@@ -85,20 +86,39 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
         await _dialogService.OpenGuideDetailsAsync(this);
     }
 
-    private static Sound? _currentSelectionPlaceholder;
+    private static SuggestedSoundViewModel? _currentSelectionPlaceholder;
 
-    private static Sound GetOrCreateCurrentSelection()
+    private static SuggestedSoundViewModel GetOrCreateCurrentSelection()
     {
         // This creates a fake mix that represents
         // the "current selection of sounds". 
 
-        _currentSelectionPlaceholder ??= new Sound
+        if (_currentSelectionPlaceholder is not null)
+        {
+            return _currentSelectionPlaceholder;
+        }
+        
+        var sound = new Sound
         {
             Id = "currentSelection",
             IsMix = true,
             Name = "Current selection"
         };
 
+        _currentSelectionPlaceholder = new SuggestedSoundViewModel(sound);
+
         return _currentSelectionPlaceholder;
     }
+}
+
+public class SuggestedSoundViewModel : ObservableObject
+{
+    public SuggestedSoundViewModel(Sound sound)
+    {
+        Sound = sound;
+    }
+
+    public Sound Sound { get; }
+
+    public string? Header { get; init; }
 }

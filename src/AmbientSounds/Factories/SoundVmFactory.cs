@@ -67,7 +67,8 @@ namespace AmbientSounds.Factories
                 _serviceProvider.GetRequiredService<IAssetLocalizer>(),
                 _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
                 _serviceProvider.GetRequiredService<IUpdateService>(),
-                _serviceProvider.GetRequiredService<ILocalizer>());
+                _serviceProvider.GetRequiredService<ILocalizer>(),
+                _serviceProvider.GetRequiredService<IGuideService>());
 
             return newVm;
         }

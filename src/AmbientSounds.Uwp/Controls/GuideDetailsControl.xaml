@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     MaxWidth="400"
     d:DesignHeight="300"
@@ -123,8 +123,8 @@
                                 SelectedItem="{x:Bind ViewModel.SelectedMix, Mode=TwoWay}"
                                 SelectionMode="Single">
                                 <ListView.ItemTemplate>
-                                    <DataTemplate x:DataType="models:Sound">
-                                        <TextBlock Text="{x:Bind Name}" />
+                                    <DataTemplate x:DataType="vm:SuggestedSoundViewModel">
+                                        <TextBlock Text="{x:Bind Sound.Name}" />
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
@@ -150,7 +150,7 @@
                                 TextAlignment="Center" />
                             <TextBlock
                                 FontSize="12"
-                                Text="{x:Bind ViewModel.SelectedMix.Name, Mode=OneWay}"
+                                Text="{x:Bind ViewModel.SelectedMix.Sound.Name, Mode=OneWay}"
                                 TextAlignment="Center" />
                         </StackPanel>
 
