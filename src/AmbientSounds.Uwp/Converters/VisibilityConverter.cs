@@ -36,7 +36,7 @@ namespace AmbientSounds.Converters
         /// </summary>
         public static Visibility IfStringNotEmpty(this string? value)
         {
-            return string.IsNullOrWhiteSpace(value)
+            return string.IsNullOrEmpty(value)
                 ? Visibility.Collapsed
                 : Visibility.Visible;
         }

@@ -116,6 +116,7 @@
                     <Button.Flyout>
                         <Flyout x:Name="BackgroundSoundsFlyout" Placement="Right">
                             <ListView
+                                MinWidth="200"
                                 Margin="-12"
                                 IsItemClickEnabled="True"
                                 ItemClick="OnBackgroundSoundSelected"
@@ -124,7 +125,14 @@
                                 SelectionMode="Single">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="vm:SuggestedSoundViewModel">
-                                        <TextBlock Text="{x:Bind Sound.Name}" />
+                                        <StackPanel Margin="0,8">
+                                            <TextBlock
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Text="{x:Bind Header.ToUpper()}"
+                                                Visibility="{x:Bind converters:VisibilityConverter.IfStringNotEmpty(Header)}" />
+                                            <TextBlock Text="{x:Bind Sound.Name}" />
+                                        </StackPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>

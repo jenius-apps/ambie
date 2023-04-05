@@ -42,6 +42,7 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
     {
         _guideService = guideService;
 
+        SelectedMix = GetOrCreateCurrentSelection();
         Minutes = TimeSpan.FromMinutes(g.MinutesLength).Humanize(maxUnit: TimeUnit.Minute);
         PreviewText = string.Join(" • ", new string[]
         {
@@ -59,7 +60,7 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
     public ObservableCollection<SuggestedSoundViewModel> MixOptions { get; } = new();
 
     [ObservableProperty]
-    private SuggestedSoundViewModel _selectedMix = GetOrCreateCurrentSelection();
+    private SuggestedSoundViewModel? _selectedMix;
 
     public async Task LoadGuideAsync()
     {
@@ -75,7 +76,7 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
         {
             MixOptions.Add(new SuggestedSoundViewModel(soundMix)
             {
-                Header = "Recommended"
+                Header = _localizer.GetString("SuggestedText")
             });
         }
     }
@@ -88,7 +89,7 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
 
     private static SuggestedSoundViewModel? _currentSelectionPlaceholder;
 
-    private static SuggestedSoundViewModel GetOrCreateCurrentSelection()
+    private SuggestedSoundViewModel GetOrCreateCurrentSelection()
     {
         // This creates a fake mix that represents
         // the "current selection of sounds". 
@@ -100,13 +101,12 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
         
         var sound = new Sound
         {
-            Id = "currentSelection",
+            Id = "currentSelectionId",
             IsMix = true,
-            Name = "Current selection"
+            Name = _localizer.GetString("CurrentSelectionText")
         };
 
         _currentSelectionPlaceholder = new SuggestedSoundViewModel(sound);
-
         return _currentSelectionPlaceholder;
     }
 }

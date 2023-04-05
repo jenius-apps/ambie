@@ -2354,6 +2354,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region CurrentSelectionText
+        /// <summary>
+        ///   Looks up a localized string similar to: Current selection
+        /// </summary>
+        public static string CurrentSelectionText
+        {
+            get
+            {
+                return _resourceLoader.GetString("CurrentSelectionText");
+            }
+        }
+        #endregion
+
+        #region SuggestedText
+        /// <summary>
+        ///   Looks up a localized string similar to: Suggested
+        /// </summary>
+        public static string SuggestedText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SuggestedText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2545,6 +2571,8 @@ namespace AmbientSounds.Strings{
             SettingsOutputDeviceDescription,
             DescriptionText,
             BackgroundSoundsText,
+            CurrentSelectionText,
+            SuggestedText,
         }
 
         private static ResourceLoader _resourceLoader;

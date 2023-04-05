@@ -1002,6 +1002,14 @@
           <source>Background sounds</source>
           <target state="new">Background sounds</target>
         </trans-unit>
+        <trans-unit id="CurrentSelectionText" translate="yes" xml:space="preserve">
+          <source>Current selection</source>
+          <target state="new">Current selection</target>
+        </trans-unit>
+        <trans-unit id="SuggestedText" translate="yes" xml:space="preserve">
+          <source>Suggested</source>
+          <target state="new">Suggested</target>
+        </trans-unit>
       </group>
     </body>
   </file>
