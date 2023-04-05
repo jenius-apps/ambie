@@ -15,16 +15,6 @@
 
     <Grid>
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="TopPlayerPanel.Margin" Value="0,44,0,0" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
             <VisualStateGroup x:Name="PageStateGroup" CurrentStateChanged="SizeStateChanged">
                 <VisualState x:Name="WidePageState">
                     <VisualState.StateTriggers>
@@ -33,9 +23,8 @@
                     <VisualState.Setters>
                         <Setter Target="NavMenuWidth.Width" Value="200" />
                         <Setter Target="MenuIconPremium.Visibility" Value="Collapsed" />
-                        <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
                         <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
-                        <Setter Target="TitleBar.Margin" Value="16,14,0,0" />
+                        <Setter Target="TitleLogo.Margin" Value="16,14,0,0" />
                         <Setter Target="PlayerPanelBorder.Margin" Value="16,0" />
                         <Setter Target="PlayerPanelGrid.Margin" Value="16,0" />
                         <Setter Target="NavViewGrid.Margin" Value="16,0,0,12" />
@@ -59,20 +48,39 @@
             Fill="{ThemeResource SystemControlAcrylicElementBrush}"
             Stretch="Fill" />
 
-        <!--  title bar content  -->
-        <StackPanel
-            x:Name="TitleBar"
-            Margin="12,14,0,0"
+        <Grid
+            x:Name="AppTitleBar"
+            HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
-            Canvas.ZIndex="1"
-            Orientation="Horizontal"
-            Visibility="{x:Bind ViewModel.TitleBarVisible, Mode=OneWay}">
+            Background="Transparent">
+            <!--  Source: https://learn.microsoft.com/en-us/windows/apps/develop/title-bar?tabs=winui2#interactive-content  -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0" />
+                <ColumnDefinition />
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0" />
+            </Grid.ColumnDefinitions>
 
             <!--  Ambie title bar name  -->
-            <controls:TitleBarLogo />
+            <controls:TitleBarLogo
+                x:Name="TitleLogo"
+                Grid.Column="1"
+                Margin="12,14,0,0" />
+        </Grid>
+
+        <!--  title bar content  -->
+        <StackPanel
+            Margin="100,14,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            Orientation="Horizontal">
+
+            <!--<HyperlinkButton Padding="4,2" FontSize="12">
+                <TextBlock Text="Meditating - Positive affirmations" />
+            </HyperlinkButton>-->
 
             <!--  Focus time banner  -->
-            <controls:TimeBanner Margin="12,0,0,0" Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
+            <controls:TimeBanner Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
                 <animations:Implicit.HideAnimations>
                     <animations:OpacityAnimation
                         From="1"
@@ -96,7 +104,7 @@
         </StackPanel>
 
         <!--  Top player panel  -->
-        <Grid x:Name="TopPlayerPanel" Margin="0,12,0,0">
+        <Grid x:Name="TopPlayerPanel" Margin="0,44,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
@@ -216,26 +224,13 @@
                                 AutomationProperties.Name="{x:Bind strings:Resources.FocusText}"
                                 Tag="focus"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.FocusText}">
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
-                                        <TextBlock
-                                            Margin="12,0,0,0"
-                                            Text="{x:Bind strings:Resources.FocusText}"
-                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                                    </StackPanel>
-                                    <Grid
-                                        x:Name="FocusEllipseGrid"
-                                        HorizontalAlignment="Right"
-                                        Visibility="Collapsed">
-                                        <Ellipse
-                                            Width="8"
-                                            Height="8"
-                                            Fill="{ThemeResource AccentFillColorDefaultBrush}"
-                                            ToolTipService.ToolTip="{x:Bind strings:Resources.FocusDotTooltip}"
-                                            Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}" />
-                                    </Grid>
-                                </Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
+                                    <TextBlock
+                                        Margin="12,0,0,0"
+                                        Text="{x:Bind strings:Resources.FocusText}"
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                </StackPanel>
                             </ListViewItem>
                             <ListViewItem
                                 MinWidth="0"
