@@ -44,6 +44,8 @@ public sealed partial class ScreensaverPage : Page
 
         // Set the wallpapers to run at 24fps to save resources (the animations are very slow, so not noticeable)
         WallpaperCanvasControl.TargetElapsedTime = TimeSpan.FromSeconds(1 / 24.0f);
+
+        Unloaded += ScreensaverPage_Unloaded;
     }
 
     public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
@@ -99,6 +101,15 @@ public sealed partial class ScreensaverPage : Page
 
         SettingsFlyout?.Items?.Clear();
         _displayRequest.RequestRelease();
+    }
+
+    private void ScreensaverPage_Unloaded(object sender, RoutedEventArgs e)
+    {
+        // Remove the canvas from the visual tree manually to avoid memory leaks.
+        // See: https://microsoft.github.io/Win2D/WinUI2/html/RefCycles.htm.
+        WallpaperCanvasControl.Draw -= CanvasAnimatedControl_Draw;
+        WallpaperCanvasControl.RemoveFromVisualTree();
+        WallpaperCanvasControl = null;
     }
 
     private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
