@@ -7,34 +7,21 @@ namespace AmbientSounds.Controls;
 
 public sealed class TwoToneButton : Button
 {
-    public static readonly DependencyProperty PrimaryTextProperty =
+    public static readonly DependencyProperty SecondaryContentProperty =
         DependencyProperty.Register(
-            "PrimaryText",
-            typeof(string),
+            nameof(SecondaryContent),
+            typeof(object),
             typeof(TwoToneButton),
-            new PropertyMetadata(string.Empty));
-
-    public static readonly DependencyProperty SecondaryTextProperty =
-        DependencyProperty.Register(
-            "SecondaryText",
-            typeof(string),
-            typeof(TwoToneButton),
-            new PropertyMetadata(string.Empty));
+            new PropertyMetadata(null));
 
     public TwoToneButton()
     {
         this.DefaultStyleKey = typeof(TwoToneButton);
     }
 
-    public string PrimaryText
+    public object? SecondaryContent
     {
-        get => (string)GetValue(PrimaryTextProperty);
-        set => SetValue(PrimaryTextProperty, value);
-    }
-
-    public string SecondaryText
-    {
-        get => (string)GetValue(SecondaryTextProperty);
-        set => SetValue(SecondaryTextProperty, value);
+        get => GetValue(SecondaryContentProperty);
+        set => SetValue(SecondaryContentProperty, value);
     }
 }
