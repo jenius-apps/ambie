@@ -110,27 +110,7 @@ public sealed partial class ScreensaverPage : Page
         }
         else if (e.PropertyName == nameof(ViewModel.AnimatedBackgroundName))
         {
-            string? animatedBackgroundName = ViewModel.AnimatedBackgroundName;
-
-            // We need explicit references to all type to help the .NET Native linker resolve all type dependencies
-            _animatedWallpaperEffect = animatedBackgroundName switch
-            {
-                nameof(ColorfulInfinity) => new AnimatedWallpaperEffect.For<ColorfulInfinity>((width, height, time) => new ColorfulInfinity((float)time.TotalSeconds / 16f, new int2(width, height))),
-                nameof(Octagrams) => new AnimatedWallpaperEffect.For<Octagrams>((width, height, time) => new Octagrams((float)time.TotalSeconds / 16f, new int2(width, height))),
-                nameof(ProteanClouds) => new AnimatedWallpaperEffect.For<ProteanClouds>((width, height, time) => new ProteanClouds((float)time.TotalSeconds / 16f, new int2(width, height))),
-                _ => null
-            };
-
-            // Configure the solution scale, to save GPU computation. The scale is picked to
-            // maintain enough visual quality, so it depends on the visuals of each shader.
-            // In general, shaders with more fine grained details need a higher resolution.
-            _resolutionScale = animatedBackgroundName switch
-            {
-                nameof(ColorfulInfinity) => 0.5,
-                nameof(Octagrams) => 0.8,
-                nameof(ProteanClouds) => 0.4,
-                _ => 1.0
-            };
+            SetupAnimatedShaderProperties();
         }
     }
 
@@ -165,6 +145,8 @@ public sealed partial class ScreensaverPage : Page
 
             SettingsFlyout.Items.Add(menuItem);
         }
+
+        SetupAnimatedShaderProperties();
     }
 
     private void OnMenuItemClicked(object sender, RoutedEventArgs e)
@@ -288,6 +270,34 @@ public sealed partial class ScreensaverPage : Page
         }
 
         InactiveTimer?.Start();
+    }
+
+    /// <summary>
+    /// Configures the shader runner and resolution scale when the control is loaded or the selected shader changes.
+    /// </summary>
+    private void SetupAnimatedShaderProperties()
+    {
+        string? animatedBackgroundName = ViewModel.AnimatedBackgroundName;
+
+        // We need explicit references to all type to help the .NET Native linker resolve all type dependencies
+        _animatedWallpaperEffect = animatedBackgroundName switch
+        {
+            nameof(ColorfulInfinity) => new AnimatedWallpaperEffect.For<ColorfulInfinity>((width, height, time) => new ColorfulInfinity((float)time.TotalSeconds / 16f, new int2(width, height))),
+            nameof(Octagrams) => new AnimatedWallpaperEffect.For<Octagrams>((width, height, time) => new Octagrams((float)time.TotalSeconds / 16f, new int2(width, height))),
+            nameof(ProteanClouds) => new AnimatedWallpaperEffect.For<ProteanClouds>((width, height, time) => new ProteanClouds((float)time.TotalSeconds / 16f, new int2(width, height))),
+            _ => null
+        };
+
+        // Configure the resolution scale, to save GPU computation. The scale is picked to
+        // maintain enough visual quality, so it depends on the visuals of each shader.
+        // In general, shaders with more fine grained details need a higher resolution.
+        _resolutionScale = animatedBackgroundName switch
+        {
+            nameof(ColorfulInfinity) => 0.5,
+            nameof(Octagrams) => 0.8,
+            nameof(ProteanClouds) => 0.4,
+            _ => 1.0
+        };
     }
 
     private void CanvasAnimatedControl_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
