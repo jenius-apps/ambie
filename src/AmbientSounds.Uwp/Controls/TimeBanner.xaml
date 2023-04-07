@@ -9,9 +9,11 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
+    <!--  temporarily disable tab stop  -->
     <local:TwoToneButton
         Padding="8,0"
         Content="{x:Bind ViewModel.StatusText, Mode=OneWay}"
         FontSize="10"
+        IsTabStop="False"
         SecondaryContent="{x:Bind ViewModel.TimeText, Mode=OneWay}" />
 </UserControl>
