@@ -69,15 +69,14 @@
 
         <!--  title bar content  -->
         <StackPanel
-            Margin="100,14,0,0"
+            Height="44"
+            Margin="100,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Orientation="Horizontal">
 
-            <!--<HyperlinkButton Padding="4,2" FontSize="12">
-                <TextBlock Text="Meditating - Positive affirmations" />
-            </HyperlinkButton>-->
+            <controls:TwoToneButton PrimaryText="Meditating" SecondaryText="Positive affirmations" />
 
             <!--  Focus time banner  -->
             <controls:TimeBanner Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
