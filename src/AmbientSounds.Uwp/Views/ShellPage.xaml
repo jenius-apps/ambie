@@ -76,7 +76,11 @@
             Canvas.ZIndex="1"
             Orientation="Horizontal">
 
-            <controls:TwoToneButton PrimaryText="Meditating" SecondaryText="Positive affirmations" />
+            <controls:TwoToneButton
+                Padding="6,2"
+                Content="Meditating"
+                FontSize="10"
+                SecondaryContent="Positive affirmations" />
 
             <!--  Focus time banner  -->
             <controls:TimeBanner Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
