@@ -9,32 +9,11 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid
-        Height="18"
-        BorderBrush="{ThemeResource AccentFillColorDefaultBrush}"
-        BorderThickness="1"
-        CornerRadius="4">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
-        </Grid.ColumnDefinitions>
-        <Grid Background="{ThemeResource AccentFillColorDefaultBrush}" CornerRadius="2,0,0,2">
-            <TextBlock
-                Margin="8,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="10"
-                FontWeight="SemiBold"
-                Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
-                Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" />
-        </Grid>
-        <TextBlock
-            Grid.Column="1"
-            Margin="8,0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="10"
-            FontWeight="SemiBold"
-            Text="{x:Bind ViewModel.TimeText, Mode=OneWay}" />
-    </Grid>
+    <!--  temporarily disable tab stop  -->
+    <local:TwoToneButton
+        Padding="8,0"
+        Content="{x:Bind ViewModel.StatusText, Mode=OneWay}"
+        FontSize="10"
+        IsTabStop="False"
+        SecondaryContent="{x:Bind ViewModel.TimeText, Mode=OneWay}" />
 </UserControl>
