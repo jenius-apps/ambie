@@ -257,6 +257,7 @@
     <Compile Include="Controls\TutorialDialog.xaml.cs">
       <DependentUpon>TutorialDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TwoToneButton.cs" />
     <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Controls\VideosMenu.xaml.cs">
       <DependentUpon>VideosMenu.xaml</DependentUpon>
@@ -628,6 +629,10 @@
     <Page Include="ResourceDictionaries\SharedTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BlankPage.xaml">
       <SubType>Designer</SubType>
