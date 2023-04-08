@@ -59,7 +59,7 @@ public class Navigator : INavigator
     }
 
     /// <inheritdoc/>
-    public void NavigateTo(ContentPageType contentPage)
+    public void NavigateTo(ContentPageType contentPage, object? navArgs = null)
     {
         Type pageType = contentPage switch
         {
@@ -72,7 +72,7 @@ public class Navigator : INavigator
 
         if (Frame is Frame f)
         {
-            f.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
+            f.Navigate(pageType, navArgs, new SuppressNavigationTransitionInfo());
             ContentPageChanged?.Invoke(this, contentPage);
         }
     }
