@@ -176,7 +176,7 @@ sealed partial class App : Application
     {
         if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
         {
-            await ActivateAsync(false);
+            await ActivateAsync(false, firstPageOverride: LaunchConstants.ToPageType(toastActivationArgs.Argument));
 
             // Must be performed after activate async
             // because the services are setup in that method.

@@ -2,6 +2,7 @@
 using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
+using AmbientSounds.Constants;
 
 namespace AmbientSounds.Services
 {
@@ -30,7 +31,8 @@ namespace AmbientSounds.Services
         {
             _toastService.SendToast(
                 _localizer.GetString("FocusSessionCompleteTitle"),
-                _localizer.GetString("FocusSessionCompleteMessage"));
+                _localizer.GetString("FocusSessionCompleteMessage"),
+                LaunchConstants.FocusCompleteArgument);
         }
 
         public void ScheduleToasts(IReadOnlyList<FocusSession> orderedSessions, DateTime start)
@@ -55,7 +57,8 @@ namespace AmbientSounds.Services
                             current,
                             _localizer.GetString("RestText"),
                             _localizer.GetString("FocusSessionRestMessage"),
-                            silent: false);
+                            silent: false,
+                            launchArg: LaunchConstants.FocusSegmentArgument);
                     }
                     else if (session.SessionType == Models.SessionType.Rest)
                     {
@@ -63,7 +66,8 @@ namespace AmbientSounds.Services
                             current,
                             _localizer.GetString("FocusText"),
                             _localizer.GetString("FocusSessionFocusMessage"),
-                            silent: true);
+                            silent: true,
+                            launchArg: LaunchConstants.FocusSegmentArgument);
                     }
                 }
             }
