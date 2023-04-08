@@ -27,12 +27,22 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
             <TextBlock
                 VerticalAlignment="Center"
                 FontSize="18"
                 FontWeight="SemiBold"
                 Text="{x:Bind TitleText, Mode=OneWay}"
                 TextTrimming="CharacterEllipsis" />
+            <TextBlock
+                x:Name="SparkleIcon"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                x:Load="{x:Bind SparkleIconVisible, Mode=OneWay}"
+                Text="✨" />
         </Grid>
 
         <winui:ItemsRepeater

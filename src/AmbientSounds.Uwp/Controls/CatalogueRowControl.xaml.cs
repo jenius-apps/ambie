@@ -28,6 +28,13 @@ public sealed partial class CatalogueRowControl : UserControl
             typeof(CatalogueRowControl),
             new PropertyMetadata(false));
 
+    public static readonly DependencyProperty SparkleIconVisibleProperty =
+        DependencyProperty.Register(
+            nameof(SparkleIconVisible),
+            typeof(bool),
+            typeof(CatalogueRowControl),
+            new PropertyMetadata(false));
+
     public CatalogueRowControl()
     {
         this.InitializeComponent();
@@ -49,5 +56,11 @@ public sealed partial class CatalogueRowControl : UserControl
     {
         get => (bool)GetValue(SoundsVisibleProperty);
         set => SetValue(SoundsVisibleProperty, value);
+    }
+
+    public bool SparkleIconVisible
+    {
+        get => (bool)GetValue(SparkleIconVisibleProperty);
+        set => SetValue(SparkleIconVisibleProperty, value);
     }
 }

@@ -49,7 +49,9 @@ public sealed partial class ShellPage : Page
             if (e.NavigationMode != NavigationMode.Back &&
                 e.Parameter is ShellPageNavigationArgs args)
             {
-                ViewModel.Navigate(args.FirstPageOverride ?? ContentPageType.Home);
+                ViewModel.Navigate(
+                    args.FirstPageOverride ?? ContentPageType.Home,
+                    args.LaunchArguments);
             }
         }
 
