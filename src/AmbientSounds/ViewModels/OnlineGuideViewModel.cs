@@ -41,6 +41,7 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
             localizer)
     {
         _guideService = guideService;
+        base._isLeadingSound = true;
 
         SelectedMix = GetOrCreateCurrentSelection();
         Minutes = TimeSpan.FromMinutes(g.MinutesLength).Humanize(maxUnit: TimeUnit.Minute);

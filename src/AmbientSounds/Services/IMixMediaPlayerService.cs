@@ -83,7 +83,12 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="s">The sound to toggle.</param>
         /// <param name="keepPaused">Optional. If true, an inserted sound will not be played automatically.</param>
-        Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "");
+        /// <param name="parentMixId">The ID of the parent mix. Should be provided if the given sound is part of a mix.</param>
+        /// <param name="isLeadingSound">
+        /// If true, the given sound will be treated as a Leading Sound, which does not repeat and 
+        /// is not intended to be grouped with the other active sounds.
+        /// </param>
+        Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "", bool isLeadingSound = false);
 
         /// <summary>
         /// Updates the <see cref="CurrentMixId"/>

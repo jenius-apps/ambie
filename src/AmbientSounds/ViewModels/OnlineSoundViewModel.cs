@@ -27,6 +27,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     protected readonly IMixMediaPlayerService _mixMediaPlayerService;
     protected readonly IUpdateService _updateService;
     protected readonly ILocalizer _localizer;
+    protected bool _isLeadingSound = false;
     private Progress<double> _downloadProgress;
     private bool _loading;
     private bool _initialized;
@@ -337,7 +338,7 @@ public partial class OnlineSoundViewModel : ObservableObject
         var installedVersion = await _soundService.GetLocalSoundAsync(Id);
         if (installedVersion is not null)
         {
-            await _mixMediaPlayerService.ToggleSoundAsync(installedVersion);
+            await _mixMediaPlayerService.ToggleSoundAsync(installedVersion, isLeadingSound: _isLeadingSound);
         }
     }
 

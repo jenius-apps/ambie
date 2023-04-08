@@ -15,6 +15,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private readonly Dictionary<string, IMediaPlayer> _activePlayers = new();
     private readonly Dictionary<string, string> _soundNames = new();
     private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new();
+    private string? _leadingSoundId;
     private readonly int _maxActive;
     private double _globalVolume;
     private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
@@ -146,22 +147,58 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     }
 
     /// <inheritdoc/>
-    public string[] GetSoundIds() => _activePlayers.Keys.ToArray();
+    public string[] GetSoundIds() => _leadingSoundId is null
+        ? _activePlayers.Keys.ToArray()
+        : _activePlayers.Keys.Where(x => x != _leadingSoundId).ToArray();
 
     /// <inheritdoc/>
-    public async Task ToggleSoundAsync(Sound sound, bool keepPaused = false, string parentMixId = "")
+    public async Task ToggleSoundAsync(Sound sound, bool keepPaused = false, string parentMixId = "", bool isLeadingSound = false)
     {
-        if (string.IsNullOrWhiteSpace(sound?.Id))
+        if (sound?.Id is not { Length: > 0 })
         {
             return;
         }
 
-        if (IsSoundPlaying(sound!.Id))
+        if (IsSoundPlaying(sound.Id))
         {
             return;
         }
 
-        if (_activePlayers.Count >= _maxActive)
+        if (isLeadingSound)
+        {
+            if (_leadingSoundId is not null)
+            {
+                RemoveLeadingSound(_leadingSoundId);
+            }
+
+            IMediaPlayer? player = await ConfigurePlayerAsync(sound, false);
+
+            if (player is not null)
+            {
+                player.Volume = 1;
+                _leadingSoundId = sound.Id;
+                if (!_activePlayers.ContainsKey(sound.Id)) _activePlayers.Add(sound.Id, player);
+                if (!_soundNames.ContainsKey(sound.Id)) _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
+                RefreshSmtcTitle();
+
+                if (GetSoundIds() is { Length: > 0 })
+                {
+                    Play();
+                }
+                else
+                {
+                    await PlayRandomAsync();
+                }
+            }
+
+            return;
+        }
+
+        int standardPlayerCount = _leadingSoundId is null
+            ? _activePlayers.Count
+            : _activePlayers.Where(x => x.Key != _leadingSoundId).Count();
+
+        if (standardPlayerCount >= _maxActive)
         {
             // remove sound
             var oldestTime = _activeSoundDateTimes.Min(static x => x.Value);
@@ -169,29 +206,18 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             RemoveSound(oldestSoundId);
         }
 
-        if (_activePlayers.Count < _maxActive)
+        if (standardPlayerCount < _maxActive)
         {
-            IMediaPlayer player = _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
-            bool sourceSetSuccessfully = false;
+            IMediaPlayer? player = await ConfigurePlayerAsync(sound, true);
 
-            if (Uri.IsWellFormedUriString(sound.FilePath, UriKind.Absolute))
-            {
-                // sound path is packaged and must be read as URI.
-                sourceSetSuccessfully = player.SetUriSource(new Uri(sound.FilePath), enableGaplessLoop: true);
-            }
-            else if (sound.FilePath is not null && sound.FilePath.Contains(_localDataFolderPath))
-            {
-                sourceSetSuccessfully = await player.SetSourceAsync(sound.FilePath, enableGaplessLoop: true);
-            }
-
-            if (sourceSetSuccessfully)
+            if (player is not null)
             {
                 CurrentMixId = parentMixId;
                 player.Volume *= _globalVolume;
                 if (!_activePlayers.ContainsKey(sound.Id)) _activePlayers.Add(sound.Id, player);
                 if (!_activeSoundDateTimes.ContainsKey(sound.Id)) _activeSoundDateTimes.Add(sound.Id, DateTimeOffset.Now);
                 if (!Screensavers.ContainsKey(sound.Id) && sound.ScreensaverImagePaths is { Length: > 0 } images) Screensavers.Add(sound.Id, images);
-                _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
+                if (!_soundNames.ContainsKey(sound.Id)) _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
                 RefreshSmtcTitle();
 
                 if (keepPaused) Pause();
@@ -200,6 +226,24 @@ public class MixMediaPlayerService : IMixMediaPlayerService
                 SoundAdded?.Invoke(this, new SoundPlayedArgs(sound, parentMixId));
             }
         }
+    }
+
+    private async Task<IMediaPlayer?> ConfigurePlayerAsync(Sound sound, bool enableGaplessLoop)
+    {
+        IMediaPlayer player = _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
+        bool sourceSetSuccessfully = false;
+
+        if (Uri.IsWellFormedUriString(sound.FilePath, UriKind.Absolute))
+        {
+            // sound path is packaged and must be read as URI.
+            sourceSetSuccessfully = player.SetUriSource(new Uri(sound.FilePath), enableGaplessLoop: enableGaplessLoop);
+        }
+        else if (sound.FilePath is not null && sound.FilePath.Contains(_localDataFolderPath))
+        {
+            sourceSetSuccessfully = await player.SetSourceAsync(sound.FilePath, enableGaplessLoop: enableGaplessLoop);
+        }
+
+        return sourceSetSuccessfully ? player : null;
     }
 
     /// <inheritdoc/>
@@ -243,16 +287,19 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     /// <inheritdoc/>
     public void RemoveAll()
     {
-        foreach (var soundId in _activePlayers.Keys.ToList())
+        IEnumerable<string> ids = _leadingSoundId is null
+            ? _activePlayers.Keys
+            : _activePlayers.Keys.Where(x => x != _leadingSoundId);
+
+        foreach (var soundId in ids)
         {
             RemoveSound(soundId);
         }
     }
 
-    /// <inheritdoc/>
-    public void RemoveSound(string soundId)
+    public void RemoveLeadingSound(string soundId)
     {
-        if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId))
+        if (soundId is not { Length: > 0 })
         {
             return;
         }
@@ -260,8 +307,27 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         var player = _activePlayers[soundId];
         player.Pause();
         player.Dispose();
+        _activePlayers.Remove(soundId);
+        _soundNames.Remove(soundId);
+        _leadingSoundId = null;
+        RefreshSmtcTitle();
+    }
 
-        _activePlayers[soundId] = null!;
+    /// <inheritdoc/>
+    public void RemoveSound(string soundId)
+    {
+        if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId) || _leadingSoundId == soundId)
+        {
+            // Note: this method can't be used to remove the leading sound because different
+            // operations must happen when that is removed,
+            // so make sure to do a quick return to prevent bugs.
+            return;
+        }
+
+        var player = _activePlayers[soundId];
+        player.Pause();
+        player.Dispose();
+
         _activePlayers.Remove(soundId);
         _activeSoundDateTimes.Remove(soundId);
         _soundNames.Remove(soundId);
@@ -321,7 +387,17 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     private void RefreshSmtcTitle()
     {
-        var title = _soundNames.Count == 0 ? "Ambie" : string.Join(" / ", _soundNames.Values);
+        string title;
+
+        if (_leadingSoundId is not null)
+        {
+            title = _soundNames[_leadingSoundId];
+        }
+        else
+        {
+            title = _soundNames.Count == 0 ? "Ambie" : string.Join(" • ", _soundNames.Values);
+        }
+
         _smtc.UpdateDisplay(title, "Ambie");
     }
 }
