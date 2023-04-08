@@ -33,10 +33,12 @@ public sealed partial class CataloguePage : Page
                 { "name", "catalogue" }
             });
 
+        string? navArgs = e.Parameter is string s ? s : null;
+
         try
         {
             _cts = new CancellationTokenSource();
-            await ViewModel.InitializeAsync(_cts.Token);
+            await ViewModel.InitializeAsync(navArgs, _cts.Token);
         }
         catch (OperationCanceledException)
         {

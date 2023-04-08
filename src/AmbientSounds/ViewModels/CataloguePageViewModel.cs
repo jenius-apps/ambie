@@ -33,7 +33,7 @@ public partial class CataloguePageViewModel : ObservableObject
     [ObservableProperty]
     private bool _loading;
 
-    public async Task InitializeAsync(CancellationToken ct)
+    public async Task InitializeAsync(string? launchArgs, CancellationToken ct)
     {
         try
         {
@@ -48,7 +48,7 @@ public partial class CataloguePageViewModel : ObservableObject
             {
                 ct.ThrowIfCancellationRequested();
                 CatalogueRowViewModel vm = _vmFactory.Create(row);
-                tasks.Add(vm.LoadAsync(ct));
+                tasks.Add(vm.LoadAsync(launchArgs, ct));
                 Rows.Add(vm);
 
                 if (Loading)

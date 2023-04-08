@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Factories;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
@@ -40,9 +41,12 @@ public partial class CatalogueRowViewModel : ObservableObject
     [ObservableProperty]
     private bool _rowVisible;
 
+    [ObservableProperty]
+    private bool _newAnimationVisible;
+
     public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
 
-    public async Task LoadAsync(CancellationToken ct)
+    public async Task LoadAsync(string? launchArgs, CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
         RowVisible = false;
@@ -74,6 +78,17 @@ public partial class CatalogueRowViewModel : ObservableObject
             }
 
             await Task.WhenAll(tasks);
+        }
+
+        HandleLaunchArgs(launchArgs);
+    }
+
+    private void HandleLaunchArgs(string? launchArgs)
+    {
+        if (_row.Name.ToLower() == "new" &&
+            launchArgs == LaunchConstants.NewSoundArgument)
+        {
+            NewAnimationVisible = true;
         }
     }
 

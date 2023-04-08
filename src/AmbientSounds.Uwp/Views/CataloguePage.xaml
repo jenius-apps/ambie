@@ -20,6 +20,7 @@
                                 Margin="0,0,0,24"
                                 ItemsSource="{x:Bind Sounds, Mode=OneWay}"
                                 SoundsVisible="{x:Bind RowVisible, Mode=OneWay}"
+                                SparkleIconVisible="{x:Bind NewAnimationVisible, Mode=OneWay}"
                                 TitleText="{x:Bind Title, Mode=OneWay}" />
                         </DataTemplate>
                     </winui:ItemsRepeater.ItemTemplate>

@@ -233,6 +233,7 @@
     <Compile Include="Controls\SoundListItem.xaml.cs">
       <DependentUpon>SoundListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SparkleLottie.cs" />
     <Compile Include="Controls\StatDetail.xaml.cs">
       <DependentUpon>StatDetail.xaml</DependentUpon>
     </Compile>

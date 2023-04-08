@@ -176,7 +176,7 @@ sealed partial class App : Application
     {
         if (args is ToastNotificationActivatedEventArgs toastActivationArgs)
         {
-            await ActivateAsync(false, firstPageOverride: LaunchConstants.ToPageType(toastActivationArgs.Argument));
+            await ActivateAsync(false, launchArguments: toastActivationArgs.Argument);
 
             // Must be performed after activate async
             // because the services are setup in that method.
@@ -253,7 +253,7 @@ sealed partial class App : Application
     private async Task ActivateAsync(
         bool prelaunched, 
         IAppSettings? appsettings = null,
-        ContentPageType? firstPageOverride = null)
+        string launchArguments = "")
     {
         // Do not repeat app initialization when the Window already has content
         if (Window.Current.Content is not Frame rootFrame)
@@ -282,7 +282,8 @@ sealed partial class App : Application
             {
                 rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
                 {
-                    FirstPageOverride = firstPageOverride
+                    FirstPageOverride = LaunchConstants.ToPageType(launchArguments),
+                    LaunchArguments = launchArguments
                 });
             }
 

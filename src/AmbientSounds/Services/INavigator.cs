@@ -61,7 +61,8 @@ public interface INavigator
     /// Navigates to the page corresponding to the given enum.
     /// </summary>
     /// <param name="contentPage">The page to navigate to.</param>
-    void NavigateTo(ContentPageType contentPage);
+    /// <param name="navArgs">Arguments to be passed to the new page during navigation.</param>
+    void NavigateTo(ContentPageType contentPage, object? navArgs = null);
 }
 
 public enum ContentPageType
