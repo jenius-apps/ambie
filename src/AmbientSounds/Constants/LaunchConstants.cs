@@ -15,7 +15,7 @@ public class LaunchConstants
     /// a corresponding content page type.
     /// </summary>
     /// <param name="toastLaunchArgument">The launch argument to convert.</param>
-    /// <returns></returns>
+    /// <returns>A content page type if the argument is valid. Null, otherwise.</returns>
     public static ContentPageType? ToPageType(string toastLaunchArgument)
     {
         return toastLaunchArgument switch
