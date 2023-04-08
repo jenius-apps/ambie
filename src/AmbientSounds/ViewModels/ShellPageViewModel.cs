@@ -139,11 +139,11 @@ public partial class ShellPageViewModel : ObservableObject
         OnPropertyChanged(nameof(CanSaveMix));
     }
 
-    public void Navigate(ContentPageType pageType)
+    public void Navigate(ContentPageType pageType, string? launchArguments = null)
     {
         if (HandleNavigationRequest(pageType) is true)
         {
-            _navigator.NavigateTo(pageType);
+            _navigator.NavigateTo(pageType, launchArguments);
             UpdateTimeBannerVisibility();
             UpdateFocusDotVisibility();
         }
