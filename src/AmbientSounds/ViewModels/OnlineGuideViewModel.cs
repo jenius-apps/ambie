@@ -93,7 +93,7 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
     [RelayCommand]
     private async Task PlayGuideAsync()
     {
-        var installedVersion = await CheckIfPlayableAndGetLocalSoundAsync();
+        var installedVersion = await CheckIfPlayableAndGetLocalSoundAsync<Guide>();
 
         if (installedVersion is Guide g)
         {

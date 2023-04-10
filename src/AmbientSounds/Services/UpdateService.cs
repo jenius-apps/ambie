@@ -51,7 +51,7 @@ public class UpdateService : IUpdateService
         foreach (var onlineSound in onlineSounds)
         {
             ct.ThrowIfCancellationRequested();
-            var s = await _soundService.GetLocalSoundAsync(onlineSound.Id);
+            var s = await _soundService.GetLocalSoundAsync<Sound>(onlineSound.Id);
             if (s is null)
             {
                 continue;
@@ -69,7 +69,7 @@ public class UpdateService : IUpdateService
     /// <inheritdoc/>
     public async Task TriggerUpdateAsync(Sound onlineSound, IProgress<double> progress)
     {
-        var installedSound = await _soundService.GetLocalSoundAsync(onlineSound.Id);
+        var installedSound = await _soundService.GetLocalSoundAsync<Sound>(onlineSound.Id);
         if (installedSound is null || GetUpdateReason(onlineSound, installedSound) == UpdateReason.None)
         {
             return;

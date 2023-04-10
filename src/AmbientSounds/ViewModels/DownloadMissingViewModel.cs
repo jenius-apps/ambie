@@ -86,7 +86,7 @@ public partial class DownloadMissingViewModel : ObservableObject
     {
         if (sender is OnlineSoundViewModel vm)
         {
-            var sound = await _soundService.GetLocalSoundAsync(vm.Id);
+            var sound = await _soundService.GetLocalSoundAsync<Sound>(vm.Id);
             if (sound is not null)
             {
                 await Task.Delay(300);

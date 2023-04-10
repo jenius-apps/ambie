@@ -329,7 +329,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     [RelayCommand]
     private async Task PlayAsync()
     {
-        var installedVersion = await CheckIfPlayableAndGetLocalSoundAsync();
+        var installedVersion = await CheckIfPlayableAndGetLocalSoundAsync<Sound>();
 
         if (installedVersion is not null)
         {
@@ -337,14 +337,14 @@ public partial class OnlineSoundViewModel : ObservableObject
         }
     }
 
-    protected async Task<Sound?> CheckIfPlayableAndGetLocalSoundAsync()
+    protected async Task<T?> CheckIfPlayableAndGetLocalSoundAsync<T>() where T : Sound
     {
         if (!IsInstalled || _mixMediaPlayerService.IsSoundPlaying(Id))
         {
-            return null;
+            return default;
         }
 
-        return await _soundService.GetLocalSoundAsync(Id);
+        return await _soundService.GetLocalSoundAsync<T>(Id);
     }
 
     [RelayCommand]

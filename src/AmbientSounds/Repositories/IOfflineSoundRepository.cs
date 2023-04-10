@@ -9,7 +9,7 @@ public interface IOfflineSoundRepository
     /// <summary>
     /// Retrieves list of sound data from storage.
     /// </summary>
-    Task<IReadOnlyList<Sound>> GetLocalSoundsAsync();
+    Task<IReadOnlyList<T>> GetLocalSoundsAsync<T>() where T : Sound;
     
     /// <summary>
     /// Saves the given list of sound meta data to storage.

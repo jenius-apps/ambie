@@ -133,11 +133,11 @@ public class SoundCache : ISoundCache
     }
 
     /// <inheritdoc/>
-    public async Task<Sound?> GetInstalledSoundAsync(string stringId)
+    public async Task<T?> GetInstalledSoundAsync<T>(string stringId) where T : Sound
     {
         await GetInstalledSoundsAsync();
 
-        return _installedSounds.TryGetValue(stringId, out Sound result) ? result : null;
+        return _installedSounds.TryGetValue(stringId, out Sound result) ? (T)result : null;
     }
 
     /// <inheritdoc/>

@@ -24,7 +24,7 @@ public interface ISoundService
     /// </summary>
     /// <param name="soundId">The id of the installed sound to retrieve.</param>
     /// <returns>The installed sound with the provided id, if it exists.</returns>
-    Task<Sound?> GetLocalSoundAsync(string? soundId);
+    Task<T?> GetLocalSoundAsync<T>(string? soundId) where T : Sound;
 
     /// <summary>
     /// Gets the list of sounds that are installed.

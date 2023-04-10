@@ -20,9 +20,14 @@ namespace AmbientSounds.Repositories
         }
 
         /// <inheritdoc/>
-        public Task<IReadOnlyList<Sound>> GetLocalSoundsAsync()
+        public async Task<IReadOnlyList<T>> GetLocalSoundsAsync<T>() where T : Sound
         {
-            return GetSoundsAsync(LocalDataFileName);
+            if (typeof(T) == typeof(Sound))
+            {
+                var results = await GetSoundsAsync(LocalDataFileName);
+                return (IReadOnlyList<T>)results;
+            }
+            else if (typeof(T) == typeof)
         }
 
         private async Task<IReadOnlyList<Sound>> GetSoundsAsync(string file)

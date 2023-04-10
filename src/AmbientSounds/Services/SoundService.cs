@@ -38,14 +38,14 @@ public class SoundService : ISoundService
     }
 
     /// <inheritdoc/>
-    public async Task<Sound?> GetLocalSoundAsync(string? soundId)
+    public async Task<T?> GetLocalSoundAsync<T>(string? soundId) where T : Sound
     {
         if (soundId is null)
         {
             return null;
         }
 
-        return await _soundCache.GetInstalledSoundAsync(soundId);
+        return await _soundCache.GetInstalledSoundAsync<T>(soundId);
     }
 
     /// <inheritdoc/>
@@ -90,7 +90,7 @@ public class SoundService : ISoundService
     /// <inheritdoc/>
     public async Task<bool> IsSoundInstalledAsync(string id)
     {
-        Sound? sound = await _soundCache.GetInstalledSoundAsync(id);
+        Sound? sound = await _soundCache.GetInstalledSoundAsync<Sound>(id);
         return sound is not null;
     }
 
@@ -115,7 +115,7 @@ public class SoundService : ISoundService
             return;
         }
 
-        Sound? sound = await _soundCache.GetInstalledSoundAsync(id);
+        Sound? sound = await _soundCache.GetInstalledSoundAsync<Sound>(id);
         if (sound is null)
         {
             return;
@@ -213,7 +213,7 @@ public class SoundService : ISoundService
     /// <inheritdoc/>
     public async Task UpdateSoundAsync(Sound updatedSound)
     {
-        if (await GetLocalSoundAsync(updatedSound.Id) is Sound sound)
+        if (await GetLocalSoundAsync<Sound>(updatedSound.Id) is Sound sound)
         {
             updatedSound.SortPosition = sound.SortPosition;
             await _soundCache.AddLocalInstalledSoundAsync(updatedSound);
