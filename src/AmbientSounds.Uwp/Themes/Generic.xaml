@@ -28,7 +28,7 @@
                         BackgroundSizing="{TemplateBinding BackgroundSizing}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                        CornerRadius="2">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
@@ -110,6 +110,7 @@
 
                         <Border
                             x:Name="InnerBorder"
+                            Margin="-1,-1,0,0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             Background="{ThemeResource AccentButtonBackground}"
@@ -126,8 +127,9 @@
                                 Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" />
                         </Border>
 
-                        <ContentPresenter Grid.Column="1"
+                        <ContentPresenter
                             x:Name="SecondaryContentPresenter"
+                            Grid.Column="1"
                             Padding="{TemplateBinding Padding}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
