@@ -450,6 +450,7 @@ sealed partial class App : Application
             .AddSingleton<IDispatcherQueue, WindowsDispatcherQueue>()
             .AddSingleton<IFocusNotesService, FocusNotesService>()
             .AddSingleton<IFocusService, FocusService>()
+            .AddSingleton<IMeditateService, MeditateService>()
             .AddSingleton<IFocusHistoryService, FocusHistoryService>()
             .AddSingleton<IFocusTaskService, FocusTaskService>()
             .AddSingleton<IRecentFocusService, RecentFocusService>()

@@ -14,6 +14,7 @@ namespace AmbientSounds.ViewModels;
 public partial class OnlineGuideViewModel : OnlineSoundViewModel
 {
     private readonly IGuideService _guideService;
+    private readonly IMeditateService _meditateService;
 
     public OnlineGuideViewModel(
         Guide g,
@@ -27,7 +28,8 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
         IMixMediaPlayerService mixMediaPlayerService,
         IUpdateService updateService,
         ILocalizer localizer,
-        IGuideService guideService)
+        IGuideService guideService,
+        IMeditateService meditateService)
         : base(g,
             downloadManager,
             soundService,
@@ -41,7 +43,7 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
             localizer)
     {
         _guideService = guideService;
-        base._isLeadingSound = true;
+        _meditateService = meditateService;
 
         SelectedMix = GetOrCreateCurrentSelection();
         Minutes = TimeSpan.FromMinutes(g.MinutesLength).Humanize(maxUnit: TimeUnit.Minute);
@@ -87,6 +89,18 @@ public partial class OnlineGuideViewModel : OnlineSoundViewModel
     {
         await _dialogService.OpenGuideDetailsAsync(this);
     }
+
+    [RelayCommand]
+    private async Task PlayGuideAsync()
+    {
+        var installedVersion = await CheckIfPlayableAndGetLocalSoundAsync();
+
+        if (installedVersion is Guide g)
+        {
+            await _meditateService.PlayAsync(g);
+        }
+    }
+
 
     private static SuggestedSoundViewModel? _currentSelectionPlaceholder;
 

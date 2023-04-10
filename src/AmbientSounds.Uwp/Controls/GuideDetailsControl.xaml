@@ -101,7 +101,7 @@
                         MinHeight="44"
                         Margin="0,12,0,0"
                         HorizontalAlignment="Stretch"
-                        Command="{x:Bind ViewModel.PlayCommand}"
+                        Command="{x:Bind ViewModel.PlayGuideCommand}"
                         Content="{x:Bind strings:Resources.PlayerPlayText}"
                         Style="{StaticResource AccentButtonStyle}"
                         Visibility="{x:Bind ViewModel.IsInstalled, Mode=OneWay}" />
