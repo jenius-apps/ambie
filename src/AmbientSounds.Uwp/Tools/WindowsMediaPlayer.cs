@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using AmbientSounds.Constants;
 using AmbientSounds.Services;
-using Microsoft.Extensions.DependencyInjection;
 using Windows.Devices.Enumeration;
 using Windows.Media.Core;
 using Windows.Media.Devices;
@@ -23,6 +22,7 @@ public class WindowsMediaPlayer : IMediaPlayer
     private readonly IUserSettings _userSettings;
     private string _lastUsedOutputDeviceId = string.Empty;
     private TaskCompletionSource<bool>? _mediaOpenCompletionSource = null;
+    private readonly SemaphoreSlim _outputDeviceLock = new(1, 1);
 
     public WindowsMediaPlayer(IUserSettings userSettings, bool disableSystemControls = false)
     {
@@ -117,10 +117,12 @@ public class WindowsMediaPlayer : IMediaPlayer
 
     private async void SetOutputDevice()
     {
-        var outputDeviceId = _userSettings.Get<string>(UserSettingsConstants.OutputAudioDeviceId);
+        await _outputDeviceLock.WaitAsync();
 
+        var outputDeviceId = _userSettings.Get<string>(UserSettingsConstants.OutputAudioDeviceId);
         if (outputDeviceId == _lastUsedOutputDeviceId)
         {
+            _outputDeviceLock.Release();
             return;
         }
 
@@ -162,6 +164,7 @@ public class WindowsMediaPlayer : IMediaPlayer
         }
 
         _lastUsedOutputDeviceId = outputDeviceId;
+        _outputDeviceLock.Release();
     }
 
     private void _player_MediaOpened(MediaPlayer sender, object args)
