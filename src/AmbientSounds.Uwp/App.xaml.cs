@@ -11,7 +11,6 @@ using JeniusApps.Common.Tools;
 using JeniusApps.Common.Tools.Uwp;
 using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Client.Extensibility;
 using CommunityToolkit.Diagnostics;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using System;
@@ -25,7 +24,6 @@ using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
-using Windows.Graphics.Display;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -33,7 +31,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Gaming.XboxGameBar;
 using System.Collections.Generic;
 
 #nullable enable
@@ -484,16 +481,13 @@ sealed partial class App : Application
             .AddSingleton<IFileWriter, FileWriter>()
             .AddSingleton<IFilePicker, FilePicker>()
             .AddSingleton<IFocusToastService, FocusToastService>()
-            .AddSingleton<ICustomWebUi, CustomAuthUiService>()
             .AddSingleton<IToastService, ToastService>()
-            .AddSingleton<IMsaAuthClient, MsalClient>()
             .AddSingleton<INavigator, Navigator>()
             .AddSingleton<ICompactNavigator, CompactNavigator>()
             .AddSingleton<ICloudFileWriter, CloudFileWriter>()
             .AddSingleton<PlayerTelemetryTracker>()
             .AddSingleton<ISoundEffectsService, SoundEffectsService>()
             .AddSingleton<ICatalogueService, CatalogueService>()
-            .AddSingleton<IAccountManager, AccountManager>()
             .AddSingleton<IPreviewService, PreviewService>()
             .AddSingleton<IIapService, StoreService>()
             .AddSingleton<IDownloadManager, WindowsDownloadManager>()
