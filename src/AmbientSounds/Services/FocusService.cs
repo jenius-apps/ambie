@@ -145,7 +145,14 @@ public class FocusService : IFocusService
 
         if (sessionCompleted)
         {
-            _focusToastService.SendCompletionToast();
+            if (pauseSounds)
+            {
+                // When user does not want to pause sound, it's because they want to continue focusing.
+                // Sending a toast would only break their concentration. So we only send this toast
+                // if the user wants sounds to be paused.
+                _focusToastService.SendCompletionToast();
+            }
+
             _telemetry.TrackEvent(TelemetryConstants.FocusCompleted);
             _focusHistoryService.TrackHistoryCompletion(
                 DateTime.UtcNow.Ticks,
