@@ -148,9 +148,15 @@
                             <FlyoutBase.AttachedFlyout>
                                 <MenuFlyout Placement="BottomEdgeAlignedRight">
                                     <ToggleMenuFlyoutItem
-                                        Click="OnCompactToggled"
+                                        Click="OnSettingsFlyoutItemToggled"
                                         IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}"
+                                        Tag="compact"
                                         Text="{x:Bind strings:Resources.SettingsCompactMode}" />
+                                    <ToggleMenuFlyoutItem
+                                        Click="OnSettingsFlyoutItemToggled"
+                                        IsChecked="{x:Bind ViewModel.PlayAfterFocusEnabled, Mode=TwoWay}"
+                                        Tag="playAfterFocus"
+                                        Text="{x:Bind strings:Resources.SettingsPlayAfterFocusHeader}" />
                                 </MenuFlyout>
                             </FlyoutBase.AttachedFlyout>
                         </HyperlinkButton>

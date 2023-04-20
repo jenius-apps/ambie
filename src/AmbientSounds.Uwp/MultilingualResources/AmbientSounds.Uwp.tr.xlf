@@ -1002,6 +1002,14 @@
           <source>Choose where to play sound</source>
           <target state="translated">Sesin nerede çalınacağını seçme</target>
         </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
+          <source>Sounds will continue to play after your focus session ends</source>
+          <target state="translated">Odaklanma oturumunuz sona erdikten sonra sesler çalmaya devam eder</target>
+        </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
+          <source>Continue sounds after focusing</source>
+          <target state="translated">Odaklandıktan sonra seslere devam etme</target>
+        </trans-unit>
       </group>
     </body>
   </file>

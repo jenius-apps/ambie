@@ -20,6 +20,11 @@ namespace AmbientSounds.Views;
 /// </summary>
 public sealed partial class CompactPage : Page
 {
+    private static readonly Dictionary<string, string> CommonTelemetryContent = new()
+    {
+        { "page", "compact" }
+    };
+
     private readonly IUserSettings _userSettings;
     private CoreApplicationViewTitleBar? _coreTitleBar;
 
@@ -109,16 +114,22 @@ public sealed partial class CompactPage : Page
         }
     }
 
-    private void OnCompactToggled(object sender, RoutedEventArgs e)
+    private void OnSettingsFlyoutItemToggled(object sender, RoutedEventArgs e)
     {
-        if (sender is ToggleMenuFlyoutItem item)
+        if (sender is ToggleMenuFlyoutItem item && item.Tag is string tag)
         {
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-                item.IsChecked ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
-                new Dictionary<string, string>
-                {
-                        { "page", "compact" }
-                });
+            if (tag == "compact")
+            {
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(
+                    item.IsChecked ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
+                    CommonTelemetryContent);
+            }
+            else if (tag == "playAfterFocus")
+            {
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(
+                    item.IsChecked ? TelemetryConstants.PlayAfterFocusEnabled : TelemetryConstants.PlayAfterFocusDisabled,
+                    CommonTelemetryContent);
+            }
         }
     }
 }

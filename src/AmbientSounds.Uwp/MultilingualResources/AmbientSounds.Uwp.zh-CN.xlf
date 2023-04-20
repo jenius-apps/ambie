@@ -991,6 +991,14 @@
           <source>Choose where to play sound</source>
           <target state="translated">选择用来播放音效的设备</target>
         </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
+          <source>Sounds will continue to play after your focus session ends</source>
+          <target state="translated">焦点会议结束后，声音将继续播放</target>
+        </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
+          <source>Continue sounds after focusing</source>
+          <target state="translated">聚焦后继续播放声音</target>
+        </trans-unit>
       </group>
     </body>
   </file>

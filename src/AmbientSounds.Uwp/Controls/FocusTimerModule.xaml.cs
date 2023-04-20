@@ -1,155 +1,154 @@
 ﻿using AmbientSounds.Constants;
-using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml.Controls;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
-namespace AmbientSounds.Controls
+namespace AmbientSounds.Controls;
+
+public sealed partial class FocusTimerModule : UserControl, ICanInitialize
 {
-    public sealed partial class FocusTimerModule : UserControl, ICanInitialize
+    private static readonly Dictionary<string, string> CommonTelemetryContent = new()
     {
-        public FocusTimerModule()
-        {
-            this.InitializeComponent();
-            DataContext = App.Services.GetRequiredService<FocusTimerModuleViewModel>();
-        }
+        { "page", "focus" }
+    };
 
-        public FocusTimerModuleViewModel ViewModel => (FocusTimerModuleViewModel)this.DataContext;
+    public FocusTimerModule()
+    {
+        this.InitializeComponent();
+        DataContext = App.Services.GetRequiredService<FocusTimerModuleViewModel>();
+    }
 
-        private bool IsDesktop => App.IsDesktop;
+    public FocusTimerModuleViewModel ViewModel => (FocusTimerModuleViewModel)this.DataContext;
 
-        public async Task InitializeAsync()
-        {
-            await ViewModel.InitializeAsync();
-        }
+    private bool IsDesktop => App.IsDesktop;
 
-        public void Uninitialize() => ViewModel.Uninitialize();
+    public async Task InitializeAsync()
+    {
+        await ViewModel.InitializeAsync();
+    }
 
-        private void StartTutorial(object sender, RoutedEventArgs e)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
+    public void Uninitialize() => ViewModel.Uninitialize();
 
-            ViewModel.IsHelpMessageVisible = false;
-            TeachingTip1.IsOpen = true;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = false;
-
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialStarted);
-        }
-
-        private void ShowTip2(TeachingTip sender, object args)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
-
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = true;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = false;
-        }
-
-        private void ShowTip3(TeachingTip sender, object args)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
-
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = true;
-            TeachingTip4.IsOpen = false;
-        }
-
-        private void ShowTip4(TeachingTip sender, object args)
-        {
-            if (!ViewModel.CanStartTutorial())
-            {
-                CloseAll();
-                return;
-            }
-
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = true;
-        }
-
-        private void OnTutorialEnded(TeachingTip sender, object args)
+    private void StartTutorial(object sender, RoutedEventArgs e)
+    {
+        if (!ViewModel.CanStartTutorial())
         {
             CloseAll();
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialEnded);
+            return;
         }
 
-        private void CloseAll()
+        ViewModel.IsHelpMessageVisible = false;
+        TeachingTip1.IsOpen = true;
+        TeachingTip2.IsOpen = false;
+        TeachingTip3.IsOpen = false;
+        TeachingTip4.IsOpen = false;
+
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialStarted);
+    }
+
+    private void ShowTip2(TeachingTip sender, object args)
+    {
+        if (!ViewModel.CanStartTutorial())
         {
-            TeachingTip1.IsOpen = false;
-            TeachingTip2.IsOpen = false;
-            TeachingTip3.IsOpen = false;
-            TeachingTip4.IsOpen = false;
+            CloseAll();
+            return;
         }
 
-        private void OnResetClicked(object sender, RoutedEventArgs e)
+        TeachingTip1.IsOpen = false;
+        TeachingTip2.IsOpen = true;
+        TeachingTip3.IsOpen = false;
+        TeachingTip4.IsOpen = false;
+    }
+
+    private void ShowTip3(TeachingTip sender, object args)
+    {
+        if (!ViewModel.CanStartTutorial())
         {
-            StartButton.Focus(Windows.UI.Xaml.FocusState.Programmatic);
-            ViewModel.Stop();
+            CloseAll();
+            return;
         }
 
-        private void OnRecentClicked(object sender, ItemClickEventArgs e)
+        TeachingTip1.IsOpen = false;
+        TeachingTip2.IsOpen = false;
+        TeachingTip3.IsOpen = true;
+        TeachingTip4.IsOpen = false;
+    }
+
+    private void ShowTip4(TeachingTip sender, object args)
+    {
+        if (!ViewModel.CanStartTutorial())
         {
-            if (e.ClickedItem is RecentFocusSettingsViewModel s)
+            CloseAll();
+            return;
+        }
+
+        TeachingTip1.IsOpen = false;
+        TeachingTip2.IsOpen = false;
+        TeachingTip3.IsOpen = false;
+        TeachingTip4.IsOpen = true;
+    }
+
+    private void OnTutorialEnded(TeachingTip sender, object args)
+    {
+        CloseAll();
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialEnded);
+    }
+
+    private void CloseAll()
+    {
+        TeachingTip1.IsOpen = false;
+        TeachingTip2.IsOpen = false;
+        TeachingTip3.IsOpen = false;
+        TeachingTip4.IsOpen = false;
+    }
+
+    private void OnResetClicked(object sender, RoutedEventArgs e)
+    {
+        StartButton.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+        ViewModel.Stop();
+    }
+
+    private void OnRecentClicked(object sender, ItemClickEventArgs e)
+    {
+        if (e.ClickedItem is RecentFocusSettingsViewModel s)
+        {
+            ViewModel.LoadRecentSettings(s);
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusRecentClicked, new Dictionary<string, string>
             {
-                ViewModel.LoadRecentSettings(s);
-                App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusRecentClicked, new Dictionary<string, string>
-                {
-                    { "index", ViewModel.RecentSettings.IndexOf(s).ToString() }
-                });
-            }
+                { "index", ViewModel.RecentSettings.IndexOf(s).ToString() }
+            });
         }
+    }
 
-        private void OnSettingsClicked(object sender, RoutedEventArgs e)
+    private void OnSettingsClicked(object sender, RoutedEventArgs e)
+    {
+        if (sender is HyperlinkButton hb)
         {
-            if (sender is HyperlinkButton hb)
-            {
-                FlyoutBase.ShowAttachedFlyout(hb);
-            }
+            FlyoutBase.ShowAttachedFlyout(hb);
         }
+    }
 
-        private void OnCompactToggled(object sender, RoutedEventArgs e)
+    private void OnSettingsFlyoutItemToggled(object sender, RoutedEventArgs e)
+    {
+        if (sender is ToggleMenuFlyoutItem item && item.Tag is string tag)
         {
-            if (sender is ToggleMenuFlyoutItem item)
+            if (tag == "compact")
             {
                 App.Services.GetRequiredService<ITelemetry>().TrackEvent(
                     item.IsChecked ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
-                    new Dictionary<string, string>
-                    {
-                        { "page", "focus" }
-                    });
+                    CommonTelemetryContent);
+            }
+            else if (tag == "playAfterFocus")
+            {
+                App.Services.GetRequiredService<ITelemetry>().TrackEvent(
+                    item.IsChecked ? TelemetryConstants.PlayAfterFocusEnabled : TelemetryConstants.PlayAfterFocusDisabled,
+                    CommonTelemetryContent);
             }
         }
     }

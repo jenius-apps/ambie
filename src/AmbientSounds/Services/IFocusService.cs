@@ -52,7 +52,7 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Stops the current focus session and resets.
         /// </summary>
-        void StopTimer(bool sessionCompleted = false);
+        void StopTimer(bool sessionCompleted = false, bool pauseTimer = true);
 
         /// <summary>
         /// Determines the number of repetitions remaining in the current

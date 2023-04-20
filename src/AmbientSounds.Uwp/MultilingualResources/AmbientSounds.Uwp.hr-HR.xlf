@@ -995,6 +995,14 @@
           <source>Choose where to play sound</source>
           <target state="translated">Odaberite mjesto za reprodukciju zvuka</target>
         </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
+          <source>Sounds will continue to play after your focus session ends</source>
+          <target state="translated">Zvukovi će se nastaviti reproducirati nakon završetka sesije fokusa</target>
+        </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
+          <source>Continue sounds after focusing</source>
+          <target state="translated">Nastavi zvukove nakon fokusiranja</target>
+        </trans-unit>
       </group>
     </body>
   </file>

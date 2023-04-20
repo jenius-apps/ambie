@@ -992,6 +992,14 @@
           <source>Choose where to play sound</source>
           <target state="translated">사운드 재생 위치 선택</target>
         </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
+          <source>Sounds will continue to play after your focus session ends</source>
+          <target state="translated">집중 세션이 끝난 후에도 사운드가 계속 재생됩니다</target>
+        </trans-unit>
+        <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
+          <source>Continue sounds after focusing</source>
+          <target state="translated">초점을 맞춘 후 소리 계속</target>
+        </trans-unit>
       </group>
     </body>
   </file>

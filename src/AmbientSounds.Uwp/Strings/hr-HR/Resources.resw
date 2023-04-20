@@ -739,4 +739,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Odaberite mjesto za reprodukciju zvuka</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>Zvukovi će se nastaviti reproducirati nakon završetka sesije fokusa</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Nastavi zvukove nakon fokusiranja</value>
+  </data>
 </root>

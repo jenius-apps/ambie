@@ -1,5 +1,4 @@
 // File generated automatically by ReswPlus. https://github.com/DotNetPlus/ReswPlus
-// The NuGet package ReswPlusLib is necessary to support Pluralization.
 using System;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Markup;
@@ -2329,6 +2328,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsPlayAfterFocusDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Sounds will continue to play after your focus session ends
+        /// </summary>
+        public static string SettingsPlayAfterFocusDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsPlayAfterFocusDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsPlayAfterFocusHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Continue sounds after focusing
+        /// </summary>
+        public static string SettingsPlayAfterFocusHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsPlayAfterFocusHeader");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2518,6 +2543,8 @@ namespace AmbientSounds.Strings{
             InterruptionInsightsButtonText,
             SettingsOutputDevice,
             SettingsOutputDeviceDescription,
+            SettingsPlayAfterFocusDescription,
+            SettingsPlayAfterFocusHeader,
         }
 
         private static ResourceLoader _resourceLoader;

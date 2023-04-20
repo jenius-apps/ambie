@@ -718,4 +718,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Kiezen waar u geluid wilt afspelen</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>Geluiden blijven spelen nadat je focussessie is afgelopen</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Doorgaan met geluiden na het scherpstellen</value>
+  </data>
 </root>

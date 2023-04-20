@@ -856,4 +856,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Choose where to play sound</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>Sounds will continue to play after your focus session ends</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Continue sounds after focusing</value>
+  </data>
 </root>

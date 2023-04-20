@@ -14,6 +14,7 @@ public class FocusService : IFocusService
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly ITelemetry _telemetry;
     private readonly IFocusHistoryService _focusHistoryService;
+    private readonly IUserSettings _userSettings;
     private readonly Queue<FocusSession> _sessionQueue = new();
     private FocusState _focusState = FocusState.None;
     private double _previousGlobalVolume;
@@ -26,18 +27,21 @@ public class FocusService : IFocusService
         IFocusToastService focusToastService,
         IMixMediaPlayerService mixMediaPlayerService,
         IFocusHistoryService focusHistoryService,
-        ITelemetry telemetry)
+        ITelemetry telemetry,
+        IUserSettings userSettings)
     {
-        Guard.IsNotNull(timerService, nameof(timerService));
-        Guard.IsNotNull(focusToastService, nameof(focusToastService));
-        Guard.IsNotNull(mixMediaPlayerService, nameof(mixMediaPlayerService));
-        Guard.IsNotNull(telemetry, nameof(telemetry));
-        Guard.IsNotNull(focusHistoryService, nameof(focusHistoryService));
+        Guard.IsNotNull(timerService);
+        Guard.IsNotNull(focusToastService);
+        Guard.IsNotNull(mixMediaPlayerService);
+        Guard.IsNotNull(telemetry);
+        Guard.IsNotNull(focusHistoryService);
+        Guard.IsNotNull(userSettings);
         _timerService = timerService;
         _focusToastService = focusToastService;
         _mixMediaPlayerService = mixMediaPlayerService;
         _telemetry = telemetry;
         _focusHistoryService = focusHistoryService;
+        _userSettings = userSettings;
 
         _timerService.Interval = 1000;
         _timerService.IntervalElapsed += OnIntervalElapsed;
@@ -134,14 +138,21 @@ public class FocusService : IFocusService
         _mixMediaPlayerService.Pause();
     }
 
-    public void StopTimer(bool sessionCompleted = false)
+    public void StopTimer(bool sessionCompleted = false, bool pauseSounds = true)
     {
         _timerService.Stop();
         _focusToastService.ClearToasts();
 
         if (sessionCompleted)
         {
-            _focusToastService.SendCompletionToast();
+            if (pauseSounds)
+            {
+                // When user does not want to pause sound, it's because they want to continue focusing.
+                // Sending a toast would only break their concentration. So we only send this toast
+                // if the user wants sounds to be paused.
+                _focusToastService.SendCompletionToast();
+            }
+
             _telemetry.TrackEvent(TelemetryConstants.FocusCompleted);
             _focusHistoryService.TrackHistoryCompletion(
                 DateTime.UtcNow.Ticks,
@@ -158,7 +169,11 @@ public class FocusService : IFocusService
         CurrentSession = new FocusSession(SessionType.None, TimeSpan.Zero, 0, 0);
         TimeUpdated?.Invoke(this, CurrentSession);
         CurrentState = FocusState.None;
-        _mixMediaPlayerService.Pause();
+
+        if (pauseSounds)
+        {
+            _mixMediaPlayerService.Pause();
+        }
 
         // Need to reset to the previous volume so that 
         // if the user starts focusing again, the volume isn't 0.
@@ -221,7 +236,7 @@ public class FocusService : IFocusService
             else
             {
                 // Whole focus session is done.
-                StopTimer(sessionCompleted: true);
+                StopTimer(sessionCompleted: true, pauseSounds: !_userSettings.Get<bool>(UserSettingsConstants.PlayAfterFocusKey));
             }
         }
     }

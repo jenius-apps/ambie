@@ -130,6 +130,8 @@
         private const string Settings = "settings:";
         public const string SmtcDisabled = Settings + "smtcDisabled";
         public const string SmtcEnabled = Settings + "smtcEnabled";
+        public const string PlayAfterFocusDisabled = Settings + "playAfterFocusDisabled";
+        public const string PlayAfterFocusEnabled = Settings + "playAfterFocusEnabled";
 
         // videos
         private const string Videos = "videos:";

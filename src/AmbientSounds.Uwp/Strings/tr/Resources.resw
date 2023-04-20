@@ -745,4 +745,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Sesin nerede çalınacağını seçme</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>Odaklanma oturumunuz sona erdikten sonra sesler çalmaya devam eder</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Odaklandıktan sonra seslere devam etme</value>
+  </data>
 </root>
