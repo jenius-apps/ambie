@@ -127,6 +127,11 @@ namespace AmbientSounds.Constants
         public const string OutputAudioDeviceId = "OutputAudioDeviceId";
 
         /// <summary>
+        /// Used to remember if sounds should keep playing even after focus session ends.
+        /// </summary>
+        public const string PlayAfterFocusKey = "PlayAfterFocus";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -153,6 +158,7 @@ namespace AmbientSounds.Constants
             { CompactOnFocusKey, true },
             { HasLoadedPackagedSoundsKey, false },
             { OutputAudioDeviceId, string.Empty }, 
+            { PlayAfterFocusKey, true }, 
         };
     }
 }
