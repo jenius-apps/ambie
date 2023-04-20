@@ -146,7 +146,15 @@ namespace AmbientSounds.ViewModels
         public bool AmbieMiniEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
-            set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
+            set 
+            {
+                _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
+                _telemetry.TrackEvent(value ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
+                    new Dictionary<string, string>
+                    {
+                        { "page", "settings" }
+                    });
+            }
         }
 
         /// <summary>
@@ -155,7 +163,15 @@ namespace AmbientSounds.ViewModels
         public bool PlayAfterFocusEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.PlayAfterFocusKey);
-            set => _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
+                _telemetry.TrackEvent(value ? TelemetryConstants.PlayAfterFocusEnabled : TelemetryConstants.PlayAfterFocusDisabled,
+                    new Dictionary<string, string>
+                    {
+                        { "page", "settings" }
+                    });
+            }
         }
 
         /// <summary>

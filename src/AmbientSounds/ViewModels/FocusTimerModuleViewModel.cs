@@ -177,6 +177,12 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
     }
 
+    public bool PlayAfterFocusEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.PlayAfterFocusKey);
+        set => _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
+    }
+
     public int FocusLength
     {
         get => _focusLength;

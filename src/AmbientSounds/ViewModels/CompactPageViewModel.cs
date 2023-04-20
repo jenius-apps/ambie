@@ -50,6 +50,12 @@ public sealed partial class CompactPageViewModel : ObservableObject
         set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
     }
 
+    public bool PlayAfterFocusEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.PlayAfterFocusKey);
+        set => _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
+    }
+
     public async Task InitializeAsync(CompactViewMode requestedViewMode)
     {
         await Task.Delay(1);
