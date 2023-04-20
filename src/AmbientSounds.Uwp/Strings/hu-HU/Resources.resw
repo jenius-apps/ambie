@@ -739,4 +739,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Válassza ki, hol szeretné lejátszani a hangot</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>A hangok lejátszása a fókuszmunkamenet befejezése után is folytatódik</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Hangok folytatása fókuszálás után</value>
+  </data>
 </root>

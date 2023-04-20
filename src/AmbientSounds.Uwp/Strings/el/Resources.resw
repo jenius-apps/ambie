@@ -736,4 +736,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Επιλέξτε τη θέση αναπαραγωγής του ήχου</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>Οι ήχοι θα συνεχίσουν να αναπαράγονται μετά τη λήξη της περιόδου συγκέντρωσης</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Συνεχίστε τους ήχους μετά την εστίαση</value>
+  </data>
 </root>

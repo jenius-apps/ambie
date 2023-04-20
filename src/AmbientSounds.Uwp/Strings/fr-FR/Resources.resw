@@ -748,4 +748,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Choisissez où jouer le son</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>Les sons continueront à jouer après la fin de votre séance de concentration</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Continuer les sons après la mise au point</value>
+  </data>
 </root>

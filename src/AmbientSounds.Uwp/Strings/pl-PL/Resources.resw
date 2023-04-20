@@ -751,4 +751,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>Wybieranie miejsca odtwarzania dźwięku</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>Dźwięki będą nadal odtwarzane po zakończeniu sesji fokusowej</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>Kontynuuj dźwięki po ustawieniu ostrości</value>
+  </data>
 </root>

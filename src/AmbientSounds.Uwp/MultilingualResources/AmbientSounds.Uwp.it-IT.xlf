@@ -1004,11 +1004,11 @@
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
           <source>Sounds will continue to play after your focus session ends</source>
-          <target state="new">Sounds will continue to play after your focus session ends</target>
+          <target state="translated">I suoni continueranno a essere riprodotti al termine della sessione di messa a fuoco</target>
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
           <source>Continue sounds after focusing</source>
-          <target state="new">Continue sounds after focusing</target>
+          <target state="translated">Continuare i suoni dopo la messa a fuoco</target>
         </trans-unit>
       </group>
     </body>

@@ -751,4 +751,10 @@
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
     <value>בחר היכן להשמיע צליל</value>
   </data>
+  <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
+    <value>הצלילים ימשיכו להתנגן גם לאחר סיום הפעלת המיקוד</value>
+  </data>
+  <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
+    <value>המשך צלילים לאחר המיקוד</value>
+  </data>
 </root>

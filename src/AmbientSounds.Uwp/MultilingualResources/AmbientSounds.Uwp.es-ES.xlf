@@ -997,11 +997,11 @@
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
           <source>Sounds will continue to play after your focus session ends</source>
-          <target state="new">Sounds will continue to play after your focus session ends</target>
+          <target state="translated">Los sonidos seguirán reproduciéndose después de que finalice la sesión de concentración.</target>
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
           <source>Continue sounds after focusing</source>
-          <target state="new">Continue sounds after focusing</target>
+          <target state="translated">Continuar con los sonidos después de enfocar</target>
         </trans-unit>
       </group>
     </body>
