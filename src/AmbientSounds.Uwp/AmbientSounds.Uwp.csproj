@@ -260,7 +260,6 @@
     <Compile Include="Controls\VideosMenu.xaml.cs">
       <DependentUpon>VideosMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\PixelShaderToShaderRunnerConverter.cs" />
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
@@ -676,9 +675,6 @@
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
       <Version>0.0.3-preview</Version>
-    </PackageReference>
-    <PackageReference Include="ComputeSharp.Uwp">
-      <Version>2.0.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.1</Version>

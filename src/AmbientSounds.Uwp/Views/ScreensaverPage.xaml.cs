@@ -1,8 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
-using ComputeSharp;
-using ComputeSharp.Uwp;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml.Controls;
 using System;
@@ -67,8 +65,6 @@ public sealed partial class ScreensaverPage : Page
         coreWindow.SizeChanged += CoreWindow_SizeChanged;
         var navigator = SystemNavigationManager.GetForCurrentView();
         navigator.BackRequested += OnBackRequested;
-        var device = GraphicsDevice.GetDefault();
-        device.DeviceLost += Device_DeviceLost;
 
         var view = ApplicationView.GetForCurrentView();
         IsFullscreen = view.IsFullScreenMode;
@@ -91,8 +87,6 @@ public sealed partial class ScreensaverPage : Page
         coreWindow.SizeChanged -= CoreWindow_SizeChanged;
         var navigator = SystemNavigationManager.GetForCurrentView();
         navigator.BackRequested -= OnBackRequested;
-        var device = GraphicsDevice.GetDefault();
-        device.DeviceLost -= Device_DeviceLost;
 
         SettingsFlyout?.Items?.Clear();
         _displayRequest.RequestRelease();
@@ -192,16 +186,6 @@ public sealed partial class ScreensaverPage : Page
         this.Bindings.Update();
     }
 
-    private void Device_DeviceLost(object sender, DeviceLostEventArgs e)
-    {
-        var telemetry = App.Services.GetRequiredService<ITelemetry>();
-
-        telemetry.TrackEvent(TelemetryConstants.ShaderDeviceLost, new Dictionary<string, string>()
-        {
-            { "reason", e.Reason.ToString() }
-        });
-    }
-
     private void GoBack()
     {
         var view = ApplicationView.GetForCurrentView();
@@ -217,20 +201,6 @@ public sealed partial class ScreensaverPage : Page
     private void GoBack(object sender, RoutedEventArgs e)
     {
         GoBack();
-    }
-
-    private void AnimatedComputeShaderPanel_RenderingFailed(AnimatedComputeShaderPanel sender, RenderingFailedEventArgs args)
-    {
-        var telemetry = App.Services.GetRequiredService<ITelemetry>();
-
-        telemetry.TrackError(args.Exception, new Dictionary<string, string>()
-        {
-            { "name", ViewModel.AnimatedBackgroundName ?? string.Empty },
-        });
-
-        InfoBar infoBar = (InfoBar)FindName(nameof(RenderingErrorInfoBar));
-
-        infoBar.IsOpen = true;
     }
 
     private void OnToggleFullscreen(object sender, RoutedEventArgs e)

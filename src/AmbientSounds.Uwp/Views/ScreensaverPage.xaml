@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
-    xmlns:computeSharp="using:ComputeSharp.Uwp"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -17,9 +16,9 @@
 
     <Grid
         x:Name="RootPage"
-        PointerMoved="RootPage_OnPointerMoved"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-        BackgroundTransition="{StaticResource Transition}">
+        BackgroundTransition="{StaticResource Transition}"
+        PointerMoved="RootPage_OnPointerMoved">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -46,13 +45,13 @@
         </Button>
 
         <StackPanel
+            Name="ActionButtons"
             Margin="0,40,40,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Orientation="Horizontal"
-            RequestedTheme="Dark"
-            Name="ActionButtons">
+            RequestedTheme="Dark">
             <Button
                 AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
                 Click="OnToggleFullscreen"
@@ -89,24 +88,6 @@
             AutoPlay="True"
             Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
-        <computeSharp:AnimatedComputeShaderPanel
-            RenderingFailed="AnimatedComputeShaderPanel_RenderingFailed"
-            ShaderRunner="{x:Bind converters:PixelShaderToShaderRunnerConverter.Convert(ViewModel.AnimatedBackgroundName), Mode=OneWay}"
-            Visibility="{x:Bind ViewModel.AnimatedBackgroundVisible, Mode=OneWay}" />
-
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
-
-        <!--  Rendering error bar  -->
-        <muxc:InfoBar
-            x:Name="RenderingErrorInfoBar"
-            x:Uid="RenderingErrorInfo"
-            VerticalAlignment="Bottom"
-            x:Load="False"
-            IsOpen="True"
-            Severity="Error">
-            <muxc:InfoBar.ActionButton>
-                <HyperlinkButton x:Uid="RenderingErrorLink" NavigateUri="mailto:jenius_apps@outlook.com" />
-            </muxc:InfoBar.ActionButton>
-        </muxc:InfoBar>
     </Grid>
 </Page>
