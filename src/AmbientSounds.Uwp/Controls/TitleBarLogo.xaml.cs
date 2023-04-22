@@ -24,6 +24,7 @@ public sealed partial class TitleBarLogo : UserControl
     {
         this.InitializeComponent();
         Window.Current.Activated += Window_Activated;
+        SetDisplayTextForeground(Window.Current.CoreWindow.ActivationMode != CoreWindowActivationMode.Deactivated);
     }
 
     public string DisplayText
