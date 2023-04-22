@@ -1,4 +1,5 @@
 ﻿using ComputeSharp;
+using ComputeSharp.D2D1;
 
 namespace AmbientSounds.Shaders;
 
@@ -7,14 +8,21 @@ namespace AmbientSounds.Shaders;
 /// Ported from <see href="https://www.shadertoy.com/view/tlVGDt"/>.
 /// <para>Created by whisky_shusuky.</para>
 /// </summary>
+[D2DInputCount(0)]
+[D2DRequiresScenePosition]
+[D2DShaderProfile(D2D1ShaderProfile.PixelShader50)]
 [AutoConstructor]
-[EmbeddedBytecode(DispatchAxis.XY)]
-public readonly partial struct Octagrams : IPixelShader<float4>
+public readonly partial struct Octagrams : ID2D1PixelShader
 {
     /// <summary>
     /// The current time since the start of the application.
     /// </summary>
-    public readonly float time;
+    private readonly float time;
+
+    /// <summary>
+    /// The dispatch size for the current output.
+    /// </summary>
+    private readonly int2 dispatchSize;
 
     private static float2x2 Rotate(float a)
     {
@@ -53,25 +61,25 @@ public readonly partial struct Octagrams : IPixelShader<float4>
         pos.Y += Hlsl.Sin(gTime * 0.4f) * 2.5f;
         pos.XY = Hlsl.Mul(pos.XY, Rotate(0.8f));
 
-        float box1 = Box(pos, 2.0f - Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f);
+        float box1 = Box(pos, 2.0f - (Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f));
 
         pos = pos_origin;
         pos.Y -= Hlsl.Sin(gTime * 0.4f) * 2.5f;
         pos.XY = Hlsl.Mul(pos.XY, Rotate(0.8f));
 
-        float box2 = Box(pos, 2.0f - Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f);
+        float box2 = Box(pos, 2.0f - (Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f));
 
         pos = pos_origin;
         pos.X += Hlsl.Sin(gTime * 0.4f) * 2.5f;
         pos.XY = Hlsl.Mul(pos.XY, Rotate(0.8f));
 
-        float box3 = Box(pos, 2.0f - Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f);
+        float box3 = Box(pos, 2.0f - (Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f));
 
         pos = pos_origin;
         pos.X -= Hlsl.Sin(gTime * 0.4f) * 2.5f;
         pos.XY = Hlsl.Mul(pos.XY, Rotate(0.8f));
 
-        float box4 = Box(pos, 2.0f - Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f);
+        float box4 = Box(pos, 2.0f - (Hlsl.Abs(Hlsl.Sin(gTime * 0.4f)) * 1.5f));
 
         pos = pos_origin;
         pos.XY = Hlsl.Mul(pos.XY, Rotate(0.8f));
@@ -89,12 +97,13 @@ public readonly partial struct Octagrams : IPixelShader<float4>
     /// <inheritdoc/>
     public float4 Execute()
     {
-        float2 p = ((float2)ThreadIds.XY * 2.0f - DispatchSize.XY) / Hlsl.Min(DispatchSize.X, DispatchSize.Y);
-        float3 ro = new(0.0f, -0.2f, time * 4.0f);
+        int2 xy = (int2)D2D.GetScenePosition().XY;
+        float2 p = (((float2)xy * 2.0f) - this.dispatchSize) / Hlsl.Min(this.dispatchSize.X, this.dispatchSize.Y);
+        float3 ro = new(0.0f, -0.2f, this.time * 4.0f);
         float3 ray = Hlsl.Normalize(new float3(p, 1.5f));
 
-        ray.XY = Hlsl.Mul(ray.XY, Rotate(Hlsl.Sin(time * 0.03f) * 5.0f));
-        ray.YZ = Hlsl.Mul(ray.YZ, Rotate(Hlsl.Sin(time * 0.05f) * 0.2f));
+        ray.XY = Hlsl.Mul(ray.XY, Rotate(Hlsl.Sin(this.time * 0.03f) * 5.0f));
+        ray.YZ = Hlsl.Mul(ray.YZ, Rotate(Hlsl.Sin(this.time * 0.05f) * 0.2f));
 
         float t = 0.1f;
         float ac = 0.0f;
@@ -103,14 +112,14 @@ public readonly partial struct Octagrams : IPixelShader<float4>
         {
             static float3 Mod(float3 x, float y)
             {
-                return x - y * Hlsl.Floor(x / y);
+                return x - (y * Hlsl.Floor(x / y));
             }
 
-            float3 pos = ro + ray * t;
+            float3 pos = ro + (ray * t);
 
             pos = Mod(pos - 2.0f, 4.0f) - 2.0f;
 
-            float gTime = time - i * 0.01f;
+            float gTime = this.time - (i * 0.01f);
             float d = BoxSet(pos, gTime);
 
             d = Hlsl.Max(Hlsl.Abs(d), 0.01f);
@@ -118,8 +127,8 @@ public readonly partial struct Octagrams : IPixelShader<float4>
             t += d * 0.55f;
         }
 
-        float3 col = ac * 0.02f + new float3(0.0f, 0.2f * Hlsl.Abs(Hlsl.Sin(time)), 0.5f + Hlsl.Sin(time) * 0.2f);
-        float4 color = new(col, 1.0f - t * (0.02f + 0.02f * Hlsl.Sin(time)));
+        float3 col = (ac * 0.02f) + new float3(0.0f, 0.2f * Hlsl.Abs(Hlsl.Sin(this.time)), 0.5f + (Hlsl.Sin(this.time) * 0.2f));
+        float4 color = new(col, 1);
 
         return color;
     }
