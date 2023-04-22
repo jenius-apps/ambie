@@ -261,11 +261,10 @@ public sealed partial class ScreensaverPage : Page
     {
         if (!IsButtonsHidden)
         {
-
             GoBackButton.Visibility = Visibility.Collapsed;
             ActionButtons.Visibility = Visibility.Collapsed;
+            CoreWindow.GetForCurrentThread().PointerCursor = null;
             IsButtonsHidden = true;
-
         }
 
         InactiveTimer?.Stop();
@@ -277,6 +276,7 @@ public sealed partial class ScreensaverPage : Page
         {
             GoBackButton.Visibility = Visibility.Visible;
             ActionButtons.Visibility = Visibility.Visible;
+            CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
             IsButtonsHidden = false;
         }
 
