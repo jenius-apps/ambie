@@ -526,9 +526,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Colored smoke</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Octagrams</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</value>
   </data>

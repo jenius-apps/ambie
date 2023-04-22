@@ -555,10 +555,6 @@
           <source>Colored smoke</source>
           <target state="translated">Fumée colorée</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
-          <source>Octagrams</source>
-          <target state="translated">Octagrammes</target>
-        </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
           <target state="translated">Un problème est survenu lors de l'affichage de l'économiseur d'écran. Essayez de redémarrer Ambie ou contactez-nous si le problème persiste.</target>

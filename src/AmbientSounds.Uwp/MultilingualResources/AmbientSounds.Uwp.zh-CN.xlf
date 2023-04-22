@@ -547,10 +547,6 @@
           <source>Colored smoke</source>
           <target state="translated">幻彩烟雾</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
-          <source>Octagrams</source>
-          <target state="translated">八角星</target>
-        </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
           <target state="translated">显示屏幕保护程序时遭遇问题。请尝试重新启动 Ambie，如果问题仍然存在，请联系我们。</target>

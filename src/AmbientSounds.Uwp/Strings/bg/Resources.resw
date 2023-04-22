@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Цветен дим</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Октаграми</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Имаше проблем с показването на скрийнсейвъра. Опитайте да рестартирате Амби или се свържете с нас, ако проблемът продължава.</value>
   </data>

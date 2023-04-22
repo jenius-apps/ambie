@@ -547,10 +547,6 @@
           <source>Colored smoke</source>
           <target state="translated">Barevný kouř</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
-          <source>Octagrams</source>
-          <target state="translated">Oktagramy</target>
-        </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
           <target state="translated">Nastala chyba při zobrazování spořiče obrazovky. Zkuste nejprve restartovat Ambie, případně pokud tato chyba bude přetrvávat nás kontaktujte.</target>

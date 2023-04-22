@@ -415,9 +415,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Χρωματιστός καπνός</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Οκτάγραμμα</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Παρουσιάστηκε πρόβλημα με την εμφάνιση της προφύλαξης οθόνης. Δοκιμάστε να επανεκκινήσετε το Ambie ή επικοινωνήστε μαζί μας εάν το πρόβλημα παραμένει.</value>
   </data>

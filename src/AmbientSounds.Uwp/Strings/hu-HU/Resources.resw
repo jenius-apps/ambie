@@ -415,9 +415,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Színes füst</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Oktagrammok</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Hiba történt a képernyővédő megjelenítésekor. Próbálja meg újraindítani az Ambie alkalmazást, vagy vegye fel velünk a kapcsolatot, ha a probléma továbbra is fennáll.</value>
   </data>

@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Färgad rök</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Oktagram</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Det uppstod ett problem med att visa skärmsläckaren. Försök starta om Ambie eller kontakta oss om problemet kvarstår.</value>
   </data>

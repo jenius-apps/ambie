@@ -421,9 +421,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>دخان ملون</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>نجمة ثمانية</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>.حدثت مشكلة في عرض شاشة التوقف. حاول إعادة تشغيل أمبي ، أو إتصل بنا إذا استمرت المشكلة</value>
   </data>

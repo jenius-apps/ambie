@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>カラフルな煙</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>オクトグラム</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>スクリーンセーバー表示で問題が発生しました。Ambie再起動を試しても改善しない場合には、お問い合わせください。</value>
   </data>

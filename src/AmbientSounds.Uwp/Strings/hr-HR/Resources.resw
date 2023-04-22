@@ -415,9 +415,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Obojeni dim</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Oktogrami</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Došlo je do problema s prikazom čuvara zaslona. Pokušajte ponovno pokrenuti Ambie ili nas kontaktirajte ako se problem nastavi pojavljivati.</value>
   </data>

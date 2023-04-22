@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>幻彩煙霧</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>八角星</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>顯示螢幕保護程式時遇到問題。請嘗試重新啟動 Ambie，如果問題持續，請聯絡我們。</value>
   </data>

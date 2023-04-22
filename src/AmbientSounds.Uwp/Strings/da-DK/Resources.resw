@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Farvet røg</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Octagrams</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Der opstod et problem med at vise pauseskærmen. Prøv at genstarte Ambie, eller kontakt os, hvis problemet fortsætter.</value>
   </data>

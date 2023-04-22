@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Kolorowy dym</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Oktagramy</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj uruchomić Ambie ponownie bądź skontaktuj się z nami w przypadku gdy problem nadal występuje.</value>
   </data>

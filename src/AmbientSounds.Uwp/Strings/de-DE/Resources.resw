@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Bunter Rauch</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Oktogramme</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Beim Anzeigen des Bildschirmschoners ist ein Problem aufgetreten. Versuchen Sie, Ambie neu zu starten, oder kontaktieren Sie uns, wenn das Problem weiterhin besteht.</value>
   </data>

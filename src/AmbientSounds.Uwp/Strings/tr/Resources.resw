@@ -415,9 +415,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Renkli duman</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Oktagramlar</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Ekran koruyucu gösteriminde bir sorun yaşandı. Ambie'yi yeniden başlatmayı deneyin, sorun devam ederse bizimle iletişime geçin.</value>
   </data>

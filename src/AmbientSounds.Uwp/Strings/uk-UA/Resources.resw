@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Кольоровий дим</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Восьмикутники</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Виникла проблема з відображенням заставки. Спробуйте перезапустити Ambie або зв’яжіться з нами, якщо проблема не зникне.</value>
   </data>

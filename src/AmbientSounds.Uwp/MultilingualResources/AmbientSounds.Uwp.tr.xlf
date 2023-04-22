@@ -558,10 +558,6 @@
           <source>Colored smoke</source>
           <target state="translated">Renkli duman</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
-          <source>Octagrams</source>
-          <target state="translated">Oktagramlar</target>
-        </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
           <target state="translated">Ekran koruyucu gösteriminde bir sorun yaşandı. Ambie'yi yeniden başlatmayı deneyin, sorun devam ederse bizimle iletişime geçin.</target>

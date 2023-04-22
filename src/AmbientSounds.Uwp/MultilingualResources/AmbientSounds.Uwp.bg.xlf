@@ -544,10 +544,6 @@
           <source>Colored smoke</source>
           <target state="translated">Цветен дим</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
-          <source>Octagrams</source>
-          <target state="translated">Октаграми</target>
-        </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
           <target state="translated">Имаше проблем с показването на скрийнсейвъра. Опитайте да рестартирате Амби или се свържете с нас, ако проблемът продължава.</target>

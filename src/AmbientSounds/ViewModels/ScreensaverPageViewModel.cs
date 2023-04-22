@@ -134,7 +134,6 @@ namespace AmbientSounds.ViewModels
             {
                 // Animated backgrounds
                 MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ColorfulInfinity)}", _localizer.GetString("ComputeShader/ColoredSmoke"), screensaverCommand, $"[CS]{nameof(ColorfulInfinity)}", true));
-                MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(Octagrams)}", _localizer.GetString("ComputeShader/Octagrams"), screensaverCommand, $"[CS]{nameof(Octagrams)}", true));
                 MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ProteanClouds)}", _localizer.GetString("ComputeShader/Clouds"), screensaverCommand, $"[CS]{nameof(ProteanClouds)}", true));
             }
 

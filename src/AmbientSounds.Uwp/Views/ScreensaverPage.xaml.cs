@@ -294,7 +294,6 @@ public sealed partial class ScreensaverPage : Page
         _animatedWallpaperEffect = animatedBackgroundName switch
         {
             nameof(ColorfulInfinity) => new AnimatedWallpaperEffect.For<ColorfulInfinity>((width, height, time) => new ColorfulInfinity((float)time.TotalSeconds / 16f, new int2(width, height))),
-            nameof(Octagrams) => new AnimatedWallpaperEffect.For<Octagrams>((width, height, time) => new Octagrams((float)time.TotalSeconds / 16f, new int2(width, height))),
             nameof(ProteanClouds) => new AnimatedWallpaperEffect.For<ProteanClouds>((width, height, time) => new ProteanClouds((float)time.TotalSeconds / 16f, new int2(width, height))),
             _ => null
         };
@@ -305,7 +304,6 @@ public sealed partial class ScreensaverPage : Page
         _resolutionScale = animatedBackgroundName switch
         {
             nameof(ColorfulInfinity) => 0.5,
-            nameof(Octagrams) => 0.8,
             nameof(ProteanClouds) => 0.4,
             _ => 1.0
         };

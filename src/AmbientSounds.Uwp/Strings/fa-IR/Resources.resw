@@ -421,9 +421,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>دود رنگی</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>هشت ضلعی</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>مشکلی در نمایش محافظ صفحه وجود داشت. Ambie را مجدداً راه‌اندازی کنید، یا اگر مشکل ادامه داشت با ما تماس بگیرید.</value>
   </data>

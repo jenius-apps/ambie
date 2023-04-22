@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Fumo colorato</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Octogrammi</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Si è verificato un problema durante la visualizzazione dello screensaver. Prova a riavviare Ambie o contattaci se il problema persiste.</value>
   </data>

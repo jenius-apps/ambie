@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Barevný kouř</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Oktagramy</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Nastala chyba při zobrazování spořiče obrazovky. Zkuste nejprve restartovat Ambie, případně pokud tato chyba bude přetrvávat nás kontaktujte.</value>
   </data>

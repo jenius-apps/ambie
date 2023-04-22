@@ -403,9 +403,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Gekleurde rook</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Octagrammen</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Er is een probleem opgetreden bij het weergeven van de screensaver. Probeer Ambie opnieuw op te starten of neem contact met ons op als het probleem zich blijft voordoen.</value>
   </data>

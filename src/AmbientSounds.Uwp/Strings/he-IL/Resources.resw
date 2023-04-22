@@ -415,9 +415,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>עשן צבעוני</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>אוקטגרמות</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>הייתה בעיה בהצגת שומר המסך. נסה להפעיל מחדש את Ambie, או צור איתנו קשר אם הבעיה נמשכת.</value>
   </data>

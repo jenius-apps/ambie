@@ -548,10 +548,6 @@
           <source>Colored smoke</source>
           <target state="translated">Fumaça colorida</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
-          <source>Octagrams</source>
-          <target state="translated">Octagramas</target>
-        </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
           <target state="translated">Ocorreu um problema ao exibir o protetor de tela. Tente reiniciar o Ambie ou entre em contato conosco se o problema persistir.</target>

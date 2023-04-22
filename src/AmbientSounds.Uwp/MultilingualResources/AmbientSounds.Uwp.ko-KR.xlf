@@ -547,10 +547,6 @@
           <source>Colored smoke</source>
           <target state="translated">유색 연기</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Octagrams" translate="yes" xml:space="preserve">
-          <source>Octagrams</source>
-          <target state="translated">팔각형</target>
-        </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
           <target state="translated">화면 보호기를 표시하는 데 문제가 있었습니다. Ambie를 다시 시작하거나 문제가 지속되면 당사에 문의하십시오.</target>

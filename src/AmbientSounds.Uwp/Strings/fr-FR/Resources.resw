@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Fumée colorée</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Octagrammes</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Un problème est survenu lors de l'affichage de l'économiseur d'écran. Essayez de redémarrer Ambie ou contactez-nous si le problème persiste.</value>
   </data>

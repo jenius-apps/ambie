@@ -418,9 +418,6 @@
   <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
     <value>Humo colorido</value>
   </data>
-  <data name="ComputeShader.Octagrams" xml:space="preserve">
-    <value>Octogramas</value>
-  </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
     <value>Hubo un problema al mostrar el protector de pantalla. Intente reiniciar Ambie o comuníquese con nosotros si el problema persiste.</value>
   </data>
