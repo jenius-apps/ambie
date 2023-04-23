@@ -50,14 +50,18 @@
             </winui:AnimatedVisualPlayer>
         </Grid>
 
-        <winui:ItemsRepeater
+        <ItemsControl
             x:Name="SoundListView"
             Grid.Row="1"
             Margin="0,8,16,0"
-            ItemsSource="{x:Bind ItemsSource, Mode=OneWay}"
-            Layout="{StaticResource UniformLayout}">
+            ItemsSource="{x:Bind ItemsSource, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
 
-            <winui:ItemsRepeater.ItemTemplate>
+            <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
                     <Grid AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
                         <Grid.Resources>
@@ -219,8 +223,8 @@
                         </Grid>
                     </Grid>
                 </DataTemplate>
-            </winui:ItemsRepeater.ItemTemplate>
-        </winui:ItemsRepeater>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
         <Rectangle
             Grid.Row="1"
