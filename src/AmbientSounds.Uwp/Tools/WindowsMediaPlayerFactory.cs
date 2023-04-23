@@ -1,19 +1,26 @@
 ﻿using AmbientSounds.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+
+#nullable enable
 
 namespace AmbientSounds.Tools.Uwp;
 
 public class WindowsMediaPlayerFactory : IMediaPlayerFactory
 {
-    private readonly IUserSettings _userSettings;
+    private readonly IServiceProvider _serviceProvider;
 
-    public WindowsMediaPlayerFactory(IUserSettings userSettings)
+    public WindowsMediaPlayerFactory(IServiceProvider serviceProvider)
     {
-        _userSettings = userSettings;
+        _serviceProvider = serviceProvider;
     }
 
     /// <inheritdoc/>
     public IMediaPlayer CreatePlayer(bool disableDefaultSystemControls = false)
     {
-        return new WindowsMediaPlayer(_userSettings, disableDefaultSystemControls);
+        return new WindowsMediaPlayer(
+            _serviceProvider.GetRequiredService<IUserSettings>(),
+            _serviceProvider.GetRequiredService<ITelemetry>(),
+            disableDefaultSystemControls);
     }
 }
