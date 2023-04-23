@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AmbientSounds.Constants;
@@ -20,23 +21,29 @@ public class WindowsMediaPlayer : IMediaPlayer
 {
     private readonly MediaPlayer _player;
     private readonly IUserSettings _userSettings;
+    private readonly ITelemetry _telemetry;
     private string _lastUsedOutputDeviceId = string.Empty;
     private TaskCompletionSource<bool>? _mediaOpenCompletionSource = null;
     private readonly SemaphoreSlim _outputDeviceLock = new(1, 1);
 
-    public WindowsMediaPlayer(IUserSettings userSettings, bool disableSystemControls = false)
+    public WindowsMediaPlayer(
+        IUserSettings userSettings,
+        ITelemetry telemetry,
+        bool disableSystemControls = false)
     {
+        _telemetry = telemetry;
+
         var player = new MediaPlayer();
         if (disableSystemControls)
         {
             player.CommandManager.IsEnabled = false;
         }
         _player = player;
-        _player.MediaOpened += _player_MediaOpened;
-        _player.MediaFailed += _player_MediaFailed;
+        _player.MediaOpened += OnMediaOpened;
+        _player.MediaFailed += OnMediaFailed;
 
         _userSettings = userSettings;
-        _userSettings.SettingSet += _userSettings_SettingSet;
+        _userSettings.SettingSet += OnUserSettingsSet;
     }
 
     /// <inheritdoc/>
@@ -59,10 +66,10 @@ public class WindowsMediaPlayer : IMediaPlayer
     /// <inheritdoc/>
     public void Dispose()
     {
-        _userSettings.SettingSet -= _userSettings_SettingSet;
-        MediaDevice.DefaultAudioRenderDeviceChanged -= MediaDevice_DefaultAudioRenderDeviceChanged;
-        _player.MediaOpened -= _player_MediaOpened;
-        _player.MediaFailed -= _player_MediaFailed;
+        _userSettings.SettingSet -= OnUserSettingsSet;
+        MediaDevice.DefaultAudioRenderDeviceChanged -= OnAudioDeviceChanged;
+        _player.MediaOpened -= OnMediaOpened;
+        _player.MediaFailed -= OnMediaFailed;
         _player.Dispose();
     }
 
@@ -132,12 +139,12 @@ public class WindowsMediaPlayer : IMediaPlayer
         if (string.IsNullOrEmpty(outputDeviceId))
         {
             outputDeviceId = MediaDevice.GetDefaultAudioRenderId(AudioDeviceRole.Default);
-            MediaDevice.DefaultAudioRenderDeviceChanged -= MediaDevice_DefaultAudioRenderDeviceChanged;
-            MediaDevice.DefaultAudioRenderDeviceChanged += MediaDevice_DefaultAudioRenderDeviceChanged;
+            MediaDevice.DefaultAudioRenderDeviceChanged -= OnAudioDeviceChanged;
+            MediaDevice.DefaultAudioRenderDeviceChanged += OnAudioDeviceChanged;
         }
         else
         {
-            MediaDevice.DefaultAudioRenderDeviceChanged -= MediaDevice_DefaultAudioRenderDeviceChanged;
+            MediaDevice.DefaultAudioRenderDeviceChanged -= OnAudioDeviceChanged;
         }
 
         var deviceInformation = await DeviceInformation.CreateFromIdAsync(outputDeviceId);
@@ -160,24 +167,29 @@ public class WindowsMediaPlayer : IMediaPlayer
         }
         catch (Exception e)
         {
-            _mediaOpenCompletionSource?.SetException(e);
+            _telemetry.TrackError(e, new Dictionary<string, string>
+            {
+                { "outputDeviceId", outputDeviceId }
+            });
+
+            _mediaOpenCompletionSource?.TrySetException(e);
         }
 
         _lastUsedOutputDeviceId = outputDeviceId;
         _outputDeviceLock.Release();
     }
 
-    private void _player_MediaOpened(MediaPlayer sender, object args)
+    private void OnMediaOpened(MediaPlayer sender, object args)
     {
         _mediaOpenCompletionSource?.TrySetResult(true);
     }
 
-    private void _player_MediaFailed(MediaPlayer sender, MediaPlayerFailedEventArgs args)
+    private void OnMediaFailed(MediaPlayer sender, MediaPlayerFailedEventArgs args)
     {
         _mediaOpenCompletionSource?.TrySetResult(false);
     }
 
-    private void _userSettings_SettingSet(object sender, string e)
+    private void OnUserSettingsSet(object sender, string e)
     {
         // If the selected output device is changed in settings, updates the player's property to use the new device.
         if (e == UserSettingsConstants.OutputAudioDeviceId)
@@ -186,7 +198,7 @@ public class WindowsMediaPlayer : IMediaPlayer
         }
     }
 
-    private void MediaDevice_DefaultAudioRenderDeviceChanged(object sender, DefaultAudioRenderDeviceChangedEventArgs args)
+    private void OnAudioDeviceChanged(object sender, DefaultAudioRenderDeviceChangedEventArgs args)
     {
         // Gets and uses the new output device when the default audio device is changed.
         SetOutputDevice();
