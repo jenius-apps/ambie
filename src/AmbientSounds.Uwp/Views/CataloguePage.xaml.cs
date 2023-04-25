@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using JeniusApps.Common.Telemetry;
 
 #nullable enable
 

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System;
 using AmbientSounds.Tools;
 using AmbientSounds.Repositories;
+using JeniusApps.Common.Telemetry;
 
 #nullable enable
 

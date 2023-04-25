@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AmbientSounds.Constants;
 using Microsoft.AspNetCore.SignalR.Client;
 using CommunityToolkit.Diagnostics;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Services
 {

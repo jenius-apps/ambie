@@ -3,6 +3,7 @@ using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Services
 {

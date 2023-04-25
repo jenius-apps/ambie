@@ -3,10 +3,10 @@ using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Controls
 {

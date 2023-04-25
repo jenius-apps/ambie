@@ -5,11 +5,10 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 using AmbientSounds.Constants;
 using System.Collections.Generic;
-using AmbientSounds.Models;
-using AmbientSounds.Services;
 using System.Threading.Tasks;
 using AmbientSounds.Controls;
 using System.Linq;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Views
 {

@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.UI;
 using System.Collections.Generic;
+using JeniusApps.Common.Telemetry;
 
 #nullable enable
 

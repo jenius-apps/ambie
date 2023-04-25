@@ -3,6 +3,7 @@ using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
+using JeniusApps.Common.Telemetry;
 
 #nullable enable
 

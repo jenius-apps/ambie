@@ -5,6 +5,7 @@ using Microsoft.AppCenter.Crashes;
 using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Services
 {
@@ -35,20 +36,6 @@ namespace AmbientSounds.Services
             {
                 Analytics.TrackEvent(eventName, properties);
             }
-        }
-
-        /// <inheritdoc/>
-        public void SuggestSound(string soundSuggestion)
-        {
-            if (string.IsNullOrWhiteSpace(soundSuggestion))
-                return;
-
-            soundSuggestion = soundSuggestion.Trim().ToLower();
-
-            Analytics.TrackEvent("soundSuggestion", new Dictionary<string, string>
-            {
-                { "value", soundSuggestion }
-            });
         }
     }
 }

@@ -32,6 +32,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.Generic;
+using JeniusApps.Common.Telemetry;
 
 #nullable enable
 
@@ -492,7 +493,7 @@ sealed partial class App : Application
             .AddSingleton<IIapService, StoreService>()
             .AddSingleton<IDownloadManager, WindowsDownloadManager>()
             .AddSingleton<IScreensaverService, ScreensaverService>()
-            .AddSingleton<ITelemetry, AppCenterTelemetry>()
+            .AddSingleton<ITelemetry, AmbientSounds.Services.AppCenterTelemetry>()
             .AddSingleton<IOnlineSoundRepository, OnlineSoundRepository>()
             .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
             .AddSingleton<IAssetsReader, AssetsReader>()

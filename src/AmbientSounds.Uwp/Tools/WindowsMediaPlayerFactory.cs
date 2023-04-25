@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Services;
 using Microsoft.Extensions.DependencyInjection;
+using JeniusApps.Common.Telemetry;
 using System;
 
 #nullable enable

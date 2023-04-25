@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using JeniusApps.Common.Telemetry;
 
 #nullable enable
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using AmbientSounds.Models;
 using AmbientSounds.Tools;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Services;
 

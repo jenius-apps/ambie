@@ -3,13 +3,12 @@ using AmbientSounds.Controls;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Navigation;
+using JeniusApps.Common.Telemetry;
 
 #nullable enable
 

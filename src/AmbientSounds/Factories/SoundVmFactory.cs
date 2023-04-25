@@ -9,6 +9,7 @@ using System;
 using JeniusApps.Common.Tools;
 using AmbientSounds.Repositories;
 using System.Collections.Concurrent;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Factories
 {
