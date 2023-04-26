@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using AmbientSounds.Models;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using Windows.Devices.Enumeration;
 using Windows.Media.Devices;
@@ -18,23 +18,35 @@ namespace AmbientSounds.Services;
 public class AudioDeviceService : IAudioDeviceService
 {
     private readonly ILocalizer _localizer;
+    private readonly ITelemetry _telemetry;
 
-    public AudioDeviceService(ILocalizer localizer)
+    public AudioDeviceService(
+        ILocalizer localizer,
+        ITelemetry telemetry)
     {
         _localizer = localizer;
+        _telemetry = telemetry;
     }
 
     /// <inheritdoc/>
     public async Task<IReadOnlyList<AudioDeviceDescriptor>> GetAudioDeviceDescriptorsAsync()
     {
-        string audioSelector = MediaDevice.GetAudioRenderSelector();
-        var outputDevices = await DeviceInformation.FindAllAsync(audioSelector);
+        DeviceInformationCollection? outputDevices;
 
-        var list = outputDevices.Select(x => new AudioDeviceDescriptor
+        try
         {
-            DeviceId = x.Id,
-            DeviceName = x.Name
-        }).ToList();
+            string audioSelector = MediaDevice.GetAudioRenderSelector();
+            outputDevices = await DeviceInformation.FindAllAsync(audioSelector);
+        }
+        catch (Exception e)
+        {
+            _telemetry.TrackError(e);
+            outputDevices = null;
+        }
+
+        List<AudioDeviceDescriptor>? list = outputDevices?
+            .Select(x => new AudioDeviceDescriptor { DeviceId = x.Id, DeviceName = x.Name})
+            .ToList();
 
         if (list is null)
         {
