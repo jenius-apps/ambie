@@ -132,6 +132,7 @@
         public const string SmtcEnabled = Settings + "smtcEnabled";
         public const string PlayAfterFocusDisabled = Settings + "playAfterFocusDisabled";
         public const string PlayAfterFocusEnabled = Settings + "playAfterFocusEnabled";
+        public const string AudioOutputChanged = Settings + "audioOutputChanged";
 
         // videos
         private const string Videos = "videos:";
