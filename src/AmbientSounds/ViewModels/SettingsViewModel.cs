@@ -106,6 +106,12 @@ namespace AmbientSounds.ViewModels
                 {
                     _currentOutputDeviceId = value;
                     _userSettings.Set(UserSettingsConstants.OutputAudioDeviceId, value);
+                    _telemetry.TrackEvent(
+                        TelemetryConstants.AudioOutputChanged,
+                        new Dictionary<string, string>
+                        {
+                            { "device", string.IsNullOrEmpty(value) ? "default" : value }
+                        });
                 }
             }
         }
