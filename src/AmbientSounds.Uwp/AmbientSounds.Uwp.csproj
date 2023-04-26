@@ -298,6 +298,7 @@
     <Compile Include="Tools\MicrosoftStoreRatings.cs" />
     <Compile Include="Tools\WindowsClipboard.cs" />
     <Compile Include="Tools\WindowsDispatcherQueue.cs" />
+    <Compile Include="Tools\OutputControlledMediaPlayer.cs" />
     <Compile Include="Tools\WindowsMediaPlayer.cs" />
     <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
     <Compile Include="Tools\WindowsSystemMediaControls.cs" />
