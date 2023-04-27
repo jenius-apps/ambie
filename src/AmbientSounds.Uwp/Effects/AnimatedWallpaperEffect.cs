@@ -96,6 +96,17 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
             _effect!.ConstantBuffer = _factory(ScreenWidth, ScreenHeight, ElapsedTime);
         }
 
+        /// <inheritdoc/>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            if (disposing)
+            {
+                _effect?.Dispose();
+            }
+        }
+
         /// <summary>
         /// A factory of a given shader instance.
         /// </summary>
