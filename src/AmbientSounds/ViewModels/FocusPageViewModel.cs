@@ -49,8 +49,8 @@ public partial class FocusPageViewModel : ObservableObject
     public async Task InitializeAsync()
     {
         _focusService.FocusStateChanged += OnFocusStateChanged;
-        _notes = await _focusNotesService.GetStoredNotesAsync();
-        OnPropertyChanged(nameof(Notes));
+
+        Notes = await _focusNotesService.GetStoredNotesAsync();
     }
 
     public void Uninitialize()
