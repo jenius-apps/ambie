@@ -20,6 +20,13 @@
 
 Ambie is an app that plays white noise and nature sounds to help you focus, sleep, and unwind. For many people, having background noise while working on a task helps with concentration. Ambie has a good starting selection of built-in sounds such as rain and beach waves that help you. These can also be used to help you sleep, relax, and de-stress. For instance, those with tinnitus and anxiety have reached out saying Ambie has helped them. And if you download Ambie from the Microsoft Store, you'll get access to a catalogue of online sounds that you can download to expand your library.
 
+## Product pillars
+
+When building features, these product pillars must be used to decide which ones are prioritized higher or lower. 
+1. Ambie primarily helps people focus or relax using white noise and nature sounds. All other features are secondary and must support the primary mission. Secondary features may be cut if they take away from the primary mission.
+1. Ambie focuses on minimalism and UX performance. Features being built must maintain or improve UX performance and must have a minimalist and intuitive UX.
+1. Ambie will have all local features free, but downloadable content should be prioritized for Ambie+. Features that remove or reduce incentive for Ambie+ should be deprioritized. 
+
 ## From the Press
 
 One of [FastCompany's best new apps for productivity](https://www.fastcompany.com/90766562/the-23-best-new-productivity-apps-for-2022) in 2022 (USA):
