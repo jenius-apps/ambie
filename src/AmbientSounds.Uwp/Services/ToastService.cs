@@ -17,15 +17,24 @@ namespace AmbientSounds.Services.Uwp
 
         public void ClearScheduledToasts()
         {
-            ToastNotifierCompat notifier = ToastNotificationManagerCompat.CreateToastNotifier();
-            var scheduled = notifier.GetScheduledToastNotifications();
-
-            if (scheduled != null)
+            try
             {
-                foreach (var toRemove in scheduled)
+                ToastNotifierCompat notifier = ToastNotificationManagerCompat.CreateToastNotifier();
+                var scheduled = notifier.GetScheduledToastNotifications();
+
+                if (scheduled != null)
                 {
-                    notifier.RemoveFromSchedule(toRemove);
+                    foreach (var toRemove in scheduled)
+                    {
+                        notifier.RemoveFromSchedule(toRemove);
+                    }
                 }
+            }
+            catch
+            {
+                // Crash telemetry suggests that sometimes, the 
+                // "notification platform" is unavailable, leading to a crash somehere here.
+                // We added the try-catch to try to mitigate the crash.
             }
         }
 
