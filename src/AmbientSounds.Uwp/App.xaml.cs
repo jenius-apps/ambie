@@ -297,7 +297,15 @@ sealed partial class App : Application
         Services.GetRequiredService<INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
         await TryRegisterNotifications();
-        await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
+
+        try
+        {
+            await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
+        }
+        catch (Exception ex)
+        {
+            Services.GetRequiredService<ITelemetry>().TrackError(ex);
+        }
     }
 
     private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
