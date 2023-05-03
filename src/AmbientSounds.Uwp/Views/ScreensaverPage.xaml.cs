@@ -111,6 +111,9 @@ public sealed partial class ScreensaverPage : Page
         WallpaperCanvasControl.Draw -= CanvasAnimatedControl_Draw;
         WallpaperCanvasControl.RemoveFromVisualTree();
         WallpaperCanvasControl = null;
+
+        // Also dispose the effect to remove pressure from the GC
+        _animatedWallpaperEffect?.Dispose();
     }
 
     private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -290,6 +293,9 @@ public sealed partial class ScreensaverPage : Page
     private void SetupAnimatedShaderProperties()
     {
         string? animatedBackgroundName = ViewModel.AnimatedBackgroundName;
+
+        // Dispose the existing effect, if there is one
+        _animatedWallpaperEffect?.Dispose();
 
         // We need explicit references to all type to help the .NET Native linker resolve all type dependencies
         _animatedWallpaperEffect = animatedBackgroundName switch

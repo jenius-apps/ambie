@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using ComputeSharp.D2D1;
 using ComputeSharp.D2D1.Uwp;
-using Microsoft.Graphics.Canvas;
 
 #nullable enable
 
@@ -63,14 +61,14 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
         where T : unmanaged, ID2D1PixelShader
     {
         /// <summary>
+        /// The <see cref="PixelShaderEffect{T}"/> node instance in use.
+        /// </summary>
+        private static readonly EffectNode<PixelShaderEffect<T>> EffectNode = new();
+
+        /// <summary>
         /// The <typeparamref name="T"/> factory to use.
         /// </summary>
         private readonly Factory _factory;
-
-        /// <summary>
-        /// The <see cref="PixelShaderEffect{T}"/> instance in use.
-        /// </summary>
-        private PixelShaderEffect<T>? _effect;
 
         /// <summary>
         /// Creates a new <see cref="For{T}"/> instance with the specified parameters.
@@ -82,18 +80,15 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
         }
 
         /// <inheritdoc/>
-        [MemberNotNull(nameof(_effect))]
-        protected override ICanvasImage BuildEffectGraph()
+        protected override void BuildEffectGraph(EffectGraph effectGraph)
         {
-            _effect = new PixelShaderEffect<T>();
-
-            return _effect;
+            effectGraph.RegisterOutputNode(EffectNode, new PixelShaderEffect<T>());
         }
 
         /// <inheritdoc/>
-        protected override void ConfigureEffectGraph()
+        protected override void ConfigureEffectGraph(EffectGraph effectGraph)
         {
-            _effect!.ConstantBuffer = _factory(ScreenWidth, ScreenHeight, ElapsedTime);
+            effectGraph.GetNode(EffectNode).ConstantBuffer = _factory(ScreenWidth, ScreenHeight, ElapsedTime);
         }
 
         /// <summary>
