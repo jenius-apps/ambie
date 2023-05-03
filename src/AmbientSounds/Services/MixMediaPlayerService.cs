@@ -191,7 +191,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
                 if (!_activePlayers.ContainsKey(sound.Id)) _activePlayers.Add(sound.Id, player);
                 if (!_activeSoundDateTimes.ContainsKey(sound.Id)) _activeSoundDateTimes.Add(sound.Id, DateTimeOffset.Now);
                 if (!Screensavers.ContainsKey(sound.Id) && sound.ScreensaverImagePaths is { Length: > 0 } images) Screensavers.Add(sound.Id, images);
-                _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
+                if (!_soundNames.ContainsKey(sound.Id)) _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
                 RefreshSmtcTitle();
 
                 if (keepPaused) Pause();
