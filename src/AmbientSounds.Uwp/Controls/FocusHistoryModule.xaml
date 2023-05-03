@@ -58,6 +58,7 @@
 
                 <GridView
                     Margin="0,12,0,0"
+                    AutomationProperties.Name="{x:Bind strings:Resources.HistoryRecent}"
                     IsItemClickEnabled="True"
                     ItemClick="OnHistoryClicked"
                     ItemsSource="{x:Bind ViewModel.Items}"

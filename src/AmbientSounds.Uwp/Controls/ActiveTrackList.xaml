@@ -70,7 +70,7 @@
                         <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
                             <Grid
                                 Width="160"
-                                BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                                 BorderThickness="1"
                                 CornerRadius="8">
 
