@@ -3,15 +3,35 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:strings="using:AmbientSounds.Strings"
-    ActualThemeChanged="UserControl_ActualThemeChanged">
+    xmlns:triggers="using:Microsoft.Toolkit.Uwp.UI.Triggers">
 
     <StackPanel Orientation="Horizontal">
         <Image Height="18" Source="ms-appx:///Assets/logo.png" />
         <TextBlock
+            x:Name="DisplayTextBlock"
             Margin="8,0,0,0"
             VerticalAlignment="Center"
             FontSize="12"
-            Foreground="{x:Bind DisplayTextForegroundBrush, Mode=OneWay}"
             Text="{x:Bind DisplayText, Mode=OneWay}" />
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.Setters>
+                        <Setter Target="DisplayTextBlock.Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <triggers:IsEqualStateTrigger Value="{x:Bind IsWindowFocused, Mode=OneWay}" To="True" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState>
+                    <VisualState.Setters>
+                        <Setter Target="DisplayTextBlock.Foreground" Value="{ThemeResource TextFillColorTertiaryBrush}" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <triggers:IsEqualStateTrigger Value="{x:Bind IsWindowFocused, Mode=OneWay}" To="False" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </StackPanel>
 </UserControl>
