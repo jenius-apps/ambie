@@ -78,5 +78,10 @@ namespace AmbientSounds.ViewModels
         public int TasksCompleted { get; }
 
         public List<InterruptionViewModel> Interruptions { get; } = new();
+
+        public override string ToString()
+        {
+            return _localStart.ToLongDateString();
+        }
     }
 }
