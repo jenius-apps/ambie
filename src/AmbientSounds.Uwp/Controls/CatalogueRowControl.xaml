@@ -116,18 +116,16 @@
                             </Rectangle>
 
                             <local:PlusBadge
-                                x:Name="PlusBadge"
                                 Margin="12,12,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                x:Load="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
+                                Visibility="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
 
                             <local:FreeBadge
-                                x:Name="FreeBadge"
                                 Margin="12,12,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                x:Load="{x:Bind FreeBadgeVisible, Mode=OneWay}" />
+                                Visibility="{x:Bind FreeBadgeVisible, Mode=OneWay}" />
 
                             <Grid Grid.Row="1" Margin="12,0">
                                 <TextBlock
@@ -149,10 +147,7 @@
                                 Height="36"
                                 Margin="4,4"
                                 VerticalAlignment="Bottom">
-                                <StackPanel
-                                    x:Name="DownloadPanel"
-                                    x:Load="{x:Bind NotInstalled, Mode=OneWay}"
-                                    Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" Visibility="{x:Bind NotInstalled, Mode=OneWay}">
 
                                     <!--  buy button  -->
                                     <StackPanel
@@ -206,10 +201,7 @@
                                     </Grid>
                                 </StackPanel>
 
-                                <StackPanel
-                                    x:Name="InstalledPanel"
-                                    x:Load="{x:Bind IsInstalled, Mode=OneWay}"
-                                    Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" Visibility="{x:Bind IsInstalled, Mode=OneWay}">
                                     <Button
                                         x:Uid="DeleteButton"
                                         Padding="8,0"
