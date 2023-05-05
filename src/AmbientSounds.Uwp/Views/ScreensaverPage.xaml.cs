@@ -98,6 +98,9 @@ public sealed partial class ScreensaverPage : Page
         coreWindow.SizeChanged -= CoreWindow_SizeChanged;
         var navigator = SystemNavigationManager.GetForCurrentView();
         navigator.BackRequested -= OnBackRequested;
+        
+        InactiveTimer?.Stop();
+        CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
 
         SettingsFlyout?.Items?.Clear();
         _displayRequest.RequestRelease();
