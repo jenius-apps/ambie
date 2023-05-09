@@ -78,6 +78,6 @@ public sealed partial class CompactPageViewModel : ObservableObject
     private async Task CloseCompactAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.MiniBack);
-        await _navigator.CloseCompactOverlayAsync(_currentView);
+        await _navigator.CloseCompactOverlayAsync(CurrentView);
     }
 }
