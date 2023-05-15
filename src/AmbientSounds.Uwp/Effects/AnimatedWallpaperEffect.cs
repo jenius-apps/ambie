@@ -54,6 +54,11 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
     }
 
     /// <summary>
+    /// Gets the name of the effect currently in use.
+    /// </summary>
+    public abstract string EffectName { get; }
+
+    /// <summary>
     /// An effect for an animated wallpaper.
     /// </summary>
     /// <typeparam name="T">The type of wallpepr to render.</typeparam>
@@ -78,6 +83,9 @@ public abstract class AnimatedWallpaperEffect : CanvasEffect
         {
             _factory = factory;
         }
+
+        /// <inheritdoc/>
+        public override string EffectName => typeof(T).Name;
 
         /// <inheritdoc/>
         protected override void BuildEffectGraph(EffectGraph effectGraph)

@@ -29,6 +29,7 @@ namespace AmbientSounds.Views;
 public sealed partial class ScreensaverPage : Page
 {
     private readonly DisplayRequest _displayRequest;
+    private readonly DispatcherQueue _dispatcherQueue;
     private AnimatedWallpaperEffect? _animatedWallpaperEffect;
     private double _resolutionScale;
 
@@ -42,6 +43,7 @@ public sealed partial class ScreensaverPage : Page
         ViewModel.Loaded += OnViewModelLoaded;
         ViewModel.PropertyChanged += OnViewModelPropertyChanged;
         _displayRequest = new DisplayRequest();
+        _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 
         // Set the wallpapers to run at 24fps to save resources (the animations are very slow, so not noticeable)
         WallpaperCanvasControl.TargetElapsedTime = TimeSpan.FromSeconds(1 / 24.0f);
@@ -326,8 +328,9 @@ public sealed partial class ScreensaverPage : Page
 
         try
         {
+            double resolutionScale = _resolutionScale;
             Size canvasSize = sender.Size;
-            Size renderSize = new(canvasSize.Width * _resolutionScale, canvasSize.Height * _resolutionScale);
+            Size renderSize = new(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
 
             // Set the constant buffer
             animatedWallpaperEffect.ElapsedTime = args.Timing.TotalTime;
@@ -346,18 +349,18 @@ public sealed partial class ScreensaverPage : Page
             sender.Paused = true;
 
             // Log the error to telemetry
-            var telemetry = App.Services.GetRequiredService<ITelemetry>();
-
-            telemetry.TrackError(e, new Dictionary<string, string>()
+            App.Services.GetRequiredService<ITelemetry>().TrackError(e, new Dictionary<string, string>()
             {
-                { "name", ViewModel.AnimatedBackgroundName ?? string.Empty },
+                { "name", animatedWallpaperEffect.EffectName },
                 { "deviceLostReason", $"0x{args.DrawingSession.Device.GetDeviceLostReason():X8}" }
             });
 
-            // Show the error banner
-            InfoBar infoBar = (InfoBar)FindName(nameof(RenderingErrorInfoBar));
-
-            infoBar.IsOpen = true;
+            // Show the error banner. For this we need to first move back to the UI thread,
+            // as the drawing handlers are invoked by a render thread spun up by Win2D.
+            _ = _dispatcherQueue.TryEnqueue(() =>
+            {
+                ((InfoBar)FindName(nameof(RenderingErrorInfoBar))).IsOpen = true;
+            });
         }
     }
 }
