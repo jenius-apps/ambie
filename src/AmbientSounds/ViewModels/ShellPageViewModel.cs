@@ -258,6 +258,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void Dispose()
     {
+        _ratingTimer.Stop();
+        _ratingTimer.IntervalElapsed -= OnIntervalLapsed;
         _userSettings.SettingSet -= OnSettingSet;
         _iapService.ProductPurchased -= OnProductPurchased;
         _focusService.FocusStateChanged -= OnFocusStateChanged;
