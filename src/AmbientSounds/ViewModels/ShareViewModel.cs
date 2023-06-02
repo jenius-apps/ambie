@@ -3,6 +3,7 @@ using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Tools;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -63,8 +64,8 @@ public partial class ShareViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task CopyAsync()
+    private void Copy()
     {
-        CopySuccessful = await _clipboard.CopyToClipboardAsync(ShareUrl);
+        CopySuccessful = _clipboard.CopyToClipboard(ShareUrl);
     }
 }

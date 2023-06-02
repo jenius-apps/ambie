@@ -11,8 +11,9 @@ using System.Threading.Tasks;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using AmbientSounds.Tools;
 using JeniusApps.Common.Telemetry;
+using INavigator = AmbientSounds.Services.INavigator;
+using ISystemInfoProvider = AmbientSounds.Services.ISystemInfoProvider;
 
 namespace AmbientSounds.ViewModels;
 

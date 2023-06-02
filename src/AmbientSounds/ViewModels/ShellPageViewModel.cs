@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
+using INavigator = AmbientSounds.Services.INavigator;
+using ISystemInfoProvider = AmbientSounds.Services.ISystemInfoProvider;
 
 namespace AmbientSounds.ViewModels;
 

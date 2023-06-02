@@ -33,6 +33,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.Generic;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Telemetry.Uwp;
 
 #nullable enable
 
@@ -294,7 +295,7 @@ sealed partial class App : Application
             rootFrame.FlowDirection = FlowDirection.RightToLeft;
         }
         SetAppRequestedTheme();
-        Services.GetRequiredService<INavigator>().RootFrame = rootFrame;
+        Services.GetRequiredService<Services.INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
         await TryRegisterNotifications();
 
@@ -447,7 +448,7 @@ sealed partial class App : Application
             // object tree is all transient
             .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
             .AddTransient<IImagePicker, ImagePicker>()
-            .AddTransient<IClipboard, WindowsClipboard>()
+            .AddSingleton<IClipboard, WindowsClipboard>()
             .AddSingleton<IAppStoreRatings, MicrosoftStoreRatings>()
             // Must be transient because this is basically
             // a timer factory.
@@ -491,7 +492,7 @@ sealed partial class App : Application
             .AddSingleton<IFilePicker, FilePicker>()
             .AddSingleton<IFocusToastService, FocusToastService>()
             .AddSingleton<IToastService, ToastService>()
-            .AddSingleton<INavigator, Navigator>()
+            .AddSingleton<Services.INavigator, Services.Uwp.Navigator>()
             .AddSingleton<ICompactNavigator, CompactNavigator>()
             .AddSingleton<ICloudFileWriter, CloudFileWriter>()
             .AddSingleton<PlayerTelemetryTracker>()
@@ -501,10 +502,14 @@ sealed partial class App : Application
             .AddSingleton<IIapService, StoreService>()
             .AddSingleton<IDownloadManager, WindowsDownloadManager>()
             .AddSingleton<IScreensaverService, ScreensaverService>()
-            .AddSingleton<ITelemetry, AmbientSounds.Services.AppCenterTelemetry>()
+            .AddSingleton<ITelemetry, AppCenterTelemetry>(s =>
+            {
+                var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
+                return new AppCenterTelemetry(apiKey);
+            })
             .AddSingleton<IOnlineSoundRepository, OnlineSoundRepository>()
-            .AddSingleton<ISystemInfoProvider, SystemInfoProvider>()
-            .AddSingleton<IAssetsReader, AssetsReader>()
+            .AddSingleton<Services.ISystemInfoProvider, Services.Uwp.SystemInfoProvider>()
+            .AddSingleton<Tools.IAssetsReader, Tools.Uwp.AssetsReader>()
             .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
             .AddSingleton<ISystemMediaControls, WindowsSystemMediaControls>()
             .AddSingleton<IAudioDeviceService, AudioDeviceService>()

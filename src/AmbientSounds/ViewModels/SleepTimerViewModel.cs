@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.ViewModels;
 

@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -10,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.ViewModels;
 
