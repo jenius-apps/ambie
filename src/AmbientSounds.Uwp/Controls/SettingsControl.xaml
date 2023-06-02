@@ -139,7 +139,7 @@
         </labs:SettingsCard>
 
         <!--  Audio device selector  -->
-        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsOutputDeviceDescription}" Header="{x:Bind strings:Resources.SettingsOutputDevice}">
+        <!--<labs:SettingsCard Description="{x:Bind strings:Resources.SettingsOutputDeviceDescription}" Header="{x:Bind strings:Resources.SettingsOutputDevice}">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Loaded">
                     <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadOutputDevicesCommand}" />
@@ -154,7 +154,7 @@
                 DisplayMemberPath="DeviceName"
                 ItemsSource="{x:Bind ViewModel.OutputDevices}"
                 SelectedItem="{x:Bind ViewModel.CurrentOutputDevice, Mode=TwoWay}" />
-        </labs:SettingsCard>
+        </labs:SettingsCard>-->
 
         <!--  Ambie Mini on focus  -->
         <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsCompactModeDescription}" Header="{x:Bind strings:Resources.SettingsCompactMode}">

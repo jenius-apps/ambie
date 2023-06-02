@@ -19,9 +19,7 @@ public class WindowsMediaPlayerFactory : IMediaPlayerFactory
     /// <inheritdoc/>
     public IMediaPlayer CreatePlayer(bool disableDefaultSystemControls = false)
     {
-        return new OutputControlledMediaPlayer(
-            _serviceProvider.GetRequiredService<IUserSettings>(),
-            _serviceProvider.GetRequiredService<ITelemetry>(),
+        return new WindowsMediaPlayer(
             disableDefaultSystemControls);
     }
 }
