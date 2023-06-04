@@ -48,15 +48,6 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _focusTimeBannerVisible;
 
-    /// <summary>
-    /// Determines whether or not the focus dot is visible.
-    /// </summary>
-    [ObservableProperty]
-    private bool _focusDotVisible;
-
-    [ObservableProperty]
-    private bool _titleBarVisible = true;
-
     [ObservableProperty]
     private int _navMenuIndex = -1;
 
@@ -149,7 +140,6 @@ public partial class ShellPageViewModel : ObservableObject
         {
             _navigator.NavigateTo(pageType, contentPageNavArgs);
             UpdateTimeBannerVisibility();
-            UpdateFocusDotVisibility();
         }
     }
 
@@ -256,7 +246,6 @@ public partial class ShellPageViewModel : ObservableObject
     {
         HandleNavigationRequest(e);
         UpdateTimeBannerVisibility();
-        UpdateFocusDotVisibility();
     }
 
     public void Dispose()
@@ -310,7 +299,6 @@ public partial class ShellPageViewModel : ObservableObject
         _dispatcherQueue.TryEnqueue(() =>
         {
             UpdateTimeBannerVisibility();
-            UpdateFocusDotVisibility();
         });
     }
 
@@ -321,8 +309,13 @@ public partial class ShellPageViewModel : ObservableObject
             _focusService.CurrentState != FocusState.None;
     }
 
-    private void UpdateFocusDotVisibility()
+    [RelayCommand]
+    private void HandleTitleBanner()
     {
-        FocusDotVisible = _focusService.CurrentState != FocusState.None;
+        if (FocusTimeBannerVisible)
+        {
+            Navigate(ContentPageType.Focus);
+            _telemetry.TrackEvent(TelemetryConstants.FocusTimeBannerClicked);
+        }
     }
 }

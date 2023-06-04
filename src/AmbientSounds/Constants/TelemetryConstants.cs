@@ -19,6 +19,7 @@
         private const string ShellPage = "shellpage:";
         public const string ShellPagePremiumClicked = ShellPage + "premiumClicked";
         public const string ShellPageShareClicked = ShellPage + "shareClicked";
+        public const string FocusTimeBannerClicked = ShellPage + "focusTimeBannerClicked";
 
         // updates
         private const string Updates = "updates:";
