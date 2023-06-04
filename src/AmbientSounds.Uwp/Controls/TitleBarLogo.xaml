@@ -20,15 +20,7 @@
                         <Setter Target="DisplayTextBlock.Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
-                        <triggers:IsEqualStateTrigger Value="{x:Bind IsWindowFocused, Mode=OneWay}" To="True" />
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState>
-                    <VisualState.Setters>
-                        <Setter Target="DisplayTextBlock.Foreground" Value="{ThemeResource TextFillColorTertiaryBrush}" />
-                    </VisualState.Setters>
-                    <VisualState.StateTriggers>
-                        <triggers:IsEqualStateTrigger Value="{x:Bind IsWindowFocused, Mode=OneWay}" To="False" />
+                        <StateTrigger IsActive="{x:Bind IsWindowFocused, Mode=OneWay}" />
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
