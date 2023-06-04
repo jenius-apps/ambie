@@ -33,7 +33,6 @@
                     <VisualState.Setters>
                         <Setter Target="NavMenuWidth.Width" Value="200" />
                         <Setter Target="MenuIconPremium.Visibility" Value="Collapsed" />
-                        <Setter Target="FocusEllipseGrid.Visibility" Value="Visible" />
                         <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
                         <Setter Target="TitleBar.Margin" Value="16,14,0,0" />
                         <Setter Target="PlayerPanelBorder.Margin" Value="16,0" />
@@ -216,26 +215,13 @@
                                 AutomationProperties.Name="{x:Bind strings:Resources.FocusText}"
                                 Tag="focus"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.FocusText}">
-                                <Grid>
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
-                                        <TextBlock
-                                            Margin="12,0,0,0"
-                                            Text="{x:Bind strings:Resources.FocusText}"
-                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                                    </StackPanel>
-                                    <Grid
-                                        x:Name="FocusEllipseGrid"
-                                        HorizontalAlignment="Right"
-                                        Visibility="Collapsed">
-                                        <Ellipse
-                                            Width="8"
-                                            Height="8"
-                                            Fill="{ThemeResource AccentFillColorDefaultBrush}"
-                                            ToolTipService.ToolTip="{x:Bind strings:Resources.FocusDotTooltip}"
-                                            Visibility="{x:Bind ViewModel.FocusDotVisible, Mode=OneWay}" />
-                                    </Grid>
-                                </Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
+                                    <TextBlock
+                                        Margin="12,0,0,0"
+                                        Text="{x:Bind strings:Resources.FocusText}"
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+                                </StackPanel>
                             </ListViewItem>
                         </ListView.Items>
                     </ListView>
