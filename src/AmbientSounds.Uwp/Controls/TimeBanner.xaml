@@ -9,9 +9,12 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <!--  temporarily disable tab stop  -->
     <local:TwoToneButton
+        x:Name="TheButton"
         Padding="8,0"
+        AutomationProperties.Name="{x:Bind ViewModel.StatusText, Mode=OneWay}"
+        Click="OnClicked"
+        Command="{x:Bind Command, Mode=OneWay}"
         Content="{x:Bind ViewModel.StatusText, Mode=OneWay}"
         FontSize="10"
         SecondaryContent="{x:Bind ViewModel.TimeText, Mode=OneWay}" />

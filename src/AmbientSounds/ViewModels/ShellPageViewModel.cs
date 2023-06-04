@@ -308,4 +308,13 @@ public partial class ShellPageViewModel : ObservableObject
             _navigator.GetContentPageName() != "FocusPage" &&
             _focusService.CurrentState != FocusState.None;
     }
+
+    [RelayCommand]
+    private void HandleTitleBanner()
+    {
+        if (FocusTimeBannerVisible)
+        {
+            Navigate(ContentPageType.Focus);
+        }
+    }
 }

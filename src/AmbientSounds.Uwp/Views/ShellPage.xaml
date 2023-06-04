@@ -78,7 +78,10 @@
             Orientation="Horizontal">
 
             <!--  Focus time banner  -->
-            <controls:TimeBanner Margin="12,0,0,0" Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
+            <controls:TimeBanner
+                Margin="12,0,0,0"
+                Command="{x:Bind ViewModel.HandleTitleBannerCommand}"
+                Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
                 <animations:Implicit.HideAnimations>
                     <animations:OpacityAnimation
                         From="1"
