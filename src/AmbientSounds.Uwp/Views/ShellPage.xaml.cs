@@ -34,6 +34,10 @@ public sealed partial class ShellPage : Page
             // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
             ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
         }
+
+        // Set custom title bar.
+        // Source: https://learn.microsoft.com/en-us/windows/apps/develop/title-bar?tabs=winui2#interactive-content 
+        Window.Current.SetTitleBar(AppTitleBar);
     }
 
     public ShellPageViewModel ViewModel => (ShellPageViewModel)this.DataContext;

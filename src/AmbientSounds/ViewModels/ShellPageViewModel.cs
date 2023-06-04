@@ -49,9 +49,6 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _focusTimeBannerVisible;
 
     [ObservableProperty]
-    private bool _titleBarVisible = true;
-
-    [ObservableProperty]
     private int _navMenuIndex = -1;
 
     [ObservableProperty]
