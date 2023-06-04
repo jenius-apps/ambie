@@ -315,6 +315,7 @@ public partial class ShellPageViewModel : ObservableObject
         if (FocusTimeBannerVisible)
         {
             Navigate(ContentPageType.Focus);
+            _telemetry.TrackEvent(TelemetryConstants.FocusTimeBannerClicked);
         }
     }
 }
