@@ -23,10 +23,6 @@ public sealed partial class TitleBarLogo : UserControl
     public TitleBarLogo()
     {
         this.InitializeComponent();
-        Window.Current.Activated += (_, e) =>
-        {
-            IsWindowFocused = e.WindowActivationState != CoreWindowActivationState.Deactivated;
-        };
     }
 
     public bool IsWindowFocused
@@ -39,5 +35,20 @@ public sealed partial class TitleBarLogo : UserControl
     {
         get => (string)GetValue(DisplayTextProperty);
         set => SetValue(DisplayTextProperty, value);
+    }
+
+    private void Window_Activated(object sender, WindowActivatedEventArgs e)
+    {
+        IsWindowFocused = e.WindowActivationState != CoreWindowActivationState.Deactivated;
+    }
+
+    private void UserControl_Loaded(object sender, RoutedEventArgs e)
+    {
+        Window.Current.Activated += Window_Activated;
+    }
+
+    private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+    {
+        Window.Current.Activated -= Window_Activated;
     }
 }
