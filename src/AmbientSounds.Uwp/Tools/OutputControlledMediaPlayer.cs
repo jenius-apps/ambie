@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using Windows.Devices.Enumeration;
 using Windows.Media.Core;
 using Windows.Media.Devices;

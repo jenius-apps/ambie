@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace AmbientSounds.Services
 
         public SoundEffectsService(
             IMediaPlayerFactory mediaPlayerFactory,
-            IAssetsReader assetsReader)
+            Tools.IAssetsReader assetsReader)
         {
             Guard.IsNotNull(mediaPlayerFactory);
             _mediaPlayer = mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);

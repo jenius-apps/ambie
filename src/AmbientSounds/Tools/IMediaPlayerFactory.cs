@@ -1,4 +1,6 @@
-﻿namespace AmbientSounds.Tools;
+﻿using JeniusApps.Common.Tools;
+
+namespace AmbientSounds.Tools;
 
 /// <summary>
 /// Factory interface that creates new media player objects.
