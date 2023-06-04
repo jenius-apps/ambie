@@ -9,6 +9,7 @@
         <Image Height="18" Source="ms-appx:///Assets/logo.png" />
         <TextBlock
             x:Name="DisplayTextBlock"
+            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Margin="8,0,0,0"
             VerticalAlignment="Center"
             FontSize="12"
