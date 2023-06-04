@@ -2354,6 +2354,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region RelaxText
+        /// <summary>
+        ///   Looks up a localized string similar to: Relax
+        /// </summary>
+        public static string RelaxText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RelaxText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2545,6 +2558,7 @@ namespace AmbientSounds.Strings{
             SettingsOutputDeviceDescription,
             SettingsPlayAfterFocusDescription,
             SettingsPlayAfterFocusHeader,
+            RelaxText,
         }
 
         private static ResourceLoader _resourceLoader;

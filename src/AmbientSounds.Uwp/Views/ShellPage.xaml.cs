@@ -102,6 +102,9 @@ public sealed partial class ShellPage : Page
         {
             switch (tag)
             {
+                case "meditate":
+                    ViewModel.Navigate(ContentPageType.Meditate);
+                    break;
                 case "focus":
                     ViewModel.Navigate(ContentPageType.Focus);
                     break;

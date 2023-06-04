@@ -259,6 +259,7 @@
             <x:String x:Key="GlyphGripper">&#xEB34;</x:String>
             <x:String x:Key="GlyphUpdates">&#xE91C;</x:String>
             <x:String x:Key="GlyphAudioDevice">&#xEB82;</x:String>
+            <x:String x:Key="GlyphLeaves">&#xEAA4;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

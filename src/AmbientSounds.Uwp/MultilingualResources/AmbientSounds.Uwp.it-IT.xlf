@@ -1006,6 +1006,10 @@
           <source>Continue sounds after focusing</source>
           <target state="translated">Continuare i suoni dopo la messa a fuoco</target>
         </trans-unit>
+        <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
+          <source>Relax</source>
+          <target state="new">Relax</target>
+        </trans-unit>
       </group>
     </body>
   </file>
