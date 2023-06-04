@@ -14,7 +14,11 @@ public sealed partial class TitleBarLogo : UserControl
             new PropertyMetadata(Strings.Resources.AppDisplayName));
 
     public static readonly DependencyProperty IsWindowFocusedProperty =
-        DependencyProperty.Register("IsWindowFocused", typeof(bool), typeof(TitleBarLogo), new PropertyMetadata(false));
+        DependencyProperty.Register(
+            nameof(IsWindowFocused),
+            typeof(bool), 
+            typeof(TitleBarLogo),
+            new PropertyMetadata(false));
 
     public TitleBarLogo()
     {
