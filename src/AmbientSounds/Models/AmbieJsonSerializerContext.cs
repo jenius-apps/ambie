@@ -48,6 +48,7 @@ namespace AmbientSounds.Models;
 [JsonSerializable(typeof(CatalogueRow[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(IList<Video>))]
 [JsonSerializable(typeof(SyncData))]
+[JsonSerializable(typeof(Guide[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(Sound[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
 [JsonSerializable(typeof(List<Sound>))]
 [JsonSerializable(typeof(IList<Sound>))]
