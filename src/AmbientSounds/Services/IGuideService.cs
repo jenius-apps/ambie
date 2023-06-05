@@ -6,5 +6,5 @@ namespace AmbientSounds.Services;
 
 public interface IGuideService
 {
-    Task<IReadOnlyList<Guide>> GetGuidesAsync();
+    Task<IReadOnlyList<Guide>> GetGuidesAsync(string? culture = null);
 }
