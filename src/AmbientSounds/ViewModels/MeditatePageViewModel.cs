@@ -19,7 +19,7 @@ public class MeditatePageViewModel : ObservableObject
         _guideVmFactory = guideVmFactory;
     }
 
-    public ObservableCollection<OnlineGuideViewModel> Guides { get; } = new();
+    public ObservableCollection<GuideViewModel> Guides { get; } = new();
 
     public async Task InitializeAsync()
     {

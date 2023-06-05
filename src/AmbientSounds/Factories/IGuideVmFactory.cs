@@ -5,5 +5,5 @@ namespace AmbientSounds.Factories;
 
 public interface IGuideVmFactory
 {
-    OnlineGuideViewModel GetOrCreate(Guide guide);
+    GuideViewModel GetOrCreate(Guide guide);
 }

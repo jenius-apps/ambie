@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
 
-public partial class OnlineGuideViewModel : ObservableObject
+public partial class GuideViewModel : ObservableObject
 {
     private readonly Guide _guide;
 
-    public OnlineGuideViewModel(
+    public GuideViewModel(
         Guide guide,
         IAssetLocalizer assetLocalizer)
     {

@@ -10,21 +10,21 @@ namespace AmbientSounds.Factories;
 public class GuideVmFactory : IGuideVmFactory
 {
     private readonly IServiceProvider _serviceProvider;
-    private readonly ConcurrentDictionary<string, OnlineGuideViewModel> _onlineGuideVmCache = new();
+    private readonly ConcurrentDictionary<string, GuideViewModel> _onlineGuideVmCache = new();
 
     public GuideVmFactory(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
     }
 
-    public OnlineGuideViewModel GetOrCreate(Guide guide)
+    public GuideViewModel GetOrCreate(Guide guide)
     {
         if (_onlineGuideVmCache.TryGetValue(guide.Id, out var vm))
         {
             return vm;
         }
 
-        var newVm = new OnlineGuideViewModel(
+        var newVm = new GuideViewModel(
             guide,
             _serviceProvider.GetRequiredService<IAssetLocalizer>());
 
