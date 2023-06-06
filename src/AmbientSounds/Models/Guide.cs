@@ -17,6 +17,11 @@ public class Guide : IAsset
     public double MinutesLength { get; set; }
 
     /// <summary>
+    /// The culture of this guide.
+    /// </summary>
+    public string Culture { get; set; } = string.Empty;
+
+    /// <summary>
     /// List of semicolon-separated strings representing
     /// sound IDs that are suggested as background for this 
     /// meditation guide.

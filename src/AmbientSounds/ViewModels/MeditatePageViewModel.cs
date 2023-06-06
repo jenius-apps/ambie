@@ -28,11 +28,16 @@ public class MeditatePageViewModel : ObservableObject
             return;
         }
 
-        var guides = await _guideService.GetGuidesAsync();
+        var guides = await _guideService.GetGuidesAsync(culture: "en"); // TODO support other languages
         foreach (var guide in guides)
         {
             var vm = _guideVmFactory.GetOrCreate(guide);
             Guides.Add(vm);
         }
+    }
+
+    public void Uninitialize()
+    {
+        Guides.Clear();
     }
 }

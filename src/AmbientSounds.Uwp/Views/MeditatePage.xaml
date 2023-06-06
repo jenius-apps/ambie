@@ -20,7 +20,7 @@
             SelectionMode="None"
             StretchContentForSingleRow="False">
             <toolkit:AdaptiveGridView.ItemTemplate>
-                <DataTemplate x:DataType="vm:OnlineGuideViewModel">
+                <DataTemplate x:DataType="vm:GuideViewModel">
                     <StackPanel Padding="0,20">
                         <interactivity:Interaction.Behaviors>
                             <core:EventTriggerBehavior EventName="Tapped">

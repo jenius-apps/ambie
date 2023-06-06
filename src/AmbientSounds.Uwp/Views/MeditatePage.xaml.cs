@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 #nullable enable
 
@@ -15,4 +16,14 @@ public sealed partial class MeditatePage : Page
     }
 
     public MeditatePageViewModel ViewModel => (MeditatePageViewModel)this.DataContext;
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        await ViewModel.InitializeAsync();
+    }
+
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.Uninitialize();
+    }
 }
