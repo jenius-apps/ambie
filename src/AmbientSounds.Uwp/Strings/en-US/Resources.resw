@@ -862,4 +862,7 @@
   <data name="RelaxText" xml:space="preserve">
     <value>Relax</value>
   </data>
+  <data name="BackgroundSoundsText" xml:space="preserve">
+    <value>Background sounds</value>
+  </data>
 </root>
