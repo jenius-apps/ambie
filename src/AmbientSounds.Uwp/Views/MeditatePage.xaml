@@ -13,21 +13,13 @@
     mc:Ignorable="d">
 
     <Grid>
-        <toolkit:AdaptiveGridView
+        <GridView
             Padding="0,0,14,0"
-            DesiredWidth="400"
             ItemsSource="{x:Bind ViewModel.Guides}"
-            SelectionMode="None"
-            StretchContentForSingleRow="False">
-            <toolkit:AdaptiveGridView.ItemTemplate>
+            SelectionMode="None">
+            <GridView.ItemTemplate>
                 <DataTemplate x:DataType="vm:GuideViewModel">
-                    <StackPanel Padding="0,20">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{x:Bind OpenDetailsCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-
+                    <StackPanel>
                         <Border
                             x:Name="ImageBorder"
                             Width="300"
@@ -36,23 +28,28 @@
                             <toolkit:ImageEx Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
                         </Border>
                         <TextBlock
-                            Margin="0,12,0,0"
+                            Margin="4,8,0,0"
                             FontWeight="SemiBold"
                             Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                             Text="{x:Bind Name}"
-                            TextAlignment="Center"
                             TextTrimming="CharacterEllipsis" />
                         <TextBlock
                             MaxWidth="300"
+                            Margin="4,0,0,0"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             MaxLines="2"
                             Text="{x:Bind PreviewText}"
-                            TextAlignment="Center"
                             TextTrimming="CharacterEllipsis"
                             TextWrapping="WrapWholeWords" />
+
+                        <Button
+                            MinHeight="40"
+                            Margin="0,8,0,0"
+                            HorizontalAlignment="Stretch"
+                            Content="Play" />
                     </StackPanel>
                 </DataTemplate>
-            </toolkit:AdaptiveGridView.ItemTemplate>
-        </toolkit:AdaptiveGridView>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </Page>
