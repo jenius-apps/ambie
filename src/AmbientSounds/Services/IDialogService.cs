@@ -77,9 +77,4 @@ public interface IDialogService
     /// Opens dialog for recent interruptions.
     /// </summary>
     Task RecentInterruptionsAsync();
-
-    /// <summary>
-    /// Opens dialog for the given guide.
-    /// </summary>
-    Task OpenGuideDetailsAsync(GuideViewModel guide);
 }

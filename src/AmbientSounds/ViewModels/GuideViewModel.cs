@@ -9,16 +9,13 @@ namespace AmbientSounds.ViewModels;
 public partial class GuideViewModel : ObservableObject
 {
     private readonly Guide _guide;
-    private readonly IDialogService _dialogService;
 
     public GuideViewModel(
         Guide guide,
-        IAssetLocalizer assetLocalizer,
-        IDialogService dialogService)
+        IAssetLocalizer assetLocalizer)
     {
         _guide = guide;
         Name = assetLocalizer.GetLocalName(_guide);
-        _dialogService = dialogService;
     }
 
     public string Name { get; }
@@ -26,10 +23,4 @@ public partial class GuideViewModel : ObservableObject
     public string PreviewText { get; } = "This is a preview";
 
     public string ImagePath { get; } = "https://images.unsplash.com/photo-1617354161552-cce2e5b27f79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80";
-
-    [RelayCommand]
-    private async Task OpenDetailsAsync()
-    {
-        await _dialogService.OpenGuideDetailsAsync(this);
-    }
 }
