@@ -26,7 +26,8 @@ public class GuideVmFactory : IGuideVmFactory
 
         var newVm = new GuideViewModel(
             guide,
-            _serviceProvider.GetRequiredService<IAssetLocalizer>());
+            _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            _serviceProvider.GetRequiredService<IDialogService>());
 
         _onlineGuideVmCache.TryAdd(guide.Id, newVm);
         return newVm;

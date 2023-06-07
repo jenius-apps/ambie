@@ -2,9 +2,6 @@
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -12,13 +9,16 @@ namespace AmbientSounds.ViewModels;
 public partial class GuideViewModel : ObservableObject
 {
     private readonly Guide _guide;
+    private readonly IDialogService _dialogService;
 
     public GuideViewModel(
         Guide guide,
-        IAssetLocalizer assetLocalizer)
+        IAssetLocalizer assetLocalizer,
+        IDialogService dialogService)
     {
         _guide = guide;
         Name = assetLocalizer.GetLocalName(_guide);
+        _dialogService = dialogService;
     }
 
     public string Name { get; }
@@ -30,6 +30,6 @@ public partial class GuideViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenDetailsAsync()
     {
-        await Task.Delay(1);
+        await _dialogService.OpenGuideDetailsAsync(this);
     }
 }

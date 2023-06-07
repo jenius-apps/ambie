@@ -299,4 +299,27 @@ public class DialogService : IDialogService
 
         IsDialogOpen = false;
     }
+
+    /// <inheritdoc/>
+    public async Task OpenGuideDetailsAsync(GuideViewModel guide)
+    {
+        if (IsDialogOpen)
+        {
+            return;
+        }
+
+        IsDialogOpen = true;
+        var content = new GuideDetailsControl(guide);
+
+        var dialog = new NoPaddingDialog()
+        {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Content = content
+        };
+
+        content.CloseRequested += (s, e) => dialog.Hide();
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 }
