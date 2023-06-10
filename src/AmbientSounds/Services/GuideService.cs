@@ -1,5 +1,8 @@
 ﻿using AmbientSounds.Cache;
+using AmbientSounds.Extensions;
 using AmbientSounds.Models;
+using AmbientSounds.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,18 +12,81 @@ public class GuideService : IGuideService
 {
     private readonly IGuideCache _guideCache;
     private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly IOnlineGuideRepository _onlineGuideRepository;
+    private readonly IDownloadManager _downloadManager;
+    private readonly IFileDownloader _fileDownloader;
+
+    public event EventHandler<string>? GuideDownloaded;
 
     public GuideService(
         IGuideCache guideCache,
-        ISystemInfoProvider systemInfoProvider)
+        ISystemInfoProvider systemInfoProvider,
+        IDownloadManager downloadManager,
+        IOnlineGuideRepository onlineGuideRepository,
+        IFileDownloader fileDownloader)
     {
         _guideCache = guideCache;
         _systemInfoProvider = systemInfoProvider;
+        _onlineGuideRepository = onlineGuideRepository;
+        _downloadManager = downloadManager;
+        _fileDownloader = fileDownloader;
     }
 
     public async Task<IReadOnlyList<Guide>> GetGuidesAsync(string? culture = null)
     {
         culture ??= _systemInfoProvider.GetCulture();
         return await _guideCache.GetGuidesAsync(culture);
+    }
+
+    public async Task DownloadAsync(Guide guide, Progress<double> progress)
+    {
+        // Populate downoad URL
+        if (guide.DownloadUrl is not { Length: > 0 })
+        {
+            guide.DownloadUrl = await _onlineGuideRepository.GetDownloadUrlAsync(guide.Id);
+            if (guide.DownloadUrl is { Length: 0 })
+            {
+                // If download URL isn't available, cancel this operation.
+                throw new TaskCanceledException();
+            }
+        }
+
+        // Subscribe to the progress so we can fire an event that 
+        // it completed downloading later.
+        progress.ProgressChanged += OnProgressChanged;
+
+        // Queue for download
+        var destinationPath = await _downloadManager.QueueAndDownloadAsync(guide, progress);
+        if (string.IsNullOrEmpty(destinationPath))
+        {
+            // If the queue process failed to return a valid path,
+            // cancel this operation.
+            progress.ProgressChanged -= OnProgressChanged;
+            throw new TaskCanceledException();
+        }
+
+        // Don't forget to download the guide's image.
+        var imagePathTask = _fileDownloader.ImageDownloadAndSaveAsync(guide.ImagePath, guide.Id);
+
+        // We perform a deep copy here because we don't want to modify
+        // the properties of the existing guide, since that object is cached.
+        var newGuide = guide.DeepCopy();
+
+        // Overwrite only certain properties here.
+        newGuide.FilePath = destinationPath;
+        newGuide.IsDownloaded = true;
+        newGuide.ImagePath = await imagePathTask;
+
+        // Save the new data offline.
+        await _guideCache.AddOfflineAsync(newGuide);
+
+        void OnProgressChanged(object sender, double e)
+        {
+            if (e >= 100)
+            {
+                GuideDownloaded?.Invoke(this, guide.Id);
+                progress.ProgressChanged -= OnProgressChanged;
+            }
+        }
     }
 }

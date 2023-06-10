@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Concurrent;
@@ -17,7 +18,12 @@ public class GuideVmFactory : IGuideVmFactory
         _serviceProvider = serviceProvider;
     }
 
-    public GuideViewModel GetOrCreate(Guide guide)
+    public GuideViewModel GetOrCreate(
+        Guide guide,
+        IAsyncRelayCommand<GuideViewModel?> downloadCommand,
+        IAsyncRelayCommand<GuideViewModel?> togglePlaybackCommand,
+        IAsyncRelayCommand<GuideViewModel?> deleteCommand,
+        Progress<double>? downloadProgress = null)
     {
         if (_onlineGuideVmCache.TryGetValue(guide.Id, out var vm))
         {
@@ -26,7 +32,11 @@ public class GuideVmFactory : IGuideVmFactory
 
         var newVm = new GuideViewModel(
             guide,
-            _serviceProvider.GetRequiredService<IAssetLocalizer>());
+            downloadCommand,
+            togglePlaybackCommand,
+            deleteCommand,
+            _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            downloadProgress);
 
         _onlineGuideVmCache.TryAdd(guide.Id, newVm);
         return newVm;
