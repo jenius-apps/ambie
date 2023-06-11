@@ -2,12 +2,8 @@
     x:Class="AmbientSounds.Views.MeditatePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="using:AmbientSounds.Controls"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ext="using:JeniusApps.Common.UI.Uwp"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -49,6 +45,27 @@
                             MinHeight="40"
                             Margin="0,8,0,0"
                             HorizontalAlignment="Stretch">
+
+                            <!--  Play button  -->
+                            <winui:SplitButton
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Command="{x:Bind TogglePlaybackCommand}"
+                                CommandParameter="{x:Bind}"
+                                Visibility="{x:Bind IsDownloaded, Mode=OneWay}">
+                                <TextBlock Text="{x:Bind strings:Resources.PlayerPlayText}" />
+                                <winui:SplitButton.Flyout>
+                                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                                        <MenuFlyoutItem
+                                            Command="{x:Bind DeleteCommand}"
+                                            CommandParameter="{x:Bind}"
+                                            Icon="Delete"
+                                            Text="{x:Bind strings:Resources.DeleteText}" />
+                                    </MenuFlyout>
+                                </winui:SplitButton.Flyout>
+                            </winui:SplitButton>
+
+                            <!--  download button and progress  -->
                             <Button
                                 MinHeight="40"
                                 HorizontalAlignment="Stretch"
@@ -56,13 +73,14 @@
                                 CommandParameter="{x:Bind}"
                                 Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsDownloaded), Mode=OneWay}">
                                 <Grid>
-                                    <TextBlock Text="{x:Bind strings:Resources.DownloadText}" Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(DownloadProgressVisible), Mode=OneWay}" />
+                                    <TextBlock Text="{x:Bind strings:Resources.DownloadText}" Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ProgressRingVisible), Mode=OneWay}" />
                                     <winui:ProgressRing
                                         Width="20"
                                         Height="20"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                        IsIndeterminate="{x:Bind Loading, Mode=OneWay}"
+                                        Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}"
                                         Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
                                 </Grid>
                             </Button>

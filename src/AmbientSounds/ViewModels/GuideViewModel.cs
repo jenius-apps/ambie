@@ -37,13 +37,17 @@ public partial class GuideViewModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
+    [NotifyPropertyChangedFor(nameof(ProgressRingVisible))]
     private bool _loading;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ProgressRingVisible))]
     private bool _downloadProgressVisible;
 
     [ObservableProperty]
     private bool _isDownloaded;
+
+    public bool ProgressRingVisible => Loading || DownloadProgressVisible;
 
     public Guide Guide { get; }
 
