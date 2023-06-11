@@ -483,6 +483,7 @@ sealed partial class App : Application
             .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
             .AddSingleton<IOfflineSoundRepository, OfflineSoundRepository>()
             .AddSingleton<IOnlineGuideRepository, OnlineGuideRepository>()
+            .AddSingleton<IOfflineGuideRepository, OfflineGuideRepository>()
             .AddSingleton<ISoundCache, SoundCache>()
             .AddSingleton<IGuideCache, GuideCache>()
             .AddSingleton<ISoundService, SoundService>()

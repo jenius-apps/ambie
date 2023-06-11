@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models;
 
-public class Guide : IAsset
+public class Guide : IAsset, IEquatable<Guide>
 {
     /// <summary>
     /// GUID for the guide object.
@@ -98,6 +98,49 @@ public class Guide : IAsset
     public string Extension { get; set; } = string.Empty;
 
     public override string ToString() => Name;
+
+    public override bool Equals(object obj)
+    {
+        return this.Equals(obj as Guide);
+    }
+
+    public bool Equals(Guide? other)
+    {
+        if (other is null)
+        {
+            return false;
+        }
+
+        return other.Id.Equals(this.Id, StringComparison.OrdinalIgnoreCase);
+    }
+
+    public static bool operator ==(Guide? left, Guide? right)
+    {
+        // Check for null on left side.
+        if (left is null)
+        {
+            if (right is null)
+            {
+                // null == null = true.
+                return true;
+            }
+
+            // Only the left side is null.
+            return false;
+        }
+
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(Guide? left, Guide? right)
+    {
+        return !(left == right);
+    }
+
+    public override int GetHashCode()
+    {
+        return Id.GetHashCode();
+    }
 }
 
 public record QueuedGuide(Guide Guide, IProgress<double> Progress);

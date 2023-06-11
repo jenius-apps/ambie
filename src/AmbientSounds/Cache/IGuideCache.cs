@@ -6,6 +6,7 @@ namespace AmbientSounds.Cache
 {
     public interface IGuideCache
     {
+        Task AddOfflineAsync(Guide guide);
         Task<IReadOnlyList<Guide>> GetGuidesAsync(string culture);
     }
 }

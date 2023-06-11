@@ -49,7 +49,7 @@ public partial class MeditatePageViewModel : ObservableObject
     [RelayCommand]
     private async Task DownloadAsync(GuideViewModel? guideVm)
     {
-        if (guideVm?.DownloadProgress is null)
+        if (guideVm?.DownloadProgress is null || guideVm.Loading || guideVm.DownloadProgressVisible)
         {
             return;
         }

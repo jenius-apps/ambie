@@ -10,6 +10,7 @@ public static class GuideExtensions
         return new Guide
         {
             Id = guide.Id,
+            Name = guide.Name,
             MinutesLength = guide.MinutesLength,
             Culture = guide.Culture,
             SuggestedBackgroundSounds = guide.SuggestedBackgroundSounds.ToArray(),
