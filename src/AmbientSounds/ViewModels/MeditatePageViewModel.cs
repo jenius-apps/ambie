@@ -81,7 +81,13 @@ public partial class MeditatePageViewModel : ObservableObject
             return;
         }
 
-        await _mixMediaPlayerService.PlayGuideAsync(guideVm.Guide);
+        if (_guideService.GetCachedGuide(guideVm.Guide.Id) is { } guide)
+        {
+            // Retrieve latest cached guide to ensure we have the
+            // offline version. This fixes the bug where a guide VM
+            // will still hold the online version even when it was just downloaded.
+            await _mixMediaPlayerService.PlayGuideAsync(guide);
+        }
     }
 
     [RelayCommand]

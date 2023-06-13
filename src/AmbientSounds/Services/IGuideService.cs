@@ -12,4 +12,6 @@ public interface IGuideService
     Task<IReadOnlyList<Guide>> GetGuidesAsync(string? culture = null);
 
     Task DownloadAsync(Guide guide, Progress<double> progress);
+
+    Guide? GetCachedGuide(string guideId);
 }

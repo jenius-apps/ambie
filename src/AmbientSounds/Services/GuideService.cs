@@ -38,6 +38,11 @@ public class GuideService : IGuideService
         return await _guideCache.GetGuidesAsync(culture);
     }
 
+    public Guide? GetCachedGuide(string guideId)
+    {
+        return _guideCache.GetCachedGuide(guideId);
+    }
+
     public async Task DownloadAsync(Guide guide, Progress<double> progress)
     {
         // Populate downoad URL

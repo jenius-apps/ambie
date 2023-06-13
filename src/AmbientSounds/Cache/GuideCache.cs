@@ -26,6 +26,22 @@ public class GuideCache : IGuideCache
     }
 
     /// <inheritdoc/>
+    public Guide? GetCachedGuide(string guideId)
+    {
+        if (_cachedCulture is { Length: 0 })
+        {
+            return null;
+        }
+
+        if (_cache.TryGetValue(guideId, out Guide value))
+        {
+            return value;
+        }
+
+        return null;
+    }
+
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<Guide>> GetGuidesAsync(string culture)
     {
         if (culture is not { Length: > 0 })
