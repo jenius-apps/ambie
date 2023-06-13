@@ -50,7 +50,7 @@
                             <winui:SplitButton
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
-                                Command="{x:Bind TogglePlaybackCommand}"
+                                Command="{x:Bind PlayCommand}"
                                 CommandParameter="{x:Bind}"
                                 Visibility="{x:Bind IsDownloaded, Mode=OneWay}">
                                 <TextBlock Text="{x:Bind strings:Resources.PlayerPlayText}" />

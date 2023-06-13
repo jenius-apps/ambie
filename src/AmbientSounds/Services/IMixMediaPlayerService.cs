@@ -120,5 +120,11 @@ namespace AmbientSounds.Services
         /// Sets the volume for the given sound.
         /// </summary>
         void SetVolume(string soundId, double value);
+
+        /// <summary>
+        /// Plays the given guide.
+        /// </summary>
+        /// <param name="guide">The guide to play.</param>
+        Task PlayGuideAsync(Guide guide);
     }
 }

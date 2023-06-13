@@ -25,6 +25,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IMediaPlayerFactory _mediaPlayerFactory;
     private readonly string _localDataFolderPath;
+    private (string GuideId, IMediaPlayer GuidePlayer)? _guideInfo;
 
     /// <inheritdoc/>
     public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -132,7 +133,12 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     /// <inheritdoc/>
     public bool IsSoundPlaying(string soundId)
     {
-        return !string.IsNullOrWhiteSpace(soundId) && _activePlayers.ContainsKey(soundId);
+        if (string.IsNullOrEmpty(soundId))
+        {
+            return false;
+        }
+
+        return _activePlayers.ContainsKey(soundId) || _guideInfo?.GuideId == soundId;
     }
 
     /// <inheritdoc/>
@@ -148,6 +154,30 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     /// <inheritdoc/>
     public string[] GetSoundIds() => _activePlayers.Keys.ToArray();
+
+    public async Task PlayGuideAsync(Guide guide)
+    {
+        if (_guideInfo?.GuideId == guide.Id)
+        {
+            // already playing so don't do anything.
+            return;
+        }
+
+        IMediaPlayer player = _guideInfo?.GuidePlayer
+            ?? _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
+
+        player.Pause();
+        bool success = await player.SetSourceAsync(guide.FilePath);
+        
+        if (success)
+        {
+            // TODO  refresh smtc title
+            player.Volume *= _globalVolume;
+
+            _guideInfo = (guide.Id, player);
+            Play();
+        }
+    }
 
     /// <inheritdoc/>
     public async Task ToggleSoundAsync(Sound sound, bool keepPaused = false, string parentMixId = "")
@@ -230,6 +260,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         {
             p.Play();
         }
+        _guideInfo?.GuidePlayer.Play();
     }
 
     public void Pause()
@@ -239,6 +270,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         {
             p.Pause();
         }
+        _guideInfo?.GuidePlayer.Pause();
     }
 
     /// <inheritdoc/>

@@ -10,7 +10,8 @@ public interface IGuideVmFactory
     GuideViewModel GetOrCreate(
         Guide guide,
         IAsyncRelayCommand<GuideViewModel?> downloadCommand,
-        IAsyncRelayCommand<GuideViewModel?> togglePlaybackCommand,
         IAsyncRelayCommand<GuideViewModel?> deleteCommand,
+        IAsyncRelayCommand<GuideViewModel?> playCommand,
+        IAsyncRelayCommand<GuideViewModel?> pauseCommand,
         Progress<double>? downloadProgress = null);
 }

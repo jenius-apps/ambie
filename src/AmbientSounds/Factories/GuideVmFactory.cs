@@ -21,8 +21,9 @@ public class GuideVmFactory : IGuideVmFactory
     public GuideViewModel GetOrCreate(
         Guide guide,
         IAsyncRelayCommand<GuideViewModel?> downloadCommand,
-        IAsyncRelayCommand<GuideViewModel?> togglePlaybackCommand,
         IAsyncRelayCommand<GuideViewModel?> deleteCommand,
+        IAsyncRelayCommand<GuideViewModel?> playCommand,
+        IAsyncRelayCommand<GuideViewModel?> pauseCommand,
         Progress<double>? downloadProgress = null)
     {
         if (_onlineGuideVmCache.TryGetValue(guide.Id, out var vm))
@@ -33,8 +34,9 @@ public class GuideVmFactory : IGuideVmFactory
         var newVm = new GuideViewModel(
             guide,
             downloadCommand,
-            togglePlaybackCommand,
             deleteCommand,
+            playCommand,
+            pauseCommand,
             _serviceProvider.GetRequiredService<IAssetLocalizer>(),
             downloadProgress);
 

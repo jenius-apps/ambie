@@ -9,20 +9,21 @@ namespace AmbientSounds.ViewModels;
 
 public partial class GuideViewModel : ObservableObject
 {
-
     public GuideViewModel(
         Guide guide,
         IAsyncRelayCommand<GuideViewModel?> download,
-        IAsyncRelayCommand<GuideViewModel?> togglePlayback,
         IAsyncRelayCommand<GuideViewModel?> delete,
+        IAsyncRelayCommand<GuideViewModel?> play,
+        IAsyncRelayCommand<GuideViewModel?> pause,
         IAssetLocalizer assetLocalizer,
         Progress<double>? progress = null)
     {
         Guide = guide;
         IsDownloaded = guide.IsDownloaded;
         DownloadCommand = download;
-        TogglePlaybackCommand = togglePlayback;
         DeleteCommand = delete;
+        PlayCommand = play;
+        PauseCommand = pause;
         Name = assetLocalizer.GetLocalName(guide);
 
         if (!IsDownloaded)
@@ -61,9 +62,11 @@ public partial class GuideViewModel : ObservableObject
 
     public IAsyncRelayCommand<GuideViewModel?> DownloadCommand { get; }
 
-    public IAsyncRelayCommand<GuideViewModel?> TogglePlaybackCommand { get; }
-
     public IAsyncRelayCommand<GuideViewModel?> DeleteCommand { get; }
+
+    public IAsyncRelayCommand<GuideViewModel?> PlayCommand { get; }
+
+    public IAsyncRelayCommand<GuideViewModel?> PauseCommand { get; }
 
     private void OnProgressChanged(object sender, double e)
     {
@@ -85,4 +88,14 @@ public partial class GuideViewModel : ObservableObject
 
         DownloadProgressValue = e;
     }
+
+    //private async Task PlayAsync()
+    //{
+    //    if (!IsDownloaded || _mixMediaPlayerService.IsSoundPlaying(Guide.Id))
+    //    {
+    //        return;
+    //    }
+
+    //    await _mixMediaPlayerService.PlayGuideAsync(Guide);
+    //}
 }

@@ -11,13 +11,16 @@ public partial class MeditatePageViewModel : ObservableObject
 {
     private readonly IGuideService _guideService;
     private readonly IGuideVmFactory _guideVmFactory;
+    private readonly IMixMediaPlayerService _mixMediaPlayerService;
 
     public MeditatePageViewModel(
         IGuideService guideService,
-        IGuideVmFactory guideVmFactory)
+        IGuideVmFactory guideVmFactory,
+        IMixMediaPlayerService mixMediaPlayerService)
     {
         _guideService = guideService;
         _guideVmFactory = guideVmFactory;
+        _mixMediaPlayerService = mixMediaPlayerService;
     }
 
     public ObservableCollection<GuideViewModel> Guides { get; } = new();
@@ -35,8 +38,10 @@ public partial class MeditatePageViewModel : ObservableObject
             var vm = _guideVmFactory.GetOrCreate(
                 guide,
                 DownloadCommand,
-                TogglePlaybackCommand,
-                DeleteCommand);
+                DeleteCommand,
+                PlayGuideCommand,
+                PauseGuideCommand
+                /* downloadProgress: TODO */);
             Guides.Add(vm);
         }
     }
@@ -67,7 +72,20 @@ public partial class MeditatePageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task TogglePlaybackAsync(GuideViewModel? guideVm)
+    private async Task PlayGuideAsync(GuideViewModel? guideVm)
+    {
+        if (guideVm is null ||
+            !guideVm.IsDownloaded ||
+            _mixMediaPlayerService.IsSoundPlaying(guideVm.Guide.Id))
+        {
+            return;
+        }
+
+        await _mixMediaPlayerService.PlayGuideAsync(guideVm.Guide);
+    }
+
+    [RelayCommand]
+    private async Task PauseGuideAsync(GuideViewModel? guideVm)
     {
         await Task.Delay(1);
     }
