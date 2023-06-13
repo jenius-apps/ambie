@@ -44,17 +44,32 @@
                         <Grid
                             MinHeight="40"
                             Margin="0,8,0,0"
-                            HorizontalAlignment="Stretch">
+                            HorizontalAlignment="Stretch"
+                            ColumnSpacing="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
 
                             <!--  Play button  -->
-                            <winui:SplitButton
+                            <Button
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
+                                AutomationProperties.Name="{x:Bind strings:Resources.PlayerPlayText}"
                                 Command="{x:Bind PlayCommand}"
                                 CommandParameter="{x:Bind}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.PlayerPlayText}"
                                 Visibility="{x:Bind IsDownloaded, Mode=OneWay}">
-                                <TextBlock Text="{x:Bind strings:Resources.PlayerPlayText}" />
-                                <winui:SplitButton.Flyout>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
+                            </Button>
+
+                            <Button
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Visibility="{x:Bind IsDownloaded, Mode=OneWay}">
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphThreeDots}" />
+                                <Button.Flyout>
                                     <MenuFlyout Placement="BottomEdgeAlignedRight">
                                         <MenuFlyoutItem
                                             Command="{x:Bind DeleteCommand}"
@@ -62,18 +77,24 @@
                                             Icon="Delete"
                                             Text="{x:Bind strings:Resources.DeleteText}" />
                                     </MenuFlyout>
-                                </winui:SplitButton.Flyout>
-                            </winui:SplitButton>
+                                </Button.Flyout>
+                            </Button>
 
                             <!--  download button and progress  -->
                             <Button
-                                MinHeight="40"
+                                Grid.ColumnSpan="2"
                                 HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                AutomationProperties.Name="{x:Bind strings:Resources.DownloadText}"
                                 Command="{x:Bind DownloadCommand}"
                                 CommandParameter="{x:Bind}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.DownloadText}"
                                 Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsDownloaded), Mode=OneWay}">
                                 <Grid>
-                                    <TextBlock Text="{x:Bind strings:Resources.DownloadText}" Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ProgressRingVisible), Mode=OneWay}" />
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        Glyph="{StaticResource GlyphDownload}"
+                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ProgressRingVisible), Mode=OneWay}" />
                                     <winui:ProgressRing
                                         Width="20"
                                         Height="20"

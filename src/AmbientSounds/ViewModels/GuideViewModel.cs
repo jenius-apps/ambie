@@ -88,14 +88,4 @@ public partial class GuideViewModel : ObservableObject
 
         DownloadProgressValue = e;
     }
-
-    //private async Task PlayAsync()
-    //{
-    //    if (!IsDownloaded || _mixMediaPlayerService.IsSoundPlaying(Guide.Id))
-    //    {
-    //        return;
-    //    }
-
-    //    await _mixMediaPlayerService.PlayGuideAsync(Guide);
-    //}
 }
