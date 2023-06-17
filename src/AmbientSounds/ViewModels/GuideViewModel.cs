@@ -26,11 +26,8 @@ public partial class GuideViewModel : ObservableObject
         PauseCommand = pause;
         Name = assetLocalizer.GetLocalName(guide);
 
-        if (!IsDownloaded)
-        {
-            DownloadProgress = progress ?? new();
-            DownloadProgress.ProgressChanged += OnProgressChanged;
-        }
+        DownloadProgress = progress ?? new();
+        DownloadProgress.ProgressChanged += OnProgressChanged;
     }
 
     [ObservableProperty]
@@ -55,7 +52,7 @@ public partial class GuideViewModel : ObservableObject
 
     public Guide Guide { get; }
 
-    public Progress<double>? DownloadProgress { get; }
+    public Progress<double> DownloadProgress { get; }
 
     public string Name { get; }
 
