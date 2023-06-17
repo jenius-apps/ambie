@@ -13,9 +13,11 @@ public class GuideCache : IGuideCache
 {
     private readonly IOnlineGuideRepository _onlineGuideRepository;
     private readonly IOfflineGuideRepository _offlineGuideRepository;
-    private readonly ConcurrentDictionary<string, Guide> _cache = new();
-    private readonly SemaphoreSlim _cacheLock = new(1, 1);
-    private string _cachedCulture = string.Empty;
+    private readonly ConcurrentDictionary<string, Guide> _offlineCache = new();
+    private readonly ConcurrentDictionary<string, Guide> _onlineCache = new();
+    private readonly SemaphoreSlim _onlineCacheLock = new(1, 1);
+    private readonly SemaphoreSlim _offlineCacheLock = new(1, 1);
+    private string _cachedOnlineCulture = string.Empty;
 
     public GuideCache(
         IOnlineGuideRepository onlineGuideRepository,
@@ -26,89 +28,85 @@ public class GuideCache : IGuideCache
     }
 
     /// <inheritdoc/>
-    public Guide? GetCachedGuide(string guideId)
-    {
-        if (_cachedCulture is { Length: 0 })
-        {
-            return null;
-        }
-
-        if (_cache.TryGetValue(guideId, out Guide value))
-        {
-            return value;
-        }
-
-        return null;
-    }
-
-    /// <inheritdoc/>
-    public async Task<IReadOnlyList<Guide>> GetGuidesAsync(string culture)
+    public async Task<IReadOnlyList<Guide>> GetOnlineGuidesAsync(string culture)
     {
         if (culture is not { Length: > 0 })
         {
             return Array.Empty<Guide>();
         }
 
-        await _cacheLock.WaitAsync();
+        await _onlineCacheLock.WaitAsync();
 
-        if (_cachedCulture != culture)
+        if (_cachedOnlineCulture != culture)
         {
             // Clear cache because the user switched languages,
             // so there's no point to retain guide caches for a different language.
-            _cache.Clear();
-            _cachedCulture = culture;
+            _onlineCache.Clear();
+            _cachedOnlineCulture = culture;
         }
 
-        if (_cache.IsEmpty)
+        if (_onlineCache.IsEmpty)
         {
-            var offlineGuides = await _offlineGuideRepository.GetAsync();
-            var guides = await _onlineGuideRepository.GetGuidesAsync(culture);
+            var onlineGuides = await _onlineGuideRepository.GetGuidesAsync(culture);
 
             // Note: we are only caching based on culture
             // because the likelihood of the user needing quick access to different cultures
             // is low.
-            foreach (var g in guides)
+            foreach (var onlineGuide in onlineGuides)
             {
-                // If the sound is available offline, use the offline data
-                // because it would have local storage of image and sounds.
-                if (offlineGuides.FirstOrDefault(x => x == g) is Guide offlineGuide)
-                {
-                    // Specify IsDownloaded here because this is the first point
-                    // in time we know where the object came from.
-                    offlineGuide.IsDownloaded = true;
-                    _cache.TryAdd(offlineGuide.Id, offlineGuide);
-                }
-                else
-                {
-                    // Sound isn't offline, so cache the online data.
-                    _cache.TryAdd(g.Id, g);
-                }
+                _onlineCache.TryAdd(onlineGuide.Id, onlineGuide);
             }
         }
 
-        _cacheLock.Release();
-        return _cache.Values.ToArray();
+        _onlineCacheLock.Release();
+        return _onlineCache.Values.ToArray();
+    }
+
+    public async Task<IReadOnlyList<Guide>> GetOfflineGuidesAsync()
+    {
+        await _offlineCacheLock.WaitAsync();
+        if (_offlineCache.IsEmpty)
+        {
+            var offlineGuides = await _offlineGuideRepository.GetAsync();
+            foreach (var offlineGuide in offlineGuides)
+            {
+                _offlineCache.TryAdd(offlineGuide.Id, offlineGuide);
+            }
+        }
+        _offlineCacheLock.Release();
+        return _offlineCache.Values.ToArray();
+    }
+
+    /// <inheritdoc/>
+    public async Task<Guide?> GetOfflineGuideAsync(string guideId)
+    {
+        // Ensure offline cache is initialized.
+        await GetOfflineGuidesAsync();
+
+        if (_offlineCache.TryGetValue(guideId, out Guide result))
+        {
+            return result;
+        }
+
+        return null;
     }
 
     /// <inheritdoc/>
     public async Task AddOfflineAsync(Guide guide)
     {
-        if (string.IsNullOrEmpty(guide.Id))
+        if (string.IsNullOrEmpty(guide.Id) || _offlineCache.ContainsKey(guide.Id))
         {
             return;
         }
 
         Guide[]? guides = null;
-        await _cacheLock.WaitAsync();
+        await _offlineCacheLock.WaitAsync();
 
-        // Replace the previous guide object in the cache with the new guide object
-        // because the old one contained outdated file and image location data.
-        if (_cache.TryRemove(guide.Id, out _))
+        if (_offlineCache.TryAdd(guide.Id, guide))
         {
-            _cache.TryAdd(guide.Id, guide);
-            guides = _cache.Values.ToArray();
+            guides = _offlineCache.Values.ToArray();
         }
-        _cacheLock.Release();
+        _offlineCacheLock.Release();
 
         if (guides is not null)
         {
@@ -125,15 +123,15 @@ public class GuideCache : IGuideCache
         }
 
         bool result = false;
-        await _cacheLock.WaitAsync();
+        await _offlineCacheLock.WaitAsync();
 
-        if (_cache.TryRemove(guideId, out _))
+        if (_offlineCache.TryRemove(guideId, out _))
         {
-            await _offlineGuideRepository.SaveAsync(_cache.Values.ToArray());
+            await _offlineGuideRepository.SaveAsync(_offlineCache.Values.ToArray());
             result = true;
         }
 
-        _cacheLock.Release();
+        _offlineCacheLock.Release();
         return result;
     }
 }
