@@ -91,14 +91,18 @@ public partial class MeditatePageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task PauseGuideAsync(GuideViewModel? guideVm)
+    private void PauseGuide(GuideViewModel? guideVm)
     {
-        await Task.Delay(1);
+        _mixMediaPlayerService.Pause();
     }
 
     [RelayCommand]
     private async Task DeleteAsync(GuideViewModel? guideVm)
     {
-        await Task.Delay(1);
+        if (guideVm?.Guide is { Id: string guideId })
+        {
+            bool deleted = await _guideService.DeleteAsync(guideId);
+            guideVm.IsDownloaded = !deleted;
+        }
     }
 }

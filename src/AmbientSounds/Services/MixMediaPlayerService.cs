@@ -159,7 +159,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     {
         if (_guideInfo?.GuideId == guide.Id)
         {
-            // already playing so don't do anything.
+            // already loaded so don't change anything. Just play it
+            Play();
             return;
         }
 
@@ -280,6 +281,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         {
             RemoveSound(soundId);
         }
+
+        RemoveGuide();
     }
 
     /// <inheritdoc/>
@@ -287,6 +290,12 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     {
         if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId))
         {
+            return;
+        }
+
+        if (_guideInfo?.GuideId == soundId)
+        {
+            RemoveGuide();
             return;
         }
 
@@ -356,5 +365,12 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     {
         var title = _soundNames.Count == 0 ? "Ambie" : string.Join(" / ", _soundNames.Values);
         _smtc.UpdateDisplay(title, "Ambie");
+    }
+
+    private void RemoveGuide()
+    {
+        _guideInfo?.GuidePlayer.Pause();
+        _guideInfo?.GuidePlayer.Dispose();
+        _guideInfo = null;
     }
 }

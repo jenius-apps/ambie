@@ -15,21 +15,29 @@ public class GuideService : IGuideService
     private readonly IOnlineGuideRepository _onlineGuideRepository;
     private readonly IDownloadManager _downloadManager;
     private readonly IFileDownloader _fileDownloader;
+    private readonly IFileWriter _fileWriter;
+    private readonly IMixMediaPlayerService _mixMediaPlayerService;
 
     public event EventHandler<string>? GuideDownloaded;
+
+    public event EventHandler<string>? GuideDeleted;
 
     public GuideService(
         IGuideCache guideCache,
         ISystemInfoProvider systemInfoProvider,
         IDownloadManager downloadManager,
         IOnlineGuideRepository onlineGuideRepository,
-        IFileDownloader fileDownloader)
+        IFileDownloader fileDownloader,
+        IFileWriter fileWriter,
+        IMixMediaPlayerService mixMediaPlayerService)
     {
         _guideCache = guideCache;
         _systemInfoProvider = systemInfoProvider;
         _onlineGuideRepository = onlineGuideRepository;
         _downloadManager = downloadManager;
         _fileDownloader = fileDownloader;
+        _fileWriter = fileWriter;
+        _mixMediaPlayerService = mixMediaPlayerService;
     }
 
     public async Task<IReadOnlyList<Guide>> GetGuidesAsync(string? culture = null)
@@ -93,5 +101,32 @@ public class GuideService : IGuideService
                 progress.ProgressChanged -= OnProgressChanged;
             }
         }
+    }
+
+    /// <inheritdoc/>
+    public async Task<bool> DeleteAsync(string guideId)
+    {
+        Guide? guide = GetCachedGuide(guideId);
+        if (guide is null)
+        {
+            return false;
+        }
+
+        var success = await _guideCache.RemoveOfflineAsync(guide.Id);
+        if (success)
+        {
+            _mixMediaPlayerService.RemoveSound(guide.Id);
+            _ = _fileWriter.DeleteFileAsync(guide.ImagePath);
+            success = await _fileWriter.DeleteFileAsync(guide.FilePath);
+        }
+        
+        if (success)
+        {
+            guide.IsDownloaded = false;
+            guide.FilePath = string.Empty;
+            GuideDeleted?.Invoke(this, guide.Id);
+        }
+
+        return success;
     }
 }

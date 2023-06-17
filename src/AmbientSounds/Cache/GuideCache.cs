@@ -115,4 +115,25 @@ public class GuideCache : IGuideCache
             await _offlineGuideRepository.SaveAsync(guides);
         }
     }
+
+    /// <inheritdoc/>
+    public async Task<bool> RemoveOfflineAsync(string guideId)
+    {
+        if (string.IsNullOrEmpty(guideId))
+        {
+            return false;
+        }
+
+        bool result = false;
+        await _cacheLock.WaitAsync();
+
+        if (_cache.TryRemove(guideId, out _))
+        {
+            await _offlineGuideRepository.SaveAsync(_cache.Values.ToArray());
+            result = true;
+        }
+
+        _cacheLock.Release();
+        return result;
+    }
 }

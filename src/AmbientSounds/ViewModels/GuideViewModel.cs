@@ -14,7 +14,7 @@ public partial class GuideViewModel : ObservableObject
         IAsyncRelayCommand<GuideViewModel?> download,
         IAsyncRelayCommand<GuideViewModel?> delete,
         IAsyncRelayCommand<GuideViewModel?> play,
-        IAsyncRelayCommand<GuideViewModel?> pause,
+        IRelayCommand<GuideViewModel?> pause,
         IAssetLocalizer assetLocalizer,
         Progress<double>? progress = null)
     {
@@ -66,7 +66,7 @@ public partial class GuideViewModel : ObservableObject
 
     public IAsyncRelayCommand<GuideViewModel?> PlayCommand { get; }
 
-    public IAsyncRelayCommand<GuideViewModel?> PauseCommand { get; }
+    public IRelayCommand<GuideViewModel?> PauseCommand { get; }
 
     private void OnProgressChanged(object sender, double e)
     {

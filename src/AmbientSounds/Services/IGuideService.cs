@@ -14,4 +14,6 @@ public interface IGuideService
     Task DownloadAsync(Guide guide, Progress<double> progress);
 
     Guide? GetCachedGuide(string guideId);
+
+    Task<bool> DeleteAsync(string guideId);
 }

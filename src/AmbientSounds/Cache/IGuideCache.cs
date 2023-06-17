@@ -9,5 +9,6 @@ namespace AmbientSounds.Cache
         Task AddOfflineAsync(Guide guide);
         Guide? GetCachedGuide(string guideId);
         Task<IReadOnlyList<Guide>> GetGuidesAsync(string culture);
+        Task<bool> RemoveOfflineAsync(string guideId);
     }
 }

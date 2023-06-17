@@ -12,6 +12,6 @@ public interface IGuideVmFactory
         IAsyncRelayCommand<GuideViewModel?> downloadCommand,
         IAsyncRelayCommand<GuideViewModel?> deleteCommand,
         IAsyncRelayCommand<GuideViewModel?> playCommand,
-        IAsyncRelayCommand<GuideViewModel?> pauseCommand,
+        IRelayCommand<GuideViewModel?> pauseCommand,
         Progress<double>? downloadProgress = null);
 }

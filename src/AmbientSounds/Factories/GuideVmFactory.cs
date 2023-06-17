@@ -23,7 +23,7 @@ public class GuideVmFactory : IGuideVmFactory
         IAsyncRelayCommand<GuideViewModel?> downloadCommand,
         IAsyncRelayCommand<GuideViewModel?> deleteCommand,
         IAsyncRelayCommand<GuideViewModel?> playCommand,
-        IAsyncRelayCommand<GuideViewModel?> pauseCommand,
+        IRelayCommand<GuideViewModel?> pauseCommand,
         Progress<double>? downloadProgress = null)
     {
         if (_onlineGuideVmCache.TryGetValue(guide.Id, out var vm))
