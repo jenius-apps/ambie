@@ -55,6 +55,12 @@ namespace AmbientSounds.Services
         MediaPlaybackState PlaybackState { get; set; }
 
         /// <summary>
+        /// The ID of the current guide being played.
+        /// If a guie is not being played, this will be empty.
+        /// </summary>
+        string CurrentGuideId { get; }
+
+        /// <summary>
         /// Cancels any current playback
         /// and plays a random sound instead.
         /// </summary>

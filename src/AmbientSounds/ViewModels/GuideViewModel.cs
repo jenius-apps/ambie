@@ -48,6 +48,9 @@ public partial class GuideViewModel : ObservableObject
     [ObservableProperty]
     private bool _isDownloaded;
 
+    [ObservableProperty]
+    private bool _isPlaying;
+
     public bool ProgressRingVisible => Loading || DownloadProgressVisible;
 
     public Guide Guide { get; }
@@ -87,5 +90,18 @@ public partial class GuideViewModel : ObservableObject
         }
 
         DownloadProgressValue = e;
+    }
+
+    [RelayCommand]
+    private async Task ToggleAsync()
+    {
+        if (IsPlaying)
+        {
+            PauseCommand.Execute(this);
+        }
+        else
+        {
+            await PlayCommand.ExecuteAsync(this);
+        }
     }
 }

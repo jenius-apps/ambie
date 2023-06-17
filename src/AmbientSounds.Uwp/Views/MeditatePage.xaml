@@ -56,11 +56,19 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 AutomationProperties.Name="{x:Bind strings:Resources.PlayerPlayText}"
-                                Command="{x:Bind PlayCommand}"
-                                CommandParameter="{x:Bind}"
+                                Command="{x:Bind ToggleCommand}"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.PlayerPlayText}"
                                 Visibility="{x:Bind IsDownloaded, Mode=OneWay}">
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
+                                <Grid>
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        Glyph="{StaticResource GlyphPlay}"
+                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsPlaying), Mode=OneWay}" />
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        Glyph="{StaticResource GlyphPause}"
+                                        Visibility="{x:Bind IsPlaying, Mode=OneWay}" />
+                                </Grid>
                             </Button>
 
                             <Button

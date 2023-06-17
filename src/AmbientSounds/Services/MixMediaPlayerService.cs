@@ -73,6 +73,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public string CurrentMixId { get; set; } = "";
 
     /// <inheritdoc/>
+    public string CurrentGuideId => _guideInfo?.GuideId ?? string.Empty;
+
+    /// <inheritdoc/>
     public double GlobalVolume
     {
         get => _globalVolume;

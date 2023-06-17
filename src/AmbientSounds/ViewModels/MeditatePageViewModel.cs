@@ -27,6 +27,8 @@ public partial class MeditatePageViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
+        _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
+
         if (Guides.Count > 0)
         {
             return;
@@ -48,6 +50,7 @@ public partial class MeditatePageViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        _mixMediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
         Guides.Clear();
     }
 
@@ -74,10 +77,15 @@ public partial class MeditatePageViewModel : ObservableObject
     [RelayCommand]
     private async Task PlayGuideAsync(GuideViewModel? guideVm)
     {
-        if (guideVm is null ||
-            !guideVm.IsDownloaded ||
-            _mixMediaPlayerService.IsSoundPlaying(guideVm.Guide.Id))
+        if (guideVm is null || !guideVm.IsDownloaded)
         {
+            return;
+        }
+
+        if (_mixMediaPlayerService.IsSoundPlaying(guideVm.Guide.Id))
+        {
+            _mixMediaPlayerService.Play();
+            guideVm.IsPlaying = true;
             return;
         }
 
@@ -87,13 +95,18 @@ public partial class MeditatePageViewModel : ObservableObject
             // offline version. This fixes the bug where a guide VM
             // will still hold the online version even when it was just downloaded.
             await _mixMediaPlayerService.PlayGuideAsync(guide);
+            guideVm.IsPlaying = true;
         }
     }
 
     [RelayCommand]
     private void PauseGuide(GuideViewModel? guideVm)
     {
-        _mixMediaPlayerService.Pause();
+        if (guideVm is not null)
+        {
+            _mixMediaPlayerService.Pause();
+            guideVm.IsPlaying = false;
+        }
     }
 
     [RelayCommand]
@@ -103,6 +116,16 @@ public partial class MeditatePageViewModel : ObservableObject
         {
             bool deleted = await _guideService.DeleteAsync(guideId);
             guideVm.IsDownloaded = !deleted;
+        }
+    }
+
+    private void OnPlaybackChanged(object sender, MediaPlaybackState updatedState)
+    {
+        string currentGuideId = _mixMediaPlayerService.CurrentGuideId;
+        foreach (var guideVm in Guides)
+        {
+            guideVm.IsPlaying = updatedState is MediaPlaybackState.Playing
+                && guideVm.Guide.Id == currentGuideId;
         }
     }
 }
