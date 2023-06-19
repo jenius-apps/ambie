@@ -37,6 +37,11 @@ public class Guide : IAsset, IEquatable<Guide>
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
+    /// User-facing description for this asset.
+    /// </summary>
+    public string Description { get; set; } = string.Empty;
+
+    /// <summary>
     /// Localizations for this asset.
     /// </summary>
     public IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; } = new Dictionary<string, DisplayInformation>();

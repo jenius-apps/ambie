@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -51,7 +52,7 @@ public partial class ShareViewModel : ObservableObject
         Loading = true;
         var shareTask = _shareService.GetShareUrlAsync(soundIds);
         var sounds = await _soundService.GetLocalSoundsAsync(soundIds);
-        ShareText = string.Join(" • ", sounds.Select(_assetLocalizer.GetLocalName));
+        ShareText = string.Join($" {FocusConstants.DotSeparator} ", sounds.Select(_assetLocalizer.GetLocalName));
         ShareUrl = await shareTask;
         Loading = false;
     }

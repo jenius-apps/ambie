@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -24,6 +25,8 @@ public partial class GuideViewModel : ObservableObject
         PlayCommand = play;
         PauseCommand = pause;
         Name = assetLocalizer.GetLocalName(onlineGuide);
+        PreviewText = $"{onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
+        ImagePath = onlineGuide.ImagePath;
 
         DownloadProgress = progress ?? new();
         DownloadProgress.ProgressChanged += OnProgressChanged;
@@ -55,9 +58,9 @@ public partial class GuideViewModel : ObservableObject
 
     public string Name { get; }
 
-    public string PreviewText { get; } = "This is a preview";
+    public string PreviewText { get; }
 
-    public string ImagePath { get; } = "https://images.unsplash.com/photo-1617354161552-cce2e5b27f79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=640&q=80";
+    public string ImagePath { get; }
 
     public IAsyncRelayCommand<GuideViewModel?> DownloadCommand { get; }
 

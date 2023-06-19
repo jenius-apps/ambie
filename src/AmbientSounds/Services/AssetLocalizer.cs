@@ -22,6 +22,11 @@ public class AssetLocalizer : IAssetLocalizer
         return GetLocalInfo(asset)?.Name ?? asset.Name;
     }
 
+    public string GetLocalDescription(IAsset asset)
+    {
+        return GetLocalInfo(asset)?.Description ?? asset.Description;
+    }
+
     private DisplayInformation? GetLocalInfo(IAsset asset)
     {
         string languageCode = _systemInfoProvider.GetCulture();

@@ -13,37 +13,42 @@ public class Sound : IAsset
     /// <summary>
     /// GUID.
     /// </summary>
-    public string Id { get; set; } = "";
+    public string Id { get; set; } = string.Empty;
 
     /// <summary>
     /// Path to image file.
     /// </summary>
-    public string ImagePath { get; set; } = "";
+    public string ImagePath { get; set; } = string.Empty;
 
     /// <summary>
     /// Name of sound.
     /// </summary>
-    public string Name { get; set; } = "";
+    public string Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// User-facing description for this asset.
+    /// </summary>
+    public string Description { get; set; } = string.Empty;
 
     /// <summary>
     /// Path of sound file.
     /// </summary>
-    public string FilePath { get; set; } = "";
+    public string FilePath { get; set; } = string.Empty;
 
     /// <summary>
     /// Path of preview sound file.
     /// </summary>
-    public string PreviewFilePath { get; set; } = "";
+    public string PreviewFilePath { get; set; } = string.Empty;
 
     /// <summary>
     /// Extension of sound file.
     /// </summary>
-    public string FileExtension { get; set; } = "";
+    public string FileExtension { get; set; } = string.Empty;
 
     /// <summary>
     /// Copyright or attribution text.
     /// </summary>
-    public string Attribution { get; set; } = "";
+    public string Attribution { get; set; } = string.Empty;
 
     /// <summary>
     /// The list of image paths to be used
@@ -61,7 +66,7 @@ public class Sound : IAsset
     /// associated with this sound.
     /// </summary>
     [Obsolete("Use IapIds instead")]
-    public string IapId { get; set; } = "";
+    public string IapId { get; set; } = string.Empty;
 
     /// <summary>
     /// Ids used to identify the IAPs
@@ -88,12 +93,12 @@ public class Sound : IAsset
     /// <summary>
     /// Unique user ID of the person who uploaded the sound file.
     /// </summary>
-    public string UploadedBy { get; set; } = "";
+    public string UploadedBy { get; set; } = string.Empty;
 
     /// <summary>
     /// Visible username of the person who uploaded the sound file.
     /// </summary>
-    public string UploadUsername { get; set; } = "";
+    public string UploadUsername { get; set; } = string.Empty;
 
     /// <summary>
     /// List of donation links to be displayed.
@@ -104,7 +109,7 @@ public class Sound : IAsset
     /// The state of the sound's publication in the catalogue.
     /// This is the string version of PublishState enum.
     /// </summary>
-    public string PublishState { get; set; } = "";
+    public string PublishState { get; set; } = string.Empty;
 
     /// <summary>
     /// Colour to use to decorate the sound images.

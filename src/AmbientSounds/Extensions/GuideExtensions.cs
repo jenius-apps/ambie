@@ -11,6 +11,7 @@ public static class GuideExtensions
         {
             Id = guide.Id,
             Name = guide.Name,
+            Description = guide.Description,
             MinutesLength = guide.MinutesLength,
             Culture = guide.Culture,
             SuggestedBackgroundSounds = guide.SuggestedBackgroundSounds.ToArray(),
