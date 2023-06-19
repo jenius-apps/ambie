@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Factories;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -34,7 +35,7 @@ public partial class MeditatePageViewModel : ObservableObject
             return;
         }
 
-        var guides = await _guideService.GetGuidesAsync(culture: "en"); // TODO support other languages
+        var guides = await _guideService.GetOnlineGuidesAsync(culture: "en"); // TODO support other languages
         foreach (var guide in guides)
         {
             var vm = _guideVmFactory.GetOrCreate(
@@ -44,6 +45,10 @@ public partial class MeditatePageViewModel : ObservableObject
                 PlayGuideCommand,
                 PauseGuideCommand
                 /* downloadProgress: TODO */);
+
+            Guide? offlineGuide = await _guideService.GetOfflineGuideAsync(guide.Id);
+            vm.IsDownloaded = offlineGuide is not null;
+            vm.IsPlaying = _mixMediaPlayerService.IsSoundPlaying(guide.Id);
             Guides.Add(vm);
         }
     }
@@ -66,7 +71,7 @@ public partial class MeditatePageViewModel : ObservableObject
 
         try
         {
-            await _guideService.DownloadAsync(guideVm.Guide, guideVm.DownloadProgress);
+            await _guideService.DownloadAsync(guideVm.OnlineGuide, guideVm.DownloadProgress);
         }
         catch (TaskCanceledException)
         {
@@ -82,20 +87,16 @@ public partial class MeditatePageViewModel : ObservableObject
             return;
         }
 
-        if (_mixMediaPlayerService.IsSoundPlaying(guideVm.Guide.Id))
+        if (_mixMediaPlayerService.IsSoundPlaying(guideVm.OnlineGuide.Id))
         {
             _mixMediaPlayerService.Play();
-            guideVm.IsPlaying = true;
             return;
         }
 
-        if (_guideService.GetCachedGuide(guideVm.Guide.Id) is { } guide)
+        if (await _guideService.GetOfflineGuideAsync(guideVm.OnlineGuide.Id) is Guide offlineGuide)
         {
-            // Retrieve latest cached guide to ensure we have the
-            // offline version. This fixes the bug where a guide VM
-            // will still hold the online version even when it was just downloaded.
-            await _mixMediaPlayerService.PlayGuideAsync(guide);
-            guideVm.IsPlaying = true;
+            // Only an offline guide can be played because its file is saved locally
+            await _mixMediaPlayerService.PlayGuideAsync(offlineGuide);
         }
     }
 
@@ -105,14 +106,13 @@ public partial class MeditatePageViewModel : ObservableObject
         if (guideVm is not null)
         {
             _mixMediaPlayerService.Pause();
-            guideVm.IsPlaying = false;
         }
     }
 
     [RelayCommand]
     private async Task DeleteAsync(GuideViewModel? guideVm)
     {
-        if (guideVm?.Guide is { Id: string guideId })
+        if (guideVm?.OnlineGuide is { Id: string guideId })
         {
             bool deleted = await _guideService.DeleteAsync(guideId);
             guideVm.IsDownloaded = !deleted;
@@ -121,11 +121,12 @@ public partial class MeditatePageViewModel : ObservableObject
 
     private void OnPlaybackChanged(object sender, MediaPlaybackState updatedState)
     {
+        // preserve currentGuideId in case it changes during the loop.
         string currentGuideId = _mixMediaPlayerService.CurrentGuideId;
         foreach (var guideVm in Guides)
         {
             guideVm.IsPlaying = updatedState is MediaPlaybackState.Playing
-                && guideVm.Guide.Id == currentGuideId;
+                && guideVm.OnlineGuide.Id == currentGuideId;
         }
     }
 }

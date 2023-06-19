@@ -10,7 +10,7 @@ namespace AmbientSounds.ViewModels;
 public partial class GuideViewModel : ObservableObject
 {
     public GuideViewModel(
-        Guide guide,
+        Guide onlineGuide,
         IAsyncRelayCommand<GuideViewModel?> download,
         IAsyncRelayCommand<GuideViewModel?> delete,
         IAsyncRelayCommand<GuideViewModel?> play,
@@ -18,13 +18,12 @@ public partial class GuideViewModel : ObservableObject
         IAssetLocalizer assetLocalizer,
         Progress<double>? progress = null)
     {
-        Guide = guide;
-        IsDownloaded = guide.IsDownloaded;
+        OnlineGuide = onlineGuide;
         DownloadCommand = download;
         DeleteCommand = delete;
         PlayCommand = play;
         PauseCommand = pause;
-        Name = assetLocalizer.GetLocalName(guide);
+        Name = assetLocalizer.GetLocalName(onlineGuide);
 
         DownloadProgress = progress ?? new();
         DownloadProgress.ProgressChanged += OnProgressChanged;
@@ -50,7 +49,7 @@ public partial class GuideViewModel : ObservableObject
 
     public bool ProgressRingVisible => Loading || DownloadProgressVisible;
 
-    public Guide Guide { get; }
+    public Guide OnlineGuide { get; }
 
     public Progress<double> DownloadProgress { get; }
 

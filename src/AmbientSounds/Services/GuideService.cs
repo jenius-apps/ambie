@@ -40,15 +40,15 @@ public class GuideService : IGuideService
         _mixMediaPlayerService = mixMediaPlayerService;
     }
 
-    public async Task<IReadOnlyList<Guide>> GetGuidesAsync(string? culture = null)
+    public async Task<IReadOnlyList<Guide>> GetOnlineGuidesAsync(string? culture = null)
     {
         culture ??= _systemInfoProvider.GetCulture();
-        return await _guideCache.GetGuidesAsync(culture);
+        return await _guideCache.GetOnlineGuidesAsync(culture);
     }
 
-    public Guide? GetCachedGuide(string guideId)
+    public Task<Guide?> GetOfflineGuideAsync(string guideId)
     {
-        return _guideCache.GetCachedGuide(guideId);
+        return _guideCache.GetOfflineGuideAsync(guideId);
     }
 
     public async Task DownloadAsync(Guide guide, Progress<double> progress)
@@ -106,7 +106,7 @@ public class GuideService : IGuideService
     /// <inheritdoc/>
     public async Task<bool> DeleteAsync(string guideId)
     {
-        Guide? guide = GetCachedGuide(guideId);
+        Guide? guide = await _guideCache.GetOfflineGuideAsync(guideId);
         if (guide is null)
         {
             return false;
@@ -122,8 +122,6 @@ public class GuideService : IGuideService
         
         if (success)
         {
-            guide.IsDownloaded = false;
-            guide.FilePath = string.Empty;
             GuideDeleted?.Invoke(this, guide.Id);
         }
 

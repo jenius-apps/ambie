@@ -8,12 +8,8 @@ namespace AmbientSounds.Services;
 public interface IGuideService
 {
     event EventHandler<string>? GuideDownloaded;
-
-    Task<IReadOnlyList<Guide>> GetGuidesAsync(string? culture = null);
-
+    Task<IReadOnlyList<Guide>> GetOnlineGuidesAsync(string? culture = null);
     Task DownloadAsync(Guide guide, Progress<double> progress);
-
-    Guide? GetCachedGuide(string guideId);
-
     Task<bool> DeleteAsync(string guideId);
+    Task<Guide?> GetOfflineGuideAsync(string guideId);
 }

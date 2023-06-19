@@ -70,6 +70,9 @@ public class GuideCache : IGuideCache
             var offlineGuides = await _offlineGuideRepository.GetAsync();
             foreach (var offlineGuide in offlineGuides)
             {
+                // This is the first time the offline guide is retrieved from storage,
+                // so set IsDownloaded to true so downstream processes know it's available offline.
+                offlineGuide.IsDownloaded = true;
                 _offlineCache.TryAdd(offlineGuide.Id, offlineGuide);
             }
         }

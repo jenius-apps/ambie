@@ -167,6 +167,12 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             return;
         }
 
+        if (!guide.IsDownloaded)
+        {
+            ThrowHelper.ThrowArgumentException("The guide you tried to play wasn't downloaded. " +
+                "This should never happen. If it does, then you're doing something wrong. Please fix.");
+        }
+
         IMediaPlayer player = _guideInfo?.GuidePlayer
             ?? _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
 
