@@ -12,4 +12,5 @@ public interface IGuideService
     Task DownloadAsync(Guide guide, Progress<double> progress);
     Task<bool> DeleteAsync(string guideId);
     Task<Guide?> GetOfflineGuideAsync(string guideId);
+    Task PlayAsync(Guide guide);
 }

@@ -40,6 +40,36 @@ public class GuideService : IGuideService
         _mixMediaPlayerService = mixMediaPlayerService;
     }
 
+    public async Task PlayAsync(Guide guide)
+    {
+        bool noActiveSounds = _mixMediaPlayerService.GetSoundIds() is { Length: 0 };
+
+        if (_mixMediaPlayerService.IsSoundPlaying(guide.Id))
+        {
+            if (noActiveSounds)
+            {
+                await _mixMediaPlayerService.AddRandomAsync();
+            }
+            else
+            {
+                _mixMediaPlayerService.Play();
+            }
+
+            return;
+        }
+
+        if (await GetOfflineGuideAsync(guide.Id) is Guide offlineGuide)
+        {
+            if (noActiveSounds)
+            {
+                await _mixMediaPlayerService.AddRandomAsync();
+            }
+
+            // Only an offline guide can be played because its sound file is saved locally
+            await _mixMediaPlayerService.PlayGuideAsync(offlineGuide);
+        }
+    }
+
     public async Task<IReadOnlyList<Guide>> GetOnlineGuidesAsync(string? culture = null)
     {
         culture ??= _systemInfoProvider.GetCulture();

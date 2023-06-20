@@ -160,6 +160,20 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
     }
 
+    public async Task AddRandomAsync()
+    {
+        if (GetSoundIds().Length >= _maxActive)
+        {
+            return;
+        }
+
+        var sound = await _soundDataProvider.GetRandomSoundAsync();
+        if (sound is not null)
+        {
+            await ToggleSoundAsync(sound);
+        }
+    }
+
     /// <inheritdoc/>
     public string[] GetSoundIds() => _activePlayers.Keys.ToArray();
 

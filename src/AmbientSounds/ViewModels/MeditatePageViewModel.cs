@@ -58,7 +58,8 @@ public partial class MeditatePageViewModel : ObservableObject
 
             Guide? offlineGuide = await _guideService.GetOfflineGuideAsync(guide.Id);
             vm.IsDownloaded = offlineGuide is not null;
-            vm.IsPlaying = _mixMediaPlayerService.IsSoundPlaying(guide.Id);
+            vm.IsPlaying = _mixMediaPlayerService.CurrentGuideId == guide.Id 
+                && _mixMediaPlayerService.PlaybackState is MediaPlaybackState.Playing;
             vm.IsOwned = await _iapService.IsAnyOwnedAsync(guide.IapIds);
             Guides.Add(vm);
         }
@@ -99,17 +100,7 @@ public partial class MeditatePageViewModel : ObservableObject
             return;
         }
 
-        if (_mixMediaPlayerService.IsSoundPlaying(guideVm.OnlineGuide.Id))
-        {
-            _mixMediaPlayerService.Play();
-            return;
-        }
-
-        if (await _guideService.GetOfflineGuideAsync(guideVm.OnlineGuide.Id) is Guide offlineGuide)
-        {
-            // Only an offline guide can be played because its file is saved locally
-            await _mixMediaPlayerService.PlayGuideAsync(offlineGuide);
-        }
+        await _guideService.PlayAsync(guideVm.OnlineGuide);
     }
 
     [RelayCommand]

@@ -56,7 +56,7 @@ namespace AmbientSounds.Services
 
         /// <summary>
         /// The ID of the current guide being played.
-        /// If a guie is not being played, this will be empty.
+        /// If a guide is not being played, this will be empty.
         /// </summary>
         string CurrentGuideId { get; }
 
@@ -132,5 +132,6 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="guide">The guide to play.</param>
         Task PlayGuideAsync(Guide guide);
+        Task AddRandomAsync();
     }
 }
