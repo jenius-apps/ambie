@@ -128,6 +128,11 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             _activePlayers[soundId].Volume = GetVolume(soundId) * value;
         }
 
+        if (_guideInfo?.GuidePlayer is IMediaPlayer guidePlayer)
+        {
+            guidePlayer.Volume = value;
+        }
+
         // Must be set last since GetVolume
         // uses the old global volume.
         _globalVolume = value;
@@ -182,7 +187,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         if (success)
         {
             // TODO  refresh smtc title
-            player.Volume *= _globalVolume;
+            player.Volume = _globalVolume;
 
             _guideInfo = (guide.Id, player);
             Play();
