@@ -58,7 +58,7 @@
                                 AutomationProperties.Name="{x:Bind strings:Resources.PlayerPlayText}"
                                 Command="{x:Bind ToggleCommand}"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.PlayerPlayText}"
-                                Visibility="{x:Bind IsDownloaded, Mode=OneWay}">
+                                Visibility="{x:Bind PlaybackButtonsVisible, Mode=OneWay}">
                                 <Grid>
                                     <FontIcon
                                         FontFamily="{StaticResource FluentUIGlyphs}"
@@ -71,11 +71,12 @@
                                 </Grid>
                             </Button>
 
+                            <!--  Delete button  -->
                             <Button
                                 Grid.Column="1"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
-                                Visibility="{x:Bind IsDownloaded, Mode=OneWay}">
+                                Visibility="{x:Bind PlaybackButtonsVisible, Mode=OneWay}">
                                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphThreeDots}" />
                                 <Button.Flyout>
                                     <MenuFlyout Placement="BottomEdgeAlignedRight">
@@ -97,7 +98,7 @@
                                 Command="{x:Bind DownloadCommand}"
                                 CommandParameter="{x:Bind}"
                                 ToolTipService.ToolTip="{x:Bind strings:Resources.DownloadText}"
-                                Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsDownloaded), Mode=OneWay}">
+                                Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                 <Grid>
                                     <FontIcon
                                         FontFamily="{StaticResource FluentUIGlyphs}"
@@ -112,6 +113,18 @@
                                         Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}"
                                         Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
                                 </Grid>
+                            </Button>
+
+                            <!--  purchase button  -->
+                            <Button
+                                Grid.ColumnSpan="2"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                AutomationProperties.Name="{x:Bind strings:Resources.ViewPremiumInfo}"
+                                Command="{x:Bind PurchaseCommand}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
+                                Visibility="{x:Bind BuyButtonVisible, Mode=OneWay}">
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
                             </Button>
                         </Grid>
                     </StackPanel>

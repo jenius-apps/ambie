@@ -16,6 +16,7 @@ public partial class GuideViewModel : ObservableObject
         IAsyncRelayCommand<GuideViewModel?> delete,
         IAsyncRelayCommand<GuideViewModel?> play,
         IRelayCommand<GuideViewModel?> pause,
+        IAsyncRelayCommand purchase,
         IAssetLocalizer assetLocalizer,
         Progress<double>? progress = null)
     {
@@ -24,6 +25,7 @@ public partial class GuideViewModel : ObservableObject
         DeleteCommand = delete;
         PlayCommand = play;
         PauseCommand = pause;
+        PurchaseCommand = purchase;
         Name = assetLocalizer.GetLocalName(onlineGuide);
         PreviewText = $"{onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
         ImagePath = onlineGuide.ImagePath;
@@ -45,10 +47,18 @@ public partial class GuideViewModel : ObservableObject
     private bool _downloadProgressVisible;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PlaybackButtonsVisible))]
     private bool _isDownloaded;
 
     [ObservableProperty]
     private bool _isPlaying;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PlaybackButtonsVisible))]
+    private bool _isOwned;
 
     public bool ProgressRingVisible => Loading || DownloadProgressVisible;
 
@@ -62,6 +72,12 @@ public partial class GuideViewModel : ObservableObject
 
     public string ImagePath { get; }
 
+    public bool BuyButtonVisible => !IsOwned;
+
+    public bool DownloadButtonVisible => IsOwned && !IsDownloaded;
+
+    public bool PlaybackButtonsVisible => IsOwned && IsDownloaded;
+
     public IAsyncRelayCommand<GuideViewModel?> DownloadCommand { get; }
 
     public IAsyncRelayCommand<GuideViewModel?> DeleteCommand { get; }
@@ -69,6 +85,8 @@ public partial class GuideViewModel : ObservableObject
     public IAsyncRelayCommand<GuideViewModel?> PlayCommand { get; }
 
     public IRelayCommand<GuideViewModel?> PauseCommand { get; }
+
+    public IAsyncRelayCommand PurchaseCommand { get; }
 
     private void OnProgressChanged(object sender, double e)
     {

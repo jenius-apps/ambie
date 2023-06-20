@@ -3,7 +3,9 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -13,15 +15,21 @@ public partial class MeditatePageViewModel : ObservableObject
     private readonly IGuideService _guideService;
     private readonly IGuideVmFactory _guideVmFactory;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
+    private readonly IDialogService _dialogService;
+    private readonly IIapService _iapService;
 
     public MeditatePageViewModel(
         IGuideService guideService,
         IGuideVmFactory guideVmFactory,
+        IDialogService dialogService,
+        IIapService iapService,
         IMixMediaPlayerService mixMediaPlayerService)
     {
         _guideService = guideService;
         _guideVmFactory = guideVmFactory;
         _mixMediaPlayerService = mixMediaPlayerService;
+        _dialogService = dialogService;
+        _iapService = iapService;
     }
 
     public ObservableCollection<GuideViewModel> Guides { get; } = new();
@@ -29,6 +37,7 @@ public partial class MeditatePageViewModel : ObservableObject
     public async Task InitializeAsync()
     {
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
+        _iapService.ProductPurchased += OnProductPurchased;
 
         if (Guides.Count > 0)
         {
@@ -38,17 +47,19 @@ public partial class MeditatePageViewModel : ObservableObject
         var guides = await _guideService.GetOnlineGuidesAsync(culture: "en"); // TODO support other languages
         foreach (var guide in guides)
         {
-            var vm = _guideVmFactory.GetOrCreate(
+            var vm = _guideVmFactory.Create(
                 guide,
                 DownloadCommand,
                 DeleteCommand,
                 PlayGuideCommand,
-                PauseGuideCommand
+                PauseGuideCommand,
+                PurchaseCommand
                 /* downloadProgress: TODO */);
 
             Guide? offlineGuide = await _guideService.GetOfflineGuideAsync(guide.Id);
             vm.IsDownloaded = offlineGuide is not null;
             vm.IsPlaying = _mixMediaPlayerService.IsSoundPlaying(guide.Id);
+            vm.IsOwned = await _iapService.IsAnyOwnedAsync(guide.IapIds);
             Guides.Add(vm);
         }
     }
@@ -56,6 +67,7 @@ public partial class MeditatePageViewModel : ObservableObject
     public void Uninitialize()
     {
         _mixMediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
+        _iapService.ProductPurchased -= OnProductPurchased;
         Guides.Clear();
     }
 
@@ -119,6 +131,12 @@ public partial class MeditatePageViewModel : ObservableObject
         }
     }
 
+    [RelayCommand]
+    private async Task PurchaseAsync()
+    {
+        await _dialogService.OpenPremiumAsync();
+    }
+
     private void OnPlaybackChanged(object sender, MediaPlaybackState updatedState)
     {
         // preserve currentGuideId in case it changes during the loop.
@@ -127,6 +145,17 @@ public partial class MeditatePageViewModel : ObservableObject
         {
             guideVm.IsPlaying = updatedState is MediaPlaybackState.Playing
                 && guideVm.OnlineGuide.Id == currentGuideId;
+        }
+    }
+
+    private void OnProductPurchased(object sender, string purchasedIapId)
+    {
+        foreach (var guideVm in Guides)
+        {
+            if (guideVm.OnlineGuide.IapIds.Contains(purchasedIapId))
+            {
+                guideVm.IsOwned = true;
+            }
         }
     }
 }

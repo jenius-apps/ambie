@@ -17,12 +17,13 @@ public class GuideVmFactory : IGuideVmFactory
         _serviceProvider = serviceProvider;
     }
 
-    public GuideViewModel GetOrCreate(
+    public GuideViewModel Create(
         Guide guide,
         IAsyncRelayCommand<GuideViewModel?> downloadCommand,
         IAsyncRelayCommand<GuideViewModel?> deleteCommand,
         IAsyncRelayCommand<GuideViewModel?> playCommand,
         IRelayCommand<GuideViewModel?> pauseCommand,
+        IAsyncRelayCommand purchaseCommand,
         Progress<double>? downloadProgress = null)
     {
         var newVm = new GuideViewModel(
@@ -31,6 +32,7 @@ public class GuideVmFactory : IGuideVmFactory
             deleteCommand,
             playCommand,
             pauseCommand,
+            purchaseCommand,
             _serviceProvider.GetRequiredService<IAssetLocalizer>(),
             downloadProgress);
 
