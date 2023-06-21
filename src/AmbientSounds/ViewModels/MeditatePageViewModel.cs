@@ -38,6 +38,7 @@ public partial class MeditatePageViewModel : ObservableObject
     {
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
         _iapService.ProductPurchased += OnProductPurchased;
+        _guideService.GuideStopped += OnGuideStopped;
 
         if (Guides.Count > 0)
         {
@@ -108,7 +109,7 @@ public partial class MeditatePageViewModel : ObservableObject
     {
         if (guideVm is not null)
         {
-            _mixMediaPlayerService.Pause();
+            _guideService.Stop(guideVm.OnlineGuide.Id);
         }
     }
 
@@ -147,6 +148,14 @@ public partial class MeditatePageViewModel : ObservableObject
             {
                 guideVm.IsOwned = true;
             }
+        }
+    }
+
+    private void OnGuideStopped(object sender, string e)
+    {
+        foreach (var guideVm in Guides)
+        {
+            guideVm.IsPlaying = false;
         }
     }
 }

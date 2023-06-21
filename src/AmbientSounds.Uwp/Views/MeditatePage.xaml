@@ -62,11 +62,13 @@
                                 <Grid>
                                     <FontIcon
                                         FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="13"
                                         Glyph="{StaticResource GlyphPlay}"
                                         Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsPlaying), Mode=OneWay}" />
                                     <FontIcon
-                                        FontFamily="{StaticResource FluentUIGlyphs}"
-                                        Glyph="{StaticResource GlyphPause}"
+                                        FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                        FontSize="12"
+                                        Glyph="&#xE002;"
                                         Visibility="{x:Bind IsPlaying, Mode=OneWay}" />
                                 </Grid>
                             </Button>

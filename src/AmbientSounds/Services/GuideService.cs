@@ -22,6 +22,8 @@ public class GuideService : IGuideService
 
     public event EventHandler<string>? GuideDeleted;
 
+    public event EventHandler<string>? GuideStopped;
+
     public GuideService(
         IGuideCache guideCache,
         ISystemInfoProvider systemInfoProvider,
@@ -67,6 +69,15 @@ public class GuideService : IGuideService
 
             // Only an offline guide can be played because its sound file is saved locally
             await _mixMediaPlayerService.PlayGuideAsync(offlineGuide);
+        }
+    }
+
+    public void Stop(string guideId)
+    {
+        if (guideId is { Length: > 0 })
+        {
+            _mixMediaPlayerService.RemoveSound(guideId);
+            GuideStopped?.Invoke(this, guideId);
         }
     }
 
