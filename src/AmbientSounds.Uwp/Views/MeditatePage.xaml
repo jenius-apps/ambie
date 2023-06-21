@@ -18,7 +18,7 @@
             SelectionMode="None">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="vm:GuideViewModel">
-                    <StackPanel>
+                    <StackPanel Margin="0,0,6,6">
                         <Border
                             x:Name="ImageBorder"
                             Width="300"
@@ -33,6 +33,7 @@
                             Text="{x:Bind Name}"
                             TextTrimming="CharacterEllipsis" />
                         <TextBlock
+                            MinHeight="40"
                             MaxWidth="300"
                             Margin="4,0,0,0"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
