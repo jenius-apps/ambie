@@ -245,6 +245,22 @@
                                         Margin="12,0,0,0"
                                         Text="{x:Bind strings:Resources.RelaxText}"
                                         Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+
+                                    <Border
+                                        Height="20"
+                                        Margin="8,0,0,0"
+                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="4"
+                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}">
+                                        <TextBlock
+                                            Margin="6,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="10"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="Beta" />
+                                    </Border>
                                 </StackPanel>
                             </ListViewItem>
                         </ListView.Items>
