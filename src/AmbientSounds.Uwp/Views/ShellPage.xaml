@@ -237,7 +237,8 @@
                                 MinWidth="0"
                                 AutomationProperties.Name="{x:Bind strings:Resources.RelaxText}"
                                 Tag="meditate"
-                                ToolTipService.ToolTip="{x:Bind strings:Resources.RelaxText}">
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.RelaxText}"
+                                Visibility="{x:Bind ViewModel.IsMeditatePageVisible, Mode=OneWay}">
                                 <StackPanel Orientation="Horizontal">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphLeaves}" />
                                     <TextBlock

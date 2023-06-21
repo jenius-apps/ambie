@@ -84,6 +84,12 @@ public class GuideService : IGuideService
     public async Task<IReadOnlyList<Guide>> GetOnlineGuidesAsync(string? culture = null)
     {
         culture ??= _systemInfoProvider.GetCulture();
+
+        if (culture.Contains("-"))
+        {
+            culture = culture.Split('-')[0];
+        }
+
         return await _guideCache.GetOnlineGuidesAsync(culture);
     }
 

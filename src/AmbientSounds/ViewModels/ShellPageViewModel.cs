@@ -109,10 +109,15 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.IntervalElapsed += OnIntervalLapsed;
             _ratingTimer.Start();
         }
+
+        IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
     }
 
     [ObservableProperty]
     private bool _menuLabelsVisible;
+
+    [ObservableProperty]
+    private bool _isMeditatePageVisible;
 
     /// <summary>
     /// Determines if the current mix can be saved or not.

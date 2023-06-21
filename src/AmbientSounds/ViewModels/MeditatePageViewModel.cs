@@ -45,7 +45,7 @@ public partial class MeditatePageViewModel : ObservableObject
             return;
         }
 
-        var guides = await _guideService.GetOnlineGuidesAsync(culture: "en"); // TODO support other languages
+        var guides = await _guideService.GetOnlineGuidesAsync();
         foreach (var guide in guides)
         {
             var vm = _guideVmFactory.Create(
