@@ -13,8 +13,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <ResourceDictionary.ThemeDictionaries>
-				<ResourceDictionary x:Key="Light">
-					<LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+                <ResourceDictionary x:Key="Light">
+                    <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#539AFF" />
                         <GradientStop Offset="1" Color="#53BEFF" />
                     </LinearGradientBrush>
@@ -32,8 +32,8 @@
                     <SolidColorBrush x:Key="CardStrokeBrush" Color="#d1d1d1" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="White" />
                 </ResourceDictionary>
-				<ResourceDictionary x:Key="Dark">
-					<LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+                <ResourceDictionary x:Key="Dark">
+                    <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#427BCC" />
                         <GradientStop Offset="1" Color="#539AFF" />
                     </LinearGradientBrush>
