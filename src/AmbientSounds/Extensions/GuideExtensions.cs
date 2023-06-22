@@ -24,7 +24,8 @@ public static class GuideExtensions
             IsDownloaded = guide.IsDownloaded,
             DownloadUrl = guide.DownloadUrl,
             FilePath = guide.FilePath,
-            Extension = guide.Extension
+            Extension = guide.Extension,
+            ColourHex = guide.ColourHex,
         };
     }
 }

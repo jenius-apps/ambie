@@ -22,6 +22,12 @@ public class Guide : IAsset, IEquatable<Guide>
     public string Culture { get; set; } = string.Empty;
 
     /// <summary>
+    /// Colour to use to decorate the images.
+    /// Supports RGB and ARGB.
+    /// </summary>
+    public string ColourHex { get; set; } = string.Empty;
+
+    /// <summary>
     /// List of semicolon-separated strings representing
     /// sound IDs that are suggested as background for this 
     /// meditation guide.
