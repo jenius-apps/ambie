@@ -38,7 +38,6 @@
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Click="GoBack"
-            RequestedTheme="Dark"
             Style="{StaticResource IconButton}">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
         </Button>
@@ -49,7 +48,6 @@
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
             Orientation="Horizontal"
-            RequestedTheme="Dark"
             Name="ActionButtons">
             <Button
                 AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
