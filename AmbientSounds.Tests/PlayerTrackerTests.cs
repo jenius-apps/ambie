@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using AmbientSounds.Services;
 using Moq;
+using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.Tests
 {
@@ -16,8 +17,8 @@ namespace AmbientSounds.Tests
         [InlineData(3600, "60 min")] // 60 minutes
         [InlineData(3601, "1 hrs")] // 1.0003 hours
         [InlineData(28440, "8 hrs")] // 7.9 hours
-        [InlineData(82800, "<24 hrs")] // 23 hours
-        [InlineData(90000, ">24 hrs")] // 25 hours
+        [InlineData(169200, "47 hrs")] // 47 hours
+        [InlineData(176400, ">48 hrs")] // 49 hours
         public void RoundedDiffTests(double diffInSeconds, string expectedResult)
         {
             TimeSpan diff = TimeSpan.FromSeconds(diffInSeconds);
