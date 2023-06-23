@@ -29,6 +29,7 @@ public partial class GuideViewModel : ObservableObject
         Name = assetLocalizer.GetLocalName(onlineGuide);
         PreviewText = $"{onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
         ImagePath = onlineGuide.ImagePath;
+        ColourHex = onlineGuide.ColourHex;
 
         DownloadProgress = progress ?? new();
         DownloadProgress.ProgressChanged += OnProgressChanged;
@@ -71,6 +72,8 @@ public partial class GuideViewModel : ObservableObject
     public string PreviewText { get; }
 
     public string ImagePath { get; }
+
+    public string ColourHex { get; }
 
     public bool BuyButtonVisible => !IsOwned;
 
