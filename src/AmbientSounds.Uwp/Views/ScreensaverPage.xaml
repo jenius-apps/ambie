@@ -15,9 +15,9 @@
 
     <Grid
         x:Name="RootPage"
-        PointerMoved="RootPage_OnPointerMoved"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-        BackgroundTransition="{StaticResource Transition}">
+        BackgroundTransition="{StaticResource Transition}"
+        PointerMoved="RootPage_OnPointerMoved">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -43,12 +43,12 @@
         </Button>
 
         <StackPanel
+            Name="ActionButtons"
             Margin="0,40,40,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Canvas.ZIndex="1"
-            Orientation="Horizontal"
-            Name="ActionButtons">
+            Orientation="Horizontal">
             <Button
                 AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
                 Click="OnToggleFullscreen"
@@ -85,15 +85,15 @@
             AutoPlay="True"
             Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
-        <win2d:CanvasAnimatedControl
+        <!--<win2d:CanvasAnimatedControl
             x:Name="WallpaperCanvasControl"
             Draw="CanvasAnimatedControl_Draw"
-            Visibility="{x:Bind ViewModel.AnimatedBackgroundVisible, Mode=OneWay}" />
+            Visibility="{x:Bind ViewModel.AnimatedBackgroundVisible, Mode=OneWay}" />-->
 
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
         <!--  Rendering error bar  -->
-        <muxc:InfoBar
+        <!--<muxc:InfoBar
             x:Name="RenderingErrorInfoBar"
             x:Uid="RenderingErrorInfo"
             VerticalAlignment="Bottom"
@@ -103,6 +103,6 @@
             <muxc:InfoBar.ActionButton>
                 <HyperlinkButton x:Uid="RenderingErrorLink" NavigateUri="mailto:jenius_apps@outlook.com" />
             </muxc:InfoBar.ActionButton>
-        </muxc:InfoBar>
+        </muxc:InfoBar>-->
     </Grid>
 </Page>
