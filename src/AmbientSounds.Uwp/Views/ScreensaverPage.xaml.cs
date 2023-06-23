@@ -30,8 +30,8 @@ public sealed partial class ScreensaverPage : Page
 {
     private readonly DisplayRequest _displayRequest;
     private readonly DispatcherQueue _dispatcherQueue;
-    private AnimatedWallpaperEffect? _animatedWallpaperEffect;
-    private double _resolutionScale;
+    private volatile AnimatedWallpaperEffect? _animatedWallpaperEffect;
+    private volatile float _resolutionScale;
 
     public ScreensaverPage()
     {
@@ -116,9 +116,6 @@ public sealed partial class ScreensaverPage : Page
         WallpaperCanvasControl.Draw -= CanvasAnimatedControl_Draw;
         WallpaperCanvasControl.RemoveFromVisualTree();
         WallpaperCanvasControl = null;
-
-        // Also dispose the effect to remove pressure from the GC
-        _animatedWallpaperEffect?.Dispose();
     }
 
     private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -299,10 +296,19 @@ public sealed partial class ScreensaverPage : Page
     {
         string? animatedBackgroundName = ViewModel.AnimatedBackgroundName;
 
-        // Dispose the existing effect, if there is one
-        _animatedWallpaperEffect?.Dispose();
-
-        // We need explicit references to all type to help the .NET Native linker resolve all type dependencies
+        // We need explicit references to all type to help the .NET Native linker resolve all type dependencies.
+        //
+        // Note: we're just replacing the shader to use and intentionally not disposing the previous one. This won't
+        // cause any memory leaks, since each effect has a finalizer which will take care of correctly releasing all
+        // native resources. Not disposing manually just leaves the finalizer in the GC finalizer queue, but that is
+        // not a performance concern here since this is a very rarely taken code path (and even if a user is toggling
+        // shaders all the time, it means at most there might be a couple of objects being created every second, which
+        // is far from creating any kind of performance issue for the GC, which can deal with billions of objects).
+        //
+        // The reason why we're not disposing effects is that this code is running concurrently with the rendering thread,
+        // which is drawing shaders on the Win2D canvas. That means that there's a chance that a shader might be disposed
+        // while the rendering thread is trying to draw it, which would result in an exception being thrown. Instead, we
+        // just abandon effects and let the GC collect them and finalize their resources when there's no references left.
         _animatedWallpaperEffect = animatedBackgroundName switch
         {
             nameof(ColorfulInfinity) => new AnimatedWallpaperEffect.For<ColorfulInfinity>((width, height, time) => new ColorfulInfinity((float)time.TotalSeconds / 16f, new int2(width, height))),
@@ -315,9 +321,9 @@ public sealed partial class ScreensaverPage : Page
         // In general, shaders with more fine grained details need a higher resolution.
         _resolutionScale = animatedBackgroundName switch
         {
-            nameof(ColorfulInfinity) => 0.5,
-            nameof(ProteanClouds) => 0.4,
-            _ => 1.0
+            nameof(ColorfulInfinity) => 0.5f,
+            nameof(ProteanClouds) => 0.4f,
+            _ => 1.0f
         };
     }
 
@@ -331,7 +337,7 @@ public sealed partial class ScreensaverPage : Page
 
         try
         {
-            double resolutionScale = _resolutionScale;
+            float resolutionScale = _resolutionScale;
             Size canvasSize = sender.Size;
             Size renderSize = new(canvasSize.Width * resolutionScale, canvasSize.Height * resolutionScale);
 
