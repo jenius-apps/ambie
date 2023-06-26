@@ -549,7 +549,7 @@
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj uruchomić Ambie ponownie lub skontaktuj się z nami, jeśli problem nadal występuje.</target>
+          <target state="translated">Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj ponownie uruchomić Ambie lub skontaktuj się z nami, jeśli problem nadal występuje.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
