@@ -633,7 +633,7 @@
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
-          <target state="translated">Tutaj możesz zapisać dowolne notatki</target>
+          <target state="translated">Tutaj możesz zapisać dowolne notatki 🙂</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
