@@ -63,7 +63,7 @@
         </trans-unit>
         <trans-unit id="MoreButtonTranslate.Label" translate="yes" xml:space="preserve">
           <source>Add or improve translations</source>
-          <target state="translated">Dodaj lub Popraw tłumaczenie</target>
+          <target state="translated">Dodaj lub popraw tłumaczenie</target>
         </trans-unit>
         <trans-unit id="OffTextBlock.Text" translate="yes" xml:space="preserve">
           <source>Off</source>
@@ -91,7 +91,7 @@
         </trans-unit>
         <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
           <source>Ready to play</source>
-          <target state="translated">Gotowy</target>
+          <target state="translated">Gotowe</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
           <source>Telemetry</source>
@@ -179,7 +179,7 @@
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
-          <target state="translated">Zgodny z systemem</target>
+          <target state="translated">Motyw systemowy</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
           <source>Dark</source>
@@ -217,7 +217,7 @@
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
           <source>Can be downloaded</source>
-          <target state="translated">Możliwe do pobrania</target>
+          <target state="translated">Możliwy do pobrania</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound can be downloaded</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -291,7 +291,7 @@
         </trans-unit>
         <trans-unit id="Paused" translate="yes" xml:space="preserve">
           <source>Paused</source>
-          <target state="translated">Zatrzymany</target>
+          <target state="translated">Wstrzymano</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
         </trans-unit>
         <trans-unit id="Playing" translate="yes" xml:space="preserve">
@@ -321,7 +321,7 @@
         </trans-unit>
         <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
           <source>Sound mix name</source>
-          <target state="translated">Nazwa mixu</target>
+          <target state="translated">Nazwa miksu</target>
         </trans-unit>
         <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Optional</source>
@@ -407,7 +407,7 @@
         </trans-unit>
         <trans-unit id="AreYouSure" translate="yes" xml:space="preserve">
           <source>Are you sure?</source>
-          <target state="translated">Jesteś pewien?</target>
+          <target state="translated">Na pewno?</target>
         </trans-unit>
         <trans-unit id="Yes" translate="yes" xml:space="preserve">
           <source>Yes</source>
@@ -439,7 +439,7 @@
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="translated">Dziękujemy za wypróbowanie Ambie. Aby osiągnąć najlepsze wrażenia z korzystania przypnij aplikację do paska zadań. Usiądź i zrelaksuj się 🏝</target>
+          <target state="translated">Dziękujemy za wypróbowanie Ambie. Dla najlepszych doświadczeń, przypnij aplikację do paska zadań! Następnie usiądź i zrelaksuj się 🏝</target>
         </trans-unit>
         <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
           <source>Hello and welcome!</source>
@@ -463,7 +463,7 @@
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
-          <target state="translated">Zmixuj ze sobą do trzech dźwięków</target>
+          <target state="translated">Zmiksuj ze sobą do trzech dźwięków</target>
         </trans-unit>
         <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
           <source>Theme settings</source>
@@ -484,7 +484,7 @@
         </trans-unit>
         <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
           <source>Download video screensavers</source>
-          <target state="translated">Pobieraj wygaszacze ekranu</target>
+          <target state="translated">Pobierz wygaszacze ekranu</target>
         </trans-unit>
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development</source>
@@ -501,7 +501,7 @@
         </trans-unit>
         <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
           <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="translated">Podoba ci się Ambie? Oceń nas!</target>
+          <target state="translated">Podoba ci się korzystanie z Ambie? Oceń nas!</target>
         </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
@@ -537,7 +537,7 @@
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
-          <target state="translated">Informacje o premium</target>
+          <target state="translated">Informacje o usłudze premium</target>
         </trans-unit>
         <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
           <source>Clouds</source>
@@ -549,7 +549,7 @@
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj uruchomić Ambie ponownie bądź skontaktuj się z nami w przypadku gdy problem nadal występuje.</target>
+          <target state="translated">Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj ponownie uruchomić Ambie lub skontaktuj się z nami, jeśli problem nadal występuje.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
@@ -605,11 +605,11 @@
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">Skoncentruj się na wykonaniu zadania</target>
+          <target state="translated">Skoncentruj się</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="translated">Zrób sobie przerwę od pracy</target>
+          <target state="translated">Zrób sobie przerwę</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
@@ -633,7 +633,7 @@
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
-          <target state="translated">Tutaj możesz zanotować dowolne notatki</target>
+          <target state="translated">Tutaj możesz zapisać dowolne notatki 🙂</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
@@ -658,7 +658,7 @@
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="translated">Licznik koncentracji jest inspirowany techniką pomodoro. Technika ta opiera się na dłuższych okresach skupienia na zadaniu przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pomaga w skupieniu się!</target>
+          <target state="translated">Licznik koncentracji jest inspirowany techniką pomodoro. Technika ta opiera się na dłuższych okresach skupienia przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pozwala ci skupić się na wykonaniu zadania!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
@@ -674,7 +674,7 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">Każdy cykl dzieli się na segment koncentracji i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</target>
+          <target state="translated">Każdy cykl dzieli się na segment koncentracji i segment odpoczynku. Ustaw długość segmentu koncentracji. Na początek proponujemy okres 25 minut!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
@@ -690,7 +690,7 @@
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
-          <target state="translated">Wybierz długość każdego segmentu odpoczynku. Na początek proponujemy okres 5 minut!</target>
+          <target state="translated">Wybierz długość segmentu odpoczynku. Na początek proponujemy okres 5 minut!</target>
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
@@ -762,7 +762,7 @@
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="translated">Jesteś niesamowity</target>
+          <target state="translated">Świetnie ci idzie</target>
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
@@ -779,19 +779,19 @@
         </trans-unit>
         <trans-unit id="TaskModuleRecentCompleted" translate="yes" xml:space="preserve">
           <source>Recently completed</source>
-          <target state="translated">Zakończony</target>
+          <target state="translated">Zakończono</target>
         </trans-unit>
         <trans-unit id="EditText" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="translated">Edytować</target>
+          <target state="translated">Edytuj</target>
         </trans-unit>
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
-          <target state="translated">Zadania ukończone</target>
+          <target state="translated">Ukończone zadania</target>
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="translated">Czas</target>
+          <target state="translated">Licznik</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
@@ -799,11 +799,11 @@
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="translated">Za darmo w tym tygodniu</target>
+          <target state="translated">Darmowe w tym tygodniu!</target>
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="translated">Otwórz Ambie Mini podczas ustawiania ostrości</target>
+          <target state="translated">Otwórz Ambie Mini podczas korzystania z licznika koncentracji</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
@@ -823,11 +823,11 @@
         </trans-unit>
         <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="translated">Dzięki Ambie Mini zmniejszymy okno i wyświetlimy tylko niezbędne elementy, które pomogą Ci się skoncentrować.</target>
+          <target state="translated">W trybie Ambie Mini w zmniejszonym oknie pokazywane są tylko niezbędne elementy.</target>
         </trans-unit>
         <trans-unit id="PausesText" translate="yes" xml:space="preserve">
           <source>Pauses</source>
-          <target state="translated">Pauzy</target>
+          <target state="translated">Wstrzymania</target>
         </trans-unit>
         <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
           <source>Download sounds from the catalogue</source>
@@ -839,11 +839,11 @@
         </trans-unit>
         <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="translated">Przeciągnij i upuść muzykę, aby spersonalizować swoją stronę główną. Spróbuj teraz!</target>
+          <target state="translated">Przeciągnij i upuść dźwięki, aby dostosować swoją kolekcję. Spróbuj!</target>
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
-          <target state="translated">Przepraszam za to! Nie mogliśmy załadować katalogu. Spróbuj sprawdzić połączenie internetowe.</target>
+          <target state="translated">Ups! Nie udało się załadować katalogu. Sprawdź połączenie internetowe.</target>
         </trans-unit>
         <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
           <source>About Ambie</source>
@@ -851,7 +851,7 @@
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="translated">Ambie Mini otworzy się automatycznie podczas ustawiania ostrości</target>
+          <target state="translated">Ambie Mini otworzy się automatycznie podczas korzystania z licznika koncentracji</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
@@ -859,19 +859,19 @@
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
           <source>On launch, Ambie will resume playing automatically</source>
-          <target state="translated">Po premierze Ambie automatycznie wznowi odtwarzanie</target>
+          <target state="translated">Po uruchomieniu, Ambie automatycznie wznowi odtwarzanie</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
           <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
-          <target state="translated">Błędy i anonimowe informacje o użytkowaniu są zgłaszane w celu ulepszenia Ambie</target>
+          <target state="translated">Zgłaszanie błędów i wysyłanie zanonimizowanych informacji o użytkowaniu w celu ulepszenia Ambie</target>
         </trans-unit>
         <trans-unit id="BackgroundImage" translate="yes" xml:space="preserve">
           <source>Background image</source>
-          <target state="translated">Obraz tła</target>
+          <target state="translated">Tło</target>
         </trans-unit>
         <trans-unit id="CustomImage" translate="yes" xml:space="preserve">
           <source>Custom image</source>
-          <target state="translated">Obraz niestandardowy</target>
+          <target state="translated">Niestandardowy obraz</target>
         </trans-unit>
         <trans-unit id="SettingsGeneralHeader" translate="yes" xml:space="preserve">
           <source>General settings</source>
@@ -879,11 +879,11 @@
         </trans-unit>
         <trans-unit id="SettingsTheme" translate="yes" xml:space="preserve">
           <source>Choose your mode</source>
-          <target state="translated">Wybierz tryb</target>
+          <target state="translated">Wybierz motyw</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDescription" translate="yes" xml:space="preserve">
           <source>Change the colours that appear in Ambie</source>
-          <target state="translated">Zmienianie kolorów wyświetlanych w Ambie</target>
+          <target state="translated">Zmień motyw Ambie</target>
         </trans-unit>
         <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
           <source>Share what you're listening to</source>
@@ -895,7 +895,7 @@
         </trans-unit>
         <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
           <source>You're missing some sounds</source>
-          <target state="translated">Brakuje Ci muzyki</target>
+          <target state="translated">Brakujące dźwięki</target>
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
@@ -903,11 +903,11 @@
         </trans-unit>
         <trans-unit id="ShareText" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="translated">Udział</target>
+          <target state="translated">Udostępnij</target>
         </trans-unit>
         <trans-unit id="CopiedText" translate="yes" xml:space="preserve">
           <source>Copied!</source>
-          <target state="translated">Skopiowane!</target>
+          <target state="translated">Skopiowano!</target>
         </trans-unit>
         <trans-unit id="CopyText" translate="yes" xml:space="preserve">
           <source>Copy</source>
@@ -923,7 +923,7 @@
         </trans-unit>
         <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
           <source>{0} lifetime</source>
-          <target state="translated">{0} dożywotnia</target>
+          <target state="translated">{0} za dożywotnią licencję</target>
         </trans-unit>
         <trans-unit id="CheckForUpdatesText" translate="yes" xml:space="preserve">
           <source>Check for updates</source>
@@ -931,7 +931,7 @@
         </trans-unit>
         <trans-unit id="UpdatesPageMessage1" translate="yes" xml:space="preserve">
           <source>Check here for updates to your sounds and videos.</source>
-          <target state="translated">Sprawdź tutaj, czy są dostępne aktualizacje dźwięków i filmów.</target>
+          <target state="translated">Sprawdź, czy dostępne są aktualizacje dźwięków i filmów.</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage2" translate="yes" xml:space="preserve">
           <source>Updates contain improvements to translations, sound quality, and more.</source>
@@ -971,7 +971,7 @@
         </trans-unit>
         <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
           <source>Is there anything we can learn to avoid future interruptions?</source>
-          <target state="translated">Czy jest coś, czego możemy się nauczyć, aby uniknąć przyszłych zakłóceń?</target>
+          <target state="translated">Jak uniknąć przyszłych przerw w pracy?</target>
         </trans-unit>
         <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
           <source>Recent interruptions</source>
@@ -987,15 +987,15 @@
         </trans-unit>
         <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
           <source>Choose where to play sound</source>
-          <target state="translated">Wybieranie miejsca odtwarzania dźwięku</target>
+          <target state="translated">Wybierz urządzenie, które ma odtwarzać dźwięk</target>
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
           <source>Sounds will continue to play after your focus session ends</source>
-          <target state="translated">Dźwięki będą nadal odtwarzane po zakończeniu sesji fokusowej</target>
+          <target state="translated">Dźwięki będą nadal odtwarzane po zakończeniu sesji koncentracji</target>
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
           <source>Continue sounds after focusing</source>
-          <target state="translated">Kontynuuj dźwięki po ustawieniu ostrości</target>
+          <target state="translated">Kontynuuj odtwarzanie dźwięków po zakończeniu sesji koncentracji</target>
         </trans-unit>
       </group>
     </body>
