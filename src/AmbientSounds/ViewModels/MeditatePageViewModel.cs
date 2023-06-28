@@ -46,7 +46,7 @@ public partial class MeditatePageViewModel : ObservableObject
         }
 
         var guides = await _guideService.GetOnlineGuidesAsync();
-        foreach (var guide in guides)
+        foreach (var guide in guides.OrderBy(static x => x.Id))
         {
             var vm = _guideVmFactory.Create(
                 guide,
