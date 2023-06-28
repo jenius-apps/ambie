@@ -53,7 +53,7 @@ public partial class MeditatePageViewModel : ObservableObject
                 DownloadCommand,
                 DeleteCommand,
                 PlayGuideCommand,
-                PauseGuideCommand,
+                StopGuideCommand,
                 PurchaseCommand
                 /* downloadProgress: TODO */);
 
@@ -113,7 +113,7 @@ public partial class MeditatePageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void PauseGuide(GuideViewModel? guideVm)
+    private void StopGuide(GuideViewModel? guideVm)
     {
         if (guideVm is not null)
         {

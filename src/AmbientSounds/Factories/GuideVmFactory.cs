@@ -22,7 +22,7 @@ public class GuideVmFactory : IGuideVmFactory
         IAsyncRelayCommand<GuideViewModel?> downloadCommand,
         IAsyncRelayCommand<GuideViewModel?> deleteCommand,
         IAsyncRelayCommand<GuideViewModel?> playCommand,
-        IRelayCommand<GuideViewModel?> pauseCommand,
+        IRelayCommand<GuideViewModel?> stopCommand,
         IAsyncRelayCommand purchaseCommand,
         Progress<double>? downloadProgress = null)
     {
@@ -31,7 +31,7 @@ public class GuideVmFactory : IGuideVmFactory
             downloadCommand,
             deleteCommand,
             playCommand,
-            pauseCommand,
+            stopCommand,
             purchaseCommand,
             _serviceProvider.GetRequiredService<IAssetLocalizer>(),
             _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),

@@ -19,7 +19,7 @@ public partial class GuideViewModel : ObservableObject
         IAsyncRelayCommand<GuideViewModel?> download,
         IAsyncRelayCommand<GuideViewModel?> delete,
         IAsyncRelayCommand<GuideViewModel?> play,
-        IRelayCommand<GuideViewModel?> pause,
+        IRelayCommand<GuideViewModel?> stop,
         IAsyncRelayCommand purchase,
         IAssetLocalizer assetLocalizer,
         IMixMediaPlayerService mixMediaPlayerService,
@@ -30,7 +30,7 @@ public partial class GuideViewModel : ObservableObject
         DownloadCommand = download;
         DeleteCommand = delete;
         PlayCommand = play;
-        PauseCommand = pause;
+        StopCommand = stop;
         PurchaseCommand = purchase;
         Name = assetLocalizer.GetLocalName(onlineGuide);
         PreviewText = $"{onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
@@ -98,7 +98,7 @@ public partial class GuideViewModel : ObservableObject
 
     public IAsyncRelayCommand<GuideViewModel?> PlayCommand { get; }
 
-    public IRelayCommand<GuideViewModel?> PauseCommand { get; }
+    public IRelayCommand<GuideViewModel?> StopCommand { get; }
 
     public IAsyncRelayCommand PurchaseCommand { get; }
 
@@ -154,7 +154,7 @@ public partial class GuideViewModel : ObservableObject
         if (IsPlaying)
         {
             GuidePlaybackProgress = 0;
-            PauseCommand.Execute(this);
+            StopCommand.Execute(this);
         }
         else
         {
