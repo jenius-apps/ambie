@@ -72,6 +72,7 @@ public partial class MeditatePageViewModel : ObservableObject
     {
         _mixMediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
         _iapService.ProductPurchased -= OnProductPurchased;
+        _guideService.GuideStopped -= OnGuideStopped;
 
         foreach (var g in Guides)
         {
@@ -139,12 +140,12 @@ public partial class MeditatePageViewModel : ObservableObject
 
     private void OnPlaybackChanged(object sender, MediaPlaybackState updatedState)
     {
-        // preserve currentGuideId in case it changes during the loop.
+        // This ensures that when a guide starts playing, the play icon changes
+        // to the stop icon.
         string currentGuideId = _mixMediaPlayerService.CurrentGuideId;
         foreach (var guideVm in Guides)
         {
-            guideVm.IsPlaying = updatedState is MediaPlaybackState.Playing
-                && guideVm.OnlineGuide.Id == currentGuideId;
+            guideVm.IsPlaying = guideVm.OnlineGuide.Id == currentGuideId;
         }
     }
 
