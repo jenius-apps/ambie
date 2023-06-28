@@ -9,6 +9,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using JeniusApps.Common.Telemetry;
+using Windows.Foundation.Metadata;
+using Windows.UI.Shell;
+using System;
 
 namespace AmbientSounds.Controls;
 
@@ -23,6 +26,19 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
     {
         this.InitializeComponent();
         DataContext = App.Services.GetRequiredService<FocusTimerModuleViewModel>();
+
+        // This is not present in Windows 10, prevent exception.
+        if (ApiInformation.IsTypePresent("Windows.UI.Shell.FocusSessionManager"))
+        {
+            if (FocusSessionManager.IsSupported)
+            {
+                FocusSessionManager manager = FocusSessionManager.GetDefault();
+
+                ViewModel.IsFocusEnabled = manager.IsFocusActive;
+
+                manager.IsFocusActiveChanged += Manager_IsFocusActiveChanged;
+            }
+        }
     }
 
     public FocusTimerModuleViewModel ViewModel => (FocusTimerModuleViewModel)this.DataContext;
@@ -107,6 +123,15 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
         TeachingTip2.IsOpen = false;
         TeachingTip3.IsOpen = false;
         TeachingTip4.IsOpen = false;
+    }
+
+    private async void Manager_IsFocusActiveChanged(FocusSessionManager sender, object args)
+    {
+        // Must run in UI thread, otherwise it gets mad.
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        {
+            ViewModel.IsFocusEnabled = sender.IsFocusActive;
+        });
     }
 
     private void OnResetClicked(object sender, RoutedEventArgs e)

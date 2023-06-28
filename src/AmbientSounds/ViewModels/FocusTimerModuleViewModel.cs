@@ -38,6 +38,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private readonly ICompactNavigator _compactNavigator;
     private readonly IDispatcherQueue _dispatcherQueue;
     private bool _isHelpMessageVisible;
+    private bool _isFocusMessageVisible;
     private int _focusLength;
     private int _restLength;
     private int _repetitions;
@@ -84,6 +85,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private string _currentStatus = string.Empty;
     [ObservableProperty]
     private int _selectedTaskIndex;
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsFocusMessageVisible))]
+    public bool _isFocusEnabled;
 
     public FocusTimerModuleViewModel(
         IFocusService focusService,
@@ -170,6 +174,17 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 _userSettings.Set(UserSettingsConstants.HasClosedFocusHelpMessageKey, true);
             }
             OnPropertyChanged(nameof(IsHelpIconVisible));
+            OnPropertyChanged(nameof(IsFocusMessageVisible));
+        }
+    }
+
+    public bool IsFocusMessageVisible
+    {
+        get => !IsHelpMessageVisible && IsFocusEnabled;
+        set
+        {
+            SetProperty(ref _isFocusMessageVisible, value);
+            OnPropertyChanged(nameof(IsFocusMessageVisible));
         }
     }
 
