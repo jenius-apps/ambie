@@ -318,4 +318,9 @@ public partial class ShellPageViewModel : ObservableObject
             _telemetry.TrackEvent(TelemetryConstants.FocusTimeBannerClicked);
         }
     }
+
+    public async Task<bool> OpenConfirmCloseAsync()
+    {
+        return await _dialogService.OpenConfirmCloseAsync();
+    }
 }
