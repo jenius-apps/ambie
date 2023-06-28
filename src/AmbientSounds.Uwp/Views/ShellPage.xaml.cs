@@ -44,7 +44,7 @@ public sealed partial class ShellPage : Page
         {
             args.Handled = true;
 
-            bool playing = App.Services.GetService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing ? true : false;
+            bool playing = App.Services.GetService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing;
 
             if (playing)
             {
