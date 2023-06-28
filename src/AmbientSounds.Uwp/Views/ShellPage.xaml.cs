@@ -51,12 +51,12 @@ public sealed partial class ShellPage : Page
                 bool result = await ViewModel.OpenConfirmCloseAsync();
                 if (result)
                 {
-                    App.Current.Exit();
+                    Application.Current.Exit();
                 }
             }
             else
             {
-                App.Current.Exit();
+                Application.Current.Exit();
             }
         };
     }
