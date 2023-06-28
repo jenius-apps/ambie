@@ -78,6 +78,20 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
+        <winui:InfoBar 
+            Title="System focus mode is enabled!"
+            Margin="0,0,0,8"
+            IsOpen="{x:Bind ViewModel.IsFocusMessageVisible, Mode=TwoWay}"
+            Message="Ambie may not be able to send you notifications while the system's Focus mode is active. Consider adding an exception for Ambie."
+            Visibility="{x:Bind ViewModel.IsFocusMessageVisible, Mode=OneWay}">
+            <winui:InfoBar.ActionButton>
+                <HyperlinkButton 
+                    NavigateUri="ms-settings:notifications"
+                    Content="Notification Settings"
+                    Visibility="{x:Bind IsDesktop}" />
+            </winui:InfoBar.ActionButton>
+        </winui:InfoBar>
+
         <winui:InfoBar
             Title="{x:Bind strings:Resources.FocusTimerHelpTitle}"
             Margin="0,0,0,8"
