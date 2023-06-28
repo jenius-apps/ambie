@@ -3,6 +3,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -17,19 +18,22 @@ public partial class MeditatePageViewModel : ObservableObject
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IDialogService _dialogService;
     private readonly IIapService _iapService;
+    private readonly IDispatcherQueue _dispatcherQueue;
 
     public MeditatePageViewModel(
         IGuideService guideService,
         IGuideVmFactory guideVmFactory,
         IDialogService dialogService,
         IIapService iapService,
-        IMixMediaPlayerService mixMediaPlayerService)
+        IMixMediaPlayerService mixMediaPlayerService,
+        IDispatcherQueue dispatcherQueue)
     {
         _guideService = guideService;
         _guideVmFactory = guideVmFactory;
         _mixMediaPlayerService = mixMediaPlayerService;
         _dialogService = dialogService;
         _iapService = iapService;
+        _dispatcherQueue = dispatcherQueue;
     }
 
     public ObservableCollection<GuideViewModel> Guides { get; } = new();
@@ -162,9 +166,12 @@ public partial class MeditatePageViewModel : ObservableObject
 
     private void OnGuideStopped(object sender, string e)
     {
-        foreach (var guideVm in Guides)
+        _dispatcherQueue.TryEnqueue(() =>
         {
-            guideVm.IsPlaying = false;
-        }
+            foreach (var guideVm in Guides)
+            {
+                guideVm.IsPlaying = false;
+            }
+        });
     }
 }

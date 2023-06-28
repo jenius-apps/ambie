@@ -40,6 +40,8 @@ public class GuideService : IGuideService
         _fileDownloader = fileDownloader;
         _fileWriter = fileWriter;
         _mixMediaPlayerService = mixMediaPlayerService;
+
+        _mixMediaPlayerService.GuidePositionChanged += OnGuidePositionChanged;
     }
 
     public async Task PlayAsync(Guide guide)
@@ -173,5 +175,14 @@ public class GuideService : IGuideService
         }
 
         return success;
+    }
+
+    private void OnGuidePositionChanged(object sender, TimeSpan e)
+    {
+        if (_mixMediaPlayerService.GuideDuration > TimeSpan.MinValue &&
+            _mixMediaPlayerService.GuideDuration == e)
+        {
+            Stop(_mixMediaPlayerService.CurrentGuideId);
+        }
     }
 }
