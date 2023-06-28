@@ -17,6 +17,9 @@
     <Grid>
         <ScrollViewer Padding="0,0,16,0">
             <ItemsControl ItemsSource="{x:Bind ViewModel.Guides}">
+                <ItemsControl.ItemContainerTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+                </ItemsControl.ItemContainerTransitions>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
