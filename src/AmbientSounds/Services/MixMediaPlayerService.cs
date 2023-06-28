@@ -39,6 +39,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     /// <inheritdoc/>
     public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
+    /// <inheritdoc/>
+    public event EventHandler<TimeSpan>? GuidePositionChanged;
+
     public MixMediaPlayerService(
         IUserSettings userSettings,
         ISoundService soundDataProvider,
@@ -71,6 +74,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     /// <inheritdoc/>
     public string CurrentMixId { get; set; } = "";
+
+    /// <inheritdoc/>
+    public TimeSpan GuideDuration => _guideInfo?.GuidePlayer.Duration ?? TimeSpan.MinValue;
 
     /// <inheritdoc/>
     public string CurrentGuideId => _guideInfo?.GuideId ?? string.Empty;
@@ -200,12 +206,20 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         
         if (success)
         {
+            player.PositionChanged -= OnGuidePositionChanged;
+            player.PositionChanged += OnGuidePositionChanged;
+
             // TODO  refresh smtc title
             player.Volume = _globalVolume;
 
             _guideInfo = (guide.Id, player);
             Play();
         }
+    }
+
+    private void OnGuidePositionChanged(object sender, TimeSpan e)
+    {
+        GuidePositionChanged?.Invoke(sender, e);
     }
 
     /// <inheritdoc/>
@@ -397,8 +411,13 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     private void RemoveGuide()
     {
-        _guideInfo?.GuidePlayer.Pause();
-        _guideInfo?.GuidePlayer.Dispose();
+        if (_guideInfo is { } guideInfo)
+        {
+            guideInfo.GuidePlayer.Pause();
+            guideInfo.GuidePlayer.PositionChanged -= OnGuidePositionChanged;
+            guideInfo.GuidePlayer.Dispose();
+        }
+
         _guideInfo = null;
     }
 }

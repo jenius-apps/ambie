@@ -57,6 +57,8 @@ public partial class MeditatePageViewModel : ObservableObject
                 PurchaseCommand
                 /* downloadProgress: TODO */);
 
+            vm.Initialize();
+
             Guide? offlineGuide = await _guideService.GetOfflineGuideAsync(guide.Id);
             vm.IsDownloaded = offlineGuide is not null;
             vm.IsPlaying = _mixMediaPlayerService.CurrentGuideId == guide.Id 
@@ -70,6 +72,12 @@ public partial class MeditatePageViewModel : ObservableObject
     {
         _mixMediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
         _iapService.ProductPurchased -= OnProductPurchased;
+
+        foreach (var g in Guides)
+        {
+            g.Uninitialize();
+        }
+
         Guides.Clear();
     }
 

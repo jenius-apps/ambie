@@ -167,9 +167,26 @@
                                             FontSize="15"
                                             Glyph="{StaticResource GlyphPlay}"
                                             Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsPlaying), Mode=OneWay}" />
+                                        <winui:ProgressRing
+                                            Width="24"
+                                            Height="24"
+                                            Foreground="White"
+                                            IsIndeterminate="False"
+                                            Opacity="0.1"
+                                            Visibility="{x:Bind IsPlaying, Mode=OneWay}"
+                                            Value="100" />
+                                        <winui:ProgressRing
+                                            Width="24"
+                                            Height="24"
+                                            Foreground="White"
+                                            IsIndeterminate="False"
+                                            Maximum="100"
+                                            Minimum="0"
+                                            Visibility="{x:Bind IsPlaying, Mode=OneWay}"
+                                            Value="{x:Bind GuidePlaybackProgress, Mode=OneWay}" />
                                         <FontIcon
                                             FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                            FontSize="15"
+                                            FontSize="8"
                                             Glyph="&#xE002;"
                                             Visibility="{x:Bind IsPlaying, Mode=OneWay}" />
                                     </Grid>

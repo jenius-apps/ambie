@@ -34,6 +34,16 @@ namespace AmbientSounds.Services
         event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
         /// <summary>
+        /// Raised when the guide's playback position changed.
+        /// </summary>
+        event EventHandler<TimeSpan>? GuidePositionChanged;
+
+        /// <summary>
+        /// The total duration of the current guide.
+        /// </summary>
+        TimeSpan GuideDuration { get; }
+
+        /// <summary>
         /// Global volume control. Max = 1. Min = 0.
         /// </summary>
         double GlobalVolume { get; set; }

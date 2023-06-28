@@ -2,9 +2,9 @@
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Concurrent;
 
 namespace AmbientSounds.Factories;
 
@@ -34,6 +34,8 @@ public class GuideVmFactory : IGuideVmFactory
             pauseCommand,
             purchaseCommand,
             _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
+            _serviceProvider.GetRequiredService<IDispatcherQueue>(),
             downloadProgress);
 
         return newVm;

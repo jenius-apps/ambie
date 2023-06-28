@@ -3,6 +3,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Tools;
 using System;
 using System.Threading.Tasks;
 
@@ -10,6 +11,9 @@ namespace AmbientSounds.ViewModels;
 
 public partial class GuideViewModel : ObservableObject
 {
+    private readonly IMixMediaPlayerService _mixMediaPlayerService;
+    private readonly IDispatcherQueue _dispatcherQueue;
+
     public GuideViewModel(
         Guide onlineGuide,
         IAsyncRelayCommand<GuideViewModel?> download,
@@ -18,6 +22,8 @@ public partial class GuideViewModel : ObservableObject
         IRelayCommand<GuideViewModel?> pause,
         IAsyncRelayCommand purchase,
         IAssetLocalizer assetLocalizer,
+        IMixMediaPlayerService mixMediaPlayerService,
+        IDispatcherQueue dispatcherQueue,
         Progress<double>? progress = null)
     {
         OnlineGuide = onlineGuide;
@@ -30,6 +36,8 @@ public partial class GuideViewModel : ObservableObject
         PreviewText = $"{onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
         ImagePath = onlineGuide.ImagePath;
         ColourHex = onlineGuide.ColourHex;
+        _mixMediaPlayerService = mixMediaPlayerService;
+        _dispatcherQueue = dispatcherQueue;
 
         DownloadProgress = progress ?? new();
         DownloadProgress.ProgressChanged += OnProgressChanged;
@@ -61,6 +69,9 @@ public partial class GuideViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(PlaybackButtonsVisible))]
     private bool _isOwned;
 
+    [ObservableProperty]
+    private double _guidePlaybackProgress;
+
     public bool ProgressRingVisible => Loading || DownloadProgressVisible;
 
     public Guide OnlineGuide { get; }
@@ -91,6 +102,31 @@ public partial class GuideViewModel : ObservableObject
 
     public IAsyncRelayCommand PurchaseCommand { get; }
 
+    public void Initialize()
+    {
+        _mixMediaPlayerService.GuidePositionChanged += OnGuidePositionChanged;
+    }
+
+    public void Uninitialize()
+    {
+        _mixMediaPlayerService.GuidePositionChanged -= OnGuidePositionChanged;
+    }
+
+    private void OnGuidePositionChanged(object sender, TimeSpan e)
+    {
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            if (_mixMediaPlayerService.CurrentGuideId == OnlineGuide.Id)
+            {
+                GuidePlaybackProgress = e.TotalSeconds / _mixMediaPlayerService.GuideDuration.TotalSeconds * 100;
+            }
+            else
+            {
+                GuidePlaybackProgress = 0;
+            }
+        });
+    }
+
     private void OnProgressChanged(object sender, double e)
     {
         if (e <= 0)
@@ -117,6 +153,7 @@ public partial class GuideViewModel : ObservableObject
     {
         if (IsPlaying)
         {
+            GuidePlaybackProgress = 0;
             PauseCommand.Execute(this);
         }
         else
