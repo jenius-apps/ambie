@@ -319,8 +319,8 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
-    public async Task<bool> OpenConfirmCloseAsync()
+    public Task<bool> OpenConfirmClose()
     {
-        return await _dialogService.OpenConfirmCloseAsync();
+        return _dialogService.OpenConfirmCloseAsync();
     }
 }

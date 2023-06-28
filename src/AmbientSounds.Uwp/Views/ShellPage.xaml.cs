@@ -48,7 +48,7 @@ public sealed partial class ShellPage : Page
 
             if (playing)
             {
-                bool result = await ViewModel.OpenConfirmCloseAsync();
+                bool result = await ViewModel.OpenConfirmClose();
                 if (result)
                 {
                     Application.Current.Exit();
