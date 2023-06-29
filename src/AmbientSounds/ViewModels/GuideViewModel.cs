@@ -141,6 +141,7 @@ public partial class GuideViewModel : ObservableObject
         }
         else if (e >= 100)
         {
+            Loading = false;
             IsDownloaded = true;
             DownloadProgressVisible = false;
         }

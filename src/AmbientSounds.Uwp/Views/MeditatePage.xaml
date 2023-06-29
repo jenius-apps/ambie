@@ -152,6 +152,17 @@
                                                 Height="16"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
+                                                Foreground="White"
+                                                IsIndeterminate="False"
+                                                Opacity="0.1"
+                                                Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}"
+                                                Value="100" />
+                                            <winui:ProgressRing
+                                                Width="16"
+                                                Height="16"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="White"
                                                 IsIndeterminate="{x:Bind Loading, Mode=OneWay}"
                                                 Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}"
                                                 Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
