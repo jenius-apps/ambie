@@ -59,6 +59,9 @@ public partial class VersionedAssetViewModel : ObservableObject
     [ObservableProperty]
     private bool _downloadProgressVisible;
 
+    [ObservableProperty]
+    private bool _updateComplete;
+
     public string UpdateReasonText { get; }
 
     public bool UpdateAvailable => UpdateReason != UpdateReason.None;
@@ -109,6 +112,7 @@ public partial class VersionedAssetViewModel : ObservableObject
         else if (e >= 100)
         {
             DownloadProgressVisible = false;
+            UpdateComplete = true;
         }
 
         DownloadProgressValue = e;

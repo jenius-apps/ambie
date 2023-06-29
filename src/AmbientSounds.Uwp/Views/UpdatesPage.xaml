@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Views.UpdatesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -159,12 +160,11 @@
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
                                 </Button>
 
-                                <!--<Button
-                                    Command="{x:Bind PlayCommand}"
-                                    Style="{StaticResource SubtleIconButton}"
-                                    Visibility="{x:Bind CanPlay, Mode=OneWay}">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
-                                </Button>-->
+                                <FontIcon
+                                    Margin="0,0,12,0"
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                    Visibility="{x:Bind UpdateComplete, Mode=OneWay}" />
 
                                 <Grid
                                     Margin="0,0,12,0"
