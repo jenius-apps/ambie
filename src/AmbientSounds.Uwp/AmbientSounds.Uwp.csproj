@@ -170,6 +170,9 @@
     <Compile Include="Controls\FreeBadge.xaml.cs">
       <DependentUpon>FreeBadge.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GuideShimmer.xaml.cs">
+      <DependentUpon>GuideShimmer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\HistoryStat.xaml.cs">
       <DependentUpon>HistoryStat.xaml</DependentUpon>
     </Compile>
@@ -500,6 +503,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\GuideShimmer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\HistoryStat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -676,6 +683,9 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
       <Version>0.0.11</Version>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Labs.Uwp.Shimmer">
+      <Version>0.0.1</Version>
     </PackageReference>
     <PackageReference Include="ComputeSharp.D2D1.Uwp">
       <Version>2.1.0-preview2</Version>

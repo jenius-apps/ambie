@@ -199,6 +199,7 @@
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
             <Thickness x:Key="TopPageMargin">0,32,0,0</Thickness>
             <x:Double x:Key="ImageCardHeight">208</x:Double>
+            <x:Double x:Key="GuideCardWidth">304</x:Double>
             <x:Double x:Key="ImageCardWidth">148</x:Double>
             <x:Double x:Key="ImageCardShadowWidth">144</x:Double>
             <x:Double x:Key="CompactImageCardHeight">104</x:Double>

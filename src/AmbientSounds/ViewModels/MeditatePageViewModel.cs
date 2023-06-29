@@ -38,6 +38,9 @@ public partial class MeditatePageViewModel : ObservableObject
 
     public ObservableCollection<GuideViewModel> Guides { get; } = new();
 
+    [ObservableProperty]
+    private bool _placeholderVisible;
+
     public async Task InitializeAsync()
     {
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
@@ -49,7 +52,13 @@ public partial class MeditatePageViewModel : ObservableObject
             return;
         }
 
-        var guides = await _guideService.GetOnlineGuidesAsync();
+        PlaceholderVisible = true;
+        var guidesTask = _guideService.GetOnlineGuidesAsync();
+
+        // Include delay to account for shimmer effect.
+        await Task.WhenAll(guidesTask, Task.Delay(600)); 
+        var guides = await guidesTask;
+
         foreach (var guide in guides.OrderBy(static x => x.Id))
         {
             var vm = _guideVmFactory.Create(
@@ -69,6 +78,11 @@ public partial class MeditatePageViewModel : ObservableObject
                 && _mixMediaPlayerService.PlaybackState is MediaPlaybackState.Playing;
             vm.IsOwned = await _iapService.IsAnyOwnedAsync(guide.IapIds);
             Guides.Add(vm);
+
+            if (PlaceholderVisible)
+            {
+                PlaceholderVisible = false;
+            }
         }
     }
 

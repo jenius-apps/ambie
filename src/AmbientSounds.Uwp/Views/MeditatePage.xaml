@@ -18,7 +18,7 @@
         <ScrollViewer Padding="0,0,16,0">
             <ItemsControl ItemsSource="{x:Bind ViewModel.Guides}">
                 <ItemsControl.ItemContainerTransitions>
-                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+                    <EntranceThemeTransition IsStaggeringEnabled="True" />
                 </ItemsControl.ItemContainerTransitions>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -28,7 +28,7 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="vm:GuideViewModel">
                         <Grid
-                            Width="304"
+                            Width="{StaticResource GuideCardWidth}"
                             Height="{StaticResource ImageCardHeight}"
                             RequestedTheme="Dark">
                             <Grid.RowDefinitions>
@@ -213,5 +213,21 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+
+        <ItemsControl Margin="0,0,16,0" Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.Items>
+                <controls:GuideShimmer />
+                <controls:GuideShimmer />
+                <controls:GuideShimmer />
+                <controls:GuideShimmer />
+                <controls:GuideShimmer />
+                <controls:GuideShimmer />
+            </ItemsControl.Items>
+        </ItemsControl>
     </Grid>
 </Page>
