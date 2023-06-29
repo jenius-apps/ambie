@@ -12,6 +12,7 @@ using JeniusApps.Common.Telemetry;
 using Windows.Foundation.Metadata;
 using Windows.UI.Shell;
 using System;
+using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.Controls;
 
@@ -22,10 +23,13 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
         { "page", "focus" }
     };
 
+    private IDispatcherQueue _dispatcherQueue;
+
     public FocusTimerModule()
     {
         this.InitializeComponent();
         DataContext = App.Services.GetRequiredService<FocusTimerModuleViewModel>();
+        _dispatcherQueue = App.Services.GetRequiredService<IDispatcherQueue>();
 
         // This is not present in Windows 10, prevent exception.
         if (ApiInformation.IsTypePresent("Windows.UI.Shell.FocusSessionManager"))
@@ -125,10 +129,10 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
         TeachingTip4.IsOpen = false;
     }
 
-    private async void Manager_IsFocusActiveChanged(FocusSessionManager sender, object args)
+    private void Manager_IsFocusActiveChanged(FocusSessionManager sender, object args)
     {
         // Must run in UI thread, otherwise it gets mad.
-        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        _dispatcherQueue.TryEnqueue(() =>
         {
             ViewModel.IsFocusEnabled = sender.IsFocusActive;
         });
