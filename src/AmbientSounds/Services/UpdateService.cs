@@ -83,6 +83,14 @@ public class UpdateService : IUpdateService
             installedSound.FileVersion == onlineSound.FileVersion);
     }
 
+    public async Task TriggerUpdateAsync(IVersionedAsset asset, IProgress<double> progress)
+    {
+        if (asset is Sound sound)
+        {
+            await TriggerUpdateAsync(sound, progress);
+        }
+    }
+
     private UpdateReason GetUpdateReason(Sound newSound, Sound oldSound)
     {
         if (newSound.MetaDataVersion > oldSound.MetaDataVersion &&

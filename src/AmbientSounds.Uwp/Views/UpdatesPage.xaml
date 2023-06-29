@@ -122,7 +122,7 @@
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                <DataTemplate x:DataType="vm:VersionedAssetViewModel">
                     <Border
                         Height="80"
                         Margin="0,0,0,4"
@@ -147,7 +147,7 @@
                                 <TextBlock
                                     FontSize="10"
                                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                    Text="{x:Bind UpdateReasonText, Mode=OneTime}"
+                                    Text="{x:Bind UpdateReasonText, Mode=OneWay}"
                                     TextWrapping="WrapWholeWords" />
                             </StackPanel>
 
@@ -159,12 +159,12 @@
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
                                 </Button>
 
-                                <Button
+                                <!--<Button
                                     Command="{x:Bind PlayCommand}"
                                     Style="{StaticResource SubtleIconButton}"
                                     Visibility="{x:Bind CanPlay, Mode=OneWay}">
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPlay}" />
-                                </Button>
+                                </Button>-->
 
                                 <Grid
                                     Margin="0,0,12,0"

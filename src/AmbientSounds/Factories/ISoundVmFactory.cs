@@ -30,5 +30,7 @@ namespace AmbientSounds.Factories
         /// <param name="removeCommand">A command that removes the active track from the active track list.</param>
         /// <returns>An active track viewmodel.</returns>
         ActiveTrackViewModel GetActiveTrackVm(Sound s, IRelayCommand<Sound> removeCommand);
+
+        VersionedAssetViewModel GetVersionAssetVm(IVersionedAsset versionedAsset, UpdateReason updateReason);
     }
 }

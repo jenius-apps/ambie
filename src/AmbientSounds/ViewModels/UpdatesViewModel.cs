@@ -36,7 +36,7 @@ public partial class UpdatesViewModel : ObservableObject
         _cts = new();
     }
 
-    public ObservableCollection<OnlineSoundViewModel> UpdateList { get; } = new();
+    public ObservableCollection<VersionedAssetViewModel> UpdateList { get; } = new();
 
     [ObservableProperty]
     private bool _updateAllVisible;
@@ -58,9 +58,8 @@ public partial class UpdatesViewModel : ObservableObject
             var availableUpdates = await availableUpdatesTask;
             foreach ((Sound s, UpdateReason r) in availableUpdates)
             {
-                var vm = _soundVmFactory.GetOnlineSoundVm(s);
-                vm.UpdateReason = r;
-                await vm.LoadCommand.ExecuteAsync(null);
+                var vm = _soundVmFactory.GetVersionAssetVm(s, r);
+                await vm.InitializeAsync();
                 UpdateList.Add(vm);
             }
         }
@@ -110,7 +109,7 @@ public partial class UpdatesViewModel : ObservableObject
     {
         foreach (var vm in UpdateList)
         {
-            vm.Dispose();
+            vm.Unitialize();
         }
 
         UpdateList.Clear();

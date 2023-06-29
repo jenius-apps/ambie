@@ -22,5 +22,7 @@ namespace AmbientSounds.Services
         /// <param name="latestSoundData">The up-to-date sound data.</param>
         /// <param name="progress">Download progress tracker object.</param>
         Task TriggerUpdateAsync(Sound latestSoundData, IProgress<double> progress);
+
+        Task TriggerUpdateAsync(IVersionedAsset asset, IProgress<double> progress);
     }
 }

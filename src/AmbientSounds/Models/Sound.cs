@@ -8,7 +8,7 @@ public record QueuedSound(Sound SoundData, IProgress<double> Progress);
 /// <summary>
 /// A sound object.
 /// </summary>
-public class Sound : IAsset
+public class Sound : IVersionedAsset
 {
     /// <summary>
     /// GUID.

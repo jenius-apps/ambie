@@ -40,7 +40,6 @@ public partial class GuideViewModel : ObservableObject
         _dispatcherQueue = dispatcherQueue;
 
         DownloadProgress = progress ?? new();
-        DownloadProgress.ProgressChanged += OnProgressChanged;
     }
 
     [ObservableProperty]
@@ -105,11 +104,13 @@ public partial class GuideViewModel : ObservableObject
     public void Initialize()
     {
         _mixMediaPlayerService.GuidePositionChanged += OnGuidePositionChanged;
+        DownloadProgress.ProgressChanged += OnProgressChanged;
     }
 
     public void Uninitialize()
     {
         _mixMediaPlayerService.GuidePositionChanged -= OnGuidePositionChanged;
+        DownloadProgress.ProgressChanged -= OnProgressChanged;
     }
 
     private void OnGuidePositionChanged(object sender, TimeSpan e)
