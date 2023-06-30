@@ -1,5 +1,8 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -20,6 +23,13 @@ public sealed partial class MeditatePage : Page
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
         await ViewModel.InitializeAsync();
+
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(
+            TelemetryConstants.PageNavTo,
+            new Dictionary<string, string>
+            {
+                { "name", "meditate" }
+            });
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

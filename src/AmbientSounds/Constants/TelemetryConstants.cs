@@ -193,5 +193,13 @@
         public const string TaskCompletedExpanded = Task + "completedExpanded";
         public const string TaskCompletedCollapsed = Task + "completedCollapsed";
         public const string TasksLoaded = Task + "loaded";
+
+        // guide
+        private const string Guide = "guide:";
+        public const string GuideDownloaded = Guide + "downloaded";
+        public const string GuidePlayed = Guide + "played";
+        public const string GuideStopped = Guide + "stopped";
+        public const string GuideDeleted = Guide + "deleted";
+        public const string GuidePurchaseClicked = Guide + "purchaseClicked";
     }
 }
