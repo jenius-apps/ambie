@@ -10,6 +10,7 @@ public interface IGuideService
     event EventHandler<string>? GuideDownloaded;
     event EventHandler<string>? GuideStopped;
     Task<IReadOnlyList<Guide>> GetOnlineGuidesAsync(string? culture = null);
+    Task<IReadOnlyList<Guide>> GetOfflineGuidesAsync();
     Task DownloadAsync(Guide guide, Progress<double> progress);
     Task<bool> DeleteAsync(string guideId);
     Task<Guide?> GetOfflineGuideAsync(string guideId);

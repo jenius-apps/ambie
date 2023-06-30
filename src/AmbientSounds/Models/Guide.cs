@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace AmbientSounds.Models;
 
-public class Guide : IAsset, IEquatable<Guide>
+public class Guide : IVersionedAsset, IEquatable<Guide>
 {
     /// <summary>
     /// GUID for the guide object.

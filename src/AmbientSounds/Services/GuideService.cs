@@ -83,6 +83,11 @@ public class GuideService : IGuideService
         }
     }
 
+    public Task<IReadOnlyList<Guide>> GetOfflineGuidesAsync()
+    {
+        return _guideCache.GetOfflineGuidesAsync();
+    }
+
     public async Task<IReadOnlyList<Guide>> GetOnlineGuidesAsync(string? culture = null)
     {
         culture ??= _systemInfoProvider.GetCulture();

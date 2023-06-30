@@ -14,7 +14,7 @@ namespace AmbientSounds.Services
         /// </summary>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of sounds tht have an update available and the associated reason.</returns>
-        Task<IReadOnlyList<(Sound, UpdateReason)>> CheckForUpdatesAsync(CancellationToken ct);
+        Task<IReadOnlyList<(IVersionedAsset, UpdateReason)>> CheckForUpdatesAsync(CancellationToken ct);
 
         /// <summary>
         /// Attempts to trigger an update on the given sound data.

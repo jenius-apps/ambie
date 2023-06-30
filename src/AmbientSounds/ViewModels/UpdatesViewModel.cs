@@ -56,9 +56,9 @@ public partial class UpdatesViewModel : ObservableObject
             ClearUpdateList();
 
             var availableUpdates = await availableUpdatesTask;
-            foreach ((Sound s, UpdateReason r) in availableUpdates)
+            foreach ((IVersionedAsset asset, UpdateReason r) in availableUpdates)
             {
-                var vm = _soundVmFactory.GetVersionAssetVm(s, r);
+                var vm = _soundVmFactory.GetVersionAssetVm(asset, r);
                 await vm.InitializeAsync();
                 UpdateList.Add(vm);
             }
