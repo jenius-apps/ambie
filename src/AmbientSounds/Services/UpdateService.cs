@@ -135,6 +135,15 @@ public class UpdateService : IUpdateService
         {
             await TriggerUpdateAsync(sound, progress);
         }
+        else if (asset is Guide guide && progress is Progress<double> p)
+        {
+            var deleted = await _guideService.DeleteAsync(guide.Id);
+
+            if (deleted)
+            {
+                await _guideService.DownloadAsync(guide, p);
+            }
+        }
     }
 
     private static UpdateReason GetUpdateReason(

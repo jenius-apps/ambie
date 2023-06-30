@@ -7,7 +7,6 @@ using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -57,10 +56,17 @@ public partial class VersionedAssetViewModel : ObservableObject
     private double _downloadProgressValue;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ProgressRingVisible))]
     private bool _downloadProgressVisible;
 
     [ObservableProperty]
     private bool _updateComplete;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ProgressRingVisible))]
+    private bool _loading;
+
+    public bool ProgressRingVisible => Loading || DownloadProgressVisible;
 
     public string UpdateReasonText { get; }
 
@@ -89,9 +95,9 @@ public partial class VersionedAssetViewModel : ObservableObject
             _mixMediaPlayerService.RemoveSound(_versionedAsset.Id);
         }
 
+        Loading = true;
         UpdateReason = UpdateReason.None;
         await _updateService.TriggerUpdateAsync(_versionedAsset, _downloadProgress);
-
         _telemetry.TrackEvent(TelemetryConstants.UpdateSoundClicked, new Dictionary<string, string>
         {
             { "id", _versionedAsset.Id },
@@ -103,14 +109,17 @@ public partial class VersionedAssetViewModel : ObservableObject
     {
         if (e <= 0)
         {
+            Loading = true;
             DownloadProgressVisible = false;
         }
         else if (e >= 1 && e < 100)
         {
+            Loading = false;
             DownloadProgressVisible = true;
         }
         else if (e >= 100)
         {
+            Loading = false;
             DownloadProgressVisible = false;
             UpdateComplete = true;
         }
