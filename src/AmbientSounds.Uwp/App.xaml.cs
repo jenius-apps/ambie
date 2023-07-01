@@ -445,6 +445,7 @@ sealed partial class App : Application
             .AddSingleton<CompactPageViewModel>()
             .AddTransient<ActiveTrackListViewModel>()
             .AddSingleton<AppServiceController>()
+            .AddSingleton<PlaybackModeObserver>()
             .AddSingleton<ProtocolLaunchController>()
             // object tree is all transient
             .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
@@ -531,7 +532,9 @@ sealed partial class App : Application
         // dispatcher queue loads properly on the ui thread.
         provider.GetService<AppServiceController>();
         provider.GetService<ProtocolLaunchController>();
+        provider.GetService<PlaybackModeObserver>();
         _playerTracker = provider.GetRequiredService<PlayerTelemetryTracker>();
+
         return provider;
     }
 }

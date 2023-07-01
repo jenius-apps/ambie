@@ -301,10 +301,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnFocusStateChanged(object sender, FocusState e)
     {
-        _dispatcherQueue.TryEnqueue(() =>
-        {
-            UpdateTimeBannerVisibility();
-        });
+        _dispatcherQueue.TryEnqueue(UpdateTimeBannerVisibility);
     }
 
     private void UpdateTimeBannerVisibility()
