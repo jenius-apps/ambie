@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AmbientSounds.Services;
+﻿namespace AmbientSounds.Services;
 
 /// <summary>
 /// Responsible for watching when user enables
@@ -11,26 +9,21 @@ public class PlaybackModeObserver
 {
     private readonly IFocusService _focusService;
     private readonly IGuideService _guideService;
-    private readonly IMixMediaPlayerService _mixMediaPlayerService;
 
     public PlaybackModeObserver(
         IFocusService focusService,
-        IGuideService guideService,
-        IMixMediaPlayerService mixMediaPlayerService)
+        IGuideService guideService)
     {
         _focusService = focusService;
         _guideService = guideService;
-        _mixMediaPlayerService = mixMediaPlayerService;
 
         _focusService.FocusStateChanged += OnFocusStateChanged;
-        _mixMediaPlayerService.GuidePositionChanged += OnGuidePositionChanged;
+        _guideService.GuideStarted += OnGuideStarted;
     }
 
-    private void OnGuidePositionChanged(object sender, TimeSpan e)
+    private void OnGuideStarted(object sender, string e)
     {
-        if (e > TimeSpan.MinValue &&
-            _focusService.CurrentState == FocusState.Active && 
-            _mixMediaPlayerService.CurrentGuideId is { Length: > 0 })
+        if (_focusService.CurrentState == FocusState.Active)
         {
             _focusService.StopTimer(pauseSounds: false);
         }
@@ -38,9 +31,9 @@ public class PlaybackModeObserver
 
     private void OnFocusStateChanged(object sender, FocusState e)
     {
-        if (e == FocusState.Active && _mixMediaPlayerService.CurrentGuideId is { Length: > 0 } guideId)
+        if (e == FocusState.Active)
         {
-            _guideService.Stop(guideId);
+            _guideService.Stop();
         }
     }
 }

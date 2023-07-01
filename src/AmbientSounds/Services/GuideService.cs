@@ -86,6 +86,14 @@ public class GuideService : IGuideService
         }
     }
 
+    public void Stop()
+    {
+        if (_mixMediaPlayerService.CurrentGuideId is { Length: > 0 } guideId)
+        {
+            Stop(guideId);
+        }
+    }
+
     public Task<IReadOnlyList<Guide>> GetOfflineGuidesAsync()
     {
         return _guideCache.GetOfflineGuidesAsync();

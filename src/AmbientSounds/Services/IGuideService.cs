@@ -18,4 +18,5 @@ public interface IGuideService
     Task<Guide?> GetOfflineGuideAsync(string guideId);
     Task PlayAsync(Guide guide);
     void Stop(string guideId);
+    void Stop();
 }
