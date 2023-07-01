@@ -865,4 +865,7 @@
   <data name="BackgroundSoundsText" xml:space="preserve">
     <value>Background sounds</value>
   </data>
+  <data name="MeditatingText" xml:space="preserve">
+    <value>Meditating</value>
+  </data>
 </root>

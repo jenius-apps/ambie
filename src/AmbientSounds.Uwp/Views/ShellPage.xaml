@@ -102,6 +102,42 @@
                     </animations:AnimationSet>
                 </animations:Explicit.Animations>
             </controls:TimeBanner>
+
+            <controls:TwoToneButton
+                Margin="12,0,0,0"
+                Padding="8,0"
+                Command="{x:Bind ViewModel.HandleTitleBannerCommand}"
+                Content="{x:Bind strings:Resources.MeditatingText}"
+                FontSize="10"
+                Visibility="{x:Bind ViewModel.GuideBannerVisible, Mode=OneWay}">
+                <controls:TwoToneButton.SecondaryContent>
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="12"
+                        Glyph="{StaticResource GlyphLeaves}" />
+                </controls:TwoToneButton.SecondaryContent>
+
+                <animations:Implicit.HideAnimations>
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.5" />
+                    <animations:TranslationAnimation To="0,-60,0" Duration="0:0:0.5" />
+                </animations:Implicit.HideAnimations>
+                <animations:Explicit.Animations>
+                    <animations:AnimationSet x:Name="ShowGuideBannerAnimations">
+                        <animations:TranslationAnimation
+                            From="0,-60,0"
+                            To="0,0,0"
+                            Duration="0:0:0.5" />
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.5" />
+                    </animations:AnimationSet>
+                </animations:Explicit.Animations>
+            </controls:TwoToneButton>
+
         </StackPanel>
 
         <!--  Top player panel  -->

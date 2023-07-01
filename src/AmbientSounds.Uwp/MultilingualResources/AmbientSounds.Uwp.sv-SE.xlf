@@ -1006,6 +1006,10 @@
           <source>Background sounds</source>
           <target state="new">Background sounds</target>
         </trans-unit>
+        <trans-unit id="MeditatingText" translate="yes" xml:space="preserve">
+          <source>Meditating</source>
+          <target state="new">Meditating</target>
+        </trans-unit>
       </group>
     </body>
   </file>

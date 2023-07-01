@@ -2380,6 +2380,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region MeditatingText
+        /// <summary>
+        ///   Looks up a localized string similar to: Meditating
+        /// </summary>
+        public static string MeditatingText
+        {
+            get
+            {
+                return _resourceLoader.GetString("MeditatingText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2573,6 +2586,7 @@ namespace AmbientSounds.Strings{
             SettingsPlayAfterFocusHeader,
             RelaxText,
             BackgroundSoundsText,
+            MeditatingText,
         }
 
         private static ResourceLoader _resourceLoader;
