@@ -20,6 +20,7 @@
         public const string ShellPagePremiumClicked = ShellPage + "premiumClicked";
         public const string ShellPageShareClicked = ShellPage + "shareClicked";
         public const string FocusTimeBannerClicked = ShellPage + "focusTimeBannerClicked";
+        public const string GuideBannerClicked = ShellPage + "guideBannerClicked";
 
         // updates
         private const string Updates = "updates:";
@@ -193,5 +194,13 @@
         public const string TaskCompletedExpanded = Task + "completedExpanded";
         public const string TaskCompletedCollapsed = Task + "completedCollapsed";
         public const string TasksLoaded = Task + "loaded";
+
+        // guide
+        private const string Guide = "guide:";
+        public const string GuideDownloaded = Guide + "downloaded";
+        public const string GuidePlayed = Guide + "played";
+        public const string GuideStopped = Guide + "stopped";
+        public const string GuideDeleted = Guide + "deleted";
+        public const string GuidePurchaseClicked = Guide + "purchaseClicked";
     }
 }

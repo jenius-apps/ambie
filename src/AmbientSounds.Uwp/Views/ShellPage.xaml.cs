@@ -67,7 +67,7 @@ public sealed partial class ShellPage : Page
     {
         App.Services.GetRequiredService<INavigator>().Frame = null;
         ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
-        ViewModel.Dispose();
+        ViewModel.Uninitialize();
     }
 
     private async void TeachingTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
@@ -102,6 +102,9 @@ public sealed partial class ShellPage : Page
         {
             switch (tag)
             {
+                case "meditate":
+                    ViewModel.Navigate(ContentPageType.Meditate);
+                    break;
                 case "focus":
                     ViewModel.Navigate(ContentPageType.Focus);
                     break;
@@ -133,6 +136,13 @@ public sealed partial class ShellPage : Page
             if (ViewModel.FocusTimeBannerVisible)
             {
                 await ShowTimeBannerAnimations.StartAsync();
+            }
+        }
+        else if (e.PropertyName == nameof(ViewModel.GuideBannerVisible))
+        {
+            if (ViewModel.GuideBannerVisible)
+            {
+                await ShowGuideBannerAnimations.StartAsync();
             }
         }
     }

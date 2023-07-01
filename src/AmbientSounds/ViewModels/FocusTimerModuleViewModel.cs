@@ -301,6 +301,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         {
             _telemetry.TrackEvent(TelemetryConstants.InterruptionInsightsDisplayed);
         }
+
+        UpdateButtonStates();
     }
 
     public void Uninitialize()

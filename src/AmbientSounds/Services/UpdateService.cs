@@ -1,5 +1,4 @@
 ﻿using AmbientSounds.Models;
-using CommunityToolkit.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,30 +12,73 @@ public class UpdateService : IUpdateService
     private readonly ISoundService _soundService;
     private readonly ICatalogueService _catalogueService;
     private readonly IDownloadManager _downloadManager;
+    private readonly IGuideService _guideService;
 
     public UpdateService(
         ISoundService soundService,
         ICatalogueService catalogueService,
-        IDownloadManager downloadManager)
+        IDownloadManager downloadManager,
+        IGuideService guideService)
     {
-        Guard.IsNotNull(soundService);
-        Guard.IsNotNull(catalogueService);
-        Guard.IsNotNull(downloadManager);
-
         _soundService = soundService;
         _catalogueService = catalogueService;
         _downloadManager = downloadManager;
+        _guideService = guideService;
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<(Sound, UpdateReason)>> CheckForUpdatesAsync(CancellationToken ct)
+    public async Task<IReadOnlyList<(IVersionedAsset, UpdateReason)>> CheckForUpdatesAsync(CancellationToken ct)
+    {
+        List<(IVersionedAsset, UpdateReason)> results = new();
+        var soundResults = await CheckForSoundUpdatesAsync(ct);
+        results.AddRange(soundResults);
+
+        var guideResults = await CheckForGuideUpdatesAsync(ct);
+        results.AddRange(guideResults);
+
+        return results;
+    }
+
+    private async Task<IReadOnlyList<(IVersionedAsset, UpdateReason)>> CheckForGuideUpdatesAsync(CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+
+        var installed = await _guideService.GetOfflineGuidesAsync();
+        if (installed.Count == 0)
+        {
+            return Array.Empty<(IVersionedAsset, UpdateReason)>();
+        }
+
+        var onlineGuides = await _guideService.GetOnlineGuidesAsync();
+        if (onlineGuides.Count == 0)
+        {
+            return Array.Empty<(IVersionedAsset, UpdateReason)>();
+        }
+
+        var dictionary = installed.ToDictionary(x => x.Id);
+        List<(IVersionedAsset, UpdateReason)> availableUpdates = new();
+        foreach (var onlineGuide in onlineGuides)
+        {
+            ct.ThrowIfCancellationRequested();
+            if (dictionary.TryGetValue(onlineGuide.Id, out Guide offlineGuide) &&
+                GetUpdateReason(onlineGuide, offlineGuide) is UpdateReason r &&
+                r != UpdateReason.None)
+            {
+                availableUpdates.Add((onlineGuide, r));
+            }
+        }
+
+        return availableUpdates;
+    }
+
+    private async Task<IReadOnlyList<(IVersionedAsset, UpdateReason)>> CheckForSoundUpdatesAsync(CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
 
         var installed = await _soundService.GetLocalSoundsAsync();
         if (installed.Count == 0)
         {
-            return Array.Empty<(Sound, UpdateReason)>();
+            return Array.Empty<(IVersionedAsset, UpdateReason)>();
         }
 
         var installedIds = installed.Select(x => x.Id).ToArray();
@@ -44,10 +86,10 @@ public class UpdateService : IUpdateService
         var onlineSounds = await _catalogueService.GetSoundsAsync(installedIds);
         if (onlineSounds.Count == 0)
         {
-            return Array.Empty<(Sound, UpdateReason)>();
+            return Array.Empty<(IVersionedAsset, UpdateReason)>();
         }
 
-        List<(Sound, UpdateReason)> availableUpdates = new();
+        List<(IVersionedAsset, UpdateReason)> availableUpdates = new();
         foreach (var onlineSound in onlineSounds)
         {
             ct.ThrowIfCancellationRequested();
@@ -67,7 +109,9 @@ public class UpdateService : IUpdateService
     }
 
     /// <inheritdoc/>
-    public async Task TriggerUpdateAsync(Sound onlineSound, IProgress<double> progress)
+    public async Task TriggerUpdateAsync(
+        Sound onlineSound,
+        IProgress<double> progress)
     {
         var installedSound = await _soundService.GetLocalSoundAsync(onlineSound.Id);
         if (installedSound is null || GetUpdateReason(onlineSound, installedSound) == UpdateReason.None)
@@ -83,18 +127,39 @@ public class UpdateService : IUpdateService
             installedSound.FileVersion == onlineSound.FileVersion);
     }
 
-    private UpdateReason GetUpdateReason(Sound newSound, Sound oldSound)
+    public async Task TriggerUpdateAsync(
+        IVersionedAsset asset,
+        IProgress<double> progress)
     {
-        if (newSound.MetaDataVersion > oldSound.MetaDataVersion &&
-            newSound.FileVersion > oldSound.FileVersion)
+        if (asset is Sound sound)
+        {
+            await TriggerUpdateAsync(sound, progress);
+        }
+        else if (asset is Guide guide && progress is Progress<double> p)
+        {
+            var deleted = await _guideService.DeleteAsync(guide.Id);
+
+            if (deleted)
+            {
+                await _guideService.DownloadAsync(guide, p);
+            }
+        }
+    }
+
+    private static UpdateReason GetUpdateReason(
+        IVersionedAsset newAsset,
+        IVersionedAsset oldAsset)
+    {
+        if (newAsset.MetaDataVersion > oldAsset.MetaDataVersion &&
+            newAsset.FileVersion > oldAsset.FileVersion)
         {
             return UpdateReason.MetaDataAndFile;
         }
-        else if (newSound.MetaDataVersion > oldSound.MetaDataVersion)
+        else if (newAsset.MetaDataVersion > oldAsset.MetaDataVersion)
         {
             return UpdateReason.MetaData;
         }
-        else if (newSound.FileVersion > oldSound.FileVersion)
+        else if (newAsset.FileVersion > oldAsset.FileVersion)
         {
             return UpdateReason.File;
         }

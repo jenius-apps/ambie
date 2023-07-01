@@ -1001,6 +1001,18 @@
           <source>Continue sounds after focusing</source>
           <target state="translated">Fortsæt lyde efter fokusering</target>
         </trans-unit>
+        <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
+          <source>Relax</source>
+          <target state="new">Relax</target>
+        </trans-unit>
+        <trans-unit id="BackgroundSoundsText" translate="yes" xml:space="preserve">
+          <source>Background sounds</source>
+          <target state="new">Background sounds</target>
+        </trans-unit>
+        <trans-unit id="MeditatingText" translate="yes" xml:space="preserve">
+          <source>Meditating</source>
+          <target state="new">Meditating</target>
+        </trans-unit>
       </group>
     </body>
   </file>

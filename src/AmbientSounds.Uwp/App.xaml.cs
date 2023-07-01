@@ -440,10 +440,12 @@ sealed partial class App : Application
             .AddSingleton<InterruptionInsightsViewModel>()
             .AddSingleton<DownloadMissingViewModel>()
             .AddSingleton<ShareViewModel>()
+            .AddSingleton<MeditatePageViewModel>()
             .AddSingleton<FocusPageViewModel>()
             .AddSingleton<CompactPageViewModel>()
             .AddTransient<ActiveTrackListViewModel>()
             .AddSingleton<AppServiceController>()
+            .AddSingleton<PlaybackModeObserver>()
             .AddSingleton<ProtocolLaunchController>()
             // object tree is all transient
             .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
@@ -465,6 +467,7 @@ sealed partial class App : Application
             .AddSingleton<IPresenceService, PresenceService>()
             .AddSingleton<IFileDownloader, FileDownloader>()
             .AddSingleton<ISoundVmFactory, SoundVmFactory>()
+            .AddSingleton<IGuideVmFactory, GuideVmFactory>()
             .AddSingleton<CatalogueRowVmFactory>()
             .AddSingleton<ICatalogueService, CatalogueService>()
             .AddSingleton<IVideoService, VideoService>()
@@ -480,8 +483,12 @@ sealed partial class App : Application
             .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
             .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
             .AddSingleton<IOfflineSoundRepository, OfflineSoundRepository>()
+            .AddSingleton<IOnlineGuideRepository, OnlineGuideRepository>()
+            .AddSingleton<IOfflineGuideRepository, OfflineGuideRepository>()
             .AddSingleton<ISoundCache, SoundCache>()
+            .AddSingleton<IGuideCache, GuideCache>()
             .AddSingleton<ISoundService, SoundService>()
+            .AddSingleton<IGuideService, GuideService>()
             .AddSingleton<IFocusHistoryRepository, FocusHistoryRepository>()
             .AddSingleton<IUserSettings, LocalSettings>()
             .AddSingleton<ISoundMixService, SoundMixService>()
@@ -525,7 +532,9 @@ sealed partial class App : Application
         // dispatcher queue loads properly on the ui thread.
         provider.GetService<AppServiceController>();
         provider.GetService<ProtocolLaunchController>();
+        provider.GetService<PlaybackModeObserver>();
         _playerTracker = provider.GetRequiredService<PlayerTelemetryTracker>();
+
         return provider;
     }
 }

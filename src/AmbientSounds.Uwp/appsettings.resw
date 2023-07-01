@@ -127,7 +127,7 @@
     <value>http://localhost</value>
   </data>
   <data name="TelemetryApiKey" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="UploadUrl" xml:space="preserve">
     <value>http://localhost</value>
@@ -136,7 +136,7 @@
     <value>http://localhost</value>
   </data>
   <data name="CatalogueScope" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="VideosUrl" xml:space="preserve">
     <value>http://localhost</value>
@@ -148,6 +148,9 @@
     <value>http://localhost</value>
   </data>
   <data name="PagesUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
+  <data name="GuidesUrl" xml:space="preserve">
     <value>http://localhost</value>
   </data>
 </root>

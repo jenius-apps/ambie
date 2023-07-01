@@ -70,8 +70,9 @@ public enum ContentPageType
     Home,
     Catalogue,
     Focus,
+    Meditate,
     Settings,
-    Updates
+    Updates,
 }
 
 public enum CompactViewMode

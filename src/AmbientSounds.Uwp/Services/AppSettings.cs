@@ -23,6 +23,7 @@ public class AppSettings : IAppSettings
         CatalogueScope = resourceLoader.GetString(nameof(CatalogueScope));
         PresenceUrl = resourceLoader.GetString(nameof(PresenceUrl));
         PagesUrl = resourceLoader.GetString(nameof(PagesUrl));
+        GuidesUrl = resourceLoader.GetString(nameof(GuidesUrl));
     }
 
     /// <inheritdoc/>
@@ -60,4 +61,7 @@ public class AppSettings : IAppSettings
 
     /// <inheritdoc/>
     public string PagesUrl { get; set; }
+
+    /// <inheritdoc/>
+    public string GuidesUrl { get; set; }
 }

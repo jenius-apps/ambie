@@ -69,5 +69,13 @@ namespace AmbientSounds.Services
             string previousImagePath,
             string previousFilePath, 
             bool updateDataOnly = false);
+
+        /// <summary>
+        /// Queues the given guide for download.
+        /// </summary>
+        /// <param name="guide">The guide to download.</param>
+        /// <param name="progress">Progress tracker object.</param>
+        /// <returns>Reeturns the destination path of the guide.</returns>
+        Task<string> QueueAndDownloadAsync(Guide guide, IProgress<double> progress);
     }
 }

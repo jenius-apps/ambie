@@ -47,6 +47,11 @@ public interface IAppSettings
     string VideosUrl { get; set; }
 
     /// <summary>
+    /// URL to access the guides list.
+    /// </summary>
+    string GuidesUrl { get; set; }
+
+    /// <summary>
     /// URL to access the share endpoint.
     /// </summary>
     string ShareUrl { get; set; }
