@@ -32,6 +32,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IShareService _shareService;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly IGuideService _guideService;
+    private readonly ISystemInfoProvider _systemInfoProvider;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -60,6 +61,7 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService = shareService;
         _dispatcherQueue = dispatcherQueue;
         _guideService = guideService;
+        _systemInfoProvider = systemInfoProvider;
 
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
         var isNotFirstRun = !systemInfoProvider.IsFirstRun();
@@ -75,8 +77,6 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.IntervalElapsed += OnIntervalLapsed;
             _ratingTimer.Start();
         }
-
-        IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
     }
 
     [ObservableProperty]
@@ -168,7 +168,7 @@ public partial class ShellPageViewModel : ObservableObject
         _guideService.GuideStarted += OnGuideStarted;
         _guideService.GuideStopped += OnGuideStopped;
 
-        await LoadPremiumButtonAsync();
+        await LoadPremiumContentAsync();
     }
 
     public void Uninitialize()
@@ -248,13 +248,15 @@ public partial class ShellPageViewModel : ObservableObject
         UpdateGuideBannerVisibility();
     }
 
-    private async Task LoadPremiumButtonAsync()
+    private async Task LoadPremiumContentAsync()
     {
         PremiumButtonVisible = !await _iapService.IsAnyOwnedAsync(new string[] 
         {
             IapConstants.MsStoreAmbiePlusId,
             IapConstants.MsStoreAmbiePlusLifetimeId
         });
+
+        IsMeditatePageVisible = !PremiumButtonVisible && _systemInfoProvider.GetCulture().ToLower().Contains("en");
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)
