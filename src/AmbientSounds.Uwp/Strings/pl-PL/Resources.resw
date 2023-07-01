@@ -52,7 +52,7 @@
     <value>Udostępnij link do Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
-    <value>Dodaj lub Popraw tłumaczenie</value>
+    <value>Dodaj lub popraw tłumaczenie</value>
   </data>
   <data name="OffTextBlock.Text" xml:space="preserve">
     <value>Wyłączone</value>
@@ -73,7 +73,7 @@
     <value>Wznów licznik</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
-    <value>Gotowy</value>
+    <value>Gotowe</value>
   </data>
   <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
     <value>Telemetria</value>
@@ -139,7 +139,7 @@
     <value>Motyw</value>
   </data>
   <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
-    <value>Zgodny z systemem</value>
+    <value>Motyw systemowy</value>
   </data>
   <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
     <value>Ciemny</value>
@@ -168,7 +168,7 @@
     <comment>Going back to the previous page</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
-    <value>Możliwe do pobrania</value>
+    <value>Możliwy do pobrania</value>
     <comment>The sound can be downloaded</comment>
   </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
@@ -224,7 +224,7 @@
     <value>Podgląd dźwięku</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Zatrzymany</value>
+    <value>Wstrzymano</value>
     <comment>Sound is paused</comment>
   </data>
   <data name="Playing" xml:space="preserve">
@@ -247,7 +247,7 @@
     <value>Głośność ogólna</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
-    <value>Nazwa mixu</value>
+    <value>Nazwa miksu</value>
   </data>
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>Opcjonalne</value>
@@ -312,7 +312,7 @@
     <value>Zaloguj</value>
   </data>
   <data name="AreYouSure" xml:space="preserve">
-    <value>Jesteś pewien?</value>
+    <value>Na pewno?</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Tak</value>
@@ -336,7 +336,7 @@
     <value>Odrzuć</value>
   </data>
   <data name="FirstLaunchMessage" xml:space="preserve">
-    <value>Dziękujemy za wypróbowanie Ambie. Aby osiągnąć najlepsze wrażenia z korzystania przypnij aplikację do paska zadań. Usiądź i zrelaksuj się 🏝</value>
+    <value>Dziękujemy za wypróbowanie Ambie. Dla najlepszych doświadczeń, przypnij aplikację do paska zadań! Następnie usiądź i zrelaksuj się 🏝</value>
   </data>
   <data name="HelloAndWelcome" xml:space="preserve">
     <value>Witamy serdecznie!</value>
@@ -354,7 +354,7 @@
     <value>Kolekcja</value>
   </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
-    <value>Zmixuj ze sobą do trzech dźwięków</value>
+    <value>Zmiksuj ze sobą do trzech dźwięków</value>
   </data>
   <data name="ThemeSettings" xml:space="preserve">
     <value>Motyw</value>
@@ -370,7 +370,7 @@
     <value>Zyskaj dostęp do dźwięków o wysokiej jakości</value>
   </data>
   <data name="SubscriptionText2" xml:space="preserve">
-    <value>Pobieraj wygaszacze ekranu</value>
+    <value>Pobierz wygaszacze ekranu</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
     <value>Wesprzyj rozwój aplikacji</value>
@@ -383,7 +383,7 @@
     <value>Witamy ponownie 👋🏽</value>
   </data>
   <data name="RateUsMessage" xml:space="preserve">
-    <value>Podoba ci się Ambie? Oceń nas!</value>
+    <value>Podoba ci się korzystanie z Ambie? Oceń nas!</value>
   </data>
   <data name="DownloadText" xml:space="preserve">
     <value>Pobierz</value>
@@ -410,7 +410,7 @@
     <value>Katalog wygaszaczy</value>
   </data>
   <data name="ViewPremiumInfo" xml:space="preserve">
-    <value>Informacje o premium</value>
+    <value>Informacje o usłudze premium</value>
   </data>
   <data name="ComputeShader.Clouds" xml:space="preserve">
     <value>Chmury</value>
@@ -419,7 +419,7 @@
     <value>Kolorowy dym</value>
   </data>
   <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj uruchomić Ambie ponownie bądź skontaktuj się z nami w przypadku gdy problem nadal występuje.</value>
+    <value>Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj ponownie uruchomić Ambie lub skontaktuj się z nami, jeśli problem nadal występuje.</value>
   </data>
   <data name="RenderingErrorLink.Content" xml:space="preserve">
     <value>Zgłoś problem</value>
@@ -461,10 +461,10 @@
     <value>Sesja koncentracji aktywna!</value>
   </data>
   <data name="SessionTypeFocus" xml:space="preserve">
-    <value>Skoncentruj się na wykonaniu zadania</value>
+    <value>Skoncentruj się</value>
   </data>
   <data name="SessionTypeRest" xml:space="preserve">
-    <value>Zrób sobie przerwę od pracy</value>
+    <value>Zrób sobie przerwę</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pauza</value>
@@ -482,7 +482,7 @@
     <value>Czas koncentracji (w minutach)</value>
   </data>
   <data name="FocusNotesPlaceholder" xml:space="preserve">
-    <value>Tutaj możesz zanotować dowolne notatki</value>
+    <value>Tutaj możesz zapisać dowolne notatki 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
     <value>Jaki mamy plan?</value>
@@ -500,7 +500,7 @@
     <value>Pokaż mi jak z niego korzystać</value>
   </data>
   <data name="FocusTimerHelpMessage" xml:space="preserve">
-    <value>Licznik koncentracji jest inspirowany techniką pomodoro. Technika ta opiera się na dłuższych okresach skupienia na zadaniu przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pomaga w skupieniu się!</value>
+    <value>Licznik koncentracji jest inspirowany techniką pomodoro. Technika ta opiera się na dłuższych okresach skupienia przerywanych krótkimi okresami odpoczynku. Powtarzanie tego cyklu pozwala ci skupić się na wykonaniu zadania!</value>
   </data>
   <data name="FocusTimerHelpTitle" xml:space="preserve">
     <value>Witamy w liczniku koncentracji!</value>
@@ -512,7 +512,7 @@
     <value>Dalej</value>
   </data>
   <data name="TipFocusMessage" xml:space="preserve">
-    <value>Każdy cykl dzieli się na segment koncentracji i segment odpoczynku. Ustaw długość każdego z nich. Na początek proponujemy okres 25 minut!</value>
+    <value>Każdy cykl dzieli się na segment koncentracji i segment odpoczynku. Ustaw długość segmentu koncentracji. Na początek proponujemy okres 25 minut!</value>
   </data>
   <data name="TipFocusTitle" xml:space="preserve">
     <value>Ustaw czas koncentracji</value>
@@ -524,7 +524,7 @@
     <value>Ustaw powtórzenia</value>
   </data>
   <data name="TipRestMessage" xml:space="preserve">
-    <value>Wybierz długość każdego segmentu odpoczynku. Na początek proponujemy okres 5 minut!</value>
+    <value>Wybierz długość segmentu odpoczynku. Na początek proponujemy okres 5 minut!</value>
   </data>
   <data name="TipRestTitle" xml:space="preserve">
     <value>Ustaw czas odpoczynku</value>
@@ -578,7 +578,7 @@
     <value>Niezła próba</value>
   </data>
   <data name="ResultMessageSuccess1" xml:space="preserve">
-    <value>Jesteś niesamowity</value>
+    <value>Świetnie ci idzie</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>Ambie</value>
@@ -590,25 +590,25 @@
     <value>Zadania</value>
   </data>
   <data name="TaskModuleRecentCompleted" xml:space="preserve">
-    <value>Zakończony</value>
+    <value>Zakończono</value>
   </data>
   <data name="EditText" xml:space="preserve">
-    <value>Edytować</value>
+    <value>Edytuj</value>
   </data>
   <data name="TasksCompleted" xml:space="preserve">
-    <value>Zadania ukończone</value>
+    <value>Ukończone zadania</value>
   </data>
   <data name="Timer" xml:space="preserve">
-    <value>Czas</value>
+    <value>Licznik</value>
   </data>
   <data name="TaskTitle" xml:space="preserve">
     <value>Zadanie {0}</value>
   </data>
   <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Za darmo w tym tygodniu</value>
+    <value>Darmowe w tym tygodniu!</value>
   </data>
   <data name="SettingsCompactMode" xml:space="preserve">
-    <value>Otwórz Ambie Mini podczas ustawiania ostrości</value>
+    <value>Otwórz Ambie Mini podczas korzystania z licznika koncentracji</value>
   </data>
   <data name="DurationText" xml:space="preserve">
     <value>Czas trwania</value>
@@ -623,10 +623,10 @@
     <value>Otwórz Ambie Mini</value>
   </data>
   <data name="CompactModeTooltipMessage" xml:space="preserve">
-    <value>Dzięki Ambie Mini zmniejszymy okno i wyświetlimy tylko niezbędne elementy, które pomogą Ci się skoncentrować.</value>
+    <value>W trybie Ambie Mini w zmniejszonym oknie pokazywane są tylko niezbędne elementy.</value>
   </data>
   <data name="PausesText" xml:space="preserve">
-    <value>Pauzy</value>
+    <value>Wstrzymania</value>
   </data>
   <data name="EmptyHomeMessage" xml:space="preserve">
     <value>Pobierz muzykę z katalogu</value>
@@ -635,40 +635,40 @@
     <value>Edytuj stronę startową</value>
   </data>
   <data name="EditHomePageMessage" xml:space="preserve">
-    <value>Przeciągnij i upuść muzykę, aby spersonalizować swoją stronę główną. Spróbuj teraz!</value>
+    <value>Przeciągnij i upuść dźwięki, aby dostosować swoją kolekcję. Spróbuj!</value>
   </data>
   <data name="EmptyCatalogueMessage" xml:space="preserve">
-    <value>Przepraszam za to! Nie mogliśmy załadować katalogu. Spróbuj sprawdzić połączenie internetowe.</value>
+    <value>Ups! Nie udało się załadować katalogu. Sprawdź połączenie internetowe.</value>
   </data>
   <data name="AboutAmbie" xml:space="preserve">
     <value>Informacje o aplikacji</value>
   </data>
   <data name="SettingsCompactModeDescription" xml:space="preserve">
-    <value>Ambie Mini otworzy się automatycznie podczas ustawiania ostrości</value>
+    <value>Ambie Mini otworzy się automatycznie podczas korzystania z licznika koncentracji</value>
   </data>
   <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
     <value>Powiadomimy Cię, gdy pojawią się nowe dźwięki</value>
   </data>
   <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
-    <value>Po premierze Ambie automatycznie wznowi odtwarzanie</value>
+    <value>Po uruchomieniu, Ambie automatycznie wznowi odtwarzanie</value>
   </data>
   <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
-    <value>Błędy i anonimowe informacje o użytkowaniu są zgłaszane w celu ulepszenia Ambie</value>
+    <value>Zgłaszanie błędów i wysyłanie zanonimizowanych informacji o użytkowaniu w celu ulepszenia Ambie</value>
   </data>
   <data name="BackgroundImage" xml:space="preserve">
-    <value>Obraz tła</value>
+    <value>Tło</value>
   </data>
   <data name="CustomImage" xml:space="preserve">
-    <value>Obraz niestandardowy</value>
+    <value>Niestandardowy obraz</value>
   </data>
   <data name="SettingsGeneralHeader" xml:space="preserve">
     <value>Ustawienia ogólne</value>
   </data>
   <data name="SettingsTheme" xml:space="preserve">
-    <value>Wybierz tryb</value>
+    <value>Wybierz motyw</value>
   </data>
   <data name="SettingsThemeDescription" xml:space="preserve">
-    <value>Zmienianie kolorów wyświetlanych w Ambie</value>
+    <value>Zmień motyw Ambie</value>
   </data>
   <data name="ShareMessage" xml:space="preserve">
     <value>Podziel się tym, czego słuchasz</value>
@@ -677,16 +677,16 @@
     <value>Zobaczmy, czy można je pobrać.</value>
   </data>
   <data name="MissingShareSoundsTitle" xml:space="preserve">
-    <value>Brakuje Ci muzyki</value>
+    <value>Brakujące dźwięki</value>
   </data>
   <data name="ReviewText" xml:space="preserve">
     <value>Recenzja</value>
   </data>
   <data name="ShareText" xml:space="preserve">
-    <value>Udział</value>
+    <value>Udostępnij</value>
   </data>
   <data name="CopiedText" xml:space="preserve">
-    <value>Skopiowane!</value>
+    <value>Skopiowano!</value>
   </data>
   <data name="CopyText" xml:space="preserve">
     <value>Kopiuj</value>
@@ -698,13 +698,13 @@
     <value>Odblokuj ten dźwięk</value>
   </data>
   <data name="PriceForLifetime" xml:space="preserve">
-    <value>{0} dożywotnia</value>
+    <value>{0} za dożywotnią licencję</value>
   </data>
   <data name="CheckForUpdatesText" xml:space="preserve">
     <value>Sprawdź dostępność aktualizacji</value>
   </data>
   <data name="UpdatesPageMessage1" xml:space="preserve">
-    <value>Sprawdź tutaj, czy są dostępne aktualizacje dźwięków i filmów.</value>
+    <value>Sprawdź, czy dostępne są aktualizacje dźwięków i filmów.</value>
   </data>
   <data name="UpdatesPageMessage2" xml:space="preserve">
     <value>Aktualizacje zawierają ulepszenia tłumaczeń, jakości dźwięku i nie tylko.</value>
@@ -734,7 +734,7 @@
     <value>Poprawia jakość odtwarzania, tłumaczenia i inne metadane</value>
   </data>
   <data name="InterruptionInsightsMessage" xml:space="preserve">
-    <value>Czy jest coś, czego możemy się nauczyć, aby uniknąć przyszłych zakłóceń?</value>
+    <value>Jak uniknąć przyszłych przerw w pracy?</value>
   </data>
   <data name="RecentInterruptionsText" xml:space="preserve">
     <value>Ostatnie przerwy</value>
@@ -746,12 +746,12 @@
     <value>Urządzenie wyjściowe</value>
   </data>
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
-    <value>Wybieranie miejsca odtwarzania dźwięku</value>
+    <value>Wybierz urządzenie, które ma odtwarzać dźwięk</value>
   </data>
   <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
-    <value>Dźwięki będą nadal odtwarzane po zakończeniu sesji fokusowej</value>
+    <value>Dźwięki będą nadal odtwarzane po zakończeniu sesji koncentracji</value>
   </data>
   <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
-    <value>Kontynuuj dźwięki po ustawieniu ostrości</value>
+    <value>Kontynuuj odtwarzanie dźwięków po zakończeniu sesji koncentracji</value>
   </data>
 </root>
