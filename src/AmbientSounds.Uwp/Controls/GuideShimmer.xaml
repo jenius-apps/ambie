@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.GuideShimmer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid Width="{StaticResource GuideCardWidth}" Height="{StaticResource ImageCardHeight}">
+        <labs:Shimmer CornerRadius="8" />
+        <labs:Shimmer
+            Width="160"
+            Height="18"
+            Margin="12,0,0,24"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            CornerRadius="2" />
+        <labs:Shimmer
+            Width="212"
+            Height="12"
+            Margin="12,0,0,10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            CornerRadius="2" />
+        <labs:Shimmer
+            Width="40"
+            Height="40"
+            Margin="0,0,10,10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            CornerRadius="8" />
+    </Grid>
+</UserControl>

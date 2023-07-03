@@ -2354,6 +2354,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region RelaxText
+        /// <summary>
+        ///   Looks up a localized string similar to: Relax
+        /// </summary>
+        public static string RelaxText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RelaxText");
+            }
+        }
+        #endregion
+
+        #region BackgroundSoundsText
+        /// <summary>
+        ///   Looks up a localized string similar to: Background sounds
+        /// </summary>
+        public static string BackgroundSoundsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("BackgroundSoundsText");
+            }
+        }
+        #endregion
+
+        #region MeditatingText
+        /// <summary>
+        ///   Looks up a localized string similar to: Meditating
+        /// </summary>
+        public static string MeditatingText
+        {
+            get
+            {
+                return _resourceLoader.GetString("MeditatingText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2545,6 +2584,9 @@ namespace AmbientSounds.Strings{
             SettingsOutputDeviceDescription,
             SettingsPlayAfterFocusDescription,
             SettingsPlayAfterFocusHeader,
+            RelaxText,
+            BackgroundSoundsText,
+            MeditatingText,
         }
 
         private static ResourceLoader _resourceLoader;

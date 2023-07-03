@@ -20,6 +20,7 @@ public class WindowsDownloadManager : IDownloadManager
 {
     private const string SoundsDirectory = "sounds";
     private const string VideosDirectory = "videos";
+    private const string GuidesDirectory = "guides";
     private readonly ICatalogueService _catalogueService;
     private readonly IFileDownloader _fileDownloader;
     private readonly ISoundService _soundService;
@@ -82,6 +83,26 @@ public class WindowsDownloadManager : IDownloadManager
         {
             _ = QueueAndDownloadAsync(s, new Progress<double>());
         }
+    }
+
+    /// <inheritdoc/>
+    public async Task<string> QueueAndDownloadAsync(Guide guide, IProgress<double> progress)
+    {
+        if (guide.DownloadUrl is not { Length: > 0 })
+        {
+            return string.Empty;
+        }
+
+        StorageFile destinationFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+        $"{GuidesDirectory}\\{guide.Id + guide.Extension}",
+            CreationCollisionOption.ReplaceExisting);
+
+        BackgroundDownloadService.Instance.StartDownload(
+            destinationFile,
+            guide.DownloadUrl,
+            progress);
+
+        return destinationFile.Path;
     }
 
     /// <inheritdoc/>

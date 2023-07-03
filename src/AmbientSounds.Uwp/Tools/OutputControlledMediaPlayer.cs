@@ -28,6 +28,8 @@ public class OutputControlledMediaPlayer : IMediaPlayer
     private TaskCompletionSource<bool>? _mediaOpenCompletionSource = null;
     private readonly SemaphoreSlim _outputDeviceLock = new(1, 1);
 
+    public event EventHandler<TimeSpan> PositionChanged;
+
     public OutputControlledMediaPlayer(
         IUserSettings userSettings,
         ITelemetry telemetry,
@@ -54,6 +56,7 @@ public class OutputControlledMediaPlayer : IMediaPlayer
         get => _player.Volume;
         set => _player.Volume = value;
     }
+    public TimeSpan Duration { get; }
 
     /// <inheritdoc/>
     public void Play()

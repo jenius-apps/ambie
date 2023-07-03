@@ -130,7 +130,8 @@ namespace AmbientSounds.ViewModels
 
                 // Since this is when the app is launching, try to resume automatically
                 // after populating the track list.
-                if (_userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey))
+                if (_userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey) &&
+                    _player.GetSoundIds().Length > 0)
                 {
                     _player.Play();
                     _telemetry.TrackEvent(TelemetryConstants.PlaybackAutoResume);

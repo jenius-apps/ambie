@@ -4,6 +4,7 @@ using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
+using AmbientSounds.Constants;
 
 namespace AmbientSounds.ViewModels
 {
@@ -46,7 +47,7 @@ namespace AmbientSounds.ViewModels
             DownloadProgress.ProgressChanged += OnProgressChanged;
             
             IsDownloaded = video.IsDownloaded;
-            Name = $"{video.Name} • {localizer.GetString("SizeMegaByte", video.MegaByteSize.ToString())}";
+            Name = $"{video.Name} {FocusConstants.DotSeparator} {localizer.GetString("SizeMegaByte", video.MegaByteSize.ToString())}";
         }
 
         public string Name { get; }

@@ -2,15 +2,14 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JeniusApps.Common.Telemetry;
-using JeniusApps.Common.Tools;
 using INavigator = AmbientSounds.Services.INavigator;
 using ISystemInfoProvider = AmbientSounds.Services.ISystemInfoProvider;
 
@@ -32,30 +31,8 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IShareService _shareService;
     private readonly IDispatcherQueue _dispatcherQueue;
-
-    /// <summary>
-    /// Determines if the rating message is visible.
-    /// </summary>
-    [ObservableProperty]
-    private bool _isRatingMessageVisible;
-
-    [ObservableProperty]
-    private bool _premiumButtonVisible;
-
-    /// <summary>
-    /// Determines whether or not the focus  time banner control is visible on the page.
-    /// </summary>
-    [ObservableProperty]
-    private bool _focusTimeBannerVisible;
-
-    [ObservableProperty]
-    private int _navMenuIndex = -1;
-
-    [ObservableProperty]
-    private int _footerMenuIndex = -1;
-
-    [ObservableProperty]
-    private bool _isMissingSoundsMessageVisible;
+    private readonly IGuideService _guideService;
+    private readonly ISystemInfoProvider _systemInfoProvider;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -69,20 +46,9 @@ public partial class ShellPageViewModel : ObservableObject
         ISoundMixService soundMixService,
         IMixMediaPlayerService mixMediaPlayerService,
         IShareService shareService,
+        IGuideService guideService,
         IDispatcherQueue dispatcherQueue)
     {
-        Guard.IsNotNull(userSettings);
-        Guard.IsNotNull(timer);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(navigator);
-        Guard.IsNotNull(dialogService);
-        Guard.IsNotNull(iapService);
-        Guard.IsNotNull(focusService);
-        Guard.IsNotNull(soundMixService);
-        Guard.IsNotNull(mixMediaPlayerService);
-        Guard.IsNotNull(shareService);
-        Guard.IsNotNull(dispatcherQueue);
-
         _userSettings = userSettings;
         _ratingTimer = timer;
         _telemetry = telemetry;
@@ -94,6 +60,8 @@ public partial class ShellPageViewModel : ObservableObject
         _mixMediaPlayerService = mixMediaPlayerService;
         _shareService = shareService;
         _dispatcherQueue = dispatcherQueue;
+        _guideService = guideService;
+        _systemInfoProvider = systemInfoProvider;
 
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
         var isNotFirstRun = !systemInfoProvider.IsFirstRun();
@@ -112,21 +80,36 @@ public partial class ShellPageViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private bool _guideBannerVisible;
+
+    [ObservableProperty]
+    private bool _isRatingMessageVisible;
+
+    [ObservableProperty]
+    private bool _premiumButtonVisible;
+
+    [ObservableProperty]
+    private bool _focusTimeBannerVisible;
+
+    [ObservableProperty]
+    private int _navMenuIndex = -1;
+
+    [ObservableProperty]
+    private int _footerMenuIndex = -1;
+
+    [ObservableProperty]
+    private bool _isMissingSoundsMessageVisible;
+
+    [ObservableProperty]
     private bool _menuLabelsVisible;
 
-    /// <summary>
-    /// Determines if the current mix can be saved or not.
-    /// </summary>
+    [ObservableProperty]
+    private bool _isMeditatePageVisible;
+
     public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
 
-    /// <summary>
-    /// Path to background image.
-    /// </summary>
     public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage);
 
-    /// <summary>
-    /// Determines if the background image should be shown.
-    /// </summary>
     public bool ShowBackgroundImage => !string.IsNullOrWhiteSpace(BackgroundImagePath);
 
     public void UpdateCanSave()
@@ -140,6 +123,7 @@ public partial class ShellPageViewModel : ObservableObject
         {
             _navigator.NavigateTo(pageType, contentPageNavArgs);
             UpdateTimeBannerVisibility();
+            UpdateGuideBannerVisibility();
         }
     }
 
@@ -181,8 +165,23 @@ public partial class ShellPageViewModel : ObservableObject
         _focusService.FocusStateChanged += OnFocusStateChanged;
         _navigator.ContentPageChanged += OnContentPageChanged;
         _shareService.ShareFailed += OnShareFailed;
+        _guideService.GuideStarted += OnGuideStarted;
+        _guideService.GuideStopped += OnGuideStopped;
 
-        await LoadPremiumButtonAsync();
+        await LoadPremiumContentAsync();
+    }
+
+    public void Uninitialize()
+    {
+        _ratingTimer.Stop();
+        _ratingTimer.IntervalElapsed -= OnIntervalLapsed;
+        _userSettings.SettingSet -= OnSettingSet;
+        _iapService.ProductPurchased -= OnProductPurchased;
+        _focusService.FocusStateChanged -= OnFocusStateChanged;
+        _navigator.ContentPageChanged -= OnContentPageChanged;
+        _shareService.ShareFailed -= OnShareFailed;
+        _guideService.GuideStarted -= OnGuideStarted;
+        _guideService.GuideStopped -= OnGuideStopped;
     }
 
     private void OnShareFailed(object sender, EventArgs e)
@@ -246,26 +245,18 @@ public partial class ShellPageViewModel : ObservableObject
     {
         HandleNavigationRequest(e);
         UpdateTimeBannerVisibility();
+        UpdateGuideBannerVisibility();
     }
 
-    public void Dispose()
-    {
-        _ratingTimer.Stop();
-        _ratingTimer.IntervalElapsed -= OnIntervalLapsed;
-        _userSettings.SettingSet -= OnSettingSet;
-        _iapService.ProductPurchased -= OnProductPurchased;
-        _focusService.FocusStateChanged -= OnFocusStateChanged;
-        _navigator.ContentPageChanged -= OnContentPageChanged;
-        _shareService.ShareFailed -= OnShareFailed;
-    }
-
-    private async Task LoadPremiumButtonAsync()
+    private async Task LoadPremiumContentAsync()
     {
         PremiumButtonVisible = !await _iapService.IsAnyOwnedAsync(new string[] 
         {
             IapConstants.MsStoreAmbiePlusId,
             IapConstants.MsStoreAmbiePlusLifetimeId
         });
+
+        IsMeditatePageVisible = !PremiumButtonVisible && _systemInfoProvider.GetCulture().ToLower().Contains("en");
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)
@@ -296,10 +287,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnFocusStateChanged(object sender, FocusState e)
     {
-        _dispatcherQueue.TryEnqueue(() =>
-        {
-            UpdateTimeBannerVisibility();
-        });
+        _dispatcherQueue.TryEnqueue(UpdateTimeBannerVisibility);
     }
 
     private void UpdateTimeBannerVisibility()
@@ -307,6 +295,13 @@ public partial class ShellPageViewModel : ObservableObject
         FocusTimeBannerVisible =
             _navigator.GetContentPageName() != "FocusPage" &&
             _focusService.CurrentState != FocusState.None;
+    }
+
+    private void UpdateGuideBannerVisibility()
+    {
+        GuideBannerVisible =
+            _navigator.GetContentPageName() != "MeditatePage" &&
+            _mixMediaPlayerService.CurrentGuideId is { Length: > 0 };
     }
 
     [RelayCommand]
@@ -317,6 +312,21 @@ public partial class ShellPageViewModel : ObservableObject
             Navigate(ContentPageType.Focus);
             _telemetry.TrackEvent(TelemetryConstants.FocusTimeBannerClicked);
         }
+        else if (GuideBannerVisible)
+        {
+            Navigate(ContentPageType.Meditate);
+            _telemetry.TrackEvent(TelemetryConstants.GuideBannerClicked);
+        }
+    }
+
+    private void OnGuideStopped(object sender, string e)
+    {
+        _dispatcherQueue.TryEnqueue(UpdateGuideBannerVisibility);
+    }
+
+    private void OnGuideStarted(object sender, string e)
+    {
+        _dispatcherQueue.TryEnqueue(UpdateGuideBannerVisibility);
     }
 
     public Task<bool> OpenConfirmClose()

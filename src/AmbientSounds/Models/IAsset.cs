@@ -9,12 +9,17 @@ namespace AmbientSounds.Models;
 public interface IAsset
 {
     /// <summary>
-    /// Name of sound.
+    /// Name of asset.
     /// </summary>
     string Name { get; set; }
 
     /// <summary>
-    /// Localizations for this sound.
+    /// Description of asset.
+    /// </summary>
+    string Description { get; set; }
+
+    /// <summary>
+    /// Localizations for this asset.
     /// </summary>
     IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; }
 }

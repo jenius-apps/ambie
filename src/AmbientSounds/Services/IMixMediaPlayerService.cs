@@ -34,6 +34,16 @@ namespace AmbientSounds.Services
         event EventHandler<MediaPlaybackState> PlaybackStateChanged;
 
         /// <summary>
+        /// Raised when the guide's playback position changed.
+        /// </summary>
+        event EventHandler<TimeSpan>? GuidePositionChanged;
+
+        /// <summary>
+        /// The total duration of the current guide.
+        /// </summary>
+        TimeSpan GuideDuration { get; }
+
+        /// <summary>
         /// Global volume control. Max = 1. Min = 0.
         /// </summary>
         double GlobalVolume { get; set; }
@@ -53,6 +63,12 @@ namespace AmbientSounds.Services
         /// The current global state of the player.
         /// </summary>
         MediaPlaybackState PlaybackState { get; set; }
+
+        /// <summary>
+        /// The ID of the current guide being played.
+        /// If a guide is not being played, this will be empty.
+        /// </summary>
+        string CurrentGuideId { get; }
 
         /// <summary>
         /// Cancels any current playback
@@ -120,5 +136,12 @@ namespace AmbientSounds.Services
         /// Sets the volume for the given sound.
         /// </summary>
         void SetVolume(string soundId, double value);
+
+        /// <summary>
+        /// Plays the given guide.
+        /// </summary>
+        /// <param name="guide">The guide to play.</param>
+        Task PlayGuideAsync(Guide guide);
+        Task AddRandomAsync();
     }
 }
