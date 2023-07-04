@@ -14,7 +14,7 @@
             <KeyboardAccelerator Key="S" Modifiers="Control" />
         </Button.KeyboardAccelerators>
 
-        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB4A;" />
+        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSave}" />
         <Button.Flyout>
             <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
                 <Grid>
@@ -35,7 +35,7 @@
                         VerticalAlignment="Bottom"
                         Click="Button_Click"
                         Style="{StaticResource SubtleIconButton}">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE9A1;" />
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCheckMark}" />
                     </Button>
                 </Grid>
             </Flyout>

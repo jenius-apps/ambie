@@ -47,7 +47,7 @@
             Margin="8,8,4,8"
             Click="BackBtn_Click"
             Visibility="{x:Bind webView.CanGoBack, Mode=OneWay}">
-            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphBack}" />
         </Button>
         <Button
             Grid.Column="1"

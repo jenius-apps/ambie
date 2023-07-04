@@ -39,7 +39,7 @@
             Canvas.ZIndex="1"
             Click="GoBack"
             Style="{StaticResource IconButton}">
-            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE921;" />
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphBack}" />
         </Button>
 
         <StackPanel

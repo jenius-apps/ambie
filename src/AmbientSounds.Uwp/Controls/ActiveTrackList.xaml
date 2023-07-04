@@ -183,7 +183,7 @@
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Glyph="&#xEAD4;" />
+                        Glyph="{StaticResource GlyphSound}" />
                     <TextBlock
                         Margin="16,0,0,0"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"

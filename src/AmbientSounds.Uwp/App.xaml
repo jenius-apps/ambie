@@ -114,27 +114,21 @@
             </Style>
 
             <Style x:Key="PlayTimerIcon" TargetType="FontIcon">
-                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+                <Setter Property="FontFamily" Value="{StaticResource FluentUIGlyphs}" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="Glyph" Value="&#xF5B0;" />
+                <Setter Property="Glyph" Value="{StaticResource GlyphPlay}" />
             </Style>
 
             <Style x:Key="FluentPauseTimerIcon" TargetType="FontIcon">
-                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+                <Setter Property="FontFamily" Value="{ThemeResource FluentUIGlyphs}" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="Glyph" Value="&#xE62E;" />
-            </Style>
-
-            <Style x:Key="MDL2PauseTimerIcon" TargetType="FontIcon">
-                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
-                <Setter Property="FontSize" Value="14" />
-                <Setter Property="Glyph" Value="&#xE103;" />
+                <Setter Property="Glyph" Value="{StaticResource GlyphPause}" />
             </Style>
 
             <Style x:Key="StopTimerIcon" TargetType="FontIcon">
-                <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+                <Setter Property="FontFamily" Value="{ThemeResource FluentUIGlyphs}" />
                 <Setter Property="FontSize" Value="14" />
-                <Setter Property="Glyph" Value="&#xE002;" />
+                <Setter Property="Glyph" Value="{StaticResource GlyphStop}" />
             </Style>
 
             <Style
@@ -206,46 +200,47 @@
             <x:Double x:Key="CompactImageCardWidth">74</x:Double>
             <x:Double x:Key="CompactImageCardShadowWidth">72</x:Double>
 
-            <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#fluentui</FontFamily>
-            <x:String x:Key="GlyphCalendar">&#xE972;</x:String>
-            <x:String x:Key="GlyphSettings">&#xEB5D;</x:String>
-            <x:String x:Key="GlyphDownload">&#xE9B9;</x:String>
-            <x:String x:Key="GlyphDelete">&#xE9ED;</x:String>
-            <x:String x:Key="GlyphPremium">&#xEB28;</x:String>
-            <x:String x:Key="GlyphPhoto">&#xEA83;</x:String>
-            <x:String x:Key="GlyphCompact">&#xEB1E;</x:String>
-            <x:String x:Key="GlyphExpand">&#xE922;</x:String>
-            <x:String x:Key="GlyphCollapse">&#xE923;</x:String>
-            <x:String x:Key="GlyphHome">&#xEA80;</x:String>
-            <x:String x:Key="GlyphSound">&#xEAD4;</x:String>
-            <x:String x:Key="GlyphPersonalize">&#xE9C0;</x:String>
-            <x:String x:Key="GlyphFocus">&#xEBAD;</x:String>
-            <x:String x:Key="GlyphPlay">&#xEB21;</x:String>
-            <x:String x:Key="GlyphPause">&#xEAF4;</x:String>
-            <x:String x:Key="GlyphCancel">&#xE9F9;</x:String>
-            <x:String x:Key="GlyphHelp">&#xEA7D;</x:String>
-            <x:String x:Key="GlyphSleep">&#xEB78;</x:String>
-            <x:String x:Key="GlyphCritical">&#xEA8B;</x:String>
-            <x:String x:Key="GlyphInterruption">&#xE96D;</x:String>
-            <x:String x:Key="GlyphChevronRight">&#xE9A8;</x:String>
-            <x:String x:Key="GlyphSaleTag">&#xEBAA;</x:String>
-            <x:String x:Key="GlyphBack">&#xE921;</x:String>
-            <x:String x:Key="GlyphForward">&#xE92B;</x:String>
-            <x:String x:Key="GlyphDiagnostics">&#xE902;</x:String>
-            <x:String x:Key="GlyphThreeDots">&#xEAD0;</x:String>
-            <x:String x:Key="GlyphStopwatch">&#xEBFE;</x:String>
-            <x:String x:Key="GlyphClock">&#xE9B5;</x:String>
-            <x:String x:Key="GlyphInfo">&#xEA8D;</x:String>
-            <x:String x:Key="GlyphEditHome">&#xEBA6;</x:String>
-            <x:String x:Key="GlyphNotification">&#xE908;</x:String>
-            <x:String x:Key="GlyphPaintBrush">&#xEAEE;</x:String>
-            <x:String x:Key="GlyphPallete">&#xE9C0;</x:String>
-            <x:String x:Key="GlyphShare">&#xEB60;</x:String>
-            <x:String x:Key="GlyphCheckMarkCircle">&#xE9A2;</x:String>
-            <x:String x:Key="GlyphGripper">&#xEB34;</x:String>
-            <x:String x:Key="GlyphUpdates">&#xE91C;</x:String>
-            <x:String x:Key="GlyphAudioDevice">&#xEB82;</x:String>
-            <x:String x:Key="GlyphLeaves">&#xEAA4;</x:String>
+            <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#Segoe Fluent Icons</FontFamily>
+            <x:String x:Key="GlyphCalendar">&#xE163;</x:String>
+            <x:String x:Key="GlyphSettings">&#xE713;</x:String>
+            <x:String x:Key="GlyphDownload">&#xEBD3;</x:String>
+            <x:String x:Key="GlyphDelete">&#xE107;</x:String>
+            <x:String x:Key="GlyphPremium">&#xE719;</x:String>
+            <x:String x:Key="GlyphPhoto">&#xE91B;</x:String>
+            <x:String x:Key="GlyphCompact">&#xEE49;</x:String>
+            <x:String x:Key="GlyphExpand">&#xE1D9;</x:String>
+            <x:String x:Key="GlyphCollapse">&#xE1D8;</x:String>
+            <x:String x:Key="GlyphHome">&#xE10F;</x:String>
+            <x:String x:Key="GlyphSound">&#xEC4F;</x:String>
+            <x:String x:Key="GlyphFocus">&#xF272;</x:String>
+            <x:String x:Key="GlyphPlay">&#xF5B0;</x:String>
+            <x:String x:Key="GlyphStop">&#xEE95;</x:String>
+            <x:String x:Key="GlyphPause">&#xE62E;</x:String>
+            <x:String x:Key="GlyphCancel">&#xE10A;</x:String>
+            <x:String x:Key="GlyphHelp">&#xE9CE;</x:String>
+            <x:String x:Key="GlyphSleep">&#xEC46;</x:String>
+            <x:String x:Key="GlyphInterruption">&#xEB44;</x:String>
+            <x:String x:Key="GlyphChevronRight">&#xE0E3;</x:String>
+            <x:String x:Key="GlyphSaleTag">&#xE1CB;</x:String>
+            <x:String x:Key="GlyphBack">&#xE112;</x:String>
+            <x:String x:Key="GlyphForward">&#xE111;</x:String>
+            <x:String x:Key="GlyphDiagnostics">&#xE9D9;</x:String>
+            <x:String x:Key="GlyphThreeDots">&#xE10C;</x:String>
+            <x:String x:Key="GlyphStopwatch">&#xE916;</x:String>
+            <x:String x:Key="GlyphClock">&#xE121;</x:String>
+            <x:String x:Key="GlyphEditHome">&#xF232;</x:String>
+            <x:String x:Key="GlyphNotification">&#xE7E7;</x:String>
+            <x:String x:Key="GlyphPaintBrush">&#xE771;</x:String>
+            <x:String x:Key="GlyphPallete">&#xE2B1;</x:String>
+            <x:String x:Key="GlyphShare">&#xE72D;</x:String>
+            <x:String x:Key="GlyphCheckMarkCircle">&#xEC61;</x:String>
+            <x:String x:Key="GlyphCheckMark">&#xE10B;</x:String>
+            <x:String x:Key="GlyphGripper">&#xE76F;</x:String>
+            <x:String x:Key="GlyphUpdates">&#xE118;</x:String>
+            <x:String x:Key="GlyphLeaves">&#xEC0A;</x:String>
+            <x:String x:Key="GlyphVolume">&#xE994;</x:String>
+            <x:String x:Key="GlyphSave">&#xE105;</x:String>
+            <x:String x:Key="GlyphPeople">&#xE125;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

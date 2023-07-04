@@ -182,7 +182,7 @@
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="28"
                     Foreground="White"
-                    Glyph="&#xEB7D;" />
+                    Glyph="{StaticResource GlyphVolume}" />
             </Grid>
 
 
@@ -212,7 +212,7 @@
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="14"
                             Foreground="White"
-                            Glyph="&#xEAF7;" />
+                            Glyph="{StaticResource GlyphPeople}" />
                         <TextBlock
                             Margin="4,0,0,0"
                             FontSize="12"

@@ -200,9 +200,9 @@
                                                 Visibility="{x:Bind IsPlaying, Mode=OneWay}"
                                                 Value="{x:Bind GuidePlaybackProgress, Mode=OneWay}" />
                                             <FontIcon
-                                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
                                                 FontSize="8"
-                                                Glyph="&#xE002;"
+                                                Glyph="{StaticResource GlyphStop}"
                                                 Visibility="{x:Bind IsPlaying, Mode=OneWay}" />
                                         </Grid>
                                     </Button>

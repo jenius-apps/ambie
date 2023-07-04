@@ -33,16 +33,6 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind ViewModel.CanUseFluentSystemIcons}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="PauseIcon.Style" Value="{StaticResource FluentPauseTimerIcon}" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="890" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
@@ -501,10 +491,7 @@
                         Style="{StaticResource TimerActionButton}">
                         <Grid>
                             <FontIcon Style="{StaticResource PlayTimerIcon}" Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
-                            <FontIcon
-                                x:Name="PauseIcon"
-                                Style="{StaticResource MDL2PauseTimerIcon}"
-                                Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
+                            <FontIcon Style="{StaticResource FluentPauseTimerIcon}" Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
                         </Grid>
                     </Button>
 
