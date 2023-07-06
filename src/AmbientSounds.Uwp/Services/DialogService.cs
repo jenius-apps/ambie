@@ -299,4 +299,28 @@ public class DialogService : IDialogService
 
         IsDialogOpen = false;
     }
+
+    /// <inheritdoc/>
+    public async Task<bool> OpenConfirmCloseAsync()
+    {
+        if (IsDialogOpen)
+        {
+            return false;
+        }
+
+        IsDialogOpen = true;
+        var dialog = new ContentDialog()
+        {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
+            Title = "Are you sure you want to exit Ambie?" /*Localize this later*/,
+            PrimaryButtonText = "Exit Ambie" /*Ditto*/,
+            CloseButtonText = "No" /*Ditto, again*/,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+            Content = new TextBlock() { Text = "Any sounds currently being played will stop." /*Localize this, too.*/ }
+        };
+
+        var result = await dialog.ShowAsync();
+        IsDialogOpen = false;
+        return result == ContentDialogResult.Primary;
+    }
 }
