@@ -2393,6 +2393,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region CloseRequestedMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Your sounds will stop if you close Ambie
+        /// </summary>
+        public static string CloseRequestedMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("CloseRequestedMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2587,6 +2600,7 @@ namespace AmbientSounds.Strings{
             RelaxText,
             BackgroundSoundsText,
             MeditatingText,
+            CloseRequestedMessage,
         }
 
         private static ResourceLoader _resourceLoader;

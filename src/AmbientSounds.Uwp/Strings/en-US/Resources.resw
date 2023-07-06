@@ -868,4 +868,7 @@
   <data name="MeditatingText" xml:space="preserve">
     <value>Meditating</value>
   </data>
+  <data name="CloseRequestedMessage" xml:space="preserve">
+    <value>Your sounds will stop if you close Ambie</value>
+  </data>
 </root>

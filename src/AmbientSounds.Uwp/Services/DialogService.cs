@@ -317,7 +317,7 @@ public class DialogService : IDialogService
             DefaultButton = ContentDialogButton.Close,
             CloseButtonText = Strings.Resources.CancelText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-            Content = "Your sounds will stop if you close Ambie" /*Localize this, too.*/ 
+            Content = Strings.Resources.CloseRequestedMessage
         };
 
         var result = await dialog.ShowAsync();
