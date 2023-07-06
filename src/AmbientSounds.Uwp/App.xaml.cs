@@ -34,6 +34,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Collections.Generic;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Telemetry.Uwp;
+using Windows.UI.Core.Preview;
 
 #nullable enable
 
@@ -307,6 +308,26 @@ sealed partial class App : Application
         {
             Services.GetRequiredService<ITelemetry>().TrackError(ex);
         }
+
+        // Register for close requested event here because
+        // we need the event to be handled on all pages, not just from the shell page. 
+        SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, args) =>
+        {
+            var d = args.GetDeferral();
+            bool playing = Services.GetRequiredService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing;
+
+            if (playing)
+            {
+                bool closeConfirmed = await Services.GetRequiredService<IDialogService>().OpenConfirmCloseAsync();
+                if (!closeConfirmed)
+                {
+                    // this cancels the close event.
+                    args.Handled = true;
+                }
+            }
+
+            d.Complete();
+        };
     }
 
     private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)

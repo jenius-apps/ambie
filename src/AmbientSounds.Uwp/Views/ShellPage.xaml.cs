@@ -38,27 +38,6 @@ public sealed partial class ShellPage : Page
         // Set custom title bar.
         // Source: https://learn.microsoft.com/en-us/windows/apps/develop/title-bar?tabs=winui2#interactive-content 
         Window.Current.SetTitleBar(AppTitleBar);
-
-        Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
-        async (sender, args) =>
-        {
-            args.Handled = true;
-
-            bool playing = App.Services.GetService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing;
-
-            if (playing)
-            {
-                bool result = await ViewModel.OpenConfirmClose();
-                if (result)
-                {
-                    Application.Current.Exit();
-                }
-            }
-            else
-            {
-                Application.Current.Exit();
-            }
-        };
     }
 
     public ShellPageViewModel ViewModel => (ShellPageViewModel)this.DataContext;

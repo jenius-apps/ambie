@@ -328,9 +328,4 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _dispatcherQueue.TryEnqueue(UpdateGuideBannerVisibility);
     }
-
-    public Task<bool> OpenConfirmClose()
-    {
-        return _dialogService.OpenConfirmCloseAsync();
-    }
 }
