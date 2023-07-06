@@ -133,7 +133,13 @@
                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollMode="Disabled"
                     SelectionMode="None"
-                    Visibility="{x:Bind ViewModel.OpenTaskListVisible, Mode=OneWay}" />
+                    Visibility="{x:Bind ViewModel.OpenTaskListVisible, Mode=OneWay}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
 
                 <Button
                     Grid.Row="3"
