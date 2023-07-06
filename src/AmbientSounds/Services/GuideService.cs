@@ -195,10 +195,13 @@ public class GuideService : IGuideService
 
     private void OnGuidePositionChanged(object sender, TimeSpan e)
     {
-        if (_mixMediaPlayerService.GuideDuration > TimeSpan.MinValue &&
-            _mixMediaPlayerService.GuideDuration == e)
+        if (_mixMediaPlayerService.CurrentGuideId is { Length: > 0 } guideId)
         {
-            Stop(_mixMediaPlayerService.CurrentGuideId);
+            if (_mixMediaPlayerService.GuideDuration > TimeSpan.MinValue &&
+                _mixMediaPlayerService.GuideDuration == e)
+            {
+                Stop(guideId);
+            }
         }
     }
 }
