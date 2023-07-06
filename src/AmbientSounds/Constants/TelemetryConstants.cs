@@ -202,5 +202,11 @@
         public const string GuideStopped = Guide + "stopped";
         public const string GuideDeleted = Guide + "deleted";
         public const string GuidePurchaseClicked = Guide + "purchaseClicked";
+
+        // close
+        private const string Close = "close:";
+        public const string CloseRequestedWhilePlaying = Close + "requestedWhilePlaying";
+        public const string CloseConfirmed = Close + "confirmed";
+        public const string CloseCanceled = Close + "canceled";
     }
 }
