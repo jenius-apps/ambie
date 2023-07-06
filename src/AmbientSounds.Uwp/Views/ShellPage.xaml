@@ -312,8 +312,8 @@
                             <StackPanel Orientation="Horizontal">
                                 <FontIcon
                                     x:Name="MenuIconPremium"
-                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                    Glyph="{StaticResource GlyphPremium}"
+                                    FontFamily="{StaticResource FluentUIGlyphsCustom}"
+                                    Glyph="{StaticResource GlyphCustomPremium}"
                                     Visibility="Visible" />
                                 <TextBlock Text="{x:Bind strings:Resources.GetAmbiePlus}" Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
                             </StackPanel>

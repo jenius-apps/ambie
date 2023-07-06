@@ -128,9 +128,9 @@
                                         ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
                                         Visibility="{x:Bind BuyButtonVisible, Mode=OneWay}">
                                         <FontIcon
-                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            FontFamily="{StaticResource FluentUIGlyphsCustom}"
                                             FontSize="15"
-                                            Glyph="{StaticResource GlyphPremium}" />
+                                            Glyph="{StaticResource GlyphCustomPremium}" />
                                     </Button>
 
                                     <!--  Download button and progress  -->

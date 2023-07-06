@@ -160,7 +160,7 @@
                                             VerticalAlignment="Stretch"
                                             Command="{x:Bind BuySoundCommand, Mode=OneWay}"
                                             Style="{StaticResource SubtleButton}">
-                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphsCustom}" Glyph="{StaticResource GlyphCustomPremium}" />
                                         </Button>
                                     </StackPanel>
 

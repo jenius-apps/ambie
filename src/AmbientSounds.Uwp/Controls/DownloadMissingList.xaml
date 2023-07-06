@@ -45,7 +45,7 @@
                             Style="{StaticResource SmallSubtleIconButton}"
                             ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
                             Visibility="{x:Bind local:UIHelper.InvertVisibility(IsOwned), Mode=OneWay}">
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPremium}" />
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphsCustom}" Glyph="{StaticResource GlyphCustomPremium}" />
                             <Button.Flyout>
                                 <Flyout>
                                     <local:PremiumControl CloseRequested="PremiumControl_CloseRequested" />
