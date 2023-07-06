@@ -82,7 +82,7 @@ public partial class MeditatePageViewModel : ObservableObject
             vm.IsDownloaded = offlineGuide is not null;
             vm.IsPlaying = _mixMediaPlayerService.CurrentGuideId == guide.Id 
                 && _mixMediaPlayerService.PlaybackState is MediaPlaybackState.Playing;
-            vm.IsOwned = await _iapService.IsAnyOwnedAsync(guide.IapIds);
+            vm.IsOwned = !guide.IsPremium || await _iapService.IsAnyOwnedAsync(guide.IapIds);
             Guides.Add(vm);
 
             if (PlaceholderVisible)

@@ -63,6 +63,8 @@ public partial class ShellPageViewModel : ObservableObject
         _guideService = guideService;
         _systemInfoProvider = systemInfoProvider;
 
+        IsMeditatePageVisible = _systemInfoProvider.GetCulture().ToLower().Contains("en");
+
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
         var isNotFirstRun = !systemInfoProvider.IsFirstRun();
         var isDesktop = systemInfoProvider.IsDesktop();
@@ -255,8 +257,6 @@ public partial class ShellPageViewModel : ObservableObject
             IapConstants.MsStoreAmbiePlusId,
             IapConstants.MsStoreAmbiePlusLifetimeId
         });
-
-        IsMeditatePageVisible = !PremiumButtonVisible && _systemInfoProvider.GetCulture().ToLower().Contains("en");
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)
