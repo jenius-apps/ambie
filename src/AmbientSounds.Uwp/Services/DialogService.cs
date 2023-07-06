@@ -312,11 +312,12 @@ public class DialogService : IDialogService
         var dialog = new ContentDialog()
         {
             FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
-            Title = "Are you sure you want to exit Ambie?" /*Localize this later*/,
-            PrimaryButtonText = "Exit Ambie" /*Ditto*/,
-            CloseButtonText = "No" /*Ditto, again*/,
+            Title = Strings.Resources.AreYouSure,
+            PrimaryButtonText = Strings.Resources.CloseText, 
+            DefaultButton = ContentDialogButton.Close,
+            CloseButtonText = Strings.Resources.CancelText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-            Content = new TextBlock() { Text = "Any sounds currently being played will stop." /*Localize this, too.*/ }
+            Content = "Your sounds will stop if you close Ambie" /*Localize this, too.*/ 
         };
 
         var result = await dialog.ShowAsync();
