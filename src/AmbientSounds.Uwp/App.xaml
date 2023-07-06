@@ -236,7 +236,7 @@
             <x:String x:Key="GlyphShare">&#xE72D;</x:String>
             <x:String x:Key="GlyphCheckMarkCircle">&#xEC61;</x:String>
             <x:String x:Key="GlyphCheckMark">&#xE10B;</x:String>
-            <x:String x:Key="GlyphGripper">&#xE76F;</x:String>
+            <x:String x:Key="GlyphCustomGripper">&#xEB34;</x:String>
             <x:String x:Key="GlyphUpdates">&#xE118;</x:String>
             <x:String x:Key="GlyphLeaves">&#xEC0A;</x:String>
             <x:String x:Key="GlyphVolume">&#xE994;</x:String>
