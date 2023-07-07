@@ -1003,19 +1003,19 @@
         </trans-unit>
         <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
           <source>Relax</source>
-          <target state="new">Relax</target>
+          <target state="translated">Slappe af</target>
         </trans-unit>
         <trans-unit id="BackgroundSoundsText" translate="yes" xml:space="preserve">
           <source>Background sounds</source>
-          <target state="new">Background sounds</target>
+          <target state="translated">Baggrundslyde</target>
         </trans-unit>
         <trans-unit id="MeditatingText" translate="yes" xml:space="preserve">
           <source>Meditating</source>
-          <target state="new">Meditating</target>
+          <target state="translated">Meditere</target>
         </trans-unit>
         <trans-unit id="CloseRequestedMessage" translate="yes" xml:space="preserve">
           <source>Your sounds will stop if you close Ambie</source>
-          <target state="new">Your sounds will stop if you close Ambie</target>
+          <target state="translated">Dine lyde stopper, hvis du lukker Ambie</target>
         </trans-unit>
       </group>
     </body>

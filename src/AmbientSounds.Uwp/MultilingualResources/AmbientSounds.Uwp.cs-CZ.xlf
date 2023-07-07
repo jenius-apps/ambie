@@ -998,19 +998,19 @@
         </trans-unit>
         <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
           <source>Relax</source>
-          <target state="new">Relax</target>
+          <target state="translated">Uvolnit</target>
         </trans-unit>
         <trans-unit id="BackgroundSoundsText" translate="yes" xml:space="preserve">
           <source>Background sounds</source>
-          <target state="new">Background sounds</target>
+          <target state="translated">Zvuky v pozadí</target>
         </trans-unit>
         <trans-unit id="MeditatingText" translate="yes" xml:space="preserve">
           <source>Meditating</source>
-          <target state="new">Meditating</target>
+          <target state="translated">Meditující</target>
         </trans-unit>
         <trans-unit id="CloseRequestedMessage" translate="yes" xml:space="preserve">
           <source>Your sounds will stop if you close Ambie</source>
-          <target state="new">Your sounds will stop if you close Ambie</target>
+          <target state="translated">Vaše zvuky se zastaví, pokud zavřete Ambie</target>
         </trans-unit>
       </group>
     </body>

@@ -754,4 +754,16 @@
   <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
     <value>聚焦后继续播放声音</value>
   </data>
+  <data name="RelaxText" xml:space="preserve">
+    <value>放松</value>
+  </data>
+  <data name="BackgroundSoundsText" xml:space="preserve">
+    <value>背景声音</value>
+  </data>
+  <data name="MeditatingText" xml:space="preserve">
+    <value>沉思</value>
+  </data>
+  <data name="CloseRequestedMessage" xml:space="preserve">
+    <value>如果您关闭 Ambie，您的声音将停止</value>
+  </data>
 </root>
