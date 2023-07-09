@@ -1032,7 +1032,7 @@
         </trans-unit>
         <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
           <source>Always ask me</source>
-          <target state="new">Always ask me</target>
+          <target state="translated">Mindig kérdezzen tőlem</target>
         </trans-unit>
       </group>
     </body>

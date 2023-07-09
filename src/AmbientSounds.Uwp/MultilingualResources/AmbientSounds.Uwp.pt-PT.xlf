@@ -1022,7 +1022,7 @@
         </trans-unit>
         <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
           <source>Always ask me</source>
-          <target state="new">Always ask me</target>
+          <target state="translated">Pergunte-me sempre</target>
         </trans-unit>
       </group>
     </body>

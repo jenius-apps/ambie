@@ -769,4 +769,7 @@
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>Confirmer la fermeture</value>
   </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>Toujours me demander</value>
+  </data>
 </root>

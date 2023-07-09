@@ -760,4 +760,7 @@
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>Potvrda zatvaranja</value>
   </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>Uvijek me pitaj</value>
+  </data>
 </root>

@@ -739,4 +739,7 @@
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>Sluiting bevestigen</value>
   </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>Vraag het me altijd</value>
+  </data>
 </root>

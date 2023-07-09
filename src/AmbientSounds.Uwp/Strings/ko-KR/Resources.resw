@@ -772,4 +772,7 @@
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>닫기 확인</value>
   </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>항상 내게 물어봐</value>
+  </data>
 </root>

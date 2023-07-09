@@ -772,4 +772,7 @@
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>تایید بستن</value>
   </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>همیشه از من بپرس</value>
+  </data>
 </root>

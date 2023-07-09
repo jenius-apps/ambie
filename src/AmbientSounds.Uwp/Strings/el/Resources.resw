@@ -757,4 +757,7 @@
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>Επιβεβαίωση κλεισίματος</value>
   </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>Πάντα να με ρωτάς</value>
+  </data>
 </root>

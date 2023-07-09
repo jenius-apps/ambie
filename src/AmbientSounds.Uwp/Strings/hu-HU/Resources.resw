@@ -760,4 +760,7 @@
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>Bezárás megerősítése</value>
   </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>Mindig kérdezzen tőlem</value>
+  </data>
 </root>
