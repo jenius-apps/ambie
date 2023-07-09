@@ -1016,6 +1016,10 @@
           <source>Confirm close</source>
           <target state="translated">تایید بستن</target>
         </trans-unit>
+        <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
+          <source>Always ask me</source>
+          <target state="new">Always ask me</target>
+        </trans-unit>
       </group>
     </body>
   </file>

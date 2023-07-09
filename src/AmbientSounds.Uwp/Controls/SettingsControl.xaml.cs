@@ -19,6 +19,10 @@ namespace AmbientSounds.Controls
 
         private string Version => SystemInformation.Instance.ApplicationVersion.ToFormattedString();
 
+        public void Initialize() => ViewModel.Initialize();
+
+        public void Uninitialize() => ViewModel.Uninitialize();
+
         private void OnImageClicked(object sender, ItemClickEventArgs e)
         {
             if (e.ClickedItem is string imagePath)

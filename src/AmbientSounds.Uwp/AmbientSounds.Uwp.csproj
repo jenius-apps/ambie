@@ -143,6 +143,9 @@
     <Compile Include="Controls\CompactFocusTimerModule.xaml.cs">
       <DependentUpon>CompactFocusTimerModule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ConfirmCloseDialog.xaml.cs">
+      <DependentUpon>ConfirmCloseDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DownloadMissingList.xaml.cs">
       <DependentUpon>DownloadMissingList.xaml</DependentUpon>
     </Compile>
@@ -461,6 +464,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\CompactFocusTimerModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ConfirmCloseDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

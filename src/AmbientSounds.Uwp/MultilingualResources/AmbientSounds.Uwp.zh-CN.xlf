@@ -1019,6 +1019,10 @@
           <source>Confirm close</source>
           <target state="translated">确认关闭</target>
         </trans-unit>
+        <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
+          <source>Always ask me</source>
+          <target state="new">Always ask me</target>
+        </trans-unit>
       </group>
     </body>
   </file>
