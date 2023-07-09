@@ -766,4 +766,10 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Tus sonidos se detendrán si cierras Ambie</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>Cuando se reproduzcan sonidos, muestre el cuadro de diálogo de confirmación al cerrar la aplicación</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>Confirmar cierre</value>
+  </data>
 </root>

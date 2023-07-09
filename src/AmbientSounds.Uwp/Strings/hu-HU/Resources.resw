@@ -754,4 +754,10 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>A hangok megszűnnek, ha bezárja az Ambie-t</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>Hangok lejátszásakor jelenjen meg megerősítő párbeszédpanel az alkalmazás bezárásakor</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>Bezárás megerősítése</value>
+  </data>
 </root>

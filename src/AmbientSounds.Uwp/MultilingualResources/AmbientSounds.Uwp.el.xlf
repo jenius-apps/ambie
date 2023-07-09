@@ -1008,6 +1008,14 @@
           <source>Your sounds will stop if you close Ambie</source>
           <target state="translated">Οι ήχοι σας θα σταματήσουν αν κλείσετε το Ambie</target>
         </trans-unit>
+        <trans-unit id="SettingsConfirmCloseDescription" translate="yes" xml:space="preserve">
+          <source>When sounds are playing, show confirmation dialog when closing the app</source>
+          <target state="translated">Κατά την αναπαραγωγή ήχων, εμφάνιση παραθύρου διαλόγου επιβεβαίωσης κατά το κλείσιμο της εφαρμογής</target>
+        </trans-unit>
+        <trans-unit id="SettingsConfirmCloseHeader" translate="yes" xml:space="preserve">
+          <source>Confirm close</source>
+          <target state="translated">Επιβεβαίωση κλεισίματος</target>
+        </trans-unit>
       </group>
     </body>
   </file>

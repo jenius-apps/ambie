@@ -314,9 +314,9 @@ sealed partial class App : Application
         SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, args) =>
         {
             var d = args.GetDeferral();
-            bool playing = Services.GetRequiredService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing;
 
-            if (playing)
+            if (Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ConfirmCloseKey) &&
+                Services.GetRequiredService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing)
             {
                 var telemetry = Services.GetRequiredService<ITelemetry>();
                 telemetry.TrackEvent(TelemetryConstants.CloseRequestedWhilePlaying);

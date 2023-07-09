@@ -766,4 +766,10 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>如果您关闭 Ambie，您的声音将停止</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>播放声音时，关闭应用程序时显示确认对话框</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>确认关闭</value>
+  </data>
 </root>

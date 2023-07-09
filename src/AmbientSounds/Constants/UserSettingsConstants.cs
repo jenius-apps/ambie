@@ -132,6 +132,11 @@ namespace AmbientSounds.Constants
         public const string PlayAfterFocusKey = "PlayAfterFocus";
 
         /// <summary>
+        /// Used to remember if Ambie should show confirmation dialog when users try to close while sounds are playing.
+        /// </summary>
+        public const string ConfirmCloseKey = "ConfirmCloseWhilePlaying";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -159,6 +164,7 @@ namespace AmbientSounds.Constants
             { HasLoadedPackagedSoundsKey, false },
             { OutputAudioDeviceId, string.Empty }, 
             { PlayAfterFocusKey, true }, 
+            { ConfirmCloseKey, true },
         };
     }
 }

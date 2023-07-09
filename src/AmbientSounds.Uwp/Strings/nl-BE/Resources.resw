@@ -733,4 +733,10 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Je geluiden stoppen als je Ambie sluit</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>Wanneer geluiden worden afgespeeld, geeft u het bevestigingsdialoogvenster weer bij het sluiten van de app</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>Sluiting bevestigen</value>
+  </data>
 </root>

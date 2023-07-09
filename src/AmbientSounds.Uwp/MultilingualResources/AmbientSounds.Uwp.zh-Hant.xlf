@@ -1011,6 +1011,14 @@
           <source>Your sounds will stop if you close Ambie</source>
           <target state="translated">如果您關閉 Ambie，您的聲音將停止</target>
         </trans-unit>
+        <trans-unit id="SettingsConfirmCloseDescription" translate="yes" xml:space="preserve">
+          <source>When sounds are playing, show confirmation dialog when closing the app</source>
+          <target state="translated">播放聲音時，關閉應用程式時顯示確認對話方塊</target>
+        </trans-unit>
+        <trans-unit id="SettingsConfirmCloseHeader" translate="yes" xml:space="preserve">
+          <source>Confirm close</source>
+          <target state="translated">確認關閉</target>
+        </trans-unit>
       </group>
     </body>
   </file>

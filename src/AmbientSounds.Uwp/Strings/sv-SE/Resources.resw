@@ -766,4 +766,10 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Dina ljud slutar om du stänger Ambie</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>När ljud spelas upp visar du bekräftelsedialogrutan när du stänger appen</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>Bekräfta stängning</value>
+  </data>
 </root>

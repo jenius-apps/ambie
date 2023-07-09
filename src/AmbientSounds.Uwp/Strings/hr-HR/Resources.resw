@@ -754,4 +754,10 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Vaši će se zvukovi zaustaviti ako zatvorite Ambie</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>Kada se zvukovi reproduciraju, prikaži dijaloški okvir potvrde prilikom zatvaranja aplikacije</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>Potvrda zatvaranja</value>
+  </data>
 </root>

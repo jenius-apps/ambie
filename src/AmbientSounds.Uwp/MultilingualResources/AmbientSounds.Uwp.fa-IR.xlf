@@ -1008,6 +1008,14 @@
           <source>Your sounds will stop if you close Ambie</source>
           <target state="translated">صدای شما متوقف خواهد شد اگر امبی را ببندید</target>
         </trans-unit>
+        <trans-unit id="SettingsConfirmCloseDescription" translate="yes" xml:space="preserve">
+          <source>When sounds are playing, show confirmation dialog when closing the app</source>
+          <target state="translated">هنگامی که صداها پخش می شوند، هنگام بستن برنامه، گفتگوی تایید را نشان دهید</target>
+        </trans-unit>
+        <trans-unit id="SettingsConfirmCloseHeader" translate="yes" xml:space="preserve">
+          <source>Confirm close</source>
+          <target state="translated">تایید بستن</target>
+        </trans-unit>
       </group>
     </body>
   </file>
