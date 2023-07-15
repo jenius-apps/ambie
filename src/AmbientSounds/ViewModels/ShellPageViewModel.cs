@@ -4,10 +4,12 @@ using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Models;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using INavigator = AmbientSounds.Services.INavigator;
@@ -47,7 +49,8 @@ public partial class ShellPageViewModel : ObservableObject
         IMixMediaPlayerService mixMediaPlayerService,
         IShareService shareService,
         IGuideService guideService,
-        IDispatcherQueue dispatcherQueue)
+        IDispatcherQueue dispatcherQueue,
+        ILocalizer localizer)
     {
         _userSettings = userSettings;
         _ratingTimer = timer;
@@ -62,6 +65,11 @@ public partial class ShellPageViewModel : ObservableObject
         _dispatcherQueue = dispatcherQueue;
         _guideService = guideService;
         _systemInfoProvider = systemInfoProvider;
+
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", "home"));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", "catalogue"));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", "focus"));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", "relax"));
 
         IsMeditatePageVisible = _systemInfoProvider.GetCulture().ToLower().Contains("en");
 
@@ -112,6 +120,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _isMeditatePageVisible;
+
+    public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
     public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
 
@@ -332,5 +342,24 @@ public partial class ShellPageViewModel : ObservableObject
     private void OnGuideStarted(object sender, string e)
     {
         _dispatcherQueue.TryEnqueue(UpdateGuideBannerVisibility);
+    }
+
+    [RelayCommand]
+    private void NavigateToPage(MenuItem? menuItem)
+    {
+        if (menuItem?.Tag is null)
+        {
+            return;
+        }
+
+        UpdateSelectedMenu(menuItem.Tag);
+    }
+
+    private void UpdateSelectedMenu(string tag)
+    {
+        foreach (var item in MenuItems)
+        {
+            item.IsSelected = tag == item.Tag;
+        }
     }
 }

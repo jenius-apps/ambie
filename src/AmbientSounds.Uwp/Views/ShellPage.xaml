@@ -5,13 +5,37 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style
+            x:Key="LeftNavButtonStyle"
+            BasedOn="{StaticResource DefaultButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Margin" Value="12,0,12,4" />
+        </Style>
+
+        <Style
+            x:Key="LeftNavAccentButtonStyle"
+            BasedOn="{StaticResource AccentButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Margin" Value="12,0,12,4" />
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <VisualStateManager.VisualStateGroups>
@@ -191,7 +215,13 @@
             PaneBackground="{ThemeResource AltHostBrush}">
             <SplitView.Pane>
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
                     <Rectangle
+                        Grid.RowSpan="2"
                         Width="1"
                         Margin="0,0,-1,0"
                         HorizontalAlignment="Right"
@@ -202,15 +232,48 @@
                         Margin="20,40,0,0"
                         VerticalAlignment="Top"
                         Orientation="Horizontal">
-                        <Image Width="32" Source="ms-appx:///Assets/logo.png" />
+                        <Image Width="28" Source="ms-appx:///Assets/logo.png" />
                         <TextBlock
                             Margin="12,0,0,0"
                             VerticalAlignment="Center"
                             FontSize="18"
                             Text="{x:Bind strings:Resources.AppDisplayName}"
                             Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-
                     </StackPanel>
+
+                    <ItemsControl
+                        Grid.Row="1"
+                        Margin="0,24,0,0"
+                        ItemsSource="{x:Bind ViewModel.MenuItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="models:MenuItem">
+                                <Grid>
+                                    <Button
+                                        AutomationProperties.Name="{x:Bind Text}"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        Command="{x:Bind ActionCommand}"
+                                        CommandParameter="{x:Bind}"
+                                        Style="{StaticResource LeftNavButtonStyle}"
+                                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(IsSelected), Mode=OneWay}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
+                                            <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button
+                                        AutomationProperties.Name="{x:Bind Text}"
+                                        Style="{StaticResource LeftNavAccentButtonStyle}"
+                                        Visibility="{x:Bind IsSelected, Mode=OneWay}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
+                                            <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Grid>
             </SplitView.Pane>
 
