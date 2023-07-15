@@ -15,8 +15,8 @@
 
     <Grid>
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="PageStateGroup" CurrentStateChanged="SizeStateChanged">
-                <VisualState x:Name="WidePageState">
+            <VisualStateGroup CurrentStateChanged="SizeStateChanged">
+                <!--<VisualState x:Name="WidePageState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowBreakpoint}" />
                     </VisualState.StateTriggers>
@@ -30,6 +30,48 @@
                         <Setter Target="NavViewGrid.Margin" Value="16,0,0,12" />
                         <Setter Target="MainFrame.Margin" Value="8,0,0,0" />
                         <Setter Target="TrackList.ShowList" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>-->
+            </VisualStateGroup>
+
+            <VisualStateGroup x:Name="PageStateGroup" CurrentStateChanged="SizeStateChanged">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1920}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSplitView.OpenPaneLength" Value="332" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSplitView.OpenPaneLength" Value="244" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint920}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSplitView.OpenPaneLength" Value="200" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SmallestWidthState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsWin11, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSplitView.PaneBackground" Value="Transparent" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -64,7 +106,8 @@
             <controls:TitleBarLogo
                 x:Name="TitleLogo"
                 Grid.Column="1"
-                Margin="12,14,0,0" />
+                Margin="12,14,0,0"
+                Visibility="Collapsed" />
         </Grid>
 
         <!--  title bar content  -->
@@ -140,8 +183,47 @@
 
         </StackPanel>
 
+        <SplitView
+            x:Name="RootSplitView"
+            DisplayMode="Inline"
+            IsPaneOpen="True"
+            OpenPaneLength="72"
+            PaneBackground="{ThemeResource AltHostBrush}">
+            <SplitView.Pane>
+                <Grid>
+                    <Rectangle
+                        Width="1"
+                        Margin="0,0,-1,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
+                        Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
+
+                    <StackPanel
+                        Margin="20,40,0,0"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                        <Image Width="32" Source="ms-appx:///Assets/logo.png" />
+                        <TextBlock
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Text="{x:Bind strings:Resources.AppDisplayName}"
+                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
+
+                    </StackPanel>
+                </Grid>
+            </SplitView.Pane>
+
+            <Border Background="{ThemeResource DefaultPageBackgroundBrush}">
+                <Frame />
+            </Border>
+        </SplitView>
+
         <!--  Top player panel  -->
-        <Grid x:Name="TopPlayerPanel" Margin="0,44,0,0">
+        <Grid
+            x:Name="TopPlayerPanel"
+            Margin="0,44,0,0"
+            Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />

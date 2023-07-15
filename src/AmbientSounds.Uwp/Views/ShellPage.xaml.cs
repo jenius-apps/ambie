@@ -27,7 +27,7 @@ public sealed partial class ShellPage : Page
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
-        ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState == WidePageState;
+        UpdateLabelVisibility();
 
         if (App.IsTenFoot)
         {
@@ -126,7 +126,12 @@ public sealed partial class ShellPage : Page
 
     private void SizeStateChanged(object sender, VisualStateChangedEventArgs e)
     {
-        ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState == WidePageState;
+        UpdateLabelVisibility();
+    }
+
+    private void UpdateLabelVisibility()
+    {
+        ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState != SmallestWidthState;
     }
 
     private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)

@@ -14,6 +14,8 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="DefaultPageBackgroundBrush" Color="White" />
+
                     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#539AFF" />
                         <GradientStop Offset="1" Color="#53BEFF" />
@@ -31,8 +33,17 @@
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="#e9e9e9" />
                     <SolidColorBrush x:Key="CardStrokeBrush" Color="#d1d1d1" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="White" />
+
+                    <AcrylicBrush
+                        x:Key="AltHostBrush"
+                        BackgroundSource="HostBackdrop"
+                        FallbackColor="{ThemeResource SystemChromeLowColor}"
+                        TintColor="{ThemeResource SystemAltHighColor}"
+                        TintOpacity="0.8" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="DefaultPageBackgroundBrush" Color="#121212" />
+
                     <LinearGradientBrush x:Key="BlueGradientBrush" StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="#427BCC" />
                         <GradientStop Offset="1" Color="#539AFF" />
@@ -50,8 +61,16 @@
                     <SolidColorBrush x:Key="CardBackgroundBrush" Color="{StaticResource SystemChromeMediumColor}" />
                     <SolidColorBrush x:Key="CardStrokeBrush" Color="#1e1e1e" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="#111111" />
+
+                    <AcrylicBrush
+                        x:Key="AltHostBrush"
+                        BackgroundSource="HostBackdrop"
+                        FallbackColor="{ThemeResource SystemChromeLowColor}"
+                        TintColor="{ThemeResource SystemAltHighColor}"
+                        TintOpacity="0.8" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="HighContrast">
+                    <StaticResource x:Key="DefaultPageBackgroundBrush" ResourceKey="SystemColorWindowColor" />
                     <SolidColorBrush x:Key="BlueGradientBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundBrush" Color="{StaticResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="FallbackBackgroundOppositeBrush" Color="{StaticResource SystemColorWindowColor}" />
@@ -60,8 +79,13 @@
                     <SolidColorBrush x:Key="CardStrokeBrush" Color="{StaticResource SystemColorWindowTextColor}" />
                     <SolidColorBrush x:Key="ContentBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
                     <SolidColorBrush x:Key="ProgressRingGhostForeground" Color="Transparent" />
+                    <StaticResource x:Key="AltHostBrush" ResourceKey="SystemColorWindowColor" />
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
+
+            <x:Double x:Key="PageBreakpoint920">920</x:Double>
+            <x:Double x:Key="PageBreakpoint1260">1260</x:Double>
+            <x:Double x:Key="PageBreakpoint1920">1920</x:Double>
 
             <Style x:Key="RoundButtonStyle" TargetType="Button">
                 <Setter Property="Width" Value="40" />

@@ -79,7 +79,12 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.IntervalElapsed += OnIntervalLapsed;
             _ratingTimer.Start();
         }
+
+        IsWin11 = systemInfoProvider.CanUseFluentSystemIcons();
     }
+
+    [ObservableProperty]
+    private bool _isWin11;
 
     [ObservableProperty]
     private bool _guideBannerVisible;
