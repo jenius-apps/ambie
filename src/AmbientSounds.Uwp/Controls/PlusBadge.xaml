@@ -24,12 +24,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Width="32" Height="24">
-        <Rectangle
-            Fill="{ThemeResource BadgeBrush}"
-            RadiusX="4"
-            RadiusY="4"
-            Stretch="Fill" />
+    <Grid Height="20">
+        <Rectangle Fill="{ThemeResource BadgeBrush}" Stretch="Fill" />
 
         <!--  No need to translate this since it's a brand  -->
         <TextBlock
@@ -37,7 +33,14 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             AutomationProperties.AccessibilityView="Raw"
+            FontSize="12"
             Foreground="White"
-            Text="A+" />
+            Text="Ambie+" />
+
+        <Rectangle
+            Height="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Bottom"
+            Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
     </Grid>
 </UserControl>
