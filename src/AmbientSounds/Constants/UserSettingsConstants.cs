@@ -99,6 +99,12 @@ namespace AmbientSounds.Constants
         public const string HasClosedFocusHelpMessageKey = "HasClosedFocusHelpMessage";
 
         /// <summary>
+        /// Used to remember if the user has clicked "Don't show this again" on
+        /// the system focus mode message.
+        /// </summary>
+        public const string HasIgnoredFocusModeMessageKey = "HasIgnoredFocusModeMessage";
+
+        /// <summary>
         /// Used to remember if the user has closed the interruption help
         /// at least once.
         /// </summary>
@@ -157,6 +163,7 @@ namespace AmbientSounds.Constants
             { DisableSmtcSupportKey, false },
             { LastUsedScreensaverKey, string.Empty },
             { HasClosedFocusHelpMessageKey, false },
+            { HasIgnoredFocusModeMessageKey, false },
             { HasClosedInterruptionMessageKey, false },
             { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
             { DevicePresenceIdKey, string.Empty },

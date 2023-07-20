@@ -39,6 +39,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private readonly IDispatcherQueue _dispatcherQueue;
     private bool _isHelpMessageVisible;
     private bool _isFocusMessageVisible;
+    private bool _isFocusMessageIgnored;
     private int _focusLength;
     private int _restLength;
     private int _repetitions;
@@ -163,6 +164,19 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public bool IsHelpIconVisible => !IsHelpMessageVisible && SlidersEnabled;
 
+    public bool IsFocusMessageHidden = false;
+
+    public bool IsFocusMessageIgnored
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.HasIgnoredFocusModeMessageKey);
+        set
+        {
+            SetProperty(ref _isFocusMessageIgnored, value);
+            _userSettings.Set(UserSettingsConstants.HasIgnoredFocusModeMessageKey, value);
+            OnPropertyChanged(nameof(IsFocusMessageVisible));
+        }
+    }
+
     public bool IsHelpMessageVisible
     {
         get => _isHelpMessageVisible;
@@ -180,7 +194,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public bool IsFocusMessageVisible
     {
-        get => !IsHelpMessageVisible && IsFocusEnabled;
+        get => !IsFocusMessageIgnored && !IsFocusMessageHidden && IsFocusEnabled && !IsHelpMessageVisible;
         set
         {
             SetProperty(ref _isFocusMessageVisible, value);

@@ -13,6 +13,8 @@ using Windows.Foundation.Metadata;
 using Windows.UI.Shell;
 using System;
 using JeniusApps.Common.Tools;
+using JeniusApps.Common.Settings;
+using IUserSettings = AmbientSounds.Services.IUserSettings;
 
 namespace AmbientSounds.Controls;
 
@@ -181,5 +183,16 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
                     CommonTelemetryContent);
             }
         }
+    }
+
+    private void OnFocusMessageCloseClicked(InfoBar sender, object args)
+    {
+        // Hides the message until the app is restarted.
+        ViewModel.IsFocusMessageHidden = true;
+    }
+
+    private void OnFocusMessageIgnoreClicked(object sender, RoutedEventArgs e)
+    {
+        ViewModel.IsFocusMessageIgnored = true;
     }
 }
