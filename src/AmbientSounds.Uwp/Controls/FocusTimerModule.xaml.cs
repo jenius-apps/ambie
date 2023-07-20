@@ -15,6 +15,7 @@ using System;
 using JeniusApps.Common.Tools;
 using JeniusApps.Common.Settings;
 using IUserSettings = AmbientSounds.Services.IUserSettings;
+using Windows.System;
 
 namespace AmbientSounds.Controls;
 
@@ -194,5 +195,13 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
     private void OnFocusMessageIgnoreClicked(object sender, RoutedEventArgs e)
     {
         ViewModel.IsFocusMessageIgnored = true;
+    }
+
+    private void OnNotificationSettingsClicked(object sender, RoutedEventArgs e)
+    {
+        Uri settingsUri = new Uri("ms-settings:notifications");
+
+        // Can't use await here.
+        Launcher.LaunchUriAsync(settingsUri).AsTask().Wait();
     }
 }

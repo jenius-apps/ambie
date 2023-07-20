@@ -85,10 +85,14 @@
             CloseButtonClick="OnFocusMessageCloseClicked"
             Message="Ambie may not be able to send you notifications while the system's Focus mode is active. Consider adding an exception for Ambie."
             Visibility="{x:Bind ViewModel.IsFocusMessageVisible, Mode=OneWay}">
-            <winui:InfoBar.ActionButton>
-                <Button Content="Don't show this again"
-                        Click="OnFocusMessageIgnoreClicked"/>
-            </winui:InfoBar.ActionButton>
+			<winui:InfoBar.Content>
+				<StackPanel Spacing="8" Orientation="Horizontal" Margin="0,0,0,20">
+					<Button Content="Open notification settings"
+							Click="OnNotificationSettingsClicked"/>
+					<HyperlinkButton Content="Don't show this again"
+									 Click="OnFocusMessageIgnoreClicked"/>
+				</StackPanel>
+			</winui:InfoBar.Content>
         </winui:InfoBar>
 
         <winui:InfoBar
