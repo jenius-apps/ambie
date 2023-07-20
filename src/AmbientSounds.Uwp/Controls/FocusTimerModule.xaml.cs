@@ -40,7 +40,7 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
 
                 ViewModel.IsFocusEnabled = manager.IsFocusActive;
 
-                manager.IsFocusActiveChanged += Manager_IsFocusActiveChanged;
+                manager.IsFocusActiveChanged += OnFocusActiveToggled;
             }
         }
     }
@@ -129,7 +129,7 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
         TeachingTip4.IsOpen = false;
     }
 
-    private void Manager_IsFocusActiveChanged(FocusSessionManager sender, object args)
+    private void OnFocusActiveToggled(FocusSessionManager sender, object args)
     {
         // Must run in UI thread, otherwise it gets mad.
         _dispatcherQueue.TryEnqueue(() =>
