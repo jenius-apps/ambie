@@ -1,0 +1,59 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.MenuItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style
+            x:Key="LeftNavButtonStyle"
+            BasedOn="{StaticResource DefaultButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Margin" Value="12,0,12,4" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <Style
+            x:Key="LeftNavAccentButtonStyle"
+            BasedOn="{StaticResource AccentButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Margin" Value="12,0,12,4" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Button
+            AutomationProperties.Name="{x:Bind Text}"
+            Command="{x:Bind Command}"
+            CommandParameter="{x:Bind CommandParameter}"
+            Style="{StaticResource LeftNavButtonStyle}"
+            ToolTipService.ToolTip="{x:Bind Text}"
+            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(IsSelected), Mode=OneWay}">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
+                <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
+            </StackPanel>
+        </Button>
+        <Button
+            AutomationProperties.Name="{x:Bind Text}"
+            Style="{StaticResource LeftNavAccentButtonStyle}"
+            Visibility="{x:Bind IsSelected, Mode=OneWay}">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
+                <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>
