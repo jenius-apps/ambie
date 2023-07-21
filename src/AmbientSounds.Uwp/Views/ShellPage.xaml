@@ -20,7 +20,7 @@
             x:Key="LeftNavButtonStyle"
             BasedOn="{StaticResource DefaultButtonStyle}"
             TargetType="Button">
-            <Setter Property="Height" Value="40" />
+            <Setter Property="Height" Value="36" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Margin" Value="12,0,12,4" />
@@ -30,7 +30,7 @@
             x:Key="LeftNavAccentButtonStyle"
             BasedOn="{StaticResource AccentButtonStyle}"
             TargetType="Button">
-            <Setter Property="Height" Value="40" />
+            <Setter Property="Height" Value="36" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Margin" Value="12,0,12,4" />
@@ -87,6 +87,10 @@
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitleLogo.TextVisible" Value="Collapsed" />
+                        <Setter Target="TitleLogo.Margin" Value="24,14,0,0" />
+                    </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
             <VisualStateGroup>
@@ -118,7 +122,8 @@
             x:Name="AppTitleBar"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
-            Background="Transparent">
+            Background="Transparent"
+            Canvas.ZIndex="1">
             <!--  Source: https://learn.microsoft.com/en-us/windows/apps/develop/title-bar?tabs=winui2#interactive-content  -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftPaddingColumn" Width="0" />
@@ -130,8 +135,11 @@
             <controls:TitleBarLogo
                 x:Name="TitleLogo"
                 Grid.Column="1"
-                Margin="12,14,0,0"
-                Visibility="Collapsed" />
+                Margin="14,14,0,0">
+                <animations:Implicit.Animations>
+                    <animations:OffsetAnimation />
+                </animations:Implicit.Animations>
+            </controls:TitleBarLogo>
         </Grid>
 
         <!--  title bar content  -->
@@ -228,22 +236,16 @@
                         VerticalAlignment="Stretch"
                         Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
 
-                    <StackPanel
-                        Margin="20,40,0,0"
-                        VerticalAlignment="Top"
-                        Orientation="Horizontal">
-                        <Image Width="28" Source="ms-appx:///Assets/logo.png" />
-                        <TextBlock
-                            Margin="12,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="18"
-                            Text="{x:Bind strings:Resources.AppDisplayName}"
-                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                    </StackPanel>
+                    <AutoSuggestBox
+                        Margin="12,48,12,0"
+                        VerticalContentAlignment="Center"
+                        FontSize="12"
+                        PlaceholderText="Search"
+                        QueryIcon="Find" />
 
                     <ItemsControl
                         Grid.Row="1"
-                        Margin="0,24,0,0"
+                        Margin="0,12,0,0"
                         ItemsSource="{x:Bind ViewModel.MenuItems}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">
@@ -257,7 +259,10 @@
                                         Style="{StaticResource LeftNavButtonStyle}"
                                         Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(IsSelected), Mode=OneWay}">
                                         <StackPanel Orientation="Horizontal">
-                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="16"
+                                                Glyph="{x:Bind Glyph}" />
                                             <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
                                         </StackPanel>
                                     </Button>
@@ -266,7 +271,10 @@
                                         Style="{StaticResource LeftNavAccentButtonStyle}"
                                         Visibility="{x:Bind IsSelected, Mode=OneWay}">
                                         <StackPanel Orientation="Horizontal">
-                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="16"
+                                                Glyph="{x:Bind Glyph}" />
                                             <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
                                         </StackPanel>
                                     </Button>
