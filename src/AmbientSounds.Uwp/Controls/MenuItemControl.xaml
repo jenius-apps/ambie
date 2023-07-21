@@ -34,22 +34,26 @@
     </UserControl.Resources>
 
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsSelected, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ButtonItem.Style" Value="{StaticResource LeftNavAccentButtonStyle}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Button
+            x:Name="ButtonItem"
             AutomationProperties.Name="{x:Bind Text}"
             Command="{x:Bind Command}"
             CommandParameter="{x:Bind CommandParameter}"
             Style="{StaticResource LeftNavButtonStyle}"
-            ToolTipService.ToolTip="{x:Bind Text}"
-            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(IsSelected), Mode=OneWay}">
-            <StackPanel Orientation="Horizontal">
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
-                <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
-            </StackPanel>
-        </Button>
-        <Button
-            AutomationProperties.Name="{x:Bind Text}"
-            Style="{StaticResource LeftNavAccentButtonStyle}"
-            Visibility="{x:Bind IsSelected, Mode=OneWay}">
+            ToolTipService.ToolTip="{x:Bind Text}">
             <StackPanel Orientation="Horizontal">
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
                 <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
