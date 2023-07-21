@@ -270,6 +270,7 @@
                                         Command="{x:Bind ActionCommand}"
                                         CommandParameter="{x:Bind}"
                                         Style="{StaticResource LeftNavButtonStyle}"
+                                        ToolTipService.ToolTip="{x:Bind Text}"
                                         Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(IsSelected), Mode=OneWay}">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
