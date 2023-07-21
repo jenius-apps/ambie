@@ -267,6 +267,7 @@
             <x:String x:Key="GlyphSave">&#xE105;</x:String>
             <x:String x:Key="GlyphPeople">&#xE125;</x:String>
             <x:String x:Key="GlyphPowerIcon">&#xE7E8;</x:String>
+            <x:String x:Key="GlyphFind">&#xE11A;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

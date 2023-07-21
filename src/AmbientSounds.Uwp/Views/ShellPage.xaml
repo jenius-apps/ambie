@@ -24,6 +24,8 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="Margin" Value="12,0,12,4" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
 
         <Style
@@ -90,6 +92,8 @@
                     <VisualState.Setters>
                         <Setter Target="TitleLogo.TextVisible" Value="Collapsed" />
                         <Setter Target="TitleLogo.Margin" Value="24,14,0,0" />
+                        <Setter Target="SearchBox.Visibility" Value="Collapsed" />
+                        <Setter Target="SearchButton.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -236,12 +240,23 @@
                         VerticalAlignment="Stretch"
                         Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
 
-                    <AutoSuggestBox
-                        Margin="12,48,12,0"
-                        VerticalContentAlignment="Center"
-                        FontSize="12"
-                        PlaceholderText="Search"
-                        QueryIcon="Find" />
+                    <Grid Margin="0,48,0,0">
+                        <AutoSuggestBox
+                            x:Name="SearchBox"
+                            Margin="12,0,12,0"
+                            VerticalContentAlignment="Center"
+                            FontSize="12"
+                            PlaceholderText="Search"
+                            QueryIcon="Find" />
+
+                        <Button
+                            x:Name="SearchButton"
+                            Height="32"
+                            Margin="12,0,12,0"
+                            Visibility="Collapsed">
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFind}" />
+                        </Button>
+                    </Grid>
 
                     <ItemsControl
                         Grid.Row="1"
@@ -252,17 +267,12 @@
                                 <Grid>
                                     <Button
                                         AutomationProperties.Name="{x:Bind Text}"
-                                        Background="Transparent"
-                                        BorderBrush="Transparent"
                                         Command="{x:Bind ActionCommand}"
                                         CommandParameter="{x:Bind}"
                                         Style="{StaticResource LeftNavButtonStyle}"
                                         Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(IsSelected), Mode=OneWay}">
                                         <StackPanel Orientation="Horizontal">
-                                            <FontIcon
-                                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                                FontSize="16"
-                                                Glyph="{x:Bind Glyph}" />
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
                                             <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
                                         </StackPanel>
                                     </Button>
@@ -271,10 +281,7 @@
                                         Style="{StaticResource LeftNavAccentButtonStyle}"
                                         Visibility="{x:Bind IsSelected, Mode=OneWay}">
                                         <StackPanel Orientation="Horizontal">
-                                            <FontIcon
-                                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                                FontSize="16"
-                                                Glyph="{x:Bind Glyph}" />
+                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{x:Bind Glyph}" />
                                             <TextBlock Margin="12,0,0,0" Text="{x:Bind Text}" />
                                         </StackPanel>
                                     </Button>
