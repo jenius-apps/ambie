@@ -766,4 +766,13 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Dine lyde stopper, hvis du lukker Ambie</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>Når der afspilles lyde, skal du vise bekræftelsesdialogboksen, når du lukker appen</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>Bekræft lukning</value>
+  </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>Spørg mig altid</value>
+  </data>
 </root>

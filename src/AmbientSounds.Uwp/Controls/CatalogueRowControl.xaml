@@ -116,8 +116,7 @@
                             </Rectangle>
 
                             <local:PlusBadge
-                                Margin="12,12,0,0"
-                                HorizontalAlignment="Left"
+                                HorizontalAlignment="Stretch"
                                 VerticalAlignment="Top"
                                 Visibility="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
 

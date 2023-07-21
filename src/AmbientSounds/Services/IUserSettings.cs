@@ -11,7 +11,8 @@ namespace AmbientSounds.Services
     public interface IUserSettings
     {
         /// <summary>
-        /// Raised when a settings is set.
+        /// Raised when a settings is set. Payload
+        /// is the setting key.
         /// </summary>
         event EventHandler<string> SettingSet;
 

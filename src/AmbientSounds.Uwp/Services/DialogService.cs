@@ -309,15 +309,10 @@ public class DialogService : IDialogService
         }
 
         IsDialogOpen = true;
-        var dialog = new ContentDialog()
+        var dialog = new ConfirmCloseDialog()
         {
             FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
-            Title = Strings.Resources.AreYouSure,
-            PrimaryButtonText = Strings.Resources.CloseText, 
-            DefaultButton = ContentDialogButton.Close,
-            CloseButtonText = Strings.Resources.CancelText,
             RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-            Content = Strings.Resources.CloseRequestedMessage
         };
 
         var result = await dialog.ShowAsync();

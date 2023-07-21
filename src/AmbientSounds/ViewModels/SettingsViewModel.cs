@@ -153,10 +153,24 @@ namespace AmbientSounds.ViewModels
         public bool AmbieMiniEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
-            set 
+            set
             {
                 _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
                 _telemetry.TrackEvent(value ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
+                    new Dictionary<string, string>
+                    {
+                        { "page", "settings" }
+                    });
+            }
+        }
+
+        public bool ConfirmCloseEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.ConfirmCloseKey);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.ConfirmCloseKey, value);
+                _telemetry.TrackEvent(value ? TelemetryConstants.ConfirmCloseEnabled : TelemetryConstants.ConfirmCloseDisabled,
                     new Dictionary<string, string>
                     {
                         { "page", "settings" }
@@ -203,6 +217,24 @@ namespace AmbientSounds.ViewModels
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.Notifications);
             set => SetNotifications(value);
+        }
+
+        public void Initialize()
+        {
+            _userSettings.SettingSet += OnSettingChanged;
+        }
+
+        public void Uninitialize()
+        {
+            _userSettings.SettingSet -= OnSettingChanged;
+        }
+
+        private void OnSettingChanged(object sender, string settingKey)
+        {
+            if (settingKey is UserSettingsConstants.ConfirmCloseKey)
+            {
+                OnPropertyChanged(nameof(ConfirmCloseEnabled));
+            }
         }
 
         private async void SetNotifications(bool value)

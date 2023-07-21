@@ -766,4 +766,13 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Ambieを閉じると音が止まります</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>サウンドの再生中に、アプリを閉じるときに確認ダイアログを表示する</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>閉じることを確認する</value>
+  </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>いつも私に聞いてください</value>
+  </data>
 </root>

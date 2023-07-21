@@ -208,5 +208,7 @@
         public const string CloseRequestedWhilePlaying = Close + "requestedWhilePlaying";
         public const string CloseConfirmed = Close + "confirmed";
         public const string CloseCanceled = Close + "canceled";
+        public const string ConfirmCloseEnabled = Close + "enabled";
+        public const string ConfirmCloseDisabled = Close + "disabled";
     }
 }

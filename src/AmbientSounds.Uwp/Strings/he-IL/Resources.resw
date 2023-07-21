@@ -766,4 +766,13 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>הצלילים שלך ייפסקו אם תסגור את אמבי</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>כאשר צלילים מופעלים, הצג תיבת דו-שיח לאישור בעת סגירת האפליקציה</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>אישור סגירה</value>
+  </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>תמיד תשאל אותי</value>
+  </data>
 </root>

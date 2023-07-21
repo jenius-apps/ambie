@@ -766,4 +766,13 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Ambie를 닫으면 소리가 멈춥니다.</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>소리가 재생 중일 때 앱을 닫을 때 확인 대화 상자를 표시합니다.</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>닫기 확인</value>
+  </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>항상 내게 물어봐</value>
+  </data>
 </root>

@@ -23,21 +23,17 @@
                 <DataTemplate x:DataType="viewmodels:VideoViewModel">
                     <Grid AutomationProperties.Name="{x:Bind Video.Name}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="44" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <local:PlusBadge Visibility="{x:Bind Video.IsPremium}" />
-
                         <TextBlock
-                            Grid.Column="1"
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"
                             Text="{x:Bind Name}" />
 
                         <winui:ProgressRing
-                            Grid.Column="2"
+                            Grid.Column="1"
                             Width="20"
                             Height="20"
                             Margin="0,0,8,0"
@@ -46,7 +42,7 @@
                             Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
 
                         <winui:ProgressRing
-                            Grid.Column="2"
+                            Grid.Column="1"
                             Width="20"
                             Height="20"
                             Margin="0,0,8,0"
@@ -54,7 +50,7 @@
                             Visibility="{x:Bind Loading, Mode=OneWay}" />
 
                         <Button
-                            Grid.Column="2"
+                            Grid.Column="1"
                             AutomationProperties.Name="{x:Bind strings:Resources.ViewPremiumInfo}"
                             ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
                             Visibility="{x:Bind local:UIHelper.InvertVisibility(IsOwned), Mode=OneWay}">
@@ -66,7 +62,7 @@
                             </Button.Flyout>
                         </Button>
 
-                        <Grid Grid.Column="2" Visibility="{x:Bind local:UIHelper.InvertVisibility(Loading), Mode=OneWay}">
+                        <Grid Grid.Column="1" Visibility="{x:Bind local:UIHelper.InvertVisibility(Loading), Mode=OneWay}">
                             <Grid Visibility="{x:Bind IsOwned, Mode=OneWay}">
                                 <Grid Visibility="{x:Bind local:UIHelper.InvertVisibility(DownloadProgressVisible), Mode=OneWay}">
                                     <Button

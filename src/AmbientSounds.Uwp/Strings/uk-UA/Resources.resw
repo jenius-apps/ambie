@@ -766,4 +766,13 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>Ваші звуки припиняться, якщо ви закриєте Ambie</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>Коли відтворюються звуки, показуйте діалогове вікно підтвердження під час закриття програми</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>Підтвердити закриття</value>
+  </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>Завжди запитуйте мене</value>
+  </data>
 </root>

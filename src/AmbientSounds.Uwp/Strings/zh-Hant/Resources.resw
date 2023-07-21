@@ -766,4 +766,13 @@
   <data name="CloseRequestedMessage" xml:space="preserve">
     <value>如果您關閉 Ambie，您的聲音將停止</value>
   </data>
+  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
+    <value>播放聲音時，關閉應用程式時顯示確認對話方塊</value>
+  </data>
+  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
+    <value>確認關閉</value>
+  </data>
+  <data name="AlwaysAskMeText" xml:space="preserve">
+    <value>總是問我</value>
+  </data>
 </root>

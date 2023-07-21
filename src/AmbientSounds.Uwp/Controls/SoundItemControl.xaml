@@ -193,9 +193,10 @@
                 </Grid.RowDefinitions>
 
                 <controls:PlusBadge
-                    x:Name="Badge"
-                    HorizontalAlignment="Left"
-                    x:Load="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
+                    Margin="-12,-12,-12,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Visibility="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
 
                 <controls:FreeBadge
                     x:Name="FreeBadge"
