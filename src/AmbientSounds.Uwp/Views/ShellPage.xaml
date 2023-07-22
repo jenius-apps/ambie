@@ -5,7 +5,6 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -232,7 +231,10 @@
                             Height="32"
                             Margin="12,0,12,0"
                             Visibility="Collapsed">
-                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFind}" />
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Glyph="{StaticResource GlyphFind}" />
                         </Button>
                     </Grid>
 
