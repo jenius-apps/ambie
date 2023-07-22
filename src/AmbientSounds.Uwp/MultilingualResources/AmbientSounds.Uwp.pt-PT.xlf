@@ -1024,6 +1024,10 @@
           <source>Always ask me</source>
           <target state="translated">Pergunte-me sempre</target>
         </trans-unit>
+        <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
+          <source>Now playing</source>
+          <target state="new">Now playing</target>
+        </trans-unit>
       </group>
     </body>
   </file>

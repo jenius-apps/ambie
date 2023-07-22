@@ -134,6 +134,7 @@
 
         <HyperlinkButton
             HorizontalAlignment="Center"
+            AutomationProperties.Name="{x:Bind strings:Resources.NowPlayingText}"
             Click="OnPlaylistClicked"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ShowList), Mode=OneWay}">
@@ -146,7 +147,7 @@
                     x:Name="NowPlayingText"
                     Margin="8,0,0,0"
                     FontSize="12"
-                    Text="Now playing"
+                    Text="{x:Bind strings:Resources.NowPlayingText}"
                     Visibility="Collapsed" />
             </StackPanel>
 

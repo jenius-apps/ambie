@@ -880,4 +880,7 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Always ask me</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Now playing</value>
+  </data>
 </root>

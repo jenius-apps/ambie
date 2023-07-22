@@ -2445,6 +2445,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region NowPlayingText
+        /// <summary>
+        ///   Looks up a localized string similar to: Now playing
+        /// </summary>
+        public static string NowPlayingText
+        {
+            get
+            {
+                return _resourceLoader.GetString("NowPlayingText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2643,6 +2656,7 @@ namespace AmbientSounds.Strings{
             SettingsConfirmCloseDescription,
             SettingsConfirmCloseHeader,
             AlwaysAskMeText,
+            NowPlayingText,
         }
 
         private static ResourceLoader _resourceLoader;
