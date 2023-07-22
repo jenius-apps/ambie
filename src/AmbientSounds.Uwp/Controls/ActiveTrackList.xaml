@@ -56,27 +56,25 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                        <Grid>
+                        <Grid Margin="0,4" Padding="12,0,8,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                FontSize="10"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="{x:Bind Name, Mode=OneWay}"
+                                TextTrimming="CharacterEllipsis"
+                                ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
+
                             <Slider
                                 x:Uid="VolumeSliderSound"
                                 Grid.Row="1"
                                 Width="100"
-                                VerticalAlignment="Center"
+                                Margin="0,16,0,0"
                                 Value="{x:Bind Volume, Mode=TwoWay}" />
-
-                            <TextBlock
-                                Margin="0,0,0,4"
-                                VerticalAlignment="Bottom"
-                                FontSize="10"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind Name, Mode=OneWay}"
-                                TextAlignment="Center"
-                                TextTrimming="CharacterEllipsis"
-                                ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
 
                             <Button
                                 Grid.Column="1"
