@@ -260,7 +260,7 @@
                 <Grid>
                     <Grid
                         Name="PlayerPanelGrid"
-                        Height="66"
+                        Height="{StaticResource TopPlayerPanelHeight}"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
                         Canvas.ZIndex="1">
@@ -270,12 +270,14 @@
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
 
+                        <Rectangle Grid.ColumnSpan="3" Fill="{ThemeResource SystemControlAcrylicElementBrush}" />
+
                         <Rectangle
                             Grid.ColumnSpan="3"
                             Height="1"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Bottom"
-                            Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+                            Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
 
                         <controls:PlayerControl Margin="8,0,0,0" />
 
@@ -324,7 +326,7 @@
                         </StackPanel>
                     </Grid>
 
-                    <Frame x:Name="MainFrame" />
+                    <Frame x:Name="MainFrame" Margin="{StaticResource TopPlayerPageMargin}" />
                 </Grid>
             </Border>
         </SplitView>
@@ -454,10 +456,7 @@
                                 <TextBlock Text="{x:Bind strings:Resources.GetAmbiePlus}" Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
                             </StackPanel>
                         </HyperlinkButton>
-                        <ListView
-                            IsItemClickEnabled="True"
-                            ItemClick="OnMenuItemClicked"
-                            SelectedIndex="{x:Bind ViewModel.FooterMenuIndex, Mode=OneWay}">
+                        <ListView IsItemClickEnabled="True" SelectedIndex="{x:Bind ViewModel.FooterMenuIndex, Mode=OneWay}">
                             <ListView.ItemContainerStyle>
                                 <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
                                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />

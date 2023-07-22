@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -49,6 +50,18 @@ namespace AmbientSounds.Controls
             if (e.ClickedItem is SoundViewModel vm)
             {
                 await vm.PlayCommand.ExecuteAsync(null);
+            }
+        }
+
+        private void OnGridViewLoaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is GridView gridView)
+            {
+                ScrollViewer? s = gridView.FindDescendant<ScrollViewer>();
+                if (s is not null)
+                {
+                    s.CanContentRenderOutsideBounds = true;
+                }
             }
         }
     }

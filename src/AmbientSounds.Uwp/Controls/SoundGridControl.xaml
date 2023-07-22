@@ -42,6 +42,7 @@
 
         <GridView
             x:Name="MainGridView"
+            Padding="12,12,0,0"
             AllowDrop="True"
             CanDragItems="True"
             CanReorderItems="True"
@@ -50,6 +51,8 @@
             ItemContainerStyle="{StaticResource RegularItemContainerStyle}"
             ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
             ItemsSource="{x:Bind ViewModel.Sounds}"
+            Loaded="OnGridViewLoaded"
+            ScrollViewer.CanContentRenderOutsideBounds="True"
             SelectionMode="None">
             <GridView.ItemContainerTransitions>
                 <TransitionCollection>
