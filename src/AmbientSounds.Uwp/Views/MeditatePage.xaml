@@ -15,7 +15,7 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Margin="{StaticResource MainFramePageMargin}">
         <ScrollViewer Padding="0,0,16,0">
             <ItemsControl ItemsSource="{x:Bind ViewModel.Guides}">
                 <ItemsControl.ItemContainerTransitions>

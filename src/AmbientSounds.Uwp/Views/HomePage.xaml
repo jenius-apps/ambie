@@ -15,5 +15,8 @@
         </DataTemplate>
     </Page.Resources>
 
-    <controls:SoundGridControl x:Name="SoundGallery" ItemTemplate="{StaticResource MainPageSoundTemplate}" />
+    <controls:SoundGridControl
+        x:Name="SoundGallery"
+        Margin="{StaticResource MainFramePageMargin}"
+        ItemTemplate="{StaticResource MainPageSoundTemplate}" />
 </Page>

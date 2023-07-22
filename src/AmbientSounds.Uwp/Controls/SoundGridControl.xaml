@@ -42,7 +42,6 @@
 
         <GridView
             x:Name="MainGridView"
-            Padding="12,12,0,0"
             AllowDrop="True"
             CanDragItems="True"
             CanReorderItems="True"

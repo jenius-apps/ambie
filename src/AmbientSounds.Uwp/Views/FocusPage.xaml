@@ -9,8 +9,11 @@
     xmlns:strings="using:AmbientSounds.Strings"
     mc:Ignorable="d">
 
-    <Grid>
-        <ScrollViewer AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}" HorizontalScrollMode="Disabled">
+    <Grid Margin="{StaticResource MainFramePageMargin}">
+        <ScrollViewer
+            AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}"
+            CanContentRenderOutsideBounds="True"
+            HorizontalScrollMode="Disabled">
             <StackPanel Margin="0,0,16,40">
                 <StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
