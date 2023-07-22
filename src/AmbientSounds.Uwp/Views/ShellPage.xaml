@@ -323,7 +323,8 @@
                             </Button>
                         </StackPanel>
                     </Grid>
-                    <Frame />
+
+                    <Frame x:Name="MainFrame" />
                 </Grid>
             </Border>
         </SplitView>
@@ -358,10 +359,7 @@
 
                 <Grid x:Name="NavViewGrid" Margin="12,0,0,12">
                     <!--  Nav menu  -->
-                    <ListView
-                        IsItemClickEnabled="True"
-                        ItemClick="OnMenuItemClicked"
-                        SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}">
+                    <ListView IsItemClickEnabled="True" SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}">
                         <ListView.ItemContainerStyle>
                             <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -498,10 +496,7 @@
                 </Grid>
 
                 <!--  Main content frame  -->
-                <Frame
-                    x:Name="MainFrame"
-                    Grid.Column="1"
-                    Margin="4,0,0,0" />
+                <Frame Grid.Column="1" Margin="4,0,0,0" />
             </Grid>
         </Grid>
 

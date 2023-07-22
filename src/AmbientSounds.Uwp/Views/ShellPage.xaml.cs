@@ -96,34 +96,6 @@ public sealed partial class ShellPage : Page
         App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
     }
 
-    private void OnMenuItemClicked(object sender, ItemClickEventArgs e)
-    {
-        if (e.ClickedItem is FrameworkElement f && f.FindParent<ListViewItem>() is { Tag: string tag })
-        {
-            switch (tag)
-            {
-                case "meditate":
-                    ViewModel.Navigate(ContentPageType.Meditate);
-                    break;
-                case "focus":
-                    ViewModel.Navigate(ContentPageType.Focus);
-                    break;
-                case "catalogue":
-                    ViewModel.Navigate(ContentPageType.Catalogue);
-                    break;
-                case "home":
-                    ViewModel.Navigate(ContentPageType.Home);
-                    break;
-                case "settings":
-                    ViewModel.Navigate(ContentPageType.Settings);
-                    break;
-                case "updates":
-                    ViewModel.Navigate(ContentPageType.Updates);
-                    break;
-            }
-        }
-    }
-
     private void SizeStateChanged(object sender, VisualStateChangedEventArgs e)
     {
         UpdateLabelVisibility();

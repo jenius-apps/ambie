@@ -66,10 +66,10 @@ public partial class ShellPageViewModel : ObservableObject
         _guideService = guideService;
         _systemInfoProvider = systemInfoProvider;
 
-        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", "home"));
-        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", "catalogue"));
-        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", "focus"));
-        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", "relax"));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString()));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString()));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString()));
 
         IsMeditatePageVisible = _systemInfoProvider.GetCulture().ToLower().Contains("en");
 
@@ -139,6 +139,7 @@ public partial class ShellPageViewModel : ObservableObject
         if (HandleNavigationRequest(pageType) is true)
         {
             _navigator.NavigateTo(pageType, contentPageNavArgs);
+            UpdateSelectedMenu(pageType);
             UpdateTimeBannerVisibility();
             UpdateGuideBannerVisibility();
         }
@@ -352,14 +353,17 @@ public partial class ShellPageViewModel : ObservableObject
             return;
         }
 
-        UpdateSelectedMenu(menuItem.Tag);
+        if (Enum.TryParse(menuItem.Tag, out ContentPageType pageType))
+        {
+            Navigate(pageType);
+        }
     }
 
-    private void UpdateSelectedMenu(string tag)
+    private void UpdateSelectedMenu(ContentPageType pageType)
     {
         foreach (var item in MenuItems)
         {
-            item.IsSelected = tag == item.Tag;
+            item.IsSelected = pageType.ToString() == item.Tag;
         }
     }
 }
