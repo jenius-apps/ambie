@@ -275,6 +275,15 @@
             <x:String x:Key="GlyphPlaylist">&#xE90B;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
+
+            <!--  Override slider styles  -->
+            <!--  Source: https://github.com/microsoft/microsoft-ui-xaml/blob/main/dev/CommonStyles/Slider_themeresources.xaml  -->
+            <x:Double x:Key="SliderInnerThumbWidth">8</x:Double>
+            <x:Double x:Key="SliderInnerThumbHeight">8</x:Double>
+            <x:Double x:Key="SliderHorizontalThumbWidth">12</x:Double>
+            <x:Double x:Key="SliderHorizontalThumbHeight">12</x:Double>
+            <x:Double x:Key="SliderTrackThemeHeight">2</x:Double>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
