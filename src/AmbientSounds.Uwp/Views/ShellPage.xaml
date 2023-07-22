@@ -257,15 +257,79 @@
             </SplitView.Pane>
 
             <Border Background="{ThemeResource DefaultPageBackgroundBrush}">
-                <Frame />
+                <Grid>
+                    <Grid
+                        Name="PlayerPanelGrid"
+                        Height="66"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        Canvas.ZIndex="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle
+                            Grid.ColumnSpan="3"
+                            Height="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Bottom"
+                            Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+                        <controls:PlayerControl Margin="8,0,0,0" />
+
+                        <controls:ActiveTrackList
+                            x:Name="TrackList"
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            ShowList="False"
+                            TrackListChanged="{x:Bind ViewModel.UpdateCanSave}" />
+
+                        <StackPanel
+                            Grid.Column="2"
+                            Margin="0,0,8,4"
+                            VerticalAlignment="Bottom"
+                            Orientation="Horizontal"
+                            Spacing="2">
+                            <controls:SaveMixButton MixSaved="{x:Bind ViewModel.UpdateCanSave}" Visibility="{x:Bind ViewModel.CanSaveMix, Mode=OneWay}">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.5" />
+                                </animations:Implicit.ShowAnimations>
+                            </controls:SaveMixButton>
+                            <Button
+                                AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
+                                Click="{x:Bind ViewModel.GoToScreensaver}"
+                                Style="{StaticResource SmallSubtleIconButton}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="16"
+                                    Glyph="{StaticResource GlyphPhoto}" />
+                            </Button>
+                            <Button
+                                x:Name="ShareButton"
+                                AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
+                                Command="{x:Bind ViewModel.OpenShareCommand}"
+                                Style="{StaticResource SmallSubtleIconButton}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.ShareMessage}">
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="16"
+                                    Glyph="{StaticResource GlyphShare}" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <Frame />
+                </Grid>
             </Border>
         </SplitView>
 
         <!--  Top player panel  -->
-        <Grid
-            x:Name="TopPlayerPanel"
-            Margin="0,44,0,0"
-            Visibility="Collapsed">
+        <Grid Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
@@ -284,56 +348,6 @@
                     RadiusX="8"
                     RadiusY="8" />
             </Border>
-            <Grid
-                Name="PlayerPanelGrid"
-                Height="80"
-                Margin="12,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="auto" />
-                </Grid.ColumnDefinitions>
-
-                <controls:PlayerControl Margin="16,0,0,0" />
-
-                <controls:ActiveTrackList
-                    x:Name="TrackList"
-                    Grid.Column="1"
-                    HorizontalAlignment="Center"
-                    ShowList="False"
-                    TrackListChanged="{x:Bind ViewModel.UpdateCanSave}" />
-
-                <StackPanel
-                    Grid.Column="2"
-                    Margin="0,0,16,0"
-                    Orientation="Horizontal">
-                    <controls:SaveMixButton MixSaved="{x:Bind ViewModel.UpdateCanSave}" Visibility="{x:Bind ViewModel.CanSaveMix, Mode=OneWay}">
-                        <animations:Implicit.ShowAnimations>
-                            <animations:OpacityAnimation
-                                From="0"
-                                To="1"
-                                Duration="0:0:0.5" />
-                        </animations:Implicit.ShowAnimations>
-                    </controls:SaveMixButton>
-                    <Button
-                        AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
-                        Click="{x:Bind ViewModel.GoToScreensaver}"
-                        Style="{StaticResource SubtleIconButton}"
-                        ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPhoto}" />
-                    </Button>
-                    <Button
-                        x:Name="ShareButton"
-                        AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
-                        Command="{x:Bind ViewModel.OpenShareCommand}"
-                        Style="{StaticResource SubtleIconButton}"
-                        ToolTipService.ToolTip="{x:Bind strings:Resources.ShareMessage}">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphShare}" />
-                    </Button>
-                </StackPanel>
-            </Grid>
 
             <!--  Content below player panel  -->
             <Grid Grid.Row="1" Margin="0,8,0,0">

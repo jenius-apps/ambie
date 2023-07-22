@@ -14,7 +14,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition x:Name="SecondColumn" Width="120" />
+            <ColumnDefinition x:Name="SecondColumn" Width="100" />
         </Grid.ColumnDefinitions>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -33,6 +33,9 @@
         </VisualStateManager.VisualStateGroups>
         <Button
             x:Name="PlayButton"
+            Width="36"
+            Height="36"
+            Padding="0"
             AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
             Command="{x:Bind ViewModel.TogglePlayStateCommand}"
             Style="{StaticResource SubtleIconButton}"
@@ -42,6 +45,7 @@
                 <FontIcon
                     x:Name="PlayIcon"
                     FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="16"
                     Glyph="{StaticResource GlyphPlay}"
                     Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}" />
 
@@ -49,13 +53,14 @@
                 <FontIcon
                     x:Name="PauseIcon"
                     FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="16"
                     Glyph="{StaticResource GlyphPause}"
                     Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}" />
             </Grid>
         </Button>
         <Slider
             Grid.Column="1"
-            Margin="12,0,0,0"
+            Margin="8,0,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Center"
             AutomationProperties.Name="{x:Bind strings:Resources.GlobalVolume}"

@@ -9,12 +9,15 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Button x:Uid="SaveMixButton" Style="{StaticResource SubtleIconButton}">
+    <Button x:Uid="SaveMixButton" Style="{StaticResource SmallSubtleIconButton}">
         <Button.KeyboardAccelerators>
             <KeyboardAccelerator Key="S" Modifiers="Control" />
         </Button.KeyboardAccelerators>
 
-        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSave}" />
+        <FontIcon
+            FontFamily="{StaticResource FluentUIGlyphs}"
+            FontSize="16"
+            Glyph="{StaticResource GlyphSave}" />
         <Button.Flyout>
             <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
                 <Grid>
