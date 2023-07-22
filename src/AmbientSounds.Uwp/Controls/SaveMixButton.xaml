@@ -16,7 +16,7 @@
 
         <FontIcon
             FontFamily="{StaticResource FluentUIGlyphs}"
-            FontSize="16"
+            FontSize="14"
             Glyph="{StaticResource GlyphSave}" />
         <Button.Flyout>
             <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">

@@ -62,6 +62,8 @@ public class ActiveTrackViewModel : ObservableObject
     /// </summary>
     public string ImagePath => Sound.ImagePath;
 
+    public string ColourHex => Sound.ColourHex;
+
     /// <summary>
     /// This command will remove
     /// this sound from the active tracks list
