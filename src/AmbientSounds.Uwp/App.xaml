@@ -83,6 +83,7 @@
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
+            <x:Double x:Key="PageBreakpoint620">620</x:Double>
             <x:Double x:Key="PageBreakpoint920">920</x:Double>
             <x:Double x:Key="PageBreakpoint1260">1260</x:Double>
             <x:Double x:Key="PageBreakpoint1920">1920</x:Double>
@@ -271,6 +272,7 @@
             <x:String x:Key="GlyphPeople">&#xE125;</x:String>
             <x:String x:Key="GlyphPowerIcon">&#xE7E8;</x:String>
             <x:String x:Key="GlyphFind">&#xE11A;</x:String>
+            <x:String x:Key="GlyphPlaylist">&#xE90B;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

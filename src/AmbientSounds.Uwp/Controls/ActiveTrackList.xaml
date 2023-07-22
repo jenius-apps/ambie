@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -17,9 +18,22 @@
         Margin="0,8"
         Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
         CornerRadius="4">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint620}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NowPlayingText.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
             <ListView
                 x:Uid="ActiveTrackListView"
+                Margin="12,0,0,0"
                 HorizontalAlignment="Center"
                 ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
                 Loaded="OnListLoaded"
@@ -78,8 +92,6 @@
                                     FontSize="10"
                                     Glyph="{StaticResource GlyphCancel}" />
                             </Button>
-
-
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -119,5 +131,100 @@
                     TextWrapping="Wrap" />
             </StackPanel>
         </Grid>
+
+        <HyperlinkButton
+            HorizontalAlignment="Center"
+            Click="OnPlaylistClicked"
+            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ShowList), Mode=OneWay}">
+            <StackPanel Orientation="Horizontal">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="16"
+                    Glyph="{StaticResource GlyphPlaylist}" />
+                <TextBlock
+                    x:Name="NowPlayingText"
+                    Margin="8,0,0,0"
+                    FontSize="12"
+                    Text="Now playing"
+                    Visibility="Collapsed" />
+            </StackPanel>
+
+            <FlyoutBase.AttachedFlyout>
+                <Flyout x:Name="PlaylistFlyout" Placement="Bottom">
+                    <Flyout.FlyoutPresenterStyle>
+                        <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                            <Setter Property="Padding" Value="0,0,0,8" />
+                        </Style>
+                    </Flyout.FlyoutPresenterStyle>
+                    <Grid>
+                        <ListView ItemsSource="{x:Bind ViewModel.ActiveTracks}" SelectionMode="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
+                                    <Grid Height="48">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Slider
+                                            x:Uid="VolumeSliderSound"
+                                            Grid.Row="1"
+                                            Width="100"
+                                            VerticalAlignment="Center"
+                                            Value="{x:Bind Volume, Mode=TwoWay}" />
+
+                                        <TextBlock
+                                            Margin="0,0,0,0"
+                                            VerticalAlignment="Bottom"
+                                            FontSize="10"
+                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                            Text="{x:Bind Name, Mode=OneWay}"
+                                            TextAlignment="Left"
+                                            TextTrimming="CharacterEllipsis"
+                                            ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
+
+                                        <Button
+                                            Grid.Column="1"
+                                            Margin="8,0,0,0"
+                                            Padding="4"
+                                            AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent"
+                                            Command="{x:Bind RemoveCommand, Mode=OneWay}"
+                                            CommandParameter="{x:Bind Sound, Mode=OneWay}">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="10"
+                                                Glyph="{StaticResource GlyphCancel}" />
+                                        </Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <StackPanel
+                            Grid.Row="1"
+                            Padding="8,8,8,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal"
+                            Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="16"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Glyph="{StaticResource GlyphSound}" />
+                            <TextBlock
+                                Margin="16,0,0,0"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Grid>
+                </Flyout>
+            </FlyoutBase.AttachedFlyout>
+        </HyperlinkButton>
     </Grid>
 </UserControl>

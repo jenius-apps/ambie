@@ -71,6 +71,7 @@
                         <Setter Target="TitleLogo.Margin" Value="24,14,0,0" />
                         <Setter Target="SearchBox.Visibility" Value="Collapsed" />
                         <Setter Target="SearchButton.Visibility" Value="Visible" />
+                        <Setter Target="TrackList.ShowList" Value="False" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

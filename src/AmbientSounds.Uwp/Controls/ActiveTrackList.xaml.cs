@@ -54,5 +54,13 @@ namespace AmbientSounds.Controls
         {
             return string.Format(Strings.Resources.RemoveActiveButton, soundName);
         }
+
+        private void OnPlaylistClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement b)
+            {
+                PlaylistFlyout.ShowAt(b);
+            }
+        }
     }
 }
