@@ -7,149 +7,117 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
-    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <!--  Makes save button disabled background transparent.  -->
-        <SolidColorBrush x:Key="ButtonBackgroundDisabled" Color="Transparent" />
+    <Grid
+        Margin="0,8"
+        Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
+        CornerRadius="4">
+        <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
+            <ListView
+                x:Uid="ActiveTrackListView"
+                HorizontalAlignment="Center"
+                ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
+                Loaded="OnListLoaded"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ScrollViewer.HorizontalScrollMode="Auto"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollMode="Disabled"
+                SelectionMode="None"
+                TabFocusNavigation="Local">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Padding" Value="0,0,8,0" />
+                        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Slider
+                                x:Uid="VolumeSliderSound"
+                                Grid.Row="1"
+                                Width="100"
+                                VerticalAlignment="Center"
+                                Value="{x:Bind Volume, Mode=TwoWay}" />
 
-        <winui:UniformGridLayout
-            x:Name="UniformLayout"
-            MinColumnSpacing="8"
-            MinRowSpacing="8" />
-    </UserControl.Resources>
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                VerticalAlignment="Bottom"
+                                FontSize="10"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="{x:Bind Name, Mode=OneWay}"
+                                TextAlignment="Center"
+                                TextTrimming="CharacterEllipsis"
+                                ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
 
-    <Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="ShowListState">
-                    <VisualState.Setters>
-                        <!--<Setter Target="MainGrid.Height" Value="300" />
-                        <Setter Target="MainGrid.Padding" Value="12" />
-                        <Setter Target="ControlsPanel.(Grid.Row)" Value="0" />-->
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="HideListState">
-                    <VisualState.Setters>
-                        <!--<Setter Target="MainGrid.Height" Value="60" />
-                        <Setter Target="MainGrid.Padding" Value="0" />
-                        <Setter Target="ControlsPanel.(Grid.Row)" Value="1" />-->
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <Grid
-            Margin="0,8"
-            Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
-            CornerRadius="4">
-            <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
-                <ListView
-                    x:Uid="ActiveTrackListView"
-                    HorizontalAlignment="Center"
-                    ItemsSource="{x:Bind ViewModel.ActiveTracks, Mode=OneWay}"
-                    Loaded="OnListLoaded"
-                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                    ScrollViewer.HorizontalScrollMode="Auto"
-                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollMode="Disabled"
-                    SelectionMode="None"
-                    TabFocusNavigation="Local">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="Padding" Value="0,0,8,0" />
-                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
-                                <Slider
-                                    x:Uid="VolumeSliderSound"
-                                    Grid.Row="1"
-                                    Width="100"
-                                    VerticalAlignment="Center"
-                                    Value="{x:Bind Volume, Mode=TwoWay}" />
-
-                                <TextBlock
-                                    Margin="0,0,0,4"
-                                    VerticalAlignment="Bottom"
+                            <Button
+                                Grid.Column="1"
+                                Margin="8,0,0,0"
+                                Padding="4"
+                                AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Command="{x:Bind RemoveCommand, Mode=OneWay}"
+                                CommandParameter="{x:Bind Sound, Mode=OneWay}">
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
                                     FontSize="10"
-                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                    Text="{x:Bind Name, Mode=OneWay}"
-                                    TextAlignment="Center"
-                                    TextTrimming="CharacterEllipsis"
-                                    ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
-
-                                <Button
-                                    Grid.Column="1"
-                                    Margin="8,0,0,0"
-                                    Padding="4"
-                                    AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
-                                    Background="Transparent"
-                                    BorderBrush="Transparent"
-                                    Command="{x:Bind RemoveCommand, Mode=OneWay}"
-                                    CommandParameter="{x:Bind Sound, Mode=OneWay}">
-                                    <FontIcon
-                                        FontFamily="{StaticResource FluentUIGlyphs}"
-                                        FontSize="10"
-                                        Glyph="{StaticResource GlyphCancel}" />
-                                </Button>
+                                    Glyph="{StaticResource GlyphCancel}" />
+                            </Button>
 
 
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-                <StackPanel
-                    Grid.Row="1"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    ui:VisualExtensions.NormalizedCenterPoint="0.5"
-                    Orientation="Horizontal"
-                    Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
-                    <ani:Implicit.ShowAnimations>
-                        <ani:ScaleAnimation
-                            Delay="0:0:0.1"
-                            From="0.95"
-                            To="1"
-                            Duration="0:0:0.5" />
-                        <ani:OpacityAnimation
-                            Delay="0:0:0.1"
-                            From="0"
-                            To="1"
-                            Duration="0:0:0.5" />
-                    </ani:Implicit.ShowAnimations>
+            <StackPanel
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                Orientation="Horizontal"
+                Visibility="{x:Bind ViewModel.IsPlaceholderVisible, Mode=OneWay}">
+                <ani:Implicit.ShowAnimations>
+                    <ani:ScaleAnimation
+                        Delay="0:0:0.1"
+                        From="0.95"
+                        To="1"
+                        Duration="0:0:0.5" />
+                    <ani:OpacityAnimation
+                        Delay="0:0:0.1"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.5" />
+                </ani:Implicit.ShowAnimations>
 
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="16"
-                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Glyph="{StaticResource GlyphSound}" />
-                    <TextBlock
-                        Margin="16,0,0,0"
-                        FontSize="12"
-                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
-                        TextAlignment="Center"
-                        TextWrapping="Wrap" />
-                </StackPanel>
-            </Grid>
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="16"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Glyph="{StaticResource GlyphSound}" />
+                <TextBlock
+                    Margin="16,0,0,0"
+                    FontSize="12"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>
