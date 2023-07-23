@@ -32,7 +32,7 @@
                 <animations:OpacityAnimation
                     From="0"
                     To="1"
-                    Duration="0:0:0.3" />
+                    Duration="0:0:0.6" />
             </animations:Implicit.ShowAnimations>
         </TextBlock>
     </StackPanel>

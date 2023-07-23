@@ -18,25 +18,6 @@
 
     <Grid>
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup CurrentStateChanged="SizeStateChanged">
-                <!--<VisualState x:Name="WidePageState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowWindowBreakpoint}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="NavMenuWidth.Width" Value="200" />
-                        <Setter Target="MenuIconPremium.Visibility" Value="Collapsed" />
-                        <Setter Target="NavMenuFooter.Visibility" Value="Visible" />
-                        <Setter Target="TitleLogo.Margin" Value="16,14,0,0" />
-                        <Setter Target="PlayerPanelBorder.Margin" Value="16,0" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="16,0" />
-                        <Setter Target="NavViewGrid.Margin" Value="16,0,0,12" />
-                        <Setter Target="MainFrame.Margin" Value="8,0,0,0" />
-                        <Setter Target="TrackList.ShowList" Value="True" />
-                    </VisualState.Setters>
-                </VisualState>-->
-            </VisualStateGroup>
-
             <VisualStateGroup x:Name="PageStateGroup" CurrentStateChanged="SizeStateChanged">
                 <VisualState>
                     <VisualState.StateTriggers>
@@ -75,6 +56,8 @@
                         <Setter Target="SearchBox.Visibility" Value="Collapsed" />
                         <Setter Target="SearchButton.Visibility" Value="Visible" />
                         <Setter Target="TrackList.ShowList" Value="False" />
+                        <Setter Target="PremiumIcon.Visibility" Value="Visible" />
+                        <Setter Target="PremiumText.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -261,21 +244,48 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <ItemsControl
-                        Grid.Row="2"
-                        Margin="0,12"
-                        ItemsSource="{x:Bind ViewModel.FooterItems}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate x:DataType="models:MenuItem">
-                                <controls:MenuItemControl
-                                    Command="{x:Bind ActionCommand}"
-                                    CommandParameter="{x:Bind}"
-                                    Glyph="{x:Bind Glyph}"
-                                    IsSelected="{x:Bind IsSelected, Mode=OneWay}"
-                                    Text="{x:Bind Text}" />
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <StackPanel Grid.Row="2" Margin="0,12">
+                        <HyperlinkButton
+                            Margin="12,0,12,4"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
+                            Command="{x:Bind ViewModel.OpenPremiumCommand}"
+                            ToolTipService.ToolTip="{x:Bind strings:Resources.GetAmbiePlus}"
+                            Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}">
+                            <StackPanel Orientation="Horizontal">
+                                <FontIcon
+                                    x:Name="PremiumIcon"
+                                    FontFamily="{StaticResource FluentUIGlyphsCustom}"
+                                    Glyph="{StaticResource GlyphCustomPremium}"
+                                    Visibility="Collapsed" />
+                                <TextBlock
+                                    x:Name="PremiumText"
+                                    Text="{x:Bind strings:Resources.GetAmbiePlus}"
+                                    Visibility="Visible">
+                                    <animations:Implicit.ShowAnimations>
+                                        <animations:OpacityAnimation
+                                            From="0"
+                                            To="1"
+                                            Duration="0:0:0.6" />
+                                    </animations:Implicit.ShowAnimations>
+                                </TextBlock>
+                            </StackPanel>
+                        </HyperlinkButton>
+
+                        <ItemsControl ItemsSource="{x:Bind ViewModel.FooterItems}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:MenuItem">
+                                    <controls:MenuItemControl
+                                        Command="{x:Bind ActionCommand}"
+                                        CommandParameter="{x:Bind}"
+                                        Glyph="{x:Bind Glyph}"
+                                        IsSelected="{x:Bind IsSelected, Mode=OneWay}"
+                                        Text="{x:Bind Text}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
                 </Grid>
             </SplitView.Pane>
 
