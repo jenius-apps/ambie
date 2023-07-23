@@ -108,11 +108,6 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _focusTimeBannerVisible;
 
-    [ObservableProperty]
-    private int _navMenuIndex = -1;
-
-    [ObservableProperty]
-    private int _footerMenuIndex = -1;
 
     [ObservableProperty]
     private bool _isMissingSoundsMessageVisible;
@@ -137,13 +132,10 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void Navigate(ContentPageType pageType, string? contentPageNavArgs = null)
     {
-        if (HandleNavigationRequest(pageType) is true)
-        {
-            _navigator.NavigateTo(pageType, contentPageNavArgs);
-            UpdateSelectedMenu(pageType);
-            UpdateTimeBannerVisibility();
-            UpdateGuideBannerVisibility();
-        }
+        _navigator.NavigateTo(pageType, contentPageNavArgs);
+        UpdateSelectedMenu(pageType);
+        UpdateTimeBannerVisibility();
+        UpdateGuideBannerVisibility();
     }
 
     [RelayCommand]
@@ -228,41 +220,8 @@ public partial class ShellPageViewModel : ObservableObject
         IsMissingSoundsMessageVisible = false;
     }
 
-    private bool HandleNavigationRequest(ContentPageType pageType)
-    {
-        int navMenuIndex = pageType switch
-        {
-            ContentPageType.Updates => -1,
-            ContentPageType.Settings => -1,
-            _ => (int)pageType
-        };
-
-        int footerMenuIndex = pageType switch
-        {
-            ContentPageType.Updates => 0,
-            ContentPageType.Settings => 1,
-            _ => -1
-        };
-
-        bool changesMade = false;
-        if (NavMenuIndex != navMenuIndex)
-        {
-            NavMenuIndex = navMenuIndex;
-            changesMade = true;
-        }
-
-        if (FooterMenuIndex != footerMenuIndex)
-        {
-            FooterMenuIndex = footerMenuIndex;
-            changesMade = true;
-        }
-
-        return changesMade;
-    }
-
     private void OnContentPageChanged(object sender, ContentPageType e)
     {
-        HandleNavigationRequest(e);
         UpdateTimeBannerVisibility();
         UpdateGuideBannerVisibility();
     }
