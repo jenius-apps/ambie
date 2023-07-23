@@ -70,6 +70,8 @@ public partial class ShellPageViewModel : ObservableObject
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString()));
+        FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString()));
+        FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString()));
 
         IsMeditatePageVisible = _systemInfoProvider.GetCulture().ToLower().Contains("en");
 
@@ -122,6 +124,8 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _isMeditatePageVisible;
 
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
+
+    public ObservableCollection<MenuItem> FooterItems { get; } = new();
 
     public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
 
@@ -362,6 +366,11 @@ public partial class ShellPageViewModel : ObservableObject
     private void UpdateSelectedMenu(ContentPageType pageType)
     {
         foreach (var item in MenuItems)
+        {
+            item.IsSelected = pageType.ToString() == item.Tag;
+        }
+
+        foreach (var item in FooterItems)
         {
             item.IsSelected = pageType.ToString() == item.Tag;
         }

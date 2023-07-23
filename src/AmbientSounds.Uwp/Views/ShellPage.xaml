@@ -211,6 +211,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
 
                     <Rectangle
@@ -246,6 +247,22 @@
                         Grid.Row="1"
                         Margin="0,12,0,0"
                         ItemsSource="{x:Bind ViewModel.MenuItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="models:MenuItem">
+                                <controls:MenuItemControl
+                                    Command="{x:Bind ActionCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    Glyph="{x:Bind Glyph}"
+                                    IsSelected="{x:Bind IsSelected, Mode=OneWay}"
+                                    Text="{x:Bind Text}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <ItemsControl
+                        Grid.Row="2"
+                        Margin="0,12"
+                        ItemsSource="{x:Bind ViewModel.FooterItems}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">
                                 <controls:MenuItemControl

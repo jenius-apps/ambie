@@ -7,9 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ScrollViewer>
+    <ScrollViewer Margin="{StaticResource MainFramePageMargin}" CanContentRenderOutsideBounds="True">
         <StackPanel Margin="0,0,16,12">
-            <controls:SettingsControl x:Name="SettingsControlInstance" Margin="0,8,0,0" />
+            <controls:SettingsControl x:Name="SettingsControlInstance" />
         </StackPanel>
     </ScrollViewer>
 </Page>
