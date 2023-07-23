@@ -224,7 +224,7 @@
             <x:Double x:Key="ImageCardHeight">180</x:Double>
             <x:Double x:Key="GuideCardWidth">248</x:Double>
             <x:Double x:Key="ImageCardWidth">120</x:Double>
-            <x:Double x:Key="ImageCardShadowWidth">144</x:Double>
+            <x:Double x:Key="ImageCardShadowWidth">116</x:Double>
             <x:Double x:Key="CompactImageCardHeight">104</x:Double>
             <x:Double x:Key="CompactImageCardWidth">74</x:Double>
             <x:Double x:Key="CompactImageCardShadowWidth">72</x:Double>

@@ -34,7 +34,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock
                 VerticalAlignment="Center"
-                FontSize="18"
+                FontSize="14"
                 FontWeight="SemiBold"
                 Text="{x:Bind TitleText, Mode=OneWay}"
                 TextTrimming="CharacterEllipsis" />
@@ -128,6 +128,7 @@
 
                             <Grid Grid.Row="1" Margin="12,0">
                                 <TextBlock
+                                    FontSize="12"
                                     Foreground="White"
                                     MaxLines="2"
                                     Text="{x:Bind Name, Mode=OneWay}"
