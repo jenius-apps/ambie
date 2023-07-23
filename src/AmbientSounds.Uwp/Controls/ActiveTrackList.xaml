@@ -14,10 +14,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid
-        Margin="0,8"
-        Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
-        CornerRadius="4">
+    <Grid Margin="0,8">
         <Grid.Resources>
             <!--  Override slider styles  -->
             <!--  Source: https://github.com/microsoft/microsoft-ui-xaml/blob/main/dev/CommonStyles/Slider_themeresources.xaml  -->
@@ -39,6 +36,13 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+        <Rectangle
+            Fill="{ThemeResource SubtleFillColorSecondaryBrush}"
+            RadiusX="4"
+            RadiusY="4"
+            Stretch="Fill" />
+
         <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
             <ListView
                 x:Uid="ActiveTrackListView"
