@@ -18,5 +18,6 @@
     <controls:SoundGridControl
         x:Name="SoundGallery"
         Margin="{StaticResource MainFramePageMargin}"
+        CanScrollOutOfBounds="True"
         ItemTemplate="{StaticResource MainPageSoundTemplate}" />
 </Page>
