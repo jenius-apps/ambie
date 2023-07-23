@@ -1,18 +1,17 @@
-﻿using System;
-using System.ComponentModel;
-using AmbientSounds.Constants;
+﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Toolkit.Uwp.UI;
-using System.Collections.Generic;
-using JeniusApps.Common.Telemetry;
 
 #nullable enable
 
@@ -27,7 +26,6 @@ public sealed partial class ShellPage : Page
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
-        UpdateLabelVisibility();
 
         if (App.IsTenFoot)
         {
@@ -94,16 +92,6 @@ public sealed partial class ShellPage : Page
             DateTime.UtcNow,
             AmbieJsonSerializerContext.Default.DateTime);
         App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
-    }
-
-    private void SizeStateChanged(object sender, VisualStateChangedEventArgs e)
-    {
-        UpdateLabelVisibility();
-    }
-
-    private void UpdateLabelVisibility()
-    {
-        ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState != SmallestWidthState;
     }
 
     private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)

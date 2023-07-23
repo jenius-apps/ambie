@@ -14,11 +14,9 @@
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
 
-
-
     <Grid>
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="PageStateGroup" CurrentStateChanged="SizeStateChanged">
+            <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1920}" />
@@ -46,7 +44,7 @@
                         <Setter Target="PlayerPanelGrid.Margin" Value="200,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="SmallestWidthState">
+                <VisualState>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
@@ -361,174 +359,6 @@
                         Glyph="{StaticResource GlyphShare}" />
                 </Button>
             </StackPanel>
-        </Grid>
-
-        <!--  Top player panel  -->
-        <Grid Visibility="Collapsed">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Border
-                Name="PlayerPanelBorder"
-                Height="80"
-                Margin="12,0"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Top"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1"
-                CornerRadius="8">
-                <Rectangle
-                    Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                    RadiusX="8"
-                    RadiusY="8" />
-            </Border>
-
-            <!--  Content below player panel  -->
-            <Grid Grid.Row="1" Margin="0,8,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="NavMenuWidth" Width="64" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Grid x:Name="NavViewGrid" Margin="12,0,0,12">
-                    <!--  Nav menu  -->
-                    <ListView IsItemClickEnabled="True" SelectedIndex="{x:Bind ViewModel.NavMenuIndex, Mode=OneWay}">
-                        <ListView.ItemContainerStyle>
-                            <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.Items>
-                            <ListViewItem
-                                MinWidth="0"
-                                AutomationProperties.Name="{x:Bind strings:Resources.Home}"
-                                Tag="home"
-                                ToolTipService.ToolTip="{x:Bind strings:Resources.Home}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphHome}" />
-                                    <TextBlock
-                                        Margin="12,0,0,0"
-                                        Text="{x:Bind strings:Resources.Home}"
-                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                                </StackPanel>
-                            </ListViewItem>
-                            <ListViewItem
-                                MinWidth="0"
-                                AutomationProperties.Name="{x:Bind strings:Resources.Catalogue}"
-                                Tag="catalogue"
-                                ToolTipService.ToolTip="{x:Bind strings:Resources.Catalogue}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
-                                    <TextBlock
-                                        Margin="12,0,0,0"
-                                        Text="{x:Bind strings:Resources.Catalogue}"
-                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                                </StackPanel>
-                            </ListViewItem>
-                            <ListViewItem
-                                MinWidth="0"
-                                AutomationProperties.Name="{x:Bind strings:Resources.FocusText}"
-                                Tag="focus"
-                                ToolTipService.ToolTip="{x:Bind strings:Resources.FocusText}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFocus}" />
-                                    <TextBlock
-                                        Margin="12,0,0,0"
-                                        Text="{x:Bind strings:Resources.FocusText}"
-                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                                </StackPanel>
-                            </ListViewItem>
-                            <ListViewItem
-                                MinWidth="0"
-                                AutomationProperties.Name="{x:Bind strings:Resources.RelaxText}"
-                                Tag="meditate"
-                                ToolTipService.ToolTip="{x:Bind strings:Resources.RelaxText}"
-                                Visibility="{x:Bind ViewModel.IsMeditatePageVisible, Mode=OneWay}">
-                                <StackPanel Orientation="Horizontal">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphLeaves}" />
-                                    <TextBlock
-                                        Margin="12,0,0,0"
-                                        Text="{x:Bind strings:Resources.RelaxText}"
-                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-
-                                    <Border
-                                        Height="20"
-                                        Margin="8,0,0,0"
-                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                        BorderThickness="1"
-                                        CornerRadius="4"
-                                        Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}">
-                                        <TextBlock
-                                            Margin="6,0"
-                                            VerticalAlignment="Center"
-                                            FontSize="10"
-                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                            Text="Beta" />
-                                    </Border>
-                                </StackPanel>
-                            </ListViewItem>
-                        </ListView.Items>
-                    </ListView>
-
-                    <StackPanel x:Name="NavMenuFooter" VerticalAlignment="Bottom">
-                        <HyperlinkButton
-                            Margin="4,0,3,0"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Left"
-                            Command="{x:Bind ViewModel.OpenPremiumCommand}"
-                            Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}">
-                            <StackPanel Orientation="Horizontal">
-                                <FontIcon
-                                    x:Name="MenuIconPremium"
-                                    FontFamily="{StaticResource FluentUIGlyphsCustom}"
-                                    Glyph="{StaticResource GlyphCustomPremium}"
-                                    Visibility="Visible" />
-                                <TextBlock Text="{x:Bind strings:Resources.GetAmbiePlus}" Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                            </StackPanel>
-                        </HyperlinkButton>
-                        <ListView IsItemClickEnabled="True" SelectedIndex="{x:Bind ViewModel.FooterMenuIndex, Mode=OneWay}">
-                            <ListView.ItemContainerStyle>
-                                <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                            <ListView.Items>
-                                <ListViewItem
-                                    MinWidth="0"
-                                    AutomationProperties.Name="Updates"
-                                    Tag="updates"
-                                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphUpdates}" />
-                                        <TextBlock
-                                            Margin="12,0,0,0"
-                                            Text="{x:Bind strings:Resources.UpdatesText}"
-                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                                    </StackPanel>
-                                </ListViewItem>
-                                <ListViewItem
-                                    MinWidth="0"
-                                    AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
-                                    Tag="settings"
-                                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
-                                    <StackPanel Orientation="Horizontal">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
-                                        <TextBlock
-                                            Margin="12,0,0,0"
-                                            Text="{x:Bind strings:Resources.SettingsText}"
-                                            Visibility="{x:Bind ViewModel.MenuLabelsVisible, Mode=OneWay}" />
-                                    </StackPanel>
-                                </ListViewItem>
-                            </ListView.Items>
-                        </ListView>
-                    </StackPanel>
-                </Grid>
-
-                <!--  Main content frame  -->
-                <Frame Grid.Column="1" Margin="4,0,0,0" />
-            </Grid>
         </Grid>
 
         <winui:TeachingTip

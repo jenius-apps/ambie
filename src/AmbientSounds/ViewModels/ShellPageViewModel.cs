@@ -118,9 +118,6 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _isMissingSoundsMessageVisible;
 
     [ObservableProperty]
-    private bool _menuLabelsVisible;
-
-    [ObservableProperty]
     private bool _isMeditatePageVisible;
 
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
