@@ -27,11 +27,6 @@
                     <VisualState.Setters>
                         <Setter Target="MainGrid.Width" Value="{StaticResource CompactImageCardWidth}" />
                         <Setter Target="MainGrid.Height" Value="{StaticResource CompactImageCardHeight}" />
-                        <Setter Target="ShadowRect.Width" Value="{StaticResource CompactImageCardShadowWidth}" />
-                        <Setter Target="ShadowRect.Height" Value="{StaticResource CompactImageCardHeight}" />
-                        <Setter Target="MainGrid.CornerRadius" Value="4" />
-                        <Setter Target="ShadowRect.RadiusX" Value="4" />
-                        <Setter Target="ShadowRect.RadiusY" Value="4" />
                         <Setter Target="NameText.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
@@ -58,8 +53,8 @@
 
         <Grid
             x:Name="MainGrid"
-            Width="120"
-            Height="180"
+            Width="{StaticResource ImageCardWidth}"
+            Height="{StaticResource ImageCardHeight}"
             CornerRadius="4"
             PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildImage}"
             PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
