@@ -222,6 +222,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnContentPageChanged(object sender, ContentPageType e)
     {
+        UpdateSelectedMenu(e);
         UpdateTimeBannerVisibility();
         UpdateGuideBannerVisibility();
     }
