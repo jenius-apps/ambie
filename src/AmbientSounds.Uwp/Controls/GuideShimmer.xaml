@@ -12,14 +12,14 @@
     <Grid Width="{StaticResource GuideCardWidth}" Height="{StaticResource ImageCardHeight}">
         <labs:Shimmer CornerRadius="8" />
         <labs:Shimmer
-            Width="160"
+            Width="120"
             Height="18"
             Margin="12,0,0,24"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             CornerRadius="2" />
         <labs:Shimmer
-            Width="212"
+            Width="172"
             Height="12"
             Margin="12,0,0,10"
             HorizontalAlignment="Left"
