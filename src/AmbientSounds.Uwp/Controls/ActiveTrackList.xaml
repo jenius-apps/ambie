@@ -65,13 +65,35 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                        <Grid Margin="0,4" Padding="12,0,8,0">
+                        <Grid Margin="0,4" CornerRadius="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.ColumnSpan="2"
+                                BorderThickness="1"
+                                CornerRadius="2">
+                                <Border.Background>
+                                    <ImageBrush Stretch="UniformToFill">
+                                        <ImageBrush.ImageSource>
+                                            <BitmapImage
+                                                DecodePixelType="Logical"
+                                                DecodePixelWidth="140"
+                                                UriSource="{x:Bind ImagePath}" />
+                                        </ImageBrush.ImageSource>
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Border
+                                Grid.ColumnSpan="2"
+                                Background="{ThemeResource AcrylicBackplateBrush}"
+                                CornerRadius="2" />
+
                             <TextBlock
-                                Margin="0,8,0,0"
+                                Margin="12,8,0,0"
                                 FontSize="10"
                                 Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                 Text="{x:Bind Name, Mode=OneWay}"
@@ -81,13 +103,13 @@
                             <Slider
                                 x:Uid="VolumeSliderSound"
                                 Grid.Row="1"
-                                Width="100"
-                                Margin="0,16,0,0"
+                                Width="80"
+                                Margin="12,16,0,0"
                                 Value="{x:Bind Volume, Mode=TwoWay}" />
 
                             <Button
                                 Grid.Column="1"
-                                Margin="8,0,0,0"
+                                Margin="8,0"
                                 Padding="4"
                                 AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
                                 Background="Transparent"
