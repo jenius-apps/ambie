@@ -18,6 +18,15 @@
         Margin="0,8"
         Background="{ThemeResource CardBackgroundFillColorSecondaryBrush}"
         CornerRadius="4">
+        <Grid.Resources>
+            <!--  Override slider styles  -->
+            <!--  Source: https://github.com/microsoft/microsoft-ui-xaml/blob/main/dev/CommonStyles/Slider_themeresources.xaml  -->
+            <x:Double x:Key="SliderInnerThumbWidth">8</x:Double>
+            <x:Double x:Key="SliderInnerThumbHeight">8</x:Double>
+            <x:Double x:Key="SliderHorizontalThumbWidth">12</x:Double>
+            <x:Double x:Key="SliderHorizontalThumbHeight">12</x:Double>
+            <x:Double x:Key="SliderTrackThemeHeight">2</x:Double>
+        </Grid.Resources>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
