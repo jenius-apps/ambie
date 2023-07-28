@@ -23,7 +23,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootSplitView.OpenPaneLength" Value="332" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="332,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="331,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -32,7 +32,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootSplitView.OpenPaneLength" Value="244" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="244,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="243,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -41,7 +41,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootSplitView.OpenPaneLength" Value="200" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="200,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="199,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -62,10 +62,28 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind ViewModel.IsWin11, Mode=OneWay}" />
+                        <StateTrigger IsActive="{x:Bind ViewModel.SidePanelMica, Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootSplitView.PaneBackground" Value="Transparent" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSplitView.PaneBackground" Value="{ThemeResource SystemControlAcrylicElementBrush}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainFrameBorder.Background" Value="Transparent" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -196,7 +214,7 @@
                     </Grid.RowDefinitions>
 
                     <Rectangle
-                        Grid.RowSpan="2"
+                        Grid.RowSpan="3"
                         Width="1"
                         Margin="0,0,-1,0"
                         HorizontalAlignment="Right"
@@ -287,7 +305,7 @@
                 </Grid>
             </SplitView.Pane>
 
-            <Border Background="{ThemeResource DefaultPageBackgroundBrush}">
+            <Border x:Name="MainFrameBorder" Background="{ThemeResource DefaultPageBackgroundBrush}">
                 <Frame x:Name="MainFrame" Margin="{StaticResource TopPlayerPageMargin}" />
             </Border>
         </SplitView>
@@ -295,7 +313,7 @@
         <Grid
             x:Name="PlayerPanelGrid"
             Height="{StaticResource TopPlayerPanelHeight}"
-            Margin="72,0,0,0"
+            Margin="71,0,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
             Background="{ThemeResource SystemControlAcrylicElementBrush}"
@@ -334,7 +352,7 @@
                         <animations:OpacityAnimation
                             From="0"
                             To="1"
-                            Duration="0:0:0.5" />
+                            Duration="0:0:0.6" />
                     </animations:Implicit.ShowAnimations>
                 </controls:SaveMixButton>
                 <Button
