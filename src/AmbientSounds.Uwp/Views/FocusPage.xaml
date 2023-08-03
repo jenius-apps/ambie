@@ -37,48 +37,35 @@
                 </controls:FocusTaskModule>
 
                 <!--  notepad module  -->
-                <Border
-                    Height="200"
-                    Margin="0,8,0,0"
-                    HorizontalAlignment="Stretch"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    BorderThickness="1"
-                    CornerRadius="8">
-                    <Border.Transitions>
+                <Grid Margin="0,24,0,0">
+                    <Grid.Transitions>
                         <RepositionThemeTransition />
-                    </Border.Transitions>
-                    <Grid>
-                        <Rectangle
-                            Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                            RadiusX="8"
-                            RadiusY="8" />
+                    </Grid.Transitions>
 
-                        <StackPanel Padding="12,0,12,0">
-                            <TextBlock
-                                Margin="12,12,0,0"
-                                FontWeight="SemiBold"
-                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                Text="{x:Bind strings:Resources.Notepad}" />
-                            <Rectangle
-                                Height="1"
-                                Margin="-12,12,-12,0"
-                                HorizontalAlignment="Stretch"
-                                Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
 
-                            <TextBox
-                                Height="130"
-                                Margin="0,12,0,0"
-                                AcceptsReturn="True"
-                                AutomationProperties.Name="{x:Bind strings:Resources.Notepad}"
-                                FontSize="12"
-                                MaxLength="1024"
-                                PlaceholderText="{x:Bind strings:Resources.FocusNotesPlaceholder}"
-                                Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                TextWrapping="Wrap"
-                                Unloaded="OnUnloaded" />
-                        </StackPanel>
-                    </Grid>
-                </Border>
+                    <TextBlock
+                        Margin="8,0,0,0"
+                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                        Style="{StaticResource BodyStrongTextBlockStyle}"
+                        Text="{x:Bind strings:Resources.Notepad}" />
+
+                    <TextBox
+                        Grid.Row="1"
+                        Height="130"
+                        Margin="0,8,0,0"
+                        AcceptsReturn="True"
+                        AutomationProperties.Name="{x:Bind strings:Resources.Notepad}"
+                        FontSize="12"
+                        MaxLength="1024"
+                        PlaceholderText="{x:Bind strings:Resources.FocusNotesPlaceholder}"
+                        Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap"
+                        Unloaded="OnUnloaded" />
+                </Grid>
 
                 <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,8,0,0">
                     <controls:FocusHistoryModule.Transitions>
