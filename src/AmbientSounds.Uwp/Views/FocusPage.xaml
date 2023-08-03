@@ -49,8 +49,7 @@
 
                     <TextBlock
                         Margin="8,0,0,0"
-                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                        Style="{StaticResource BodyStrongTextBlockStyle}"
+                        Style="{StaticResource ModuleTitleStyle}"
                         Text="{x:Bind strings:Resources.Notepad}" />
 
                     <TextBox
@@ -67,7 +66,7 @@
                         Unloaded="OnUnloaded" />
                 </Grid>
 
-                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,8,0,0">
+                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0">
                     <controls:FocusHistoryModule.Transitions>
                         <RepositionThemeTransition />
                     </controls:FocusHistoryModule.Transitions>

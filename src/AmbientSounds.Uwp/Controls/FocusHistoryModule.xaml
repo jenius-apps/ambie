@@ -21,8 +21,7 @@
 
         <TextBlock
             Margin="8,0,0,0"
-            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-            Style="{StaticResource BodyStrongTextBlockStyle}"
+            Style="{StaticResource ModuleTitleStyle}"
             Text="{x:Bind strings:Resources.HistoryRecent}" />
 
         <Border
