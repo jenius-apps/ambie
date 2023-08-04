@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     mc:Ignorable="d">
 
     <Grid Margin="{StaticResource MainFramePageMargin}">
@@ -20,28 +21,16 @@
                 </StackPanel.ChildrenTransitions>
 
                 <!--  Timer module  -->
-                <controls:FocusTimerModule x:Name="TimerModule">
-                    <controls:FocusTimerModule.Transitions>
-                        <RepositionThemeTransition />
-                    </controls:FocusTimerModule.Transitions>
-                </controls:FocusTimerModule>
+                <controls:FocusTimerModule x:Name="TimerModule" />
 
                 <!--  Task module  -->
                 <controls:FocusTaskModule
                     x:Name="TaskModule"
                     Margin="0,8,0,0"
-                    Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}">
-                    <controls:FocusTaskModule.Transitions>
-                        <RepositionThemeTransition />
-                    </controls:FocusTaskModule.Transitions>
-                </controls:FocusTaskModule>
+                    Visibility="{x:Bind ViewModel.TaskModuleVisible, Mode=OneWay}" />
 
                 <!--  notepad module  -->
                 <Grid Margin="0,24,0,0">
-                    <Grid.Transitions>
-                        <RepositionThemeTransition />
-                    </Grid.Transitions>
-
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
@@ -52,10 +41,16 @@
                         Style="{StaticResource ModuleTitleStyle}"
                         Text="{x:Bind strings:Resources.Notepad}" />
 
+                    <Rectangle
+                        Grid.Row="1"
+                        Margin="0,8,0,0"
+                        ui:Effects.Shadow="{StaticResource ModuleBackgroundRectShadow}"
+                        Style="{StaticResource ModuleBackgroundRectStyle}" />
+
                     <TextBox
                         Grid.Row="1"
                         Height="130"
-                        Margin="0,8,0,0"
+                        Margin="12,20,12,12"
                         AcceptsReturn="True"
                         AutomationProperties.Name="{x:Bind strings:Resources.Notepad}"
                         FontSize="12"
@@ -66,11 +61,7 @@
                         Unloaded="OnUnloaded" />
                 </Grid>
 
-                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0">
-                    <controls:FocusHistoryModule.Transitions>
-                        <RepositionThemeTransition />
-                    </controls:FocusHistoryModule.Transitions>
-                </controls:FocusHistoryModule>
+                <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
