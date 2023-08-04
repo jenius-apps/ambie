@@ -204,7 +204,7 @@
                 BlurRadius="10"
                 CornerRadius="8"
                 Opacity="0.1"
-                Offset="0,1" />
+                Offset="0" />
 
             <Style x:Key="ModuleBorderStyle" TargetType="Border">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />

@@ -102,10 +102,13 @@
             Style="{StaticResource ModuleTitleStyle}"
             Text="{x:Bind strings:Resources.TaskModuleTitle}" />
 
-        <Border
+        <Rectangle
             Grid.Row="1"
             Margin="0,8,0,0"
-            Style="{StaticResource ModuleBorderStyle}">
+            ui:Effects.Shadow="{StaticResource ModuleBackgroundRectShadow}"
+            Style="{StaticResource ModuleBackgroundRectStyle}" />
+
+        <Border Grid.Row="1" Margin="0,8,0,0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -113,7 +116,6 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <Rectangle Grid.RowSpan="4" Style="{StaticResource ModuleBackgroundRectStyle}" />
 
                 <TextBox
                     Margin="12"
