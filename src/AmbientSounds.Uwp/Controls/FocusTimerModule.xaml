@@ -12,6 +12,7 @@
     xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
@@ -191,18 +192,19 @@
                 </StackPanel>
             </Grid>
 
-            <Border
+            <Rectangle
                 Grid.Row="1"
                 Margin="0,8,0,0"
-                Style="{StaticResource ModuleBorderStyle}">
+                ui:Effects.Shadow="{StaticResource ModuleBackgroundRectShadow}"
+                Style="{StaticResource ModuleBackgroundRectStyle}" />
+
+            <Border Grid.Row="1" Margin="0,8,0,0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-
-                    <Rectangle Grid.RowSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
 
                     <Rectangle
                         Grid.Row="2"
