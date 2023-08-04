@@ -23,7 +23,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootSplitView.OpenPaneLength" Value="332" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="331,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="332,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -32,7 +32,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootSplitView.OpenPaneLength" Value="244" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="243,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="244,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -41,7 +41,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RootSplitView.OpenPaneLength" Value="200" />
-                        <Setter Target="PlayerPanelGrid.Margin" Value="199,0,0,0" />
+                        <Setter Target="PlayerPanelGrid.Margin" Value="200,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -201,6 +201,8 @@
 
         <SplitView
             x:Name="RootSplitView"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="0,0,1,0"
             DisplayMode="Inline"
             IsPaneOpen="True"
             OpenPaneLength="72"
@@ -212,14 +214,6 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-
-                    <Rectangle
-                        Grid.RowSpan="3"
-                        Width="1"
-                        Margin="0,0,-1,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Stretch"
-                        Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
 
                     <Grid Margin="0,48,0,0">
                         <AutoSuggestBox
@@ -313,23 +307,18 @@
         <Grid
             x:Name="PlayerPanelGrid"
             Height="{StaticResource TopPlayerPanelHeight}"
-            Margin="71,0,0,0"
+            Margin="72,0,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
             Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+            BorderThickness="0,0,0,1"
             Canvas.ZIndex="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" MinWidth="180" />
             </Grid.ColumnDefinitions>
-
-            <Rectangle
-                Grid.ColumnSpan="3"
-                Height="1"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Bottom"
-                Fill="{ThemeResource CardStrokeColorDefaultBrush}" />
 
             <controls:PlayerControl Margin="8,0,0,0" />
 
