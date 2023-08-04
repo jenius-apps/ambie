@@ -355,7 +355,7 @@
                             Duration="0:0:0.6" />
                     </animations:Implicit.ShowAnimations>
                 </controls:SaveMixButton>
-                <Button
+                <!--<Button
                     AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
                     Click="{x:Bind ViewModel.GoToScreensaver}"
                     Style="{StaticResource SmallSubtleIconButton}"
@@ -364,7 +364,7 @@
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="14"
                         Glyph="{StaticResource GlyphPhoto}" />
-                </Button>
+                </Button>-->
                 <Button
                     x:Name="ShareButton"
                     AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
