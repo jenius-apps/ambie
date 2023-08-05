@@ -164,9 +164,9 @@ public partial class SoundViewModel : ObservableObject
     /// <summary>
     /// Returns true if the sound is currently playing.
     /// </summary>
-    public bool IsCurrentlyPlaying => string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
-        ? _playerService.IsSoundPlaying(_sound.Id)
-        : _soundMixService.IsMixPlaying(_sound.Id);
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsPresenceVisible))]
+    private bool _isCurrentlyPlaying;
 
     public bool IsPresenceVisible => PresenceCount > 0 && IsCurrentlyPlaying;
 
@@ -187,6 +187,8 @@ public partial class SoundViewModel : ObservableObject
                 RegisterProgress(progress);
             }
         }
+
+        UpdateIsCurrentlyPlaying();
     }
 
     private void RegisterProgress(IProgress<double> progress)
@@ -326,7 +328,7 @@ public partial class SoundViewModel : ObservableObject
     {
         if (args.MixId == _sound.Id || args.SoundIds.Contains(_sound.Id))
         {
-            OnPropertyChanged(nameof(IsCurrentlyPlaying));
+            UpdateIsCurrentlyPlaying();
             OnPropertyChanged(nameof(IsPresenceVisible));
         }
     }
@@ -354,7 +356,7 @@ public partial class SoundViewModel : ObservableObject
 
     private void OnSoundPaused(object sender, SoundPausedArgs args)
     {
-        OnPropertyChanged(nameof(IsCurrentlyPlaying));
+        UpdateIsCurrentlyPlaying();
         OnPropertyChanged(nameof(IsPresenceVisible));
     }
 
@@ -362,7 +364,7 @@ public partial class SoundViewModel : ObservableObject
     {
         if (args.ParentMixId == _sound.Id || args.Sound.Id == _sound.Id)
         {
-            OnPropertyChanged(nameof(IsCurrentlyPlaying));
+            UpdateIsCurrentlyPlaying();
             OnPropertyChanged(nameof(IsPresenceVisible));
         }
     }
@@ -416,5 +418,12 @@ public partial class SoundViewModel : ObservableObject
         {
             _downloadProgress.ProgressChanged -= OnProgressChanged;
         }
+    }
+
+    private void UpdateIsCurrentlyPlaying()
+    {
+        IsCurrentlyPlaying = string.IsNullOrWhiteSpace(_playerService.CurrentMixId)
+            ? _playerService.IsSoundPlaying(_sound.Id)
+            : _soundMixService.IsMixPlaying(_sound.Id);
     }
 }

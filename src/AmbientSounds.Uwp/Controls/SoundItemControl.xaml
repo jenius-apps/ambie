@@ -19,6 +19,26 @@
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <Storyboard x:Name="SoundsStoppingStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="PlayIcon"
+                Storyboard.TargetProperty="Opacity"
+                From="0.0"
+                To="1.0"
+                Duration="0:0:0.3" />
+        </Storyboard>
+        <Storyboard x:Name="SoundsStartingStoryboard">
+            <DoubleAnimation
+                Storyboard.TargetName="StopIcon"
+                Storyboard.TargetProperty="Opacity"
+                From="0.0"
+                To="1.0"
+                Duration="0:0:0.3" />
+        </Storyboard>
+
+    </UserControl.Resources>
+
     <Grid
         x:Name="MainGrid"
         Width="124"
@@ -264,12 +284,14 @@
                 Style="{StaticResource SmallSubtleIconButton}">
                 <Grid>
                     <FontIcon
+                        x:Name="PlayIcon"
                         ui:VisualExtensions.NormalizedCenterPoint="0.5"
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="14"
                         Glyph="{StaticResource GlyphPlay}"
                         Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsCurrentlyPlaying), Mode=OneWay}" />
                     <FontIcon
+                        x:Name="StopIcon"
                         ui:VisualExtensions.NormalizedCenterPoint="0.5"
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="14"
