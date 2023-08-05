@@ -40,6 +40,16 @@ namespace AmbientSounds.Controls
             return colourHex.ToColor();
         }
 
+        public static Color ToTransparent(string colourHex)
+        {
+            if (string.IsNullOrEmpty(colourHex))
+            {
+                colourHex = "#000000";
+            }
+
+            return colourHex.Replace("#", "#00").ToColor();
+        }
+
         public static void GridScaleUp(object sender, PointerRoutedEventArgs e)
             => SoundItemAnimations.ItemScaleUp((UIElement)sender, 1.1f, e.Pointer);
 

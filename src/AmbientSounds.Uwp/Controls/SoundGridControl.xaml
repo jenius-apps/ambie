@@ -15,7 +15,8 @@
             x:Key="RegularItemContainerStyle"
             BasedOn="{StaticResource DefaultGridViewItemStyle}"
             TargetType="GridViewItem">
-            <Setter Property="Margin" Value="0,0,8,8" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="Margin" Value="0,0,2,2" />
         </Style>
         <Style
             x:Key="CompactItemContainerStyle"

@@ -92,6 +92,8 @@
             <x:Double x:Key="TopPlayerPanelHeight">66</x:Double>
             <Thickness x:Key="TopPlayerPageMargin">0,66,0,0</Thickness>
             <Thickness x:Key="MainFramePageMargin">20,20,0,0</Thickness>
+            <CornerRadius x:Key="SoundCardCornerRadius">4</CornerRadius>
+            <x:Double x:Key="SoundCardCornerRadiusDouble">4</x:Double>
 
             <Style x:Key="RoundButtonStyle" TargetType="Button">
                 <Setter Property="Width" Value="40" />

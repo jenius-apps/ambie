@@ -24,7 +24,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Height="20">
+    <Grid Height="20" CornerRadius="4,4,0,0">
         <Rectangle Fill="{ThemeResource BadgeBrush}" Stretch="Fill" />
 
         <!--  No need to translate this since it's a brand  -->
