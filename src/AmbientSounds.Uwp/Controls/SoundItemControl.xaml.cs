@@ -18,7 +18,7 @@ public sealed partial class SoundItemControl : UserControl
             nameof(ViewModel),
             typeof(SoundViewModel),
             typeof(SoundItemControl),
-            new PropertyMetadata(null, OnViewModelChanged));
+            new PropertyMetadata(null));
 
     public static readonly DependencyProperty IsCompactProperty =
         DependencyProperty.Register(
@@ -56,41 +56,5 @@ public sealed partial class SoundItemControl : UserControl
     {
         await App.Services.GetRequiredService<IDialogService>().OpenTutorialAsync();
         App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ReorderClicked);
-    }
-
-    private static void OnViewModelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        if (d is SoundItemControl control)
-        {
-            control.RegisterEvents(e.OldValue, e.NewValue);
-        }
-    }
-
-    private void RegisterEvents(object oldObject, object newObject)
-    {
-        if (oldObject is SoundViewModel oldVm)
-        {
-            oldVm.PropertyChanged -= OnViewModelPropertyChanged;
-        }
-
-        if (newObject is SoundViewModel newVm)
-        {
-            newVm.PropertyChanged += OnViewModelPropertyChanged;
-        }
-    }
-
-    private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
-    {
-        if (e.PropertyName == nameof(SoundViewModel.IsCurrentlyPlaying))
-        {
-            if (ViewModel.IsCurrentlyPlaying)
-            {
-                SoundsStartingStoryboard.Begin();
-            }
-            else
-            {
-                SoundsStoppingStoryboard.Begin();
-            }
-        }
     }
 }

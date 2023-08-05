@@ -19,49 +19,6 @@
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <Storyboard x:Name="SoundsStoppingStoryboard">
-            <DoubleAnimation
-                Storyboard.TargetName="PlayIcon"
-                Storyboard.TargetProperty="Opacity"
-                From="0.0"
-                To="1.0"
-                Duration="0:0:0.3" />
-            <DoubleAnimation
-                Storyboard.TargetName="PlayIconScale"
-                Storyboard.TargetProperty="ScaleX"
-                From="0.8"
-                To="1.0"
-                Duration="0:0:0.3" />
-            <DoubleAnimation
-                Storyboard.TargetName="PlayIconScale"
-                Storyboard.TargetProperty="ScaleY"
-                From="0.8"
-                To="1.0"
-                Duration="0:0:0.3" />
-        </Storyboard>
-        <Storyboard x:Name="SoundsStartingStoryboard">
-            <DoubleAnimation
-                Storyboard.TargetName="StopIcon"
-                Storyboard.TargetProperty="Opacity"
-                From="0.0"
-                To="1.0"
-                Duration="0:0:0.3" />
-            <DoubleAnimation
-                Storyboard.TargetName="StopIconScale"
-                Storyboard.TargetProperty="ScaleX"
-                From="0.8"
-                To="1.0"
-                Duration="0:0:0.3" />
-            <DoubleAnimation
-                Storyboard.TargetName="StopIconScale"
-                Storyboard.TargetProperty="ScaleY"
-                From="0.8"
-                To="1.0"
-                Duration="0:0:0.3" />
-        </Storyboard>
-    </UserControl.Resources>
-
     <Grid
         x:Name="MainGrid"
         Width="124"
@@ -128,6 +85,60 @@
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <StateTrigger IsActive="{x:Bind ViewModel.IsPresenceVisible, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="StopIcon"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0.0"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="StopIconScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="StopIconScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                    </Storyboard>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="PlayIcon"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0.0"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="PlayIconScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="PlayIconScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                    </Storyboard>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ext:UIExtensions.Not(ViewModel.IsCurrentlyPlaying), Mode=OneWay}" />
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
