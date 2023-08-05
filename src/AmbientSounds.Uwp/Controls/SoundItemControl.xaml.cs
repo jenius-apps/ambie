@@ -7,7 +7,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using JeniusApps.Common.Telemetry;
-using System.ComponentModel;
 
 namespace AmbientSounds.Controls;
 
@@ -56,5 +55,15 @@ public sealed partial class SoundItemControl : UserControl
     {
         await App.Services.GetRequiredService<IDialogService>().OpenTutorialAsync();
         App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.ReorderClicked);
+    }
+
+    private void OnPointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+    {
+        OnHoverStoryBoard.Begin();
+    }
+
+    private void OnPointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+    {
+        OnRestStoryBoard.Begin();
     }
 }

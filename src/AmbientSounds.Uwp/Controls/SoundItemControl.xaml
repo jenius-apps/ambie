@@ -19,10 +19,33 @@
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <Storyboard x:Name="OnHoverStoryBoard">
+            <DoubleAnimation
+                EnableDependentAnimation="True"
+                Storyboard.TargetName="ColourGradientStop"
+                Storyboard.TargetProperty="Offset"
+                From="1.0"
+                To="0.8"
+                Duration="0:0:0.15" />
+        </Storyboard>
+        <Storyboard x:Name="OnRestStoryBoard">
+            <DoubleAnimation
+                EnableDependentAnimation="True"
+                Storyboard.TargetName="ColourGradientStop"
+                Storyboard.TargetProperty="Offset"
+                From="0.8"
+                To="1.0"
+                Duration="0:0:0.15" />
+        </Storyboard>
+    </UserControl.Resources>
+
     <Grid
         x:Name="MainGrid"
         Width="124"
-        Height="184">
+        Height="184"
+        PointerEntered="OnPointerEntered"
+        PointerExited="OnPointerExited">
         <Grid.ContextFlyout>
             <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                 <muxc:CommandBarFlyout.SecondaryCommands>
@@ -222,7 +245,7 @@
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0.3" Color="{x:Bind controls:UIHelper.ToTransparent(ViewModel.ColourHex), Mode=OneWay}" />
-                    <GradientStop Offset="0.9" Color="{x:Bind controls:UIHelper.ToColour(ViewModel.ColourHex), Mode=OneWay}" />
+                    <GradientStop x:Name="ColourGradientStop" Offset="1.0" Color="{x:Bind controls:UIHelper.ToColour(ViewModel.ColourHex), Mode=OneWay}" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
