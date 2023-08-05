@@ -15,7 +15,6 @@
             x:Key="RegularItemContainerStyle"
             BasedOn="{StaticResource DefaultGridViewItemStyle}"
             TargetType="GridViewItem">
-            <Setter Property="Padding" Value="2" />
             <Setter Property="Margin" Value="0,0,2,2" />
         </Style>
         <Style
@@ -46,7 +45,7 @@
             AllowDrop="True"
             CanDragItems="True"
             CanReorderItems="True"
-            IsItemClickEnabled="True"
+            IsItemClickEnabled="False"
             ItemClick="OnItemClick"
             ItemContainerStyle="{StaticResource RegularItemContainerStyle}"
             ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"

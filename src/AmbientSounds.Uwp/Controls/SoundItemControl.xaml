@@ -6,6 +6,7 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:loc="using:AmbientSounds.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -100,9 +101,9 @@
 
             <ui:Effects.Shadow>
                 <media:AttachedCardShadow
-                    BlurRadius="4"
+                    BlurRadius="5"
                     CornerRadius="8"
-                    Opacity="0.4"
+                    Opacity="0.2"
                     Offset="0,2" />
             </ui:Effects.Shadow>
 
@@ -215,36 +216,67 @@
             VerticalAlignment="Top"
             Visibility="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
 
-        <StackPanel Margin="12" VerticalAlignment="Bottom">
-            <StackPanel
-                x:Name="PresenceCount"
-                Margin="0,0,0,4"
-                Orientation="Horizontal"
-                Visibility="Collapsed">
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="14"
-                    Foreground="White"
-                    Glyph="{StaticResource GlyphPeople}" />
+        <Grid VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="10,0,0,10" VerticalAlignment="Bottom">
+                <StackPanel
+                    x:Name="PresenceCount"
+                    Margin="0,0,0,4"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Foreground="White"
+                        Glyph="{StaticResource GlyphPeople}" />
+                    <TextBlock
+                        Margin="4,0,0,0"
+                        FontSize="12"
+                        Foreground="White"
+                        Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
+                </StackPanel>
                 <TextBlock
-                    Margin="4,0,0,0"
-                    FontSize="12"
+                    x:Name="NameText"
+                    FontSize="11"
                     Foreground="White"
-                    Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
+                    Text="{x:Bind ViewModel.Name, Mode=OneWay}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="Wrap">
+                    <ToolTipService.ToolTip>
+                        <Grid MaxWidth="300">
+                            <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
+                        </Grid>
+                    </ToolTipService.ToolTip>
+                </TextBlock>
             </StackPanel>
-            <TextBlock
-                x:Name="NameText"
-                FontSize="12"
-                Foreground="White"
-                Text="{x:Bind ViewModel.Name, Mode=OneWay}"
-                TextTrimming="CharacterEllipsis"
-                TextWrapping="Wrap">
-                <ToolTipService.ToolTip>
-                    <Grid MaxWidth="300">
-                        <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                    </Grid>
-                </ToolTipService.ToolTip>
-            </TextBlock>
-        </StackPanel>
+
+            <Button
+                Grid.Column="1"
+                Width="24"
+                Height="24"
+                Margin="4,0,6,6"
+                Padding="0"
+                Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}"
+                RequestedTheme="Dark"
+                Style="{StaticResource SmallSubtleIconButton}">
+                <Grid>
+                    <FontIcon
+                        ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphPlay}"
+                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsCurrentlyPlaying), Mode=OneWay}" />
+                    <FontIcon
+                        ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphStop}"
+                        Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}" />
+                </Grid>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>
