@@ -7,6 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using JeniusApps.Common.Telemetry;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 
 namespace AmbientSounds.Controls;
 
@@ -59,11 +60,13 @@ public sealed partial class SoundItemControl : UserControl
 
     private void OnPointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
+        PlayStopButton.Visibility = Visibility.Visible;
         OnHoverStoryBoard.Begin();
     }
 
-    private void OnPointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+    private async void OnPointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
-        OnRestStoryBoard.Begin();
+        await OnRestStoryBoard.BeginAsync();
+        PlayStopButton.Visibility = Visibility.Collapsed;
     }
 }

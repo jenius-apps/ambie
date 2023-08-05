@@ -28,6 +28,33 @@
                 From="1.0"
                 To="0.8"
                 Duration="0:0:0.15" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopButton"
+                Storyboard.TargetProperty="Opacity"
+                From="0.0"
+                To="1.0"
+                Duration="0:0:0.3" />
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopTransform"
+                Storyboard.TargetProperty="Y"
+                From="8"
+                To="0"
+                Duration="0:0:0.15" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleX"
+                From="0.8"
+                To="1.0"
+                Duration="0:0:0.15" />
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleY"
+                From="0.8"
+                To="1.0"
+                Duration="0:0:0.15" />
+
         </Storyboard>
         <Storyboard x:Name="OnRestStoryBoard">
             <DoubleAnimation
@@ -37,6 +64,34 @@
                 From="0.8"
                 To="1.0"
                 Duration="0:0:0.15" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopButton"
+                Storyboard.TargetProperty="Opacity"
+                From="1.0"
+                To="0.0"
+                Duration="0:0:0.08" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopTransform"
+                Storyboard.TargetProperty="Y"
+                From="0"
+                To="8"
+                Duration="0:0:0.08" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleX"
+                From="1.0"
+                To="0.8"
+                Duration="0:0:0.08" />
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleY"
+                From="1.0"
+                To="0.8"
+                Duration="0:0:0.08" />
+
         </Storyboard>
     </UserControl.Resources>
 
@@ -296,7 +351,7 @@
         <Grid VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="34" />
             </Grid.ColumnDefinitions>
             <StackPanel Margin="10,0,0,10" VerticalAlignment="Bottom">
                 <StackPanel
@@ -331,6 +386,7 @@
             </StackPanel>
 
             <Button
+                x:Name="PlayStopButton"
                 Grid.Column="1"
                 Width="24"
                 Height="24"
@@ -338,8 +394,16 @@
                 Padding="0"
                 VerticalAlignment="Bottom"
                 Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}"
+                RenderTransformOrigin="0.5,0.5"
                 RequestedTheme="Dark"
-                Style="{StaticResource SmallSubtleIconButton}">
+                Style="{StaticResource SmallSubtleIconButton}"
+                Visibility="Collapsed">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform x:Name="PlayStopTransform" />
+                        <ScaleTransform x:Name="PlayStopScale" />
+                    </TransformGroup>
+                </Button.RenderTransform>
                 <Grid>
                     <FontIcon
                         x:Name="PlayIcon"
