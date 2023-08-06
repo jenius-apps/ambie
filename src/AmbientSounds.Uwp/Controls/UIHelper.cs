@@ -31,16 +31,26 @@ namespace AmbientSounds.Controls
             }
         }
 
-        public static Color ToLighterColour(this string colourHex)
+        public static Color ToLighterColour(this string colourHex, double percentLighter = 0.2)
         {
             var colour = colourHex.ToColour();
-            double percentLighter = 0.2; // 20% lighter
 
             return Color.FromArgb(
               colour.A,
               (byte)Math.Min(255, colour.R + 255 * percentLighter),
               (byte)Math.Min(255, colour.G + 255 * percentLighter),
               (byte)Math.Min(255, colour.B + 255 * percentLighter));
+        }
+
+        public static Color ToDarkerColour(this string colourHex, double percentDarker = 0.2)
+        {
+            var colour = colourHex.ToColour();
+
+            return Color.FromArgb(
+              colour.A,
+              (byte)Math.Max(0, colour.R - 255 * percentDarker),
+              (byte)Math.Max(0, colour.G - 255 * percentDarker),
+              (byte)Math.Max(0, colour.B - 255 * percentDarker));
         }
 
         public static Color ToColour(this string colourHex)
@@ -61,6 +71,11 @@ namespace AmbientSounds.Controls
         public static SolidColorBrush ToLighterBrush(string colourHex)
         {
             return new SolidColorBrush(colourHex.ToLighterColour());
+        }
+
+        public static SolidColorBrush ToDarkerBrush(string colourHex)
+        {
+            return new SolidColorBrush(colourHex.ToDarkerColour(0.1));
         }
 
         public static Color ToTransparent(string colourHex)

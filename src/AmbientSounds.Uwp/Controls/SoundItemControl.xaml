@@ -217,7 +217,7 @@
                             Storyboard.TargetName="InnerEllipseScale"
                             Storyboard.TargetProperty="ScaleX"
                             From="1.0"
-                            To="1.5"
+                            To="1.8"
                             Duration="0:0:5" />
                         <DoubleAnimation
                             AutoReverse="True"
@@ -225,7 +225,7 @@
                             Storyboard.TargetName="InnerEllipseScale"
                             Storyboard.TargetProperty="ScaleY"
                             From="1"
-                            To="1.5"
+                            To="1.8"
                             Duration="0:0:5" />
                     </Storyboard>
                     <VisualState.StateTriggers>
@@ -367,32 +367,37 @@
             IsIndeterminate="False"
             Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
 
-        <Ellipse
-            Width="30"
-            Height="30"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Fill="{x:Bind controls:UIHelper.ToBrush(ViewModel.ColourHex), Mode=OneWay}"
-            RenderTransformOrigin="0.5,0.5"
-            Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
-            <Ellipse.RenderTransform>
-                <ScaleTransform x:Name="EllipseScale" />
-            </Ellipse.RenderTransform>
-        </Ellipse>
+        <Grid
+            x:Name="NowPlayingIconGrid"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom">
+            <Ellipse
+                Width="16"
+                Height="16"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Fill="{x:Bind controls:UIHelper.ToDarkerBrush(ViewModel.ColourHex), Mode=OneWay}"
+                RenderTransformOrigin="0.5,0.5"
+                Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
+                <Ellipse.RenderTransform>
+                    <ScaleTransform x:Name="EllipseScale" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
 
-        <Ellipse
-            Width="18"
-            Height="18"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Fill="{x:Bind controls:UIHelper.ToLighterBrush(ViewModel.ColourHex), Mode=OneWay}"
-            Opacity="0.2"
-            RenderTransformOrigin="0.5,0.5"
-            Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
-            <Ellipse.RenderTransform>
-                <ScaleTransform x:Name="InnerEllipseScale" />
-            </Ellipse.RenderTransform>
-        </Ellipse>
+            <Ellipse
+                Width="8"
+                Height="8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Fill="{x:Bind controls:UIHelper.ToLighterBrush(ViewModel.ColourHex), Mode=OneWay}"
+                RenderTransformOrigin="0.5,0.5"
+                Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
+                <Ellipse.RenderTransform>
+                    <ScaleTransform x:Name="InnerEllipseScale" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
+        </Grid>
 
         <controls:PlusBadge
             Margin="2,2,2,0"

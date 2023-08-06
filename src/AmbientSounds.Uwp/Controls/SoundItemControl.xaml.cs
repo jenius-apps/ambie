@@ -62,10 +62,12 @@ public sealed partial class SoundItemControl : UserControl
     {
         PlayStopButton.Visibility = Visibility.Visible;
         OnHoverStoryBoard.Begin();
+        NowPlayingIconGrid.Visibility = Visibility.Collapsed;
     }
 
     private async void OnPointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
     {
+        NowPlayingIconGrid.Visibility = Visibility.Visible;
         await OnRestStoryBoard.BeginAsync();
         PlayStopButton.Visibility = Visibility.Collapsed;
     }
