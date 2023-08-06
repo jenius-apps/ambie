@@ -187,6 +187,46 @@
                             From="0.8"
                             To="1.0"
                             Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="EllipseScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="1.0"
+                            To="1.5"
+                            Duration="0:0:5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="EllipseScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="1"
+                            To="1.5"
+                            Duration="0:0:5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="InnerEllipseScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="1.0"
+                            To="1.5"
+                            Duration="0:0:5" />
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="InnerEllipseScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="1"
+                            To="1.5"
+                            Duration="0:0:5" />
                     </Storyboard>
                     <VisualState.StateTriggers>
                         <StateTrigger IsActive="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}" />
@@ -327,20 +367,32 @@
             IsIndeterminate="False"
             Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
 
-        <Grid
-            Margin="0,0,0,20"
+        <Ellipse
+            Width="30"
+            Height="30"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Background="{StaticResource BackgroundAcrylicBrush}"
-            CornerRadius="30"
+            Fill="{x:Bind controls:UIHelper.ToBrush(ViewModel.ColourHex), Mode=OneWay}"
+            RenderTransformOrigin="0.5,0.5"
             Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
-            <FontIcon
-                Margin="10,8,8,8"
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="16"
-                Foreground="White"
-                Glyph="{StaticResource GlyphVolume}" />
-        </Grid>
+            <Ellipse.RenderTransform>
+                <ScaleTransform x:Name="EllipseScale" />
+            </Ellipse.RenderTransform>
+        </Ellipse>
+
+        <Ellipse
+            Width="18"
+            Height="18"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="{x:Bind controls:UIHelper.ToLighterBrush(ViewModel.ColourHex), Mode=OneWay}"
+            Opacity="0.2"
+            RenderTransformOrigin="0.5,0.5"
+            Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
+            <Ellipse.RenderTransform>
+                <ScaleTransform x:Name="InnerEllipseScale" />
+            </Ellipse.RenderTransform>
+        </Ellipse>
 
         <controls:PlusBadge
             Margin="2,2,2,0"

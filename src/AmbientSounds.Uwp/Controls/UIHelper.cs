@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Animations;
 using AmbientSounds.ViewModels;
 using Microsoft.Toolkit.Uwp.Helpers;
+using System;
 using Windows.UI;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
@@ -30,14 +31,36 @@ namespace AmbientSounds.Controls
             }
         }
 
-        public static Color ToColour(string colourHex)
+        public static Color ToLighterColour(this string colourHex)
+        {
+            var colour = colourHex.ToColour();
+            double percentLighter = 0.2; // 20% lighter
+
+            return Color.FromArgb(
+              colour.A,
+              (byte)Math.Min(255, colour.R + 255 * percentLighter),
+              (byte)Math.Min(255, colour.G + 255 * percentLighter),
+              (byte)Math.Min(255, colour.B + 255 * percentLighter));
+        }
+
+        public static Color ToColour(this string colourHex)
         {
             if (string.IsNullOrEmpty(colourHex))
             {
                 colourHex = "#1F1F1F";
             }
-
+            
             return colourHex.ToColor();
+        }
+
+        public static SolidColorBrush ToBrush(string colourHex)
+        {
+            return new SolidColorBrush(colourHex.ToColour());
+        }
+
+        public static SolidColorBrush ToLighterBrush(string colourHex)
+        {
+            return new SolidColorBrush(colourHex.ToLighterColour());
         }
 
         public static Color ToTransparent(string colourHex)
