@@ -193,7 +193,7 @@
                             Storyboard.TargetName="EllipseScale"
                             Storyboard.TargetProperty="ScaleX"
                             From="1.0"
-                            To="1.5"
+                            To="0.66"
                             Duration="0:0:5">
                             <DoubleAnimation.EasingFunction>
                                 <CubicEase EasingMode="EaseInOut" />
@@ -205,7 +205,7 @@
                             Storyboard.TargetName="EllipseScale"
                             Storyboard.TargetProperty="ScaleY"
                             From="1"
-                            To="1.5"
+                            To="0.66"
                             Duration="0:0:5">
                             <DoubleAnimation.EasingFunction>
                                 <CubicEase EasingMode="EaseInOut" />
@@ -217,7 +217,7 @@
                             Storyboard.TargetName="InnerEllipseScale"
                             Storyboard.TargetProperty="ScaleX"
                             From="1.0"
-                            To="1.8"
+                            To="0.555"
                             Duration="0:0:5" />
                         <DoubleAnimation
                             AutoReverse="True"
@@ -225,7 +225,7 @@
                             Storyboard.TargetName="InnerEllipseScale"
                             Storyboard.TargetProperty="ScaleY"
                             From="1"
-                            To="1.8"
+                            To="0.555"
                             Duration="0:0:5" />
                     </Storyboard>
                     <VisualState.StateTriggers>
@@ -369,12 +369,12 @@
 
         <Grid
             x:Name="NowPlayingIconGrid"
-            Margin="10"
+            Margin="6"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom">
             <Ellipse
-                Width="16"
-                Height="16"
+                Width="24"
+                Height="24"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Fill="{x:Bind controls:UIHelper.ToDarkerBrush(ViewModel.ColourHex), Mode=OneWay}"
@@ -386,8 +386,8 @@
             </Ellipse>
 
             <Ellipse
-                Width="8"
-                Height="8"
+                Width="14.4"
+                Height="14.4"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Fill="{x:Bind controls:UIHelper.ToLighterBrush(ViewModel.ColourHex), Mode=OneWay}"
