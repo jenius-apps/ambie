@@ -202,7 +202,7 @@
         <SplitView
             x:Name="RootSplitView"
             BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-            BorderThickness="0,0,1,0"
+            BorderThickness="0,0,2,0"
             DisplayMode="Inline"
             IsPaneOpen="True"
             OpenPaneLength="72"
