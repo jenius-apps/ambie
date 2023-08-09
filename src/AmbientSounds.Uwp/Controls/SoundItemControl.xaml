@@ -100,7 +100,8 @@
         Width="124"
         Height="184"
         PointerEntered="OnPointerEntered"
-        PointerExited="OnPointerExited">
+        PointerExited="OnPointerExited"
+        PointerPressed="OnPointerPressed">
         <Grid.ContextFlyout>
             <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                 <muxc:CommandBarFlyout.SecondaryCommands>

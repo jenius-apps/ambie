@@ -71,4 +71,9 @@ public sealed partial class SoundItemControl : UserControl
         await OnRestStoryBoard.BeginAsync();
         PlayStopButton.Visibility = Visibility.Collapsed;
     }
+
+    private async void OnPointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+    {
+        await ViewModel.PlayCommand.ExecuteAsync(null);
+    }
 }
