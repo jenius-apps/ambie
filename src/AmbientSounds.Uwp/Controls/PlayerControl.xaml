@@ -2,11 +2,13 @@
     x:Class="AmbientSounds.Controls.PlayerControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -44,18 +46,43 @@
                 <!--  play  -->
                 <FontIcon
                     x:Name="PlayIcon"
+                    ui:VisualExtensions.NormalizedCenterPoint="0.5"
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="16"
                     Glyph="{StaticResource GlyphPlay}"
-                    Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}" />
+                    Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:ScaleAnimation
+                            From="0.80"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+                </FontIcon>
 
                 <!--  pause  -->
                 <FontIcon
                     x:Name="PauseIcon"
+                    ui:VisualExtensions.NormalizedCenterPoint="0.5"
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="16"
                     Glyph="{StaticResource GlyphPause}"
-                    Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}" />
+                    Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}">
+                    <ani:Implicit.ShowAnimations>
+                        <ani:ScaleAnimation
+                            From="0.80"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                    </ani:Implicit.ShowAnimations>
+
+                </FontIcon>
             </Grid>
         </Button>
         <Slider
