@@ -356,9 +356,8 @@ public partial class ShellPageViewModel : ObservableObject
         }
 
         var sounds = await _soundService.GetLocalSoundsAsync();
-        var cultureComparer = CultureInfo.CurrentCulture.CompareInfo;
         SearchAutosuggestItems = sounds
-            .Where(x => cultureComparer.IndexOf(_assetLocalizer.GetLocalName(x), input, CompareOptions.IgnoreCase) >= 0)
+            .Where(x => _assetLocalizer.LocalNameContains(x, input))
             .Select(x => new AutosuggestSound(_assetLocalizer.GetLocalName(x), x.Id))
             .ToArray();
     }
