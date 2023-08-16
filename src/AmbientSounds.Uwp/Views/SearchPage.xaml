@@ -2,13 +2,10 @@
     x:Class="AmbientSounds.Views.SearchPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:h="using:AmbientSounds.Controls"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -50,16 +47,61 @@
 
                         <Grid Padding="4,0,0,0">
                             <!--  play button  -->
-                            <Button Style="{StaticResource SmallSubtleIconButton}">
+                            <Button
+                                Command="{x:Bind PlayCommand}"
+                                Style="{StaticResource SmallSubtleIconButton}"
+                                Visibility="{x:Bind CanPlay, Mode=OneWay}">
                                 <FontIcon
                                     FontFamily="{StaticResource FluentUIGlyphs}"
-                                    FontSize="12"
+                                    FontSize="14"
                                     Glyph="{StaticResource GlyphPlay}" />
                             </Button>
 
-                            <!--  Dowload button  -->
+                            <Grid Visibility="{x:Bind NotInstalled, Mode=OneWay}">
+                                <!--  Dowload button  -->
+                                <Button
+                                    Command="{x:Bind DownloadCommand}"
+                                    Style="{StaticResource SmallSubtleIconButton}"
+                                    Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="14"
+                                        Glyph="{StaticResource GlyphDownload}" />
+                                </Button>
 
-                            <!--  Buy button  -->
+                                <!--  Buy button  -->
+                                <Button
+                                    Command="{x:Bind BuySoundCommand}"
+                                    Style="{StaticResource SmallSubtleIconButton}"
+                                    Visibility="{x:Bind CanBuy, Mode=OneWay}">
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphsCustom}"
+                                        FontSize="16"
+                                        Glyph="{StaticResource GlyphCustomPremium}" />
+                                </Button>
+
+                                <!--  download progress  -->
+                                <Grid Padding="8,0,0,0" Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                    <winui:ProgressRing
+                                        Width="16"
+                                        Height="16"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                                        IsIndeterminate="False"
+                                        Opacity="0.1"
+                                        Value="100" />
+                                    <winui:ProgressRing
+                                        Width="16"
+                                        Height="16"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                                        IsIndeterminate="False"
+                                        Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                </Grid>
+
+                            </Grid>
                         </Grid>
 
                         <TextBlock
@@ -72,16 +114,19 @@
                             Margin="0,0,4,0"
                             Orientation="Horizontal"
                             Spacing="4">
-                            <Button Style="{StaticResource SmallSubtleIconButton}">
+                            <Button
+                                Command="{x:Bind DeleteSoundCommand}"
+                                Style="{StaticResource SmallSubtleIconButton}"
+                                Visibility="{x:Bind IsInstalled, Mode=OneWay}">
                                 <FontIcon
                                     FontFamily="{StaticResource FluentUIGlyphs}"
-                                    FontSize="12"
+                                    FontSize="14"
                                     Glyph="{StaticResource GlyphDelete}" />
                             </Button>
                             <Button Style="{StaticResource SmallSubtleIconButton}">
                                 <FontIcon
                                     FontFamily="{StaticResource FluentUIGlyphs}"
-                                    FontSize="12"
+                                    FontSize="14"
                                     Glyph="{StaticResource GlyphInfo}" />
                             </Button>
                         </StackPanel>
