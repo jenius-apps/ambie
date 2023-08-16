@@ -13,13 +13,14 @@
 
     <Grid>
         <ListView
+            Margin="0,0,0,20"
             Padding="20,12,20,0"
             ItemsSource="{x:Bind ViewModel.Sounds}"
             Loaded="OnListViewLoaded"
             SelectionMode="None">
             <ListView.Header>
                 <TextBlock
-                    Margin="0,0,0,4"
+                    Margin="0,0,0,20"
                     FontSize="20"
                     FontWeight="SemiBold"
                     Text="{x:Bind ViewModel.HeaderText, Mode=OneWay}" />
@@ -34,12 +35,18 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
-                    <Grid Background="{x:Bind h:UIHelper.ToBrush(ColourHex)}">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="48" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
+
+                        <Rectangle
+                            Grid.ColumnSpan="3"
+                            Margin="4,0"
+                            VerticalAlignment="Bottom"
+                            Style="{StaticResource ModuleDividerRectStyle}" />
 
                         <Grid Padding="4,0,0,0">
                             <!--  play button  -->
@@ -62,6 +69,7 @@
 
                         <StackPanel
                             Grid.Column="2"
+                            Margin="0,0,4,0"
                             Orientation="Horizontal"
                             Spacing="4">
                             <Button Style="{StaticResource SmallSubtleIconButton}">
