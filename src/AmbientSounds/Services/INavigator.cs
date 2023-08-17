@@ -73,6 +73,7 @@ public enum ContentPageType
     Meditate,
     Settings,
     Updates,
+    Search,
 }
 
 public enum CompactViewMode

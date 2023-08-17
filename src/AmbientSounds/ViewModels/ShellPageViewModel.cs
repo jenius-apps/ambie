@@ -35,6 +35,9 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly IGuideService _guideService;
     private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly ISoundService _soundService;
+    private readonly IAssetLocalizer _assetLocalizer;
+    private readonly ISearchService _searchService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -50,7 +53,10 @@ public partial class ShellPageViewModel : ObservableObject
         IShareService shareService,
         IGuideService guideService,
         IDispatcherQueue dispatcherQueue,
-        ILocalizer localizer)
+        ILocalizer localizer,
+        ISoundService soundService,
+        IAssetLocalizer assetLocalizer,
+        ISearchService searchService)
     {
         _userSettings = userSettings;
         _ratingTimer = timer;
@@ -65,6 +71,9 @@ public partial class ShellPageViewModel : ObservableObject
         _dispatcherQueue = dispatcherQueue;
         _guideService = guideService;
         _systemInfoProvider = systemInfoProvider;
+        _soundService = soundService;
+        _assetLocalizer = assetLocalizer;
+        _searchService = searchService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
@@ -121,6 +130,9 @@ public partial class ShellPageViewModel : ObservableObject
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
     public ObservableCollection<MenuItem> FooterItems { get; } = new();
+
+    [ObservableProperty]
+    public IReadOnlyList<AutosuggestSound> _searchAutosuggestItems = Array.Empty<AutosuggestSound>();
 
     public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
 
@@ -335,5 +347,52 @@ public partial class ShellPageViewModel : ObservableObject
         {
             item.IsSelected = pageType.ToString() == item.Tag;
         }
+    }
+
+    public async Task FilterAutosuggestAsync(string input)
+    {
+        if (input.Length < 3 || string.IsNullOrWhiteSpace(input))
+        {
+            SearchAutosuggestItems = Array.Empty<AutosuggestSound>();
+            return;
+        }
+
+        var sounds = await _soundService.GetLocalSoundsAsync();
+        SearchAutosuggestItems = sounds
+            .Where(x => _assetLocalizer.LocalNameContains(x, input))
+            .Select(x => new AutosuggestSound(_assetLocalizer.GetLocalName(x), x.Id))
+            .ToArray();
+    }
+
+    public async Task PlayAsync(AutosuggestSound autosuggestSound)
+    {
+        var sound = await _soundService.GetLocalSoundAsync(autosuggestSound.Id);
+        if (sound is not null)
+        {
+            await _mixMediaPlayerService.ToggleSoundAsync(sound);
+        }
+    }
+
+    public void Search(string query)
+    {
+        _searchService.TriggerSearch(query);
+    }
+}
+
+public class AutosuggestSound
+{
+    public AutosuggestSound(string name, string id)
+    {
+        Name = name;
+        Id = id;
+    }
+
+    public string Id { get; init; }
+
+    public string Name { get; init; }
+
+    public override string ToString()
+    {
+        return Name;
     }
 }

@@ -290,6 +290,7 @@
             <x:String x:Key="GlyphPowerIcon">&#xE7E8;</x:String>
             <x:String x:Key="GlyphFind">&#xE11A;</x:String>
             <x:String x:Key="GlyphPlaylist">&#xE90B;</x:String>
+            <x:String x:Key="GlyphInfo">&#xE946;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

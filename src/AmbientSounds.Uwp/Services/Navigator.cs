@@ -1,6 +1,5 @@
 ﻿using AmbientSounds.Views;
 using System;
-using System.Diagnostics.Tracing;
 using System.Threading.Tasks;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
@@ -68,6 +67,7 @@ public class Navigator : INavigator
             ContentPageType.Settings => typeof(SettingsPage),
             ContentPageType.Updates => typeof(UpdatesPage),
             ContentPageType.Meditate => typeof(MeditatePage),
+            ContentPageType.Search => typeof(SearchPage),
             _ => typeof(HomePage)
         };
 

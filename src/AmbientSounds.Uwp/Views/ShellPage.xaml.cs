@@ -111,4 +111,24 @@ public sealed partial class ShellPage : Page
             }
         }
     }
+
+    private async void OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        if (args.Reason is AutoSuggestionBoxTextChangeReason.UserInput)
+        {
+            await ViewModel.FilterAutosuggestAsync(sender.Text);
+        }
+    }
+
+    private async void OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+        if (args.ChosenSuggestion is AutosuggestSound s)
+        {
+            await ViewModel.PlayAsync(s);
+        }
+        else if (args.QueryText is { Length: > 0 } query)
+        {
+            ViewModel.Search(query);
+        }
+    }
 }

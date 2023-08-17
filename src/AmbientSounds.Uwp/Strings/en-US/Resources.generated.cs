@@ -2458,6 +2458,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SearchPageHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Results for "{0}"
+        /// </summary>
+        public static string SearchPageHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SearchPageHeader");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2657,6 +2670,7 @@ namespace AmbientSounds.Strings{
             SettingsConfirmCloseHeader,
             AlwaysAskMeText,
             NowPlayingText,
+            SearchPageHeader,
         }
 
         private static ResourceLoader _resourceLoader;

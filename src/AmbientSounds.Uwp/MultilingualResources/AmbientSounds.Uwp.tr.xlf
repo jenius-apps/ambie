@@ -1038,6 +1038,10 @@
           <source>Now playing</source>
           <target state="new">Now playing</target>
         </trans-unit>
+        <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
+          <source>Results for "{0}"</source>
+          <target state="new">Results for "{0}"</target>
+        </trans-unit>
       </group>
     </body>
   </file>

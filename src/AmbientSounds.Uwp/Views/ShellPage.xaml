@@ -220,9 +220,13 @@
                             x:Name="SearchBox"
                             Margin="12,0,12,0"
                             VerticalContentAlignment="Center"
+                            DisplayMemberPath="Name"
                             FontSize="12"
+                            ItemsSource="{x:Bind ViewModel.SearchAutosuggestItems, Mode=OneWay}"
                             PlaceholderText="Search"
-                            QueryIcon="Find" />
+                            QueryIcon="Find"
+                            QuerySubmitted="OnQuerySubmitted"
+                            TextChanged="OnTextChanged" />
 
                         <Button
                             x:Name="SearchButton"

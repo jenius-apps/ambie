@@ -883,4 +883,7 @@
   <data name="NowPlayingText" xml:space="preserve">
     <value>Now playing</value>
   </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Results for "{0}"</value>
+  </data>
 </root>
