@@ -2,6 +2,7 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,13 +16,16 @@ public sealed partial class SearchPageViewModel : ObservableObject
     private CancellationTokenSource? _cts;
     private readonly ISoundVmFactory _vmFactory;
     private readonly ISearchService _searchService;
+    private readonly ILocalizer _localizer;
 
     public SearchPageViewModel(
         ISoundVmFactory vmFactory,
-        ISearchService searchService)
+        ISearchService searchService,
+        ILocalizer localizer)
     {
         _vmFactory = vmFactory;
         _searchService = searchService;
+        _localizer = localizer;
     }
 
     public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
@@ -72,7 +76,7 @@ public sealed partial class SearchPageViewModel : ObservableObject
     private async Task SearchAsync(string name, CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
-        HeaderText = $"Results for \"{name}\""; // TODO: localize
+        HeaderText = _localizer.GetString("SearchPageHeader", name);
 
         Sounds.Clear();
         IReadOnlyList<Sound> results = await _searchService.SearchByNameAsync(name);
