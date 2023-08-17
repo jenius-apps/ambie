@@ -28,16 +28,28 @@ public sealed partial class SearchPageViewModel : ObservableObject
         _localizer = localizer;
     }
 
+    /// <summary>
+    /// List of sounds that are the result of the search operation.
+    /// </summary>
     public ObservableCollection<OnlineSoundViewModel> Sounds { get; } = new();
 
+    /// <summary>
+    /// Header text for the search results.
+    /// </summary>
     [ObservableProperty]
     private string _headerText = string.Empty;
 
+    /// <summary>
+    /// Initializes the vm. Should always be run on page-to navigation.
+    /// </summary>
     public void Initialize()
     {
         _searchService.ModifyCurrentSearchRequested += OnModifyCurrentSearchRequested;
     }
 
+    /// <summary>
+    /// Uinitializes the vm. Should always be run on page-from navigation.
+    /// </summary>
     public void Uninitialize()
     {
         _cts?.Cancel();
