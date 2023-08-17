@@ -123,12 +123,12 @@
                                     FontSize="14"
                                     Glyph="{StaticResource GlyphDelete}" />
                             </Button>
-                            <Button Style="{StaticResource SmallSubtleIconButton}">
+                            <!--<Button Style="{StaticResource SmallSubtleIconButton}">
                                 <FontIcon
                                     FontFamily="{StaticResource FluentUIGlyphs}"
                                     FontSize="14"
                                     Glyph="{StaticResource GlyphInfo}" />
-                            </Button>
+                            </Button>-->
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

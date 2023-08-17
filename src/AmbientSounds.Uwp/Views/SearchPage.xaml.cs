@@ -23,12 +23,19 @@ public sealed partial class SearchPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        ViewModel.Initialize();
+
         if (e.Parameter is string searchQuery)
         {
             _cts?.Cancel();
             _cts = new();
             await ViewModel.SearchAsync(searchQuery, _cts.Token);
         }
+    }
+
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.Uninitialize();
     }
 
     private void OnListViewLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)

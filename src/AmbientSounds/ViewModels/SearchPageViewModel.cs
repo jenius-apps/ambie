@@ -27,10 +27,32 @@ public sealed partial class SearchPageViewModel : ObservableObject
     [ObservableProperty]
     private string _headerText = string.Empty;
 
+    public void Initialize()
+    {
+        _searchService.ModifyCurrentSearchRequested += OnModifyCurrentSearchRequested;
+    }
+
+    public void Uninitialize()
+    {
+        _searchService.ModifyCurrentSearchRequested -= OnModifyCurrentSearchRequested;
+
+        foreach (var s in Sounds)
+        {
+            s.Dispose();
+        }
+
+        Sounds.Clear();
+    }
+
+    private async void OnModifyCurrentSearchRequested(object sender, string e)
+    {
+        await SearchAsync(e, default); // TODO: fix cancellation token
+    }
+
     public async Task SearchAsync(string query, CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
-        HeaderText = $"Results for \"{query}\"";
+        HeaderText = $"Results for \"{query}\""; // TODO: localize
 
         Sounds.Clear();
         IReadOnlyList<Sound> results = await _searchService.SearchByNameAsync(query);

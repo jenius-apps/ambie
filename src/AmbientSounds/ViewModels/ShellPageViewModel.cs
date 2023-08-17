@@ -10,7 +10,6 @@ using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using INavigator = AmbientSounds.Services.INavigator;
@@ -38,6 +37,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly ISoundService _soundService;
     private readonly IAssetLocalizer _assetLocalizer;
+    private readonly ISearchService _searchService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -55,7 +55,8 @@ public partial class ShellPageViewModel : ObservableObject
         IDispatcherQueue dispatcherQueue,
         ILocalizer localizer,
         ISoundService soundService,
-        IAssetLocalizer assetLocalizer)
+        IAssetLocalizer assetLocalizer,
+        ISearchService searchService)
     {
         _userSettings = userSettings;
         _ratingTimer = timer;
@@ -72,6 +73,7 @@ public partial class ShellPageViewModel : ObservableObject
         _systemInfoProvider = systemInfoProvider;
         _soundService = soundService;
         _assetLocalizer = assetLocalizer;
+        _searchService = searchService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
@@ -373,7 +375,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void Search(string query)
     {
-        Navigate(ContentPageType.Search, query);
+        _searchService.TriggerSearch(query);
     }
 }
 
