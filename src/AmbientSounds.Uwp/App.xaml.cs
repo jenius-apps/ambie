@@ -471,7 +471,7 @@ sealed partial class App : Application
             .AddSingleton<MeditatePageViewModel>()
             .AddSingleton<FocusPageViewModel>()
             .AddSingleton<CompactPageViewModel>()
-            .AddSingleton<SearchPageViewModel>()
+            .AddTransient<SearchPageViewModel>()
             .AddTransient<ActiveTrackListViewModel>()
             .AddSingleton<AppServiceController>()
             .AddSingleton<PlaybackModeObserver>()

@@ -11,8 +11,6 @@ namespace AmbientSounds.Views;
 
 public sealed partial class SearchPage : Page
 {
-    private CancellationTokenSource? _cts;
-
     public SearchPage()
     {
         this.InitializeComponent();
@@ -27,9 +25,7 @@ public sealed partial class SearchPage : Page
 
         if (e.Parameter is string searchQuery)
         {
-            _cts?.Cancel();
-            _cts = new();
-            await ViewModel.SearchAsync(searchQuery, _cts.Token);
+            await ViewModel.TriggerSearchAsync(searchQuery);
         }
     }
 

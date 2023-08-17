@@ -2,6 +2,7 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
@@ -11,6 +12,7 @@ namespace AmbientSounds.ViewModels;
 
 public sealed partial class SearchPageViewModel : ObservableObject
 {
+    private CancellationTokenSource? _cts;
     private readonly ISoundVmFactory _vmFactory;
     private readonly ISearchService _searchService;
 
@@ -34,6 +36,7 @@ public sealed partial class SearchPageViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        _cts?.Cancel();
         _searchService.ModifyCurrentSearchRequested -= OnModifyCurrentSearchRequested;
 
         foreach (var s in Sounds)
@@ -44,18 +47,35 @@ public sealed partial class SearchPageViewModel : ObservableObject
         Sounds.Clear();
     }
 
-    private async void OnModifyCurrentSearchRequested(object sender, string e)
+    /// <summary>
+    /// Entry point in triggering a search.
+    /// </summary>
+    /// <param name="name">The name to query.</param>
+    public async Task TriggerSearchAsync(string name)
     {
-        await SearchAsync(e, default); // TODO: fix cancellation token
+        _cts?.Cancel();
+        _cts = new();
+
+        try
+        {
+            await SearchAsync(name, _cts.Token);
+        }
+        catch (OperationCanceledException) { }
     }
 
-    public async Task SearchAsync(string query, CancellationToken ct)
+    /// <summary>
+    /// Internal method that performs search and updates the UI
+    /// based on the results.
+    /// </summary>
+    /// <param name="name">The name to query.</param>
+    /// <param name="ct">A token for cancellation.</param>
+    private async Task SearchAsync(string name, CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
-        HeaderText = $"Results for \"{query}\""; // TODO: localize
+        HeaderText = $"Results for \"{name}\""; // TODO: localize
 
         Sounds.Clear();
-        IReadOnlyList<Sound> results = await _searchService.SearchByNameAsync(query);
+        IReadOnlyList<Sound> results = await _searchService.SearchByNameAsync(name);
         ct.ThrowIfCancellationRequested();
 
         if (results.Count == 0)
@@ -73,7 +93,13 @@ public sealed partial class SearchPageViewModel : ObservableObject
             }
 
             await vm.LoadCommand.ExecuteAsync(null);
+            ct.ThrowIfCancellationRequested();
             Sounds.Add(vm);
         }
+    }
+
+    private async void OnModifyCurrentSearchRequested(object sender, string e)
+    {
+        await TriggerSearchAsync(e);
     }
 }
