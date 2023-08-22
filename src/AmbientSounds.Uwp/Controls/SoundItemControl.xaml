@@ -153,11 +153,11 @@
                 <VisualState>
                     <Storyboard>
                         <DoubleAnimation
-                            Storyboard.TargetName="PresenceCount"
-                            Storyboard.TargetProperty="Opacity"
-                            From="0"
-                            To="1.0"
-                            Duration="0:0:0.3" />
+                    Storyboard.TargetName="PresenceCount"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0"
+                    To="1.0"
+                    Duration="0:0:0.3" />
                     </Storyboard>
                     <VisualState.Setters>
                         <Setter Target="PresenceCount.Visibility" Value="Visible" />
@@ -171,63 +171,63 @@
                 <VisualState>
                     <Storyboard>
                         <DoubleAnimation
-                            Storyboard.TargetName="StopIcon"
-                            Storyboard.TargetProperty="Opacity"
-                            From="0.0"
-                            To="1.0"
-                            Duration="0:0:0.3" />
+                    Storyboard.TargetName="StopIcon"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:0.3" />
                         <DoubleAnimation
-                            Storyboard.TargetName="StopIconScale"
-                            Storyboard.TargetProperty="ScaleX"
-                            From="0.8"
-                            To="1.0"
-                            Duration="0:0:0.3" />
+                    Storyboard.TargetName="StopIconScale"
+                    Storyboard.TargetProperty="ScaleX"
+                    From="0.8"
+                    To="1.0"
+                    Duration="0:0:0.3" />
                         <DoubleAnimation
-                            Storyboard.TargetName="StopIconScale"
-                            Storyboard.TargetProperty="ScaleY"
-                            From="0.8"
-                            To="1.0"
-                            Duration="0:0:0.3" />
+                    Storyboard.TargetName="StopIconScale"
+                    Storyboard.TargetProperty="ScaleY"
+                    From="0.8"
+                    To="1.0"
+                    Duration="0:0:0.3" />
                         <DoubleAnimation
-                            AutoReverse="True"
-                            RepeatBehavior="Forever"
-                            Storyboard.TargetName="EllipseScale"
-                            Storyboard.TargetProperty="ScaleX"
-                            From="1.0"
-                            To="0.66"
-                            Duration="0:0:5">
+                    AutoReverse="True"
+                    RepeatBehavior="Forever"
+                    Storyboard.TargetName="EllipseScale"
+                    Storyboard.TargetProperty="ScaleX"
+                    From="1.0"
+                    To="0.66"
+                    Duration="0:0:5">
                             <DoubleAnimation.EasingFunction>
                                 <CubicEase EasingMode="EaseInOut" />
                             </DoubleAnimation.EasingFunction>
                         </DoubleAnimation>
                         <DoubleAnimation
-                            AutoReverse="True"
-                            RepeatBehavior="Forever"
-                            Storyboard.TargetName="EllipseScale"
-                            Storyboard.TargetProperty="ScaleY"
-                            From="1"
-                            To="0.66"
-                            Duration="0:0:5">
+                    AutoReverse="True"
+                    RepeatBehavior="Forever"
+                    Storyboard.TargetName="EllipseScale"
+                    Storyboard.TargetProperty="ScaleY"
+                    From="1"
+                    To="0.66"
+                    Duration="0:0:5">
                             <DoubleAnimation.EasingFunction>
                                 <CubicEase EasingMode="EaseInOut" />
                             </DoubleAnimation.EasingFunction>
                         </DoubleAnimation>
                         <DoubleAnimation
-                            AutoReverse="True"
-                            RepeatBehavior="Forever"
-                            Storyboard.TargetName="InnerEllipseScale"
-                            Storyboard.TargetProperty="ScaleX"
-                            From="1.0"
-                            To="0.555"
-                            Duration="0:0:5" />
+                    AutoReverse="True"
+                    RepeatBehavior="Forever"
+                    Storyboard.TargetName="InnerEllipseScale"
+                    Storyboard.TargetProperty="ScaleX"
+                    From="1.0"
+                    To="0.555"
+                    Duration="0:0:5" />
                         <DoubleAnimation
-                            AutoReverse="True"
-                            RepeatBehavior="Forever"
-                            Storyboard.TargetName="InnerEllipseScale"
-                            Storyboard.TargetProperty="ScaleY"
-                            From="1"
-                            To="0.555"
-                            Duration="0:0:5" />
+                    AutoReverse="True"
+                    RepeatBehavior="Forever"
+                    Storyboard.TargetName="InnerEllipseScale"
+                    Storyboard.TargetProperty="ScaleY"
+                    From="1"
+                    To="0.555"
+                    Duration="0:0:5" />
                     </Storyboard>
                     <VisualState.StateTriggers>
                         <StateTrigger IsActive="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}" />
@@ -238,23 +238,23 @@
                 <VisualState>
                     <Storyboard>
                         <DoubleAnimation
-                            Storyboard.TargetName="PlayIcon"
-                            Storyboard.TargetProperty="Opacity"
-                            From="0.0"
-                            To="1.0"
-                            Duration="0:0:0.3" />
+                    Storyboard.TargetName="PlayIcon"
+                    Storyboard.TargetProperty="Opacity"
+                    From="0.0"
+                    To="1.0"
+                    Duration="0:0:0.3" />
                         <DoubleAnimation
-                            Storyboard.TargetName="PlayIconScale"
-                            Storyboard.TargetProperty="ScaleX"
-                            From="0.8"
-                            To="1.0"
-                            Duration="0:0:0.3" />
+                    Storyboard.TargetName="PlayIconScale"
+                    Storyboard.TargetProperty="ScaleX"
+                    From="0.8"
+                    To="1.0"
+                    Duration="0:0:0.3" />
                         <DoubleAnimation
-                            Storyboard.TargetName="PlayIconScale"
-                            Storyboard.TargetProperty="ScaleY"
-                            From="0.8"
-                            To="1.0"
-                            Duration="0:0:0.3" />
+                    Storyboard.TargetName="PlayIconScale"
+                    Storyboard.TargetProperty="ScaleY"
+                    From="0.8"
+                    To="1.0"
+                    Duration="0:0:0.3" />
                     </Storyboard>
                     <VisualState.StateTriggers>
                         <StateTrigger IsActive="{x:Bind ext:UIExtensions.Not(ViewModel.IsCurrentlyPlaying), Mode=OneWay}" />
@@ -378,7 +378,7 @@
                 Height="24"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Fill="{x:Bind controls:UIHelper.ToDarkerBrush(ViewModel.ColourHex), Mode=OneWay}"
+                Fill="{x:Bind controls:UIHelper.ToDarkerBrush(ViewModel.ColourHex, 0.1), Mode=OneWay}"
                 RenderTransformOrigin="0.5,0.5"
                 Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
                 <Ellipse.RenderTransform>
@@ -391,7 +391,7 @@
                 Height="14.4"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Fill="{x:Bind controls:UIHelper.ToLighterBrush(ViewModel.ColourHex), Mode=OneWay}"
+                Fill="{x:Bind controls:UIHelper.ToLighterBrush(ViewModel.ColourHex, 0.2), Mode=OneWay}"
                 RenderTransformOrigin="0.5,0.5"
                 Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
                 <Ellipse.RenderTransform>

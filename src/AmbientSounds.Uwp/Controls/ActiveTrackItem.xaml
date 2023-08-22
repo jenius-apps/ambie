@@ -1,0 +1,62 @@
+﻿<local:ObservableUserControl
+    x:Class="AmbientSounds.Controls.ActiveTrackItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid
+        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+        BorderThickness="1"
+        CornerRadius="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Rectangle
+            Grid.ColumnSpan="2"
+            RadiusX="4"
+            RadiusY="4">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="{x:Bind GetTopGradient(CurrentTheme), Mode=OneWay}" />
+                    <GradientStop Offset="1" Color="{x:Bind GetBottomGradient(CurrentTheme), Mode=OneWay}" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBlock
+            Margin="12,8,0,0"
+            FontSize="10"
+            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+            Text="{x:Bind SoundName, Mode=OneWay}"
+            TextTrimming="CharacterEllipsis"
+            ToolTipService.ToolTip="{x:Bind SoundName, Mode=OneWay}" />
+
+        <Slider
+            x:Uid="VolumeSliderSound"
+            Margin="12,0,4,0"
+            VerticalAlignment="Bottom"
+            Value="{x:Bind Volume, Mode=TwoWay}" />
+
+        <Button
+            Grid.Column="1"
+            Margin="6,0"
+            Padding="4"
+            AutomationProperties.Name="{x:Bind FormatDeleteMessage(SoundName), Mode=OneWay}"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            Command="{x:Bind CloseCommand, Mode=OneWay}"
+            CommandParameter="{x:Bind CloseCommandParameter, Mode=OneWay}">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="12"
+                Glyph="{StaticResource GlyphCancel}" />
+        </Button>
+    </Grid>
+</local:ObservableUserControl>

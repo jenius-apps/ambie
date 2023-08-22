@@ -15,34 +15,6 @@
     mc:Ignorable="d">
 
     <Grid Margin="0,8">
-        <Grid.Resources>
-            <!--  Override slider styles  -->
-            <!--  Source: https://github.com/microsoft/microsoft-ui-xaml/blob/main/dev/CommonStyles/Slider_themeresources.xaml  -->
-            <x:Double x:Key="SliderInnerThumbWidth">8</x:Double>
-            <x:Double x:Key="SliderInnerThumbHeight">8</x:Double>
-            <x:Double x:Key="SliderHorizontalThumbWidth">12</x:Double>
-            <x:Double x:Key="SliderHorizontalThumbHeight">12</x:Double>
-            <x:Double x:Key="SliderTrackThemeHeight">2</x:Double>
-        </Grid.Resources>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint620}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="NowPlayingText.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <Rectangle
-            Fill="{ThemeResource SubtleFillColorSecondaryBrush}"
-            RadiusX="4"
-            RadiusY="4"
-            Stretch="Fill" />
-
         <Grid Visibility="{x:Bind ShowList, Mode=OneWay}">
             <ListView
                 x:Uid="ActiveTrackListView"
@@ -59,6 +31,7 @@
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="Padding" Value="0,0,8,0" />
+                        <Setter Property="Margin" Value="0" />
                         <Setter Property="VerticalContentAlignment" Value="Stretch" />
                     </Style>
                 </ListView.ItemContainerStyle>
@@ -69,63 +42,12 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:ActiveTrackViewModel">
-                        <Grid Margin="0,4" CornerRadius="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Border
-                                Grid.ColumnSpan="2"
-                                BorderThickness="1"
-                                CornerRadius="2">
-                                <Border.Background>
-                                    <ImageBrush Stretch="UniformToFill">
-                                        <ImageBrush.ImageSource>
-                                            <BitmapImage
-                                                DecodePixelType="Logical"
-                                                DecodePixelWidth="140"
-                                                UriSource="{x:Bind ImagePath}" />
-                                        </ImageBrush.ImageSource>
-                                    </ImageBrush>
-                                </Border.Background>
-                            </Border>
-
-                            <Border
-                                Grid.ColumnSpan="2"
-                                Background="{ThemeResource AcrylicBackplateBrush}"
-                                CornerRadius="2" />
-
-                            <TextBlock
-                                Margin="12,8,0,0"
-                                FontSize="10"
-                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                Text="{x:Bind Name, Mode=OneWay}"
-                                TextTrimming="CharacterEllipsis"
-                                ToolTipService.ToolTip="{x:Bind Name, Mode=OneWay}" />
-
-                            <Slider
-                                x:Uid="VolumeSliderSound"
-                                Grid.Row="1"
-                                Width="80"
-                                Margin="12,16,0,0"
-                                Value="{x:Bind Volume, Mode=TwoWay}" />
-
-                            <Button
-                                Grid.Column="1"
-                                Margin="8,0"
-                                Padding="4"
-                                AutomationProperties.Name="{x:Bind local:ActiveTrackList.FormatDeleteMessage(Name), Mode=OneWay}"
-                                Background="Transparent"
-                                BorderBrush="Transparent"
-                                Command="{x:Bind RemoveCommand, Mode=OneWay}"
-                                CommandParameter="{x:Bind Sound, Mode=OneWay}">
-                                <FontIcon
-                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                    FontSize="10"
-                                    Glyph="{StaticResource GlyphCancel}" />
-                            </Button>
-                        </Grid>
+                        <local:ActiveTrackItem
+                            CloseCommand="{x:Bind RemoveCommand}"
+                            CloseCommandParameter="{x:Bind Sound}"
+                            ColourHex="{x:Bind ColourHex}"
+                            SoundName="{x:Bind Name}"
+                            Volume="{x:Bind Volume, Mode=TwoWay}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -260,5 +182,17 @@
                 </Flyout>
             </FlyoutBase.AttachedFlyout>
         </HyperlinkButton>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint620}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NowPlayingText.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

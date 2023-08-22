@@ -68,14 +68,14 @@ namespace AmbientSounds.Controls
             return new SolidColorBrush(colourHex.ToColour());
         }
 
-        public static SolidColorBrush ToLighterBrush(string colourHex)
+        public static SolidColorBrush ToLighterBrush(string colourHex, double percentLighter)
         {
-            return new SolidColorBrush(colourHex.ToLighterColour());
+            return new SolidColorBrush(colourHex.ToLighterColour(percentLighter));
         }
 
-        public static SolidColorBrush ToDarkerBrush(string colourHex)
+        public static SolidColorBrush ToDarkerBrush(string colourHex, double percentDarker)
         {
-            return new SolidColorBrush(colourHex.ToDarkerColour(0.1));
+            return new SolidColorBrush(colourHex.ToDarkerColour(percentDarker));
         }
 
         public static Color ToTransparent(string colourHex)
