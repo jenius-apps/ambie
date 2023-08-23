@@ -71,7 +71,7 @@ public class Navigator : INavigator
             _ => typeof(HomePage)
         };
 
-        if (Frame is Frame f)
+        if (Frame is Frame f && f.CurrentSourcePageType != pageType)
         {
             f.Navigate(pageType, navArgs, new SuppressNavigationTransitionInfo());
             ContentPageChanged?.Invoke(this, contentPage);
