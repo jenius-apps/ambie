@@ -199,15 +199,13 @@
 
         </StackPanel>
 
-        <SplitView
+        <controls:SplitView
             x:Name="RootSplitView"
             BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
             BorderThickness="0,0,2,0"
-            DisplayMode="Inline"
-            IsPaneOpen="True"
             OpenPaneLength="72"
             PaneBackground="{ThemeResource AltHostBrush}">
-            <SplitView.Pane>
+            <controls:SplitView.Pane>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -301,12 +299,14 @@
                         </ItemsControl>
                     </StackPanel>
                 </Grid>
-            </SplitView.Pane>
+            </controls:SplitView.Pane>
 
-            <Border x:Name="MainFrameBorder" Background="{ThemeResource DefaultPageBackgroundBrush}">
-                <Frame x:Name="MainFrame" Margin="{StaticResource TopPlayerPageMargin}" />
-            </Border>
-        </SplitView>
+            <controls:SplitView.MainContent>
+                <Border x:Name="MainFrameBorder" Background="{ThemeResource DefaultPageBackgroundBrush}">
+                    <Frame x:Name="MainFrame" Margin="{StaticResource TopPlayerPageMargin}" />
+                </Border>
+            </controls:SplitView.MainContent>
+        </controls:SplitView>
 
         <Grid
             x:Name="PlayerPanelGrid"
