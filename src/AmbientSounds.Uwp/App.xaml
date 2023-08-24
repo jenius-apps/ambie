@@ -196,28 +196,28 @@
             </Style>
 
             <Style x:Key="ModuleTitleStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="SemiBold" />
                 <Setter Property="Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
             </Style>
 
             <media:AttachedCardShadow
                 x:Key="ModuleBackgroundRectShadow"
                 BlurRadius="10"
-                CornerRadius="8"
-                Opacity="0.1"
+                CornerRadius="4"
+                Opacity="0.05"
                 Offset="0" />
 
             <Style x:Key="ModuleBorderStyle" TargetType="Border">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="BorderThickness" Value="1" />
-                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="CornerRadius" Value="4" />
                 <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
             </Style>
 
             <Style x:Key="ModuleBackgroundRectStyle" TargetType="Rectangle">
-                <Setter Property="RadiusY" Value="8" />
-                <Setter Property="RadiusX" Value="8" />
+                <Setter Property="RadiusY" Value="4" />
+                <Setter Property="RadiusX" Value="4" />
                 <Setter Property="Fill" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
             </Style>
 

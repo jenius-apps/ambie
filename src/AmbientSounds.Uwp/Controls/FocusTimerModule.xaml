@@ -41,7 +41,7 @@
                         <Setter Target="FocusTimerGrid.Margin" Value="24,12,0,12" />
                         <Setter Target="FocusTimerGrid.HorizontalAlignment" Value="Left" />
                         <Setter Target="FocusTimerGrid.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="SlidersPanel.Margin" Value="12,12,0,12" />
+                        <Setter Target="SlidersPanel.Margin" Value="12,20,0,20" />
                         <Setter Target="SlidersPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="DataText.(Grid.Row)" Value="0" />
                         <Setter Target="DataText.(Grid.Column)" Value="1" />
@@ -78,7 +78,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
         <winui:InfoBar
             Title="{x:Bind strings:Resources.FocusTimerHelpTitle}"
             Margin="0,0,0,8"
@@ -106,7 +105,10 @@
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Style="{StaticResource ModuleTitleStyle}" Text="{x:Bind strings:Resources.Timer}" />
+                <TextBlock
+                    VerticalAlignment="Bottom"
+                    Style="{StaticResource ModuleTitleStyle}"
+                    Text="{x:Bind strings:Resources.Timer}" />
                 <StackPanel
                     Grid.Column="1"
                     Orientation="Horizontal"
@@ -118,7 +120,7 @@
                         ToolTipService.ToolTip="{x:Bind strings:Resources.Help}">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
+                            FontSize="14"
                             Glyph="{StaticResource GlyphHelp}" />
                     </HyperlinkButton>
                     <HyperlinkButton
@@ -128,7 +130,7 @@
                         ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
+                            FontSize="14"
                             Glyph="{StaticResource GlyphSettings}" />
                         <FlyoutBase.AttachedFlyout>
                             <MenuFlyout Placement="BottomEdgeAlignedRight">
@@ -228,7 +230,7 @@
                         <StackPanel
                             x:Name="SlidersPanel"
                             Grid.ColumnSpan="2"
-                            Margin="12,12,12,0"
+                            Margin="12,20,12,0"
                             Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                             <StackPanel>
                                 <local:TimerSlider
