@@ -15,9 +15,7 @@
         CanScrollOutOfBounds="True">
         <controls:SoundGridControl.ItemTemplate>
             <DataTemplate x:DataType="viewmodels:SoundViewModel">
-                <GridViewItem KeyDown="OnKeyDown">
-                    <controls:SoundItemControl ViewModel="{x:Bind}" />
-                </GridViewItem>
+                <controls:SoundItemControl ViewModel="{x:Bind}" />
             </DataTemplate>
         </controls:SoundGridControl.ItemTemplate>
     </controls:SoundGridControl>
