@@ -115,8 +115,8 @@ public sealed partial class SearchPageViewModel : ObservableObject
 
         if (results.Count == 0)
         {
-            SearchEmptyPlaceholderVisible = true;
             SearchLoadingPlaceholderVisible = false;
+            SearchEmptyPlaceholderVisible = true;
             return;
         }
 
