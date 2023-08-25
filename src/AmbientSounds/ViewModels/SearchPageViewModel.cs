@@ -46,6 +46,12 @@ public sealed partial class SearchPageViewModel : ObservableObject
     private bool _searchLoadingPlaceholderVisible;
 
     /// <summary>
+    /// Determines if the search empty placeholder should be visible or not.
+    /// </summary>
+    [ObservableProperty]
+    private bool _searchEmptyPlaceholderVisible;
+
+    /// <summary>
     /// Initializes the vm. Should always be run on page-to navigation.
     /// </summary>
     public void Initialize()
@@ -85,6 +91,7 @@ public sealed partial class SearchPageViewModel : ObservableObject
         catch (OperationCanceledException) 
         {
             SearchLoadingPlaceholderVisible = false;
+            SearchEmptyPlaceholderVisible = false;
         }
     }
 
@@ -98,6 +105,7 @@ public sealed partial class SearchPageViewModel : ObservableObject
     {
         ct.ThrowIfCancellationRequested();
 
+        SearchEmptyPlaceholderVisible = false;
         SearchLoadingPlaceholderVisible = true;
         HeaderText = _localizer.GetString("SearchPageHeader", name);
 
@@ -107,6 +115,7 @@ public sealed partial class SearchPageViewModel : ObservableObject
 
         if (results.Count == 0)
         {
+            SearchEmptyPlaceholderVisible = true;
             SearchLoadingPlaceholderVisible = false;
             return;
         }

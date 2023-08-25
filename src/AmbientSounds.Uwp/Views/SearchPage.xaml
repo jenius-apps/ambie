@@ -5,6 +5,7 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
@@ -135,6 +136,28 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel
+            VerticalAlignment="Center"
+            Spacing="12"
+            Visibility="{x:Bind ViewModel.SearchEmptyPlaceholderVisible, Mode=OneWay}">
+            <StackPanel.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </StackPanel.ChildrenTransitions>
+            <Image
+                Width="100"
+                HorizontalAlignment="Center"
+                AutomationProperties.AccessibilityView="Raw"
+                Source="ms-appx:///Assets/squinting_face_with_tongue_3d.png" />
+            <TextBlock
+                MaxWidth="300"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="Oops! We couldn't find that sound. We'll see if we can add it in the future."
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+        </StackPanel>
+
 
         <ItemsControl Margin="20,64,20,0" Visibility="{x:Bind ViewModel.SearchLoadingPlaceholderVisible, Mode=OneWay}">
             <ItemsControl.Items>
