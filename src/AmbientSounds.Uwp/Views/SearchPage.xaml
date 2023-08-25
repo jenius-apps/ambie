@@ -153,7 +153,7 @@
                 MaxWidth="300"
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="Oops! We couldn't find that sound. We'll see if we can add it in the future."
+                Text="{x:Bind strings:Resources.SearchEmptyPlaceholderText}"
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
         </StackPanel>

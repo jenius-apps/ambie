@@ -2471,6 +2471,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SearchEmptyPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Oops! We couldn't find that sound. We'll see if we can add it in the future
+        /// </summary>
+        public static string SearchEmptyPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SearchEmptyPlaceholderText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2671,6 +2684,7 @@ namespace AmbientSounds.Strings{
             AlwaysAskMeText,
             NowPlayingText,
             SearchPageHeader,
+            SearchEmptyPlaceholderText,
         }
 
         private static ResourceLoader _resourceLoader;

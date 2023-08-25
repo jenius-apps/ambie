@@ -886,4 +886,7 @@
   <data name="SearchPageHeader" xml:space="preserve">
     <value>Results for "{0}"</value>
   </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Oops! We couldn't find that sound. We'll see if we can add it in the future</value>
+  </data>
 </root>
