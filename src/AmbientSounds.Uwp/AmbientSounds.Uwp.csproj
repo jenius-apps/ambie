@@ -217,6 +217,9 @@
     <Compile Include="Controls\Screensaver.xaml.cs">
       <DependentUpon>Screensaver.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SearchItemShimmer.xaml.cs">
+      <DependentUpon>SearchItemShimmer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SegmentItem.xaml.cs">
       <DependentUpon>SegmentItem.xaml</DependentUpon>
     </Compile>
@@ -572,6 +575,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Screensaver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SearchItemShimmer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

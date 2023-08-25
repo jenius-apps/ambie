@@ -40,6 +40,12 @@ public sealed partial class SearchPageViewModel : ObservableObject
     private string _headerText = string.Empty;
 
     /// <summary>
+    /// Determines if the search loading placeholder should be visible or not.
+    /// </summary>
+    [ObservableProperty]
+    private bool _searchLoadingPlaceholderVisible;
+
+    /// <summary>
     /// Initializes the vm. Should always be run on page-to navigation.
     /// </summary>
     public void Initialize()
@@ -76,7 +82,10 @@ public sealed partial class SearchPageViewModel : ObservableObject
         {
             await SearchAsync(name, _cts.Token);
         }
-        catch (OperationCanceledException) { }
+        catch (OperationCanceledException) 
+        {
+            SearchLoadingPlaceholderVisible = false;
+        }
     }
 
     /// <summary>
@@ -88,6 +97,8 @@ public sealed partial class SearchPageViewModel : ObservableObject
     private async Task SearchAsync(string name, CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
+
+        SearchLoadingPlaceholderVisible = true;
         HeaderText = _localizer.GetString("SearchPageHeader", name);
 
         Sounds.Clear();
@@ -96,6 +107,7 @@ public sealed partial class SearchPageViewModel : ObservableObject
 
         if (results.Count == 0)
         {
+            SearchLoadingPlaceholderVisible = false;
             return;
         }
 
@@ -107,6 +119,8 @@ public sealed partial class SearchPageViewModel : ObservableObject
             {
                 continue;
             }
+
+            SearchLoadingPlaceholderVisible = false;
 
             await vm.LoadCommand.ExecuteAsync(null);
             ct.ThrowIfCancellationRequested();

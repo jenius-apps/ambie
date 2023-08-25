@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Views.SearchPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:AmbientSounds.ViewModels"
@@ -134,5 +135,16 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <ItemsControl Margin="20,64,20,0" Visibility="{x:Bind ViewModel.SearchLoadingPlaceholderVisible, Mode=OneWay}">
+            <ItemsControl.Items>
+                <controls:SearchItemShimmer TextLength="200" />
+                <controls:SearchItemShimmer TextLength="180" />
+                <controls:SearchItemShimmer TextLength="150" />
+                <controls:SearchItemShimmer TextLength="200" />
+                <controls:SearchItemShimmer TextLength="100" />
+                <controls:SearchItemShimmer TextLength="160" />
+            </ItemsControl.Items>
+        </ItemsControl>
     </Grid>
 </Page>
