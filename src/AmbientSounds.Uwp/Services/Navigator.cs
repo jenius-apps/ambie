@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Views;
+﻿using AmbientSounds.ViewModels;
+using AmbientSounds.Views;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.ViewManagement;
@@ -127,25 +128,25 @@ public class Navigator : INavigator
             return;
         }
 
-        GoBack(nameof(CompactPage));
+        if (RootFrame is not Frame f)
+        {
+            return;
+        }
+
         var preferences = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
         await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, preferences);
 
-        // Delay is required for the navigation
-        // to occur properly. Without it, the screen is blank
-        // because navigation doesn't happen.
-        await Task.Delay(1);
-
-        switch (closingOverlayMode)
+        ShellPageNavigationArgs args = new()
         {
-            case CompactViewMode.Focus:
-                NavigateTo(ContentPageType.Focus);
-                break;
-            case CompactViewMode.Home:
-            default:
-                NavigateTo(ContentPageType.Home);
-                break;
-        }
+            MillisecondsDelay = 300, // Required to avoid bug with the inner frame navigation happening too quickly and leads to content not being visible.
+            FirstPageOverride = closingOverlayMode switch
+            {
+                CompactViewMode.Focus => ContentPageType.Focus,
+                _ => ContentPageType.Home
+            }
+        };
+
+        f.Navigate(typeof(ShellPage), args, new SuppressNavigationTransitionInfo());
     }
 
     private void BlankOutPage(Frame? f)

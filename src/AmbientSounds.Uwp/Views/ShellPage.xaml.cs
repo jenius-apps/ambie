@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -49,9 +50,13 @@ public sealed partial class ShellPage : Page
         {
             navigator.Frame = MainFrame;
 
-            if (e.NavigationMode != NavigationMode.Back &&
-                e.Parameter is ShellPageNavigationArgs args)
+            if (e.Parameter is ShellPageNavigationArgs args)
             {
+                if (args.MillisecondsDelay > 0)
+                {
+                    await Task.Delay(args.MillisecondsDelay);
+                }
+
                 ViewModel.Navigate(
                     args.FirstPageOverride ?? ContentPageType.Home,
                     args.LaunchArguments);

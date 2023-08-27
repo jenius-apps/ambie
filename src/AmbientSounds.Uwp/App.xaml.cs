@@ -457,7 +457,7 @@ sealed partial class App : Application
             .AddSingleton<FocusTaskModuleViewModel>()
             .AddSingleton<PremiumControlViewModel>()
             .AddSingleton<FocusTimerModuleViewModel>()
-            .AddSingleton<ShellPageViewModel>()
+            .AddTransient<ShellPageViewModel>()
             .AddSingleton<PlayerViewModel>() // shared in main and compact pages
             .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
             .AddSingleton<FocusHistoryModuleViewModel>()

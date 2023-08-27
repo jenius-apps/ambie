@@ -58,6 +58,8 @@ public partial class ShellPageViewModel : ObservableObject
         IAssetLocalizer assetLocalizer,
         ISearchService searchService)
     {
+        IsWin11 = systemInfoProvider.CanUseFluentSystemIcons();
+
         _userSettings = userSettings;
         _ratingTimer = timer;
         _telemetry = telemetry;
@@ -98,8 +100,6 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.IntervalElapsed += OnIntervalLapsed;
             _ratingTimer.Start();
         }
-
-        IsWin11 = systemInfoProvider.CanUseFluentSystemIcons();
     }
 
     [ObservableProperty]
