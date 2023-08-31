@@ -370,12 +370,20 @@ public partial class ShellPageViewModel : ObservableObject
         if (sound is not null)
         {
             await _mixMediaPlayerService.ToggleSoundAsync(sound);
+            _telemetry.TrackEvent(TelemetryConstants.SearchAutoSuggestClicked, new Dictionary<string, string>
+            {
+                { "name", sound.Name }
+            });
         }
     }
 
     public void Search(string query)
     {
         _searchService.TriggerSearch(query);
+        _telemetry.TrackEvent(TelemetryConstants.SearchQuerySubmitted, new Dictionary<string, string>
+        {
+            { "query", query }
+        });
     }
 }
 

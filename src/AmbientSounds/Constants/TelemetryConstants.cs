@@ -6,6 +6,12 @@
     /// </summary>
     public class TelemetryConstants
     {
+        // search
+        private const string Search = "Seach:";
+        public const string SearchQuerySubmitted = Search + "querySubmitted";
+        public const string SearchEmptyResult = Search + "emptyResult";
+        public const string SearchAutoSuggestClicked = Search + "autosuggestClicked";
+
         // launch
         private const string Launch = "launch:";
         public const string LaunchViaToast = Launch + "toast";

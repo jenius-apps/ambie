@@ -1,6 +1,9 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.UI;
+using System.Collections.Generic;
 using System.Threading;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -27,6 +30,13 @@ public sealed partial class SearchPage : Page
         {
             await ViewModel.TriggerSearchAsync(searchQuery);
         }
+
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(
+            TelemetryConstants.PageNavTo,
+            new Dictionary<string, string>
+            {
+                { "name", "search" }
+            });
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

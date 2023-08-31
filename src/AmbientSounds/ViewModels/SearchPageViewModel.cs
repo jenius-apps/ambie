@@ -1,7 +1,9 @@
-﻿using AmbientSounds.Factories;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
@@ -17,15 +19,18 @@ public sealed partial class SearchPageViewModel : ObservableObject
     private readonly ISoundVmFactory _vmFactory;
     private readonly ISearchService _searchService;
     private readonly ILocalizer _localizer;
+    public readonly ITelemetry _telemetry;
 
     public SearchPageViewModel(
         ISoundVmFactory vmFactory,
         ISearchService searchService,
-        ILocalizer localizer)
+        ILocalizer localizer,
+        ITelemetry telemetry)
     {
         _vmFactory = vmFactory;
         _searchService = searchService;
         _localizer = localizer;
+        _telemetry = telemetry;
     }
 
     /// <summary>
@@ -117,6 +122,12 @@ public sealed partial class SearchPageViewModel : ObservableObject
         {
             SearchLoadingPlaceholderVisible = false;
             SearchEmptyPlaceholderVisible = true;
+
+            _telemetry.TrackEvent(TelemetryConstants.SearchEmptyResult, new Dictionary<string, string>
+            {
+                { "query", name }
+            });
+
             return;
         }
 
