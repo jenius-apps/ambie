@@ -194,6 +194,13 @@
                         </animations:Implicit.ShowAnimations>
                     </controls:SaveMixButton>
                     <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.PlayRandom}"
+                        Click="{x:Bind ViewModel.PlayRandomSoundAsync}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.PlayRandom}">
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE14B;" />
+                    </Button>
+                    <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
                         Click="{x:Bind ViewModel.GoToScreensaver}"
                         Style="{StaticResource SubtleIconButton}"

@@ -74,7 +74,7 @@ namespace AmbientSounds.ViewModels
         [RelayCommand]
         private void PlayRandom()
         {
-            //_player.PlayRandom();
+            _player.PlayRandomAsync();
         }
 
         private void UpdatePlayState()

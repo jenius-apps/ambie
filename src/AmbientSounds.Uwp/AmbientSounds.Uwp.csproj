@@ -751,7 +751,7 @@
   <ItemGroup>
     <PRIResource Include="Strings\en-US\Resources.resw">
       <SubType>Designer</SubType>
-      <Generator>ReswPlusGenerator</Generator>
+      <Generator>ReswPlusAdvancedGenerator</Generator>
       <LastGenOutput>Resources.generated.cs</LastGenOutput>
     </PRIResource>
     <PRIResource Include="Strings\ko-KR\Resources.resw">
