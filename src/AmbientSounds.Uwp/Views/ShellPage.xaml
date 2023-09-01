@@ -50,12 +50,13 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="TitleLogo.TextVisible" Value="Collapsed" />
-                        <Setter Target="TitleLogo.Margin" Value="24,14,0,0" />
+                        <Setter Target="TitleLogo.Margin" Value="26,14,0,0" />
                         <Setter Target="SearchBox.Visibility" Value="Collapsed" />
                         <Setter Target="SearchButton.Visibility" Value="Visible" />
                         <Setter Target="TrackList.ShowList" Value="False" />
                         <Setter Target="PremiumIcon.Visibility" Value="Visible" />
                         <Setter Target="PremiumText.Visibility" Value="Collapsed" />
+                        <Setter Target="PremiumButton.HorizontalContentAlignment" Value="Center" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -290,6 +291,7 @@
                             x:Name="SearchButton"
                             Height="32"
                             Margin="12,0,12,0"
+                            HorizontalAlignment="Stretch"
                             Background="Transparent"
                             BorderBrush="Transparent"
                             Visibility="Collapsed">
@@ -318,6 +320,7 @@
 
                     <StackPanel Grid.Row="2" Margin="0,12">
                         <HyperlinkButton
+                            x:Name="PremiumButton"
                             Margin="12,0,12,4"
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Left"
