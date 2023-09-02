@@ -1,20 +1,12 @@
-﻿using AmbientSounds.Cache;
-using AmbientSounds.Constants;
-using AmbientSounds.Factories;
-using AmbientSounds.Repositories;
+﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
-using AmbientSounds.Tools;
-using AmbientSounds.Tools.Uwp;
 using AmbientSounds.ViewModels;
-using JeniusApps.Common.Tools;
-using JeniusApps.Common.Tools.Uwp;
-using Microsoft.AppCenter;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
-using CommunityToolkit.Diagnostics;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using System;
-using System.Net.Http;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -23,18 +15,14 @@ using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
-using Windows.Globalization;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
+using Windows.UI.Core.Preview;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using System.Collections.Generic;
-using JeniusApps.Common.Telemetry;
-using JeniusApps.Common.Telemetry.Uwp;
-using Windows.UI.Core.Preview;
 
 #nullable enable
 
@@ -46,13 +34,11 @@ namespace AmbientSounds;
 sealed partial class App : Application
 {
     private static readonly bool _isTenFootPc = false;
-    private IServiceProvider? _serviceProvider;
     private AppServiceConnection? _appServiceConnection;
     private BackgroundTaskDeferral? _appServiceDeferral;
     private static PlayerTelemetryTracker? _playerTracker;
     private IUserSettings? _userSettings;
     private static Frame? AppFrame;
-    //private XboxGameBarWidget? _widget;
 
     /// <summary>
     /// Initializes the singleton application object.
@@ -139,24 +125,6 @@ sealed partial class App : Application
         }
     }
 
-    /// <summary>
-    /// Gets the <see cref="IServiceProvider"/> instance for the current application instance.
-    /// </summary>
-    public static IServiceProvider Services
-    {
-        get
-        {
-            IServiceProvider? serviceProvider = ((App)Current)._serviceProvider;
-
-            if (serviceProvider is null)
-            {
-                ThrowHelper.ThrowInvalidOperationException("The service provider is not initialized");
-            }
-
-            return serviceProvider;
-        }
-    }
-
     /// <inheritdoc/>
     protected override async void OnLaunched(LaunchActivatedEventArgs e)
     {
@@ -189,25 +157,10 @@ sealed partial class App : Application
         }
         else if (args is IProtocolActivatedEventArgs protocolActivatedEventArgs)
         {
-            if (protocolActivatedEventArgs.Uri.AbsoluteUri.StartsWith("ms-gamebarwidget"))
-            {
-                //await ActivateAsync(false, widgetMode: true);
-                //_widget = new XboxGameBarWidget(args as XboxGameBarWidgetActivatedEventArgs, Window.Current.CoreWindow, AppFrame);
-                //Window.Current.Closed += OnWidgetClosed;
-            }
-            else
-            {
-                await ActivateAsync(false);
-                HandleProtocolLaunch(protocolActivatedEventArgs);
-            }
+            await ActivateAsync(false);
+            HandleProtocolLaunch(protocolActivatedEventArgs);
         }
     }
-
-    //private void OnWidgetClosed(object sender, Windows.UI.Core.CoreWindowEventArgs e)
-    //{
-    //    _widget = null;
-    //    Window.Current.Closed -= OnWidgetClosed;
-    //}
 
     protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
     {
@@ -437,134 +390,5 @@ sealed partial class App : Application
         {
             ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme] = "default";
         }
-    }
-
-    /// <summary>
-    /// Configures a new <see cref="IServiceProvider"/> instance with the required services.
-    /// </summary>
-    private static IServiceProvider ConfigureServices(IAppSettings? appsettings = null)
-    {
-        var client = new HttpClient();
-
-        var provider = new ServiceCollection()
-            .AddSingleton(client)
-            // if viewmodel, then always transient unless otherwise stated
-            .AddSingleton<SoundListViewModel>() // shared in main and compact pages
-            .AddTransient<ScreensaverViewModel>()
-            .AddSingleton<ScreensaverPageViewModel>()
-            .AddSingleton<SettingsViewModel>()
-            .AddSingleton<CataloguePageViewModel>()
-            .AddSingleton<FocusTaskModuleViewModel>()
-            .AddSingleton<PremiumControlViewModel>()
-            .AddSingleton<FocusTimerModuleViewModel>()
-            .AddTransient<ShellPageViewModel>()
-            .AddSingleton<PlayerViewModel>() // shared in main and compact pages
-            .AddSingleton<SleepTimerViewModel>() // shared in main and compact pages
-            .AddSingleton<FocusHistoryModuleViewModel>()
-            .AddSingleton<VideosMenuViewModel>()
-            .AddSingleton<TimeBannerViewModel>()
-            .AddSingleton<UpdatesViewModel>()
-            .AddSingleton<InterruptionPageViewModel>()
-            .AddSingleton<InterruptionInsightsViewModel>()
-            .AddSingleton<DownloadMissingViewModel>()
-            .AddSingleton<ShareViewModel>()
-            .AddSingleton<MeditatePageViewModel>()
-            .AddSingleton<FocusPageViewModel>()
-            .AddSingleton<CompactPageViewModel>()
-            .AddTransient<SearchPageViewModel>()
-            .AddTransient<ActiveTrackListViewModel>()
-            .AddSingleton<AppServiceController>()
-            .AddSingleton<PlaybackModeObserver>()
-            .AddSingleton<ProtocolLaunchController>()
-            // object tree is all transient
-            .AddTransient<IStoreNotificationRegistrar, PartnerCentreNotificationRegistrar>()
-            .AddTransient<IImagePicker, ImagePicker>()
-            .AddSingleton<IClipboard, WindowsClipboard>()
-            .AddSingleton<IAppStoreRatings, MicrosoftStoreRatings>()
-            // Must be transient because this is basically
-            // a timer factory.
-            .AddTransient<ITimerService, TimerService>()
-            // exposes events or object tree has singleton, so singleton.
-            .AddSingleton<IDispatcherQueue, WindowsDispatcherQueue>()
-            .AddSingleton<IFocusNotesService, FocusNotesService>()
-            .AddSingleton<IFocusService, FocusService>()
-            .AddSingleton<IFocusHistoryService, FocusHistoryService>()
-            .AddSingleton<IFocusTaskService, FocusTaskService>()
-            .AddSingleton<IRecentFocusService, RecentFocusService>()
-            .AddSingleton<IDialogService, DialogService>()
-            .AddSingleton<IShareService, ShareService>()
-            .AddSingleton<IPresenceService, PresenceService>()
-            .AddSingleton<IFileDownloader, FileDownloader>()
-            .AddSingleton<ISoundVmFactory, SoundVmFactory>()
-            .AddSingleton<IGuideVmFactory, GuideVmFactory>()
-            .AddSingleton<CatalogueRowVmFactory>()
-            .AddSingleton<ICatalogueService, CatalogueService>()
-            .AddSingleton<ISearchService, SearchService>()
-            .AddSingleton<IVideoService, VideoService>()
-            .AddSingleton<IFocusTaskCache, FocusTaskCache>()
-            .AddSingleton<IFocusHistoryCache, FocusHistoryCache>()
-            .AddSingleton<IVideoCache, VideoCache>()
-            .AddSingleton<IPageCache, PageCache>()
-            .AddSingleton<IPagesRepository, PagesRepository>()
-            .AddSingleton<IAssetLocalizer, AssetLocalizer>()
-            .AddSingleton<IShareDetailCache, ShareDetailCache>()
-            .AddSingleton<IShareDetailRepository, ShareDetailRepository>()
-            .AddSingleton<IFocusTaskRepository, FocusTaskRepository>()
-            .AddSingleton<IOfflineVideoRepository, OfflineVideoRepository>()
-            .AddSingleton<IOnlineVideoRepository, OnlineVideoRepository>()
-            .AddSingleton<IOfflineSoundRepository, OfflineSoundRepository>()
-            .AddSingleton<IOnlineGuideRepository, OnlineGuideRepository>()
-            .AddSingleton<IOfflineGuideRepository, OfflineGuideRepository>()
-            .AddSingleton<ISoundCache, SoundCache>()
-            .AddSingleton<IGuideCache, GuideCache>()
-            .AddSingleton<ISoundService, SoundService>()
-            .AddSingleton<IGuideService, GuideService>()
-            .AddSingleton<IFocusHistoryRepository, FocusHistoryRepository>()
-            .AddSingleton<IUserSettings, LocalSettings>()
-            .AddSingleton<ISoundMixService, SoundMixService>()
-            .AddSingleton<IRenamer, Renamer>()
-            .AddSingleton<IUpdateService, UpdateService>()
-            .AddSingleton<ILocalizer, ReswLocalizer>()
-            .AddSingleton<IFileWriter, FileWriter>()
-            .AddSingleton<IFilePicker, FilePicker>()
-            .AddSingleton<IFocusToastService, FocusToastService>()
-            .AddSingleton<IToastService, ToastService>()
-            .AddSingleton<Services.INavigator, Services.Uwp.Navigator>()
-            .AddSingleton<ICompactNavigator, CompactNavigator>()
-            .AddSingleton<ICloudFileWriter, CloudFileWriter>()
-            .AddSingleton<PlayerTelemetryTracker>()
-            .AddSingleton<ISoundEffectsService, SoundEffectsService>()
-            .AddSingleton<ICatalogueService, CatalogueService>()
-            .AddSingleton<IPreviewService, PreviewService>()
-            .AddSingleton<IIapService, StoreService>()
-            .AddSingleton<IDownloadManager, WindowsDownloadManager>()
-            .AddSingleton<IScreensaverService, ScreensaverService>()
-            .AddSingleton<ITelemetry, AppCenterTelemetry>(s =>
-            {
-                var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
-                return new AppCenterTelemetry(apiKey);
-            })
-            .AddSingleton<IOnlineSoundRepository, OnlineSoundRepository>()
-            .AddSingleton<Services.ISystemInfoProvider, Services.Uwp.SystemInfoProvider>()
-            .AddSingleton<Tools.IAssetsReader, Tools.Uwp.AssetsReader>()
-            .AddSingleton<IMixMediaPlayerService, MixMediaPlayerService>()
-            .AddSingleton<ISystemMediaControls, WindowsSystemMediaControls>()
-            .AddSingleton<IAudioDeviceService, AudioDeviceService>()
-            .AddSingleton<IMediaPlayerFactory, WindowsMediaPlayerFactory>()
-            .AddSingleton(appsettings ?? new AppSettings())
-            .BuildServiceProvider(true);
-
-        // preload telemetry to ensure country code is set.
-        provider.GetService<ITelemetry>();
-        AppCenter.SetCountryCode(new GeographicRegion().CodeTwoLetter);
-
-        // preload appservice controller to ensure its
-        // dispatcher queue loads properly on the ui thread.
-        provider.GetService<AppServiceController>();
-        provider.GetService<ProtocolLaunchController>();
-        provider.GetService<PlaybackModeObserver>();
-        _playerTracker = provider.GetRequiredService<PlayerTelemetryTracker>();
-
-        return provider;
     }
 }
