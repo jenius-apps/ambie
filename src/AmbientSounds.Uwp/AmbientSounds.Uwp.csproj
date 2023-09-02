@@ -818,7 +818,6 @@
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.pt-PT.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ro-MD.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ro-RO.xlf" />
-    <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ro.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.sv-SE.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.tr.xlf" />
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.uk-UA.xlf" />
@@ -883,9 +882,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fluentuicustom.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ro\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\ro-MD\Resources.resw" />
