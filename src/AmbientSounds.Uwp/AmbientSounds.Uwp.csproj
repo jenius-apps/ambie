@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Animations\AnimationConstants.cs" />
     <Compile Include="Animations\SoundItemAnimations.cs" />
+    <Compile Include="App.Configuration.xaml.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
