@@ -681,6 +681,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Labs.Extensions.DependencyInjection">
+      <Version>0.0.1</Version>
+    </PackageReference>
     <PackageReference Include="CommunityToolkit.Labs.Uwp.SettingsControls">
       <Version>0.0.11</Version>
     </PackageReference>
