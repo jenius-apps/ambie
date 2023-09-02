@@ -195,10 +195,10 @@
                     </controls:SaveMixButton>
                     <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.PlayRandom}"
-                        Click="{x:Bind ViewModel.PlayRandomSoundAsync}"
+                        Command="{x:Bind ViewModel.PlayRandomSoundCommand}"
                         Style="{StaticResource SubtleIconButton}"
                         ToolTipService.ToolTip="{x:Bind strings:Resources.PlayRandom}">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xE14B;" />
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphShuffle}" />
                     </Button>
                     <Button
                         AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"

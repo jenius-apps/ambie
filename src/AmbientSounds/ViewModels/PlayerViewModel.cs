@@ -71,12 +71,6 @@ namespace AmbientSounds.ViewModels
             UpdatePlayState();
         }
 
-        [RelayCommand]
-        private void PlayRandom()
-        {
-            _player.PlayRandomAsync();
-        }
-
         private void UpdatePlayState()
         {
             OnPropertyChanged(nameof(IsPlaying));

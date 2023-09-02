@@ -161,7 +161,7 @@ public partial class ShellPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public async Task PlayRandomSoundAsync()
+    private async Task PlayRandomSoundAsync()
     {
         await _mixMediaPlayerService.PlayRandomAsync();
     }
