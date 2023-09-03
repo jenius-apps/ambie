@@ -116,6 +116,7 @@ partial class App
     [Singleton(typeof(FocusNotesService), typeof(IFocusNotesService))]
     [Singleton(typeof(FocusService), typeof(IFocusService))]
     [Singleton(typeof(FocusHistoryService), typeof(IFocusHistoryService))]
+    [Singleton(typeof(FocusTaskService), typeof(IFocusTaskService))]
     [Singleton(typeof(RecentFocusService), typeof(IRecentFocusService))]
     [Singleton(typeof(DialogService), typeof(IDialogService))]
     [Singleton(typeof(ShareService), typeof(IShareService))]
