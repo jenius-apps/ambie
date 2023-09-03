@@ -39,7 +39,10 @@
             Canvas.ZIndex="1"
             Click="GoBack"
             Style="{StaticResource IconButton}">
-            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphBack}" />
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="{StaticResource SmallIconSize}"
+                Glyph="{StaticResource GlyphBack}" />
         </Button>
 
         <StackPanel
@@ -58,10 +61,12 @@
                 <Grid>
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
                         Glyph="{StaticResource GlyphExpand}"
                         Visibility="{x:Bind controls:UIHelper.InvertVisibility(IsFullscreen)}" />
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
                         Glyph="{StaticResource GlyphCollapse}"
                         Visibility="{x:Bind IsFullscreen}" />
                 </Grid>
@@ -72,7 +77,10 @@
                 Style="{StaticResource IconButton}"
                 ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}"
                 Visibility="{x:Bind ViewModel.SettingsButtonVisible, Mode=OneWay}">
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="{StaticResource SmallIconSize}"
+                    Glyph="{StaticResource GlyphSettings}" />
                 <Button.Flyout>
                     <!--  Contents of this is set in code behind  -->
                     <MenuFlyout x:Name="SettingsFlyout" Placement="Bottom" />
