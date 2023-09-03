@@ -117,7 +117,7 @@
                 <Setter Property="Height" Value="44" />
             </Style>
 
-            <x:Double x:Key="SmallIconSize">18</x:Double>
+            <x:Double x:Key="SmallIconSize">14</x:Double>
 
             <Style
                 x:Key="SmallSubtleIconButton"

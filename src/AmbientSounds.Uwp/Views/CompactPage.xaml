@@ -42,7 +42,7 @@
             Style="{StaticResource SmallSubtleIconButton}">
             <FontIcon
                 FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="15"
+                FontSize="{StaticResource SmallIconSize}"
                 Glyph="{StaticResource GlyphBack}" />
         </Button>
 
@@ -139,7 +139,7 @@
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
+                            FontSize="{StaticResource SmallIconSize}"
                             Glyph="{StaticResource GlyphHome}" />
                         <TextBlock
                             Margin="8,0,0,0"
@@ -158,7 +158,7 @@
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
+                            FontSize="{StaticResource SmallIconSize}"
                             Glyph="{StaticResource GlyphFocus}" />
                         <TextBlock
                             Margin="8,0,0,0"
