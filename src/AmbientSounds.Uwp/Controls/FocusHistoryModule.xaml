@@ -30,118 +30,113 @@
             VerticalAlignment="Bottom"
             Style="{StaticResource ModuleDividerRectStyle}" />
 
-        <Border
-            Grid.Row="1"
-            Margin="0,12,0,0"
-            Style="{StaticResource ModuleBorderStyle}">
-            <Grid>
-                <StackPanel>
-                    <StackPanel
-                        Margin="0,12"
-                        Orientation="Horizontal"
-                        Visibility="{x:Bind ViewModel.Loading, Mode=OneWay}">
-                        <local:Shimmer
-                            Width="180"
-                            Height="120"
-                            Margin="0,0,0,0" />
-                        <local:Shimmer
-                            Width="180"
-                            Height="120"
-                            Margin="8,0,0,0" />
-                        <local:Shimmer
-                            Width="180"
-                            Height="120"
-                            Margin="8,0,0,0" />
-                    </StackPanel>
-
-                    <StackPanel Height="144" Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
-                        <TextBlock
-                            Margin="0,68,0,0"
-                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                            Text="{x:Bind strings:Resources.FocusHistoryPlaceholderText}"
-                            TextAlignment="Center"
-                            TextWrapping="WrapWholeWords" />
-                    </StackPanel>
-
-                    <GridView
-                        AutomationProperties.Name="{x:Bind strings:Resources.HistoryRecent}"
-                        IsItemClickEnabled="True"
-                        ItemClick="OnHistoryClicked"
-                        ItemsSource="{x:Bind ViewModel.Items}"
-                        SelectionMode="None"
-                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}">
-                        <GridView.ItemTemplate>
-                            <DataTemplate x:DataType="viewmodels:FocusHistoryViewModel">
-                                <Grid MinWidth="180" Padding="20,12,20,20">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                    </Grid.RowDefinitions>
-
-                                    <!--  top section  -->
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="auto" />
-                                        </Grid.ColumnDefinitions>
-
-                                        <StackPanel HorizontalAlignment="Left">
-                                            <TextBlock FontSize="28" Text="{x:Bind PercentComplete}" />
-                                            <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.FocusLength}">
-                                                <FontIcon
-                                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                                    FontSize="10"
-                                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                    Glyph="{StaticResource GlyphFocus}" />
-                                                <TextBlock
-                                                    Margin="4,0,0,0"
-                                                    FontSize="10"
-                                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                    Text="{x:Bind FocusMinutes}"
-                                                    TextWrapping="Wrap" />
-                                            </StackPanel>
-
-                                            <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.RestLength}">
-                                                <FontIcon
-                                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                                    FontSize="10"
-                                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                    Glyph="{StaticResource GlyphSleep}" />
-                                                <TextBlock
-                                                    Margin="4,0,0,0"
-                                                    FontSize="10"
-                                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                    Text="{x:Bind RestMinutes}"
-                                                    TextWrapping="Wrap" />
-
-                                            </StackPanel>
-
-                                            <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.Interruptions}">
-                                                <FontIcon
-                                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                                    FontSize="10"
-                                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                    Glyph="{StaticResource GlyphInterruption}" />
-                                                <TextBlock
-                                                    Margin="4,0,0,0"
-                                                    FontSize="10"
-                                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                                    Text="{x:Bind InterruptionCount}"
-                                                    TextWrapping="Wrap" />
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Grid>
-
-                                    <winui:ProgressBar
-                                        Grid.Row="1"
-                                        Margin="0,12,0,0"
-                                        Value="{x:Bind PercentComplete}" />
-                                </Grid>
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                    </GridView>
+        <Grid Grid.Row="1" Margin="0,12,0,0">
+            <StackPanel>
+                <StackPanel
+                    Margin="0,12"
+                    Orientation="Horizontal"
+                    Visibility="{x:Bind ViewModel.Loading, Mode=OneWay}">
+                    <local:Shimmer
+                        Width="180"
+                        Height="120"
+                        Margin="0,0,0,0" />
+                    <local:Shimmer
+                        Width="180"
+                        Height="120"
+                        Margin="8,0,0,0" />
+                    <local:Shimmer
+                        Width="180"
+                        Height="120"
+                        Margin="8,0,0,0" />
                 </StackPanel>
-            </Grid>
-        </Border>
+
+                <StackPanel Height="144" Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
+                    <TextBlock
+                        Margin="0,68,0,0"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        Text="{x:Bind strings:Resources.FocusHistoryPlaceholderText}"
+                        TextAlignment="Center"
+                        TextWrapping="WrapWholeWords" />
+                </StackPanel>
+
+                <GridView
+                    AutomationProperties.Name="{x:Bind strings:Resources.HistoryRecent}"
+                    IsItemClickEnabled="True"
+                    ItemClick="OnHistoryClicked"
+                    ItemsSource="{x:Bind ViewModel.Items}"
+                    SelectionMode="None"
+                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="viewmodels:FocusHistoryViewModel">
+                            <Grid MinWidth="180" Padding="20,12,20,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--  top section  -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel HorizontalAlignment="Left">
+                                        <TextBlock FontSize="28" Text="{x:Bind PercentComplete}" />
+                                        <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.FocusLength}">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Glyph="{StaticResource GlyphFocus}" />
+                                            <TextBlock
+                                                Margin="4,0,0,0"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Text="{x:Bind FocusMinutes}"
+                                                TextWrapping="Wrap" />
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.RestLength}">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Glyph="{StaticResource GlyphSleep}" />
+                                            <TextBlock
+                                                Margin="4,0,0,0"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Text="{x:Bind RestMinutes}"
+                                                TextWrapping="Wrap" />
+
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Horizontal" ToolTipService.ToolTip="{x:Bind strings:Resources.Interruptions}">
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Glyph="{StaticResource GlyphInterruption}" />
+                                            <TextBlock
+                                                Margin="4,0,0,0"
+                                                FontSize="10"
+                                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                Text="{x:Bind InterruptionCount}"
+                                                TextWrapping="Wrap" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+
+                                <winui:ProgressBar
+                                    Grid.Row="1"
+                                    Margin="0,12,0,0"
+                                    Value="{x:Bind PercentComplete}" />
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
