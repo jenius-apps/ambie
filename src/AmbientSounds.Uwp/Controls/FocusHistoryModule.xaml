@@ -21,22 +21,21 @@
         </Grid.RowDefinitions>
 
         <TextBlock
-            Margin="8,0,0,0"
+            Margin="0,0,0,8"
             Style="{StaticResource ModuleTitleStyle}"
             Text="{x:Bind strings:Resources.HistoryRecent}" />
 
         <Rectangle
-            Grid.Row="1"
-            Margin="0,8,0,0"
-            ui:Effects.Shadow="{StaticResource ModuleBackgroundRectShadow}"
-            Style="{StaticResource ModuleBackgroundRectStyle}" />
+            Grid.Row="0"
+            VerticalAlignment="Bottom"
+            Style="{StaticResource ModuleDividerRectStyle}" />
 
         <Border
             Grid.Row="1"
-            Margin="0,8,0,0"
+            Margin="0,12,0,0"
             Style="{StaticResource ModuleBorderStyle}">
             <Grid>
-                <StackPanel Padding="12,0,12,0">
+                <StackPanel>
                     <StackPanel
                         Margin="0,12"
                         Orientation="Horizontal"
@@ -65,7 +64,6 @@
                     </StackPanel>
 
                     <GridView
-                        Margin="0,12,0,0"
                         AutomationProperties.Name="{x:Bind strings:Resources.HistoryRecent}"
                         IsItemClickEnabled="True"
                         ItemClick="OnHistoryClicked"
