@@ -72,7 +72,6 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService = shareService;
         _dispatcherQueue = dispatcherQueue;
         _guideService = guideService;
-        _systemInfoProvider = systemInfoProvider;
         _soundService = soundService;
         _assetLocalizer = assetLocalizer;
         _searchService = searchService;
