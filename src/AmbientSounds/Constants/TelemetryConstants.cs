@@ -27,6 +27,7 @@
         public const string ShellPageShareClicked = ShellPage + "shareClicked";
         public const string FocusTimeBannerClicked = ShellPage + "focusTimeBannerClicked";
         public const string GuideBannerClicked = ShellPage + "guideBannerClicked";
+        public const string ShuffleClicked = ShellPage + "shuffleClicked";
 
         // updates
         private const string Updates = "updates:";

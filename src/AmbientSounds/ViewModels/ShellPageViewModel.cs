@@ -185,6 +185,7 @@ public partial class ShellPageViewModel : ObservableObject
     private async Task PlayRandomSoundAsync()
     {
         await _mixMediaPlayerService.PlayRandomAsync();
+        _telemetry.TrackEvent(TelemetryConstants.ShuffleClicked);
     }
 
     public async Task InitializeAsync()
