@@ -1,5 +1,4 @@
 // File generated automatically by ReswPlus. https://github.com/DotNetPlus/ReswPlus
-// The NuGet package ReswPlusLib is necessary to support Pluralization.
 using System;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Markup;
@@ -2447,6 +2446,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region PlayRandom
+        /// <summary>
+        ///   Looks up a localized string similar to: Play random sound
+        /// </summary>
+        public static string PlayRandom
+        {
+            get
+            {
+                return _resourceLoader.GetString("PlayRandom");
+            }
+        }
+        #endregion
+
         #region NowPlayingText
         /// <summary>
         ///   Looks up a localized string similar to: Now playing
@@ -2696,6 +2708,7 @@ namespace AmbientSounds.Strings{
             SettingsConfirmCloseDescription,
             SettingsConfirmCloseHeader,
             AlwaysAskMeText,
+            PlayRandom,
             NowPlayingText,
             SearchPageHeader,
             SearchEmptyPlaceholderText,
