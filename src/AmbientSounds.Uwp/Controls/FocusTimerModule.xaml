@@ -538,9 +538,6 @@
             Margin="0,12,0,0"
             HorizontalAlignment="Stretch"
             Visibility="{x:Bind ViewModel.IsRecentVisible, Mode=OneWay}">
-            <animations:Implicit.Animations>
-                <animations:OffsetAnimation Duration="0:0:0.15" />
-            </animations:Implicit.Animations>
 
             <ListView
                 Padding="0,0,200,0"
