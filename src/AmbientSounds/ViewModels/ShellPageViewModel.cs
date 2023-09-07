@@ -59,6 +59,7 @@ public partial class ShellPageViewModel : ObservableObject
         ISearchService searchService)
     {
         IsWin11 = systemInfoProvider.CanUseFluentSystemIcons();
+        IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
 
         _userSettings = userSettings;
         _ratingTimer = timer;
@@ -80,11 +81,9 @@ public partial class ShellPageViewModel : ObservableObject
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString()));
-        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString()));
+        if (IsMeditatePageVisible) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString())); }
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString()));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString()));
-
-        IsMeditatePageVisible = _systemInfoProvider.GetCulture().ToLower().Contains("en");
 
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
         var isNotFirstRun = !systemInfoProvider.IsFirstRun();
