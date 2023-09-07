@@ -694,9 +694,6 @@
     <PackageReference Include="ComputeSharp.D2D1.Uwp">
       <Version>2.1.0-preview2</Version>
     </PackageReference>
-    <PackageReference Include="Humanizer.Core">
-      <Version>2.14.1</Version>
-    </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
       <Version>0.0.21-preview</Version>
     </PackageReference>
