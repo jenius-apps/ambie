@@ -1029,6 +1029,10 @@
           <source>Always ask me</source>
           <target state="translated">Spørg mig altid</target>
         </trans-unit>
+        <trans-unit id="PlayRandom" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="new">Play random sound</target>
+        </trans-unit>
         <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
           <source>Now playing</source>
           <target state="translated">Spiller nu</target>

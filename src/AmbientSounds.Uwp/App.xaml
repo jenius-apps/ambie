@@ -248,6 +248,7 @@
             <FontFamily x:Key="FluentUIGlyphs">/Assets/fluentui.ttf#Segoe Fluent Icons</FontFamily>
             <FontFamily x:Key="FluentUIGlyphsCustom">/Assets/fluentuicustom.ttf#fluentui</FontFamily>
             <x:String x:Key="GlyphCalendar">&#xE163;</x:String>
+            <x:String x:Key="GlyphShuffle">&#xE14B;</x:String>
             <x:String x:Key="GlyphSettings">&#xE713;</x:String>
             <x:String x:Key="GlyphDownload">&#xEBD3;</x:String>
             <x:String x:Key="GlyphDelete">&#xE107;</x:String>

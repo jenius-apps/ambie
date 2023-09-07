@@ -1,4 +1,5 @@
 // File generated automatically by ReswPlus. https://github.com/DotNetPlus/ReswPlus
+// The NuGet package ReswPlusLib is necessary to support Pluralization.
 using System;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Markup;

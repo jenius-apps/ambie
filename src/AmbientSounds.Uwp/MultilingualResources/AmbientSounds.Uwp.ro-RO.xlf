@@ -1020,6 +1020,10 @@
           <source>Always ask me</source>
           <target state="translated">Intreaba-ma intotdeauna</target>
         </trans-unit>
+        <trans-unit id="PlayRandom" translate="yes" xml:space="preserve">
+          <source>Play random sound</source>
+          <target state="translated">Redați sunet aleatoriu</target>
+        </trans-unit>
         <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
           <source>Now playing</source>
           <target state="translated">Acum se joacă</target>
