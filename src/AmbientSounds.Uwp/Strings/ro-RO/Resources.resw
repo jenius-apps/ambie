@@ -775,4 +775,7 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Intreaba-ma intotdeauna</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Redați sunet aleatoriu</value>
+  </data>
 </root>
