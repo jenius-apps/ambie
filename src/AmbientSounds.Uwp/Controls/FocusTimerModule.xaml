@@ -202,8 +202,7 @@
                 <Rectangle
                     Grid.Row="0"
                     VerticalAlignment="Top"
-                    Style="{StaticResource ModuleDividerRectStyle}"
-                    Visibility="Visible" />
+                    Style="{StaticResource ModuleDividerRectStyle}" />
 
                 <!--  Module body  -->
                 <Grid Grid.Row="1" MinHeight="120">

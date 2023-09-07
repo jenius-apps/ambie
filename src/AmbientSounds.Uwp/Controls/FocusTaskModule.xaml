@@ -115,7 +115,7 @@
                     Visibility="Visible" />
 
                 <TextBox
-                    Margin="0,20,0,0"
+                    Margin="0,16,0,0"
                     FontSize="12"
                     IsEnabled="{x:Bind ViewModel.CanAddMoreTasks, Mode=OneWay}"
                     KeyDown="OnTaskKeyDown"
