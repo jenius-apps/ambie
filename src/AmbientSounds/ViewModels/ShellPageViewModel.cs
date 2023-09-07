@@ -34,7 +34,6 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IShareService _shareService;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly IGuideService _guideService;
-    private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly ISoundService _soundService;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ISearchService _searchService;
