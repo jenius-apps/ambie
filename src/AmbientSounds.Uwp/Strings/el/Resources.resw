@@ -760,6 +760,9 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Πάντα να με ρωτάς</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Αναπαραγωγή τυχαίου ήχου</value>
+  </data>
   <data name="NowPlayingText" xml:space="preserve">
     <value>Παίζει τώρα</value>
   </data>

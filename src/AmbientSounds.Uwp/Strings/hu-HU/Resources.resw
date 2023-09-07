@@ -763,6 +763,9 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Mindig kérdezzen tőlem</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Véletlenszerű hang lejátszása</value>
+  </data>
   <data name="NowPlayingText" xml:space="preserve">
     <value>Most játszik</value>
   </data>

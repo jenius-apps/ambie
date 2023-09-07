@@ -742,6 +742,9 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Vraag het me altijd</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Speel willekeurig geluid af</value>
+  </data>
   <data name="NowPlayingText" xml:space="preserve">
     <value>Nu aan het spelen</value>
   </data>

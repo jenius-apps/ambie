@@ -775,6 +775,9 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>總是問我</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>播放隨機聲音</value>
+  </data>
   <data name="NowPlayingText" xml:space="preserve">
     <value>正在播放</value>
   </data>

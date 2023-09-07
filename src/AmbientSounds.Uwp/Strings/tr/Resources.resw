@@ -769,6 +769,9 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Her zaman bana sor</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Rastgele ses çalma</value>
+  </data>
   <data name="NowPlayingText" xml:space="preserve">
     <value>Şu anda çalınıyor</value>
   </data>

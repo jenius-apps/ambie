@@ -775,6 +775,9 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>いつも私に聞いてください</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>ランダムなサウンドを再生する</value>
+  </data>
   <data name="NowPlayingText" xml:space="preserve">
     <value>プレイ中</value>
   </data>
