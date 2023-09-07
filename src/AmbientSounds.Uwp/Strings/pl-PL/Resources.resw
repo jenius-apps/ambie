@@ -775,4 +775,7 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Zawsze mnie pytaj</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Odtwórz losowy dźwięk</value>
+  </data>
 </root>

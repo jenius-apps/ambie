@@ -160,6 +160,12 @@ public partial class ShellPageViewModel : ObservableObject
         _navigator.ToScreensaver();
     }
 
+    [RelayCommand]
+    private async Task PlayRandomSoundAsync()
+    {
+        await _mixMediaPlayerService.PlayRandomAsync();
+    }
+
     public async Task InitializeAsync()
     {
         _iapService.ProductPurchased += OnProductPurchased;
