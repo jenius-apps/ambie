@@ -772,4 +772,7 @@
   <data name="SearchEmptyPlaceholderText" xml:space="preserve">
     <value>Ups! Nismo mogli naći taj zvuk. Vidjet ćemo možemo li ga dodati u budućnosti</value>
   </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Pretraživanje</value>
+  </data>
 </root>

@@ -1046,6 +1046,10 @@
           <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
           <target state="translated">Hoppá! Nem találtuk ezt a hangot. Meglátjuk, hogy a jövőben hozzá tudjuk-e adni</target>
         </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Keresés</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -769,4 +769,7 @@
   <data name="SearchEmptyPlaceholderText" xml:space="preserve">
     <value>Ουπς! Δεν μπορούσαμε να βρούμε αυτόν τον ήχο. Θα δούμε αν μπορούμε να το προσθέσουμε στο μέλλον</value>
   </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Αναζήτηση</value>
+  </data>
 </root>

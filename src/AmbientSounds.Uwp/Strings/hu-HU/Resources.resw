@@ -772,4 +772,7 @@
   <data name="SearchEmptyPlaceholderText" xml:space="preserve">
     <value>Hoppá! Nem találtuk ezt a hangot. Meglátjuk, hogy a jövőben hozzá tudjuk-e adni</value>
   </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
 </root>

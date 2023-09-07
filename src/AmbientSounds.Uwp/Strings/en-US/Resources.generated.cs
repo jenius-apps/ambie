@@ -2484,6 +2484,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SearchText
+        /// <summary>
+        ///   Looks up a localized string similar to: Search
+        /// </summary>
+        public static string SearchText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SearchText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2685,6 +2698,7 @@ namespace AmbientSounds.Strings{
             NowPlayingText,
             SearchPageHeader,
             SearchEmptyPlaceholderText,
+            SearchText,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -282,7 +282,7 @@
                             DisplayMemberPath="Name"
                             FontSize="12"
                             ItemsSource="{x:Bind ViewModel.SearchAutosuggestItems, Mode=OneWay}"
-                            PlaceholderText="Search"
+                            PlaceholderText="{x:Bind strings:Resources.SearchText}"
                             QueryIcon="Find"
                             QuerySubmitted="OnQuerySubmitted"
                             TextChanged="OnTextChanged" />

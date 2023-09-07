@@ -778,4 +778,7 @@
   <data name="SearchEmptyPlaceholderText" xml:space="preserve">
     <value>Oops! O sesi bulamadık. Gelecekte ekleyip ekleyemeyeceğimizi göreceğiz</value>
   </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Aramak</value>
+  </data>
 </root>

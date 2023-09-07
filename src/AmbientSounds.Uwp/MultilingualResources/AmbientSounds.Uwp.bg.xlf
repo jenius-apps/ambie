@@ -1032,6 +1032,10 @@
           <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
           <target state="translated">Опа! Не можахме да намерим този звук. Ще видим дали можем да го добавим в бъдеще</target>
         </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Търсене</target>
+        </trans-unit>
       </group>
     </body>
   </file>

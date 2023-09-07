@@ -784,4 +784,7 @@
   <data name="SearchEmptyPlaceholderText" xml:space="preserve">
     <value>Oops! Nu am putut găsi acel sunet. Vom vedea dacă îl putem adăuga în viitor</value>
   </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Căutare</value>
+  </data>
 </root>

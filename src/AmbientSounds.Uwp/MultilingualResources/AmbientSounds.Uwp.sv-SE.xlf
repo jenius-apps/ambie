@@ -1038,6 +1038,10 @@
           <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
           <target state="translated">Hoppsan! Vi kunde inte hitta det ljudet. Vi får se om vi kan lägga till det i framtiden</target>
         </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Söka</target>
+        </trans-unit>
       </group>
     </body>
   </file>

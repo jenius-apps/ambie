@@ -784,4 +784,7 @@
   <data name="SearchEmptyPlaceholderText" xml:space="preserve">
     <value>Oops! Não conseguimos encontrar esse som. Veremos se podemos adicioná-lo no futuro</value>
   </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Procurar</value>
+  </data>
 </root>
