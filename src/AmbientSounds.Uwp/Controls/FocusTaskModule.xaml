@@ -97,16 +97,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock
-            Margin="8,0,0,0"
-            Style="{StaticResource ModuleTitleStyle}"
-            Text="{x:Bind strings:Resources.TaskModuleTitle}" />
-
-        <Rectangle
-            Grid.Row="1"
-            Margin="0,8,0,0"
-            ui:Effects.Shadow="{StaticResource ModuleBackgroundRectShadow}"
-            Style="{StaticResource ModuleBackgroundRectStyle}" />
+        <TextBlock Style="{StaticResource ModuleTitleStyle}" Text="{x:Bind strings:Resources.TaskModuleTitle}" />
 
         <Border Grid.Row="1" Margin="0,8,0,0">
             <Grid>
@@ -117,8 +108,14 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
+                <Rectangle
+                    Grid.Row="0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource ModuleDividerRectStyle}"
+                    Visibility="Visible" />
+
                 <TextBox
-                    Margin="12"
+                    Margin="0,20,0,0"
                     FontSize="12"
                     IsEnabled="{x:Bind ViewModel.CanAddMoreTasks, Mode=OneWay}"
                     KeyDown="OnTaskKeyDown"
@@ -128,7 +125,7 @@
 
                 <ListView
                     Grid.Row="1"
-                    Margin="8,-4,12,8"
+                    Margin="0,8,12,8"
                     AllowDrop="True"
                     AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
                     CanDragItems="True"
@@ -152,7 +149,7 @@
 
                 <Button
                     Grid.Row="2"
-                    Margin="12,0,0,12"
+                    Margin="0,0,0,12"
                     Click="OnRecentCompletedClicked"
                     Visibility="{x:Bind ViewModel.RecentCompletedButtonVisible, Mode=OneWay}">
                     <StackPanel Orientation="Horizontal">
@@ -189,7 +186,7 @@
 
                 <ItemsControl
                     Grid.Row="3"
-                    Margin="24,0,12,8"
+                    Margin="12,0,12,8"
                     ItemTemplate="{StaticResource ClosedTaskTemplate}"
                     ItemsSource="{x:Bind ViewModel.CompletedTasks}"
                     Visibility="{x:Bind ViewModel.IsCompletedListVisible, Mode=OneWay}" />
