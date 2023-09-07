@@ -769,4 +769,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Her zaman bana sor</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Şu anda çalınıyor</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>"{0}" için sonuçlar</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Oops! O sesi bulamadık. Gelecekte ekleyip ekleyemeyeceğimizi göreceğiz</value>
+  </data>
 </root>

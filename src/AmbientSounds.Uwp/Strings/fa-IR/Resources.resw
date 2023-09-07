@@ -775,4 +775,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>همیشه از من بپرس</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>در حال پخش</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>نتایج برای "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>اوه! ما نتوانستیم این صدا را پیدا کنیم. خواهیم دید که ایا می توانیم ان را در اینده اضافه کنیم</value>
+  </data>
 </root>

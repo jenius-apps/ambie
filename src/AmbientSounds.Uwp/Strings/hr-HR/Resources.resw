@@ -763,4 +763,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Uvijek me pitaj</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Sada se reproducira</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Rezultati za "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Ups! Nismo mogli naći taj zvuk. Vidjet ćemo možemo li ga dodati u budućnosti</value>
+  </data>
 </root>

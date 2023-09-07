@@ -775,4 +775,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>いつも私に聞いてください</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>プレイ中</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>"{0}"の検索結果</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>おっと！その音は見つかりませんでした。将来追加できるかどうかを確認します</value>
+  </data>
 </root>

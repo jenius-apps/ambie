@@ -742,4 +742,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Vraag het me altijd</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Nu aan het spelen</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Resultaten voor "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Oeps! Dat geluid konden we niet vinden. We zullen zien of we het in de toekomst kunnen toevoegen</value>
+  </data>
 </root>

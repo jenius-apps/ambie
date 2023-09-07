@@ -775,4 +775,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>總是問我</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>正在播放</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>“{0}”的搜尋結果</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>哎呀！我們找不到那個聲音。我們將看看將來是否可以添加它</value>
+  </data>
 </root>

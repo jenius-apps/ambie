@@ -1036,15 +1036,15 @@
         </trans-unit>
         <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
           <source>Now playing</source>
-          <target state="new">Now playing</target>
+          <target state="translated">In corso</target>
         </trans-unit>
         <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
           <source>Results for "{0}"</source>
-          <target state="new">Results for "{0}"</target>
+          <target state="translated">Risultati per "{0}"</target>
         </trans-unit>
         <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
           <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
-          <target state="new">Oops! We couldn't find that sound. We'll see if we can add it in the future</target>
+          <target state="translated">Oops! Non siamo riusciti a trovare quel suono. Vedremo se possiamo aggiungerlo in futuro</target>
         </trans-unit>
       </group>
     </body>

@@ -775,4 +775,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Frag mich immer</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Jetzt spielen</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Ergebnisse für »{0}«</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Hoppla! Wir konnten diesen Ton nicht finden. Wir werden sehen, ob wir es in Zukunft hinzufügen können</value>
+  </data>
 </root>

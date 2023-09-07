@@ -1036,15 +1036,15 @@
         </trans-unit>
         <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
           <source>Now playing</source>
-          <target state="new">Now playing</target>
+          <target state="translated">Most játszik</target>
         </trans-unit>
         <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
           <source>Results for "{0}"</source>
-          <target state="new">Results for "{0}"</target>
+          <target state="translated">Találatok a következőre: "{0}"</target>
         </trans-unit>
         <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
           <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
-          <target state="new">Oops! We couldn't find that sound. We'll see if we can add it in the future</target>
+          <target state="translated">Hoppá! Nem találtuk ezt a hangot. Meglátjuk, hogy a jövőben hozzá tudjuk-e adni</target>
         </trans-unit>
       </group>
     </body>

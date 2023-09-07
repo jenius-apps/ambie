@@ -775,4 +775,13 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Spørg mig altid</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Spiller nu</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Resultater for "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Ups! Vi kunne ikke finde den lyd. Vi får se, om vi kan tilføje det i fremtiden</value>
+  </data>
 </root>
