@@ -7,7 +7,7 @@
     public class TelemetryConstants
     {
         // search
-        private const string Search = "Seach:";
+        private const string Search = "search:";
         public const string SearchQuerySubmitted = Search + "querySubmitted";
         public const string SearchEmptyResult = Search + "emptyResult";
         public const string SearchAutoSuggestClicked = Search + "autosuggestClicked";
