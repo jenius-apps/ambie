@@ -309,6 +309,17 @@
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="16"
                                 Glyph="{StaticResource GlyphFind}" />
+                            <Button.Flyout>
+                                <Flyout x:Name="SearchFlyout" Placement="Right">
+                                    <AutoSuggestBox
+                                        Width="200"
+                                        VerticalContentAlignment="Center"
+                                        FontSize="12"
+                                        PlaceholderText="{x:Bind strings:Resources.SearchText}"
+                                        QueryIcon="Find"
+                                        QuerySubmitted="OnQuerySubmitted" />
+                                </Flyout>
+                            </Button.Flyout>
                         </Button>
                     </Grid>
 

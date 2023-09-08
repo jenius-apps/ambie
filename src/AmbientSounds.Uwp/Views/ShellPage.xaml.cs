@@ -127,6 +127,8 @@ public sealed partial class ShellPage : Page
 
     private async void OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
     {
+        SearchFlyout.Hide();
+
         if (args.ChosenSuggestion is AutosuggestSound s)
         {
             await ViewModel.PlayAsync(s);
