@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using CommunityToolkit.Diagnostics;
+using System.Globalization;
 
 #nullable enable
 
@@ -22,6 +23,13 @@ public class AssetLocalizer : IAssetLocalizer
         return GetLocalInfo(asset)?.Name ?? asset.Name;
     }
 
+    /// <inheritdoc/>
+    public bool LocalNameContains(IAsset asset, string nameQuery)
+    {
+        return CultureInfo.CurrentCulture.CompareInfo.IndexOf(GetLocalName(asset), nameQuery, CompareOptions.IgnoreCase) >= 0;
+    }
+
+    /// <inheritdoc/>
     public string GetLocalDescription(IAsset asset)
     {
         return GetLocalInfo(asset)?.Description ?? asset.Description;

@@ -883,4 +883,16 @@
   <data name="PlayRandom" xml:space="preserve">
     <value>Play random sound</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Now playing</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Results for "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Oops! We couldn't find that sound. We'll see if we can add it in the future</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Search</value>
+  </data>
 </root>

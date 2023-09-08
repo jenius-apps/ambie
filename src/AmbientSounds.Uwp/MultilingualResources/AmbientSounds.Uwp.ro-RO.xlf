@@ -1024,6 +1024,22 @@
           <source>Play random sound</source>
           <target state="translated">Redați sunet aleatoriu</target>
         </trans-unit>
+        <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
+          <source>Now playing</source>
+          <target state="translated">Acum se joacă</target>
+        </trans-unit>
+        <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
+          <source>Results for "{0}"</source>
+          <target state="translated">Rezultate pentru "{0}"</target>
+        </trans-unit>
+        <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
+          <target state="translated">Oops! Nu am putut găsi acel sunet. Vom vedea dacă îl putem adăuga în viitor</target>
+        </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Căutare</target>
+        </trans-unit>
       </group>
     </body>
   </file>

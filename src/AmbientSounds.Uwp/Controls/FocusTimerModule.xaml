@@ -9,7 +9,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:models="using:AmbientSounds.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
@@ -40,7 +39,7 @@
                         <Setter Target="FocusTimerGrid.Margin" Value="24,12,0,12" />
                         <Setter Target="FocusTimerGrid.HorizontalAlignment" Value="Left" />
                         <Setter Target="FocusTimerGrid.(Grid.ColumnSpan)" Value="1" />
-                        <Setter Target="SlidersPanel.Margin" Value="12,12,0,12" />
+                        <Setter Target="SlidersPanel.Margin" Value="0,12,0,20" />
                         <Setter Target="SlidersPanel.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="DataText.(Grid.Row)" Value="0" />
                         <Setter Target="DataText.(Grid.Column)" Value="1" />
@@ -77,7 +76,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
         <winui:InfoBar
             Title="{x:Bind strings:Resources.FocusTimerHelpTitle}"
             Margin="0,0,0,8"
@@ -93,112 +91,116 @@
         </winui:InfoBar>
 
         <!--  Module container  -->
-        <Border Style="{StaticResource ModuleBorderStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Style="{StaticResource ModuleTitleStyle}"
+                    Text="{x:Bind strings:Resources.Timer}" />
+                <StackPanel
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
+                    <HyperlinkButton
+                        Padding="8,4"
+                        AutomationProperties.Name="{x:Bind strings:Resources.Help}"
+                        Click="{x:Bind ViewModel.ShowHelpMessage}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.Help}">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="14"
+                            Glyph="{StaticResource GlyphHelp}" />
+                    </HyperlinkButton>
+                    <HyperlinkButton
+                        Padding="8,4"
+                        AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                        Click="OnSettingsClicked"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="14"
+                            Glyph="{StaticResource GlyphSettings}" />
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout Placement="BottomEdgeAlignedRight">
+                                <ToggleMenuFlyoutItem
+                                    Click="OnSettingsFlyoutItemToggled"
+                                    IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}"
+                                    Tag="compact"
+                                    Text="{x:Bind strings:Resources.SettingsCompactMode}" />
+                                <ToggleMenuFlyoutItem
+                                    Click="OnSettingsFlyoutItemToggled"
+                                    IsChecked="{x:Bind ViewModel.PlayAfterFocusEnabled, Mode=TwoWay}"
+                                    Tag="playAfterFocus"
+                                    Text="{x:Bind strings:Resources.SettingsPlayAfterFocusHeader}" />
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
+                    </HyperlinkButton>
+
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                    <HyperlinkButton
+                        Padding="8,4"
+                        AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
+                        Command="{x:Bind ViewModel.OpenCompactModeCommand}"
+                        Visibility="{x:Bind IsDesktop}">
+                        <ToolTipService.ToolTip>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    FontWeight="SemiBold"
+                                    Text="{x:Bind strings:Resources.CompactModeTooltipTitle}"
+                                    TextWrapping="Wrap" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Text="{x:Bind strings:Resources.CompactModeTooltipMessage}"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+                        </ToolTipService.ToolTip>
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="16"
+                            Glyph="{StaticResource GlyphCompact}" />
+                    </HyperlinkButton>
+
+                    <HyperlinkButton
+                        Padding="8,4"
+                        AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                        Command="{x:Bind ViewModel.InterruptionCommand}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="16"
+                            Glyph="{StaticResource GlyphInterruption}" />
+                    </HyperlinkButton>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,8,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <Rectangle Grid.RowSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
-
-                <TextBlock
-                    Margin="24,12,0,12"
-                    FontWeight="SemiBold"
-                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    Text="{x:Bind strings:Resources.Timer}" />
-
-                <!--  Header action buttons at top right of module  -->
-                <Grid
-                    Margin="12,8"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top">
-
-                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.IsHelpIconVisible, Mode=OneWay}">
-                        <HyperlinkButton
-                            Padding="8,4"
-                            AutomationProperties.Name="{x:Bind strings:Resources.Help}"
-                            Click="{x:Bind ViewModel.ShowHelpMessage}"
-                            ToolTipService.ToolTip="{x:Bind strings:Resources.Help}">
-                            <FontIcon
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                FontSize="16"
-                                Glyph="{StaticResource GlyphHelp}" />
-                        </HyperlinkButton>
-                        <HyperlinkButton
-                            Padding="8,4"
-                            AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
-                            Click="OnSettingsClicked"
-                            ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
-                            <FontIcon
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                FontSize="16"
-                                Glyph="{StaticResource GlyphSettings}" />
-                            <FlyoutBase.AttachedFlyout>
-                                <MenuFlyout Placement="BottomEdgeAlignedRight">
-                                    <ToggleMenuFlyoutItem
-                                        Click="OnSettingsFlyoutItemToggled"
-                                        IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}"
-                                        Tag="compact"
-                                        Text="{x:Bind strings:Resources.SettingsCompactMode}" />
-                                    <ToggleMenuFlyoutItem
-                                        Click="OnSettingsFlyoutItemToggled"
-                                        IsChecked="{x:Bind ViewModel.PlayAfterFocusEnabled, Mode=TwoWay}"
-                                        Tag="playAfterFocus"
-                                        Text="{x:Bind strings:Resources.SettingsPlayAfterFocusHeader}" />
-                                </MenuFlyout>
-                            </FlyoutBase.AttachedFlyout>
-                        </HyperlinkButton>
-
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-                        <HyperlinkButton
-                            Padding="8,4"
-                            AutomationProperties.Name="{x:Bind strings:Resources.CompactMode}"
-                            Command="{x:Bind ViewModel.OpenCompactModeCommand}"
-                            Visibility="{x:Bind IsDesktop}">
-                            <ToolTipService.ToolTip>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock
-                                        FontWeight="SemiBold"
-                                        Text="{x:Bind strings:Resources.CompactModeTooltipTitle}"
-                                        TextWrapping="Wrap" />
-                                    <TextBlock
-                                        Grid.Row="1"
-                                        Text="{x:Bind strings:Resources.CompactModeTooltipMessage}"
-                                        TextWrapping="WrapWholeWords" />
-                                </Grid>
-                            </ToolTipService.ToolTip>
-                            <FontIcon
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                FontSize="16"
-                                Glyph="{StaticResource GlyphCompact}" />
-                        </HyperlinkButton>
-
-                        <HyperlinkButton
-                            Padding="8,4"
-                            AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
-                            Command="{x:Bind ViewModel.InterruptionCommand}"
-                            ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}">
-                            <FontIcon
-                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                FontSize="16"
-                                Glyph="{StaticResource GlyphInterruption}" />
-                        </HyperlinkButton>
-                    </StackPanel>
-                </Grid>
-
-                <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
-
                 <Rectangle
-                    Grid.Row="2"
+                    Grid.Row="0"
                     VerticalAlignment="Top"
                     Style="{StaticResource ModuleDividerRectStyle}" />
 
@@ -219,12 +221,11 @@
                     <StackPanel
                         x:Name="SlidersPanel"
                         Grid.ColumnSpan="2"
-                        Margin="12,12,12,0"
+                        Margin="0,12,0,0"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                         <StackPanel>
                             <local:TimerSlider
                                 x:Name="Slider1"
-                                Margin="12,0,0,0"
                                 AutomationName="{x:Bind strings:Resources.FocusLength}"
                                 Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
@@ -246,7 +247,7 @@
                         <StackPanel>
                             <local:TimerSlider
                                 x:Name="Slider2"
-                                Margin="12,24,0,0"
+                                Margin="0,24,0,0"
                                 AutomationName="{x:Bind strings:Resources.RestLength}"
                                 Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
@@ -268,7 +269,7 @@
                         <StackPanel>
                             <local:TimerSlider
                                 x:Name="Slider3"
-                                Margin="12,24,0,0"
+                                Margin="0,24,0,0"
                                 AutomationName="{x:Bind strings:Resources.Repeats}"
                                 Header="{x:Bind strings:Resources.Repeats}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
@@ -351,7 +352,7 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
-                        Margin="24,12"
+                        Margin="12,12"
                         Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
                         <toolkit:UniformGrid
                             ColumnSpacing="12"
@@ -475,7 +476,7 @@
                 <Grid
                     x:Name="ButtonsPanel"
                     Grid.Row="2"
-                    Padding="12"
+                    Margin="0,12,0,0"
                     ColumnSpacing="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="ButtonPanelColumn1" Width="*" />
@@ -530,16 +531,13 @@
                     </Grid>-->
                 </Grid>
             </Grid>
-        </Border>
+        </Grid>
 
         <!--  recents module  -->
         <Grid
-            Margin="0,6,0,0"
+            Margin="0,12,0,0"
             HorizontalAlignment="Stretch"
             Visibility="{x:Bind ViewModel.IsRecentVisible, Mode=OneWay}">
-            <animations:Implicit.Animations>
-                <animations:OffsetAnimation Duration="0:0:0.15" />
-            </animations:Implicit.Animations>
 
             <ListView
                 Padding="0,0,200,0"

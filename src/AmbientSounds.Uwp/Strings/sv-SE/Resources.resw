@@ -775,4 +775,19 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Fråga mig alltid</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Spela slumpmässigt ljud</value>
+  </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Spelar nu</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Resultat för "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Hoppsan! Vi kunde inte hitta det ljudet. Vi får se om vi kan lägga till det i framtiden</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Söka</value>
+  </data>
 </root>

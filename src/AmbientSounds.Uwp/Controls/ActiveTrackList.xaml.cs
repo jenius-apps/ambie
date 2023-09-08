@@ -1,11 +1,8 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Services;
-using AmbientSounds.ViewModels;
+﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 
 #nullable enable
 
@@ -17,7 +14,7 @@ namespace AmbientSounds.Controls
             nameof(ShowList),
             typeof(bool),
             typeof(ActiveTrackList),
-            new PropertyMetadata(true, OnShowListChanged));
+            new PropertyMetadata(true));
 
         public event EventHandler? TrackListChanged;
 
@@ -36,26 +33,6 @@ namespace AmbientSounds.Controls
         }
 
         public ActiveTrackListViewModel ViewModel => (ActiveTrackListViewModel)this.DataContext;
-
-        private static void OnShowListChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is ActiveTrackList atl)
-            {
-                atl.UpdateStates();
-            }
-        }
-
-        private void UpdateStates()
-        {
-            if (ShowList)
-            {
-                VisualStateManager.GoToState(this, nameof(ShowListState), false);
-            }
-            else
-            {
-                VisualStateManager.GoToState(this, nameof(HideListState), false);
-            }
-        }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
@@ -76,6 +53,14 @@ namespace AmbientSounds.Controls
         public static string FormatDeleteMessage(string soundName)
         {
             return string.Format(Strings.Resources.RemoveActiveButton, soundName);
+        }
+
+        private void OnPlaylistClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is FrameworkElement b)
+            {
+                PlaylistFlyout.ShowAt(b);
+            }
         }
     }
 }

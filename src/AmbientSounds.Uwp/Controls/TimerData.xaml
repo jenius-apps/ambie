@@ -18,7 +18,7 @@
             Margin="0,1,8,0"
             VerticalAlignment="Top"
             FontFamily="{StaticResource FluentUIGlyphs}"
-            FontSize="16"
+            FontSize="14"
             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Glyph="{x:Bind Glyph, Mode=OneWay}" />
         <Grid Grid.Column="1">
@@ -27,12 +27,12 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock
-                FontSize="14"
+                FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                 Text="{x:Bind Title, Mode=OneWay}" />
             <TextBlock
                 Grid.Row="1"
-                FontSize="20"
+                FontSize="18"
                 FontWeight="SemiBold"
                 Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                 Text="{x:Bind Text, Mode=OneWay}" />

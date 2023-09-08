@@ -2,6 +2,8 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
+#nullable enable
+
 namespace AmbientSounds.Controls;
 
 public sealed partial class TitleBarLogo : UserControl
@@ -16,9 +18,16 @@ public sealed partial class TitleBarLogo : UserControl
     public static readonly DependencyProperty IsWindowFocusedProperty =
         DependencyProperty.Register(
             nameof(IsWindowFocused),
-            typeof(bool), 
+            typeof(bool),
             typeof(TitleBarLogo),
             new PropertyMetadata(false));
+
+    public static readonly DependencyProperty TextVisibleProperty =
+        DependencyProperty.Register(
+            nameof(TextVisible),
+            typeof(Visibility),
+            typeof(TitleBarLogo),
+            new PropertyMetadata(Visibility.Visible));
 
     public TitleBarLogo()
     {
@@ -29,6 +38,12 @@ public sealed partial class TitleBarLogo : UserControl
     {
         get => (bool)GetValue(IsWindowFocusedProperty);
         set => SetValue(IsWindowFocusedProperty, value);
+    }
+
+    public Visibility TextVisible
+    {
+        get => (Visibility)GetValue(TextVisibleProperty);
+        set => SetValue(TextVisibleProperty, value);
     }
 
     public string DisplayText

@@ -6,9 +6,11 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:loc="using:AmbientSounds.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -17,7 +19,122 @@
     AutomationProperties.Name="{x:Bind ViewModel.Name, Mode=OneWay}"
     mc:Ignorable="d">
 
-    <Grid x:Name="Root">
+    <UserControl.Resources>
+        <Storyboard x:Name="OnHoverStoryBoard">
+            <DoubleAnimation
+                EnableDependentAnimation="True"
+                Storyboard.TargetName="ColourGradientStop"
+                Storyboard.TargetProperty="Offset"
+                From="1.0"
+                To="0.8"
+                Duration="0:0:0.15" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopButton"
+                Storyboard.TargetProperty="Opacity"
+                From="0.0"
+                To="1.0"
+                Duration="0:0:0.3" />
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopTransform"
+                Storyboard.TargetProperty="Y"
+                From="8"
+                To="0"
+                Duration="0:0:0.15" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleX"
+                From="0.8"
+                To="1.0"
+                Duration="0:0:0.15" />
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleY"
+                From="0.8"
+                To="1.0"
+                Duration="0:0:0.15" />
+
+        </Storyboard>
+        <Storyboard x:Name="OnRestStoryBoard">
+            <DoubleAnimation
+                EnableDependentAnimation="True"
+                Storyboard.TargetName="ColourGradientStop"
+                Storyboard.TargetProperty="Offset"
+                From="0.8"
+                To="1.0"
+                Duration="0:0:0.15" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopButton"
+                Storyboard.TargetProperty="Opacity"
+                From="1.0"
+                To="0.0"
+                Duration="0:0:0.08" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopTransform"
+                Storyboard.TargetProperty="Y"
+                From="0"
+                To="8"
+                Duration="0:0:0.08" />
+
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleX"
+                From="1.0"
+                To="0.8"
+                Duration="0:0:0.08" />
+            <DoubleAnimation
+                Storyboard.TargetName="PlayStopScale"
+                Storyboard.TargetProperty="ScaleY"
+                From="1.0"
+                To="0.8"
+                Duration="0:0:0.08" />
+
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid
+        x:Name="MainGrid"
+        Width="124"
+        Height="184"
+        PointerEntered="OnPointerEntered"
+        PointerExited="OnPointerExited">
+        <Grid.ContextFlyout>
+            <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
+                <muxc:CommandBarFlyout.SecondaryCommands>
+                    <AppBarButton
+                        Command="{x:Bind ViewModel.ShareCommand, Mode=OneWay}"
+                        Icon="Share"
+                        Label="{x:Bind strings:Resources.ShareText}" />
+                    <AppBarButton
+                        x:Uid="DeleteAppBarButton"
+                        Command="{x:Bind ViewModel.DeleteSoundCommand, Mode=OneWay}"
+                        Icon="Delete" />
+                    <AppBarButton
+                        x:Uid="RenameAppBarButton"
+                        Command="{x:Bind ViewModel.RenameCommand, Mode=OneWay}"
+                        Icon="Rename"
+                        Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
+                    <AppBarButton Click="OnEditHomePageClicked" Label="{x:Bind strings:Resources.EditHomePage}">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphEditHome}" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
+                        <StackPanel Width="300" Margin="12">
+                            <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
+                            <TextBlock
+                                Margin="0,8,0,0"
+                                IsTextSelectionEnabled="True"
+                                Text="{x:Bind ViewModel.Attribution, Mode=OneWay}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </AppBarElementContainer>
+                </muxc:CommandBarFlyout.SecondaryCommands>
+            </muxc:CommandBarFlyout>
+        </Grid.ContextFlyout>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -27,11 +144,6 @@
                     <VisualState.Setters>
                         <Setter Target="MainGrid.Width" Value="{StaticResource CompactImageCardWidth}" />
                         <Setter Target="MainGrid.Height" Value="{StaticResource CompactImageCardHeight}" />
-                        <Setter Target="ShadowRect.Width" Value="{StaticResource CompactImageCardShadowWidth}" />
-                        <Setter Target="ShadowRect.Height" Value="{StaticResource CompactImageCardHeight}" />
-                        <Setter Target="MainGrid.CornerRadius" Value="4" />
-                        <Setter Target="ShadowRect.RadiusX" Value="4" />
-                        <Setter Target="ShadowRect.RadiusY" Value="4" />
                         <Setter Target="NameText.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
@@ -54,221 +166,326 @@
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="StopIcon"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0.0"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="StopIconScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="StopIconScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="EllipseScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="1.0"
+                            To="0.66"
+                            Duration="0:0:5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="EllipseScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="1"
+                            To="0.66"
+                            Duration="0:0:5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="InnerEllipseScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="1.0"
+                            To="0.555"
+                            Duration="0:0:5" />
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            Storyboard.TargetName="InnerEllipseScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="1"
+                            To="0.555"
+                            Duration="0:0:5" />
+                    </Storyboard>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="PlayIcon"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0.0"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="PlayIconScale"
+                            Storyboard.TargetProperty="ScaleX"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                        <DoubleAnimation
+                            Storyboard.TargetName="PlayIconScale"
+                            Storyboard.TargetProperty="ScaleY"
+                            From="0.8"
+                            To="1.0"
+                            Duration="0:0:0.3" />
+                    </Storyboard>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ext:UIExtensions.Not(ViewModel.IsCurrentlyPlaying), Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
-        <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
-            <Rectangle
-                x:Name="ShadowRect"
-                Width="{StaticResource ImageCardShadowWidth}"
-                Height="{StaticResource ImageCardHeight}"
-                Fill="Black"
-                RadiusX="8"
-                RadiusY="8"
-                Stretch="Fill" />
-        </toolkit:DropShadowPanel>
-
-        <Grid
-            x:Name="MainGrid"
+        <Rectangle
             Width="{StaticResource ImageCardWidth}"
             Height="{StaticResource ImageCardHeight}"
-            CornerRadius="8"
-            PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildImage}"
-            PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
-            PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildImage}"
-            PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildImage}">
+            RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
+            RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+            </Rectangle.Fill>
 
-            <Grid x:Name="ImageGrid" ui:VisualExtensions.NormalizedCenterPoint="0.5">
-                <ani:Implicit.Animations>
-                    <ani:ScaleAnimation Duration="0:0:0.5" />
-                </ani:Implicit.Animations>
+            <ui:Effects.Shadow>
+                <media:AttachedCardShadow
+                    BlurRadius="5"
+                    CornerRadius="8"
+                    Opacity="0.2"
+                    Offset="0,2" />
+            </ui:Effects.Shadow>
 
-                <Grid>
-                    <Grid.Background>
-                        <ImageBrush Stretch="UniformToFill">
-                            <ImageBrush.ImageSource>
-                                <BitmapImage
-                                    DecodePixelHeight="240"
-                                    DecodePixelType="Logical"
-                                    ImageFailed="BitmapImage_ImageFailed"
-                                    UriSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" />
-                            </ImageBrush.ImageSource>
-                        </ImageBrush>
-                    </Grid.Background>
-                </Grid>
+        </Rectangle>
 
-                <Grid x:Name="Image2" x:Load="{x:Bind ViewModel.HasSecondImage, Mode=OneWay}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Grid.Row="1" Stretch="UniformToFill">
-                        <Image.Source>
-                            <BitmapImage
-                                DecodePixelHeight="120"
-                                ImageFailed="BitmapImage_ImageFailed"
-                                UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
-                        </Image.Source>
-                    </Image>
-                </Grid>
+        <Grid
+            x:Name="Image2"
+            Width="{StaticResource ImageCardWidth}"
+            Height="{StaticResource ImageCardHeight}"
+            x:Load="{x:Bind ViewModel.HasSecondImage, Mode=OneWay}"
+            CornerRadius="{StaticResource SoundCardCornerRadius}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" Stretch="UniformToFill">
+                <Image.Source>
+                    <BitmapImage
+                        DecodePixelHeight="120"
+                        ImageFailed="BitmapImage_ImageFailed"
+                        UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
+                </Image.Source>
+            </Image>
+        </Grid>
 
-                <Grid x:Name="Image3" x:Load="{x:Bind ViewModel.HasThirdImage, Mode=OneWay}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image Grid.Row="1" Stretch="UniformToFill">
-                        <Image.Source>
-                            <BitmapImage
-                                DecodePixelHeight="80"
-                                DecodePixelType="Logical"
-                                ImageFailed="BitmapImage_ImageFailed"
-                                UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
-                        </Image.Source>
-                    </Image>
-                    <Image Grid.Row="2" Stretch="UniformToFill">
-                        <Image.Source>
-                            <BitmapImage
-                                DecodePixelHeight="80"
-                                DecodePixelType="Logical"
-                                ImageFailed="BitmapImage_ImageFailed"
-                                UriSource="{x:Bind ViewModel.ThirdImagePath, Mode=OneWay}" />
-                        </Image.Source>
-                    </Image>
-                </Grid>
-            </Grid>
+        <Grid
+            x:Name="Image3"
+            Width="{StaticResource ImageCardWidth}"
+            Height="{StaticResource ImageCardHeight}"
+            x:Load="{x:Bind ViewModel.HasThirdImage, Mode=OneWay}"
+            CornerRadius="{StaticResource SoundCardCornerRadius}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" Stretch="UniformToFill">
+                <Image.Source>
+                    <BitmapImage
+                        DecodePixelHeight="80"
+                        DecodePixelType="Logical"
+                        ImageFailed="BitmapImage_ImageFailed"
+                        UriSource="{x:Bind ViewModel.SecondImagePath, Mode=OneWay}" />
+                </Image.Source>
+            </Image>
+            <Image Grid.Row="2" Stretch="UniformToFill">
+                <Image.Source>
+                    <BitmapImage
+                        DecodePixelHeight="80"
+                        DecodePixelType="Logical"
+                        ImageFailed="BitmapImage_ImageFailed"
+                        UriSource="{x:Bind ViewModel.ThirdImagePath, Mode=OneWay}" />
+                </Image.Source>
+            </Image>
+        </Grid>
 
-            <Rectangle>
-                <Rectangle.Fill>
-                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                        <GradientStop Offset="0" Color="#00000000" />
-                        <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ViewModel.ColourHex), Mode=OneWay}" />
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
+        <Rectangle
+            Width="{StaticResource ImageCardWidth}"
+            Height="{StaticResource ImageCardHeight}"
+            RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
+            RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0.3" Color="{x:Bind controls:UIHelper.ToTransparent(ViewModel.ColourHex), Mode=OneWay}" />
+                    <GradientStop x:Name="ColourGradientStop" Offset="1.0" Color="{x:Bind controls:UIHelper.ToColour(ViewModel.ColourHex), Mode=OneWay}" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
 
-            <muxc:ProgressRing
-                x:Name="DownloadProgressRingBackground"
-                Width="20"
-                Height="20"
+        <muxc:ProgressRing
+            x:Name="DownloadProgressRingBackground"
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            x:Load="{x:Bind ViewModel.DownloadActive, Mode=OneWay}"
+            Foreground="White"
+            IsIndeterminate="False"
+            Opacity="0.5"
+            Value="100" />
+        <muxc:ProgressRing
+            x:Name="DownloadProgressRing"
+            Width="20"
+            Height="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            x:Load="{x:Bind ViewModel.DownloadActive, Mode=OneWay}"
+            Foreground="White"
+            IsIndeterminate="False"
+            Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
+
+        <Grid
+            x:Name="NowPlayingIconGrid"
+            Margin="6"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom">
+            <Ellipse
+                Width="24"
+                Height="24"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                x:Load="{x:Bind ViewModel.DownloadActive, Mode=OneWay}"
-                Foreground="White"
-                IsIndeterminate="False"
-                Opacity="0.5"
-                Value="100" />
-            <muxc:ProgressRing
-                x:Name="DownloadProgressRing"
-                Width="20"
-                Height="20"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                x:Load="{x:Bind ViewModel.DownloadActive, Mode=OneWay}"
-                Foreground="White"
-                IsIndeterminate="False"
-                Value="{x:Bind ViewModel.DownloadProgressValue, Mode=OneWay}" />
-
-            <Grid
-                Margin="0,0,0,20"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="{StaticResource BackgroundAcrylicBrush}"
-                CornerRadius="30"
+                Fill="{x:Bind controls:UIHelper.ToDarkerBrush(ViewModel.ColourHex, 0.1), Mode=OneWay}"
+                RenderTransformOrigin="0.5,0.5"
                 Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
-                <FontIcon
-                    Margin="8"
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="28"
-                    Foreground="White"
-                    Glyph="{StaticResource GlyphVolume}" />
-            </Grid>
+                <Ellipse.RenderTransform>
+                    <ScaleTransform x:Name="EllipseScale" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
 
+            <Ellipse
+                Width="14.4"
+                Height="14.4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Fill="{x:Bind controls:UIHelper.ToLighterBrush(ViewModel.ColourHex, 0.2), Mode=OneWay}"
+                RenderTransformOrigin="0.5,0.5"
+                Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
+                <Ellipse.RenderTransform>
+                    <ScaleTransform x:Name="InnerEllipseScale" />
+                </Ellipse.RenderTransform>
+            </Ellipse>
+        </Grid>
 
-            <Grid Margin="12">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+        <controls:PlusBadge
+            Margin="2,2,2,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Visibility="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
 
-                <controls:PlusBadge
-                    Margin="-12,-12,-12,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Top"
-                    Visibility="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
-
-                <controls:FreeBadge
-                    x:Name="FreeBadge"
-                    HorizontalAlignment="Left"
-                    x:Load="{x:Bind ViewModel.FreeBadgeVisible, Mode=OneWay}" />
-
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
-                    <StackPanel
-                        x:Name="PresenceCount"
-                        Margin="0,0,0,4"
-                        Orientation="Horizontal"
-                        Visibility="Collapsed">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="14"
-                            Foreground="White"
-                            Glyph="{StaticResource GlyphPeople}" />
-                        <TextBlock
-                            Margin="4,0,0,0"
-                            FontSize="12"
-                            Foreground="White"
-                            Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
-                    </StackPanel>
-                    <TextBlock
-                        x:Name="NameText"
+        <Grid VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="34" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="10,0,0,10" VerticalAlignment="Bottom">
+                <StackPanel
+                    x:Name="PresenceCount"
+                    Margin="0,0,0,4"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="13"
                         Foreground="White"
-                        Text="{x:Bind ViewModel.Name, Mode=OneWay}"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="Wrap">
-                        <ToolTipService.ToolTip>
-                            <Grid MaxWidth="300">
-                                <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                            </Grid>
-                        </ToolTipService.ToolTip>
-                    </TextBlock>
+                        Glyph="{StaticResource GlyphPeople}" />
+                    <TextBlock
+                        Margin="4,0,0,0"
+                        FontSize="11"
+                        Foreground="White"
+                        Text="{x:Bind ViewModel.PresenceCount, Mode=OneWay}" />
                 </StackPanel>
-            </Grid>
+                <TextBlock
+                    x:Name="NameText"
+                    FontSize="11"
+                    Foreground="White"
+                    Text="{x:Bind ViewModel.Name, Mode=OneWay}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="Wrap">
+                    <ToolTipService.ToolTip>
+                        <Grid MaxWidth="300">
+                            <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
+                        </Grid>
+                    </ToolTipService.ToolTip>
+                </TextBlock>
+            </StackPanel>
 
-            <Grid.ContextFlyout>
-                <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
-                    <muxc:CommandBarFlyout.SecondaryCommands>
-                        <AppBarButton
-                            Command="{x:Bind ViewModel.ShareCommand, Mode=OneWay}"
-                            Icon="Share"
-                            Label="{x:Bind strings:Resources.ShareText}" />
-                        <AppBarButton
-                            x:Uid="DeleteAppBarButton"
-                            Command="{x:Bind ViewModel.DeleteSoundCommand, Mode=OneWay}"
-                            Icon="Delete" />
-                        <AppBarButton
-                            x:Uid="RenameAppBarButton"
-                            Command="{x:Bind ViewModel.RenameCommand, Mode=OneWay}"
-                            Icon="Rename"
-                            Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
-                        <AppBarButton Click="OnEditHomePageClicked" Label="{x:Bind strings:Resources.EditHomePage}">
-                            <AppBarButton.Icon>
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphEditHome}" />
-                            </AppBarButton.Icon>
-                        </AppBarButton>
-                        <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
-                            <StackPanel Width="300" Margin="12">
-                                <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
-                                <TextBlock
-                                    Margin="0,8,0,0"
-                                    IsTextSelectionEnabled="True"
-                                    Text="{x:Bind ViewModel.Attribution, Mode=OneWay}"
-                                    TextWrapping="Wrap" />
-                            </StackPanel>
-                        </AppBarElementContainer>
-                    </muxc:CommandBarFlyout.SecondaryCommands>
-                </muxc:CommandBarFlyout>
-            </Grid.ContextFlyout>
+            <Button
+                x:Name="PlayStopButton"
+                Grid.Column="1"
+                Width="24"
+                Height="24"
+                Margin="4,0,6,6"
+                Padding="0"
+                VerticalAlignment="Bottom"
+                Command="{x:Bind ViewModel.PlayCommand, Mode=OneWay}"
+                RenderTransformOrigin="0.5,0.5"
+                RequestedTheme="Dark"
+                Style="{StaticResource SmallSubtleIconButton}"
+                Visibility="Collapsed">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <TranslateTransform x:Name="PlayStopTransform" />
+                        <ScaleTransform x:Name="PlayStopScale" />
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Grid>
+                    <FontIcon
+                        x:Name="PlayIcon"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphPlay}"
+                        RenderTransformOrigin="0.5,0.5"
+                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsCurrentlyPlaying), Mode=OneWay}">
+                        <FontIcon.RenderTransform>
+                            <ScaleTransform x:Name="PlayIconScale" />
+                        </FontIcon.RenderTransform>
+                    </FontIcon>
+                    <FontIcon
+                        x:Name="StopIcon"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphStop}"
+                        RenderTransformOrigin="0.5,0.5"
+                        Visibility="{x:Bind ViewModel.IsCurrentlyPlaying, Mode=OneWay}">
+                        <FontIcon.RenderTransform>
+                            <ScaleTransform x:Name="StopIconScale" />
+                        </FontIcon.RenderTransform>
+                    </FontIcon>
+                </Grid>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

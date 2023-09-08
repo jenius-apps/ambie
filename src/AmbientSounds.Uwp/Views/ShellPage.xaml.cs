@@ -1,18 +1,18 @@
-﻿using System;
-using System.ComponentModel;
-using AmbientSounds.Constants;
+﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Toolkit.Uwp.UI;
-using System.Collections.Generic;
-using JeniusApps.Common.Telemetry;
 
 #nullable enable
 
@@ -27,7 +27,6 @@ public sealed partial class ShellPage : Page
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<ShellPageViewModel>();
-        ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState == WidePageState;
 
         if (App.IsTenFoot)
         {
@@ -51,9 +50,13 @@ public sealed partial class ShellPage : Page
         {
             navigator.Frame = MainFrame;
 
-            if (e.NavigationMode != NavigationMode.Back &&
-                e.Parameter is ShellPageNavigationArgs args)
+            if (e.Parameter is ShellPageNavigationArgs args)
             {
+                if (args.MillisecondsDelay > 0)
+                {
+                    await Task.Delay(args.MillisecondsDelay);
+                }
+
                 ViewModel.Navigate(
                     args.FirstPageOverride ?? ContentPageType.Home,
                     args.LaunchArguments);
@@ -96,39 +99,6 @@ public sealed partial class ShellPage : Page
         App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
     }
 
-    private void OnMenuItemClicked(object sender, ItemClickEventArgs e)
-    {
-        if (e.ClickedItem is FrameworkElement f && f.FindParent<ListViewItem>() is { Tag: string tag })
-        {
-            switch (tag)
-            {
-                case "meditate":
-                    ViewModel.Navigate(ContentPageType.Meditate);
-                    break;
-                case "focus":
-                    ViewModel.Navigate(ContentPageType.Focus);
-                    break;
-                case "catalogue":
-                    ViewModel.Navigate(ContentPageType.Catalogue);
-                    break;
-                case "home":
-                    ViewModel.Navigate(ContentPageType.Home);
-                    break;
-                case "settings":
-                    ViewModel.Navigate(ContentPageType.Settings);
-                    break;
-                case "updates":
-                    ViewModel.Navigate(ContentPageType.Updates);
-                    break;
-            }
-        }
-    }
-
-    private void SizeStateChanged(object sender, VisualStateChangedEventArgs e)
-    {
-        ViewModel.MenuLabelsVisible = PageStateGroup.CurrentState == WidePageState;
-    }
-
     private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(ViewModel.FocusTimeBannerVisible))
@@ -144,6 +114,28 @@ public sealed partial class ShellPage : Page
             {
                 await ShowGuideBannerAnimations.StartAsync();
             }
+        }
+    }
+
+    private async void OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        if (args.Reason is AutoSuggestionBoxTextChangeReason.UserInput)
+        {
+            await ViewModel.FilterAutosuggestAsync(sender.Text);
+        }
+    }
+
+    private async void OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+        SearchFlyout.Hide();
+
+        if (args.ChosenSuggestion is AutosuggestSound s)
+        {
+            await ViewModel.PlayAsync(s);
+        }
+        else if (args.QueryText is { Length: > 0 } query)
+        {
+            ViewModel.Search(query);
         }
     }
 }

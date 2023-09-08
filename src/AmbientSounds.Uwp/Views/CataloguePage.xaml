@@ -10,9 +10,9 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid>
-        <ScrollViewer Margin="0,4,0,0">
-            <Grid Padding="0,4,0,0">
+    <Grid Margin="{StaticResource MainFramePageMargin}">
+        <ScrollViewer CanContentRenderOutsideBounds="True">
+            <Grid>
                 <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="vm:CatalogueRowViewModel">

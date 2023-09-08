@@ -23,7 +23,8 @@
 
         <TextBlock
             Grid.ColumnSpan="2"
-            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+            FontSize="12"
+            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
             Text="{x:Bind Header, Mode=OneWay}" />
 
         <Slider

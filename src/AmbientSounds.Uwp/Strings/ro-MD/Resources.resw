@@ -778,4 +778,16 @@
   <data name="PlayRandom" xml:space="preserve">
     <value>Redați sunet aleatoriu</value>
   </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Acum se joacă</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Rezultate pentru "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Oops! Nu am putut găsi acel sunet. Vom vedea dacă îl putem adăuga în viitor</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Căutare</value>
+  </data>
 </root>

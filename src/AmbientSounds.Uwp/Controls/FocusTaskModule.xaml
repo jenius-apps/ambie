@@ -19,13 +19,13 @@
             BasedOn="{StaticResource DefaultTextBlockStyle}"
             TargetType="TextBlock">
             <Setter Property="TextDecorations" Value="Strikethrough" />
-            <Setter Property="Foreground" Value="Strikethrough" />
+            <Setter Property="Foreground" Value="{ThemeResource TextFillColorTertiaryBrush}" />
         </Style>
 
         <DataTemplate x:Key="OpenTaskTemplate" x:DataType="viewmodels:FocusTaskViewModel">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="34" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
@@ -48,21 +48,23 @@
                 <TextBlock
                     x:Name="TaskText"
                     Grid.Column="1"
-                    Margin="0,6,0,0"
+                    Margin="0,8,0,0"
+                    FontSize="12"
                     Text="{x:Bind Text, Mode=OneWay}"
                     TextWrapping="Wrap" />
                 <FontIcon
                     Grid.Column="2"
-                    Margin="0,6,0,0"
+                    Margin="4,8,0,0"
                     VerticalAlignment="Top"
                     FontFamily="{StaticResource FluentUIGlyphsCustom}"
+                    FontSize="16"
                     Glyph="{StaticResource GlyphCustomGripper}" />
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="ClosedTaskTemplate" x:DataType="viewmodels:FocusTaskViewModel">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="36" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.ContextFlyout>
@@ -79,7 +81,8 @@
                 <TextBlock
                     x:Name="TaskText"
                     Grid.Column="1"
-                    Margin="0,6,0,0"
+                    Margin="0,8,0,0"
+                    FontSize="12"
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                     Text="{x:Bind Text, Mode=OneWay}"
                     TextDecorations="Strikethrough"
@@ -88,29 +91,32 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <Border Style="{StaticResource ModuleBorderStyle}">
-        <Grid>
-            <Rectangle Style="{StaticResource ModuleBackgroundRectStyle}" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Style="{StaticResource ModuleTitleStyle}" Text="{x:Bind strings:Resources.TaskModuleTitle}" />
+
+        <Border Grid.Row="1" Margin="0,8,0,0">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <TextBlock
-                    Margin="24,12,0,12"
-                    FontWeight="SemiBold"
-                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    Text="{x:Bind strings:Resources.TaskModuleTitle}" />
-
-                <Rectangle VerticalAlignment="Bottom" Style="{StaticResource ModuleDividerRectStyle}" />
+                <Rectangle
+                    Grid.Row="0"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource ModuleDividerRectStyle}"
+                    Visibility="Visible" />
 
                 <TextBox
-                    Grid.Row="1"
-                    Margin="12"
+                    Margin="0,16,0,0"
+                    FontSize="12"
                     IsEnabled="{x:Bind ViewModel.CanAddMoreTasks, Mode=OneWay}"
                     KeyDown="OnTaskKeyDown"
                     MaxLength="{x:Bind ViewModel.MaxTextSize}"
@@ -118,8 +124,8 @@
                     Text="{x:Bind ViewModel.NewTask, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 <ListView
-                    Grid.Row="2"
-                    Margin="8,-4,12,8"
+                    Grid.Row="1"
+                    Margin="0,8,12,8"
                     AllowDrop="True"
                     AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
                     CanDragItems="True"
@@ -142,14 +148,15 @@
                 </ListView>
 
                 <Button
-                    Grid.Row="3"
-                    Margin="12,0,0,12"
+                    Grid.Row="2"
+                    Margin="0,0,0,12"
                     Click="OnRecentCompletedClicked"
                     Visibility="{x:Bind ViewModel.RecentCompletedButtonVisible, Mode=OneWay}">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             ui:VisualExtensions.NormalizedCenterPoint="0.5"
                             FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="16"
                             Glyph="{StaticResource GlyphChevronRight}">
                             <ani:Explicit.Animations>
                                 <ani:AnimationSet x:Name="OpenChevronAnimation">
@@ -166,18 +173,24 @@
                                 </ani:AnimationSet>
                             </ani:Explicit.Animations>
                         </FontIcon>
-                        <TextBlock Margin="6,0,0,0" Text="{x:Bind strings:Resources.TaskModuleRecentCompleted}" />
-                        <TextBlock Margin="8,0,0,0" Text="{x:Bind ViewModel.RecentCompletedCount, Mode=OneWay}" />
+                        <TextBlock
+                            Margin="6,0,0,0"
+                            FontSize="12"
+                            Text="{x:Bind strings:Resources.TaskModuleRecentCompleted}" />
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            FontSize="12"
+                            Text="{x:Bind ViewModel.RecentCompletedCount, Mode=OneWay}" />
                     </StackPanel>
                 </Button>
 
                 <ItemsControl
-                    Grid.Row="4"
-                    Margin="24,0,12,8"
+                    Grid.Row="3"
+                    Margin="12,0,12,8"
                     ItemTemplate="{StaticResource ClosedTaskTemplate}"
                     ItemsSource="{x:Bind ViewModel.CompletedTasks}"
                     Visibility="{x:Bind ViewModel.IsCompletedListVisible, Mode=OneWay}" />
             </Grid>
-        </Grid>
-    </Border>
+        </Border>
+    </Grid>
 </UserControl>

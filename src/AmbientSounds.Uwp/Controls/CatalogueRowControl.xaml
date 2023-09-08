@@ -34,7 +34,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock
                 VerticalAlignment="Center"
-                FontSize="18"
+                FontSize="14"
                 FontWeight="SemiBold"
                 Text="{x:Bind TitleText, Mode=OneWay}"
                 TextTrimming="CharacterEllipsis" />
@@ -128,6 +128,7 @@
 
                             <Grid Grid.Row="1" Margin="12,0">
                                 <TextBlock
+                                    FontSize="12"
                                     Foreground="White"
                                     MaxLines="2"
                                     Text="{x:Bind Name, Mode=OneWay}"
@@ -159,7 +160,10 @@
                                             VerticalAlignment="Stretch"
                                             Command="{x:Bind BuySoundCommand, Mode=OneWay}"
                                             Style="{StaticResource SubtleButton}">
-                                            <FontIcon FontFamily="{StaticResource FluentUIGlyphsCustom}" Glyph="{StaticResource GlyphCustomPremium}" />
+                                            <FontIcon
+                                                FontFamily="{StaticResource FluentUIGlyphsCustom}"
+                                                FontSize="15"
+                                                Glyph="{StaticResource GlyphCustomPremium}" />
                                         </Button>
                                     </StackPanel>
 
@@ -175,6 +179,7 @@
                                             <FontIcon
                                                 VerticalAlignment="Center"
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
+                                                FontSize="{StaticResource SmallIconSize}"
                                                 Glyph="{StaticResource GlyphDownload}" />
                                         </StackPanel>
                                     </Button>
@@ -207,7 +212,10 @@
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind DeleteSoundCommand, Mode=OneWay}"
                                         Style="{StaticResource SubtleButton}">
-                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDelete}" />
+                                        <FontIcon
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            FontSize="{StaticResource SmallIconSize}"
+                                            Glyph="{StaticResource GlyphDelete}" />
                                     </Button>
                                 </StackPanel>
                             </Grid>

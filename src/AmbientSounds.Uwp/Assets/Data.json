@@ -1,7 +1,7 @@
 ﻿[
   {
     "Id": "9947a323-8223-4593-8a82-04d9edfd4d4a",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "beach",
     "ColourHex": "#c59758",
     "ImagePath": "ms-appx:///Assets/Images/beach.png",
@@ -81,12 +81,15 @@
       },
       "ar": {
         "Name": "شاطئ"
+      },
+      "ro": {
+        "Name": "Vânt"
       }
     }
   },
   {
     "Id": "19a43ab7-c964-4ab5-90f9-26c8a17d4f34",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "birds",
     "ColourHex": "#5a8391",
     "ImagePath": "ms-appx:///Assets/Images/birds.png",
@@ -166,12 +169,15 @@
       },
       "ar": {
         "Name": "طيور"
+      },
+      "ro": {
+        "Name": "Păsări"
       }
     }
   },
   {
     "Id": "f2940c11-0510-4db5-a0ea-5cb27d453bb2",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "citystreet",
     "ColourHex": "#a2775c",
     "ImagePath": "ms-appx:///Assets/Images/citystreet.png",
@@ -254,12 +260,15 @@
       },
       "ar": {
         "Name": "شارع المدينة"
+      },
+      "ro": {
+        "Name": "Stradă"
       }
     }
   },
   {
     "Id": "17b2af89-1008-4259-b545-dc8ca4ee473f",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "coffeeshop",
     "ColourHex": "#636252",
     "ImagePath": "ms-appx:///Assets/Images/coffeeshop.png",
@@ -342,12 +351,15 @@
       },
       "ar": {
         "Name": "مَقْهًى"
+      },
+      "ro": {
+        "Name": "Cafenea"
       }
     }
   },
   {
     "Id": "f32edd85-871e-4349-9e45-42b14fd5449b",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "creek",
     "ColourHex": "#27281c",
     "ImagePath": "ms-appx:///Assets/Images/creek.png",
@@ -427,12 +439,15 @@
       },
       "ar": {
         "Name": "جدول"
+      },
+      "ro": {
+        "Name": "Pârâu"
       }
     }
   },
   {
     "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "fireplace",
     "ColourHex": "#442f12",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
@@ -514,12 +529,15 @@
       },
       "ar": {
         "Name": "مِدْفَأَة"
+      },
+      "ro": {
+        "Name": "Cămin"
       }
     }
   },
   {
     "Id": "61ae9b16-8254-40f4-b4ae-eff4791f6a80",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "rain",
     "ColourHex": "#334337",
     "ImagePath": "ms-appx:///Assets/Images/rain.png",
@@ -602,12 +620,15 @@
       "ar": {
         "Name": "مطر",
         "Description": ""
+      },
+      "ro": {
+        "Name": "Ploaie"
       }
     }
   },
   {
     "Id": "37988c11-b601-417b-9bb4-bb59fe939641",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "rainforest",
     "ColourHex": "#152d0c",
     "ImagePath": "ms-appx:///Assets/Images/rainforest.png",
@@ -690,12 +711,15 @@
       "ar": {
         "Name": "الغابات المطيره",
         "Description": ""
+      },
+      "ro": {
+        "Name": "Pădure"
       }
     }
   },
   {
     "Id": "1628a20d-744e-4f99-b7e3-24088cba5090",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "thunder",
     "ColourHex": "#00266f",
     "ImagePath": "ms-appx:///Assets/Images/thunder.png",
@@ -778,12 +802,15 @@
       "ar": {
         "Name": "رعد",
         "Description": ""
+      },
+      "ro": {
+        "Name": "Tunet"
       }
     }
   },
   {
     "Id": "f8424751-d150-41bc-b4ab-c22c41b4b339",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "underwater",
     "ColourHex": "#00c3d0",
     "ImagePath": "ms-appx:///Assets/Images/underwater.png",
@@ -866,12 +893,15 @@
       "ar": {
         "Name": "تحت الماء",
         "Description": ""
+      },
+      "ro": {
+        "Name": "Subacvatic"
       }
     }
   },
   {
     "Id": "e0df152b-7166-402a-902d-c69d3a9f96bb",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "waterfall",
     "ColourHex": "#8bbdd4",
     "ImagePath": "ms-appx:///Assets/Images/waterfall.png",
@@ -955,12 +985,15 @@
       "ar": {
         "Name": "شلال",
         "Description": ""
+      },
+      "ro": {
+        "Name": "Cascadă"
       }
     }
   },
   {
     "Id": "aada6607-5dbe-42ff-934d-d5917e597284",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "whitenoise",
     "ColourHex": "#5e5b49",
     "ImagePath": "ms-appx:///Assets/Images/whitenoise.png",
@@ -1043,12 +1076,15 @@
       "ar": {
         "Name": "الضوضاء البيضاء",
         "Description": ""
+      },
+      "ro": {
+        "Name": "Zgomot alb"
       }
     }
   },
   {
     "Id": "38c73d89-6c2c-445b-8beb-52b2f72689a2",
-    "MetaDataVersion": 4,
+    "MetaDataVersion": 5,
     "Name": "wind",
     "ColourHex": "#0b2354",
     "ImagePath": "ms-appx:///Assets/Images/wind.png",
@@ -1131,6 +1167,9 @@
       "ar": {
         "Name": "ريح",
         "Description": ""
+      },
+      "ro": {
+        "Name": "Vânt"
       }
     }
   }

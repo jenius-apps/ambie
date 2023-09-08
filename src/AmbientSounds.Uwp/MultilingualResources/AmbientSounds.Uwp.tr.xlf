@@ -1036,7 +1036,23 @@
         </trans-unit>
         <trans-unit id="PlayRandom" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Rastgele ses çalma</target>
+        </trans-unit>
+        <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
+          <source>Now playing</source>
+          <target state="translated">Şu anda çalınıyor</target>
+        </trans-unit>
+        <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
+          <source>Results for "{0}"</source>
+          <target state="translated">"{0}" için sonuçlar</target>
+        </trans-unit>
+        <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
+          <target state="translated">Oops! O sesi bulamadık. Gelecekte ekleyip ekleyemeyeceğimizi göreceğiz</target>
+        </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Aramak</target>
         </trans-unit>
       </group>
     </body>

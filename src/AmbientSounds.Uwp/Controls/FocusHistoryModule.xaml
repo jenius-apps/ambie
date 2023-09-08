@@ -7,28 +7,31 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Border Style="{StaticResource ModuleBorderStyle}">
-        <Grid>
-            <Rectangle Style="{StaticResource ModuleBackgroundRectStyle}" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
 
-            <StackPanel Padding="12,0,12,0">
-                <TextBlock
-                    Margin="12,12,0,0"
-                    FontWeight="SemiBold"
-                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                    Text="{x:Bind strings:Resources.HistoryRecent}" />
-                <Rectangle
-                    Height="1"
-                    Margin="-12,12,-12,0"
-                    HorizontalAlignment="Stretch"
-                    Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+        <TextBlock
+            Margin="0,0,0,8"
+            Style="{StaticResource ModuleTitleStyle}"
+            Text="{x:Bind strings:Resources.HistoryRecent}" />
 
+        <Rectangle
+            Grid.Row="0"
+            VerticalAlignment="Bottom"
+            Style="{StaticResource ModuleDividerRectStyle}" />
+
+        <Grid Grid.Row="1" Margin="0,12,0,0">
+            <StackPanel>
                 <StackPanel
                     Margin="0,12"
                     Orientation="Horizontal"
@@ -57,7 +60,6 @@
                 </StackPanel>
 
                 <GridView
-                    Margin="0,12,0,0"
                     AutomationProperties.Name="{x:Bind strings:Resources.HistoryRecent}"
                     IsItemClickEnabled="True"
                     ItemClick="OnHistoryClicked"
@@ -124,14 +126,6 @@
                                                 TextWrapping="Wrap" />
                                         </StackPanel>
                                     </StackPanel>
-
-                                    <!--<local:FocusAward
-                                        Grid.Column="1"
-                                        Margin="0,8,0,0"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Top"
-                                        Award="{x:Bind Award}"
-                                        FontSize="28" />-->
                                 </Grid>
 
                                 <winui:ProgressBar
@@ -142,12 +136,7 @@
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
-
-                <!--<HyperlinkButton
-                    Margin="7,0,0,12"
-                    Content="{x:Bind strings:Resources.SeeMore}"
-                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}" />-->
             </StackPanel>
         </Grid>
-    </Border>
+    </Grid>
 </UserControl>

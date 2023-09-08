@@ -1,5 +1,4 @@
 // File generated automatically by ReswPlus. https://github.com/DotNetPlus/ReswPlus
-// The NuGet package ReswPlusLib is necessary to support Pluralization.
 using System;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Markup;
@@ -2459,6 +2458,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region NowPlayingText
+        /// <summary>
+        ///   Looks up a localized string similar to: Now playing
+        /// </summary>
+        public static string NowPlayingText
+        {
+            get
+            {
+                return _resourceLoader.GetString("NowPlayingText");
+            }
+        }
+        #endregion
+
+        #region SearchPageHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Results for "{0}"
+        /// </summary>
+        public static string SearchPageHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SearchPageHeader");
+            }
+        }
+        #endregion
+
+        #region SearchEmptyPlaceholderText
+        /// <summary>
+        ///   Looks up a localized string similar to: Oops! We couldn't find that sound. We'll see if we can add it in the future
+        /// </summary>
+        public static string SearchEmptyPlaceholderText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SearchEmptyPlaceholderText");
+            }
+        }
+        #endregion
+
+        #region SearchText
+        /// <summary>
+        ///   Looks up a localized string similar to: Search
+        /// </summary>
+        public static string SearchText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SearchText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2658,6 +2709,10 @@ namespace AmbientSounds.Strings{
             SettingsConfirmCloseHeader,
             AlwaysAskMeText,
             PlayRandom,
+            NowPlayingText,
+            SearchPageHeader,
+            SearchEmptyPlaceholderText,
+            SearchText,
         }
 
         private static ResourceLoader _resourceLoader;

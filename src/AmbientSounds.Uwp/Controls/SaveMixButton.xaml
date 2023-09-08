@@ -9,14 +9,23 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Button x:Uid="SaveMixButton" Style="{StaticResource SubtleIconButton}">
+    <Button x:Uid="SaveMixButton" Style="{StaticResource SmallSubtleIconButton}">
         <Button.KeyboardAccelerators>
             <KeyboardAccelerator Key="S" Modifiers="Control" />
         </Button.KeyboardAccelerators>
 
-        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSave}" />
+        <FontIcon
+            FontFamily="{StaticResource FluentUIGlyphs}"
+            FontSize="14"
+            Glyph="{StaticResource GlyphSave}" />
         <Button.Flyout>
             <Flyout x:Name="SaveFlyout" Closed="SaveFlyout_Closed">
+                <Flyout.FlyoutPresenterStyle>
+                    <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                        <Setter Property="Padding" Value="12" />
+                    </Style>
+                </Flyout.FlyoutPresenterStyle>
+
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
@@ -26,16 +35,22 @@
                         x:Name="NameInput"
                         x:Uid="NameInputBox"
                         Width="200"
+                        FontSize="12"
                         KeyDown="NameInput_KeyDown"
                         MaxLength="30" />
                     <Button
                         x:Uid="ConfirmSaveButton"
                         Grid.Column="1"
+                        Width="32"
+                        Height="32"
                         Margin="4,0,0,0"
+                        Padding="0"
                         VerticalAlignment="Bottom"
-                        Click="Button_Click"
-                        Style="{StaticResource SubtleIconButton}">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCheckMark}" />
+                        Click="Button_Click">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="14"
+                            Glyph="{StaticResource GlyphCheckMark}" />
                     </Button>
                 </Grid>
             </Flyout>

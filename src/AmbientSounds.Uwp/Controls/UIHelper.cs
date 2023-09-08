@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Animations;
 using AmbientSounds.ViewModels;
 using Microsoft.Toolkit.Uwp.Helpers;
+using System;
 using Windows.UI;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
@@ -30,14 +31,61 @@ namespace AmbientSounds.Controls
             }
         }
 
-        public static Color ToColour(string colourHex)
+        public static Color ToLighterColour(this string colourHex, double percentLighter = 0.2)
+        {
+            var colour = colourHex.ToColour();
+
+            return Color.FromArgb(
+              colour.A,
+              (byte)Math.Min(255, colour.R + 255 * percentLighter),
+              (byte)Math.Min(255, colour.G + 255 * percentLighter),
+              (byte)Math.Min(255, colour.B + 255 * percentLighter));
+        }
+
+        public static Color ToDarkerColour(this string colourHex, double percentDarker = 0.2)
+        {
+            var colour = colourHex.ToColour();
+
+            return Color.FromArgb(
+              colour.A,
+              (byte)Math.Max(0, colour.R - 255 * percentDarker),
+              (byte)Math.Max(0, colour.G - 255 * percentDarker),
+              (byte)Math.Max(0, colour.B - 255 * percentDarker));
+        }
+
+        public static Color ToColour(this string colourHex)
         {
             if (string.IsNullOrEmpty(colourHex))
             {
                 colourHex = "#1F1F1F";
             }
-
+            
             return colourHex.ToColor();
+        }
+
+        public static SolidColorBrush ToBrush(string colourHex)
+        {
+            return new SolidColorBrush(colourHex.ToColour());
+        }
+
+        public static SolidColorBrush ToLighterBrush(string colourHex, double percentLighter)
+        {
+            return new SolidColorBrush(colourHex.ToLighterColour(percentLighter));
+        }
+
+        public static SolidColorBrush ToDarkerBrush(string colourHex, double percentDarker)
+        {
+            return new SolidColorBrush(colourHex.ToDarkerColour(percentDarker));
+        }
+
+        public static Color ToTransparent(string colourHex)
+        {
+            if (string.IsNullOrEmpty(colourHex))
+            {
+                colourHex = "#000000";
+            }
+
+            return colourHex.Replace("#", "#00").ToColor();
         }
 
         public static void GridScaleUp(object sender, PointerRoutedEventArgs e)

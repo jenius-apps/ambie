@@ -1022,7 +1022,23 @@
         </trans-unit>
         <trans-unit id="PlayRandom" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">تشغيل صوت عشوائي</target>
+        </trans-unit>
+        <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
+          <source>Now playing</source>
+          <target state="translated">يعرض الآن</target>
+        </trans-unit>
+        <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
+          <source>Results for "{0}"</source>
+          <target state="translated">نتائج البحث عن "{0}"</target>
+        </trans-unit>
+        <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
+          <target state="translated">عفوا! لم نتمكن من العثور على هذا الصوت. سنرى ما إذا كان بإمكاننا إضافته في المستقبل</target>
+        </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">بحث</target>
         </trans-unit>
       </group>
     </body>

@@ -763,4 +763,19 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Mindig kérdezzen tőlem</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Véletlenszerű hang lejátszása</value>
+  </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>Most játszik</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Találatok a következőre: "{0}"</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Hoppá! Nem találtuk ezt a hangot. Meglátjuk, hogy a jövőben hozzá tudjuk-e adni</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Keresés</value>
+  </data>
 </root>

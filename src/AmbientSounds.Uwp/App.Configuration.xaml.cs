@@ -89,7 +89,7 @@ partial class App
     [Singleton(typeof(FocusTaskModuleViewModel))]
     [Singleton(typeof(PremiumControlViewModel))]
     [Singleton(typeof(FocusTimerModuleViewModel))]
-    [Singleton(typeof(ShellPageViewModel))]
+    [Transient(typeof(ShellPageViewModel))]
     [Singleton(typeof(PlayerViewModel))] // shared in main and compact pages
     [Singleton(typeof(SleepTimerViewModel))] // shared in main and compact pages
     [Singleton(typeof(FocusHistoryModuleViewModel))]
@@ -171,5 +171,7 @@ partial class App
     [Singleton(typeof(WindowsSystemMediaControls), typeof(ISystemMediaControls))]
     [Singleton(typeof(AudioDeviceService), typeof(IAudioDeviceService))]
     [Singleton(typeof(WindowsMediaPlayerFactory), typeof(IMediaPlayerFactory))]
+    [Singleton(typeof(SearchService), typeof(ISearchService))]
+    [Transient(typeof(SearchPageViewModel))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

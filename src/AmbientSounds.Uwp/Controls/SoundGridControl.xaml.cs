@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -15,12 +16,17 @@ namespace AmbientSounds.Controls
             typeof(SoundGridControl),
             null);
 
-        public static readonly DependencyProperty IsCompactProperty =
-            DependencyProperty.Register(
-                nameof(IsCompact),
-                typeof(bool),
-                typeof(SoundGridControl),
-                new PropertyMetadata(false));
+        public static readonly DependencyProperty IsCompactProperty = DependencyProperty.Register(
+            nameof(IsCompact),
+            typeof(bool),
+            typeof(SoundGridControl),
+            new PropertyMetadata(false));
+
+        public static readonly DependencyProperty CanScrollOutOfBoundsProperty = DependencyProperty.Register(
+            nameof(CanScrollOutOfBounds),
+            typeof(bool),
+            typeof(SoundGridControl),
+            new PropertyMetadata(false));
 
         public SoundGridControl()
         {
@@ -44,11 +50,29 @@ namespace AmbientSounds.Controls
             set => SetValue(IsCompactProperty, value);
         }
 
+        public bool CanScrollOutOfBounds
+        {
+            get => (bool)GetValue(CanScrollOutOfBoundsProperty);
+            set => SetValue(CanScrollOutOfBoundsProperty, value);
+        }
+
         private async void OnItemClick(object sender, ItemClickEventArgs e)
         {
             if (e.ClickedItem is SoundViewModel vm)
             {
                 await vm.PlayCommand.ExecuteAsync(null);
+            }
+        }
+
+        private void OnGridViewLoaded(object sender, RoutedEventArgs e)
+        {
+            if (CanScrollOutOfBounds && sender is GridView gridView)
+            {
+                ScrollViewer? s = gridView.FindDescendant<ScrollViewer>();
+                if (s is not null)
+                {
+                    s.CanContentRenderOutsideBounds = true;
+                }
             }
         }
     }

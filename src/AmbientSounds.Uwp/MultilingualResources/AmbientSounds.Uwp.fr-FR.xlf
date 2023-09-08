@@ -1035,7 +1035,23 @@
         </trans-unit>
         <trans-unit id="PlayRandom" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
-          <target state="new">Play random sound</target>
+          <target state="translated">Jouer un son aléatoire</target>
+        </trans-unit>
+        <trans-unit id="NowPlayingText" translate="yes" xml:space="preserve">
+          <source>Now playing</source>
+          <target state="translated">En cours de lecture</target>
+        </trans-unit>
+        <trans-unit id="SearchPageHeader" translate="yes" xml:space="preserve">
+          <source>Results for "{0}"</source>
+          <target state="translated">Résultats pour « {0} »</target>
+        </trans-unit>
+        <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
+          <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
+          <target state="translated">Oups! Nous n’avons pas pu trouver ce son. Nous verrons si nous pouvons l’ajouter à l’avenir</target>
+        </trans-unit>
+        <trans-unit id="SearchText" translate="yes" xml:space="preserve">
+          <source>Search</source>
+          <target state="translated">Rechercher</target>
         </trans-unit>
       </group>
     </body>

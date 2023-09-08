@@ -772,4 +772,19 @@
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Toujours me demander</value>
   </data>
+  <data name="PlayRandom" xml:space="preserve">
+    <value>Jouer un son aléatoire</value>
+  </data>
+  <data name="NowPlayingText" xml:space="preserve">
+    <value>En cours de lecture</value>
+  </data>
+  <data name="SearchPageHeader" xml:space="preserve">
+    <value>Résultats pour « {0} »</value>
+  </data>
+  <data name="SearchEmptyPlaceholderText" xml:space="preserve">
+    <value>Oups! Nous n’avons pas pu trouver ce son. Nous verrons si nous pouvons l’ajouter à l’avenir</value>
+  </data>
+  <data name="SearchText" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
 </root>

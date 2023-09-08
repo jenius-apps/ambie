@@ -11,7 +11,7 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid Margin="0,8,0,0">
+    <Grid Margin="{StaticResource MainFramePageMargin}">
         <Grid.ChildrenTransitions>
             <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
         </Grid.ChildrenTransitions>
