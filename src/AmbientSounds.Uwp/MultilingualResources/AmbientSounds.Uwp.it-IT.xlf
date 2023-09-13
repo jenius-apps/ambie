@@ -120,11 +120,11 @@
         </trans-unit>
         <trans-unit id="Soundcitystreet" translate="yes" xml:space="preserve">
           <source>City street</source>
-          <target state="translated">Strada</target>
+          <target state="translated">Strada cittadina</target>
         </trans-unit>
         <trans-unit id="Soundcoffeeshop" translate="yes" xml:space="preserve">
           <source>Coffee shop</source>
-          <target state="translated">Caffè</target>
+          <target state="translated">Bar</target>
         </trans-unit>
         <trans-unit id="Soundcreek" translate="yes" xml:space="preserve">
           <source>Creek</source>
@@ -132,7 +132,7 @@
         </trans-unit>
         <trans-unit id="Soundfireplace" translate="yes" xml:space="preserve">
           <source>Fireplace</source>
-          <target state="translated">Camino</target>
+          <target state="translated">Focolare</target>
         </trans-unit>
         <trans-unit id="Soundrain" translate="yes" xml:space="preserve">
           <source>Rain</source>
@@ -144,7 +144,7 @@
         </trans-unit>
         <trans-unit id="Soundunderwater" translate="yes" xml:space="preserve">
           <source>Underwater</source>
-          <target state="translated">Subacquea</target>
+          <target state="translated">Sott'acqua</target>
         </trans-unit>
         <trans-unit id="Soundwaterfall" translate="yes" xml:space="preserve">
           <source>Waterfall</source>
@@ -156,7 +156,7 @@
         </trans-unit>
         <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds are loading</source>
-          <target state="translated">I suoni stanno caricando</target>
+          <target state="translated">Stiamo caricando i suoni</target>
         </trans-unit>
         <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
           <source>Cannot play sound</source>
@@ -164,7 +164,7 @@
         </trans-unit>
         <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Stop the timer and clear the time</source>
-          <target state="translated">Ferma il timer e reimposta l'ora</target>
+          <target state="translated">Ferma il timer e reimposta il tempo</target>
         </trans-unit>
         <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Global volume</source>
@@ -281,11 +281,11 @@
         </trans-unit>
         <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
-          <target state="translated">Anteprima del suono</target>
+          <target state="translated">Anteprima</target>
         </trans-unit>
         <trans-unit id="PreviewButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
-          <target state="translated">Anteprima del suono</target>
+          <target state="translated">Anteprima</target>
         </trans-unit>
         <trans-unit id="Paused" translate="yes" xml:space="preserve">
           <source>Paused</source>
@@ -360,8 +360,7 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="translated">Attiverai la sincronizzazione della galleria dei suoni tra i tuoi dispositivi. E potrai caricare suoni.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Attiverai la sincronizzazione della galleria dei suoni tra i tuoi dispositivi.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
@@ -373,11 +372,11 @@
         </trans-unit>
         <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="translated">Log in</target>
+          <target state="translated">Accedi</target>
         </trans-unit>
         <trans-unit id="SignInButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Sign in</source>
-          <target state="translated">Log in</target>
+          <target state="translated">Accedi</target>
         </trans-unit>
         <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sync</source>
@@ -494,8 +493,7 @@
         </trans-unit>
         <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
           <source>Download video screensavers</source>
-          <target state="translated">Un catalogo in espansione</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Scarica il salvaschermo</target>
         </trans-unit>
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development</source>
@@ -520,7 +518,7 @@
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="translated">Abbiamo bisogno di scaricare alcuni suoni per poterlo riprodurre. Una volta scaricato, prova a giocare di nuovo. Inizia il download?</target>
+          <target state="translated">Abbiamo bisogno di scaricare alcuni suoni per poterlo riprodurre. Una volta scaricato, riavvia la riproduzione. Scaricare ora?</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
@@ -540,11 +538,11 @@
         </trans-unit>
         <trans-unit id="MoreScreensavers" translate="yes" xml:space="preserve">
           <source>More screensavers</source>
-          <target state="translated">Più screensaver</target>
+          <target state="translated">Altri screensaver</target>
         </trans-unit>
         <trans-unit id="ScreensaverCatalogue" translate="yes" xml:space="preserve">
           <source>Screensaver catalogue</source>
-          <target state="translated">Catalogo salvaschermo</target>
+          <target state="translated">Catalogo salvaschermi</target>
         </trans-unit>
         <trans-unit id="ViewPremiumInfo" translate="yes" xml:space="preserve">
           <source>View premium info</source>
@@ -636,7 +634,7 @@
         </trans-unit>
         <trans-unit id="Start" translate="yes" xml:space="preserve">
           <source>Start</source>
-          <target state="translated">Inizio</target>
+          <target state="translated">Avvia</target>
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
@@ -652,7 +650,7 @@
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
-          <target state="translated">Bloc notes</target>
+          <target state="translated">Blocco appunti</target>
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
@@ -664,7 +662,7 @@
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="translated">Insegnami</target>
+          <target state="translated">Mostrami come usarlo</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
@@ -692,7 +690,7 @@
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="translated">Ogni ciclo di concentrazione e riposo può ripetersi più volte. Prova ad aggiungere 1 ripetizione!</target>
+          <target state="translated">Ogni ciclo di concentrazione e riposo può ripetersi più volte. Prova ad aggiungere una ripetizione!</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
@@ -728,7 +726,7 @@
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="translated">Storia</target>
+          <target state="translated">Storico</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
@@ -744,7 +742,7 @@
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="translated">Confermare</target>
+          <target state="translated">Conferma</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
@@ -760,7 +758,7 @@
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="translated">Storia recente</target>
+          <target state="translated">Storico recente</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
@@ -768,7 +766,7 @@
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="translated">Buon sforzo</target>
+          <target state="translated">Bel tentativo</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
@@ -812,7 +810,7 @@
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="translated">Apri Ambie Mini durante la messa a fuoco</target>
+          <target state="translated">Apri Ambie Mini in modalità concentrazione</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
@@ -860,7 +858,7 @@
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="translated">Ambie Mini si aprirà automaticamente durante la messa a fuoco</target>
+          <target state="translated">Ambie Mini si aprirà automaticamente in modalità concentrazione</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
@@ -868,7 +866,7 @@
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
           <source>On launch, Ambie will resume playing automatically</source>
-          <target state="translated">All'avvio, Ambie riprenderà a giocare automaticamente</target>
+          <target state="translated">All'avvio, Ambie riprende a riprodurre automaticamente</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
           <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
@@ -904,15 +902,15 @@
         </trans-unit>
         <trans-unit id="MissingShareSoundsTitle" translate="yes" xml:space="preserve">
           <source>You're missing some sounds</source>
-          <target state="translated">Ti manca la musica</target>
+          <target state="translated">Mancano alcuni suoni</target>
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="translated">Revisione</target>
+          <target state="translated">Valutazione</target>
         </trans-unit>
         <trans-unit id="ShareText" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="translated">Condividere</target>
+          <target state="translated">Condivide</target>
         </trans-unit>
         <trans-unit id="CopiedText" translate="yes" xml:space="preserve">
           <source>Copied!</source>
@@ -992,7 +990,7 @@
         </trans-unit>
         <trans-unit id="SettingsOutputDevice" translate="yes" xml:space="preserve">
           <source>Output device</source>
-          <target state="translated">Dispositivo di uscita</target>
+          <target state="translated">Dispositivo di riproduzione</target>
         </trans-unit>
         <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
           <source>Choose where to play sound</source>
@@ -1000,11 +998,11 @@
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
           <source>Sounds will continue to play after your focus session ends</source>
-          <target state="translated">I suoni continueranno a essere riprodotti al termine della sessione di messa a fuoco</target>
+          <target state="translated">I suoni continueranno a essere riprodotti al termine della sessione di concentrazione</target>
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
           <source>Continue sounds after focusing</source>
-          <target state="translated">Continuare i suoni dopo la messa a fuoco</target>
+          <target state="translated">Continuare i suoni dopo la concentrazione</target>
         </trans-unit>
         <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
           <source>Relax</source>
