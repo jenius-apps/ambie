@@ -165,6 +165,12 @@ public partial class ShellPageViewModel : ObservableObject
     }
 
     [RelayCommand]
+    private async Task PlayMoodSoundAsync(string mood)
+    {
+        await _mixMediaPlayerService.PlayMoodAsync(mood);
+    }
+
+    [RelayCommand]
     private async Task OpenPremiumAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked);

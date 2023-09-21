@@ -6,6 +6,7 @@ using CommunityToolkit.Diagnostics;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -164,6 +165,29 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         {
             await ToggleSoundAsync(sound);
         }
+    }
+
+    public async Task PlayMoodAsync(string tag)
+    {
+        RemoveAll();
+        List<Sound> sounds = await _soundDataProvider.GetSoundsForMoodAsync(tag);
+        if (sounds.Count > 0)
+        {
+            if (sounds.Count > 3)
+            {
+                Random rng = new Random();
+                sounds = sounds.OrderBy(x => rng.Next()).ToList();
+                List<Sound> randomSounds = sounds.Take(3).ToList();
+                foreach (var sound in randomSounds)
+                { await ToggleSoundAsync(sound); }
+            }
+            else
+            { foreach (Sound sound in sounds) { await ToggleSoundAsync(sound); } }
+        }
+        else
+        { }
+        // TODO: dialog that shows if there are no sounds in the filtered list.
+        Debug.WriteLine(sounds.Count + " sounds found with " + tag + " tag.");
     }
 
     public async Task AddRandomAsync()

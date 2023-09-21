@@ -143,5 +143,12 @@ namespace AmbientSounds.Services
         /// <param name="guide">The guide to play.</param>
         Task PlayGuideAsync(Guide guide);
         Task AddRandomAsync();
+
+        /// <summary>
+        /// Plays a random sound depending on the mood.
+        /// </summary>
+        /// <param name="sender">the MenuFlyoutItem of the selected mood.</param>
+        /// <returns></returns>
+        Task PlayMoodAsync(string tag);
     }
 }

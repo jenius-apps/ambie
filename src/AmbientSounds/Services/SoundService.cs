@@ -215,4 +215,47 @@ public class SoundService : ISoundService
             await _soundCache.AddLocalInstalledSoundAsync(updatedSound);
         }
     }
+
+    /// <inheritdoc/>
+    public async Task<List<Sound>> GetSoundsForMoodAsync(string moodTag)
+    {
+        var sounds = await GetLocalSoundsAsync();
+        List<Sound> filteredSounds = new List<Sound>();
+        SoundMood? mood = null;
+
+        if (moodTag != null)
+        {
+            switch (moodTag)
+            {
+                case "Stressed":
+                    mood = SoundMood.Stressed;
+                    break;
+                case "Energetic":
+                    mood = SoundMood.Energetic;
+                    break;
+                case "Focused":
+                    mood = SoundMood.Focused;
+                    break;
+                case "Creative":
+                    mood = SoundMood.Creative;
+                    break;
+                case "Calm":
+                    mood = SoundMood.Calm;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        foreach (var sound in sounds)
+        {
+            if (sound.Mood == mood)
+            {
+                filteredSounds.Add(sound);
+            }
+        }
+
+        return filteredSounds;
+    }
+
 }

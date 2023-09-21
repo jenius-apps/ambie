@@ -247,6 +247,21 @@
                         Glyph="{StaticResource GlyphShuffle}" />
                 </Button>
                 <Button
+                        AutomationProperties.Name="{x:Bind strings:Resources.MoodPicker}"
+                        Style="{StaticResource SubtleIconButton}"
+                        ToolTipService.ToolTip="{x:Bind strings:Resources.MoodPicker}">
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphMoods}" />
+                    <Button.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Command="{x:Bind ViewModel.PlayMoodSoundCommand}" CommandParameter="Calm" Text="{x:Bind strings:Resources.MoodCalm}"/>
+                            <MenuFlyoutItem Command="{x:Bind ViewModel.PlayMoodSoundCommand}" CommandParameter="Creative" Text="{x:Bind strings:Resources.MoodCreative}"/>
+                            <MenuFlyoutItem Command="{x:Bind ViewModel.PlayMoodSoundCommand}" CommandParameter="Energetic" Text="{x:Bind strings:Resources.MoodEnergetic}"/>
+                            <MenuFlyoutItem Command="{x:Bind ViewModel.PlayMoodSoundCommand}" CommandParameter="Focused" Text="{x:Bind strings:Resources.MoodFocused}"/>
+                            <MenuFlyoutItem Command="{x:Bind ViewModel.PlayMoodSoundCommand}" CommandParameter="Stressed" Text="{x:Bind strings:Resources.MoodStressed}"/>
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+                <Button
                     AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
                     Click="{x:Bind ViewModel.GoToScreensaver}"
                     Style="{StaticResource SmallSubtleIconButton}"

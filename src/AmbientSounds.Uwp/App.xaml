@@ -253,6 +253,7 @@
             <x:String x:Key="GlyphDownload">&#xEBD3;</x:String>
             <x:String x:Key="GlyphDelete">&#xE107;</x:String>
             <x:String x:Key="GlyphCustomPremium">&#xEB28;</x:String>
+            <x:String x:Key="GlyphMoods">&#xE170;</x:String>
             <x:String x:Key="GlyphPhoto">&#xE91B;</x:String>
             <x:String x:Key="GlyphCompact">&#xEE49;</x:String>
             <x:String x:Key="GlyphExpand">&#xE1D9;</x:String>

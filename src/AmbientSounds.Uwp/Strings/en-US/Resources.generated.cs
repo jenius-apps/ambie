@@ -2510,6 +2510,84 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region MoodCalm
+        /// <summary>
+        ///   Looks up a localized string similar to: Calm
+        /// </summary>
+        public static string MoodCalm
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoodCalm");
+            }
+        }
+        #endregion
+
+        #region MoodCreative
+        /// <summary>
+        ///   Looks up a localized string similar to: Creative
+        /// </summary>
+        public static string MoodCreative
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoodCreative");
+            }
+        }
+        #endregion
+
+        #region MoodEnergetic
+        /// <summary>
+        ///   Looks up a localized string similar to: Energetic
+        /// </summary>
+        public static string MoodEnergetic
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoodEnergetic");
+            }
+        }
+        #endregion
+
+        #region MoodFocused
+        /// <summary>
+        ///   Looks up a localized string similar to: Focused
+        /// </summary>
+        public static string MoodFocused
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoodFocused");
+            }
+        }
+        #endregion
+
+        #region MoodPicker
+        /// <summary>
+        ///   Looks up a localized string similar to: Play a random sound, depending on your mood.
+        /// </summary>
+        public static string MoodPicker
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoodPicker");
+            }
+        }
+        #endregion
+
+        #region MoodStressed
+        /// <summary>
+        ///   Looks up a localized string similar to: Stressed
+        /// </summary>
+        public static string MoodStressed
+        {
+            get
+            {
+                return _resourceLoader.GetString("MoodStressed");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2713,6 +2791,12 @@ namespace AmbientSounds.Strings{
             SearchPageHeader,
             SearchEmptyPlaceholderText,
             SearchText,
+            MoodCalm,
+            MoodCreative,
+            MoodEnergetic,
+            MoodFocused,
+            MoodPicker,
+            MoodStressed,
         }
 
         private static ResourceLoader _resourceLoader;

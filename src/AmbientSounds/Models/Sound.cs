@@ -137,6 +137,8 @@ public class Sound : IVersionedAsset
     /// </summary>
     public int FileVersion { get; set; }
 
+    public SoundMood Mood { get; set; }
+
     /// <inheritdoc/>
     public override string ToString()
     {
@@ -151,4 +153,13 @@ public enum PublishState
     Published,
     Unpublished,
     Rejected
+}
+
+public enum SoundMood
+{
+    Calm,
+    Creative,
+    Energetic,
+    Focused,
+    Stressed
 }

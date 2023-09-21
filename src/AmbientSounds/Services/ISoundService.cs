@@ -78,4 +78,11 @@ public interface ISoundService
     /// <param name="oldIndex">The sound's old position.</param>
     /// <param name="newIndex">The sound's new position.</param>
     Task UpdatePositionsAsync(string soundId, int oldIndex, int newIndex);
+
+    /// <summary>
+    /// Gets a list of sounds that correspond to the specific mood.
+    /// </summary>
+    /// <param name="tag">Mood name</param>
+    /// <returns></returns>
+    Task<List<Sound>> GetSoundsForMoodAsync(string tag);
 }

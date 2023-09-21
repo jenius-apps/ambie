@@ -895,4 +895,22 @@
   <data name="SearchText" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="MoodCalm" xml:space="preserve">
+    <value>Calm</value>
+  </data>
+  <data name="MoodCreative" xml:space="preserve">
+    <value>Creative</value>
+  </data>
+  <data name="MoodEnergetic" xml:space="preserve">
+    <value>Energetic</value>
+  </data>
+  <data name="MoodFocused" xml:space="preserve">
+    <value>Focused</value>
+  </data>
+  <data name="MoodPicker" xml:space="preserve">
+    <value>Play a random sound, depending on your mood.</value>
+  </data>
+  <data name="MoodStressed" xml:space="preserve">
+    <value>Stressed</value>
+  </data>
 </root>
