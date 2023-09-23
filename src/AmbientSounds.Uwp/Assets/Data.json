@@ -177,7 +177,7 @@
   },
   {
     "Id": "f2940c11-0510-4db5-a0ea-5cb27d453bb2",
-    "MetaDataVersion": 5,
+    "MetaDataVersion": 6,
     "Name": "citystreet",
     "ColourHex": "#a2775c",
     "ImagePath": "ms-appx:///Assets/Images/citystreet.png",
@@ -217,7 +217,7 @@
         "Name": "Városi utca"
       },
       "it": {
-        "Name": "Strada"
+        "Name": "Strada cittadina"
       },
       "ja": {
         "Name": "市街"
@@ -268,7 +268,7 @@
   },
   {
     "Id": "17b2af89-1008-4259-b545-dc8ca4ee473f",
-    "MetaDataVersion": 5,
+    "MetaDataVersion": 6,
     "Name": "coffeeshop",
     "ColourHex": "#636252",
     "ImagePath": "ms-appx:///Assets/Images/coffeeshop.png",
@@ -308,7 +308,7 @@
         "Name": "Kávéház"
       },
       "it": {
-        "Name": "Caffè"
+        "Name": "Bar"
       },
       "ja": {
         "Name": "コーヒーショップ"
@@ -447,7 +447,7 @@
   },
   {
     "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
-    "MetaDataVersion": 5,
+    "MetaDataVersion": 6,
     "Name": "fireplace",
     "ColourHex": "#442f12",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
@@ -486,7 +486,7 @@
         "Name": "Kandalló"
       },
       "it": {
-        "Name": "Camino"
+        "Name": "Focolare"
       },
       "ja": {
         "Name": "暖炉"
@@ -810,7 +810,7 @@
   },
   {
     "Id": "f8424751-d150-41bc-b4ab-c22c41b4b339",
-    "MetaDataVersion": 5,
+    "MetaDataVersion": 6,
     "Name": "underwater",
     "ColourHex": "#00c3d0",
     "ImagePath": "ms-appx:///Assets/Images/underwater.png",
@@ -849,7 +849,7 @@
         "Name": "Víz alatt"
       },
       "it": {
-        "Name": "Subacquea"
+        "Name": "Sott'acqua"
       },
       "ja": {
         "Name": "水中"
