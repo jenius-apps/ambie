@@ -3,6 +3,7 @@ using AmbientSounds.Controls;
 using AmbientSounds.Converters;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Diagnostics;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

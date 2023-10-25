@@ -165,7 +165,7 @@ partial class App
     [Singleton(typeof(StoreService), typeof(IIapService))]
     [Singleton(typeof(WindowsDownloadManager), typeof(IDownloadManager))]
     [Singleton(typeof(ScreensaverService), typeof(IScreensaverService))]
-    [Singleton(typeof(Services.Uwp.SystemInfoProvider), typeof(Services.ISystemInfoProvider))]
+    [Singleton(typeof(SystemInfoProvider), typeof(ISystemInfoProvider))]
     [Singleton(typeof(AssetsReader), typeof(Tools.IAssetsReader))]
     [Singleton(typeof(MixMediaPlayerService), typeof(IMixMediaPlayerService))]
     [Singleton(typeof(WindowsSystemMediaControls), typeof(ISystemMediaControls))]

@@ -293,7 +293,6 @@
     <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Services\ProtocolLaunchController.cs" />
     <Compile Include="Services\StoreService.cs" />
-    <Compile Include="Services\SystemInfoProvider.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
     <Compile Include="Services\LocalSettings.cs" />

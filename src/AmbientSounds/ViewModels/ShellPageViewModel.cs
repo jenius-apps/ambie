@@ -13,7 +13,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using INavigator = AmbientSounds.Services.INavigator;
-using ISystemInfoProvider = AmbientSounds.Services.ISystemInfoProvider;
 
 namespace AmbientSounds.ViewModels;
 
@@ -57,7 +56,7 @@ public partial class ShellPageViewModel : ObservableObject
         IAssetLocalizer assetLocalizer,
         ISearchService searchService)
     {
-        IsWin11 = systemInfoProvider.CanUseFluentSystemIcons();
+        IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
 
         _userSettings = userSettings;
@@ -85,7 +84,7 @@ public partial class ShellPageViewModel : ObservableObject
 
         var lastDismissDateTime = _userSettings.GetAndDeserialize(UserSettingsConstants.RatingDismissed, AmbieJsonSerializerContext.Default.DateTime);
         var isNotFirstRun = !systemInfoProvider.IsFirstRun();
-        var isDesktop = systemInfoProvider.IsDesktop();
+        var isDesktop = systemInfoProvider.GetDeviceFamily() == "Windows.Desktop";
         var hasNotBeenRated = !_userSettings.Get<bool>(UserSettingsConstants.HasRated);
         var pastlastDismiss = lastDismissDateTime.AddDays(30) <= DateTime.UtcNow;
         if (isNotFirstRun &&
