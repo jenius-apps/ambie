@@ -50,14 +50,17 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true" xmlns:a="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"   BackgroundColor="transparent"/>
       </uap:VisualElements>
       <Extensions>
-		    <uap:Extension Category="windows.appService">
-			    <uap:AppService Name="com.jeniusapps.ambie" />
-		    </uap:Extension>
-		    <uap:Extension Category="windows.protocol" EntryPoint="AmbientSounds.App">
-		      <uap:Protocol Name="ambie">
-		        <uap:DisplayName>ms-resource:AppDisplayName</uap:DisplayName>
-		      </uap:Protocol>
-		    </uap:Extension>
+	    <uap:Extension Category="windows.appService">
+		  <uap:AppService Name="com.jeniusapps.ambie" />
+	    </uap:Extension>
+	    <uap:Extension Category="windows.protocol" EntryPoint="AmbientSounds.App">
+		  <uap:Protocol Name="ambie">
+		  <uap:DisplayName>ms-resource:AppDisplayName</uap:DisplayName>
+		  </uap:Protocol>
+	    </uap:Extension>
+	    <uap5:Extension Category="windows.startupTask">
+          <uap5:StartupTask TaskId="AmbieStartupTask" Enabled="false" DisplayName="ms-resource:AppDisplayName"/>
+        </uap5:Extension>
       </Extensions>
     </Application>
   </Applications>

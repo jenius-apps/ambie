@@ -172,6 +172,8 @@ partial class App
     [Singleton(typeof(AudioDeviceService), typeof(IAudioDeviceService))]
     [Singleton(typeof(WindowsMediaPlayerFactory), typeof(IMediaPlayerFactory))]
     [Singleton(typeof(SearchService), typeof(ISearchService))]
+    [Singleton(typeof(StartupService), typeof(IStartupService))]
+    [Singleton(typeof(UriLauncher), typeof(IUriLauncher))]
     [Transient(typeof(SearchPageViewModel))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

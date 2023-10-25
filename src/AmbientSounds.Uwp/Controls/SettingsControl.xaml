@@ -204,6 +204,24 @@
             </ToggleSwitch>
         </labs:SettingsCard>
 
+        <!--  Launch on PC startup  -->
+        <labs:SettingsCard Description="Automatically open Ambie when your computer starts up and logs in" Header="Launch on PC startup">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPcStartup}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <Button Command="{x:Bind ViewModel.OpenStartupSettingsCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <TextBlock VerticalAlignment="Center" Text="Manage" />
+                    <FontIcon
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphRedirect}" />
+                </StackPanel>
+            </Button>
+        </labs:SettingsCard>
+
         <labs:SettingsExpander Header="{x:Bind strings:Resources.AboutAmbie}">
             <labs:SettingsExpander.Description>
                 <TextBlock Text="© Jenius Apps" />

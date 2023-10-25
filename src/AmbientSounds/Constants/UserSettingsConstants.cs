@@ -137,6 +137,11 @@ namespace AmbientSounds.Constants
         public const string ConfirmCloseKey = "ConfirmCloseWhilePlaying";
 
         /// <summary>
+        /// Used to identify the startup task associated with Ambie.
+        /// </summary>
+        public const string StartupTaskName = "AmbieStartupTask";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
