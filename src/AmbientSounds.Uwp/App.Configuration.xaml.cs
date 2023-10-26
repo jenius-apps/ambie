@@ -175,5 +175,6 @@ partial class App
     [Singleton(typeof(StartupService), typeof(IStartupService))]
     [Singleton(typeof(UriLauncher), typeof(IUriLauncher))]
     [Transient(typeof(SearchPageViewModel))]
+    [Singleton(typeof(ResumeOnLaunchService), typeof(IResumeOnLaunchService))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

@@ -292,6 +292,10 @@ sealed partial class App : Application
 
             d.Complete();
         };
+
+        var resumeService = Services.GetRequiredService<IResumeOnLaunchService>();
+        await resumeService.LoadSoundsFromPreviousSessionAsync();
+        resumeService.TryResumePlayback();
     }
 
     private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
