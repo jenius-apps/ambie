@@ -307,6 +307,7 @@ sealed partial class App : Application
         builder.Name = "StartupTask";
         builder.TaskEntryPoint = "AmbientSounds.Tasks.StartupTask";
         builder.SetTrigger(new SystemTrigger(SystemTriggerType.SessionConnected, false));
+        builder.AddCondition(new SystemCondition(SystemConditionType.UserPresent));
         BackgroundTaskRegistration task = builder.Register();
     }
 
