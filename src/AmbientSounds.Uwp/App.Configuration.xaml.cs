@@ -155,7 +155,7 @@ partial class App
     [Singleton(typeof(FileWriter), typeof(IFileWriter))]
     [Singleton(typeof(FilePicker), typeof(IFilePicker))]
     [Singleton(typeof(FocusToastService), typeof(IFocusToastService))]
-    [Singleton(typeof(ToastService), typeof(IToastService))]
+    [Singleton(typeof(Services.Uwp.ToastService), typeof(Services.IToastService))]
     [Singleton(typeof(Services.Uwp.Navigator), typeof(Services.INavigator))]
     [Singleton(typeof(CompactNavigator), typeof(ICompactNavigator))]
     [Singleton(typeof(CloudFileWriter), typeof(ICloudFileWriter))]

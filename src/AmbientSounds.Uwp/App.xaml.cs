@@ -177,11 +177,6 @@ sealed partial class App : Application
             _appServiceConnection.RequestReceived += OnAppServiceRequestReceived;
             _appServiceConnection.ServiceClosed += AppServiceConnection_ServiceClosed;
         }
-        else if (args.TaskInstance.Task.Name == "My Background Trigger")
-        {
-            var toastService = new ToastService();
-            toastService.SendToast("background", "yooo", tag: "startupToast");
-        }
     }
 
     private async void OnAppServiceRequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
@@ -304,17 +299,14 @@ sealed partial class App : Application
 
         foreach (var bgTask in BackgroundTaskRegistration.AllTasks)
         {
-            if (bgTask.Value.Name == "My Background Trigger")
-            {
-                bgTask.Value.Unregister(cancelTask: true);
-                break;
-            }
+            bgTask.Value.Unregister(cancelTask: true);
+            break;
         }
 
         var builder = new BackgroundTaskBuilder();
-        builder.Name = "My Background Trigger";
-        builder.SetTrigger(new SystemTrigger(SystemTriggerType.SessionConnected, true));
-        builder.AddCondition(new SystemCondition(SystemConditionType.SessionConnected));
+        builder.Name = "StartupTask";
+        builder.TaskEntryPoint = "AmbientSounds.Tasks.StartupTask";
+        builder.SetTrigger(new SystemTrigger(SystemTriggerType.SessionConnected, false));
         BackgroundTaskRegistration task = builder.Register();
     }
 
