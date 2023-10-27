@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Toolkit.Uwp.Notifications;
+using Windows.UI.Notifications;
 
 namespace AmbientSounds.Services.Uwp
 {
@@ -63,7 +64,7 @@ namespace AmbientSounds.Services.Uwp
                 });
         }
 
-        public void SendToast(string title, string message, string launchArg = "singleToast")
+        public void SendToast(string title, string message, string launchArg = "singleToast", string tag = "")
         {
             new ToastContentBuilder()
                 .AddButton(_dismissButton.Value)
@@ -72,8 +73,23 @@ namespace AmbientSounds.Services.Uwp
                 .AddArgument(launchArg)
                 .Show(toast =>
                 {
+                    toast.Tag = tag;
                     toast.ExpirationTime = DateTimeOffset.Now.AddMinutes(1);
                 });
+        }
+
+        public bool DoesToastExist(string toastTag)
+        {
+            var toasts = ToastNotificationManager.History.GetHistory();
+            foreach (var toast in toasts)
+            {
+                if (toast.Tag == toastTag)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

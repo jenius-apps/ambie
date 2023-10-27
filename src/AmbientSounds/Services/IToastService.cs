@@ -15,6 +15,6 @@ namespace AmbientSounds.Services
             bool silent = false,
             string launchArg = "scheduledToast");
 
-        void SendToast(string title, string messages, string launchArg = "singleToast");
+        void SendToast(string title, string messages, string launchArg = "singleToast", string tag = "");
     }
 }
