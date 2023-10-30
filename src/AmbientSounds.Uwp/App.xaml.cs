@@ -297,18 +297,13 @@ sealed partial class App : Application
         await resumeService.LoadSoundsFromPreviousSessionAsync();
         resumeService.TryResumePlayback();
 
-        foreach (var bgTask in BackgroundTaskRegistration.AllTasks)
-        {
-            bgTask.Value.Unregister(cancelTask: true);
-            break;
-        }
+        var bgServices = Services.GetRequiredService<IBackgroundTaskService>();
+        bgServices.UnregisterAllTasks();
 
-        var builder = new BackgroundTaskBuilder();
-        builder.Name = "StartupTask";
-        builder.TaskEntryPoint = "AmbientSounds.Tasks.StartupTask";
-        builder.SetTrigger(new SystemTrigger(SystemTriggerType.SessionConnected, false));
-        builder.AddCondition(new SystemCondition(SystemConditionType.UserPresent));
-        BackgroundTaskRegistration task = builder.Register();
+        if (_userSettings?.Get<bool>(UserSettingsConstants.QuickResumeKey) ?? false)
+        {
+            bgServices.ToggleQuickResumeStartupTask(true);
+        }
     }
 
     private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)

@@ -27,6 +27,7 @@ namespace AmbientSounds.ViewModels
         private readonly IAppStoreRatings _appStoreRatings;
         private readonly IAudioDeviceService _audioDeviceService;
         private readonly IUriLauncher _uriLauncher;
+        private readonly IQuickResumeService _quickResumeService;
         private bool _notificationsLoading;
         private string _currentOutputDeviceId = string.Empty;
 
@@ -38,14 +39,9 @@ namespace AmbientSounds.ViewModels
             IImagePicker imagePicker,
             IAppStoreRatings appStoreRatings,
             IAudioDeviceService audioDeviceService,
-            IUriLauncher uriLauncher)
+            IUriLauncher uriLauncher,
+            IQuickResumeService quickResumeService)
         {
-            Guard.IsNotNull(userSettings);
-            Guard.IsNotNull(notifications);
-            Guard.IsNotNull(telemetry);
-            Guard.IsNotNull(assetsReader);
-            Guard.IsNotNull(imagePicker);
-            Guard.IsNotNull(appStoreRatings);
             _userSettings = userSettings;
             _notifications = notifications;
             _telemetry = telemetry;
@@ -54,6 +50,7 @@ namespace AmbientSounds.ViewModels
             _appStoreRatings = appStoreRatings;
             _audioDeviceService = audioDeviceService;
             _uriLauncher = uriLauncher;
+            _quickResumeService = quickResumeService;
         }
 
         /// <summary>
@@ -181,6 +178,34 @@ namespace AmbientSounds.ViewModels
                     {
                         { "page", "settings" }
                     });
+            }
+        }
+
+        public bool QuickResumeEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.QuickResumeKey, value);
+                _telemetry.TrackEvent(value ? TelemetryConstants.QuickResumeEnabled : TelemetryConstants.QuickResumeDisabled);
+                OnQuickResumeToggled(value);
+            }
+        }
+
+        private async void OnQuickResumeToggled(bool value)
+        {
+            if (value)
+            {
+                var enabled = await _quickResumeService.TryEnableAsync();
+                if (!enabled)
+                {
+                    QuickResumeEnabled = false;
+                    OnPropertyChanged(nameof(QuickResumeEnabled));
+                }
+            }
+            else
+            {
+                _quickResumeService.Disable();
             }
         }
 

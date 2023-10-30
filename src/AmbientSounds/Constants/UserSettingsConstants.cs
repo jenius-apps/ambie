@@ -137,9 +137,9 @@ namespace AmbientSounds.Constants
         public const string ConfirmCloseKey = "ConfirmCloseWhilePlaying";
 
         /// <summary>
-        /// Used to identify the startup task associated with Ambie.
+        /// Used to identify if quick resume is enabled.
         /// </summary>
-        public const string StartupTaskName = "AmbieStartupTask";
+        public const string QuickResumeKey = "QuickResume";
 
         /// <summary>
         ///  Settings defaults.
@@ -170,6 +170,7 @@ namespace AmbientSounds.Constants
             { OutputAudioDeviceId, string.Empty }, 
             { PlayAfterFocusKey, true }, 
             { ConfirmCloseKey, true },
+            { QuickResumeKey, false },
         };
     }
 }

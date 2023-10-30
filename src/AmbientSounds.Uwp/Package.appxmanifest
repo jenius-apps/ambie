@@ -58,9 +58,6 @@
 		  <uap:DisplayName>ms-resource:AppDisplayName</uap:DisplayName>
 		  </uap:Protocol>
 	    </uap:Extension>
-	    <uap5:Extension Category="windows.startupTask">
-          <uap5:StartupTask TaskId="AmbieStartupTask" Enabled="false" DisplayName="ms-resource:AppDisplayName"/>
-        </uap5:Extension>
 	    <Extension Category="windows.backgroundTasks" EntryPoint="AmbientSounds.Tasks.StartupTask">
 	      <BackgroundTasks>
 	        <Task Type="systemEvent"/>

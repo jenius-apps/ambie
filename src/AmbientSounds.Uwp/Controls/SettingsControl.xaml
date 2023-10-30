@@ -205,21 +205,19 @@
         </labs:SettingsCard>
 
         <!--  Launch on PC startup  -->
-        <labs:SettingsCard Description="Automatically open Ambie when your computer starts up and logs in" Header="Launch on PC startup">
+        <labs:SettingsCard Description="Jump back into your last ambience with one click when your PC starts up" Header="Quick Resume">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPcStartup}" />
             </labs:SettingsCard.HeaderIcon>
 
-            <Button Command="{x:Bind ViewModel.OpenStartupSettingsCommand}">
-                <StackPanel Orientation="Horizontal" Spacing="12">
-                    <TextBlock VerticalAlignment="Center" Text="Manage" />
-                    <FontIcon
-                        VerticalAlignment="Center"
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="14"
-                        Glyph="{StaticResource GlyphRedirect}" />
-                </StackPanel>
-            </Button>
+            <ToggleSwitch IsOn="{x:Bind ViewModel.QuickResumeEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
         </labs:SettingsCard>
 
         <labs:SettingsExpander Header="{x:Bind strings:Resources.AboutAmbie}">
