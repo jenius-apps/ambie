@@ -206,7 +206,7 @@ namespace AmbientSounds.ViewModels
                     // background task settings in ambie's os settings.
                     // This means when the user turned off bg task, this checkbox toggle
                     // doesn't work at all. So we shouldn't even try to show it.
-                    // We should set the IsEnabled to false when the user does'nt provide the permissions
+                    // We should set the IsEnabled to false when the user doesn't provide the permissions
                     // Then we should add a hyperlink underneath saying enable background task
                 }
             }
