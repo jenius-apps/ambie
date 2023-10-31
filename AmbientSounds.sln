@@ -8,6 +8,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds", "src\Ambien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds.Tests", "AmbientSounds.Tests\AmbientSounds.Tests.csproj", "{190FE594-FDCE-4707-B01C-EE7C39C541F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Tasks", "src\AmbientSounds.Tasks\AmbientSounds.Tasks.csproj", "{EF926887-A6B2-461E-97CA-1C25B065E0C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,26 @@ Global
 		{190FE594-FDCE-4707-B01C-EE7C39C541F3}.Release|x64.Build.0 = Release|Any CPU
 		{190FE594-FDCE-4707-B01C-EE7C39C541F3}.Release|x86.ActiveCfg = Release|Any CPU
 		{190FE594-FDCE-4707-B01C-EE7C39C541F3}.Release|x86.Build.0 = Release|Any CPU
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|ARM.Build.0 = Debug|ARM
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|ARM64.Build.0 = Debug|ARM64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|x64.ActiveCfg = Debug|x64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|x64.Build.0 = Debug|x64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|x86.ActiveCfg = Debug|x86
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Debug|x86.Build.0 = Debug|x86
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|ARM.ActiveCfg = Release|ARM
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|ARM.Build.0 = Release|ARM
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|ARM64.ActiveCfg = Release|ARM64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|ARM64.Build.0 = Release|ARM64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|x64.ActiveCfg = Release|x64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|x64.Build.0 = Release|x64
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|x86.ActiveCfg = Release|x86
+		{EF926887-A6B2-461E-97CA-1C25B065E0C6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,7 @@ using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.ViewModels;
 

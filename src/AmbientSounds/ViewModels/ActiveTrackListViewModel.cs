@@ -114,29 +114,6 @@ namespace AmbientSounds.ViewModels
                     }
                 }
             }
-            else
-            {
-                // This case is when the app is being launched.
-                var mixId = _userSettings.Get<string>(UserSettingsConstants.ActiveMixId);
-                var previousActiveTrackIds = _userSettings.GetAndDeserialize(UserSettingsConstants.ActiveTracks, AmbieJsonSerializerContext.Default.StringArray);
-                var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: previousActiveTrackIds);
-                if (sounds is not null && sounds.Count > 0)
-                {
-                    foreach (var s in sounds)
-                    {
-                        await _player.ToggleSoundAsync(s, keepPaused: true, parentMixId: mixId);
-                    }
-                }
-
-                // Since this is when the app is launching, try to resume automatically
-                // after populating the track list.
-                if (_userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey) &&
-                    _player.GetSoundIds().Length > 0)
-                {
-                    _player.Play();
-                    _telemetry.TrackEvent(TelemetryConstants.PlaybackAutoResume);
-                }
-            }
 
             _loaded = true;
             OnPropertyChanged(nameof(IsClearVisible));

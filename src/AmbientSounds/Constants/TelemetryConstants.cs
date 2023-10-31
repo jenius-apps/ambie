@@ -217,5 +217,10 @@
         public const string CloseCanceled = Close + "canceled";
         public const string ConfirmCloseEnabled = Close + "enabled";
         public const string ConfirmCloseDisabled = Close + "disabled";
+
+        // quick resume
+        private const string QuickResume = "quickResume:";
+        public const string QuickResumeEnabled = QuickResume + "enabled";
+        public const string QuickResumeDisabled = QuickResume + "disabled";
     }
 }

@@ -13,7 +13,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
 using INavigator = AmbientSounds.Services.INavigator;
-using ISystemInfoProvider = AmbientSounds.Services.ISystemInfoProvider;
 
 namespace AmbientSounds.ViewModels;
 
@@ -136,8 +135,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     public ObservableCollection<FocusTaskViewModel> FocusTasks { get; } = new();
 
     public ObservableCollection<FocusSegmentViewModel> Segments { get; } = new();
-
-    public bool CanUseFluentSystemIcons => _systemInfoProvider.CanUseFluentSystemIcons();
 
     public double FocusLengthProgress => FocusLength - FocusLengthRemaining;
 
@@ -508,7 +505,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     private async Task TriggerCompactModeAsync()
     {
-        if (!_systemInfoProvider.IsDesktop())
+        if (_systemInfoProvider.GetDeviceFamily() != "Windows.Desktop")
         {
             return;
         }
@@ -583,7 +580,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenCompactModeAsync()
     {
-        if (!_systemInfoProvider.IsDesktop())
+        if (_systemInfoProvider.GetDeviceFamily() != "Windows.Desktop")
         {
             return;
         }

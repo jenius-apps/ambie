@@ -27,7 +27,7 @@ namespace AmbientSounds.ViewModels
         private readonly IDialogService _dialogService;
         private readonly IIapService _iapService;
         private readonly ITelemetry _telemetry;
-        private readonly Services.ISystemInfoProvider _systemInfoProvider;
+        private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly IUserSettings _userSettings;
         private Uri _videoSource = new Uri(DefaultVideoSource);
 
@@ -59,7 +59,7 @@ namespace AmbientSounds.ViewModels
             IDialogService dialogService,
             IIapService iapService,
             ITelemetry telemetry,
-            Services.ISystemInfoProvider systemInfoProvider,
+            ISystemInfoProvider systemInfoProvider,
             IUserSettings userSettings)
         {
             Guard.IsNotNull(localizer, nameof(localizer));
@@ -113,7 +113,7 @@ namespace AmbientSounds.ViewModels
         /// </summary>
         public bool AnimatedBackgroundVisible => AnimatedBackgroundName is not null;
 
-        public bool FullScreenVisible => _systemInfoProvider.IsDesktop();
+        public bool FullScreenVisible => _systemInfoProvider.GetDeviceFamily() == "Windows.Desktop";
 
         public async Task InitializeAsync(string? screensaverToSelect = "")
         {

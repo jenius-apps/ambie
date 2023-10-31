@@ -287,13 +287,13 @@
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\AudioDeviceService.cs" />
     <Compile Include="Services\BackgroundDownloadService.cs" />
+    <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="Services\CompactNavigator.cs" />
     <Compile Include="Services\FilePicker.cs" />
     <Compile Include="Services\ImagePicker.cs" />
     <Compile Include="Services\PreviewService.cs" />
     <Compile Include="Services\ProtocolLaunchController.cs" />
     <Compile Include="Services\StoreService.cs" />
-    <Compile Include="Services\SystemInfoProvider.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
     <Compile Include="Services\LocalSettings.cs" />
@@ -731,7 +731,7 @@
       <Version>2.1.0-preview2</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.21-preview</Version>
+      <Version>0.0.26-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.2</Version>
@@ -783,6 +783,10 @@
     <Content Include="Assets\Data.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AmbientSounds.Tasks\AmbientSounds.Tasks.csproj">
+      <Project>{ef926887-a6b2-461e-97ca-1c25b065e0c6}</Project>
+      <Name>AmbientSounds.Tasks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AmbientSounds\AmbientSounds.csproj">
       <Project>{e8943da1-afdd-4c4b-a216-05af46142cab}</Project>
       <Name>AmbientSounds</Name>

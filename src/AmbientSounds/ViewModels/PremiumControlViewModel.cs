@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using JeniusApps.Common.Telemetry;
-using ISystemInfoProvider = AmbientSounds.Services.ISystemInfoProvider;
 
 namespace AmbientSounds.ViewModels;
 

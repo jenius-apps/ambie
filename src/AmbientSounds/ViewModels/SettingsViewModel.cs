@@ -2,14 +2,14 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using JeniusApps.Common.Telemetry;
+using IAssetsReader = AmbientSounds.Tools.IAssetsReader;
 
 namespace AmbientSounds.ViewModels
 {
@@ -23,6 +23,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IAppStoreRatings _appStoreRatings;
         private readonly IAudioDeviceService _audioDeviceService;
+        private readonly IQuickResumeService _quickResumeService;
         private bool _notificationsLoading;
         private string _currentOutputDeviceId = string.Empty;
 
@@ -33,14 +34,9 @@ namespace AmbientSounds.ViewModels
             IAssetsReader assetsReader,
             IImagePicker imagePicker,
             IAppStoreRatings appStoreRatings,
-            IAudioDeviceService audioDeviceService)
+            IAudioDeviceService audioDeviceService,
+            IQuickResumeService quickResumeService)
         {
-            Guard.IsNotNull(userSettings);
-            Guard.IsNotNull(notifications);
-            Guard.IsNotNull(telemetry);
-            Guard.IsNotNull(assetsReader);
-            Guard.IsNotNull(imagePicker);
-            Guard.IsNotNull(appStoreRatings);
             _userSettings = userSettings;
             _notifications = notifications;
             _telemetry = telemetry;
@@ -48,6 +44,7 @@ namespace AmbientSounds.ViewModels
             _imagePicker = imagePicker;
             _appStoreRatings = appStoreRatings;
             _audioDeviceService = audioDeviceService;
+            _quickResumeService = quickResumeService;
         }
 
         /// <summary>
@@ -175,6 +172,41 @@ namespace AmbientSounds.ViewModels
                     {
                         { "page", "settings" }
                     });
+            }
+        }
+
+        public bool QuickResumeEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.QuickResumeKey, value);
+                _telemetry.TrackEvent(value ? TelemetryConstants.QuickResumeEnabled : TelemetryConstants.QuickResumeDisabled);
+                OnQuickResumeToggled(value);
+            }
+        }
+
+        private async void OnQuickResumeToggled(bool value)
+        {
+            if (value)
+            {
+                var enabled = await _quickResumeService.TryEnableAsync();
+                if (!enabled)
+                {
+                    QuickResumeEnabled = false;
+                    OnPropertyChanged(nameof(QuickResumeEnabled));
+                    // TODO: this experience isn't great.
+                    // it will only be hit when the user explicitly disables the
+                    // background task settings in ambie's os settings.
+                    // This means when the user turned off bg task, this checkbox toggle
+                    // doesn't work at all. So we shouldn't even try to show it.
+                    // We should set the IsEnabled to false when the user doesn't provide the permissions
+                    // Then we should add a hyperlink underneath saying enable background task
+                }
+            }
+            else
+            {
+                _quickResumeService.Disable();
             }
         }
 

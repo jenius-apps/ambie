@@ -137,6 +137,11 @@ namespace AmbientSounds.Constants
         public const string ConfirmCloseKey = "ConfirmCloseWhilePlaying";
 
         /// <summary>
+        /// Used to identify if quick resume is enabled.
+        /// </summary>
+        public const string QuickResumeKey = "QuickResume";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -165,6 +170,7 @@ namespace AmbientSounds.Constants
             { OutputAudioDeviceId, string.Empty }, 
             { PlayAfterFocusKey, true }, 
             { ConfirmCloseKey, true },
+            { QuickResumeKey, false },
         };
     }
 }
