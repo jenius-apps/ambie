@@ -35,9 +35,4 @@ public class QuickResumeService : IQuickResumeService
     {
         _backgroundTaskService.ToggleQuickResumeStartupTask(false);
     }
-
-    public void SendQuickResumeToast()
-    {
-        _toastService.SendToast("Quick Resume", "Click here to jump back into you last ambience");
-    }
 }

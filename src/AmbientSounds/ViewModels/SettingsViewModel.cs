@@ -2,17 +2,14 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using JeniusApps.Common.Telemetry;
-using JeniusApps.Common.Tools;
 using IAssetsReader = AmbientSounds.Tools.IAssetsReader;
-using System;
 
 namespace AmbientSounds.ViewModels
 {
@@ -26,7 +23,6 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IAppStoreRatings _appStoreRatings;
         private readonly IAudioDeviceService _audioDeviceService;
-        private readonly IUriLauncher _uriLauncher;
         private readonly IQuickResumeService _quickResumeService;
         private bool _notificationsLoading;
         private string _currentOutputDeviceId = string.Empty;
@@ -39,7 +35,6 @@ namespace AmbientSounds.ViewModels
             IImagePicker imagePicker,
             IAppStoreRatings appStoreRatings,
             IAudioDeviceService audioDeviceService,
-            IUriLauncher uriLauncher,
             IQuickResumeService quickResumeService)
         {
             _userSettings = userSettings;
@@ -49,7 +44,6 @@ namespace AmbientSounds.ViewModels
             _imagePicker = imagePicker;
             _appStoreRatings = appStoreRatings;
             _audioDeviceService = audioDeviceService;
-            _uriLauncher = uriLauncher;
             _quickResumeService = quickResumeService;
         }
 
@@ -379,16 +373,6 @@ namespace AmbientSounds.ViewModels
             }
 
             OnPropertyChanged(nameof(CurrentOutputDevice));
-        }
-
-        [RelayCommand]
-        private async Task OpenStartupSettingsAsync()
-        {
-            try
-            {
-                await _uriLauncher.LaunchUriAsync(new Uri("ms-settings:startupapps"));
-            }
-            catch { }
         }
     }
 }
