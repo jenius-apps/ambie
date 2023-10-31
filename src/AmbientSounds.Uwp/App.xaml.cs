@@ -161,10 +161,6 @@ sealed partial class App : Application
             await ActivateAsync(false);
             HandleProtocolLaunch(protocolActivatedEventArgs);
         }
-        else if (args.Kind is ActivationKind.StartupTask)
-        {
-            await ActivateAsync(false);
-        }
     }
 
     protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
