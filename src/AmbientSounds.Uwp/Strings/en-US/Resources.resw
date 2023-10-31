@@ -895,4 +895,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Resume your last ambience with one click when your PC starts up</value>
+  </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Quick Resume</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Resume your last ambience</value>
+  </data>
 </root>

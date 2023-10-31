@@ -2510,6 +2510,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region QuickResumeDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Resume your last ambience with one click when your PC starts up
+        /// </summary>
+        public static string QuickResumeDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("QuickResumeDescription");
+            }
+        }
+        #endregion
+
+        #region QuickResumeTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Quick Resume
+        /// </summary>
+        public static string QuickResumeTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("QuickResumeTitle");
+            }
+        }
+        #endregion
+
+        #region QuickResumeToastMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Resume your last ambience
+        /// </summary>
+        public static string QuickResumeToastMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("QuickResumeToastMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2713,6 +2752,9 @@ namespace AmbientSounds.Strings{
             SearchPageHeader,
             SearchEmptyPlaceholderText,
             SearchText,
+            QuickResumeDescription,
+            QuickResumeTitle,
+            QuickResumeToastMessage,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -205,7 +205,7 @@
         </labs:SettingsCard>
 
         <!--  Launch on PC startup  -->
-        <labs:SettingsCard Description="Jump back into your last ambience with one click when your PC starts up" Header="Quick Resume">
+        <labs:SettingsCard Description="{x:Bind strings:Resources.QuickResumeDescription}" Header="{x:Bind strings:Resources.QuickResumeTitle}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPcStartup}" />
             </labs:SettingsCard.HeaderIcon>
