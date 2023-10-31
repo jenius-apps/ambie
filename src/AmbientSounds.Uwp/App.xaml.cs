@@ -297,10 +297,12 @@ sealed partial class App : Application
         await resumeService.LoadSoundsFromPreviousSessionAsync();
         resumeService.TryResumePlayback();
 
+        // Reset tasks on launch
         var bgServices = Services.GetRequiredService<IBackgroundTaskService>();
         bgServices.UnregisterAllTasks();
 
-        if (_userSettings?.Get<bool>(UserSettingsConstants.QuickResumeKey) ?? false)
+        if (_userSettings?.Get<bool>(UserSettingsConstants.QuickResumeKey) ?? false &&
+            await bgServices.RequestPermissionAsync())
         {
             bgServices.ToggleQuickResumeStartupTask(true);
         }
