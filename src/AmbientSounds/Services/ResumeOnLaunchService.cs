@@ -11,20 +11,17 @@ public class ResumeOnLaunchService : IResumeOnLaunchService
     private readonly ISoundService _soundDataProvider;
     private readonly IMixMediaPlayerService _player;
     private readonly ITelemetry _telemetry;
-    private readonly IToastService _toastService;
 
     public ResumeOnLaunchService(
         IMixMediaPlayerService player,
         IUserSettings userSettings,
         ITelemetry telemetry,
-        ISoundService soundDataProvider,
-        IToastService toastService)
+        ISoundService soundDataProvider)
     {
         _telemetry = telemetry;
         _soundDataProvider = soundDataProvider;
         _userSettings = userSettings;
         _player = player;
-        _toastService = toastService;
     }
 
     public async Task LoadSoundsFromPreviousSessionAsync()
@@ -41,16 +38,15 @@ public class ResumeOnLaunchService : IResumeOnLaunchService
         }
     }
 
-    public void TryResumePlayback()
+    public void TryResumePlayback(bool force = false)
     {
         // Since this is when the app is launching, try to resume automatically
         // after populating the track list.
-        if (_userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey) &&
+        if ((force || _userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey)) &&
             _player.GetSoundIds().Length > 0)
         {
             _player.Play();
             _telemetry.TrackEvent(TelemetryConstants.PlaybackAutoResume);
-            _toastService.SendToast("play triggered", "hello");
         }
     }
 }

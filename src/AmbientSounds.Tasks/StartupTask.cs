@@ -12,6 +12,7 @@ public sealed class StartupTask : IBackgroundTask
         var resourceLoader = ResourceLoader.GetForViewIndependentUse();
         new ToastService().SendToast(
             resourceLoader.GetString("QuickResumeTitle"),
-            resourceLoader.GetString("QuickResumeToastMessage"));
+            resourceLoader.GetString("QuickResumeToastMessage"),
+            launchArg: "quickResume");
     }
 }

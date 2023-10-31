@@ -19,6 +19,7 @@ using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.Core.Preview;
+using Windows.UI.Notifications;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -293,9 +294,12 @@ sealed partial class App : Application
             d.Complete();
         };
 
+        // Clear stale toasts
+        ToastNotificationManager.History.Clear();
+
         var resumeService = Services.GetRequiredService<IResumeOnLaunchService>();
         await resumeService.LoadSoundsFromPreviousSessionAsync();
-        resumeService.TryResumePlayback();
+        resumeService.TryResumePlayback(force: launchArguments == "quickResume");
 
         // Reset tasks on launch
         var bgServices = Services.GetRequiredService<IBackgroundTaskService>();
