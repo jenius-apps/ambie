@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Căutare</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Reluare rapidă</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Reluați ultima ambianță</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Reluați ultima ambianță cu un singur clic la pornirea PC-ului</value>
+  </data>
 </root>

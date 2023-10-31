@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>搜索</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>快速恢复</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>恢复您最后的氛围</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>当您的 PC 启动时，只需单击一下即可恢复您最后的氛围</value>
+  </data>
 </root>

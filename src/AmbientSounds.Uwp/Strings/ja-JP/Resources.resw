@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>捜索</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>クイックレジューム</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>最後のアンビエンスを再開する</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>PCの起動時にワンクリックで最後の雰囲気を再開</value>
+  </data>
 </root>

@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>검색</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>퀵 리줌</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>마지막 분위기를 다시 시작하세요</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>PC가 시작될 때 클릭 한 번으로 마지막 분위기를 다시 시작하십시오.</value>
+  </data>
 </root>

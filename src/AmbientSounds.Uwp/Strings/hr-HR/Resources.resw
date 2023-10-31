@@ -778,4 +778,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Pretraživanje</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Brzi nastavak</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Nastavite svoj posljednji ambijent</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Nastavite svoj posljednji ambijent jednim klikom kada se PC pokrene</value>
+  </data>
 </root>

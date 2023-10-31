@@ -775,4 +775,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Αναζήτηση</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Γρήγορη συνέχιση</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Συνεχίστε την τελευταία σας ατμόσφαιρα</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Συνεχίστε την τελευταία σας ατμόσφαιρα με ένα κλικ κατά την εκκίνηση του υπολογιστή σας</value>
+  </data>
 </root>

@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Търсене</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Бързо възобновяване</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Възобновете последната си атмосфера</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Възобновете последната си атмосфера с едно кликване, когато компютърът се стартира</value>
+  </data>
 </root>

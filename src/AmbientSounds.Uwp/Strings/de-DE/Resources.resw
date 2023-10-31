@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Suchen</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Schnelle Zusammenfassung</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Nehmen Sie Ihr letztes Ambiente wieder auf</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Setzen Sie Ihre letzte Umgebung mit einem Klick fort, wenn Ihr PC hochfährt</value>
+  </data>
 </root>

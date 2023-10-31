@@ -361,6 +361,9 @@
   <data name="SubscriptionText1" xml:space="preserve">
     <value>Krijg toegang tot hoogwaardige geluiden van hoge kwaliteit</value>
   </data>
+  <data name="SubscriptionText2" xml:space="preserve">
+    <value>Videoscreensavers downloaden</value>
+  </data>
   <data name="SubscriptionText3" xml:space="preserve">
     <value>Ondersteuning van ontwikkeling</value>
   </data>
@@ -756,5 +759,14 @@
   </data>
   <data name="SearchText" xml:space="preserve">
     <value>Zoeken</value>
+  </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Snel hervatten</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Hervat uw laatste sfeer</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Hervat uw laatste sfeer met één klik wanneer uw pc opstart</value>
   </data>
 </root>

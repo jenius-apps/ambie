@@ -784,4 +784,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Aramak</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Hızlı Devam</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Son ambiyansınıza devam edin</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>PC'niz başladığında tek bir tıklama ile son ambiyansınıza devam edin</value>
+  </data>
 </root>

@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Ricerca</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Ripresa rapida</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Riprendi la tua ultima atmosfera</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Riprendi l'ultima atmosfera con un clic all'avvio del PC</value>
+  </data>
 </root>

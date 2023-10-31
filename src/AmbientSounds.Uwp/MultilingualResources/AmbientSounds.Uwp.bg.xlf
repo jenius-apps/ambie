@@ -1042,15 +1042,15 @@
         </trans-unit>
         <trans-unit id="QuickResumeTitle" translate="yes" xml:space="preserve">
           <source>Quick Resume</source>
-          <target state="new">Quick Resume</target>
+          <target state="translated">Бързо възобновяване</target>
         </trans-unit>
         <trans-unit id="QuickResumeToastMessage" translate="yes" xml:space="preserve">
           <source>Resume your last ambience</source>
-          <target state="new">Resume your last ambience</target>
+          <target state="translated">Възобновете последната си атмосфера</target>
         </trans-unit>
         <trans-unit id="QuickResumeDescription" translate="yes" xml:space="preserve">
           <source>Resume your last ambience with one click when your PC starts up</source>
-          <target state="new">Resume your last ambience with one click when your PC starts up</target>
+          <target state="translated">Възобновете последната си атмосфера с едно кликване, когато компютърът се стартира</target>
         </trans-unit>
       </group>
     </body>

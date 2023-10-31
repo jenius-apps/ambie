@@ -787,4 +787,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Rechercher</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Reprise rapide</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Reprenez votre dernière ambiance</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Reprenez votre dernière ambiance en un clic au démarrage de votre PC</value>
+  </data>
 </root>

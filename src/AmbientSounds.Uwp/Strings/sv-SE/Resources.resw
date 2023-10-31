@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Söka</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Snabb återupptagning</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Återuppta din senaste atmosfär</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Återuppta din senaste atmosfär med ett klick när din dator startar</value>
+  </data>
 </root>

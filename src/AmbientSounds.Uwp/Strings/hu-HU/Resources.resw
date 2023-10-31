@@ -778,4 +778,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Keresés</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Gyors folytatás</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Folytassa az utolsó hangulatot</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Folytassa az utolsó hangulatot egyetlen kattintással, amikor a számítógép elindul</value>
+  </data>
 </root>

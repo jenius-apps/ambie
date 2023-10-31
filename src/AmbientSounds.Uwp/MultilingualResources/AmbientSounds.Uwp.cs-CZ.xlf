@@ -1046,15 +1046,15 @@
         </trans-unit>
         <trans-unit id="QuickResumeTitle" translate="yes" xml:space="preserve">
           <source>Quick Resume</source>
-          <target state="new">Quick Resume</target>
+          <target state="translated">Rychlé obnovení</target>
         </trans-unit>
         <trans-unit id="QuickResumeToastMessage" translate="yes" xml:space="preserve">
           <source>Resume your last ambience</source>
-          <target state="new">Resume your last ambience</target>
+          <target state="translated">Obnovte své poslední prostředí</target>
         </trans-unit>
         <trans-unit id="QuickResumeDescription" translate="yes" xml:space="preserve">
           <source>Resume your last ambience with one click when your PC starts up</source>
-          <target state="new">Resume your last ambience with one click when your PC starts up</target>
+          <target state="translated">Obnovení posledního prostředí jedním kliknutím při spuštění počítače</target>
         </trans-unit>
       </group>
     </body>

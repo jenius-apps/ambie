@@ -1051,15 +1051,15 @@
         </trans-unit>
         <trans-unit id="QuickResumeTitle" translate="yes" xml:space="preserve">
           <source>Quick Resume</source>
-          <target state="new">Quick Resume</target>
+          <target state="translated">Hurtig genoptagelse</target>
         </trans-unit>
         <trans-unit id="QuickResumeToastMessage" translate="yes" xml:space="preserve">
           <source>Resume your last ambience</source>
-          <target state="new">Resume your last ambience</target>
+          <target state="translated">Genoptag din sidste atmosfære</target>
         </trans-unit>
         <trans-unit id="QuickResumeDescription" translate="yes" xml:space="preserve">
           <source>Resume your last ambience with one click when your PC starts up</source>
-          <target state="new">Resume your last ambience with one click when your PC starts up</target>
+          <target state="translated">Genoptag din sidste atmosfære med et enkelt klik, når din pc starter</target>
         </trans-unit>
       </group>
     </body>

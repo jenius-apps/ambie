@@ -790,4 +790,13 @@
   <data name="SearchText" xml:space="preserve">
     <value>Hledání</value>
   </data>
+  <data name="QuickResumeTitle" xml:space="preserve">
+    <value>Rychlé obnovení</value>
+  </data>
+  <data name="QuickResumeToastMessage" xml:space="preserve">
+    <value>Obnovte své poslední prostředí</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Obnovení posledního prostředí jedním kliknutím při spuštění počítače</value>
+  </data>
 </root>
