@@ -30,7 +30,7 @@ public class ActiveTrackViewModel : ObservableObject
         Sound = s;
         _player = player;
         RemoveCommand = removeCommand;
-        Volume = _userSettings.Get($"{Sound.Id}:volume", 100d);
+        //Volume = _userSettings.Get($"{Sound.Id}:volume", 100d);
     }
 
     /// <summary>

@@ -51,14 +51,6 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         ISystemInfoProvider systemInfoProvider,
         ISystemMediaControls systemMediaControls)
     {
-        Guard.IsNotNull(userSettings);
-        Guard.IsNotNull(soundDataProvider);
-        Guard.IsNotNull(assetLocalizer);
-        Guard.IsNotNull(dispatcherQueue);
-        Guard.IsNotNull(mediaPlayerFactory);
-        Guard.IsNotNull(systemInfoProvider);
-        Guard.IsNotNull(systemMediaControls);
-
         _soundDataProvider = soundDataProvider;
         _assetLocalizer = assetLocalizer;
         _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
@@ -301,9 +293,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         PlaybackState = MediaPlaybackState.Playing;
         foreach (var p in _activePlayers.Values)
         {
-            p.Play();
+            p.Play(fadeInTargetVolume: 1.0, fadeDuration: 1000);
         }
-        _guideInfo?.GuidePlayer.Play();
+        _guideInfo?.GuidePlayer.Play(fadeInTargetVolume: 1.0, fadeDuration: 1000);
     }
 
     public void Pause()
