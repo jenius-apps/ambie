@@ -730,7 +730,7 @@
       <Version>2.1.0-preview2</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.29-preview</Version>
+      <Version>0.0.30-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.2</Version>
