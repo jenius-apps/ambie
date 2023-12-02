@@ -341,7 +341,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         var player = _activePlayers[soundId];
-        player.Pause(fadeDuration: DefaultFadeOutDurationMs);
+        player.Pause(fadeDuration: DefaultFadeOutDurationMs, disposeAfterFadeOut: true);
 
         _activePlayers[soundId] = null!;
         _activePlayers.Remove(soundId);
@@ -411,7 +411,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     {
         if (_guideInfo is { } guideInfo)
         {
-            guideInfo.GuidePlayer.Pause(fadeDuration: DefaultFadeOutDurationMs);
+            guideInfo.GuidePlayer.Pause(fadeDuration: DefaultFadeOutDurationMs, disposeAfterFadeOut: true);
             guideInfo.GuidePlayer.PositionChanged -= OnGuidePositionChanged;
         }
 
