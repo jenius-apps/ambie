@@ -6,7 +6,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace AmbientSounds.ViewModels;
 
-public class ActiveTrackViewModel : ObservableObject
+public partial class ActiveTrackViewModel : ObservableObject
 {
     private readonly IMixMediaPlayerService _player;
     private readonly IUserSettings _userSettings;
@@ -30,7 +30,7 @@ public class ActiveTrackViewModel : ObservableObject
         Sound = s;
         _player = player;
         RemoveCommand = removeCommand;
-        //Volume = _userSettings.Get($"{Sound.Id}:volume", 100d);
+        _volume = _userSettings.Get($"{Sound.Id}:volume", 100d);
     }
 
     /// <summary>
@@ -39,18 +39,8 @@ public class ActiveTrackViewModel : ObservableObject
     /// </summary>
     public Sound Sound { get; }
 
-    /// <summary>
-    /// The volume of the sound.
-    /// </summary>
-    public double Volume
-    {
-        get => _player.GetVolume(Sound.Id) * 100;
-        set
-        {
-            _player.SetVolume(Sound.Id, value / 100d);
-            _userSettings.Set($"{Sound.Id}:volume", value);
-        }
-    }
+    [ObservableProperty]
+    private double _volume;
 
     /// <summary>
     /// The name of the sound.
@@ -74,5 +64,11 @@ public class ActiveTrackViewModel : ObservableObject
     public override string ToString()
     {
         return Name;
+    }
+
+    partial void OnVolumeChanged(double value)
+    {
+        _player.SetVolume(Sound.Id, value / 100d);
+        _userSettings.Set($"{Sound.Id}:volume", value);
     }
 }
