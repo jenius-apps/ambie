@@ -126,7 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.26-preview</Version>
+      <Version>0.0.28-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>

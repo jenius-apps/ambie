@@ -13,19 +13,23 @@ namespace AmbientSounds.Services;
 
 public class MixMediaPlayerService : IMixMediaPlayerService
 {
+    private const double DefaultFadeInDurationMs = 1000;
+    private const double DefaultFadeOutDurationMs = 300;
+
     private readonly Dictionary<string, IMediaPlayer> _activePlayers = new();
     private readonly Dictionary<string, string> _soundNames = new();
     private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new();
-    private readonly int _maxActive;
-    private double _globalVolume;
-    private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
     private readonly ISystemMediaControls _smtc;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ISoundService _soundDataProvider;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IMediaPlayerFactory _mediaPlayerFactory;
+    private readonly IUserSettings _userSettings;
+    private readonly int _maxActive;
     private readonly string _localDataFolderPath;
     private (string GuideId, IMediaPlayer GuidePlayer)? _guideInfo;
+    private double _globalVolume;
+    private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
 
     /// <inheritdoc/>
     public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -51,14 +55,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         ISystemInfoProvider systemInfoProvider,
         ISystemMediaControls systemMediaControls)
     {
-        Guard.IsNotNull(userSettings);
-        Guard.IsNotNull(soundDataProvider);
-        Guard.IsNotNull(assetLocalizer);
-        Guard.IsNotNull(dispatcherQueue);
-        Guard.IsNotNull(mediaPlayerFactory);
-        Guard.IsNotNull(systemInfoProvider);
-        Guard.IsNotNull(systemMediaControls);
-
+        _userSettings = userSettings;
         _soundDataProvider = soundDataProvider;
         _assetLocalizer = assetLocalizer;
         _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
@@ -299,11 +296,13 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public void Play()
     {
         PlaybackState = MediaPlaybackState.Playing;
-        foreach (var p in _activePlayers.Values)
+        foreach (var key in _activePlayers.Keys)
         {
-            p.Play();
+            double volume = _userSettings.Get($"{key}:volume", 100d) / 100;
+            _activePlayers[key].Play(fadeInTargetVolume: volume, fadeDuration: DefaultFadeInDurationMs);
         }
-        _guideInfo?.GuidePlayer.Play();
+
+        _guideInfo?.GuidePlayer.Play(fadeInTargetVolume: 1.0, fadeDuration: DefaultFadeInDurationMs);
     }
 
     public void Pause()
@@ -311,9 +310,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         PlaybackState = MediaPlaybackState.Paused;
         foreach (var p in _activePlayers.Values)
         {
-            p.Pause();
+            p.Pause(fadeDuration: DefaultFadeOutDurationMs);
         }
-        _guideInfo?.GuidePlayer.Pause();
+        _guideInfo?.GuidePlayer.Pause(fadeDuration: DefaultFadeOutDurationMs);
     }
 
     /// <inheritdoc/>
@@ -342,8 +341,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         var player = _activePlayers[soundId];
-        player.Pause();
-        player.Dispose();
+        player.Pause(fadeDuration: DefaultFadeOutDurationMs, disposeAfterFadeOut: true);
 
         _activePlayers[soundId] = null!;
         _activePlayers.Remove(soundId);
@@ -413,9 +411,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     {
         if (_guideInfo is { } guideInfo)
         {
-            guideInfo.GuidePlayer.Pause();
+            guideInfo.GuidePlayer.Pause(fadeDuration: DefaultFadeOutDurationMs, disposeAfterFadeOut: true);
             guideInfo.GuidePlayer.PositionChanged -= OnGuidePositionChanged;
-            guideInfo.GuidePlayer.Dispose();
         }
 
         _guideInfo = null;

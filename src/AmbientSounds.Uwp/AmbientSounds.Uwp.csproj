@@ -310,7 +310,6 @@
     </Compile>
     <Compile Include="Tools\AssetsReader.cs" />
     <Compile Include="Tools\MicrosoftStoreRatings.cs" />
-    <Compile Include="Tools\OutputControlledMediaPlayer.cs" />
     <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
     <Compile Include="Tools\WindowsSystemMediaControls.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
@@ -731,7 +730,7 @@
       <Version>2.1.0-preview2</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.26-preview</Version>
+      <Version>0.0.28-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>5.0.2</Version>
