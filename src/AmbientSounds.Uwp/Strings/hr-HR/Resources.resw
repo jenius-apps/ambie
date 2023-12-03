@@ -787,4 +787,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Nastavite svoj posljednji ambijent jednim klikom kada se PC pokrene</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Nabavite više zvukova iz kataloga</value>
+  </data>
 </root>

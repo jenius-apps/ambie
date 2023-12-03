@@ -29,6 +29,11 @@
         public const string GuideBannerClicked = ShellPage + "guideBannerClicked";
         public const string ShuffleClicked = ShellPage + "shuffleClicked";
 
+        private const string HomePage = "homepage:";
+        public const string DownloadMessageShown = HomePage + "downloadMessageShown";
+        public const string DownloadMessageClicked = HomePage + "downloadMessageClicked";
+        public const string DownloadMessageDismissed = HomePage + "downloadMessageDismissed";
+
         // updates
         private const string Updates = "updates:";
         public const string UpdateAllClicked = Updates + "updateAllButtonClicked";

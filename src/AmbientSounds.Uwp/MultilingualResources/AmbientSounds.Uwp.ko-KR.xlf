@@ -1056,6 +1056,10 @@
           <source>Resume your last ambience with one click when your PC starts up</source>
           <target state="translated">PC가 시작될 때 클릭 한 번으로 마지막 분위기를 다시 시작하십시오.</target>
         </trans-unit>
+        <trans-unit id="HomePageDownloadMessage" translate="yes" xml:space="preserve">
+          <source>Get more sounds from the catalogue</source>
+          <target state="translated">카탈로그에서 더 많은 사운드 가져오기</target>
+        </trans-unit>
       </group>
     </body>
   </file>

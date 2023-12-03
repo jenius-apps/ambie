@@ -1056,6 +1056,10 @@
           <source>Resume your last ambience with one click when your PC starts up</source>
           <target state="translated">Retome o seu último ambiente com um clique quando o PC arrancar</target>
         </trans-unit>
+        <trans-unit id="HomePageDownloadMessage" translate="yes" xml:space="preserve">
+          <source>Get more sounds from the catalogue</source>
+          <target state="translated">Obtenha mais sons do catálogo</target>
+        </trans-unit>
       </group>
     </body>
   </file>

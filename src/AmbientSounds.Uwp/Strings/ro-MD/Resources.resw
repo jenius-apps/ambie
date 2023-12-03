@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Reluați ultima ambianță cu un singur clic la pornirea PC-ului</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Obțineți mai multe sunete din catalog</value>
+  </data>
 </root>

@@ -1055,6 +1055,10 @@
           <source>Resume your last ambience with one click when your PC starts up</source>
           <target state="translated">当您的 PC 启动时，只需单击一下即可恢复您最后的氛围</target>
         </trans-unit>
+        <trans-unit id="HomePageDownloadMessage" translate="yes" xml:space="preserve">
+          <source>Get more sounds from the catalogue</source>
+          <target state="translated">从目录中获取更多声音</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -904,4 +904,7 @@
   <data name="QuickResumeToastMessage" xml:space="preserve">
     <value>Resume your last ambience</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Get more sounds from the catalogue</value>
+  </data>
 </root>

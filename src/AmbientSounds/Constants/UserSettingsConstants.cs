@@ -10,6 +10,12 @@ namespace AmbientSounds.Constants
     public static class UserSettingsConstants
     {
         /// <summary>
+        /// Key to remember if the download message on
+        /// home page should be shown or not.
+        /// </summary>
+        public const string ShowHomePageDownloadMessageKey = "ShowHomePageDownloadMessage";
+
+        /// <summary>
         /// Key to remember if the user has rated the app
         /// for this installation.
         /// </summary>
@@ -171,6 +177,7 @@ namespace AmbientSounds.Constants
             { PlayAfterFocusKey, true }, 
             { ConfirmCloseKey, true },
             { QuickResumeKey, false },
+            { ShowHomePageDownloadMessageKey, true },
         };
     }
 }

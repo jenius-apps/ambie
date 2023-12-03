@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>חדש את האווירה האחרונה שלך בלחיצה אחת בעת הפעלת המחשב</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>קבל צלילים נוספים מהקטלוג</value>
+  </data>
 </root>

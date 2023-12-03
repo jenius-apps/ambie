@@ -787,4 +787,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Folytassa az utolsó hangulatot egyetlen kattintással, amikor a számítógép elindul</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Még több hang a katalógusból</value>
+  </data>
 </root>

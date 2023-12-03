@@ -1052,6 +1052,10 @@
           <source>Resume your last ambience with one click when your PC starts up</source>
           <target state="translated">Συνεχίστε την τελευταία σας ατμόσφαιρα με ένα κλικ κατά την εκκίνηση του υπολογιστή σας</target>
         </trans-unit>
+        <trans-unit id="HomePageDownloadMessage" translate="yes" xml:space="preserve">
+          <source>Get more sounds from the catalogue</source>
+          <target state="translated">Λάβετε περισσότερους ήχους από τον κατάλογο</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1,7 +1,9 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -22,5 +24,29 @@ public sealed partial class HomePage : Page
             {
                 { "name", "home" }
             });
+
+        if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ShowHomePageDownloadMessageKey))
+        {
+            CatalogueMessageGrid.Visibility = Visibility.Visible;
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.DownloadMessageShown);
+        }
+    }
+
+    private void OnCatalogueClicked(object sender, RoutedEventArgs e)
+    {
+        App.Services.GetRequiredService<INavigator>().NavigateTo(ContentPageType.Catalogue);
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.DownloadMessageClicked);
+    }
+
+    private async void OnDismissClicked(object sender, RoutedEventArgs e)
+    {
+        await HideCatalogueButtonAnimation.StartAsync();
+        CatalogueMessageGrid.Visibility = Visibility.Collapsed;
+
+        App.Services.GetRequiredService<IUserSettings>().Set(
+            UserSettingsConstants.ShowHomePageDownloadMessageKey,
+            false);
+
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.DownloadMessageDismissed);
     }
 }

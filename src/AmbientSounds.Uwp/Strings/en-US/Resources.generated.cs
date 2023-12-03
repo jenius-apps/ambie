@@ -2549,6 +2549,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region HomePageDownloadMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Get more sounds from the catalogue
+        /// </summary>
+        public static string HomePageDownloadMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("HomePageDownloadMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2755,6 +2768,7 @@ namespace AmbientSounds.Strings{
             QuickResumeDescription,
             QuickResumeTitle,
             QuickResumeToastMessage,
+            HomePageDownloadMessage,
         }
 
         private static ResourceLoader _resourceLoader;

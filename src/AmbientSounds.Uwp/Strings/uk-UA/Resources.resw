@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Відновіть останню атмосферу одним клацанням миші під час запуску комп'ютера</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Отримуйте більше звуків з каталогу</value>
+  </data>
 </root>
