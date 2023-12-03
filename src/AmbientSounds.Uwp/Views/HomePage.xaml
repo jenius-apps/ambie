@@ -7,7 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     mc:Ignorable="d">
 
@@ -23,13 +25,12 @@
             </controls:SoundGridControl.ItemTemplate>
         </controls:SoundGridControl>
 
-        <Grid
+        <Border
             x:Name="CatalogueMessageGrid"
             Margin="0,0,0,20"
             HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
-            CornerRadius="8">
+            VerticalAlignment="Bottom">
+
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
                     Delay="0:0:1"
@@ -38,7 +39,7 @@
                     Duration="0:0:1" />
                 <animations:TranslationAnimation
                     Delay="0:0:1"
-                    From="0,50,0"
+                    From="0,100,0"
                     To="0"
                     Duration="0:0:1" />
             </animations:Implicit.ShowAnimations>
@@ -50,39 +51,52 @@
                         Duration="0:0:1" />
                     <animations:TranslationAnimation
                         From="0"
-                        To="0,50,0"
+                        To="0,100,0"
                         Duration="0:0:1" />
                 </animations:AnimationSet>
             </animations:Explicit.Animations>
 
-            <HyperlinkButton
-                Margin="4"
-                Click="OnCatalogueClicked"
-                Foreground="{ThemeResource TextFillColorTertiaryBrush}">
-                <StackPanel Orientation="Horizontal">
-                    <FontIcon
-                        HorizontalAlignment="Center"
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="18"
-                        Glyph="{StaticResource GlyphSound}" />
-                    <TextBlock
-                        Margin="12,0,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="12"
-                        Text="Get more sounds from the catalogue"
-                        TextWrapping="WrapWholeWords" />
-                </StackPanel>
+            <Grid
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="8">
 
-                <HyperlinkButton.ContextFlyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Click="OnDismissClicked" Text="{x:Bind strings:Resources.Dismiss}">
-                            <MenuFlyoutItem.Icon>
-                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancel}" />
-                            </MenuFlyoutItem.Icon>
-                        </MenuFlyoutItem>
-                    </MenuFlyout>
-                </HyperlinkButton.ContextFlyout>
-            </HyperlinkButton>
-        </Grid>
+                <HyperlinkButton Margin="4" Click="OnCatalogueClicked">
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon
+                            HorizontalAlignment="Center"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="18"
+                            Glyph="{StaticResource GlyphSound}" />
+                        <TextBlock
+                            Margin="12,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Text="Get more sounds from the catalogue"
+                            TextWrapping="WrapWholeWords" />
+                    </StackPanel>
+
+                    <HyperlinkButton.ContextFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Click="OnDismissClicked" Text="{x:Bind strings:Resources.Dismiss}">
+                                <MenuFlyoutItem.Icon>
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancel}" />
+                                </MenuFlyoutItem.Icon>
+                            </MenuFlyoutItem>
+                        </MenuFlyout>
+                    </HyperlinkButton.ContextFlyout>
+                </HyperlinkButton>
+            </Grid>
+            <ui:Effects.Shadow>
+                <media:AttachedCardShadow
+                    BlurRadius="15"
+                    CornerRadius="8"
+                    Opacity="0.05"
+                    Offset="0,4" />
+            </ui:Effects.Shadow>
+        </Border>
     </Grid>
 </Page>
