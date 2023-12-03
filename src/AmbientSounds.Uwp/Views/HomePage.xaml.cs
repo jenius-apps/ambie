@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
@@ -22,5 +23,10 @@ public sealed partial class HomePage : Page
             {
                 { "name", "home" }
             });
+    }
+
+    private void OnCatalogueClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    {
+        App.Services.GetRequiredService<INavigator>().NavigateTo(ContentPageType.Catalogue);
     }
 }
