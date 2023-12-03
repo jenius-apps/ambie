@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>از سرگیری اخرین محیط خود را با یک کلیک هنگامی که کامپیوتر شما شروع می شود تا</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>دریافت صداهای بیشتر از کاتالوگ</value>
+  </data>
 </root>

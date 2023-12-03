@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>當您的 PC 啟動時，只需按一下即可恢復您最後的氛圍</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>從目錄中獲取更多聲音</value>
+  </data>
 </root>

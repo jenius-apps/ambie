@@ -784,4 +784,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Συνεχίστε την τελευταία σας ατμόσφαιρα με ένα κλικ κατά την εκκίνηση του υπολογιστή σας</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Λάβετε περισσότερους ήχους από τον κατάλογο</value>
+  </data>
 </root>

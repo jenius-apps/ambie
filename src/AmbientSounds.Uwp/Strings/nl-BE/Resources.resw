@@ -769,4 +769,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Hervat uw laatste sfeer met één klik wanneer uw pc opstart</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Haal meer geluiden uit de catalogus</value>
+  </data>
 </root>

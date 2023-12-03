@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>PCの起動時にワンクリックで最後の雰囲気を再開</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>カタログからより多くのサウンドを入手する</value>
+  </data>
 </root>

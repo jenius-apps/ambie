@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Återuppta din senaste atmosfär med ett klick när din dator startar</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Få fler ljud från katalogen</value>
+  </data>
 </root>

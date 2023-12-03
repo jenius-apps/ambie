@@ -796,4 +796,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Reprenez votre dernière ambiance en un clic au démarrage de votre PC</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Obtenez plus de sons du catalogue</value>
+  </data>
 </root>

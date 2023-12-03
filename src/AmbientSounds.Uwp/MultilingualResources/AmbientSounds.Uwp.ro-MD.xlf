@@ -1054,7 +1054,7 @@
         </trans-unit>
         <trans-unit id="HomePageDownloadMessage" translate="yes" xml:space="preserve">
           <source>Get more sounds from the catalogue</source>
-          <target state="new">Get more sounds from the catalogue</target>
+          <target state="translated">Obțineți mai multe sunete din catalog</target>
         </trans-unit>
       </group>
     </body>

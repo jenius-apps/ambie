@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>Obnovení posledního prostředí jedním kliknutím při spuštění počítače</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>Získejte více zvuků z katalogu</value>
+  </data>
 </root>

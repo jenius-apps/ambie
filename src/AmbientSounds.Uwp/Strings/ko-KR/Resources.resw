@@ -799,4 +799,7 @@
   <data name="QuickResumeDescription" xml:space="preserve">
     <value>PC가 시작될 때 클릭 한 번으로 마지막 분위기를 다시 시작하십시오.</value>
   </data>
+  <data name="HomePageDownloadMessage" xml:space="preserve">
+    <value>카탈로그에서 더 많은 사운드 가져오기</value>
+  </data>
 </root>
