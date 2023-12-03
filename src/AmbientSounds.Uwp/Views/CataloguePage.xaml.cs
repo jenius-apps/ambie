@@ -27,6 +27,10 @@ public sealed partial class CataloguePage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        App.Services.GetRequiredService<IUserSettings>().Set(
+            UserSettingsConstants.ShowHomePageDownloadMessageKey,
+            false);
+
         App.Services.GetRequiredService<ITelemetry>().TrackEvent(
             TelemetryConstants.PageNavTo,
             new Dictionary<string, string>

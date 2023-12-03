@@ -30,7 +30,8 @@
             Margin="0,0,0,20"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
-            ui:VisualExtensions.NormalizedCenterPoint="0.5">
+            ui:VisualExtensions.NormalizedCenterPoint="0.5"
+            Visibility="Collapsed">
             <animations:Implicit.ShowAnimations>
                 <animations:ScaleAnimation
                     Delay="0:0:1"
@@ -73,7 +74,10 @@
                 BorderThickness="1"
                 CornerRadius="8">
 
-                <HyperlinkButton Margin="4" Click="OnCatalogueClicked">
+                <HyperlinkButton
+                    Margin="4"
+                    AutomationProperties.Name="{x:Bind strings:Resources.HomePageDownloadMessage}"
+                    Click="OnCatalogueClicked">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
                             HorizontalAlignment="Center"
@@ -89,7 +93,10 @@
 
                     <HyperlinkButton.ContextFlyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem Click="OnDismissClicked" Text="{x:Bind strings:Resources.Dismiss}">
+                            <MenuFlyoutItem
+                                AutomationProperties.Name="{x:Bind strings:Resources.Dismiss}"
+                                Click="OnDismissClicked"
+                                Text="{x:Bind strings:Resources.Dismiss}">
                                 <MenuFlyoutItem.Icon>
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancel}" />
                                 </MenuFlyoutItem.Icon>

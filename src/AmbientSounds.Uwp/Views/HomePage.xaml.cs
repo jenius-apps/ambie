@@ -24,16 +24,25 @@ public sealed partial class HomePage : Page
             {
                 { "name", "home" }
             });
+
+        if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ShowHomePageDownloadMessageKey))
+        {
+            CatalogueMessageGrid.Visibility = Visibility.Visible;
+        }
     }
 
-    private void OnCatalogueClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    private void OnCatalogueClicked(object sender, RoutedEventArgs e)
     {
         App.Services.GetRequiredService<INavigator>().NavigateTo(ContentPageType.Catalogue);
     }
 
-    private async void OnDismissClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    private async void OnDismissClicked(object sender, RoutedEventArgs e)
     {
         await HideCatalogeButtonAnimation.StartAsync();
         CatalogueMessageGrid.Visibility = Visibility.Collapsed;
+
+        App.Services.GetRequiredService<IUserSettings>().Set(
+            UserSettingsConstants.ShowHomePageDownloadMessageKey,
+            false);
     }
 }
