@@ -175,7 +175,7 @@ namespace AmbientSounds.Constants
             { HasLoadedPackagedSoundsKey, false },
             { OutputAudioDeviceId, string.Empty }, 
             { PlayAfterFocusKey, true }, 
-            { ConfirmCloseKey, true },
+            { ConfirmCloseKey, false },
             { QuickResumeKey, false },
             { ShowHomePageDownloadMessageKey, true },
         };
