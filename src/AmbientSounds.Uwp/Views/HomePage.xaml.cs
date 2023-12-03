@@ -28,12 +28,14 @@ public sealed partial class HomePage : Page
         if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ShowHomePageDownloadMessageKey))
         {
             CatalogueMessageGrid.Visibility = Visibility.Visible;
+            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.DownloadMessageShown);
         }
     }
 
     private void OnCatalogueClicked(object sender, RoutedEventArgs e)
     {
         App.Services.GetRequiredService<INavigator>().NavigateTo(ContentPageType.Catalogue);
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.DownloadMessageClicked);
     }
 
     private async void OnDismissClicked(object sender, RoutedEventArgs e)
@@ -44,5 +46,7 @@ public sealed partial class HomePage : Page
         App.Services.GetRequiredService<IUserSettings>().Set(
             UserSettingsConstants.ShowHomePageDownloadMessageKey,
             false);
+
+        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.DownloadMessageDismissed);
     }
 }
