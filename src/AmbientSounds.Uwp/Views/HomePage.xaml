@@ -84,8 +84,7 @@
                             Margin="12,0,0,0"
                             VerticalAlignment="Center"
                             FontSize="12"
-                            Text="Get more sounds from the catalogue"
-                            TextWrapping="WrapWholeWords" />
+                            Text="{x:Bind strings:Resources.HomePageDownloadMessage}" />
                     </StackPanel>
 
                     <HyperlinkButton.ContextFlyout>
