@@ -50,7 +50,7 @@
                     Duration="0:0:1" />
             </animations:Implicit.ShowAnimations>
             <animations:Explicit.Animations>
-                <animations:AnimationSet x:Name="HideCatalogeButtonAnimation">
+                <animations:AnimationSet x:Name="HideCatalogueButtonAnimation">
                     <animations:ScaleAnimation
                         From="1"
                         To="0.8"

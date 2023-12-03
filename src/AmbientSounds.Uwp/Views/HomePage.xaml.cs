@@ -40,7 +40,7 @@ public sealed partial class HomePage : Page
 
     private async void OnDismissClicked(object sender, RoutedEventArgs e)
     {
-        await HideCatalogeButtonAnimation.StartAsync();
+        await HideCatalogueButtonAnimation.StartAsync();
         CatalogueMessageGrid.Visibility = Visibility.Collapsed;
 
         App.Services.GetRequiredService<IUserSettings>().Set(
