@@ -29,9 +29,14 @@
             x:Name="CatalogueMessageGrid"
             Margin="0,0,0,20"
             HorizontalAlignment="Center"
-            VerticalAlignment="Bottom">
-
+            VerticalAlignment="Bottom"
+            ui:VisualExtensions.NormalizedCenterPoint="0.5">
             <animations:Implicit.ShowAnimations>
+                <animations:ScaleAnimation
+                    Delay="0:0:1"
+                    From="0.8"
+                    To="1"
+                    Duration="0:0:1" />
                 <animations:OpacityAnimation
                     Delay="0:0:1"
                     From="0"
@@ -45,6 +50,10 @@
             </animations:Implicit.ShowAnimations>
             <animations:Explicit.Animations>
                 <animations:AnimationSet x:Name="HideCatalogeButtonAnimation">
+                    <animations:ScaleAnimation
+                        From="1"
+                        To="0.8"
+                        Duration="0:0:1" />
                     <animations:OpacityAnimation
                         From="1"
                         To="0"
