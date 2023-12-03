@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     mc:Ignorable="d">
 
@@ -23,6 +24,7 @@
         </controls:SoundGridControl>
 
         <Grid
+            x:Name="CatalogueMessageGrid"
             Margin="0,0,0,20"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
@@ -40,6 +42,18 @@
                     To="0"
                     Duration="0:0:1" />
             </animations:Implicit.ShowAnimations>
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="HideCatalogeButtonAnimation">
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:1" />
+                    <animations:TranslationAnimation
+                        From="0"
+                        To="0,50,0"
+                        Duration="0:0:1" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
 
             <HyperlinkButton
                 Margin="4"
@@ -58,6 +72,16 @@
                         Text="Get more sounds from the catalogue"
                         TextWrapping="WrapWholeWords" />
                 </StackPanel>
+
+                <HyperlinkButton.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Click="OnDismissClicked" Text="{x:Bind strings:Resources.Dismiss}">
+                            <MenuFlyoutItem.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancel}" />
+                            </MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </HyperlinkButton.ContextFlyout>
             </HyperlinkButton>
         </Grid>
     </Grid>

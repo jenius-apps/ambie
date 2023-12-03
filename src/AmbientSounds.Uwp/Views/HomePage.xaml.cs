@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -28,5 +29,11 @@ public sealed partial class HomePage : Page
     private void OnCatalogueClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
     {
         App.Services.GetRequiredService<INavigator>().NavigateTo(ContentPageType.Catalogue);
+    }
+
+    private async void OnDismissClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    {
+        await HideCatalogeButtonAnimation.StartAsync();
+        CatalogueMessageGrid.Visibility = Visibility.Collapsed;
     }
 }
