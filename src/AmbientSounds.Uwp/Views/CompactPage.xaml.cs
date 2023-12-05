@@ -112,23 +112,4 @@ public sealed partial class CompactPage : Page
             ViewModel.NavigateTo(requestedMode);
         }
     }
-
-    private void OnSettingsFlyoutItemToggled(object sender, RoutedEventArgs e)
-    {
-        if (sender is ToggleMenuFlyoutItem item && item.Tag is string tag)
-        {
-            if (tag == "compact")
-            {
-                App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-                    item.IsChecked ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
-                    CommonTelemetryContent);
-            }
-            else if (tag == "playAfterFocus")
-            {
-                App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-                    item.IsChecked ? TelemetryConstants.PlayAfterFocusEnabled : TelemetryConstants.PlayAfterFocusDisabled,
-                    CommonTelemetryContent);
-            }
-        }
-    }
 }

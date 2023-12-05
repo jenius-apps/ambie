@@ -49,8 +49,6 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
         TeachingTip2.IsOpen = false;
         TeachingTip3.IsOpen = false;
         TeachingTip4.IsOpen = false;
-
-        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialStarted);
     }
 
     private void ShowTip2(TeachingTip sender, object args)
@@ -98,7 +96,6 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
     private void OnTutorialEnded(TeachingTip sender, object args)
     {
         CloseAll();
-        App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.FocusTutorialEnded);
     }
 
     private void CloseAll()
@@ -132,25 +129,6 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
         if (sender is HyperlinkButton hb)
         {
             FlyoutBase.ShowAttachedFlyout(hb);
-        }
-    }
-
-    private void OnSettingsFlyoutItemToggled(object sender, RoutedEventArgs e)
-    {
-        if (sender is ToggleMenuFlyoutItem item && item.Tag is string tag)
-        {
-            if (tag == "compact")
-            {
-                App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-                    item.IsChecked ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
-                    CommonTelemetryContent);
-            }
-            else if (tag == "playAfterFocus")
-            {
-                App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-                    item.IsChecked ? TelemetryConstants.PlayAfterFocusEnabled : TelemetryConstants.PlayAfterFocusDisabled,
-                    CommonTelemetryContent);
-            }
         }
     }
 }

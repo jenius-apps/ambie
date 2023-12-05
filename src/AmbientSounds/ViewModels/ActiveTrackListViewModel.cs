@@ -132,11 +132,6 @@ namespace AmbientSounds.ViewModels
                 _player.RemoveAll();
                 UpdateStoredState();
             }
-
-            _telemetry.TrackEvent(TelemetryConstants.MixCleared, new Dictionary<string, string>
-            {
-                { "count", count.ToString() }
-            });
         }
 
         private void UpdateStoredState()

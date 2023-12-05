@@ -45,7 +45,7 @@ public partial class UpdatesViewModel : ObservableObject
     private bool _placeholderVisible;
 
     [RelayCommand]
-    private async Task CheckUpdatesAsync(bool? logTelemetry)
+    private async Task CheckUpdatesAsync()
     {
         UpdateAllVisible = false;
         PlaceholderVisible = false;
@@ -70,14 +70,6 @@ public partial class UpdatesViewModel : ObservableObject
 
         UpdateAllVisible = UpdateList.Count > 0;
         PlaceholderVisible = UpdateList.Count == 0;
-
-        if (logTelemetry is true)
-        {
-            _telemetry.TrackEvent(TelemetryConstants.UpdateCheckClicked, new Dictionary<string, string>
-            {
-                { "updateCount", UpdateList.Count.ToString() }
-            });
-        }
     }
 
     [RelayCommand]

@@ -73,11 +73,6 @@ public partial class DownloadMissingViewModel : ObservableObject
                     Sounds.Add(vm);
                 }
             }
-
-            _telemetry.TrackEvent(TelemetryConstants.ShareSoundsMissingLoaded, new Dictionary<string, string>
-            {
-                { "not installed count", Sounds.Count(x => !x.IsInstalled).ToString() }
-            });
         }
 
         Loading = false;

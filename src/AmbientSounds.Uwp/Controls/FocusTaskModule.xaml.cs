@@ -47,14 +47,12 @@ public sealed partial class FocusTaskModule : UserControl, ICanInitialize
             // going to collapse the button
             await CloseChevronAnimation.StartAsync();
             ViewModel.IsCompletedListVisible = false;
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.TaskCompletedCollapsed);
         }
         else
         {
             // going to expand the button
             await OpenChevronAnimation.StartAsync();
             ViewModel.IsCompletedListVisible = true;
-            App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.TaskCompletedExpanded);
         }
     }
 

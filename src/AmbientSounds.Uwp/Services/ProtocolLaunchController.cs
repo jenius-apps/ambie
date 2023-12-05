@@ -49,11 +49,6 @@ public class ProtocolLaunchController
 
         if (query.TryGetValue("id", out var shareId))
         {
-            _telemetry.TrackEvent(TelemetryConstants.ShareReceived, new Dictionary<string, string>
-            {
-                { "shareId", shareId }
-            });
-
             _ =_shareService.ProcessShareRequestAsync(shareId);
         }
     }

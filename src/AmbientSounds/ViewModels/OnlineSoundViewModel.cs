@@ -238,11 +238,6 @@ public partial class OnlineSoundViewModel : ObservableObject
     [RelayCommand]
     private void Preview()
     {
-        _telemetry.TrackEvent(TelemetryConstants.PreviewClicked, new Dictionary<string, string>
-        {
-            { "id", _sound.Id ?? "" },
-        });
-
         _previewService.Play(_sound.PreviewFilePath);
     }
 
@@ -366,15 +361,6 @@ public partial class OnlineSoundViewModel : ObservableObject
                 { "location", TelemetryLocation },
                 { "name", _sound.Name }
             });
-
-            if (FreeBadgeVisible)
-            {
-                _telemetry.TrackEvent(TelemetryConstants.FreeDownloaded, new Dictionary<string, string>
-                {
-                    { "id", _sound.Id ?? "" },
-                    { "name", _sound.Name }
-                });
-            }
 
             return _downloadManager.QueueAndDownloadAsync(_sound, _downloadProgress);
         }

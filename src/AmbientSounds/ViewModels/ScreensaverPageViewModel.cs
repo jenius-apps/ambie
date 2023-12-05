@@ -224,12 +224,6 @@ namespace AmbientSounds.ViewModels
                 AnimatedBackgroundName = name;
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = false;
-
-                _telemetry.TrackEvent(TelemetryConstants.ShaderSelected, new Dictionary<string, string>()
-                {
-                    { "id",  menuItemId! },
-                    { "name", name }
-                });
             }
             else
             {

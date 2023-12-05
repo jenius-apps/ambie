@@ -273,17 +273,11 @@ sealed partial class App : Application
                 Services.GetRequiredService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing)
             {
                 var telemetry = Services.GetRequiredService<ITelemetry>();
-                telemetry.TrackEvent(TelemetryConstants.CloseRequestedWhilePlaying);
                 bool closeConfirmed = await Services.GetRequiredService<IDialogService>().OpenConfirmCloseAsync();
                 if (!closeConfirmed)
                 {
                     // this cancels the close event.
                     args.Handled = true;
-                    telemetry.TrackEvent(TelemetryConstants.CloseCanceled);
-                }
-                else
-                {
-                    telemetry.TrackEvent(TelemetryConstants.CloseConfirmed);
                 }
             }
 

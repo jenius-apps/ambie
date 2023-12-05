@@ -294,11 +294,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         InsightsVisible = interruptions.Count > 0;
         OnPropertyChanged(nameof(IsRecentVisible));
 
-        if (InsightsVisible)
-        {
-            _telemetry.TrackEvent(TelemetryConstants.InterruptionInsightsDisplayed);
-        }
-
         UpdateButtonStates();
     }
 
@@ -332,20 +327,17 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private void Pause()
     {
         _focusService.PauseTimer();
-        _telemetry.TrackEvent(TelemetryConstants.FocusPaused);
     }
 
     public void Stop()
     {
         Segments.Clear();
         _focusService.StopTimer();
-        _telemetry.TrackEvent(TelemetryConstants.FocusReset);
     }
 
     public void ShowHelpMessage()
     {
         IsHelpMessageVisible = true;
-        _telemetry.TrackEvent(TelemetryConstants.FocusHelpClicked);
     }
 
     public void LoadRecentSettings(RecentFocusSettingsViewModel vm)
@@ -432,7 +424,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         if (_focusService.CurrentState == FocusState.Paused)
         {
             successfullyStarted = _focusService.ResumeTimer();
-            _telemetry.TrackEvent(TelemetryConstants.FocusResumed);
             OnPropertyChanged(nameof(EndTime));
         }
         else
@@ -513,10 +504,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         if (_userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey))
         {
             await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
-            _telemetry.TrackEvent(TelemetryConstants.MiniOpenedAutomatically, new Dictionary<string, string>
-            {
-                { "page", "focus" }
-            });
         }
     }
 
@@ -586,16 +573,11 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         }
 
         await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
-        _telemetry.TrackEvent(TelemetryConstants.MiniOpenedManually, new Dictionary<string, string>
-        {
-            { "page", "focus" }
-        });
     }
 
     [RelayCommand]
     private async Task OpenInterruptionsAsync()
     {
-        _telemetry.TrackEvent(TelemetryConstants.InterruptionInsightsClicked);
         await _dialogService.RecentInterruptionsAsync();
     }
 

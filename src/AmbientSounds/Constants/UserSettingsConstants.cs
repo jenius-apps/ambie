@@ -88,12 +88,6 @@ namespace AmbientSounds.Constants
         public const string ResumeOnLaunchKey = "ResumeOnLaunch";
 
         /// <summary>
-        /// User to remember if Ambie should integrate with
-        /// OS media controls
-        /// </summary>
-        public const string DisableSmtcSupportKey = "DisableSmtcSupportKey";
-
-        /// <summary>
         /// Used to remember what was the last used screensaver ID.
         /// </summary>
         public const string LastUsedScreensaverKey = "LastUsedScreensaver";
@@ -128,11 +122,6 @@ namespace AmbientSounds.Constants
         public const string HasLoadedPackagedSoundsKey = "HasLoadedPackagedSounds";
 
         /// <summary>
-        /// Used to remember the ID of the input audio device.
-        /// </summary>
-        public const string OutputAudioDeviceId = "OutputAudioDeviceId";
-
-        /// <summary>
         /// Used to remember if sounds should keep playing even after focus session ends.
         /// </summary>
         public const string PlayAfterFocusKey = "PlayAfterFocus";
@@ -165,7 +154,6 @@ namespace AmbientSounds.Constants
             { HasRated, false },
             { RatingDismissed, DateTime.MinValue },
             { ResumeOnLaunchKey, false },
-            { DisableSmtcSupportKey, false },
             { LastUsedScreensaverKey, string.Empty },
             { HasClosedFocusHelpMessageKey, false },
             { HasClosedInterruptionMessageKey, false },
@@ -173,7 +161,6 @@ namespace AmbientSounds.Constants
             { DevicePresenceIdKey, string.Empty },
             { CompactOnFocusKey, true },
             { HasLoadedPackagedSoundsKey, false },
-            { OutputAudioDeviceId, string.Empty }, 
             { PlayAfterFocusKey, true }, 
             { ConfirmCloseKey, false },
             { QuickResumeKey, false },

@@ -132,16 +132,8 @@
                             Glyph="{StaticResource GlyphSettings}" />
                         <FlyoutBase.AttachedFlyout>
                             <MenuFlyout Placement="BottomEdgeAlignedRight">
-                                <ToggleMenuFlyoutItem
-                                    Click="OnSettingsFlyoutItemToggled"
-                                    IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}"
-                                    Tag="compact"
-                                    Text="{x:Bind strings:Resources.SettingsCompactMode}" />
-                                <ToggleMenuFlyoutItem
-                                    Click="OnSettingsFlyoutItemToggled"
-                                    IsChecked="{x:Bind ViewModel.PlayAfterFocusEnabled, Mode=TwoWay}"
-                                    Tag="playAfterFocus"
-                                    Text="{x:Bind strings:Resources.SettingsPlayAfterFocusHeader}" />
+                                <ToggleMenuFlyoutItem IsChecked="{x:Bind ViewModel.UseCompactMode, Mode=TwoWay}" Text="{x:Bind strings:Resources.SettingsCompactMode}" />
+                                <ToggleMenuFlyoutItem IsChecked="{x:Bind ViewModel.PlayAfterFocusEnabled, Mode=TwoWay}" Text="{x:Bind strings:Resources.SettingsPlayAfterFocusHeader}" />
                             </MenuFlyout>
                         </FlyoutBase.AttachedFlyout>
                     </HyperlinkButton>

@@ -179,7 +179,6 @@ namespace AmbientSounds.ViewModels
 
             CompletedTasks.Remove(task);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, false).ConfigureAwait(false);
-            _telemetry.TrackEvent(TelemetryConstants.TaskReopened);
         }
 
         private void DeleteTask(FocusTaskViewModel? task)

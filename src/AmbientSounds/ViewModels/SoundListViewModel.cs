@@ -108,12 +108,7 @@ namespace AmbientSounds.ViewModels
             var download = await _dialogService.MissingSoundsDialogAsync();
             if (download)
             {
-                _telemetry.TrackEvent(TelemetryConstants.MissingSoundsDownloaded);
                 await _downloadManager.QueueAndDownloadAsync(unavailable);
-            }
-            else
-            {
-                _telemetry.TrackEvent(TelemetryConstants.MissingSoundsCanceled);
             }
         }
 

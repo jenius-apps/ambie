@@ -25,7 +25,6 @@ namespace AmbientSounds.ViewModels
         private readonly IAudioDeviceService _audioDeviceService;
         private readonly IQuickResumeService _quickResumeService;
         private bool _notificationsLoading;
-        private string _currentOutputDeviceId = string.Empty;
 
         public SettingsViewModel(
             IUserSettings userSettings,
@@ -92,54 +91,6 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// The id of the current output device.
-        /// </summary>
-        public string CurrentOutputDeviceId
-        {
-            get => _currentOutputDeviceId;
-            set
-            {
-                if (_currentOutputDeviceId != value)
-                {
-                    _currentOutputDeviceId = value;
-                    _userSettings.Set(UserSettingsConstants.OutputAudioDeviceId, value);
-                    _telemetry.TrackEvent(
-                        TelemetryConstants.AudioOutputChanged,
-                        new Dictionary<string, string>
-                        {
-                            { "device", string.IsNullOrEmpty(value) ? "default" : value }
-                        });
-                }
-            }
-        }
-
-        /// <summary>
-        /// The current output device.
-        /// </summary>
-        public AudioDeviceDescriptor CurrentOutputDevice
-        {
-            get
-            {
-                var id = CurrentOutputDeviceId;
-                return OutputDevices.Where(x => x.DeviceId == id).FirstOrDefault()
-                    ?? _audioDeviceService.GetDefaultAudioDeviceDescriptor();
-            }
-
-            set
-            {
-                var targetId = value?.DeviceId ?? string.Empty;
-                // Since it is intended to update the list of available audio devices
-                // every time the settings page is opened, and we use a two way
-                // binding for the ComboBox, we don't want to set CurrentOutputDeviceId
-                // before the list is updated.
-                if (OutputDevices.Count > 0)
-                {
-                    CurrentOutputDeviceId = targetId;
-                }
-            }
-        }
-
-        /// <summary>
         /// Audio devices available for rendering sound.
         /// </summary>
         public ObservableCollection<AudioDeviceDescriptor> OutputDevices { get; } = new();
@@ -150,29 +101,13 @@ namespace AmbientSounds.ViewModels
         public bool AmbieMiniEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
-                _telemetry.TrackEvent(value ? TelemetryConstants.MiniAutoEnabled : TelemetryConstants.MiniAutoDisabled,
-                    new Dictionary<string, string>
-                    {
-                        { "page", "settings" }
-                    });
-            }
+            set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
         }
 
         public bool ConfirmCloseEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.ConfirmCloseKey);
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.ConfirmCloseKey, value);
-                _telemetry.TrackEvent(value ? TelemetryConstants.ConfirmCloseEnabled : TelemetryConstants.ConfirmCloseDisabled,
-                    new Dictionary<string, string>
-                    {
-                        { "page", "settings" }
-                    });
-            }
+            set => _userSettings.Set(UserSettingsConstants.ConfirmCloseKey, value);
         }
 
         public bool QuickResumeEnabled
@@ -181,7 +116,6 @@ namespace AmbientSounds.ViewModels
             set
             {
                 _userSettings.Set(UserSettingsConstants.QuickResumeKey, value);
-                _telemetry.TrackEvent(value ? TelemetryConstants.QuickResumeEnabled : TelemetryConstants.QuickResumeDisabled);
                 OnQuickResumeToggled(value);
             }
         }
@@ -210,36 +144,10 @@ namespace AmbientSounds.ViewModels
             }
         }
 
-        /// <summary>
-        /// Settings flag for resume on launch.
-        /// </summary>
         public bool PlayAfterFocusEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.PlayAfterFocusKey);
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
-                _telemetry.TrackEvent(value ? TelemetryConstants.PlayAfterFocusEnabled : TelemetryConstants.PlayAfterFocusDisabled,
-                    new Dictionary<string, string>
-                    {
-                        { "page", "settings" }
-                    });
-            }
-        }
-
-        /// <summary>
-        /// Settings flag for resume on launch.
-        /// </summary>
-        public bool SmtcDisabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.DisableSmtcSupportKey);
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.DisableSmtcSupportKey, value);
-                _telemetry.TrackEvent(value
-                    ? TelemetryConstants.SmtcDisabled
-                    : TelemetryConstants.SmtcEnabled);
-            }
+            set => _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
         }
 
         /// <summary>
@@ -333,14 +241,6 @@ namespace AmbientSounds.ViewModels
             }
 
             _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
-
-            if (imagePath != null)
-            {
-                _telemetry.TrackEvent(TelemetryConstants.BackgroundChanged, new Dictionary<string, string>
-                {
-                    { "path", imagePath.Contains("ms-appx") ? imagePath : "custom" }
-                });
-            }
         }
 
         [RelayCommand]
@@ -351,28 +251,6 @@ namespace AmbientSounds.ViewModels
             {
                 _userSettings.Set(UserSettingsConstants.HasRated, true);
             }
-        }
-
-        [RelayCommand]
-        private async Task LoadOutputDevicesAsync()
-        {
-            OutputDevices.Clear();
-
-            foreach (var item in await _audioDeviceService.GetAudioDeviceDescriptorsAsync())
-            {
-                OutputDevices.Add(item);
-            }
-
-            _currentOutputDeviceId = _userSettings.Get<string>(UserSettingsConstants.OutputAudioDeviceId);
-
-            // If the remembered device doesn't exist anymore, reset the _currentOutputDeviceId to be empty, 
-            // which means Ambie will chooses the default device then.
-            if (!OutputDevices.Any(x => x.DeviceId == _currentOutputDeviceId))
-            {
-                _currentOutputDeviceId = string.Empty;
-            }
-
-            OnPropertyChanged(nameof(CurrentOutputDevice));
         }
     }
 }
