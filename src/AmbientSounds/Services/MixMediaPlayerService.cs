@@ -299,10 +299,10 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         foreach (var key in _activePlayers.Keys)
         {
             double volume = _userSettings.Get($"{key}:volume", 100d) / 100;
-            _activePlayers[key].Play(fadeInTargetVolume: volume, fadeDuration: DefaultFadeInDurationMs);
+            _activePlayers[key].Play(fadeInTargetVolume: volume * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
         }
 
-        _guideInfo?.GuidePlayer.Play(fadeInTargetVolume: 1.0, fadeDuration: DefaultFadeInDurationMs);
+        _guideInfo?.GuidePlayer.Play(fadeInTargetVolume: 1.0 * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
     }
 
     public void Pause()
