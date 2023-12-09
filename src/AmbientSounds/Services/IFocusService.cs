@@ -71,6 +71,7 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Skips the current rest break.
         /// </summary>
-        void SkipRestBreak();
+        /// <returns>True if the request was acknowledged. False if not.</returns>
+        bool SkipRestBreak();
     }
 }

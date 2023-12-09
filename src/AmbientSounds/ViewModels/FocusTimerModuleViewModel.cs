@@ -2,16 +2,15 @@
 using AmbientSounds.Extensions;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using CommunityToolkit.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using JeniusApps.Common.Telemetry;
 using INavigator = AmbientSounds.Services.INavigator;
 
 namespace AmbientSounds.ViewModels;
@@ -40,7 +39,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private int _focusLength;
     private int _restLength;
     private int _repetitions;
-    private bool _skipRestRequested;
 
     [ObservableProperty]
     private bool _isResting;
@@ -115,6 +113,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         UpdateButtonStates();
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
     }
+
+    [ObservableProperty]
+    private bool _skipRestRequested;
 
     [ObservableProperty]
     private bool _insightsVisible;
@@ -536,7 +537,12 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     [RelayCommand]
     private void SkipRestBreak()
     {
-        _focusService.SkipRestBreak();
+        if (SkipRestRequested)
+        {
+            return;
+        }
+
+        SkipRestRequested = _focusService.SkipRestBreak();
     }
 
     [RelayCommand]
@@ -632,5 +638,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         SecondsRingVisible = true;
         SecondsRemaining = e.Remaining.Seconds;
         UpdateButtonStates();
+
+        if (SkipRestRequested && IsFocusing)
+        {
+            SkipRestRequested = false;
+        }
     }
 }

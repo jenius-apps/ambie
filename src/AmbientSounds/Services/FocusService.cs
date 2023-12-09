@@ -186,11 +186,11 @@ public class FocusService : IFocusService
     }
 
     /// <inheritdoc/>
-    public void SkipRestBreak()
+    public bool SkipRestBreak()
     {
         if (CurrentSession.SessionType != SessionType.Rest)
         {
-            return;
+            return false;
         }
 
         _skipRestBreakRequested = true;
@@ -199,6 +199,8 @@ public class FocusService : IFocusService
         {
             ResumeTimer();
         }
+
+        return true;
     }
 
     public bool ResumeTimer()

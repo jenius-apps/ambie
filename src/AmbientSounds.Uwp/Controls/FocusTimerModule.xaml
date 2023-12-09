@@ -7,6 +7,7 @@
     xmlns:constants="using:AmbientSounds.Constants"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -349,10 +350,21 @@
                                         To="0"
                                         Duration="0:0:0.3" />
                                 </animations:Implicit.ShowAnimations>
-                                <FontIcon
-                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                    FontSize="14"
-                                    Glyph="{StaticResource GlyphSkip}" />
+
+                                <Grid>
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="14"
+                                        Glyph="{StaticResource GlyphSkip}"
+                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.SkipRestRequested), Mode=OneWay}" />
+
+                                    <winui:ProgressRing
+                                        Width="16"
+                                        Height="16"
+                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                        IsActive="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}"
+                                        Visibility="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}" />
+                                </Grid>
                             </Button>
                         </StackPanel>
 
