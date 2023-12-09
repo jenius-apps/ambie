@@ -1060,6 +1060,10 @@
           <source>Get more sounds from the catalogue</source>
           <target state="translated">Získejte více zvuků z katalogu</target>
         </trans-unit>
+        <trans-unit id="SkipThisSegment" translate="yes" xml:space="preserve">
+          <source>Skip this segment</source>
+          <target state="translated">Přeskočit tento segment</target>
+        </trans-unit>
       </group>
     </body>
   </file>

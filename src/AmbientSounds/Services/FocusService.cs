@@ -19,6 +19,7 @@ public class FocusService : IFocusService
     private readonly Queue<FocusSession> _sessionQueue = new();
     private FocusState _focusState = FocusState.None;
     private double _previousGlobalVolume;
+    private bool _skipRestBreakRequested;
 
     public event EventHandler<FocusSession>? TimeUpdated;
     public event EventHandler<FocusState>? FocusStateChanged;
@@ -184,6 +185,24 @@ public class FocusService : IFocusService
         }
     }
 
+    /// <inheritdoc/>
+    public bool SkipRestBreak()
+    {
+        if (CurrentSession.SessionType != SessionType.Rest)
+        {
+            return false;
+        }
+
+        _skipRestBreakRequested = true;
+
+        if (CurrentState is FocusState.Paused)
+        {
+            ResumeTimer();
+        }
+
+        return true;
+    }
+
     public bool ResumeTimer()
     {
         if (_timerService.Remaining > TimeSpan.Zero)
@@ -216,9 +235,14 @@ public class FocusService : IFocusService
         CurrentSession.Remaining = remaining;
         TimeUpdated?.Invoke(this, CurrentSession);
 
-        if (remaining == TimeSpan.Zero)
+        if (remaining == TimeSpan.Zero || (_skipRestBreakRequested && CurrentSessionType is SessionType.Rest))
         {
             _timerService.Stop();
+
+            if (_skipRestBreakRequested)
+            {
+                _skipRestBreakRequested = false;
+            }
 
             if (_sessionQueue.Count > 0)
             {

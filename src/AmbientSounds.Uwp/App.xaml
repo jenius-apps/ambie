@@ -294,6 +294,7 @@
             <x:String x:Key="GlyphInfo">&#xE946;</x:String>
             <x:String x:Key="GlyphPcStartup">&#xEC76;</x:String>
             <x:String x:Key="GlyphRedirect">&#xE8A7;</x:String>
+            <x:String x:Key="GlyphSkip">&#xEB9D;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

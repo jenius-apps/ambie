@@ -790,4 +790,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Még több hang a katalógusból</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Szegmens kihagyása</value>
+  </data>
 </root>

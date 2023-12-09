@@ -2562,6 +2562,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SkipThisSegment
+        /// <summary>
+        ///   Looks up a localized string similar to: Skip this segment
+        /// </summary>
+        public static string SkipThisSegment
+        {
+            get
+            {
+                return _resourceLoader.GetString("SkipThisSegment");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2769,6 +2782,7 @@ namespace AmbientSounds.Strings{
             QuickResumeTitle,
             QuickResumeToastMessage,
             HomePageDownloadMessage,
+            SkipThisSegment,
         }
 
         private static ResourceLoader _resourceLoader;

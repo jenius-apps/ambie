@@ -790,4 +790,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Nabavite više zvukova iz kataloga</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Preskoči ovaj segment</value>
+  </data>
 </root>

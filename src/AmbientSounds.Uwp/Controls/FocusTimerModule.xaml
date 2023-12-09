@@ -7,6 +7,7 @@
     xmlns:constants="using:AmbientSounds.Constants"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -304,7 +305,10 @@
                             RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
                             RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
 
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel VerticalAlignment="Center">
+                            <animations:Implicit.Animations>
+                                <animations:OffsetAnimation Duration="0:0:0.3" />
+                            </animations:Implicit.Animations>
                             <Grid>
                                 <FontIcon
                                     FontFamily="{StaticResource FluentUIGlyphs}"
@@ -328,7 +332,44 @@
                                 <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
                                 <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
                             </StackPanel>
+
+                            <Button
+                                Margin="0,2,0,-10"
+                                HorizontalAlignment="Center"
+                                AutomationProperties.Name="{x:Bind strings:Resources.SkipThisSegment}"
+                                Command="{x:Bind ViewModel.SkipRestBreakCommand}"
+                                Style="{StaticResource TinySubtleIconButton}"
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.SkipThisSegment}"
+                                Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.3" />
+                                    <animations:TranslationAnimation
+                                        From="0,12,0"
+                                        To="0"
+                                        Duration="0:0:0.3" />
+                                </animations:Implicit.ShowAnimations>
+
+                                <Grid>
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="14"
+                                        Glyph="{StaticResource GlyphSkip}"
+                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.SkipRestRequested), Mode=OneWay}" />
+
+                                    <winui:ProgressRing
+                                        Width="16"
+                                        Height="16"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                        IsActive="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}"
+                                        Visibility="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}" />
+                                </Grid>
+                            </Button>
                         </StackPanel>
+
 
                         <ItemsControl
                             Grid.Row="1"

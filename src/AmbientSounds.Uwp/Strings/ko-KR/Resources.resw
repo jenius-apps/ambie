@@ -802,4 +802,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>카탈로그에서 더 많은 사운드 가져오기</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>이 세그먼트 건너뛰기</value>
+  </data>
 </root>

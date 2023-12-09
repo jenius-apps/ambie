@@ -1070,6 +1070,10 @@
           <source>Get more sounds from the catalogue</source>
           <target state="translated">Még több hang a katalógusból</target>
         </trans-unit>
+        <trans-unit id="SkipThisSegment" translate="yes" xml:space="preserve">
+          <source>Skip this segment</source>
+          <target state="translated">Szegmens kihagyása</target>
+        </trans-unit>
       </group>
     </body>
   </file>

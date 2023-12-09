@@ -2,16 +2,15 @@
 using AmbientSounds.Extensions;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using CommunityToolkit.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using JeniusApps.Common.Telemetry;
 using INavigator = AmbientSounds.Services.INavigator;
 
 namespace AmbientSounds.ViewModels;
@@ -98,18 +97,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         ICompactNavigator compactNavigator,
         IDispatcherQueue dispatcherQueue)
     {
-        Guard.IsNotNull(focusService);
-        Guard.IsNotNull(userSettings);
-        Guard.IsNotNull(localizer);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(recentFocusService);
-        Guard.IsNotNull(focusHistoryService);
-        Guard.IsNotNull(taskService);
-        Guard.IsNotNull(navigator);
-        Guard.IsNotNull(systemInfoProvider);
-        Guard.IsNotNull(dialogService);
-        Guard.IsNotNull(compactNavigator);
-        Guard.IsNotNull(dispatcherQueue);
         _focusService = focusService;
         _userSettings = userSettings;
         _localizer = localizer;
@@ -126,6 +113,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         UpdateButtonStates();
         InterruptionCommand = new AsyncRelayCommand(LogInterruptionAsync);
     }
+
+    [ObservableProperty]
+    private bool _skipRestRequested;
 
     [ObservableProperty]
     private bool _insightsVisible;
@@ -545,6 +535,17 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     }
 
     [RelayCommand]
+    private void SkipRestBreak()
+    {
+        if (SkipRestRequested)
+        {
+            return;
+        }
+
+        SkipRestRequested = _focusService.SkipRestBreak();
+    }
+
+    [RelayCommand]
     private void CompactInterruption()
     {
         _compactNavigator.NavigateTo(CompactViewMode.Interruption);
@@ -637,5 +638,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         SecondsRingVisible = true;
         SecondsRemaining = e.Remaining.Seconds;
         UpdateButtonStates();
+
+        if (SkipRestRequested && IsFocusing)
+        {
+            SkipRestRequested = false;
+        }
     }
 }

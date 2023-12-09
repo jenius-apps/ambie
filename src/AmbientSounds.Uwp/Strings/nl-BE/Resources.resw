@@ -772,4 +772,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Haal meer geluiden uit de catalogus</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Sla dit segment over</value>
+  </data>
 </root>

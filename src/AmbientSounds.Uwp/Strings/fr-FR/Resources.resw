@@ -799,4 +799,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Obtenez plus de sons du catalogue</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Ignorer ce segment</value>
+  </data>
 </root>

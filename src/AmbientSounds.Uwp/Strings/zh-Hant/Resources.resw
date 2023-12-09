@@ -802,4 +802,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>從目錄中獲取更多聲音</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>跳過此部分</value>
+  </data>
 </root>
