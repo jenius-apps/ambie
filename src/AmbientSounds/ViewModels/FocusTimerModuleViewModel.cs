@@ -40,6 +40,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private int _focusLength;
     private int _restLength;
     private int _repetitions;
+    private bool _skipRestRequested;
 
     [ObservableProperty]
     private bool _isResting;
@@ -98,18 +99,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         ICompactNavigator compactNavigator,
         IDispatcherQueue dispatcherQueue)
     {
-        Guard.IsNotNull(focusService);
-        Guard.IsNotNull(userSettings);
-        Guard.IsNotNull(localizer);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(recentFocusService);
-        Guard.IsNotNull(focusHistoryService);
-        Guard.IsNotNull(taskService);
-        Guard.IsNotNull(navigator);
-        Guard.IsNotNull(systemInfoProvider);
-        Guard.IsNotNull(dialogService);
-        Guard.IsNotNull(compactNavigator);
-        Guard.IsNotNull(dispatcherQueue);
         _focusService = focusService;
         _userSettings = userSettings;
         _localizer = localizer;

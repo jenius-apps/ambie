@@ -304,7 +304,10 @@
                             RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
                             RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
 
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel VerticalAlignment="Center">
+                            <animations:Implicit.Animations>
+                                <animations:OffsetAnimation Duration="0:0:0.3" />
+                            </animations:Implicit.Animations>
                             <Grid>
                                 <FontIcon
                                     FontFamily="{StaticResource FluentUIGlyphs}"
@@ -328,7 +331,30 @@
                                 <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
                                 <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
                             </StackPanel>
+
+                            <Button
+                                Margin="0,2,0,-10"
+                                HorizontalAlignment="Center"
+                                Style="{StaticResource TinySubtleIconButton}"
+                                ToolTipService.ToolTip="Skip this rest segment and go to the next focus segment."
+                                Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}">
+                                <animations:Implicit.ShowAnimations>
+                                    <animations:OpacityAnimation
+                                        From="0"
+                                        To="1"
+                                        Duration="0:0:0.3" />
+                                    <animations:TranslationAnimation
+                                        From="0,12,0"
+                                        To="0"
+                                        Duration="0:0:0.3" />
+                                </animations:Implicit.ShowAnimations>
+                                <FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="14"
+                                    Glyph="{StaticResource GlyphSkip}" />
+                            </Button>
                         </StackPanel>
+
 
                         <ItemsControl
                             Grid.Row="1"
