@@ -361,6 +361,7 @@
                                     <winui:ProgressRing
                                         Width="16"
                                         Height="16"
+                                        AutomationProperties.AccessibilityView="Raw"
                                         Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                                         IsActive="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}"
                                         Visibility="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}" />
