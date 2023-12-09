@@ -335,6 +335,7 @@
                             <Button
                                 Margin="0,2,0,-10"
                                 HorizontalAlignment="Center"
+                                Command="{x:Bind ViewModel.SkipRestBreakCommand}"
                                 Style="{StaticResource TinySubtleIconButton}"
                                 ToolTipService.ToolTip="Skip this rest segment and go to the next focus segment."
                                 Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}">

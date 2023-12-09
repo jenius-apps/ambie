@@ -534,6 +534,12 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     }
 
     [RelayCommand]
+    private void SkipRestBreak()
+    {
+        _focusService.SkipRestBreak();
+    }
+
+    [RelayCommand]
     private void CompactInterruption()
     {
         _compactNavigator.NavigateTo(CompactViewMode.Interruption);
