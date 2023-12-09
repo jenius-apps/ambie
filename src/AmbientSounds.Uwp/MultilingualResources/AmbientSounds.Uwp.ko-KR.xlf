@@ -1060,6 +1060,10 @@
           <source>Get more sounds from the catalogue</source>
           <target state="translated">카탈로그에서 더 많은 사운드 가져오기</target>
         </trans-unit>
+        <trans-unit id="SkipThisSegment" translate="yes" xml:space="preserve">
+          <source>Skip this segment</source>
+          <target state="translated">이 세그먼트 건너뛰기</target>
+        </trans-unit>
       </group>
     </body>
   </file>

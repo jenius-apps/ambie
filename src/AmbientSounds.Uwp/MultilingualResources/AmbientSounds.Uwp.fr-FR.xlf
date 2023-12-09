@@ -1069,6 +1069,10 @@
           <source>Get more sounds from the catalogue</source>
           <target state="translated">Obtenez plus de sons du catalogue</target>
         </trans-unit>
+        <trans-unit id="SkipThisSegment" translate="yes" xml:space="preserve">
+          <source>Skip this segment</source>
+          <target state="translated">Ignorer ce segment</target>
+        </trans-unit>
       </group>
     </body>
   </file>

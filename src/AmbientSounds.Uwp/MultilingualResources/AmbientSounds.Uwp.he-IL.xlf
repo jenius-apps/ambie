@@ -1059,6 +1059,10 @@
           <source>Get more sounds from the catalogue</source>
           <target state="translated">קבל צלילים נוספים מהקטלוג</target>
         </trans-unit>
+        <trans-unit id="SkipThisSegment" translate="yes" xml:space="preserve">
+          <source>Skip this segment</source>
+          <target state="translated">דלג על קטע זה</target>
+        </trans-unit>
       </group>
     </body>
   </file>

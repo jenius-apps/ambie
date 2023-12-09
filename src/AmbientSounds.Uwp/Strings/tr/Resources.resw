@@ -796,4 +796,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Katalogdan daha fazla ses alın</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Bu segmenti atla</value>
+  </data>
 </root>

@@ -907,4 +907,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Get more sounds from the catalogue</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Skip this segment</value>
+  </data>
 </root>

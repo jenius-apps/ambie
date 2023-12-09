@@ -802,4 +802,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Pobierz więcej dźwięków z katalogu</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Pomiń ten segment</value>
+  </data>
 </root>

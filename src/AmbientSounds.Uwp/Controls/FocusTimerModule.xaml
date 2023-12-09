@@ -336,9 +336,10 @@
                             <Button
                                 Margin="0,2,0,-10"
                                 HorizontalAlignment="Center"
+                                AutomationProperties.Name="{x:Bind strings:Resources.SkipThisSegment}"
                                 Command="{x:Bind ViewModel.SkipRestBreakCommand}"
                                 Style="{StaticResource TinySubtleIconButton}"
-                                ToolTipService.ToolTip="Skip this rest segment and go to the next focus segment."
+                                ToolTipService.ToolTip="{x:Bind strings:Resources.SkipThisSegment}"
                                 Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}">
                                 <animations:Implicit.ShowAnimations>
                                     <animations:OpacityAnimation

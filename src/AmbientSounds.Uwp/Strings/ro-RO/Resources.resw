@@ -802,4 +802,7 @@
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Obțineți mai multe sunete din catalog</value>
   </data>
+  <data name="SkipThisSegment" xml:space="preserve">
+    <value>Omiteți acest segment</value>
+  </data>
 </root>
