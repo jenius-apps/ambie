@@ -113,6 +113,7 @@
         public const string FocusRecentClicked = Focus + "recentClicked";
         public const string FocusInterruptionLogged = Focus + "interruptionLogged";
         public const string FocusHistoryClicked = Focus + "historyClicked";
+        public const string FocusSkipClicked = Focus + "skipClicked";
 
         // mini
         private const string Mini = "mini:";

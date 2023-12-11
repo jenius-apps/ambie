@@ -543,6 +543,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         }
 
         SkipRestRequested = _focusService.SkipRestBreak();
+        _telemetry.TrackEvent(TelemetryConstants.FocusSkipClicked);
     }
 
     [RelayCommand]
