@@ -17,92 +17,133 @@
 
     <UserControl.Resources>
         <x:Double x:Key="SmallRingSize">40</x:Double>
+
+        <Style
+            x:Key="DropdownFlyoutStyle"
+            BasedOn="{StaticResource DefaultFlyoutPresenterStyle}"
+            TargetType="FlyoutPresenter">
+            <Setter Property="Padding" Value="12,12,0,4" />
+        </Style>
     </UserControl.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind ViewModel.CancelVisible, Mode=OneWay}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="StartButton.(Grid.ColumnSpan)" Value="1" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
 
         <!--  sliders page  -->
-        <StackPanel Margin="12,12,12,0" Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
-            <local:TimerSlider
-                Margin="12,0,0,0"
-                AutomationName="{x:Bind strings:Resources.FocusLength}"
-                Header="{x:Bind strings:Resources.FocusLength}"
-                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                StepFrequency="5"
-                TickFrequency="15"
-                Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
+        <Grid
+            Padding="12,0"
+            ColumnSpacing="8"
+            Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.CancelVisible), Mode=OneWay}">
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:0.3" />
+            </animations:Implicit.ShowAnimations>
 
-            <local:TimerSlider
-                Margin="12,4,0,0"
-                AutomationName="{x:Bind strings:Resources.RestLength}"
-                Header="{x:Bind strings:Resources.RestLength}"
-                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                StepFrequency="5"
-                TickFrequency="15"
-                Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <local:TimerSlider
-                Margin="12,4,0,12"
-                AutomationName="{x:Bind strings:Resources.Repeats}"
-                Header="{x:Bind strings:Resources.Repeats}"
-                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
-                Maximum="8"
-                TickFrequency="2"
-                Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="14"
+                Glyph="{StaticResource GlyphFocus}" />
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <StackPanel>
-                    <TextBlock
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                        Text="{x:Bind ViewModel.TotalTime, Mode=OneWay}"
-                        TextAlignment="Center" />
-                    <TextBlock
-                        FontSize="12"
-                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Text="{x:Bind strings:Resources.DurationText}"
-                        TextAlignment="Center" />
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <TextBlock
-                        FontSize="20"
-                        FontWeight="SemiBold"
-                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                        Text="{x:Bind ViewModel.EndTime, Mode=OneWay}"
-                        TextAlignment="Center" />
-                    <TextBlock
-                        FontSize="12"
-                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Text="{x:Bind strings:Resources.EndTimeText}"
-                        TextAlignment="Center" />
-                </StackPanel>
-            </Grid>
-        </StackPanel>
+            <winui:DropDownButton
+                Grid.Column="1"
+                Width="60"
+                Content="{x:Bind ViewModel.FocusLength, Mode=OneWay}">
+                <winui:DropDownButton.Flyout>
+                    <Flyout
+                        FlyoutPresenterStyle="{StaticResource DropdownFlyoutStyle}"
+                        Placement="Bottom"
+                        ShouldConstrainToRootBounds="False">
+                        <Grid Width="200">
+                            <local:TimerSlider
+                                AutomationName="{x:Bind strings:Resources.FocusLength}"
+                                Header="{x:Bind strings:Resources.FocusLength}"
+                                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
+                                StepFrequency="5"
+                                TickFrequency="15"
+                                Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
+                        </Grid>
+                    </Flyout>
+                </winui:DropDownButton.Flyout>
+            </winui:DropDownButton>
+
+            <FontIcon
+                Grid.Column="2"
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="14"
+                Glyph="{StaticResource GlyphSleep}" />
+
+            <winui:DropDownButton
+                Grid.Column="3"
+                Width="60"
+                Content="{x:Bind ViewModel.RestLength, Mode=OneWay}">
+                <winui:DropDownButton.Flyout>
+                    <Flyout
+                        FlyoutPresenterStyle="{StaticResource DropdownFlyoutStyle}"
+                        Placement="Bottom"
+                        ShouldConstrainToRootBounds="False">
+                        <Grid Width="200">
+                            <local:TimerSlider
+                                AutomationName="{x:Bind strings:Resources.RestLength}"
+                                Header="{x:Bind strings:Resources.RestLength}"
+                                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                                Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
+                                StepFrequency="5"
+                                TickFrequency="15"
+                                Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
+                        </Grid>
+                    </Flyout>
+                </winui:DropDownButton.Flyout>
+            </winui:DropDownButton>
+
+            <FontIcon
+                Grid.Column="4"
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="14"
+                Glyph="{StaticResource GlyphRepeat}" />
+
+            <winui:DropDownButton
+                Grid.Column="5"
+                Width="54"
+                Content="{x:Bind ViewModel.Repetitions, Mode=OneWay}">
+                <winui:DropDownButton.Flyout>
+                    <Flyout
+                        FlyoutPresenterStyle="{StaticResource DropdownFlyoutStyle}"
+                        Placement="Bottom"
+                        ShouldConstrainToRootBounds="False">
+                        <Grid Width="200">
+                            <local:TimerSlider
+                                AutomationName="{x:Bind strings:Resources.Repeats}"
+                                Header="{x:Bind strings:Resources.Repeats}"
+                                IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
+                                Maximum="8"
+                                TickFrequency="2"
+                                Value="{x:Bind ViewModel.Repetitions, Mode=TwoWay}" />
+                        </Grid>
+                    </Flyout>
+                </winui:DropDownButton.Flyout>
+            </winui:DropDownButton>
+
+            <Button
+                Grid.Column="6"
+                AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
+                Click="{x:Bind ViewModel.PlayOrPause}"
+                IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
+                Style="{StaticResource SmallSubtleIconButton}">
+                <FontIcon FontSize="12" Style="{StaticResource PlayTimerIcon}" />
+            </Button>
+        </Grid>
 
         <!--  task ui  -->
         <Grid Padding="24,24,24,0" Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
@@ -163,9 +204,12 @@
 
         <!--  no task ui  -->
         <Grid Margin="12,0" Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
-            <Grid.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:0.3" />
+            </animations:Implicit.ShowAnimations>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
