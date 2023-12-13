@@ -39,19 +39,6 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="270" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="TimerRing.Width" Value="{StaticResource LargeRingSize}" />
-                        <Setter Target="TimerRing.Height" Value="{StaticResource LargeRingSize}" />
-                        <Setter Target="StatusText.Visibility" Value="Visible" />
-                        <Setter Target="InterruptionText.Visibility" Value="Visible" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
         <!--  sliders page  -->
@@ -177,11 +164,17 @@
         </Grid>
 
         <!--  no task ui  -->
-        <Grid Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
+        <Grid Margin="12,0" Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
             <local:FocusTimer2
-                x:Name="TimerRing"
-                Width="{StaticResource MediumRingSize}"
-                Height="{StaticResource MediumRingSize}"
+                Width="{StaticResource SmallRingSize}"
+                Height="{StaticResource SmallRingSize}"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FocusLength="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
                 FocusLengthProgress="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}"
@@ -189,148 +182,116 @@
                 RestLength="{x:Bind ViewModel.RestLength, Mode=OneWay}"
                 RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
                 RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
+            <FontIcon
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Glyph="{StaticResource GlyphFocus}"
+                Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}" />
+            <FontIcon
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Glyph="{StaticResource GlyphSleep}"
+                Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <animations:Implicit.Animations>
-                    <animations:OffsetAnimation Duration="0:0:0.3" />
-                </animations:Implicit.Animations>
-                <Grid>
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="14"
+            <StackPanel
+                Grid.Column="1"
+                Margin="12,0,0,0"
+                VerticalAlignment="Center">
+                <TextBlock FontSize="12" Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Glyph="{StaticResource GlyphFocus}"
-                        Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}" />
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="14"
+                        Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
+                    <TextBlock
+                        FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Glyph="{StaticResource GlyphSleep}"
-                        Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
-                </Grid>
-                <TextBlock
-                    x:Name="StatusText"
-                    Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}"
-                    TextAlignment="Center"
-                    Visibility="Collapsed" />
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
-                    <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
-                    <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
+                        Text="/" />
+                    <TextBlock
+                        FontSize="12"
+                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                        Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
                 </StackPanel>
 
-                <Button
-                    Margin="0,2,0,-10"
-                    HorizontalAlignment="Center"
-                    AutomationProperties.Name="{x:Bind strings:Resources.SkipThisSegment}"
-                    Command="{x:Bind ViewModel.SkipRestBreakCommand}"
-                    Style="{StaticResource TinySubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.SkipThisSegment}"
-                    Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:OpacityAnimation
-                            From="0"
-                            To="1"
-                            Duration="0:0:0.3" />
-                        <animations:TranslationAnimation
-                            From="0,12,0"
-                            To="0"
-                            Duration="0:0:0.3" />
-                    </animations:Implicit.ShowAnimations>
+                <ItemsControl
+                    Margin="0,4,0,0"
+                    ItemTemplate="{StaticResource FocusSegmentTemplate}"
+                    ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
+                    ItemsSource="{x:Bind ViewModel.Segments}" />
+            </StackPanel>
 
+            <StackPanel
+                Grid.Column="2"
+                Margin="12,0,0,0"
+                Orientation="Horizontal">
+                <Button
+                    AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
+                    Click="{x:Bind ViewModel.PlayOrPause}"
+                    IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
+                    Style="{StaticResource SmallSubtleIconButton}">
+                    <Grid>
+                        <FontIcon
+                            FontSize="12"
+                            Style="{StaticResource PlayTimerIcon}"
+                            Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
+                        <FontIcon
+                            FontSize="12"
+                            Style="{StaticResource FluentPauseTimerIcon}"
+                            Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
+                    </Grid>
+                </Button>
+                <Button
+                    Click="{x:Bind ViewModel.Stop}"
+                    Style="{StaticResource SmallSubtleIconButton}"
+                    Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+                    <FontIcon FontSize="12" Style="{StaticResource StopTimerIcon}" />
+                </Button>
+                <Button Style="{StaticResource SmallSubtleIconButton}" Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                     <Grid>
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="14"
-                            Glyph="{StaticResource GlyphSkip}"
+                            FontSize="12"
+                            Glyph="{StaticResource GlyphThreeDots}"
                             Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.SkipRestRequested), Mode=OneWay}" />
 
                         <winui:ProgressRing
-                            Width="16"
-                            Height="16"
+                            Width="14"
+                            Height="14"
                             AutomationProperties.AccessibilityView="Raw"
                             Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                             IsActive="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}"
                             Visibility="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}" />
                     </Grid>
+
+                    <Button.Flyout>
+                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuFlyoutItem
+                                AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
+                                Command="{x:Bind ViewModel.CompactInterruptionCommand}"
+                                Text="{x:Bind strings:Resources.LogInterruption}">
+                                <MenuFlyoutItem.Icon>
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphInterruption}" />
+                                </MenuFlyoutItem.Icon>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem
+                                AutomationProperties.Name="{x:Bind strings:Resources.SkipThisSegment}"
+                                Command="{x:Bind ViewModel.SkipRestBreakCommand}"
+                                Text="{x:Bind strings:Resources.SkipThisSegment}"
+                                Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}">
+                                <MenuFlyoutItem.Icon>
+                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSkip}" />
+                                </MenuFlyoutItem.Icon>
+                            </MenuFlyoutItem>
+                        </MenuFlyout>
+                    </Button.Flyout>
                 </Button>
             </StackPanel>
-        </Grid>
-
-        <StackPanel
-            Grid.Row="1"
-            Margin="24,0,24,12"
-            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-            <HyperlinkButton
-                HorizontalAlignment="Stretch"
-                AutomationProperties.Name="{x:Bind strings:Resources.LogInterruption}"
-                Command="{x:Bind ViewModel.CompactInterruptionCommand}"
-                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                ToolTipService.ToolTip="{x:Bind strings:Resources.LogInterruption}">
-                <StackPanel Orientation="Horizontal">
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="14"
-                        Glyph="{StaticResource GlyphInterruption}" />
-                    <TextBlock
-                        x:Name="InterruptionText"
-                        Margin="8,0,0,0"
-                        Text="{x:Bind strings:Resources.LogInterruption}"
-                        Visibility="Collapsed" />
-                </StackPanel>
-            </HyperlinkButton>
-
-            <ItemsControl
-                Margin="0,12,0,0"
-                ItemTemplate="{StaticResource FocusSegmentTemplate}"
-                ItemsPanel="{StaticResource FocusSegmentItemsPanel}"
-                ItemsSource="{x:Bind ViewModel.Segments}" />
-        </StackPanel>
-
-        <!--  bottom buttons  -->
-
-        <Border
-            Grid.Row="2"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-            BorderThickness="0,1,0,0">
-            <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
-        </Border>
-
-        <Grid
-            Grid.Row="2"
-            Padding="12"
-            ColumnSpacing="8">
-
-            <Grid.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Button
-                x:Name="StartButton"
-                Grid.ColumnSpan="2"
-                AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
-                Click="{x:Bind ViewModel.PlayOrPause}"
-                IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
-                Style="{StaticResource TimerActionButton}">
-                <Grid>
-                    <FontIcon Style="{StaticResource PlayTimerIcon}" Visibility="{x:Bind ViewModel.PlayVisible, Mode=OneWay}" />
-                    <FontIcon Style="{StaticResource FluentPauseTimerIcon}" Visibility="{x:Bind ViewModel.PauseVisible, Mode=OneWay}" />
-                </Grid>
-            </Button>
-            <Button
-                Grid.Column="1"
-                Click="{x:Bind ViewModel.Stop}"
-                Style="{StaticResource TimerActionButton}"
-                Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
-                <FontIcon Style="{StaticResource StopTimerIcon}" />
-            </Button>
         </Grid>
     </Grid>
 </UserControl>

@@ -18,7 +18,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="32" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -95,72 +94,6 @@
             </Button>
         </Grid>
 
-        <Grid
-            Grid.Row="2"
-            Height="44"
-            Padding="12,12,12,0"
-            ColumnSpacing="2"
-            CornerRadius="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Rectangle
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Fill="{ThemeResource LayerFillColorDefaultBrush}"
-                RadiusX="4"
-                RadiusY="4" />
-
-            <Border
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1"
-                CornerRadius="4" />
-
-            <controls:SegmentItem
-                AutomationName="{x:Bind strings:Resources.Home}"
-                Clicked="OnSegmentClicked"
-                IsChecked="{x:Bind ViewModel.IsHomeSelected, Mode=OneWay}"
-                Tag="home">
-                <controls:SegmentItem.ItemContent>
-                    <StackPanel Orientation="Horizontal">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="{StaticResource SmallIconSize}"
-                            Glyph="{StaticResource GlyphHome}" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            Text="{x:Bind strings:Resources.Home}" />
-                    </StackPanel>
-                </controls:SegmentItem.ItemContent>
-            </controls:SegmentItem>
-            <controls:SegmentItem
-                Grid.Column="1"
-                AutomationName="{x:Bind strings:Resources.FocusText}"
-                Clicked="OnSegmentClicked"
-                IsChecked="{x:Bind ViewModel.IsFocusSelected, Mode=OneWay}"
-                Tag="focus">
-                <controls:SegmentItem.ItemContent>
-                    <StackPanel Orientation="Horizontal">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="{StaticResource SmallIconSize}"
-                            Glyph="{StaticResource GlyphFocus}" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            Text="{x:Bind strings:Resources.FocusText}" />
-                    </StackPanel>
-                </controls:SegmentItem.ItemContent>
-            </controls:SegmentItem>
-        </Grid>
-
-        <Frame x:Name="CompactContentFrame" Grid.Row="3" />
+        <Frame x:Name="CompactContentFrame" Grid.Row="2" />
     </Grid>
 </Page>
