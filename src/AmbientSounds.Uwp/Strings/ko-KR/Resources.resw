@@ -58,7 +58,7 @@
     <value>켜기</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>타이머를 일시정지 하기</value>
+    <value>타이머 일시정지</value>
   </data>
   <data name="PlayerPauseText" xml:space="preserve">
     <value>일시정지</value>
@@ -67,7 +67,7 @@
     <value>재생</value>
   </data>
   <data name="PlayTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>타이머 재시작 하기</value>
+    <value>타이머 재시작</value>
   </data>
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>재생 준비 완료</value>
