@@ -296,6 +296,10 @@
             <x:String x:Key="GlyphRedirect">&#xE8A7;</x:String>
             <x:String x:Key="GlyphSkip">&#xEB9D;</x:String>
             <x:String x:Key="GlyphRepeat">&#xE1CD;</x:String>
+            <x:String x:Key="GlyphRoundedArrowLeft">&#xEDD9;</x:String>
+            <x:String x:Key="GlyphRoundedArrowRight">&#xEDDA;</x:String>
+            <x:String x:Key="GlyphRoundedArrowUp">&#xEDDB;</x:String>
+            <x:String x:Key="GlyphRoundedArrowDown">&#xEDDC;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

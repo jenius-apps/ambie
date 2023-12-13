@@ -146,7 +146,7 @@
         </Grid>
 
         <!--  task ui  -->
-        <Grid Padding="24,24,24,0" Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
+        <Grid Padding="24,24,24,0" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -203,13 +203,21 @@
         </Grid>
 
         <!--  no task ui  -->
-        <Grid Margin="12,0" Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
+        <Grid
+            Margin="12,0"
+            Padding="0,8,0,0"
+            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
                     From="0"
                     To="1"
                     Duration="0:0:0.3" />
             </animations:Implicit.ShowAnimations>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -338,6 +346,49 @@
                     </Button.Flyout>
                 </Button>
             </StackPanel>
+
+            <Grid
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Margin="-12,8,-12,0">
+
+                <Border
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="0,1,0,0">
+                    <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+                </Border>
+
+                <local:TaskTicker
+                    Margin="12,0,0,0"
+                    ItemsSource="{x:Bind ViewModel.FocusTasks}"
+                    SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
+
+                <!--<TextBlock
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="12"
+                    Text="Task" />
+
+                <StackPanel
+                    Grid.Column="1"
+                    Margin="0,0,-1,0"
+                    Orientation="Horizontal">
+                    <Button Style="{StaticResource TaskArrowButtonStyle}">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="10"
+                            Glyph="{StaticResource GlyphRoundedArrowLeft}" />
+                    </Button>
+                    <Button Style="{StaticResource TaskArrowButtonStyle}">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="10"
+                            Glyph="{StaticResource GlyphRoundedArrowRight}" />
+                    </Button>
+                </StackPanel>-->
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

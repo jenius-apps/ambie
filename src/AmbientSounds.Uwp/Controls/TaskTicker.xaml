@@ -1,0 +1,56 @@
+﻿<local:ObservableUserControl
+    x:Class="AmbientSounds.Controls.TaskTicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AmbientSounds.Controls">
+
+    <local:ObservableUserControl.Resources>
+        <Style
+            x:Key="TaskArrowButtonStyle"
+            BasedOn="{StaticResource DefaultButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+    </local:ObservableUserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Viewbox Width="24" Height="24">
+            <CheckBox Margin="0,0,-92,0" />
+        </Viewbox>
+
+        <TextBlock
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            FontSize="12"
+            Text="{x:Bind CurrentTaskText, Mode=OneWay}" />
+
+        <StackPanel
+            Grid.Column="2"
+            Margin="0,0,-1,0"
+            Orientation="Horizontal">
+            <Button Click="{x:Bind Previous}" Style="{StaticResource TaskArrowButtonStyle}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="10"
+                    Glyph="{StaticResource GlyphRoundedArrowLeft}" />
+            </Button>
+            <Button Click="{x:Bind Next}" Style="{StaticResource TaskArrowButtonStyle}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="10"
+                    Glyph="{StaticResource GlyphRoundedArrowRight}" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</local:ObservableUserControl>

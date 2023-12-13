@@ -252,6 +252,9 @@
     <Compile Include="Controls\StatDetail.xaml.cs">
       <DependentUpon>StatDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TaskTicker.xaml.cs">
+      <DependentUpon>TaskTicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TimeBanner.xaml.cs">
       <DependentUpon>TimeBanner.xaml</DependentUpon>
     </Compile>
@@ -620,6 +623,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\StatDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TaskTicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
