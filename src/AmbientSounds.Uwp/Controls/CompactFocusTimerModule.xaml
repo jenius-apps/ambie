@@ -17,8 +17,6 @@
 
     <UserControl.Resources>
         <x:Double x:Key="SmallRingSize">40</x:Double>
-        <x:Double x:Key="LargeRingSize">200</x:Double>
-        <x:Double x:Key="MediumRingSize">120</x:Double>
     </UserControl.Resources>
 
     <Grid>
@@ -165,6 +163,10 @@
 
         <!--  no task ui  -->
         <Grid Margin="12,0" Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
+            <Grid.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
+            </Grid.ChildrenTransitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />

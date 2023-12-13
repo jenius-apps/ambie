@@ -9,79 +9,56 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <Grid Padding="12,0">
+        <Grid.ChildrenTransitions>
+            <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
+        </Grid.ChildrenTransitions>
 
-        <StackPanel
-            Margin="20,12,20,0"
-            Orientation="Horizontal"
-            Visibility="Collapsed">
-            <FontIcon
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="16"
-                Glyph="{StaticResource GlyphInterruption}" />
-            <TextBlock Margin="12,0,0,0" Text="{x:Bind strings:Resources.LogInterruption}" />
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
 
         <winui:NumberBox
-            Grid.Row="1"
-            Margin="20,12,20,0"
-            Header="{x:Bind strings:Resources.InterruptionMinutesTitle}"
+            Width="64"
+            VerticalAlignment="Center"
             Maximum="{x:Bind ViewModel.MaximumMinutes}"
             Minimum="{x:Bind ViewModel.MinimumMinutes}"
-            SpinButtonPlacementMode="Inline"
+            SpinButtonPlacementMode="Compact"
             Value="{x:Bind ViewModel.MinutesLogged, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBox
-            Grid.Row="2"
-            Margin="20,8,20,20"
-            AcceptsReturn="True"
-            Header="{x:Bind strings:Resources.Notes}"
+            Grid.Column="1"
+            Margin="4,0,0,0"
+            VerticalAlignment="Center"
             MaxLength="280"
-            PlaceholderText="{x:Bind strings:Resources.Optional}"
-            Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-            TextWrapping="Wrap" />
+            PlaceholderText="{x:Bind strings:Resources.Notes}"
+            Text="{x:Bind ViewModel.Notes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Border
-            Grid.Row="3"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-            BorderThickness="0,1,0,0">
-            <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
-        </Border>
-
-        <Grid
-            Grid.Row="3"
-            Padding="12"
-            ColumnSpacing="8">
-
-            <Grid.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
+        <StackPanel
+            Grid.Column="2"
+            Margin="2,0,0,0"
+            Orientation="Horizontal">
             <Button
                 AutomationProperties.Name="{x:Bind strings:Resources.Confirm}"
                 Command="{x:Bind ViewModel.LogInterruptionCommand}"
-                Content="{x:Bind strings:Resources.Confirm}"
-                IsEnabled="{x:Bind ViewModel.IsConfirmEnabled, Mode=OneWay}"
-                Style="{StaticResource TimerActionButton}" />
+                Style="{StaticResource SmallSubtleIconButton}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="14"
+                    Glyph="{StaticResource GlyphCheckMark}" />
+            </Button>
+
             <Button
-                Grid.Column="1"
                 AutomationProperties.Name="{x:Bind strings:Resources.CancelText}"
                 Command="{x:Bind ViewModel.CancelCommand}"
-                Content="{x:Bind strings:Resources.CancelText}"
-                Style="{StaticResource TimerActionButton}" />
-        </Grid>
+                Style="{StaticResource SmallSubtleIconButton}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="14"
+                    Glyph="{StaticResource GlyphCancel}" />
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
