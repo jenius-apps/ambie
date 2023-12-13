@@ -92,7 +92,7 @@ public sealed partial class TaskTicker : ObservableUserControl
         SelectedIndex = newIndex;
     }
 
-    private void Next()
+    private async void Next(object sender, RoutedEventArgs e)
     {
         if (ItemsSource is null || 
             ItemsSource.Count == 0 || 
@@ -101,10 +101,17 @@ public sealed partial class TaskTicker : ObservableUserControl
             return;
         }
 
+        var oldTask = ItemsSource[SelectedIndex];
         UpdateCurrentTask(SelectedIndex + 1);
+
+        FakeTaskTextBlock.Text = oldTask.Text;
+        FakeTaskPanel.Visibility = Visibility.Visible;
+        TaskEntraceFromRight.Start();
+        await FakeTaskExitToLeft.StartAsync();
+        FakeTaskPanel.Visibility = Visibility.Collapsed;
     }
 
-    private void Previous()
+    private async void Previous(object sender, RoutedEventArgs e)
     {
         if (ItemsSource is null ||
             ItemsSource.Count == 0 ||
@@ -113,7 +120,13 @@ public sealed partial class TaskTicker : ObservableUserControl
             return;
         }
 
+        var oldTask = ItemsSource[SelectedIndex];
         UpdateCurrentTask(SelectedIndex - 1);
 
+        FakeTaskTextBlock.Text = oldTask.Text;
+        FakeTaskPanel.Visibility = Visibility.Visible;
+        TaskEntraceFromLeft.Start();
+        await FakeTaskExitToRight.StartAsync();
+        FakeTaskPanel.Visibility = Visibility.Collapsed;
     }
 }

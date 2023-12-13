@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Controls.TaskTicker"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:local="using:AmbientSounds.Controls">
 
     <local:ObservableUserControl.Resources>
@@ -18,22 +19,82 @@
         </Style>
     </local:ObservableUserControl.Resources>
 
-    <Grid>
+    <Grid Padding="12,0,0,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <Viewbox Width="24" Height="24">
-            <CheckBox Margin="0,0,-92,0" />
-        </Viewbox>
+        <StackPanel Orientation="Horizontal">
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="TaskEntraceFromRight">
+                    <animations:TranslationAnimation
+                        From="300,0,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="TaskEntraceFromLeft">
+                    <animations:TranslationAnimation
+                        From="-300,0,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
 
-        <TextBlock
-            Grid.Column="1"
-            VerticalAlignment="Center"
-            FontSize="12"
-            Text="{x:Bind CurrentTaskText, Mode=OneWay}" />
+            <Viewbox Width="24" Height="24">
+                <CheckBox Margin="0,0,-92,0" />
+            </Viewbox>
+
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="12"
+                Text="{x:Bind CurrentTaskText, Mode=OneWay}" />
+        </StackPanel>
+
+        <StackPanel
+            x:Name="FakeTaskPanel"
+            Orientation="Horizontal"
+            Visibility="Collapsed">
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="FakeTaskExitToRight">
+                    <animations:TranslationAnimation
+                        From="0"
+                        To="300,0,0"
+                        Duration="0:0:0.3" />
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="FakeTaskExitToLeft">
+                    <animations:TranslationAnimation
+                        From="0"
+                        To="-300,0,0"
+                        Duration="0:0:0.3" />
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+
+            <Viewbox Width="24" Height="24">
+                <CheckBox x:Name="FakeCheckBox" Margin="0,0,-92,0" />
+            </Viewbox>
+
+            <TextBlock
+                x:Name="FakeTaskTextBlock"
+                VerticalAlignment="Center"
+                FontSize="12" />
+        </StackPanel>
 
         <StackPanel
             Grid.Column="2"
@@ -45,7 +106,7 @@
                     FontSize="10"
                     Glyph="{StaticResource GlyphRoundedArrowLeft}" />
             </Button>
-            <Button Click="{x:Bind Next}" Style="{StaticResource TaskArrowButtonStyle}">
+            <Button Click="Next" Style="{StaticResource TaskArrowButtonStyle}">
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="10"

@@ -360,34 +360,7 @@
                     <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
                 </Border>
 
-                <local:TaskTicker
-                    Margin="12,0,0,0"
-                    ItemsSource="{x:Bind ViewModel.FocusTasks}"
-                    SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
-
-                <!--<TextBlock
-                    Margin="12,0,0,0"
-                    VerticalAlignment="Center"
-                    FontSize="12"
-                    Text="Task" />
-
-                <StackPanel
-                    Grid.Column="1"
-                    Margin="0,0,-1,0"
-                    Orientation="Horizontal">
-                    <Button Style="{StaticResource TaskArrowButtonStyle}">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="10"
-                            Glyph="{StaticResource GlyphRoundedArrowLeft}" />
-                    </Button>
-                    <Button Style="{StaticResource TaskArrowButtonStyle}">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="10"
-                            Glyph="{StaticResource GlyphRoundedArrowRight}" />
-                    </Button>
-                </StackPanel>-->
+                <local:TaskTicker ItemsSource="{x:Bind ViewModel.FocusTasks}" SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
             </Grid>
         </Grid>
     </Grid>
