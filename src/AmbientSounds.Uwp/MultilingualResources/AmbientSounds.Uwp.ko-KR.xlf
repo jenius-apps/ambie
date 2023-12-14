@@ -8,12 +8,12 @@
       <group id="AMBIENTSOUNDS.UWP/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="CloseCompactMode.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="translated">닫기 암비 미니</target>
+          <target state="translated">앰비 미니 닫기</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseCompactMode.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Close Ambie Mini</source>
-          <target state="translated">닫기 암비 미니</target>
+          <target state="translated">앰비 미니 닫기</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CloseText" translate="yes" xml:space="preserve">
@@ -70,27 +70,27 @@
         </trans-unit>
         <trans-unit id="PauseTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Pause the timer</source>
-          <target state="translated">타이머 정지</target>
+          <target state="translated">타이머 일시정지</target>
         </trans-unit>
         <trans-unit id="PlayerPauseText" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="translated">정지시키다</target>
+          <target state="translated">일시정지</target>
         </trans-unit>
         <trans-unit id="PlayerPlayText" translate="yes" xml:space="preserve">
           <source>Play</source>
-          <target state="translated">놀다</target>
+          <target state="translated">재생</target>
         </trans-unit>
         <trans-unit id="PlayTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Continue the timer</source>
-          <target state="translated">타이머 시작</target>
+          <target state="translated">타이머 재시작</target>
         </trans-unit>
         <trans-unit id="ReadyToPlayText" translate="yes" xml:space="preserve">
           <source>Ready to play</source>
-          <target state="translated">재생 준비</target>
+          <target state="translated">재생 준비 완료</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitch.Header" translate="yes" xml:space="preserve">
           <source>Telemetry</source>
-          <target state="translated">텔레미터법</target>
+          <target state="translated">텔레메트리</target>
         </trans-unit>
         <trans-unit id="SettingsText" translate="yes" xml:space="preserve">
           <source>Settings</source>
@@ -98,11 +98,11 @@
         </trans-unit>
         <trans-unit id="SleepTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View sleep timer options</source>
-          <target state="translated">수면 타이머 세팅하기, 정하는 시간 안에 음악이 정지됩니다.</target>
+          <target state="translated">수면 타이머 설정 보기</target>
         </trans-unit>
         <trans-unit id="SleepTimerButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View sleep timer options</source>
-          <target state="translated">수면 타이머 세팅하기, 정하는 시간 안에 음악이 정지됩니다.</target>
+          <target state="translated">수면 타이머 설정 보기</target>
         </trans-unit>
         <trans-unit id="Soundbeach" translate="yes" xml:space="preserve">
           <source>Beach</source>
@@ -150,19 +150,19 @@
         </trans-unit>
         <trans-unit id="SoundsLoadingRing.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds are loading</source>
-          <target state="translated">음악 로딩중</target>
+          <target state="translated">소리를 로딩중입니다</target>
         </trans-unit>
         <trans-unit id="SoundUnplayable" translate="yes" xml:space="preserve">
           <source>Cannot play sound</source>
-          <target state="translated">재생 할수 없음</target>
+          <target state="translated">소리를 재생 할수 없습니다</target>
         </trans-unit>
         <trans-unit id="StopTimerButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Stop the timer and clear the time</source>
-          <target state="translated">타이머 종료 그리고 시간 지우기</target>
+          <target state="translated">타이머 종료 및 시간 초기화</target>
         </trans-unit>
         <trans-unit id="VolumeSlider.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Global volume</source>
-          <target state="translated">글로벌 볼륨</target>
+          <target state="translated">전체 음량</target>
         </trans-unit>
         <trans-unit id="SettingsThemeHeader.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
@@ -170,15 +170,15 @@
         </trans-unit>
         <trans-unit id="SettingsThemeDefaultRadio.Content" translate="yes" xml:space="preserve">
           <source>Auto</source>
-          <target state="translated">자동 번역</target>
+          <target state="translated">자동</target>
         </trans-unit>
         <trans-unit id="SettingsThemeDarkRadio.Content" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="translated">어두운</target>
+          <target state="translated">다크 모드</target>
         </trans-unit>
         <trans-unit id="SettingsThemeLightRadio.Content" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="translated">빛</target>
+          <target state="translated">라이트 모드</target>
         </trans-unit>
         <trans-unit id="Soundvacuum" translate="yes" xml:space="preserve">
           <source>Vacuum</source>
@@ -190,7 +190,7 @@
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitch.Header" translate="yes" xml:space="preserve">
           <source>Notification for new sounds</source>
-          <target state="translated">알림 메시지</target>
+          <target state="translated">새로운 소리가 등록될 시 알림</target>
         </trans-unit>
         <trans-unit id="Soundwind" translate="yes" xml:space="preserve">
           <source>Wind</source>
@@ -198,7 +198,7 @@
         </trans-unit>
         <trans-unit id="BackButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Go back</source>
-          <target state="translated">뒤</target>
+          <target state="translated">뒤로 가기</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Going back to the previous page</note>
         </trans-unit>
         <trans-unit id="DownloadSoundButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -211,7 +211,7 @@
         </trans-unit>
         <trans-unit id="AlreadyDownloaded" translate="yes" xml:space="preserve">
           <source>Already downloaded</source>
-          <target state="translated">이미 다운로드 됨</target>
+          <target state="translated">이미 다운로드 완료</target>
           <note from="MultilingualBuild" annotates="source" priority="2">The sound is already downloaded</note>
         </trans-unit>
         <trans-unit id="CanDownload" translate="yes" xml:space="preserve">
@@ -221,11 +221,11 @@
         </trans-unit>
         <trans-unit id="OnlineSoundsList.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sound catalogue</source>
-          <target state="translated">사운드 카탈로그</target>
+          <target state="translated">소리 카탈로그</target>
         </trans-unit>
         <trans-unit id="SoundsGridView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sounds</source>
-          <target state="translated" state-qualifier="tm-suggestion">소리</target>
+          <target state="translated" state-qualifier="tm-suggestion">소리 목록</target>
           <note from="MultilingualBuild" annotates="source" priority="2">List of sounds</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicyButton.Content" translate="yes" xml:space="preserve">
@@ -262,7 +262,7 @@
         </trans-unit>
         <trans-unit id="ScreensaverMode" translate="yes" xml:space="preserve">
           <source>Screensaver mode</source>
-          <target state="translated">스크린 세이버 모드</target>
+          <target state="translated">화면 보호기 모드</target>
         </trans-unit>
         <trans-unit id="SettingsScreensaverSwitch.Header" translate="yes" xml:space="preserve">
           <source>Screensaver</source>
@@ -270,7 +270,7 @@
         </trans-unit>
         <trans-unit id="BuyButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Purchase sound</source>
-          <target state="translated">사운드 구매</target>
+          <target state="translated">소리 구매</target>
         </trans-unit>
         <trans-unit id="PreviewButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Preview sound</source>
@@ -282,12 +282,12 @@
         </trans-unit>
         <trans-unit id="Paused" translate="yes" xml:space="preserve">
           <source>Paused</source>
-          <target state="translated">소리가 일시 중지됨</target>
+          <target state="translated">일시 중지</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is paused</note>
         </trans-unit>
         <trans-unit id="Playing" translate="yes" xml:space="preserve">
           <source>Playing</source>
-          <target state="translated">소리가 재생됩니다</target>
+          <target state="translated">재생 중</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Sound is playing</note>
         </trans-unit>
         <trans-unit id="VolumeSliderSound.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -296,15 +296,15 @@
         </trans-unit>
         <trans-unit id="ActiveTrackListView.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Active sounds</source>
-          <target state="translated">활성 사운드</target>
+          <target state="translated">활성화된 소리들</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="translated">모든 소리 지우기</target>
+          <target state="translated">활성화된 소리들을 모두 지웁니다</target>
         </trans-unit>
         <trans-unit id="ClearActiveButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Clear all active sounds</source>
-          <target state="translated">모든 소리 지우기</target>
+          <target state="translated">활성화된 소리들을 모두 지웁니다</target>
         </trans-unit>
         <trans-unit id="ConfirmSaveButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Confirm save</source>
@@ -312,7 +312,7 @@
         </trans-unit>
         <trans-unit id="GlobalVolume" translate="yes" xml:space="preserve">
           <source>Global volume</source>
-          <target state="translated">글로벌 볼륨</target>
+          <target state="translated">전체 음량</target>
         </trans-unit>
         <trans-unit id="NameInputBox.Header" translate="yes" xml:space="preserve">
           <source>Sound mix name</source>
@@ -320,15 +320,15 @@
         </trans-unit>
         <trans-unit id="NameInputBox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Optional</source>
-          <target state="translated">선택 과목</target>
+          <target state="translated">선택 항목</target>
         </trans-unit>
         <trans-unit id="SaveMixButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Save custom sound mix</source>
-          <target state="translated">소리 저장</target>
+          <target state="translated">커스텀 사운드 믹스 저장</target>
         </trans-unit>
         <trans-unit id="SaveMixButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Save custom sound mix (Ctrl+S)</source>
-          <target state="translated">소리 저장 (Ctrl+S)</target>
+          <target state="translated">커스텀 사운드 믹스 저장 (Ctrl+S)</target>
         </trans-unit>
         <trans-unit id="CancelText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
@@ -344,7 +344,7 @@
         </trans-unit>
         <trans-unit id="CompactMode" translate="yes" xml:space="preserve">
           <source>Ambie Mini</source>
-          <target state="translated">암비 미니</target>
+          <target state="translated">앰비 미니</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="SignOutAppBarButton.Label" translate="yes" xml:space="preserve">
@@ -353,15 +353,15 @@
         </trans-unit>
         <trans-unit id="SignInDescriptionText" translate="yes" xml:space="preserve">
           <source>This will enable sound gallery sync across your devices.</source>
-          <target state="translated">이렇게 하면 장치 간에 사운드 갤러리 동기화가 활성화됩니다. 이렇게 하면 장치 간에 사운드 갤러리 동기화가 활성화됩니다.</target>
+          <target state="translated">이것으로 장치 간에 사운드 갤러리 동기화가 활성화됩니다.</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="translated">계정 옵션 보기</target>
+          <target state="translated">계정 설정 보기</target>
         </trans-unit>
         <trans-unit id="AccountOptionsButton.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>View account options</source>
-          <target state="translated">계정 옵션 보기</target>
+          <target state="translated">계정 설정 보기</target>
         </trans-unit>
         <trans-unit id="SignInButton.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Sign in</source>
@@ -373,7 +373,7 @@
         </trans-unit>
         <trans-unit id="SyncAppBarButton.Label" translate="yes" xml:space="preserve">
           <source>Sync</source>
-          <target state="translated">동조</target>
+          <target state="translated">동기화</target>
         </trans-unit>
         <trans-unit id="BrowseText" translate="yes" xml:space="preserve">
           <source>Browse</source>
@@ -389,11 +389,11 @@
         </trans-unit>
         <trans-unit id="NewSound" translate="yes" xml:space="preserve">
           <source>New sound</source>
-          <target state="translated">새로운 사운드</target>
+          <target state="translated">새로운 소리</target>
         </trans-unit>
         <trans-unit id="Refresh" translate="yes" xml:space="preserve">
           <source>Refresh</source>
-          <target state="translated">새로 고치다</target>
+          <target state="translated">새로 고침</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Text for a button that will refresh a list with new data</note>
         </trans-unit>
         <trans-unit id="SignIn" translate="yes" xml:space="preserve">
@@ -410,15 +410,15 @@
         </trans-unit>
         <trans-unit id="Optional" translate="yes" xml:space="preserve">
           <source>Optional</source>
-          <target state="translated">선택 과목</target>
+          <target state="translated">선택 항목</target>
         </trans-unit>
         <trans-unit id="Required" translate="yes" xml:space="preserve">
           <source>Required</source>
-          <target state="translated">필수의</target>
+          <target state="translated">필수</target>
         </trans-unit>
         <trans-unit id="Donate" translate="yes" xml:space="preserve">
           <source>Donate</source>
-          <target state="translated">기부하다</target>
+          <target state="translated">기부하기</target>
         </trans-unit>
         <trans-unit id="TermsOfUse" translate="yes" xml:space="preserve">
           <source>Terms of Use</source>
@@ -430,11 +430,11 @@
         </trans-unit>
         <trans-unit id="Dismiss" translate="yes" xml:space="preserve">
           <source>Dismiss</source>
-          <target state="translated">해고하다</target>
+          <target state="translated">닫기</target>
         </trans-unit>
         <trans-unit id="FirstLaunchMessage" translate="yes" xml:space="preserve">
           <source>Thank you for trying Ambie. For the best experience, try pinning us to your taskbar! Enjoy your relaxing stay 🏝</source>
-          <target state="translated">Ambie를 사용해 주셔서 감사합니다. 최상의 경험을 위해 작업 표시줄에 고정해 보세요!</target>
+          <target state="translated">앰비를 사용해 주셔서 감사합니다. 최상의 경험을 위해 작업 표시줄에 고정해 보세요!</target>
         </trans-unit>
         <trans-unit id="HelloAndWelcome" translate="yes" xml:space="preserve">
           <source>Hello and welcome!</source>
@@ -442,11 +442,11 @@
         </trans-unit>
         <trans-unit id="PinToTaskbar" translate="yes" xml:space="preserve">
           <source>Pin to taskbar</source>
-          <target state="translated">작업 표시 줄에 핀</target>
+          <target state="translated">작업 표시 줄에 고정</target>
         </trans-unit>
         <trans-unit id="Preview" translate="yes" xml:space="preserve">
           <source>Preview</source>
-          <target state="translated">시사</target>
+          <target state="translated">미리보기</target>
         </trans-unit>
         <trans-unit id="Catalogue" translate="yes" xml:space="preserve">
           <source>Catalogue</source>
@@ -454,20 +454,20 @@
         </trans-unit>
         <trans-unit id="Home" translate="yes" xml:space="preserve">
           <source>Home</source>
-          <target state="translated">집</target>
+          <target state="translated">홈</target>
         </trans-unit>
         <trans-unit id="SelectSoundsPlaceholder" translate="yes" xml:space="preserve">
           <source>Mix and match up to 3 sounds</source>
-          <target state="translated">3가지 소리 믹스</target>
+          <target state="translated">소리를 최대 3개까지 조합해보세요</target>
         </trans-unit>
         <trans-unit id="RemoveActiveButton" translate="yes" xml:space="preserve">
           <source>Remove {0} from active list</source>
-          <target state="translated">활동 목록에서 {0} 제거</target>
+          <target state="translated">활성 목록에서 {0} 제거</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</note>
         </trans-unit>
         <trans-unit id="ThemeSettings" translate="yes" xml:space="preserve">
           <source>Theme settings</source>
-          <target state="translated">주제 설정</target>
+          <target state="translated">테마 설정</target>
         </trans-unit>
         <trans-unit id="PricePerMonth" translate="yes" xml:space="preserve">
           <source>{0} per month</source>
@@ -481,27 +481,27 @@
         </trans-unit>
         <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
           <source>Access premium, high quality sounds</source>
-          <target state="translated">고품질 사운드에 액세스</target>
+          <target state="translated">고품질의 프리미엄 소리들</target>
         </trans-unit>
         <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
           <source>Download video screensavers</source>
-          <target state="translated">비디오 다운로드</target>
+          <target state="translated">비디오 화면 보호기</target>
         </trans-unit>
         <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
           <source>Support development</source>
-          <target state="translated">지원 개발</target>
+          <target state="translated">개발 지원</target>
         </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
-          <target state="translated">다시 안녕 👋🏽</target>
+          <target state="translated">또 뵙네요 👋🏽</target>
         </trans-unit>
         <trans-unit id="RateUsMessage" translate="yes" xml:space="preserve">
           <source>Enjoying Ambie? Please consider rating us!</source>
-          <target state="translated">평가해 주세요!</target>
+          <target state="translated">앰비를 잘 쓰고 계신가요? 괜찮으시다면 평가해 주세요!</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunch" translate="yes" xml:space="preserve">
           <source>Auto resume when Ambie opens</source>
-          <target state="translated">Ambie가 열리면 재개</target>
+          <target state="translated">앰비 실행 시 소리 자동재생</target>
         </trans-unit>
         <trans-unit id="DownloadText" translate="yes" xml:space="preserve">
           <source>Download</source>
@@ -509,7 +509,7 @@
         </trans-unit>
         <trans-unit id="MissingSoundsMessage" translate="yes" xml:space="preserve">
           <source>We need to download some sounds in order to play this. Once downloaded, try playing this again. Start download?</source>
-          <target state="translated">이것을 재생하려면 몇 가지 사운드를 다운로드해야 합니다. 다운로드가 완료되면 다시 재생해 보세요. 다운로드를 시작하다?</target>
+          <target state="translated">이것을 재생하려면 몇 가지 소리를 다운로드해야 합니다. 다운로드가 완료되면 다시 재생해 보세요. 다운로드를 시작하겠습니까?</target>
         </trans-unit>
         <trans-unit id="MissingSoundsTitle" translate="yes" xml:space="preserve">
           <source>Missing sounds</source>
@@ -517,7 +517,7 @@
         </trans-unit>
         <trans-unit id="Default" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="translated">기본</target>
+          <target state="translated">기본값</target>
         </trans-unit>
         <trans-unit id="DeleteText" translate="yes" xml:space="preserve">
           <source>Delete</source>
@@ -549,15 +549,15 @@
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
           <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">화면 보호기를 표시하는 데 문제가 있었습니다. Ambie를 다시 시작하거나 문제가 지속되면 당사에 문의하십시오.</target>
+          <target state="translated">화면 보호기를 표시하는 데 문제가 있었습니다. 앰비를 다시 시작하거나 문제가 지속되면 당사에 문의하세요.</target>
         </trans-unit>
         <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
           <source>Report the issue</source>
-          <target state="translated">문제를 보고하다</target>
+          <target state="translated">문제 보고</target>
         </trans-unit>
         <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
           <source>Rendering error</source>
-          <target state="translated">오류</target>
+          <target state="translated">렌더링 오류</target>
         </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
@@ -569,11 +569,11 @@
         </trans-unit>
         <trans-unit id="FocusText" translate="yes" xml:space="preserve">
           <source>Focus</source>
-          <target state="translated">집중하다</target>
+          <target state="translated">포커스</target>
         </trans-unit>
         <trans-unit id="PauseTimer" translate="yes" xml:space="preserve">
           <source>Pause timer</source>
-          <target state="translated">일시 중지 타이머</target>
+          <target state="translated">타이머 일시 중지</target>
         </trans-unit>
         <trans-unit id="StartTimer" translate="yes" xml:space="preserve">
           <source>Start timer</source>
@@ -581,7 +581,7 @@
         </trans-unit>
         <trans-unit id="FocusSessionCompleteMessage" translate="yes" xml:space="preserve">
           <source>Well done!</source>
-          <target state="translated">잘 했어!</target>
+          <target state="translated">수고하셨습니다!</target>
         </trans-unit>
         <trans-unit id="FocusSessionCompleteTitle" translate="yes" xml:space="preserve">
           <source>Focus session complete</source>
@@ -589,31 +589,31 @@
         </trans-unit>
         <trans-unit id="FocusSessionFocusMessage" translate="yes" xml:space="preserve">
           <source>Time to focus</source>
-          <target state="translated">집중할 시간</target>
+          <target state="translated">집중 할 시간 입니다</target>
         </trans-unit>
         <trans-unit id="FocusSessionRestMessage" translate="yes" xml:space="preserve">
           <source>Time to rest</source>
-          <target state="translated">쉬는 시간</target>
+          <target state="translated">휴식 시간 입니다</target>
         </trans-unit>
         <trans-unit id="RestText" translate="yes" xml:space="preserve">
           <source>Rest</source>
-          <target state="translated">쉬다</target>
+          <target state="translated">휴식</target>
         </trans-unit>
         <trans-unit id="FocusDotTooltip" translate="yes" xml:space="preserve">
           <source>Focus session is active!</source>
-          <target state="translated">포커스 세션이 활성 상태입니다</target>
+          <target state="translated">집중 세션이 활성 상태입니다</target>
         </trans-unit>
         <trans-unit id="SessionTypeFocus" translate="yes" xml:space="preserve">
           <source>Focusing</source>
-          <target state="translated">초점 맞추기</target>
+          <target state="translated">집중하는 중</target>
         </trans-unit>
         <trans-unit id="SessionTypeRest" translate="yes" xml:space="preserve">
           <source>Resting</source>
-          <target state="translated">휴식</target>
+          <target state="translated">휴식중</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
-          <target state="translated">정지시키다</target>
+          <target state="translated">일시정지</target>
         </trans-unit>
         <trans-unit id="Reset" translate="yes" xml:space="preserve">
           <source>Reset</source>
@@ -621,7 +621,7 @@
         </trans-unit>
         <trans-unit id="ResetTimer" translate="yes" xml:space="preserve">
           <source>Reset timer</source>
-          <target state="translated">타이머 재설정</target>
+          <target state="translated">타이머 초기화</target>
         </trans-unit>
         <trans-unit id="Start" translate="yes" xml:space="preserve">
           <source>Start</source>
@@ -629,7 +629,7 @@
         </trans-unit>
         <trans-unit id="FocusLength" translate="yes" xml:space="preserve">
           <source>Focus minutes</source>
-          <target state="translated">집중 시간</target>
+          <target state="translated">집중 시간(분)</target>
         </trans-unit>
         <trans-unit id="FocusNotesPlaceholder" translate="yes" xml:space="preserve">
           <source>You can jot down any notes here 🙂</source>
@@ -638,7 +638,7 @@
         </trans-unit>
         <trans-unit id="FocusPlanningHeader" translate="yes" xml:space="preserve">
           <source>What's the plan?</source>
-          <target state="translated">무슨 계획이야?</target>
+          <target state="translated">무엇을 하실 계획이신가요?</target>
         </trans-unit>
         <trans-unit id="Notepad" translate="yes" xml:space="preserve">
           <source>Notepad</source>
@@ -646,27 +646,27 @@
         </trans-unit>
         <trans-unit id="RestLength" translate="yes" xml:space="preserve">
           <source>Rest minutes</source>
-          <target state="translated">휴식 시간</target>
+          <target state="translated">휴식 시간(분)</target>
         </trans-unit>
         <trans-unit id="Repeats" translate="yes" xml:space="preserve">
           <source>Repeats</source>
-          <target state="translated">반복하다</target>
+          <target state="translated">반복 횟수</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpAction" translate="yes" xml:space="preserve">
           <source>Show me how to use it</source>
-          <target state="translated">그것을 사용하는 방법을 보여주세요</target>
+          <target state="translated">사용법을 가르쳐 주세요</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpMessage" translate="yes" xml:space="preserve">
           <source>This is an interval timer inspired by the pomodoro technique. The goal is to focus on a task for an extended period of time, then take a shorter rest break. Repeat this cycle to keep focusing!</source>
-          <target state="translated">뽀모도로 기법에서 영감을 받은 인터벌 타이머입니다. 목표는 오랜 시간 동안 작업에 집중한 다음 더 짧은 휴식을 취하는 것입니다. 계속 초점을 맞추려면 이 주기를 반복하세요!</target>
+          <target state="translated">뽀모도로 기법에서 영감을 받은 인터벌 타이머입니다. 목표는 오랜 시간 동안 작업에 집중한 다음 작업 시간 보다 짧은 휴식을 취하는 것입니다. 계속 초점을 맞추려면 이 주기를 반복하세요!</target>
         </trans-unit>
         <trans-unit id="FocusTimerHelpTitle" translate="yes" xml:space="preserve">
           <source>Welcome to Focus Timer!</source>
-          <target state="translated">초점 타이머에 오신 것을 환영합니다!</target>
+          <target state="translated">집중 타이머에 오신 것을 환영합니다!</target>
         </trans-unit>
         <trans-unit id="Help" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="translated">돕다</target>
+          <target state="translated">도움말</target>
         </trans-unit>
         <trans-unit id="Next" translate="yes" xml:space="preserve">
           <source>Next</source>
@@ -674,19 +674,19 @@
         </trans-unit>
         <trans-unit id="TipFocusMessage" translate="yes" xml:space="preserve">
           <source>Each cycle has a focus segment and a rest segment. Choose how long each focus segment will be. We recommend 25 minutes to start!</source>
-          <target state="translated">각 주기에는 초점 세그먼트와 휴식 세그먼트가 있습니다. 각 초점 세그먼트의 길이를 선택하십시오. 시작하는 데 25분을 권장합니다!</target>
+          <target state="translated">각 주기에는 집중 구간과 휴식 구간이 있습니다. 각 집중 구간의 길이를 선택하십시오. 처음이라면 25분을 권장합니다!</target>
         </trans-unit>
         <trans-unit id="TipFocusTitle" translate="yes" xml:space="preserve">
           <source>Set focus minutes</source>
-          <target state="translated">초점 시간 설정</target>
+          <target state="translated">집중 시간(분) 설정</target>
         </trans-unit>
         <trans-unit id="TipRepeatsMessage" translate="yes" xml:space="preserve">
           <source>Each focus and rest cycle can repeat multiple times. Try adding 1 repeat!</source>
-          <target state="translated">각 초점 및 휴식 주기는 여러 번 반복될 수 있습니다. 1회 반복을 추가해 보세요!</target>
+          <target state="translated">각 집중 및 휴식 주기는 여러 번 반복될 수 있습니다. 1회 반복을 추가해 보세요!</target>
         </trans-unit>
         <trans-unit id="TipRepeatsTitle" translate="yes" xml:space="preserve">
           <source>Set repeats</source>
-          <target state="translated">반복 설정</target>
+          <target state="translated">반복 횟수 설정</target>
         </trans-unit>
         <trans-unit id="TipRestMessage" translate="yes" xml:space="preserve">
           <source>Now, choose how long each rest segment will be. We recommend about 5 minutes for now!</source>
@@ -694,15 +694,15 @@
         </trans-unit>
         <trans-unit id="TipRestTitle" translate="yes" xml:space="preserve">
           <source>Set rest minutes</source>
-          <target state="translated">휴식 시간 설정</target>
+          <target state="translated">휴식 시간(분) 설정</target>
         </trans-unit>
         <trans-unit id="TipStartButtonMessage" translate="yes" xml:space="preserve">
           <source>Start the timer and work on your tasks. We'll send you notifications when it's time to rest. Work hard!</source>
-          <target state="translated">타이머를 시작하고 작업을 수행합니다. 휴식 시간이 되면 알림을 보내드립니다. 열심히 일하다!</target>
+          <target state="translated">타이머를 시작하고 작업을 수행합니다. 휴식 시간이 되면 알림을 보내드리겠습니다. 화이팅!</target>
         </trans-unit>
         <trans-unit id="TipStartButtonTitle" translate="yes" xml:space="preserve">
           <source>Ready, set, go</source>
-          <target state="translated">준비, 설정, 이동</target>
+          <target state="translated">제자리에, 준비하시고, 시작!</target>
         </trans-unit>
         <trans-unit id="RecentFocusAccessibleName" translate="yes" xml:space="preserve">
           <source>{0} focus minutes, {1} rest minutes, {2} repeats.</source>
@@ -710,7 +710,7 @@
         </trans-unit>
         <trans-unit id="RecentFocusList" translate="yes" xml:space="preserve">
           <source>List of recent focus configurations.</source>
-          <target state="translated">최근 포커스 구성 목록</target>
+          <target state="translated">최근 집중 구성 목록</target>
         </trans-unit>
         <trans-unit id="ZeroToMax" translate="yes" xml:space="preserve">
           <source>0 to {0}</source>
@@ -718,7 +718,7 @@
         </trans-unit>
         <trans-unit id="History" translate="yes" xml:space="preserve">
           <source>History</source>
-          <target state="translated">역사</target>
+          <target state="translated">이전 기록</target>
         </trans-unit>
         <trans-unit id="Interruptions" translate="yes" xml:space="preserve">
           <source>Interruptions</source>
@@ -730,11 +730,11 @@
         </trans-unit>
         <trans-unit id="LogInterruption" translate="yes" xml:space="preserve">
           <source>Log interruption</source>
-          <target state="translated">로그 중단</target>
+          <target state="translated">방해 기록하기</target>
         </trans-unit>
         <trans-unit id="Confirm" translate="yes" xml:space="preserve">
           <source>Confirm</source>
-          <target state="translated">확인하다</target>
+          <target state="translated">확인</target>
         </trans-unit>
         <trans-unit id="InterruptionMinutesTitle" translate="yes" xml:space="preserve">
           <source>Minutes interrupted</source>
@@ -746,11 +746,11 @@
         </trans-unit>
         <trans-unit id="InterruptionMinutesHelpMessage" translate="yes" xml:space="preserve">
           <source>Were you interrupted by something? Keep track of your interruptions here, so you can review them later in your history.</source>
-          <target state="translated">무언가에 방해를 받았나요? 나중에 기록에서 검토할 수 있도록 여기에서 중단을 추적하십시오.</target>
+          <target state="translated">무언가에 방해를 받았나요? 나중에 검토할 수 있도록 이곳에 방해를 기록해보세요</target>
         </trans-unit>
         <trans-unit id="HistoryRecent" translate="yes" xml:space="preserve">
           <source>Recent history</source>
-          <target state="translated">최근 이력</target>
+          <target state="translated">최근 기록</target>
         </trans-unit>
         <trans-unit id="RoundsCompleted" translate="yes" xml:space="preserve">
           <source>Rounds completed</source>
@@ -758,15 +758,15 @@
         </trans-unit>
         <trans-unit id="ResultMessageFail1" translate="yes" xml:space="preserve">
           <source>Good effort</source>
-          <target state="translated">좋은 노력</target>
+          <target state="translated">수고하셨습니다</target>
         </trans-unit>
         <trans-unit id="ResultMessageSuccess1" translate="yes" xml:space="preserve">
           <source>You're amazing</source>
-          <target state="translated">너 굉장하다</target>
+          <target state="translated">굉장해요</target>
         </trans-unit>
         <trans-unit id="AppDisplayName" translate="yes" xml:space="preserve">
           <source>Ambie</source>
-          <target state="translated">암비</target>
+          <target state="translated">앰비</target>
         </trans-unit>
         <trans-unit id="TaskModuleNewTaskPlaceholder" translate="yes" xml:space="preserve">
           <source>Add tasks to focus on, then press the start button</source>
@@ -782,7 +782,7 @@
         </trans-unit>
         <trans-unit id="EditText" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="translated">편집하다</target>
+          <target state="translated">수정</target>
         </trans-unit>
         <trans-unit id="TasksCompleted" translate="yes" xml:space="preserve">
           <source>Tasks completed</source>
@@ -790,7 +790,7 @@
         </trans-unit>
         <trans-unit id="Timer" translate="yes" xml:space="preserve">
           <source>Timer</source>
-          <target state="translated">시간제 노동자</target>
+          <target state="translated">타이머</target>
         </trans-unit>
         <trans-unit id="TaskTitle" translate="yes" xml:space="preserve">
           <source>Task {0}</source>
@@ -798,19 +798,19 @@
         </trans-unit>
         <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
           <source>Free this week!</source>
-          <target state="translated">이번주 무료</target>
+          <target state="translated">이번주만 공짜!</target>
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="translated">초점을 맞출 때 암비 미니 열기</target>
+          <target state="translated">집중할 때 앰비 미니 열기</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
-          <target state="translated">지속</target>
+          <target state="translated">집중 시간</target>
         </trans-unit>
         <trans-unit id="EndTimeText" translate="yes" xml:space="preserve">
           <source>End</source>
-          <target state="translated">끝</target>
+          <target state="translated">예상 종료 시간</target>
         </trans-unit>
         <trans-unit id="MiniText" translate="yes" xml:space="preserve">
           <source>Mini</source>
@@ -818,51 +818,51 @@
         </trans-unit>
         <trans-unit id="CompactModeTooltipTitle" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini</source>
-          <target state="translated">오픈 앰비 미니</target>
+          <target state="translated">앰비 미니 열기</target>
         </trans-unit>
         <trans-unit id="CompactModeTooltipMessage" translate="yes" xml:space="preserve">
           <source>With Ambie Mini, we'll shrink the window and display only the necessary items to help you focus.</source>
-          <target state="translated">암비 미니 를 사용하면 창을 축소하고 집중하는 데 필요한 항목만 표시합니다.</target>
+          <target state="translated">앰비 미니를 사용하면 창 크기를 줄이고 집중하는데 필요한 항목만 표시합니다</target>
         </trans-unit>
         <trans-unit id="PausesText" translate="yes" xml:space="preserve">
           <source>Pauses</source>
-          <target state="translated">멈춤</target>
+          <target state="translated">일시정지</target>
         </trans-unit>
         <trans-unit id="EmptyHomeMessage" translate="yes" xml:space="preserve">
           <source>Download sounds from the catalogue</source>
-          <target state="translated">카탈로그에서 음악 다운로드</target>
+          <target state="translated">카탈로그에서 소리를 다운로드 하세요</target>
         </trans-unit>
         <trans-unit id="EditHomePage" translate="yes" xml:space="preserve">
           <source>Edit home page</source>
-          <target state="translated">시작 페이지 수정</target>
+          <target state="translated">홈 페이지 수정</target>
         </trans-unit>
         <trans-unit id="EditHomePageMessage" translate="yes" xml:space="preserve">
           <source>Drag and drop sounds to personalize your home page. Try it now!</source>
-          <target state="translated">사운드를 드래그 앤 드롭하여 시작 연령을 개인화하십시오. 지금 사용해 보세요!</target>
+          <target state="translated">소리를 드래그 앤 드롭하여 자신만의 홈 페이지를 만들 수 있습니다. 지금 당장 해보세요!</target>
         </trans-unit>
         <trans-unit id="EmptyCatalogueMessage" translate="yes" xml:space="preserve">
           <source>Sorry about that! We couldn't load the catalogue. Try checking your internet connection.</source>
-          <target state="translated">미안합니다! 카탈로그를 로드할 수 없습니다. 인터넷 연결을 확인하십시오.</target>
+          <target state="translated">죄송합니다! 카탈로그를 로드할 수 없습니다. 인터넷 연결을 확인해보세요.</target>
         </trans-unit>
         <trans-unit id="AboutAmbie" translate="yes" xml:space="preserve">
           <source>About Ambie</source>
-          <target state="translated">응용 프로그램 정보</target>
+          <target state="translated">앰비에 대해여</target>
         </trans-unit>
         <trans-unit id="SettingsCompactModeDescription" translate="yes" xml:space="preserve">
           <source>Ambie Mini will open automatically when focusing</source>
-          <target state="translated">초점을 맞출 때 Ambie Mini가 자동으로 열립니다</target>
+          <target state="translated">집중할 때 앰비 미니가 자동으로 열립니다</target>
         </trans-unit>
         <trans-unit id="SettingsNotificationsSwitchDescription" translate="yes" xml:space="preserve">
           <source>We'll notify you know when new sounds are available</source>
-          <target state="translated">새로운 소리를 사용할 수 있게 되면 알려드립니다</target>
+          <target state="translated">새로운 소리가 추가되면 알림으로 알려드립니다</target>
         </trans-unit>
         <trans-unit id="SettingsResumeOnLaunchDescription" translate="yes" xml:space="preserve">
           <source>On launch, Ambie will resume playing automatically</source>
-          <target state="translated">실행 시 Ambie는 자동으로 재생을 재개합니다</target>
+          <target state="translated">실행 시 앰비가 자동으로 가장 최근 들었던 소리를 다시 재생합니다</target>
         </trans-unit>
         <trans-unit id="SettingsTelemetrySwitchDescription" translate="yes" xml:space="preserve">
           <source>Crashes and anonymous usage info are reported to help improve Ambie</source>
-          <target state="translated">오류 및 익명 사용 정보는 Ambie 개선에 도움이 되도록 보고됩니다.</target>
+          <target state="translated">오류 및 익명 사용 정보를 앰비 개선에 도움이 되도록 보고됩니다.</target>
         </trans-unit>
         <trans-unit id="BackgroundImage" translate="yes" xml:space="preserve">
           <source>Background image</source>
@@ -882,11 +882,11 @@
         </trans-unit>
         <trans-unit id="SettingsThemeDescription" translate="yes" xml:space="preserve">
           <source>Change the colours that appear in Ambie</source>
-          <target state="translated">Ambie에 표시되는 색상 변경</target>
+          <target state="translated">앰비에 표시되는 색상 변경</target>
         </trans-unit>
         <trans-unit id="ShareMessage" translate="yes" xml:space="preserve">
           <source>Share what you're listening to</source>
-          <target state="translated">듣고 있는 것을 공유하세요</target>
+          <target state="translated">지금 듣고 있는 소리들을 공유해보세요</target>
         </trans-unit>
         <trans-unit id="MissingShareSoundsMessage" translate="yes" xml:space="preserve">
           <source>Let's see if they can be downloaded.</source>
@@ -898,11 +898,11 @@
         </trans-unit>
         <trans-unit id="ReviewText" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="translated">검토</target>
+          <target state="translated">리뷰 작성</target>
         </trans-unit>
         <trans-unit id="ShareText" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="translated">공유하다</target>
+          <target state="translated">공유</target>
         </trans-unit>
         <trans-unit id="CopiedText" translate="yes" xml:space="preserve">
           <source>Copied!</source>
@@ -922,7 +922,7 @@
         </trans-unit>
         <trans-unit id="PriceForLifetime" translate="yes" xml:space="preserve">
           <source>{0} lifetime</source>
-          <target state="translated">{0} 수명</target>
+          <target state="translated">평생 {0}</target>
         </trans-unit>
         <trans-unit id="CheckForUpdatesText" translate="yes" xml:space="preserve">
           <source>Check for updates</source>
@@ -930,7 +930,7 @@
         </trans-unit>
         <trans-unit id="UpdatesPageMessage1" translate="yes" xml:space="preserve">
           <source>Check here for updates to your sounds and videos.</source>
-          <target state="translated">여기에서 사운드 및 비디오에 대한 업데이트를 확인하세요.</target>
+          <target state="translated">여기에서 소리 및 비디오에 대한 업데이트를 확인하세요.</target>
         </trans-unit>
         <trans-unit id="UpdatesPageMessage2" translate="yes" xml:space="preserve">
           <source>Updates contain improvements to translations, sound quality, and more.</source>
@@ -970,11 +970,11 @@
         </trans-unit>
         <trans-unit id="InterruptionInsightsMessage" translate="yes" xml:space="preserve">
           <source>Is there anything we can learn to avoid future interruptions?</source>
-          <target state="translated">미래의 중단을 피하기 위해 배울 수있는 것이 있습니까?</target>
+          <target state="translated">다음번에 방해받는 것을 피하기 위해 개선점이 있습니까?</target>
         </trans-unit>
         <trans-unit id="RecentInterruptionsText" translate="yes" xml:space="preserve">
           <source>Recent interruptions</source>
-          <target state="translated">최근 중단</target>
+          <target state="translated">최근 방해 기록</target>
         </trans-unit>
         <trans-unit id="InterruptionInsightsButtonText" translate="yes" xml:space="preserve">
           <source>Need help with interruptions?</source>
@@ -986,19 +986,19 @@
         </trans-unit>
         <trans-unit id="SettingsOutputDeviceDescription" translate="yes" xml:space="preserve">
           <source>Choose where to play sound</source>
-          <target state="translated">사운드 재생 위치 선택</target>
+          <target state="translated">소리 재생 위치 선택</target>
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusDescription" translate="yes" xml:space="preserve">
           <source>Sounds will continue to play after your focus session ends</source>
-          <target state="translated">집중 세션이 끝난 후에도 사운드가 계속 재생됩니다</target>
+          <target state="translated">집중 세션이 끝난 뒤에도 소리가 계속 재생됩니다</target>
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
           <source>Continue sounds after focusing</source>
-          <target state="translated">초점을 맞춘 후 소리 계속</target>
+          <target state="translated">집중 후에도 소리를 계속 재생하기</target>
         </trans-unit>
         <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
           <source>Relax</source>
-          <target state="translated">늦추다</target>
+          <target state="translated">릴렉스</target>
         </trans-unit>
         <trans-unit id="BackgroundSoundsText" translate="yes" xml:space="preserve">
           <source>Background sounds</source>
@@ -1010,11 +1010,11 @@
         </trans-unit>
         <trans-unit id="CloseRequestedMessage" translate="yes" xml:space="preserve">
           <source>Your sounds will stop if you close Ambie</source>
-          <target state="translated">Ambie를 닫으면 소리가 멈춥니다.</target>
+          <target state="translated">앰비를 닫으면 소리가 멈춥니다</target>
         </trans-unit>
         <trans-unit id="SettingsConfirmCloseDescription" translate="yes" xml:space="preserve">
           <source>When sounds are playing, show confirmation dialog when closing the app</source>
-          <target state="translated">소리가 재생 중일 때 앱을 닫을 때 확인 대화 상자를 표시합니다.</target>
+          <target state="translated">소리가 재생 중일 때 앱을 닫을 때 확인 대화 상자를 표시합니다</target>
         </trans-unit>
         <trans-unit id="SettingsConfirmCloseHeader" translate="yes" xml:space="preserve">
           <source>Confirm close</source>
@@ -1022,7 +1022,7 @@
         </trans-unit>
         <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
           <source>Always ask me</source>
-          <target state="translated">항상 내게 물어봐</target>
+          <target state="translated">항상 묻기</target>
         </trans-unit>
         <trans-unit id="PlayRandom" translate="yes" xml:space="preserve">
           <source>Play random sound</source>
@@ -1038,7 +1038,7 @@
         </trans-unit>
         <trans-unit id="SearchEmptyPlaceholderText" translate="yes" xml:space="preserve">
           <source>Oops! We couldn't find that sound. We'll see if we can add it in the future</source>
-          <target state="translated">이런! 우리는 그 소리를 찾을 수 없었습니다. 나중에 추가할 수 있는지 확인하겠습니다</target>
+          <target state="translated">이런! 그 소리를 찾을 수 없었습니다. 차후 추가를 고려해보겠습니다</target>
         </trans-unit>
         <trans-unit id="SearchText" translate="yes" xml:space="preserve">
           <source>Search</source>
@@ -1046,23 +1046,23 @@
         </trans-unit>
         <trans-unit id="QuickResumeTitle" translate="yes" xml:space="preserve">
           <source>Quick Resume</source>
-          <target state="translated">퀵 리줌</target>
+          <target state="translated">빠른 재시작</target>
         </trans-unit>
         <trans-unit id="QuickResumeToastMessage" translate="yes" xml:space="preserve">
           <source>Resume your last ambience</source>
-          <target state="translated">마지막 분위기를 다시 시작하세요</target>
+          <target state="translated">마지막으로 들었던 소리들을 바로 재생하세요</target>
         </trans-unit>
         <trans-unit id="QuickResumeDescription" translate="yes" xml:space="preserve">
           <source>Resume your last ambience with one click when your PC starts up</source>
-          <target state="translated">PC가 시작될 때 클릭 한 번으로 마지막 분위기를 다시 시작하십시오.</target>
+          <target state="translated">PC가 시작될 때 클릭 한 번으로 마지막으로 들었던 소리들을 바로 재생하세요.</target>
         </trans-unit>
         <trans-unit id="HomePageDownloadMessage" translate="yes" xml:space="preserve">
           <source>Get more sounds from the catalogue</source>
-          <target state="translated">카탈로그에서 더 많은 사운드 가져오기</target>
+          <target state="translated">카탈로그에서 더 많은 소리 가져오기</target>
         </trans-unit>
         <trans-unit id="SkipThisSegment" translate="yes" xml:space="preserve">
           <source>Skip this segment</source>
-          <target state="translated">이 세그먼트 건너뛰기</target>
+          <target state="translated">이 구간 건너뛰기</target>
         </trans-unit>
       </group>
     </body>
