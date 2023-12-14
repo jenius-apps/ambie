@@ -25,7 +25,7 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Margin="0,1,0,0" Orientation="Horizontal">
             <animations:Explicit.Animations>
                 <animations:AnimationSet x:Name="TaskEntraceFromRight">
                     <animations:TranslationAnimation
@@ -60,11 +60,13 @@
             <TextBlock
                 VerticalAlignment="Center"
                 FontSize="12"
+                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                 Text="{x:Bind CurrentTaskText, Mode=OneWay}" />
         </StackPanel>
 
         <StackPanel
             x:Name="FakeTaskPanel"
+            Margin="0,1,0,0"
             Orientation="Horizontal"
             Visibility="Collapsed">
             <animations:Explicit.Animations>
