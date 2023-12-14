@@ -364,10 +364,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         _focusHistoryService.LogTaskCompleted(task.Task.Id);
         _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
-        if (SelectedTaskIndex < FocusTasks.Count - 1)
-        {
-            SelectedTaskIndex += 1;
-        }
 
         _telemetry.TrackEvent(TelemetryConstants.TaskCompletedInSession);
     }

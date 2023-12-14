@@ -18,7 +18,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="32" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -31,20 +30,6 @@
             BorderThickness="0,0,0,1">
             <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
         </Border>
-
-        <Button
-            x:Uid="CloseCompactMode"
-            Width="32"
-            Height="28"
-            Margin="4,4,0,0"
-            Canvas.ZIndex="1"
-            Command="{x:Bind ViewModel.CloseCompactCommand}"
-            Style="{StaticResource SmallSubtleIconButton}">
-            <FontIcon
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="{StaticResource SmallIconSize}"
-                Glyph="{StaticResource GlyphBack}" />
-        </Button>
 
         <Grid x:Name="AppTitleBar" Background="Transparent">
             <!--  Width of the padding columns is set in LayoutMetricsChanged handler.  -->
@@ -60,9 +45,19 @@
 
             <controls:TitleBarLogo
                 Grid.Column="1"
-                Margin="0,6,0,0"
-                HorizontalAlignment="Center"
-                DisplayText="{x:Bind strings:Resources.MiniText}" />
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                AutomationProperties.AccessibilityView="Raw"
+                TextVisible="Collapsed" />
+
+            <TextBlock
+                Grid.Column="1"
+                Margin="0,10,0,0"
+                AutomationProperties.AccessibilityView="Raw"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.MiniText}"
+                TextAlignment="Center" />
         </Grid>
 
         <Grid
@@ -72,15 +67,29 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <controls:PlayerControl IsCompact="True" />
+            <Button
+                x:Uid="CloseCompactMode"
+                Command="{x:Bind ViewModel.CloseCompactCommand}"
+                Style="{StaticResource SmallSubtleIconButton}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="14"
+                    Glyph="{StaticResource GlyphBack}" />
+            </Button>
+
+            <controls:PlayerControl
+                Grid.Column="1"
+                IsCompact="True"
+                PlayButtonVisible="Collapsed" />
 
             <Button
-                Grid.Column="1"
-                Margin="12,0,0,0"
+                Grid.Column="2"
+                Margin="8,0,0,0"
                 Style="{StaticResource SmallSubtleIconButton}">
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
@@ -95,72 +104,6 @@
             </Button>
         </Grid>
 
-        <Grid
-            Grid.Row="2"
-            Height="44"
-            Padding="12,12,12,0"
-            ColumnSpacing="2"
-            CornerRadius="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Rectangle
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Fill="{ThemeResource LayerFillColorDefaultBrush}"
-                RadiusX="4"
-                RadiusY="4" />
-
-            <Border
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1"
-                CornerRadius="4" />
-
-            <controls:SegmentItem
-                AutomationName="{x:Bind strings:Resources.Home}"
-                Clicked="OnSegmentClicked"
-                IsChecked="{x:Bind ViewModel.IsHomeSelected, Mode=OneWay}"
-                Tag="home">
-                <controls:SegmentItem.ItemContent>
-                    <StackPanel Orientation="Horizontal">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="{StaticResource SmallIconSize}"
-                            Glyph="{StaticResource GlyphHome}" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            Text="{x:Bind strings:Resources.Home}" />
-                    </StackPanel>
-                </controls:SegmentItem.ItemContent>
-            </controls:SegmentItem>
-            <controls:SegmentItem
-                Grid.Column="1"
-                AutomationName="{x:Bind strings:Resources.FocusText}"
-                Clicked="OnSegmentClicked"
-                IsChecked="{x:Bind ViewModel.IsFocusSelected, Mode=OneWay}"
-                Tag="focus">
-                <controls:SegmentItem.ItemContent>
-                    <StackPanel Orientation="Horizontal">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="{StaticResource SmallIconSize}"
-                            Glyph="{StaticResource GlyphFocus}" />
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            Text="{x:Bind strings:Resources.FocusText}" />
-                    </StackPanel>
-                </controls:SegmentItem.ItemContent>
-            </controls:SegmentItem>
-        </Grid>
-
-        <Frame x:Name="CompactContentFrame" Grid.Row="3" />
+        <Frame x:Name="CompactContentFrame" Grid.Row="2" />
     </Grid>
 </Page>

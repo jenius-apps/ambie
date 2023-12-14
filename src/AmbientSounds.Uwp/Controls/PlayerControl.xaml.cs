@@ -9,12 +9,17 @@ namespace AmbientSounds.Controls
 {
     public sealed partial class PlayerControl : UserControl
     {
-        public static readonly DependencyProperty IsCompactProperty =
-            DependencyProperty.Register(
-                nameof(IsCompact),
-                typeof(bool),
-                typeof(PlayerControl),
-                new PropertyMetadata(false));
+        public static readonly DependencyProperty IsCompactProperty = DependencyProperty.Register(
+            nameof(IsCompact),
+            typeof(bool),
+            typeof(PlayerControl),
+            new PropertyMetadata(false));
+
+        public static readonly DependencyProperty PlayVisibleProperty = DependencyProperty.Register(
+            nameof(PlayButtonVisible),
+            typeof(bool),
+            typeof(PlayerControl),
+            new PropertyMetadata(Visibility.Visible));
 
         public PlayerControl()
         {
@@ -30,6 +35,12 @@ namespace AmbientSounds.Controls
         {
             get => (bool)GetValue(IsCompactProperty);
             set => SetValue(IsCompactProperty, value);
+        }
+
+        public Visibility PlayButtonVisible
+        {
+            get => (Visibility)GetValue(PlayVisibleProperty);
+            set => SetValue(PlayVisibleProperty, value);
         }
     }
 }

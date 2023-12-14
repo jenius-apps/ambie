@@ -97,19 +97,4 @@ public sealed partial class CompactPage : Page
         // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/shell/title-bar#interactive-content
         AppTitleBar.Height = sender.Height;
     }
-
-    private void OnSegmentClicked(object sender, RoutedEventArgs e)
-    {
-        if (sender is SegmentItem item && item.Tag is string tag)
-        {
-            CompactViewMode requestedMode = tag switch
-            {
-                "home" => CompactViewMode.Home,
-                "focus" => CompactViewMode.Focus,
-                _ => CompactViewMode.Home
-            };
-
-            ViewModel.NavigateTo(requestedMode);
-        }
-    }
 }
