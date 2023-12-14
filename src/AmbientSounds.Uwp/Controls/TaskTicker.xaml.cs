@@ -93,9 +93,8 @@ public sealed partial class TaskTicker : ObservableUserControl
         CurrentTaskCompleted = task.IsCompleted;
         
         // Note: this must come after the SelectedIndex = newIndex line
-        // to avoid a race condition whereby the OnUnchecked will get triggered
-        // but the operation below, and that would use the incorrect
-        // SelectedIndex.
+        // to avoid a race condition whereby OnUnchecked will get triggered
+        // by the operation below, and that would use the incorrect SelectedIndex.
         RealCheckBox.IsChecked = CurrentTaskCompleted;
     }
 
