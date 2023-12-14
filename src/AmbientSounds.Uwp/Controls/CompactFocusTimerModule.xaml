@@ -145,68 +145,8 @@
             </Button>
         </Grid>
 
-        <!--  task ui  -->
-        <Grid Padding="24,24,24,0" Visibility="Collapsed">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <local:FocusTimer2
-                    Width="{StaticResource SmallRingSize}"
-                    Height="{StaticResource SmallRingSize}"
-                    HorizontalAlignment="Left"
-                    FocusLength="{x:Bind ViewModel.FocusLength, Mode=OneWay}"
-                    FocusLengthProgress="{x:Bind ViewModel.FocusLengthProgress, Mode=OneWay}"
-                    FocusRingVisible="{x:Bind ViewModel.IsFocusing, Mode=OneWay}"
-                    RestLength="{x:Bind ViewModel.RestLength, Mode=OneWay}"
-                    RestLengthProgress="{x:Bind ViewModel.RestLengthProgress, Mode=OneWay}"
-                    RestRingVisible="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
-
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="14"
-                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Glyph="{StaticResource GlyphFocus}"
-                    Visibility="{x:Bind ViewModel.IsFocusing, Mode=OneWay}" />
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="14"
-                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Glyph="{StaticResource GlyphSleep}"
-                    Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}" />
-
-                <StackPanel
-                    Grid.Column="1"
-                    Margin="24,0,0,0"
-                    Spacing="2">
-                    <TextBlock Text="{x:Bind ViewModel.CurrentStatus, Mode=OneWay}" />
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
-                        <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="/" />
-                        <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-
-            <FlipView
-                Grid.Row="1"
-                Margin="0,12,0,16"
-                Background="Transparent"
-                ItemTemplate="{StaticResource TaskFlipViewItemTemplate}"
-                ItemsSource="{x:Bind ViewModel.FocusTasks}"
-                SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
-        </Grid>
-
-        <!--  no task ui  -->
-        <Grid
-            Margin="12,0"
-            Padding="0,8,0,0"
-            Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
+        <!--  timer page  -->
+        <Grid Margin="12,0" Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
                     From="0"
@@ -215,8 +155,8 @@
             </animations:Implicit.ShowAnimations>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -350,7 +290,9 @@
             <Grid
                 Grid.Row="1"
                 Grid.ColumnSpan="3"
-                Margin="-12,8,-12,0">
+                Height="32"
+                Margin="-12,0"
+                Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
 
                 <Border
                     HorizontalAlignment="Stretch"
