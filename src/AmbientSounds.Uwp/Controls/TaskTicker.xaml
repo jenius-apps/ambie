@@ -50,7 +50,11 @@
             </animations:Explicit.Animations>
 
             <Viewbox Width="24" Height="24">
-                <CheckBox Margin="0,0,-92,0" />
+                <CheckBox
+                    x:Name="RealCheckBox"
+                    Margin="0,0,-92,0"
+                    Checked="OnChecked"
+                    Unchecked="OnUnchecked" />
             </Viewbox>
 
             <TextBlock

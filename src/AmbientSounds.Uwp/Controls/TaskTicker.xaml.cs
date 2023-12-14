@@ -39,7 +39,7 @@ public sealed partial class TaskTicker : ObservableUserControl
         nameof(SelectedIndex),
         typeof(int),
         typeof(TaskTicker),
-        new PropertyMetadata(0, OnIndexChanged));
+        new PropertyMetadata(-1, OnIndexChanged));
 
     private static void OnIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -54,6 +54,12 @@ public sealed partial class TaskTicker : ObservableUserControl
         typeof(string),
         typeof(TaskTicker),
         new PropertyMetadata(string.Empty));
+
+    public static readonly DependencyProperty CurrentTaskCompletedProperty = DependencyProperty.Register(
+        nameof(CurrentTaskCompleted),
+        typeof(bool),
+        typeof(TaskTicker),
+        new PropertyMetadata(false));
 
     public TaskTicker()
     {
@@ -78,18 +84,27 @@ public sealed partial class TaskTicker : ObservableUserControl
         set => SetValue(CurrentTaskTextProperty, value);
     }
 
+    public bool CurrentTaskCompleted
+    {
+        get => (bool)GetValue(CurrentTaskCompletedProperty);
+        set => SetValue(CurrentTaskCompletedProperty, value);
+    }
+
     private void UpdateCurrentTask(int newIndex)
     {
         if (ItemsSource is null ||
+            newIndex == SelectedIndex ||
             newIndex < 0 ||
             newIndex >= ItemsSource.Count)
         {
             return;
         }
-
+        
+        SelectedIndex = newIndex;
         var task = ItemsSource[newIndex];
         CurrentTaskText = task.Text;
-        SelectedIndex = newIndex;
+        CurrentTaskCompleted = task.IsCompleted;
+        RealCheckBox.IsChecked = CurrentTaskCompleted;
     }
 
     private async void Next(object sender, RoutedEventArgs e)
@@ -105,6 +120,7 @@ public sealed partial class TaskTicker : ObservableUserControl
         UpdateCurrentTask(SelectedIndex + 1);
 
         FakeTaskTextBlock.Text = oldTask.Text;
+        FakeCheckBox.IsChecked = oldTask.IsCompleted;
         FakeTaskPanel.Visibility = Visibility.Visible;
         TaskEntraceFromRight.Start();
         await FakeTaskExitToLeft.StartAsync();
@@ -124,9 +140,30 @@ public sealed partial class TaskTicker : ObservableUserControl
         UpdateCurrentTask(SelectedIndex - 1);
 
         FakeTaskTextBlock.Text = oldTask.Text;
+        FakeCheckBox.IsChecked = oldTask.IsCompleted;
         FakeTaskPanel.Visibility = Visibility.Visible;
         TaskEntraceFromLeft.Start();
         await FakeTaskExitToRight.StartAsync();
         FakeTaskPanel.Visibility = Visibility.Collapsed;
+    }
+
+    private void OnChecked(object sender, RoutedEventArgs e)
+    {
+        if (ItemsSource is null)
+        {
+            return;
+        }
+
+        ItemsSource[SelectedIndex].IsCompleted = true;
+    }
+
+    private void OnUnchecked(object sender, RoutedEventArgs e)
+    {
+        if (ItemsSource is null)
+        {
+            return;
+        }
+
+        ItemsSource[SelectedIndex].IsCompleted = false;
     }
 }
