@@ -732,9 +732,6 @@
     <PackageReference Include="CommunityToolkit.Labs.Uwp.Shimmer">
       <Version>0.0.1</Version>
     </PackageReference>
-    <PackageReference Include="ComputeSharp.D2D1.Uwp">
-      <Version>2.1.0-preview2</Version>
-    </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
       <Version>0.0.30-preview</Version>
     </PackageReference>
