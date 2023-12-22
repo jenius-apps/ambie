@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>プレミアム情報</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>雲</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>カラフルな煙</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>スクリーンセーバー表示で問題が発生しました。Ambie再起動を試しても改善しない場合には、お問い合わせください。</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>問題を報告する</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>レンダリングエラー</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>全画面表示切り替え</value>
   </data>

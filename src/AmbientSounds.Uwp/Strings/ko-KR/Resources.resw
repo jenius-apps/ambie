@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>프리미엄 정보 보기</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>구름</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>유색 연기</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>화면 보호기를 표시하는 데 문제가 있었습니다. 앰비를 다시 시작하거나 문제가 지속되면 당사에 문의하세요.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>문제 보고</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>렌더링 오류</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>전체 화면 전환</value>
   </data>

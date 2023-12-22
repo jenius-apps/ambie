@@ -281,7 +281,6 @@
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
-    <Compile Include="Effects\AnimatedWallpaperEffect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceDictionaries\SharedTemplates.xaml.cs">
       <DependentUpon>SharedTemplates.xaml</DependentUpon>

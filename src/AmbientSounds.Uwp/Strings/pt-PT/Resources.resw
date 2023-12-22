@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Ver informações premium</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Nuvens</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Fumaça colorida</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Ocorreu um problema ao exibir o protetor de tela. Tente reiniciar o Ambie ou entre em contato conosco se o problema persistir.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Relatar o problema</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Erro</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Alternar para o modo tela cheia</value>
   </data>

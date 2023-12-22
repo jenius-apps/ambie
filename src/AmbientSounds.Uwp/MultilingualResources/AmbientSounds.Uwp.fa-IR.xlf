@@ -540,26 +540,6 @@
           <source>View premium info</source>
           <target state="translated">اطلاعات بخش ویژه</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
-          <source>Clouds</source>
-          <target state="translated">ابرها</target>
-        </trans-unit>
-        <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
-          <source>Colored smoke</source>
-          <target state="translated">دود رنگی</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
-          <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">مشکلی در نمایش محافظ صفحه وجود داشت. Ambie را مجدداً راه‌اندازی کنید، یا اگر مشکل ادامه داشت با ما تماس بگیرید.</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
-          <source>Report the issue</source>
-          <target state="translated">گزارش مشکل</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
-          <source>Rendering error</source>
-          <target state="translated">خطای نمایش</target>
-        </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
           <target state="translated">حالت تمام صفحه</target>

@@ -409,21 +409,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Premium bilgilerini görüntüle</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Bulutlar</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Renkli duman</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Ekran koruyucu gösteriminde bir sorun yaşandı. Ambie'yi yeniden başlatmayı deneyin, sorun devam ederse bizimle iletişime geçin.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Sorunu bildir</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Görüntü hatası</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Tam ekrana geç</value>
   </data>

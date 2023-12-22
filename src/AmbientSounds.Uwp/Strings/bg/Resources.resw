@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Виж информация за премиум</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Облаци</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Цветен дим</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Имаше проблем с показването на скрийнсейвъра. Опитайте да рестартирате Амби или се свържете с нас, ако проблемът продължава.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Докладвайте проблем</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Грешка при рендиране</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Превключване на цял екран</value>
   </data>

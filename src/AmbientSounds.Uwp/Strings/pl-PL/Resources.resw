@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Informacje o usłudze premium</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Chmury</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Kolorowy dym</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Wystąpił problem podczas wyświetlania wygaszacza ekranu. Spróbuj ponownie uruchomić Ambie lub skontaktuj się z nami, jeśli problem nadal występuje.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Zgłoś problem</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Błąd renderingu</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Przełącz tryb pełnoekranowy</value>
   </data>

@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>查看高级信息</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>云层</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>幻彩烟雾</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>显示屏幕保护程序时遭遇问题。请尝试重新启动 Ambie，如果问题仍然存在，请联系我们。</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>报告问题</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>渲染错误</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>全屏</value>
   </data>

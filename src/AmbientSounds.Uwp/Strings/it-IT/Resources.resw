@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Visualizza informazioni premium</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Nuvole</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Fumo colorato</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Si è verificato un problema durante la visualizzazione dello screensaver. Prova a riavviare Ambie o contattaci se il problema persiste.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Segnala il problema</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Errore di rendering</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Passare a schermo intero</value>
   </data>

@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Se premium info</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Skyer</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Farvet røg</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Der opstod et problem med at vise pauseskærmen. Prøv at genstarte Ambie, eller kontakt os, hvis problemet fortsætter.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Rapportér problemet</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Gengivelsesfejl</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Skift fuldskærm</value>
   </data>

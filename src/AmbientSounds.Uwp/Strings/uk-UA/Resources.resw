@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Інформація про преміум</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Хмари</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Кольоровий дим</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Виникла проблема з відображенням заставки. Спробуйте перезапустити Ambie або зв’яжіться з нами, якщо проблема не зникне.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Повідомити про проблему</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Помилка відображення</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Перемкнути повноекранний режим</value>
   </data>

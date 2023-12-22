@@ -540,26 +540,6 @@
           <source>View premium info</source>
           <target state="translated">Vezi info despre Premium</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
-          <source>Clouds</source>
-          <target state="translated">Nori</target>
-        </trans-unit>
-        <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
-          <source>Colored smoke</source>
-          <target state="translated">Fum colorat</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
-          <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">Am intampinat o problema in redarea economizorului de ecran. Incearca sa restartezi Ambie, sau ia legatura cu noi daca problema persista.</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
-          <source>Report the issue</source>
-          <target state="translated">Raporteaza problema</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
-          <source>Rendering error</source>
-          <target state="translated">Eroare de randare</target>
-        </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
           <target state="translated">Comuta pe ecran complet </target>

@@ -5,9 +5,7 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:strings="using:AmbientSounds.Strings"
-    xmlns:win2d="using:Microsoft.Graphics.Canvas.UI.Xaml"
     mc:Ignorable="d">
     <Page.Resources>
         <BrushTransition x:Key="Transition" Duration="0:0:1" />
@@ -93,24 +91,6 @@
             AutoPlay="True"
             Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
-        <!--<win2d:CanvasAnimatedControl
-            x:Name="WallpaperCanvasControl"
-            Draw="CanvasAnimatedControl_Draw"
-            Visibility="{x:Bind ViewModel.AnimatedBackgroundVisible, Mode=OneWay}" />-->
-
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
-
-        <!--  Rendering error bar  -->
-        <!--<muxc:InfoBar
-            x:Name="RenderingErrorInfoBar"
-            x:Uid="RenderingErrorInfo"
-            VerticalAlignment="Bottom"
-            x:Load="False"
-            IsOpen="True"
-            Severity="Error">
-            <muxc:InfoBar.ActionButton>
-                <HyperlinkButton x:Uid="RenderingErrorLink" NavigateUri="mailto:jenius_apps@outlook.com" />
-            </muxc:InfoBar.ActionButton>
-        </muxc:InfoBar>-->
     </Grid>
 </Page>

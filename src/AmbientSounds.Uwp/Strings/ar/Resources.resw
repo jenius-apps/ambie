@@ -415,21 +415,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>عرض المعلومات المتميزة</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>السحب</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>دخان ملون</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>.حدثت مشكلة في عرض شاشة التوقف. حاول إعادة تشغيل أمبي ، أو إتصل بنا إذا استمرت المشكلة</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>أبلغ عن المشكلة</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>خطأ في التصيير</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>تبديل تكبير الشاشة</value>
   </data>

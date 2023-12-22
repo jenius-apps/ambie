@@ -409,21 +409,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Prikaz premium informacija</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Oblaci</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Obojeni dim</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Došlo je do problema s prikazom čuvara zaslona. Pokušajte ponovno pokrenuti Ambie ili nas kontaktirajte ako se problem nastavi pojavljivati.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Prijavite problem</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Pogreška pri renderiranju</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Uključi/isključi cijeli zaslon</value>
   </data>

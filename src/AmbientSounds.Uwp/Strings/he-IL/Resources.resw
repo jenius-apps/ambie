@@ -409,21 +409,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>הצג מידע פרימיום</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>עננים</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>עשן צבעוני</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>הייתה בעיה בהצגת שומר המסך. נסה להפעיל מחדש את Ambie, או צור איתנו קשר אם הבעיה נמשכת.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>דווח על הבעיה</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>שגיאת רינדור</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>החלף מסך מלא</value>
   </data>

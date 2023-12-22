@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Zobrazit prémiové informace</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Mraky</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Barevný kouř</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Nastala chyba při zobrazování spořiče obrazovky. Zkuste nejprve restartovat Ambie, případně pokud tato chyba bude přetrvávat nás kontaktujte.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Nahlásit chybu</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Chyba vykreslování</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Přepnout na celou obrazovku</value>
   </data>
