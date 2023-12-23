@@ -297,6 +297,24 @@
                             </StackPanel>
                         </HyperlinkButton>
 
+                        <HyperlinkButton
+                            Margin="12,0,12,4"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🔥" Margin="-4,0,0,0" FontSize="16"/>
+                                <!--<FontIcon
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    FontSize="16"
+                                    Glyph="{StaticResource GlyphFire}" />-->
+                                <TextBlock
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="271 days"
+                                    Typography.NumeralAlignment="Tabular" />
+                            </StackPanel>
+                        </HyperlinkButton>
+
                         <ItemsControl ItemsSource="{x:Bind ViewModel.FooterItems}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="models:MenuItem">
