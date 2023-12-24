@@ -540,26 +540,6 @@
           <source>View premium info</source>
           <target state="translated">Ver informações premium</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
-          <source>Clouds</source>
-          <target state="translated">Nuvens</target>
-        </trans-unit>
-        <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
-          <source>Colored smoke</source>
-          <target state="translated">Fumaça colorida</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
-          <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">Ocorreu um problema ao exibir o protetor de tela. Tente reiniciar o Ambie ou entre em contato conosco se o problema persistir.</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
-          <source>Report the issue</source>
-          <target state="translated">Relatar o problema</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
-          <source>Rendering error</source>
-          <target state="translated">Erro</target>
-        </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
           <target state="translated">Alternar para o modo tela cheia</target>

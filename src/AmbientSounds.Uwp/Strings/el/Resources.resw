@@ -409,21 +409,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Προβολή πληροφοριών premium</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Σύννεφα</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Χρωματιστός καπνός</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Παρουσιάστηκε πρόβλημα με την εμφάνιση της προφύλαξης οθόνης. Δοκιμάστε να επανεκκινήσετε το Ambie ή επικοινωνήστε μαζί μας εάν το πρόβλημα παραμένει.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Αναφέρετε το ζήτημα</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Σφάλμα απόδοσης</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Λειτουργεία πλήρους οθόνης</value>
   </data>

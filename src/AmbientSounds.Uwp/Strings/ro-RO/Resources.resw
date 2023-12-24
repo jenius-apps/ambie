@@ -415,21 +415,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Vezi info despre Premium</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Nori</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Fum colorat</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Am intampinat o problema in redarea economizorului de ecran. Incearca sa restartezi Ambie, sau ia legatura cu noi daca problema persista.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Raporteaza problema</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Eroare de randare</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Comuta pe ecran complet </value>
   </data>

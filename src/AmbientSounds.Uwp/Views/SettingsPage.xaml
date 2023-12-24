@@ -8,8 +8,28 @@
     mc:Ignorable="d">
 
     <ScrollViewer Margin="{StaticResource MainFramePageMargin}" CanContentRenderOutsideBounds="True">
-        <StackPanel Margin="0,0,16,12">
-            <controls:SettingsControl x:Name="SettingsControlInstance" />
-        </StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LeftGutter.Width" Value="*" />
+                        <Setter Target="ContentColumn.Width" Value="800" />
+                        <Setter Target="RightGutter.Width" Value="*" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid Margin="0,0,16,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftGutter" Width="auto" />
+                <ColumnDefinition x:Name="ContentColumn" Width="*" />
+                <ColumnDefinition x:Name="RightGutter" Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <controls:SettingsControl x:Name="SettingsControlInstance" Grid.Column="1" />
+        </Grid>
     </ScrollViewer>
 </Page>

@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using AmbientSounds.Shaders;
 using JeniusApps.Common.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -30,10 +29,6 @@ namespace AmbientSounds.ViewModels
         private readonly ISystemInfoProvider _systemInfoProvider;
         private readonly IUserSettings _userSettings;
         private Uri _videoSource = new Uri(DefaultVideoSource);
-
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(AnimatedBackgroundVisible))]
-        private string? _animatedBackgroundName = null;
 
         [ObservableProperty]
         private bool _settingsButtonVisible;
@@ -108,11 +103,6 @@ namespace AmbientSounds.ViewModels
 
         public bool VideoPlayerVisible => VideoSource.AbsoluteUri != DefaultVideoSource;
 
-        /// <summary>
-        /// Determines if the animated background should be shown.
-        /// </summary>
-        public bool AnimatedBackgroundVisible => AnimatedBackgroundName is not null;
-
         public bool FullScreenVisible => _systemInfoProvider.GetDeviceFamily() == "Windows.Desktop";
 
         public async Task InitializeAsync(string? screensaverToSelect = "")
@@ -129,14 +119,6 @@ namespace AmbientSounds.ViewModels
             var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
             MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
             MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), screensaverCommand, DarkScreenId, true));
-
-            // Only enable compute shaders on desktop
-            //if (_systemInfoProvider.IsDesktop())
-            //{
-            //    // Animated backgrounds
-            //    MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ColorfulInfinity)}", _localizer.GetString("ComputeShader/ColoredSmoke"), screensaverCommand, $"[CS]{nameof(ColorfulInfinity)}", true));
-            //    MenuItems.Add(new FlyoutMenuItem($"[CS]{nameof(ProteanClouds)}", _localizer.GetString("ComputeShader/Clouds"), screensaverCommand, $"[CS]{nameof(ProteanClouds)}", true));
-            //}
 
             foreach (var v in videos)
             {
@@ -205,23 +187,12 @@ namespace AmbientSounds.ViewModels
             if (menuItemId == DefaultId)
             {
                 IsDarkScreen = false;
-                AnimatedBackgroundName = null;
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = true;
             }
             else if (menuItemId == DarkScreenId)
             {
                 IsDarkScreen = true;
-                AnimatedBackgroundName = null;
-                VideoSource = new Uri(DefaultVideoSource);
-                SlideshowVisible = false;
-            }
-            else if (menuItemId?.StartsWith("[CS]") == true)
-            {
-                string name = menuItemId.Substring("[CS]".Length);
-
-                IsDarkScreen = false;
-                AnimatedBackgroundName = name;
                 VideoSource = new Uri(DefaultVideoSource);
                 SlideshowVisible = false;
             }
@@ -239,7 +210,6 @@ namespace AmbientSounds.ViewModels
                 var path = await _videoService.GetFilePathAsync(menuItemId);
                 if (!string.IsNullOrEmpty(path))
                 {
-                    AnimatedBackgroundName = null;
                     SlideshowVisible = false;
 
                     try

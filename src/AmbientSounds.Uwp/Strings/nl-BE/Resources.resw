@@ -400,21 +400,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Bekijk premium info</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Wolken</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Gekleurde rook</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Er is een probleem opgetreden bij het weergeven van de screensaver. Probeer Ambie opnieuw op te starten of neem contact met ons op als het probleem zich blijft voordoen.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Het probleem melden</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Rendering fout</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Volledig scherm in-/uitschakelen</value>
   </data>

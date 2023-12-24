@@ -415,21 +415,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>اطلاعات بخش ویژه</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>ابرها</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>دود رنگی</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>مشکلی در نمایش محافظ صفحه وجود داشت. Ambie را مجدداً راه‌اندازی کنید، یا اگر مشکل ادامه داشت با ما تماس بگیرید.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>گزارش مشکل</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>خطای نمایش</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>حالت تمام صفحه</value>
   </data>

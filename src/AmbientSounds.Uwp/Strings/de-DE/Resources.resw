@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Premium-Informationen anzeigen</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Wolken</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Bunter Rauch</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Beim Anzeigen des Bildschirmschoners ist ein Problem aufgetreten. Versuchen Sie, Ambie neu zu starten, oder kontaktieren Sie uns, wenn das Problem weiterhin besteht.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Melden Sie das Problem</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Renderfehler</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Vollbild umschalten</value>
   </data>

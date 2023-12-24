@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Afficher les informations sur les primes</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Des nuages</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Fumée colorée</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Un problème est survenu lors de l'affichage de l'économiseur d'écran. Essayez de redémarrer Ambie ou contactez-nous si le problème persiste.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Signaler le problème</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Erreur</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Passer en plein écran</value>
   </data>

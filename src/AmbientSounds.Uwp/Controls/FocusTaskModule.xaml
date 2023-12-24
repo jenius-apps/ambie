@@ -125,7 +125,7 @@
 
                 <ListView
                     Grid.Row="1"
-                    Margin="0,8,12,8"
+                    Margin="0,8,12,4"
                     AllowDrop="True"
                     AutomationProperties.Name="{x:Bind strings:Resources.TaskModuleTitle}"
                     CanDragItems="True"
@@ -149,7 +149,7 @@
 
                 <Button
                     Grid.Row="2"
-                    Margin="0,0,0,12"
+                    Margin="0,8,0,12"
                     Click="OnRecentCompletedClicked"
                     Visibility="{x:Bind ViewModel.RecentCompletedButtonVisible, Mode=OneWay}">
                     <StackPanel Orientation="Horizontal">

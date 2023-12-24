@@ -539,26 +539,6 @@
           <source>View premium info</source>
           <target state="translated">프리미엄 정보 보기</target>
         </trans-unit>
-        <trans-unit id="ComputeShader.Clouds" translate="yes" xml:space="preserve">
-          <source>Clouds</source>
-          <target state="translated">구름</target>
-        </trans-unit>
-        <trans-unit id="ComputeShader.ColoredSmoke" translate="yes" xml:space="preserve">
-          <source>Colored smoke</source>
-          <target state="translated">유색 연기</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Message" translate="yes" xml:space="preserve">
-          <source>There was an issue displaying the screensaver. Try restarting Ambie, or contact us if the issue persists.</source>
-          <target state="translated">화면 보호기를 표시하는 데 문제가 있었습니다. 앰비를 다시 시작하거나 문제가 지속되면 당사에 문의하세요.</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorLink.Content" translate="yes" xml:space="preserve">
-          <source>Report the issue</source>
-          <target state="translated">문제 보고</target>
-        </trans-unit>
-        <trans-unit id="RenderingErrorInfo.Title" translate="yes" xml:space="preserve">
-          <source>Rendering error</source>
-          <target state="translated">렌더링 오류</target>
-        </trans-unit>
         <trans-unit id="ToggleFullscreen" translate="yes" xml:space="preserve">
           <source>Toggle fullscreen</source>
           <target state="translated">전체 화면 전환</target>

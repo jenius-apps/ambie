@@ -412,21 +412,6 @@
   <data name="ViewPremiumInfo" xml:space="preserve">
     <value>Visa premiuminformation</value>
   </data>
-  <data name="ComputeShader.Clouds" xml:space="preserve">
-    <value>Moln</value>
-  </data>
-  <data name="ComputeShader.ColoredSmoke" xml:space="preserve">
-    <value>Färgad rök</value>
-  </data>
-  <data name="RenderingErrorInfo.Message" xml:space="preserve">
-    <value>Det uppstod ett problem med att visa skärmsläckaren. Försök starta om Ambie eller kontakta oss om problemet kvarstår.</value>
-  </data>
-  <data name="RenderingErrorLink.Content" xml:space="preserve">
-    <value>Rapportera problemet</value>
-  </data>
-  <data name="RenderingErrorInfo.Title" xml:space="preserve">
-    <value>Återgivningsfel</value>
-  </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Växla helskärm</value>
   </data>
