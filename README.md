@@ -102,3 +102,4 @@ To help translate, follow these instructions.
 - Hebrew: [Adam Dernis](https://github.com/Avid29)
 - Polish: [Maciej Klupp](https://github.com/maciej-klupp)
 - Ukrainian: [Andrii Yakonyuk](https://github.com/andrewyakonyuk)
+- Persian [FA]: [Reza Roointan](https://github.com/rezaroointan)
