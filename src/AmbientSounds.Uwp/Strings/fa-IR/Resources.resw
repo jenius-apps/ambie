@@ -43,7 +43,7 @@
     <value>تماس با ما</value>
   </data>
   <data name="RateUsText" xml:space="preserve">
-    <value>به ما رای دهید</value>
+    <value>به ما امتیاز بدید</value>
   </data>
   <data name="MoreButtonSettings.Label" xml:space="preserve">
     <value>تنظیمات</value>
@@ -82,10 +82,10 @@
     <value>تنظیمات</value>
   </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>گزینه های تایمر خواب</value>
+    <value>دیدن گزینه های تایمر خواب</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>گزینه های تایمر خواب</value>
+    <value>دیدن گزینه های تایمر خواب</value>
   </data>
   <data name="Soundbeach" xml:space="preserve">
     <value>ساحل دریا</value>
@@ -94,7 +94,7 @@
     <value>پرنده ها</value>
   </data>
   <data name="Soundcitystreet" xml:space="preserve">
-    <value>خیابان شهر</value>
+    <value>خیابان شهری</value>
   </data>
   <data name="Soundcoffeeshop" xml:space="preserve">
     <value>کافی شاپ</value>
@@ -118,7 +118,7 @@
     <value>آبشار</value>
   </data>
   <data name="Soundwhitenoise" xml:space="preserve">
-    <value>نویز سفید</value>
+    <value>صدای برفک</value>
   </data>
   <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
     <value>صداها درحال بارگیری هستند</value>
@@ -130,10 +130,10 @@
     <value>توقف و تنظیم مجدد تایمر</value>
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
-    <value>بلندی صدای کلی</value>
+    <value>میزان صدای کلی</value>
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>بلندی صدا</value>
+    <value>میزان صدا</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>پوسته</value>
@@ -160,7 +160,7 @@
     <value>باد</value>
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
-    <value>قبلاً دانلود شده است</value>
+    <value>قبلاً دانلود شده</value>
     <comment>The sound is already downloaded</comment>
   </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
@@ -168,7 +168,7 @@
     <comment>Going back to the previous page</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
-    <value>قابل دانلود است</value>
+    <value>قابل دانلود</value>
     <comment>The sound can be downloaded</comment>
   </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
@@ -224,7 +224,7 @@
     <value>پیش نمایش صدا</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>متوقف شده است</value>
+    <value>مکث کرده</value>
     <comment>Sound is paused</comment>
   </data>
   <data name="Playing" xml:space="preserve">
@@ -244,10 +244,10 @@
     <value>تایید ذخیره</value>
   </data>
   <data name="GlobalVolume" xml:space="preserve">
-    <value>بلندی صدای کلی</value>
+    <value>میزان صدای کلی</value>
   </data>
   <data name="NameInputBox.Header" xml:space="preserve">
-    <value>نام صدای میکس</value>
+    <value>نام میکس</value>
   </data>
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>اختیاری</value>
@@ -339,7 +339,7 @@
     <value>ممنون که Ambie را امتحان کردید. برای بهترین تجربه، ما را به نوار وظیفه خود سنجاق کنید! از لحظات آرامش بخش خود لذت ببرید 🏝 </value>
   </data>
   <data name="HelloAndWelcome" xml:space="preserve">
-    <value>درود و خوش آمدید!</value>
+    <value>درود، خوش آمدید!</value>
   </data>
   <data name="PinToTaskbar" xml:space="preserve">
     <value>سنجاق کردن به نوار وظیفه</value>
@@ -354,7 +354,7 @@
     <value>صفحه اصلی</value>
   </data>
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
-    <value>حداکثر 3 صدا را با هم میکس کنید</value>
+    <value>تا 3 صدا را با هم میکس کنید</value>
   </data>
   <data name="ThemeSettings" xml:space="preserve">
     <value>تنظیمات پوسته</value>
@@ -376,10 +376,10 @@
     <value>دانلود فیلم محافظ صفحه نمایش</value>
   </data>
   <data name="SubscriptionText3" xml:space="preserve">
-    <value>پشتیبانی از توسعه</value>
+    <value>پشتیبانی از توسعه این برنامه</value>
   </data>
   <data name="ThankYouForSub" xml:space="preserve">
-    <value>با تشکر از شما برای گرفتن اشتراک!</value>
+    <value>با تشکر از شما برای اشتراک !</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
   <data name="HelloAgain" xml:space="preserve">
@@ -404,7 +404,7 @@
     <value>حذف</value>
   </data>
   <data name="SizeMegaByte" xml:space="preserve">
-    <value>{0} MB</value>
+    <value>{0} مگابایت</value>
   </data>
   <data name="MoreScreensavers" xml:space="preserve">
     <value>محافظ های صفحه نمایش بیشتر</value>
@@ -425,7 +425,7 @@
     <value>تمرکز</value>
   </data>
   <data name="PauseTimer" xml:space="preserve">
-    <value>توقف تایمر</value>
+    <value>مکث تایمر</value>
   </data>
   <data name="StartTimer" xml:space="preserve">
     <value>شروع تایمر</value>
@@ -455,7 +455,7 @@
     <value>در حال استراحت</value>
   </data>
   <data name="Pause" xml:space="preserve">
-    <value>توقف</value>
+    <value>مکث</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>بازنشانی</value>
@@ -473,7 +473,7 @@
     <value>شما می توانید هر یادداشتی را در اینجا یادداشت کنید 🙂</value>
   </data>
   <data name="FocusPlanningHeader" xml:space="preserve">
-    <value>برنامه چیه؟</value>
+    <value>نقشه چیه؟</value>
   </data>
   <data name="Notepad" xml:space="preserve">
     <value>یادداشت</value>
@@ -569,7 +569,7 @@
     <value>شما عالی بودید</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>امبی</value>
+    <value>Ambie</value>
   </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
     <value>کارهایی را برای تمرکز بر روی آنها اضافه کنید، سپس دکمه شروع را فشار دهید</value>
@@ -596,7 +596,7 @@
     <value>این هفته رایگان!</value>
   </data>
   <data name="SettingsCompactMode" xml:space="preserve">
-    <value>زمان تمرکز حالت فشرده را باز کن</value>
+    <value>هنگام تمرکز حالت فشرده را باز کن</value>
   </data>
   <data name="CompactModeTooltipTitle" xml:space="preserve">
     <value>حالت فشرده را باز کن</value>
@@ -614,7 +614,7 @@
     <value>فشرده</value>
   </data>
   <data name="PausesText" xml:space="preserve">
-    <value>وقفه ها</value>
+    <value>مکث ها</value>
   </data>
   <data name="EmptyHomeMessage" xml:space="preserve">
     <value>دانلود صداها از فهرست</value>
@@ -638,7 +638,7 @@
     <value>زمانی که صداهای جدید در دسترس باشد به شما اطلاع خواهیم داد</value>
   </data>
   <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
-    <value>پس از راه اندازی، Ambie پخش صدا را ادامه می دهد</value>
+    <value>در زمان راه اندازی، Ambie به طور خودکار پخش را ادامه می دهد</value>
   </data>
   <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
     <value>خرابی های گزارش شده و اطلاعات استفاده ناشناس به بهبود Ambie کمک می کند</value>
@@ -731,10 +731,10 @@
     <value>دستگاه خروجی</value>
   </data>
   <data name="SettingsOutputDeviceDescription" xml:space="preserve">
-    <value>انتخاب کنید که در آن به پخش صدا</value>
+    <value>محل پخش صدا را انتخاب کنید</value>
   </data>
   <data name="SettingsPlayAfterFocusDescription" xml:space="preserve">
-    <value>برای تلفن های موبایل ادامه خواهد داد به بازی پس از جلسه تمرکز خود را به پایان می رسد</value>
+    <value>پس از پایان جلسه تمرکز شما، صداها همچنان پخش خواهند شد</value>
   </data>
   <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
     <value>ادامه صداها پس از تمرکز</value>
@@ -749,10 +749,10 @@
     <value>مراقبه</value>
   </data>
   <data name="CloseRequestedMessage" xml:space="preserve">
-    <value>صدای شما متوقف خواهد شد اگر امبی را ببندید</value>
+    <value>صدای شما متوقف خواهد شد اگر Ambie را ببندید</value>
   </data>
   <data name="SettingsConfirmCloseDescription" xml:space="preserve">
-    <value>هنگامی که صداها پخش می شوند، هنگام بستن برنامه، گفتگوی تایید را نشان دهید</value>
+    <value>زمان پخش صداها، هنگام بستن برنامه صفحه تأیید را نشان دهید</value>
   </data>
   <data name="SettingsConfirmCloseHeader" xml:space="preserve">
     <value>تایید بستن</value>
@@ -764,30 +764,30 @@
     <value>پخش صدای تصادفی</value>
   </data>
   <data name="NowPlayingText" xml:space="preserve">
-    <value>در حال پخش</value>
+    <value>حالا در حال پخش</value>
   </data>
   <data name="SearchPageHeader" xml:space="preserve">
     <value>نتایج برای "{0}"</value>
   </data>
   <data name="SearchEmptyPlaceholderText" xml:space="preserve">
-    <value>اوه! ما نتوانستیم این صدا را پیدا کنیم. خواهیم دید که ایا می توانیم ان را در اینده اضافه کنیم</value>
+    <value>اوه! ما نتوانستیم این صدا را پیدا کنیم. ببینیم که ایا می توانیم ان را در اینده اضافه کنیم</value>
   </data>
   <data name="SearchText" xml:space="preserve">
     <value>جستجو</value>
   </data>
   <data name="QuickResumeTitle" xml:space="preserve">
-    <value>رزومه سریع</value>
+    <value>از سرگیری سریع</value>
   </data>
   <data name="QuickResumeToastMessage" xml:space="preserve">
     <value>اخرین محیط خود را از سر بگیرید</value>
   </data>
   <data name="QuickResumeDescription" xml:space="preserve">
-    <value>از سرگیری اخرین محیط خود را با یک کلیک هنگامی که کامپیوتر شما شروع می شود تا</value>
+    <value>با راه اندازی رایانه شخصی، با یک کلیک، آخرین محیط خود را از سر بگیرید</value>
   </data>
   <data name="HomePageDownloadMessage" xml:space="preserve">
-    <value>دریافت صداهای بیشتر از کاتالوگ</value>
+    <value>دریافت صداهای بیشتر از فهرست</value>
   </data>
   <data name="SkipThisSegment" xml:space="preserve">
-    <value>رد کردن این بخش</value>
+    <value>رد کردن این قسمت</value>
   </data>
 </root>
