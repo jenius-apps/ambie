@@ -12,183 +12,209 @@
     mc:Ignorable="d">
 
     <Grid Margin="{StaticResource MainFramePageMargin}">
-        <Grid.ChildrenTransitions>
-            <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-        </Grid.ChildrenTransitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="LeftGutter" Width="auto" />
+            <ColumnDefinition x:Name="ContentColumn" Width="*" />
+            <ColumnDefinition x:Name="RightGutter" Width="auto" />
+        </Grid.ColumnDefinitions>
 
-        <TextBlock
-            FontSize="20"
-            Style="{StaticResource BodyStrongTextBlockStyle}"
-            Text="{x:Bind strings:Resources.UpdatesText}" />
-        <TextBlock
-            Grid.Row="1"
-            Margin="0,8,0,0"
-            FontSize="12"
-            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-            Text="{x:Bind strings:Resources.UpdatesPageMessage1}"
-            TextWrapping="WrapWholeWords" />
-        <TextBlock
-            Grid.Row="2"
-            FontSize="12"
-            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-            Text="{x:Bind strings:Resources.UpdatesPageMessage2}"
-            TextWrapping="WrapWholeWords" />
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LeftGutter.Width" Value="*" />
+                        <Setter Target="ContentColumn.Width" Value="{StaticResource ContentColumnMaxWidth}" />
+                        <Setter Target="RightGutter.Width" Value="*" />
+                        <Setter Target="RootPanel.Margin" Value="{StaticResource ContentColumnMarginLarge}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
-        <Grid Grid.Row="3" Margin="0,20,30,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-
-            <Button
-                VerticalAlignment="Center"
-                AutomationProperties.Name="{x:Bind strings:Resources.CheckForUpdatesText}"
-                Command="{x:Bind ViewModel.CheckUpdatesCommand}"
-                Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
-
-            <Grid Grid.Column="1" Margin="12,0,0,0">
-                <winui:ProgressRing
-                    Width="20"
-                    Height="20"
-                    VerticalAlignment="Center"
-                    Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-                    IsActive="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}"
-                    Visibility="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}" />
-            </Grid>
-
-            <Button
-                Grid.Column="3"
-                VerticalAlignment="Center"
-                AutomationProperties.Name="{x:Bind strings:Resources.UpdateAllText}"
-                Command="{x:Bind ViewModel.UpdateAllCommand}"
-                Content="{x:Bind strings:Resources.UpdateAllText}"
-                Style="{ThemeResource AccentButtonStyle}"
-                Visibility="{x:Bind ViewModel.UpdateAllVisible, Mode=OneWay}" />
-        </Grid>
-
-        <StackPanel
-            Grid.Row="4"
-            Margin="0,0,0,80"
-            VerticalAlignment="Center"
-            Spacing="12"
-            Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
-            <StackPanel.ChildrenTransitions>
+        <Grid
+            x:Name="RootPanel"
+            Grid.Column="1"
+            Margin="{StaticResource ContentColumnMarginSmall}">
+            <Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-            </StackPanel.ChildrenTransitions>
-            <Image
-                Width="100"
-                HorizontalAlignment="Center"
-                AutomationProperties.AccessibilityView="Raw"
-                Source="ms-appx:///Assets/smiling_face_with_sunglasses_3d.png" />
+            </Grid.ChildrenTransitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock Style="{StaticResource ModuleTitleStyle}" Text="{x:Bind strings:Resources.UpdatesText}" />
+                <Rectangle Margin="0,6,0,0" Style="{StaticResource ModuleDividerRectStyle}" />
+            </StackPanel>
             <TextBlock
-                MaxWidth="300"
+                Grid.Row="1"
+                Margin="0,8,0,0"
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="{x:Bind strings:Resources.UpdatesPlaceholderText}"
-                TextAlignment="Center"
-                TextWrapping="Wrap" />
-        </StackPanel>
+                Text="{x:Bind strings:Resources.UpdatesPageMessage1}"
+                TextWrapping="WrapWholeWords" />
+            <TextBlock
+                Grid.Row="2"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.UpdatesPageMessage2}"
+                TextWrapping="WrapWholeWords" />
 
-        <ListView
-            Grid.Row="4"
-            Margin="0,20,0,0"
-            Padding="0,0,28,12"
-            HorizontalAlignment="Stretch"
-            ItemsSource="{x:Bind ViewModel.UpdateList}"
-            SelectionMode="None">
-            <ListView.ItemContainerTransitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition IsStaggeringEnabled="True" />
-                </TransitionCollection>
-            </ListView.ItemContainerTransitions>
+            <Grid Grid.Row="3" Margin="0,12,30,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
 
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    <Setter Property="Padding" Value="0" />
-                    <Setter Property="Margin" Value="0" />
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="vm:VersionedAssetViewModel">
-                    <Border
-                        Height="80"
-                        Margin="0,0,0,4"
-                        Style="{StaticResource ModuleBorderStyle}">
-                        <Grid CornerRadius="8">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <Rectangle Grid.ColumnSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
+                <Button
+                    VerticalAlignment="Center"
+                    AutomationProperties.Name="{x:Bind strings:Resources.CheckForUpdatesText}"
+                    Command="{x:Bind ViewModel.CheckUpdatesCommand}"
+                    Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
 
-                            <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                <Grid Grid.Column="1" Margin="12,0,0,0">
+                    <winui:ProgressRing
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                        IsActive="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}"
+                        Visibility="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}" />
+                </Grid>
 
-                            <Rectangle HorizontalAlignment="Right" Style="{StaticResource ModuleVerticalDividerRectStyle}" />
+                <Button
+                    Grid.Column="3"
+                    VerticalAlignment="Center"
+                    AutomationProperties.Name="{x:Bind strings:Resources.UpdateAllText}"
+                    Command="{x:Bind ViewModel.UpdateAllCommand}"
+                    Content="{x:Bind strings:Resources.UpdateAllText}"
+                    Style="{ThemeResource AccentButtonStyle}"
+                    Visibility="{x:Bind ViewModel.UpdateAllVisible, Mode=OneWay}" />
+            </Grid>
 
-                            <StackPanel
-                                Grid.Column="1"
-                                Margin="24,0,0,0"
-                                VerticalAlignment="Center">
-                                <TextBlock Text="{x:Bind Name}" />
-                                <TextBlock
-                                    FontSize="10"
-                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                    Text="{x:Bind UpdateReasonText, Mode=OneWay}"
-                                    TextWrapping="WrapWholeWords" />
-                            </StackPanel>
+            <StackPanel
+                Grid.Row="4"
+                Margin="0,0,0,80"
+                VerticalAlignment="Center"
+                Spacing="12"
+                Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+                </StackPanel.ChildrenTransitions>
+                <Image
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    AutomationProperties.AccessibilityView="Raw"
+                    Source="ms-appx:///Assets/smiling_face_with_sunglasses_3d.png" />
+                <TextBlock
+                    MaxWidth="300"
+                    FontSize="12"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="{x:Bind strings:Resources.UpdatesPlaceholderText}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </StackPanel>
 
-                            <Grid Grid.Column="2" Margin="0,0,12,0">
-                                <Button
-                                    Command="{x:Bind UpdateCommand}"
-                                    Style="{StaticResource SubtleIconButton}"
-                                    Visibility="{x:Bind UpdateAvailable, Mode=OneWay}">
-                                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
-                                </Button>
+            <ListView
+                Grid.Row="4"
+                Margin="0,20,0,0"
+                Padding="0,0,28,12"
+                HorizontalAlignment="Stretch"
+                ItemsSource="{x:Bind ViewModel.UpdateList}"
+                SelectionMode="None">
+                <ListView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True" />
+                    </TransitionCollection>
+                </ListView.ItemContainerTransitions>
 
-                                <FontIcon
-                                    Margin="0,0,12,0"
-                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                    Glyph="{StaticResource GlyphCheckMarkCircle}"
-                                    Visibility="{x:Bind UpdateComplete, Mode=OneWay}" />
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:VersionedAssetViewModel">
+                        <Border
+                            Height="80"
+                            Margin="0,0,0,4"
+                            Style="{StaticResource ModuleBorderStyle}">
+                            <Grid CornerRadius="8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.ColumnSpan="3" Style="{StaticResource ModuleBackgroundRectStyle}" />
 
-                                <Grid
-                                    Margin="0,0,12,0"
-                                    VerticalAlignment="Center"
-                                    Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}">
-                                    <winui:ProgressRing
-                                        Width="20"
-                                        Height="20"
-                                        AutomationProperties.AccessibilityView="Raw"
-                                        Foreground="{ThemeResource ProgressRingGhostForeground}"
-                                        IsIndeterminate="False"
-                                        Value="100" />
-                                    <winui:ProgressRing
-                                        Width="20"
-                                        Height="20"
-                                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-                                        IsIndeterminate="{x:Bind Loading, Mode=OneWay}"
-                                        Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}"
-                                        Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                <Image Source="{x:Bind ImagePath}" Stretch="UniformToFill" />
+
+                                <Rectangle HorizontalAlignment="Right" Style="{StaticResource ModuleVerticalDividerRectStyle}" />
+
+                                <StackPanel
+                                    Grid.Column="1"
+                                    Margin="24,0,0,0"
+                                    VerticalAlignment="Center">
+                                    <TextBlock Text="{x:Bind Name}" />
+                                    <TextBlock
+                                        FontSize="10"
+                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                        Text="{x:Bind UpdateReasonText, Mode=OneWay}"
+                                        TextWrapping="WrapWholeWords" />
+                                </StackPanel>
+
+                                <Grid Grid.Column="2" Margin="0,0,12,0">
+                                    <Button
+                                        Command="{x:Bind UpdateCommand}"
+                                        Style="{StaticResource SubtleIconButton}"
+                                        Visibility="{x:Bind UpdateAvailable, Mode=OneWay}">
+                                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphDownload}" />
+                                    </Button>
+
+                                    <FontIcon
+                                        Margin="0,0,12,0"
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                        Visibility="{x:Bind UpdateComplete, Mode=OneWay}" />
+
+                                    <Grid
+                                        Margin="0,0,12,0"
+                                        VerticalAlignment="Center"
+                                        Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}">
+                                        <winui:ProgressRing
+                                            Width="20"
+                                            Height="20"
+                                            AutomationProperties.AccessibilityView="Raw"
+                                            Foreground="{ThemeResource ProgressRingGhostForeground}"
+                                            IsIndeterminate="False"
+                                            Value="100" />
+                                        <winui:ProgressRing
+                                            Width="20"
+                                            Height="20"
+                                            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                                            IsIndeterminate="{x:Bind Loading, Mode=OneWay}"
+                                            Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}"
+                                            Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                    </Grid>
+
                                 </Grid>
-
                             </Grid>
-                        </Grid>
-                    </Border>
+                        </Border>
 
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>
