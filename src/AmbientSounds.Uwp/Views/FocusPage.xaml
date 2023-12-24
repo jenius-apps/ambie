@@ -31,6 +31,10 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid x:Name="RootPanel" Margin="{StaticResource ContentColumnMarginSmall}">
+            <Grid.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </Grid.ChildrenTransitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftGutter" Width="auto" />
                 <ColumnDefinition x:Name="ContentColumn" Width="*" />
