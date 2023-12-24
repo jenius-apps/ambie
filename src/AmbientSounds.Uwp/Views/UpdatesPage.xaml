@@ -28,16 +28,13 @@
                         <Setter Target="LeftGutter.Width" Value="*" />
                         <Setter Target="ContentColumn.Width" Value="{StaticResource ContentColumnMaxWidth}" />
                         <Setter Target="RightGutter.Width" Value="*" />
-                        <Setter Target="RootPanel.Margin" Value="{StaticResource ContentColumnMarginLarge}" />
+                        <Setter Target="RootPanel.Margin" Value="0,20,0,0" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Grid
-            x:Name="RootPanel"
-            Grid.Column="1"
-            Margin="{StaticResource ContentColumnMarginSmall}">
+        <Grid x:Name="RootPanel" Grid.Column="1">
             <Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
             </Grid.ChildrenTransitions>
@@ -51,7 +48,7 @@
 
             <StackPanel>
                 <TextBlock Style="{StaticResource ModuleTitleStyle}" Text="{x:Bind strings:Resources.UpdatesText}" />
-                <Rectangle Margin="0,6,0,0" Style="{StaticResource ModuleDividerRectStyle}" />
+                <Rectangle Margin="0,6,20,0" Style="{StaticResource ModuleDividerRectStyle}" />
             </StackPanel>
             <TextBlock
                 Grid.Row="1"
@@ -79,17 +76,18 @@
                     VerticalAlignment="Center"
                     AutomationProperties.Name="{x:Bind strings:Resources.CheckForUpdatesText}"
                     Command="{x:Bind ViewModel.CheckUpdatesCommand}"
-                    Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
+                    Content="{x:Bind strings:Resources.CheckForUpdatesText}"
+                    FontSize="12" />
 
-                <Grid Grid.Column="1" Margin="12,0,0,0">
-                    <winui:ProgressRing
-                        Width="20"
-                        Height="20"
-                        VerticalAlignment="Center"
-                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-                        IsActive="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}"
-                        Visibility="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}" />
-                </Grid>
+                <winui:ProgressRing
+                    Grid.Column="1"
+                    Width="20"
+                    Height="20"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
+                    Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                    IsActive="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}"
+                    Visibility="{x:Bind ViewModel.CheckUpdatesCommand.IsRunning, Mode=OneWay}" />
 
                 <Button
                     Grid.Column="3"
@@ -97,6 +95,7 @@
                     AutomationProperties.Name="{x:Bind strings:Resources.UpdateAllText}"
                     Command="{x:Bind ViewModel.UpdateAllCommand}"
                     Content="{x:Bind strings:Resources.UpdateAllText}"
+                    FontSize="12"
                     Style="{ThemeResource AccentButtonStyle}"
                     Visibility="{x:Bind ViewModel.UpdateAllVisible, Mode=OneWay}" />
             </Grid>
