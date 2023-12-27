@@ -10,15 +10,38 @@
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     mc:Ignorable="d">
 
-    <Grid Margin="{StaticResource MainFramePageMargin}">
-        <ScrollViewer
-            AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}"
-            CanContentRenderOutsideBounds="True"
-            HorizontalScrollMode="Disabled">
-            <StackPanel Margin="0,0,16,40">
-                <StackPanel.ChildrenTransitions>
-                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-                </StackPanel.ChildrenTransitions>
+    <ScrollViewer
+        Margin="{StaticResource MainFramePageMargin}"
+        AutomationProperties.Name="{x:Bind strings:Resources.FocusTimerHelpTitle}"
+        CanContentRenderOutsideBounds="True"
+        HorizontalScrollMode="Disabled">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="LeftGutter.Width" Value="*" />
+                        <Setter Target="ContentColumn.Width" Value="{StaticResource ContentColumnMaxWidth}" />
+                        <Setter Target="RightGutter.Width" Value="*" />
+                        <Setter Target="RootPanel.Margin" Value="{StaticResource ContentColumnMarginLarge}" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid x:Name="RootPanel" Margin="{StaticResource ContentColumnMarginSmall}">
+            <Grid.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+            </Grid.ChildrenTransitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftGutter" Width="auto" />
+                <ColumnDefinition x:Name="ContentColumn" Width="*" />
+                <ColumnDefinition x:Name="RightGutter" Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1">
 
                 <!--  Timer module  -->
                 <controls:FocusTimerModule x:Name="TimerModule" />
@@ -62,6 +85,6 @@
 
                 <controls:FocusHistoryModule x:Name="HistoryModule" Margin="0,24,0,0" />
             </StackPanel>
-        </ScrollViewer>
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

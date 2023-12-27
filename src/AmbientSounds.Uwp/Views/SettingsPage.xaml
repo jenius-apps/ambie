@@ -16,13 +16,14 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="LeftGutter.Width" Value="*" />
-                        <Setter Target="ContentColumn.Width" Value="800" />
+                        <Setter Target="ContentColumn.Width" Value="{StaticResource ContentColumnMaxWidth}" />
                         <Setter Target="RightGutter.Width" Value="*" />
+                        <Setter Target="RootPanel.Margin" Value="{StaticResource ContentColumnMarginLarge}" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Grid Margin="0,0,16,12">
+        <Grid x:Name="RootPanel" Margin="{StaticResource ContentColumnMarginSmall}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftGutter" Width="auto" />
                 <ColumnDefinition x:Name="ContentColumn" Width="*" />

@@ -202,7 +202,8 @@
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}" />
+                        Text="{x:Bind ViewModel.TimeElapsed, Mode=OneWay}"
+                        Typography.NumeralAlignment="Tabular" />
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
@@ -210,7 +211,8 @@
                     <TextBlock
                         FontSize="12"
                         Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                        Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}" />
+                        Text="{x:Bind ViewModel.OriginalSegmentLength, Mode=OneWay}"
+                        Typography.NumeralAlignment="Tabular" />
                 </StackPanel>
 
                 <ItemsControl
