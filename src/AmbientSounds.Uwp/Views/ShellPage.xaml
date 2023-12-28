@@ -300,9 +300,13 @@
                         <HyperlinkButton
                             Margin="12,0,12,4"
                             HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Left">
+                            HorizontalContentAlignment="Left"
+                            Visibility="{x:Bind ViewModel.ShowStreak, Mode=OneWay}">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="🔥" Margin="-4,0,0,0" FontSize="16"/>
+                                <TextBlock
+                                    Margin="-4,0,0,0"
+                                    FontSize="16"
+                                    Text="🔥" />
                                 <!--<FontIcon
                                     FontFamily="{StaticResource FluentUIGlyphs}"
                                     FontSize="16"
@@ -310,7 +314,7 @@
                                 <TextBlock
                                     Margin="10,0,0,0"
                                     VerticalAlignment="Center"
-                                    Text="271 days"
+                                    Text="{x:Bind ViewModel.StreakText, Mode=OneWay}"
                                     Typography.NumeralAlignment="Tabular" />
                             </StackPanel>
                         </HyperlinkButton>

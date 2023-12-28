@@ -36,6 +36,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISoundService _soundService;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ISearchService _searchService;
+    private readonly IStatService _statService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -54,7 +55,8 @@ public partial class ShellPageViewModel : ObservableObject
         ILocalizer localizer,
         ISoundService soundService,
         IAssetLocalizer assetLocalizer,
-        ISearchService searchService)
+        ISearchService searchService,
+        IStatService statService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
@@ -74,6 +76,7 @@ public partial class ShellPageViewModel : ObservableObject
         _soundService = soundService;
         _assetLocalizer = assetLocalizer;
         _searchService = searchService;
+        _statService = statService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
@@ -97,6 +100,12 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.Start();
         }
     }
+
+    [ObservableProperty]
+    private string _streakText = string.Empty;
+
+    [ObservableProperty]
+    private bool _showStreak;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SidePanelMica))]
@@ -196,7 +205,9 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService.ShareFailed += OnShareFailed;
         _guideService.GuideStarted += OnGuideStarted;
         _guideService.GuideStopped += OnGuideStopped;
+        _statService.StreakChanged += OnStreakChanged;
 
+        LoadStreak();
         await LoadPremiumContentAsync();
     }
 
@@ -211,6 +222,12 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService.ShareFailed -= OnShareFailed;
         _guideService.GuideStarted -= OnGuideStarted;
         _guideService.GuideStopped -= OnGuideStopped;
+        _statService.StreakChanged -= OnStreakChanged;
+    }
+
+    private void OnStreakChanged(object sender, StreakChangedEventArgs e)
+    {
+        LoadStreak(e.NewStreak);
     }
 
     private void OnShareFailed(object sender, EventArgs e)
@@ -219,7 +236,17 @@ public partial class ShellPageViewModel : ObservableObject
         {
             IsMissingSoundsMessageVisible = true;
         });
+    }
 
+    private void LoadStreak(int? count = null)
+    {
+        count ??= _statService.GetActiveStreak();
+
+        StreakText = count == 1
+            ? "1 day"
+            : $"{count} days";
+
+        ShowStreak = count > 0;
     }
 
     [RelayCommand]

@@ -137,6 +137,16 @@ namespace AmbientSounds.Constants
         public const string QuickResumeKey = "QuickResume";
 
         /// <summary>
+        /// Used to store the user's active streak.
+        /// </summary>
+        public const string ActiveStreakKey = "ActiveStreak";
+
+        /// <summary>
+        /// Used to remember when the active streak was last updated.
+        /// </summary>
+        public const string ActiveStreakUpdateDateTicksKey = "ActiveStreakUpdateDate";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -165,6 +175,8 @@ namespace AmbientSounds.Constants
             { ConfirmCloseKey, false },
             { QuickResumeKey, false },
             { ShowHomePageDownloadMessageKey, true },
+            { ActiveStreakKey, 0 },
+            { ActiveStreakUpdateDateTicksKey, 0L },
         };
     }
 }

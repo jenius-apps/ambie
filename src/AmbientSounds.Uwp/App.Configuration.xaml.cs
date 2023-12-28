@@ -178,5 +178,6 @@ partial class App
     [Singleton(typeof(ResumeOnLaunchService), typeof(IResumeOnLaunchService))]
     [Singleton(typeof(QuickResumeService), typeof(IQuickResumeService))]
     [Singleton(typeof(BackgroundTaskService), typeof(IBackgroundTaskService))]
+    [Singleton(typeof(StatService), typeof(IStatService))]
     private static partial void ConfigureServices(IServiceCollection services);
 }
