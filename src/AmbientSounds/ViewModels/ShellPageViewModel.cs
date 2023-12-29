@@ -37,6 +37,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ISearchService _searchService;
     private readonly IStatService _statService;
+    private readonly ILocalizer _localizer;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -77,6 +78,7 @@ public partial class ShellPageViewModel : ObservableObject
         _assetLocalizer = assetLocalizer;
         _searchService = searchService;
         _statService = statService;
+        _localizer = localizer;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
@@ -247,8 +249,8 @@ public partial class ShellPageViewModel : ObservableObject
         count ??= _statService.ValidateAndRetrieveStreak();
 
         StreakText = count == 1
-            ? "1 day"
-            : $"{count} days";
+            ? _localizer.GetString("DaySingular")
+            : _localizer.GetString("DayPlural", count.ToString());
 
         ShowStreak = count > 0;
     }

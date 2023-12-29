@@ -1061,6 +1061,14 @@
           <source>Enable streaks</source>
           <target state="new">Enable streaks</target>
         </trans-unit>
+        <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
+          <source>{0} days</source>
+          <target state="new">{0} days</target>
+        </trans-unit>
+        <trans-unit id="DaySingular" translate="yes" xml:space="preserve">
+          <source>1 day</source>
+          <target state="new">1 day</target>
+        </trans-unit>
       </group>
     </body>
   </file>

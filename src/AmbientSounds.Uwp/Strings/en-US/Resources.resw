@@ -904,4 +904,10 @@
   <data name="EnableStreaksText" xml:space="preserve">
     <value>Enable streaks</value>
   </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>{0} days</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>1 day</value>
+  </data>
 </root>

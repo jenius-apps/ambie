@@ -2614,6 +2614,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region DayPlural
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} days
+        /// </summary>
+        public static string DayPlural
+        {
+            get
+            {
+                return _resourceLoader.GetString("DayPlural");
+            }
+        }
+        #endregion
+
+        #region DaySingular
+        /// <summary>
+        ///   Looks up a localized string similar to: 1 day
+        /// </summary>
+        public static string DaySingular
+        {
+            get
+            {
+                return _resourceLoader.GetString("DaySingular");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2825,6 +2851,8 @@ namespace AmbientSounds.Strings{
             ExperimentalFeaturesText,
             EnableStreaksDescription,
             EnableStreaksText,
+            DayPlural,
+            DaySingular,
         }
 
         private static ResourceLoader _resourceLoader;
