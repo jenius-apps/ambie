@@ -110,6 +110,12 @@ namespace AmbientSounds.ViewModels
             set => _userSettings.Set(UserSettingsConstants.ConfirmCloseKey, value);
         }
 
+        public bool StreaksEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey);
+            set => _userSettings.Set(UserSettingsConstants.StreaksEnabledKey, value);
+        }
+
         public bool QuickResumeEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);

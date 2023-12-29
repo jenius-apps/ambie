@@ -28,6 +28,11 @@ public sealed class StatService : IStatService
 
     public async Task LogStreakAsync()
     {
+        if (!_userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey))
+        {
+            return;
+        }
+
         await Task.Delay(1);
         var now = DateTime.Now;
         var lastUpdatedTicks = _userSettings.Get<long>(UserSettingsConstants.ActiveStreakUpdateDateTicksKey);

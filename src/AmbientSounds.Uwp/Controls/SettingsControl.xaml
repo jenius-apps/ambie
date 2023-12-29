@@ -138,24 +138,6 @@
             </ToggleSwitch>
         </labs:SettingsCard>
 
-        <!--  Audio device selector  -->
-        <!--<labs:SettingsCard Description="{x:Bind strings:Resources.SettingsOutputDeviceDescription}" Header="{x:Bind strings:Resources.SettingsOutputDevice}">
-            <interactivity:Interaction.Behaviors>
-                <core:EventTriggerBehavior EventName="Loaded">
-                    <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadOutputDevicesCommand}" />
-                </core:EventTriggerBehavior>
-            </interactivity:Interaction.Behaviors>
-
-            <labs:SettingsCard.HeaderIcon>
-                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphAudioDevice}" />
-            </labs:SettingsCard.HeaderIcon>
-
-            <ComboBox
-                DisplayMemberPath="DeviceName"
-                ItemsSource="{x:Bind ViewModel.OutputDevices}"
-                SelectedItem="{x:Bind ViewModel.CurrentOutputDevice, Mode=TwoWay}" />
-        </labs:SettingsCard>-->
-
         <!--  Ambie Mini on focus  -->
         <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsCompactModeDescription}" Header="{x:Bind strings:Resources.SettingsCompactMode}">
             <labs:SettingsCard.HeaderIcon>
@@ -252,5 +234,25 @@
                 </labs:SettingsCard>
             </labs:SettingsExpander.Items>
         </labs:SettingsExpander>
+
+        <TextBlock
+            Margin="1,29,0,5"
+            Style="{StaticResource BodyStrongTextBlockStyle}"
+            Text="{x:Bind strings:Resources.ExperimentalFeaturesText}" />
+
+        <labs:SettingsCard Description="{x:Bind strings:Resources.EnableStreaksDescription}" Header="{x:Bind strings:Resources.EnableStreaksText}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <ToggleSwitch IsOn="{x:Bind ViewModel.StreaksEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+        </labs:SettingsCard>
     </StackPanel>
 </UserControl>

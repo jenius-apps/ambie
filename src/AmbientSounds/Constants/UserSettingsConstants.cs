@@ -147,6 +147,11 @@ namespace AmbientSounds.Constants
         public const string ActiveStreakUpdateDateTicksKey = "ActiveStreakUpdateDate";
 
         /// <summary>
+        /// Determines if streaks are enabled by the user.
+        /// </summary>
+        public const string StreaksEnabledKey = "StreaksEnabled";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -177,6 +182,7 @@ namespace AmbientSounds.Constants
             { ShowHomePageDownloadMessageKey, true },
             { ActiveStreakKey, 0 },
             { ActiveStreakUpdateDateTicksKey, 0L },
+            { StreaksEnabledKey, false },
         };
     }
 }

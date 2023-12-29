@@ -2575,6 +2575,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ExperimentalFeaturesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Experimental features
+        /// </summary>
+        public static string ExperimentalFeaturesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ExperimentalFeaturesText");
+            }
+        }
+        #endregion
+
+        #region EnableStreaksDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Activates the experimental streaks feature
+        /// </summary>
+        public static string EnableStreaksDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("EnableStreaksDescription");
+            }
+        }
+        #endregion
+
+        #region EnableStreaksText
+        /// <summary>
+        ///   Looks up a localized string similar to: Enable streaks
+        /// </summary>
+        public static string EnableStreaksText
+        {
+            get
+            {
+                return _resourceLoader.GetString("EnableStreaksText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2783,6 +2822,9 @@ namespace AmbientSounds.Strings{
             QuickResumeToastMessage,
             HomePageDownloadMessage,
             SkipThisSegment,
+            ExperimentalFeaturesText,
+            EnableStreaksDescription,
+            EnableStreaksText,
         }
 
         private static ResourceLoader _resourceLoader;
