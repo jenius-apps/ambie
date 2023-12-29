@@ -7,7 +7,7 @@ namespace AmbientSounds.Services
     {
         event EventHandler<StreakChangedEventArgs>? StreakChanged;
 
-        int GetActiveStreak();
+        int ValidateAndRetrieveStreak();
         Task LogStreakAsync();
     }
 }

@@ -244,7 +244,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void LoadStreak(int? count = null)
     {
-        count ??= _statService.GetActiveStreak();
+        count ??= _statService.ValidateAndRetrieveStreak();
 
         StreakText = count == 1
             ? "1 day"

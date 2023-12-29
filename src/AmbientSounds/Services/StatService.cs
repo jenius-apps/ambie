@@ -21,9 +21,23 @@ public sealed class StatService : IStatService
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
     }
 
-    public int GetActiveStreak()
+    public int ValidateAndRetrieveStreak()
     {
-        return _userSettings.Get<int>(UserSettingsConstants.ActiveStreakKey);
+        var now = DateTime.Now;
+        var lastUpdated = StreakLastUpdated();
+
+        if (now.Date > lastUpdated.AddDays(1).Date)
+        {
+            // if over 24 hours have passed since last streak update, then
+            // streak is broken. So we reset.
+            _userSettings.Set(UserSettingsConstants.ActiveStreakKey, 0);
+
+            return 0;
+        }
+        else
+        {
+            return _userSettings.Get<int>(UserSettingsConstants.ActiveStreakKey);
+        }
     }
 
     public async Task LogStreakAsync()
@@ -35,15 +49,14 @@ public sealed class StatService : IStatService
 
         await Task.Delay(1);
         var now = DateTime.Now;
-        var lastUpdatedTicks = _userSettings.Get<long>(UserSettingsConstants.ActiveStreakUpdateDateTicksKey);
-        var lastUpdated = new DateTime(lastUpdatedTicks);
+        var lastUpdated = StreakLastUpdated();
 
         if (lastUpdated.Date >= now.Date)
         {
             return;
         }
 
-        var currentCount = _userSettings.Get<int>(UserSettingsConstants.ActiveStreakKey);
+        var currentCount = ValidateAndRetrieveStreak();
         currentCount++;
         _userSettings.Set(UserSettingsConstants.ActiveStreakKey, currentCount);
         _userSettings.Set(UserSettingsConstants.ActiveStreakUpdateDateTicksKey, now.Ticks);
@@ -60,6 +73,12 @@ public sealed class StatService : IStatService
         {
             await LogStreakAsync();
         }
+    }
+
+    private DateTime StreakLastUpdated()
+    {
+        var lastUpdatedTicks = _userSettings.Get<long>(UserSettingsConstants.ActiveStreakUpdateDateTicksKey);
+        return new DateTime(lastUpdatedTicks);
     }
 }
 
