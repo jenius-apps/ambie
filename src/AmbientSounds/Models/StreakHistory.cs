@@ -6,10 +6,5 @@ public class StreakHistory
 {
     // Year > month > dates active
     // Example: Years["2023"]["12"] = [ 26, 27 ]
-    public Dictionary<string, StreakMonthHistory> Years { get; set; } = new();
-}
-
-public class StreakMonthHistory
-{
-    public Dictionary<string, HashSet<int>> Months { get; set; } = new();
+    public Dictionary<string, Dictionary<string, HashSet<int>>> Years { get; set; } = new();
 }

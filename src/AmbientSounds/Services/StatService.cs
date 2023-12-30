@@ -91,7 +91,7 @@ public sealed class StatService : IStatService
         for (int i = 0; i < days; i++)
         {
             if (history.Years.TryGetValue(tempDate.Year.ToString(), out var monthly) &&
-                monthly.Months.TryGetValue(tempDate.Month.ToString(), out var dayList) &&
+                monthly.TryGetValue(tempDate.Month.ToString(), out var dayList) &&
                 dayList.Contains(tempDate.Day))
             {
                 recentHistory.Add(true);
@@ -118,12 +118,12 @@ public sealed class StatService : IStatService
             streakHistory.Years.Add(year, new());
         }
 
-        if (!streakHistory.Years[year].Months.ContainsKey(month))
+        if (!streakHistory.Years[year].ContainsKey(month))
         {
-            streakHistory.Years[year].Months.Add(month, new());
+            streakHistory.Years[year].Add(month, new());
         }
 
-        streakHistory.Years[year].Months[month].Add(date.Day);
+        streakHistory.Years[year][month].Add(date.Day);
         await _streakHistoryCache.UpdateStreakHistory(streakHistory);
     }
 

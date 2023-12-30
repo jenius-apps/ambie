@@ -25,7 +25,7 @@ public class StreakHistoryRepository : IStreakHistoryRepository
 
         try
         {
-            var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.CaseInsensitive.StreakHistory);
+            var result = JsonSerializer.Deserialize(content, AmbieJsonSerializerContext.Default.StreakHistory);
             return result;
         }
         catch
