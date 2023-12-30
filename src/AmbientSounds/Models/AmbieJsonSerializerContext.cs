@@ -40,6 +40,8 @@ namespace AmbientSounds.Models;
 /// </remarks>
 [JsonSerializable(typeof(CatalogueRow))]
 [JsonSerializable(typeof(FocusHistory))]
+[JsonSerializable(typeof(StreakHistory))]
+[JsonSerializable(typeof(StreakMonthHistory))]
 [JsonSerializable(typeof(ShareDetail))]
 [JsonSerializable(typeof(FocusHistorySummary))]
 [JsonSerializable(typeof(FocusTask[]), GenerationMode = JsonSourceGenerationMode.Metadata)] // Only used to deserialize
@@ -64,5 +66,5 @@ public sealed partial class AmbieJsonSerializerContext : JsonSerializerContext
     /// <summary>
     /// A case insensitive variant of <see cref="Default"/>.
     /// </summary>
-    public static AmbieJsonSerializerContext CaseInsensitive => _caseInsensitive ??= new AmbieJsonSerializerContext(new JsonSerializerOptions(s_defaultOptions) { PropertyNameCaseInsensitive = true });
+    public static AmbieJsonSerializerContext CaseInsensitive => _caseInsensitive ??= new AmbieJsonSerializerContext(new JsonSerializerOptions(s_defaultOptions) { PropertyNameCaseInsensitive = true, NumberHandling = JsonNumberHandling.AllowReadingFromString });
 }

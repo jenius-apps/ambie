@@ -169,7 +169,6 @@ partial class App
     [Singleton(typeof(AssetsReader), typeof(Tools.IAssetsReader))]
     [Singleton(typeof(MixMediaPlayerService), typeof(IMixMediaPlayerService))]
     [Singleton(typeof(WindowsSystemMediaControls), typeof(ISystemMediaControls))]
-    [Singleton(typeof(AudioDeviceService), typeof(IAudioDeviceService))]
     [Singleton(typeof(WindowsMediaPlayerFactory), typeof(IMediaPlayerFactory))]
     [Singleton(typeof(SearchService), typeof(ISearchService))]
     [Singleton(typeof(StartupService), typeof(IStartupService))]
@@ -179,5 +178,7 @@ partial class App
     [Singleton(typeof(QuickResumeService), typeof(IQuickResumeService))]
     [Singleton(typeof(BackgroundTaskService), typeof(IBackgroundTaskService))]
     [Singleton(typeof(StatService), typeof(IStatService))]
+    [Singleton(typeof(StreakHistoryCache), typeof(IStreakHistoryCache))]
+    [Singleton(typeof(StreakHistoryRepository), typeof(IStreakHistoryRepository))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

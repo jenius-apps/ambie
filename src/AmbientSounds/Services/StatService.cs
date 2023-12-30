@@ -1,5 +1,8 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services;
@@ -8,15 +11,18 @@ public sealed class StatService : IStatService
 {
     private readonly IUserSettings _userSettings;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
+    private readonly IStreakHistoryCache _streakHistoryCache;
 
     public event EventHandler<StreakChangedEventArgs>? StreakChanged;
 
     public StatService(
         IUserSettings userSettings,
-        IMixMediaPlayerService mixMediaPlayerService)
+        IMixMediaPlayerService mixMediaPlayerService,
+        IStreakHistoryCache streakHistoryCache)
     {
         _userSettings = userSettings;
         _mixMediaPlayerService = mixMediaPlayerService;
+        _streakHistoryCache = streakHistoryCache;
 
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
     }
@@ -47,7 +53,6 @@ public sealed class StatService : IStatService
             return;
         }
 
-        await Task.Delay(1);
         var now = DateTime.Now;
         var lastUpdated = StreakLastUpdated();
 
@@ -60,11 +65,66 @@ public sealed class StatService : IStatService
         currentCount++;
         _userSettings.Set(UserSettingsConstants.ActiveStreakKey, currentCount);
         _userSettings.Set(UserSettingsConstants.ActiveStreakUpdateDateTicksKey, now.Ticks);
+        await LogActivityAsync(now);
 
         StreakChanged?.Invoke(this, new StreakChangedEventArgs
         {
             NewStreak = currentCount
         });
+    }
+
+    public Task<StreakHistory> GetStreakHistory()
+    {
+        return _streakHistoryCache.GetStreakHistoryAsync();
+    }
+
+    public async Task<IReadOnlyList<bool>> GetRecentActiveHistory(int days)
+    {
+        if (days <= 0)
+        {
+            return Array.Empty<bool>();
+        }
+
+        var tempDate = DateTime.Now.AddDays((days - 1) * -1);
+        var history = await _streakHistoryCache.GetStreakHistoryAsync();
+        List<bool> recentHistory = new();
+        for (int i = 0; i < days; i++)
+        {
+            if (history.Years.TryGetValue(tempDate.Year.ToString(), out var monthly) &&
+                monthly.Months.TryGetValue(tempDate.Month.ToString(), out var dayList) &&
+                dayList.Contains(tempDate.Day))
+            {
+                recentHistory.Add(true);
+            }
+            else
+            {
+                recentHistory.Add(false);
+            }
+
+            tempDate = tempDate.AddDays(1);
+        }
+
+        return recentHistory;
+    }
+    
+    private async Task LogActivityAsync(DateTime date)
+    {
+        var streakHistory = await _streakHistoryCache.GetStreakHistoryAsync();
+        var year = date.Year.ToString();
+        var month = date.Month.ToString();
+
+        if (!streakHistory.Years.ContainsKey(year))
+        {
+            streakHistory.Years.Add(year, new());
+        }
+
+        if (!streakHistory.Years[year].Months.ContainsKey(month))
+        {
+            streakHistory.Years[year].Months.Add(month, new());
+        }
+
+        streakHistory.Years[year].Months[month].Add(date.Day);
+        await _streakHistoryCache.UpdateStreakHistory(streakHistory);
     }
 
     private async void OnPlaybackChanged(object sender, MediaPlaybackState e)

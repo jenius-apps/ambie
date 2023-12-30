@@ -138,6 +138,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     public ObservableCollection<MenuItem> FooterItems { get; } = new();
 
+    public ObservableCollection<string> RecentActivity { get; } = new();
+
     [ObservableProperty]
     public IReadOnlyList<AutosuggestSound> _searchAutosuggestItems = Array.Empty<AutosuggestSound>();
 
@@ -253,6 +255,16 @@ public partial class ShellPageViewModel : ObservableObject
             : _localizer.GetString("DayPlural", count.ToString());
 
         ShowStreak = count > 0;
+    }
+
+    public async Task LoadRecentActivityAsync()
+    {
+        var recent = await _statService.GetRecentActiveHistory(7);
+        RecentActivity.Clear();
+        foreach (var x in recent)
+        {
+            RecentActivity.Add(x.ToString());
+        }
     }
 
     [RelayCommand]

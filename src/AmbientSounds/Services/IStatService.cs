@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services
@@ -9,5 +10,6 @@ namespace AmbientSounds.Services
 
         int ValidateAndRetrieveStreak();
         Task LogStreakAsync();
+        Task<IReadOnlyList<bool>> GetRecentActiveHistory(int days);
     }
 }
