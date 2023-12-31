@@ -138,7 +138,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     public ObservableCollection<MenuItem> FooterItems { get; } = new();
 
-    public ObservableCollection<string> RecentActivity { get; } = new();
+    public ObservableCollection<DayActivityViewModel> RecentActivity { get; } = new();
 
     [ObservableProperty]
     public IReadOnlyList<AutosuggestSound> _searchAutosuggestItems = Array.Empty<AutosuggestSound>();
@@ -260,10 +260,17 @@ public partial class ShellPageViewModel : ObservableObject
     public async Task LoadRecentActivityAsync()
     {
         var recent = await _statService.GetRecentActiveHistory(7);
+        DateTime tempDate = DateTime.Now.AddDays(-6).Date;
         RecentActivity.Clear();
         foreach (var x in recent)
         {
-            RecentActivity.Add(x.ToString());
+            RecentActivity.Add(new DayActivityViewModel
+            {
+                Active = x,
+                Date = tempDate
+            });
+
+            tempDate = tempDate.AddDays(1);
         }
     }
 

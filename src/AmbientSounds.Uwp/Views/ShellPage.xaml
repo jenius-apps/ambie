@@ -9,6 +9,7 @@
     xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
@@ -320,7 +321,32 @@
                             </StackPanel>
                             <FlyoutBase.AttachedFlyout>
                                 <Flyout x:Name="RecentFlyout">
-                                    <ListView ItemsSource="{x:Bind ViewModel.RecentActivity}" />
+                                    <ItemsControl ItemsSource="{x:Bind ViewModel.RecentActivity}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <toolkit:WrapPanel
+                                                    HorizontalSpacing="2"
+                                                    Orientation="Horizontal"
+                                                    VerticalSpacing="2" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="vm:DayActivityViewModel">
+                                                <Grid
+                                                    Width="20"
+                                                    Height="20"
+                                                    Background="Transparent"
+                                                    BorderBrush="White"
+                                                    BorderThickness="1"
+                                                    ToolTipService.ToolTip="{x:Bind Date.ToShortDateString()}">
+                                                    <Rectangle
+                                                        Fill="Green"
+                                                        Stretch="Fill"
+                                                        Visibility="{x:Bind Active}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
                                 </Flyout>
                             </FlyoutBase.AttachedFlyout>
                         </HyperlinkButton>
