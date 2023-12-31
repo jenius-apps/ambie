@@ -320,33 +320,53 @@
                                     Typography.NumeralAlignment="Tabular" />
                             </StackPanel>
                             <FlyoutBase.AttachedFlyout>
-                                <Flyout x:Name="RecentFlyout">
-                                    <ItemsControl ItemsSource="{x:Bind ViewModel.RecentActivity}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <toolkit:WrapPanel
-                                                    HorizontalSpacing="2"
-                                                    Orientation="Horizontal"
-                                                    VerticalSpacing="2" />
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate x:DataType="vm:DayActivityViewModel">
-                                                <Grid
-                                                    Width="20"
-                                                    Height="20"
-                                                    Background="Transparent"
-                                                    BorderBrush="White"
-                                                    BorderThickness="1"
-                                                    ToolTipService.ToolTip="{x:Bind Date.ToShortDateString()}">
-                                                    <Rectangle
-                                                        Fill="Green"
-                                                        Stretch="Fill"
-                                                        Visibility="{x:Bind Active}" />
-                                                </Grid>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
+                                <Flyout x:Name="RecentFlyout" Placement="Bottom">
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                                            <Setter Property="Padding" Value="12,8" />
+                                        </Style>
+
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <StackPanel>
+                                        <TextBlock
+                                            FontSize="12"
+                                            FontWeight="SemiBold"
+                                            Text="My streak" />
+                                        <ItemsControl Margin="0,6,0,0" ItemsSource="{x:Bind ViewModel.RecentActivity}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <toolkit:WrapPanel
+                                                        HorizontalSpacing="1"
+                                                        Orientation="Horizontal"
+                                                        VerticalSpacing="1" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="vm:DayActivityViewModel">
+                                                    <Grid
+                                                        Width="20"
+                                                        Height="20"
+                                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                                        BorderThickness="1"
+                                                        CornerRadius="2"
+                                                        ToolTipService.ToolTip="{x:Bind Date.ToShortDateString()}">
+                                                        <Rectangle
+                                                            Fill="{ThemeResource SystemFillColorSuccessBrush}"
+                                                            RadiusX="2"
+                                                            RadiusY="2"
+                                                            Stretch="Fill"
+                                                            Visibility="{x:Bind Active}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            FontSize="8"
+                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                            Text="Last 7 days" />
+                                    </StackPanel>
                                 </Flyout>
                             </FlyoutBase.AttachedFlyout>
                         </HyperlinkButton>
