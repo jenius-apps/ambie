@@ -2640,6 +2640,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region LastXDays
+        /// <summary>
+        ///   Looks up a localized string similar to: Last {0} days
+        /// </summary>
+        public static string LastXDays
+        {
+            get
+            {
+                return _resourceLoader.GetString("LastXDays");
+            }
+        }
+        #endregion
+
+        #region StreakHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: My streak
+        /// </summary>
+        public static string StreakHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("StreakHeader");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2853,6 +2879,8 @@ namespace AmbientSounds.Strings{
             EnableStreaksText,
             DayPlural,
             DaySingular,
+            LastXDays,
+            StreakHeader,
         }
 
         private static ResourceLoader _resourceLoader;

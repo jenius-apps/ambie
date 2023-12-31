@@ -320,7 +320,7 @@
                                     Typography.NumeralAlignment="Tabular" />
                             </StackPanel>
                             <FlyoutBase.AttachedFlyout>
-                                <Flyout x:Name="RecentFlyout" Placement="Bottom">
+                                <Flyout x:Name="RecentFlyout">
                                     <Flyout.FlyoutPresenterStyle>
                                         <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
                                             <Setter Property="Padding" Value="12,8" />
@@ -331,7 +331,7 @@
                                         <TextBlock
                                             FontSize="12"
                                             FontWeight="SemiBold"
-                                            Text="My streak" />
+                                            Text="{x:Bind strings:Resources.StreakHeader}" />
                                         <ItemsControl Margin="0,6,0,0" ItemsSource="{x:Bind ViewModel.RecentActivity}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
@@ -363,9 +363,9 @@
                                         </ItemsControl>
                                         <TextBlock
                                             Margin="0,4,0,0"
-                                            FontSize="8"
+                                            FontSize="10"
                                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                            Text="Last 7 days" />
+                                            Text="{x:Bind ViewModel.LastDaysStreakText}" />
                                     </StackPanel>
                                 </Flyout>
                             </FlyoutBase.AttachedFlyout>

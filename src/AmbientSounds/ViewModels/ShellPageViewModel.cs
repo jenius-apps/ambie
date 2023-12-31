@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels;
 /// </summary>
 public partial class ShellPageViewModel : ObservableObject
 {
+    private const int LastDaysStreak = 7;
     private readonly IUserSettings _userSettings;
     private readonly ITimerService _ratingTimer;
     private readonly ITelemetry _telemetry;
@@ -133,6 +134,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _isMeditatePageVisible;
+
+    public string LastDaysStreakText => _localizer.GetString("LastXDays", LastDaysStreak.ToString());
 
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
@@ -259,8 +262,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     public async Task LoadRecentActivityAsync()
     {
-        var recent = await _statService.GetRecentActiveHistory(7);
-        DateTime tempDate = DateTime.Now.AddDays(-6).Date;
+        var recent = await _statService.GetRecentActiveHistory(LastDaysStreak);
+        DateTime tempDate = DateTime.Now.AddDays((LastDaysStreak - 1) * -1).Date;
         RecentActivity.Clear();
         foreach (var x in recent)
         {

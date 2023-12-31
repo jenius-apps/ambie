@@ -910,4 +910,10 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 day</value>
   </data>
+  <data name="LastXDays" xml:space="preserve">
+    <value>Last {0} days</value>
+  </data>
+  <data name="StreakHeader" xml:space="preserve">
+    <value>My streak</value>
+  </data>
 </root>

@@ -1074,6 +1074,14 @@
           <source>1 day</source>
           <target state="new">1 day</target>
         </trans-unit>
+        <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
+          <source>Last {0} days</source>
+          <target state="new">Last {0} days</target>
+        </trans-unit>
+        <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
+          <source>My streak</source>
+          <target state="new">My streak</target>
+        </trans-unit>
       </group>
     </body>
   </file>
