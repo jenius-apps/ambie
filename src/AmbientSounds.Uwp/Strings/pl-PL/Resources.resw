@@ -593,7 +593,7 @@
     <value>Darmowe w tym tygodniu!</value>
   </data>
   <data name="SettingsCompactMode" xml:space="preserve">
-    <value>Otwórz Ambie Mini podczas korzystania z licznika koncentracji</value>
+    <value>Otwórz Mini z licznikiem koncentracji</value>
   </data>
   <data name="DurationText" xml:space="preserve">
     <value>Czas trwania</value>
@@ -737,7 +737,7 @@
     <value>Dźwięki będą nadal odtwarzane po zakończeniu sesji koncentracji</value>
   </data>
   <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
-    <value>Kontynuuj odtwarzanie dźwięków po zakończeniu sesji koncentracji</value>
+    <value>Kontynuuj odtwarzanie po sesji koncentracji</value>
   </data>
   <data name="RelaxText" xml:space="preserve">
     <value>Relaksować się</value>

@@ -783,7 +783,7 @@
         </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
-          <target state="translated">Otwórz Ambie Mini podczas korzystania z licznika koncentracji</target>
+          <target state="translated">Otwórz Mini z licznikiem koncentracji</target>
         </trans-unit>
         <trans-unit id="DurationText" translate="yes" xml:space="preserve">
           <source>Duration</source>
@@ -975,7 +975,7 @@
         </trans-unit>
         <trans-unit id="SettingsPlayAfterFocusHeader" translate="yes" xml:space="preserve">
           <source>Continue sounds after focusing</source>
-          <target state="translated">Kontynuuj odtwarzanie dźwięków po zakończeniu sesji koncentracji</target>
+          <target state="translated">Kontynuuj odtwarzanie po sesji koncentracji</target>
         </trans-unit>
         <trans-unit id="RelaxText" translate="yes" xml:space="preserve">
           <source>Relax</source>
