@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Constants;
 using AmbientSounds.Models;
+using AmbientSounds.Tools;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,17 +13,23 @@ public sealed class StatService : IStatService
     private readonly IUserSettings _userSettings;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IStreakHistoryCache _streakHistoryCache;
+    private readonly ITimerService _timerService;
 
     public event EventHandler<StreakChangedEventArgs>? StreakChanged;
 
     public StatService(
         IUserSettings userSettings,
         IMixMediaPlayerService mixMediaPlayerService,
-        IStreakHistoryCache streakHistoryCache)
+        IStreakHistoryCache streakHistoryCache,
+        ITimerService timerService)
     {
         _userSettings = userSettings;
         _mixMediaPlayerService = mixMediaPlayerService;
         _streakHistoryCache = streakHistoryCache;
+        _timerService = timerService;
+
+        _timerService.Interval = 86400000; // 24 hours
+        _timerService.IntervalElapsed += OnDayElapsed;
 
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
     }
@@ -132,7 +139,17 @@ public sealed class StatService : IStatService
         if (e is MediaPlaybackState.Opening or MediaPlaybackState.Playing)
         {
             await LogStreakAsync();
+            _timerService.Start();
         }
+        else
+        {
+            _timerService.Stop();
+        }
+    }
+
+    private async void OnDayElapsed(object sender, TimeSpan e)
+    {
+        await LogStreakAsync();
     }
 
     private DateTime StreakLastUpdated()

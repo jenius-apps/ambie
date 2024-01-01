@@ -238,7 +238,10 @@ public partial class ShellPageViewModel : ObservableObject
 
     private void OnStreakChanged(object sender, StreakChangedEventArgs e)
     {
-        LoadStreak(e.NewStreak);
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            LoadStreak(e.NewStreak);
+        });
     }
 
     private void OnShareFailed(object sender, EventArgs e)
