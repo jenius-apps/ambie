@@ -790,4 +790,22 @@
   <data name="SkipThisSegment" xml:space="preserve">
     <value>Пропусни този сегмент</value>
   </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>{0} дни</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>1 ден</value>
+  </data>
+  <data name="LastXDays" xml:space="preserve">
+    <value>Последните {0} дни</value>
+  </data>
+  <data name="StreakHeader" xml:space="preserve">
+    <value>Моята жилка</value>
+  </data>
+  <data name="StreakReminderMessage" xml:space="preserve">
+    <value>Поддържай жилката си жива!</value>
+  </data>
+  <data name="StreakReminderTitle" xml:space="preserve">
+    <value>{0}-дневна серия</value>
+  </data>
 </root>

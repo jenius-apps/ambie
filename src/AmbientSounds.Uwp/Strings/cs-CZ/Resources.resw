@@ -790,4 +790,22 @@
   <data name="SkipThisSegment" xml:space="preserve">
     <value>Přeskočit tento segment</value>
   </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>{0} dní</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>1 den</value>
+  </data>
+  <data name="LastXDays" xml:space="preserve">
+    <value>Posledních {0} dní</value>
+  </data>
+  <data name="StreakHeader" xml:space="preserve">
+    <value>Moje série</value>
+  </data>
+  <data name="StreakReminderMessage" xml:space="preserve">
+    <value>Udržujte svou sérii naživu!</value>
+  </data>
+  <data name="StreakReminderTitle" xml:space="preserve">
+    <value>{0} denní série</value>
+  </data>
 </root>

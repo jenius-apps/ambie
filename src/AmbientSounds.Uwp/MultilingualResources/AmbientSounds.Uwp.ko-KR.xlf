@@ -1046,27 +1046,27 @@
         </trans-unit>
         <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
           <source>{0} days</source>
-          <target state="new">{0} days</target>
+          <target state="translated">{0} 일</target>
         </trans-unit>
         <trans-unit id="DaySingular" translate="yes" xml:space="preserve">
           <source>1 day</source>
-          <target state="new">1 day</target>
+          <target state="translated">1 일</target>
         </trans-unit>
         <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
           <source>Last {0} days</source>
-          <target state="new">Last {0} days</target>
+          <target state="translated">지난 {0}일</target>
         </trans-unit>
         <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
           <source>My streak</source>
-          <target state="new">My streak</target>
+          <target state="translated">내 행진</target>
         </trans-unit>
         <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
           <source>Keep your streak alive!</source>
-          <target state="new">Keep your streak alive!</target>
+          <target state="translated">연승 행진을 이어가세요!</target>
         </trans-unit>
         <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
           <source>{0}-day streak</source>
-          <target state="new">{0}-day streak</target>
+          <target state="translated">{0}일 연속</target>
         </trans-unit>
       </group>
     </body>

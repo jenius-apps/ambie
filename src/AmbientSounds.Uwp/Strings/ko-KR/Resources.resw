@@ -790,4 +790,22 @@
   <data name="SkipThisSegment" xml:space="preserve">
     <value>이 구간 건너뛰기</value>
   </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>{0} 일</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>1 일</value>
+  </data>
+  <data name="LastXDays" xml:space="preserve">
+    <value>지난 {0}일</value>
+  </data>
+  <data name="StreakHeader" xml:space="preserve">
+    <value>내 행진</value>
+  </data>
+  <data name="StreakReminderMessage" xml:space="preserve">
+    <value>연승 행진을 이어가세요!</value>
+  </data>
+  <data name="StreakReminderTitle" xml:space="preserve">
+    <value>{0}일 연속</value>
+  </data>
 </root>

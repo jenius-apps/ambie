@@ -790,4 +790,22 @@
   <data name="SkipThisSegment" xml:space="preserve">
     <value>Pular este segmento</value>
   </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>{0} dias</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>1 dia</value>
+  </data>
+  <data name="LastXDays" xml:space="preserve">
+    <value>Últimos {0} dias</value>
+  </data>
+  <data name="StreakHeader" xml:space="preserve">
+    <value>Minha raia</value>
+  </data>
+  <data name="StreakReminderMessage" xml:space="preserve">
+    <value>Mantenha sua sequência viva!</value>
+  </data>
+  <data name="StreakReminderTitle" xml:space="preserve">
+    <value>Sequência de {0} dias</value>
+  </data>
 </root>

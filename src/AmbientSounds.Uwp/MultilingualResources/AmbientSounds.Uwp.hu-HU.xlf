@@ -1056,27 +1056,27 @@
         </trans-unit>
         <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
           <source>{0} days</source>
-          <target state="new">{0} days</target>
+          <target state="translated">{0} nap</target>
         </trans-unit>
         <trans-unit id="DaySingular" translate="yes" xml:space="preserve">
           <source>1 day</source>
-          <target state="new">1 day</target>
+          <target state="translated">1 nap</target>
         </trans-unit>
         <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
           <source>Last {0} days</source>
-          <target state="new">Last {0} days</target>
+          <target state="translated">Az elmúlt {0} nap</target>
         </trans-unit>
         <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
           <source>My streak</source>
-          <target state="new">My streak</target>
+          <target state="translated">Az én sorozatom</target>
         </trans-unit>
         <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
           <source>Keep your streak alive!</source>
-          <target state="new">Keep your streak alive!</target>
+          <target state="translated">Tartsd életben a sorozatodat!</target>
         </trans-unit>
         <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
           <source>{0}-day streak</source>
-          <target state="new">{0}-day streak</target>
+          <target state="translated">{0} napos sorozat</target>
         </trans-unit>
       </group>
     </body>

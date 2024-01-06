@@ -1047,27 +1047,27 @@
         </trans-unit>
         <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
           <source>{0} days</source>
-          <target state="new">{0} days</target>
+          <target state="translated">{0} Tage</target>
         </trans-unit>
         <trans-unit id="DaySingular" translate="yes" xml:space="preserve">
           <source>1 day</source>
-          <target state="new">1 day</target>
+          <target state="translated">1 Tag</target>
         </trans-unit>
         <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
           <source>Last {0} days</source>
-          <target state="new">Last {0} days</target>
+          <target state="translated">Letzte {0} Tage</target>
         </trans-unit>
         <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
           <source>My streak</source>
-          <target state="new">My streak</target>
+          <target state="translated">Meine Glückssträhne</target>
         </trans-unit>
         <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
           <source>Keep your streak alive!</source>
-          <target state="new">Keep your streak alive!</target>
+          <target state="translated">Halte deine Glückssträhne am Leben!</target>
         </trans-unit>
         <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
           <source>{0}-day streak</source>
-          <target state="new">{0}-day streak</target>
+          <target state="translated">{0}-Tage-Serie</target>
         </trans-unit>
       </group>
     </body>
