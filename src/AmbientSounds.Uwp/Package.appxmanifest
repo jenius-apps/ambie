@@ -63,6 +63,11 @@
 	        <Task Type="systemEvent"/>
 	      </BackgroundTasks>
 	    </Extension>
+	    <Extension Category="windows.backgroundTasks" EntryPoint="AmbientSounds.Tasks.StreakReminderTask">
+	      <BackgroundTasks>
+	        <Task Type="timer"/>
+	      </BackgroundTasks>
+	    </Extension>
       </Extensions>
     </Application>
   </Applications>

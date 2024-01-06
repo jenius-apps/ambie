@@ -2666,6 +2666,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region StreakReminderMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Keep your streak alive!
+        /// </summary>
+        public static string StreakReminderMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("StreakReminderMessage");
+            }
+        }
+        #endregion
+
+        #region StreakReminderTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: {0}-day streak
+        /// </summary>
+        public static string StreakReminderTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("StreakReminderTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2881,6 +2907,8 @@ namespace AmbientSounds.Strings{
             DaySingular,
             LastXDays,
             StreakHeader,
+            StreakReminderMessage,
+            StreakReminderTitle,
         }
 
         private static ResourceLoader _resourceLoader;

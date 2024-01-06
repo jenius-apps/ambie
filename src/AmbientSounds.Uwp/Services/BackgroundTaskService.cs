@@ -45,6 +45,26 @@ public class BackgroundTaskService : IBackgroundTaskService
         }
     }
 
+    public void ToggleStreakReminderTask(bool enable)
+    {
+        var taskType = typeof(StreakReminderTask);
+
+        if (!enable)
+        {
+            UnregisterTask(taskType.Name);
+            return;
+        }
+
+        var builder = new BackgroundTaskBuilder
+        {
+            Name = taskType.Name,
+            TaskEntryPoint = taskType.FullName
+        };
+        builder.SetTrigger(new TimeTrigger(360, false));
+        builder.AddCondition(new SystemCondition(SystemConditionType.UserPresent));
+        builder.Register();
+    }
+
     public void UnregisterTask(string name)
     {
         foreach (var bgTask in BackgroundTaskRegistration.AllTasks)

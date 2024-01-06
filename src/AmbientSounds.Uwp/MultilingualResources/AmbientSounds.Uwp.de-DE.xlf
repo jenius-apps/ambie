@@ -1073,6 +1073,14 @@
           <source>My streak</source>
           <target state="new">My streak</target>
         </trans-unit>
+        <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
+          <source>Keep your streak alive!</source>
+          <target state="new">Keep your streak alive!</target>
+        </trans-unit>
+        <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
+          <source>{0}-day streak</source>
+          <target state="new">{0}-day streak</target>
+        </trans-unit>
       </group>
     </body>
   </file>

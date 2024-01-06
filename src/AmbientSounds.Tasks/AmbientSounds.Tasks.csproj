@@ -123,6 +123,7 @@
   <ItemGroup>
     <Compile Include="StartupTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StreakReminderTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JeniusApps.Common.Uwp">
@@ -131,6 +132,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AmbientSounds\AmbientSounds.csproj">
+      <Project>{e8943da1-afdd-4c4b-a216-05af46142cab}</Project>
+      <Name>AmbientSounds</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

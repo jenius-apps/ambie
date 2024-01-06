@@ -1,7 +1,8 @@
 ﻿using JeniusApps.Common.Tools.Uwp;
-using System;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Resources;
+
+#nullable enable
 
 namespace AmbientSounds.Tasks;
 

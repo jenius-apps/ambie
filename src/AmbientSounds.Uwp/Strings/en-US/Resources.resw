@@ -916,4 +916,10 @@
   <data name="StreakHeader" xml:space="preserve">
     <value>My streak</value>
   </data>
+  <data name="StreakReminderMessage" xml:space="preserve">
+    <value>Keep your streak alive!</value>
+  </data>
+  <data name="StreakReminderTitle" xml:space="preserve">
+    <value>{0}-day streak</value>
+  </data>
 </root>
