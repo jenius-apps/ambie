@@ -16,6 +16,7 @@ public class StreakHistoryCache : IStreakHistoryCache
         _streakHistoryRepository = streakHistoryRepository;
     }
 
+    /// <inheritdoc />
     public async Task<StreakHistory> GetStreakHistoryAsync()
     {
         await _lock.WaitAsync();
@@ -25,6 +26,7 @@ public class StreakHistoryCache : IStreakHistoryCache
         return _history ?? new StreakHistory();
     }
 
+    /// <inheritdoc />
     public async Task UpdateStreakHistory(StreakHistory updatedHistory)
     {
         await _lock.WaitAsync();
