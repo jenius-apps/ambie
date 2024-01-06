@@ -111,6 +111,9 @@ public partial class ShellPageViewModel : ObservableObject
     private bool _showStreak;
 
     [ObservableProperty]
+    private bool _newStreakExperience;
+
+    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SidePanelMica))]
     private bool _isWin11;
 
@@ -240,7 +243,7 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _dispatcherQueue.TryEnqueue(() =>
         {
-            LoadStreak(e.NewStreak);
+            LoadStreak(e);
         });
     }
 
@@ -252,14 +255,15 @@ public partial class ShellPageViewModel : ObservableObject
         });
     }
 
-    private void LoadStreak(int? count = null)
+    public void LoadStreak(StreakChangedEventArgs? args = null)
     {
-        count ??= _statService.ValidateAndRetrieveStreak();
+        int count = args?.NewStreak ?? _statService.ValidateAndRetrieveStreak();
 
         StreakText = count == 1
             ? _localizer.GetString("DaySingular")
             : _localizer.GetString("DayPlural", count.ToString());
 
+        NewStreakExperience = args?.AnimationRecommended ?? false;
         ShowStreak = count > 0;
     }
 

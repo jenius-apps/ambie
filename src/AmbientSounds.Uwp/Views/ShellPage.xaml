@@ -5,6 +5,7 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -311,11 +312,11 @@
                                 <Grid>
                                     <TextBlock
                                         x:Name="StreaksEmoji"
-                                        Margin="-3,0,-1,0"
+                                        Margin="-2,0,-1,0"
                                         AutomationProperties.AccessibilityView="Raw"
-                                        FontSize="16"
+                                        FontSize="14"
                                         Text="🔥"
-                                        Visibility="Collapsed">
+                                        Visibility="{x:Bind ViewModel.NewStreakExperience, Mode=OneWay}">
                                         <animations:Implicit.Animations>
                                             <animations:OffsetAnimation />
                                         </animations:Implicit.Animations>
@@ -324,7 +325,8 @@
                                         x:Name="StreaksIcon"
                                         FontFamily="{StaticResource FluentUIGlyphs}"
                                         FontSize="16"
-                                        Glyph="{StaticResource GlyphFire}">
+                                        Glyph="{StaticResource GlyphFire}"
+                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.NewStreakExperience), Mode=OneWay}">
                                         <animations:Implicit.Animations>
                                             <animations:OffsetAnimation />
                                         </animations:Implicit.Animations>
@@ -346,7 +348,7 @@
                                 </TextBlock>
                             </StackPanel>
                             <FlyoutBase.AttachedFlyout>
-                                <Flyout x:Name="RecentFlyout">
+                                <Flyout x:Name="RecentFlyout" Closed="OnStreakFlyoutClosed">
                                     <Flyout.FlyoutPresenterStyle>
                                         <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
                                             <Setter Property="Padding" Value="12,8" />
