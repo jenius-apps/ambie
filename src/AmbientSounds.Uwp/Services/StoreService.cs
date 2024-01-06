@@ -37,13 +37,7 @@ public class StoreService : IIapService
             return isOwned;
         }
 
-        if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
-        {
-            return false;
-        }
-
-        if (_context is null)
-            _context = StoreContext.GetDefault();
+        _context ??= StoreContext.GetDefault();
 
         StoreAppLicense appLicense = await _context.GetAppLicenseAsync();
         if (appLicense is null)
