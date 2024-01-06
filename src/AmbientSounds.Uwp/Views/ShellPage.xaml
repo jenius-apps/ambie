@@ -58,7 +58,8 @@
                         <Setter Target="PremiumIcon.Visibility" Value="Visible" />
                         <Setter Target="PremiumText.Visibility" Value="Collapsed" />
                         <Setter Target="PremiumButton.HorizontalContentAlignment" Value="Center" />
-                        <Setter Target="StreaksIcon.Margin" Value="0" />
+                        <Setter Target="StreaksIcon.Margin" Value="3,0,0,0" />
+                        <Setter Target="StreaksEmoji.Margin" Value="0" />
                         <Setter Target="StreaksText.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
@@ -306,20 +307,32 @@
                             HorizontalContentAlignment="Left"
                             Click="OnStreakClicked"
                             Visibility="{x:Bind ViewModel.ShowStreak, Mode=OneWay}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    x:Name="StreaksIcon"
-                                    Margin="-3,0,-1,0"
-                                    AutomationProperties.AccessibilityView="Raw"
-                                    FontSize="16"
-                                    Text="🔥">
-                                    <animations:Implicit.Animations>
-                                        <animations:OffsetAnimation />
-                                    </animations:Implicit.Animations>
-                                </TextBlock>
+                            <StackPanel MinHeight="18" Orientation="Horizontal">
+                                <Grid>
+                                    <TextBlock
+                                        x:Name="StreaksEmoji"
+                                        Margin="-3,0,-1,0"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        FontSize="16"
+                                        Text="🔥"
+                                        Visibility="Collapsed">
+                                        <animations:Implicit.Animations>
+                                            <animations:OffsetAnimation />
+                                        </animations:Implicit.Animations>
+                                    </TextBlock>
+                                    <FontIcon
+                                        x:Name="StreaksIcon"
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="16"
+                                        Glyph="{StaticResource GlyphFire}">
+                                        <animations:Implicit.Animations>
+                                            <animations:OffsetAnimation />
+                                        </animations:Implicit.Animations>
+                                    </FontIcon>
+                                </Grid>
                                 <TextBlock
                                     x:Name="StreaksText"
-                                    Margin="10,0,0,0"
+                                    Margin="12,0,0,-1"
                                     VerticalAlignment="Center"
                                     Text="{x:Bind ViewModel.StreakText, Mode=OneWay}"
                                     Typography.NumeralAlignment="Tabular"
