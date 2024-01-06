@@ -9,6 +9,7 @@
     xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
@@ -57,6 +58,8 @@
                         <Setter Target="PremiumIcon.Visibility" Value="Visible" />
                         <Setter Target="PremiumText.Visibility" Value="Collapsed" />
                         <Setter Target="PremiumButton.HorizontalContentAlignment" Value="Center" />
+                        <Setter Target="StreaksIcon.Margin" Value="0" />
+                        <Setter Target="StreaksText.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -126,78 +129,6 @@
                 </animations:Implicit.Animations>
             </controls:TitleBarLogo>
         </Grid>
-
-        <!--  title bar content  -->
-        <StackPanel
-            x:Name="TitleBar"
-            Height="46"
-            Margin="78,0,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Orientation="Horizontal"
-            Visibility="Collapsed">
-
-            <!--  Focus time banner  -->
-            <controls:TimeBanner
-                Margin="12,0,0,0"
-                Command="{x:Bind ViewModel.HandleTitleBannerCommand}"
-                Visibility="{x:Bind ViewModel.FocusTimeBannerVisible, Mode=OneWay}">
-                <animations:Implicit.HideAnimations>
-                    <animations:OpacityAnimation
-                        From="1"
-                        To="0"
-                        Duration="0:0:0.5" />
-                    <animations:TranslationAnimation To="0,-60,0" Duration="0:0:0.5" />
-                </animations:Implicit.HideAnimations>
-                <animations:Explicit.Animations>
-                    <animations:AnimationSet x:Name="ShowTimeBannerAnimations">
-                        <animations:TranslationAnimation
-                            From="0,-60,0"
-                            To="0,0,0"
-                            Duration="0:0:0.5" />
-                        <animations:OpacityAnimation
-                            From="0"
-                            To="1"
-                            Duration="0:0:0.5" />
-                    </animations:AnimationSet>
-                </animations:Explicit.Animations>
-            </controls:TimeBanner>
-
-            <controls:TwoToneButton
-                Margin="12,0,0,0"
-                Padding="8,0"
-                Command="{x:Bind ViewModel.HandleTitleBannerCommand}"
-                Content="{x:Bind strings:Resources.MeditatingText}"
-                FontSize="10"
-                Visibility="{x:Bind ViewModel.GuideBannerVisible, Mode=OneWay}">
-                <controls:TwoToneButton.SecondaryContent>
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="12"
-                        Glyph="{StaticResource GlyphLeaves}" />
-                </controls:TwoToneButton.SecondaryContent>
-
-                <animations:Implicit.HideAnimations>
-                    <animations:OpacityAnimation
-                        From="1"
-                        To="0"
-                        Duration="0:0:0.5" />
-                    <animations:TranslationAnimation To="0,-60,0" Duration="0:0:0.5" />
-                </animations:Implicit.HideAnimations>
-                <animations:Explicit.Animations>
-                    <animations:AnimationSet x:Name="ShowGuideBannerAnimations">
-                        <animations:TranslationAnimation
-                            From="0,-60,0"
-                            To="0,0,0"
-                            Duration="0:0:0.5" />
-                        <animations:OpacityAnimation
-                            From="0"
-                            To="1"
-                            Duration="0:0:0.5" />
-                    </animations:AnimationSet>
-                </animations:Explicit.Animations>
-            </controls:TwoToneButton>
-        </StackPanel>
 
         <Grid
             x:Name="PlayerPanelGrid"
@@ -367,6 +298,90 @@
                                     </animations:Implicit.ShowAnimations>
                                 </TextBlock>
                             </StackPanel>
+                        </HyperlinkButton>
+
+                        <HyperlinkButton
+                            Margin="12,0,12,4"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Left"
+                            Click="OnStreakClicked"
+                            Visibility="{x:Bind ViewModel.ShowStreak, Mode=OneWay}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    x:Name="StreaksIcon"
+                                    Margin="-3,0,-1,0"
+                                    AutomationProperties.AccessibilityView="Raw"
+                                    FontSize="16"
+                                    Text="🔥">
+                                    <animations:Implicit.Animations>
+                                        <animations:OffsetAnimation />
+                                    </animations:Implicit.Animations>
+                                </TextBlock>
+                                <TextBlock
+                                    x:Name="StreaksText"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Bind ViewModel.StreakText, Mode=OneWay}"
+                                    Typography.NumeralAlignment="Tabular"
+                                    Visibility="Visible">
+                                    <animations:Implicit.ShowAnimations>
+                                        <animations:OpacityAnimation
+                                            From="0"
+                                            To="1"
+                                            Duration="0:0:0.6" />
+                                    </animations:Implicit.ShowAnimations>
+                                </TextBlock>
+                            </StackPanel>
+                            <FlyoutBase.AttachedFlyout>
+                                <Flyout x:Name="RecentFlyout">
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                                            <Setter Property="Padding" Value="12,8" />
+                                        </Style>
+
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <StackPanel>
+                                        <TextBlock
+                                            FontSize="12"
+                                            FontWeight="SemiBold"
+                                            Text="{x:Bind strings:Resources.StreakHeader}" />
+                                        <ItemsControl Margin="0,6,0,0" ItemsSource="{x:Bind ViewModel.RecentActivity}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <toolkit:WrapPanel
+                                                        HorizontalSpacing="1"
+                                                        Orientation="Horizontal"
+                                                        VerticalSpacing="1" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate x:DataType="vm:DayActivityViewModel">
+                                                    <Grid
+                                                        Width="20"
+                                                        Height="20"
+                                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                                        BorderThickness="1"
+                                                        CornerRadius="2"
+                                                        ToolTipService.ToolTip="{x:Bind Date.ToShortDateString()}">
+                                                        <Rectangle
+                                                            Fill="{ThemeResource SystemFillColorSuccessBrush}"
+                                                            RadiusX="2"
+                                                            RadiusY="2"
+                                                            Stretch="Fill"
+                                                            Visibility="{x:Bind Active}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock
+                                            Margin="0,4,0,0"
+                                            FontSize="10"
+                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                            Text="{x:Bind ViewModel.LastDaysStreakText}" />
+                                    </StackPanel>
+                                </Flyout>
+                            </FlyoutBase.AttachedFlyout>
                         </HyperlinkButton>
 
                         <ItemsControl ItemsSource="{x:Bind ViewModel.FooterItems}">

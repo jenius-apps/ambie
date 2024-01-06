@@ -1040,6 +1040,30 @@
           <source>Skip this segment</source>
           <target state="translated">このセグメントをスキップ</target>
         </trans-unit>
+        <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
+          <source>{0} days</source>
+          <target state="translated">{0} 日間</target>
+        </trans-unit>
+        <trans-unit id="DaySingular" translate="yes" xml:space="preserve">
+          <source>1 day</source>
+          <target state="translated">1日券</target>
+        </trans-unit>
+        <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
+          <source>Last {0} days</source>
+          <target state="translated">過去 {0} 日間</target>
+        </trans-unit>
+        <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
+          <source>My streak</source>
+          <target state="translated">私の連勝記録</target>
+        </trans-unit>
+        <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
+          <source>Keep your streak alive!</source>
+          <target state="translated">連勝記録をキープしましょう!</target>
+        </trans-unit>
+        <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
+          <source>{0}-day streak</source>
+          <target state="translated">{0}日連続</target>
+        </trans-unit>
       </group>
     </body>
   </file>

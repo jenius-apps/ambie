@@ -775,4 +775,22 @@
   <data name="SkipThisSegment" xml:space="preserve">
     <value>Παράλειψη αυτού του τμήματος</value>
   </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>{0} ημέρες</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>1 ημέρα</value>
+  </data>
+  <data name="LastXDays" xml:space="preserve">
+    <value>Τελευταίες {0} ημέρες</value>
+  </data>
+  <data name="StreakHeader" xml:space="preserve">
+    <value>Το σερί μου</value>
+  </data>
+  <data name="StreakReminderMessage" xml:space="preserve">
+    <value>Κρατήστε το σερί σας ζωντανό!</value>
+  </data>
+  <data name="StreakReminderTitle" xml:space="preserve">
+    <value>Σερί {0} ημερών</value>
+  </data>
 </root>

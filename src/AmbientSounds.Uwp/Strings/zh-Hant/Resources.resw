@@ -790,4 +790,22 @@
   <data name="SkipThisSegment" xml:space="preserve">
     <value>跳過此部分</value>
   </data>
+  <data name="DayPlural" xml:space="preserve">
+    <value>{0}天</value>
+  </data>
+  <data name="DaySingular" xml:space="preserve">
+    <value>1 天</value>
+  </data>
+  <data name="LastXDays" xml:space="preserve">
+    <value>過去 {0} 天</value>
+  </data>
+  <data name="StreakHeader" xml:space="preserve">
+    <value>我的連勝紀錄</value>
+  </data>
+  <data name="StreakReminderMessage" xml:space="preserve">
+    <value>保持你的連勝紀錄！</value>
+  </data>
+  <data name="StreakReminderTitle" xml:space="preserve">
+    <value>{0} 天連勝</value>
+  </data>
 </root>

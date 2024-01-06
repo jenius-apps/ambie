@@ -287,7 +287,6 @@
     </Compile>
     <Compile Include="Services\AppServiceController.cs" />
     <Compile Include="Services\AppSettings.cs" />
-    <Compile Include="Services\AudioDeviceService.cs" />
     <Compile Include="Services\BackgroundDownloadService.cs" />
     <Compile Include="Services\BackgroundTaskService.cs" />
     <Compile Include="Services\CompactNavigator.cs" />

@@ -1040,6 +1040,30 @@
           <source>Skip this segment</source>
           <target state="translated">Παράλειψη αυτού του τμήματος</target>
         </trans-unit>
+        <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
+          <source>{0} days</source>
+          <target state="translated">{0} ημέρες</target>
+        </trans-unit>
+        <trans-unit id="DaySingular" translate="yes" xml:space="preserve">
+          <source>1 day</source>
+          <target state="translated">1 ημέρα</target>
+        </trans-unit>
+        <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
+          <source>Last {0} days</source>
+          <target state="translated">Τελευταίες {0} ημέρες</target>
+        </trans-unit>
+        <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
+          <source>My streak</source>
+          <target state="translated">Το σερί μου</target>
+        </trans-unit>
+        <trans-unit id="StreakReminderMessage" translate="yes" xml:space="preserve">
+          <source>Keep your streak alive!</source>
+          <target state="translated">Κρατήστε το σερί σας ζωντανό!</target>
+        </trans-unit>
+        <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
+          <source>{0}-day streak</source>
+          <target state="translated">Σερί {0} ημερών</target>
+        </trans-unit>
       </group>
     </body>
   </file>

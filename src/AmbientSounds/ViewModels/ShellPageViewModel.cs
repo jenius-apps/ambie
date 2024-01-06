@@ -21,6 +21,7 @@ namespace AmbientSounds.ViewModels;
 /// </summary>
 public partial class ShellPageViewModel : ObservableObject
 {
+    private const int LastDaysStreak = 7;
     private readonly IUserSettings _userSettings;
     private readonly ITimerService _ratingTimer;
     private readonly ITelemetry _telemetry;
@@ -36,6 +37,8 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISoundService _soundService;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ISearchService _searchService;
+    private readonly IStatService _statService;
+    private readonly ILocalizer _localizer;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -54,7 +57,8 @@ public partial class ShellPageViewModel : ObservableObject
         ILocalizer localizer,
         ISoundService soundService,
         IAssetLocalizer assetLocalizer,
-        ISearchService searchService)
+        ISearchService searchService,
+        IStatService statService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
@@ -74,6 +78,8 @@ public partial class ShellPageViewModel : ObservableObject
         _soundService = soundService;
         _assetLocalizer = assetLocalizer;
         _searchService = searchService;
+        _statService = statService;
+        _localizer = localizer;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString()));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString()));
@@ -97,6 +103,12 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.Start();
         }
     }
+
+    [ObservableProperty]
+    private string _streakText = string.Empty;
+
+    [ObservableProperty]
+    private bool _showStreak;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SidePanelMica))]
@@ -123,9 +135,13 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _isMeditatePageVisible;
 
+    public string LastDaysStreakText => _localizer.GetString("LastXDays", LastDaysStreak.ToString());
+
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
     public ObservableCollection<MenuItem> FooterItems { get; } = new();
+
+    public ObservableCollection<DayActivityViewModel> RecentActivity { get; } = new();
 
     [ObservableProperty]
     public IReadOnlyList<AutosuggestSound> _searchAutosuggestItems = Array.Empty<AutosuggestSound>();
@@ -196,6 +212,12 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService.ShareFailed += OnShareFailed;
         _guideService.GuideStarted += OnGuideStarted;
         _guideService.GuideStopped += OnGuideStopped;
+        _statService.StreakChanged += OnStreakChanged;
+
+        if (_userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey))
+        {
+            LoadStreak();
+        }
 
         await LoadPremiumContentAsync();
     }
@@ -211,6 +233,15 @@ public partial class ShellPageViewModel : ObservableObject
         _shareService.ShareFailed -= OnShareFailed;
         _guideService.GuideStarted -= OnGuideStarted;
         _guideService.GuideStopped -= OnGuideStopped;
+        _statService.StreakChanged -= OnStreakChanged;
+    }
+
+    private void OnStreakChanged(object sender, StreakChangedEventArgs e)
+    {
+        _dispatcherQueue.TryEnqueue(() =>
+        {
+            LoadStreak(e.NewStreak);
+        });
     }
 
     private void OnShareFailed(object sender, EventArgs e)
@@ -219,7 +250,34 @@ public partial class ShellPageViewModel : ObservableObject
         {
             IsMissingSoundsMessageVisible = true;
         });
+    }
 
+    private void LoadStreak(int? count = null)
+    {
+        count ??= _statService.ValidateAndRetrieveStreak();
+
+        StreakText = count == 1
+            ? _localizer.GetString("DaySingular")
+            : _localizer.GetString("DayPlural", count.ToString());
+
+        ShowStreak = count > 0;
+    }
+
+    public async Task LoadRecentActivityAsync()
+    {
+        var recent = await _statService.GetRecentActiveHistory(LastDaysStreak);
+        DateTime tempDate = DateTime.Now.AddDays((LastDaysStreak - 1) * -1).Date;
+        RecentActivity.Clear();
+        foreach (var x in recent)
+        {
+            RecentActivity.Add(new DayActivityViewModel
+            {
+                Active = x,
+                Date = tempDate
+            });
+
+            tempDate = tempDate.AddDays(1);
+        }
     }
 
     [RelayCommand]
@@ -266,6 +324,17 @@ public partial class ShellPageViewModel : ObservableObject
             OnPropertyChanged(nameof(ShowBackgroundImage));
             OnPropertyChanged(nameof(BackgroundImagePath));
             OnPropertyChanged(nameof(SidePanelMica));
+        }
+        else if (settingsKey == UserSettingsConstants.StreaksEnabledKey)
+        {
+            if (_userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey))
+            {
+                LoadStreak();
+            }
+            else
+            {
+                ShowStreak = false;
+            }
         }
     }
 

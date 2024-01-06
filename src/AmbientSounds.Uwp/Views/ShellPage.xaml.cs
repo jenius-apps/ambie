@@ -43,7 +43,6 @@ public sealed partial class ShellPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
-        ViewModel.PropertyChanged += OnViewModelPropertyChanged;
         var navigator = App.Services.GetRequiredService<INavigator>();
 
         if (navigator.Frame is null)
@@ -69,7 +68,6 @@ public sealed partial class ShellPage : Page
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
         App.Services.GetRequiredService<INavigator>().Frame = null;
-        ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
         ViewModel.Uninitialize();
     }
 
@@ -99,24 +97,6 @@ public sealed partial class ShellPage : Page
         App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.OobeRateUsDismissed);
     }
 
-    private async void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
-    {
-        if (e.PropertyName == nameof(ViewModel.FocusTimeBannerVisible))
-        {
-            if (ViewModel.FocusTimeBannerVisible)
-            {
-                await ShowTimeBannerAnimations.StartAsync();
-            }
-        }
-        else if (e.PropertyName == nameof(ViewModel.GuideBannerVisible))
-        {
-            if (ViewModel.GuideBannerVisible)
-            {
-                await ShowGuideBannerAnimations.StartAsync();
-            }
-        }
-    }
-
     private async void OnTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
     {
         if (args.Reason is AutoSuggestionBoxTextChangeReason.UserInput)
@@ -137,5 +117,11 @@ public sealed partial class ShellPage : Page
         {
             ViewModel.Search(query);
         }
+    }
+
+    private async void OnStreakClicked(object sender, RoutedEventArgs e)
+    {
+        await ViewModel.LoadRecentActivityAsync();
+        RecentFlyout.ShowAt((HyperlinkButton)sender);
     }
 }

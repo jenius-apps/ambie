@@ -1,13 +1,10 @@
 ﻿using AmbientSounds.Constants;
-using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
 using IAssetsReader = AmbientSounds.Tools.IAssetsReader;
 
@@ -22,7 +19,6 @@ namespace AmbientSounds.ViewModels
         private readonly IStoreNotificationRegistrar _notifications;
         private readonly ITelemetry _telemetry;
         private readonly IAppStoreRatings _appStoreRatings;
-        private readonly IAudioDeviceService _audioDeviceService;
         private readonly IQuickResumeService _quickResumeService;
         private bool _notificationsLoading;
 
@@ -33,7 +29,6 @@ namespace AmbientSounds.ViewModels
             IAssetsReader assetsReader,
             IImagePicker imagePicker,
             IAppStoreRatings appStoreRatings,
-            IAudioDeviceService audioDeviceService,
             IQuickResumeService quickResumeService)
         {
             _userSettings = userSettings;
@@ -42,7 +37,6 @@ namespace AmbientSounds.ViewModels
             _assetsReader = assetsReader;
             _imagePicker = imagePicker;
             _appStoreRatings = appStoreRatings;
-            _audioDeviceService = audioDeviceService;
             _quickResumeService = quickResumeService;
         }
 
@@ -91,11 +85,6 @@ namespace AmbientSounds.ViewModels
         }
 
         /// <summary>
-        /// Audio devices available for rendering sound.
-        /// </summary>
-        public ObservableCollection<AudioDeviceDescriptor> OutputDevices { get; } = new();
-
-        /// <summary>
         /// Settings flag for resume on launch.
         /// </summary>
         public bool AmbieMiniEnabled
@@ -108,6 +97,12 @@ namespace AmbientSounds.ViewModels
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.ConfirmCloseKey);
             set => _userSettings.Set(UserSettingsConstants.ConfirmCloseKey, value);
+        }
+
+        public bool StreaksEnabled
+        {
+            get => _userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey);
+            set => _userSettings.Set(UserSettingsConstants.StreaksEnabledKey, value);
         }
 
         public bool QuickResumeEnabled
