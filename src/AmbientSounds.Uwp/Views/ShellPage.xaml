@@ -355,46 +355,81 @@
                                         </Style>
 
                                     </Flyout.FlyoutPresenterStyle>
-                                    <StackPanel>
+
+                                    <Grid MaxWidth="280">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+
                                         <TextBlock
-                                            FontSize="12"
-                                            FontWeight="SemiBold"
-                                            Text="{x:Bind strings:Resources.StreakHeader}" />
-                                        <ItemsControl Margin="0,6,0,0" ItemsSource="{x:Bind ViewModel.RecentActivity}">
+                                            FontSize="60"
+                                            Text="{x:Bind ViewModel.StreakCount, Mode=OneWay}"
+                                            TextAlignment="Center" />
+
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Text="day streak!"
+                                            TextAlignment="Center" />
+
+                                        <ItemsControl
+                                            Grid.Row="2"
+                                            Margin="8,8,0,0"
+                                            HorizontalAlignment="Center"
+                                            ItemsSource="{x:Bind ViewModel.RecentActivity}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <toolkit:WrapPanel
-                                                        HorizontalSpacing="1"
+                                                        HorizontalSpacing="8"
                                                         Orientation="Horizontal"
                                                         VerticalSpacing="1" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate x:DataType="vm:DayActivityViewModel">
-                                                    <Grid
-                                                        Width="20"
-                                                        Height="20"
-                                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                                        BorderThickness="1"
-                                                        CornerRadius="2"
-                                                        ToolTipService.ToolTip="{x:Bind Date.ToShortDateString()}">
-                                                        <Rectangle
-                                                            Fill="{ThemeResource SystemFillColorSuccessBrush}"
-                                                            RadiusX="2"
-                                                            RadiusY="2"
-                                                            Stretch="Fill"
+                                                    <Grid Padding="0,4" ToolTipService.ToolTip="{x:Bind Date.ToLongDateString()}">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto" />
+                                                            <RowDefinition Height="auto" />
+                                                        </Grid.RowDefinitions>
+
+                                                        <TextBlock
+                                                            Margin="0,0,0,8"
+                                                            FontSize="12"
+                                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                            Text="{x:Bind DayOfWeekShort}"
+                                                            TextAlignment="Center" />
+
+                                                        <Ellipse
+                                                            Grid.Row="1"
+                                                            Width="24"
+                                                            Height="24"
+                                                            HorizontalAlignment="Center"
+                                                            Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+
+                                                        <FontIcon
+                                                            Grid.Row="1"
+                                                            HorizontalAlignment="Center"
+                                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                                            FontSize="24"
+                                                            Glyph="{StaticResource GlyphCheckMarkCircle}"
                                                             Visibility="{x:Bind Active}" />
                                                     </Grid>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
+
                                         <TextBlock
-                                            Margin="0,4,0,0"
-                                            FontSize="10"
+                                            Grid.Row="3"
+                                            Margin="0,12,0,0"
+                                            FontSize="12"
                                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                            Text="{x:Bind ViewModel.LastDaysStreakText}" />
-                                    </StackPanel>
+                                            Text="Listening daily grows your streak, but skipping a day resets it!"
+                                            TextAlignment="Center"
+                                            TextWrapping="WrapWholeWords" />
+                                    </Grid>
                                 </Flyout>
                             </FlyoutBase.AttachedFlyout>
                         </HyperlinkButton>

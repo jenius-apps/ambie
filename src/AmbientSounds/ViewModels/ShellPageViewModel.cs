@@ -105,6 +105,9 @@ public partial class ShellPageViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private int _streakCount;
+
+    [ObservableProperty]
     private string _streakText = string.Empty;
 
     [ObservableProperty]
@@ -263,6 +266,7 @@ public partial class ShellPageViewModel : ObservableObject
             ? _localizer.GetString("DaySingular")
             : _localizer.GetString("DayPlural", count.ToString());
 
+        StreakCount = count;
         NewStreakExperience = args?.AnimationRecommended ?? false;
         ShowStreak = count > 0;
     }
