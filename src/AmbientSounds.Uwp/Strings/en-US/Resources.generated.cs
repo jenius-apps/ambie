@@ -2576,45 +2576,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region ExperimentalFeaturesText
-        /// <summary>
-        ///   Looks up a localized string similar to: Experimental features
-        /// </summary>
-        public static string ExperimentalFeaturesText
-        {
-            get
-            {
-                return _resourceLoader.GetString("ExperimentalFeaturesText");
-            }
-        }
-        #endregion
-
-        #region EnableStreaksDescription
-        /// <summary>
-        ///   Looks up a localized string similar to: Activates the experimental streaks feature
-        /// </summary>
-        public static string EnableStreaksDescription
-        {
-            get
-            {
-                return _resourceLoader.GetString("EnableStreaksDescription");
-            }
-        }
-        #endregion
-
-        #region EnableStreaksText
-        /// <summary>
-        ///   Looks up a localized string similar to: Enable streaks
-        /// </summary>
-        public static string EnableStreaksText
-        {
-            get
-            {
-                return _resourceLoader.GetString("EnableStreaksText");
-            }
-        }
-        #endregion
-
         #region DayPlural
         /// <summary>
         ///   Looks up a localized string similar to: {0} days
@@ -2900,9 +2861,6 @@ namespace AmbientSounds.Strings{
             QuickResumeToastMessage,
             HomePageDownloadMessage,
             SkipThisSegment,
-            ExperimentalFeaturesText,
-            EnableStreaksDescription,
-            EnableStreaksText,
             DayPlural,
             DaySingular,
             LastXDays,

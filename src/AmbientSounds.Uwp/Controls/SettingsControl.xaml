@@ -239,9 +239,9 @@
             <TextBlock
                 Margin="1,29,0,5"
                 Style="{StaticResource BodyStrongTextBlockStyle}"
-                Text="{x:Bind strings:Resources.ExperimentalFeaturesText}" />
+                Text="Experimental features" />
 
-            <labs:SettingsCard Description="{x:Bind strings:Resources.EnableStreaksDescription}" Header="{x:Bind strings:Resources.EnableStreaksText}">
+            <labs:SettingsCard Description="Activates the experimental streaks feature" Header="Enable streaks">
                 <labs:SettingsCard.HeaderIcon>
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
                 </labs:SettingsCard.HeaderIcon>

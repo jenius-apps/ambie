@@ -895,15 +895,6 @@
   <data name="SkipThisSegment" xml:space="preserve">
     <value>Skip this segment</value>
   </data>
-  <data name="ExperimentalFeaturesText" xml:space="preserve">
-    <value>Experimental features</value>
-  </data>
-  <data name="EnableStreaksDescription" xml:space="preserve">
-    <value>Activates the experimental streaks feature</value>
-  </data>
-  <data name="EnableStreaksText" xml:space="preserve">
-    <value>Enable streaks</value>
-  </data>
   <data name="DayPlural" xml:space="preserve">
     <value>{0} days</value>
   </data>

@@ -1043,18 +1043,6 @@
           <source>Skip this segment</source>
           <target state="translated">דלג על קטע זה</target>
         </trans-unit>
-        <trans-unit id="ExperimentalFeaturesText" translate="yes" xml:space="preserve">
-          <source>Experimental features</source>
-          <target state="new">Experimental features</target>
-        </trans-unit>
-        <trans-unit id="EnableStreaksDescription" translate="yes" xml:space="preserve">
-          <source>Activates the experimental streaks feature</source>
-          <target state="new">Activates the experimental streaks feature</target>
-        </trans-unit>
-        <trans-unit id="EnableStreaksText" translate="yes" xml:space="preserve">
-          <source>Enable streaks</source>
-          <target state="new">Enable streaks</target>
-        </trans-unit>
         <trans-unit id="DayPlural" translate="yes" xml:space="preserve">
           <source>{0} days</source>
           <target state="new">{0} days</target>
