@@ -13,15 +13,7 @@ public sealed class StreakReminderTask : IBackgroundTask
 {
     public void Run(IBackgroundTaskInstance taskInstance)
     {
-        var resourceLoader = ResourceLoader.GetForViewIndependentUse();
-
         var now = DateTime.Now;
-
-        if (now.TimeOfDay.TotalHours > 22.0)
-        {
-            return;
-        }
-
         var settings = new LocalSettings(UserSettingsConstants.Defaults);
 
         long lastReminderDateTicks = settings.Get<long>(UserSettingsConstants.StreakReminderLastDateTicksKey);
@@ -48,11 +40,17 @@ public sealed class StreakReminderTask : IBackgroundTask
             return;
         }
 
+        DateTime? scheduleTime = now.TimeOfDay.TotalHours < 10
+            ? now.Date.AddHours(10)
+            : null;
+
         settings.Set(UserSettingsConstants.StreakReminderLastDateTicksKey, now.Date.Ticks);
 
+        var resourceLoader = ResourceLoader.GetForViewIndependentUse();
         new ToastService().SendToast(
             string.Format(resourceLoader.GetString("StreakReminderTitle"), activeStreak.ToString()),
             resourceLoader.GetString("StreakReminderMessage"),
+            scheduledDateTime: scheduleTime,
             launchArg: "streakReminder");
     }
 }
