@@ -10,6 +10,7 @@
     xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
@@ -367,8 +368,10 @@
                                             <RowDefinition Height="auto" />
                                         </Grid.RowDefinitions>
 
+                                        <Border x:Name="ShadowTarget" Grid.RowSpan="4" />
+
                                         <TextBlock
-                                            FontSize="60"
+                                            FontSize="80"
                                             FontWeight="SemiBold"
                                             Text="{x:Bind ViewModel.StreakCount, Mode=OneWay}"
                                             TextAlignment="Center">
@@ -378,6 +381,13 @@
                                                     <GradientStop Offset="0" Color="#FFD67606" />
                                                 </LinearGradientBrush>
                                             </TextBlock.Foreground>
+                                            <ui:Effects.Shadow>
+                                                <ui:AttachedDropShadow
+                                                    BlurRadius="10"
+                                                    CastTo="{x:Bind ShadowTarget}"
+                                                    Opacity="0.2"
+                                                    Offset="0,4" />
+                                            </ui:Effects.Shadow>
                                         </TextBlock>
 
                                         <TextBlock
