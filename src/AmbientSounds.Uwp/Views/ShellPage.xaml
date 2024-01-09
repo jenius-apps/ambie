@@ -348,7 +348,10 @@
                                 </TextBlock>
                             </StackPanel>
                             <FlyoutBase.AttachedFlyout>
-                                <Flyout x:Name="RecentFlyout" Closed="OnStreakFlyoutClosed">
+                                <Flyout
+                                    x:Name="RecentFlyout"
+                                    Closed="OnStreakFlyoutClosed"
+                                    Placement="RightEdgeAlignedBottom">
                                     <Flyout.FlyoutPresenterStyle>
                                         <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
                                             <Setter Property="Padding" Value="12,8" />
@@ -366,8 +369,16 @@
 
                                         <TextBlock
                                             FontSize="60"
+                                            FontWeight="SemiBold"
                                             Text="{x:Bind ViewModel.StreakCount, Mode=OneWay}"
-                                            TextAlignment="Center" />
+                                            TextAlignment="Center">
+                                            <TextBlock.Foreground>
+                                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                    <GradientStop Offset="1" Color="#FFFCC94E" />
+                                                    <GradientStop Offset="0" Color="#FFD67606" />
+                                                </LinearGradientBrush>
+                                            </TextBlock.Foreground>
+                                        </TextBlock>
 
                                         <TextBlock
                                             Grid.Row="1"
@@ -407,15 +418,27 @@
                                                             Width="24"
                                                             Height="24"
                                                             HorizontalAlignment="Center"
-                                                            Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+                                                            VerticalAlignment="Center"
+                                                            Fill="{ThemeResource TextFillColorTertiaryBrush}"
+                                                            Opacity="0.2"
+                                                            Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(Active)}" />
 
                                                         <FontIcon
                                                             Grid.Row="1"
+                                                            Margin="1,1,0,0"
                                                             HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
                                                             FontFamily="{StaticResource FluentUIGlyphs}"
                                                             FontSize="24"
                                                             Glyph="{StaticResource GlyphCheckMarkCircle}"
-                                                            Visibility="{x:Bind Active}" />
+                                                            Visibility="{x:Bind Active}">
+                                                            <FontIcon.Foreground>
+                                                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                                    <GradientStop Offset="1" Color="#FFFCC94E" />
+                                                                    <GradientStop Offset="0" Color="#FFD67606" />
+                                                                </LinearGradientBrush>
+                                                            </FontIcon.Foreground>
+                                                        </FontIcon>
                                                     </Grid>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
