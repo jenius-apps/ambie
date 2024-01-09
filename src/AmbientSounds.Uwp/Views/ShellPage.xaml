@@ -356,7 +356,7 @@
 
                                     </Flyout.FlyoutPresenterStyle>
 
-                                    <Grid MaxWidth="280">
+                                    <Grid MaxWidth="240" Margin="12,12,12,24">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="auto" />
                                             <RowDefinition Height="auto" />
@@ -371,12 +371,12 @@
 
                                         <TextBlock
                                             Grid.Row="1"
-                                            Text="day streak!"
+                                            Text="{x:Bind strings:Resources.DayStreakPhrase}"
                                             TextAlignment="Center" />
 
                                         <ItemsControl
                                             Grid.Row="2"
-                                            Margin="8,8,0,0"
+                                            Margin="8,24,0,0"
                                             HorizontalAlignment="Center"
                                             ItemsSource="{x:Bind ViewModel.RecentActivity}">
                                             <ItemsControl.ItemsPanel>
@@ -426,7 +426,7 @@
                                             Margin="0,12,0,0"
                                             FontSize="12"
                                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                            Text="Listening daily grows your streak, but skipping a day resets it!"
+                                            Text="{x:Bind strings:Resources.StreakHelpMessage}"
                                             TextAlignment="Center"
                                             TextWrapping="WrapWholeWords" />
                                     </Grid>

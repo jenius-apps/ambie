@@ -796,9 +796,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 天</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>过去 {0} 天</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>我的连胜纪录</value>
   </data>

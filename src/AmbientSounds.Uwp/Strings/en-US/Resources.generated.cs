@@ -2602,19 +2602,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region LastXDays
-        /// <summary>
-        ///   Looks up a localized string similar to: Last {0} days
-        /// </summary>
-        public static string LastXDays
-        {
-            get
-            {
-                return _resourceLoader.GetString("LastXDays");
-            }
-        }
-        #endregion
-
         #region StreakHeader
         /// <summary>
         ///   Looks up a localized string similar to: My streak
@@ -2650,6 +2637,32 @@ namespace AmbientSounds.Strings{
             get
             {
                 return _resourceLoader.GetString("StreakReminderTitle");
+            }
+        }
+        #endregion
+
+        #region DayStreakPhrase
+        /// <summary>
+        ///   Looks up a localized string similar to: day streak
+        /// </summary>
+        public static string DayStreakPhrase
+        {
+            get
+            {
+                return _resourceLoader.GetString("DayStreakPhrase");
+            }
+        }
+        #endregion
+
+        #region StreakHelpMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Listening daily grows your streak, but skipping a day resets it!
+        /// </summary>
+        public static string StreakHelpMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("StreakHelpMessage");
             }
         }
         #endregion
@@ -2863,10 +2876,11 @@ namespace AmbientSounds.Strings{
             SkipThisSegment,
             DayPlural,
             DaySingular,
-            LastXDays,
             StreakHeader,
             StreakReminderMessage,
             StreakReminderTitle,
+            DayStreakPhrase,
+            StreakHelpMessage,
         }
 
         private static ResourceLoader _resourceLoader;

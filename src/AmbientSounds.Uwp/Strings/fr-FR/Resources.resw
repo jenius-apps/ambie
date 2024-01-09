@@ -793,9 +793,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 jour</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Les {0} derniers jours</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Ma série</value>
   </data>

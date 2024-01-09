@@ -781,9 +781,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 ημέρα</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Τελευταίες {0} ημέρες</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Το σερί μου</value>
   </data>

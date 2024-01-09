@@ -796,9 +796,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 giorno</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Ultimi {0} giorni</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>La mia striscia</value>
   </data>

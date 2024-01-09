@@ -790,9 +790,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 gün</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Son {0} gün</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Benim çizgim</value>
   </data>

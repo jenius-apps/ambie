@@ -784,9 +784,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 dan</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Posljednjih {0} dana</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Moj niz</value>
   </data>

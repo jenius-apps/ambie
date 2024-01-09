@@ -796,9 +796,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 dzień</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Ostatnie {0} dni</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Moja passa</value>
   </data>

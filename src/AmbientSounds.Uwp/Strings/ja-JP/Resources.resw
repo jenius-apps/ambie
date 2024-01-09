@@ -796,9 +796,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1日券</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>過去 {0} 日間</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>私の連勝記録</value>
   </data>

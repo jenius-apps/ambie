@@ -141,8 +141,6 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _isMeditatePageVisible;
 
-    public string LastDaysStreakText => _localizer.GetString("LastXDays", LastDaysStreak.ToString());
-
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
     public ObservableCollection<MenuItem> FooterItems { get; } = new();

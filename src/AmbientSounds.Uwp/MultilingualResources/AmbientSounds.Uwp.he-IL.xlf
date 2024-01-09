@@ -1051,10 +1051,6 @@
           <source>1 day</source>
           <target state="translated">יום 1</target>
         </trans-unit>
-        <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
-          <source>Last {0} days</source>
-          <target state="translated">{0} הימים האחרונים</target>
-        </trans-unit>
         <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
           <source>My streak</source>
           <target state="translated">הפס שלי</target>
@@ -1066,6 +1062,15 @@
         <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
           <source>{0}-day streak</source>
           <target state="translated">רצף של {0} ימים</target>
+        </trans-unit>
+        <trans-unit id="DayStreakPhrase" translate="yes" xml:space="preserve">
+          <source>day streak</source>
+          <target state="new">day streak</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">A portion of a phrase that looks like '5-day streak'</note>
+        </trans-unit>
+        <trans-unit id="StreakHelpMessage" translate="yes" xml:space="preserve">
+          <source>Listening daily grows your streak, but skipping a day resets it!</source>
+          <target state="new">Listening daily grows your streak, but skipping a day resets it!</target>
         </trans-unit>
       </group>
     </body>
