@@ -796,9 +796,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 ден</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Последните {0} дни</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Моята жилка</value>
   </data>
@@ -807,5 +804,12 @@
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0}-дневна серия</value>
+  </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>дневна жилка</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Слушането ежедневно увеличава вашата жилка, но пропускането на един ден го нулира!</value>
   </data>
 </root>

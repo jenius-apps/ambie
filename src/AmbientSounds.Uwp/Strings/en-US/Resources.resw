@@ -901,9 +901,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 day</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Last {0} days</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>My streak</value>
   </data>
@@ -912,5 +909,12 @@
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0}-day streak</value>
+  </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>day streak</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Listening daily grows your streak, but skipping a day resets it!</value>
   </data>
 </root>

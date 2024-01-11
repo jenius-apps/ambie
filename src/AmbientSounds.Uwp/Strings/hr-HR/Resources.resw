@@ -784,9 +784,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 dan</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Posljednjih {0} dana</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Moj niz</value>
   </data>
@@ -795,5 +792,12 @@
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>Niz od {0} dana</value>
+  </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Niz dana</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Svakodnevno slušanje povećava vaš niz, ali preskakanje dana ga resetira!</value>
   </data>
 </root>

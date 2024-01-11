@@ -76,7 +76,8 @@ public sealed class StatService : IStatService
 
         StreakChanged?.Invoke(this, new StreakChangedEventArgs
         {
-            NewStreak = currentCount
+            NewStreak = currentCount,
+            AnimationRecommended = true,
         });
     }
 

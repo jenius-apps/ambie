@@ -5,10 +5,12 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:JeniusApps.Common.Models"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     x:Name="RootPage"
@@ -58,7 +60,8 @@
                         <Setter Target="PremiumIcon.Visibility" Value="Visible" />
                         <Setter Target="PremiumText.Visibility" Value="Collapsed" />
                         <Setter Target="PremiumButton.HorizontalContentAlignment" Value="Center" />
-                        <Setter Target="StreaksIcon.Margin" Value="0" />
+                        <Setter Target="StreaksIcon.Margin" Value="3,0,0,0" />
+                        <Setter Target="StreaksEmoji.Margin" Value="0" />
                         <Setter Target="StreaksText.Visibility" Value="Collapsed" />
                     </VisualState.Setters>
                 </VisualState>
@@ -306,20 +309,33 @@
                             HorizontalContentAlignment="Left"
                             Click="OnStreakClicked"
                             Visibility="{x:Bind ViewModel.ShowStreak, Mode=OneWay}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    x:Name="StreaksIcon"
-                                    Margin="-3,0,-1,0"
-                                    AutomationProperties.AccessibilityView="Raw"
-                                    FontSize="16"
-                                    Text="🔥">
-                                    <animations:Implicit.Animations>
-                                        <animations:OffsetAnimation />
-                                    </animations:Implicit.Animations>
-                                </TextBlock>
+                            <StackPanel MinHeight="18" Orientation="Horizontal">
+                                <Grid>
+                                    <TextBlock
+                                        x:Name="StreaksEmoji"
+                                        Margin="-2,0,-1,0"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        FontSize="14"
+                                        Text="🔥"
+                                        Visibility="{x:Bind ViewModel.NewStreakExperience, Mode=OneWay}">
+                                        <animations:Implicit.Animations>
+                                            <animations:OffsetAnimation />
+                                        </animations:Implicit.Animations>
+                                    </TextBlock>
+                                    <FontIcon
+                                        x:Name="StreaksIcon"
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="16"
+                                        Glyph="{StaticResource GlyphFire}"
+                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.NewStreakExperience), Mode=OneWay}">
+                                        <animations:Implicit.Animations>
+                                            <animations:OffsetAnimation />
+                                        </animations:Implicit.Animations>
+                                    </FontIcon>
+                                </Grid>
                                 <TextBlock
                                     x:Name="StreaksText"
-                                    Margin="10,0,0,0"
+                                    Margin="12,0,0,-1"
                                     VerticalAlignment="Center"
                                     Text="{x:Bind ViewModel.StreakText, Mode=OneWay}"
                                     Typography.NumeralAlignment="Tabular"
@@ -333,53 +349,120 @@
                                 </TextBlock>
                             </StackPanel>
                             <FlyoutBase.AttachedFlyout>
-                                <Flyout x:Name="RecentFlyout">
+                                <Flyout
+                                    x:Name="RecentFlyout"
+                                    Closed="OnStreakFlyoutClosed"
+                                    Placement="Right">
                                     <Flyout.FlyoutPresenterStyle>
                                         <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
                                             <Setter Property="Padding" Value="12,8" />
                                         </Style>
 
                                     </Flyout.FlyoutPresenterStyle>
-                                    <StackPanel>
+
+                                    <Grid MaxWidth="240" Margin="12,12,12,24">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Border x:Name="ShadowTarget" Grid.RowSpan="4" />
+
                                         <TextBlock
-                                            FontSize="12"
+                                            FontSize="80"
                                             FontWeight="SemiBold"
-                                            Text="{x:Bind strings:Resources.StreakHeader}" />
-                                        <ItemsControl Margin="0,6,0,0" ItemsSource="{x:Bind ViewModel.RecentActivity}">
+                                            Text="{x:Bind ViewModel.StreakCount, Mode=OneWay}"
+                                            TextAlignment="Center">
+                                            <TextBlock.Foreground>
+                                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                    <GradientStop Offset="1" Color="#FFFCC94E" />
+                                                    <GradientStop Offset="0" Color="#FFD67606" />
+                                                </LinearGradientBrush>
+                                            </TextBlock.Foreground>
+                                            <ui:Effects.Shadow>
+                                                <ui:AttachedDropShadow
+                                                    BlurRadius="10"
+                                                    CastTo="{x:Bind ShadowTarget}"
+                                                    Opacity="0.2"
+                                                    Offset="0,4" />
+                                            </ui:Effects.Shadow>
+                                        </TextBlock>
+
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Text="{x:Bind strings:Resources.DayStreakPhrase}"
+                                            TextAlignment="Center" />
+
+                                        <ItemsControl
+                                            Grid.Row="2"
+                                            Margin="8,24,0,0"
+                                            HorizontalAlignment="Center"
+                                            ItemsSource="{x:Bind ViewModel.RecentActivity}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <toolkit:WrapPanel
-                                                        HorizontalSpacing="1"
+                                                        HorizontalSpacing="8"
                                                         Orientation="Horizontal"
                                                         VerticalSpacing="1" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate x:DataType="vm:DayActivityViewModel">
-                                                    <Grid
-                                                        Width="20"
-                                                        Height="20"
-                                                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                                                        BorderThickness="1"
-                                                        CornerRadius="2"
-                                                        ToolTipService.ToolTip="{x:Bind Date.ToShortDateString()}">
-                                                        <Rectangle
-                                                            Fill="{ThemeResource SystemFillColorSuccessBrush}"
-                                                            RadiusX="2"
-                                                            RadiusY="2"
-                                                            Stretch="Fill"
-                                                            Visibility="{x:Bind Active}" />
+                                                    <Grid Padding="0,4" ToolTipService.ToolTip="{x:Bind Date.ToLongDateString()}">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto" />
+                                                            <RowDefinition Height="auto" />
+                                                        </Grid.RowDefinitions>
+
+                                                        <TextBlock
+                                                            Margin="0,0,0,8"
+                                                            FontSize="12"
+                                                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                                            Text="{x:Bind DayOfWeekShort}"
+                                                            TextAlignment="Center" />
+
+                                                        <Ellipse
+                                                            Grid.Row="1"
+                                                            Width="24"
+                                                            Height="24"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Fill="{ThemeResource TextFillColorTertiaryBrush}"
+                                                            Opacity="0.2"
+                                                            Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(Active)}" />
+
+                                                        <FontIcon
+                                                            Grid.Row="1"
+                                                            Margin="1,1,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                                            FontSize="24"
+                                                            Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                                            Visibility="{x:Bind Active}">
+                                                            <FontIcon.Foreground>
+                                                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                                                    <GradientStop Offset="1" Color="#FFFCC94E" />
+                                                                    <GradientStop Offset="0" Color="#FFD67606" />
+                                                                </LinearGradientBrush>
+                                                            </FontIcon.Foreground>
+                                                        </FontIcon>
                                                     </Grid>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
+
                                         <TextBlock
-                                            Margin="0,4,0,0"
-                                            FontSize="10"
+                                            Grid.Row="3"
+                                            Margin="0,12,0,0"
+                                            FontSize="12"
                                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                            Text="{x:Bind ViewModel.LastDaysStreakText}" />
-                                    </StackPanel>
+                                            Text="{x:Bind strings:Resources.StreakHelpMessage}"
+                                            TextAlignment="Center"
+                                            TextWrapping="WrapWholeWords" />
+                                    </Grid>
                                 </Flyout>
                             </FlyoutBase.AttachedFlyout>
                         </HyperlinkButton>

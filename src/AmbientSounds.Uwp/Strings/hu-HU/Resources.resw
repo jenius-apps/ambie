@@ -784,9 +784,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 nap</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Az elmúlt {0} nap</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Az én sorozatom</value>
   </data>
@@ -795,5 +792,12 @@
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0} napos sorozat</value>
+  </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>napi csík</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>A napi zenehallgatás növeli a sorozatot, de egy nap kihagyása visszaállítja!</value>
   </data>
 </root>

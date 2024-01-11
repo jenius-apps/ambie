@@ -105,10 +105,16 @@ public partial class ShellPageViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private int _streakCount;
+
+    [ObservableProperty]
     private string _streakText = string.Empty;
 
     [ObservableProperty]
     private bool _showStreak;
+
+    [ObservableProperty]
+    private bool _newStreakExperience;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SidePanelMica))]
@@ -134,8 +140,6 @@ public partial class ShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _isMeditatePageVisible;
-
-    public string LastDaysStreakText => _localizer.GetString("LastXDays", LastDaysStreak.ToString());
 
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
@@ -240,7 +244,7 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _dispatcherQueue.TryEnqueue(() =>
         {
-            LoadStreak(e.NewStreak);
+            LoadStreak(e);
         });
     }
 
@@ -252,14 +256,16 @@ public partial class ShellPageViewModel : ObservableObject
         });
     }
 
-    private void LoadStreak(int? count = null)
+    public void LoadStreak(StreakChangedEventArgs? args = null)
     {
-        count ??= _statService.ValidateAndRetrieveStreak();
+        int count = args?.NewStreak ?? _statService.ValidateAndRetrieveStreak();
 
         StreakText = count == 1
             ? _localizer.GetString("DaySingular")
             : _localizer.GetString("DayPlural", count.ToString());
 
+        StreakCount = count;
+        NewStreakExperience = args?.AnimationRecommended ?? false;
         ShowStreak = count > 0;
     }
 

@@ -781,9 +781,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 ημέρα</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Τελευταίες {0} ημέρες</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Το σερί μου</value>
   </data>
@@ -792,5 +789,12 @@
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>Σερί {0} ημερών</value>
+  </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Σερί ημερών</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Η καθημερινή ακρόαση αυξάνει το σερί σας, αλλά η παράλειψη μιας ημέρας το επαναφέρει!</value>
   </data>
 </root>

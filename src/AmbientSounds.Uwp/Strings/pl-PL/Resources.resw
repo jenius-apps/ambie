@@ -796,9 +796,6 @@
   <data name="DaySingular" xml:space="preserve">
     <value>1 dzień</value>
   </data>
-  <data name="LastXDays" xml:space="preserve">
-    <value>Ostatnie {0} dni</value>
-  </data>
   <data name="StreakHeader" xml:space="preserve">
     <value>Moja passa</value>
   </data>
@@ -807,5 +804,12 @@
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0}-dniowa passa</value>
+  </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Seria dzienna</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Codzienne słuchanie zwiększa twoją passę, ale pominięcie dnia ją resetuje!</value>
   </data>
 </root>

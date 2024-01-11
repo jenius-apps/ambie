@@ -1054,10 +1054,6 @@
           <source>1 day</source>
           <target state="translated">1 dag</target>
         </trans-unit>
-        <trans-unit id="LastXDays" translate="yes" xml:space="preserve">
-          <source>Last {0} days</source>
-          <target state="translated">Senaste {0} dagarna</target>
-        </trans-unit>
         <trans-unit id="StreakHeader" translate="yes" xml:space="preserve">
           <source>My streak</source>
           <target state="translated">Min streak</target>
@@ -1069,6 +1065,15 @@
         <trans-unit id="StreakReminderTitle" translate="yes" xml:space="preserve">
           <source>{0}-day streak</source>
           <target state="translated">{0} dagars svit</target>
+        </trans-unit>
+        <trans-unit id="DayStreakPhrase" translate="yes" xml:space="preserve">
+          <source>day streak</source>
+          <target state="translated">Dag Streak</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">A portion of a phrase that looks like '5-day streak'</note>
+        </trans-unit>
+        <trans-unit id="StreakHelpMessage" translate="yes" xml:space="preserve">
+          <source>Listening daily grows your streak, but skipping a day resets it!</source>
+          <target state="translated">Att lyssna dagligen ökar din streak, men att hoppa över en dag återställer den!</target>
         </trans-unit>
       </group>
     </body>
