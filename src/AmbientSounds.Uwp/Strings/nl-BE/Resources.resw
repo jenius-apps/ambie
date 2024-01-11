@@ -782,4 +782,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Dagelijks luisteren zorgt ervoor dat je streak groeit, maar als je een dag overslaat, wordt het gereset!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Ontvang herinneringen om je dagelijkse streak actief te houden</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Streak-herinneringen</value>
+  </data>
 </root>

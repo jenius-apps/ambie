@@ -797,4 +797,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Η καθημερινή ακρόαση αυξάνει το σερί σας, αλλά η παράλειψη μιας ημέρας το επαναφέρει!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Λάβετε υπενθυμίσεις για να διατηρήσετε το καθημερινό σας σερί ενεργό</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Υπενθυμίσεις ραβδώσεων</value>
+  </data>
 </root>

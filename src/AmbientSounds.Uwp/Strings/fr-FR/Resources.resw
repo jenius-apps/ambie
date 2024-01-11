@@ -809,4 +809,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>L’écoute quotidienne augmente votre série, mais sauter une journée la réinitialise !</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Recevez des rappels pour vous aider à garder votre série quotidienne active</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Rappels de série</value>
+  </data>
 </root>

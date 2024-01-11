@@ -806,4 +806,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Her gün dinlemek serinizi artırır, ancak bir günü atlamak onu sıfırlar!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Günlük serinizi aktif tutmanıza yardımcı olacak hatırlatıcılar alın</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Çizgi hatırlatıcıları</value>
+  </data>
 </root>

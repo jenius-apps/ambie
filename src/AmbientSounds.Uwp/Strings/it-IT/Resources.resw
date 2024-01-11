@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>L'ascolto quotidiano aumenta la tua serie, ma saltare un giorno la azzera!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Ricevi promemoria per aiutarti a mantenere attiva la tua serie giornaliera</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Promemoria per le serie</value>
+  </data>
 </root>

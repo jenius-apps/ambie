@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Щоденне прослуховування збільшує вашу смугу, але пропуск дня обнуляє її!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Отримуйте нагадування, які допоможуть підтримувати активність щоденної смуги</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Нагадування про смуги</value>
+  </data>
 </root>

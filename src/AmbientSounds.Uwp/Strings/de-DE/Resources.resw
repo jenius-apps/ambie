@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Tägliches Hören steigert deine Glückssträhne, aber wenn du einen Tag auslässt, wird sie zurückgesetzt!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Erhalte Erinnerungen, um deine tägliche Serie aktiv zu halten</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Streak-Erinnerungen</value>
+  </data>
 </root>

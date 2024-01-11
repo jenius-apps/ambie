@@ -800,4 +800,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>A napi zenehallgatás növeli a sorozatot, de egy nap kihagyása visszaállítja!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Emlékeztetők fogadása a napi sorozat aktív fenntartásához</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Csík emlékeztetők</value>
+  </data>
 </root>

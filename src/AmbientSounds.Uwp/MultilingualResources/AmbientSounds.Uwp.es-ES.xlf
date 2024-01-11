@@ -1076,6 +1076,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">Escuchar a diario aumenta tu racha, ¡pero saltarte un día la restablece!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Recibe recordatorios para ayudarte a mantener activa tu racha diaria</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Recordatorios de rachas</target>
+        </trans-unit>
       </group>
     </body>
   </file>

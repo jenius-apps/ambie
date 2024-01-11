@@ -1074,6 +1074,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">Tägliches Hören steigert deine Glückssträhne, aber wenn du einen Tag auslässt, wird sie zurückgesetzt!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Erhalte Erinnerungen, um deine tägliche Serie aktiv zu halten</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Streak-Erinnerungen</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -917,4 +917,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Listening daily grows your streak, but skipping a day resets it!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Receive reminders to help keep your daily streak active</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Streak reminders</value>
+  </data>
 </root>

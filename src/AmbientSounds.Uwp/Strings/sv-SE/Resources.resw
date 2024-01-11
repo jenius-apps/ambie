@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Att lyssna dagligen ökar din streak, men att hoppa över en dag återställer den!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Få påminnelser som hjälper dig att hålla din dagliga streak aktiv</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Påminnelser om streck</value>
+  </data>
 </root>

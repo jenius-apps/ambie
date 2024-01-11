@@ -90,7 +90,7 @@
             Style="{StaticResource BodyStrongTextBlockStyle}"
             Text="{x:Bind strings:Resources.SettingsGeneralHeader}" />
 
-        <labs:SettingsCard Description="Receive reminders to help keep your daily streak active" Header="Streak reminders">
+        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsStreakReminderDescription}" Header="{x:Bind strings:Resources.SettingsStreakReminderHeader}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
             </labs:SettingsCard.HeaderIcon>

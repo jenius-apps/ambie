@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Codzienne słuchanie zwiększa twoją passę, ale pominięcie dnia ją resetuje!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Otrzymuj przypomnienia, które pomogą Ci utrzymać aktywną codzienną passę</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Przypomnienia o serii</value>
+  </data>
 </root>

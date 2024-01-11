@@ -1072,6 +1072,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">每天听可以增加你的连胜，但跳过一天会重置它！</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">接收提醒，帮助您保持每日连胜</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">条纹提醒</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Слушането ежедневно увеличава вашата жилка, но пропускането на един ден го нулира!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Получавайте напомняния, за да поддържате ежедневната си серия активна</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Напомняния за ивици</value>
+  </data>
 </root>

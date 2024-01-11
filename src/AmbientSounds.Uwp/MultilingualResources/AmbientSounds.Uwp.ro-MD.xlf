@@ -1069,6 +1069,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">Ascultarea zilnică îți crește șirul, dar sărind peste o zi o resetezi!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Primiți mementouri pentru a vă menține activă seria zilnică</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Mementouri de dungi</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>毎日聴くとストリークが伸びますが、1日スキップするとリセットされます!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>毎日のストリークをアクティブに保つのに役立つリマインダーを受け取る</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>ストリークリマインダー</value>
+  </data>
 </root>

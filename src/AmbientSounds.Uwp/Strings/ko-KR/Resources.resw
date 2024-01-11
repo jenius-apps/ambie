@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>매일 들으면 연속 기록이 늘어나지만 하루를 건너뛰면 재설정됩니다!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>일일 행진을 활발하게 유지하는 데 도움이 되는 알림을 받으세요.</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>연속 알림</value>
+  </data>
 </root>

@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>每天聽可以增加你的連勝，但跳過一天會重置它！</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>接收提醒，説明您保持每日連勝</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>條紋提醒</value>
+  </data>
 </root>

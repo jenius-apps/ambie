@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Ouvir diariamente aumenta sua raia, mas pular um dia a repõe!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Receba lembretes para ajudar a manter sua sequência diária ativa</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Lembretes de estria</value>
+  </data>
 </root>

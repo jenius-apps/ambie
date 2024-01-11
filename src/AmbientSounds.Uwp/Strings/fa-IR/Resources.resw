@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>گوش دادن روزانه رگه شما را رشد می دهد، اما پرش یک روز ان را دوباره تنظیم می کند!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>دریافت یاداوری برای کمک به فعال نگه داشتن رگه روزانه خود را</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>یاداوری رگه</value>
+  </data>
 </root>

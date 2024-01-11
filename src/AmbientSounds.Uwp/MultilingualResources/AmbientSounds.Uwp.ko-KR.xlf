@@ -1073,6 +1073,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">매일 들으면 연속 기록이 늘어나지만 하루를 건너뛰면 재설정됩니다!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">일일 행진을 활발하게 유지하는 데 도움이 되는 알림을 받으세요.</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">연속 알림</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Každodenní poslech vaši sérii zvětšuje, ale vynechání dne ji resetuje!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Dostávejte připomenutí, která vám pomohou udržet vaši denní sérii aktivní</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Připomenutí pruhů</value>
+  </data>
 </root>

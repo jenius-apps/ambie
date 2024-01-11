@@ -1074,6 +1074,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">Щоденне прослуховування збільшує вашу смугу, але пропуск дня обнуляє її!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Отримуйте нагадування, які допоможуть підтримувати активність щоденної смуги</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Нагадування про смуги</target>
+        </trans-unit>
       </group>
     </body>
   </file>

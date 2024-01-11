@@ -800,4 +800,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Svakodnevno slušanje povećava vaš niz, ali preskakanje dana ga resetira!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Primajte podsjetnike koji će vam pomoći da vaš dnevni niz ostane aktivan</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Podsjetnici niza</value>
+  </data>
 </root>

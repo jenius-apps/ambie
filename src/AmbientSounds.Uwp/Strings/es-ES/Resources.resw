@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Escuchar a diario aumenta tu racha, ¡pero saltarte un día la restablece!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Recibe recordatorios para ayudarte a mantener activa tu racha diaria</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Recordatorios de rachas</value>
+  </data>
 </root>

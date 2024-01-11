@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>הקשבה יומיומית מגדילה את הפס שלך, אבל דילוג על יום מאפס אותו!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>קבלו תזכורות שיעזרו לכם לשמור על רצף יומי פעיל</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>תזכורות פסים</value>
+  </data>
 </root>

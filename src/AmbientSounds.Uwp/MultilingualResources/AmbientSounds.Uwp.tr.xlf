@@ -1083,6 +1083,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">Her gün dinlemek serinizi artırır, ancak bir günü atlamak onu sıfırlar!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Günlük serinizi aktif tutmanıza yardımcı olacak hatırlatıcılar alın</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Çizgi hatırlatıcıları</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1081,6 +1081,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">L'ascolto quotidiano aumenta la tua serie, ma saltare un giorno la azzera!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Ricevi promemoria per aiutarti a mantenere attiva la tua serie giornaliera</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Promemoria per le serie</target>
+        </trans-unit>
       </group>
     </body>
   </file>

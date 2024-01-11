@@ -1073,6 +1073,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">Každodenní poslech vaši sérii zvětšuje, ale vynechání dne ji resetuje!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Dostávejte připomenutí, která vám pomohou udržet vaši denní sérii aktivní</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Připomenutí pruhů</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>Ascultarea zilnică îți crește șirul, dar sărind peste o zi o resetezi!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>Primiți mementouri pentru a vă menține activă seria zilnică</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>Mementouri de dungi</value>
+  </data>
 </root>

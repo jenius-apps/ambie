@@ -812,4 +812,10 @@
   <data name="StreakHelpMessage" xml:space="preserve">
     <value>الاستماع يوميا يزيد من خطك ، لكن تخطي يوم يعيد ضبطه!</value>
   </data>
+  <data name="SettingsStreakReminderDescription" xml:space="preserve">
+    <value>تلقي تذكيرات للمساعدة في الحفاظ على خطك اليومي نشطا</value>
+  </data>
+  <data name="SettingsStreakReminderHeader" xml:space="preserve">
+    <value>تذكيرات متتالية</value>
+  </data>
 </root>

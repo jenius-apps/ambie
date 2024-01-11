@@ -1083,6 +1083,14 @@
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
           <target state="translated">A napi zenehallgatás növeli a sorozatot, de egy nap kihagyása visszaállítja!</target>
         </trans-unit>
+        <trans-unit id="SettingsStreakReminderDescription" translate="yes" xml:space="preserve">
+          <source>Receive reminders to help keep your daily streak active</source>
+          <target state="translated">Emlékeztetők fogadása a napi sorozat aktív fenntartásához</target>
+        </trans-unit>
+        <trans-unit id="SettingsStreakReminderHeader" translate="yes" xml:space="preserve">
+          <source>Streak reminders</source>
+          <target state="translated">Csík emlékeztetők</target>
+        </trans-unit>
       </group>
     </body>
   </file>

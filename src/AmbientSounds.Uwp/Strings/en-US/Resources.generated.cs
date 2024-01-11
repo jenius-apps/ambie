@@ -2666,6 +2666,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsStreakReminderDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Receive reminders to help keep your daily streak active
+        /// </summary>
+        public static string SettingsStreakReminderDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsStreakReminderDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsStreakReminderHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Streak reminders
+        /// </summary>
+        public static string SettingsStreakReminderHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsStreakReminderHeader");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2881,6 +2907,8 @@ namespace AmbientSounds.Strings{
             StreakReminderTitle,
             DayStreakPhrase,
             StreakHelpMessage,
+            SettingsStreakReminderDescription,
+            SettingsStreakReminderHeader,
         }
 
         private static ResourceLoader _resourceLoader;
