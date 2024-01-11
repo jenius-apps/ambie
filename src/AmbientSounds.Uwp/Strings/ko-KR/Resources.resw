@@ -805,4 +805,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0}일 연속</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>일 연속</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>매일 들으면 연속 기록이 늘어나지만 하루를 건너뛰면 재설정됩니다!</value>
+  </data>
 </root>

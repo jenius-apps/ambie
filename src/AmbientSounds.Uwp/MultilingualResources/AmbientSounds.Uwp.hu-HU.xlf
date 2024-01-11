@@ -1076,12 +1076,12 @@
         </trans-unit>
         <trans-unit id="DayStreakPhrase" translate="yes" xml:space="preserve">
           <source>day streak</source>
-          <target state="new">day streak</target>
+          <target state="translated">napi csík</target>
           <note from="MultilingualBuild" annotates="source" priority="2">A portion of a phrase that looks like '5-day streak'</note>
         </trans-unit>
         <trans-unit id="StreakHelpMessage" translate="yes" xml:space="preserve">
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
-          <target state="new">Listening daily grows your streak, but skipping a day resets it!</target>
+          <target state="translated">A napi zenehallgatás növeli a sorozatot, de egy nap kihagyása visszaállítja!</target>
         </trans-unit>
       </group>
     </body>

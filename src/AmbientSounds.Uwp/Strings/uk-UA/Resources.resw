@@ -805,4 +805,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0}-денна смуга</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Денна смуга</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Щоденне прослуховування збільшує вашу смугу, але пропуск дня обнуляє її!</value>
+  </data>
 </root>

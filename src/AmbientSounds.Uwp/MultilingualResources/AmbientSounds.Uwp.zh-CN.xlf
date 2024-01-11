@@ -1065,12 +1065,12 @@
         </trans-unit>
         <trans-unit id="DayStreakPhrase" translate="yes" xml:space="preserve">
           <source>day streak</source>
-          <target state="new">day streak</target>
+          <target state="translated">日连胜</target>
           <note from="MultilingualBuild" annotates="source" priority="2">A portion of a phrase that looks like '5-day streak'</note>
         </trans-unit>
         <trans-unit id="StreakHelpMessage" translate="yes" xml:space="preserve">
           <source>Listening daily grows your streak, but skipping a day resets it!</source>
-          <target state="new">Listening daily grows your streak, but skipping a day resets it!</target>
+          <target state="translated">每天听可以增加你的连胜，但跳过一天会重置它！</target>
         </trans-unit>
       </group>
     </body>

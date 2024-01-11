@@ -805,4 +805,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0}日連続</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>デイストリーク</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>毎日聴くとストリークが伸びますが、1日スキップするとリセットされます!</value>
+  </data>
 </root>

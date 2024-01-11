@@ -799,4 +799,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0} günlük galibiyet serisi</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Gün Çizgisi</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Her gün dinlemek serinizi artırır, ancak bir günü atlamak onu sıfırlar!</value>
+  </data>
 </root>

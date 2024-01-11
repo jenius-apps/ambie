@@ -805,4 +805,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>Serie de {0} de zile</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Șirul zilei</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Ascultarea zilnică îți crește șirul, dar sărind peste o zi o resetezi!</value>
+  </data>
 </root>

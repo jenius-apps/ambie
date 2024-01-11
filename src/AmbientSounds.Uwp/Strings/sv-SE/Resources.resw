@@ -805,4 +805,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0} dagars svit</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Dag Streak</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Att lyssna dagligen ökar din streak, men att hoppa över en dag återställer den!</value>
+  </data>
 </root>

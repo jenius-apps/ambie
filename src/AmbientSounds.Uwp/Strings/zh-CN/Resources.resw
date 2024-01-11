@@ -805,4 +805,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0} 天连胜</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>日连胜</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>每天听可以增加你的连胜，但跳过一天会重置它！</value>
+  </data>
 </root>

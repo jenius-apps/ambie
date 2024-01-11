@@ -775,4 +775,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>{0}-daagse streak</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Dag streak</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>Dagelijks luisteren zorgt ervoor dat je streak groeit, maar als je een dag overslaat, wordt het gereset!</value>
+  </data>
 </root>

@@ -802,4 +802,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>Série de {0} jours</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>Série de jours</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>L’écoute quotidienne augmente votre série, mais sauter une journée la réinitialise !</value>
+  </data>
 </root>

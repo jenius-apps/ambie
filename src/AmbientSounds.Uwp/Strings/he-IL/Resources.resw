@@ -805,4 +805,11 @@
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>רצף של {0} ימים</value>
   </data>
+  <data name="DayStreakPhrase" xml:space="preserve">
+    <value>רצף ימים</value>
+    <comment>A portion of a phrase that looks like '5-day streak'</comment>
+  </data>
+  <data name="StreakHelpMessage" xml:space="preserve">
+    <value>הקשבה יומיומית מגדילה את הפס שלך, אבל דילוג על יום מאפס אותו!</value>
+  </data>
 </root>
