@@ -60,7 +60,7 @@ public class BackgroundTaskService : IBackgroundTaskService
             Name = taskType.Name,
             TaskEntryPoint = taskType.FullName
         };
-        builder.SetTrigger(new TimeTrigger(360, false));
+        builder.SetTrigger(new TimeTrigger(60, false));
         builder.AddCondition(new SystemCondition(SystemConditionType.UserPresent));
         builder.Register();
     }
