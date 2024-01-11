@@ -352,7 +352,7 @@
                                 <Flyout
                                     x:Name="RecentFlyout"
                                     Closed="OnStreakFlyoutClosed"
-                                    Placement="RightEdgeAlignedBottom">
+                                    Placement="Right">
                                     <Flyout.FlyoutPresenterStyle>
                                         <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
                                             <Setter Property="Padding" Value="12,8" />
