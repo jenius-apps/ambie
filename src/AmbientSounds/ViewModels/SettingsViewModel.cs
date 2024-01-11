@@ -20,6 +20,7 @@ namespace AmbientSounds.ViewModels
         private readonly ITelemetry _telemetry;
         private readonly IAppStoreRatings _appStoreRatings;
         private readonly IQuickResumeService _quickResumeService;
+        private readonly IBackgroundTaskService _backgroundTaskService;
         private bool _notificationsLoading;
 
         public SettingsViewModel(
@@ -29,7 +30,8 @@ namespace AmbientSounds.ViewModels
             IAssetsReader assetsReader,
             IImagePicker imagePicker,
             IAppStoreRatings appStoreRatings,
-            IQuickResumeService quickResumeService)
+            IQuickResumeService quickResumeService,
+            IBackgroundTaskService backgroundTaskService)
         {
             _userSettings = userSettings;
             _notifications = notifications;
@@ -38,6 +40,7 @@ namespace AmbientSounds.ViewModels
             _imagePicker = imagePicker;
             _appStoreRatings = appStoreRatings;
             _quickResumeService = quickResumeService;
+            _backgroundTaskService = backgroundTaskService;
         }
 
         /// <summary>
@@ -99,10 +102,35 @@ namespace AmbientSounds.ViewModels
             set => _userSettings.Set(UserSettingsConstants.ConfirmCloseKey, value);
         }
 
-        public bool StreaksEnabled
+        public bool StreaksReminderEnabled
         {
-            get => _userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey);
-            set => _userSettings.Set(UserSettingsConstants.StreaksEnabledKey, value);
+            get => _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
+            set
+            {
+                _userSettings.Set(UserSettingsConstants.StreaksReminderEnabledKey, value);
+                OnStreaksReminderToggled(value);
+            }
+        }
+
+        private async void OnStreaksReminderToggled(bool value)
+        {
+            if (value)
+            {
+                var permissionGranted = await _backgroundTaskService.RequestPermissionAsync();
+                if (!permissionGranted)
+                {
+                    StreaksReminderEnabled = false;
+                    OnPropertyChanged(nameof(StreaksReminderEnabled));
+                }
+                else
+                {
+                    _backgroundTaskService.ToggleStreakReminderTask(true);
+                }
+            }
+            else
+            {
+                _backgroundTaskService.ToggleStreakReminderTask(false);
+            }
         }
 
         public bool QuickResumeEnabled

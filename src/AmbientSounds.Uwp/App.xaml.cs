@@ -295,14 +295,17 @@ sealed partial class App : Application
         var bgServices = Services.GetRequiredService<IBackgroundTaskService>();
         bgServices.UnregisterAllTasks();
 
-        if (await bgServices.RequestPermissionAsync())
+        if (await bgServices.RequestPermissionAsync() && _userSettings is { } userSettings)
         {
-            if (_userSettings?.Get<bool>(UserSettingsConstants.QuickResumeKey) ?? false)
+            if (userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey))
             {
                 bgServices.ToggleQuickResumeStartupTask(true);
             }
 
-            bgServices.ToggleStreakReminderTask(true);
+            if (userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey))
+            {
+                bgServices.ToggleStreakReminderTask(true);
+            }
         }
     }
 

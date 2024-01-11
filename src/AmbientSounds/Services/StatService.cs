@@ -55,11 +55,6 @@ public sealed class StatService : IStatService
 
     public async Task LogStreakAsync()
     {
-        if (!_userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey))
-        {
-            return;
-        }
-
         var now = DateTime.Now;
         var lastUpdated = StreakLastUpdated();
 

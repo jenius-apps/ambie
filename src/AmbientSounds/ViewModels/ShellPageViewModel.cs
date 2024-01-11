@@ -218,11 +218,7 @@ public partial class ShellPageViewModel : ObservableObject
         _guideService.GuideStopped += OnGuideStopped;
         _statService.StreakChanged += OnStreakChanged;
 
-        if (_userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey))
-        {
-            LoadStreak();
-        }
-
+        LoadStreak();
         await LoadPremiumContentAsync();
     }
 
@@ -330,17 +326,6 @@ public partial class ShellPageViewModel : ObservableObject
             OnPropertyChanged(nameof(ShowBackgroundImage));
             OnPropertyChanged(nameof(BackgroundImagePath));
             OnPropertyChanged(nameof(SidePanelMica));
-        }
-        else if (settingsKey == UserSettingsConstants.StreaksEnabledKey)
-        {
-            if (_userSettings.Get<bool>(UserSettingsConstants.StreaksEnabledKey))
-            {
-                LoadStreak();
-            }
-            else
-            {
-                ShowStreak = false;
-            }
         }
     }
 

@@ -90,6 +90,21 @@
             Style="{StaticResource BodyStrongTextBlockStyle}"
             Text="{x:Bind strings:Resources.SettingsGeneralHeader}" />
 
+        <labs:SettingsCard Description="Receive reminders to help keep your daily streak active" Header="Streak reminders">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <ToggleSwitch IsOn="{x:Bind ViewModel.StreaksReminderEnabled, Mode=TwoWay}">
+                <ToggleSwitch.OffContent>
+                    <TextBlock x:Uid="OffTextBlock" />
+                </ToggleSwitch.OffContent>
+                <ToggleSwitch.OnContent>
+                    <TextBlock x:Uid="OnTextBlock" />
+                </ToggleSwitch.OnContent>
+            </ToggleSwitch>
+        </labs:SettingsCard>
+
         <!--  Telemetry  -->
         <labs:SettingsCard x:Uid="SettingsTelemetrySwitch" Description="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}">
             <labs:SettingsCard.HeaderIcon>
@@ -240,21 +255,6 @@
                 Margin="1,29,0,5"
                 Style="{StaticResource BodyStrongTextBlockStyle}"
                 Text="Experimental features" />
-
-            <labs:SettingsCard Description="Activates the experimental streaks feature" Header="Enable streaks">
-                <labs:SettingsCard.HeaderIcon>
-                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
-                </labs:SettingsCard.HeaderIcon>
-
-                <ToggleSwitch IsOn="{x:Bind ViewModel.StreaksEnabled, Mode=TwoWay}">
-                    <ToggleSwitch.OffContent>
-                        <TextBlock x:Uid="OffTextBlock" />
-                    </ToggleSwitch.OffContent>
-                    <ToggleSwitch.OnContent>
-                        <TextBlock x:Uid="OnTextBlock" />
-                    </ToggleSwitch.OnContent>
-                </ToggleSwitch>
-            </labs:SettingsCard>
         </StackPanel>
     </StackPanel>
 </UserControl>

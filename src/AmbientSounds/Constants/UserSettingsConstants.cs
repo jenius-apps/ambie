@@ -154,7 +154,7 @@ namespace AmbientSounds.Constants
         /// <summary>
         /// Determines if streaks are enabled by the user.
         /// </summary>
-        public const string StreaksEnabledKey = "StreaksEnabled";
+        public const string StreaksReminderEnabledKey = "StreaksReminderEnabled";
 
         /// <summary>
         ///  Settings defaults.
@@ -188,7 +188,7 @@ namespace AmbientSounds.Constants
             { ActiveStreakKey, 0 },
             { ActiveStreakUpdateDateTicksKey, 0L },
             { StreakReminderLastDateTicksKey, 0L },
-            { StreaksEnabledKey, false },
+            { StreaksReminderEnabledKey, true },
         };
     }
 }
