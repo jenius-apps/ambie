@@ -51,6 +51,6 @@ public sealed class StreakReminderTask : IBackgroundTask
             string.Format(resourceLoader.GetString("StreakReminderTitle"), activeStreak.ToString()),
             resourceLoader.GetString("StreakReminderMessage"),
             scheduledDateTime: scheduleTime,
-            launchArg: "streakReminder");
+            launchArg: LaunchConstants.StreakReminderArgument);
     }
 }

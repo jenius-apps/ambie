@@ -1,4 +1,5 @@
-﻿using JeniusApps.Common.Tools.Uwp;
+﻿using AmbientSounds.Constants;
+using JeniusApps.Common.Tools.Uwp;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Resources;
 
@@ -14,6 +15,6 @@ public sealed class StartupTask : IBackgroundTask
         new ToastService().SendToast(
             resourceLoader.GetString("QuickResumeTitle"),
             resourceLoader.GetString("QuickResumeToastMessage"),
-            launchArg: "quickResume");
+            launchArg: LaunchConstants.QuickResumeArgument);
     }
 }

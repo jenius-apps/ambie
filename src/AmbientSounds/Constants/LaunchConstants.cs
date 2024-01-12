@@ -4,6 +4,10 @@ namespace AmbientSounds.Constants;
 
 public class LaunchConstants
 {
+    public const string QuickResumeArgument = "quickResume";
+
+    public const string StreakReminderArgument = "streakReminder";
+
     public const string NewSoundArgument = "newSound";
 
     public const string FocusSegmentArgument = "focusSegmentToast";

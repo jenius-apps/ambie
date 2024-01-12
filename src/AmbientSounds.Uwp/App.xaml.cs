@@ -289,7 +289,7 @@ sealed partial class App : Application
 
         var resumeService = Services.GetRequiredService<IResumeOnLaunchService>();
         await resumeService.LoadSoundsFromPreviousSessionAsync();
-        resumeService.TryResumePlayback(force: launchArguments == "quickResume");
+        resumeService.TryResumePlayback(force: launchArguments is LaunchConstants.QuickResumeArgument or LaunchConstants.StreakReminderArgument);
 
         // Reset tasks on launch
         var bgServices = Services.GetRequiredService<IBackgroundTaskService>();
