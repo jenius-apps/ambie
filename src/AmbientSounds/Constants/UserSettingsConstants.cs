@@ -157,6 +157,11 @@ namespace AmbientSounds.Constants
         public const string StreaksReminderEnabledKey = "StreaksReminderEnabled";
 
         /// <summary>
+        /// Determines the last used content page.
+        /// </summary>
+        public const string LastUsedContentPageKey = "LastUsedContentPage";
+
+        /// <summary>
         ///  Settings defaults.
         /// </summary>
         public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -189,6 +194,7 @@ namespace AmbientSounds.Constants
             { ActiveStreakUpdateDateTicksKey, 0L },
             { StreakReminderLastDateTicksKey, 0L },
             { StreaksReminderEnabledKey, true },
+            { LastUsedContentPageKey, string.Empty },
         };
     }
 }

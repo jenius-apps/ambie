@@ -300,6 +300,11 @@ public partial class ShellPageViewModel : ObservableObject
         UpdateSelectedMenu(e);
         UpdateTimeBannerVisibility();
         UpdateGuideBannerVisibility();
+
+        if (e is not ContentPageType.Search)
+        {
+            _userSettings.Set(UserSettingsConstants.LastUsedContentPageKey, e.ToString());
+        }
     }
 
     private async Task LoadPremiumContentAsync()

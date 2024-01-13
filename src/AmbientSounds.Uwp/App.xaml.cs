@@ -234,9 +234,19 @@ sealed partial class App : Application
             // Navigate to the root page if one isn't loaded already
             if (rootFrame.Content is null)
             {
+                ContentPageType? firstPageOverride = LaunchConstants.ToPageType(launchArguments);
+
+                if (firstPageOverride is null &&
+                    _userSettings is { } settings && 
+                    settings.Get<string>(UserSettingsConstants.LastUsedContentPageKey) is { Length: > 0 } contentPage &&
+                    Enum.TryParse(contentPage, out ContentPageType pageType))
+                {
+                    firstPageOverride = pageType;
+                }
+
                 rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
                 {
-                    FirstPageOverride = LaunchConstants.ToPageType(launchArguments),
+                    FirstPageOverride = firstPageOverride,
                     LaunchArguments = launchArguments
                 });
             }
