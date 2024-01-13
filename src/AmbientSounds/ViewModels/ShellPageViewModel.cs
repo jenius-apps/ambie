@@ -120,7 +120,7 @@ public partial class ShellPageViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(SidePanelMica))]
     private bool _isWin11;
 
-    public bool SidePanelMica => IsWin11 && !ShowBackgroundImage;
+    public bool SidePanelMica => IsWin11;
 
     [ObservableProperty]
     private bool _guideBannerVisible;
