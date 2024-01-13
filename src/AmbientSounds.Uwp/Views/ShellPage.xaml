@@ -75,39 +75,8 @@
                         <Setter Target="RootSplitView.PaneBackground" Value="Transparent" />
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="RootSplitView.PaneBackground" Value="{ThemeResource SystemControlAcrylicElementBrush}" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MainFrameBorder.Background" Value="Transparent" />
-                    </VisualState.Setters>
-                </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-        <!--  Custom background  -->
-        <toolkit:ImageEx
-            x:Name="BackgroundImage"
-            x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
-            IsCacheEnabled="True"
-            Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
-            Stretch="UniformToFill" />
-        <Rectangle
-            x:Name="AcrylicLayer"
-            x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
-            Fill="{ThemeResource SystemControlAcrylicElementBrush}"
-            Stretch="Fill" />
 
         <Grid
             x:Name="AppTitleBar"
@@ -485,6 +454,21 @@
 
             <controls:SplitView.MainContent>
                 <Grid x:Name="MainFrameBorder" Background="{ThemeResource DefaultPageBackgroundBrush}">
+                    <toolkit:ImageEx
+                        x:Name="BackgroundImage"
+                        x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
+                        IsCacheEnabled="True"
+                        Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
+                        Stretch="UniformToFill" />
+                    <Rectangle
+                        x:Name="AcrylicLayer"
+                        x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
+                        Stretch="Fill">
+                        <Rectangle.Fill>
+                            <AcrylicBrush TintColor="{ThemeResource DefaultPageBackgroundColor}" TintOpacity="0.8" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+
                     <Grid
                         Height="{StaticResource TopPlayerPanelHeight}"
                         VerticalAlignment="Top"
