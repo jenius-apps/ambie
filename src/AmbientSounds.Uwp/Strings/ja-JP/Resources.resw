@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>ストリークリマインダー</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>バッテリーを節約するために、現在バックグラウンドが無効になっています。</value>
+  </data>
 </root>

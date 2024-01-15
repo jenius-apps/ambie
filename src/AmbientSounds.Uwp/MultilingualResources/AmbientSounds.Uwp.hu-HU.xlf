@@ -1093,7 +1093,7 @@
         </trans-unit>
         <trans-unit id="SettingsBackgroundDescription" translate="yes" xml:space="preserve">
           <source>Your background is currently disabled to help you save battery!</source>
-          <target state="new">Your background is currently disabled to help you save battery!</target>
+          <target state="translated">A háttér jelenleg le van tiltva, hogy segítsen megtakarítani az akkumulátort!</target>
         </trans-unit>
       </group>
     </body>

@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Lembretes de estria</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Seu plano de fundo está desativado no momento para ajudá-lo a economizar bateria!</value>
+  </data>
 </root>

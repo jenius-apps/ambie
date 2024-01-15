@@ -815,4 +815,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Rappels de série</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Votre arrière-plan est actuellement désactivé pour vous aider à économiser la batterie !</value>
+  </data>
 </root>

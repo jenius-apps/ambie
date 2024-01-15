@@ -803,4 +803,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Υπενθυμίσεις ραβδώσεων</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Το φόντο σας είναι απενεργοποιημένο αυτήν τη στιγμή για να σας βοηθήσει να εξοικονομήσετε μπαταρία!</value>
+  </data>
 </root>

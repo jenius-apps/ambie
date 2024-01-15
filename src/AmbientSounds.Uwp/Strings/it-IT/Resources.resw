@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Promemoria per le serie</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Il tuo sfondo è attualmente disabilitato per aiutarti a risparmiare batteria!</value>
+  </data>
 </root>

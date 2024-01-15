@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>תזכורות פסים</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>הרקע שלך מושבת כעת כדי לעזור לך לחסוך בסוללה!</value>
+  </data>
 </root>

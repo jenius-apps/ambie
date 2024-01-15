@@ -806,4 +806,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Podsjetnici niza</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Pozadina je trenutno onemogućena kako bi vam pomogla uštedjeti bateriju!</value>
+  </data>
 </root>

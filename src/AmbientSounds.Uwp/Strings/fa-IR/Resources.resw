@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>یاداوری رگه</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>پس زمینه شما در حال حاضر غیر فعال است تا به شما در ذخیره باتری کمک کند!</value>
+  </data>
 </root>

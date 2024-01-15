@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Mementouri de dungi</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Fundalul dvs. este dezactivat în prezent pentru a vă ajuta să economisiți bateria!</value>
+  </data>
 </root>

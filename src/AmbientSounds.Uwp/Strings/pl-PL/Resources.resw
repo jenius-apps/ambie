@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Przypomnienia o serii</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Twoje tło jest obecnie wyłączone, aby pomóc Ci oszczędzać baterię!</value>
+  </data>
 </root>

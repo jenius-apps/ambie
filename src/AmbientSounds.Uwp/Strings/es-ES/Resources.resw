@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Recordatorios de rachas</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>¡Su fondo está actualmente deshabilitado para ayudarlo a ahorrar batería!</value>
+  </data>
 </root>

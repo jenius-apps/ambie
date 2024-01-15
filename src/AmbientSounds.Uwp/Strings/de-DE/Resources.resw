@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Streak-Erinnerungen</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Ihr Hintergrund ist derzeit deaktiviert, um Ihnen zu helfen, den Akku zu schonen!</value>
+  </data>
 </root>

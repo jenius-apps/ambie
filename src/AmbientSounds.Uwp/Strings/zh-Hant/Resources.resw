@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>條紋提醒</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>您的背景當前處於禁用狀態，以幫助您節省電池電量！</value>
+  </data>
 </root>

@@ -806,4 +806,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Csík emlékeztetők</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>A háttér jelenleg le van tiltva, hogy segítsen megtakarítani az akkumulátort!</value>
+  </data>
 </root>

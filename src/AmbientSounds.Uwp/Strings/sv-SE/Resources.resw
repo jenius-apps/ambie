@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Påminnelser om streck</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Din bakgrund är för närvarande inaktiverad för att hjälpa dig att spara batteri!</value>
+  </data>
 </root>

@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Připomenutí pruhů</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Vaše pozadí je aktuálně deaktivováno, aby vám pomohlo šetřit baterii!</value>
+  </data>
 </root>

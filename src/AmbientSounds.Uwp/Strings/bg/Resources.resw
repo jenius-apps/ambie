@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Напомняния за ивици</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Вашият фон в момента е деактивиран, за да ви помогне да спестите батерията!</value>
+  </data>
 </root>

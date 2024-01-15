@@ -1085,7 +1085,7 @@
         </trans-unit>
         <trans-unit id="SettingsBackgroundDescription" translate="yes" xml:space="preserve">
           <source>Your background is currently disabled to help you save battery!</source>
-          <target state="new">Your background is currently disabled to help you save battery!</target>
+          <target state="translated">Din bakgrund är för närvarande inaktiverad för att hjälpa dig att spara batteri!</target>
         </trans-unit>
       </group>
     </body>

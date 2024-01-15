@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>연속 알림</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>배터리를 절약하기 위해 현재 배경이 비활성화되어 있습니다!</value>
+  </data>
 </root>

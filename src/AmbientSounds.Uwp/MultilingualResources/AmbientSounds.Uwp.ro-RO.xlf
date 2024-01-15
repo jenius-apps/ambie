@@ -1079,7 +1079,7 @@
         </trans-unit>
         <trans-unit id="SettingsBackgroundDescription" translate="yes" xml:space="preserve">
           <source>Your background is currently disabled to help you save battery!</source>
-          <target state="new">Your background is currently disabled to help you save battery!</target>
+          <target state="translated">Fundalul dvs. este dezactivat în prezent pentru a vă ajuta să economisiți bateria!</target>
         </trans-unit>
       </group>
     </body>

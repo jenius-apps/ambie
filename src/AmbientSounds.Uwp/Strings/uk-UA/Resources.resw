@@ -818,4 +818,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Нагадування про смуги</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Ваш фон наразі вимкнено, щоб допомогти вам заощадити заряд акумулятора!</value>
+  </data>
 </root>

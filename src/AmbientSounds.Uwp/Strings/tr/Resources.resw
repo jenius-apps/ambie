@@ -812,4 +812,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Çizgi hatırlatıcıları</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Pilden tasarruf etmenize yardımcı olmak için arka planınız şu anda devre dışı!</value>
+  </data>
 </root>
