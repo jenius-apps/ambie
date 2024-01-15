@@ -36,7 +36,7 @@
             </ComboBox>
         </labs:SettingsCard>
 
-        <labs:SettingsExpander Header="{x:Bind strings:Resources.BackgroundImage}">
+        <labs:SettingsExpander Description="{x:Bind ViewModel.BackgroundImageDescription, Mode=OneWay}" Header="{x:Bind strings:Resources.BackgroundImage}">
             <labs:SettingsExpander.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPallete}" />
             </labs:SettingsExpander.HeaderIcon>

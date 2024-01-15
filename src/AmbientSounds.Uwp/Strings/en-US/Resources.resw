@@ -923,4 +923,7 @@
   <data name="SettingsStreakReminderHeader" xml:space="preserve">
     <value>Streak reminders</value>
   </data>
+  <data name="SettingsBackgroundDescription" xml:space="preserve">
+    <value>Your background is currently disabled to help you save battery!</value>
+  </data>
 </root>

@@ -84,7 +84,7 @@ partial class App
     [Singleton(typeof(SoundListViewModel))] // shared in main and compact pages
     [Transient(typeof(ScreensaverViewModel))]
     [Singleton(typeof(ScreensaverPageViewModel))]
-    [Singleton(typeof(SettingsViewModel))]
+    [Transient(typeof(SettingsViewModel))]
     [Singleton(typeof(CataloguePageViewModel))]
     [Singleton(typeof(FocusTaskModuleViewModel))]
     [Singleton(typeof(PremiumControlViewModel))]

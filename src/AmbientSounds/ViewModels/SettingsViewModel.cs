@@ -4,6 +4,7 @@ using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using IAssetsReader = AmbientSounds.Tools.IAssetsReader;
@@ -31,7 +32,9 @@ namespace AmbientSounds.ViewModels
             IImagePicker imagePicker,
             IAppStoreRatings appStoreRatings,
             IQuickResumeService quickResumeService,
-            IBackgroundTaskService backgroundTaskService)
+            IBackgroundTaskService backgroundTaskService,
+            ISystemInfoProvider systemInfoProvider,
+            ILocalizer localizer)
         {
             _userSettings = userSettings;
             _notifications = notifications;
@@ -41,7 +44,15 @@ namespace AmbientSounds.ViewModels
             _appStoreRatings = appStoreRatings;
             _quickResumeService = quickResumeService;
             _backgroundTaskService = backgroundTaskService;
+
+            if (systemInfoProvider.IsOnBatterySaver())
+            {
+                BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
+            }
         }
+
+        [ObservableProperty]
+        private string _backgroundImageDescription = string.Empty;
 
         /// <summary>
         /// Paths to available background images.

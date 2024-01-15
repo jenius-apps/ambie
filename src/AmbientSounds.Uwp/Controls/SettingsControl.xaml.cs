@@ -20,7 +20,7 @@ public sealed partial class SettingsControl : UserControl
     public SettingsViewModel ViewModel => (SettingsViewModel)this.DataContext;
 
     private string Version => SystemInformation.Instance.ApplicationVersion.ToFormattedString();
-
+    
     public void Initialize() => ViewModel.Initialize();
 
     public void Uninitialize() => ViewModel.Uninitialize();

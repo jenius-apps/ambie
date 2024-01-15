@@ -1082,6 +1082,10 @@
           <source>Streak reminders</source>
           <target state="translated">Streak-Erinnerungen</target>
         </trans-unit>
+        <trans-unit id="SettingsBackgroundDescription" translate="yes" xml:space="preserve">
+          <source>Your background is currently disabled to help you save battery!</source>
+          <target state="new">Your background is currently disabled to help you save battery!</target>
+        </trans-unit>
       </group>
     </body>
   </file>

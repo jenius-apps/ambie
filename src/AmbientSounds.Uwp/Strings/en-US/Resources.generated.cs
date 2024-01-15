@@ -2692,6 +2692,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsBackgroundDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Your background is currently disabled to help you save battery!
+        /// </summary>
+        public static string SettingsBackgroundDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsBackgroundDescription");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2909,6 +2922,7 @@ namespace AmbientSounds.Strings{
             StreakHelpMessage,
             SettingsStreakReminderDescription,
             SettingsStreakReminderHeader,
+            SettingsBackgroundDescription,
         }
 
         private static ResourceLoader _resourceLoader;
