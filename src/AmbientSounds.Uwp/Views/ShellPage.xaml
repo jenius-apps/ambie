@@ -465,7 +465,10 @@
                         x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
                         Stretch="Fill">
                         <Rectangle.Fill>
-                            <AcrylicBrush TintColor="{ThemeResource DefaultPageBackgroundColor}" TintOpacity="0.8" />
+                            <AcrylicBrush
+                                FallbackColor="{ThemeResource DefaultPageBackgroundColor}"
+                                TintColor="{ThemeResource DefaultPageBackgroundColor}"
+                                TintOpacity="0.8" />
                         </Rectangle.Fill>
                     </Rectangle>
 
