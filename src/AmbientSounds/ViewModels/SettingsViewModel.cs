@@ -57,7 +57,7 @@ namespace AmbientSounds.ViewModels
         /// <summary>
         /// Paths to available background images.
         /// </summary>
-        public ObservableCollection<string> ImagePaths { get; } = new();
+        public ObservableCollection<string> ImagePaths { get; } = [];
 
         /// <summary>
         /// The current theme.
