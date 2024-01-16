@@ -748,15 +748,6 @@
   <data name="MeditatingText" xml:space="preserve">
     <value>Meditand</value>
   </data>
-  <data name="CloseRequestedMessage" xml:space="preserve">
-    <value>Suntele tale se vor opri daca inchizi Ambie</value>
-  </data>
-  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
-    <value>Cand sunetele sunt redate, arata dialogul de confirmare cand inchid aplicatia</value>
-  </data>
-  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
-    <value>Confirma inchiderea</value>
-  </data>
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Intreaba-ma intotdeauna</value>
   </data>

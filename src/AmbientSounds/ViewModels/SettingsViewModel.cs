@@ -107,12 +107,6 @@ namespace AmbientSounds.ViewModels
             set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
         }
 
-        public bool ConfirmCloseEnabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.ConfirmCloseKey);
-            set => _userSettings.Set(UserSettingsConstants.ConfirmCloseKey, value);
-        }
-
         public bool StreaksReminderEnabled
         {
             get => _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
@@ -195,20 +189,10 @@ namespace AmbientSounds.ViewModels
 
         public void Initialize()
         {
-            _userSettings.SettingSet += OnSettingChanged;
         }
 
         public void Uninitialize()
         {
-            _userSettings.SettingSet -= OnSettingChanged;
-        }
-
-        private void OnSettingChanged(object sender, string settingKey)
-        {
-            if (settingKey is UserSettingsConstants.ConfirmCloseKey)
-            {
-                OnPropertyChanged(nameof(ConfirmCloseEnabled));
-            }
         }
 
         private async void SetNotifications(bool value)

@@ -736,15 +736,6 @@
   <data name="MeditatingText" xml:space="preserve">
     <value>Meditál</value>
   </data>
-  <data name="CloseRequestedMessage" xml:space="preserve">
-    <value>A hangok megszűnnek, ha bezárja az Ambie-t</value>
-  </data>
-  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
-    <value>Hangok lejátszásakor jelenjen meg megerősítő párbeszédpanel az alkalmazás bezárásakor</value>
-  </data>
-  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
-    <value>Bezárás megerősítése</value>
-  </data>
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Mindig kérdezzen tőlem</value>
   </data>

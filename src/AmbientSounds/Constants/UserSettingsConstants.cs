@@ -127,11 +127,6 @@ namespace AmbientSounds.Constants
         public const string PlayAfterFocusKey = "PlayAfterFocus";
 
         /// <summary>
-        /// Used to remember if Ambie should show confirmation dialog when users try to close while sounds are playing.
-        /// </summary>
-        public const string ConfirmCloseKey = "ConfirmCloseWhilePlaying";
-
-        /// <summary>
         /// Used to identify if quick resume is enabled.
         /// </summary>
         public const string QuickResumeKey = "QuickResume";
@@ -187,7 +182,6 @@ namespace AmbientSounds.Constants
             { CompactOnFocusKey, true },
             { HasLoadedPackagedSoundsKey, false },
             { PlayAfterFocusKey, true }, 
-            { ConfirmCloseKey, false },
             { QuickResumeKey, false },
             { ShowHomePageDownloadMessageKey, true },
             { ActiveStreakKey, 0 },

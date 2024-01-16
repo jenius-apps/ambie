@@ -853,15 +853,6 @@
   <data name="MeditatingText" xml:space="preserve">
     <value>Meditating</value>
   </data>
-  <data name="CloseRequestedMessage" xml:space="preserve">
-    <value>Your sounds will stop if you close Ambie</value>
-  </data>
-  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
-    <value>When sounds are playing, show confirmation dialog when closing the app</value>
-  </data>
-  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
-    <value>Confirm close</value>
-  </data>
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Always ask me</value>
   </data>

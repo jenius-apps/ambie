@@ -273,27 +273,6 @@ sealed partial class App : Application
             Services.GetRequiredService<ITelemetry>().TrackError(ex);
         }
 
-        // Register for close requested event here because
-        // we need the event to be handled on all pages, not just from the shell page. 
-        SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, args) =>
-        {
-            var d = args.GetDeferral();
-
-            if (Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ConfirmCloseKey) &&
-                Services.GetRequiredService<IMixMediaPlayerService>().PlaybackState == MediaPlaybackState.Playing)
-            {
-                var telemetry = Services.GetRequiredService<ITelemetry>();
-                bool closeConfirmed = await Services.GetRequiredService<IDialogService>().OpenConfirmCloseAsync();
-                if (!closeConfirmed)
-                {
-                    // this cancels the close event.
-                    args.Handled = true;
-                }
-            }
-
-            d.Complete();
-        };
-
         // Clear stale toasts
         ToastNotificationManager.History.Clear();
 

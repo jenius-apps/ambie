@@ -993,18 +993,6 @@
           <source>Meditating</source>
           <target state="translated">Meditere</target>
         </trans-unit>
-        <trans-unit id="CloseRequestedMessage" translate="yes" xml:space="preserve">
-          <source>Your sounds will stop if you close Ambie</source>
-          <target state="translated">Dine lyde stopper, hvis du lukker Ambie</target>
-        </trans-unit>
-        <trans-unit id="SettingsConfirmCloseDescription" translate="yes" xml:space="preserve">
-          <source>When sounds are playing, show confirmation dialog when closing the app</source>
-          <target state="translated">Når der afspilles lyde, skal du vise bekræftelsesdialogboksen, når du lukker appen</target>
-        </trans-unit>
-        <trans-unit id="SettingsConfirmCloseHeader" translate="yes" xml:space="preserve">
-          <source>Confirm close</source>
-          <target state="translated">Bekræft lukning</target>
-        </trans-unit>
         <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
           <source>Always ask me</source>
           <target state="translated">Spørg mig altid</target>

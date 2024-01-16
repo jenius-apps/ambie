@@ -988,18 +988,6 @@
           <source>Meditating</source>
           <target state="translated">명상</target>
         </trans-unit>
-        <trans-unit id="CloseRequestedMessage" translate="yes" xml:space="preserve">
-          <source>Your sounds will stop if you close Ambie</source>
-          <target state="translated">앰비를 닫으면 소리가 멈춥니다</target>
-        </trans-unit>
-        <trans-unit id="SettingsConfirmCloseDescription" translate="yes" xml:space="preserve">
-          <source>When sounds are playing, show confirmation dialog when closing the app</source>
-          <target state="translated">소리가 재생 중일 때 앱을 닫을 때 확인 대화 상자를 표시합니다</target>
-        </trans-unit>
-        <trans-unit id="SettingsConfirmCloseHeader" translate="yes" xml:space="preserve">
-          <source>Confirm close</source>
-          <target state="translated">닫기 확인</target>
-        </trans-unit>
         <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
           <source>Always ask me</source>
           <target state="translated">항상 묻기</target>

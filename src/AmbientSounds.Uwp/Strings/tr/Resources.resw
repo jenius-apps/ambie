@@ -742,15 +742,6 @@
   <data name="MeditatingText" xml:space="preserve">
     <value>Meditasyon</value>
   </data>
-  <data name="CloseRequestedMessage" xml:space="preserve">
-    <value>Ambie'yi kapatırsanız sesleriniz durur</value>
-  </data>
-  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
-    <value>Sesler çalarken, uygulamayı kapatırken onay iletişim kutusunu göster</value>
-  </data>
-  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
-    <value>Kapat'ı onayla</value>
-  </data>
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Her zaman bana sor</value>
   </data>

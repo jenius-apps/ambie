@@ -733,15 +733,6 @@
   <data name="MeditatingText" xml:space="preserve">
     <value>Διαλογισμό</value>
   </data>
-  <data name="CloseRequestedMessage" xml:space="preserve">
-    <value>Οι ήχοι σας θα σταματήσουν αν κλείσετε το Ambie</value>
-  </data>
-  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
-    <value>Κατά την αναπαραγωγή ήχων, εμφάνιση παραθύρου διαλόγου επιβεβαίωσης κατά το κλείσιμο της εφαρμογής</value>
-  </data>
-  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
-    <value>Επιβεβαίωση κλεισίματος</value>
-  </data>
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>Πάντα να με ρωτάς</value>
   </data>

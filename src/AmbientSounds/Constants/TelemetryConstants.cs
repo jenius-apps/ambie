@@ -138,8 +138,4 @@ public class TelemetryConstants
     public const string GuideStopped = Guide + "stopped";
     public const string GuideDeleted = Guide + "deleted";
     public const string GuidePurchaseClicked = Guide + "purchaseClicked";
-
-    // close
-    private const string Close = "close:";
-    public const string ConfirmCloseEnabled = Close + "enabled";
 }

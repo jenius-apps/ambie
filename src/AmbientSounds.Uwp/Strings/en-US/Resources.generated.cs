@@ -2394,45 +2394,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region CloseRequestedMessage
-        /// <summary>
-        ///   Looks up a localized string similar to: Your sounds will stop if you close Ambie
-        /// </summary>
-        public static string CloseRequestedMessage
-        {
-            get
-            {
-                return _resourceLoader.GetString("CloseRequestedMessage");
-            }
-        }
-        #endregion
-
-        #region SettingsConfirmCloseDescription
-        /// <summary>
-        ///   Looks up a localized string similar to: When sounds are playing, show confirmation dialog when closing the app
-        /// </summary>
-        public static string SettingsConfirmCloseDescription
-        {
-            get
-            {
-                return _resourceLoader.GetString("SettingsConfirmCloseDescription");
-            }
-        }
-        #endregion
-
-        #region SettingsConfirmCloseHeader
-        /// <summary>
-        ///   Looks up a localized string similar to: Confirm close
-        /// </summary>
-        public static string SettingsConfirmCloseHeader
-        {
-            get
-            {
-                return _resourceLoader.GetString("SettingsConfirmCloseHeader");
-            }
-        }
-        #endregion
-
         #region AlwaysAskMeText
         /// <summary>
         ///   Looks up a localized string similar to: Always ask me
@@ -2899,9 +2860,6 @@ namespace AmbientSounds.Strings{
             RelaxText,
             BackgroundSoundsText,
             MeditatingText,
-            CloseRequestedMessage,
-            SettingsConfirmCloseDescription,
-            SettingsConfirmCloseHeader,
             AlwaysAskMeText,
             PlayRandom,
             NowPlayingText,

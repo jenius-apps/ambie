@@ -987,18 +987,6 @@
           <source>Meditating</source>
           <target state="translated">מדיטציה</target>
         </trans-unit>
-        <trans-unit id="CloseRequestedMessage" translate="yes" xml:space="preserve">
-          <source>Your sounds will stop if you close Ambie</source>
-          <target state="translated">הצלילים שלך ייפסקו אם תסגור את אמבי</target>
-        </trans-unit>
-        <trans-unit id="SettingsConfirmCloseDescription" translate="yes" xml:space="preserve">
-          <source>When sounds are playing, show confirmation dialog when closing the app</source>
-          <target state="translated">כאשר צלילים מופעלים, הצג תיבת דו-שיח לאישור בעת סגירת האפליקציה</target>
-        </trans-unit>
-        <trans-unit id="SettingsConfirmCloseHeader" translate="yes" xml:space="preserve">
-          <source>Confirm close</source>
-          <target state="translated">אישור סגירה</target>
-        </trans-unit>
         <trans-unit id="AlwaysAskMeText" translate="yes" xml:space="preserve">
           <source>Always ask me</source>
           <target state="translated">תמיד תשאל אותי</target>

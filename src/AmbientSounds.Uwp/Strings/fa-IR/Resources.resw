@@ -748,15 +748,6 @@
   <data name="MeditatingText" xml:space="preserve">
     <value>مراقبه</value>
   </data>
-  <data name="CloseRequestedMessage" xml:space="preserve">
-    <value>صدای شما متوقف خواهد شد اگر Ambie را ببندید</value>
-  </data>
-  <data name="SettingsConfirmCloseDescription" xml:space="preserve">
-    <value>زمان پخش صداها، هنگام بستن برنامه صفحه تأیید را نشان دهید</value>
-  </data>
-  <data name="SettingsConfirmCloseHeader" xml:space="preserve">
-    <value>تایید بستن</value>
-  </data>
   <data name="AlwaysAskMeText" xml:space="preserve">
     <value>همیشه از من بپرس</value>
   </data>

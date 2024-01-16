@@ -300,24 +300,4 @@ public class DialogService : IDialogService
 
         IsDialogOpen = false;
     }
-
-    /// <inheritdoc/>
-    public async Task<bool> OpenConfirmCloseAsync()
-    {
-        if (IsDialogOpen)
-        {
-            return false;
-        }
-
-        IsDialogOpen = true;
-        var dialog = new ConfirmCloseDialog()
-        {
-            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
-            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
-        };
-
-        var result = await dialog.ShowAsync();
-        IsDialogOpen = false;
-        return result == ContentDialogResult.Primary;
-    }
 }
