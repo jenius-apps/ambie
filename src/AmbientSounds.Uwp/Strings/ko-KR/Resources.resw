@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>배터리를 절약하기 위해 현재 배경이 비활성화되어 있습니다!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>새 작업 추가</value>
+  </data>
 </root>

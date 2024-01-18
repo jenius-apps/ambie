@@ -797,4 +797,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Το φόντο σας είναι απενεργοποιημένο αυτήν τη στιγμή για να σας βοηθήσει να εξοικονομήσετε μπαταρία!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Προσθήκη νέας εργασίας</value>
+  </data>
 </root>

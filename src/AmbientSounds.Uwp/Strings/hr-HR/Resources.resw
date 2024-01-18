@@ -800,4 +800,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Pozadina je trenutno onemogućena kako bi vam pomogla uštedjeti bateriju!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Dodaj novi zadatak</value>
+  </data>
 </root>

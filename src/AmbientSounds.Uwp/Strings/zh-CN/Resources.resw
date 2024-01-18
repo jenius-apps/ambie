@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>您的背景当前处于禁用状态，以帮助您节省电池电量！</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>添加新任务</value>
+  </data>
 </root>

@@ -1075,7 +1075,7 @@
         </trans-unit>
         <trans-unit id="AddNewTaskText" translate="yes" xml:space="preserve">
           <source>Add new task</source>
-          <target state="new">Add new task</target>
+          <target state="translated">Adicionar nova tarefa</target>
         </trans-unit>
       </group>
     </body>

@@ -806,4 +806,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Pilden tasarruf etmenize yardımcı olmak için arka planınız şu anda devre dışı!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Yeni görev ekle</value>
+  </data>
 </root>

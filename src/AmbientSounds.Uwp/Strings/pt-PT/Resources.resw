@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Seu plano de fundo está desativado no momento para ajudá-lo a economizar bateria!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Adicionar nova tarefa</value>
+  </data>
 </root>

@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>¡Su fondo está actualmente deshabilitado para ayudarlo a ahorrar batería!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Agregar nueva tarea</value>
+  </data>
 </root>

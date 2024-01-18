@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Fundalul dvs. este dezactivat în prezent pentru a vă ajuta să economisiți bateria!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Adăugați o activitate nouă</value>
+  </data>
 </root>

@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Il tuo sfondo è attualmente disabilitato per aiutarti a risparmiare batteria!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Aggiunta di una nuova attività</value>
+  </data>
 </root>

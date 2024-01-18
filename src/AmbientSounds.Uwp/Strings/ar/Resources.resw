@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>الخلفية معطلة حاليا لمساعدتك في توفير البطارية!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>إضافة مهمة جديدة</value>
+  </data>
 </root>

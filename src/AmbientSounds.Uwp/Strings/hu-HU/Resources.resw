@@ -800,4 +800,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>A háttér jelenleg le van tiltva, hogy segítsen megtakarítani az akkumulátort!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Új feladat hozzáadása</value>
+  </data>
 </root>

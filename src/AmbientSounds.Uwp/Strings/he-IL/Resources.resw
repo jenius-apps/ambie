@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>הרקע שלך מושבת כעת כדי לעזור לך לחסוך בסוללה!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>הוספת פעילות חדשה</value>
+  </data>
 </root>

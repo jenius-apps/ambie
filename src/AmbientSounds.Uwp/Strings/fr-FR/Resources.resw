@@ -809,4 +809,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Votre arrière-plan est actuellement désactivé pour vous aider à économiser la batterie !</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Ajouter une nouvelle tâche</value>
+  </data>
 </root>
