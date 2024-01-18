@@ -2666,6 +2666,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AddNewTaskText
+        /// <summary>
+        ///   Looks up a localized string similar to: Add new task
+        /// </summary>
+        public static string AddNewTaskText
+        {
+            get
+            {
+                return _resourceLoader.GetString("AddNewTaskText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2881,6 +2894,7 @@ namespace AmbientSounds.Strings{
             SettingsStreakReminderDescription,
             SettingsStreakReminderHeader,
             SettingsBackgroundDescription,
+            AddNewTaskText,
         }
 
         private static ResourceLoader _resourceLoader;

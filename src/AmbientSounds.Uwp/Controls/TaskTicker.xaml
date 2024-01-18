@@ -186,7 +186,7 @@
                 FontSize="9"
                 KeyDown="OnInputKeyDown"
                 MaxLength="280"
-                PlaceholderText="Add new task"
+                PlaceholderText="{x:Bind strings:Resources.AddNewTaskText}"
                 Text="{x:Bind NewTaskInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <StackPanel
@@ -208,7 +208,6 @@
                         Glyph="{StaticResource GlyphCancelSemiBold}" />
                 </Button>
             </StackPanel>
-
         </Grid>
     </Grid>
 </local:ObservableUserControl>
