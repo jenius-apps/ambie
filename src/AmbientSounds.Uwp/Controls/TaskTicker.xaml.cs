@@ -175,7 +175,11 @@ public sealed partial class TaskTicker : ObservableUserControl
             source[SelectedIndex] is { IsCompleted: false } task)
         {
             task.IsCompleted = true;
-            Next(sender, e);
+
+            if (SelectedIndex < source.Count - 1)
+            {
+                Next(sender, e);
+            }
         }
     }
 
