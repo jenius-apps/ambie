@@ -509,6 +509,24 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         }
     }
 
+    public async Task AddTaskAsync(string task)
+    {
+        FocusTask? focusTask = await _taskService.AddTaskAsync(task);
+        if (focusTask is null)
+        {
+            return;
+        }
+
+        int index = FocusTasks.Count + 1;
+        FocusTasks.Add(new FocusTaskViewModel(
+            focusTask,
+            complete: CompleteTaskCommand,
+            reopen: ReopenTaskCommand,
+            displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
+
+        SelectedTaskIndex = FocusTasks.Count - 1;
+    }
+
     private void UpdatePlayEnabled()
     {
         PlayEnabled = _focusService.CanStartSession(FocusLength, RestLength);

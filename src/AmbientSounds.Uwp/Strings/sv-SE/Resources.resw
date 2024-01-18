@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Din bakgrund är för närvarande inaktiverad för att hjälpa dig att spara batteri!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Lägg till ny uppgift</value>
+  </data>
 </root>

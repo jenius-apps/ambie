@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Ваш фон наразі вимкнено, щоб допомогти вам заощадити заряд акумулятора!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Додати нове завдання</value>
+  </data>
 </root>

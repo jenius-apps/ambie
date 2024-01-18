@@ -812,4 +812,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Twoje tło jest obecnie wyłączone, aby pomóc Ci oszczędzać baterię!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Dodaj nowe zadanie</value>
+  </data>
 </root>

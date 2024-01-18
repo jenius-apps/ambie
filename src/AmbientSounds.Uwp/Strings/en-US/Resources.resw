@@ -917,4 +917,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Your background is currently disabled to help you save battery!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Add new task</value>
+  </data>
 </root>

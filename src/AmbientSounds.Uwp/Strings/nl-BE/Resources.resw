@@ -782,4 +782,7 @@
   <data name="SettingsBackgroundDescription" xml:space="preserve">
     <value>Uw achtergrond is momenteel uitgeschakeld om u te helpen de batterij te sparen!</value>
   </data>
+  <data name="AddNewTaskText" xml:space="preserve">
+    <value>Nieuwe taak toevoegen</value>
+  </data>
 </root>

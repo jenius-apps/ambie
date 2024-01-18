@@ -251,6 +251,7 @@
             <x:String x:Key="GlyphStop">&#xEE95;</x:String>
             <x:String x:Key="GlyphPause">&#xE62E;</x:String>
             <x:String x:Key="GlyphCancel">&#xE10A;</x:String>
+            <x:String x:Key="GlyphCancelSemiBold">&#xF78A;</x:String>
             <x:String x:Key="GlyphHelp">&#xE9CE;</x:String>
             <x:String x:Key="GlyphSleep">&#xEC46;</x:String>
             <x:String x:Key="GlyphInterruption">&#xEB44;</x:String>
@@ -269,6 +270,7 @@
             <x:String x:Key="GlyphShare">&#xE72D;</x:String>
             <x:String x:Key="GlyphCheckMarkCircle">&#xEC61;</x:String>
             <x:String x:Key="GlyphCheckMark">&#xE10B;</x:String>
+            <x:String x:Key="GlyphCheckMarkSemiBold">&#xF78C;</x:String>
             <x:String x:Key="GlyphCustomGripper">&#xEB34;</x:String>
             <x:String x:Key="GlyphUpdates">&#xE118;</x:String>
             <x:String x:Key="GlyphLeaves">&#xEC0A;</x:String>
@@ -288,6 +290,7 @@
             <x:String x:Key="GlyphRoundedArrowUp">&#xEDDB;</x:String>
             <x:String x:Key="GlyphRoundedArrowDown">&#xEDDC;</x:String>
             <x:String x:Key="GlyphFire">&#xECAD;</x:String>
+            <x:String x:Key="GlyphPlusBold">&#xF8AA;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

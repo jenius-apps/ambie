@@ -1073,6 +1073,10 @@
           <source>Your background is currently disabled to help you save battery!</source>
           <target state="translated">배터리를 절약하기 위해 현재 배경이 비활성화되어 있습니다!</target>
         </trans-unit>
+        <trans-unit id="AddNewTaskText" translate="yes" xml:space="preserve">
+          <source>Add new task</source>
+          <target state="translated">새 작업 추가</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1083,6 +1083,10 @@
           <source>Your background is currently disabled to help you save battery!</source>
           <target state="translated">A háttér jelenleg le van tiltva, hogy segítsen megtakarítani az akkumulátort!</target>
         </trans-unit>
+        <trans-unit id="AddNewTaskText" translate="yes" xml:space="preserve">
+          <source>Add new task</source>
+          <target state="translated">Új feladat hozzáadása</target>
+        </trans-unit>
       </group>
     </body>
   </file>

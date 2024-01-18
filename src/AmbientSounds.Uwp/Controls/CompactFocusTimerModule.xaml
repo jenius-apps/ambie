@@ -304,7 +304,10 @@
                     <Rectangle Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
                 </Border>
 
-                <local:TaskTicker ItemsSource="{x:Bind ViewModel.FocusTasks}" SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
+                <local:TaskTicker
+                    AddNewTaskRequested="OnNewTaskRequested"
+                    ItemsSource="{x:Bind ViewModel.FocusTasks}"
+                    SelectedIndex="{x:Bind ViewModel.SelectedTaskIndex, Mode=TwoWay}" />
             </Grid>
         </Grid>
     </Grid>

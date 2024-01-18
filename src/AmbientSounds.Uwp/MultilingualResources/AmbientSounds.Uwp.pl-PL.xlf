@@ -1074,6 +1074,10 @@
           <source>Your background is currently disabled to help you save battery!</source>
           <target state="translated">Twoje tło jest obecnie wyłączone, aby pomóc Ci oszczędzać baterię!</target>
         </trans-unit>
+        <trans-unit id="AddNewTaskText" translate="yes" xml:space="preserve">
+          <source>Add new task</source>
+          <target state="translated">Dodaj nowe zadanie</target>
+        </trans-unit>
       </group>
     </body>
   </file>
