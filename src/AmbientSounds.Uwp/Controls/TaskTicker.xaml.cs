@@ -105,7 +105,6 @@ public sealed partial class TaskTicker : ObservableUserControl
     private void UpdateCurrentTask(int newIndex)
     {
         if (ItemsSource is null ||
-            newIndex == SelectedIndex ||
             newIndex < 0 ||
             newIndex >= ItemsSource.Count)
         {

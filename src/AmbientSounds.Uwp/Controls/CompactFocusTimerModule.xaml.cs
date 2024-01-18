@@ -24,4 +24,14 @@ public sealed partial class CompactFocusTimerModule : UserControl, ICanInitializ
     {
         ViewModel.Uninitialize();
     }
+
+    private async void OnNewTaskRequested(object sender, string newTaskText)
+    {
+        if (string.IsNullOrEmpty(newTaskText))
+        {
+            return;
+        }
+
+        await ViewModel.AddTaskAsync(newTaskText);
+    }
 }
