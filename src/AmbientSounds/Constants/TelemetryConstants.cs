@@ -127,8 +127,6 @@ public class TelemetryConstants
     public const string TaskReordered = Task + "reordered";
     public const string TaskEdited = Task + "edited";
     public const string TaskCompleted = Task + "completed";
-    public const string TaskCompletedInSession = Task + "completedInSession";
-    public const string TaskReopenedInSession = Task + "reopenedInSession";
     public const string TasksLoaded = Task + "loaded";
 
     // guide

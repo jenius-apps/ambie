@@ -364,8 +364,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         _focusHistoryService.LogTaskCompleted(task.Task.Id);
         _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
-
-        _telemetry.TrackEvent(TelemetryConstants.TaskCompletedInSession);
+        _telemetry.TrackEvent(TelemetryConstants.TaskCompleted, new Dictionary<string, string>
+        {
+            { "inSession", "true" }
+        });
     }
 
     [RelayCommand]
@@ -378,7 +380,6 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
         _focusHistoryService.RevertTaskCompleted(task.Task.Id);
         _ = _taskService.UpdateCompletionAsync(task.Task.Id, false).ConfigureAwait(false);
-        _telemetry.TrackEvent(TelemetryConstants.TaskReopenedInSession);
     }
 
     private void OnFocusStateChanged(object sender, FocusState e)
@@ -509,12 +510,12 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         }
     }
 
-    public async Task AddTaskAsync(string task)
+    public async Task<bool> AddTaskAsync(string task)
     {
         FocusTask? focusTask = await _taskService.AddTaskAsync(task);
         if (focusTask is null)
         {
-            return;
+            return false;
         }
 
         int index = FocusTasks.Count + 1;
@@ -525,6 +526,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
 
         SelectedTaskIndex = FocusTasks.Count - 1;
+        return true;
     }
 
     private void UpdatePlayEnabled()

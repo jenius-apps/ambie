@@ -132,7 +132,10 @@ namespace AmbientSounds.ViewModels
 
             Tasks.Add(CreateTaskVm(newTask, false));
             NewTask = string.Empty;
-            _telemetry.TrackEvent(TelemetryConstants.TaskAdded);
+            _telemetry.TrackEvent(TelemetryConstants.TaskAdded, new Dictionary<string, string>
+            {
+                { "location", "focusTaskModule" }
+            });
         }
 
         public void OnItemsReordered()
@@ -167,7 +170,10 @@ namespace AmbientSounds.ViewModels
 
             Tasks.Remove(task);
             _ = _taskService.UpdateCompletionAsync(task.Task.Id, true).ConfigureAwait(false);
-            _telemetry.TrackEvent(TelemetryConstants.TaskCompleted);
+            _telemetry.TrackEvent(TelemetryConstants.TaskCompleted, new Dictionary<string, string>
+            {
+                { "inSession", "false" }
+            });
         }
 
         private void ReopenTask(FocusTaskViewModel? task)
