@@ -1,18 +1,15 @@
 <p align="center">
-  <img width="128" align="center" src="/images/logo_transparent.png">
+  <img width="128" align="center" src="images/logo_transparent.png">
 </p>
 <h1 align="center">
   Ambie
 </h1>
 <p align="center">
-  The best white noise app on Windows
+  Focus, study, or relax. Sounds for every mood.
 </p>
 <p align="center">
-  <a style="text-decoration:none" href="https://apps.microsoft.com/store/detail/ambie-white-noise/9P07XNM5CHP0?cid=ghr" target="_blank">
-    <img src="https://img.shields.io/badge/Microsoft%20Store-Download-brightgreen" alt="Store link" />
-  </a>
-  <a style="text-decoration:none" href="https://discord.gg/b9z3BeXk3D" target="_blank">
-    <img src="https://img.shields.io/badge/Discord-%23ambie-blue" alt="Discord" />
+  <a href="https://apps.microsoft.com/store/detail/ambie-white-noise/9P07XNM5CHP0?cid=ambierepo&launch=true" target="_blank">
+    <img src="images/storeBadge.png" width="200" alt="Store link" />
   </a>
 </p>
 
