@@ -8,7 +8,7 @@
   Focus, study, or relax. Sounds for every mood.
 </p>
 <p align="center">
-  <a href="https://apps.microsoft.com/store/detail/ambie-white-noise/9P07XNM5CHP0?cid=ambierepo&launch=true" target="_blank">
+  <a href="https://apps.microsoft.com/store/detail/ambie-white-noise/9P07XNM5CHP0?cid=ambierepo" target="_blank">
     <img src="images/storeBadge.png" width="200" alt="Store link" />
   </a>
 </p>
