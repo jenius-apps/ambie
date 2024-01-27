@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>新しいタスクを追加</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>内蔵のサウンドカタログにアクセスします。次のお気に入りの音楽はこちらからダウンロードしてください。</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>あなたは働いていますか、それとも勉強していますか?革新的なフォーカスタイマーを使用して、生産性を高めましょう。</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>インストールしたサウンドを表示し、最大3つのサウンドを再生して、お気に入りの組み合わせを見つけます。</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>瞑想ガイドを使って、リラックスしたり、神経を落ち着かせたりしてください。</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>ここで設定を切り替えます。</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>インストールしたサウンドの更新については、ここで時々確認してください。</value>
+  </data>
 </root>

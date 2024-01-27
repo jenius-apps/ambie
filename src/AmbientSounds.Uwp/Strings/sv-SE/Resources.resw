@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Lägg till ny uppgift</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Få tillgång till den inbyggda ljudkatalogen. Ladda ner din nästa favoritmusik här.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Arbetar eller studerar? Använd vår innovativa fokustimer för att hjälpa dig att vara produktiv.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Visa de ljud du har installerat, spela upp till 3 ljud och hitta din favoritkombination.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Använd våra meditationsguider för att hjälpa dig att slappna av eller för att lugna dina nerver.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Växla dina inställningar här.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Titta här då och då för uppdateringar av de ljud du har installerat.</value>
+  </data>
 </root>

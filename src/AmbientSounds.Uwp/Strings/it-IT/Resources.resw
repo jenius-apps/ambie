@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Aggiunta di una nuova attività</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Accedi al catalogo integrato dei suoni. Scarica qui la tua prossima musica preferita.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Stai lavorando o studiando? Usa il nostro innovativo timer di messa a fuoco per aiutarti a essere produttivo.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Visualizza i suoni che hai installato, riproduci fino a 3 suoni e trova la tua combinazione preferita.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Usa le nostre guide alla meditazione per aiutarti a rilassarti o per calmare i nervi.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Attiva o disattiva le tue impostazioni qui.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Controlla qui di tanto in tanto gli aggiornamenti dei suoni che hai installato.</value>
+  </data>
 </root>

@@ -785,4 +785,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Nieuwe taak toevoegen</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Toegang tot de ingebouwde catalogus met geluiden. Download hier je volgende favoriete muziek.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Ben je aan het werk of studeer je? Gebruik onze innovatieve focustimer om u te helpen productief te zijn.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Bekijk de geluiden die je hebt geïnstalleerd, speel tot 3 geluiden af en vind je favoriete combinatie.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Gebruik onze meditatiegidsen om je te helpen ontspannen of om je zenuwen te kalmeren.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Schakel hier uw instellingen in.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Kijk hier af en toe voor updates van de geluiden die je hebt geïnstalleerd.</value>
+  </data>
 </root>

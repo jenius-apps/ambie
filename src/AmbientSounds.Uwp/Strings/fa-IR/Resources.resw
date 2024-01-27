@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>افزودن تکلیف جدید</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>دسترسی به کاتالوگ داخلی صداها. موسیقی مورد علاقه بعدی خود را از اینجا دانلود کنید.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>کار می کنید یا درس می ید؟ از تایمر تمرکز نواورانه ما استفاده کنید تا به شما کمک کند سازنده باشید.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>صداهایی را که نصب کرده اید مشاهده کنید، تا 3 صدا را پخش کنید و ترکیب مورد علاقه خود را پیدا کنید.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>از راهنماهای مدیتیشن ما برای کمک به ارامش یا ارام کردن اعصاب خود استفاده کنید.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>تنظیمات خود را در اینجا تغییر دهید.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>گاهی اوقات برای به روز رسانی صداهایی که نصب کرده اید اینجا را بررسی کنید.</value>
+  </data>
 </root>

@@ -1080,27 +1080,27 @@
         </trans-unit>
         <trans-unit id="CatalogueSubtitle" translate="yes" xml:space="preserve">
           <source>Access the built-in catalogue of sounds. Download your next favourite music here.</source>
-          <target state="new">Access the built-in catalogue of sounds. Download your next favourite music here.</target>
+          <target state="translated">Uzyskaj dostęp do wbudowanego katalogu dźwięków. Pobierz swoją następną ulubioną muzykę tutaj.</target>
         </trans-unit>
         <trans-unit id="FocusSubtitle" translate="yes" xml:space="preserve">
           <source>Are you working or studying? Use our innovative focus timer to help you be productive.</source>
-          <target state="new">Are you working or studying? Use our innovative focus timer to help you be productive.</target>
+          <target state="translated">Pracujesz lub studiujesz? Skorzystaj z naszego innowacyjnego timera ostrości, który pomoże Ci zwiększyć produktywność.</target>
         </trans-unit>
         <trans-unit id="HomeSubtitle" translate="yes" xml:space="preserve">
           <source>View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</source>
-          <target state="new">View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</target>
+          <target state="translated">Przeglądaj zainstalowane dźwięki, odtwarzaj do 3 dźwięków i znajdź swoją ulubioną kombinację.</target>
         </trans-unit>
         <trans-unit id="MeditateSubtitle" translate="yes" xml:space="preserve">
           <source>Use our meditation guides to help you relax or to calm your nerves.</source>
-          <target state="new">Use our meditation guides to help you relax or to calm your nerves.</target>
+          <target state="translated">Skorzystaj z naszych przewodników medytacyjnych, które pomogą Ci się zrelaksować lub uspokoić nerwy.</target>
         </trans-unit>
         <trans-unit id="SettingsSubtitle" translate="yes" xml:space="preserve">
           <source>Toggle your settings here.</source>
-          <target state="new">Toggle your settings here.</target>
+          <target state="translated">Przełącz swoje ustawienia tutaj.</target>
         </trans-unit>
         <trans-unit id="UpdatesSubtitle" translate="yes" xml:space="preserve">
           <source>Check here occasionally for updates to the sounds you have installed.</source>
-          <target state="new">Check here occasionally for updates to the sounds you have installed.</target>
+          <target state="translated">Od czasu do czasu zaglądaj tutaj pod kątem aktualizacji zainstalowanych dźwięków.</target>
         </trans-unit>
       </group>
     </body>

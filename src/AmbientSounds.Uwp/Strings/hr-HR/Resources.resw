@@ -803,4 +803,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Dodaj novi zadatak</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Pristupite ugrađenom katalogu zvukova. Preuzmite svoju sljedeću omiljenu glazbu ovdje.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Radiš li ili učiš? Koristite naš inovativni mjerač vremena fokusa koji će vam pomoći da budete produktivni.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Pogledajte zvukove koje ste instalirali, reproducirajte do 3 zvuka i pronađite svoju omiljenu kombinaciju.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Koristite naše vodiče za meditaciju koji će vam pomoći da se opustite ili smirite živce.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Ovdje prebacite postavke.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Ovdje povremeno potražite ažuriranja zvukova koje ste instalirali.</value>
+  </data>
 </root>

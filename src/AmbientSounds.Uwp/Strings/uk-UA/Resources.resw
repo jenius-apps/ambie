@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Додати нове завдання</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Доступ до вбудованого каталогу звуків. Завантажте свою наступну улюблену музику тут.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Ви працюєте чи навчаєтесь? Використовуйте наш інноваційний таймер фокусування, який допоможе вам бути продуктивними.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Перегляньте встановлені звуки, відтворіть до 3 звуків і знайдіть свою улюблену комбінацію.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Скористайтеся нашими посібниками з медитації, які допоможуть вам розслабитися або заспокоїти нерви.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Перемкніть налаштування тут.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Час від часу перевіряйте тут наявність оновлень інстальованих звуків.</value>
+  </data>
 </root>

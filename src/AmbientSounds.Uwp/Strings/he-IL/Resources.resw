@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>הוספת פעילות חדשה</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>גש לקטלוג הצלילים המובנה. הורד את המוזיקה האהובה הבאה שלך כאן.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>האם אתה עובד או לומד? השתמש בטיימר המיקוד החדשני שלנו כדי לעזור לך להיות פרודוקטיבי.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>הצג את הצלילים שהתקנת, השמע עד 3 צלילים ומצא את השילוב המועדף עליך.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>השתמש במדריכי המדיטציה שלנו כדי לעזור לך להירגע או להרגיע את העצבים שלך.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>החלף את ההגדרות שלך כאן.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>בדוק כאן מדי פעם אם קיימים עדכונים לצלילים שהתקנת.</value>
+  </data>
 </root>

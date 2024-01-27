@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Přidat nový úkol</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Získejte přístup k vestavěnému katalogu zvuků. Stáhněte si svou další oblíbenou hudbu zde.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Pracujete nebo studujete? Použijte náš inovativní časovač ostření, který vám pomůže být produktivní.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Prohlédněte si nainstalované zvuky, přehrajte až 3 zvuky a najděte svou oblíbenou kombinaci.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Využijte naše meditační průvodce, kteří vám pomohou uvolnit se nebo uklidnit nervy.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Zde můžete přepnout nastavení.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Občas zde zkontrolujte aktualizace zvuků, které jste nainstalovali.</value>
+  </data>
 </root>

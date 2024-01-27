@@ -800,4 +800,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Προσθήκη νέας εργασίας</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Αποκτήστε πρόσβαση στον ενσωματωμένο κατάλογο ήχων. Κατεβάστε την επόμενη αγαπημένη σας μουσική εδώ.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Εργάζεστε ή σπουδάζετε; Χρησιμοποιήστε το καινοτόμο χρονόμετρο εστίασης για να σας βοηθήσουμε να είστε παραγωγικοί.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Δείτε τους ήχους που έχετε εγκαταστήσει, παίξτε έως και 3 ήχους και βρείτε τον αγαπημένο σας συνδυασμό.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Χρησιμοποιήστε τους οδηγούς διαλογισμού μας για να σας βοηθήσουμε να χαλαρώσετε ή να ηρεμήσετε τα νεύρα σας.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Αλλάξτε τις ρυθμίσεις σας εδώ.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Ελέγχετε εδώ περιστασιακά για ενημερώσεις των ήχων που έχετε εγκαταστήσει.</value>
+  </data>
 </root>

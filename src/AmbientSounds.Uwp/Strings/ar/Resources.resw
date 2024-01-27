@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>إضافة مهمة جديدة</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>الوصول إلى كتالوج الأصوات المدمج. قم بتنزيل موسيقاك المفضلة التالية هنا.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>هل تعمل أو تدرس؟ استخدم مؤقت التركيز المبتكر الخاص بنا لمساعدتك على أن تكون منتجا.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>اعرض الأصوات التي قمت بتثبيتها ، وقم بتشغيل ما يصل إلى 3 أصوات ، وابحث عن مجموعتك المفضلة.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>استخدم أدلة التأمل الخاصة بنا لمساعدتك على الاسترخاء أو لتهدئة أعصابك.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>قم بتبديل إعداداتك هنا.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>تحقق هنا من حين لآخر للحصول على تحديثات للأصوات التي قمت بتثبيتها.</value>
+  </data>
 </root>

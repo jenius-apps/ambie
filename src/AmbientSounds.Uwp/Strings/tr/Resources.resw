@@ -809,4 +809,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Yeni görev ekle</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Yerleşik ses kataloğuna erişin. Bir sonraki favori müziğinizi buradan indirin.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Çalışıyor musunuz yoksa okuyor musunuz? Üretken olmanıza yardımcı olması için yenilikçi odak zamanlayıcımızı kullanın.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Yüklediğiniz sesleri görüntüleyin, 3 adede kadar ses çalın ve en sevdiğiniz kombinasyonu bulun.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Rahatlamanıza veya sinirlerinizi yatıştırmanıza yardımcı olması için meditasyon rehberlerimizi kullanın.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Ayarlarınızı buradan değiştirin.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Yüklediğiniz seslerin güncellemeleri için ara sıra burayı kontrol edin.</value>
+  </data>
 </root>

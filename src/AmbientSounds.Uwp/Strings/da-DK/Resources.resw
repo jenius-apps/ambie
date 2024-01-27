@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Tilføj ny opgave</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Få adgang til det indbyggede katalog med lyde. Download din næste yndlingsmusik her.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Arbejder eller studerer du? Brug vores innovative fokustimer til at hjælpe dig med at være produktiv.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Se de lyde, du har installeret, afspil op til 3 lyde, og find din yndlingskombination.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Brug vores meditationsguider til at hjælpe dig med at slappe af eller berolige dine nerver.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Skift dine indstillinger her.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Tjek her lejlighedsvis for opdateringer til de lyde, du har installeret.</value>
+  </data>
 </root>

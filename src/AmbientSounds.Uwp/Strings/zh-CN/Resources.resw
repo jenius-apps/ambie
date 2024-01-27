@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>添加新任务</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>访问内置的声音目录。在这里下载您下一个喜欢的音乐。</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>你在工作还是在学习？使用我们创新的对焦计时器来帮助您提高工作效率。</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>查看您安装的声音，播放多达 3 种声音，并找到您最喜欢的组合。</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>使用我们的冥想指南来帮助您放松或镇静您的神经。</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>在此处切换您的设置。</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>不时查看此处，了解已安装声音的更新。</value>
+  </data>
 </root>

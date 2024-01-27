@@ -1078,27 +1078,27 @@
         </trans-unit>
         <trans-unit id="CatalogueSubtitle" translate="yes" xml:space="preserve">
           <source>Access the built-in catalogue of sounds. Download your next favourite music here.</source>
-          <target state="new">Access the built-in catalogue of sounds. Download your next favourite music here.</target>
+          <target state="translated">גש לקטלוג הצלילים המובנה. הורד את המוזיקה האהובה הבאה שלך כאן.</target>
         </trans-unit>
         <trans-unit id="FocusSubtitle" translate="yes" xml:space="preserve">
           <source>Are you working or studying? Use our innovative focus timer to help you be productive.</source>
-          <target state="new">Are you working or studying? Use our innovative focus timer to help you be productive.</target>
+          <target state="translated">האם אתה עובד או לומד? השתמש בטיימר המיקוד החדשני שלנו כדי לעזור לך להיות פרודוקטיבי.</target>
         </trans-unit>
         <trans-unit id="HomeSubtitle" translate="yes" xml:space="preserve">
           <source>View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</source>
-          <target state="new">View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</target>
+          <target state="translated">הצג את הצלילים שהתקנת, השמע עד 3 צלילים ומצא את השילוב המועדף עליך.</target>
         </trans-unit>
         <trans-unit id="MeditateSubtitle" translate="yes" xml:space="preserve">
           <source>Use our meditation guides to help you relax or to calm your nerves.</source>
-          <target state="new">Use our meditation guides to help you relax or to calm your nerves.</target>
+          <target state="translated">השתמש במדריכי המדיטציה שלנו כדי לעזור לך להירגע או להרגיע את העצבים שלך.</target>
         </trans-unit>
         <trans-unit id="SettingsSubtitle" translate="yes" xml:space="preserve">
           <source>Toggle your settings here.</source>
-          <target state="new">Toggle your settings here.</target>
+          <target state="translated">החלף את ההגדרות שלך כאן.</target>
         </trans-unit>
         <trans-unit id="UpdatesSubtitle" translate="yes" xml:space="preserve">
           <source>Check here occasionally for updates to the sounds you have installed.</source>
-          <target state="new">Check here occasionally for updates to the sounds you have installed.</target>
+          <target state="translated">בדוק כאן מדי פעם אם קיימים עדכונים לצלילים שהתקנת.</target>
         </trans-unit>
       </group>
     </body>

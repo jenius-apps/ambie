@@ -815,4 +815,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Adăugați o activitate nouă</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Accesați catalogul de sunete încorporat. Descărcați următoarea muzică preferată aici.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Lucrați sau studiați? Utilizați temporizatorul nostru inovator de focalizare pentru a vă ajuta să fiți productiv.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Vizualizați sunetele pe care le-ați instalat, redați până la 3 sunete și găsiți combinația preferată.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Utilizați ghidurile noastre de meditație pentru a vă ajuta să vă relaxați sau pentru a vă calma nervii.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Comutați setările aici.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Verificați aici ocazional pentru actualizări ale sunetelor pe care le-ați instalat.</value>
+  </data>
 </root>

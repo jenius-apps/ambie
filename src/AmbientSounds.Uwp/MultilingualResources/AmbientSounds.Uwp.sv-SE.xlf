@@ -1081,27 +1081,27 @@
         </trans-unit>
         <trans-unit id="CatalogueSubtitle" translate="yes" xml:space="preserve">
           <source>Access the built-in catalogue of sounds. Download your next favourite music here.</source>
-          <target state="new">Access the built-in catalogue of sounds. Download your next favourite music here.</target>
+          <target state="translated">Få tillgång till den inbyggda ljudkatalogen. Ladda ner din nästa favoritmusik här.</target>
         </trans-unit>
         <trans-unit id="FocusSubtitle" translate="yes" xml:space="preserve">
           <source>Are you working or studying? Use our innovative focus timer to help you be productive.</source>
-          <target state="new">Are you working or studying? Use our innovative focus timer to help you be productive.</target>
+          <target state="translated">Arbetar eller studerar? Använd vår innovativa fokustimer för att hjälpa dig att vara produktiv.</target>
         </trans-unit>
         <trans-unit id="HomeSubtitle" translate="yes" xml:space="preserve">
           <source>View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</source>
-          <target state="new">View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</target>
+          <target state="translated">Visa de ljud du har installerat, spela upp till 3 ljud och hitta din favoritkombination.</target>
         </trans-unit>
         <trans-unit id="MeditateSubtitle" translate="yes" xml:space="preserve">
           <source>Use our meditation guides to help you relax or to calm your nerves.</source>
-          <target state="new">Use our meditation guides to help you relax or to calm your nerves.</target>
+          <target state="translated">Använd våra meditationsguider för att hjälpa dig att slappna av eller för att lugna dina nerver.</target>
         </trans-unit>
         <trans-unit id="SettingsSubtitle" translate="yes" xml:space="preserve">
           <source>Toggle your settings here.</source>
-          <target state="new">Toggle your settings here.</target>
+          <target state="translated">Växla dina inställningar här.</target>
         </trans-unit>
         <trans-unit id="UpdatesSubtitle" translate="yes" xml:space="preserve">
           <source>Check here occasionally for updates to the sounds you have installed.</source>
-          <target state="new">Check here occasionally for updates to the sounds you have installed.</target>
+          <target state="translated">Titta här då och då för uppdateringar av de ljud du har installerat.</target>
         </trans-unit>
       </group>
     </body>

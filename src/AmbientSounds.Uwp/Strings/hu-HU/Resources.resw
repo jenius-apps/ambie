@@ -803,4 +803,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Új feladat hozzáadása</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Hozzáférés a beépített hangszínkatalógushoz. Töltse le következő kedvenc zenéit itt.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Dolgozol vagy tanulsz? Használja innovatív fókuszidőzítőnket, hogy produktív legyen.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Tekintse meg a telepített hangszíneket, játsszon le akár 3 hangot, és keresse meg kedvenc kombinációját.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Használja meditációs útmutatóinkat, hogy segítsen ellazulni vagy megnyugtatni az idegeit.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Itt válthatja át a beállításokat.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Időnként ellenőrizze itt a telepített hangok frissítéseit.</value>
+  </data>
 </root>
