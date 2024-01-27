@@ -920,4 +920,22 @@
   <data name="AddNewTaskText" xml:space="preserve">
     <value>Add new task</value>
   </data>
+  <data name="CatalogueSubtitle" xml:space="preserve">
+    <value>Access the built-in catalogue of sounds. Download your next favourite music here.</value>
+  </data>
+  <data name="FocusSubtitle" xml:space="preserve">
+    <value>Are you working or studying? Use our innovative focus timer to help you be productive.</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</value>
+  </data>
+  <data name="MeditateSubtitle" xml:space="preserve">
+    <value>Use our meditation guides to help you relax or to calm your nerves.</value>
+  </data>
+  <data name="SettingsSubtitle" xml:space="preserve">
+    <value>Toggle your settings here.</value>
+  </data>
+  <data name="UpdatesSubtitle" xml:space="preserve">
+    <value>Check here occasionally for updates to the sounds you have installed.</value>
+  </data>
 </root>

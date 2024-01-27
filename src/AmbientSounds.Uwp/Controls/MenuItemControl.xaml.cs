@@ -14,6 +14,18 @@ public sealed partial class MenuItemControl : UserControl
         typeof(MenuItemControl),
         new PropertyMetadata(string.Empty));
 
+    public static readonly DependencyProperty ToolTipTextProperty = DependencyProperty.Register(
+        nameof(ToolTipText),
+        typeof(string),
+        typeof(MenuItemControl),
+        new PropertyMetadata(string.Empty));
+
+    public static readonly DependencyProperty ToolTipSubtitleProperty = DependencyProperty.Register(
+        nameof(ToolTipSubtitle),
+        typeof(string),
+        typeof(MenuItemControl),
+        new PropertyMetadata(string.Empty));
+
     public static readonly DependencyProperty GlyphProperty = DependencyProperty.Register(
         nameof(Glyph),
         typeof(string),
@@ -47,6 +59,22 @@ public sealed partial class MenuItemControl : UserControl
     {
         get => (string)GetValue(TextProperty);
         set => SetValue(TextProperty, value);
+    }
+
+    public string ToolTipText
+    {
+        get
+        {
+            var result = (string)GetValue(ToolTipTextProperty);
+            return string.IsNullOrEmpty(result) ? Text : result;
+        }
+        set => SetValue(ToolTipTextProperty, value);
+    }
+
+    public string ToolTipSubtitle
+    {
+        get => (string)GetValue(ToolTipSubtitleProperty);
+        set => SetValue(ToolTipSubtitleProperty, value);
     }
 
     public string Glyph

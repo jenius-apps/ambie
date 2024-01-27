@@ -2679,6 +2679,84 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region CatalogueSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Access the built-in catalogue of sounds. Download your next favourite music here.
+        /// </summary>
+        public static string CatalogueSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("CatalogueSubtitle");
+            }
+        }
+        #endregion
+
+        #region FocusSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Are you working or studying? Use our innovative focus timer to help you be productive.
+        /// </summary>
+        public static string FocusSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FocusSubtitle");
+            }
+        }
+        #endregion
+
+        #region HomeSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: View the sounds you have installed, play up to 3 sounds, and find your favourite combination.
+        /// </summary>
+        public static string HomeSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("HomeSubtitle");
+            }
+        }
+        #endregion
+
+        #region MeditateSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Use our meditation guides to help you relax or to calm your nerves.
+        /// </summary>
+        public static string MeditateSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("MeditateSubtitle");
+            }
+        }
+        #endregion
+
+        #region SettingsSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Toggle your settings here.
+        /// </summary>
+        public static string SettingsSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsSubtitle");
+            }
+        }
+        #endregion
+
+        #region UpdatesSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Check here occasionally for updates to the sounds you have installed.
+        /// </summary>
+        public static string UpdatesSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("UpdatesSubtitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2895,6 +2973,12 @@ namespace AmbientSounds.Strings{
             SettingsStreakReminderHeader,
             SettingsBackgroundDescription,
             AddNewTaskText,
+            CatalogueSubtitle,
+            FocusSubtitle,
+            HomeSubtitle,
+            MeditateSubtitle,
+            SettingsSubtitle,
+            UpdatesSubtitle,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -1073,6 +1073,30 @@
           <source>Add new task</source>
           <target state="translated">Добавяне на нова задача</target>
         </trans-unit>
+        <trans-unit id="CatalogueSubtitle" translate="yes" xml:space="preserve">
+          <source>Access the built-in catalogue of sounds. Download your next favourite music here.</source>
+          <target state="new">Access the built-in catalogue of sounds. Download your next favourite music here.</target>
+        </trans-unit>
+        <trans-unit id="FocusSubtitle" translate="yes" xml:space="preserve">
+          <source>Are you working or studying? Use our innovative focus timer to help you be productive.</source>
+          <target state="new">Are you working or studying? Use our innovative focus timer to help you be productive.</target>
+        </trans-unit>
+        <trans-unit id="HomeSubtitle" translate="yes" xml:space="preserve">
+          <source>View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</source>
+          <target state="new">View the sounds you have installed, play up to 3 sounds, and find your favourite combination.</target>
+        </trans-unit>
+        <trans-unit id="MeditateSubtitle" translate="yes" xml:space="preserve">
+          <source>Use our meditation guides to help you relax or to calm your nerves.</source>
+          <target state="new">Use our meditation guides to help you relax or to calm your nerves.</target>
+        </trans-unit>
+        <trans-unit id="SettingsSubtitle" translate="yes" xml:space="preserve">
+          <source>Toggle your settings here.</source>
+          <target state="new">Toggle your settings here.</target>
+        </trans-unit>
+        <trans-unit id="UpdatesSubtitle" translate="yes" xml:space="preserve">
+          <source>Check here occasionally for updates to the sounds you have installed.</source>
+          <target state="new">Check here occasionally for updates to the sounds you have installed.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

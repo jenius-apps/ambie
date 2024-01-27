@@ -237,7 +237,9 @@
                                     CommandParameter="{x:Bind}"
                                     Glyph="{x:Bind Glyph}"
                                     IsSelected="{x:Bind IsSelected, Mode=OneWay}"
-                                    Text="{x:Bind Text}" />
+                                    Text="{x:Bind Text}"
+                                    ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
+                                    ToolTipText="{x:Bind ToolTipText}" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
@@ -444,7 +446,9 @@
                                         CommandParameter="{x:Bind}"
                                         Glyph="{x:Bind Glyph}"
                                         IsSelected="{x:Bind IsSelected, Mode=OneWay}"
-                                        Text="{x:Bind Text}" />
+                                        Text="{x:Bind Text}"
+                                        ToolTipSubtitle="{x:Bind ToolTipSubtitle}"
+                                        ToolTipText="{x:Bind ToolTipText}" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

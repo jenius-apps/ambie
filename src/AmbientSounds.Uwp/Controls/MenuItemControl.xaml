@@ -69,7 +69,26 @@
             Command="{x:Bind Command}"
             CommandParameter="{x:Bind CommandParameter}"
             Style="{StaticResource LeftNavButtonStyle}"
-            ToolTipService.ToolTip="{x:Bind Text}">
+            ToolTipService.Placement="Mouse">
+            <ToolTipService.ToolTip>
+                <StackPanel
+                    MaxWidth="200"
+                    Padding="2"
+                    Spacing="4">
+                    <TextBlock
+                        FontSize="10"
+                        Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                        Text="{x:Bind ToolTipText}" />
+
+                    <Rectangle Style="{StaticResource ModuleDividerRectStyle}" />
+
+                    <TextBlock
+                        FontSize="10"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="{x:Bind ToolTipSubtitle}"
+                        TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </ToolTipService.ToolTip>
             <StackPanel Orientation="Horizontal">
                 <FontIcon
                     x:Name="ItemIcon"
