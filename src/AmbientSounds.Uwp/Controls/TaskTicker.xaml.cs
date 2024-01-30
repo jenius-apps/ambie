@@ -247,4 +247,17 @@ public sealed partial class TaskTicker : ObservableUserControl
     {
         RaiseNewTaskEvent();
     }
+
+    private void OnPointerWheelChanged(object sender, PointerRoutedEventArgs e)
+    {
+        var point = e.GetCurrentPoint(null);
+        if (!NewTaskButtonVisible && point.Properties.MouseWheelDelta < 0)
+        {
+            Next(sender, e);
+        }
+        else if (point.Properties.MouseWheelDelta > 0)
+        {
+            Previous(sender, e);
+        }
+    }
 }
