@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:local="using:AmbientSounds.Controls"
-    xmlns:strings="using:AmbientSounds.Strings">
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI">
 
     <local:ObservableUserControl.Resources>
         <Style
@@ -164,6 +165,7 @@
                 Margin="0,0,-1,0"
                 Orientation="Horizontal">
                 <Button
+                    ui:VisualExtensions.NormalizedCenterPoint="0.5"
                     Click="{x:Bind Previous}"
                     Style="{StaticResource TaskArrowButtonStyle}"
                     Visibility="{x:Bind PreviousButtonVisible, Mode=OneWay}">
@@ -171,6 +173,17 @@
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="10"
                         Glyph="{StaticResource GlyphRoundedArrowLeft}" />
+
+                    <animations:Implicit.ShowAnimations>
+                        <animations:ScaleAnimation
+                            From="0.7"
+                            To="1"
+                            Duration="0:0:0.3" />
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.3" />
+                    </animations:Implicit.ShowAnimations>
                 </Button>
                 <Button Click="Next" Style="{StaticResource TaskArrowButtonStyle}">
                     <FontIcon
