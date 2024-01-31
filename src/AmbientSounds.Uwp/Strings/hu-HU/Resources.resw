@@ -821,4 +821,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Időnként ellenőrizze itt a telepített hangok frissítéseit.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Kattintson a + gombra feladat hozzáadásához</value>
+  </data>
 </root>

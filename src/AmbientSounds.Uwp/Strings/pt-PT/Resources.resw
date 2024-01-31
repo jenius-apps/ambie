@@ -833,4 +833,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Verifique aqui ocasionalmente se há atualizações para os sons que você instalou.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Clique em + para adicionar uma tarefa</value>
+  </data>
 </root>

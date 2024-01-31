@@ -833,4 +833,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Tjek her lejlighedsvis for opdateringer til de lyde, du har installeret.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Klik på + for at tilføje en opgave</value>
+  </data>
 </root>

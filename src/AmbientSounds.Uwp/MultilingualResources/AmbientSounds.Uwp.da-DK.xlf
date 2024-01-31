@@ -1106,6 +1106,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">Tjek her lejlighedsvis for opdateringer til de lyde, du har installeret.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">Klik på + for at tilføje en opgave</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1097,6 +1097,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">Verificați aici ocazional pentru actualizări ale sunetelor pe care le-ați instalat.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">Dați clic pe + pentru a adăuga o activitate</target>
+        </trans-unit>
       </group>
     </body>
   </file>

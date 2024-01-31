@@ -1101,6 +1101,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">Občas zde zkontrolujte aktualizace zvuků, které jste nainstalovali.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">Kliknutím na + přidáte úkol</target>
+        </trans-unit>
       </group>
     </body>
   </file>

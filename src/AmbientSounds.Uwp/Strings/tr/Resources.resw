@@ -827,4 +827,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Yüklediğiniz seslerin güncellemeleri için ara sıra burayı kontrol edin.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Görev eklemek için + işaretine tıklayın</value>
+  </data>
 </root>

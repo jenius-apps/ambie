@@ -1100,6 +1100,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">不时查看此处，了解已安装声音的更新。</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">单击“+”添加任务</target>
+        </trans-unit>
       </group>
     </body>
   </file>

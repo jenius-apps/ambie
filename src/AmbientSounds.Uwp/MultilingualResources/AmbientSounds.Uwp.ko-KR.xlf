@@ -1101,6 +1101,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">설치한 사운드에 대한 업데이트를 수시로 확인하십시오.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">+를 클릭하여 작업을 추가합니다.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

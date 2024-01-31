@@ -833,4 +833,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>不时查看此处，了解已安装声音的更新。</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>单击“+”添加任务</value>
+  </data>
 </root>

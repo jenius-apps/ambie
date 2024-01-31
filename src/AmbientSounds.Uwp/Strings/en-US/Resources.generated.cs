@@ -2757,6 +2757,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AddTaskPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Click + to add a task
+        /// </summary>
+        public static string AddTaskPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("AddTaskPlaceholder");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2979,6 +2992,7 @@ namespace AmbientSounds.Strings{
             MeditateSubtitle,
             SettingsSubtitle,
             UpdatesSubtitle,
+            AddTaskPlaceholder,
         }
 
         private static ResourceLoader _resourceLoader;

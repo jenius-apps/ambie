@@ -833,4 +833,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Час від часу перевіряйте тут наявність оновлень інстальованих звуків.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Натисніть +, щоб додати завдання</value>
+  </data>
 </root>

@@ -803,4 +803,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Kijk hier af en toe voor updates van de geluiden die je hebt geïnstalleerd.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Klik op + om een taak toe te voegen</value>
+  </data>
 </root>

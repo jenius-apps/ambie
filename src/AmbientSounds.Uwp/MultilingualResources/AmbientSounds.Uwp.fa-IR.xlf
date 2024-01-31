@@ -1097,6 +1097,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">گاهی اوقات برای به روز رسانی صداهایی که نصب کرده اید اینجا را بررسی کنید.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">برای اضافه کردن یک کار روی + کلیک کنید</target>
+        </trans-unit>
       </group>
     </body>
   </file>

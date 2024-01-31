@@ -118,7 +118,7 @@
                     VerticalAlignment="Center"
                     FontSize="12"
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Text="Click + to add a task"
+                    Text="{x:Bind strings:Resources.AddTaskPlaceholder}"
                     Visibility="{x:Bind IsTaskHelpMessageVisible(SelectedIndex), Mode=OneWay}" />
             </Grid>
 

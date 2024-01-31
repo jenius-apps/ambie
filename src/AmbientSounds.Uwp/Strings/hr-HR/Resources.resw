@@ -821,4 +821,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Ovdje povremeno potražite ažuriranja zvukova koje ste instalirali.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Kliknite + da biste dodali zadatak</value>
+  </data>
 </root>

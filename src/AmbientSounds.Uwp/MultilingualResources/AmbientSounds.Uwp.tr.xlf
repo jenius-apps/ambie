@@ -1111,6 +1111,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">Yüklediğiniz seslerin güncellemeleri için ara sıra burayı kontrol edin.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">Görev eklemek için + işaretine tıklayın</target>
+        </trans-unit>
       </group>
     </body>
   </file>

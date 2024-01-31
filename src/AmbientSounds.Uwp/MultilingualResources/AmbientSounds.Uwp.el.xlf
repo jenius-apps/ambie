@@ -1097,6 +1097,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">Ελέγχετε εδώ περιστασιακά για ενημερώσεις των ήχων που έχετε εγκαταστήσει.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">Κάντε κλικ στο + για να προσθέσετε μια εργασία</target>
+        </trans-unit>
       </group>
     </body>
   </file>

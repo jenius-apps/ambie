@@ -1100,6 +1100,10 @@
           <source>Check here occasionally for updates to the sounds you have installed.</source>
           <target state="translated">בדוק כאן מדי פעם אם קיימים עדכונים לצלילים שהתקנת.</target>
         </trans-unit>
+        <trans-unit id="AddTaskPlaceholder" translate="yes" xml:space="preserve">
+          <source>Click + to add a task</source>
+          <target state="translated">לחץ על + כדי להוסיף פעילות</target>
+        </trans-unit>
       </group>
     </body>
   </file>

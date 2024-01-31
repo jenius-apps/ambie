@@ -818,4 +818,7 @@
   <data name="UpdatesSubtitle" xml:space="preserve">
     <value>Ελέγχετε εδώ περιστασιακά για ενημερώσεις των ήχων που έχετε εγκαταστήσει.</value>
   </data>
+  <data name="AddTaskPlaceholder" xml:space="preserve">
+    <value>Κάντε κλικ στο + για να προσθέσετε μια εργασία</value>
+  </data>
 </root>
