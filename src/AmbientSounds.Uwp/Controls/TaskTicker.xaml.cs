@@ -278,4 +278,16 @@ public sealed partial class TaskTicker : ObservableUserControl
             Previous(sender, e);
         }
     }
+
+    private Visibility IsTaskHelpMessageVisible(int selectedIndex)
+    {
+        return selectedIndex < 0 ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    private Visibility IsCheckBoxVisible(int selectedIndex)
+    {
+        return IsTaskHelpMessageVisible(selectedIndex) is Visibility.Visible
+            ? Visibility.Collapsed
+            : Visibility.Visible;
+    }
 }

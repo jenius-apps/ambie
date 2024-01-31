@@ -72,7 +72,7 @@
             </animations:Implicit.ShowAnimations>
 
 
-            <StackPanel Margin="0,1,0,0" Orientation="Horizontal">
+            <Grid Margin="0,1,0,0">
                 <animations:Explicit.Animations>
                     <animations:AnimationSet x:Name="TaskEntraceFromRight">
                         <animations:TranslationAnimation
@@ -96,20 +96,30 @@
                     </animations:AnimationSet>
                 </animations:Explicit.Animations>
 
-                <Viewbox Width="24" Height="24">
-                    <CheckBox
-                        x:Name="RealCheckBox"
-                        Margin="0,0,-92,0"
-                        Checked="OnChecked"
-                        Unchecked="OnUnchecked" />
-                </Viewbox>
+                <StackPanel Orientation="Horizontal">
+                    <Viewbox Width="24" Height="24">
+                        <CheckBox
+                            x:Name="RealCheckBox"
+                            Margin="0,0,-92,0"
+                            Checked="OnChecked"
+                            Unchecked="OnUnchecked"
+                            Visibility="{x:Bind IsCheckBoxVisible(SelectedIndex), Mode=OneWay}" />
+                    </Viewbox>
+
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="{x:Bind CurrentTaskText, Mode=OneWay}" />
+                </StackPanel>
 
                 <TextBlock
                     VerticalAlignment="Center"
                     FontSize="12"
-                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    Text="{x:Bind CurrentTaskText, Mode=OneWay}" />
-            </StackPanel>
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                    Text="Click + to add a task"
+                    Visibility="{x:Bind IsTaskHelpMessageVisible(SelectedIndex), Mode=OneWay}" />
+            </Grid>
 
             <StackPanel
                 x:Name="FakeTaskPanel"
