@@ -153,7 +153,10 @@
                 Grid.Column="1"
                 Margin="0,0,-1,0"
                 Orientation="Horizontal">
-                <Button Click="{x:Bind Previous}" Style="{StaticResource TaskArrowButtonStyle}">
+                <Button
+                    Click="{x:Bind Previous}"
+                    Style="{StaticResource TaskArrowButtonStyle}"
+                    Visibility="{x:Bind PreviousButtonVisible, Mode=OneWay}">
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="10"

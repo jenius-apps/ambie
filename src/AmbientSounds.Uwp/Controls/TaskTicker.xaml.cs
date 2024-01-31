@@ -55,6 +55,12 @@ public sealed partial class TaskTicker : ObservableUserControl
         typeof(TaskTicker),
         new PropertyMetadata(false));
 
+    private static readonly DependencyProperty PreviousButtonVisibleProperty = DependencyProperty.Register(
+        nameof(PreviousButtonVisible),
+        typeof(bool),
+        typeof(TaskTicker),
+        new PropertyMetadata(false));
+
     public TaskTicker()
     {
         this.InitializeComponent();
@@ -102,12 +108,23 @@ public sealed partial class TaskTicker : ObservableUserControl
         set => SetValue(NewTaskPanelVisibleProperty, value);
     }
 
+    private bool PreviousButtonVisible
+    {
+        get => (bool)GetValue(PreviousButtonVisibleProperty);
+        set => SetValue(PreviousButtonVisibleProperty, value);
+    }
+
     private void UpdateCurrentTask(int newIndex)
     {
         if (ItemsSource is null ||
             newIndex < 0 ||
             newIndex >= ItemsSource.Count)
         {
+            if (ItemsSource is { Count: 0 })
+            {
+                NewTaskButtonVisible = true;
+            }
+
             return;
         }
         
@@ -116,6 +133,7 @@ public sealed partial class TaskTicker : ObservableUserControl
         CurrentTaskText = task.Text;
         CurrentTaskCompleted = task.IsCompleted;
         NewTaskButtonVisible = SelectedIndex == ItemsSource.Count - 1;
+        PreviousButtonVisible = SelectedIndex > 0;
 
         // Note: this must come after the SelectedIndex = newIndex line
         // to avoid a race condition whereby OnUnchecked will get triggered
@@ -125,16 +143,16 @@ public sealed partial class TaskTicker : ObservableUserControl
 
     private async void Next(object sender, RoutedEventArgs e)
     {
-        if (ItemsSource is null || 
-            ItemsSource.Count == 0)
-        {
-            return;
-        }
-
         if (NewTaskButtonVisible)
         {
             NewTaskPanelVisible = true;
             InputTextBox.Focus(FocusState.Programmatic);
+            return;
+        }
+
+        if (ItemsSource is null || 
+            ItemsSource.Count == 0)
+        {
             return;
         }
 
@@ -171,7 +189,7 @@ public sealed partial class TaskTicker : ObservableUserControl
 
     private void OnChecked(object sender, RoutedEventArgs e)
     {
-        if (ItemsSource is { } source && 
+        if (ItemsSource is { Count: > 0 } source && 
             source[SelectedIndex] is { IsCompleted: false } task)
         {
             task.IsCompleted = true;

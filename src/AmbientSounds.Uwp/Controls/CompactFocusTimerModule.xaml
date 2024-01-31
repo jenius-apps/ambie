@@ -293,8 +293,7 @@
                 Grid.Row="1"
                 Grid.ColumnSpan="3"
                 Height="32"
-                Margin="-12,0"
-                Visibility="{x:Bind ViewModel.TasksVisible, Mode=OneWay}">
+                Margin="-12,0">
 
                 <Border
                     HorizontalAlignment="Stretch"
