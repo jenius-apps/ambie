@@ -202,7 +202,9 @@ public sealed partial class TaskTicker : ObservableUserControl
 
     private void OnChecked(object sender, RoutedEventArgs e)
     {
-        if (ItemsSource is { Count: > 0 } source && 
+        if (ItemsSource is { Count: > 0 } source &&
+            SelectedIndex >= 0 &&
+            SelectedIndex < source.Count &&
             source[SelectedIndex] is { IsCompleted: false } task)
         {
             task.IsCompleted = true;
@@ -216,7 +218,9 @@ public sealed partial class TaskTicker : ObservableUserControl
 
     private void OnUnchecked(object sender, RoutedEventArgs e)
     {
-        if (ItemsSource is { } source &&
+        if (ItemsSource is { Count: > 0 } source &&
+            SelectedIndex >= 0 &&
+            SelectedIndex < source.Count &&
             source[SelectedIndex] is { IsCompleted: true } task)
         {
             task.IsCompleted = false;

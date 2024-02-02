@@ -509,7 +509,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             index++;
         }
 
-        SelectedTaskIndex = FocusTasks.Count - 1;
+        if (FocusTasks.Count > 0)
+        {
+            SelectedTaskIndex = 0;
+        }
     }
 
     public async Task<bool> AddTaskAsync(string task)
