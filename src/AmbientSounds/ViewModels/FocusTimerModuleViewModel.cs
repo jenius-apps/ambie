@@ -81,7 +81,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     [ObservableProperty]
     private string _currentStatus = string.Empty;
     [ObservableProperty]
-    private int _selectedTaskIndex;
+    private int _selectedTaskIndex = -1;
 
     public FocusTimerModuleViewModel(
         IFocusService focusService,
@@ -508,6 +508,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 displayTitle: _localizer.GetString("TaskTitle", index.ToString())));
             index++;
         }
+
+        SelectedTaskIndex = FocusTasks.Count - 1;
     }
 
     public async Task<bool> AddTaskAsync(string task)

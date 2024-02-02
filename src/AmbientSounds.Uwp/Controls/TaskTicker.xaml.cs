@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.ViewModels;
 using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
@@ -61,6 +62,12 @@ public sealed partial class TaskTicker : ObservableUserControl
         typeof(TaskTicker),
         new PropertyMetadata(false));
 
+    private static readonly DependencyProperty PlaceHolderVisibleProperty = DependencyProperty.Register(
+        nameof(PlaceHolderVisible),
+        typeof(bool),
+        typeof(TaskTicker),
+        new PropertyMetadata(false));
+
     public TaskTicker()
     {
         this.InitializeComponent();
@@ -114,6 +121,12 @@ public sealed partial class TaskTicker : ObservableUserControl
         set => SetValue(PreviousButtonVisibleProperty, value);
     }
 
+    private bool PlaceHolderVisible
+    {
+        get => (bool)GetValue(PlaceHolderVisibleProperty);
+        set => SetValue(PlaceHolderVisibleProperty, value);
+    }
+
     private void UpdateCurrentTask(int newIndex)
     {
         if (ItemsSource is null ||
@@ -127,7 +140,7 @@ public sealed partial class TaskTicker : ObservableUserControl
 
             return;
         }
-        
+
         SelectedIndex = newIndex;
         var task = ItemsSource[newIndex];
         CurrentTaskText = task.Text;
@@ -212,10 +225,17 @@ public sealed partial class TaskTicker : ObservableUserControl
 
     private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is TaskTicker s)
+        if (d is TaskTicker s && e.NewValue is ObservableCollection<FocusTaskViewModel> tasks)
         {
-            s.UpdateCurrentTask(0);
+            s.UpdateCurrentTask(tasks.Count - 1);
+            s.RegisterItemsSourceEvents(e.OldValue, e.NewValue);
+            s.UpdatePlaceHolderVisible(tasks.Count);
         }
+    }
+
+    private void UpdatePlaceHolderVisible(int taskCount)
+    {
+        PlaceHolderVisible = taskCount == 0;
     }
 
     private static void OnIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -279,15 +299,28 @@ public sealed partial class TaskTicker : ObservableUserControl
         }
     }
 
-    private Visibility IsTaskHelpMessageVisible(int selectedIndex)
+    private void RegisterItemsSourceEvents(object oldList, object newList)
     {
-        return selectedIndex < 0 ? Visibility.Visible : Visibility.Collapsed;
+        if (oldList is ObservableCollection<FocusTaskViewModel> oldTasks)
+        {
+            oldTasks.CollectionChanged -= OnCollectionChanged;
+        }
+
+        if (newList is ObservableCollection<FocusTaskViewModel> newTasks)
+        {
+            newTasks.CollectionChanged += OnCollectionChanged;
+        }
     }
 
-    private Visibility IsCheckBoxVisible(int selectedIndex)
+    private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
     {
-        return IsTaskHelpMessageVisible(selectedIndex) is Visibility.Visible
-            ? Visibility.Collapsed
-            : Visibility.Visible;
+        if (sender is ObservableCollection<FocusTaskViewModel> tasks)
+        {
+            UpdatePlaceHolderVisible(tasks.Count);
+        }
+        else
+        {
+            UpdatePlaceHolderVisible(0);
+        }
     }
 }
