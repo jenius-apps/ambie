@@ -90,6 +90,7 @@ public class StoreService : IIapService
             StoreLicense license = addOnLicense.Value;
             if (license.IsActive && license.InAppOfferToken.ContainsAmbiePlus())
             {
+                _ownershipCache.TryAdd(IapConstants.MsStoreAmbiePlusId, true);
                 return true;
             }
         }
