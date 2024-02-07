@@ -286,5 +286,6 @@ public partial class SettingsViewModel : ObservableObject
     private async Task RedirectToMsAccountAsync()
     {
         await _uriLauncher.LaunchUriAsync(new Uri("https://account.microsoft.com/services"));
+        _telemetry.TrackEvent(TelemetryConstants.SettingsModifySubscriptionClicked);
     }
 }
