@@ -1110,6 +1110,14 @@
           <source>Click + to add a task</source>
           <target state="translated">Klik op + om een taak toe te voegen</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">Modificeren</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">Wijzig uw abonnement</target>
+        </trans-unit>
       </group>
     </body>
   </file>

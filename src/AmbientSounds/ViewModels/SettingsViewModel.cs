@@ -5,270 +5,286 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using IAssetsReader = AmbientSounds.Tools.IAssetsReader;
 
-namespace AmbientSounds.ViewModels
+namespace AmbientSounds.ViewModels;
+
+public partial class SettingsViewModel : ObservableObject
 {
-    public partial class SettingsViewModel : ObservableObject
+    private const string NoneImageName = "znone.png";
+    private readonly IImagePicker _imagePicker;
+    private readonly IAssetsReader _assetsReader;
+    private readonly IUserSettings _userSettings;
+    private readonly IStoreNotificationRegistrar _notifications;
+    private readonly ITelemetry _telemetry;
+    private readonly IAppStoreRatings _appStoreRatings;
+    private readonly IQuickResumeService _quickResumeService;
+    private readonly IBackgroundTaskService _backgroundTaskService;
+    private readonly IIapService _iapService;
+    private readonly IUriLauncher _uriLauncher;
+    private bool _notificationsLoading;
+
+    public SettingsViewModel(
+        IUserSettings userSettings,
+        IStoreNotificationRegistrar notifications,
+        ITelemetry telemetry,
+        IAssetsReader assetsReader,
+        IImagePicker imagePicker,
+        IAppStoreRatings appStoreRatings,
+        IQuickResumeService quickResumeService,
+        IBackgroundTaskService backgroundTaskService,
+        ISystemInfoProvider systemInfoProvider,
+        ILocalizer localizer,
+        IIapService iapService,
+        IUriLauncher uriLauncher)
     {
-        private const string NoneImageName = "znone.png";
-        private readonly IImagePicker _imagePicker;
-        private readonly IAssetsReader _assetsReader;
-        private readonly IUserSettings _userSettings;
-        private readonly IStoreNotificationRegistrar _notifications;
-        private readonly ITelemetry _telemetry;
-        private readonly IAppStoreRatings _appStoreRatings;
-        private readonly IQuickResumeService _quickResumeService;
-        private readonly IBackgroundTaskService _backgroundTaskService;
-        private bool _notificationsLoading;
+        _userSettings = userSettings;
+        _notifications = notifications;
+        _telemetry = telemetry;
+        _assetsReader = assetsReader;
+        _imagePicker = imagePicker;
+        _appStoreRatings = appStoreRatings;
+        _quickResumeService = quickResumeService;
+        _backgroundTaskService = backgroundTaskService;
+        _iapService = iapService;
+        _uriLauncher = uriLauncher;
 
-        public SettingsViewModel(
-            IUserSettings userSettings,
-            IStoreNotificationRegistrar notifications,
-            ITelemetry telemetry,
-            IAssetsReader assetsReader,
-            IImagePicker imagePicker,
-            IAppStoreRatings appStoreRatings,
-            IQuickResumeService quickResumeService,
-            IBackgroundTaskService backgroundTaskService,
-            ISystemInfoProvider systemInfoProvider,
-            ILocalizer localizer)
+        if (systemInfoProvider.IsOnBatterySaver())
         {
-            _userSettings = userSettings;
-            _notifications = notifications;
-            _telemetry = telemetry;
-            _assetsReader = assetsReader;
-            _imagePicker = imagePicker;
-            _appStoreRatings = appStoreRatings;
-            _quickResumeService = quickResumeService;
-            _backgroundTaskService = backgroundTaskService;
+            BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
+        }
+    }
 
-            if (systemInfoProvider.IsOnBatterySaver())
+    [ObservableProperty]
+    private bool _manageSubscriptionVisible;
+
+    [ObservableProperty]
+    private string _backgroundImageDescription = string.Empty;
+
+    /// <summary>
+    /// Paths to available background images.
+    /// </summary>
+    public ObservableCollection<string> ImagePaths { get; } = [];
+
+    /// <summary>
+    /// The current theme.
+    /// </summary>
+    public string CurrentTheme
+    {
+        get => _userSettings.Get<string>(UserSettingsConstants.Theme);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.Theme, value);
+            OnPropertyChanged(nameof(CurrentThemeIndex));
+        }
+    }
+
+    public int CurrentThemeIndex => CurrentTheme switch
+    {
+        "default" => 0,
+        "dark" => 1,
+        "light" => 2,
+        _ => 0
+    };
+
+    /// <summary>
+    /// Settings flag for telemetry.
+    /// </summary>
+    public bool TelemetryEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.TelemetryOn);
+        set => _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
+    }
+
+    /// <summary>
+    /// Settings flag for resume on launch.
+    /// </summary>
+    public bool ResumeOnLaunchEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey);
+        set => _userSettings.Set(UserSettingsConstants.ResumeOnLaunchKey, value);
+    }
+
+    /// <summary>
+    /// Settings flag for resume on launch.
+    /// </summary>
+    public bool AmbieMiniEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
+        set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
+    }
+
+    public bool StreaksReminderEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.StreaksReminderEnabledKey, value);
+            OnStreaksReminderToggled(value);
+        }
+    }
+
+    private async void OnStreaksReminderToggled(bool value)
+    {
+        if (value)
+        {
+            var permissionGranted = await _backgroundTaskService.RequestPermissionAsync();
+            if (!permissionGranted)
             {
-                BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
-            }
-        }
-
-        [ObservableProperty]
-        private string _backgroundImageDescription = string.Empty;
-
-        /// <summary>
-        /// Paths to available background images.
-        /// </summary>
-        public ObservableCollection<string> ImagePaths { get; } = [];
-
-        /// <summary>
-        /// The current theme.
-        /// </summary>
-        public string CurrentTheme
-        {
-            get => _userSettings.Get<string>(UserSettingsConstants.Theme);
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.Theme, value);
-                OnPropertyChanged(nameof(CurrentThemeIndex));
-            }
-        }
-
-        public int CurrentThemeIndex => CurrentTheme switch
-        {
-            "default" => 0,
-            "dark" => 1,
-            "light" => 2,
-            _ => 0
-        };
-
-        /// <summary>
-        /// Settings flag for telemetry.
-        /// </summary>
-        public bool TelemetryEnabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.TelemetryOn);
-            set => _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
-        }
-
-        /// <summary>
-        /// Settings flag for resume on launch.
-        /// </summary>
-        public bool ResumeOnLaunchEnabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.ResumeOnLaunchKey);
-            set => _userSettings.Set(UserSettingsConstants.ResumeOnLaunchKey, value);
-        }
-
-        /// <summary>
-        /// Settings flag for resume on launch.
-        /// </summary>
-        public bool AmbieMiniEnabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
-            set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
-        }
-
-        public bool StreaksReminderEnabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.StreaksReminderEnabledKey, value);
-                OnStreaksReminderToggled(value);
-            }
-        }
-
-        private async void OnStreaksReminderToggled(bool value)
-        {
-            if (value)
-            {
-                var permissionGranted = await _backgroundTaskService.RequestPermissionAsync();
-                if (!permissionGranted)
-                {
-                    StreaksReminderEnabled = false;
-                    OnPropertyChanged(nameof(StreaksReminderEnabled));
-                }
-                else
-                {
-                    _backgroundTaskService.ToggleStreakReminderTask(true);
-                }
+                StreaksReminderEnabled = false;
+                OnPropertyChanged(nameof(StreaksReminderEnabled));
             }
             else
             {
-                _backgroundTaskService.ToggleStreakReminderTask(false);
+                _backgroundTaskService.ToggleStreakReminderTask(true);
             }
         }
-
-        public bool QuickResumeEnabled
+        else
         {
-            get => _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
-            set
-            {
-                _userSettings.Set(UserSettingsConstants.QuickResumeKey, value);
-                OnQuickResumeToggled(value);
-            }
+            _backgroundTaskService.ToggleStreakReminderTask(false);
         }
+    }
 
-        private async void OnQuickResumeToggled(bool value)
+    public bool QuickResumeEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
+        set
         {
-            if (value)
-            {
-                var enabled = await _quickResumeService.TryEnableAsync();
-                if (!enabled)
-                {
-                    QuickResumeEnabled = false;
-                    OnPropertyChanged(nameof(QuickResumeEnabled));
-                    // TODO: this experience isn't great.
-                    // it will only be hit when the user explicitly disables the
-                    // background task settings in ambie's os settings.
-                    // This means when the user turned off bg task, this checkbox toggle
-                    // doesn't work at all. So we shouldn't even try to show it.
-                    // We should set the IsEnabled to false when the user doesn't provide the permissions
-                    // Then we should add a hyperlink underneath saying enable background task
-                }
-            }
-            else
-            {
-                _quickResumeService.Disable();
-            }
+            _userSettings.Set(UserSettingsConstants.QuickResumeKey, value);
+            OnQuickResumeToggled(value);
         }
+    }
 
-        public bool PlayAfterFocusEnabled
+    private async void OnQuickResumeToggled(bool value)
+    {
+        if (value)
         {
-            get => _userSettings.Get<bool>(UserSettingsConstants.PlayAfterFocusKey);
-            set => _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
-        }
-
-        /// <summary>
-        /// Settings flag for notifications.
-        /// </summary>
-        public bool NotificationsEnabled
-        {
-            get => _userSettings.Get<bool>(UserSettingsConstants.Notifications);
-            set => SetNotifications(value);
-        }
-
-        public void Initialize()
-        {
-        }
-
-        public void Uninitialize()
-        {
-        }
-
-        private async void SetNotifications(bool value)
-        {
-            if (value == NotificationsEnabled || _notificationsLoading)
+            var enabled = await _quickResumeService.TryEnableAsync();
+            if (!enabled)
             {
-                return;
-            }
-
-            _notificationsLoading = true;
-            if (value)
-            {
-                await _notifications.Register();
-            }
-            else
-            {
-                await _notifications.Unregiser();
-            }
-            _userSettings.Set(UserSettingsConstants.Notifications, value);
-            _notificationsLoading = false;
-        }
-
-        public void UpdateTheme(string newTheme)
-        {
-            if (newTheme is "default" or "dark" or "light")
-            {
-                CurrentTheme = newTheme;
+                QuickResumeEnabled = false;
+                OnPropertyChanged(nameof(QuickResumeEnabled));
+                // TODO: this experience isn't great.
+                // it will only be hit when the user explicitly disables the
+                // background task settings in ambie's os settings.
+                // This means when the user turned off bg task, this checkbox toggle
+                // doesn't work at all. So we shouldn't even try to show it.
+                // We should set the IsEnabled to false when the user doesn't provide the permissions
+                // Then we should add a hyperlink underneath saying enable background task
             }
         }
-
-        [RelayCommand]
-        private async Task LoadImagesAsync()
+        else
         {
-            if (ImagePaths.Count > 0)
-            {
-                return;
-            }
+            _quickResumeService.Disable();
+        }
+    }
 
-            var paths = await _assetsReader.GetBackgroundsAsync();
-            foreach (var p in paths)
-            {
-                ImagePaths.Add(p);
-            }
+    public bool PlayAfterFocusEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.PlayAfterFocusKey);
+        set => _userSettings.Set(UserSettingsConstants.PlayAfterFocusKey, value);
+    }
+
+    /// <summary>
+    /// Settings flag for notifications.
+    /// </summary>
+    public bool NotificationsEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.Notifications);
+        set => SetNotifications(value);
+    }
+
+    public async Task InitializeAsync()
+    {
+        ManageSubscriptionVisible = await _iapService.IsSubscriptionOwnedAsync();
+    }
+
+    public void Uninitialize()
+    {
+    }
+
+    private async void SetNotifications(bool value)
+    {
+        if (value == NotificationsEnabled || _notificationsLoading)
+        {
+            return;
         }
 
-        [RelayCommand]
-        private async Task BrowseAsync()
+        _notificationsLoading = true;
+        if (value)
         {
-            string? imagePath = await _imagePicker.BrowseAsync();
-            if (imagePath == null)
-            {
-                return;
-            }
+            await _notifications.Register();
+        }
+        else
+        {
+            await _notifications.Unregiser();
+        }
+        _userSettings.Set(UserSettingsConstants.Notifications, value);
+        _notificationsLoading = false;
+    }
 
-            SelectImage(imagePath);
+    public void UpdateTheme(string newTheme)
+    {
+        if (newTheme is "default" or "dark" or "light")
+        {
+            CurrentTheme = newTheme;
+        }
+    }
+
+    [RelayCommand]
+    private async Task LoadImagesAsync()
+    {
+        if (ImagePaths.Count > 0)
+        {
+            return;
         }
 
-        [RelayCommand]
-        private void SelectImage(string? imagePath)
+        var paths = await _assetsReader.GetBackgroundsAsync();
+        foreach (var p in paths)
         {
-            if (imagePath?.Contains(NoneImageName) == true)
-            {
-                imagePath = string.Empty;
-            }
+            ImagePaths.Add(p);
+        }
+    }
 
-            _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
+    [RelayCommand]
+    private async Task BrowseAsync()
+    {
+        string? imagePath = await _imagePicker.BrowseAsync();
+        if (imagePath == null)
+        {
+            return;
         }
 
-        [RelayCommand]
-        private async Task RequestRatingAsync()
+        SelectImage(imagePath);
+    }
+
+    [RelayCommand]
+    private void SelectImage(string? imagePath)
+    {
+        if (imagePath?.Contains(NoneImageName) == true)
         {
-            bool result = await _appStoreRatings.RequestInAppRatingsAsync();
-            if (result)
-            {
-                _userSettings.Set(UserSettingsConstants.HasRated, true);
-            }
+            imagePath = string.Empty;
         }
+
+        _userSettings.Set(UserSettingsConstants.BackgroundImage, imagePath);
+    }
+
+    [RelayCommand]
+    private async Task RequestRatingAsync()
+    {
+        bool result = await _appStoreRatings.RequestInAppRatingsAsync();
+        if (result)
+        {
+            _userSettings.Set(UserSettingsConstants.HasRated, true);
+        }
+    }
+
+    [RelayCommand]
+    private async Task RedirectToMsAccountAsync()
+    {
+        await _uriLauncher.LaunchUriAsync(new Uri("https://account.microsoft.com/services"));
     }
 }

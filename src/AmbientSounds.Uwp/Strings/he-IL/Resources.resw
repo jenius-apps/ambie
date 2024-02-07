@@ -836,4 +836,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>לחץ על + כדי להוסיף פעילות</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>לשנות</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>שינוי המנוי שלך</value>
+  </data>
 </root>

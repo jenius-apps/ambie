@@ -1105,6 +1105,14 @@
           <source>Click + to add a task</source>
           <target state="translated">Kliknutím na + přidáte úkol</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">Upravit</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">Úprava předplatného</target>
+        </trans-unit>
       </group>
     </body>
   </file>

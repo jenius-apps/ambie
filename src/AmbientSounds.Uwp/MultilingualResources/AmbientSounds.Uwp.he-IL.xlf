@@ -1104,6 +1104,14 @@
           <source>Click + to add a task</source>
           <target state="translated">לחץ על + כדי להוסיף פעילות</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">לשנות</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">שינוי המנוי שלך</target>
+        </trans-unit>
       </group>
     </body>
   </file>

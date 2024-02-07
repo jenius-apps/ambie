@@ -1104,6 +1104,14 @@
           <source>Click + to add a task</source>
           <target state="translated">单击“+”添加任务</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">修改</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">修改订阅</target>
+        </trans-unit>
       </group>
     </body>
   </file>

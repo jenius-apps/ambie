@@ -824,4 +824,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Kattintson a + gombra feladat hozzáadásához</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Módosít</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Az előfizetés módosítása</value>
+  </data>
 </root>

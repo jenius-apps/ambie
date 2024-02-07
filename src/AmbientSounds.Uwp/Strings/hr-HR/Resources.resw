@@ -824,4 +824,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Kliknite + da biste dodali zadatak</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Modificirati</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Izmjena pretplate</value>
+  </data>
 </root>

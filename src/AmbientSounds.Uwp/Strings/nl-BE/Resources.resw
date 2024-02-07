@@ -806,4 +806,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Klik op + om een taak toe te voegen</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Modificeren</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Wijzig uw abonnement</value>
+  </data>
 </root>

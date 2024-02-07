@@ -45,4 +45,12 @@ public interface IIapService
     /// <param name="iapId">An IAP ID whose price we want to check.</param>
     /// <returns>The price of the item formatted like $1.99.</returns>
     Task<string> GetLatestPriceAsync(string iapId);
+
+    /// <summary>
+    /// Returns true if the user has an active subscription for Ambie.
+    /// </summary>
+    /// <remarks>
+    /// Only looks at subsription IAP, not lifetime durable ownerships.
+    /// </remarks>
+    Task<bool> IsSubscriptionOwnedAsync();
 }

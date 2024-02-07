@@ -830,4 +830,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Görev eklemek için + işaretine tıklayın</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Değiştirmek</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Aboneliğinizi değiştirme</value>
+  </data>
 </root>

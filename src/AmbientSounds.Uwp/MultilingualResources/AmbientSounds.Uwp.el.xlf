@@ -1101,6 +1101,14 @@
           <source>Click + to add a task</source>
           <target state="translated">Κάντε κλικ στο + για να προσθέσετε μια εργασία</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">Τροποποιώ</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">Τροποποίηση της συνδρομής σας</target>
+        </trans-unit>
       </group>
     </body>
   </file>

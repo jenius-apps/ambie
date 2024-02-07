@@ -833,4 +833,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Cliquez sur + pour ajouter une tâche</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Modifier votre abonnement</value>
+  </data>
 </root>

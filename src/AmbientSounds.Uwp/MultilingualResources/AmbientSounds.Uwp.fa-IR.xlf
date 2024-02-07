@@ -1101,6 +1101,14 @@
           <source>Click + to add a task</source>
           <target state="translated">برای اضافه کردن یک کار روی + کلیک کنید</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">تغییر</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">تغییر اشتراک</target>
+        </trans-unit>
       </group>
     </body>
   </file>

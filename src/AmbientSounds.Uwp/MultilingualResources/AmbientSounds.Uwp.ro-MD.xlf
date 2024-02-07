@@ -1101,6 +1101,14 @@
           <source>Click + to add a task</source>
           <target state="translated">Dați clic pe + pentru a adăuga o activitate</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">Modifica</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">Modificați-vă abonamentul</target>
+        </trans-unit>
       </group>
     </body>
   </file>

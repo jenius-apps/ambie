@@ -836,4 +836,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Fare clic su + per aggiungere un'attività</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Modificare</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Modificare l'abbonamento</value>
+  </data>
 </root>

@@ -821,4 +821,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Κάντε κλικ στο + για να προσθέσετε μια εργασία</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Τροποποιώ</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Τροποποίηση της συνδρομής σας</value>
+  </data>
 </root>

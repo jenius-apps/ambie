@@ -1108,6 +1108,14 @@
           <source>Click + to add a task</source>
           <target state="translated">Kliknite + da biste dodali zadatak</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">Modificirati</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">Izmjena pretplate</target>
+        </trans-unit>
       </group>
     </body>
   </file>

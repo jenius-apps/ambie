@@ -836,4 +836,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>按兩下“+”添加任務</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>修改訂閱</value>
+  </data>
 </root>

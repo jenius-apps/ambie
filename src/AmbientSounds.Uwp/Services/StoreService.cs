@@ -67,6 +67,37 @@ public class StoreService : IIapService
     }
 
     /// <inheritdoc/>
+    public async Task<bool> IsSubscriptionOwnedAsync()
+    {
+        foreach (var key in _ownershipCache.Keys)
+        {
+            if (key.ContainsAmbiePlus() && _ownershipCache[key] is true)
+            {
+                return true;
+            }
+        }
+
+        _context ??= StoreContext.GetDefault();
+
+        StoreAppLicense appLicense = await _context.GetAppLicenseAsync();
+        if (appLicense is null)
+        {
+            return false;
+        }
+
+        foreach (var addOnLicense in appLicense.AddOnLicenses)
+        {
+            StoreLicense license = addOnLicense.Value;
+            if (license.IsActive && license.InAppOfferToken.ContainsAmbiePlus())
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <inheritdoc/>
     public async Task<bool> IsAnyOwnedAsync(IReadOnlyList<string> iapIds)
     {
         foreach (var id in iapIds)

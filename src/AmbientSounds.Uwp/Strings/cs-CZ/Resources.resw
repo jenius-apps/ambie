@@ -836,4 +836,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Kliknutím na + přidáte úkol</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Úprava předplatného</value>
+  </data>
 </root>

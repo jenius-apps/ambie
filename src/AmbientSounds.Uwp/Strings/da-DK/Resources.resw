@@ -836,4 +836,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Klik på + for at tilføje en opgave</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Modificere</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Rediger dit abonnement</value>
+  </data>
 </root>

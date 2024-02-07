@@ -1101,6 +1101,14 @@
           <source>Click + to add a task</source>
           <target state="translated">[+] をクリックしてタスクを追加します</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">修飾する</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">サブスクリプションを変更する</target>
+        </trans-unit>
       </group>
     </body>
   </file>

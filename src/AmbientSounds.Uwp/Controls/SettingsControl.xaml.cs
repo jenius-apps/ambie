@@ -21,7 +21,7 @@ public sealed partial class SettingsControl : UserControl
 
     private string Version => SystemInformation.Instance.ApplicationVersion.ToFormattedString();
     
-    public void Initialize() => ViewModel.Initialize();
+    public async void Initialize() => await ViewModel.InitializeAsync();
 
     public void Uninitialize() => ViewModel.Uninitialize();
 

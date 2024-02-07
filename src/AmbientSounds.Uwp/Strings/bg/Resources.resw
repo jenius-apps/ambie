@@ -836,4 +836,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>Щракнете върху +, за да добавите задача</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>Променям</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>Промяна на вашия абонамент</value>
+  </data>
 </root>

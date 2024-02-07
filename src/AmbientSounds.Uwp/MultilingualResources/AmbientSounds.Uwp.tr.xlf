@@ -1115,6 +1115,14 @@
           <source>Click + to add a task</source>
           <target state="translated">Görev eklemek için + işaretine tıklayın</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">Değiştirmek</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">Aboneliğinizi değiştirme</target>
+        </trans-unit>
       </group>
     </body>
   </file>

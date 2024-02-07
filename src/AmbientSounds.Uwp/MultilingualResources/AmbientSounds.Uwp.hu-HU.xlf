@@ -1115,6 +1115,14 @@
           <source>Click + to add a task</source>
           <target state="translated">Kattintson a + gombra feladat hozzáadásához</target>
         </trans-unit>
+        <trans-unit id="ModifyText" translate="yes" xml:space="preserve">
+          <source>Modify</source>
+          <target state="translated">Módosít</target>
+        </trans-unit>
+        <trans-unit id="SettingsModifySubDescription" translate="yes" xml:space="preserve">
+          <source>Modify your subscription</source>
+          <target state="translated">Az előfizetés módosítása</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -836,4 +836,10 @@
   <data name="AddTaskPlaceholder" xml:space="preserve">
     <value>[+] をクリックしてタスクを追加します</value>
   </data>
+  <data name="ModifyText" xml:space="preserve">
+    <value>修飾する</value>
+  </data>
+  <data name="SettingsModifySubDescription" xml:space="preserve">
+    <value>サブスクリプションを変更する</value>
+  </data>
 </root>

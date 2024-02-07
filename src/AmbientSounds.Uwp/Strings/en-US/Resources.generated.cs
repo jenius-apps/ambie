@@ -2770,6 +2770,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ModifyText
+        /// <summary>
+        ///   Looks up a localized string similar to: Modify
+        /// </summary>
+        public static string ModifyText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ModifyText");
+            }
+        }
+        #endregion
+
+        #region SettingsModifySubDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Modify your subscription
+        /// </summary>
+        public static string SettingsModifySubDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsModifySubDescription");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -2993,6 +3019,8 @@ namespace AmbientSounds.Strings{
             SettingsSubtitle,
             UpdatesSubtitle,
             AddTaskPlaceholder,
+            ModifyText,
+            SettingsModifySubDescription,
         }
 
         private static ResourceLoader _resourceLoader;
