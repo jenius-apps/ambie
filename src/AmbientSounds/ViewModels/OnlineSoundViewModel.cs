@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
@@ -45,18 +44,6 @@ public partial class OnlineSoundViewModel : ObservableObject
         IUpdateService updateService,
         ILocalizer localizer)
     {
-        Guard.IsNotNull(s);
-        Guard.IsNotNull(downloadManager);
-        Guard.IsNotNull(soundService);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(iapService);
-        Guard.IsNotNull(previewService);
-        Guard.IsNotNull(dialogService);
-        Guard.IsNotNull(assetLocalizer);
-        Guard.IsNotNull(mixMediaPlayerService);
-        Guard.IsNotNull(updateService);
-        Guard.IsNotNull(localizer);
-
         _sound = s;
         _downloadManager = downloadManager;
         _previewService = previewService;
@@ -317,6 +304,12 @@ public partial class OnlineSoundViewModel : ObservableObject
     {
         if (!IsInstalled || _mixMediaPlayerService.IsSoundPlaying(Id))
         {
+            return;
+        }
+
+        if (!IsOwned)
+        {
+            await _dialogService.OpenPremiumAsync();
             return;
         }
 

@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
@@ -57,12 +58,6 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
                     <Grid AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
-                        <Grid.Resources>
-                            <!--  override keys so that the buttons on the cards are white in both dark and light theme  -->
-                            <SolidColorBrush x:Key="ButtonForeground" Color="White" />
-                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
-                            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
-                        </Grid.Resources>
                         <ani:Implicit.ShowAnimations>
                             <ani:OpacityAnimation
                                 Delay="0:0:0.1"
@@ -71,7 +66,7 @@
                                 Duration="0:0:1" />
                         </ani:Implicit.ShowAnimations>
 
-                        <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
+                        <!--<toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
                             <Rectangle
                                 Width="{StaticResource ImageCardShadowWidth}"
                                 Height="{StaticResource ImageCardHeight}"
@@ -79,46 +74,56 @@
                                 RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
                                 RadiusY="{StaticResource SoundCardCornerRadiusDouble}"
                                 Stretch="Fill" />
-                        </toolkit:DropShadowPanel>
+                        </toolkit:DropShadowPanel>-->
 
-                        <Grid
-                            x:Name="ImageGrid"
-                            Width="{StaticResource ImageCardWidth}"
-                            Height="{StaticResource ImageCardHeight}"
-                            CornerRadius="{StaticResource SoundCardCornerRadius}">
-                            <Grid.Background>
-                                <ImageBrush Stretch="UniformToFill">
-                                    <ImageBrush.ImageSource>
-                                        <BitmapImage DecodePixelHeight="208" UriSource="{x:Bind ImagePath, Mode=OneWay}" />
-                                    </ImageBrush.ImageSource>
-                                </ImageBrush>
-                            </Grid.Background>
+                        <Grid Width="{StaticResource ImageCardWidth}" CornerRadius="{StaticResource SoundCardCornerRadius}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Rectangle Grid.RowSpan="3">
+                            <Grid
+                                x:Name="ImageGrid"
+                                Height="{StaticResource ImageCardHeight}"
+                                CornerRadius="{StaticResource SoundCardCornerRadius}">
+                                <Grid.Background>
+                                    <ImageBrush Stretch="UniformToFill">
+                                        <ImageBrush.ImageSource>
+                                            <BitmapImage UriSource="{x:Bind ImagePath, Mode=OneWay}" />
+                                        </ImageBrush.ImageSource>
+                                    </ImageBrush>
+                                </Grid.Background>
+                            </Grid>
+
+                            <local:PlusBadge
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top"
+                                Visibility="Collapsed" />
+
+                            <Rectangle Stretch="Fill">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                        <GradientStop Offset="0" Color="#00000000" />
+                                        <GradientStop Offset="0.4" Color="{x:Bind local:UIHelper.ToTransparent(ColourHex), Mode=OneWay}" />
                                         <GradientStop Offset="1" Color="{x:Bind local:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
                                     </LinearGradientBrush>
                                 </Rectangle.Fill>
                             </Rectangle>
 
-                            <local:PlusBadge
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Top"
-                                Visibility="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Fill="{x:Bind ColourHex, Mode=OneWay}"
+                                Stretch="Fill" />
 
-                            <Grid Grid.Row="1" Margin="12,0">
+                            <Grid Grid.Row="1" Height="36">
                                 <TextBlock
+                                    VerticalAlignment="Center"
                                     FontSize="12"
-                                    Foreground="White"
+                                    FontWeight="SemiBold"
                                     MaxLines="2"
                                     Text="{x:Bind Name, Mode=OneWay}"
+                                    TextAlignment="Center"
                                     TextTrimming="CharacterEllipsis"
                                     TextWrapping="Wrap">
                                     <ToolTipService.ToolTip>
@@ -131,40 +136,31 @@
 
                             <Grid
                                 Grid.Row="2"
-                                Height="36"
-                                Margin="4,4"
-                                VerticalAlignment="Bottom">
-                                <StackPanel Orientation="Horizontal" Visibility="{x:Bind NotInstalled, Mode=OneWay}">
+                                Height="40"
+                                Margin="0,4,0,0">
+                                <Grid Visibility="{x:Bind NotInstalled, Mode=OneWay}">
 
                                     <!--  buy button  -->
-                                    <StackPanel
-                                        x:Name="BuyPanel"
-                                        Orientation="Horizontal"
-                                        Visibility="{x:Bind CanBuy, Mode=OneWay}">
-                                        <Button
-                                            x:Uid="BuyButton"
-                                            Padding="8,0"
-                                            VerticalAlignment="Stretch"
-                                            Command="{x:Bind BuySoundCommand, Mode=OneWay}"
-                                            Style="{StaticResource SubtleButton}">
-                                            <FontIcon
-                                                FontFamily="{StaticResource FluentUIGlyphsCustom}"
-                                                FontSize="15"
-                                                Glyph="{StaticResource GlyphCustomPremium}" />
-                                        </Button>
-                                    </StackPanel>
+                                    <Button
+                                        x:Uid="BuyButton"
+                                        Margin="6,0,6,6"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Command="{x:Bind BuySoundCommand, Mode=OneWay}"
+                                        Content="Unlock"
+                                        FontSize="12"
+                                        Visibility="{x:Bind CanBuy, Mode=OneWay}" />
 
                                     <!--  download button  -->
                                     <Button
                                         x:Uid="DownloadSoundButton"
-                                        Padding="8,0"
+                                        Margin="6,0,6,6"
+                                        HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind DownloadCommand, Mode=OneWay}"
-                                        Style="{StaticResource SubtleButton}"
                                         Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon
-                                                VerticalAlignment="Center"
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                                 FontSize="{StaticResource SmallIconSize}"
                                                 Glyph="{StaticResource GlyphDownload}" />
@@ -190,21 +186,19 @@
                                             Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
                                             Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
                                     </Grid>
-                                </StackPanel>
+                                </Grid>
 
-                                <StackPanel Orientation="Horizontal" Visibility="{x:Bind IsInstalled, Mode=OneWay}">
-                                    <Button
-                                        x:Uid="DeleteButton"
-                                        Padding="8,0"
-                                        VerticalAlignment="Stretch"
-                                        Command="{x:Bind DeleteSoundCommand, Mode=OneWay}"
-                                        Style="{StaticResource SubtleButton}">
-                                        <FontIcon
-                                            FontFamily="{StaticResource FluentUIGlyphs}"
-                                            FontSize="{StaticResource SmallIconSize}"
-                                            Glyph="{StaticResource GlyphDelete}" />
-                                    </Button>
-                                </StackPanel>
+                                <Button
+                                    Margin="6,0,6,6"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Command="{x:Bind PlayCommand, Mode=OneWay}"
+                                    Visibility="{x:Bind IsInstalled, Mode=OneWay}">
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="{StaticResource SmallIconSize}"
+                                        Glyph="{StaticResource GlyphPlay}" />
+                                </Button>
                             </Grid>
                         </Grid>
                     </Grid>
