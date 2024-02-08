@@ -589,9 +589,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Úkol {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Tento týden zdarma</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Při ostření otevřete Ambie Mini</value>
   </data>

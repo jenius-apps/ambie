@@ -775,10 +775,6 @@
           <source>Task {0}</source>
           <target state="translated">任务 {0}</target>
         </trans-unit>
-        <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
-          <source>Free this week!</source>
-          <target state="translated">本周免费！</target>
-        </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
           <target state="translated">专注时开启 Ambie Mini</target>

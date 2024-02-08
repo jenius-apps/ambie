@@ -113,12 +113,6 @@
                                 VerticalAlignment="Top"
                                 Visibility="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
 
-                            <local:FreeBadge
-                                Margin="12,12,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                Visibility="{x:Bind FreeBadgeVisible, Mode=OneWay}" />
-
                             <Grid Grid.Row="1" Margin="12,0">
                                 <TextBlock
                                     FontSize="12"

@@ -592,9 +592,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>{0}مهمة</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>!مجاني هذا الأسبوع</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>إفتح أمبي المصغر عند التركيز</value>
   </data>

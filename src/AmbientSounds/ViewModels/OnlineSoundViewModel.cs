@@ -218,12 +218,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// <summary>
     /// Determines if the plus badge is visible.
     /// </summary>
-    public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
-
-    /// <summary>
-    /// Determines if the free badge is visible
-    /// </summary>
-    public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
+    public bool PlusBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus();
 
     /// <summary>
     /// True if download progress should be visible.

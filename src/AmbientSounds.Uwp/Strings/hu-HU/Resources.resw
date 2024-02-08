@@ -580,9 +580,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Feladat {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Ezen a héten ingyenes!</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Nyissa meg az Ambie Minit fókuszáláskor</value>
   </data>

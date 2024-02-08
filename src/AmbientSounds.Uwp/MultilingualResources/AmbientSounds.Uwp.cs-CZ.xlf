@@ -776,10 +776,6 @@
           <source>Task {0}</source>
           <target state="translated">Úkol {0}</target>
         </trans-unit>
-        <trans-unit id="FreeBadgeInfo" translate="yes" xml:space="preserve">
-          <source>Free this week!</source>
-          <target state="translated">Tento týden zdarma</target>
-        </trans-unit>
         <trans-unit id="SettingsCompactMode" translate="yes" xml:space="preserve">
           <source>Open Ambie Mini when focusing</source>
           <target state="translated">Při ostření otevřete Ambie Mini</target>

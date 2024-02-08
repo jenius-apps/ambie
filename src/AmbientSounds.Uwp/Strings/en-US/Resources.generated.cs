@@ -1718,19 +1718,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region FreeBadgeInfo
-        /// <summary>
-        ///   Looks up a localized string similar to: Free this week!
-        /// </summary>
-        public static string FreeBadgeInfo
-        {
-            get
-            {
-                return _resourceLoader.GetString("FreeBadgeInfo");
-            }
-        }
-        #endregion
-
         #region SettingsCompactMode
         /// <summary>
         ///   Looks up a localized string similar to: Open Ambie Mini when focusing
@@ -2938,7 +2925,6 @@ namespace AmbientSounds.Strings{
             TasksCompleted,
             Timer,
             TaskTitle,
-            FreeBadgeInfo,
             SettingsCompactMode,
             CompactModeTooltipTitle,
             CompactModeTooltipMessage,
