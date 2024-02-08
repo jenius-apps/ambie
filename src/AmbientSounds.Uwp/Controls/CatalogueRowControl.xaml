@@ -15,13 +15,6 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <winui:UniformGridLayout
-            x:Name="UniformLayout"
-            MinColumnSpacing="8"
-            MinRowSpacing="8" />
-    </UserControl.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -57,7 +50,7 @@
             ItemsSource="{x:Bind ItemsSource, Mode=OneWay}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
+                    <toolkit:WrapPanel HorizontalSpacing="{StaticResource SoundCardSpacingDouble}" VerticalSpacing="{StaticResource SoundCardSpacingDouble}" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
@@ -83,8 +76,8 @@
                                 Width="{StaticResource ImageCardShadowWidth}"
                                 Height="{StaticResource ImageCardHeight}"
                                 Fill="Black"
-                                RadiusX="8"
-                                RadiusY="8"
+                                RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
+                                RadiusY="{StaticResource SoundCardCornerRadiusDouble}"
                                 Stretch="Fill" />
                         </toolkit:DropShadowPanel>
 
@@ -92,7 +85,7 @@
                             x:Name="ImageGrid"
                             Width="{StaticResource ImageCardWidth}"
                             Height="{StaticResource ImageCardHeight}"
-                            CornerRadius="8">
+                            CornerRadius="{StaticResource SoundCardCornerRadius}">
                             <Grid.Background>
                                 <ImageBrush Stretch="UniformToFill">
                                     <ImageBrush.ImageSource>

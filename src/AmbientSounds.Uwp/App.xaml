@@ -74,6 +74,7 @@
             <Thickness x:Key="MainFramePageMargin">20,20,0,0</Thickness>
             <CornerRadius x:Key="SoundCardCornerRadius">4</CornerRadius>
             <x:Double x:Key="SoundCardCornerRadiusDouble">4</x:Double>
+            <x:Double x:Key="SoundCardSpacingDouble">6</x:Double>
 
             <!--
                 These margins are used for the root panel inside a scrollviewer
