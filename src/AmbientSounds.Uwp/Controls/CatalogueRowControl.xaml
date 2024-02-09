@@ -134,16 +134,13 @@
                                 </TextBlock>
                             </Grid>
 
-                            <Grid
-                                Grid.Row="2"
-                                Height="40"
-                                Margin="0,4,0,0">
-                                <Grid Visibility="{x:Bind NotInstalled, Mode=OneWay}">
+                            <Grid Grid.Row="2" Height="40">
+                                <Grid Margin="0,0,0,6" Visibility="{x:Bind NotInstalled, Mode=OneWay}">
 
                                     <!--  buy button  -->
                                     <Button
                                         x:Uid="BuyButton"
-                                        Margin="6,0,6,6"
+                                        Margin="6,0"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind BuySoundCommand, Mode=OneWay}"
@@ -154,34 +151,32 @@
                                     <!--  download button  -->
                                     <Button
                                         x:Uid="DownloadSoundButton"
-                                        Margin="6,0,6,6"
+                                        Margin="6,0"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind DownloadCommand, Mode=OneWay}"
                                         Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
                                         <StackPanel Orientation="Horizontal">
                                             <FontIcon
+                                                Margin="0,2,0,0"
                                                 FontFamily="{StaticResource FluentUIGlyphs}"
-                                                FontSize="{StaticResource SmallIconSize}"
+                                                FontSize="16"
                                                 Glyph="{StaticResource GlyphDownload}" />
                                         </StackPanel>
                                     </Button>
 
-                                    <Grid
-                                        Margin="8,0,0,0"
-                                        VerticalAlignment="Center"
-                                        Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                    <Grid Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
                                         <winui:ProgressRing
-                                            Width="20"
-                                            Height="20"
+                                            Width="16"
+                                            Height="16"
                                             AutomationProperties.AccessibilityView="Raw"
-                                            Foreground="#32ffffff"
+                                            Foreground="{ThemeResource TextFillColorDisabledBrush}"
                                             IsIndeterminate="False"
                                             Value="100" />
                                         <winui:ProgressRing
-                                            Width="20"
-                                            Height="20"
-                                            Foreground="White"
+                                            Width="16"
+                                            Height="16"
+                                            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                                             IsIndeterminate="False"
                                             Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
                                             Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
