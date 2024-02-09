@@ -65,11 +65,11 @@ public sealed partial class CatalogueRowControl : UserControl
         set => SetValue(SparkleIconVisibleProperty, value);
     }
 
-    private void Grid_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+    private void OnGridTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
     {
-        if (sender is Grid g && g.DataContext is OnlineSoundViewModel vm)
+        if (sender is FrameworkElement g && g.DataContext is OnlineSoundViewModel vm)
         {
-            _ = vm.PlayCommand.ExecuteAsync(null);
+            _ = vm.PrimaryActionCommand.ExecuteAsync(null);
         }
     }
 }

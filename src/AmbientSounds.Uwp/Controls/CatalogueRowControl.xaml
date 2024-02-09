@@ -61,8 +61,7 @@
                     <Grid
                         AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}"
                         PointerEntered="{x:Bind local:UIHelper.ScaleUpChildImage}"
-                        PointerExited="{x:Bind local:UIHelper.ScaleNormalChildImage}"
-                        Tapped="Grid_Tapped">
+                        PointerExited="{x:Bind local:UIHelper.ScaleNormalChildImage}">
                         <ani:Implicit.ShowAnimations>
                             <ani:OpacityAnimation
                                 Delay="0:0:0.1"
@@ -95,7 +94,7 @@
                                 </Grid.Background>
                             </Grid>
 
-                            <Rectangle Stretch="Fill">
+                            <Rectangle Stretch="Fill" Tapped="OnGridTapped">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                         <GradientStop Offset="0.4" Color="{x:Bind local:UIHelper.ToTransparent(ColourHex), Mode=OneWay}" />
@@ -166,7 +165,18 @@
                                             Glyph="{StaticResource GlyphDownload}" />
                                     </Button>
 
-                                    <Grid Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                    <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                        <ani:Implicit.ShowAnimations>
+                                            <ani:OpacityAnimation
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:0.3" />
+                                            <ani:ScaleAnimation
+                                                From="0.6"
+                                                To="1"
+                                                Duration="0:0:0.3" />
+                                        </ani:Implicit.ShowAnimations>
+
                                         <winui:ProgressRing
                                             Width="16"
                                             Height="16"

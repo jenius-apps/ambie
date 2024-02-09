@@ -224,6 +224,29 @@ public partial class OnlineSoundViewModel : ObservableObject
     }
 
     [RelayCommand]
+    private async Task PrimaryActionAsync()
+    {
+        if (DownloadProgressVisible)
+        {
+            return;
+        }
+
+        if (!IsOwned)
+        {
+            await BuySoundAsync();
+            return;
+        }
+
+        if (!IsInstalled)
+        {
+            await DownloadAsync();
+            return;
+        }
+
+        await PlayAsync();
+    }
+
+    [RelayCommand]
     private async Task BuySoundAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.BuyClicked, new Dictionary<string, string>
