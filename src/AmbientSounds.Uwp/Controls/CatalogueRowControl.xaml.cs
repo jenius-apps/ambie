@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using AmbientSounds.ViewModels;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -62,5 +63,13 @@ public sealed partial class CatalogueRowControl : UserControl
     {
         get => (bool)GetValue(SparkleIconVisibleProperty);
         set => SetValue(SparkleIconVisibleProperty, value);
+    }
+
+    private void OnGridTapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+    {
+        if (sender is FrameworkElement g && g.DataContext is OnlineSoundViewModel vm)
+        {
+            _ = vm.PrimaryActionCommand.ExecuteAsync(null);
+        }
     }
 }

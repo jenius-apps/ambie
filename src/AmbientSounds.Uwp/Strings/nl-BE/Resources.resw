@@ -565,9 +565,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Taak {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Gratis deze week!</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Open Ambie Mini bij het scherpstellen</value>
   </data>

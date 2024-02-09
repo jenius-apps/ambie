@@ -33,7 +33,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             AutomationProperties.AccessibilityView="Raw"
-            FontSize="12"
+            FontSize="10"
             Foreground="White"
             Text="Ambie+" />
 

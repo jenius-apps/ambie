@@ -589,9 +589,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Uppgift {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Gratis denna vecka!</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Öppna Ambie Mini när du fokuserar</value>
   </data>

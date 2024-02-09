@@ -589,9 +589,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Завдання {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Безкоштовно цього тижня</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Відкрийте Ambie Mini під час фокусування</value>
   </data>

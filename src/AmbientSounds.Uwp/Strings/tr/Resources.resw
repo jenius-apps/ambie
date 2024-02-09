@@ -586,9 +586,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Görev {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Bu hafta ücretsiz!</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Netleme yaparken Ambie Mini'yi açın</value>
   </data>

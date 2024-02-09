@@ -577,9 +577,6 @@
   <data name="TasksCompleted" xml:space="preserve">
     <value>Εργασίες Ολοκληρώθηκαν</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Δωρεάν αυτή την εβδομάδα!</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Ανοίξτε το Ambie Mini κατά την εστίαση</value>
   </data>

@@ -589,9 +589,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>任务 {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>本周免费！</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>专注时开启 Ambie Mini</value>
   </data>

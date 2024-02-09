@@ -589,9 +589,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>작업 {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>이번주만 공짜!</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>집중할 때 앰비 미니 열기</value>
   </data>

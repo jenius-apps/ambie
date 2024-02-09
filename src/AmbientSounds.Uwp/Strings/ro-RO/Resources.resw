@@ -592,9 +592,6 @@
   <data name="TaskTitle" xml:space="preserve">
     <value>Sarcina {0}</value>
   </data>
-  <data name="FreeBadgeInfo" xml:space="preserve">
-    <value>Liber aceasta saptamana!</value>
-  </data>
   <data name="SettingsCompactMode" xml:space="preserve">
     <value>Deschide Ambie Mini cand te concentrezi</value>
   </data>

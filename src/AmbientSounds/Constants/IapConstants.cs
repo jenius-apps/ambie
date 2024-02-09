@@ -7,10 +7,7 @@ namespace AmbientSounds.Constants
     public static class IapConstants
     {
         public const string MsStoreAmbiePlusId = "ambieplus";
-        public const string MsStoreFreeRotationId = "free";
         public const string MsStoreAmbiePlusLifetimeId = "lifetimeambieplus";
-
-        public static bool ContainsFreeId(this IReadOnlyList<string> ids) => ids.ContainsId(MsStoreFreeRotationId);
 
         public static bool ContainsAmbiePlus(this IReadOnlyList<string> ids) => ids.ContainsId(MsStoreAmbiePlusId);
 

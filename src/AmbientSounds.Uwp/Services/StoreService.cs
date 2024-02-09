@@ -27,11 +27,6 @@ public class StoreService : IIapService
     /// <inheritdoc/>
     public async Task<bool> IsOwnedAsync(string iapId)
     {
-        if (iapId == IapConstants.MsStoreFreeRotationId)
-        {
-            return true;
-        }
-
         if (_ownershipCache.TryGetValue(iapId, out bool isOwned))
         {
             return isOwned;

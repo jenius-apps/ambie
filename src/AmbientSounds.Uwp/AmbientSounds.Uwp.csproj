@@ -168,9 +168,6 @@
     <Compile Include="Controls\FocusTimerModule.xaml.cs">
       <DependentUpon>FocusTimerModule.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\FreeBadge.xaml.cs">
-      <DependentUpon>FreeBadge.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\GuideShimmer.xaml.cs">
       <DependentUpon>GuideShimmer.xaml</DependentUpon>
     </Compile>
@@ -510,10 +507,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\FocusTimerModule.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\FreeBadge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

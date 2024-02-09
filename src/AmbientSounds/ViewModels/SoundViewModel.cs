@@ -112,7 +112,7 @@ public partial class SoundViewModel : ObservableObject
         {
             if (_sound.IapIds.Count > 0)
             {
-                return _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus() && !_sound.IapIds.ContainsFreeId();
+                return _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus();
             }
             else
             {
@@ -123,11 +123,6 @@ public partial class SoundViewModel : ObservableObject
             }
         }
     }
-
-    /// <summary>
-    /// Determines if the free badge is visible
-    /// </summary>
-    public bool FreeBadgeVisible => _sound.IsPremium && _sound.IapIds.ContainsFreeId();
 
     /// <summary>
     /// The sound's attribution.
@@ -234,34 +229,6 @@ public partial class SoundViewModel : ObservableObject
 
         if (_sound.IsPremium)
         {
-            if (_sound.IapIds.ContainsFreeId())
-            {
-                bool stillFree;
-                try
-                {
-                    var items = await _onlineSoundRepo.GetOnlineSoundsAsync(
-                        new string[] { _sound.Id },
-                        IapConstants.MsStoreFreeRotationId);
-                    stillFree = items.Any(x => x.Value is not null);
-                }
-                catch (Exception e)
-                {
-                    // if we don't know what happened, assume it's still free.
-                    stillFree = true;
-                    _telemetry.TrackError(e);
-                }
-
-                if (!stillFree)
-                {
-                    var newList = new List<string>(_sound.IapIds);
-                    newList.Remove(IapConstants.MsStoreFreeRotationId);
-                    _sound.IapIds = newList;
-                    OnPropertyChanged(nameof(FreeBadgeVisible));
-                    OnPropertyChanged(nameof(PlusBadgeVisible));
-                    _ = _soundService.UpdateSoundAsync(_sound).ConfigureAwait(false);
-                }
-            }
-
             var owned = _sound.IapIds.Count > 0
                 ? await _iapService.IsAnyOwnedAsync(_sound.IapIds)
 #pragma warning disable CS0618
@@ -358,7 +325,7 @@ public partial class SoundViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async void DeleteSound()
+    private async Task DeleteSound()
     {
         if (!_sound.IsMix)
         {

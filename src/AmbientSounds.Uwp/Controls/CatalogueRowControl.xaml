@@ -8,19 +8,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
-
-    <UserControl.Resources>
-        <winui:UniformGridLayout
-            x:Name="UniformLayout"
-            MinColumnSpacing="8"
-            MinRowSpacing="8" />
-    </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -57,19 +52,16 @@
             ItemsSource="{x:Bind ItemsSource, Mode=OneWay}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
+                    <toolkit:WrapPanel HorizontalSpacing="{StaticResource SoundCardSpacingDouble}" VerticalSpacing="{StaticResource SoundCardSpacingDouble}" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
-                    <Grid AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
-                        <Grid.Resources>
-                            <!--  override keys so that the buttons on the cards are white in both dark and light theme  -->
-                            <SolidColorBrush x:Key="ButtonForeground" Color="White" />
-                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White" />
-                            <SolidColorBrush x:Key="ButtonForegroundPressed" Color="White" />
-                        </Grid.Resources>
+                    <Grid
+                        AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}"
+                        PointerEntered="{x:Bind local:UIHelper.ScaleUpChildImage}"
+                        PointerExited="{x:Bind local:UIHelper.ScaleNormalChildImage}">
                         <ani:Implicit.ShowAnimations>
                             <ani:OpacityAnimation
                                 Delay="0:0:0.1"
@@ -78,60 +70,57 @@
                                 Duration="0:0:1" />
                         </ani:Implicit.ShowAnimations>
 
-                        <toolkit:DropShadowPanel HorizontalAlignment="Center" Style="{StaticResource SubtleShadow}">
-                            <Rectangle
-                                Width="{StaticResource ImageCardShadowWidth}"
-                                Height="{StaticResource ImageCardHeight}"
-                                Fill="Black"
-                                RadiusX="8"
-                                RadiusY="8"
-                                Stretch="Fill" />
-                        </toolkit:DropShadowPanel>
-
-                        <Grid
-                            x:Name="ImageGrid"
-                            Width="{StaticResource ImageCardWidth}"
-                            Height="{StaticResource ImageCardHeight}"
-                            CornerRadius="8">
-                            <Grid.Background>
-                                <ImageBrush Stretch="UniformToFill">
-                                    <ImageBrush.ImageSource>
-                                        <BitmapImage DecodePixelHeight="208" UriSource="{x:Bind ImagePath, Mode=OneWay}" />
-                                    </ImageBrush.ImageSource>
-                                </ImageBrush>
-                            </Grid.Background>
+                        <Grid Width="132" CornerRadius="{StaticResource SoundCardCornerRadius}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Rectangle Grid.RowSpan="3">
+                            <Grid
+                                x:Name="ImageGrid"
+                                Height="{StaticResource ImageCardHeight}"
+                                ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                                CornerRadius="{StaticResource SoundCardCornerRadius}">
+                                <ani:Implicit.Animations>
+                                    <ani:ScaleAnimation Duration="0:0:0.3" />
+                                </ani:Implicit.Animations>
+                                <Grid.Background>
+                                    <ImageBrush Stretch="UniformToFill">
+                                        <ImageBrush.ImageSource>
+                                            <BitmapImage UriSource="{x:Bind ImagePath, Mode=OneWay}" />
+                                        </ImageBrush.ImageSource>
+                                    </ImageBrush>
+                                </Grid.Background>
+                            </Grid>
+
+                            <Rectangle Stretch="Fill" Tapped="OnGridTapped">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                        <GradientStop Offset="0" Color="#00000000" />
+                                        <GradientStop Offset="0.4" Color="{x:Bind local:UIHelper.ToTransparent(ColourHex), Mode=OneWay}" />
                                         <GradientStop Offset="1" Color="{x:Bind local:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
                                     </LinearGradientBrush>
                                 </Rectangle.Fill>
                             </Rectangle>
 
-                            <local:PlusBadge
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Top"
-                                Visibility="{x:Bind PlusBadgeVisible, Mode=OneWay}" />
+                            <Rectangle
+                                Grid.Row="1"
+                                Grid.RowSpan="2"
+                                Fill="{x:Bind ColourHex, Mode=OneWay}"
+                                Stretch="Fill" />
 
-                            <local:FreeBadge
-                                Margin="12,12,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                Visibility="{x:Bind FreeBadgeVisible, Mode=OneWay}" />
-
-                            <Grid Grid.Row="1" Margin="12,0">
+                            <Grid
+                                Grid.Row="1"
+                                Height="36"
+                                RequestedTheme="Dark">
                                 <TextBlock
+                                    Margin="8,0"
+                                    VerticalAlignment="Center"
                                     FontSize="12"
-                                    Foreground="White"
+                                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                                     MaxLines="2"
                                     Text="{x:Bind Name, Mode=OneWay}"
+                                    TextAlignment="Center"
                                     TextTrimming="CharacterEllipsis"
                                     TextWrapping="Wrap">
                                     <ToolTipService.ToolTip>
@@ -144,80 +133,78 @@
 
                             <Grid
                                 Grid.Row="2"
-                                Height="36"
-                                Margin="4,4"
-                                VerticalAlignment="Bottom">
-                                <StackPanel Orientation="Horizontal" Visibility="{x:Bind NotInstalled, Mode=OneWay}">
+                                Height="40"
+                                RequestedTheme="Dark">
+                                <Grid Margin="0,0,0,6" Visibility="{x:Bind NotInstalled, Mode=OneWay}">
 
                                     <!--  buy button  -->
-                                    <StackPanel
-                                        x:Name="BuyPanel"
-                                        Orientation="Horizontal"
+                                    <Button
+                                        x:Uid="BuyButton"
+                                        Margin="6,0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Command="{x:Bind BuySoundCommand, Mode=OneWay}"
                                         Visibility="{x:Bind CanBuy, Mode=OneWay}">
-                                        <Button
-                                            x:Uid="BuyButton"
-                                            Padding="8,0"
-                                            VerticalAlignment="Stretch"
-                                            Command="{x:Bind BuySoundCommand, Mode=OneWay}"
-                                            Style="{StaticResource SubtleButton}">
-                                            <FontIcon
-                                                FontFamily="{StaticResource FluentUIGlyphsCustom}"
-                                                FontSize="15"
-                                                Glyph="{StaticResource GlyphCustomPremium}" />
-                                        </Button>
-                                    </StackPanel>
+                                        <FontIcon
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            FontSize="{StaticResource SmallIconSize}"
+                                            Glyph="{StaticResource GlyphUnlock}" />
+                                    </Button>
 
                                     <!--  download button  -->
                                     <Button
                                         x:Uid="DownloadSoundButton"
-                                        Padding="8,0"
+                                        Margin="6,0"
+                                        HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind DownloadCommand, Mode=OneWay}"
-                                        Style="{StaticResource SubtleButton}"
                                         Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
-                                        <StackPanel Orientation="Horizontal">
-                                            <FontIcon
-                                                VerticalAlignment="Center"
-                                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                                FontSize="{StaticResource SmallIconSize}"
-                                                Glyph="{StaticResource GlyphDownload}" />
-                                        </StackPanel>
+                                        <FontIcon
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            FontSize="16"
+                                            Glyph="{StaticResource GlyphDownload}" />
                                     </Button>
 
-                                    <Grid
-                                        Margin="8,0,0,0"
-                                        VerticalAlignment="Center"
-                                        Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                    <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                        <ani:Implicit.ShowAnimations>
+                                            <ani:OpacityAnimation
+                                                From="0"
+                                                To="1"
+                                                Duration="0:0:0.3" />
+                                            <ani:ScaleAnimation
+                                                From="0.6"
+                                                To="1"
+                                                Duration="0:0:0.3" />
+                                        </ani:Implicit.ShowAnimations>
+
                                         <winui:ProgressRing
-                                            Width="20"
-                                            Height="20"
+                                            Width="16"
+                                            Height="16"
                                             AutomationProperties.AccessibilityView="Raw"
-                                            Foreground="#32ffffff"
+                                            Foreground="{ThemeResource TextFillColorDisabledBrush}"
                                             IsIndeterminate="False"
                                             Value="100" />
                                         <winui:ProgressRing
-                                            Width="20"
-                                            Height="20"
-                                            Foreground="White"
+                                            Width="16"
+                                            Height="16"
+                                            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                                             IsIndeterminate="False"
                                             Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
                                             Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
                                     </Grid>
-                                </StackPanel>
+                                </Grid>
 
-                                <StackPanel Orientation="Horizontal" Visibility="{x:Bind IsInstalled, Mode=OneWay}">
-                                    <Button
-                                        x:Uid="DeleteButton"
-                                        Padding="8,0"
-                                        VerticalAlignment="Stretch"
-                                        Command="{x:Bind DeleteSoundCommand, Mode=OneWay}"
-                                        Style="{StaticResource SubtleButton}">
-                                        <FontIcon
-                                            FontFamily="{StaticResource FluentUIGlyphs}"
-                                            FontSize="{StaticResource SmallIconSize}"
-                                            Glyph="{StaticResource GlyphDelete}" />
-                                    </Button>
-                                </StackPanel>
+                                <Button
+                                    Margin="6,0,6,6"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Command="{x:Bind PlayCommand, Mode=OneWay}"
+                                    Visibility="{x:Bind IsInstalled, Mode=OneWay}">
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="{StaticResource SmallIconSize}"
+                                        Glyph="{StaticResource GlyphPlay}" />
+                                </Button>
                             </Grid>
                         </Grid>
                     </Grid>
