@@ -10,6 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
@@ -57,7 +58,11 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
-                    <Grid AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}">
+                    <Grid
+                        AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertOnlineSoundListViewName(Name, NotInstalled), Mode=OneWay}"
+                        PointerEntered="{x:Bind local:UIHelper.ScaleUpChildImage}"
+                        PointerExited="{x:Bind local:UIHelper.ScaleNormalChildImage}"
+                        Tapped="Grid_Tapped">
                         <ani:Implicit.ShowAnimations>
                             <ani:OpacityAnimation
                                 Delay="0:0:0.1"
@@ -76,7 +81,11 @@
                             <Grid
                                 x:Name="ImageGrid"
                                 Height="{StaticResource ImageCardHeight}"
+                                ui:VisualExtensions.NormalizedCenterPoint="0.5"
                                 CornerRadius="{StaticResource SoundCardCornerRadius}">
+                                <ani:Implicit.Animations>
+                                    <ani:ScaleAnimation Duration="0:0:0.3" />
+                                </ani:Implicit.Animations>
                                 <Grid.Background>
                                     <ImageBrush Stretch="UniformToFill">
                                         <ImageBrush.ImageSource>
