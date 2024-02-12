@@ -170,6 +170,12 @@
                         FontSize="14"
                         Glyph="{StaticResource GlyphShare}" />
                 </Button>
+                <Button Style="{StaticResource SmallSubtleIconButton}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
+                        Glyph="{StaticResource GlyphRightSideBar}" />
+                </Button>
             </StackPanel>
         </Grid>
 
@@ -458,14 +464,21 @@
 
             <controls:SplitView.MainContent>
                 <Grid x:Name="MainFrameBorder" Background="{ThemeResource DefaultPageBackgroundBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
                     <toolkit:ImageEx
                         x:Name="BackgroundImage"
+                        Grid.ColumnSpan="2"
                         x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
                         IsCacheEnabled="True"
                         Source="{x:Bind ViewModel.BackgroundImagePath, Mode=OneWay}"
                         Stretch="UniformToFill" />
                     <Rectangle
                         x:Name="AcrylicLayer"
+                        Grid.ColumnSpan="2"
                         x:Load="{x:Bind ViewModel.ShowBackgroundImage, Mode=OneWay}"
                         Stretch="Fill">
                         <Rectangle.Fill>
@@ -477,6 +490,7 @@
                     </Rectangle>
 
                     <Grid
+                        Grid.ColumnSpan="2"
                         Height="{StaticResource TopPlayerPanelHeight}"
                         VerticalAlignment="Top"
                         Background="{ThemeResource SystemControlAcrylicElementBrush}"
@@ -485,6 +499,53 @@
                     </Grid>
 
                     <Frame x:Name="MainFrame" Margin="{StaticResource TopPlayerPageMargin}" />
+
+                    <Grid
+                        Grid.Column="1"
+                        Width="240"
+                        Margin="{StaticResource TopPlayerPageMargin}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <Rectangle
+                            Grid.RowSpan="3"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource ModuleVerticalDividerRectStyle}" />
+
+                        <StackPanel Margin="20,20,20,0">
+                            <TextBlock Style="{StaticResource ModuleTitleStyle}" Text="Moods" />
+                            <Rectangle Margin="0,4,0,0" Style="{StaticResource ModuleDividerRectStyle}" />
+
+                            <TextBlock
+                                Margin="0,4,0,0"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="We'll shuffle your sounds to match your mood."
+                                TextWrapping="WrapWholeWords" />
+                        </StackPanel>
+
+                        <winui:ItemsRepeater
+                            Grid.Row="1"
+                            Margin="20,20,20,0"
+                            ItemsSource="{x:Bind Test}">
+                            <winui:ItemsRepeater.ItemTemplate>
+                                <DataTemplate x:DataType="x:String">
+                                    <Button
+                                        Content="{x:Bind}"
+                                        CornerRadius="12"
+                                        FontSize="12"
+                                        Style="{ThemeResource AccentButtonStyle}" />
+                                </DataTemplate>
+                            </winui:ItemsRepeater.ItemTemplate>
+                            <winui:ItemsRepeater.Layout>
+                                <toolkit:WrapLayout HorizontalSpacing="4" VerticalSpacing="4" />
+                            </winui:ItemsRepeater.Layout>
+                        </winui:ItemsRepeater>
+
+                    </Grid>
                 </Grid>
             </controls:SplitView.MainContent>
         </controls:SplitView>

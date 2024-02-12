@@ -41,6 +41,17 @@ public sealed partial class ShellPage : Page
 
     public ShellPageViewModel ViewModel => (ShellPageViewModel)this.DataContext;
 
+    public List<string> Test = [
+        "Deep focus",
+        "Studying",
+        "Deep sleep",
+        "Rainy days",
+        "Nature",
+        "Yoga",
+        "City life",
+        "Travel"
+    ];
+
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
         var navigator = App.Services.GetRequiredService<INavigator>();
