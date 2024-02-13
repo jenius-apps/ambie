@@ -39,6 +39,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISearchService _searchService;
     private readonly IStatService _statService;
     private readonly ILocalizer _localizer;
+    private readonly IAppStoreUpdater _appStoreUpdater;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -58,7 +59,8 @@ public partial class ShellPageViewModel : ObservableObject
         ISoundService soundService,
         IAssetLocalizer assetLocalizer,
         ISearchService searchService,
-        IStatService statService)
+        IStatService statService,
+        IAppStoreUpdater appStoreUpdater)
     {
         IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
@@ -80,6 +82,7 @@ public partial class ShellPageViewModel : ObservableObject
         _searchService = searchService;
         _statService = statService;
         _localizer = localizer;
+        _appStoreUpdater = appStoreUpdater;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -140,6 +143,9 @@ public partial class ShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _isMeditatePageVisible;
+
+    [ObservableProperty]
+    private bool _updateButtonVisible;
 
     public ObservableCollection<MenuItem> MenuItems { get; } = new();
 
@@ -218,8 +224,24 @@ public partial class ShellPageViewModel : ObservableObject
         _guideService.GuideStopped += OnGuideStopped;
         _statService.StreakChanged += OnStreakChanged;
 
+        _ = CheckForUpdatesAsync();
         LoadStreak();
         await LoadPremiumContentAsync();
+    }
+
+    private async Task CheckForUpdatesAsync()
+    {
+        var hasUpdates = await _appStoreUpdater.CheckForUpdatesAsync();
+        if (!hasUpdates)
+        {
+            return;
+        }
+
+        var downloadSuccessful = await _appStoreUpdater.TrySilentDownloadAsync();
+        if (downloadSuccessful)
+        {
+            UpdateButtonVisible = true;
+        }
     }
 
     public void Uninitialize()
@@ -360,6 +382,12 @@ public partial class ShellPageViewModel : ObservableObject
         GuideBannerVisible =
             _navigator.GetContentPageName() != "MeditatePage" &&
             _mixMediaPlayerService.CurrentGuideId is { Length: > 0 };
+    }
+
+    [RelayCommand]
+    private async Task ApplyUpdatesAsync()
+    {
+        await _appStoreUpdater.TrySilentDownloadAndInstallAsync();
     }
 
     [RelayCommand]

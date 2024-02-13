@@ -107,7 +107,11 @@
             Margin="80,12,0,0"
             VerticalAlignment="Top"
             Canvas.ZIndex="1">
-            <Button Padding="4">
+            <Button
+                Padding="4"
+                AutomationProperties.Name="{x:Bind strings:Resources.UpdatesText}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.UpdatesText}"
+                Visibility="{x:Bind ViewModel.UpdateButtonVisible, Mode=OneWay}">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
                         From="0"
@@ -145,6 +149,7 @@
                                 MinHeight="36"
                                 Margin="0,8,0,0"
                                 HorizontalAlignment="Stretch"
+                                Command="{x:Bind ViewModel.ApplyUpdatesCommand}"
                                 Content="{x:Bind strings:Resources.RestartText}"
                                 FontSize="12" />
                         </StackPanel>

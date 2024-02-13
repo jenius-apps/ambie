@@ -10,4 +10,6 @@ public interface IAppStoreUpdater
     public Task<bool> CheckForUpdatesAsync();
 
     public Task<bool?> TryApplyUpdatesAsync();
+    Task<bool> TrySilentDownloadAndInstallAsync();
+    Task<bool> TrySilentDownloadAsync();
 }

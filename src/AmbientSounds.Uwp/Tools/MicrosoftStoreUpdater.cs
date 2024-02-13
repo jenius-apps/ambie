@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Services.Store;
@@ -19,12 +19,47 @@ public sealed class MicrosoftStoreUpdater : IAppStoreUpdater
 
     public event EventHandler? UpdateAvailable;
 
+    public async Task<bool> TrySilentDownloadAsync()
+    {
+        var hasUpdates = await CheckForUpdatesAsync();
+
+        if (!hasUpdates || !_context.CanSilentlyDownloadStorePackageUpdates)
+        {
+            return false;
+        }
+
+        StorePackageUpdateResult downloadResult = await _context.TrySilentDownloadStorePackageUpdatesAsync(_updates);
+        return downloadResult.OverallState is StorePackageUpdateState.Completed;
+    }
+
+    public async Task<bool> TrySilentDownloadAndInstallAsync()
+    {
+        var hasUpdates = await CheckForUpdatesAsync();
+
+        if (!hasUpdates || !_context.CanSilentlyDownloadStorePackageUpdates)
+        {
+            return false;
+        }
+
+        StorePackageUpdateResult downloadResult = await _context.TrySilentDownloadAndInstallStorePackageUpdatesAsync(_updates);
+        return downloadResult.OverallState is StorePackageUpdateState.Completed;
+    }
+
+    [MemberNotNull(nameof(_context))]
     public async Task<bool> CheckForUpdatesAsync()
     {
         _context ??= StoreContext.GetDefault();
 
-        // Note: This call will crash if the app is not associated with the store.
-        _updates = await _context.GetAppAndOptionalStorePackageUpdatesAsync();
+
+        try
+        {
+            _updates = await _context.GetAppAndOptionalStorePackageUpdatesAsync();
+        }
+        catch (FileNotFoundException)
+        {
+            // This exception occurs if the app is not associated with the store.
+            return false;
+        }
 
         if (_updates.Count > 0)
         {
