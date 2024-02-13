@@ -25,6 +25,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IBackgroundTaskService _backgroundTaskService;
     private readonly IIapService _iapService;
     private readonly IUriLauncher _uriLauncher;
+    private readonly IAppStoreUpdater _storeUpdater;
     private bool _notificationsLoading;
 
     public SettingsViewModel(
@@ -39,7 +40,8 @@ public partial class SettingsViewModel : ObservableObject
         ISystemInfoProvider systemInfoProvider,
         ILocalizer localizer,
         IIapService iapService,
-        IUriLauncher uriLauncher)
+        IUriLauncher uriLauncher,
+        IAppStoreUpdater appStoreUpdater)
     {
         _userSettings = userSettings;
         _notifications = notifications;
@@ -51,12 +53,16 @@ public partial class SettingsViewModel : ObservableObject
         _backgroundTaskService = backgroundTaskService;
         _iapService = iapService;
         _uriLauncher = uriLauncher;
+        _storeUpdater = appStoreUpdater;
 
         if (systemInfoProvider.IsOnBatterySaver())
         {
             BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
         }
     }
+
+    [ObservableProperty]
+    private bool _updateBarVisible;
 
     [ObservableProperty]
     private bool _manageSubscriptionVisible;
@@ -287,5 +293,25 @@ public partial class SettingsViewModel : ObservableObject
     {
         await _uriLauncher.LaunchUriAsync(new Uri("https://account.microsoft.com/services"));
         _telemetry.TrackEvent(TelemetryConstants.SettingsModifySubscriptionClicked);
+    }
+
+    [RelayCommand]
+    private async Task TryUpdateAsync()
+    {
+        if (UpdateBarVisible)
+        {
+            return;
+        }
+
+        var updateAvailable = await _storeUpdater.CheckForUpdatesAsync();
+
+        if (!updateAvailable)
+        {
+            return;
+        }
+
+        UpdateBarVisible = true;
+        await _storeUpdater.TryApplyUpdatesAsync();
+        UpdateBarVisible = false;
     }
 }

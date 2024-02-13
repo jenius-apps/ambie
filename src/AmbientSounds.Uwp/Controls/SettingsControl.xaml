@@ -9,6 +9,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -248,6 +249,12 @@
                         <HyperlinkButton Content="{x:Bind strings:Resources.TermsOfUse}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
                         <HyperlinkButton Content="{x:Bind strings:Resources.FollowTwitter}" NavigateUri="https://twitter.com/ambie_app" />
                         <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
+                        <HyperlinkButton Command="{x:Bind ViewModel.TryUpdateCommand}" Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
+                        <winui:ProgressBar
+                            Width="200"
+                            Margin="12,4,0,4"
+                            IsIndeterminate="True"
+                            Visibility="{x:Bind ViewModel.UpdateBarVisible}" />
                     </StackPanel>
                 </labs:SettingsCard>
             </labs:SettingsExpander.Items>

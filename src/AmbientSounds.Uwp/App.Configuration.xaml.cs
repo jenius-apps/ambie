@@ -180,5 +180,6 @@ partial class App
     [Singleton(typeof(StatService), typeof(IStatService))]
     [Singleton(typeof(StreakHistoryCache), typeof(IStreakHistoryCache))]
     [Singleton(typeof(StreakHistoryRepository), typeof(IStreakHistoryRepository))]
+    [Singleton(typeof(MicrosoftStoreUpdater), typeof(IAppStoreUpdater))]
     private static partial void ConfigureServices(IServiceCollection services);
 }
