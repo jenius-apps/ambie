@@ -62,6 +62,9 @@ public partial class SettingsViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private bool _updateBarVisible;
+
+    [ObservableProperty]
     private bool _manageSubscriptionVisible;
 
     [ObservableProperty]
@@ -295,6 +298,11 @@ public partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     private async Task TryUpdateAsync()
     {
+        if (UpdateBarVisible)
+        {
+            return;
+        }
+
         var updateAvailable = await _storeUpdater.CheckForUpdatesAsync();
 
         if (!updateAvailable)
@@ -302,6 +310,8 @@ public partial class SettingsViewModel : ObservableObject
             return;
         }
 
+        UpdateBarVisible = true;
         await _storeUpdater.TryApplyUpdatesAsync();
+        UpdateBarVisible = false;
     }
 }
