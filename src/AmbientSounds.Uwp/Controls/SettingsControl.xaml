@@ -248,6 +248,7 @@
                         <HyperlinkButton Content="{x:Bind strings:Resources.TermsOfUse}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
                         <HyperlinkButton Content="{x:Bind strings:Resources.FollowTwitter}" NavigateUri="https://twitter.com/ambie_app" />
                         <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
+                        <HyperlinkButton Command="{x:Bind ViewModel.TryUpdateCommand}" Content="Check for updates" />
                     </StackPanel>
                 </labs:SettingsCard>
             </labs:SettingsExpander.Items>
