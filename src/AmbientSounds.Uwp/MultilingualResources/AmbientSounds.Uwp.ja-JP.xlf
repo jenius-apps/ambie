@@ -1105,6 +1105,14 @@
           <source>Modify your subscription</source>
           <target state="translated">サブスクリプションを変更する</target>
         </trans-unit>
+        <trans-unit id="AppUpdateDescription" translate="yes" xml:space="preserve">
+          <source>There's a new update available! Restart now to apply the update.</source>
+          <target state="new">There's a new update available! Restart now to apply the update.</target>
+        </trans-unit>
+        <trans-unit id="RestartText" translate="yes" xml:space="preserve">
+          <source>Restart</source>
+          <target state="new">Restart</target>
+        </trans-unit>
       </group>
     </body>
   </file>

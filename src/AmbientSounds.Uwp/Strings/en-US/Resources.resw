@@ -944,4 +944,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Modify your subscription</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>There's a new update available! Restart now to apply the update.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Restart</value>
+  </data>
 </root>

@@ -2783,6 +2783,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AppUpdateDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: There's a new update available! Restart now to apply the update.
+        /// </summary>
+        public static string AppUpdateDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("AppUpdateDescription");
+            }
+        }
+        #endregion
+
+        #region RestartText
+        /// <summary>
+        ///   Looks up a localized string similar to: Restart
+        /// </summary>
+        public static string RestartText
+        {
+            get
+            {
+                return _resourceLoader.GetString("RestartText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3007,6 +3033,8 @@ namespace AmbientSounds.Strings{
             AddTaskPlaceholder,
             ModifyText,
             SettingsModifySubDescription,
+            AppUpdateDescription,
+            RestartText,
         }
 
         private static ResourceLoader _resourceLoader;

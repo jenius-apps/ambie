@@ -293,6 +293,7 @@
             <x:String x:Key="GlyphFire">&#xECAD;</x:String>
             <x:String x:Key="GlyphPlusBold">&#xF8AA;</x:String>
             <x:String x:Key="GlyphUnlock">&#xE785;</x:String>
+            <x:String x:Key="GlyphShiftUp">&#xE752;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

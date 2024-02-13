@@ -52,6 +52,7 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+                        <Setter Target="UpdateButtonGrid.Visibility" Value="Collapsed" />
                         <Setter Target="TitleLogo.TextVisible" Value="Collapsed" />
                         <Setter Target="TitleLogo.Margin" Value="26,14,0,0" />
                         <Setter Target="SearchBox.Visibility" Value="Collapsed" />
@@ -77,7 +78,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
         <Grid
             x:Name="AppTitleBar"
             HorizontalAlignment="Stretch"
@@ -100,6 +100,57 @@
                     <animations:OffsetAnimation />
                 </animations:Implicit.Animations>
             </controls:TitleBarLogo>
+        </Grid>
+
+        <Grid
+            x:Name="UpdateButtonGrid"
+            Margin="80,12,0,0"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1">
+            <Button Padding="4">
+                <animations:Implicit.ShowAnimations>
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.6" />
+                </animations:Implicit.ShowAnimations>
+
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="12"
+                    Glyph="{StaticResource GlyphShiftUp}" />
+
+                <Button.Flyout>
+                    <Flyout Placement="BottomEdgeAlignedLeft">
+                        <Flyout.FlyoutPresenterStyle>
+                            <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                                <Setter Property="Padding" Value="12" />
+                            </Style>
+                        </Flyout.FlyoutPresenterStyle>
+
+                        <StackPanel MaxWidth="240">
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+                                Text="{x:Bind strings:Resources.UpdatesText}" />
+                            <Rectangle Margin="0,6,0,0" Style="{StaticResource ModuleDividerRectStyle}" />
+
+                            <TextBlock
+                                Margin="0,6,0,0"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                Text="{x:Bind strings:Resources.AppUpdateDescription}"
+                                TextWrapping="WrapWholeWords" />
+                            <Button
+                                MinHeight="36"
+                                Margin="0,8,0,0"
+                                HorizontalAlignment="Stretch"
+                                Content="{x:Bind strings:Resources.RestartText}"
+                                FontSize="12" />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
         </Grid>
 
         <Grid
