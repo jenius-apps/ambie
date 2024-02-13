@@ -241,6 +241,7 @@ public partial class ShellPageViewModel : ObservableObject
         if (downloadSuccessful)
         {
             UpdateButtonVisible = true;
+            _telemetry.TrackEvent(TelemetryConstants.UpdateShown);
         }
     }
 
@@ -387,6 +388,7 @@ public partial class ShellPageViewModel : ObservableObject
     [RelayCommand]
     private async Task ApplyUpdatesAsync()
     {
+        _telemetry.TrackEvent(TelemetryConstants.UpdateClicked);
         await _appStoreUpdater.TrySilentDownloadAndInstallAsync();
     }
 

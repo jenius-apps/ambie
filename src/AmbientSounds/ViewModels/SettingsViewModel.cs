@@ -303,6 +303,8 @@ public partial class SettingsViewModel : ObservableObject
             return;
         }
 
+        _telemetry.TrackEvent(TelemetryConstants.CheckForUpdatesClicked);
+
         var updateAvailable = await _storeUpdater.CheckForUpdatesAsync();
 
         if (!updateAvailable)

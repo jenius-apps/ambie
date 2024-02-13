@@ -21,6 +21,8 @@ public class TelemetryConstants
     public const string ShellPagePremiumClicked = ShellPage + "premiumClicked";
     public const string ShellPageShareClicked = ShellPage + "shareClicked";
     public const string ShuffleClicked = ShellPage + "shuffleClicked";
+    public const string UpdateShown = ShellPage + "updateShown";
+    public const string UpdateClicked = ShellPage + "updateClicked";
 
     private const string HomePage = "homepage:";
     public const string DownloadMessageShown = HomePage + "downloadMessageShown";
@@ -97,6 +99,7 @@ public class TelemetryConstants
     // settings
     private const string Settings = "settings:";
     public const string SettingsModifySubscriptionClicked = Settings + "modifySubscriptionClicked";
+    public const string CheckForUpdatesClicked = Settings + "checkForUpdatesClicked";
 
     // videos
     private const string Videos = "videos:";
