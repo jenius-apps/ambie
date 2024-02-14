@@ -194,9 +194,6 @@
     <Compile Include="Controls\PlayerControl.xaml.cs">
       <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PlusBadge.xaml.cs">
-      <DependentUpon>PlusBadge.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\PremiumControl.xaml.cs">
       <DependentUpon>PremiumControl.xaml</DependentUpon>
     </Compile>
@@ -540,10 +537,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\PlayerControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\PlusBadge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
