@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Úprava předplatného</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>K dispozici je nová aktualizace! Restartujte nyní, aby se aktualizace nainstalovala.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Restartovat</value>
+  </data>
 </root>

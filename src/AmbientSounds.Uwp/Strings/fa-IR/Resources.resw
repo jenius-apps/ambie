@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>تغییر اشتراک</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>یک بروزرسانی جدید در دسترس است! راه اندازی مجدد در حال حاضر برای اعمال به روز رسانی.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>راه اندازی مجدد</value>
+  </data>
 </root>

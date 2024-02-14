@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>שינוי המנוי שלך</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>יש עדכון חדש זמין! הפעל מחדש כעת כדי להחיל את העדכון.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>להפעיל מחדש</value>
+  </data>
 </root>

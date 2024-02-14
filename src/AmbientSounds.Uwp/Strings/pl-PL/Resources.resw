@@ -839,4 +839,7 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Modyfikowanie subskrypcji</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Dostępna jest nowa aktualizacja! Uruchom ponownie teraz, aby zastosować aktualizację.</value>
+  </data>
 </root>

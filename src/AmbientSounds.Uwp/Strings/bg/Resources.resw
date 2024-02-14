@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Промяна на вашия абонамент</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Налична е нова актуализация! Рестартирайте сега, за да приложите актуализацията.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Рестартирате</value>
+  </data>
 </root>

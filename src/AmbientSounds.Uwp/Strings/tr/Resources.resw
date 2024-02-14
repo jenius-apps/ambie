@@ -833,4 +833,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Aboneliğinizi değiştirme</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Yeni bir güncelleme mevcut! Güncelleştirmeyi uygulamak için şimdi yeniden başlatın.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Yeni -den başlatın</value>
+  </data>
 </root>

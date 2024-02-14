@@ -809,4 +809,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Wijzig uw abonnement</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Er is een nieuwe update beschikbaar! Start nu opnieuw op om de update toe te passen.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Herstarten</value>
+  </data>
 </root>

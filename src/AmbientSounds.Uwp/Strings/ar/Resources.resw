@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>تعديل اشتراكك</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>هناك تحديث جديد متاح! أعد التشغيل الآن لتطبيق التحديث.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>اعاده تشغيل</value>
+  </data>
 </root>

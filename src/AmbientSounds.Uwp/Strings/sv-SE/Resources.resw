@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Ändra din prenumeration</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Det finns en ny uppdatering tillgänglig! Starta om nu för att tillämpa uppdateringen.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Starta om</value>
+  </data>
 </root>

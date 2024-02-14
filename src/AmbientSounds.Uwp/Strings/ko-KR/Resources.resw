@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>구독 수정</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>새로운 업데이트가 있습니다! 업데이트를 적용하려면 지금 다시 시작하십시오.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>다시 시작할</value>
+  </data>
 </root>

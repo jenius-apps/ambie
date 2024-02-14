@@ -1110,11 +1110,11 @@
         </trans-unit>
         <trans-unit id="AppUpdateDescription" translate="yes" xml:space="preserve">
           <source>There's a new update available! Restart now to apply the update.</source>
-          <target state="new">There's a new update available! Restart now to apply the update.</target>
+          <target state="translated">有新的更新可用！立即重新啟動以應用更新。</target>
         </trans-unit>
         <trans-unit id="RestartText" translate="yes" xml:space="preserve">
           <source>Restart</source>
-          <target state="new">Restart</target>
+          <target state="translated">重新啟動</target>
         </trans-unit>
       </group>
     </body>

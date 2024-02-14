@@ -824,4 +824,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Τροποποίηση της συνδρομής σας</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Υπάρχει διαθέσιμη μια νέα ενημέρωση! Κάντε επανεκκίνηση τώρα για να εφαρμόσετε την ενημερωμένη έκδοση.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Επανεκκίνηση</value>
+  </data>
 </root>

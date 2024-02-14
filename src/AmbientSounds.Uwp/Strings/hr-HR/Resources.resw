@@ -827,4 +827,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Izmjena pretplate</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Dostupno je novo ažuriranje! Odmah ponovno pokrenite računalo da biste primijenili ažuriranje.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Ponovno pokretanje</value>
+  </data>
 </root>

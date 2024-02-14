@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Modificați-vă abonamentul</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Există o nouă actualizare disponibilă! Reporniți acum pentru a aplica actualizarea.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Reîncepe</value>
+  </data>
 </root>

@@ -827,4 +827,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Az előfizetés módosítása</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Új frissítés érhető el! Indítsa újra most a frissítés alkalmazásához.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Újraindítás</value>
+  </data>
 </root>

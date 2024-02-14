@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>サブスクリプションを変更する</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>新しいアップデートが利用可能です!今すぐ再起動して、更新プログラムを適用します。</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>再起動</value>
+  </data>
 </root>

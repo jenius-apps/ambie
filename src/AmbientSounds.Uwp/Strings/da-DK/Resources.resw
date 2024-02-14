@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Rediger dit abonnement</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Der er en ny opdatering tilgængelig! Genstart nu for at anvende opdateringen.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Genstarte</value>
+  </data>
 </root>

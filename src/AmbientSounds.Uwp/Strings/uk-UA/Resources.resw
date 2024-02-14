@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Як змінити підписку</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>З'явилося нове оновлення! Перезавантажте зараз, щоб застосувати оновлення.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Перезавантажувати</value>
+  </data>
 </root>

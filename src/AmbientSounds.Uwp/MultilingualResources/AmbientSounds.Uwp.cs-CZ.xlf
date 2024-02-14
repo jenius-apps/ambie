@@ -1111,11 +1111,11 @@
         </trans-unit>
         <trans-unit id="AppUpdateDescription" translate="yes" xml:space="preserve">
           <source>There's a new update available! Restart now to apply the update.</source>
-          <target state="new">There's a new update available! Restart now to apply the update.</target>
+          <target state="translated">K dispozici je nová aktualizace! Restartujte nyní, aby se aktualizace nainstalovala.</target>
         </trans-unit>
         <trans-unit id="RestartText" translate="yes" xml:space="preserve">
           <source>Restart</source>
-          <target state="new">Restart</target>
+          <target state="translated">Restartovat</target>
         </trans-unit>
       </group>
     </body>

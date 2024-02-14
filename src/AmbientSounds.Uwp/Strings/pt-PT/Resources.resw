@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Modificar sua assinatura</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>Há uma nova atualização disponível! Reinicie agora para aplicar a atualização.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Reiniciar</value>
+  </data>
 </root>

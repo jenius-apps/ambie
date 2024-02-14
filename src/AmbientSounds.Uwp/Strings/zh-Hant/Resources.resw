@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>修改訂閱</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>有新的更新可用！立即重新啟動以應用更新。</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>重新啟動</value>
+  </data>
 </root>

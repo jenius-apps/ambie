@@ -839,4 +839,10 @@
   <data name="SettingsModifySubDescription" xml:space="preserve">
     <value>Modificare l'abbonamento</value>
   </data>
+  <data name="AppUpdateDescription" xml:space="preserve">
+    <value>C'è un nuovo aggiornamento disponibile! Riavvia ora per applicare l'aggiornamento.</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Riavviare</value>
+  </data>
 </root>
