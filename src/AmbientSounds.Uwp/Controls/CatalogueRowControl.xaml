@@ -6,6 +6,7 @@
     xmlns:animatedvisuals="using:AnimatedVisuals"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -212,15 +213,12 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Rectangle
+        <labs:Shimmer
             Grid.Row="1"
-            Height="{StaticResource ImageCardHeight}"
+            Height="256"
             Margin="0,8,16,0"
             HorizontalAlignment="Stretch"
             AutomationProperties.AccessibilityView="Raw"
-            Fill="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-            RadiusX="4"
-            RadiusY="4"
             Visibility="{x:Bind converters:VisibilityConverter.InvertBool(SoundsVisible), Mode=OneWay}" />
     </Grid>
 </UserControl>
