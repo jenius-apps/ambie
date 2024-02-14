@@ -199,8 +199,20 @@
                                     Margin="6,0,6,6"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
+                                    ui:VisualExtensions.NormalizedCenterPoint="0.5"
                                     Command="{x:Bind PlayCommand, Mode=OneWay}"
                                     Visibility="{x:Bind IsInstalled, Mode=OneWay}">
+                                    <ani:Implicit.ShowAnimations>
+                                        <ani:OpacityAnimation
+                                            From="0"
+                                            To="1"
+                                            Duration="0:0:0.3" />
+                                        <ani:ScaleAnimation
+                                            From="0.8"
+                                            To="1"
+                                            Duration="0:0:0.3" />
+                                    </ani:Implicit.ShowAnimations>
+
                                     <FontIcon
                                         FontFamily="{StaticResource FluentUIGlyphs}"
                                         FontSize="{StaticResource SmallIconSize}"
