@@ -67,20 +67,6 @@ public partial class SoundViewModel : ObservableObject
         IOnlineSoundRepository onlineSoundRepo,
         IAssetLocalizer assetLocalizer)
     {
-        Guard.IsNotNull(s);
-        Guard.IsNotNull(playerService);
-        Guard.IsNotNull(soundService);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(soundMixService);
-        Guard.IsNotNull(renamer);
-        Guard.IsNotNull(dialogService);
-        Guard.IsNotNull(iapService);
-        Guard.IsNotNull(downloadManager);
-        Guard.IsNotNull(presenceService);
-        Guard.IsNotNull(dispatcherQueue);
-        Guard.IsNotNull(onlineSoundRepo);
-        Guard.IsNotNull(assetLocalizer);
-
         _sound = s;
         _soundMixService = soundMixService;
         _playerService = playerService;
@@ -103,26 +89,8 @@ public partial class SoundViewModel : ObservableObject
     /// </summary>
     public string Id => _sound.Id;
 
-    /// <summary>
-    /// Determines if the plus badge is visible.
-    /// </summary>
-    public bool PlusBadgeVisible
-    {
-        get
-        {
-            if (_sound.IapIds.Count > 0)
-            {
-                return _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus();
-            }
-            else
-            {
-                // backwards compatibility
-#pragma warning disable CS0618
-                return _sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId;
-#pragma warning restore CS0618
-            }
-        }
-    }
+    [ObservableProperty]
+    private bool _lockIconVisible;
 
     /// <summary>
     /// The sound's attribution.
@@ -172,6 +140,7 @@ public partial class SoundViewModel : ObservableObject
         _playerService.MixPlayed += OnMixPlayed;
         _presenceService.SoundPresenceChanged += OnPresenceChanged;
         _presenceService.PresenceDisconnected += OnPresenceDisconnected;
+        _iapService.ProductPurchased += OnIapPurchased;
 
         DownloadActive = _downloadManager.IsDownloadActive(_sound);
         if (DownloadActive)
@@ -184,6 +153,34 @@ public partial class SoundViewModel : ObservableObject
         }
 
         UpdateIsCurrentlyPlaying();
+        _ = UpdateIsLockVisibleAsync();
+    }
+
+    private async void OnIapPurchased(object sender, string e)
+    {
+        await UpdateIsLockVisibleAsync();
+    }
+
+    private async Task UpdateIsLockVisibleAsync()
+    {
+        bool isPremium = _sound.IapIds.Count > 0
+            ? _sound.IsPremium && _sound.IapIds.ContainsAmbiePlus()
+#pragma warning disable CS0618
+            : _sound.IsPremium && _sound.IapId == IapConstants.MsStoreAmbiePlusId; // backwards compatibility
+#pragma warning restore CS0618
+
+        if (!isPremium)
+        {
+            return;
+        }
+
+        var owned = _sound.IapIds.Count > 0
+            ? await _iapService.IsAnyOwnedAsync(_sound.IapIds)
+#pragma warning disable CS0618
+            : await _iapService.IsOwnedAsync(_sound.IapId); // backwards compatibility
+#pragma warning restore CS0618
+
+        LockIconVisible = !owned;
     }
 
     private void RegisterProgress(IProgress<double> progress)

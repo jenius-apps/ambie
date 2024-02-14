@@ -399,11 +399,19 @@
             </Ellipse>
         </Grid>
 
-        <controls:PlusBadge
-            Margin="2,2,2,0"
-            HorizontalAlignment="Stretch"
+        <Grid
+            Margin="0,8,0,0"
+            Padding="4"
+            HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Visibility="{x:Bind ViewModel.PlusBadgeVisible, Mode=OneWay}" />
+            Background="{x:Bind controls:UIHelper.ToDarkerBrush(ViewModel.ColourHex, 0.2), Mode=OneWay}"
+            CornerRadius="4"
+            Visibility="{x:Bind ViewModel.LockIconVisible, Mode=OneWay}">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="12"
+                Glyph="{StaticResource GlyphUnlock}" />
+        </Grid>
 
         <Grid VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
