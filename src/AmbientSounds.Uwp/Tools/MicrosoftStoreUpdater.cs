@@ -50,7 +50,6 @@ public sealed class MicrosoftStoreUpdater : IAppStoreUpdater
     {
         _context ??= StoreContext.GetDefault();
 
-
         try
         {
             _updates = await _context.GetAppAndOptionalStorePackageUpdatesAsync();
@@ -58,6 +57,11 @@ public sealed class MicrosoftStoreUpdater : IAppStoreUpdater
         catch (FileNotFoundException)
         {
             // This exception occurs if the app is not associated with the store.
+            return false;
+        }
+
+        if (_updates is null)
+        {
             return false;
         }
 
