@@ -237,6 +237,10 @@ public class FocusService : IFocusService
             if (_skipSegmentRequested)
             {
                 _skipSegmentRequested = false;
+
+                // Reschedule toasts since we changed the original timeline.
+                _focusToastService.ClearToasts();
+                _focusToastService.ScheduleToasts(_sessionQueue.ToArray(), DateTime.Now);
             }
 
             if (_sessionQueue.Count > 0)
