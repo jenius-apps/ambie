@@ -115,7 +115,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    private bool _skipRestRequested;
+    private bool _skipSegmentRequested;
 
     [ObservableProperty]
     private bool _insightsVisible;
@@ -556,14 +556,14 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void SkipRestBreak()
+    private void SkipSegment()
     {
-        if (SkipRestRequested)
+        if (SkipSegmentRequested)
         {
             return;
         }
 
-        SkipRestRequested = _focusService.SkipRestBreak();
+        SkipSegmentRequested = _focusService.SkipSegment();
         _telemetry.TrackEvent(TelemetryConstants.FocusSkipClicked);
     }
 
@@ -661,9 +661,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         SecondsRemaining = e.Remaining.Seconds;
         UpdateButtonStates();
 
-        if (SkipRestRequested && IsFocusing)
+        if (SkipSegmentRequested)
         {
-            SkipRestRequested = false;
+            SkipSegmentRequested = false;
         }
     }
 }

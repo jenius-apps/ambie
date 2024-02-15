@@ -69,9 +69,9 @@ namespace AmbientSounds.Services
         bool CanStartSession(int focusLength, int restLength);
 
         /// <summary>
-        /// Skips the current rest break.
+        /// Skips the current segment.
         /// </summary>
         /// <returns>True if the request was acknowledged. False if not.</returns>
-        bool SkipRestBreak();
+        bool SkipSegment();
     }
 }

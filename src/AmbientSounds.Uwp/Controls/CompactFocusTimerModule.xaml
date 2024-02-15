@@ -254,15 +254,15 @@
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="12"
                             Glyph="{StaticResource GlyphThreeDots}"
-                            Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.SkipRestRequested), Mode=OneWay}" />
+                            Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.SkipSegmentRequested), Mode=OneWay}" />
 
                         <winui:ProgressRing
                             Width="14"
                             Height="14"
                             AutomationProperties.AccessibilityView="Raw"
                             Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                            IsActive="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}"
-                            Visibility="{x:Bind ViewModel.SkipRestRequested, Mode=OneWay}" />
+                            IsActive="{x:Bind ViewModel.SkipSegmentRequested, Mode=OneWay}"
+                            Visibility="{x:Bind ViewModel.SkipSegmentRequested, Mode=OneWay}" />
                     </Grid>
 
                     <Button.Flyout>
@@ -277,9 +277,8 @@
                             </MenuFlyoutItem>
                             <MenuFlyoutItem
                                 AutomationProperties.Name="{x:Bind strings:Resources.SkipThisSegment}"
-                                Command="{x:Bind ViewModel.SkipRestBreakCommand}"
-                                Text="{x:Bind strings:Resources.SkipThisSegment}"
-                                Visibility="{x:Bind ViewModel.IsResting, Mode=OneWay}">
+                                Command="{x:Bind ViewModel.SkipSegmentCommand}"
+                                Text="{x:Bind strings:Resources.SkipThisSegment}">
                                 <MenuFlyoutItem.Icon>
                                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSkip}" />
                                 </MenuFlyoutItem.Icon>
