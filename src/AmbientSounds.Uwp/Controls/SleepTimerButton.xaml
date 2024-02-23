@@ -1,0 +1,46 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.SleepTimerButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Button Style="{StaticResource SmallSubtleIconButton}">
+            <Grid>
+                <Border x:Name="ShadowTarget" />
+
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="{StaticResource SmallIconSize}"
+                    Glyph="{StaticResource GlyphMoon}"
+                    Visibility="Collapsed" />
+
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="{StaticResource SmallIconSize}"
+                    Foreground="{ThemeResource AccentFillColorDefaultBrush}"
+                    Glyph="{StaticResource GlyphMoonSolid}"
+                    Visibility="Visible" />
+            </Grid>
+
+            <Button.Flyout>
+                <MenuFlyout Placement="Bottom">
+                    <!--<Flyout.FlyoutPresenterStyle>
+                        <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
+                            <Setter Property="Padding" Value="12" />
+                        </Style>
+                    </Flyout.FlyoutPresenterStyle>-->
+                    <MenuFlyout.Items>
+                        <MenuFlyoutItem Text="15 minutes" />
+                        <MenuFlyoutItem Text="30 minutes" />
+                    </MenuFlyout.Items>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+    </Grid>
+</UserControl>

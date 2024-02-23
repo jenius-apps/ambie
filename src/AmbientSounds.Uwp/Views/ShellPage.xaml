@@ -195,6 +195,8 @@
                             Duration="0:0:0.6" />
                     </animations:Implicit.ShowAnimations>
                 </controls:SaveMixButton>
+
+                <controls:SleepTimerButton />
                 <Button
                     AutomationProperties.Name="{x:Bind strings:Resources.PlayRandom}"
                     Command="{x:Bind ViewModel.PlayRandomSoundCommand}"
