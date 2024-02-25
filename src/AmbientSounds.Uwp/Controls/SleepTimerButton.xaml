@@ -25,20 +25,31 @@
                     Glyph="{StaticResource GlyphMoon}"
                     Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.CountdownVisible), Mode=OneWay}" />
 
-                <winui:ProgressRing
-                    Width="20"
-                    Height="20"
-                    Foreground="{ThemeResource AccentFillColorDefaultBrush}"
-                    IsIndeterminate="False"
-                    Maximum="100"
-                    Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}"
-                    Value="{x:Bind ViewModel.PercentLeft, Mode=OneWay}" />
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="8"
-                    Foreground="{ThemeResource AccentFillColorDefaultBrush}"
-                    Glyph="{StaticResource GlyphMoonSolid}"
-                    Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}" />
+                <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:3" />
+                        <animations:ScaleAnimation
+                            From="0.5"
+                            To="1"
+                            Duration="0:0:3" />
+                    </animations:Implicit.ShowAnimations>
+
+                    <winui:ProgressRing
+                        Width="20"
+                        Height="20"
+                        Foreground="{ThemeResource AccentFillColorDefaultBrush}"
+                        IsIndeterminate="False"
+                        Maximum="100"
+                        Value="{x:Bind ViewModel.PercentLeft, Mode=OneWay}" />
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="8"
+                        Foreground="{ThemeResource AccentFillColorDefaultBrush}"
+                        Glyph="{StaticResource GlyphMoonSolid}" />
+                </Grid>
             </Grid>
 
             <Button.Flyout>
