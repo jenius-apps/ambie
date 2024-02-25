@@ -1,45 +1,15 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace AmbientSounds.ViewModels;
-
-public sealed partial class SleepTimerOptionsViewModel : ObservableObject
-{
-    private IRelayCommand<int> _startCommand { get; }
-
-    public SleepTimerOptionsViewModel(
-        int minutes,
-        string label,
-        IRelayCommand<int> startCommand)
-    {
-        Minutes = minutes;
-        Label = label;
-        _startCommand = startCommand;
-    }
-
-    [ObservableProperty]
-    private bool _isActive;
-
-    public string Label { get; } = string.Empty;
-
-    public int Minutes { get; }
-
-    [RelayCommand]
-    public void Start()
-    {
-        _startCommand.Execute(Minutes);
-    }
-}
-
 public partial class SleepTimerViewModel : ObservableObject
 {
     private const int DefaultTimerInterval = 1000; // ms
@@ -47,6 +17,7 @@ public partial class SleepTimerViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly ITimerService _timer;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private double _originalTime;
 
     [ObservableProperty]
     private bool _playVisible;
@@ -86,6 +57,9 @@ public partial class SleepTimerViewModel : ObservableObject
     [ObservableProperty]
     private string _timeLeft = string.Empty;
 
+    [ObservableProperty]
+    private double _percentLeft;
+
     public ObservableCollection<SleepTimerOptionsViewModel> Options { get; } = [];
     
     private void OnPlaybackStateChanged(object sender, MediaPlaybackState e)
@@ -115,6 +89,7 @@ public partial class SleepTimerViewModel : ObservableObject
             { "length", minutes.ToString() }
         });
 
+        _originalTime = minutes;
         var timeLeft = TimeSpan.FromMinutes(minutes);
         _timer.Remaining = timeLeft;
         UpdateTimeLeft(timeLeft);
@@ -157,6 +132,7 @@ public partial class SleepTimerViewModel : ObservableObject
 
         _timer.Stop();
         _timer.Remaining = TimeSpan.Zero;
+        _originalTime = 0;
         UpdateTimeLeft(TimeSpan.Zero);
         CountdownVisible = false;
         StopVisible = false;
@@ -193,5 +169,36 @@ public partial class SleepTimerViewModel : ObservableObject
         TimeLeft = timeLeft == TimeSpan.Zero
             ? string.Empty
             : timeLeft.ToString("g");
+        PercentLeft = _originalTime == 0
+            ? 0
+            : timeLeft.TotalMinutes / _originalTime * 100;
+    }
+}
+
+public sealed partial class SleepTimerOptionsViewModel : ObservableObject
+{
+    private IRelayCommand<int> _startCommand { get; }
+
+    public SleepTimerOptionsViewModel(
+        int minutes,
+        string label,
+        IRelayCommand<int> startCommand)
+    {
+        Minutes = minutes;
+        Label = label;
+        _startCommand = startCommand;
+    }
+
+    [ObservableProperty]
+    private bool _isActive;
+
+    public string Label { get; } = string.Empty;
+
+    public int Minutes { get; }
+
+    [RelayCommand]
+    public void Start()
+    {
+        _startCommand.Execute(Minutes);
     }
 }

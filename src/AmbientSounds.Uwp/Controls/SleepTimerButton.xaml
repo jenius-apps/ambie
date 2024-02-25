@@ -4,12 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -17,20 +19,26 @@
     <Grid>
         <Button Style="{StaticResource SmallSubtleIconButton}">
             <Grid>
-                <Border x:Name="ShadowTarget" />
-
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="{StaticResource SmallIconSize}"
                     Glyph="{StaticResource GlyphMoon}"
-                    Visibility="Collapsed" />
+                    Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.CountdownVisible), Mode=OneWay}" />
 
+                <winui:ProgressRing
+                    Width="20"
+                    Height="20"
+                    Foreground="{ThemeResource AccentFillColorDefaultBrush}"
+                    IsIndeterminate="False"
+                    Maximum="100"
+                    Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}"
+                    Value="{x:Bind ViewModel.PercentLeft, Mode=OneWay}" />
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="{StaticResource SmallIconSize}"
+                    FontSize="8"
                     Foreground="{ThemeResource AccentFillColorDefaultBrush}"
                     Glyph="{StaticResource GlyphMoonSolid}"
-                    Visibility="Visible" />
+                    Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}" />
             </Grid>
 
             <Button.Flyout>
