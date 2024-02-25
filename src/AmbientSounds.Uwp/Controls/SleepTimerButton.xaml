@@ -5,6 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:vm="using:AmbientSounds.ViewModels"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -29,17 +32,50 @@
             </Grid>
 
             <Button.Flyout>
-                <MenuFlyout Placement="Bottom">
-                    <!--<Flyout.FlyoutPresenterStyle>
+                <Flyout Placement="Bottom">
+                    <Flyout.FlyoutPresenterStyle>
                         <Style BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" TargetType="FlyoutPresenter">
                             <Setter Property="Padding" Value="12" />
                         </Style>
-                    </Flyout.FlyoutPresenterStyle>-->
-                    <MenuFlyout.Items>
-                        <MenuFlyoutItem Text="15 minutes" />
-                        <MenuFlyoutItem Text="30 minutes" />
-                    </MenuFlyout.Items>
-                </MenuFlyout>
+                    </Flyout.FlyoutPresenterStyle>
+
+                    <Grid MinWidth="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Sleep Timer" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,4,0,0"
+                            FontSize="20"
+                            Text="{x:Bind ViewModel.TimeLeft, Mode=OneWay}"
+                            Typography.NumeralAlignment="Tabular"
+                            Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}" />
+
+                        <ItemsControl
+                            Grid.Row="2"
+                            Margin="0,4,0,0"
+                            ItemsSource="{x:Bind ViewModel.Options}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <toolkit:WrapPanel HorizontalSpacing="{StaticResource SoundCardSpacingDouble}" VerticalSpacing="{StaticResource SoundCardSpacingDouble}" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="vm:SleepTimerOptionsViewModel">
+                                    <ToggleButton
+                                        Command="{x:Bind StartCommand}"
+                                        Content="{x:Bind Label}"
+                                        IsChecked="{x:Bind IsActive, Mode=OneWay}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Flyout>
             </Button.Flyout>
         </Button>
     </Grid>

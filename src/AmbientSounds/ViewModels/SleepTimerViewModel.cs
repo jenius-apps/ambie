@@ -8,8 +8,37 @@ using System;
 using System.Collections.Generic;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
+using System.Collections.ObjectModel;
 
 namespace AmbientSounds.ViewModels;
+
+public sealed partial class SleepTimerOptionsViewModel : ObservableObject
+{
+    private IRelayCommand<int> _startCommand { get; }
+
+    public SleepTimerOptionsViewModel(
+        int minutes,
+        string label,
+        IRelayCommand<int> startCommand)
+    {
+        Minutes = minutes;
+        Label = label;
+        _startCommand = startCommand;
+    }
+
+    [ObservableProperty]
+    private bool _isActive;
+
+    public string Label { get; } = string.Empty;
+
+    public int Minutes { get; }
+
+    [RelayCommand]
+    public void Start()
+    {
+        _startCommand.Execute(Minutes);
+    }
+}
 
 public partial class SleepTimerViewModel : ObservableObject
 {
@@ -37,17 +66,27 @@ public partial class SleepTimerViewModel : ObservableObject
         ITelemetry telemetry,
         IDispatcherQueue dispatcherQueue)
     {
-        Guard.IsNotNull(player);
-        Guard.IsNotNull(timer);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(dispatcherQueue);
-
         _player = player;
         _timer = timer;
         _telemetry = telemetry;
         _dispatcherQueue = dispatcherQueue;
         _timer.Interval = DefaultTimerInterval;
+
+        Options.Add(new SleepTimerOptionsViewModel(0, "Off", StartTimerCommand));
+        Options.Add(new SleepTimerOptionsViewModel(15, "15 min", StartTimerCommand));
+        Options.Add(new SleepTimerOptionsViewModel(30, "30 min", StartTimerCommand));
+
+        Options[0].IsActive = true;
     }
+
+    /// <summary>
+    /// String representation of time remaining.
+    /// E.g. 0:59:12 for 59 minutes and 12 seconds left.
+    /// </summary>
+    [ObservableProperty]
+    private string _timeLeft = string.Empty;
+
+    public ObservableCollection<SleepTimerOptionsViewModel> Options { get; } = [];
     
     private void OnPlaybackStateChanged(object sender, MediaPlaybackState e)
     {
@@ -57,22 +96,28 @@ public partial class SleepTimerViewModel : ObservableObject
             PlayTimer();
     }
 
-    /// <summary>
-    /// String representation of time remaining.
-    /// E.g. 0:59:12 for 59 minutes and 12 seconds left.
-    /// </summary>
-    public string TimeLeft => _timer.Remaining.ToString("g");
-
     [RelayCommand]
     private void StartTimer(int minutes)
     {
+        if (minutes == 0)
+        {
+            StopTimer();
+            return;
+        }
+
+        foreach (var option in Options)
+        {
+            option.IsActive = option.Minutes == minutes;
+        }
+
         _telemetry.TrackEvent(TelemetryConstants.TimeSelected, new Dictionary<string, string>
         {
             { "length", minutes.ToString() }
         });
 
-        _timer.Remaining = TimeSpan.FromMinutes(minutes);
-        OnPropertyChanged(nameof(TimeLeft));
+        var timeLeft = TimeSpan.FromMinutes(minutes);
+        _timer.Remaining = timeLeft;
+        UpdateTimeLeft(timeLeft);
         CountdownVisible = true;
         _timer.Start();
         StopVisible = true;
@@ -105,9 +150,14 @@ public partial class SleepTimerViewModel : ObservableObject
     [RelayCommand]
     private void StopTimer()
     {
+        foreach (var option in Options)
+        {
+            option.IsActive = option.Minutes == 0;
+        }
+
         _timer.Stop();
         _timer.Remaining = TimeSpan.Zero;
-        OnPropertyChanged(nameof(TimeLeft));
+        UpdateTimeLeft(TimeSpan.Zero);
         CountdownVisible = false;
         StopVisible = false;
         PlayVisible = false;
@@ -117,7 +167,7 @@ public partial class SleepTimerViewModel : ObservableObject
     {
         _dispatcherQueue.TryEnqueue(() =>
         {
-            OnPropertyChanged(nameof(TimeLeft));
+            UpdateTimeLeft(remaining);
             if (remaining < TimeSpan.FromSeconds(1))
             {
                 StopTimer();
@@ -132,9 +182,16 @@ public partial class SleepTimerViewModel : ObservableObject
         _player.PlaybackStateChanged += OnPlaybackStateChanged;
     }
 
-    public void Dispose()
+    public void Uninitialize()
     {
         _timer.IntervalElapsed -= TimerElapsed;
         _player.PlaybackStateChanged -= OnPlaybackStateChanged;
+    }
+
+    private void UpdateTimeLeft(TimeSpan timeLeft)
+    {
+        TimeLeft = timeLeft == TimeSpan.Zero
+            ? string.Empty
+            : timeLeft.ToString("g");
     }
 }
