@@ -108,6 +108,11 @@ public sealed class SleepTimerService : ISleepTimerService
 
     private void OnPlaybackStateChanged(object sender, MediaPlaybackState e)
     {
+        if (State is SleepTimerState.Off)
+        {
+            return;
+        }
+
         if (e is MediaPlaybackState.Paused)
         {
             PauseTimer();

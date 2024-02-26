@@ -98,17 +98,27 @@ public partial class SleepTimerViewModel : ObservableObject
     public void Initialize()
     {
         _sleepTimerService.TimerIntervalElapsed += TimerElapsed;
+        _sleepTimerService.StateChanged += StateChanged;
     }
 
     public void Uninitialize()
     {
         _sleepTimerService.TimerIntervalElapsed -= TimerElapsed;
+        _sleepTimerService.StateChanged -= StateChanged;
     }
 
     private void UpdateTimeLeft()
     {
         TimeLeft = _sleepTimerService.TimeLeft.ToString("g");
         PercentLeft = _sleepTimerService.PercentLeft;
+    }
+
+    private void StateChanged(object sender, SleepTimerState e)
+    {
+        if (e is SleepTimerState.Off)
+        {
+            CountdownVisible = false;
+        }
     }
 }
 
