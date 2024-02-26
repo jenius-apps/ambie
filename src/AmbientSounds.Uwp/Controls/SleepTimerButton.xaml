@@ -60,7 +60,7 @@
                         </Style>
                     </Flyout.FlyoutPresenterStyle>
 
-                    <Grid MinWidth="200">
+                    <Grid Width="200">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="auto" />
@@ -122,6 +122,7 @@
                                     <ToggleButton
                                         Command="{x:Bind StartCommand}"
                                         Content="{x:Bind Label}"
+                                        FontSize="10"
                                         IsChecked="{x:Bind IsActive, Mode=OneWay}" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
@@ -129,7 +130,6 @@
 
                         <TextBlock
                             Grid.Row="4"
-                            MaxWidth="200"
                             Margin="0,6,0,0"
                             FontSize="10"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"

@@ -2,6 +2,8 @@
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Humanizer;
+using Humanizer.Localisation;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
@@ -14,19 +16,26 @@ public partial class SleepTimerViewModel : ObservableObject
     private readonly ISleepTimerService _sleepTimerService;
     private readonly ITelemetry _telemetry;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private readonly ILocalizer _localizer;
+    private readonly int[] _timeOptions = [15, 30, 45, 60, 90, 120];
 
     public SleepTimerViewModel(
         ISleepTimerService sleepTimerService, 
         ITelemetry telemetry,
-        IDispatcherQueue dispatcherQueue)
+        IDispatcherQueue dispatcherQueue,
+        ILocalizer localizer)
     {
         _sleepTimerService = sleepTimerService;
         _telemetry = telemetry;
         _dispatcherQueue = dispatcherQueue;
+        _localizer = localizer;
 
-        Options.Add(new SleepTimerOptionsViewModel(0, "Off", StartTimerCommand));
-        Options.Add(new SleepTimerOptionsViewModel(15, "15 min", StartTimerCommand));
-        Options.Add(new SleepTimerOptionsViewModel(30, "30 min", StartTimerCommand));
+        Options.Add(new SleepTimerOptionsViewModel(0, _localizer.GetString("OffTextBlock/Text"), StartTimerCommand));
+
+        foreach (var option in _timeOptions)
+        {
+            Options.Add(new SleepTimerOptionsViewModel(option, TimeSpan.FromMinutes(option).Humanize(maxUnit: TimeUnit.Minute), StartTimerCommand));
+        }
 
         Options[0].IsActive = true;
     }
