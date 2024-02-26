@@ -1,6 +1,5 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
-using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
@@ -12,36 +11,18 @@ using System.Collections.ObjectModel;
 namespace AmbientSounds.ViewModels;
 public partial class SleepTimerViewModel : ObservableObject
 {
-    private const int DefaultTimerInterval = 1000; // ms
-    private readonly IMixMediaPlayerService _player;
+    private readonly ISleepTimerService _sleepTimerService;
     private readonly ITelemetry _telemetry;
-    private readonly ITimerService _timer;
     private readonly IDispatcherQueue _dispatcherQueue;
-    private double _originalTime;
-
-    [ObservableProperty]
-    private bool _playVisible;
-
-    [ObservableProperty]
-    private bool _stopVisible;
-
-    /// <summary>
-    /// Determines if the sleep timer's countdown is visible.
-    /// </summary>
-    [ObservableProperty]
-    private bool _countdownVisible;
 
     public SleepTimerViewModel(
-        IMixMediaPlayerService player,
-        ITimerService timer,
+        ISleepTimerService sleepTimerService, 
         ITelemetry telemetry,
         IDispatcherQueue dispatcherQueue)
     {
-        _player = player;
-        _timer = timer;
+        _sleepTimerService = sleepTimerService;
         _telemetry = telemetry;
         _dispatcherQueue = dispatcherQueue;
-        _timer.Interval = DefaultTimerInterval;
 
         Options.Add(new SleepTimerOptionsViewModel(0, "Off", StartTimerCommand));
         Options.Add(new SleepTimerOptionsViewModel(15, "15 min", StartTimerCommand));
@@ -51,25 +32,27 @@ public partial class SleepTimerViewModel : ObservableObject
     }
 
     /// <summary>
+    /// Determines if the sleep timer's countdown is visible.
+    /// </summary>
+    [ObservableProperty]
+    private bool _countdownVisible;
+
+    /// <summary>
     /// String representation of time remaining.
     /// E.g. 0:59:12 for 59 minutes and 12 seconds left.
     /// </summary>
     [ObservableProperty]
     private string _timeLeft = string.Empty;
 
+    /// <summary>
+    /// Time left in the sleep timer in the form of a
+    /// decrementing percentage. E.g. 100 > 99 > 98...
+    /// </summary>
     [ObservableProperty]
     private double _percentLeft;
 
     public ObservableCollection<SleepTimerOptionsViewModel> Options { get; } = [];
     
-    private void OnPlaybackStateChanged(object sender, MediaPlaybackState e)
-    {
-        if (e == MediaPlaybackState.Paused)
-            PauseTimer();
-        else if (e == MediaPlaybackState.Opening || e == MediaPlaybackState.Playing)
-            PlayTimer();
-    }
-
     [RelayCommand]
     private void StartTimer(int minutes)
     {
@@ -84,42 +67,14 @@ public partial class SleepTimerViewModel : ObservableObject
             option.IsActive = option.Minutes == minutes;
         }
 
+        _sleepTimerService.StartTimer(minutes);
+        UpdateTimeLeft();
+        CountdownVisible = true;
+
         _telemetry.TrackEvent(TelemetryConstants.TimeSelected, new Dictionary<string, string>
         {
             { "length", minutes.ToString() }
         });
-
-        _originalTime = minutes;
-        var timeLeft = TimeSpan.FromMinutes(minutes);
-        _timer.Remaining = timeLeft;
-        UpdateTimeLeft(timeLeft);
-        CountdownVisible = true;
-        _timer.Start();
-        StopVisible = true;
-        PlayVisible = false;
-    }
-
-    [RelayCommand]
-    private void PlayTimer()
-    {
-        if (_timer.Remaining > TimeSpan.Zero)
-        {
-            _timer.Start();
-            StopVisible = true;
-            PlayVisible = false;
-        }
-    }
-
-    [RelayCommand]
-    private void PauseTimer()
-    {
-        _timer.Stop();
-        StopVisible = false;
-
-        if (_timer.Remaining > TimeSpan.Zero)
-        {
-            PlayVisible = true;
-        }
     }
 
     [RelayCommand]
@@ -130,48 +85,30 @@ public partial class SleepTimerViewModel : ObservableObject
             option.IsActive = option.Minutes == 0;
         }
 
-        _timer.Stop();
-        _timer.Remaining = TimeSpan.Zero;
-        _originalTime = 0;
-        UpdateTimeLeft(TimeSpan.Zero);
+        _sleepTimerService.StopTimer();
+        UpdateTimeLeft();
         CountdownVisible = false;
-        StopVisible = false;
-        PlayVisible = false;
     }
 
     private void TimerElapsed(object sender, TimeSpan remaining)
     {
-        _dispatcherQueue.TryEnqueue(() =>
-        {
-            UpdateTimeLeft(remaining);
-            if (remaining < TimeSpan.FromSeconds(1))
-            {
-                StopTimer();
-                _player.Pause();
-            }
-        });
+        _dispatcherQueue.TryEnqueue(UpdateTimeLeft);
     }
 
     public void Initialize()
     {
-        _timer.IntervalElapsed += TimerElapsed;
-        _player.PlaybackStateChanged += OnPlaybackStateChanged;
+        _sleepTimerService.TimerIntervalElapsed += TimerElapsed;
     }
 
     public void Uninitialize()
     {
-        _timer.IntervalElapsed -= TimerElapsed;
-        _player.PlaybackStateChanged -= OnPlaybackStateChanged;
+        _sleepTimerService.TimerIntervalElapsed -= TimerElapsed;
     }
 
-    private void UpdateTimeLeft(TimeSpan timeLeft)
+    private void UpdateTimeLeft()
     {
-        TimeLeft = timeLeft == TimeSpan.Zero
-            ? string.Empty
-            : timeLeft.ToString("g");
-        PercentLeft = _originalTime == 0
-            ? 0
-            : timeLeft.TotalMinutes / _originalTime * 100;
+        TimeLeft = _sleepTimerService.TimeLeft.ToString("g");
+        PercentLeft = _sleepTimerService.PercentLeft;
     }
 }
 
