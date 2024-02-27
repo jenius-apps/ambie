@@ -842,4 +842,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Redémarrer</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie s’arrêtera à la fin de la minuterie</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Minuterie de mise en veille</value>
+  </data>
 </root>

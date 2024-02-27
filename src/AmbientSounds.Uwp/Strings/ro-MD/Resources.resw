@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Reîncepe</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie se va întrerupe când cronometrul se termină</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Temporizator de oprire</value>
+  </data>
 </root>

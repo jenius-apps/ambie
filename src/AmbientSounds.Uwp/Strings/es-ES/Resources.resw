@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Reanudar</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie se detendrá cuando finalice el temporizador</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Temporizador</value>
+  </data>
 </root>

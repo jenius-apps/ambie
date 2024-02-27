@@ -5,7 +5,6 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ex="using:JeniusApps.Common.UI.Uwp"
-    xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -17,7 +16,10 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Button Style="{StaticResource SmallSubtleIconButton}">
+        <Button
+            AutomationProperties.Name="{x:Bind strings:Resources.SleepTimerText}"
+            Style="{StaticResource SmallSubtleIconButton}"
+            ToolTipService.ToolTip="{x:Bind strings:Resources.SleepTimerText}">
             <Grid>
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
@@ -37,6 +39,13 @@
                             Duration="0:0:3" />
                     </animations:Implicit.ShowAnimations>
 
+                    <winui:ProgressRing
+                        Width="20"
+                        Height="20"
+                        Foreground="{ThemeResource AccentFillColorDisabledBrush}"
+                        IsIndeterminate="False"
+                        Maximum="100"
+                        Value="100" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
@@ -72,7 +81,7 @@
                         <TextBlock
                             FontSize="12"
                             Foreground="{ThemeResource AccentFillColorDefaultBrush}"
-                            Text="Sleep Timer" />
+                            Text="{x:Bind strings:Resources.SleepTimerText}" />
 
                         <Rectangle
                             Grid.Row="1"
@@ -82,7 +91,7 @@
 
                         <TextBlock
                             Grid.Row="2"
-                            Margin="0,2,0,0"
+                            Margin="0,4,0,0"
                             HorizontalAlignment="Left"
                             ui:VisualExtensions.NormalizedCenterPoint="0.5"
                             FontSize="16"
@@ -107,7 +116,7 @@
 
                         <ItemsControl
                             Grid.Row="3"
-                            Margin="0,8,0,0"
+                            Margin="0,6,0,0"
                             ItemsSource="{x:Bind ViewModel.Options}">
                             <animations:Implicit.Animations>
                                 <animations:OffsetAnimation Duration="0:0:0.3" />
@@ -120,6 +129,7 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="vm:SleepTimerOptionsViewModel">
                                     <ToggleButton
+                                        AutomationProperties.Name="{x:Bind Label}"
                                         Command="{x:Bind StartCommand}"
                                         Content="{x:Bind Label}"
                                         FontSize="10"
@@ -130,11 +140,11 @@
 
                         <TextBlock
                             Grid.Row="4"
-                            Margin="0,6,0,0"
+                            Margin="0,12,0,0"
                             FontSize="10"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             Style="{StaticResource CaptionTextBlockStyle}"
-                            Text="Ambie will pause when the timer ends."
+                            Text="{x:Bind strings:Resources.SleepTimerDescription}"
                             TextWrapping="WrapWholeWords"
                             Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}">
                             <animations:Implicit.ShowAnimations>

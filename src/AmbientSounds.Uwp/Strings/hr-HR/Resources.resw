@@ -833,4 +833,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Ponovno pokretanje</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie će pauzirati kada tajmer završi</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Mjerač vremena spavanja</value>
+  </data>
 </root>

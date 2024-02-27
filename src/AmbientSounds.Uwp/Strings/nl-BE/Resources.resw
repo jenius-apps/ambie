@@ -815,4 +815,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Herstarten</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie pauzeert wanneer de timer afloopt</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Slaap Timer</value>
+  </data>
 </root>

@@ -950,4 +950,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Restart</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie will pause when the timer ends</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Sleep Timer</value>
+  </data>
 </root>

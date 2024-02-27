@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Restartovat</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie se po skončení časovače pozastaví</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Časovač vypnutí</value>
+  </data>
 </root>

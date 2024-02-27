@@ -1113,6 +1113,14 @@
           <source>Restart</source>
           <target state="translated">اعاده تشغيل</target>
         </trans-unit>
+        <trans-unit id="SleepTimerDescription" translate="yes" xml:space="preserve">
+          <source>Ambie will pause when the timer ends</source>
+          <target state="translated">سيتوقف Ambie مؤقتا عند انتهاء المؤقت</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerText" translate="yes" xml:space="preserve">
+          <source>Sleep Timer</source>
+          <target state="translated">مؤقت النوم</target>
+        </trans-unit>
       </group>
     </body>
   </file>

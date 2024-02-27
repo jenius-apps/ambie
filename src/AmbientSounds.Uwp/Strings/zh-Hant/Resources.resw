@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>重新啟動</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>當計時器結束時，Ambie 將暫停</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>睡眠定時器</value>
+  </data>
 </root>
