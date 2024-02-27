@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace AmbientSounds.ViewModels;
+
 public partial class SleepTimerViewModel : ObservableObject
 {
     private readonly ISleepTimerService _sleepTimerService;
@@ -133,7 +134,7 @@ public partial class SleepTimerViewModel : ObservableObject
 
 public sealed partial class SleepTimerOptionsViewModel : ObservableObject
 {
-    private IRelayCommand<int> _startCommand { get; }
+    private readonly IRelayCommand<int> _startCommand;
 
     public SleepTimerOptionsViewModel(
         int minutes,
