@@ -2809,6 +2809,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SleepTimerDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Ambie will pause when the timer ends
+        /// </summary>
+        public static string SleepTimerDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SleepTimerDescription");
+            }
+        }
+        #endregion
+
+        #region SleepTimerText
+        /// <summary>
+        ///   Looks up a localized string similar to: Sleep Timer
+        /// </summary>
+        public static string SleepTimerText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SleepTimerText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3035,6 +3061,8 @@ namespace AmbientSounds.Strings{
             SettingsModifySubDescription,
             AppUpdateDescription,
             RestartText,
+            SleepTimerDescription,
+            SleepTimerText,
         }
 
         private static ResourceLoader _resourceLoader;

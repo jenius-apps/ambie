@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>להפעיל מחדש</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>אמבי ישהה כשהטיימר יסתיים</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>טיימר שינה</value>
+  </data>
 </root>

@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Starta om</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie pausar när timern slutar</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Insomningstimer</value>
+  </data>
 </root>

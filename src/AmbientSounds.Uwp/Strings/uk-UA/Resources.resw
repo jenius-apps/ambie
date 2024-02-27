@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Перезавантажувати</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie зробить паузу, коли таймер закінчиться</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Таймер сну</value>
+  </data>
 </root>

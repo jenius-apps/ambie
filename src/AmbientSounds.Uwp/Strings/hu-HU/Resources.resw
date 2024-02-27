@@ -833,4 +833,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Újraindítás</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Az Ambie szünetel, amikor az időzítő véget ér</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Elalvás időzítő</value>
+  </data>
 </root>

@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>再起動</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>タイマーが終了すると、Ambie は一時停止します</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>スリープタイマー</value>
+  </data>
 </root>

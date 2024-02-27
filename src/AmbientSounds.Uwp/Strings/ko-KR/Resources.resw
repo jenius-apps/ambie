@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>다시 시작할</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>타이머가 끝나면 Ambie가 일시 중지됩니다.</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>취침 타이머</value>
+  </data>
 </root>

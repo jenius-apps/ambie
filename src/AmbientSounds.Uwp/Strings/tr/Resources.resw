@@ -839,4 +839,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Yeni -den başlatın</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Zamanlayıcı sona erdiğinde Ambie duraklayacaktır</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Uyku Zamanlayıcısı</value>
+  </data>
 </root>

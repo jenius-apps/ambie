@@ -9,16 +9,28 @@ public class PlaybackModeObserver
 {
     private readonly IFocusService _focusService;
     private readonly IGuideService _guideService;
+    private readonly ISleepTimerService _sleepTimerService;
 
     public PlaybackModeObserver(
         IFocusService focusService,
-        IGuideService guideService)
+        IGuideService guideService,
+        ISleepTimerService sleepTimerService)
     {
         _focusService = focusService;
         _guideService = guideService;
+        _sleepTimerService = sleepTimerService;
 
         _focusService.FocusStateChanged += OnFocusStateChanged;
         _guideService.GuideStarted += OnGuideStarted;
+        _sleepTimerService.StateChanged += OnSleepTimerStateChanged;
+    }
+
+    private void OnSleepTimerStateChanged(object sender, SleepTimerState e)
+    {
+        if (e is SleepTimerState.Running)
+        {
+            _focusService.StopTimer(pauseSounds: false);
+        }
     }
 
     private void OnGuideStarted(object sender, string e)
@@ -34,6 +46,7 @@ public class PlaybackModeObserver
         if (e == FocusState.Active)
         {
             _guideService.Stop();
+            _sleepTimerService.StopTimer();
         }
     }
 }

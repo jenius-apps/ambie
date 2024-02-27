@@ -842,4 +842,10 @@
   <data name="AppUpdateDescription" xml:space="preserve">
     <value>Dostępna jest nowa aktualizacja! Uruchom ponownie teraz, aby zastosować aktualizację.</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie zatrzyma się, gdy skończy się odliczanie</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Wyłącznik czasowy</value>
+  </data>
 </root>

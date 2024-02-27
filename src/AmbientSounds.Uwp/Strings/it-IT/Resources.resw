@@ -845,4 +845,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Riavviare</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Ambie si fermerà al termine del timer</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Timer</value>
+  </data>
 </root>

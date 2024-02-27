@@ -1118,6 +1118,14 @@
           <source>Restart</source>
           <target state="new">Restart</target>
         </trans-unit>
+        <trans-unit id="SleepTimerDescription" translate="yes" xml:space="preserve">
+          <source>Ambie will pause when the timer ends</source>
+          <target state="translated">Ambie zatrzyma się, gdy skończy się odliczanie</target>
+        </trans-unit>
+        <trans-unit id="SleepTimerText" translate="yes" xml:space="preserve">
+          <source>Sleep Timer</source>
+          <target state="translated">Wyłącznik czasowy</target>
+        </trans-unit>
       </group>
     </body>
   </file>

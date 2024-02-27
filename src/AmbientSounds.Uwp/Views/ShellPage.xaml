@@ -195,6 +195,7 @@
                             Duration="0:0:0.6" />
                     </animations:Implicit.ShowAnimations>
                 </controls:SaveMixButton>
+
                 <Button
                     AutomationProperties.Name="{x:Bind strings:Resources.PlayRandom}"
                     Command="{x:Bind ViewModel.PlayRandomSoundCommand}"
@@ -226,6 +227,8 @@
                         FontSize="14"
                         Glyph="{StaticResource GlyphShare}" />
                 </Button>
+
+                <controls:SleepTimerButton x:Name="SleepTimer" />
             </StackPanel>
         </Grid>
 

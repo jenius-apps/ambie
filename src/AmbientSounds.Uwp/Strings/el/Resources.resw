@@ -830,4 +830,10 @@
   <data name="RestartText" xml:space="preserve">
     <value>Επανεκκίνηση</value>
   </data>
+  <data name="SleepTimerDescription" xml:space="preserve">
+    <value>Το Ambie θα σταματήσει όταν τελειώσει το χρονόμετρο</value>
+  </data>
+  <data name="SleepTimerText" xml:space="preserve">
+    <value>Χρονοδιακόπτης ύπνου</value>
+  </data>
 </root>
