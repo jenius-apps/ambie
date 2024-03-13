@@ -121,12 +121,7 @@ namespace AmbientSounds.Services
             var sounds = await _soundService.GetLocalSoundsAsync(soundIds: mix.SoundIds);
             if (sounds is not null && sounds.Count == mix.SoundIds.Length)
             {
-                foreach (var soundId in mix.SoundIds)
-                {
-                    var sound = sounds.FirstOrDefault(x => x.Id == soundId);
-                    await _player.ToggleSoundAsync(sound, parentMixId: mix.Id);
-                }
-
+                await _player.ToggleSoundsAsync(sounds, mix.Id);
                 return true;
             }
 

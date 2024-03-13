@@ -30,6 +30,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private (string GuideId, IMediaPlayer GuidePlayer)? _guideInfo;
     private double _globalVolume;
     private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
+    private string[] _lastAddedSoundIds = [];
 
     /// <inheritdoc/>
     public event EventHandler<SoundPlayedArgs>? SoundAdded;
@@ -210,6 +211,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             player.Volume = _globalVolume;
 
             _guideInfo = (guide.Id, player);
+
+            _lastAddedSoundIds = [guide.Id];
             Play();
         }
     }
@@ -217,6 +220,18 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private void OnGuidePositionChanged(object sender, TimeSpan e)
     {
         GuidePositionChanged?.Invoke(sender, e);
+    }
+
+    /// <inheritdoc/>
+    public async Task ToggleSoundsAsync(IReadOnlyList<Sound> sounds, string parentMixId = "")
+    {
+        var lastIndex = sounds.Count - 1;
+        var index = 0;
+        foreach (var sound in sounds)
+        {
+            await ToggleSoundAsync(sound, keepPaused: index != lastIndex, parentMixId: parentMixId);
+            index++;
+        }
     }
 
     /// <inheritdoc/>
@@ -265,6 +280,8 @@ public class MixMediaPlayerService : IMixMediaPlayerService
                 if (!_soundNames.ContainsKey(sound.Id)) _soundNames.Add(sound.Id, _assetLocalizer.GetLocalName(sound));
                 RefreshSmtcTitle();
 
+                _lastAddedSoundIds = [sound.Id];
+
                 if (keepPaused) Pause();
                 else Play();
 
@@ -295,14 +312,34 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     public void Play()
     {
+        bool fadeAll = PlaybackState is not MediaPlaybackState.Playing;
         PlaybackState = MediaPlaybackState.Playing;
         foreach (var key in _activePlayers.Keys)
         {
             double volume = _userSettings.Get($"{key}:volume", 100d) / 100;
-            _activePlayers[key].Play(fadeInTargetVolume: volume * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
+
+            if (fadeAll || _lastAddedSoundIds.Contains(key))
+            {
+                _activePlayers[key].Play(fadeInTargetVolume: volume * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
+            }
+            else
+            {
+                _activePlayers[key].Play();
+            }
         }
 
-        _guideInfo?.GuidePlayer.Play(fadeInTargetVolume: 1.0 * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
+        if (fadeAll || _lastAddedSoundIds.Contains(_guideInfo?.GuideId))
+        {
+            _guideInfo?.GuidePlayer.Play(fadeInTargetVolume: 1.0 * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
+        }
+        else
+        {
+            _guideInfo?.GuidePlayer.Play();
+        }
+
+        // Reset this so that the next time play is clicked,
+        // we don't repeat the fade for a sound that was faded.
+        _lastAddedSoundIds = [];
     }
 
     public void Pause()

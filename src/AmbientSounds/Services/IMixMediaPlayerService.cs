@@ -102,6 +102,11 @@ namespace AmbientSounds.Services
         Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "");
 
         /// <summary>
+        /// Plays the the list of sounds.
+        /// </summary>
+        Task ToggleSoundsAsync(IReadOnlyList<Sound> sounds, string parentMixId = "");
+
+        /// <summary>
         /// Updates the <see cref="CurrentMixId"/>
         /// and raises an event indicating the mix is
         /// now playing.
