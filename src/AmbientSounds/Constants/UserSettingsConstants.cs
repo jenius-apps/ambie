@@ -187,7 +187,7 @@ namespace AmbientSounds.Constants
             { ActiveStreakKey, 0 },
             { ActiveStreakUpdateDateTicksKey, 0L },
             { StreakReminderLastDateTicksKey, 0L },
-            { StreaksReminderEnabledKey, true },
+            { StreaksReminderEnabledKey, false },
             { LastUsedContentPageKey, string.Empty },
         };
     }
