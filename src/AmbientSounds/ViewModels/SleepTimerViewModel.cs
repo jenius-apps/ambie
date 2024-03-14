@@ -19,6 +19,7 @@ public partial class SleepTimerViewModel : ObservableObject
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ILocalizer _localizer;
     private readonly int[] _timeOptions = [15, 30, 45, 60, 90, 120];
+    private SleepTimerOptionsViewModel? _activeTimerOption;
 
     public SleepTimerViewModel(
         ISleepTimerService sleepTimerService, 
@@ -66,7 +67,7 @@ public partial class SleepTimerViewModel : ObservableObject
     [RelayCommand]
     private void StartTimer(int minutes)
     {
-        if (minutes == 0)
+        if (minutes == 0 || _activeTimerOption?.Minutes == minutes)
         {
             StopTimer();
             return;
@@ -75,6 +76,11 @@ public partial class SleepTimerViewModel : ObservableObject
         foreach (var option in Options)
         {
             option.IsActive = option.Minutes == minutes;
+
+            if (option.IsActive)
+            {
+                _activeTimerOption = option;
+            }
         }
 
         _sleepTimerService.StartTimer(minutes);
@@ -90,6 +96,7 @@ public partial class SleepTimerViewModel : ObservableObject
     [RelayCommand]
     private void StopTimer()
     {
+        _activeTimerOption = null;
         foreach (var option in Options)
         {
             option.IsActive = option.Minutes == 0;
