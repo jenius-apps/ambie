@@ -718,13 +718,7 @@
       <Version>0.0.1</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.34-preview</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>5.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>5.0.2</Version>
+      <Version>0.0.35-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>
