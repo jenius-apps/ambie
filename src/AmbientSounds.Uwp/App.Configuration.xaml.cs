@@ -1,12 +1,9 @@
 ﻿using AmbientSounds.Services.Uwp;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
-using JeniusApps.Common.Telemetry.Uwp;
 using JeniusApps.Common.Telemetry;
-using Microsoft.AppCenter;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using Windows.Globalization;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Extensions.DependencyInjection;
 using System.Net.Http;
@@ -54,17 +51,16 @@ partial class App
 
         // Manually register additional services requiring more customization
         collection.AddSingleton(appsettings ?? new AppSettings());
-        collection.AddSingleton<ITelemetry, AppCenterTelemetry>(s =>
+        collection.AddSingleton<ITelemetry, SentryTelemetry>(s =>
         {
             var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
-            return new AppCenterTelemetry(apiKey);
+            return new SentryTelemetry(apiKey);
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
 
-        // preload telemetry to ensure country code is set.
+        // Preload telemetry so it's configured as soon as possible.
         provider.GetService<ITelemetry>();
-        AppCenter.SetCountryCode(new GeographicRegion().CodeTwoLetter);
 
         // preload appservice controller to ensure its
         // dispatcher queue loads properly on the ui thread.

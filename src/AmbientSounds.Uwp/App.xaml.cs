@@ -18,7 +18,6 @@ using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
-using Windows.UI.Core.Preview;
 using Windows.UI.Notifications;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -49,6 +48,7 @@ sealed partial class App : Application
         this.InitializeComponent();
         this.Suspending += OnSuspension;
         this.Resuming += OnResuming;
+        this.UnhandledException += OnUnhandledException;
         NetworkHelper.Instance.NetworkChanged += OnNetworkChanged;
 
         if (IsTenFoot)
@@ -397,6 +397,14 @@ sealed partial class App : Application
         else
         {
             ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.Theme] = "default";
+        }
+    }
+
+    private void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+    {
+        if (_serviceProvider?.GetRequiredService<ITelemetry>() is { } telemetry)
+        {
+            telemetry.TrackError(e.Exception);
         }
     }
 }
