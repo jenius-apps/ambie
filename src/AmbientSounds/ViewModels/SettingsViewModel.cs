@@ -102,7 +102,11 @@ public partial class SettingsViewModel : ObservableObject
     public bool TelemetryEnabled
     {
         get => _userSettings.Get<bool>(UserSettingsConstants.TelemetryOn);
-        set => _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.TelemetryOn, value);
+            _telemetry.SetEnabled(value);
+        }
     }
 
     /// <summary>

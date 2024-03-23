@@ -14,6 +14,7 @@ using JeniusApps.Common.Tools;
 using AmbientSounds.Factories;
 using AmbientSounds.Cache;
 using AmbientSounds.Repositories;
+using AmbientSounds.Constants;
 
 #nullable enable
 
@@ -54,7 +55,8 @@ partial class App
         collection.AddSingleton<ITelemetry, SentryTelemetry>(s =>
         {
             var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
-            return new SentryTelemetry(apiKey);
+            var isEnabled = s.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.TelemetryOn);
+            return new SentryTelemetry(apiKey, isEnabled: isEnabled);
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
