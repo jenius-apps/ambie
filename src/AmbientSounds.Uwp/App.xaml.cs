@@ -91,23 +91,22 @@ sealed partial class App : Application
     {
         var deferral = e.SuspendingOperation.GetDeferral();
         _playerTracker?.TrackDuration(DateTimeOffset.Now);
-        if (_serviceProvider?.GetService<IFocusService>() is IFocusService focusService &&
-            focusService.CurrentState == AmbientSounds.Services.FocusState.Active)
+        if (_serviceProvider is { } serviceProvider)
         {
-            // We don't support focus sessions when ambie is suspended,
-            // and we want to make sure notifications are cancelled.
-            // Note: If music is playing, then ambie won't suspend on minimize.
-            focusService.PauseTimer();
-        }
+            var flushTask = serviceProvider.GetRequiredService<ITelemetry>().FlushAsync();
 
-        if (_serviceProvider?.GetService<IFocusNotesService>() is IFocusNotesService notesService)
-        {
-            await notesService.SaveNotesToStorageAsync();
-        }
+            if (serviceProvider.GetRequiredService<IFocusService>() is { } focusService &&
+                focusService.CurrentState == AmbientSounds.Services.FocusState.Active)
+            {
+                // We don't support focus sessions when ambie is suspended,
+                // and we want to make sure notifications are cancelled.
+                // Note: If music is playing, then ambie won't suspend on minimize.
+                focusService.PauseTimer();
+            }
 
-        if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
-        {
-            await presenceService.DisconnectAsync();
+            await serviceProvider.GetRequiredService<IFocusNotesService>().SaveNotesToStorageAsync();
+            await serviceProvider.GetRequiredService<IPresenceService>().DisconnectAsync();
+            await flushTask;
         }
 
         deferral.Complete();

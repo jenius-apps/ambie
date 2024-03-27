@@ -52,11 +52,11 @@ partial class App
 
         // Manually register additional services requiring more customization
         collection.AddSingleton(appsettings ?? new AppSettings());
-        collection.AddSingleton<ITelemetry, SentryTelemetry>(s =>
+        collection.AddSingleton<ITelemetry, AppInsightsTelemetry>(s =>
         {
             var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
             var isEnabled = s.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.TelemetryOn);
-            return new SentryTelemetry(apiKey, isEnabled: isEnabled);
+            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled);
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
