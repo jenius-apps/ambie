@@ -24,10 +24,5 @@
     <Type Name="Microsoft.Extensions.Logging.LoggerFactoryOptions" Activate="Required Public" />
     <Type Name="Microsoft.Extensions.Logging.LoggerFilterOptions" Activate="Required Public" />
     <Type Name="Microsoft.AspNetCore.Http.Connections.Client.HttpConnectionOptions" Activate="Required Public" />
-
-	<!-- Required for sentry telemetry to work in release mode -->
-	<Type Name="Sentry.Integrations.AutoSessionTrackingIntegration" Activate="Required Public"/>
-	<Type Name="Sentry.Integrations.AppDomainUnhandledExceptionIntegration" Activate="Required All"/>
-	<Type Name="Sentry.Integrations.UnobservedTaskExceptionIntegration" Activate="Required All"/>
   </Application>
 </Directives>
