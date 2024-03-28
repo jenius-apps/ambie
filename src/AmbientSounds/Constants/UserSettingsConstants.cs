@@ -10,6 +10,11 @@ namespace AmbientSounds.Constants;
 public static class UserSettingsConstants
 {
     /// <summary>
+    /// Unique ID assigned to the local user that persists across sessions.
+    /// </summary>
+    public const string LocalUserIdKey = "LocalUserId";
+
+    /// <summary>
     /// Key to remember if the download message on
     /// home page should be shown or not.
     /// </summary>

@@ -15,6 +15,10 @@ using AmbientSounds.Factories;
 using AmbientSounds.Cache;
 using AmbientSounds.Repositories;
 using AmbientSounds.Constants;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Windows.Storage;
+using Microsoft.Toolkit.Uwp.Connectivity;
 
 #nullable enable
 
@@ -56,7 +60,7 @@ partial class App
         {
             var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
             var isEnabled = s.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.TelemetryOn);
-            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled);
+            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled, context: GetContext());
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
@@ -72,6 +76,27 @@ partial class App
         _playerTracker = provider.GetRequiredService<PlayerTelemetryTracker>();
 
         return provider;
+    }
+
+    private static TelemetryContext? GetContext()
+    {
+        var context = new TelemetryContext();
+        context.Session.Id = Guid.NewGuid().ToString();
+        context.Session.IsFirst = SystemInformation.Instance.IsFirstRun;
+        context.Component.Version = SystemInformation.Instance.ApplicationVersion.ToFormattedString();
+
+        if (ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.LocalUserIdKey] is string { Length: > 0 } id)
+        {
+            context.User.Id = id;
+        }
+        else
+        {
+            string userId = Guid.NewGuid().ToString();
+            ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.LocalUserIdKey] = userId;
+            context.User.Id = userId;
+        }
+
+        return context;
     }
 
     /// <summary>
