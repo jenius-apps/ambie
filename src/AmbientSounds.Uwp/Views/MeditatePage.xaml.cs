@@ -24,12 +24,7 @@ public sealed partial class MeditatePage : Page
     {
         await ViewModel.InitializeAsync();
 
-        App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-            TelemetryConstants.PageNavTo,
-            new Dictionary<string, string>
-            {
-                { "name", "meditate" }
-            });
+        App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(MeditatePage));
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

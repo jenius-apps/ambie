@@ -18,10 +18,7 @@ public sealed partial class SettingsPage : Page
     {
         SettingsControlInstance.Initialize();
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
-        telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
-        {
-            { "name", "settings" }
-        });
+        telemetry.TrackPageView(nameof(SettingsPage));
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

@@ -18,12 +18,7 @@ public sealed partial class HomePage : Page
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
-        App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-            TelemetryConstants.PageNavTo,
-            new Dictionary<string, string>
-            {
-                { "name", "home" }
-            });
+        App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(HomePage));
 
         if (App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ShowHomePageDownloadMessageKey))
         {

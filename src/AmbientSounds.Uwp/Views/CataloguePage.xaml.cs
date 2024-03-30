@@ -31,12 +31,7 @@ public sealed partial class CataloguePage : Page
             UserSettingsConstants.ShowHomePageDownloadMessageKey,
             false);
 
-        App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-            TelemetryConstants.PageNavTo,
-            new Dictionary<string, string>
-            {
-                { "name", "catalogue" }
-            });
+        App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(CataloguePage));
 
         string? navArgs = e.Parameter is string s ? s : null;
 

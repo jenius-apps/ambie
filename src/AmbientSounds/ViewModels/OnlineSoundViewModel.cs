@@ -368,8 +368,6 @@ public partial class OnlineSoundViewModel : ObservableObject
         {
             _telemetry.TrackEvent(TelemetryConstants.DownloadClicked, new Dictionary<string, string>
             {
-                { "id", _sound.Id ?? "" },
-                { "location", TelemetryLocation },
                 { "name", _sound.Name }
             });
 

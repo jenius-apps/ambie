@@ -31,12 +31,7 @@ public sealed partial class SearchPage : Page
             await ViewModel.TriggerSearchAsync(searchQuery);
         }
 
-        App.Services.GetRequiredService<ITelemetry>().TrackEvent(
-            TelemetryConstants.PageNavTo,
-            new Dictionary<string, string>
-            {
-                { "name", "search" }
-            });
+        App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(SearchPage));
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

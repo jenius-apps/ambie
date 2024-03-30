@@ -49,10 +49,7 @@ public sealed partial class CompactPage : Page
         Window.Current.SetTitleBar(AppTitleBar);
 
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
-        telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
-        {
-            { "name", "compact" }
-        });
+        telemetry.TrackPageView(nameof(CompactPage));
 
         if (e.Parameter is CompactViewMode requestedViewMode)
         {

@@ -70,10 +70,6 @@ public class TelemetryConstants
     public const string PlaybackTime = Playback + "time";
     public const string PlaybackAutoResume = Playback + "autoResumeTriggered";
 
-    // pages
-    private const string Page = "page:";
-    public const string PageNavTo = Page + "navigatedTo";
-
     // screensaver
     private const string Screensaver = "screensaver:";
     public const string ScreensaverLoaded = Screensaver + "loaded";

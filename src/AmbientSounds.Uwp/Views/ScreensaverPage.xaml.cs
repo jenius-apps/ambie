@@ -56,10 +56,7 @@ public sealed partial class ScreensaverPage : Page
         await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
 
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
-        telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
-        {
-            { "name", "screensaver" }
-        });
+        telemetry.TrackPageView(nameof(ScreensaverPage));
 
         var coreWindow = CoreWindow.GetForCurrentThread();
         coreWindow.KeyDown += CoreWindow_KeyDown;

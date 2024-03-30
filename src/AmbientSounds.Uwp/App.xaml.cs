@@ -399,11 +399,12 @@ sealed partial class App : Application
         }
     }
 
-    private void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+    private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
     {
         if (_serviceProvider?.GetRequiredService<ITelemetry>() is { } telemetry)
         {
             telemetry.TrackError(e.Exception);
+            await telemetry.FlushAsync();
         }
     }
 }

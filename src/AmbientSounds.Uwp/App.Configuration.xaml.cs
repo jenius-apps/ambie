@@ -18,7 +18,7 @@ using AmbientSounds.Constants;
 using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Storage;
-using Microsoft.Toolkit.Uwp.Connectivity;
+using Windows.System.Profile;
 
 #nullable enable
 
@@ -95,6 +95,13 @@ partial class App
             ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.LocalUserIdKey] = userId;
             context.User.Id = userId;
         }
+
+        // Ref: https://learn.microsoft.com/en-us/answers/questions/1563897/uwp-and-winui-how-to-check-my-os-version-through-c
+        ulong version = ulong.Parse(AnalyticsInfo.VersionInfo.DeviceFamilyVersion);
+        ulong major = (version & 0xFFFF000000000000L) >> 48;
+        ulong minor = (version & 0x0000FFFF00000000L) >> 32;
+        ulong build = (version & 0x00000000FFFF0000L) >> 16;
+        context.Device.OperatingSystem = $"Windows {major}.{minor}.{build}";
 
         return context;
     }

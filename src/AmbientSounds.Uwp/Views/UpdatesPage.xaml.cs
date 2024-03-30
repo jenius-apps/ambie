@@ -23,10 +23,7 @@ public sealed partial class UpdatesPage : Page
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
-        telemetry.TrackEvent(TelemetryConstants.PageNavTo, new Dictionary<string, string>
-        {
-            { "name", "updates" }
-        });
+        telemetry.TrackPageView(nameof(UpdatesPage));
 
         await ViewModel.CheckUpdatesCommand.ExecuteAsync(null);
     }
