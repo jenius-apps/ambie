@@ -98,7 +98,7 @@ public class StoreService : IIapService
     {
         foreach (var id in iapIds)
         {
-            var owned = await IsOwnedAsync(id);
+            var owned = await IsOwnedAsync(id).ConfigureAwait(false);
             if (owned)
             {
                 return true;
