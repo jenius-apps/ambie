@@ -15,6 +15,8 @@ public class TelemetryConstants
     // launch
     private const string Launch = "launch:";
     public const string LaunchViaToast = Launch + "toast";
+    public const string LaunchUserPremiumTier = Launch + "premiumTierUser";
+    public const string LaunchUserFreeTier = Launch + "freeTierUser";
 
     // shell page
     private const string ShellPage = "shellpage:";
