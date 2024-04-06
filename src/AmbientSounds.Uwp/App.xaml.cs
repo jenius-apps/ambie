@@ -33,7 +33,7 @@ namespace AmbientSounds;
 /// </summary>
 sealed partial class App : Application
 {
-    private static readonly bool _isTenFootPc = false;
+    private static readonly bool _isTenFootPc = true;
     private AppServiceConnection? _appServiceConnection;
     private BackgroundTaskDeferral? _appServiceDeferral;
     private static PlayerTelemetryTracker? _playerTracker;

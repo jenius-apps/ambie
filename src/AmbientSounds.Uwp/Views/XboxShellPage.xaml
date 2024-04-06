@@ -17,6 +17,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <controls:Screensaver Grid.RowSpan="2" />
+
         <controls:SoundGridControl Grid.Row="1" Margin="12">
             <controls:SoundGridControl.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:SoundViewModel">
