@@ -33,7 +33,7 @@ namespace AmbientSounds;
 /// </summary>
 sealed partial class App : Application
 {
-    private static readonly bool _isTenFootPc = false;
+    private static readonly bool _isTenFootPc = true;
     private AppServiceConnection? _appServiceConnection;
     private BackgroundTaskDeferral? _appServiceDeferral;
     private static PlayerTelemetryTracker? _playerTracker;
@@ -233,21 +233,28 @@ sealed partial class App : Application
             // Navigate to the root page if one isn't loaded already
             if (rootFrame.Content is null)
             {
-                ContentPageType? firstPageOverride = LaunchConstants.ToPageType(launchArguments);
-
-                if (firstPageOverride is null &&
-                    _userSettings is { } settings && 
-                    settings.Get<string>(UserSettingsConstants.LastUsedContentPageKey) is { Length: > 0 } contentPage &&
-                    Enum.TryParse(contentPage, out ContentPageType pageType))
+                if (IsTenFoot)
                 {
-                    firstPageOverride = pageType;
+                    rootFrame.Navigate(typeof(Views.XboxShellPage));
                 }
-
-                rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
+                else
                 {
-                    FirstPageOverride = firstPageOverride,
-                    LaunchArguments = launchArguments
-                });
+                    ContentPageType? firstPageOverride = LaunchConstants.ToPageType(launchArguments);
+
+                    if (firstPageOverride is null &&
+                        _userSettings is { } settings &&
+                        settings.Get<string>(UserSettingsConstants.LastUsedContentPageKey) is { Length: > 0 } contentPage &&
+                        Enum.TryParse(contentPage, out ContentPageType pageType))
+                    {
+                        firstPageOverride = pageType;
+                    }
+
+                    rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
+                    {
+                        FirstPageOverride = firstPageOverride,
+                        LaunchArguments = launchArguments
+                    });
+                }
             }
 
             Window.Current.Activate();
