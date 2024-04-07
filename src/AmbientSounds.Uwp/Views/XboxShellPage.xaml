@@ -81,10 +81,13 @@
             </StackPanel>
         </Grid>
 
-        <controls:SoundGridControl Grid.Row="1" ui:VisualExtensions.NormalizedCenterPoint="0.5">
+        <controls:SoundGridControl
+            Grid.Row="1"
+            ui:VisualExtensions.NormalizedCenterPoint="0.5"
+            IsXbox="True">
             <controls:SoundGridControl.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:SoundViewModel">
-                    <controls:SoundItemControl ViewModel="{x:Bind}" />
+                    <controls:XboxSoundItem ViewModel="{x:Bind}" />
                 </DataTemplate>
             </controls:SoundGridControl.ItemTemplate>
 

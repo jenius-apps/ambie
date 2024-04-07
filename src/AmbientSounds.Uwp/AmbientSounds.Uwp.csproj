@@ -272,6 +272,9 @@
     <Compile Include="Controls\VideosMenu.xaml.cs">
       <DependentUpon>VideosMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\XboxSoundItem.xaml.cs">
+      <DependentUpon>XboxSoundItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
@@ -645,6 +648,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\VideosMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\XboxSoundItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

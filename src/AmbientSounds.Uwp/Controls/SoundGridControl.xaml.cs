@@ -22,6 +22,12 @@ namespace AmbientSounds.Controls
             typeof(SoundGridControl),
             new PropertyMetadata(false));
 
+        public static readonly DependencyProperty IsXboxProperty = DependencyProperty.Register(
+            nameof(IsXbox),
+            typeof(bool),
+            typeof(SoundGridControl),
+            new PropertyMetadata(false));
+
         public static readonly DependencyProperty CanScrollOutOfBoundsProperty = DependencyProperty.Register(
             nameof(CanScrollOutOfBounds),
             typeof(bool),
@@ -48,6 +54,12 @@ namespace AmbientSounds.Controls
         {
             get => (bool)GetValue(IsCompactProperty);
             set => SetValue(IsCompactProperty, value);
+        }
+
+        public bool IsXbox
+        {
+            get => (bool)GetValue(IsXboxProperty);
+            set => SetValue(IsXboxProperty, value);
         }
 
         public bool CanScrollOutOfBounds
