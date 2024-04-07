@@ -2,17 +2,27 @@
     x:Class="AmbientSounds.Views.XboxShellPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.UI.Xaml.Media"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
 
     <Grid>
+        <animations:Explicit.Animations>
+            <animations:AnimationSet x:Name="FadeOutAnimation">
+                <animations:OpacityAnimation
+                    From="1"
+                    To="0"
+                    Duration="0:0:1" />
+            </animations:AnimationSet>
+        </animations:Explicit.Animations>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition Height="*" />
@@ -37,6 +47,15 @@
         </Rectangle>
 
         <Grid>
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="ActionBarExitAnimation">
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:1" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+
             <StackPanel
                 Margin="0,60,32,0"
                 HorizontalAlignment="Right"
@@ -44,7 +63,7 @@
                 Orientation="Horizontal"
                 Spacing="4">
 
-                <Button>
+                <Button Click="OnMoreSoundsClicked">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <FontIcon
                             FontFamily="{StaticResource FluentUIGlyphs}"
@@ -65,12 +84,26 @@
             </StackPanel>
         </Grid>
 
-        <controls:SoundGridControl Grid.Row="1">
+        <controls:SoundGridControl Grid.Row="1" ui:VisualExtensions.NormalizedCenterPoint="0.5">
             <controls:SoundGridControl.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:SoundViewModel">
                     <controls:SoundItemControl ViewModel="{x:Bind}" />
                 </DataTemplate>
             </controls:SoundGridControl.ItemTemplate>
+
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="SoundGridExitAnimation">
+                    <animations:ScaleAnimation
+                        From="1"
+                        To="0.9"
+                        Duration="0:0:1" />
+                    <animations:TranslationAnimation
+                        From="0"
+                        To="0,100,0"
+                        Duration="0:0:1" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+
         </controls:SoundGridControl>
     </Grid>
 </Page>
