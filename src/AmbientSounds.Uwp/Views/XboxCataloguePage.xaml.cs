@@ -1,30 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using AmbientSounds.Services;
+using AmbientSounds.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+#nullable enable
 
-namespace AmbientSounds.Views
+namespace AmbientSounds.Views;
+
+public sealed partial class XboxCataloguePage : Page
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class XboxCataloguePage : Page
+    private readonly SystemNavigationManager _systemNavigationManager;
+
+    public XboxCataloguePage()
     {
-        public XboxCataloguePage()
+        this.InitializeComponent();
+        this.DataContext = App.Services.GetRequiredService<CataloguePageViewModel>();
+        _systemNavigationManager = SystemNavigationManager.GetForCurrentView();
+    }
+
+    public CataloguePageViewModel ViewModel => (CataloguePageViewModel)this.DataContext;
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        _systemNavigationManager.BackRequested += OnBackRequested;
+
+        await ViewModel.InitializeAsync(null, default);
+    }
+
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        _systemNavigationManager.BackRequested -= OnBackRequested;
+
+        ViewModel.Uninitialize();
+    }
+
+    private void OnBackRequested(object sender, BackRequestedEventArgs e)
+    {
+        if (App.Services.GetRequiredService<INavigator>().RootFrame is Frame root)
         {
-            this.InitializeComponent();
+            root.GoBack();
         }
     }
 }

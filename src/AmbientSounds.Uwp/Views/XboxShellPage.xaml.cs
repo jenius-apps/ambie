@@ -23,7 +23,7 @@ public sealed partial class XboxShellPage : Page
             _ = FadeOutAnimation.StartAsync();
             _ = ActionBarExitAnimation.StartAsync();
             await SoundGridExitAnimation.StartAsync();
-            root.Navigate(typeof(CataloguePage), null, new SuppressNavigationTransitionInfo());
+            root.Navigate(typeof(XboxCataloguePage), null, new SuppressNavigationTransitionInfo());
         }
     }
 }

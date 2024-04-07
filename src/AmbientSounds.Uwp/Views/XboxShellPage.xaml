@@ -63,22 +63,19 @@
                 Orientation="Horizontal"
                 Spacing="4">
 
-                <Button Click="OnMoreSoundsClicked">
+                <Button
+                    Padding="12,8"
+                    Click="OnMoreSoundsClicked"
+                    CornerRadius="12">
                     <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
-                            Glyph="{StaticResource GlyphSound}" />
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
                         <TextBlock Text="More sounds" />
                     </StackPanel>
                 </Button>
 
-                <Button>
+                <Button Padding="8" CornerRadius="12">
                     <Button.Content>
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="16"
-                            Glyph="{StaticResource GlyphSettings}" />
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
                     </Button.Content>
                 </Button>
             </StackPanel>
