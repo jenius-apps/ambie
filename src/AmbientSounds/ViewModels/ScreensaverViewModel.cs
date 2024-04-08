@@ -9,15 +9,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
-using AmbientSounds.Events;
-
-#nullable enable
 
 namespace AmbientSounds.ViewModels;
 
 public partial class ScreensaverViewModel : ObservableObject
 {
-    private const int ImageTimeLength = 30000; // 30 seconds
+    private const int ImageTimeLength = 30000; // milliseconds
     private readonly ITimerService _timerService;
     private readonly IMixMediaPlayerService _mediaPlayerService;
     private readonly ITelemetry _telemetry;
@@ -63,26 +60,19 @@ public partial class ScreensaverViewModel : ObservableObject
         _timerService.Interval = ImageTimeLength;
     }
 
-    public async Task LoadAsync(string? soundIdToUse = null)
+    public async void LoadAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
 
         if (_mediaPlayerService.Screensavers.Count > 0)
         {
-            if (soundIdToUse is null)
+            var images = new List<string>();
+            foreach (var list in _mediaPlayerService.Screensavers.Values)
             {
-                var images = new List<string>();
-                foreach (var list in _mediaPlayerService.Screensavers.Values)
-                {
-                    images.AddRange(list);
-                }
+                images.AddRange(list);
+            }
 
-                _images = images;
-            }
-            else if (_mediaPlayerService.Screensavers.TryGetValue(soundIdToUse, out var images))
-            {
-                _images = images;
-            }
+            _images = images;
         }
 
         if (_images is null || _images.Count < 2)
@@ -172,27 +162,10 @@ public partial class ScreensaverViewModel : ObservableObject
     public void Initialize()
     {
         _timerService.IntervalElapsed += TimerIntervalElapsed;
-        _mediaPlayerService.SoundAdded += OnSoundAdded;
     }
 
     public void Dispose()
     {
         _timerService.IntervalElapsed -= TimerIntervalElapsed;
-        _mediaPlayerService.SoundAdded -= OnSoundAdded;
-    }
-
-    private async void OnSoundAdded(object sender, SoundPlayedArgs e)
-    {
-        Reset();
-        await LoadAsync(e.Sound.Id);
-    }
-
-    private void Reset()
-    {
-        _timerService.Stop();
-        ImageVisible1 = false;
-        ImageVisible2 = false;
-        ImageSource1 = "https://localhost";
-        ImageSource2 = "https://localhost";
     }
 }
