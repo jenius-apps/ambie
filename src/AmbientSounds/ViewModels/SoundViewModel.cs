@@ -52,6 +52,9 @@ public partial class SoundViewModel : ObservableObject
     [ObservableProperty]
     private double _presenceCount = 0;
 
+    [ObservableProperty]
+    private bool _isKeyPadFocused;
+
     public SoundViewModel(
         Sound s,
         IMixMediaPlayerService playerService,

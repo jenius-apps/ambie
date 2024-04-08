@@ -87,7 +87,9 @@
             IsXbox="True">
             <controls:SoundGridControl.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:SoundViewModel">
-                    <controls:XboxSoundItem ViewModel="{x:Bind}" />
+                    <GridViewItem GotFocus="OnXboxSoundItemFocused" LostFocus="OnXboxSoundItemLostFocus">
+                        <controls:XboxSoundItem ViewModel="{x:Bind}" />
+                    </GridViewItem>
                 </DataTemplate>
             </controls:SoundGridControl.ItemTemplate>
 

@@ -57,7 +57,7 @@ sealed partial class App : Application
             //this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
 
             // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
-            this.FocusVisualKind = FocusVisualKind.Reveal;
+            //this.FocusVisualKind = FocusVisualKind.Reveal;
         }
     }
 
