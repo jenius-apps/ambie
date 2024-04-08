@@ -23,36 +23,48 @@ public sealed partial class Screensaver : UserControl
     {
         if (e.NewSize.Width >= e.NewSize.Height)
         {
-            image.Width = e.NewSize.Width * 1.3;
-            image2.Width = e.NewSize.Width * 1.3;
-            image.Height = double.NaN;
-            image2.Height = double.NaN;
+            Image1.Width = e.NewSize.Width * 1.3;
+            Image2.Width = e.NewSize.Width * 1.3;
+            Image1.Height = double.NaN;
+            Image2.Height = double.NaN;
         }
         else
         {
-            image.Height = e.NewSize.Height * 1.3;
-            image2.Height = e.NewSize.Height * 1.3;
-            image.Width = double.NaN;
-            image2.Width = double.NaN;
+            Image1.Height = e.NewSize.Height * 1.3;
+            Image2.Height = e.NewSize.Height * 1.3;
+            Image1.Width = double.NaN;
+            Image2.Width = double.NaN;
         }
     }
 
-    private void PropertyChanging(object sender, PropertyChangingEventArgs e)
+    private async void PropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(ViewModel.ImageVisible1))
         {
-            if (ViewModel.ImageVisible1 == false)
+            if (ViewModel.ImageVisible1)
             {
-                ImageSb1.Stop();
-                ImageSb1.Begin();
+                Image1.Visibility = Visibility.Visible;
+                Image1Slide.Start();
+                Image1FadeIn.Start();
+            }
+            else
+            {
+                await Image1FadeOut.StartAsync();
+                Image1.Visibility = Visibility.Collapsed;
             }
         }
         else if (e.PropertyName == nameof(ViewModel.ImageVisible2))
         {
-            if (ViewModel.ImageVisible2 == false)
+            if (ViewModel.ImageVisible2)
             {
-                ImageSb2.Stop();
-                ImageSb2.Begin();
+                Image2.Visibility = Visibility.Visible;
+                Image2Slide.Start();
+                Image2FadeIn.Start();
+            }
+            else
+            {
+                await Image2FadeOut.StartAsync();
+                Image2.Visibility = Visibility.Collapsed;
             }
         }
     }
@@ -60,15 +72,13 @@ public sealed partial class Screensaver : UserControl
     private async void OnLoaded(object sender, RoutedEventArgs e)
     {
         ViewModel.Initialize();
-        ViewModel.PropertyChanging += PropertyChanging;
+        ViewModel.PropertyChanged += PropertyChanged;
         await ViewModel.LoadAsync();
     }
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
-        ImageSb1.Stop();
-        ImageSb2.Stop();
         ViewModel.Dispose();
-        ViewModel.PropertyChanging -= PropertyChanging;
+        ViewModel.PropertyChanged -= PropertyChanged;
     }
 }
