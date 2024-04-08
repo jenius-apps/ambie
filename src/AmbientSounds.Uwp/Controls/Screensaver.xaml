@@ -11,8 +11,8 @@
     VerticalAlignment="Stretch"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    Loaded="{x:Bind ViewModel.LoadAsync}"
-    Unloaded="{x:Bind ViewModel.Unload}"
+    Loaded="OnLoaded"
+    Unloaded="OnUnloaded"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Style x:Key="ScreensaverImage" TargetType="Image" />
@@ -39,7 +39,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Foreground="{ThemeResource ApplicationForegroundThemeBrush}"
-            IsActive="True"
+            IsActive="{x:Bind ViewModel.Loading, Mode=OneWay}"
             Visibility="{x:Bind ViewModel.Loading, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
@@ -47,12 +47,12 @@
                     To="1.0"
                     Duration="0:0:1" />
             </animations:Implicit.ShowAnimations>
-            <animations:Implicit.HideAnimations>
+            <!--<animations:Implicit.HideAnimations>
                 <animations:OpacityAnimation
                     From="1.0"
                     To="0"
                     Duration="0:0:1" />
-            </animations:Implicit.HideAnimations>
+            </animations:Implicit.HideAnimations>-->
         </muxc:ProgressRing>
 
         <Canvas>
@@ -73,12 +73,12 @@
                         To="1.0"
                         Duration="0:0:3" />
                 </animations:Implicit.ShowAnimations>
-                <animations:Implicit.HideAnimations>
+                <!--<animations:Implicit.HideAnimations>
                     <animations:OpacityAnimation
                         From="1.0"
                         To="0"
                         Duration="0:0:3" />
-                </animations:Implicit.HideAnimations>
+                </animations:Implicit.HideAnimations>-->
             </Image>
             <Image
                 x:Name="image2"
@@ -98,12 +98,12 @@
                         To="1.0"
                         Duration="0:0:3" />
                 </animations:Implicit.ShowAnimations>
-                <animations:Implicit.HideAnimations>
+                <!--<animations:Implicit.HideAnimations>
                     <animations:OpacityAnimation
                         From="1.0"
                         To="0"
                         Duration="0:0:3" />
-                </animations:Implicit.HideAnimations>
+                </animations:Implicit.HideAnimations>-->
             </Image>
         </Canvas>
     </Grid>
