@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -14,6 +15,12 @@ public sealed partial class XboxShellPage : Page
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<XboxShellPageViewModel>();
+
+        if (App.IsTenFoot)
+        {
+            // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/turn-off-overscan
+            ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
+        }
     }
 
     public XboxShellPageViewModel ViewModel => (XboxShellPageViewModel)this.DataContext;

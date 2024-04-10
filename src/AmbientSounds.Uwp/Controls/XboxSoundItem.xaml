@@ -14,8 +14,8 @@
 
     <Grid>
         <Rectangle
-            Width="300"
-            Height="180"
+            Width="450"
+            Height="270"
             RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
             RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
             <Rectangle.Fill>
@@ -63,6 +63,7 @@
                 Stretch="Fill" />
             <TextBlock
                 Margin="8"
+                FontSize="32"
                 MaxLines="2"
                 Text="{x:Bind ViewModel.Name}"
                 TextTrimming="CharacterEllipsis"

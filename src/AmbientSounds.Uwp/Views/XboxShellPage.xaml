@@ -24,8 +24,8 @@
             </animations:AnimationSet>
         </animations:Explicit.Animations>
         <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
             <RowDefinition Height="2*" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <controls:Slideshow x:Name="SlideshowControl" Grid.RowSpan="2" />
@@ -61,21 +61,30 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Orientation="Horizontal"
-                Spacing="4">
+                Spacing="8">
 
                 <Button
-                    Padding="12,8"
+                    Padding="20,12"
                     Click="OnMoreSoundsClicked"
                     CornerRadius="12">
-                    <StackPanel Orientation="Horizontal" Spacing="8">
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSound}" />
-                        <TextBlock Text="More sounds" />
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="36"
+                            Glyph="{StaticResource GlyphSound}" />
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="24"
+                            Text="Download more sounds" />
                     </StackPanel>
                 </Button>
 
-                <Button Padding="8" CornerRadius="12">
+                <Button Padding="12" CornerRadius="12">
                     <Button.Content>
-                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="36"
+                            Glyph="{StaticResource GlyphSettings}" />
                     </Button.Content>
                 </Button>
             </StackPanel>

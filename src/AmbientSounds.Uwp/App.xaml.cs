@@ -33,7 +33,7 @@ namespace AmbientSounds;
 /// </summary>
 sealed partial class App : Application
 {
-    private static readonly bool _isTenFootPc = true;
+    private static readonly bool _isTenFootPc = false;
     private AppServiceConnection? _appServiceConnection;
     private BackgroundTaskDeferral? _appServiceDeferral;
     private static PlayerTelemetryTracker? _playerTracker;
@@ -54,10 +54,13 @@ sealed partial class App : Application
         if (IsTenFoot)
         {
             // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
-            //this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+            this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
 
             // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
             //this.FocusVisualKind = FocusVisualKind.Reveal;
+
+            // Disable scaling
+            ApplicationViewScaling.TrySetDisableLayoutScaling(true);
         }
     }
 
