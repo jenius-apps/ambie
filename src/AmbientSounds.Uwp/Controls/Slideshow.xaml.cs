@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using JeniusApps.Common.Telemetry;
@@ -53,6 +54,7 @@ public sealed partial class Slideshow : UserControl
 
         _timerService.Interval = SlideTimeLength;
         _timerService.IntervalElapsed += TimerIntervalElapsed;
+        _mediaPlayerService.SoundAdded += OnSoundAdded;
     }
 
     public string Image1Source
@@ -67,19 +69,26 @@ public sealed partial class Slideshow : UserControl
         set => SetValue(Image2SourceProperty, value);
     }
 
-    public async Task LoadAsync()
+    public async Task LoadAsync(string? soundIdToUse = null)
     {
         _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
 
         if (_mediaPlayerService.Screensavers.Count > 0)
         {
-            var images = new List<string>();
-            foreach (var list in _mediaPlayerService.Screensavers.Values)
+            if (soundIdToUse is null)
             {
-                images.AddRange(list);
-            }
+                var images = new List<string>();
+                foreach (var list in _mediaPlayerService.Screensavers.Values)
+                {
+                    images.AddRange(list);
+                }
 
-            _images = images;
+                _images = images;
+            }
+            else if (_mediaPlayerService.Screensavers.TryGetValue(soundIdToUse, out var images))
+            {
+                _images = images;
+            }
         }
 
         if (_images is null || _images.Count < 2)
@@ -106,11 +115,6 @@ public sealed partial class Slideshow : UserControl
         Image2Source = _images[_imageIndex2]; // Preload next
 
         _timerService.Start();
-    }
-
-    private void TimerIntervalElapsed(object sender, TimeSpan e)
-    {
-        _dispatcherQueue.TryEnqueue(async () => await CycleImagesAsync());
     }
 
     private async Task CycleImagesAsync()
@@ -162,7 +166,6 @@ public sealed partial class Slideshow : UserControl
         }
     }
 
-
     private void OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
         if (e.NewSize.Width >= e.NewSize.Height)
@@ -183,6 +186,29 @@ public sealed partial class Slideshow : UserControl
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
+        _mediaPlayerService.SoundAdded -= OnSoundAdded;
         _timerService.IntervalElapsed -= TimerIntervalElapsed;
+        _timerService.Stop();
+    }
+
+    private async void OnSoundAdded(object sender, SoundPlayedArgs e)
+    {
+        _timerService.Stop();
+        
+        if (Image1.Visibility is Visibility.Visible)
+        {
+            await Image1FadeOut.StartAsync();
+        }
+        else if (Image2.Visibility is Visibility.Visible)
+        {
+            await Image2FadeOut.StartAsync();
+        }
+
+        _ = LoadAsync(e.Sound.Id);
+    }
+
+    private void TimerIntervalElapsed(object sender, TimeSpan e)
+    {
+        _dispatcherQueue.TryEnqueue(async () => await CycleImagesAsync());
     }
 }
