@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Navigation;
 
 namespace AmbientSounds.Views;
 
@@ -16,6 +17,11 @@ public sealed partial class XboxShellPage : Page
     }
 
     public XboxShellPageViewModel ViewModel => (XboxShellPageViewModel)this.DataContext;
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        await SlideshowControl.LoadAsync();
+    }
 
     private async void OnMoreSoundsClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
     {

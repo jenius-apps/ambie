@@ -28,7 +28,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <controls:Screensaver Grid.RowSpan="2" />
+        <controls:Slideshow x:Name="SlideshowControl" Grid.RowSpan="2" />
 
         <Rectangle Grid.RowSpan="2">
             <Rectangle.Fill>

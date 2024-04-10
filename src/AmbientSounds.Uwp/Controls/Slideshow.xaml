@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -15,7 +14,7 @@
         <Canvas>
             <Image x:Name="Image1" Visibility="Collapsed">
                 <Image.Source>
-                    <BitmapImage UriSource="ms-appx:///Assets/Images/wind.png" />
+                    <BitmapImage UriSource="{x:Bind Image1Source, Mode=OneWay}" />
                 </Image.Source>
                 <animations:Explicit.Animations>
                     <animations:AnimationSet x:Name="Image1FadeInAndSlide">
@@ -39,7 +38,7 @@
             </Image>
             <Image x:Name="Image2" Visibility="Collapsed">
                 <Image.Source>
-                    <BitmapImage UriSource="ms-appx:///Assets/Images/beach.png" />
+                    <BitmapImage UriSource="{x:Bind Image2Source, Mode=OneWay}" />
                 </Image.Source>
                 <animations:Explicit.Animations>
                     <animations:AnimationSet x:Name="Image2FadeInAndSlide">
