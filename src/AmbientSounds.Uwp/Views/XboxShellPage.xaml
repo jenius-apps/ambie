@@ -69,7 +69,7 @@
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="{StaticResource XboxIconSize}"
-                        Glyph="{StaticResource GlyphSound}" />
+                        Glyph="{StaticResource GlyphStore}" />
                 </Button>
 
                 <Button Style="{StaticResource XboxIconButton}">

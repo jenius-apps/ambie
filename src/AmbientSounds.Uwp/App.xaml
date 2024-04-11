@@ -306,6 +306,7 @@
             <x:String x:Key="GlyphShiftUp">&#xE752;</x:String>
             <x:String x:Key="GlyphMoonSolid">&#xF1DB;</x:String>
             <x:String x:Key="GlyphMoon">&#xE708;</x:String>
+            <x:String x:Key="GlyphStore">&#xE14D;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

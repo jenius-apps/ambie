@@ -62,7 +62,7 @@
                 Opacity="0.8"
                 Stretch="Fill" />
             <TextBlock
-                Margin="8"
+                Margin="20,12"
                 FontSize="32"
                 MaxLines="2"
                 Text="{x:Bind ViewModel.Name}"
