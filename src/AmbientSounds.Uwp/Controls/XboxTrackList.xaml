@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Controls.XboxTrackList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -17,9 +18,12 @@
             Padding="4"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            ui:VisualExtensions.NormalizedCenterPoint="0.5"
             Canvas.ZIndex="2"
             CornerRadius="12"
+            GotFocus="OnImage1GotFocus"
             IsTabStop="True"
+            LostFocus="OnImage1LostFocus"
             UseSystemFocusVisuals="True">
             <Border
                 Width="100"
@@ -45,10 +49,35 @@
             Padding="4"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            ui:VisualExtensions.NormalizedCenterPoint="0.5"
             Canvas.ZIndex="1"
             CornerRadius="12"
             IsTabStop="False"
             UseSystemFocusVisuals="True">
+
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="ExpandImage2">
+                    <animations:TranslationAnimation
+                        From="0"
+                        To="0,100,0"
+                        Duration="0:0:0.6" />
+                    <animations:ScaleAnimation
+                        From="1"
+                        To="1.11"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="CollapseImage2">
+                    <animations:TranslationAnimation
+                        From="0,100,0"
+                        To="0"
+                        Duration="0:0:0.6" />
+                    <animations:ScaleAnimation
+                        From="1.11"
+                        To="1"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+
             <Border
                 Width="90"
                 Height="90"
@@ -75,6 +104,7 @@
             Padding="4"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            ui:VisualExtensions.NormalizedCenterPoint="0.5"
             CornerRadius="12"
             IsTabStop="False"
             UseSystemFocusVisuals="True">
@@ -86,6 +116,29 @@
                     <ImageBrush x:Name="Image3Brush" Stretch="UniformToFill" />
                 </Border.Background>
             </Border>
+
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="ExpandImage3">
+                    <animations:TranslationAnimation
+                        From="0"
+                        To="0,200,0"
+                        Duration="0:0:0.6" />
+                    <animations:ScaleAnimation
+                        From="1"
+                        To="1.25"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="CollapseImage3">
+                    <animations:TranslationAnimation
+                        From="0,200,0"
+                        To="0"
+                        Duration="0:0:0.6" />
+                    <animations:ScaleAnimation
+                        From="1.25"
+                        To="1"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
 
             <ui:Effects.Shadow>
                 <ui:AttachedDropShadow

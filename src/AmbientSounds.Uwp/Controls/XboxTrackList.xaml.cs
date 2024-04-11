@@ -67,4 +67,19 @@ public sealed partial class XboxTrackList : UserControl
         ViewModel.ActiveTracks.CollectionChanged -= OnCollectionChanged;
         ViewModel.Dispose();
     }
+
+    private void OnImage1GotFocus(object sender, RoutedEventArgs e)
+    {
+        if (sender is ContentControl { FocusState: Windows.UI.Xaml.FocusState.Keyboard })
+        {
+            _ = ExpandImage2.StartAsync();
+            _ = ExpandImage3.StartAsync();
+        }
+    }
+
+    private void OnImage1LostFocus(object sender, RoutedEventArgs e)
+    {
+        _ = CollapseImage2.StartAsync();
+        _ = CollapseImage3.StartAsync();
+    }
 }
