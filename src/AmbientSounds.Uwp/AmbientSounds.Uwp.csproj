@@ -278,6 +278,9 @@
     <Compile Include="Controls\XboxSoundItem.xaml.cs">
       <DependentUpon>XboxSoundItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\XboxTrackList.xaml.cs">
+      <DependentUpon>XboxTrackList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
@@ -659,6 +662,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\XboxSoundItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\XboxTrackList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

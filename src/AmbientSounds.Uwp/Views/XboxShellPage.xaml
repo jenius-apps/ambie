@@ -56,6 +56,12 @@
                 </animations:AnimationSet>
             </animations:Explicit.Animations>
 
+            <controls:XboxTrackList
+                x:Name="TrackList"
+                Margin="60,60,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+
             <StackPanel
                 Margin="0,60,32,0"
                 HorizontalAlignment="Right"

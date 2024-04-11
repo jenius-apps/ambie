@@ -1,0 +1,103 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.XboxTrackList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Border x:Name="ShadowTarget3" />
+
+        <ContentControl
+            Padding="4"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="2"
+            CornerRadius="12"
+            IsTabStop="True"
+            UseSystemFocusVisuals="True">
+            <Border
+                Width="100"
+                Height="100"
+                CornerRadius="8">
+                <Border.Background>
+                    <ImageBrush x:Name="Image1Brush" Stretch="UniformToFill" />
+                </Border.Background>
+            </Border>
+
+            <ui:Effects.Shadow>
+                <ui:AttachedDropShadow
+                    BlurRadius="8"
+                    CastTo="{x:Bind ShadowTarget1}"
+                    CornerRadius="8"
+                    Opacity="0.1"
+                    Offset="0,2" />
+            </ui:Effects.Shadow>
+        </ContentControl>
+
+        <ContentControl
+            Margin="5,20,0,0"
+            Padding="4"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            CornerRadius="12"
+            IsTabStop="False"
+            UseSystemFocusVisuals="True">
+            <Border
+                Width="90"
+                Height="90"
+                CornerRadius="8">
+                <Border.Background>
+                    <ImageBrush x:Name="Image2Brush" Stretch="UniformToFill" />
+                </Border.Background>
+            </Border>
+
+            <ui:Effects.Shadow>
+                <ui:AttachedDropShadow
+                    BlurRadius="8"
+                    CastTo="{x:Bind ShadowTarget2}"
+                    CornerRadius="8"
+                    Opacity="0.1"
+                    Offset="0,2" />
+            </ui:Effects.Shadow>
+        </ContentControl>
+
+        <Border x:Name="ShadowTarget1" Canvas.ZIndex="1" />
+
+        <ContentControl
+            Margin="10,40,0,0"
+            Padding="4"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            CornerRadius="12"
+            IsTabStop="False"
+            UseSystemFocusVisuals="True">
+            <Border
+                Width="80"
+                Height="80"
+                CornerRadius="8">
+                <Border.Background>
+                    <ImageBrush x:Name="Image3Brush" Stretch="UniformToFill" />
+                </Border.Background>
+            </Border>
+
+            <ui:Effects.Shadow>
+                <ui:AttachedDropShadow
+                    BlurRadius="8"
+                    CastTo="{x:Bind ShadowTarget3}"
+                    CornerRadius="8"
+                    Opacity="0.1"
+                    Offset="0,2" />
+            </ui:Effects.Shadow>
+        </ContentControl>
+
+        <Border x:Name="ShadowTarget2" />
+
+    </Grid>
+</UserControl>
