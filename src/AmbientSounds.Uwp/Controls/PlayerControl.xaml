@@ -16,13 +16,13 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition x:Name="SecondColumn" Width="100" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind IsCompact, Mode=OneWay}" />
+                        <StateTrigger IsActive="{x:Bind IsCompact(DisplayMode), Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="PlayButton.Style" Value="{StaticResource SmallSubtleIconButton}" />
@@ -31,13 +31,32 @@
                         <Setter Target="SecondColumn.Width" Value="*" />
                     </VisualState.Setters>
                 </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsXbox(DisplayMode), Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PlayButton.Style" Value="{StaticResource XboxIconButton}" />
+                        <Setter Target="PlayIcon.FontSize" Value="{StaticResource XboxIconSize}" />
+                        <Setter Target="PauseIcon.FontSize" Value="{StaticResource XboxIconSize}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsDefault(DisplayMode), Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PlayButton.Width" Value="36" />
+                        <Setter Target="PlayButton.Height" Value="36" />
+                        <Setter Target="PlayButton.Padding" Value="0" />
+                        <Setter Target="PlayIcon.FontSize" Value="16" />
+                        <Setter Target="PauseIcon.FontSize" Value="16" />
+                    </VisualState.Setters>
+                </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Button
             x:Name="PlayButton"
-            Width="36"
-            Height="36"
-            Padding="0"
             AutomationProperties.Name="{x:Bind converters:LocalizationConverter.ConvertPlayerButtonState(ViewModel.IsPaused), Mode=OneWay}"
             Command="{x:Bind ViewModel.TogglePlayStateCommand}"
             Style="{StaticResource SubtleIconButton}"
@@ -49,7 +68,6 @@
                     x:Name="PlayIcon"
                     ui:VisualExtensions.NormalizedCenterPoint="0.5"
                     FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="16"
                     Glyph="{StaticResource GlyphPlay}"
                     Visibility="{x:Bind ViewModel.IsPaused, Mode=OneWay}">
                     <ani:Implicit.ShowAnimations>
@@ -69,7 +87,6 @@
                     x:Name="PauseIcon"
                     ui:VisualExtensions.NormalizedCenterPoint="0.5"
                     FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="16"
                     Glyph="{StaticResource GlyphPause}"
                     Visibility="{x:Bind ViewModel.IsPlaying, Mode=OneWay}">
                     <ani:Implicit.ShowAnimations>
@@ -88,11 +105,13 @@
         </Button>
         <Slider
             Grid.Column="1"
+            Width="92"
             Margin="8,0,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Center"
             AutomationProperties.Name="{x:Bind strings:Resources.GlobalVolume}"
             ToolTipService.ToolTip="{x:Bind strings:Resources.GlobalVolume}"
+            Visibility="{x:Bind VolumeVisible, Mode=OneWay}"
             Value="{x:Bind ViewModel.Volume, Mode=TwoWay}" />
     </Grid>
 </UserControl>
