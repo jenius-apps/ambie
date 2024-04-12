@@ -6,14 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid>
-        <Border x:Name="ShadowTarget3" />
+    <UserControl.Resources>
+        <media:AttachedCardShadow
+            x:Key="ImageShadow"
+            BlurRadius="16"
+            CornerRadius="8"
+            Opacity="0.3"
+            Offset="0,4" />
+    </UserControl.Resources>
 
+    <Grid>
         <ContentControl
             Padding="4"
             HorizontalAlignment="Left"
@@ -28,20 +36,13 @@
             <Border
                 Width="100"
                 Height="100"
+                ui:Effects.Shadow="{StaticResource ImageShadow}"
                 CornerRadius="8">
                 <Border.Background>
                     <ImageBrush x:Name="Image1Brush" Stretch="UniformToFill" />
                 </Border.Background>
             </Border>
 
-            <ui:Effects.Shadow>
-                <ui:AttachedDropShadow
-                    BlurRadius="8"
-                    CastTo="{x:Bind ShadowTarget1}"
-                    CornerRadius="8"
-                    Opacity="0.1"
-                    Offset="0,2" />
-            </ui:Effects.Shadow>
         </ContentControl>
 
         <ContentControl
@@ -81,23 +82,14 @@
             <Border
                 Width="90"
                 Height="90"
+                ui:Effects.Shadow="{StaticResource ImageShadow}"
                 CornerRadius="8">
                 <Border.Background>
                     <ImageBrush x:Name="Image2Brush" Stretch="UniformToFill" />
                 </Border.Background>
             </Border>
 
-            <ui:Effects.Shadow>
-                <ui:AttachedDropShadow
-                    BlurRadius="8"
-                    CastTo="{x:Bind ShadowTarget2}"
-                    CornerRadius="8"
-                    Opacity="0.1"
-                    Offset="0,2" />
-            </ui:Effects.Shadow>
         </ContentControl>
-
-        <Border x:Name="ShadowTarget1" Canvas.ZIndex="1" />
 
         <ContentControl
             Margin="10,40,0,0"
@@ -111,6 +103,7 @@
             <Border
                 Width="80"
                 Height="80"
+                ui:Effects.Shadow="{StaticResource ImageShadow}"
                 CornerRadius="8">
                 <Border.Background>
                     <ImageBrush x:Name="Image3Brush" Stretch="UniformToFill" />
@@ -139,18 +132,7 @@
                         Duration="0:0:0.6" />
                 </animations:AnimationSet>
             </animations:Explicit.Animations>
-
-            <ui:Effects.Shadow>
-                <ui:AttachedDropShadow
-                    BlurRadius="8"
-                    CastTo="{x:Bind ShadowTarget3}"
-                    CornerRadius="8"
-                    Opacity="0.1"
-                    Offset="0,2" />
-            </ui:Effects.Shadow>
         </ContentControl>
-
-        <Border x:Name="ShadowTarget2" />
 
     </Grid>
 </UserControl>
