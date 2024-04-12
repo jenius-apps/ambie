@@ -23,15 +23,18 @@
 
     <Grid>
         <ContentControl
+            x:Name="ContentControl1"
             Padding="4"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             Canvas.ZIndex="2"
             CornerRadius="12"
+            GettingFocus="OnImage1GettingFocus"
             GotFocus="OnImage1GotFocus"
             IsTabStop="True"
             LostFocus="OnImage1LostFocus"
+            TabIndex="0"
             UseSystemFocusVisuals="True">
             <Border
                 Width="100"
@@ -46,6 +49,7 @@
         </ContentControl>
 
         <ContentControl
+            x:Name="ContentControl2"
             Margin="5,20,0,0"
             Padding="4"
             HorizontalAlignment="Left"
@@ -54,6 +58,8 @@
             Canvas.ZIndex="1"
             CornerRadius="12"
             IsTabStop="False"
+            LostFocus="OnNonImage1LostFocus"
+            TabIndex="1"
             UseSystemFocusVisuals="True">
 
             <animations:Explicit.Animations>
@@ -92,6 +98,7 @@
         </ContentControl>
 
         <ContentControl
+            x:Name="ContentControl3"
             Margin="10,40,0,0"
             Padding="4"
             HorizontalAlignment="Left"
@@ -99,6 +106,8 @@
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             CornerRadius="12"
             IsTabStop="False"
+            LostFocus="OnNonImage1LostFocus"
+            TabIndex="2"
             UseSystemFocusVisuals="True">
             <Border
                 Width="80"

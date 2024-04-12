@@ -25,6 +25,7 @@ namespace AmbientSounds.Controls;
 public sealed partial class XboxTrackList : UserControl
 {
     private readonly ImageBrush[] _imageBrushes;
+    private bool _doNotRunExpandAnimation;
 
     public XboxTrackList()
     {
@@ -72,6 +73,14 @@ public sealed partial class XboxTrackList : UserControl
     {
         if (sender is ContentControl { FocusState: Windows.UI.Xaml.FocusState.Keyboard })
         {
+            if (_doNotRunExpandAnimation)
+            {
+                _doNotRunExpandAnimation = false; // reset
+                return;
+            }
+
+            ContentControl2.IsTabStop = true;
+            ContentControl3.IsTabStop = true;
             _ = ExpandImage2.StartAsync();
             _ = ExpandImage3.StartAsync();
         }
@@ -79,7 +88,37 @@ public sealed partial class XboxTrackList : UserControl
 
     private void OnImage1LostFocus(object sender, RoutedEventArgs e)
     {
-        _ = CollapseImage2.StartAsync();
-        _ = CollapseImage3.StartAsync();
+        if (ContentControl2.FocusState is FocusState.Unfocused && ContentControl3.FocusState is FocusState.Unfocused)
+        {
+            _ = CollapseImage2.StartAsync();
+            _ = CollapseImage3.StartAsync();
+            ContentControl2.IsTabStop = false;
+            ContentControl3.IsTabStop = false;
+        }
+    }
+
+    private void OnNonImage1LostFocus(object sender, RoutedEventArgs e)
+    {
+        if (ContentControl1.FocusState is FocusState.Unfocused &&
+            ContentControl2.FocusState is FocusState.Unfocused &&
+            ContentControl3.FocusState is FocusState.Unfocused)
+        {
+            _ = CollapseImage2.StartAsync();
+            _ = CollapseImage3.StartAsync();
+            ContentControl2.IsTabStop = false;
+            ContentControl3.IsTabStop = false;
+        }
+    }
+
+    private void OnImage1GettingFocus(UIElement sender, GettingFocusEventArgs args)
+    {
+        if (ContentControl2.FocusState is FocusState.Keyboard)
+        {
+            // When the user is navigating UP
+            // from image 1 to image 2, then
+            // ensure we don't rerun the expad animation
+            // since the images are already expanded
+            _doNotRunExpandAnimation = true;
+        }
     }
 }
