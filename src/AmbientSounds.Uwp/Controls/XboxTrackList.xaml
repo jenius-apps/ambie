@@ -63,6 +63,7 @@
             GettingFocus="OnImage1GettingFocus"
             GotFocus="OnImage1GotFocus"
             IsTabStop="True"
+            KeyDown="OnImageKeyDown"
             LostFocus="OnImage1LostFocus"
             TabIndex="0"
             UseSystemFocusVisuals="True">
@@ -88,6 +89,7 @@
             Canvas.ZIndex="1"
             CornerRadius="12"
             IsTabStop="False"
+            KeyDown="OnImageKeyDown"
             LostFocus="OnNonImage1LostFocus"
             TabIndex="1"
             UseSystemFocusVisuals="True">
@@ -136,6 +138,7 @@
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             CornerRadius="12"
             IsTabStop="False"
+            KeyDown="OnImageKeyDown"
             LostFocus="OnNonImage1LostFocus"
             TabIndex="2"
             UseSystemFocusVisuals="True">
@@ -172,6 +175,15 @@
                 </animations:AnimationSet>
             </animations:Explicit.Animations>
         </ContentControl>
+
+        <FlyoutBase.AttachedFlyout>
+            <Flyout
+                x:Name="VolumeFlyout"
+                Closed="OnVolumeFlyoutClosed"
+                Placement="Right">
+                <Slider x:Name="VolumeSlider" Width="120" />
+            </Flyout>
+        </FlyoutBase.AttachedFlyout>
 
     </Grid>
 </UserControl>

@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +27,8 @@ public sealed partial class XboxTrackList : UserControl
 {
     private readonly ImageBrush[] _imageBrushes;
     private bool _doNotRunExpandAnimation;
+    private bool _volumeFlyoutOpen;
+    private ActiveTrackViewModel? _currentVolumeSliderDataSource;
 
     public XboxTrackList()
     {
@@ -89,7 +92,9 @@ public sealed partial class XboxTrackList : UserControl
 
     private void OnImage1LostFocus(object sender, RoutedEventArgs e)
     {
-        if (ContentControl2.FocusState is FocusState.Unfocused && ContentControl3.FocusState is FocusState.Unfocused)
+        if (!_volumeFlyoutOpen &&
+            ContentControl2.FocusState is FocusState.Unfocused &&
+            ContentControl3.FocusState is FocusState.Unfocused)
         {
             _ = CollapseImage2.StartAsync();
             _ = CollapseImage3.StartAsync();
@@ -101,7 +106,8 @@ public sealed partial class XboxTrackList : UserControl
 
     private void OnNonImage1LostFocus(object sender, RoutedEventArgs e)
     {
-        if (ContentControl1.FocusState is FocusState.Unfocused &&
+        if (!_volumeFlyoutOpen && 
+            ContentControl1.FocusState is FocusState.Unfocused &&
             ContentControl2.FocusState is FocusState.Unfocused &&
             ContentControl3.FocusState is FocusState.Unfocused)
         {
@@ -118,8 +124,8 @@ public sealed partial class XboxTrackList : UserControl
         if (ContentControl2.FocusState is FocusState.Keyboard)
         {
             // When the user is navigating UP
-            // from image 1 to image 2, then
-            // ensure we don't rerun the expad animation
+            // from image 2 to image 1, then
+            // ensure we don't rerun the expand animation
             // since the images are already expanded
             _doNotRunExpandAnimation = true;
         }
@@ -140,5 +146,49 @@ public sealed partial class XboxTrackList : UserControl
         }
 
         VolumeInstruction.Visibility = newVisibility;
+    }
+
+    private void OnImageKeyDown(object sender, KeyRoutedEventArgs e)
+    {
+        if (e.Key is VirtualKey.GamepadY)
+        {
+            int itemIndex;
+            if (sender == ContentControl1)
+            {
+                itemIndex = 0;
+            }
+            else if (sender == ContentControl2)
+            {
+                itemIndex = 1;
+            }
+            else
+            {
+                itemIndex = 2;
+            }
+
+            _doNotRunExpandAnimation = true;
+            _volumeFlyoutOpen = true;
+            _currentVolumeSliderDataSource = ViewModel.ActiveTracks[itemIndex];
+            VolumeSlider.Value = _currentVolumeSliderDataSource.Volume;
+            VolumeSlider.ValueChanged += OnSliderValueChanged;
+            VolumeFlyout.ShowAt(sender as FrameworkElement);
+        }
+    }
+
+    private void OnSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+    {
+        if (_currentVolumeSliderDataSource is null)
+        {
+            return;
+        }
+
+        _currentVolumeSliderDataSource.Volume = e.NewValue;
+    }
+
+    private void OnVolumeFlyoutClosed(object sender, object e)
+    {
+        VolumeSlider.ValueChanged -= OnSliderValueChanged;
+        _currentVolumeSliderDataSource = null;
+        _volumeFlyoutOpen = false;
     }
 }
