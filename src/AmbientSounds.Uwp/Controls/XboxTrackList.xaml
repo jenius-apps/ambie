@@ -33,7 +33,7 @@
             <FontIcon
                 FontFamily="{StaticResource FluentUIGlyphs}"
                 FontSize="{StaticResource XboxIconSize}"
-                Glyph="{StaticResource GlyphGamePadY}" />
+                Glyph="{StaticResource GlyphGamePadA}" />
             <TextBlock FontSize="{StaticResource XboxFontSize}" Text="Adjust sound volume" />
 
             <animations:Implicit.ShowAnimations>
@@ -181,7 +181,10 @@
                 x:Name="VolumeFlyout"
                 Closed="OnVolumeFlyoutClosed"
                 Placement="Right">
-                <Slider x:Name="VolumeSlider" Width="120" />
+                <Slider
+                    x:Name="VolumeSlider"
+                    Width="120"
+                    SmallChange="10" />
             </Flyout>
         </FlyoutBase.AttachedFlyout>
 

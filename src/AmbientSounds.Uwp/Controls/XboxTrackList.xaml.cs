@@ -150,7 +150,7 @@ public sealed partial class XboxTrackList : UserControl
 
     private void OnImageKeyDown(object sender, KeyRoutedEventArgs e)
     {
-        if (e.Key is VirtualKey.GamepadY)
+        if (e.Key is VirtualKey.GamepadA)
         {
             int itemIndex;
             if (sender == ContentControl1)
