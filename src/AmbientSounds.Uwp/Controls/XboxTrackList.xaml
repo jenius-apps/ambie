@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    x:Name="RootUserControl"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -22,6 +23,35 @@
     </UserControl.Resources>
 
     <Grid>
+        <StackPanel
+            x:Name="VolumeInstruction"
+            Margin="140,12,0,0"
+            VerticalAlignment="Top"
+            Orientation="Horizontal"
+            Spacing="8"
+            Visibility="Collapsed">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="{StaticResource XboxIconSize}"
+                Glyph="{StaticResource GlyphGamePadY}" />
+            <TextBlock FontSize="{StaticResource XboxFontSize}" Text="Adjust sound volume" />
+
+            <animations:Implicit.ShowAnimations>
+                <animations:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:0.6" />
+            </animations:Implicit.ShowAnimations>
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="InstructionFadeOut">
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+        </StackPanel>
+
         <ContentControl
             x:Name="ContentControl1"
             Padding="4"

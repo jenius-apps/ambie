@@ -83,6 +83,7 @@ public sealed partial class XboxTrackList : UserControl
             ContentControl3.IsTabStop = true;
             _ = ExpandImage2.StartAsync();
             _ = ExpandImage3.StartAsync();
+            UpdateInstructionVisibility();
         }
     }
 
@@ -94,6 +95,7 @@ public sealed partial class XboxTrackList : UserControl
             _ = CollapseImage3.StartAsync();
             ContentControl2.IsTabStop = false;
             ContentControl3.IsTabStop = false;
+            UpdateInstructionVisibility();
         }
     }
 
@@ -107,6 +109,7 @@ public sealed partial class XboxTrackList : UserControl
             _ = CollapseImage3.StartAsync();
             ContentControl2.IsTabStop = false;
             ContentControl3.IsTabStop = false;
+            UpdateInstructionVisibility();
         }
     }
 
@@ -120,5 +123,22 @@ public sealed partial class XboxTrackList : UserControl
             // since the images are already expanded
             _doNotRunExpandAnimation = true;
         }
+    }
+
+    private async void UpdateInstructionVisibility()
+    {
+        var newVisibility =
+            ContentControl1.FocusState is FocusState.Unfocused &&
+            ContentControl2.FocusState is FocusState.Unfocused &&
+            ContentControl3.FocusState is FocusState.Unfocused
+            ? Visibility.Collapsed
+            : Visibility.Visible;
+
+        if (newVisibility is Visibility.Collapsed)
+        {
+            await InstructionFadeOut.StartAsync();
+        }
+
+        VolumeInstruction.Visibility = newVisibility;
     }
 }

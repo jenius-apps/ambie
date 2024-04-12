@@ -307,6 +307,10 @@
             <x:String x:Key="GlyphMoonSolid">&#xF1DB;</x:String>
             <x:String x:Key="GlyphMoon">&#xE708;</x:String>
             <x:String x:Key="GlyphStore">&#xE14D;</x:String>
+            <x:String x:Key="GlyphGamePadA">&#xF093;</x:String>
+            <x:String x:Key="GlyphGamePadB">&#xF094;</x:String>
+            <x:String x:Key="GlyphGamePadY">&#xF095;</x:String>
+            <x:String x:Key="GlyphGamePadX">&#xF096;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>
