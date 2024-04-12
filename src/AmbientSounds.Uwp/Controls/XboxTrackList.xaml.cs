@@ -150,12 +150,13 @@ public sealed partial class XboxTrackList : UserControl
 
     private void OnImageKeyDown(object sender, KeyRoutedEventArgs e)
     {
-        if (e.Key is VirtualKey.GamepadA)
+        if (e.OriginalKey is VirtualKey.GamepadA)
         {
+            e.Handled = true;
             int itemIndex;
             if (sender == ContentControl1)
             {
-                itemIndex = 0;
+                itemIndex = 2;
             }
             else if (sender == ContentControl2)
             {
@@ -163,7 +164,7 @@ public sealed partial class XboxTrackList : UserControl
             }
             else
             {
-                itemIndex = 2;
+                itemIndex = 0;
             }
 
             _doNotRunExpandAnimation = true;

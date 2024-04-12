@@ -40,6 +40,7 @@ public sealed partial class XboxCataloguePage : Page
     {
         if (App.Services.GetRequiredService<INavigator>().RootFrame is Frame root)
         {
+            e.Handled = true;
             root.GoBack();
         }
     }
