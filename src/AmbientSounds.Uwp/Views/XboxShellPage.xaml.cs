@@ -25,10 +25,12 @@ public sealed partial class XboxShellPage : Page
 
     public XboxShellPageViewModel ViewModel => (XboxShellPageViewModel)this.DataContext;
 
-    protected override void OnNavigatedTo(NavigationEventArgs e)
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
         _ = TrackList.InitializeAsync();
         _ = SlideshowControl.LoadAsync();
+
+        await ViewModel.InitializeAsync();
     }
 
     private async void OnMoreSoundsClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)

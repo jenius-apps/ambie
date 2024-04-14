@@ -53,4 +53,9 @@ public interface IIapService
     /// Only looks at subsription IAP, not lifetime durable ownerships.
     /// </remarks>
     Task<bool> IsSubscriptionOwnedAsync();
+
+    /// <summary>
+    /// Determines if premium buttons can be displayed.
+    /// </summary>
+    Task<bool> CanShowPremiumButtonsAsync();
 }

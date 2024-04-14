@@ -8,6 +8,7 @@
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.UI.Xaml.Media"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
@@ -68,6 +69,15 @@
                 VerticalAlignment="Top"
                 Orientation="Horizontal"
                 Spacing="8">
+
+                <HyperlinkButton
+                    VerticalAlignment="Center"
+                    AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
+                    Command="{x:Bind ViewModel.OpenPremiumCommand}"
+                    Content="{x:Bind strings:Resources.GetAmbiePlus}"
+                    FontSize="{StaticResource XboxFontSize}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.GetAmbiePlus}"
+                    Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}" />
 
                 <controls:PlayerControl DisplayMode="Xbox" VolumeVisible="Collapsed" />
 

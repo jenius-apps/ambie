@@ -332,11 +332,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private async Task LoadPremiumContentAsync()
     {
-        PremiumButtonVisible = !await _iapService.IsAnyOwnedAsync(new string[] 
-        {
-            IapConstants.MsStoreAmbiePlusId,
-            IapConstants.MsStoreAmbiePlusLifetimeId
-        });
+        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)

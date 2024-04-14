@@ -94,6 +94,12 @@ public class StoreService : IIapService
     }
 
     /// <inheritdoc/>
+    public async Task<bool> CanShowPremiumButtonsAsync()
+    {
+        return !await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusLifetimeId]);
+    }
+
+    /// <inheritdoc/>
     public async Task<bool> IsAnyOwnedAsync(IReadOnlyList<string> iapIds)
     {
         foreach (var id in iapIds)
