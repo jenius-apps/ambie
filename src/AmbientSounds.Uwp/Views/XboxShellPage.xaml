@@ -34,6 +34,12 @@
             Grid.RowSpan="2"
             Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
+        <MediaPlayerElement
+            x:Name="VideoPlayer"
+            Grid.RowSpan="2"
+            AutoPlay="True"
+            Visibility="{x:Bind ViewModel.VideoVisible, Mode=OneWay}" />
+
         <Rectangle Grid.RowSpan="2">
             <Rectangle.Fill>
                 <media:RadialGradientBrush

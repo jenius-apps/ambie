@@ -22,6 +22,7 @@ public partial class XboxShellPageViewModel : ObservableObject
     private readonly IXboxSlideshowService _xboxSlideshowService;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private readonly IVideoService _videoService;
     private Progress<double>? _currentVideoProgress;
 
     public XboxShellPageViewModel(
@@ -30,7 +31,8 @@ public partial class XboxShellPageViewModel : ObservableObject
         ITelemetry telemetry,
         IDialogService dialogService,
         IXboxSlideshowService xboxSlideshowService,
-        IDispatcherQueue dispatcherQueue)
+        IDispatcherQueue dispatcherQueue,
+        IVideoService videoService)
     {
         // For xbox, there's no such thing as a custom global volume.
         // We let the user adjust their TV volume for that.
@@ -42,6 +44,7 @@ public partial class XboxShellPageViewModel : ObservableObject
         _dialogService = dialogService;
         _xboxSlideshowService = xboxSlideshowService;
         _dispatcherQueue = dispatcherQueue;
+        _videoService = videoService;
     }
 
     [ObservableProperty]
@@ -57,6 +60,9 @@ public partial class XboxShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _downloadingMessageVisible;
+
+    [ObservableProperty]
+    private string _videoSource = string.Empty;
 
     public bool SlideshowVisible => SlideshowMode is SlideshowMode.Images;
 
@@ -83,6 +89,29 @@ public partial class XboxShellPageViewModel : ObservableObject
     private async void OnSoundAdded(object sender, SoundPlayedArgs e)
     {
         SlideshowMode = await _xboxSlideshowService.GetSlideshowModeAsync(e.Sound);
+        if (SlideshowMode is SlideshowMode.Video)
+        {
+            _ = LoadAssociatedVideoAsync(e.Sound);
+        }
+    }
+
+    private async Task LoadAssociatedVideoAsync(Sound sound)
+    {
+        if (sound.AssociatedVideoIds is not [string videoId, ..])
+        {
+            return;
+        }
+
+        var video = await _videoService.GetLocalVideoAsync(videoId);
+        if (video is null)
+        {
+            return;
+        }
+
+        if (video.FilePath is { Length: > 0 } path)
+        {
+            VideoSource = path;
+        }
     }
 
     private void OnVideoDownloadTriggered(object sender, Progress<double> e)
