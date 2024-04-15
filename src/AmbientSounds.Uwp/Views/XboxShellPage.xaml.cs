@@ -33,6 +33,11 @@ public sealed partial class XboxShellPage : Page
         await ViewModel.InitializeAsync();
     }
 
+    protected override void OnNavigatedFrom(NavigationEventArgs e)
+    {
+        ViewModel.Uninitialize();
+    }
+
     private async void OnMoreSoundsClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
     {
         if (App.Services.GetRequiredService<INavigator>().RootFrame is Frame root)

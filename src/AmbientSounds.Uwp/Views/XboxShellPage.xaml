@@ -29,7 +29,10 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
-        <controls:Slideshow x:Name="SlideshowControl" Grid.RowSpan="2" />
+        <controls:Slideshow
+            x:Name="SlideshowControl"
+            Grid.RowSpan="2"
+            Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
         <Rectangle Grid.RowSpan="2">
             <Rectangle.Fill>
