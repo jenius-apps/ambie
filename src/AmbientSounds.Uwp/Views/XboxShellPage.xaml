@@ -100,6 +100,16 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
+
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Orientation="Horizontal"
+                Visibility="{x:Bind ViewModel.DownloadingMessageVisible, Mode=OneWay}">
+
+                <winui:ProgressRing IsIndeterminate="False" Value="{x:Bind ViewModel.VideoProgress, Mode=OneWay}" />
+                <TextBlock Text="Downloading video..." />
+            </StackPanel>
         </Grid>
 
         <controls:SoundGridControl
