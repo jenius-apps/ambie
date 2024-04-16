@@ -55,6 +55,9 @@ public partial class SoundViewModel : ObservableObject
     [ObservableProperty]
     private bool _isKeyPadFocused;
 
+    [ObservableProperty]
+    private bool _videoIconVisible;
+
     public SoundViewModel(
         Sound s,
         IMixMediaPlayerService playerService,
@@ -154,6 +157,8 @@ public partial class SoundViewModel : ObservableObject
                 RegisterProgress(progress);
             }
         }
+
+        VideoIconVisible = _sound.AssociatedVideoIds.Count > 0;
 
         UpdateIsCurrentlyPlaying();
         _ = UpdateIsLockVisibleAsync();

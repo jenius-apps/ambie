@@ -68,6 +68,16 @@
                 Text="{x:Bind ViewModel.Name}"
                 TextTrimming="CharacterEllipsis"
                 TextWrapping="Wrap" />
+
+            <FontIcon
+                Margin="20,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="{StaticResource XboxIconSize}"
+                Glyph="{StaticResource GlyphFilmstrip}"
+                ToolTipService.ToolTip="Video background available"
+                Visibility="{x:Bind ViewModel.VideoIconVisible}" />
         </Grid>
     </Grid>
 </UserControl>
