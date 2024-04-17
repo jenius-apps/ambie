@@ -63,7 +63,7 @@ public sealed partial class XboxSoundItem : UserControl
                 {
                     await FadeInName.StartAsync(_namePlateAnimationCts.Token);
                 }
-                catch (TaskCanceledException)
+                catch (OperationCanceledException)
                 {
 
                 }
@@ -78,7 +78,7 @@ public sealed partial class XboxSoundItem : UserControl
                 {
                     await FadeOutName.StartAsync(_namePlateAnimationCts.Token);
                 }
-                catch (TaskCanceledException)
+                catch (OperationCanceledException)
                 {
 
                 }

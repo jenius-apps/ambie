@@ -6,6 +6,7 @@ using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Media.Core;
 using Windows.UI.ViewManagement;
@@ -20,8 +21,10 @@ namespace AmbientSounds.Views;
 
 public sealed partial class XboxShellPage : Page
 {
-    private IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeOutCombos;
-    private IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeInCombos;
+    private readonly IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeOutCombos;
+    private readonly IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeInCombos;
+    private CancellationTokenSource _slideshowTransitionCts = new();
+    private SemaphoreSlim _slideshowTransitionLock = new(1, 1);
 
     public XboxShellPage()
     {
@@ -79,48 +82,62 @@ public sealed partial class XboxShellPage : Page
         }
         else if (e.PropertyName is nameof(ViewModel.SlideshowMode))
         {
-            await UpdateSlideshowModeAsync();
+            _slideshowTransitionCts.Cancel();
+            _slideshowTransitionCts = new();
+            await _slideshowTransitionLock.WaitAsync();
+
+            try
+            {
+                await UpdateSlideshowModeAsync(_slideshowTransitionCts.Token);
+            }
+            catch (OperationCanceledException) 
+            { 
+            }
+            finally
+            {
+                _slideshowTransitionLock.Release();
+            }
         }
     }
 
-    private async Task UpdateSlideshowModeAsync()
+    private async Task UpdateSlideshowModeAsync(CancellationToken ct)
     {
         foreach (var combo in _fadeOutCombos)
         {
-            if (await TryFadeOutAsync(combo.Item1, combo.Item2, combo.Item3))
-            {
-                break;
-            }
+            await TryFadeOutAsync(combo.Item1, combo.Item2, combo.Item3, ct);
         }
 
         foreach (var combo in _fadeInCombos)
         {
-            if (TryTriggerFadeIn(combo.Item1, combo.Item2, combo.Item3))
+            if (await TryTriggerFadeInAsync(combo.Item1, combo.Item2, combo.Item3, ct))
             {
                 break;
             }
         }
     }
 
-    private async Task<bool> TryFadeOutAsync(SlideshowMode mode, UIElement control, AnimationSet fadeOutAnimation)
+    private async Task TryFadeOutAsync(SlideshowMode mode, UIElement control, AnimationSet fadeOutAnimation, CancellationToken ct)
     {
         if (ViewModel.SlideshowMode != mode &&
             control.Visibility is Visibility.Visible)
         {
-            await fadeOutAnimation.StartAsync();
-            control.Visibility = Visibility.Collapsed;
-            return true;
-        }
+            try
+            {
+                await fadeOutAnimation.StartAsync(ct);
+            }
+            catch (OperationCanceledException) { }
 
-        return false;
+            control.Visibility = Visibility.Collapsed;
+            ct.ThrowIfCancellationRequested();
+        }
     }
 
-    private bool TryTriggerFadeIn(SlideshowMode mode, UIElement control, AnimationSet fadeInAnimation)
+    private async Task<bool> TryTriggerFadeInAsync(SlideshowMode mode, UIElement control, AnimationSet fadeInAnimation, CancellationToken ct)
     {
         if (ViewModel.SlideshowMode == mode)
         {
             control.Visibility = Visibility.Visible;
-            _ = fadeInAnimation.StartAsync();
+            await fadeInAnimation.StartAsync(ct);
 
             return true;
         }
