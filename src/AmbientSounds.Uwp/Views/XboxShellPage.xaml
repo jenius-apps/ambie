@@ -32,13 +32,44 @@
         <controls:Slideshow
             x:Name="SlideshowControl"
             Grid.RowSpan="2"
-            Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+            Visibility="Collapsed">
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="SlideshowFadeOut">
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="SlideshowFadeIn">
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+        </controls:Slideshow>
 
         <MediaPlayerElement
             x:Name="VideoPlayer"
             Grid.RowSpan="2"
             AutoPlay="True"
-            Visibility="{x:Bind ViewModel.VideoVisible, Mode=OneWay}" />
+            Visibility="Collapsed">
+            <animations:Implicit.ShowAnimations />
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="VideoFadeOut">
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="VideoFadeIn">
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.6" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+        </MediaPlayerElement>
 
         <Rectangle Grid.RowSpan="2">
             <Rectangle.Fill>

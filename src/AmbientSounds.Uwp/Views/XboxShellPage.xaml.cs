@@ -1,8 +1,12 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Models;
+using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Windows.Media.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -10,10 +14,15 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
+#nullable enable
+
 namespace AmbientSounds.Views;
 
 public sealed partial class XboxShellPage : Page
 {
+    private IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeOutCombos;
+    private IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeInCombos;
+
     public XboxShellPage()
     {
         this.InitializeComponent();
@@ -26,6 +35,18 @@ public sealed partial class XboxShellPage : Page
         }
 
         VideoPlayer.MediaPlayer.IsLoopingEnabled = true;
+
+        _fadeOutCombos = 
+        [
+            (SlideshowMode.Video, VideoPlayer, VideoFadeOut),
+            (SlideshowMode.Images, SlideshowControl, SlideshowFadeOut)
+        ];
+
+        _fadeInCombos =
+        [
+            (SlideshowMode.Video, VideoPlayer, VideoFadeIn),
+            (SlideshowMode.Images, SlideshowControl, SlideshowFadeIn)
+        ];
     }
 
     public XboxShellPageViewModel ViewModel => (XboxShellPageViewModel)this.DataContext;
@@ -45,7 +66,7 @@ public sealed partial class XboxShellPage : Page
         ViewModel.Uninitialize();
     }
 
-    private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+    private async void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName is nameof(ViewModel.VideoSource) &&
             ViewModel.VideoSource is { Length: > 0 } source)
@@ -56,6 +77,55 @@ public sealed partial class XboxShellPage : Page
             }
             catch (UriFormatException) { }
         }
+        else if (e.PropertyName is nameof(ViewModel.SlideshowMode))
+        {
+            await UpdateSlideshowModeAsync();
+        }
+    }
+
+    private async Task UpdateSlideshowModeAsync()
+    {
+        foreach (var combo in _fadeOutCombos)
+        {
+            if (await TryFadeOutAsync(combo.Item1, combo.Item2, combo.Item3))
+            {
+                break;
+            }
+        }
+
+        foreach (var combo in _fadeInCombos)
+        {
+            if (TryTriggerFadeIn(combo.Item1, combo.Item2, combo.Item3))
+            {
+                break;
+            }
+        }
+    }
+
+    private async Task<bool> TryFadeOutAsync(SlideshowMode mode, UIElement control, AnimationSet fadeOutAnimation)
+    {
+        if (ViewModel.SlideshowMode != mode &&
+            control.Visibility is Visibility.Visible)
+        {
+            await fadeOutAnimation.StartAsync();
+            control.Visibility = Visibility.Collapsed;
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool TryTriggerFadeIn(SlideshowMode mode, UIElement control, AnimationSet fadeInAnimation)
+    {
+        if (ViewModel.SlideshowMode == mode)
+        {
+            control.Visibility = Visibility.Visible;
+            _ = fadeInAnimation.StartAsync();
+
+            return true;
+        }
+
+        return false;
     }
 
     private async void OnMoreSoundsClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
