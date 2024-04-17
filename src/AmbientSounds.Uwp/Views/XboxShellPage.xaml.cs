@@ -61,6 +61,7 @@ public sealed partial class XboxShellPage : Page
         _ = SlideshowControl.LoadAsync();
 
         await ViewModel.InitializeAsync();
+        await UpdateSlideshowModeAsync();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -82,37 +83,37 @@ public sealed partial class XboxShellPage : Page
         }
         else if (e.PropertyName is nameof(ViewModel.SlideshowMode))
         {
-            _slideshowTransitionCts.Cancel();
-            _slideshowTransitionCts = new();
-            await _slideshowTransitionLock.WaitAsync();
-
-            try
-            {
-                await UpdateSlideshowModeAsync(_slideshowTransitionCts.Token);
-            }
-            catch (OperationCanceledException) 
-            { 
-            }
-            finally
-            {
-                _slideshowTransitionLock.Release();
-            }
+            await UpdateSlideshowModeAsync();
         }
     }
 
-    private async Task UpdateSlideshowModeAsync(CancellationToken ct)
+    private async Task UpdateSlideshowModeAsync()
     {
-        foreach (var combo in _fadeOutCombos)
-        {
-            await TryFadeOutAsync(combo.Item1, combo.Item2, combo.Item3, ct);
-        }
+        _slideshowTransitionCts.Cancel();
+        _slideshowTransitionCts = new();
+        await _slideshowTransitionLock.WaitAsync();
 
-        foreach (var combo in _fadeInCombos)
+        try
         {
-            if (await TryTriggerFadeInAsync(combo.Item1, combo.Item2, combo.Item3, ct))
+            foreach (var combo in _fadeOutCombos)
             {
-                break;
+                await TryFadeOutAsync(combo.Item1, combo.Item2, combo.Item3, _slideshowTransitionCts.Token);
             }
+
+            foreach (var combo in _fadeInCombos)
+            {
+                if (await TryTriggerFadeInAsync(combo.Item1, combo.Item2, combo.Item3, _slideshowTransitionCts.Token))
+                {
+                    break;
+                }
+            }
+        }
+        catch (OperationCanceledException)
+        {
+        }
+        finally
+        {
+            _slideshowTransitionLock.Release();
         }
     }
 
