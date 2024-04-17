@@ -181,6 +181,16 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     /// <inheritdoc/>
     public string[] GetSoundIds() => _activePlayers.Keys.ToArray();
 
+    /// <inheritdoc/>
+    public IEnumerable<string> GetSoundIds(bool oldestToNewest)
+    {
+        var keyValuePairList = oldestToNewest
+            ? _activeSoundDateTimes.OrderBy(x => x.Value)
+            : _activeSoundDateTimes.OrderByDescending(x => x.Value);
+
+        return keyValuePairList.Select(x => x.Key);
+    }
+
     public async Task PlayGuideAsync(Guide guide)
     {
         if (_guideInfo?.GuideId == guide.Id)

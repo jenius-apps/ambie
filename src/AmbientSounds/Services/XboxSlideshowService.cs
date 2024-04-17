@@ -1,19 +1,21 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services;
 
-public class XboxSlideshowService : IXboxSlideshowService
+public sealed class XboxSlideshowService : IXboxSlideshowService
 {
     private readonly IUserSettings _userSettings;
     private readonly IVideoService _videoService;
     private readonly IIapService _iapService;
 
     /// <inheritdoc/>
-    public event EventHandler<Progress<double>>? VideoDownloadTriggered;
+    public event EventHandler<VideoDownloadTriggeredArgs>? VideoDownloadTriggered;
 
     public XboxSlideshowService(
         IUserSettings userSettings,
@@ -26,7 +28,7 @@ public class XboxSlideshowService : IXboxSlideshowService
     }
 
     /// <inheritdoc/>
-    public async Task<SlideshowMode> GetSlideshowModeAsync(Sound sound)
+    public async Task<SlideshowMode> GetSlideshowModeAsync(string soundId, IReadOnlyList<string> associatedVideoIds)
     {
         // Retrieve the most appropriate mode for the given sound.
 
@@ -39,14 +41,14 @@ public class XboxSlideshowService : IXboxSlideshowService
             return preferredMode;
         }
 
-        if (sound.AssociatedVideoIds is not [{ Length: > 0 } videoId, ..])
+        if (associatedVideoIds is not [{ Length: > 0 } videoId, ..])
         {
             return SlideshowMode.Images;
         }
 
         if (await _videoService.GetLocalVideoAsync(videoId).ConfigureAwait(false) is not { } video)
         {
-            _ = TryInstallAsync(videoId).ConfigureAwait(false);
+            _ = TryInstallAsync(videoId, soundId).ConfigureAwait(false);
             return SlideshowMode.Images;
         }
 
@@ -58,7 +60,7 @@ public class XboxSlideshowService : IXboxSlideshowService
         return SlideshowMode.Images;
     }
 
-    private async Task TryInstallAsync(string videoId)
+    private async Task TryInstallAsync(string videoId, string soundId)
     {
         var videos = await _videoService.GetVideosAsync(includeOnline: true, includeOffline: false).ConfigureAwait(false);
         var videoToDownload = videos.FirstOrDefault(x => x.Id == videoId);
@@ -70,6 +72,11 @@ public class XboxSlideshowService : IXboxSlideshowService
 
         Progress<double> progress = new();
         await _videoService.InstallVideoAsync(videoToDownload, progress).ConfigureAwait(false);
-        VideoDownloadTriggered?.Invoke(this, progress);
+        VideoDownloadTriggered?.Invoke(this, new VideoDownloadTriggeredArgs
+        {
+            Progress = progress,
+            VideoId = videoId,
+            SoundId = soundId
+        });
     }
 }

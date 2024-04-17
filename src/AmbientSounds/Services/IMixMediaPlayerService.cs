@@ -148,5 +148,12 @@ namespace AmbientSounds.Services
         /// <param name="guide">The guide to play.</param>
         Task PlayGuideAsync(Guide guide);
         Task AddRandomAsync();
+
+        /// <summary>
+        /// Retrieves enumerable of active sound IDs.
+        /// </summary>
+        /// <param name="oldestToNewest">Sorts the list from oldest to newest if true. Otherwise, sorts newest to oldest.</param>
+        /// <returns>Sorted list of active sound IDs.</returns>
+        IEnumerable<string> GetSoundIds(bool oldestToNewest);
     }
 }

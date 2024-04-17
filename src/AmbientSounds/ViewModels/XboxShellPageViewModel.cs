@@ -9,6 +9,7 @@ using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ public partial class XboxShellPageViewModel : ObservableObject
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly IVideoService _videoService;
-    private Progress<double>? _currentVideoProgress;
+    private VideoDownloadTriggeredArgs? _activeVideoDownloadInfo;
 
     public XboxShellPageViewModel(
         IMixMediaPlayerService mixMediaPlayerService,
@@ -80,24 +81,29 @@ public partial class XboxShellPageViewModel : ObservableObject
         _mixMediaPlayerService.SoundAdded -= OnSoundAdded;
         _xboxSlideshowService.VideoDownloadTriggered -= OnVideoDownloadTriggered;
 
-        if (_currentVideoProgress is { } videoProgress)
+        if (_activeVideoDownloadInfo is { Progress: { } videoProgress })
         {
             videoProgress.ProgressChanged -= OnProgressChanged;
         }
     }
 
-    private async void OnSoundAdded(object sender, SoundPlayedArgs e)
+    private void OnSoundAdded(object sender, SoundPlayedArgs e)
     {
-        SlideshowMode = await _xboxSlideshowService.GetSlideshowModeAsync(e.Sound);
+        _ = UpdateSlideshowModeAsync(e.Sound.Id, e.Sound.AssociatedVideoIds);
+    }
+
+    private async Task UpdateSlideshowModeAsync(string soundId, IReadOnlyList<string> associatedVideoIds)
+    {
+        SlideshowMode = await _xboxSlideshowService.GetSlideshowModeAsync(soundId, associatedVideoIds);
         if (SlideshowMode is SlideshowMode.Video)
         {
-            _ = LoadAssociatedVideoAsync(e.Sound);
+            await LoadAssociatedVideoAsync(associatedVideoIds);
         }
     }
 
-    private async Task LoadAssociatedVideoAsync(Sound sound)
+    private async Task LoadAssociatedVideoAsync(IReadOnlyList<string> associatedVideoIds)
     {
-        if (sound.AssociatedVideoIds is not [string videoId, ..])
+        if (associatedVideoIds is not [string videoId, ..])
         {
             return;
         }
@@ -114,11 +120,18 @@ public partial class XboxShellPageViewModel : ObservableObject
         }
     }
 
-    private void OnVideoDownloadTriggered(object sender, Progress<double> e)
+    private void OnVideoDownloadTriggered(object sender, VideoDownloadTriggeredArgs e)
     {
+        if (_activeVideoDownloadInfo is not null)
+        {
+            // Only support one active download at a time
+            return;
+        }
+
+        _activeVideoDownloadInfo = e;
+
         Debug.WriteLine("################### download triggered");
-        _currentVideoProgress = e;
-        _currentVideoProgress.ProgressChanged += OnProgressChanged;
+        _activeVideoDownloadInfo.Progress.ProgressChanged += OnProgressChanged;
 
         _dispatcherQueue.TryEnqueue(() =>
         {
@@ -126,18 +139,25 @@ public partial class XboxShellPageViewModel : ObservableObject
         });
     }
 
-    private void OnProgressChanged(object sender, double e)
+    private void OnProgressChanged(object sender, double progress)
     {
-        Debug.WriteLine($"################### progress changed {e}");
+        Debug.WriteLine($"################### progress changed {progress}");
 
-        _dispatcherQueue.TryEnqueue(() =>
+        _dispatcherQueue.TryEnqueue(async () =>
         {
-            VideoProgress = e;
-            if (e >= 100 && _currentVideoProgress is { } videoProgress)
+            VideoProgress = progress;
+            if (progress >= 100 && _activeVideoDownloadInfo is not null)
             {
                 DownloadingMessageVisible = false;
-                videoProgress.ProgressChanged -= OnProgressChanged;
-                _currentVideoProgress = null;
+                _activeVideoDownloadInfo.Progress.ProgressChanged -= OnProgressChanged;
+
+                if (_mixMediaPlayerService.GetSoundIds(oldestToNewest: false).FirstOrDefault() == _activeVideoDownloadInfo.SoundId)
+                {
+                    await Task.Delay(300); // required for the video file to be usable
+                    _ = UpdateSlideshowModeAsync(_activeVideoDownloadInfo.SoundId, [_activeVideoDownloadInfo.VideoId]);
+                }
+
+                _activeVideoDownloadInfo = null;
             }
         });
     }
