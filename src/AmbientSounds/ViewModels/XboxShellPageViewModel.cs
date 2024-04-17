@@ -148,7 +148,6 @@ public partial class XboxShellPageViewModel : ObservableObject
             VideoProgress = progress;
             if (progress >= 100 && _activeVideoDownloadInfo is not null)
             {
-                DownloadingMessageVisible = false;
                 _activeVideoDownloadInfo.Progress.ProgressChanged -= OnProgressChanged;
 
                 if (_mixMediaPlayerService.GetSoundIds(oldestToNewest: false).FirstOrDefault() == _activeVideoDownloadInfo.SoundId)
@@ -158,6 +157,7 @@ public partial class XboxShellPageViewModel : ObservableObject
                 }
 
                 _activeVideoDownloadInfo = null;
+                DownloadingMessageVisible = false;
             }
         });
     }
