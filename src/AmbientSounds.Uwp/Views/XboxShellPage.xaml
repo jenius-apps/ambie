@@ -87,13 +87,19 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Grid>
+        <Grid x:Name="TopGrid">
             <animations:Explicit.Animations>
                 <animations:AnimationSet x:Name="ActionBarExitAnimation">
                     <animations:OpacityAnimation
                         From="1"
                         To="0"
                         Duration="0:0:1" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="ActionBarEntranceAnimation">
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
                 </animations:AnimationSet>
             </animations:Explicit.Animations>
 
@@ -174,6 +180,7 @@
         </Grid>
 
         <controls:SoundGridControl
+            x:Name="SoundGrid"
             Grid.Row="1"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             IsXbox="True">
@@ -195,6 +202,24 @@
                         From="0"
                         To="0,100,0"
                         Duration="0:0:1" />
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:1" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="SoundGridEntranceAnimation">
+                    <animations:ScaleAnimation
+                        From="0.9"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <animations:TranslationAnimation
+                        From="0,100,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
                 </animations:AnimationSet>
             </animations:Explicit.Animations>
 

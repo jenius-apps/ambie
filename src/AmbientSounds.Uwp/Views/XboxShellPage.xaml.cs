@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
+using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
@@ -9,6 +11,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Media.Core;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -23,6 +26,8 @@ public sealed partial class XboxShellPage : Page
 {
     private readonly IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeOutCombos;
     private readonly IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeInCombos;
+    private readonly ITimerService _timer;
+    private readonly IDispatcherQueue _dispatcherQueue;
     private CancellationTokenSource _slideshowTransitionCts = new();
     private SemaphoreSlim _slideshowTransitionLock = new(1, 1);
 
@@ -30,6 +35,9 @@ public sealed partial class XboxShellPage : Page
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<XboxShellPageViewModel>();
+        _timer = App.Services.GetRequiredService<ITimerService>();
+        _dispatcherQueue = App.Services.GetRequiredService<IDispatcherQueue>();
+        _timer.Interval = 10000; // 10 seconds
 
         if (App.IsTenFoot)
         {
@@ -50,12 +58,32 @@ public sealed partial class XboxShellPage : Page
             (SlideshowMode.Video, VideoPlayer, VideoFadeIn),
             (SlideshowMode.Images, SlideshowControl, SlideshowFadeIn)
         ];
+
+        CoreWindow.GetForCurrentThread().KeyDown += OnKeyDown;
+    }
+
+    private void OnKeyDown(CoreWindow sender, KeyEventArgs args)
+    {
+        _timer.Stop();
+        if (TopGrid.Visibility is not Visibility.Visible)
+        {
+            TopGrid.Visibility = Visibility.Visible;
+            _ = SoundGridEntranceAnimation.StartAsync();
+        }
+
+        if (SoundGrid.Visibility is not Visibility.Visible)
+        {
+            SoundGrid.Visibility = Visibility.Visible;
+            _ = ActionBarEntranceAnimation.StartAsync();
+        }
+        _timer.Start();
     }
 
     public XboxShellPageViewModel ViewModel => (XboxShellPageViewModel)this.DataContext;
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        _timer.IntervalElapsed += OnTimerElapsed;
         ViewModel.PropertyChanged += OnPropertyChanged;
         _ = TrackList.InitializeAsync();
         _ = SlideshowControl.LoadAsync();
@@ -66,8 +94,22 @@ public sealed partial class XboxShellPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        _timer.Stop();
+        _timer.IntervalElapsed -= OnTimerElapsed;
         ViewModel.PropertyChanged -= OnPropertyChanged;
         ViewModel.Uninitialize();
+    }
+
+    private void OnTimerElapsed(object sender, TimeSpan e)
+    {
+        _timer.Stop();
+
+        _dispatcherQueue.TryEnqueue(async () =>
+        {
+            await Task.WhenAll(ActionBarExitAnimation.StartAsync(), SoundGridExitAnimation.StartAsync());
+            TopGrid.Visibility = Visibility.Collapsed;
+            SoundGrid.Visibility = Visibility.Collapsed;
+        });
     }
 
     private async void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -148,7 +190,7 @@ public sealed partial class XboxShellPage : Page
 
     private async void OnMoreSoundsClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
     {
-        if (App.Services.GetRequiredService<INavigator>().RootFrame is Frame root)
+        if (App.Services.GetRequiredService<Services.INavigator>().RootFrame is Frame root)
         {
             _ = FadeOutAnimation.StartAsync();
             _ = ActionBarExitAnimation.StartAsync();
