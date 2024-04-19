@@ -1,23 +1,16 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Xaml.Navigation;
 
 #nullable enable
 
@@ -26,6 +19,7 @@ namespace AmbientSounds.Controls;
 public sealed partial class XboxTrackList : UserControl
 {
     private readonly ImageBrush[] _imageBrushes;
+    private readonly ContentControl[] _contentControls;
     private bool _doNotRunExpandAnimation;
     private bool _volumeFlyoutOpen;
     private ActiveTrackViewModel? _currentVolumeSliderDataSource;
@@ -35,6 +29,7 @@ public sealed partial class XboxTrackList : UserControl
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<ActiveTrackListViewModel>();
         _imageBrushes = [Image1Brush, Image2Brush, Image3Brush];
+        _contentControls = [ContentControl1, ContentControl2, ContentControl3];
     }
 
     public ActiveTrackListViewModel ViewModel => (ActiveTrackListViewModel)this.DataContext;
@@ -57,6 +52,7 @@ public sealed partial class XboxTrackList : UserControl
             }
 
             _imageBrushes[index].ImageSource = new BitmapImage(new Uri(track.ImagePath));
+            _contentControls[index].Visibility = Visibility.Visible;
             index++;
         }
     }
