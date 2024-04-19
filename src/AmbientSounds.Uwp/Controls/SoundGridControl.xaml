@@ -52,6 +52,8 @@
                         <Setter Target="MainGridView.HorizontalAlignment" Value="Center" />
                         <Setter Target="MainGridView.(ScrollViewer.VerticalScrollBarVisibility)" Value="Hidden" />
                         <Setter Target="CatalogueButton.Visibility" Value="Collapsed" />
+                        <Setter Target="MainGridView.Style" Value="{StaticResource SnappingGridViewStyle}" />
+                        <Setter Target="MainGridView.Padding" Value="0,0,0,52" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
