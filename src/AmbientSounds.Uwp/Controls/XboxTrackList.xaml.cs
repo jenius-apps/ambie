@@ -55,6 +55,12 @@ public sealed partial class XboxTrackList : UserControl
             _contentControls[index].Visibility = Visibility.Visible;
             index++;
         }
+
+        // Ensure unused content controls aren't visible.
+        for (int i = index; i < _contentControls.Length; i++)
+        {
+            _contentControls[i].Visibility = Visibility.Collapsed;
+        }
     }
 
     private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
