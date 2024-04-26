@@ -42,6 +42,9 @@ namespace AmbientSounds.ViewModels
         [ObservableProperty]
         private bool _isDarkScreen;
 
+        [ObservableProperty]
+        private bool _dialogOpen;
+
         /// <summary>
         /// Raised when the view model has completed
         /// initialization.
@@ -167,7 +170,9 @@ namespace AmbientSounds.ViewModels
             if (menuItemId == VideoDialogId)
             {
                 _telemetry.TrackEvent(TelemetryConstants.VideoMenuOpened);
+                DialogOpen = true;
                 await _dialogService.OpenVideosMenuAsync();
+                DialogOpen = false;
                 return;
             }
 
@@ -203,7 +208,9 @@ namespace AmbientSounds.ViewModels
                 var isOwned = await _iapService.IsAnyOwnedAsync(video?.IapIds ?? Array.Empty<string>());
                 if (!isOwned)
                 {
+                    DialogOpen = true;
                     await _dialogService.OpenPremiumAsync();
+                    DialogOpen = false;
                     return;
                 }
 

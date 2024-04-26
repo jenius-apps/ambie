@@ -22,6 +22,7 @@ namespace AmbientSounds.Views;
 
 public sealed partial class ScreensaverPage : Page
 {
+    private const int SecondsToHide = 5;
     private readonly DisplayRequest _displayRequest;
     private readonly DispatcherQueue _dispatcherQueue;
 
@@ -29,7 +30,6 @@ public sealed partial class ScreensaverPage : Page
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<ScreensaverPageViewModel>();
-        IsButtonsHidden = false;
         Queue = DispatcherQueue.GetForCurrentThread();
         SetTimer();
         ViewModel.Loaded += OnViewModelLoaded;
@@ -48,7 +48,6 @@ public sealed partial class ScreensaverPage : Page
 
     private DispatcherQueue Queue { get; set; }
 
-    private const int SecondsToHide = 5;
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
@@ -85,8 +84,8 @@ public sealed partial class ScreensaverPage : Page
         coreWindow.SizeChanged -= CoreWindow_SizeChanged;
         var navigator = SystemNavigationManager.GetForCurrentView();
         navigator.BackRequested -= OnBackRequested;
-        
-        InactiveTimer?.Stop();
+
+        StopHideCursorTimer();
         CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
 
         SettingsFlyout?.Items?.Clear();
@@ -99,6 +98,14 @@ public sealed partial class ScreensaverPage : Page
         {
             VideoPlayer.MediaPlayer.IsLoopingEnabled = true;
             VideoPlayer.MediaPlayer.Source = MediaSource.CreateFromUri(ViewModel.VideoSource);
+        }
+        else if (e.PropertyName == nameof(ViewModel.DialogOpen))
+        {
+            if (ViewModel.DialogOpen)
+            {
+                StopHideCursorTimer();
+                ShowButtonsAndCursor();
+            }
         }
     }
 
@@ -164,9 +171,17 @@ public sealed partial class ScreensaverPage : Page
 
     private void CoreWindow_KeyDown(CoreWindow sender, KeyEventArgs args)
     {
-        if (args.VirtualKey == VirtualKey.Escape)
+        if (args.VirtualKey == VirtualKey.Escape && !ViewModel.DialogOpen)
         {
-            GoBack();
+            if (ApplicationView.GetForCurrentView() is { IsFullScreenMode: true } view)
+            {
+                view.ExitFullScreenMode();
+            }
+            else
+            {
+                GoBack();
+            }
+
             args.Handled = true;
         }
     }
@@ -209,7 +224,6 @@ public sealed partial class ScreensaverPage : Page
         var view = ApplicationView.GetForCurrentView();
         if (view.IsFullScreenMode)
         {
-
             view.ExitFullScreenMode();
         }
         else
@@ -234,27 +248,50 @@ public sealed partial class ScreensaverPage : Page
 
     private void OnInactive(DispatcherQueueTimer t, object sender)
     {
-        if (!IsButtonsHidden)
+        if (ViewModel.DialogOpen)
         {
-            GoBackButton.Visibility = Visibility.Collapsed;
-            ActionButtons.Visibility = Visibility.Collapsed;
-            CoreWindow.GetForCurrentThread().PointerCursor = null;
-            IsButtonsHidden = true;
+            return;
         }
 
-        InactiveTimer?.Stop();
+        if (!IsButtonsHidden)
+        {
+            HideButtonsAndCursor();
+        }
+
+        StopHideCursorTimer();
     }
 
     private void RootPage_OnPointerMoved(object sender, PointerRoutedEventArgs e)
     {
-        if (IsButtonsHidden)
+        if (ViewModel.DialogOpen)
         {
-            GoBackButton.Visibility = Visibility.Visible;
-            ActionButtons.Visibility = Visibility.Visible;
-            CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
-            IsButtonsHidden = false;
+            return;
         }
 
-        InactiveTimer?.Start();
+        if (IsButtonsHidden)
+        {
+            ShowButtonsAndCursor();
+        }
+
+        StartHideCursorTimer();
     }
+
+    private void ShowButtonsAndCursor()
+    {
+        GoBackButton.Visibility = Visibility.Visible;
+        ActionButtons.Visibility = Visibility.Visible;
+        CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
+        IsButtonsHidden = false;
+    }
+
+    private void HideButtonsAndCursor()
+    {
+        GoBackButton.Visibility = Visibility.Collapsed;
+        ActionButtons.Visibility = Visibility.Collapsed;
+        CoreWindow.GetForCurrentThread().PointerCursor = null;
+        IsButtonsHidden = true;
+    }
+
+    private void StopHideCursorTimer() => InactiveTimer?.Stop();
+    private void StartHideCursorTimer() => InactiveTimer?.Start();
 }
