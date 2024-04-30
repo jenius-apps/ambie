@@ -333,6 +333,10 @@ public partial class ShellPageViewModel : ObservableObject
     private async Task LoadPremiumContentAsync()
     {
         PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+
+        _telemetry.TrackEvent(PremiumButtonVisible
+            ? TelemetryConstants.LaunchUserFreeTier
+            : TelemetryConstants.LaunchUserPremiumTier);
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)

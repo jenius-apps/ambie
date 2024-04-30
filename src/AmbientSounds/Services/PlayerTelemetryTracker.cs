@@ -88,17 +88,17 @@ namespace AmbientSounds.Services
                 return string.Empty;
             }
 
-            string roundedDiff = GetRoundedDiff(pauseTime - PlayStart);
+            TimeSpan diff = pauseTime - PlayStart;
 
-            if (!string.IsNullOrWhiteSpace(roundedDiff))
+            if (diff.TotalMinutes >= 1)
             {
-                _telemetry.TrackEvent(TelemetryConstants.PlaybackTime, new Dictionary<string, string>
+                _telemetry.TrackEvent(TelemetryConstants.PlaybackTime, metrics: new Dictionary<string, double>
                 {
-                    { "time", roundedDiff }
+                    { "playbackMinutes", diff.TotalMinutes }
                 });
             }
 
-            return roundedDiff;
+            return GetRoundedDiff(diff);
         }
 
         public void HandleNewState(MediaPlaybackState newState)
