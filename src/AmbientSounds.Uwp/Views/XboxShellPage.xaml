@@ -130,7 +130,7 @@
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphStore}" />
                 </Button>
 
-                <Button Style="{StaticResource XboxIconButton}">
+                <Button Click="OnSettingsClicked" Style="{StaticResource XboxIconButton}">
                     <Button.Content>
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
                     </Button.Content>

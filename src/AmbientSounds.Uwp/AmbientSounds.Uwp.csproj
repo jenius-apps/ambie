@@ -361,6 +361,9 @@
     <Compile Include="Views\XboxCataloguePage.xaml.cs">
       <DependentUpon>XboxCataloguePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\XboxSettingsPage.xaml.cs">
+      <DependentUpon>XboxSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\XboxShellPage.xaml.cs">
       <DependentUpon>XboxShellPage.xaml</DependentUpon>
     </Compile>
@@ -734,6 +737,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\XboxCataloguePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\XboxSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

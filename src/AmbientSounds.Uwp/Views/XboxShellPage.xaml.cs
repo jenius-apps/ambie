@@ -192,9 +192,7 @@ public sealed partial class XboxShellPage : Page
     {
         if (App.Services.GetRequiredService<Services.INavigator>().RootFrame is Frame root)
         {
-            _ = FadeOutAnimation.StartAsync();
-            _ = ActionBarExitAnimation.StartAsync();
-            await SoundGridExitAnimation.StartAsync();
+            await StartExitAnimationsAsync();
             root.Navigate(typeof(XboxCataloguePage), null, new SuppressNavigationTransitionInfo());
         }
     }
@@ -212,6 +210,22 @@ public sealed partial class XboxShellPage : Page
         if (sender is GridViewItem { DataContext: SoundViewModel vm })
         {
             vm.IsKeyPadFocused = false;
+        }
+    }
+
+    private async Task StartExitAnimationsAsync()
+    {
+        _ = FadeOutAnimation.StartAsync();
+        _ = ActionBarExitAnimation.StartAsync();
+        await SoundGridExitAnimation.StartAsync();
+    }
+
+    private async void OnSettingsClicked(object sender, RoutedEventArgs e)
+    {
+        if (App.Services.GetRequiredService<Services.INavigator>().RootFrame is Frame root)
+        {
+            await StartExitAnimationsAsync();
+            root.Navigate(typeof(XboxSettingsPage), null, new SuppressNavigationTransitionInfo());
         }
     }
 }
