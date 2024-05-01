@@ -14,6 +14,23 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
+        <x:Double x:Key="ForegroundSize">100</x:Double>
+        <x:Double x:Key="MiddlegroundSize">90</x:Double>
+        <x:Double x:Key="BackgroundSize">80</x:Double>
+
+        <Style x:Name="ImageBorder" TargetType="Border">
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+
+        <Style x:Name="ImageContentControl" TargetType="ContentControl">
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Visibility" Value="Collapsed" />
+        </Style>
+
         <media:AttachedCardShadow
             x:Key="ImageShadow"
             BlurRadius="16"
@@ -51,25 +68,20 @@
 
         <ContentControl
             x:Name="ContentControl1"
-            Padding="4"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             Canvas.ZIndex="2"
-            CornerRadius="12"
             GettingFocus="OnImage1GettingFocus"
             GotFocus="OnImage1GotFocus"
             IsTabStop="True"
             KeyDown="OnImageKeyDown"
             LostFocus="OnImage1LostFocus"
-            TabIndex="0"
-            UseSystemFocusVisuals="True"
-            Visibility="Collapsed">
+            Style="{StaticResource ImageContentControl}"
+            TabIndex="0">
             <Border
-                Width="100"
-                Height="100"
+                Width="{StaticResource ForegroundSize}"
+                Height="{StaticResource ForegroundSize}"
                 ui:Effects.Shadow="{StaticResource ImageShadow}"
-                CornerRadius="8">
+                Style="{StaticResource ImageBorder}">
                 <Border.Background>
                     <ImageBrush x:Name="Image1Brush" Stretch="UniformToFill" />
                 </Border.Background>
@@ -80,18 +92,13 @@
         <ContentControl
             x:Name="ContentControl2"
             Margin="5,20,0,0"
-            Padding="4"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             Canvas.ZIndex="1"
-            CornerRadius="12"
             IsTabStop="False"
             KeyDown="OnImageKeyDown"
             LostFocus="OnNonImage1LostFocus"
-            TabIndex="1"
-            UseSystemFocusVisuals="True"
-            Visibility="Collapsed">
+            Style="{StaticResource ImageContentControl}"
+            TabIndex="1">
 
             <animations:Explicit.Animations>
                 <animations:AnimationSet x:Name="ExpandImage2">
@@ -117,10 +124,10 @@
             </animations:Explicit.Animations>
 
             <Border
-                Width="90"
-                Height="90"
+                Width="{StaticResource MiddlegroundSize}"
+                Height="{StaticResource MiddlegroundSize}"
                 ui:Effects.Shadow="{StaticResource ImageShadow}"
-                CornerRadius="8">
+                Style="{StaticResource ImageBorder}">
                 <Border.Background>
                     <ImageBrush x:Name="Image2Brush" Stretch="UniformToFill" />
                 </Border.Background>
@@ -131,22 +138,17 @@
         <ContentControl
             x:Name="ContentControl3"
             Margin="10,40,0,0"
-            Padding="4"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
-            CornerRadius="12"
             IsTabStop="False"
             KeyDown="OnImageKeyDown"
             LostFocus="OnNonImage1LostFocus"
-            TabIndex="2"
-            UseSystemFocusVisuals="True"
-            Visibility="Collapsed">
+            Style="{StaticResource ImageContentControl}"
+            TabIndex="2">
             <Border
-                Width="80"
-                Height="80"
+                Width="{StaticResource BackgroundSize}"
+                Height="{StaticResource BackgroundSize}"
                 ui:Effects.Shadow="{StaticResource ImageShadow}"
-                CornerRadius="8">
+                Style="{StaticResource ImageBorder}">
                 <Border.Background>
                     <ImageBrush x:Name="Image3Brush" Stretch="UniformToFill" />
                 </Border.Background>
