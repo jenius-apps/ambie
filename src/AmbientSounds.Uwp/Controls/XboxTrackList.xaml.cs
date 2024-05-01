@@ -158,15 +158,21 @@ public sealed partial class XboxTrackList : UserControl
             int itemIndex;
             if (sender == ContentControl1)
             {
-                itemIndex = 2;
+                itemIndex = ViewModel.ActiveTracks.Count - 1;
             }
             else if (sender == ContentControl2)
             {
-                itemIndex = 1;
+                itemIndex = ViewModel.ActiveTracks.Count - 2;
             }
             else
             {
                 itemIndex = 0;
+            }
+
+            if (ViewModel.ActiveTracks.Count <= itemIndex)
+            {
+                // invalid index, so do nothing.
+                return;
             }
 
             _doNotRunExpandAnimation = true;
