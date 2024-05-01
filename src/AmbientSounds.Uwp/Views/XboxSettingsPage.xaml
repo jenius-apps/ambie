@@ -61,7 +61,7 @@
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel>
-                            <TextBlock Text="Video" />
+                            <TextBlock Text="Ambie+ premium videos" />
                             <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="Plays videos, if available" />
                         </StackPanel>
                     </ComboBoxItem>
@@ -88,7 +88,7 @@
                 <StackPanel Spacing="4">
                     <TextBlock Text="Ambie+" />
                     <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.SettingsModifySubDescription}" />
-                    <Button Command="{x:Bind ViewModel.RedirectToMsAccountCommand}" Margin="0,8,0,0">
+                    <Button Margin="0,8,0,0" Command="{x:Bind ViewModel.RedirectToMsAccountCommand}">
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.ModifyText}" />
                             <FontIcon
