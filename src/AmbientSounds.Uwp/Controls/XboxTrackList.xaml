@@ -14,9 +14,9 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
-        <x:Double x:Key="ForegroundSize">100</x:Double>
-        <x:Double x:Key="MiddlegroundSize">90</x:Double>
-        <x:Double x:Key="BackgroundSize">80</x:Double>
+        <x:Double x:Key="ForegroundSize">60</x:Double>
+        <x:Double x:Key="MiddlegroundSize">54</x:Double>
+        <x:Double x:Key="BackgroundSize">48</x:Double>
 
         <Style x:Name="ImageBorder" TargetType="Border">
             <Setter Property="CornerRadius" Value="8" />
@@ -42,10 +42,10 @@
     <Grid>
         <StackPanel
             x:Name="VolumeInstruction"
-            Margin="140,12,0,0"
+            Margin="90,24,0,0"
             VerticalAlignment="Top"
             Orientation="Horizontal"
-            Spacing="8"
+            Spacing="6"
             Visibility="Collapsed">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphGamePadA}" />
             <TextBlock Text="Adjust sound volume" />
@@ -91,7 +91,7 @@
 
         <ContentControl
             x:Name="ContentControl2"
-            Margin="5,20,0,0"
+            Margin="3,12,0,0"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             Canvas.ZIndex="1"
             IsTabStop="False"
@@ -104,7 +104,7 @@
                 <animations:AnimationSet x:Name="ExpandImage2">
                     <animations:TranslationAnimation
                         From="0"
-                        To="0,100,0"
+                        To="0,60,0"
                         Duration="0:0:0.6" />
                     <animations:ScaleAnimation
                         From="1"
@@ -113,7 +113,7 @@
                 </animations:AnimationSet>
                 <animations:AnimationSet x:Name="CollapseImage2">
                     <animations:TranslationAnimation
-                        From="0,100,0"
+                        From="0,60,0"
                         To="0"
                         Duration="0:0:0.6" />
                     <animations:ScaleAnimation
@@ -137,7 +137,7 @@
 
         <ContentControl
             x:Name="ContentControl3"
-            Margin="10,40,0,0"
+            Margin="6,24,0,0"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             IsTabStop="False"
             KeyDown="OnImageKeyDown"
@@ -158,7 +158,7 @@
                 <animations:AnimationSet x:Name="ExpandImage3">
                     <animations:TranslationAnimation
                         From="0"
-                        To="0,200,0"
+                        To="0,120,0"
                         Duration="0:0:0.6" />
                     <animations:ScaleAnimation
                         From="1"
@@ -167,7 +167,7 @@
                 </animations:AnimationSet>
                 <animations:AnimationSet x:Name="CollapseImage3">
                     <animations:TranslationAnimation
-                        From="0,200,0"
+                        From="0,120,0"
                         To="0"
                         Duration="0:0:0.6" />
                     <animations:ScaleAnimation
