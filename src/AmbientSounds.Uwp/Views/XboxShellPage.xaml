@@ -13,6 +13,7 @@
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Background="Black"
     mc:Ignorable="d">
 
     <Grid>
@@ -71,7 +72,7 @@
             </animations:Explicit.Animations>
         </MediaPlayerElement>
 
-        <Rectangle Grid.RowSpan="2">
+        <Rectangle Grid.RowSpan="2" Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}">
             <Rectangle.Fill>
                 <media:RadialGradientBrush
                     Center="0.5,0.5"

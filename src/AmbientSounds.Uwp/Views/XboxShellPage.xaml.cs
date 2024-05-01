@@ -58,8 +58,6 @@ public sealed partial class XboxShellPage : Page
             (SlideshowMode.Video, VideoPlayer, VideoFadeIn),
             (SlideshowMode.Images, SlideshowControl, SlideshowFadeIn)
         ];
-
-        CoreWindow.GetForCurrentThread().KeyDown += OnKeyDown;
     }
 
     private void OnKeyDown(CoreWindow sender, KeyEventArgs args)
@@ -83,6 +81,7 @@ public sealed partial class XboxShellPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        CoreWindow.GetForCurrentThread().KeyDown += OnKeyDown;
         _timer.IntervalElapsed += OnTimerElapsed;
         ViewModel.PropertyChanged += OnPropertyChanged;
         _ = TrackList.InitializeAsync();
@@ -95,6 +94,7 @@ public sealed partial class XboxShellPage : Page
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
         _timer.Stop();
+        CoreWindow.GetForCurrentThread().KeyDown -= OnKeyDown;
         _timer.IntervalElapsed -= OnTimerElapsed;
         ViewModel.PropertyChanged -= OnPropertyChanged;
         ViewModel.Uninitialize();

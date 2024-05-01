@@ -32,7 +32,7 @@ public sealed class XboxSlideshowService : IXboxSlideshowService
     {
         // Retrieve the most appropriate mode for the given sound.
 
-        var preferredMode = Enum.TryParse<SlideshowMode>(_userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey), out var mode)
+        var preferredMode = Enum.TryParse(_userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey), out SlideshowMode mode)
             ? mode
             : SlideshowMode.Images;
 
