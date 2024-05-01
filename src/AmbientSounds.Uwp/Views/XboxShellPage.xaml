@@ -25,7 +25,7 @@
             </animations:AnimationSet>
         </animations:Explicit.Animations>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*" />
+            <RowDefinition Height="7*" />
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
@@ -121,25 +121,18 @@
                     AutomationProperties.Name="{x:Bind strings:Resources.GetAmbiePlus}"
                     Command="{x:Bind ViewModel.OpenPremiumCommand}"
                     Content="{x:Bind strings:Resources.GetAmbiePlus}"
-                    FontSize="{StaticResource XboxFontSize}"
                     ToolTipService.ToolTip="{x:Bind strings:Resources.GetAmbiePlus}"
                     Visibility="{x:Bind ViewModel.PremiumButtonVisible, Mode=OneWay}" />
 
                 <controls:PlayerControl DisplayMode="Xbox" VolumeVisible="Collapsed" />
 
                 <Button Click="OnMoreSoundsClicked" Style="{StaticResource XboxIconButton}">
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="{StaticResource XboxIconSize}"
-                        Glyph="{StaticResource GlyphStore}" />
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphStore}" />
                 </Button>
 
                 <Button Style="{StaticResource XboxIconButton}">
                     <Button.Content>
-                        <FontIcon
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            FontSize="{StaticResource XboxIconSize}"
-                            Glyph="{StaticResource GlyphSettings}" />
+                        <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
                     </Button.Content>
                 </Button>
             </StackPanel>
@@ -182,6 +175,7 @@
         <controls:SoundGridControl
             x:Name="SoundGrid"
             Grid.Row="1"
+            Margin="8,0"
             ui:VisualExtensions.NormalizedCenterPoint="0.5"
             IsXbox="True">
             <controls:SoundGridControl.ItemTemplate>

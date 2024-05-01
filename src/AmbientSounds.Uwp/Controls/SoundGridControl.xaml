@@ -27,7 +27,7 @@
             x:Key="XboxItemContainerStyle"
             BasedOn="{StaticResource DefaultGridViewItemStyle}"
             TargetType="GridViewItem">
-            <Setter Property="Margin" Value="8" />
+            <Setter Property="Margin" Value="4" />
         </Style>
     </UserControl.Resources>
 

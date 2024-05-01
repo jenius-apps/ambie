@@ -37,8 +37,6 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="PlayButton.Style" Value="{StaticResource XboxIconButton}" />
-                        <Setter Target="PlayIcon.FontSize" Value="{StaticResource XboxIconSize}" />
-                        <Setter Target="PauseIcon.FontSize" Value="{StaticResource XboxIconSize}" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>

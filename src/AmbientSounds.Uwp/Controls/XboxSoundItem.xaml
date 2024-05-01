@@ -14,8 +14,8 @@
 
     <Grid>
         <Rectangle
-            Width="450"
-            Height="270"
+            Width="150"
+            Height="90"
             RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
             RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
             <Rectangle.Fill>
@@ -62,19 +62,17 @@
                 Opacity="0.8"
                 Stretch="Fill" />
             <TextBlock
-                Margin="20,12"
-                FontSize="32"
+                Margin="8"
                 MaxLines="2"
                 Text="{x:Bind ViewModel.Name}"
                 TextTrimming="CharacterEllipsis"
                 TextWrapping="Wrap" />
 
             <FontIcon
-                Margin="20,0"
+                Margin="8,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="{StaticResource XboxIconSize}"
                 Glyph="{StaticResource GlyphFilmstrip}"
                 ToolTipService.ToolTip="Video background available"
                 Visibility="{x:Bind ViewModel.VideoIconVisible}" />

@@ -58,9 +58,6 @@ sealed partial class App : Application
 
             // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
             //this.FocusVisualKind = FocusVisualKind.Reveal;
-
-            // Disable scaling
-            ApplicationViewScaling.TrySetDisableLayoutScaling(true);
         }
     }
 

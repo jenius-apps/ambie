@@ -30,11 +30,8 @@
             Orientation="Horizontal"
             Spacing="8"
             Visibility="Collapsed">
-            <FontIcon
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="{StaticResource XboxIconSize}"
-                Glyph="{StaticResource GlyphGamePadA}" />
-            <TextBlock FontSize="{StaticResource XboxFontSize}" Text="Adjust sound volume" />
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphGamePadA}" />
+            <TextBlock Text="Adjust sound volume" />
 
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
