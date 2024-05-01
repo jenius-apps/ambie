@@ -46,7 +46,8 @@
                     Height="80"
                     Margin="0,0,0,4"
                     HorizontalAlignment="Stretch"
-                    Header="Display mode">
+                    Header="Display mode"
+                    SelectedIndex="{x:Bind ViewModel.XboxDisplayModeSelectedIndex, Mode=TwoWay}">
                     <ComboBoxItem>
                         <StackPanel>
                             <TextBlock Text="Slideshow" />

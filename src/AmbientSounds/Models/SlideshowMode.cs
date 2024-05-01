@@ -5,6 +5,10 @@
 /// </summary>
 public enum SlideshowMode
 {
+    // If this enum is modified:
+    // - Double check the string stored in UserSettingsConstants
+    // - Double check the ComboBox in XboxSettingsPage 
+
     /// <summary>
     /// Represents displaying images in a slideshow.
     /// </summary>

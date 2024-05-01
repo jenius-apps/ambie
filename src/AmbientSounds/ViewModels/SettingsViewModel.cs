@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -69,6 +70,9 @@ public partial class SettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private string _backgroundImageDescription = string.Empty;
+
+    [ObservableProperty]
+    private int _xboxDisplayModeSelectedIndex;
 
     /// <summary>
     /// Paths to available background images.
@@ -209,7 +213,17 @@ public partial class SettingsViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
+        InitializeXboxDisplayModeSetting();
         ManageSubscriptionVisible = await _iapService.IsSubscriptionOwnedAsync();
+    }
+
+    private void InitializeXboxDisplayModeSetting()
+    {
+        string displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
+        if (Enum.TryParse(displayModeString, out SlideshowMode result))
+        {
+            XboxDisplayModeSelectedIndex = (int)result;
+        }
     }
 
     public void Uninitialize()
@@ -319,5 +333,18 @@ public partial class SettingsViewModel : ObservableObject
         UpdateBarVisible = true;
         await _storeUpdater.TryApplyUpdatesAsync();
         UpdateBarVisible = false;
+    }
+
+    partial void OnXboxDisplayModeSelectedIndexChanged(int oldIndex, int newIndex)
+    {
+        if (oldIndex == newIndex)
+        {
+            return;
+        }
+
+        if (Enum.GetNames(typeof(SlideshowMode)).Length > newIndex)
+        {
+            _userSettings.Set(UserSettingsConstants.XboxSlideshowModeKey, ((SlideshowMode)newIndex).ToString());
+        }
     }
 }
