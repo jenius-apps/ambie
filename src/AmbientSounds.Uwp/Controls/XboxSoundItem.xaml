@@ -73,6 +73,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="14"
                 Glyph="{StaticResource GlyphFilmstrip}"
                 ToolTipService.ToolTip="Video background available"
                 Visibility="{x:Bind ViewModel.VideoIconVisible}" />
