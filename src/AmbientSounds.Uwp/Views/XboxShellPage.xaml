@@ -139,22 +139,22 @@
             </StackPanel>
 
             <StackPanel
-                Margin="0,0,0,20"
-                Padding="12"
+                Margin="0,0,0,12"
+                Padding="16,12"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="{StaticResource BackgroundAcrylicBrush}"
-                CornerRadius="12"
+                CornerRadius="8"
                 Orientation="Vertical"
-                Spacing="12"
+                Spacing="8"
                 Visibility="{x:Bind ViewModel.DownloadingMessageVisible, Mode=OneWay}">
 
-                <TextBlock Text="Downloading your video. We'll be ready soon." TextAlignment="Center" />
-                <winui:ProgressBar
-                    Width="300"
-                    IsIndeterminate="False"
-                    Value="{x:Bind ViewModel.VideoProgress, Mode=OneWay}" />
+                <TextBlock
+                    FontSize="12"
+                    Text="Downloading your video. We'll be ready soon."
+                    TextAlignment="Center" />
+                <winui:ProgressBar IsIndeterminate="False" Value="{x:Bind ViewModel.VideoProgress, Mode=OneWay}" />
 
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation
