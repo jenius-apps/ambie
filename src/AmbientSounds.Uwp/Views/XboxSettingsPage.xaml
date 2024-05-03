@@ -43,7 +43,7 @@
 
             <StackPanel Style="{StaticResource ColumnStacks}">
                 <ComboBox
-                    Height="80"
+                    MinHeight="80"
                     Margin="0,0,0,4"
                     HorizontalAlignment="Stretch"
                     Header="Display mode"
@@ -51,18 +51,18 @@
                     <ComboBoxItem>
                         <StackPanel>
                             <TextBlock Text="Slideshow" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="A slow cycle of images" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="A cycle of images" />
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel>
                             <TextBlock Text="Dark screen" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="Helps with relaxation" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="Helps with sleeping" />
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel>
-                            <TextBlock Text="Ambie+ premium videos" />
+                            <TextBlock Text="Premium videos" />
                             <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="Plays videos, if available" />
                         </StackPanel>
                     </ComboBoxItem>
@@ -86,7 +86,7 @@
                     </ToggleSwitch.OnContent>
                 </ToggleSwitch>
 
-                <StackPanel Spacing="4">
+                <StackPanel Spacing="4" Visibility="{x:Bind ViewModel.ManageSubscriptionVisible, Mode=OneWay}">
                     <TextBlock Text="Ambie+" />
                     <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.SettingsModifySubDescription}" />
                     <Button Margin="0,8,0,0" Command="{x:Bind ViewModel.RedirectToMsAccountCommand}">
