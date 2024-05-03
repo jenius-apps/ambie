@@ -1,6 +1,9 @@
 ﻿using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -27,6 +30,9 @@ public sealed partial class XboxCataloguePage : Page
         _systemNavigationManager.BackRequested += OnBackRequested;
 
         await ViewModel.InitializeAsync(null, default);
+
+        var query = ViewModel.Rows.Select(x => new GroupInfoList(x.Sounds) { Key = x.Title });
+        ContactsCVS.Source = new ObservableCollection<GroupInfoList>(query);
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -44,4 +50,9 @@ public sealed partial class XboxCataloguePage : Page
             root.GoBack();
         }
     }
+}
+
+public class GroupInfoList(IEnumerable<object> items) : List<object>(items)
+{
+    public object? Key { get; set; }
 }

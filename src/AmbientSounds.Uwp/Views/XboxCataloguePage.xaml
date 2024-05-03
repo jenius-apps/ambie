@@ -6,11 +6,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="ContactsCVS" IsSourceGrouped="True" />
+    </Page.Resources>
 
     <Grid Margin="{StaticResource XboxPageMargin}">
         <Grid.RowDefinitions>
@@ -25,6 +31,49 @@
                 FontSize="20"
                 Text="Download sounds" />
         </StackPanel>
+
+        <GridView
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            ItemsSource="{x:Bind ContactsCVS.View, Mode=OneWay}"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            SelectionMode="None">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                    <Grid>
+                        <Rectangle
+                            Width="150"
+                            Height="90"
+                            RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
+                            RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                            </Rectangle.Fill>
+
+                            <ui:Effects.Shadow>
+                                <media:AttachedCardShadow
+                                    BlurRadius="5"
+                                    CornerRadius="8"
+                                    Opacity="0.2"
+                                    Offset="0,2" />
+                            </ui:Effects.Shadow>
+                        </Rectangle>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate x:DataType="local:GroupInfoList">
+                            <Border AutomationProperties.Name="{x:Bind Key}">
+                                <TextBlock Text="{x:Bind Key}" />
+                            </Border>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </GridView.GroupStyle>
+        </GridView>
 
         <winui:ProgressRing
             Grid.RowSpan="2"
