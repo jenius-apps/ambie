@@ -16,7 +16,7 @@
         </Style>
     </Page.Resources>
 
-    <Grid Margin="40">
+    <Grid Margin="{StaticResource XboxPageMargin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -28,7 +28,6 @@
                 VerticalAlignment="Center"
                 FontSize="20"
                 Text="Ambie settings" />
-
         </StackPanel>
 
         <Grid

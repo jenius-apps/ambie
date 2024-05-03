@@ -233,6 +233,7 @@
             <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
             <Thickness x:Key="TopPageMargin">0,32,0,0</Thickness>
+            <Thickness x:Key="XboxPageMargin">40</Thickness>
             <x:Double x:Key="ImageCardHeight">180</x:Double>
             <x:Double x:Key="GuideCardWidth">248</x:Double>
             <x:Double x:Key="ImageCardWidth">120</x:Double>
