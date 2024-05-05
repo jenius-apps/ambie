@@ -82,7 +82,7 @@ public partial class CataloguePageViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenSoundDialogAsync(OnlineSoundViewModel? vm)
     {
-        if (vm is null)
+        if (vm is null || vm.DownloadProgressVisible)
         {
             return;
         }

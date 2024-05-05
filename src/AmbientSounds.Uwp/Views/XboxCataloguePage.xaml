@@ -43,7 +43,7 @@
             SelectionMode="None">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
-                    <Grid>
+                    <Grid CornerRadius="{StaticResource SoundCardCornerRadius}">
                         <Rectangle
                             Width="150"
                             Height="90"
@@ -52,15 +52,27 @@
                             <Rectangle.Fill>
                                 <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
                             </Rectangle.Fill>
-
-                            <ui:Effects.Shadow>
-                                <media:AttachedCardShadow
-                                    BlurRadius="5"
-                                    CornerRadius="8"
-                                    Opacity="0.2"
-                                    Offset="0,2" />
-                            </ui:Effects.Shadow>
                         </Rectangle>
+
+                        <Grid
+                            Background="{ThemeResource SmokeFillColorDefaultBrush}"
+                            CornerRadius="{StaticResource SoundCardCornerRadius}"
+                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                            <winui:ProgressRing
+                                Width="16"
+                                Height="16"
+                                AutomationProperties.AccessibilityView="Raw"
+                                Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                                IsIndeterminate="False"
+                                Value="100" />
+                            <winui:ProgressRing
+                                Width="16"
+                                Height="16"
+                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                IsIndeterminate="False"
+                                Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                        </Grid>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
