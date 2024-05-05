@@ -1125,6 +1125,10 @@
           <source>Sleep Timer</source>
           <target state="translated">Temporizador de sono</target>
         </trans-unit>
+        <trans-unit id="UnlockText" translate="yes" xml:space="preserve">
+          <source>Unlock</source>
+          <target state="new">Unlock</target>
+        </trans-unit>
       </group>
     </body>
   </file>

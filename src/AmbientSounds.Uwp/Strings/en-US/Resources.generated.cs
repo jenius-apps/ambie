@@ -2835,6 +2835,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region UnlockText
+        /// <summary>
+        ///   Looks up a localized string similar to: Unlock
+        /// </summary>
+        public static string UnlockText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UnlockText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3063,6 +3076,7 @@ namespace AmbientSounds.Strings{
             RestartText,
             SleepTimerDescription,
             SleepTimerText,
+            UnlockText,
         }
 
         private static ResourceLoader _resourceLoader;

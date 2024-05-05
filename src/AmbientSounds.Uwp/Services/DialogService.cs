@@ -300,4 +300,25 @@ public class DialogService : IDialogService
 
         IsDialogOpen = false;
     }
+
+    /// <inheritdoc/>
+    public async Task<bool> OpenSoundDialogAsync(OnlineSoundViewModel vm)
+    {
+        if (IsDialogOpen)
+        {
+            return false;
+        }
+
+        IsDialogOpen = true;
+        var dialog = new SoundDownloadDialog(vm)
+        {
+            FlowDirection = App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight,
+            RequestedTheme = _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme(),
+        };
+
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+
+        return dialog.Result;
+    }
 }

@@ -35,6 +35,8 @@
         <GridView
             Grid.Row="1"
             Margin="0,20,0,0"
+            IsItemClickEnabled="True"
+            ItemClick="OnItemClicked"
             ItemsSource="{x:Bind ContactsCVS.View, Mode=OneWay}"
             ScrollViewer.VerticalScrollBarVisibility="Hidden"
             SelectionMode="None">

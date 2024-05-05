@@ -50,6 +50,14 @@ public sealed partial class XboxCataloguePage : Page
             root.GoBack();
         }
     }
+
+    private async void OnItemClicked(object sender, ItemClickEventArgs e)
+    {
+        if (e.ClickedItem is OnlineSoundViewModel vm)
+        {
+            await ViewModel.OpenSoundDialogCommand.ExecuteAsync(vm);
+        }
+    }
 }
 
 public class GroupInfoList(IEnumerable<object> items) : List<object>(items)

@@ -1,0 +1,69 @@
+﻿<local:NoPaddingDialog
+    x:Class="AmbientSounds.Controls.SoundDownloadDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    mc:Ignorable="d">
+
+    <Grid Width="600" Height="300">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="{x:Bind Sound.ImagePath}" Stretch="UniformToFill" />
+            </Grid.Background>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="20">
+            <TextBlock
+                FontSize="20"
+                Text="{x:Bind Sound.Name}"
+                TextWrapping="Wrap" />
+
+            <Grid Margin="0,0,54,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    MinHeight="40"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    HorizontalContentAlignment="Left"
+                    AutomationProperties.Name="{x:Bind PrimaryText}"
+                    Click="OnPrimaryClicked"
+                    Style="{StaticResource AccentButtonStyle}">
+                    <StackPanel Orientation="Horizontal">
+                        <FontIcon
+                            Margin="{x:Bind PrimaryIconMargin}"
+                            VerticalAlignment="Center"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="14"
+                            Glyph="{x:Bind PrimaryGlyph}" />
+                        <TextBlock
+                            Margin="8,0,0,0"
+                            VerticalAlignment="Center"
+                            Text="{x:Bind PrimaryText}" />
+                    </StackPanel>
+                </Button>
+
+                <Button
+                    Grid.Column="1"
+                    MinHeight="40"
+                    Margin="4,0,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    AutomationProperties.Name="{x:Bind strings:Resources.CancelText}"
+                    Click="OnCancelClicked"
+                    Content="{x:Bind strings:Resources.CancelText}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</local:NoPaddingDialog>

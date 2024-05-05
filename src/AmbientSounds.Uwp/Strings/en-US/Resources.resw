@@ -956,4 +956,7 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Sleep Timer</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
 </root>

@@ -233,6 +233,9 @@
     <Compile Include="Controls\Slideshow.xaml.cs">
       <DependentUpon>Slideshow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SoundDownloadDialog.xaml.cs">
+      <DependentUpon>SoundDownloadDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SoundGridControl.xaml.cs">
       <DependentUpon>SoundGridControl.xaml</DependentUpon>
     </Compile>
@@ -609,6 +612,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Slideshow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SoundDownloadDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
