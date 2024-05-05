@@ -18,7 +18,7 @@
         <CollectionViewSource x:Name="ContactsCVS" IsSourceGrouped="True" />
     </Page.Resources>
 
-    <Grid Margin="{StaticResource XboxPageMargin}">
+    <Grid Margin="40,40,40,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
@@ -34,7 +34,8 @@
 
         <GridView
             Grid.Row="1"
-            Margin="0,20,0,0"
+            Margin="0,12,0,0"
+            Padding="0,0,0,40"
             IsItemClickEnabled="True"
             ItemClick="OnItemClicked"
             ItemsSource="{x:Bind ContactsCVS.View, Mode=OneWay}"
