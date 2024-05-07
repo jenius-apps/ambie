@@ -98,7 +98,7 @@ public partial class CataloguePageViewModel : ObservableObject
         {
             _ = vm.PlayCommand.ExecuteAsync(null);
         }
-        else if(vm.CanBuy)
+        else if (vm.CanBuy)
         {
             await _dialogService.OpenPremiumAsync();
         }

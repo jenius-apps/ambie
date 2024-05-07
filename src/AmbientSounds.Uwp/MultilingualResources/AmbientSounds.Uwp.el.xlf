@@ -1173,6 +1173,10 @@
           <source>Downloading your video. We'll be ready soon.</source>
           <target state="translated">Λήψη του βίντεό σας. Θα είμαστε έτοιμοι σύντομα.</target>
         </trans-unit>
+        <trans-unit id="DownloadingText" translate="yes" xml:space="preserve">
+          <source>Downloading</source>
+          <target state="new">Downloading</target>
+        </trans-unit>
       </group>
     </body>
   </file>

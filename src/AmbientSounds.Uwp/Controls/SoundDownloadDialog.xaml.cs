@@ -1,5 +1,7 @@
 ﻿using AmbientSounds.ViewModels;
+using System;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 #nullable enable
 
@@ -10,7 +12,9 @@ public sealed partial class SoundDownloadDialog : NoPaddingDialog
     public SoundDownloadDialog(OnlineSoundViewModel sound)
     {
         this.InitializeComponent();
+        this.Closed += OnClosed;
         Sound = sound;
+        Sound.DownloadCompleted += OnDownloadCompleted;
     }
 
     public OnlineSoundViewModel Sound { get; }
@@ -41,6 +45,17 @@ public sealed partial class SoundDownloadDialog : NoPaddingDialog
 
     private void OnPrimaryClicked(object sender, RoutedEventArgs e)
     {
+        if (Sound.CanPlay)
+        {
+            _ = Sound.PlayCommand.ExecuteAsync(null);
+            return;
+        }
+        else if (Sound.IsOwned && Sound.DownloadButtonVisible)
+        {
+            _ = Sound.DownloadCommand.ExecuteAsync(null);
+            return;
+        }
+
         Result = true;
         Hide();
     }
@@ -49,5 +64,15 @@ public sealed partial class SoundDownloadDialog : NoPaddingDialog
     {
         Result = false;
         Hide();
+    }
+
+    private void OnClosed(ContentDialog sender, ContentDialogClosedEventArgs args)
+    {
+        Sound.DownloadCompleted -= OnDownloadCompleted;
+    }
+
+    private void OnDownloadCompleted(object sender, EventArgs e)
+    {
+        this.Bindings.Update();
     }
 }

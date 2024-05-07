@@ -3004,6 +3004,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region DownloadingText
+        /// <summary>
+        ///   Looks up a localized string similar to: Downloading
+        /// </summary>
+        public static string DownloadingText
+        {
+            get
+            {
+                return _resourceLoader.GetString("DownloadingText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3245,6 +3258,7 @@ namespace AmbientSounds.Strings{
             SettingsNotificationsSwitchHeader,
             SettingsTelemetrySwitchHeader,
             DownloadingVideoMessage,
+            DownloadingText,
         }
 
         private static ResourceLoader _resourceLoader;

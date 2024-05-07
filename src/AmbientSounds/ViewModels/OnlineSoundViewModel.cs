@@ -69,6 +69,8 @@ public partial class OnlineSoundViewModel : ObservableObject
 
     public bool UpdateAvailable => UpdateReason != UpdateReason.None;
 
+    public string DownloadProgressPercent => $"{DownloadProgressValue}%";
+
     public bool CanPlay => UpdateReason == UpdateReason.None 
         && IsInstalled 
         && !DownloadProgressVisible;
@@ -88,6 +90,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(CanPlay))]
+    [NotifyPropertyChangedFor(nameof(DownloadProgressPercent))]
     private double _downloadProgressValue;
 
     /// <summary>

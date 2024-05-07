@@ -1176,6 +1176,10 @@
           <source>Downloading your video. We'll be ready soon.</source>
           <target state="translated">下载您的视频。我们很快就会准备好的。</target>
         </trans-unit>
+        <trans-unit id="DownloadingText" translate="yes" xml:space="preserve">
+          <source>Downloading</source>
+          <target state="new">Downloading</target>
+        </trans-unit>
       </group>
     </body>
   </file>
