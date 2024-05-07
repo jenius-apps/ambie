@@ -9,39 +9,54 @@ namespace AmbientSounds.Controls;
 
 public sealed partial class SoundDownloadDialog : NoPaddingDialog
 {
+    public static readonly DependencyProperty PrimaryTextProperty = DependencyProperty.Register(
+        nameof(PrimaryText),
+        typeof(string),
+        typeof(SoundDownloadDialog),
+        new PropertyMetadata(string.Empty));
+
+    public static readonly DependencyProperty PrimaryGlyphProperty = DependencyProperty.Register(
+        nameof(PrimaryGlyph),
+        typeof(string),
+        typeof(SoundDownloadDialog),
+        new PropertyMetadata(string.Empty));
+
+    public static readonly DependencyProperty PrimaryIconMarginProperty = DependencyProperty.Register(
+        nameof(PrimaryIconMargin),
+        typeof(Thickness),
+        typeof(SoundDownloadDialog),
+        new PropertyMetadata(new Thickness()));
+
     public SoundDownloadDialog(OnlineSoundViewModel sound)
     {
         this.InitializeComponent();
         this.Closed += OnClosed;
         Sound = sound;
         Sound.DownloadCompleted += OnDownloadCompleted;
+        UpdateProperties();
     }
 
     public OnlineSoundViewModel Sound { get; }
 
     public bool Result { get; private set; }
 
-    private string PrimaryText => Sound switch
+    public string PrimaryText
     {
-        _ when Sound.CanPlay => Strings.Resources.PlayerPlayText,
-        _ when Sound.CanBuy => Strings.Resources.UnlockText,
-        _ when Sound.DownloadButtonVisible => Strings.Resources.DownloadText,
-        _ => string.Empty
-    };
+        get => (string)GetValue(PrimaryTextProperty);
+        set => SetValue(PrimaryTextProperty, value);
+    }
 
-    private string PrimaryGlyph => Sound switch
+    public string PrimaryGlyph
     {
-        _ when Sound.CanPlay => "\uF5B0",
-        _ when Sound.CanBuy => "\uE785",
-        _ when Sound.DownloadButtonVisible => "\uEBD3",
-        _ => string.Empty
-    };
+        get => (string)GetValue(PrimaryGlyphProperty);
+        set => SetValue(PrimaryGlyphProperty, value);
+    }
 
-    private Thickness PrimaryIconMargin => Sound switch
+    public Thickness PrimaryIconMargin
     {
-        _ when Sound.DownloadButtonVisible => new Thickness(0,2,0,0),
-        _ => new Thickness()
-    };
+        get => (Thickness)GetValue(PrimaryIconMarginProperty);
+        set => SetValue(PrimaryIconMarginProperty, value);
+    }
 
     private void OnPrimaryClicked(object sender, RoutedEventArgs e)
     {
@@ -73,6 +88,31 @@ public sealed partial class SoundDownloadDialog : NoPaddingDialog
 
     private void OnDownloadCompleted(object sender, EventArgs e)
     {
-        this.Bindings.Update();
+        UpdateProperties();
+    }
+
+    private void UpdateProperties()
+    {
+        PrimaryText = Sound switch
+        {
+            _ when Sound.CanPlay => Strings.Resources.PlayerPlayText,
+            _ when Sound.CanBuy => Strings.Resources.UnlockText,
+            _ when Sound.DownloadButtonVisible => Strings.Resources.DownloadText,
+            _ => string.Empty
+        };
+
+        PrimaryGlyph = Sound switch
+        {
+            _ when Sound.CanPlay => "\uF5B0",
+            _ when Sound.CanBuy => "\uE785",
+            _ when Sound.DownloadButtonVisible => "\uEBD3",
+            _ => string.Empty
+        };
+
+        PrimaryIconMargin = Sound switch
+        {
+            _ when Sound.DownloadButtonVisible => new Thickness(0, 2, 0, 0),
+            _ => new Thickness()
+        };
     }
 }

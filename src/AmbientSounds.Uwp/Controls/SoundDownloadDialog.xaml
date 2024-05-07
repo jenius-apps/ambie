@@ -111,21 +111,21 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Bottom"
                     HorizontalContentAlignment="Left"
-                    AutomationProperties.Name="{x:Bind PrimaryText}"
+                    AutomationProperties.Name="{x:Bind PrimaryText, Mode=OneWay}"
                     Click="OnPrimaryClicked"
                     IsEnabled="{x:Bind ext:UIExtensions.Not(Sound.DownloadProgressVisible), Mode=OneWay}"
                     Style="{StaticResource AccentButtonStyle}">
                     <StackPanel Orientation="Horizontal">
                         <FontIcon
-                            Margin="{x:Bind PrimaryIconMargin}"
+                            Margin="{x:Bind PrimaryIconMargin, Mode=OneWay}"
                             VerticalAlignment="Center"
                             FontFamily="{StaticResource FluentUIGlyphs}"
                             FontSize="14"
-                            Glyph="{x:Bind PrimaryGlyph}" />
+                            Glyph="{x:Bind PrimaryGlyph, Mode=OneWay}" />
                         <TextBlock
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"
-                            Text="{x:Bind PrimaryText}" />
+                            Text="{x:Bind PrimaryText, Mode=OneWay}" />
                     </StackPanel>
                 </Button>
 
