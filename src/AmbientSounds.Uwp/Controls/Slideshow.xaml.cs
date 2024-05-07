@@ -55,6 +55,7 @@ public sealed partial class Slideshow : UserControl
         _timerService.Interval = SlideTimeLength;
         _timerService.IntervalElapsed += TimerIntervalElapsed;
         _mediaPlayerService.SoundAdded += OnSoundAdded;
+        _mediaPlayerService.SoundRemoved += OnSoundRemoved;
     }
 
     public string Image1Source
@@ -71,6 +72,7 @@ public sealed partial class Slideshow : UserControl
 
     public async Task LoadAsync(string? soundIdToUse = null)
     {
+        _images = null;
         _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
 
         if (_mediaPlayerService.Screensavers.Count > 0)
@@ -186,6 +188,7 @@ public sealed partial class Slideshow : UserControl
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
+        _mediaPlayerService.SoundRemoved -= OnSoundRemoved;
         _mediaPlayerService.SoundAdded -= OnSoundAdded;
         _timerService.IntervalElapsed -= TimerIntervalElapsed;
         _timerService.Stop();
@@ -193,8 +196,20 @@ public sealed partial class Slideshow : UserControl
 
     private async void OnSoundAdded(object sender, SoundPlayedArgs e)
     {
+        await HandleSoundChangeAsync();
+        _ = LoadAsync(e.Sound.Id);
+    }
+
+    private async void OnSoundRemoved(object sender, SoundPausedArgs e)
+    {
+        await HandleSoundChangeAsync();
+        _ = LoadAsync();
+    }
+
+    private async Task HandleSoundChangeAsync()
+    {
         _timerService.Stop();
-        
+
         if (Image1.Visibility is Visibility.Visible)
         {
             await Image1FadeOut.StartAsync();
@@ -203,8 +218,6 @@ public sealed partial class Slideshow : UserControl
         {
             await Image2FadeOut.StartAsync();
         }
-
-        _ = LoadAsync(e.Sound.Id);
     }
 
     private void TimerIntervalElapsed(object sender, TimeSpan e)
