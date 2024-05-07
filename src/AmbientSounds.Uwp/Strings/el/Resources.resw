@@ -836,4 +836,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Χρονοδιακόπτης ύπνου</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Ξεκλειδώνω</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Ρύθμιση έντασης ήχου</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Λήψη ήχων</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Λειτουργία Dispaly</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Σκοτεινή οθόνη</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Βοηθά στον ύπνο</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Παρουσίαση διαφανειών</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Εναλλασσόμενες εικόνες</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Βίντεο</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Αναπαράγει βίντεο, εάν είναι διαθέσιμα</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Ειδοποίηση για νέους ήχους</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Τηλεμετρία</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Λήψη του βίντεό σας. Θα είμαστε έτοιμοι σύντομα.</value>
+  </data>
 </root>

@@ -1132,7 +1132,55 @@
         </trans-unit>
         <trans-unit id="UnlockText" translate="yes" xml:space="preserve">
           <source>Unlock</source>
-          <target state="new">Unlock</target>
+          <target state="translated">Ontsluiten</target>
+        </trans-unit>
+        <trans-unit id="AdjustSoundVolume" translate="yes" xml:space="preserve">
+          <source>Adjust sound volume</source>
+          <target state="translated">Geluidsvolume aanpassen</target>
+        </trans-unit>
+        <trans-unit id="DownloadSounds" translate="yes" xml:space="preserve">
+          <source>Download sounds</source>
+          <target state="translated">Geluiden downloaden</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Dispaly mode</source>
+          <target state="translated">Dispaly-modus</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
+          <source>Dark screen</source>
+          <target state="translated">Donker scherm</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreenDescription" translate="yes" xml:space="preserve">
+          <source>Helps with sleeping</source>
+          <target state="translated">Helpt bij het slapen</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshow" translate="yes" xml:space="preserve">
+          <source>Slideshow</source>
+          <target state="translated">Diavoorstelling</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshowDescription" translate="yes" xml:space="preserve">
+          <source>Carousel of images</source>
+          <target state="translated">Carrousel van afbeeldingen</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideo" translate="yes" xml:space="preserve">
+          <source>Videos</source>
+          <target state="translated">Video 's</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideoDescription" translate="yes" xml:space="preserve">
+          <source>Plays videos, if available</source>
+          <target state="translated">Speelt video's af, indien beschikbaar</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Notification for new sounds</source>
+          <target state="translated">Melding voor nieuwe geluiden</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">Telemetrie</target>
+        </trans-unit>
+        <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
+          <source>Downloading your video. We'll be ready soon.</source>
+          <target state="translated">Je video downloaden. We zijn er snel klaar voor.</target>
         </trans-unit>
       </group>
     </body>

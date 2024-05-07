@@ -851,4 +851,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>טיימר שינה</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>לפתוח</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>כוונון עוצמת הקול</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>הורדת צלילים</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>מצב Dispaly</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>מסך כהה</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>מסייע בשינה</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>מצגת</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>קרוסלת תמונות</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>קטעי וידאו</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>הפעלת סרטוני וידאו, אם זמינים</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>הודעה על צלילים חדשים</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>טלמטריה</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>הורדת הסרטון שלך. אנחנו נהיה מוכנים בקרוב.</value>
+  </data>
 </root>

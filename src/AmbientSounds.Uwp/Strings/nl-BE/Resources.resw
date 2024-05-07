@@ -821,4 +821,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Slaap Timer</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Ontsluiten</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Geluidsvolume aanpassen</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Geluiden downloaden</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Dispaly-modus</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Donker scherm</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Helpt bij het slapen</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Diavoorstelling</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Carrousel van afbeeldingen</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Video 's</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Speelt video's af, indien beschikbaar</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Melding voor nieuwe geluiden</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetrie</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Je video downloaden. We zijn er snel klaar voor.</value>
+  </data>
 </root>

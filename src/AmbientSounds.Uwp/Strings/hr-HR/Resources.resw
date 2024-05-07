@@ -839,4 +839,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Mjerač vremena spavanja</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Otključati</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Podešavanje glasnoće zvuka</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Preuzimanje zvukova</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Dispaly način rada</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Tamni zaslon</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Pomaže kod spavanja</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Dijaprojekcija</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Vrtuljak slika</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Reprodukcija videozapisa, ako je dostupna</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Obavijest o novim zvukovima</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetrija</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Preuzimanje videozapisa. Uskoro ćemo biti spremni.</value>
+  </data>
 </root>

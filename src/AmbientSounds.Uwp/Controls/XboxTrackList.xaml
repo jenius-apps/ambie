@@ -7,6 +7,7 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     x:Name="RootUserControl"
     d:DesignHeight="300"
@@ -48,7 +49,7 @@
             Spacing="6"
             Visibility="Collapsed">
             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphGamePadA}" />
-            <TextBlock Text="Adjust sound volume" />
+            <TextBlock Text="{x:Bind strings:Resources.AdjustSoundVolume}" />
 
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation

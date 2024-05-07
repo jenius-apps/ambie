@@ -152,7 +152,7 @@
 
                 <TextBlock
                     FontSize="12"
-                    Text="Downloading your video. We'll be ready soon."
+                    Text="{x:Bind strings:Resources.DownloadingVideoMessage}"
                     TextAlignment="Center" />
                 <winui:ProgressBar IsIndeterminate="False" Value="{x:Bind ViewModel.VideoProgress, Mode=OneWay}" />
 

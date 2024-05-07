@@ -839,4 +839,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Elalvás időzítő</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Kinyit</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Állítsa be a hangerőt</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Hangok letöltése</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Dispaly mód</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Sötét képernyő</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Segít az alvásban</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Diavetítés</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Képek körhintája</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Videók</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Videók lejátszása, ha rendelkezésre állnak</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Értesítés új hangokról</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetria</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>A videó letöltése. Hamarosan készen állunk.</value>
+  </data>
 </root>

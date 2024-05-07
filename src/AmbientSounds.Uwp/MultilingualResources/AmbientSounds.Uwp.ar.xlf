@@ -1123,7 +1123,55 @@
         </trans-unit>
         <trans-unit id="UnlockText" translate="yes" xml:space="preserve">
           <source>Unlock</source>
-          <target state="new">Unlock</target>
+          <target state="translated">فتح</target>
+        </trans-unit>
+        <trans-unit id="AdjustSoundVolume" translate="yes" xml:space="preserve">
+          <source>Adjust sound volume</source>
+          <target state="translated">ضبط مستوى الصوت</target>
+        </trans-unit>
+        <trans-unit id="DownloadSounds" translate="yes" xml:space="preserve">
+          <source>Download sounds</source>
+          <target state="translated">تنزيل الأصوات</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Dispaly mode</source>
+          <target state="translated">وضع ديسبالي</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
+          <source>Dark screen</source>
+          <target state="translated">شاشة مظلمة</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreenDescription" translate="yes" xml:space="preserve">
+          <source>Helps with sleeping</source>
+          <target state="translated">يساعد في النوم</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshow" translate="yes" xml:space="preserve">
+          <source>Slideshow</source>
+          <target state="translated">عرض الشرائح</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshowDescription" translate="yes" xml:space="preserve">
+          <source>Carousel of images</source>
+          <target state="translated">دائري من الصور</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideo" translate="yes" xml:space="preserve">
+          <source>Videos</source>
+          <target state="translated">الفيديوات</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideoDescription" translate="yes" xml:space="preserve">
+          <source>Plays videos, if available</source>
+          <target state="translated">تشغيل مقاطع الفيديو، إذا كانت متوفرة</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Notification for new sounds</source>
+          <target state="translated">إعلام للأصوات الجديدة</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">قياس البعد</target>
+        </trans-unit>
+        <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
+          <source>Downloading your video. We'll be ready soon.</source>
+          <target state="translated">تنزيل الفيديو الخاص بك. سنكون مستعدين قريبا.</target>
         </trans-unit>
       </group>
     </body>

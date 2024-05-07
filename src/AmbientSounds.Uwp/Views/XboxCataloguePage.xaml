@@ -29,7 +29,7 @@
             <TextBlock
                 VerticalAlignment="Center"
                 FontSize="20"
-                Text="Download sounds" />
+                Text="{x:Bind strings:Resources.DownloadSounds}" />
         </StackPanel>
 
         <GridView

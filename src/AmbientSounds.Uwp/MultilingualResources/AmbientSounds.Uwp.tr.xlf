@@ -1137,7 +1137,55 @@
         </trans-unit>
         <trans-unit id="UnlockText" translate="yes" xml:space="preserve">
           <source>Unlock</source>
-          <target state="new">Unlock</target>
+          <target state="translated">Kilidi açmak</target>
+        </trans-unit>
+        <trans-unit id="AdjustSoundVolume" translate="yes" xml:space="preserve">
+          <source>Adjust sound volume</source>
+          <target state="translated">Ses seviyesini ayarla</target>
+        </trans-unit>
+        <trans-unit id="DownloadSounds" translate="yes" xml:space="preserve">
+          <source>Download sounds</source>
+          <target state="translated">Sesleri indir</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Dispaly mode</source>
+          <target state="translated">Dispaly modu</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
+          <source>Dark screen</source>
+          <target state="translated">Karanlık ekran</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreenDescription" translate="yes" xml:space="preserve">
+          <source>Helps with sleeping</source>
+          <target state="translated">Uyumaya yardımcı olur</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshow" translate="yes" xml:space="preserve">
+          <source>Slideshow</source>
+          <target state="translated">Slayt gösterisi</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshowDescription" translate="yes" xml:space="preserve">
+          <source>Carousel of images</source>
+          <target state="translated">Görüntülerin atlıkarınca</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideo" translate="yes" xml:space="preserve">
+          <source>Videos</source>
+          <target state="translated">Video</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideoDescription" translate="yes" xml:space="preserve">
+          <source>Plays videos, if available</source>
+          <target state="translated">Varsa videoları oynatır</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Notification for new sounds</source>
+          <target state="translated">Yeni sesler için bildirim</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">Telemetri</target>
+        </trans-unit>
+        <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
+          <source>Downloading your video. We'll be ready soon.</source>
+          <target state="translated">Videonuzu indirme. Yakında hazır olacağız.</target>
         </trans-unit>
       </group>
     </body>

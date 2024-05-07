@@ -851,4 +851,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>睡眠定時器</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>開鎖</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>調整音量</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>下載聲音</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>虛幻模式</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>暗屏</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>説明睡眠</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>幻燈片放映</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>圖片輪播</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>視頻</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>播放影片（如果可用）</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>新聲音通知</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>遙測</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>下載您的視頻。我們很快就會準備好的。</value>
+  </data>
 </root>

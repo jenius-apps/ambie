@@ -27,7 +27,7 @@
             <TextBlock
                 VerticalAlignment="Center"
                 FontSize="20"
-                Text="Ambie settings" />
+                Text="{x:Bind strings:Resources.SettingsText}" />
         </StackPanel>
 
         <Grid
@@ -45,24 +45,24 @@
                     MinHeight="80"
                     Margin="0,0,0,4"
                     HorizontalAlignment="Stretch"
-                    Header="Display mode"
+                    Header="{x:Bind strings:Resources.DisplayMode}"
                     SelectedIndex="{x:Bind ViewModel.XboxDisplayModeSelectedIndex, Mode=TwoWay}">
                     <ComboBoxItem>
                         <StackPanel>
-                            <TextBlock Text="Slideshow" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="A cycle of images" />
+                            <TextBlock Text="{x:Bind strings:Resources.DisplayModeSlideshow}" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.DisplayModeSlideshowDescription}" />
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel>
-                            <TextBlock Text="Dark screen" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="Helps with sleeping" />
+                            <TextBlock Text="{x:Bind strings:Resources.DisplayModeDarkScreen}" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.DisplayModeDarkScreenDescription}" />
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel>
-                            <TextBlock Text="Premium videos" />
-                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="Plays videos, if available" />
+                            <TextBlock Text="{x:Bind strings:Resources.DisplayModeVideo}" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.DisplayModeVideoDescription}" />
                         </StackPanel>
                     </ComboBoxItem>
                 </ComboBox>
@@ -104,7 +104,7 @@
                 <ToggleSwitch IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
                     <ToggleSwitch.Header>
                         <StackPanel Spacing="4">
-                            <TextBlock Text="Telemetry" />
+                            <TextBlock Text="{x:Bind strings:Resources.SettingsTelemetrySwitchHeader}" />
                             <TextBlock
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 Text="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}"
@@ -122,7 +122,7 @@
                 <ToggleSwitch IsOn="{x:Bind ViewModel.NotificationsEnabled, Mode=TwoWay}">
                     <ToggleSwitch.Header>
                         <StackPanel Spacing="4">
-                            <TextBlock Text="Notifications for new sounds" />
+                            <TextBlock Text="{x:Bind strings:Resources.SettingsNotificationsSwitchHeader}" />
                             <TextBlock
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                                 Text="{x:Bind strings:Resources.SettingsNotificationsSwitchDescription}"

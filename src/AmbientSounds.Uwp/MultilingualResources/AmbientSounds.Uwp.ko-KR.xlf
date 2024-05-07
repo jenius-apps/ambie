@@ -1127,7 +1127,55 @@
         </trans-unit>
         <trans-unit id="UnlockText" translate="yes" xml:space="preserve">
           <source>Unlock</source>
-          <target state="new">Unlock</target>
+          <target state="translated">잠금 해제</target>
+        </trans-unit>
+        <trans-unit id="AdjustSoundVolume" translate="yes" xml:space="preserve">
+          <source>Adjust sound volume</source>
+          <target state="translated">음량 조절하기</target>
+        </trans-unit>
+        <trans-unit id="DownloadSounds" translate="yes" xml:space="preserve">
+          <source>Download sounds</source>
+          <target state="translated">사운드 다운로드하기</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Dispaly mode</source>
+          <target state="translated">디스플레이 모드</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
+          <source>Dark screen</source>
+          <target state="translated">어두운 화면</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeDarkScreenDescription" translate="yes" xml:space="preserve">
+          <source>Helps with sleeping</source>
+          <target state="translated">수면에 도움</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshow" translate="yes" xml:space="preserve">
+          <source>Slideshow</source>
+          <target state="translated">슬라이드 쇼</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeSlideshowDescription" translate="yes" xml:space="preserve">
+          <source>Carousel of images</source>
+          <target state="translated">이미지 캐러셀</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideo" translate="yes" xml:space="preserve">
+          <source>Videos</source>
+          <target state="translated">동영상</target>
+        </trans-unit>
+        <trans-unit id="DisplayModeVideoDescription" translate="yes" xml:space="preserve">
+          <source>Plays videos, if available</source>
+          <target state="translated">가능한 경우 비디오를 재생합니다.</target>
+        </trans-unit>
+        <trans-unit id="SettingsNotificationsSwitchHeader" translate="yes" xml:space="preserve">
+          <source>Notification for new sounds</source>
+          <target state="translated">새로운 소리에 대한 알림</target>
+        </trans-unit>
+        <trans-unit id="SettingsTelemetrySwitchHeader" translate="yes" xml:space="preserve">
+          <source>Telemetry</source>
+          <target state="translated">원격</target>
+        </trans-unit>
+        <trans-unit id="DownloadingVideoMessage" translate="yes" xml:space="preserve">
+          <source>Downloading your video. We'll be ready soon.</source>
+          <target state="translated">동영상 다운로드. 곧 준비하겠습니다.</target>
         </trans-unit>
       </group>
     </body>

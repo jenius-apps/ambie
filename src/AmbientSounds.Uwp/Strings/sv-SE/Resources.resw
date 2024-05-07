@@ -851,4 +851,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Insomningstimer</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Låsa upp</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Justera ljudvolymen</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Ladda ner ljud</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Dispaly-läge</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Mörk skärm</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Hjälper till med sömnen</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Bildspel</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Karusell av bilder</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Videor</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Spelar upp videor, om de är tillgängliga</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Meddelande om nya ljud</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetri</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Ladda ner din video. Vi är snart klara.</value>
+  </data>
 </root>

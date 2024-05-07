@@ -851,4 +851,43 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Časovač vypnutí</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Odemknout</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Upravte hlasitost zvuku</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Stahování zvuků</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Režim zobrazení</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Tmavá obrazovka</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Pomáhá se spánkem</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Prezentace</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Kolotoč obrázků</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Videa</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Přehrává videa, pokud jsou k dispozici</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Upozornění na nové zvuky</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetrie</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Stahování videa. Brzy budeme připraveni.</value>
+  </data>
 </root>

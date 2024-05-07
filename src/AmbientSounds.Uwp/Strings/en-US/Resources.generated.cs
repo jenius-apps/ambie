@@ -2848,6 +2848,162 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AdjustSoundVolume
+        /// <summary>
+        ///   Looks up a localized string similar to: Adjust sound volume
+        /// </summary>
+        public static string AdjustSoundVolume
+        {
+            get
+            {
+                return _resourceLoader.GetString("AdjustSoundVolume");
+            }
+        }
+        #endregion
+
+        #region DownloadSounds
+        /// <summary>
+        ///   Looks up a localized string similar to: Download sounds
+        /// </summary>
+        public static string DownloadSounds
+        {
+            get
+            {
+                return _resourceLoader.GetString("DownloadSounds");
+            }
+        }
+        #endregion
+
+        #region DisplayMode
+        /// <summary>
+        ///   Looks up a localized string similar to: Dispaly mode
+        /// </summary>
+        public static string DisplayMode
+        {
+            get
+            {
+                return _resourceLoader.GetString("DisplayMode");
+            }
+        }
+        #endregion
+
+        #region DisplayModeDarkScreen
+        /// <summary>
+        ///   Looks up a localized string similar to: Dark screen
+        /// </summary>
+        public static string DisplayModeDarkScreen
+        {
+            get
+            {
+                return _resourceLoader.GetString("DisplayModeDarkScreen");
+            }
+        }
+        #endregion
+
+        #region DisplayModeDarkScreenDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Helps with sleeping
+        /// </summary>
+        public static string DisplayModeDarkScreenDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("DisplayModeDarkScreenDescription");
+            }
+        }
+        #endregion
+
+        #region DisplayModeSlideshow
+        /// <summary>
+        ///   Looks up a localized string similar to: Slideshow
+        /// </summary>
+        public static string DisplayModeSlideshow
+        {
+            get
+            {
+                return _resourceLoader.GetString("DisplayModeSlideshow");
+            }
+        }
+        #endregion
+
+        #region DisplayModeSlideshowDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Carousel of images
+        /// </summary>
+        public static string DisplayModeSlideshowDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("DisplayModeSlideshowDescription");
+            }
+        }
+        #endregion
+
+        #region DisplayModeVideo
+        /// <summary>
+        ///   Looks up a localized string similar to: Videos
+        /// </summary>
+        public static string DisplayModeVideo
+        {
+            get
+            {
+                return _resourceLoader.GetString("DisplayModeVideo");
+            }
+        }
+        #endregion
+
+        #region DisplayModeVideoDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Plays videos, if available
+        /// </summary>
+        public static string DisplayModeVideoDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("DisplayModeVideoDescription");
+            }
+        }
+        #endregion
+
+        #region SettingsNotificationsSwitchHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Notification for new sounds
+        /// </summary>
+        public static string SettingsNotificationsSwitchHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsNotificationsSwitchHeader");
+            }
+        }
+        #endregion
+
+        #region SettingsTelemetrySwitchHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Telemetry
+        /// </summary>
+        public static string SettingsTelemetrySwitchHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsTelemetrySwitchHeader");
+            }
+        }
+        #endregion
+
+        #region DownloadingVideoMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Downloading your video. We'll be ready soon.
+        /// </summary>
+        public static string DownloadingVideoMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("DownloadingVideoMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3077,6 +3233,18 @@ namespace AmbientSounds.Strings{
             SleepTimerDescription,
             SleepTimerText,
             UnlockText,
+            AdjustSoundVolume,
+            DownloadSounds,
+            DisplayMode,
+            DisplayModeDarkScreen,
+            DisplayModeDarkScreenDescription,
+            DisplayModeSlideshow,
+            DisplayModeSlideshowDescription,
+            DisplayModeVideo,
+            DisplayModeVideoDescription,
+            SettingsNotificationsSwitchHeader,
+            SettingsTelemetrySwitchHeader,
+            DownloadingVideoMessage,
         }
 
         private static ResourceLoader _resourceLoader;
