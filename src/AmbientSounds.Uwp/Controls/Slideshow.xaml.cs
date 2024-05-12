@@ -8,7 +8,6 @@ using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,7 +26,8 @@ public sealed partial class Slideshow : UserControl
     private readonly ITelemetry _telemetry;
     private readonly ISoundService _soundDataProvider;
     private readonly IDispatcherQueue _dispatcherQueue;
-    private CancellationTokenSource _cts = new();
+    private readonly SemaphoreSlim _soundsChangedLock = new(1, 1);
+    private CancellationTokenSource _loadingCts = new();
     private IList<string>? _images;
     private int _imageIndex1;
     private int _imageIndex2;
@@ -75,17 +75,14 @@ public sealed partial class Slideshow : UserControl
 
     public async Task LoadAsync(string? soundIdToUse = null)
     {
-        _cts.Cancel();
-        _cts = new();
+        _loadingCts.Cancel();
+        _loadingCts = new();
 
         try
         {
-            await InternalLoadAsync(soundIdToUse, _cts.Token);
+            await InternalLoadAsync(soundIdToUse, _loadingCts.Token);
         }
-        catch (OperationCanceledException)
-        {
-            Debug.WriteLine("################# internal load canceled");
-        }
+        catch (OperationCanceledException) { }
     }
 
     private async Task InternalLoadAsync(string? soundIdToUse, CancellationToken ct)
@@ -132,7 +129,6 @@ public sealed partial class Slideshow : UserControl
 
         Image1.Visibility = Visibility.Visible;
         Image2.Visibility = Visibility.Collapsed;
-        Debug.WriteLine("################# LoadAsync Image 1 fade in and slide starting");
         _ = Image1FadeInAndSlide.StartAsync(ct);
         
         Image2Source = _images[_imageIndex2]; // Preload next
@@ -150,10 +146,8 @@ public sealed partial class Slideshow : UserControl
         if (Image1.Visibility is Visibility.Visible)
         {
             Image2.Visibility = Visibility.Visible;
-            Debug.WriteLine("################# CycleImagesAsync Image 2 fade in starting");
             _ = Image2FadeInAndSlide.StartAsync();
 
-            Debug.WriteLine("################# CycleImagesAsync Image 1 fade out starting");
             await Image1FadeOut.StartAsync();
             Image1.Visibility = Visibility.Collapsed;
 
@@ -163,10 +157,8 @@ public sealed partial class Slideshow : UserControl
         else if (Image2.Visibility is Visibility.Visible)
         {
             Image1.Visibility = Visibility.Visible;
-            Debug.WriteLine("################# CycleImagesAsync Image 1 fade in starting");
             _ = Image1FadeInAndSlide.StartAsync();
 
-            Debug.WriteLine("################# CycleImagesAsync Image 2 fade out starting");
             await Image2FadeOut.StartAsync();
             Image2.Visibility = Visibility.Collapsed;
 
@@ -226,18 +218,22 @@ public sealed partial class Slideshow : UserControl
 
     private async Task HandleSoundChangeAsync()
     {
+        await _soundsChangedLock.WaitAsync();
         _timerService.Stop();
 
         if (Image1.Visibility is Visibility.Visible)
         {
-            Debug.WriteLine("################# HandleSoundChange Image 1 fade out starting");
             await Image1FadeOut.StartAsync();
+            Image1.Visibility = Visibility.Collapsed;
         }
-        else if (Image2.Visibility is Visibility.Visible)
+
+        if (Image2.Visibility is Visibility.Visible)
         {
-            Debug.WriteLine("################# HandleSoundChange Image 2 fade out starting");
             await Image2FadeOut.StartAsync();
+            Image2.Visibility = Visibility.Collapsed;
         }
+
+        _soundsChangedLock.Release();
     }
 
     private void TimerIntervalElapsed(object sender, TimeSpan e)
