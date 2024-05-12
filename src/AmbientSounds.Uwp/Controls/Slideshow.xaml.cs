@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using JeniusApps.Common.Telemetry;
@@ -57,8 +58,7 @@ public sealed partial class Slideshow : UserControl
 
         _timerService.Interval = SlideTimeLength;
         _timerService.IntervalElapsed += TimerIntervalElapsed;
-        _mediaPlayerService.SoundAdded += OnSoundAdded;
-        _mediaPlayerService.SoundRemoved += OnSoundRemoved;
+        _mediaPlayerService.SoundsChanged += OnSoundsChanged;
     }
 
     public string Image1Source
@@ -213,24 +213,15 @@ public sealed partial class Slideshow : UserControl
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
-        _mediaPlayerService.SoundRemoved -= OnSoundRemoved;
-        _mediaPlayerService.SoundAdded -= OnSoundAdded;
+        _mediaPlayerService.SoundsChanged -= OnSoundsChanged;
         _timerService.IntervalElapsed -= TimerIntervalElapsed;
         _timerService.Stop();
     }
 
-    private async void OnSoundAdded(object sender, SoundPlayedArgs e)
+    private async void OnSoundsChanged(object sender, SoundChangedEventArgs e)
     {
         await HandleSoundChangeAsync();
-        await LoadAsync(e.Sound.Id);
-    }
-
-    private async void OnSoundRemoved(object sender, SoundPausedArgs e)
-    {
-        // TODO: fix bug when a 4th sound is added.
-        // That scneario triggers both the added and the removed handlers.
-        await HandleSoundChangeAsync();
-        await LoadAsync();
+        await LoadAsync(e.SoundsAdded is [Sound soundToUse, ..] ? soundToUse.Id : null);
     }
 
     private async Task HandleSoundChangeAsync()
