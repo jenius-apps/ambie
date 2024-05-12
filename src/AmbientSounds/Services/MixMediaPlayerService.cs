@@ -39,6 +39,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public event EventHandler<SoundPausedArgs>? SoundRemoved;
 
     /// <inheritdoc/>
+    public event EventHandler<SoundChangedEventArgs>? SoundsChanged;
+
+    /// <inheritdoc/>
     public event EventHandler<MixPlayedArgs>? MixPlayed;
 
     /// <inheritdoc/>
@@ -257,18 +260,19 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             return;
         }
 
+        string? soundIdRemoved = null;
         if (_activePlayers.Count >= _maxActive)
         {
             // remove sound
             var oldestTime = _activeSoundDateTimes.Min(static x => x.Value);
-            var oldestSoundId = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
-            RemoveSound(oldestSoundId);
+            soundIdRemoved = _activeSoundDateTimes.FirstOrDefault(x => x.Value == oldestTime).Key;
+            RemoveSound(soundIdRemoved, raiseSoundRemoved: false);
         }
 
+        bool sourceSetSuccessfully = false;
         if (_activePlayers.Count < _maxActive)
         {
             IMediaPlayer player = _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
-            bool sourceSetSuccessfully = false;
 
             if (Uri.IsWellFormedUriString(sound.FilePath, UriKind.Absolute))
             {
@@ -294,13 +298,33 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
                 if (keepPaused) Pause();
                 else Play();
-
-                SoundAdded?.Invoke(this, new SoundPlayedArgs(sound, parentMixId));
             }
         }
+
+        RaiseSoundChanged(new SoundChangedEventArgs
+        {
+            SoundIdsRemoved = soundIdRemoved is null ? [] : [soundIdRemoved],
+            SoundsAdded = sourceSetSuccessfully ? [sound] : [],
+            ParentMixId = parentMixId
+        });
     }
 
-    /// <inheritdoc/>
+    private void RaiseSoundChanged(SoundChangedEventArgs args)
+    {
+        if (args.SoundsAdded is [Sound firstSound, ..])
+        {
+            SoundAdded?.Invoke(this, new SoundPlayedArgs(firstSound, args.ParentMixId));
+        }
+
+        if (args.SoundIdsRemoved is [string firstIdRemoved, ..])
+        {
+            SoundRemoved?.Invoke(this, new SoundPausedArgs(firstIdRemoved, args.ParentMixId));
+        }
+
+        SoundsChanged?.Invoke(this, args);
+    }
+
+        /// <inheritdoc/>
     public void SetVolume(string soundId, double value)
     {
         if (IsSoundPlaying(soundId) && value <= 1d && value >= 0d)
@@ -374,7 +398,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     }
 
     /// <inheritdoc/>
-    public void RemoveSound(string soundId)
+    public void RemoveSound(string soundId, bool raiseSoundRemoved = true)
     {
         if (string.IsNullOrWhiteSpace(soundId) || !IsSoundPlaying(soundId))
         {
@@ -409,7 +433,15 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             Pause();
         }
 
-        SoundRemoved?.Invoke(this, new SoundPausedArgs(soundId, previousParentMixId));
+        if (raiseSoundRemoved)
+        {
+            RaiseSoundChanged(new SoundChangedEventArgs
+            {
+                SoundIdsRemoved = [soundId],
+                SoundsAdded = [],
+                ParentMixId = previousParentMixId
+            });
+        }
     }
 
     /// <summary>
