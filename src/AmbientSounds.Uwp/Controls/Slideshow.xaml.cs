@@ -7,7 +7,9 @@ using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -24,6 +26,7 @@ public sealed partial class Slideshow : UserControl
     private readonly ITelemetry _telemetry;
     private readonly ISoundService _soundDataProvider;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private CancellationTokenSource _cts = new();
     private IList<string>? _images;
     private int _imageIndex1;
     private int _imageIndex2;
@@ -72,6 +75,23 @@ public sealed partial class Slideshow : UserControl
 
     public async Task LoadAsync(string? soundIdToUse = null)
     {
+        _cts.Cancel();
+        _cts = new();
+
+        try
+        {
+            await InternalLoadAsync(soundIdToUse, _cts.Token);
+        }
+        catch (OperationCanceledException)
+        {
+            Debug.WriteLine("################# internal load canceled");
+        }
+    }
+
+    private async Task InternalLoadAsync(string? soundIdToUse, CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+
         _images = null;
         _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
 
@@ -108,11 +128,12 @@ public sealed partial class Slideshow : UserControl
         _imageIndex2 = 1;
         Image1Source = _images[_imageIndex1];
         IncrementIndex(ref _imageIndex1);
-        await Task.Delay(3000);
+        await Task.Delay(3000, ct);
 
         Image1.Visibility = Visibility.Visible;
         Image2.Visibility = Visibility.Collapsed;
-        _ = Image1FadeInAndSlide.StartAsync();
+        Debug.WriteLine("################# LoadAsync Image 1 fade in and slide starting");
+        _ = Image1FadeInAndSlide.StartAsync(ct);
         
         Image2Source = _images[_imageIndex2]; // Preload next
 
@@ -129,8 +150,10 @@ public sealed partial class Slideshow : UserControl
         if (Image1.Visibility is Visibility.Visible)
         {
             Image2.Visibility = Visibility.Visible;
+            Debug.WriteLine("################# CycleImagesAsync Image 2 fade in starting");
             _ = Image2FadeInAndSlide.StartAsync();
 
+            Debug.WriteLine("################# CycleImagesAsync Image 1 fade out starting");
             await Image1FadeOut.StartAsync();
             Image1.Visibility = Visibility.Collapsed;
 
@@ -140,8 +163,10 @@ public sealed partial class Slideshow : UserControl
         else if (Image2.Visibility is Visibility.Visible)
         {
             Image1.Visibility = Visibility.Visible;
+            Debug.WriteLine("################# CycleImagesAsync Image 1 fade in starting");
             _ = Image1FadeInAndSlide.StartAsync();
 
+            Debug.WriteLine("################# CycleImagesAsync Image 2 fade out starting");
             await Image2FadeOut.StartAsync();
             Image2.Visibility = Visibility.Collapsed;
 
@@ -197,13 +222,15 @@ public sealed partial class Slideshow : UserControl
     private async void OnSoundAdded(object sender, SoundPlayedArgs e)
     {
         await HandleSoundChangeAsync();
-        _ = LoadAsync(e.Sound.Id);
+        await LoadAsync(e.Sound.Id);
     }
 
     private async void OnSoundRemoved(object sender, SoundPausedArgs e)
     {
+        // TODO: fix bug when a 4th sound is added.
+        // That scneario triggers both the added and the removed handlers.
         await HandleSoundChangeAsync();
-        _ = LoadAsync();
+        await LoadAsync();
     }
 
     private async Task HandleSoundChangeAsync()
@@ -212,10 +239,12 @@ public sealed partial class Slideshow : UserControl
 
         if (Image1.Visibility is Visibility.Visible)
         {
+            Debug.WriteLine("################# HandleSoundChange Image 1 fade out starting");
             await Image1FadeOut.StartAsync();
         }
         else if (Image2.Visibility is Visibility.Visible)
         {
+            Debug.WriteLine("################# HandleSoundChange Image 2 fade out starting");
             await Image2FadeOut.StartAsync();
         }
     }

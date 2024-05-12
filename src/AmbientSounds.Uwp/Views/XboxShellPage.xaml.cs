@@ -85,7 +85,6 @@ public sealed partial class XboxShellPage : Page
         _timer.IntervalElapsed += OnTimerElapsed;
         ViewModel.PropertyChanged += OnPropertyChanged;
         _ = TrackList.InitializeAsync();
-        _ = SlideshowControl.LoadAsync();
 
         await ViewModel.InitializeAsync();
         await UpdateSlideshowModeAsync();
