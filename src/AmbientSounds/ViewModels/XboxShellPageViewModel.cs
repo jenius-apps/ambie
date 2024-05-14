@@ -6,11 +6,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -51,7 +49,7 @@ public partial class XboxShellPageViewModel : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SlideshowVisible))]
     [NotifyPropertyChangedFor(nameof(VideoVisible))]
-    private SlideshowMode _slideshowMode = SlideshowMode.Images;
+    private SlideshowMode _slideshowMode = SlideshowMode.DarkScreen;
 
     [ObservableProperty]
     private bool _premiumButtonVisible;
@@ -105,9 +103,6 @@ public partial class XboxShellPageViewModel : ObservableObject
         {
             await LoadAssociatedVideoAsync(associatedVideoIds);
         }
-
-        // Ensure that the UI updates.
-        OnPropertyChanged(nameof(SlideshowMode));
     }
 
     private async Task LoadAssociatedVideoAsync(IReadOnlyList<string> associatedVideoIds)
