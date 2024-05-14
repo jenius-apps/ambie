@@ -73,7 +73,8 @@ public partial class XboxShellPageViewModel : ObservableObject
     {
         _mixMediaPlayerService.SoundAdded += OnSoundAdded;
         _xboxSlideshowService.VideoDownloadTriggered += OnVideoDownloadTriggered;
-        await UpdatePremiumButtonAsync();
+        _ = UpdatePremiumButtonAsync();
+        await UpdateSlideshowModeAsync();
     }
 
     public void Uninitialize()
@@ -92,13 +93,21 @@ public partial class XboxShellPageViewModel : ObservableObject
         _ = UpdateSlideshowModeAsync(e.Sound.Id, e.Sound.AssociatedVideoIds);
     }
 
-    private async Task UpdateSlideshowModeAsync(string soundId, IReadOnlyList<string> associatedVideoIds)
+    private async Task UpdateSlideshowModeAsync(string? soundId = null, IReadOnlyList<string>? associatedVideoIds = null)
     {
+        if (soundId is null || associatedVideoIds is null)
+        {
+            (soundId, associatedVideoIds) = await _xboxSlideshowService.GetSlideshowDataAsync(_mixMediaPlayerService);
+        }
+
         SlideshowMode = await _xboxSlideshowService.GetSlideshowModeAsync(soundId, associatedVideoIds);
         if (SlideshowMode is SlideshowMode.Video)
         {
             await LoadAssociatedVideoAsync(associatedVideoIds);
         }
+
+        // Ensure that the UI updates.
+        OnPropertyChanged(nameof(SlideshowMode));
     }
 
     private async Task LoadAssociatedVideoAsync(IReadOnlyList<string> associatedVideoIds)
