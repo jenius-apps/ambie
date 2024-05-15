@@ -199,6 +199,6 @@ public static class UserSettingsConstants
         { StreakReminderLastDateTicksKey, 0L },
         { StreaksReminderEnabledKey, false },
         { LastUsedContentPageKey, string.Empty },
-        { XboxSlideshowModeKey, SlideshowMode.Images.ToString() }
+        { XboxSlideshowModeKey, SlideshowMode.Video.ToString() }
     };
 }
