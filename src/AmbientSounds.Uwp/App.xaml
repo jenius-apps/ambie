@@ -117,6 +117,14 @@
             </Style>
 
             <Style
+                x:Key="XboxIconButton"
+                BasedOn="{StaticResource DefaultButtonStyle}"
+                TargetType="Button">
+                <Setter Property="CornerRadius" Value="32" />
+                <Setter Property="Padding" Value="12" />
+            </Style>
+
+            <Style
                 x:Key="TinySubtleIconButton"
                 BasedOn="{StaticResource SubtleButton}"
                 TargetType="Button">
@@ -225,6 +233,7 @@
             <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
             <Thickness x:Key="TopPageMargin">0,32,0,0</Thickness>
+            <Thickness x:Key="XboxPageMargin">40</Thickness>
             <x:Double x:Key="ImageCardHeight">180</x:Double>
             <x:Double x:Key="GuideCardWidth">248</x:Double>
             <x:Double x:Key="ImageCardWidth">120</x:Double>
@@ -296,6 +305,12 @@
             <x:String x:Key="GlyphShiftUp">&#xE752;</x:String>
             <x:String x:Key="GlyphMoonSolid">&#xF1DB;</x:String>
             <x:String x:Key="GlyphMoon">&#xE708;</x:String>
+            <x:String x:Key="GlyphStore">&#xE14D;</x:String>
+            <x:String x:Key="GlyphGamePadA">&#xF093;</x:String>
+            <x:String x:Key="GlyphGamePadB">&#xF094;</x:String>
+            <x:String x:Key="GlyphGamePadY">&#xF095;</x:String>
+            <x:String x:Key="GlyphGamePadX">&#xF096;</x:String>
+            <x:String x:Key="GlyphFilmstrip">&#xE8B2;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

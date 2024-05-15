@@ -851,4 +851,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>취침 타이머</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>잠금 해제</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>음량 조절하기</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>사운드 다운로드하기</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>디스플레이 모드</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>어두운 화면</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>수면에 도움</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>슬라이드 쇼</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>이미지 캐러셀</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>동영상</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>가능한 경우 비디오를 재생합니다.</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>새로운 소리에 대한 알림</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>원격</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>동영상 다운로드. 곧 준비하겠습니다.</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>다운로드</value>
+  </data>
 </root>

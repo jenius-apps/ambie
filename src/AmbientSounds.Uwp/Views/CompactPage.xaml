@@ -84,7 +84,7 @@
 
             <controls:PlayerControl
                 Grid.Column="1"
-                IsCompact="True"
+                DisplayMode="Compact"
                 PlayButtonVisible="Collapsed" />
 
             <Button

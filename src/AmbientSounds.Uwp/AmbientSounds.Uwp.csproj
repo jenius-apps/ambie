@@ -230,6 +230,12 @@
     <Compile Include="Controls\SleepTimerButton.xaml.cs">
       <DependentUpon>SleepTimerButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Slideshow.xaml.cs">
+      <DependentUpon>Slideshow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SoundDownloadDialog.xaml.cs">
+      <DependentUpon>SoundDownloadDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SoundGridControl.xaml.cs">
       <DependentUpon>SoundGridControl.xaml</DependentUpon>
     </Compile>
@@ -271,6 +277,12 @@
     <Compile Include="Controls\UIHelper.cs" />
     <Compile Include="Controls\VideosMenu.xaml.cs">
       <DependentUpon>VideosMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\XboxSoundItem.xaml.cs">
+      <DependentUpon>XboxSoundItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\XboxTrackList.xaml.cs">
+      <DependentUpon>XboxTrackList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
@@ -349,6 +361,15 @@
     <Compile Include="Views\UpdatesPage.xaml.cs">
       <DependentUpon>UpdatesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\XboxCataloguePage.xaml.cs">
+      <DependentUpon>XboxCataloguePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\XboxSettingsPage.xaml.cs">
+      <DependentUpon>XboxSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\XboxShellPage.xaml.cs">
+      <DependentUpon>XboxShellPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -361,6 +382,7 @@
     <Content Include="Assets\Backgrounds\gradient.png" />
     <Content Include="Assets\Backgrounds\water.png" />
     <Content Include="Assets\Backgrounds\sand.png" />
+    <Content Include="Assets\Backgrounds\whitesand.jpg" />
     <Content Include="Assets\Backgrounds\znone.png" />
     <Content Include="Assets\Backgrounds\rosyhill.png" />
     <Content Include="Assets\construction_3d.png" />
@@ -590,6 +612,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Slideshow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SoundDownloadDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SoundGridControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -639,6 +669,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\VideosMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\XboxSoundItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\XboxTrackList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -703,6 +741,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UpdatesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\XboxCataloguePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\XboxSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\XboxShellPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

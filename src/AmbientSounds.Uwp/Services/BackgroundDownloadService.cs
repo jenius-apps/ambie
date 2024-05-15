@@ -181,7 +181,7 @@ namespace AmbientSounds.Services.Uwp
                     await download.AttachAsync().AsTask(_cts.Token, progressCallback);
                 }
             }
-            catch (TaskCanceledException)
+            catch (OperationCanceledException)
             {
 
             }

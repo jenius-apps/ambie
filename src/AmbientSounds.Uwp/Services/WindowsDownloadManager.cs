@@ -174,12 +174,13 @@ public class WindowsDownloadManager : IDownloadManager
             FileExtension = s.FileExtension,
             ScreensaverImagePaths = s.ScreensaverImagePaths,
             IsPremium = s.IsPremium,
-            IapIds = s.IapIds.ToArray(),
+            IapIds = [.. s.IapIds],
             ColourHex = s.ColourHex,
             ImagePaths = s.ImagePaths,
             Localizations = s.Localizations,
             MetaDataVersion = s.MetaDataVersion,
-            FileVersion = s.FileVersion
+            FileVersion = s.FileVersion,
+            AssociatedVideoIds = [.. s.AssociatedVideoIds]
         };
     }
 

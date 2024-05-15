@@ -1,12 +1,13 @@
 ﻿using Windows.UI.Xaml.Controls;
 
-namespace AmbientSounds.Controls
+#nullable enable
+
+namespace AmbientSounds.Controls;
+
+public partial class NoPaddingDialog : ContentDialog
 {
-    public sealed partial class NoPaddingDialog : ContentDialog
+    public NoPaddingDialog()
     {
-        public NoPaddingDialog()
-        {
-            this.InitializeComponent();
-        }
+        this.InitializeComponent();
     }
 }

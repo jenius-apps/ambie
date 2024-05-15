@@ -332,11 +332,7 @@ public partial class ShellPageViewModel : ObservableObject
 
     private async Task LoadPremiumContentAsync()
     {
-        PremiumButtonVisible = !await _iapService.IsAnyOwnedAsync(
-        [
-            IapConstants.MsStoreAmbiePlusId,
-            IapConstants.MsStoreAmbiePlusLifetimeId
-        ]);
+        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
 
         _telemetry.TrackEvent(PremiumButtonVisible
             ? TelemetryConstants.LaunchUserFreeTier

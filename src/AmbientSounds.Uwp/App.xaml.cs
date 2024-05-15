@@ -54,10 +54,10 @@ sealed partial class App : Application
         if (IsTenFoot)
         {
             // Ref: https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/how-to-disable-mouse-mode
-            //this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+            this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
 
             // Ref: https://docs.microsoft.com/en-us/windows/uwp/design/input/gamepad-and-remote-interactions#reveal-focus
-            this.FocusVisualKind = FocusVisualKind.Reveal;
+            //this.FocusVisualKind = FocusVisualKind.Reveal;
         }
     }
 
@@ -233,21 +233,28 @@ sealed partial class App : Application
             // Navigate to the root page if one isn't loaded already
             if (rootFrame.Content is null)
             {
-                ContentPageType? firstPageOverride = LaunchConstants.ToPageType(launchArguments);
-
-                if (firstPageOverride is null &&
-                    _userSettings is { } settings && 
-                    settings.Get<string>(UserSettingsConstants.LastUsedContentPageKey) is { Length: > 0 } contentPage &&
-                    Enum.TryParse(contentPage, out ContentPageType pageType))
+                if (IsTenFoot)
                 {
-                    firstPageOverride = pageType;
+                    rootFrame.Navigate(typeof(Views.XboxShellPage));
                 }
-
-                rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
+                else
                 {
-                    FirstPageOverride = firstPageOverride,
-                    LaunchArguments = launchArguments
-                });
+                    ContentPageType? firstPageOverride = LaunchConstants.ToPageType(launchArguments);
+
+                    if (firstPageOverride is null &&
+                        _userSettings is { } settings &&
+                        settings.Get<string>(UserSettingsConstants.LastUsedContentPageKey) is { Length: > 0 } contentPage &&
+                        Enum.TryParse(contentPage, out ContentPageType pageType))
+                    {
+                        firstPageOverride = pageType;
+                    }
+
+                    rootFrame.Navigate(typeof(Views.ShellPage), new ShellPageNavigationArgs
+                    {
+                        FirstPageOverride = firstPageOverride,
+                        LaunchArguments = launchArguments
+                    });
+                }
             }
 
             Window.Current.Activate();

@@ -447,8 +447,9 @@
   },
   {
     "Id": "b22901eb-2269-4b3f-80ab-af2722e68ff1",
-    "MetaDataVersion": 6,
+    "MetaDataVersion": 7,
     "Name": "fireplace",
+    "AssociatedVideoIds": [ "59c3b21c-3df1-44d0-a2f7-096bf55728c3" ],
     "ColourHex": "#442f12",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
     "FilePath": "ms-appx:///Assets/Sounds/fireplace.wav",
@@ -810,8 +811,9 @@
   },
   {
     "Id": "f8424751-d150-41bc-b4ab-c22c41b4b339",
-    "MetaDataVersion": 6,
+    "MetaDataVersion": 7,
     "Name": "underwater",
+    "AssociatedVideoIds": [ "b80f1e29-3649-4c59-8cbf-817ce6466e3f" ],
     "ColourHex": "#00c3d0",
     "ImagePath": "ms-appx:///Assets/Images/underwater.png",
     "FilePath": "ms-appx:///Assets/Sounds/underwater.wav",
@@ -1084,8 +1086,9 @@
   },
   {
     "Id": "38c73d89-6c2c-445b-8beb-52b2f72689a2",
-    "MetaDataVersion": 5,
+    "MetaDataVersion": 6,
     "Name": "wind",
+    "AssociatedVideoIds": [ "04233954-8997-4ed0-8b6e-1a52643fbf67" ],
     "ColourHex": "#0b2354",
     "ImagePath": "ms-appx:///Assets/Images/wind.png",
     "FilePath": "ms-appx:///Assets/Sounds/wind.wav",

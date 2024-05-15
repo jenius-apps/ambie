@@ -23,6 +23,12 @@
             TargetType="GridViewItem">
             <Setter Property="Margin" Value="0,0,6,6" />
         </Style>
+        <Style
+            x:Key="XboxItemContainerStyle"
+            BasedOn="{StaticResource DefaultGridViewItemStyle}"
+            TargetType="GridViewItem">
+            <Setter Property="Margin" Value="4" />
+        </Style>
     </UserControl.Resources>
 
     <Grid>
@@ -35,6 +41,19 @@
                     <VisualState.Setters>
                         <Setter Target="MainGridView.ItemContainerStyle" Value="{StaticResource CompactItemContainerStyle}" />
                         <Setter Target="CatalogueButton.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsXbox, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGridView.ItemContainerStyle" Value="{StaticResource XboxItemContainerStyle}" />
+                        <Setter Target="MainGridView.HorizontalAlignment" Value="Center" />
+                        <Setter Target="MainGridView.(ScrollViewer.VerticalScrollBarVisibility)" Value="Hidden" />
+                        <Setter Target="CatalogueButton.Visibility" Value="Collapsed" />
+                        <Setter Target="MainGridView.Style" Value="{StaticResource SnappingGridViewStyle}" />
+                        <Setter Target="MainGridView.Padding" Value="0,0,0,52" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -51,7 +70,7 @@
             ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
             ItemsSource="{x:Bind ViewModel.Sounds}"
             Loaded="OnGridViewLoaded"
-            ScrollViewer.CanContentRenderOutsideBounds="True"
+            ScrollViewer.CanContentRenderOutsideBounds="{x:Bind CanScrollOutOfBounds, Mode=OneWay}"
             SelectionMode="None">
             <GridView.ItemContainerTransitions>
                 <TransitionCollection>

@@ -956,4 +956,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Sleep Timer</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Adjust sound volume</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Download sounds</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Dispaly mode</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Dark screen</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Helps with sleeping</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Carousel of images</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Plays videos, if available</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Notification for new sounds</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetry</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Downloading your video. We'll be ready soon.</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Downloading</value>
+  </data>
 </root>

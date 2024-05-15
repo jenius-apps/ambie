@@ -851,4 +851,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>تایمر خواب</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>باز کردن</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>تنظیم حجم صدا</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>دانلود صداها</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>حالت Dispaly</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>صفحه نمایش تیره</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>کمک می کند تا با خواب</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>نمایش اسلاید</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>چرخ فلک تصاویر</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>فیلم</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>پخش فیلم، در صورت وجود</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>اعلان برای صداهای جدید</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>تله متری</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>دانلود ویدئو شما. به زودی اماده میشیم</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>دانلود</value>
+  </data>
 </root>

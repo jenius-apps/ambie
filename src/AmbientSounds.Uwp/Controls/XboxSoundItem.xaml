@@ -1,0 +1,82 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.XboxSoundItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Rectangle
+            Width="150"
+            Height="90"
+            RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
+            RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+            </Rectangle.Fill>
+
+            <ui:Effects.Shadow>
+                <media:AttachedCardShadow
+                    BlurRadius="5"
+                    CornerRadius="8"
+                    Opacity="0.2"
+                    Offset="0,2" />
+            </ui:Effects.Shadow>
+        </Rectangle>
+
+        <Grid
+            x:Name="NamePlate"
+            VerticalAlignment="Bottom"
+            Visibility="Collapsed">
+            <animations:Explicit.Animations>
+                <animations:AnimationSet x:Name="FadeInName">
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <animations:TranslationAnimation
+                        From="0,40,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </animations:AnimationSet>
+                <animations:AnimationSet x:Name="FadeOutName">
+                    <animations:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.3" />
+                    <animations:TranslationAnimation
+                        From="0"
+                        To="0,40,0"
+                        Duration="0:0:0.3" />
+                </animations:AnimationSet>
+            </animations:Explicit.Animations>
+            <Rectangle
+                Fill="{ThemeResource CardBackgroundBrush}"
+                Opacity="0.8"
+                Stretch="Fill" />
+            <TextBlock
+                Margin="8"
+                MaxLines="2"
+                Text="{x:Bind ViewModel.Name}"
+                TextTrimming="CharacterEllipsis"
+                TextWrapping="Wrap" />
+
+            <FontIcon
+                Margin="8,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="14"
+                Glyph="{StaticResource GlyphFilmstrip}"
+                ToolTipService.ToolTip="Video background available"
+                Visibility="{x:Bind ViewModel.VideoIconVisible}" />
+        </Grid>
+    </Grid>
+</UserControl>

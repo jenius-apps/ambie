@@ -851,4 +851,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Temporizator de oprire</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Debloca</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Reglați volumul sunetului</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Descărcați sunete</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Modul Dispaly</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Ecran întunecat</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Ajută la somn</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Prezentare de diapozitive</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Carusel de imagini</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Videoclipuri</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Redă videoclipuri, dacă sunt disponibile</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Notificare pentru sunete noi</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetrie</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Descărcarea videoclipului. Vom fi gata în curând.</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Descărcare</value>
+  </data>
 </root>

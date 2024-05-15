@@ -4,149 +4,162 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace AmbientSounds.Services
+#nullable enable
+
+namespace AmbientSounds.Services;
+
+/// <summary>
+/// Interface for playing multiple
+/// sounds simultaneously.
+/// </summary>
+public interface IMixMediaPlayerService
 {
     /// <summary>
-    /// Interface for playing multiple
-    /// sounds simultaneously.
+    /// Sound is added.
     /// </summary>
-    public interface IMixMediaPlayerService
-    {
-        /// <summary>
-        /// Sound is added.
-        /// </summary>
-        event EventHandler<SoundPlayedArgs> SoundAdded;
+    event EventHandler<SoundPlayedArgs>? SoundAdded;
 
-        /// <summary>
-        /// Sound was removed.
-        /// </summary>
-        event EventHandler<SoundPausedArgs> SoundRemoved;
+    /// <summary>
+    /// Sound was removed.
+    /// </summary>
+    event EventHandler<SoundPausedArgs>? SoundRemoved;
 
-        /// <summary>
-        /// Mix was played.
-        /// </summary>
-        event EventHandler<MixPlayedArgs> MixPlayed;
+    /// <summary>
+    /// Raised when the sounds were changed.
+    /// </summary>
+    event EventHandler<SoundChangedEventArgs>? SoundsChanged;
 
-        /// <summary>
-        /// Raised when playback changes between
-        /// playing and paused.
-        /// </summary>
-        event EventHandler<MediaPlaybackState> PlaybackStateChanged;
+    /// <summary>
+    /// Mix was played.
+    /// </summary>
+    event EventHandler<MixPlayedArgs>? MixPlayed;
 
-        /// <summary>
-        /// Raised when the guide's playback position changed.
-        /// </summary>
-        event EventHandler<TimeSpan>? GuidePositionChanged;
+    /// <summary>
+    /// Raised when playback changes between
+    /// playing and paused.
+    /// </summary>
+    event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
-        /// <summary>
-        /// The total duration of the current guide.
-        /// </summary>
-        TimeSpan GuideDuration { get; }
+    /// <summary>
+    /// Raised when the guide's playback position changed.
+    /// </summary>
+    event EventHandler<TimeSpan>? GuidePositionChanged;
 
-        /// <summary>
-        /// Global volume control. Max = 1. Min = 0.
-        /// </summary>
-        double GlobalVolume { get; set; }
+    /// <summary>
+    /// The total duration of the current guide.
+    /// </summary>
+    TimeSpan GuideDuration { get; }
 
-        /// <summary>
-        /// The ID of the current mix being played.
-        /// If a mix is not being played, this will be empty.
-        /// </summary>
-        string CurrentMixId { get; set; }
+    /// <summary>
+    /// Global volume control. Max = 1. Min = 0.
+    /// </summary>
+    double GlobalVolume { get; set; }
 
-        /// <summary>
-        /// Dictionary of screensavers for the active tracks.
-        /// </summary>
-        Dictionary<string, string[]> Screensavers { get; }
+    /// <summary>
+    /// The ID of the current mix being played.
+    /// If a mix is not being played, this will be empty.
+    /// </summary>
+    string CurrentMixId { get; set; }
 
-        /// <summary>
-        /// The current global state of the player.
-        /// </summary>
-        MediaPlaybackState PlaybackState { get; set; }
+    /// <summary>
+    /// Dictionary of screensavers for the active tracks.
+    /// </summary>
+    Dictionary<string, string[]> Screensavers { get; }
 
-        /// <summary>
-        /// The ID of the current guide being played.
-        /// If a guide is not being played, this will be empty.
-        /// </summary>
-        string CurrentGuideId { get; }
+    /// <summary>
+    /// The current global state of the player.
+    /// </summary>
+    MediaPlaybackState PlaybackState { get; set; }
 
-        /// <summary>
-        /// Cancels any current playback
-        /// and plays a random sound instead.
-        /// </summary>
-        Task PlayRandomAsync();
+    /// <summary>
+    /// The ID of the current guide being played.
+    /// If a guide is not being played, this will be empty.
+    /// </summary>
+    string CurrentGuideId { get; }
 
-        /// <summary>
-        /// Resumes playback.
-        /// </summary>
-        void Play();
+    /// <summary>
+    /// Cancels any current playback
+    /// and plays a random sound instead.
+    /// </summary>
+    Task PlayRandomAsync();
 
-        /// <summary>
-        /// Pauses playback.
-        /// </summary>
-        void Pause();
+    /// <summary>
+    /// Resumes playback.
+    /// </summary>
+    void Play();
 
-        /// <summary>
-        /// Returns the sound ids currently paused or playing.
-        /// </summary>
-        string[] GetSoundIds();
+    /// <summary>
+    /// Pauses playback.
+    /// </summary>
+    void Pause();
 
-        /// <summary>
-        /// If the given sound is playing,
-        /// the sound will be paused and removed.
-        /// If the sound was paused, the sound
-        /// will be played.
-        /// </summary>
-        /// <param name="s">The sound to toggle.</param>
-        /// <param name="keepPaused">Optional. If true, an inserted sound will not be played automatically.</param>
-        Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "");
+    /// <summary>
+    /// Returns the sound ids currently paused or playing.
+    /// </summary>
+    string[] GetSoundIds();
 
-        /// <summary>
-        /// Plays the the list of sounds.
-        /// </summary>
-        Task ToggleSoundsAsync(IReadOnlyList<Sound> sounds, string parentMixId = "");
+    /// <summary>
+    /// If the given sound is playing,
+    /// the sound will be paused and removed.
+    /// If the sound was paused, the sound
+    /// will be played.
+    /// </summary>
+    /// <param name="s">The sound to toggle.</param>
+    /// <param name="keepPaused">Optional. If true, an inserted sound will not be played automatically.</param>
+    Task ToggleSoundAsync(Sound s, bool keepPaused = false, string parentMixId = "");
 
-        /// <summary>
-        /// Updates the <see cref="CurrentMixId"/>
-        /// and raises an event indicating the mix is
-        /// now playing.
-        /// </summary>
-        /// <param name="mixId">Id of sound mix.</param>
-        void SetMixId(string mixId);
+    /// <summary>
+    /// Plays the the list of sounds.
+    /// </summary>
+    Task ToggleSoundsAsync(IReadOnlyList<Sound> sounds, string parentMixId = "");
 
-        /// <summary>
-        /// Removes all active tracks.
-        /// </summary>
-        void RemoveAll();
+    /// <summary>
+    /// Updates the <see cref="CurrentMixId"/>
+    /// and raises an event indicating the mix is
+    /// now playing.
+    /// </summary>
+    /// <param name="mixId">Id of sound mix.</param>
+    void SetMixId(string mixId);
 
-        /// <summary>
-        /// Removes the sound
-        /// from being played.
-        /// </summary>
-        /// <param name="soundId">The sound to pause and remove.</param>
-        void RemoveSound(string soundId);
+    /// <summary>
+    /// Removes all active tracks.
+    /// </summary>
+    void RemoveAll();
 
-        /// <summary>
-        /// Returns true if the sound is active.
-        /// </summary>
-        /// <param name="soundId">The sound to check.</param>
-        bool IsSoundPlaying(string soundId);
+    /// <summary>
+    /// Removes the sound
+    /// from being played.
+    /// </summary>
+    /// <param name="soundId">The sound to pause and remove.</param>
+    void RemoveSound(string soundId, bool raiseSoundRemoved = true);
 
-        /// <summary>
-        /// Retrieves the volume for the given sound.
-        /// </summary>
-        double GetVolume(string soundId);
+    /// <summary>
+    /// Returns true if the sound is active.
+    /// </summary>
+    /// <param name="soundId">The sound to check.</param>
+    bool IsSoundPlaying(string soundId);
 
-        /// <summary>
-        /// Sets the volume for the given sound.
-        /// </summary>
-        void SetVolume(string soundId, double value);
+    /// <summary>
+    /// Retrieves the volume for the given sound.
+    /// </summary>
+    double GetVolume(string soundId);
 
-        /// <summary>
-        /// Plays the given guide.
-        /// </summary>
-        /// <param name="guide">The guide to play.</param>
-        Task PlayGuideAsync(Guide guide);
-        Task AddRandomAsync();
-    }
+    /// <summary>
+    /// Sets the volume for the given sound.
+    /// </summary>
+    void SetVolume(string soundId, double value);
+
+    /// <summary>
+    /// Plays the given guide.
+    /// </summary>
+    /// <param name="guide">The guide to play.</param>
+    Task PlayGuideAsync(Guide guide);
+    Task AddRandomAsync();
+
+    /// <summary>
+    /// Retrieves enumerable of active sound IDs.
+    /// </summary>
+    /// <param name="oldestToNewest">Sorts the list from oldest to newest if true. Otherwise, sorts newest to oldest.</param>
+    /// <returns>Sorted list of active sound IDs.</returns>
+    IEnumerable<string> GetSoundIds(bool oldestToNewest);
 }

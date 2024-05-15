@@ -137,6 +137,11 @@ public class Sound : IVersionedAsset
     /// </summary>
     public int FileVersion { get; set; }
 
+    /// <summary>
+    /// List of video IDs associated with this sound.
+    /// </summary>
+    public IReadOnlyList<string> AssociatedVideoIds { get; set; } = [];
+
     /// <inheritdoc/>
     public override string ToString()
     {

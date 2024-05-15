@@ -851,4 +851,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>スリープタイマー</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>アンロック</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>音量を調整する</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>サウンドのダウンロード</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>表示モード</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>暗い画面</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>睡眠を助ける</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>スライドショー</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>画像のカルーセル</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>ビデオ</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>ビデオを再生します(可能な場合)</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>新しい音の通知</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>テレメトリー</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>ビデオをダウンロードします。すぐに準備が整います。</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
 </root>

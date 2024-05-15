@@ -1,0 +1,103 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.XboxCataloguePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="ContactsCVS" IsSourceGrouped="True" />
+    </Page.Resources>
+
+    <Grid Margin="40,40,40,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphStore}" />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="20"
+                Text="{x:Bind strings:Resources.DownloadSounds}" />
+        </StackPanel>
+
+        <GridView
+            Grid.Row="1"
+            Margin="0,12,0,0"
+            Padding="0,0,0,40"
+            IsItemClickEnabled="True"
+            ItemClick="OnItemClicked"
+            ItemsSource="{x:Bind ContactsCVS.View, Mode=OneWay}"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            SelectionMode="None">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                    <Grid CornerRadius="{StaticResource SoundCardCornerRadius}">
+                        <Rectangle
+                            Width="150"
+                            Height="90"
+                            RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
+                            RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                        <Grid
+                            Background="{ThemeResource SmokeFillColorDefaultBrush}"
+                            CornerRadius="{StaticResource SoundCardCornerRadius}"
+                            Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                            <winui:ProgressRing
+                                Width="16"
+                                Height="16"
+                                AutomationProperties.AccessibilityView="Raw"
+                                Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                                IsIndeterminate="False"
+                                Value="100" />
+                            <winui:ProgressRing
+                                Width="16"
+                                Height="16"
+                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                IsIndeterminate="False"
+                                Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}"
+                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate x:DataType="local:GroupInfoList">
+                            <Border AutomationProperties.Name="{x:Bind Key}">
+                                <TextBlock Text="{x:Bind Key}" />
+                            </Border>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </GridView.GroupStyle>
+        </GridView>
+
+        <winui:ProgressRing
+            Grid.RowSpan="2"
+            Width="40"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+            IsActive="{x:Bind ViewModel.Loading, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.Loading, Mode=OneWay}" />
+    </Grid>
+</Page>

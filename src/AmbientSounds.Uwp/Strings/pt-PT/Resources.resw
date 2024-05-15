@@ -851,4 +851,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Temporizador de sono</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Destravar</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Ajustar o volume do som</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Baixar sons</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Modo Dispaly</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Tela escura</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Ajuda a dormir</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Apresentação de slides</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Carrossel de imagens</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Vídeos</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Reproduz vídeos, se disponível</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Notificação para novos sons</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetria</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Baixando seu vídeo. Estaremos prontos em breve.</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Transferindo</value>
+  </data>
 </root>

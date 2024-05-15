@@ -845,4 +845,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Uyku Zamanlayıcısı</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Kilidi açmak</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Ses seviyesini ayarla</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Sesleri indir</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Dispaly modu</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Karanlık ekran</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Uyumaya yardımcı olur</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Slayt gösterisi</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Görüntülerin atlıkarınca</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Varsa videoları oynatır</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Yeni sesler için bildirim</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Telemetri</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Videonuzu indirme. Yakında hazır olacağız.</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Indiriyor</value>
+  </data>
 </root>

@@ -1,0 +1,144 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.XboxSettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Name="ColumnStacks" TargetType="StackPanel">
+            <Setter Property="Spacing" Value="20" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="{StaticResource XboxPageMargin}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="20"
+                Text="{x:Bind strings:Resources.SettingsText}" />
+        </StackPanel>
+
+        <Grid
+            Grid.Row="1"
+            Margin="0,40,0,0"
+            ColumnSpacing="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Style="{StaticResource ColumnStacks}">
+                <ComboBox
+                    MinHeight="80"
+                    Margin="0,0,0,4"
+                    HorizontalAlignment="Stretch"
+                    Header="{x:Bind strings:Resources.DisplayMode}"
+                    SelectedIndex="{x:Bind ViewModel.XboxDisplayModeSelectedIndex, Mode=TwoWay}">
+                    <ComboBoxItem>
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind strings:Resources.DisplayModeSlideshow}" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.DisplayModeSlideshowDescription}" />
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind strings:Resources.DisplayModeDarkScreen}" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.DisplayModeDarkScreenDescription}" />
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind strings:Resources.DisplayModeVideo}" />
+                            <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.DisplayModeVideoDescription}" />
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+
+                <ToggleSwitch IsOn="{x:Bind ViewModel.ResumeOnLaunchEnabled, Mode=TwoWay}">
+                    <ToggleSwitch.Header>
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="{x:Bind strings:Resources.SettingsResumeOnLaunch}" />
+                            <TextBlock
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="{x:Bind strings:Resources.SettingsResumeOnLaunchDescription}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </ToggleSwitch.Header>
+                    <ToggleSwitch.OffContent>
+                        <TextBlock x:Uid="OffTextBlock" />
+                    </ToggleSwitch.OffContent>
+                    <ToggleSwitch.OnContent>
+                        <TextBlock x:Uid="OnTextBlock" />
+                    </ToggleSwitch.OnContent>
+                </ToggleSwitch>
+
+                <StackPanel Spacing="4" Visibility="{x:Bind ViewModel.ManageSubscriptionVisible, Mode=OneWay}">
+                    <TextBlock Text="Ambie+" />
+                    <TextBlock Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind strings:Resources.SettingsModifySubDescription}" />
+                    <Button Margin="0,8,0,0" Command="{x:Bind ViewModel.RedirectToMsAccountCommand}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.ModifyText}" />
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="14"
+                                Glyph="{StaticResource GlyphRedirect}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Style="{StaticResource ColumnStacks}">
+                <ToggleSwitch IsOn="{x:Bind ViewModel.TelemetryEnabled, Mode=TwoWay}">
+                    <ToggleSwitch.Header>
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="{x:Bind strings:Resources.SettingsTelemetrySwitchHeader}" />
+                            <TextBlock
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="{x:Bind strings:Resources.SettingsTelemetrySwitchDescription}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </ToggleSwitch.Header>
+                    <ToggleSwitch.OffContent>
+                        <TextBlock x:Uid="OffTextBlock" />
+                    </ToggleSwitch.OffContent>
+                    <ToggleSwitch.OnContent>
+                        <TextBlock x:Uid="OnTextBlock" />
+                    </ToggleSwitch.OnContent>
+                </ToggleSwitch>
+
+                <ToggleSwitch IsOn="{x:Bind ViewModel.NotificationsEnabled, Mode=TwoWay}">
+                    <ToggleSwitch.Header>
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="{x:Bind strings:Resources.SettingsNotificationsSwitchHeader}" />
+                            <TextBlock
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                Text="{x:Bind strings:Resources.SettingsNotificationsSwitchDescription}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </ToggleSwitch.Header>
+                    <ToggleSwitch.OffContent>
+                        <TextBlock x:Uid="OffTextBlock" />
+                    </ToggleSwitch.OffContent>
+                    <ToggleSwitch.OnContent>
+                        <TextBlock x:Uid="OnTextBlock" />
+                    </ToggleSwitch.OnContent>
+                </ToggleSwitch>
+
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Page>

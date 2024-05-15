@@ -14,10 +14,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <controls:SoundGridControl
-            x:Name="SoundGallery"
-            Margin="{StaticResource MainFramePageMargin}"
-            CanScrollOutOfBounds="True">
+        <controls:SoundGridControl Margin="{StaticResource MainFramePageMargin}" CanScrollOutOfBounds="True">
             <controls:SoundGridControl.ItemTemplate>
                 <DataTemplate x:DataType="viewmodels:SoundViewModel">
                     <controls:SoundItemControl ViewModel="{x:Bind}" />

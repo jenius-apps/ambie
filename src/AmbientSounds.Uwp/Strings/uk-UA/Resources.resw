@@ -851,4 +851,46 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Таймер сну</value>
   </data>
+  <data name="UnlockText" xml:space="preserve">
+    <value>Розблокувати</value>
+  </data>
+  <data name="AdjustSoundVolume" xml:space="preserve">
+    <value>Відрегулюйте гучність звуку</value>
+  </data>
+  <data name="DownloadSounds" xml:space="preserve">
+    <value>Завантажити звуки</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Режим Dispaly</value>
+  </data>
+  <data name="DisplayModeDarkScreen" xml:space="preserve">
+    <value>Темний екран</value>
+  </data>
+  <data name="DisplayModeDarkScreenDescription" xml:space="preserve">
+    <value>Допомагає уві сні</value>
+  </data>
+  <data name="DisplayModeSlideshow" xml:space="preserve">
+    <value>Слайд-шоу</value>
+  </data>
+  <data name="DisplayModeSlideshowDescription" xml:space="preserve">
+    <value>Карусель зображень</value>
+  </data>
+  <data name="DisplayModeVideo" xml:space="preserve">
+    <value>Відео</value>
+  </data>
+  <data name="DisplayModeVideoDescription" xml:space="preserve">
+    <value>Відтворює відео (якщо доступно)</value>
+  </data>
+  <data name="SettingsNotificationsSwitchHeader" xml:space="preserve">
+    <value>Сповіщення про нові звуки</value>
+  </data>
+  <data name="SettingsTelemetrySwitchHeader" xml:space="preserve">
+    <value>Телеметрії</value>
+  </data>
+  <data name="DownloadingVideoMessage" xml:space="preserve">
+    <value>Завантаження відео. Скоро ми будемо готові.</value>
+  </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Завантаження</value>
+  </data>
 </root>

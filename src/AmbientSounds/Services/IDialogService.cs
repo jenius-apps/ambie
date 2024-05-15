@@ -14,6 +14,13 @@ namespace AmbientSounds.Services;
 public interface IDialogService
 {
     /// <summary>
+    /// Opens the sound dialog.
+    /// </summary>
+    /// <param name="vm">The online sound to use.</param>
+    /// <returns>True if the primary action was clicked.</returns>
+    Task<bool> OpenSoundDialogAsync(OnlineSoundViewModel vm);
+
+    /// <summary>
     /// Opens a rename dialog.
     /// </summary>
     /// <param name="currentName">The current name use to pre-populate the field.</param>

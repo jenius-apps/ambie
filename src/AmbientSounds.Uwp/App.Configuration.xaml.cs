@@ -212,5 +212,7 @@ partial class App
     [Singleton(typeof(StreakHistoryRepository), typeof(IStreakHistoryRepository))]
     [Singleton(typeof(MicrosoftStoreUpdater), typeof(IAppStoreUpdater))]
     [Singleton(typeof(SleepTimerService), typeof(ISleepTimerService))]
+    [Transient(typeof(XboxShellPageViewModel))]
+    [Singleton(typeof(XboxSlideshowService), typeof(IXboxSlideshowService))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

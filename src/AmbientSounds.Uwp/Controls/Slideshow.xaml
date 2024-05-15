@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.Slideshow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Canvas>
+            <Image x:Name="Image1" Visibility="Collapsed">
+                <Image.Source>
+                    <BitmapImage UriSource="{x:Bind Image1Source, Mode=OneWay}" />
+                </Image.Source>
+                <animations:Explicit.Animations>
+                    <animations:AnimationSet x:Name="Image1FadeInAndSlide">
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:3" />
+                        <animations:TranslationAnimation
+                            EasingType="Linear"
+                            From="0"
+                            To="-100,0,0"
+                            Duration="0:0:35" />
+                    </animations:AnimationSet>
+                    <animations:AnimationSet x:Name="Image1FadeOut">
+                        <animations:OpacityAnimation
+                            From="1"
+                            To="0"
+                            Duration="0:0:1" />
+                    </animations:AnimationSet>
+                </animations:Explicit.Animations>
+            </Image>
+            <Image x:Name="Image2" Visibility="Collapsed">
+                <Image.Source>
+                    <BitmapImage UriSource="{x:Bind Image2Source, Mode=OneWay}" />
+                </Image.Source>
+                <animations:Explicit.Animations>
+                    <animations:AnimationSet x:Name="Image2FadeInAndSlide">
+                        <animations:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:3" />
+                        <animations:TranslationAnimation
+                            EasingType="Linear"
+                            From="0"
+                            To="-100,0,0"
+                            Duration="0:0:35" />
+                    </animations:AnimationSet>
+                    <animations:AnimationSet x:Name="Image2FadeOut">
+                        <animations:OpacityAnimation
+                            From="1"
+                            To="0"
+                            Duration="0:0:1" />
+                    </animations:AnimationSet>
+                </animations:Explicit.Animations>
+            </Image>
+        </Canvas>
+    </Grid>
+</UserControl>

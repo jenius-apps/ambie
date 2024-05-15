@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using static System.Net.Mime.MediaTypeNames;
 
 #nullable enable
 
@@ -14,17 +15,17 @@ namespace AmbientSounds.Controls
         {
             this.InitializeComponent();
             this.DataContext = App.Services.GetRequiredService<ScreensaverViewModel>();
-            this.Loaded += (_, _) => 
+            this.Loaded += (_, _) =>
             {
                 ViewModel.Initialize();
-                ViewModel.PropertyChanging += PropertyChanging; 
+                ViewModel.PropertyChanging += PropertyChanging;
             };
-            this.Unloaded += (_, _) => 
+            this.Unloaded += (_, _) =>
             {
                 ImageSb1.Stop();
                 ImageSb2.Stop();
                 ViewModel.Dispose();
-                ViewModel.PropertyChanging -= PropertyChanging; 
+                ViewModel.PropertyChanging -= PropertyChanging;
             };
             this.SizeChanged += OnSizeChanged;
         }

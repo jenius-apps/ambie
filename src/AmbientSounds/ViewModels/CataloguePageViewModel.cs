@@ -2,6 +2,7 @@
 using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
@@ -17,15 +18,18 @@ public partial class CataloguePageViewModel : ObservableObject
     private readonly INavigator _navigator;
     private readonly IPageCache _pageCache;
     private readonly CatalogueRowVmFactory _vmFactory;
+    private readonly IDialogService _dialogService;
 
     public CataloguePageViewModel(
         IPageCache pageCache,
         INavigator navigator,
-        CatalogueRowVmFactory catalogueRowVmFactory)
+        CatalogueRowVmFactory catalogueRowVmFactory,
+        IDialogService dialogService)
     {
         _pageCache = pageCache;
         _navigator = navigator;
         _vmFactory = catalogueRowVmFactory;
+        _dialogService = dialogService;
     }
 
     public ObservableCollection<CatalogueRowViewModel> Rows { get; } = new();
@@ -73,5 +77,34 @@ public partial class CataloguePageViewModel : ObservableObject
         }
 
         Rows.Clear();
+    }
+
+    [RelayCommand]
+    private async Task OpenSoundDialogAsync(OnlineSoundViewModel? vm)
+    {
+        if (vm is null || vm.DownloadProgressVisible)
+        {
+            return;
+        }
+
+        var proceed = await _dialogService.OpenSoundDialogAsync(vm);
+
+        if (!proceed)
+        {
+            return;
+        }
+
+        if (vm.CanPlay)
+        {
+            _ = vm.PlayCommand.ExecuteAsync(null);
+        }
+        else if (vm.CanBuy)
+        {
+            await _dialogService.OpenPremiumAsync();
+        }
+        else if (vm.DownloadButtonVisible)
+        {
+            _ = vm.DownloadCommand.ExecuteAsync(null);
+        }
     }
 }
