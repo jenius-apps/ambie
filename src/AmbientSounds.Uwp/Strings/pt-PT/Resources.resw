@@ -890,4 +890,7 @@
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Baixando seu vídeo. Estaremos prontos em breve.</value>
   </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Transferindo</value>
+  </data>
 </root>

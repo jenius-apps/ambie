@@ -875,4 +875,7 @@
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Λήψη του βίντεό σας. Θα είμαστε έτοιμοι σύντομα.</value>
   </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Κατέβασμα</value>
+  </data>
 </root>

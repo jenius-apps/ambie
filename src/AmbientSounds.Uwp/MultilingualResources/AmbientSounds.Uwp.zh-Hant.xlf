@@ -1178,7 +1178,7 @@
         </trans-unit>
         <trans-unit id="DownloadingText" translate="yes" xml:space="preserve">
           <source>Downloading</source>
-          <target state="new">Downloading</target>
+          <target state="translated">下載</target>
         </trans-unit>
       </group>
     </body>

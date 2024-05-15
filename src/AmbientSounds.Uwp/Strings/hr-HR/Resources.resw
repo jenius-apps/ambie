@@ -878,4 +878,7 @@
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Preuzimanje videozapisa. Uskoro ćemo biti spremni.</value>
   </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Učitavanje</value>
+  </data>
 </root>

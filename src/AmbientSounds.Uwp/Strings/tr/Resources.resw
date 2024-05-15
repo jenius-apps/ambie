@@ -884,4 +884,7 @@
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Videonuzu indirme. Yakında hazır olacağız.</value>
   </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Indiriyor</value>
+  </data>
 </root>

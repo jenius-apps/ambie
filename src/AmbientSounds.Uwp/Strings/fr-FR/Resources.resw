@@ -887,4 +887,7 @@
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>Téléchargement de votre vidéo. Nous serons bientôt prêts.</value>
   </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Téléchargement</value>
+  </data>
 </root>

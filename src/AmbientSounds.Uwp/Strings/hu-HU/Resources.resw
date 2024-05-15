@@ -878,4 +878,7 @@
   <data name="DownloadingVideoMessage" xml:space="preserve">
     <value>A videó letöltése. Hamarosan készen állunk.</value>
   </data>
+  <data name="DownloadingText" xml:space="preserve">
+    <value>Letöltés</value>
+  </data>
 </root>
