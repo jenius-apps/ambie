@@ -7,7 +7,6 @@ using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -133,10 +132,7 @@ public partial class XboxShellPageViewModel : ObservableObject
         }
 
         _activeVideoDownloadInfo = e;
-
-        Debug.WriteLine("################### download triggered");
         _activeVideoDownloadInfo.Progress.ProgressChanged += OnProgressChanged;
-
         _dispatcherQueue.TryEnqueue(() =>
         {
             DownloadingMessageVisible = true;
@@ -145,8 +141,6 @@ public partial class XboxShellPageViewModel : ObservableObject
 
     private void OnProgressChanged(object sender, double progress)
     {
-        Debug.WriteLine($"################### progress changed {progress}");
-
         _dispatcherQueue.TryEnqueue(async () =>
         {
             VideoProgress = progress;
