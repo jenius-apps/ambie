@@ -100,12 +100,12 @@ namespace AmbientSounds.ViewModels
                 return;
             }
 
-            string[] soundIds = _player.GetSoundIds();
-            if (soundIds is { Length: > 0 })
+            IEnumerable<string> soundIds = _player.GetSoundIds(oldestToNewest: true);
+            if (soundIds.Any())
             {
                 // This case is when the track list is returning to view because of a page navigation.
 
-                var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: soundIds);
+                var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: soundIds.ToArray());
                 if (sounds is { Count: > 0 })
                 {
                     foreach (var s in sounds)
