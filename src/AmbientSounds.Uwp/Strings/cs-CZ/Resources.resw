@@ -893,4 +893,7 @@
   <data name="DownloadingText" xml:space="preserve">
     <value>Stahování dat</value>
   </data>
+  <data name="UnlockVideoText" xml:space="preserve">
+    <value>Odemknout video</value>
+  </data>
 </root>

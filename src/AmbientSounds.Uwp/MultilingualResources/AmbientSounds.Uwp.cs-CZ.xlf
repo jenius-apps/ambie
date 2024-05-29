@@ -1181,6 +1181,10 @@
           <source>Downloading</source>
           <target state="translated">Stahování dat</target>
         </trans-unit>
+        <trans-unit id="UnlockVideoText" translate="yes" xml:space="preserve">
+          <source>Unlock video</source>
+          <target state="translated">Odemknout video</target>
+        </trans-unit>
       </group>
     </body>
   </file>

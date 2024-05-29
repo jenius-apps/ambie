@@ -893,4 +893,7 @@
   <data name="DownloadingText" xml:space="preserve">
     <value>Downloade</value>
   </data>
+  <data name="UnlockVideoText" xml:space="preserve">
+    <value>Lås video op</value>
+  </data>
 </root>

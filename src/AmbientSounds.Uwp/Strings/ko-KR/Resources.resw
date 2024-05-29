@@ -893,4 +893,7 @@
   <data name="DownloadingText" xml:space="preserve">
     <value>다운로드</value>
   </data>
+  <data name="UnlockVideoText" xml:space="preserve">
+    <value>비디오 잠금 해제</value>
+  </data>
 </root>

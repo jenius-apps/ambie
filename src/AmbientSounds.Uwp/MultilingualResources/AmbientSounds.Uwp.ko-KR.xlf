@@ -1181,6 +1181,10 @@
           <source>Downloading</source>
           <target state="translated">다운로드</target>
         </trans-unit>
+        <trans-unit id="UnlockVideoText" translate="yes" xml:space="preserve">
+          <source>Unlock video</source>
+          <target state="translated">비디오 잠금 해제</target>
+        </trans-unit>
       </group>
     </body>
   </file>

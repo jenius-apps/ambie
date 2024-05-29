@@ -51,9 +51,6 @@ public partial class XboxShellPageViewModel : ObservableObject
     private SlideshowMode _slideshowMode = SlideshowMode.DarkScreen;
 
     [ObservableProperty]
-    private bool _premiumButtonVisible;
-
-    [ObservableProperty]
     private double _videoProgress;
 
     [ObservableProperty]
@@ -73,7 +70,7 @@ public partial class XboxShellPageViewModel : ObservableObject
     {
         _mixMediaPlayerService.SoundsChanged += OnSoundsChanged;
         _xboxSlideshowService.VideoDownloadTriggered += OnVideoDownloadTriggered;
-        _ = UpdatePremiumButtonAsync();
+        _iapService.ProductPurchased += OnProductPurchased;
         await UpdateSlideshowModeAsync();
     }
 
@@ -81,6 +78,7 @@ public partial class XboxShellPageViewModel : ObservableObject
     {
         _mixMediaPlayerService.SoundsChanged -= OnSoundsChanged;
         _xboxSlideshowService.VideoDownloadTriggered -= OnVideoDownloadTriggered;
+        _iapService.ProductPurchased -= OnProductPurchased;
 
         if (_activeVideoDownloadInfo is { Progress: { } videoProgress })
         {
@@ -192,9 +190,9 @@ public partial class XboxShellPageViewModel : ObservableObject
         });
     }
 
-    private async Task UpdatePremiumButtonAsync()
+    private async void OnProductPurchased(object sender, string e)
     {
-        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
+        await UpdateUpsellVisibilityAsync();
     }
 
     [RelayCommand]

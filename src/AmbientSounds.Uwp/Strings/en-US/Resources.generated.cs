@@ -3017,6 +3017,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region UnlockVideoText
+        /// <summary>
+        ///   Looks up a localized string similar to: Unlock video
+        /// </summary>
+        public static string UnlockVideoText
+        {
+            get
+            {
+                return _resourceLoader.GetString("UnlockVideoText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3259,6 +3272,7 @@ namespace AmbientSounds.Strings{
             SettingsTelemetrySwitchHeader,
             DownloadingVideoMessage,
             DownloadingText,
+            UnlockVideoText,
         }
 
         private static ResourceLoader _resourceLoader;

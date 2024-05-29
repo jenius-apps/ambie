@@ -881,4 +881,7 @@
   <data name="DownloadingText" xml:space="preserve">
     <value>Letöltés</value>
   </data>
+  <data name="UnlockVideoText" xml:space="preserve">
+    <value>Videó feloldása</value>
+  </data>
 </root>

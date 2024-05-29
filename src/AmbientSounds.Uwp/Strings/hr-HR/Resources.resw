@@ -881,4 +881,7 @@
   <data name="DownloadingText" xml:space="preserve">
     <value>Učitavanje</value>
   </data>
+  <data name="UnlockVideoText" xml:space="preserve">
+    <value>Otključavanje videozapisa</value>
+  </data>
 </root>
