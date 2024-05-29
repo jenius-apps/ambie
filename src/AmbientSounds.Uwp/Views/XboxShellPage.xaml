@@ -171,6 +171,45 @@
                         Duration="0:0:1" />
                 </animations:Implicit.ShowAnimations>
             </StackPanel>
+
+            <StackPanel
+                Margin="0,0,0,12"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                Background="{StaticResource BackgroundAcrylicBrush}"
+                CornerRadius="8"
+                Visibility="{x:Bind ViewModel.VideoUpsellVisible, Mode=OneWay}">
+
+                <HyperlinkButton Padding="24,12" Command="{x:Bind ViewModel.OpenPremiumCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon
+                            VerticalAlignment="Center"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            Glyph="{StaticResource GlyphFilmstrip}" />
+
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Text="Unlock video" />
+                    </StackPanel>
+                </HyperlinkButton>
+
+                <animations:Implicit.ShowAnimations>
+                    <animations:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:1" />
+                    <animations:TranslationAnimation
+                        From="0,-32,0"
+                        To="0"
+                        Duration="0:0:1" />
+                    <animations:ScaleAnimation
+                        From="0.8"
+                        To="1"
+                        Duration="0:0:1" />
+                </animations:Implicit.ShowAnimations>
+            </StackPanel>
         </Grid>
 
         <controls:SoundGridControl

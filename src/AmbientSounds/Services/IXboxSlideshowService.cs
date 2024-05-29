@@ -28,4 +28,9 @@ public interface IXboxSlideshowService
     /// <param name="associatedVideoIds">Video IDs associated with the sound.</param>
     /// <returns>An enum that represents what slideshow mode to display in the UI.</returns>
     Task<SlideshowMode> GetSlideshowModeAsync(string soundId, IReadOnlyList<string> associatedVideoIds);
+
+    /// <summary>
+    /// Returns the preferred mode by the user directly from settings.
+    /// </summary>
+    SlideshowMode GetPreferredModeFromSettings();
 }

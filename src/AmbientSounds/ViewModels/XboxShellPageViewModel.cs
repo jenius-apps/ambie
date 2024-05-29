@@ -62,6 +62,9 @@ public partial class XboxShellPageViewModel : ObservableObject
     [ObservableProperty]
     private string _videoSource = string.Empty;
 
+    [ObservableProperty]
+    private bool _videoUpsellVisible;
+
     public bool SlideshowVisible => SlideshowMode is SlideshowMode.Images;
 
     public bool VideoVisible => SlideshowMode is SlideshowMode.Video;
@@ -95,6 +98,28 @@ public partial class XboxShellPageViewModel : ObservableObject
         {
             await UpdateSlideshowModeAsync();
         }
+
+        await UpdateUpsellVisibilityAsync();
+    }
+
+    private async Task UpdateUpsellVisibilityAsync()
+    {
+        var preferredMode = _xboxSlideshowService.GetPreferredModeFromSettings();
+        if (preferredMode is not SlideshowMode.Video)
+        {
+            VideoUpsellVisible = false;
+            return;
+        }
+
+        var canPremiumButtonsBeDisplayed = await _iapService.CanShowPremiumButtonsAsync();
+        if (!canPremiumButtonsBeDisplayed)
+        {
+            VideoUpsellVisible = false;
+            return;
+        }
+
+        var (_, AssociatedVideoIds) = await _xboxSlideshowService.GetSlideshowDataAsync(_mixMediaPlayerService);
+        VideoUpsellVisible = AssociatedVideoIds.Count > 0;
     }
 
     private async Task UpdateSlideshowModeAsync(string? soundId = null, IReadOnlyList<string>? associatedVideoIds = null)

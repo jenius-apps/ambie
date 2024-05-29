@@ -55,7 +55,8 @@ public sealed class XboxSlideshowService : IXboxSlideshowService
         return await TryValidateAndLoadVideoAsync(soundId, associatedVideoIds);
     }
 
-    private SlideshowMode GetPreferredModeFromSettings()
+    /// <inheritdoc/>
+    public SlideshowMode GetPreferredModeFromSettings()
     {
         return Enum.TryParse(_userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey), out SlideshowMode mode)
             ? mode

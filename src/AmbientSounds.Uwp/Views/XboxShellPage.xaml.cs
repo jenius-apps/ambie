@@ -28,8 +28,8 @@ public sealed partial class XboxShellPage : Page
     private readonly IReadOnlyList<(SlideshowMode, UIElement, AnimationSet)> _fadeInCombos;
     private readonly ITimerService _timer;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private readonly SemaphoreSlim _slideshowTransitionLock = new(1, 1);
     private CancellationTokenSource _slideshowTransitionCts = new();
-    private SemaphoreSlim _slideshowTransitionLock = new(1, 1);
 
     public XboxShellPage()
     {
