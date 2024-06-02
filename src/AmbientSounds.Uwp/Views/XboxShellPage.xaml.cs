@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.UI.Animations;
@@ -81,6 +82,9 @@ public sealed partial class XboxShellPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        var telemetry = App.Services.GetRequiredService<ITelemetry>();
+        telemetry.TrackPageView(nameof(XboxShellPage));
+
         CoreWindow.GetForCurrentThread().KeyDown += OnKeyDown;
         _timer.IntervalElapsed += OnTimerElapsed;
         ViewModel.PropertyChanged += OnPropertyChanged;
