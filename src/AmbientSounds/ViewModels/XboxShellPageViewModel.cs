@@ -120,6 +120,14 @@ public partial class XboxShellPageViewModel : ObservableObject
         VideoUpsellVisible = AssociatedVideoIds.Count > 0;
     }
 
+    partial void OnVideoUpsellVisibleChanged(bool value)
+    {
+        if (value)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.XboxUnlockVideoShown);
+        }
+    }
+
     private async Task UpdateSlideshowModeAsync(string? soundId = null, IReadOnlyList<string>? associatedVideoIds = null)
     {
         if (soundId is null || associatedVideoIds is null)
@@ -198,7 +206,7 @@ public partial class XboxShellPageViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenPremiumAsync()
     {
-        _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked);
+        _telemetry.TrackEvent(TelemetryConstants.XboxUnlockVideoClicked);
         await _dialogService.OpenPremiumAsync();
     }
 }

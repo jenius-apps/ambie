@@ -138,4 +138,10 @@ public class TelemetryConstants
     public const string GuideStopped = Guide + "stopped";
     public const string GuideDeleted = Guide + "deleted";
     public const string GuidePurchaseClicked = Guide + "purchaseClicked";
+
+    // xbox
+    private const string Xbox = "xbox:";
+    public const string XboxUnlockVideoClicked = $"{Xbox}unlockVideoClicked";
+    public const string XboxUnlockVideoShown = $"{Xbox}unlockVideoShown";
+    public const string XboxSlideshowModeChanged = $"{Xbox}slideShowModeChanged";
 }

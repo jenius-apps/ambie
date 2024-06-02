@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using IAssetsReader = AmbientSounds.Tools.IAssetsReader;
@@ -344,7 +345,13 @@ public partial class SettingsViewModel : ObservableObject
 
         if (Enum.GetNames(typeof(SlideshowMode)).Length > newIndex)
         {
-            _userSettings.Set(UserSettingsConstants.XboxSlideshowModeKey, ((SlideshowMode)newIndex).ToString());
+            var mode = (SlideshowMode)newIndex;
+            _userSettings.Set(UserSettingsConstants.XboxSlideshowModeKey, mode.ToString());
+
+            _telemetry.TrackEvent(TelemetryConstants.XboxSlideshowModeChanged, new Dictionary<string, string>
+            {
+                { "mode", mode.ToString() }
+            });
         }
     }
 }
