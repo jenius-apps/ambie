@@ -90,7 +90,6 @@ public sealed partial class Slideshow : UserControl
         ct.ThrowIfCancellationRequested();
 
         _images = null;
-        _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
 
         if (_mediaPlayerService.Screensavers.Count > 0)
         {
