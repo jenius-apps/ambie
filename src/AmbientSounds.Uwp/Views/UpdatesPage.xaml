@@ -11,7 +11,7 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Grid Margin="{StaticResource MainFramePageMargin}">
+    <Grid x:Name="PageGrid" Margin="{StaticResource MainFramePageMargin}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="LeftGutter" Width="auto" />
             <ColumnDefinition x:Name="ContentColumn" Width="*" />
@@ -22,6 +22,7 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsDesktop}" />
                         <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
@@ -29,6 +30,14 @@
                         <Setter Target="ContentColumn.Width" Value="{StaticResource ContentColumnMaxWidth}" />
                         <Setter Target="RightGutter.Width" Value="*" />
                         <Setter Target="RootPanel.Margin" Value="0,20,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind IsTenFoot}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PageGrid.Margin" Value="{StaticResource XboxPageMargin}" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

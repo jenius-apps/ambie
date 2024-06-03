@@ -231,4 +231,13 @@ public sealed partial class XboxShellPage : Page
             root.Navigate(typeof(XboxSettingsPage), null, new SuppressNavigationTransitionInfo());
         }
     }
+
+    private async void OnUpdatesClicked(object sender, RoutedEventArgs e)
+    {
+        if (App.Services.GetRequiredService<Services.INavigator>().RootFrame is Frame root)
+        {
+            await StartExitAnimationsAsync();
+            root.Navigate(typeof(UpdatesPage), null, new SuppressNavigationTransitionInfo());
+        }
+    }
 }

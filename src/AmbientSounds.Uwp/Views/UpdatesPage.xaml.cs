@@ -1,10 +1,10 @@
-﻿using AmbientSounds.Constants;
+﻿using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
+using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using JeniusApps.Common.Telemetry;
 
 #nullable enable
 
@@ -12,16 +12,28 @@ namespace AmbientSounds.Views;
 
 public sealed partial class UpdatesPage : Page
 {
+    private readonly SystemNavigationManager _systemNavigationManager;
+
     public UpdatesPage()
     {
         this.InitializeComponent();
         this.DataContext = App.Services.GetRequiredService<UpdatesViewModel>();
+        _systemNavigationManager = SystemNavigationManager.GetForCurrentView();
     }
 
     public UpdatesViewModel ViewModel => (UpdatesViewModel)this.DataContext;
 
+    private bool IsTenFoot => App.IsTenFoot;
+
+    private bool IsDesktop => App.IsDesktop;
+
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        if (IsTenFoot)
+        {
+            _systemNavigationManager.BackRequested += OnBackRequested;
+        }
+
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
         telemetry.TrackPageView(nameof(UpdatesPage));
 
@@ -30,6 +42,20 @@ public sealed partial class UpdatesPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        if (IsTenFoot)
+        {
+            _systemNavigationManager.BackRequested -= OnBackRequested;
+        }
+
         ViewModel.Uninitialize();
+    }
+
+    private void OnBackRequested(object sender, BackRequestedEventArgs e)
+    {
+        if (IsTenFoot && App.Services.GetRequiredService<INavigator>().RootFrame is Frame root)
+        {
+            e.Handled = true;
+            root.GoBack();
+        }
     }
 }

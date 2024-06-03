@@ -123,6 +123,10 @@
                     <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphStore}" />
                 </Button>
 
+                <Button Click="OnUpdatesClicked" Style="{StaticResource XboxIconButton}">
+                    <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphUpdates}" />
+                </Button>
+
                 <Button Click="OnSettingsClicked" Style="{StaticResource XboxIconButton}">
                     <Button.Content>
                         <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphSettings}" />
