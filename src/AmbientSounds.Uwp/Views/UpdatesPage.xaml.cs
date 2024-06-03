@@ -25,8 +25,6 @@ public sealed partial class UpdatesPage : Page
 
     private bool IsTenFoot => App.IsTenFoot;
 
-    private bool IsDesktop => App.IsDesktop;
-
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
         if (IsTenFoot)

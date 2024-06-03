@@ -22,7 +22,6 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind IsDesktop}" />
                         <AdaptiveTrigger MinWindowWidth="{StaticResource PageBreakpoint1260}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
