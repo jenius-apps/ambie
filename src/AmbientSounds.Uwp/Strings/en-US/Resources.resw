@@ -1001,4 +1001,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Unlock video</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Included</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Slideshow images</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Video background</value>
+  </data>
 </root>

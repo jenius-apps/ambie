@@ -1186,6 +1186,22 @@
           <source>Unlock video</source>
           <target state="translated">Odblokuj wideo</target>
         </trans-unit>
+        <trans-unit id="AvailableText" translate="yes" xml:space="preserve">
+          <source>Available</source>
+          <target state="translated">Dostępny</target>
+        </trans-unit>
+        <trans-unit id="IncludedText" translate="yes" xml:space="preserve">
+          <source>Included</source>
+          <target state="translated">Zawarte</target>
+        </trans-unit>
+        <trans-unit id="SlideshowImagesText" translate="yes" xml:space="preserve">
+          <source>Slideshow images</source>
+          <target state="translated">Obrazy pokazu slajdów</target>
+        </trans-unit>
+        <trans-unit id="VideoBackgroundText" translate="yes" xml:space="preserve">
+          <source>Video background</source>
+          <target state="translated">Tło wideo</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>ביטול נעילה של וידאו</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>זמין</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>כלול</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>תמונות מצגת</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>רקע וידאו</value>
+  </data>
 </root>

@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Отключване на видео</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Наличен</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Включени</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Изображения на слайдшоу</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Видео фон</value>
+  </data>
 </root>

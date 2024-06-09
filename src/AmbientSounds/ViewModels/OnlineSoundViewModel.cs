@@ -61,6 +61,10 @@ public partial class OnlineSoundViewModel : ObservableObject
     
     public event EventHandler? DownloadCompleted;
 
+    public bool HasSlideshowImages => _sound.ScreensaverImagePaths is { Length: > 0 };
+
+    public bool HasBackgroundVideo => _sound.AssociatedVideoIds is { Count: > 0 };
+
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(CanPlay))]
     [NotifyPropertyChangedFor(nameof(UpdateAvailable))]
@@ -160,6 +164,16 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// Name of the sound.
     /// </summary>
     public string Name => _assetLocalizer.GetLocalName(_sound);
+
+    /// <summary>
+    /// Localized description of the sound.
+    /// </summary>
+    public string Description => _assetLocalizer.GetLocalDescription(_sound);
+
+    /// <summary>
+    /// Returns true if the description is populated.
+    /// </summary>
+    public bool HasDescription => !string.IsNullOrEmpty(Description);
 
     public string ColourHex => _sound.ColourHex;
 

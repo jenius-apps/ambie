@@ -884,4 +884,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Otključavanje videozapisa</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Dostupan</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Uključen</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Slike dijaprojekcije</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Pozadina videozapisa</value>
+  </data>
 </root>

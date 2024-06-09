@@ -1184,6 +1184,22 @@
           <source>Unlock video</source>
           <target state="translated">解鎖視頻</target>
         </trans-unit>
+        <trans-unit id="AvailableText" translate="yes" xml:space="preserve">
+          <source>Available</source>
+          <target state="translated">可用</target>
+        </trans-unit>
+        <trans-unit id="IncludedText" translate="yes" xml:space="preserve">
+          <source>Included</source>
+          <target state="translated">包括</target>
+        </trans-unit>
+        <trans-unit id="SlideshowImagesText" translate="yes" xml:space="preserve">
+          <source>Slideshow images</source>
+          <target state="translated">幻燈片圖片</target>
+        </trans-unit>
+        <trans-unit id="VideoBackgroundText" translate="yes" xml:space="preserve">
+          <source>Video background</source>
+          <target state="translated">視頻背景</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Як розблокувати відео</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Доступні</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Включені</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Зображення слайд-шоу</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Відео бекграунд</value>
+  </data>
 </root>

@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>비디오 잠금 해제</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>이용할 수 있는</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>포함</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>슬라이드 쇼 이미지</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>비디오 배경</value>
+  </data>
 </root>

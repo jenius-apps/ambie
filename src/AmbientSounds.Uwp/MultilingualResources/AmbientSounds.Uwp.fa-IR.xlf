@@ -1181,6 +1181,22 @@
           <source>Unlock video</source>
           <target state="translated">باز کردن ویدیو</target>
         </trans-unit>
+        <trans-unit id="AvailableText" translate="yes" xml:space="preserve">
+          <source>Available</source>
+          <target state="translated">دسترس</target>
+        </trans-unit>
+        <trans-unit id="IncludedText" translate="yes" xml:space="preserve">
+          <source>Included</source>
+          <target state="translated">شامل</target>
+        </trans-unit>
+        <trans-unit id="SlideshowImagesText" translate="yes" xml:space="preserve">
+          <source>Slideshow images</source>
+          <target state="translated">تصاویر نمایش اسلایدی</target>
+        </trans-unit>
+        <trans-unit id="VideoBackgroundText" translate="yes" xml:space="preserve">
+          <source>Video background</source>
+          <target state="translated">پس زمینه ویدئو</target>
+        </trans-unit>
       </group>
     </body>
   </file>

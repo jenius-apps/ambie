@@ -890,4 +890,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Videonun kilidini aç</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Mevcut</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Dahil</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Slayt gösterisi görüntüleri</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Video arka planı</value>
+  </data>
 </root>

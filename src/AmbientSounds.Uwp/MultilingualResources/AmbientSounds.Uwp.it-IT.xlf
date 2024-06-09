@@ -1193,6 +1193,22 @@
           <source>Unlock video</source>
           <target state="translated">Sblocca video</target>
         </trans-unit>
+        <trans-unit id="AvailableText" translate="yes" xml:space="preserve">
+          <source>Available</source>
+          <target state="translated">Disponibile</target>
+        </trans-unit>
+        <trans-unit id="IncludedText" translate="yes" xml:space="preserve">
+          <source>Included</source>
+          <target state="translated">Incluso</target>
+        </trans-unit>
+        <trans-unit id="SlideshowImagesText" translate="yes" xml:space="preserve">
+          <source>Slideshow images</source>
+          <target state="translated">Immagini della presentazione</target>
+        </trans-unit>
+        <trans-unit id="VideoBackgroundText" translate="yes" xml:space="preserve">
+          <source>Video background</source>
+          <target state="translated">Sfondo del video</target>
+        </trans-unit>
       </group>
     </body>
   </file>

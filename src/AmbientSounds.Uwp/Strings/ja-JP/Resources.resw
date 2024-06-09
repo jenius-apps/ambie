@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>ビデオのロックを解除する</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>利用できる</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>含ま</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>スライドショー画像</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>動画の背景</value>
+  </data>
 </root>

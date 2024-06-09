@@ -893,4 +893,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Odblokuj wideo</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Dostępny</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Zawarte</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Obrazy pokazu slajdów</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Tło wideo</value>
+  </data>
 </root>

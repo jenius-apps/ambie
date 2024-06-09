@@ -36,6 +36,39 @@
                 TextWrapping="Wrap" />
 
             <Grid
+                Grid.Row="1"
+                Margin="0,8,52,0"
+                RowSpacing="12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    FontSize="12"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    MaxLines="3"
+                    Text="{x:Bind Sound.Description}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="Wrap"
+                    Visibility="{x:Bind Sound.HasDescription}" />
+
+                <local:TimerData
+                    Title="{x:Bind strings:Resources.SlideshowImagesText}"
+                    Grid.Row="1"
+                    Glyph="{StaticResource GlyphPhoto}"
+                    Text="{x:Bind strings:Resources.IncludedText}"
+                    Visibility="{x:Bind Sound.HasSlideshowImages}" />
+
+                <local:TimerData
+                    Title="{x:Bind strings:Resources.VideoBackgroundText}"
+                    Grid.Row="2"
+                    Glyph="{StaticResource GlyphFilmstrip}"
+                    Text="{x:Bind strings:Resources.AvailableText}"
+                    Visibility="{x:Bind Sound.HasBackgroundVideo}" />
+            </Grid>
+
+            <Grid
                 Grid.Row="2"
                 Margin="4,0,58,20"
                 Visibility="{x:Bind Sound.DownloadProgressVisible, Mode=OneWay}">

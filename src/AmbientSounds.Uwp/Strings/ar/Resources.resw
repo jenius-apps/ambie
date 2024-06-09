@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>فتح الفيديو</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>متوفر</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>متضمن</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>صور عرض الشرائح</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>خلفية الفيديو</value>
+  </data>
 </root>

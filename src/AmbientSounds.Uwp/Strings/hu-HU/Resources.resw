@@ -884,4 +884,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Videó feloldása</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Beszerezhető</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Tartalmazza</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Diavetítés képei</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Videó háttér</value>
+  </data>
 </root>

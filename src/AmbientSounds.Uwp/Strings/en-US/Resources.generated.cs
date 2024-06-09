@@ -3030,6 +3030,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AvailableText
+        /// <summary>
+        ///   Looks up a localized string similar to: Available
+        /// </summary>
+        public static string AvailableText
+        {
+            get
+            {
+                return _resourceLoader.GetString("AvailableText");
+            }
+        }
+        #endregion
+
+        #region IncludedText
+        /// <summary>
+        ///   Looks up a localized string similar to: Included
+        /// </summary>
+        public static string IncludedText
+        {
+            get
+            {
+                return _resourceLoader.GetString("IncludedText");
+            }
+        }
+        #endregion
+
+        #region SlideshowImagesText
+        /// <summary>
+        ///   Looks up a localized string similar to: Slideshow images
+        /// </summary>
+        public static string SlideshowImagesText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SlideshowImagesText");
+            }
+        }
+        #endregion
+
+        #region VideoBackgroundText
+        /// <summary>
+        ///   Looks up a localized string similar to: Video background
+        /// </summary>
+        public static string VideoBackgroundText
+        {
+            get
+            {
+                return _resourceLoader.GetString("VideoBackgroundText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3273,6 +3325,10 @@ namespace AmbientSounds.Strings{
             DownloadingVideoMessage,
             DownloadingText,
             UnlockVideoText,
+            AvailableText,
+            IncludedText,
+            SlideshowImagesText,
+            VideoBackgroundText,
         }
 
         private static ResourceLoader _resourceLoader;

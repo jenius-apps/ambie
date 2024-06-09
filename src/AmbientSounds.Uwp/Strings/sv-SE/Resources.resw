@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Lås upp video</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Tillgänglig</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Inkluderad</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Bildspel bilder</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Video bakgrund</value>
+  </data>
 </root>

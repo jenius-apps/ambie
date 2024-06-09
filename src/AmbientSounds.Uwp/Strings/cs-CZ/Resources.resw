@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Odemknout video</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>K dispozici</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Zahrnutý</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Obrázky z prezentace</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Stáhnout obrázek videa</value>
+  </data>
 </root>

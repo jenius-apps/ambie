@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>解锁视频</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>可用</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>包括</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>幻灯片图片</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>视频背景</value>
+  </data>
 </root>

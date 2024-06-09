@@ -866,4 +866,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Video ontgrendelen</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Beschikbaar</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Inbegrepen</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Slideshow afbeeldingen</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Video achtergrond</value>
+  </data>
 </root>

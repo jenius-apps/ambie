@@ -896,4 +896,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Sblocca video</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Disponibile</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Incluso</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Immagini della presentazione</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Sfondo del video</value>
+  </data>
 </root>

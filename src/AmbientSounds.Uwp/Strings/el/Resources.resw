@@ -881,4 +881,16 @@
   <data name="UnlockVideoText" xml:space="preserve">
     <value>Ξεκλείδωμα βίντεο</value>
   </data>
+  <data name="AvailableText" xml:space="preserve">
+    <value>Διαθέσιμος</value>
+  </data>
+  <data name="IncludedText" xml:space="preserve">
+    <value>Περιλαμβάνονται</value>
+  </data>
+  <data name="SlideshowImagesText" xml:space="preserve">
+    <value>Εικόνες παρουσίασης διαφανειών</value>
+  </data>
+  <data name="VideoBackgroundText" xml:space="preserve">
+    <value>Φόντο βίντεο</value>
+  </data>
 </root>
