@@ -174,10 +174,6 @@ public class StoreService : IIapService
         if (result == StorePurchaseStatus.Succeeded || result == StorePurchaseStatus.AlreadyPurchased)
         {
             _ownershipCache[iapId] = true;
-        }
-
-        if (result == StorePurchaseStatus.Succeeded)
-        {
             ProductPurchased?.Invoke(this, iapId);
         }
 
