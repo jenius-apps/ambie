@@ -197,6 +197,9 @@
     <Compile Include="Controls\PremiumControl.xaml.cs">
       <DependentUpon>PremiumControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PriceButtonContent.xaml.cs">
+      <DependentUpon>PriceButtonContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RecentFocusSettingsControl.xaml.cs">
       <DependentUpon>RecentFocusSettingsControl.xaml</DependentUpon>
     </Compile>
@@ -564,6 +567,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\PremiumControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PriceButtonContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

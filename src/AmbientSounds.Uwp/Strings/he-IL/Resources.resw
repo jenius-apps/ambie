@@ -908,4 +908,11 @@
   <data name="VideoBackgroundText" xml:space="preserve">
     <value>רקע וידאו</value>
   </data>
+  <data name="StartFreeTrialText" xml:space="preserve">
+    <value>התחל ניסיון ללא תשלום</value>
+  </data>
+  <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
+    <value>{0} שבועות חינם, ואז {1} לחודש</value>
+    <comment>E.g. 1 week free, then $1.49/month</comment>
+  </data>
 </root>

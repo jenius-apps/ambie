@@ -908,4 +908,11 @@
   <data name="VideoBackgroundText" xml:space="preserve">
     <value>خلفية الفيديو</value>
   </data>
+  <data name="StartFreeTrialText" xml:space="preserve">
+    <value>بدء الإصدار التجريبي المجاني</value>
+  </data>
+  <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
+    <value>{0} حرا ، ثم {1}</value>
+    <comment>E.g. 1 week free, then $1.49/month</comment>
+  </data>
 </root>

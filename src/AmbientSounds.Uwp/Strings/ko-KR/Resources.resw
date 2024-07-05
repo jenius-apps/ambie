@@ -908,4 +908,11 @@
   <data name="VideoBackgroundText" xml:space="preserve">
     <value>비디오 배경</value>
   </data>
+  <data name="StartFreeTrialText" xml:space="preserve">
+    <value>무료 평가판 시작</value>
+  </data>
+  <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
+    <value>{0} 무료, 그 다음에는 {1}</value>
+    <comment>E.g. 1 week free, then $1.49/month</comment>
+  </data>
 </root>

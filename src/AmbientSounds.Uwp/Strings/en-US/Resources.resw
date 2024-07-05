@@ -1013,4 +1013,11 @@
   <data name="VideoBackgroundText" xml:space="preserve">
     <value>Video background</value>
   </data>
+  <data name="StartFreeTrialText" xml:space="preserve">
+    <value>Start free trial</value>
+  </data>
+  <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
+    <value>{0} free, then {1}</value>
+	<comment>E.g. 1 week free, then $1.49/month</comment>
+  </data>
 </root>

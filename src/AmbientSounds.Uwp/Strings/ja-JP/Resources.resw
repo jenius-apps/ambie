@@ -908,4 +908,11 @@
   <data name="VideoBackgroundText" xml:space="preserve">
     <value>動画の背景</value>
   </data>
+  <data name="StartFreeTrialText" xml:space="preserve">
+    <value>無料トライアルを開始</value>
+  </data>
+  <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
+    <value>{0}無料、そして{1}</value>
+    <comment>E.g. 1 week free, then $1.49/month</comment>
+  </data>
 </root>

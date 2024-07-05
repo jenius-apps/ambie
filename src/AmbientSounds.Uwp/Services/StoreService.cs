@@ -5,6 +5,8 @@ using Windows.Services.Store;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using System.Collections.Concurrent;
 using AmbientSounds.Constants;
+using AmbientSounds.Models;
+using System.Linq;
 
 #nullable enable
 
@@ -114,11 +116,43 @@ public class StoreService : IIapService
         return false;
     }
 
-    public async Task<string> GetLatestPriceAsync(string iapId)
+    public async Task<PriceInfo> GetLatestPriceAsync(string iapId)
     {
         (string idOnly, _) = iapId.SplitIdAndVersion();
         var addon = await GetLatestAddonAsync(idOnly);
-        return addon?.Price?.FormattedPrice ?? "—";
+
+        if (addon?.Price is null)
+        {
+            return new PriceInfo { FormattedPrice = "-" };
+        }
+
+        var sku = addon.Skus?.FirstOrDefault();
+        bool isSub = sku?.IsSubscription ?? false;
+
+        return new PriceInfo
+        {
+            FormattedPrice = isSub ? addon.Price.FormattedRecurrencePrice : addon.Price.FormattedPrice,
+            IsSubscription = isSub,
+            RecurrenceLength = (int)(sku?.SubscriptionInfo?.BillingPeriod ?? 0),
+            RecurrenceUnit = ToDurationUnit(sku?.SubscriptionInfo?.BillingPeriodUnit),
+            HasSubTrial = sku?.SubscriptionInfo?.HasTrialPeriod ?? false,
+            SubTrialLength = (int)(sku?.SubscriptionInfo?.TrialPeriod ?? 0),
+            SubTrialLengthUnit = ToDurationUnit(sku?.SubscriptionInfo?.TrialPeriodUnit),
+        };
+    }
+
+    private DurationUnit ToDurationUnit(StoreDurationUnit? storeDurationUnit)
+    {
+        return storeDurationUnit switch
+        {
+            StoreDurationUnit.Minute => DurationUnit.Minute,
+            StoreDurationUnit.Hour => DurationUnit.Hour,
+            StoreDurationUnit.Day => DurationUnit.Day,
+            StoreDurationUnit.Week => DurationUnit.Week,
+            StoreDurationUnit.Month => DurationUnit.Month,
+            StoreDurationUnit.Year => DurationUnit.Year,
+            _ => DurationUnit.Minute
+        };
     }
 
     private static async Task<StoreProduct?> GetLatestAddonAsync(string idOnly)
@@ -133,11 +167,10 @@ public class StoreService : IIapService
             return null;
         }
 
-        if (_context is null)
-            _context = StoreContext.GetDefault();
+        _context ??= StoreContext.GetDefault();
 
         /// Get all add-ons for this app.
-        var result = await _context.GetAssociatedStoreProductsAsync(new string[] { "Durable", "Consumable" });
+        var result = await _context.GetAssociatedStoreProductsAsync(["Durable", "Consumable"]);
         if (result.ExtendedError is not null)
         {
             return null;

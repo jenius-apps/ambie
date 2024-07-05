@@ -1,13 +1,14 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using JeniusApps.Common.Telemetry;
 
 namespace AmbientSounds.ViewModels;
 
@@ -34,12 +35,12 @@ public partial class PremiumControlViewModel : ObservableObject
         _localizer = localizer;
         _infoProvider = infoProvider;
 
-        SubscriptionTexts = new string[]
-        {
+        SubscriptionTexts =
+        [
             _localizer.GetString("SubscriptionText1"),
             _localizer.GetString("SubscriptionText2"),
             _localizer.GetString("SubscriptionText3"),
-        };
+        ];
     }
 
     public IReadOnlyList<string> SubscriptionTexts { get; }
@@ -59,9 +60,12 @@ public partial class PremiumControlViewModel : ObservableObject
     [ObservableProperty]
     private bool _thanksTextVisible;
 
+    [ObservableProperty]
+    private PriceInfo? _priceInfo;
+
     public async Task InitializeAsync()
     {
-        if (Price is { Length: > 0 } && 
+        if (PriceInfo is { } && 
             LifetimePrice is { Length: > 0 })
         {
             return;
@@ -73,8 +77,9 @@ public partial class PremiumControlViewModel : ObservableObject
         var priceTask = _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusId);
         var lifetimePriceTask = _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
 
-        Price = string.Format(_localizer.GetString("PricePerMonth"), await priceTask);
-        LifetimePrice = string.Format(_localizer.GetString("PriceForLifetime"), await lifetimePriceTask);
+        PriceInfo = await priceTask;
+        LifetimePrice = _localizer.GetString("PriceForLifetime", (await lifetimePriceTask).FormattedPrice);
+        Price = PriceInfo.FormattedPrice;
 
         ButtonLoading = false;
         LifetimeButtonLoading = false;

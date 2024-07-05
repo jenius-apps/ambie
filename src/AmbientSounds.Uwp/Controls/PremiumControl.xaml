@@ -10,16 +10,28 @@
     mc:Ignorable="d">
 
     <StackPanel Margin="0,0,0,20">
-        <Image Width="400" Source="ms-appx:///Assets/ambie_plus_banner.png" />
+        <Grid>
+            <Image Width="400" Source="ms-appx:///Assets/ambie_plus_banner.png" />
+            <Button
+                Margin="0,6,6,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
+                Click="CloseClick"
+                Style="{StaticResource TinySubtleIconButton}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.CloseText}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="{StaticResource SmallIconSize}"
+                    Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                    Glyph="{StaticResource GlyphCancelSemiBold}" />
+            </Button>
+        </Grid>
 
-        <!--  Note: Ambie+ is the brand name, so it doesn't need to be translated  -->
-        <TextBlock
+        <ItemsControl
             MaxWidth="300"
-            Margin="0,20,0,20"
-            FontSize="20"
-            Text="Ambie+" />
-
-        <ItemsControl MaxWidth="300" ItemsSource="{x:Bind ViewModel.SubscriptionTexts}">
+            Margin="0,20,0,0"
+            ItemsSource="{x:Bind ViewModel.SubscriptionTexts}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="x:String">
                     <Grid Margin="0,0,0,4">
@@ -48,7 +60,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Button
-                Height="40"
+                Height="54"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 AutomationProperties.Name="{x:Bind ViewModel.Price, Mode=OneWay}"
@@ -56,7 +68,7 @@
                 Style="{ThemeResource AccentButtonStyle}"
                 Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible), Mode=OneWay}">
                 <Grid>
-                    <TextBlock Text="{x:Bind ViewModel.Price, Mode=OneWay}" Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ButtonLoading), Mode=OneWay}" />
+                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.PriceInfo, Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
@@ -68,22 +80,25 @@
 
             <TextBlock
                 Grid.Row="1"
-                Margin="0,8"
+                Margin="0,6"
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="{x:Bind strings:Resources.OrText.ToUpper()}"
+                Text="{x:Bind strings:Resources.OrText.ToLower()}"
                 TextAlignment="Center"
                 Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible), Mode=OneWay}" />
 
             <Button
                 Grid.Row="2"
-                Height="40"
+                Height="36"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
-                Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible), Mode=OneWay}">
+                Visibility="Visible">
                 <Grid>
-                    <TextBlock Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}" Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.LifetimeButtonLoading), Mode=OneWay}" />
+                    <TextBlock
+                        FontSize="12"
+                        Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}"
+                        Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.LifetimeButtonLoading), Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
@@ -107,14 +122,5 @@
                     TextWrapping="WrapWholeWords" />
             </StackPanel>
         </Grid>
-
-        <HyperlinkButton
-            MaxWidth="300"
-            Margin="0,8,0,0"
-            HorizontalAlignment="Stretch"
-            AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
-            Click="CloseClick"
-            Content="{x:Bind strings:Resources.CloseText}"
-            Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
     </StackPanel>
 </UserControl>

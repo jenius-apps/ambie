@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -43,8 +44,8 @@ public interface IIapService
     /// Retrieves the latest price of the item.
     /// </summary>
     /// <param name="iapId">An IAP ID whose price we want to check.</param>
-    /// <returns>The price of the item formatted like $1.99.</returns>
-    Task<string> GetLatestPriceAsync(string iapId);
+    /// <returns>A <see cref="PriceInfo"/> object that contains price data.</returns>
+    Task<PriceInfo> GetLatestPriceAsync(string iapId);
 
     /// <summary>
     /// Returns true if the user has an active subscription for Ambie.

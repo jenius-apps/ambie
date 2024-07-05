@@ -1,0 +1,24 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.PriceButtonContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helper="using:JeniusApps.Common.UI.Uwp"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <TextBlock
+            FontWeight="{x:Bind PrimaryTextFontWeight, Mode=OneWay}"
+            Text="{x:Bind PrimaryText, Mode=OneWay}"
+            TextAlignment="Center" />
+        <TextBlock
+            FontSize="12"
+            Text="{x:Bind CaptionText, Mode=OneWay}"
+            TextAlignment="Center"
+            Visibility="{x:Bind helper:UIExtensions.CollapsedIfEmpty(CaptionText), Mode=OneWay}" />
+    </StackPanel>
+</UserControl>
