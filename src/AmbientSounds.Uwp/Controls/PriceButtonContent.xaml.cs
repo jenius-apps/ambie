@@ -1,6 +1,9 @@
 ﻿using AmbientSounds.Models;
+using Humanizer;
+using Humanizer.Localisation;
 using JeniusApps.Common.Tools;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -81,8 +84,11 @@ public sealed partial class PriceButtonContent : UserControl
 
         if (PriceInfo is { IsSubscription: true, HasSubTrial: true })
         {
-            PrimaryText = "Start free trial";
-            CaptionText = $"{PriceInfo.SubTrialLength} {PriceInfo.SubTrialLengthUnit} free, then {PriceInfo.FormattedPrice}/{PriceInfo.RecurrenceUnit}";
+            PrimaryText = _localizer.GetString("StartFreeTrialText");
+            CaptionText = string.Format(
+                _localizer.GetString("SubWithTrialCaptionTemplate"),
+                HumanizeTime(PriceInfo.SubTrialLength, PriceInfo.SubTrialLengthUnit),
+                $"{PriceInfo.FormattedPrice}/{HumanizeRecurrence(PriceInfo.RecurrenceUnit)}");
         }
         else
         {
@@ -91,5 +97,40 @@ public sealed partial class PriceButtonContent : UserControl
         }
 
         PrimaryTextFontWeight = CaptionText.Length > 0 ? FontWeights.SemiBold : FontWeights.Normal;
+    }
+
+    private static string HumanizeRecurrence(DurationUnit unit)
+    {
+        var result = unit switch
+        {
+            DurationUnit.Minute => TimeUnit.Minute.Humanize(),
+            DurationUnit.Hour => TimeUnit.Hour.Humanize(),
+            DurationUnit.Day => TimeUnit.Day.Humanize(),
+            DurationUnit.Week => TimeUnit.Week.Humanize(),
+            DurationUnit.Month => TimeUnit.Month.Humanize(),
+            DurationUnit.Year => TimeUnit.Year.Humanize(),
+            _ => string.Empty
+        };
+
+        return result.ToLower();
+    }
+
+    private static string HumanizeTime(int length, DurationUnit unit)
+    {
+        if (length == 0)
+        {
+            return string.Empty;
+        }
+
+        return unit switch
+        {
+            DurationUnit.Minute => TimeSpan.FromMinutes(length).Humanize(),
+            DurationUnit.Hour => TimeSpan.FromHours(length).Humanize(),
+            DurationUnit.Day => TimeSpan.FromDays(length).Humanize(maxUnit: TimeUnit.Day),
+            DurationUnit.Week => TimeSpan.FromDays(length * 7).Humanize(minUnit: TimeUnit.Week),
+            DurationUnit.Month => TimeSpan.FromDays(length * 30).Humanize(minUnit: TimeUnit.Month),
+            DurationUnit.Year => TimeSpan.FromDays(length * 365).Humanize(minUnit: TimeUnit.Year),
+            _ => string.Empty
+        };
     }
 }

@@ -3082,6 +3082,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region StartFreeTrialText
+        /// <summary>
+        ///   Looks up a localized string similar to: Start free trial
+        /// </summary>
+        public static string StartFreeTrialText
+        {
+            get
+            {
+                return _resourceLoader.GetString("StartFreeTrialText");
+            }
+        }
+        #endregion
+
+        #region SubWithTrialCaptionTemplate
+        /// <summary>
+        ///   Looks up a localized string similar to: {0} free, then {1}
+        /// </summary>
+        public static string SubWithTrialCaptionTemplate
+        {
+            get
+            {
+                return _resourceLoader.GetString("SubWithTrialCaptionTemplate");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3329,6 +3355,8 @@ namespace AmbientSounds.Strings{
             IncludedText,
             SlideshowImagesText,
             VideoBackgroundText,
+            StartFreeTrialText,
+            SubWithTrialCaptionTemplate,
         }
 
         private static ResourceLoader _resourceLoader;
