@@ -65,7 +65,7 @@ public partial class PremiumControlViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
-        if (Price is { Length: > 0 } && 
+        if (PriceInfo is { } && 
             LifetimePrice is { Length: > 0 })
         {
             return;
@@ -79,6 +79,7 @@ public partial class PremiumControlViewModel : ObservableObject
 
         PriceInfo = await priceTask;
         LifetimePrice = _localizer.GetString("PriceForLifetime", (await lifetimePriceTask).FormattedPrice);
+        Price = PriceInfo.FormattedPrice;
 
         ButtonLoading = false;
         LifetimeButtonLoading = false;
