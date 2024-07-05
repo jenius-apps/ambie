@@ -80,9 +80,6 @@ public partial class PremiumControlViewModel : ObservableObject
         PriceInfo = await priceTask;
         LifetimePrice = _localizer.GetString("PriceForLifetime", (await lifetimePriceTask).FormattedPrice);
 
-        //Price = string.Format(_localizer.GetString("PricePerMonth"), await priceTask);
-        //LifetimePrice = string.Format(_localizer.GetString("PriceForLifetime"), await lifetimePriceTask);
-
         ButtonLoading = false;
         LifetimeButtonLoading = false;
     }
