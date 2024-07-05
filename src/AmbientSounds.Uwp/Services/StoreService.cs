@@ -127,14 +127,15 @@ public class StoreService : IIapService
         }
 
         var sku = addon.Skus?.FirstOrDefault();
+        bool isSub = sku?.IsSubscription ?? false;
 
         return new PriceInfo
         {
-            FormattedPrice = addon.Price.FormattedPrice,
-            IsSubscription = sku?.IsSubscription ?? false,
+            FormattedPrice = isSub ? addon.Price.FormattedRecurrencePrice : addon.Price.FormattedPrice,
+            IsSubscription = isSub,
             RecurrenceLength = (int)(sku?.SubscriptionInfo?.BillingPeriod ?? 0),
             RecurrenceUnit = ToDurationUnit(sku?.SubscriptionInfo?.BillingPeriodUnit),
-            HasSubTrial = sku?.SubscriptionInfo.HasTrialPeriod ?? false,
+            HasSubTrial = sku?.SubscriptionInfo?.HasTrialPeriod ?? false,
             SubTrialLength = (int)(sku?.SubscriptionInfo?.TrialPeriod ?? 0),
             SubTrialLengthUnit = ToDurationUnit(sku?.SubscriptionInfo?.TrialPeriodUnit),
         };
