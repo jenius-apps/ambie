@@ -9,7 +9,7 @@ public class PriceInfo
     /// The localized and formatted price of the product.
     /// E.g. $1.49.
     /// </summary>
-    public required string FormattedPrice { get; init; }
+    public string FormattedPrice { get; init; } = string.Empty;
 
     /// <summary>
     /// Specifies if this product is a subscription.
