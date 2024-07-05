@@ -13,12 +13,12 @@
     <StackPanel>
         <TextBlock
             FontWeight="{x:Bind PrimaryTextFontWeight, Mode=OneWay}"
-            Text="{x:Bind PriceInfo.PrimaryText, Mode=OneWay}"
+            Text="{x:Bind PrimaryText, Mode=OneWay}"
             TextAlignment="Center" />
         <TextBlock
             FontSize="12"
-            Text="{x:Bind PriceInfo.CaptionText, Mode=OneWay}"
+            Text="{x:Bind CaptionText, Mode=OneWay}"
             TextAlignment="Center"
-            Visibility="{x:Bind helper:UIExtensions.CollapsedIfEmpty(PriceInfo.CaptionText), Mode=OneWay}" />
+            Visibility="{x:Bind helper:UIExtensions.CollapsedIfEmpty(CaptionText), Mode=OneWay}" />
     </StackPanel>
 </UserControl>
