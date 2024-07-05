@@ -547,6 +547,9 @@
   <data name="ResultMessageSuccess1" xml:space="preserve">
     <value>Je bent geweldig</value>
   </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Kanton Ambie</value>
+  </data>
   <data name="TaskModuleNewTaskPlaceholder" xml:space="preserve">
     <value>Voeg taken toe om op te focussen en druk vervolgens op de startknop</value>
   </data>
@@ -877,5 +880,12 @@
   </data>
   <data name="VideoBackgroundText" xml:space="preserve">
     <value>Video achtergrond</value>
+  </data>
+  <data name="StartFreeTrialText" xml:space="preserve">
+    <value>Gratis proefversie starten</value>
+  </data>
+  <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
+    <value>{0} gratis, dan {1}</value>
+    <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
 </root>

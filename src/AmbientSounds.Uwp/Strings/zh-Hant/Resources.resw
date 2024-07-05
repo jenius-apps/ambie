@@ -908,4 +908,11 @@
   <data name="VideoBackgroundText" xml:space="preserve">
     <value>視頻背景</value>
   </data>
+  <data name="StartFreeTrialText" xml:space="preserve">
+    <value>開始免費試用</value>
+  </data>
+  <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
+    <value>{0}自由，然後{1}</value>
+    <comment>E.g. 1 week free, then $1.49/month</comment>
+  </data>
 </root>

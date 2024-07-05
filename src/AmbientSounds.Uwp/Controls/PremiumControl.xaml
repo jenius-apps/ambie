@@ -83,7 +83,7 @@
                 Margin="0,6"
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="or"
+                Text="{x:Bind strings:Resources.OrText.ToLower()}"
                 TextAlignment="Center"
                 Visibility="{x:Bind local:UIHelper.InvertVisibility(ViewModel.ThanksTextVisible), Mode=OneWay}" />
 

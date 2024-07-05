@@ -1212,11 +1212,11 @@
         </trans-unit>
         <trans-unit id="StartFreeTrialText" translate="yes" xml:space="preserve">
           <source>Start free trial</source>
-          <target state="new">Start free trial</target>
+          <target state="translated">Démarrer l’essai gratuit</target>
         </trans-unit>
         <trans-unit id="SubWithTrialCaptionTemplate" translate="yes" xml:space="preserve">
           <source>{0} free, then {1}</source>
-          <target state="new">{0} free, then {1}</target>
+          <target state="translated">{0} libre, puis {1}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">E.g. 1 week free, then $1.49/month</note>
         </trans-unit>
       </group>
