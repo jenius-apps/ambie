@@ -91,6 +91,24 @@
             Style="{StaticResource BodyStrongTextBlockStyle}"
             Text="{x:Bind strings:Resources.SettingsGeneralHeader}" />
 
+        <!--  feedback  -->
+        <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsFeedbackDescription}" Header="{x:Bind strings:Resources.FeedbackText}">
+            <labs:SettingsCard.HeaderIcon>
+                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFeedback}" />
+            </labs:SettingsCard.HeaderIcon>
+
+            <Button Command="{x:Bind ViewModel.RedirectToFeedbackFormCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.ContactUsText}" />
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphRedirect}" />
+                </StackPanel>
+            </Button>
+        </labs:SettingsCard>
+
+        <!--  streak reminder  -->
         <labs:SettingsCard Description="{x:Bind strings:Resources.SettingsStreakReminderDescription}" Header="{x:Bind strings:Resources.SettingsStreakReminderHeader}">
             <labs:SettingsCard.HeaderIcon>
                 <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />

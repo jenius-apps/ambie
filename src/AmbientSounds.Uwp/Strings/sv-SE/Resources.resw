@@ -915,4 +915,10 @@
     <value>{0} gratis, sedan {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Kontakta oss</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Kontakta oss om du har feedback, frågor eller problem</value>
+  </data>
 </root>

@@ -915,4 +915,13 @@
     <value>{0}自由，然後{1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>聯繫我們</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>反饋</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>如果您有任何反饋、疑問或問題，請聯繫我們</value>
+  </data>
 </root>

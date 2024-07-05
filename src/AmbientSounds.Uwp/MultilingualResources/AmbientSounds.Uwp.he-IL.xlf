@@ -1209,6 +1209,18 @@
           <target state="translated">{0} שבועות חינם, ואז {1} לחודש</target>
           <note from="MultilingualBuild" annotates="source" priority="2">E.g. 1 week free, then $1.49/month</note>
         </trans-unit>
+        <trans-unit id="ContactUsText" translate="yes" xml:space="preserve">
+          <source>Contact us</source>
+          <target state="translated">צור קשר</target>
+        </trans-unit>
+        <trans-unit id="FeedbackText" translate="yes" xml:space="preserve">
+          <source>Feedback</source>
+          <target state="translated">משוב</target>
+        </trans-unit>
+        <trans-unit id="SettingsFeedbackDescription" translate="yes" xml:space="preserve">
+          <source>Contact us if you have feedback, questions, or issues</source>
+          <target state="translated">צור איתנו קשר אם יש לך משוב, שאלות או בעיות</target>
+        </trans-unit>
       </group>
     </body>
   </file>

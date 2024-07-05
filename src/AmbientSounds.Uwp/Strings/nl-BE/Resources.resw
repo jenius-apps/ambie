@@ -888,4 +888,13 @@
     <value>{0} gratis, dan {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Neem contact met ons op</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Terugkoppeling</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Neem contact met ons op als je feedback, vragen of problemen hebt</value>
+  </data>
 </root>

@@ -915,4 +915,13 @@
     <value>{0}無料、そして{1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>お 問い合わせ</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>フィードバック</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>フィードバック、質問、または問題がある場合は、お問い合わせください</value>
+  </data>
 </root>

@@ -912,4 +912,13 @@
     <value>{0} gratis, luego {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Contáctenos</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Retroalimentación</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Póngase en contacto con nosotros si tiene comentarios, preguntas o problemas</value>
+  </data>
 </root>

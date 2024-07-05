@@ -3108,6 +3108,45 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region ContactUsText
+        /// <summary>
+        ///   Looks up a localized string similar to: Contact us
+        /// </summary>
+        public static string ContactUsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ContactUsText");
+            }
+        }
+        #endregion
+
+        #region FeedbackText
+        /// <summary>
+        ///   Looks up a localized string similar to: Feedback
+        /// </summary>
+        public static string FeedbackText
+        {
+            get
+            {
+                return _resourceLoader.GetString("FeedbackText");
+            }
+        }
+        #endregion
+
+        #region SettingsFeedbackDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Contact us if you have feedback, questions, or issues
+        /// </summary>
+        public static string SettingsFeedbackDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsFeedbackDescription");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3357,6 +3396,9 @@ namespace AmbientSounds.Strings{
             VideoBackgroundText,
             StartFreeTrialText,
             SubWithTrialCaptionTemplate,
+            ContactUsText,
+            FeedbackText,
+            SettingsFeedbackDescription,
         }
 
         private static ResourceLoader _resourceLoader;

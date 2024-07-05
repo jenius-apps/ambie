@@ -1210,6 +1210,18 @@
           <target state="translated">{0} 무료, 그 다음에는 {1}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">E.g. 1 week free, then $1.49/month</note>
         </trans-unit>
+        <trans-unit id="ContactUsText" translate="yes" xml:space="preserve">
+          <source>Contact us</source>
+          <target state="translated">문의</target>
+        </trans-unit>
+        <trans-unit id="FeedbackText" translate="yes" xml:space="preserve">
+          <source>Feedback</source>
+          <target state="translated">피드백</target>
+        </trans-unit>
+        <trans-unit id="SettingsFeedbackDescription" translate="yes" xml:space="preserve">
+          <source>Contact us if you have feedback, questions, or issues</source>
+          <target state="translated">피드백, 질문 또는 문제가 있는 경우 당사에 문의하십시오.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

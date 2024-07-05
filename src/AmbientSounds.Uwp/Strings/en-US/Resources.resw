@@ -1018,6 +1018,15 @@
   </data>
   <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
     <value>{0} free, then {1}</value>
-	<comment>E.g. 1 week free, then $1.49/month</comment>
+    <comment>E.g. 1 week free, then $1.49/month</comment>
+  </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Contact us if you have feedback, questions, or issues</value>
   </data>
 </root>

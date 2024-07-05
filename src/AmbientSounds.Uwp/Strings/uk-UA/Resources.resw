@@ -915,4 +915,13 @@
     <value>{0} безкоштовно, то {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Зв'яжіться з нами</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Зворотний зв'язок</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Зв'яжіться з нами, якщо у вас є відгуки, запитання чи проблеми</value>
+  </data>
 </root>

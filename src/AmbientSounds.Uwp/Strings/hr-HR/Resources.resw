@@ -903,4 +903,13 @@
     <value>{0} besplatno, a onda {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Obratite nam se</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Povratna informacija</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Obratite nam se ako imate povratne informacije, pitanja ili probleme</value>
+  </data>
 </root>

@@ -915,4 +915,13 @@
     <value>{0} هفته رایگان، سپس {1} دلار در ماه</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>بازخورد</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>اگر بازخورد، سوال یا مشکلی دارید با ما تماس بگیرید</value>
+  </data>
 </root>

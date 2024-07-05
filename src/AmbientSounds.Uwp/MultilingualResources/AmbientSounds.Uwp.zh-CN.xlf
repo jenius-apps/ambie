@@ -1209,6 +1209,18 @@
           <target state="translated">{0}自由，然后{1}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">E.g. 1 week free, then $1.49/month</note>
         </trans-unit>
+        <trans-unit id="ContactUsText" translate="yes" xml:space="preserve">
+          <source>Contact us</source>
+          <target state="translated">联系我们</target>
+        </trans-unit>
+        <trans-unit id="FeedbackText" translate="yes" xml:space="preserve">
+          <source>Feedback</source>
+          <target state="translated">反馈</target>
+        </trans-unit>
+        <trans-unit id="SettingsFeedbackDescription" translate="yes" xml:space="preserve">
+          <source>Contact us if you have feedback, questions, or issues</source>
+          <target state="translated">如果您有任何反馈、疑问或问题，请联系我们</target>
+        </trans-unit>
       </group>
     </body>
   </file>

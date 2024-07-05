@@ -97,6 +97,7 @@ public class TelemetryConstants
     // settings
     private const string Settings = "settings:";
     public const string SettingsModifySubscriptionClicked = Settings + "modifySubscriptionClicked";
+    public const string FeedbackClicked = Settings + "feedbackClicked";
     public const string CheckForUpdatesClicked = Settings + "checkForUpdatesClicked";
 
     // videos

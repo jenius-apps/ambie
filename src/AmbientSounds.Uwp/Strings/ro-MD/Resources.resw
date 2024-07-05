@@ -915,4 +915,10 @@
     <value>{0} liber, apoi {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Contactează-ne</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Contactați-ne dacă aveți feedback, întrebări sau probleme</value>
+  </data>
 </root>

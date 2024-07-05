@@ -1220,6 +1220,18 @@
           <target state="translated">{0} ücretsiz, sonra {1}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">E.g. 1 week free, then $1.49/month</note>
         </trans-unit>
+        <trans-unit id="ContactUsText" translate="yes" xml:space="preserve">
+          <source>Contact us</source>
+          <target state="translated">Bize ulaşın</target>
+        </trans-unit>
+        <trans-unit id="FeedbackText" translate="yes" xml:space="preserve">
+          <source>Feedback</source>
+          <target state="translated">Geri besleme</target>
+        </trans-unit>
+        <trans-unit id="SettingsFeedbackDescription" translate="yes" xml:space="preserve">
+          <source>Contact us if you have feedback, questions, or issues</source>
+          <target state="translated">Geri bildiriminiz, sorularınız veya sorunlarınız varsa bizimle iletişime geçin</target>
+        </trans-unit>
       </group>
     </body>
   </file>

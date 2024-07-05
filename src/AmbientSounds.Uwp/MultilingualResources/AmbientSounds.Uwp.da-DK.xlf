@@ -1215,6 +1215,18 @@
           <target state="translated">{0} gratis, så {1}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">E.g. 1 week free, then $1.49/month</note>
         </trans-unit>
+        <trans-unit id="ContactUsText" translate="yes" xml:space="preserve">
+          <source>Contact us</source>
+          <target state="translated">Kontakt os</target>
+        </trans-unit>
+        <trans-unit id="FeedbackText" translate="yes" xml:space="preserve">
+          <source>Feedback</source>
+          <target state="new">Feedback</target>
+        </trans-unit>
+        <trans-unit id="SettingsFeedbackDescription" translate="yes" xml:space="preserve">
+          <source>Contact us if you have feedback, questions, or issues</source>
+          <target state="translated">Kontakt os, hvis du har feedback, spørgsmål eller problemer</target>
+        </trans-unit>
       </group>
     </body>
   </file>

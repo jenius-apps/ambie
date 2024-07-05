@@ -903,4 +903,13 @@
     <value>{0} ingyenes, majd {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Kapcsolat</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Visszacsatolás</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Vegye fel velünk a kapcsolatot, ha visszajelzése, kérdése vagy problémája van</value>
+  </data>
 </root>

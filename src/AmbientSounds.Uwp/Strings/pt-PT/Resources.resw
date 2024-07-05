@@ -915,4 +915,13 @@
     <value>{0} livre, então {1}</value>
     <comment>E.g. 1 week free, then $1.49/month</comment>
   </data>
+  <data name="ContactUsText" xml:space="preserve">
+    <value>Contate-nos</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Realimentação</value>
+  </data>
+  <data name="SettingsFeedbackDescription" xml:space="preserve">
+    <value>Entre em contato conosco se tiver comentários, perguntas ou problemas</value>
+  </data>
 </root>
