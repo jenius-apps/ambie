@@ -44,7 +44,7 @@ public interface IIapService
     /// Retrieves the latest price of the item.
     /// </summary>
     /// <param name="iapId">An IAP ID whose price we want to check.</param>
-    /// <returns>The price of the item formatted like $1.99.</returns>
+    /// <returns>A <see cref="PriceInfo"/> object that contains price data.</returns>
     Task<PriceInfo> GetLatestPriceAsync(string iapId);
 
     /// <summary>
