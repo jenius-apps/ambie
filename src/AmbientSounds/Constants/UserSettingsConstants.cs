@@ -167,6 +167,11 @@ public static class UserSettingsConstants
     public const string XboxSlideshowModeKey = "XboxSlideshowMode";
 
     /// <summary>
+    /// Remembers if the user has seen the free trial tip.
+    /// </summary>
+    public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -199,6 +204,7 @@ public static class UserSettingsConstants
         { StreakReminderLastDateTicksKey, 0L },
         { StreaksReminderEnabledKey, false },
         { LastUsedContentPageKey, string.Empty },
-        { XboxSlideshowModeKey, SlideshowMode.Video.ToString() }
+        { XboxSlideshowModeKey, SlideshowMode.Video.ToString() },
+        { HasViewedFreeTrialTipKey, false },
     };
 }

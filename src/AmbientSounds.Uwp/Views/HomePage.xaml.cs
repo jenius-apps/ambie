@@ -2,7 +2,6 @@
 using AmbientSounds.Services;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;

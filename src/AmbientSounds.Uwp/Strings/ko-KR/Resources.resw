@@ -924,4 +924,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>피드백, 질문 또는 문제가 있는 경우 당사에 문의하십시오.</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>7일 무료 청구</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>무료 평가판 사용 가능</value>
+  </data>
 </root>

@@ -1222,6 +1222,15 @@
           <source>Contact us if you have feedback, questions, or issues</source>
           <target state="translated">피드백, 질문 또는 문제가 있는 경우 당사에 문의하십시오.</target>
         </trans-unit>
+        <trans-unit id="FreeTrialTipDescription" translate="yes" xml:space="preserve">
+          <source>Claim your free 7 days of Ambie+</source>
+          <target state="needs-review-translation">7일 무료 청구</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
+          <source>Free trial available</source>
+          <target state="translated">무료 평가판 사용 가능</target>
+        </trans-unit>
       </group>
     </body>
   </file>

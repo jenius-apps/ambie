@@ -912,4 +912,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>Vegye fel velünk a kapcsolatot, ha visszajelzése, kérdése vagy problémája van</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>Igényelje ingyenes 7 napját</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>Ingyenes próbaverzió érhető el</value>
+  </data>
 </root>

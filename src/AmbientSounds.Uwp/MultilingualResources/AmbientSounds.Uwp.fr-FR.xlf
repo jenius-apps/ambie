@@ -1231,6 +1231,15 @@
           <source>Contact us if you have feedback, questions, or issues</source>
           <target state="translated">Contactez-nous si vous avez des commentaires, des questions ou des problèmes</target>
         </trans-unit>
+        <trans-unit id="FreeTrialTipDescription" translate="yes" xml:space="preserve">
+          <source>Claim your free 7 days of Ambie+</source>
+          <target state="needs-review-translation">Réclamez vos 7 jours gratuits</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
+          <source>Free trial available</source>
+          <target state="translated">Essai gratuit disponible</target>
+        </trans-unit>
       </group>
     </body>
   </file>

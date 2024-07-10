@@ -921,4 +921,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>Kontakt os, hvis du har feedback, spørgsmål eller problemer</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>Gør krav på dine gratis 7 dage</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>Gratis prøveversion tilgængelig</value>
+  </data>
 </root>

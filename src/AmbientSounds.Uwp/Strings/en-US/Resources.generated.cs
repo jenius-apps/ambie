@@ -3147,6 +3147,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region FreeTrialTipDescription
+        /// <summary>
+        ///   Looks up a localized string similar to: Claim your free 7 days of Ambie+
+        /// </summary>
+        public static string FreeTrialTipDescription
+        {
+            get
+            {
+                return _resourceLoader.GetString("FreeTrialTipDescription");
+            }
+        }
+        #endregion
+
+        #region FreeTrialTipTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Free trial available
+        /// </summary>
+        public static string FreeTrialTipTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("FreeTrialTipTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3399,6 +3425,8 @@ namespace AmbientSounds.Strings{
             ContactUsText,
             FeedbackText,
             SettingsFeedbackDescription,
+            FreeTrialTipDescription,
+            FreeTrialTipTitle,
         }
 
         private static ResourceLoader _resourceLoader;

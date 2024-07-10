@@ -909,4 +909,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>Επικοινωνήστε μαζί μας εάν έχετε σχόλια, ερωτήσεις ή προβλήματα</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>Διεκδικήστε τις δωρεάν 7 ημέρες σας</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>Διατίθεται δωρεάν δοκιμή</value>
+  </data>
 </root>

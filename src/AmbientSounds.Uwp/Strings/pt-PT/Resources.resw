@@ -924,4 +924,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>Entre em contato conosco se tiver comentários, perguntas ou problemas</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>Reivindique seus 7 dias grátis</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>Avaliação gratuita disponível</value>
+  </data>
 </root>

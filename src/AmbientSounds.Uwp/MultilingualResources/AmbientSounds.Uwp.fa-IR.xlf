@@ -1218,6 +1218,15 @@
           <source>Contact us if you have feedback, questions, or issues</source>
           <target state="translated">اگر بازخورد، سوال یا مشکلی دارید با ما تماس بگیرید</target>
         </trans-unit>
+        <trans-unit id="FreeTrialTipDescription" translate="yes" xml:space="preserve">
+          <source>Claim your free 7 days of Ambie+</source>
+          <target state="needs-review-translation">7 روز رایگان خود را مطالبه کنید</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
+          <source>Free trial available</source>
+          <target state="translated">ازمایشی رایگان در دسترس است</target>
+        </trans-unit>
       </group>
     </body>
   </file>

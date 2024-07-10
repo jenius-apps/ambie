@@ -1029,4 +1029,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>Contact us if you have feedback, questions, or issues</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>Claim your free 7 days of Ambie+</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>Free trial available</value>
+  </data>
 </root>

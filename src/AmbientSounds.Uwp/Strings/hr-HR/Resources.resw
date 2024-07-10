@@ -912,4 +912,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>Obratite nam se ako imate povratne informacije, pitanja ili probleme</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>Zatražite svojih besplatnih 7 dana</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>Dostupna besplatna probna verzija</value>
+  </data>
 </root>

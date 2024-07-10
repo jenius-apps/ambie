@@ -1223,6 +1223,15 @@
           <source>Contact us if you have feedback, questions, or issues</source>
           <target state="translated">Зв'яжіться з нами, якщо у вас є відгуки, запитання чи проблеми</target>
         </trans-unit>
+        <trans-unit id="FreeTrialTipDescription" translate="yes" xml:space="preserve">
+          <source>Claim your free 7 days of Ambie+</source>
+          <target state="needs-review-translation">Отримайте свої безкоштовні 7 днів</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
+          <source>Free trial available</source>
+          <target state="translated">Доступна безкоштовна пробна версія</target>
+        </trans-unit>
       </group>
     </body>
   </file>

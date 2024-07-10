@@ -312,6 +312,7 @@
             <x:String x:Key="GlyphGamePadX">&#xF096;</x:String>
             <x:String x:Key="GlyphFilmstrip">&#xE8B2;</x:String>
             <x:String x:Key="GlyphFeedback">&#xED15;</x:String>
+            <x:String x:Key="GlyphGiftbox">&#xF133;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

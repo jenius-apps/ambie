@@ -22,6 +22,7 @@ namespace AmbientSounds.ViewModels;
 public partial class ShellPageViewModel : ObservableObject
 {
     private const int LastDaysStreak = 7;
+    private const int RatingsTimerInterval = 1800000; // 30 minutes
     private readonly IUserSettings _userSettings;
     private readonly ITimerService _ratingTimer;
     private readonly ITelemetry _telemetry;
@@ -40,6 +41,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly IStatService _statService;
     private readonly ILocalizer _localizer;
     private readonly IAppStoreUpdater _appStoreUpdater;
+    private readonly ISystemInfoProvider _systemInfoProvider;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -83,6 +85,7 @@ public partial class ShellPageViewModel : ObservableObject
         _statService = statService;
         _localizer = localizer;
         _appStoreUpdater = appStoreUpdater;
+        _systemInfoProvider = systemInfoProvider;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
@@ -101,7 +104,7 @@ public partial class ShellPageViewModel : ObservableObject
             hasNotBeenRated &&
             pastlastDismiss)
         {
-            _ratingTimer.Interval = 1800000; // 30 minutes
+            _ratingTimer.Interval = RatingsTimerInterval;
             _ratingTimer.IntervalElapsed += OnIntervalLapsed;
             _ratingTimer.Start();
         }
@@ -130,6 +133,9 @@ public partial class ShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _isRatingMessageVisible;
+
+    [ObservableProperty]
+    private bool _isFreeTrialMessageVisible;
 
     [ObservableProperty]
     private bool _premiumButtonVisible;
@@ -192,7 +198,12 @@ public partial class ShellPageViewModel : ObservableObject
     [RelayCommand]
     private async Task OpenPremiumAsync()
     {
-        _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked);
+        _telemetry.TrackEvent(TelemetryConstants.ShellPagePremiumClicked, new Dictionary<string, string>
+        {
+            { "viaFreeTrialTip", IsFreeTrialMessageVisible.ToString().ToLower()  }
+        });
+
+        IsFreeTrialMessageVisible = false;
         await _dialogService.OpenPremiumAsync();
     }
 
@@ -337,6 +348,18 @@ public partial class ShellPageViewModel : ObservableObject
         _telemetry.TrackEvent(PremiumButtonVisible
             ? TelemetryConstants.LaunchUserFreeTier
             : TelemetryConstants.LaunchUserPremiumTier);
+
+        if (PremiumButtonVisible
+            && _ratingTimer.Interval != RatingsTimerInterval // to avoid multiple tips, we check if the ratings tip is scheduled
+            && !_systemInfoProvider.IsFirstRun()
+            && !_userSettings.Get<bool>(UserSettingsConstants.HasViewedFreeTrialTipKey)
+            && _systemInfoProvider.FirstUseDate().AddDays(1) < DateTime.Now)
+        {
+            await Task.Delay(1000);
+            IsFreeTrialMessageVisible = true;
+            _telemetry.TrackEvent(TelemetryConstants.FreeTrialTipShown);
+            _userSettings.Set(UserSettingsConstants.HasViewedFreeTrialTipKey, true);
+        }
     }
 
     private void OnIntervalLapsed(object sender, TimeSpan e)

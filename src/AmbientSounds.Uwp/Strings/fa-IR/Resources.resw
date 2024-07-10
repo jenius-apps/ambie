@@ -924,4 +924,10 @@
   <data name="SettingsFeedbackDescription" xml:space="preserve">
     <value>اگر بازخورد، سوال یا مشکلی دارید با ما تماس بگیرید</value>
   </data>
+  <data name="FreeTrialTipDescription" xml:space="preserve">
+    <value>7 روز رایگان خود را مطالبه کنید</value>
+  </data>
+  <data name="FreeTrialTipTitle" xml:space="preserve">
+    <value>ازمایشی رایگان در دسترس است</value>
+  </data>
 </root>

@@ -1232,6 +1232,15 @@
           <source>Contact us if you have feedback, questions, or issues</source>
           <target state="translated">Geri bildiriminiz, sorularınız veya sorunlarınız varsa bizimle iletişime geçin</target>
         </trans-unit>
+        <trans-unit id="FreeTrialTipDescription" translate="yes" xml:space="preserve">
+          <source>Claim your free 7 days of Ambie+</source>
+          <target state="needs-review-translation">7 gün ücretsiz talep edin</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
+          <source>Free trial available</source>
+          <target state="translated">Ücretsiz deneme sürümü mevcut</target>
+        </trans-unit>
       </group>
     </body>
   </file>
