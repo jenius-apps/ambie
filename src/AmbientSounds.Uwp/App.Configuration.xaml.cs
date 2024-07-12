@@ -118,6 +118,7 @@ partial class App
     [Singleton(typeof(CataloguePageViewModel))]
     [Singleton(typeof(FocusTaskModuleViewModel))]
     [Singleton(typeof(PremiumControlViewModel))]
+    [Transient(typeof(ChannelsPageViewModel))]
     [Singleton(typeof(FocusTimerModuleViewModel))]
     [Transient(typeof(ShellPageViewModel))]
     [Singleton(typeof(PlayerViewModel))] // shared in main and compact pages

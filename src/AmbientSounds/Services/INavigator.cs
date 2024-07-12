@@ -74,6 +74,7 @@ public enum ContentPageType
     Settings,
     Updates,
     Search,
+    Channels,
 }
 
 public enum CompactViewMode
