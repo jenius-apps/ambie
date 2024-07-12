@@ -1,17 +1,16 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
 using AmbientSounds.Models;
+using AmbientSounds.Repositories;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Linq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System;
-using AmbientSounds.Repositories;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 #nullable enable
 
@@ -22,6 +21,7 @@ namespace AmbientSounds.ViewModels;
 /// </summary>
 public partial class SoundViewModel : ObservableObject
 {
+    private const string FallbackImageUrl = "http://localhost:8000";
     private readonly Sound _sound;
     private readonly IMixMediaPlayerService _playerService;
     private readonly ISoundService _soundService;
@@ -119,16 +119,38 @@ public partial class SoundViewModel : ObservableObject
 
     public bool HasSecondImage => IsMix && _sound.ImagePaths.Length == 2;
 
-    public string? SecondImagePath => _sound.ImagePaths is [_, var path, ..] ? path : "http://localhost:8000";
+    public string? SecondImagePath => _sound.ImagePaths is [_, var path, ..] ? path : FallbackImageUrl;
 
     public bool HasThirdImage => IsMix && _sound.ImagePaths.Length == 3;
 
-    public string? ThirdImagePath => _sound.ImagePaths is [_, _, var path, ..] ? path : "http://localhost:8000";
+    public string? ThirdImagePath => _sound.ImagePaths is [_, _, var path, ..] ? path : FallbackImageUrl;
 
     /// <summary>
     /// The path for the image to display for the current sound.
     /// </summary>
-    public string? ImagePath => _sound.IsMix ? _sound.ImagePaths[0] : _sound.ImagePath;
+    public string ImagePath
+    {
+        get
+        {
+            var result = _sound.IsMix ? _sound.ImagePaths.FirstOrDefault() : _sound.ImagePath;
+
+            if (string.IsNullOrEmpty(result))
+            {
+                _telemetry.TrackEvent("invalidSoundImage", new Dictionary<string, string>
+                {
+                    { "soundId", _sound.Id },
+                    { "source", nameof(SoundViewModel) },
+                    { "isMix", _sound.IsMix.ToString() },
+                    { "path", result },
+                });
+                return FallbackImageUrl;
+            }
+            else
+            {
+                return result;
+            }
+        }
+    }
 
     /// <summary>
     /// Returns true if the sound is currently playing.
