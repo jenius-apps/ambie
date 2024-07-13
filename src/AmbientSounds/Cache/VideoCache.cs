@@ -3,75 +3,105 @@ using AmbientSounds.Repositories;
 using CommunityToolkit.Diagnostics;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace AmbientSounds.Cache
+namespace AmbientSounds.Cache;
+
+public class VideoCache : IVideoCache
 {
-    public class VideoCache : IVideoCache
+    private readonly ConcurrentDictionary<string, Video> _onlineVideos = new();
+    private readonly ConcurrentDictionary<string, Video> _offlineVideos = new();
+    private readonly IOnlineVideoRepository _onlineVideoRepo;
+    private readonly IOfflineVideoRepository _offlineVideoRepo;
+    private readonly SemaphoreSlim _onlineCacheLock = new(1, 1);
+    private readonly SemaphoreSlim _offlineCacheLock = new(1, 1);
+
+    public VideoCache(
+        IOnlineVideoRepository onlineVideoRepository,
+        IOfflineVideoRepository offlineVideoRepository)
     {
-        private readonly ConcurrentDictionary<string, Video> _onlineVideos = new();
-        private readonly ConcurrentDictionary<string, Video> _offlineVideos = new();
-        private readonly IOnlineVideoRepository _onlineVideoRepo;
-        private readonly IOfflineVideoRepository _offlineVideoRepo;
+        Guard.IsNotNull(onlineVideoRepository, nameof(onlineVideoRepository));
+        Guard.IsNotNull(offlineVideoRepository, nameof(offlineVideoRepository));
+        _onlineVideoRepo = onlineVideoRepository;
+        _offlineVideoRepo = offlineVideoRepository;
+    }
 
-        public VideoCache(
-            IOnlineVideoRepository onlineVideoRepository,
-            IOfflineVideoRepository offlineVideoRepository)
-        {
-            Guard.IsNotNull(onlineVideoRepository, nameof(onlineVideoRepository));
-            Guard.IsNotNull(offlineVideoRepository, nameof(offlineVideoRepository));
-            _onlineVideoRepo = onlineVideoRepository;
-            _offlineVideoRepo = offlineVideoRepository;
-        }
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<Video>> GetOnlineVideosAsync()
+    {
+        await _onlineCacheLock.WaitAsync();
 
-        /// <inheritdoc/>
-        public async Task<IReadOnlyList<Video>> GetOnlineVideosAsync()
+        if (_onlineVideos.IsEmpty)
         {
-            if (_onlineVideos.Count == 0)
+            IReadOnlyList<Video> videos = await _onlineVideoRepo.GetVideosAsync();
+            foreach (var v in videos)
             {
-                IReadOnlyList<Video> videos = await _onlineVideoRepo.GetVideosAsync();
-                foreach (var v in videos)
-                {
-                    _onlineVideos.TryAdd(v.Id, v);
-                }
+                _onlineVideos.TryAdd(v.Id, v);
             }
-
-            return _onlineVideos.Values.ToList();
         }
 
-        /// <inheritdoc/>
-        public async Task<IReadOnlyDictionary<string, Video>> GetOfflineVideosAsync()
+        _onlineCacheLock.Release();
+
+        return [.. _onlineVideos.Values];
+    }
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyDictionary<string, Video>> GetOfflineVideosAsync()
+    {
+        await EnsureOfflineCacheInitializedAsync();
+        return _offlineVideos;
+    }
+
+    private async Task EnsureOfflineCacheInitializedAsync()
+    {
+        await _offlineCacheLock.WaitAsync();
+
+        if (_offlineVideos.IsEmpty)
         {
-            if (_offlineVideos.Count == 0)
+            IReadOnlyList<Video> videos = await _offlineVideoRepo.GetVideosAsync();
+            foreach (var v in videos)
             {
-                IReadOnlyList<Video> videos = await _offlineVideoRepo.GetVideosAsync();
-                foreach (var v in videos)
-                {
-                    v.IsDownloaded = true;
-                    _offlineVideos.TryAdd(v.Id, v);
-                }
+                v.IsDownloaded = true;
+                _offlineVideos.TryAdd(v.Id, v);
             }
-
-            return _offlineVideos;
         }
 
-        /// <inheritdoc/>
-        public async Task AddOfflineVideoAsync(Video video)
+        _offlineCacheLock.Release();
+    }
+
+    /// <inheritdoc/>
+    public async Task AddOfflineVideoAsync(Video video)
+    {
+        await EnsureOfflineCacheInitializedAsync();
+
+        _offlineVideos.TryAdd(video.Id, video);
+        await _offlineVideoRepo.SaveVideosAsync([.. _offlineVideos.Values]);
+    }
+
+    /// <inheritdoc/>
+    public async Task RemoveOfflineVideoAsync(string videoId)
+    {
+        await EnsureOfflineCacheInitializedAsync();
+
+        _offlineVideos.TryRemove(videoId, out _);
+        await _offlineVideoRepo.SaveVideosAsync([.. _offlineVideos.Values]);
+    }
+
+    /// <inheritdoc/>
+    public async Task<Video?> GetOfflineVideoAsync(string videoId)
+    {
+        if (string.IsNullOrEmpty(videoId))
         {
-            await GetOfflineVideosAsync();
-
-            _offlineVideos.TryAdd(video.Id, video);
-            await _offlineVideoRepo.SaveVideosAsync(_offlineVideos.Values.ToArray());
+            return null;
         }
 
-        /// <inheritdoc/>
-        public async Task RemoveOfflineVideoAsync(string videoId)
+        await EnsureOfflineCacheInitializedAsync();
+        if (_offlineVideos.TryGetValue(videoId, out Video result))
         {
-            await GetOfflineVideosAsync();
-
-            _offlineVideos.TryRemove(videoId, out _);
-            await _offlineVideoRepo.SaveVideosAsync(_offlineVideos.Values.ToArray());
+            return result;
         }
+
+        return null;
     }
 }
