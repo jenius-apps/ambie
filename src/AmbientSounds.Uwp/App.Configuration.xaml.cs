@@ -215,5 +215,6 @@ partial class App
     [Singleton(typeof(SleepTimerService), typeof(ISleepTimerService))]
     [Transient(typeof(XboxShellPageViewModel))]
     [Singleton(typeof(XboxSlideshowService), typeof(IXboxSlideshowService))]
+    [Singleton(typeof(ChannelService), typeof(IChannelService))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

@@ -5,7 +5,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:AmbientSounds.ViewModels"
     mc:Ignorable="d">
 
-    <Grid />
+    <Grid>
+        <GridView ItemsSource="{x:Bind ViewModel.Channels}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                    <Border Width="200" Height="120">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{x:Bind ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+                        </Border.Background>
+                    </Border>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
 </Page>
