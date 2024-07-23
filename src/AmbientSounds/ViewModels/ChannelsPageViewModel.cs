@@ -21,6 +21,9 @@ public partial class ChannelsPageViewModel : ObservableObject
         _soundVmFactory = soundVmFactory;
     }
 
+    [ObservableProperty]
+    private OnlineSoundViewModel? _selectedSound;
+
     public ObservableCollection<OnlineSoundViewModel> Channels { get; } = [];
 
     public async Task InitializeAsync(CancellationToken ct)
