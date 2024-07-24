@@ -20,15 +20,15 @@ enable_smart_app_banner                   : false                               
 
 
 # Information About Yourself
-your_name                                 : Jenius Apps                              
+your_name                                 : Ambie Inc.                              
 your_link                                 : https://github.com/jenius-apps/ambie                    
 your_city                                 : Vancouver, Canada                                
-email_address                             : jenius_apps@outlook.com
-facebook_username                         :                                           
-instagram_username                        : 
-twitter_username                          : kid_jenius
+email_address                             : feedback.ambie@outlook.com
+facebook_username                         : AmbieApp                                          
+instagram_username                        : ambie.app
+twitter_username                          : AmbieApp
 github_username                           : jenius-apps
-youtube_username                          :
+youtube_username                          : AmbieApp
 mastodon_link                             : 
 
 
