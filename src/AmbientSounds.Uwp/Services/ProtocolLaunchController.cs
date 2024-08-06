@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using AmbientSounds.Constants;
 using JeniusApps.Common.Telemetry;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.System;
 
 #nullable enable
 
@@ -50,6 +52,24 @@ public class ProtocolLaunchController
         if (query.TryGetValue("id", out var shareId))
         {
             _ =_shareService.ProcessShareRequestAsync(shareId);
+        }
+    }
+
+    public async void ProcessAutoPlayProtocolArguments(string arguments)
+    {
+        bool minimize = false;
+        if (arguments.Contains("minimize"))
+        {
+            minimize = true;
+        }
+
+        _player?.Play();
+
+        if (minimize)
+        {
+            IList<AppDiagnosticInfo> infos = await AppDiagnosticInfo.RequestInfoForAppAsync();
+            IList<AppResourceGroupInfo> resourceInfos = infos[0].GetResourceGroups();
+            await resourceInfos[0].StartSuspendAsync();
         }
     }
 }
