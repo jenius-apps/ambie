@@ -6,6 +6,8 @@ using AmbientSounds.Constants;
 using JeniusApps.Common.Telemetry;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.System;
+using JeniusApps.Common.Tools.Uwp;
+using Microsoft.Extensions.DependencyInjection;
 
 #nullable enable
 
@@ -16,21 +18,25 @@ public class ProtocolLaunchController
     private readonly IMixMediaPlayerService _player;
     private readonly IShareService _shareService;
     private readonly ITelemetry _telemetry;
+    private readonly INavigator _navigator;
 
     private const string AutoPlayKey = "autoPlay";
 
     public ProtocolLaunchController(
         IMixMediaPlayerService player,
         IShareService shareService,
-        ITelemetry telemetry)
+        ITelemetry telemetry,
+        INavigator navigator)
     {
         Guard.IsNotNull(player);
         Guard.IsNotNull(shareService);
         Guard.IsNotNull(telemetry);
+        Guard.IsNotNull(navigator);
 
         _player = player;
         _shareService = shareService;
         _telemetry = telemetry;
+        _navigator = navigator;
     }
 
     public void ProcessShareProtocolArguments(string arguments)
@@ -47,14 +53,16 @@ public class ProtocolLaunchController
     {
         bool minimize = false;
         bool mini = false;
-        if (arguments.Contains("minimize"))
-        {
-            minimize = true;
-        }
-        if (arguments.Contains("mini"))
+
+        if (arguments.Contains("mini") && !arguments.Contains("minimize"))
         {
             mini = true;
         }
+        else if (arguments.Contains("minimize"))
+        {
+            minimize = true;
+        }
+        // Both can't really be true at the same time since AMini can't be minimized.
 
         _player?.Play();
 
@@ -67,7 +75,7 @@ public class ProtocolLaunchController
 
         if (mini)
         {
-            // open AMini
+            await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
         }
     }
 }
