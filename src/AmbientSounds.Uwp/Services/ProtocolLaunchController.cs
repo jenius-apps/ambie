@@ -33,18 +33,6 @@ public class ProtocolLaunchController
         _telemetry = telemetry;
     }
 
-    public void ProcessLaunchProtocolArguments(string arguments)
-    {
-        var query = QueryString.Parse(arguments);
-        query.TryGetValue(AutoPlayKey, out var isAutoPlay);
-
-        if (!string.IsNullOrEmpty(isAutoPlay) && Convert.ToBoolean(isAutoPlay))
-        {
-            // Auto play music.
-            _player.Play();
-        }
-    }
-
     public void ProcessShareProtocolArguments(string arguments)
     {
         var query = QueryString.Parse(arguments);
@@ -58,9 +46,14 @@ public class ProtocolLaunchController
     public async void ProcessAutoPlayProtocolArguments(string arguments)
     {
         bool minimize = false;
+        bool mini = false;
         if (arguments.Contains("minimize"))
         {
             minimize = true;
+        }
+        if (arguments.Contains("mini"))
+        {
+            mini = true;
         }
 
         _player?.Play();
@@ -70,6 +63,11 @@ public class ProtocolLaunchController
             IList<AppDiagnosticInfo> infos = await AppDiagnosticInfo.RequestInfoForAppAsync();
             IList<AppResourceGroupInfo> resourceInfos = infos[0].GetResourceGroups();
             await resourceInfos[0].StartSuspendAsync();
+        }
+
+        if (mini)
+        {
+            // open AMini
         }
     }
 }

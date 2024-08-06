@@ -314,11 +314,7 @@ sealed partial class App : Application
             var uri = protocolArgs.Uri;
             var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
 
-            if (uri.Host is "launch")
-            {
-                Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
-            }
-            else if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
+            if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
             {
                 controller.ProcessShareProtocolArguments(arg);
             }
