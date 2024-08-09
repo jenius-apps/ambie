@@ -52,17 +52,11 @@ public class ProtocolLaunchController
     public async void ProcessAutoPlayProtocolArguments(string arguments)
     {
         bool minimize = false;
-        bool mini = false;
-
-        if (arguments.Contains("mini") && !arguments.Contains("minimize"))
-        {
-            mini = true;
-        }
-        else if (arguments.Contains("minimize"))
+        
+        if (arguments.Contains("minimize"))
         {
             minimize = true;
         }
-        // Both can't really be true at the same time since AMini can't be minimized.
 
         _player?.Play();
 
@@ -71,11 +65,6 @@ public class ProtocolLaunchController
             IList<AppDiagnosticInfo> infos = await AppDiagnosticInfo.RequestInfoForAppAsync();
             IList<AppResourceGroupInfo> resourceInfos = infos[0].GetResourceGroups();
             await resourceInfos[0].StartSuspendAsync();
-        }
-
-        if (mini)
-        {
-            await _navigator.ToCompactOverlayAsync(CompactViewMode.Focus);
         }
     }
 }

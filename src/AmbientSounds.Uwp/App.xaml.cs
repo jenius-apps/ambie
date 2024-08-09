@@ -9,17 +9,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml.Schema;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.AppService;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
-using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
 using Windows.Storage;
-using Windows.System;
 using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.Notifications;
@@ -27,7 +24,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using static Humanizer.In;
 
 #nullable enable
 
