@@ -16,7 +16,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition x:Name="SecondColumn" Width="100" />
         </Grid.ColumnDefinitions>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -37,6 +37,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="PlayButton.Style" Value="{StaticResource XboxIconButton}" />
+                        <Setter Target="SecondColumn.Width" Value="92" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -103,7 +104,6 @@
         </Button>
         <Slider
             Grid.Column="1"
-            Width="92"
             Margin="8,0,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Center"
