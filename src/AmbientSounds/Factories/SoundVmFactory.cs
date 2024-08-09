@@ -1,6 +1,5 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
-using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using CommunityToolkit.Diagnostics;
@@ -71,7 +70,8 @@ public class SoundVmFactory : ISoundVmFactory
             _serviceProvider.GetRequiredService<IPresenceService>(),
             _serviceProvider.GetRequiredService<IDispatcherQueue>(),
             _serviceProvider.GetRequiredService<IOnlineSoundRepository>(),
-            _serviceProvider.GetRequiredService<IAssetLocalizer>());
+            _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            _serviceProvider.GetRequiredService<IClipboard>());
         vm.Initialize();
         return vm;
     }
