@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -301,6 +302,7 @@ sealed partial class App : Application
         }
     }
 
+    private readonly IMixMediaPlayerService _player;
     private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
     {
         try
@@ -308,13 +310,13 @@ sealed partial class App : Application
             var uri = protocolArgs.Uri;
             var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
 
-            if (uri.Host is "launch")
-            {
-                Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
-            }
-            else if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
+            if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
             {
                 controller.ProcessShareProtocolArguments(arg);
+            }
+            else if (uri.Segments.Last().Contains("autoplay"))
+            {
+                Services.GetService<ProtocolLaunchController>()?.ProcessAutoPlayProtocolArguments(arg);
             }
         }
         catch (UriFormatException)
