@@ -1035,4 +1035,7 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Free trial available</value>
   </data>
+  <data name="CopyIDAppBarButton.Label" xml:space="preserve">
+    <value>Copy mix ID</value>
+  </data>
 </root>
