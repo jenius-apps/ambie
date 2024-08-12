@@ -1,13 +1,9 @@
-﻿using Microsoft.QueryStringDotNET;
-using CommunityToolkit.Diagnostics;
+﻿using CommunityToolkit.Diagnostics;
+using Microsoft.QueryStringDotNET;
 using System;
 using System.Collections.Generic;
-using AmbientSounds.Constants;
-using JeniusApps.Common.Telemetry;
-using Windows.ApplicationModel.DataTransfer;
+using System.Threading.Tasks;
 using Windows.System;
-using JeniusApps.Common.Tools.Uwp;
-using Microsoft.Extensions.DependencyInjection;
 
 #nullable enable
 
@@ -17,26 +13,16 @@ public class ProtocolLaunchController
 {
     private readonly IMixMediaPlayerService _player;
     private readonly IShareService _shareService;
-    private readonly ITelemetry _telemetry;
-    private readonly INavigator _navigator;
-
-    private const string AutoPlayKey = "autoPlay";
 
     public ProtocolLaunchController(
         IMixMediaPlayerService player,
-        IShareService shareService,
-        ITelemetry telemetry,
-        INavigator navigator)
+        IShareService shareService)
     {
         Guard.IsNotNull(player);
         Guard.IsNotNull(shareService);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(navigator);
 
         _player = player;
         _shareService = shareService;
-        _telemetry = telemetry;
-        _navigator = navigator;
     }
 
     public void ProcessShareProtocolArguments(string arguments)
@@ -49,18 +35,11 @@ public class ProtocolLaunchController
         }
     }
 
-    public async void ProcessAutoPlayProtocolArguments(string arguments)
+    public async Task ProcessAutoPlayProtocolArgumentsAsync(string arguments)
     {
-        bool minimize = false;
-        
-        if (arguments.Contains("minimize"))
-        {
-            minimize = true;
-        }
+        _player.Play();
 
-        _player?.Play();
-
-        if (minimize)
+        if (arguments.Contains("minimize", StringComparison.OrdinalIgnoreCase))
         {
             IList<AppDiagnosticInfo> infos = await AppDiagnosticInfo.RequestInfoForAppAsync();
             IList<AppResourceGroupInfo> resourceInfos = infos[0].GetResourceGroups();

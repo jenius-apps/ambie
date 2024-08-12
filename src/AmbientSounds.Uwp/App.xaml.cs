@@ -302,21 +302,23 @@ sealed partial class App : Application
         }
     }
 
-    private readonly IMixMediaPlayerService _player;
-    private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
+    private async void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
     {
         try
         {
             var uri = protocolArgs.Uri;
             var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
 
-            if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
+            if (Services.GetService<ProtocolLaunchController>() is { } controller)
             {
-                controller.ProcessShareProtocolArguments(arg);
-            }
-            else if (uri.Segments.Last().Contains("autoplay"))
-            {
-                Services.GetService<ProtocolLaunchController>()?.ProcessAutoPlayProtocolArguments(arg);
+                if (uri.Host is "share")
+                {
+                    controller.ProcessShareProtocolArguments(arg);
+                }
+                else if (uri.Segments.LastOrDefault()?.Contains("autoplay", StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    await controller.ProcessAutoPlayProtocolArgumentsAsync(arg);
+                }
             }
         }
         catch (UriFormatException)
