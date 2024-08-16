@@ -206,7 +206,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// Determines if the sound can be previewed.
     /// </summary>
     public bool CanPreview => 
-        !string.IsNullOrWhiteSpace(_sound.PreviewFilePath) && 
+        !string.IsNullOrEmpty(_sound.PreviewFilePath) && 
         Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
     /// <summary>
