@@ -2,8 +2,8 @@
     x:Class="AmbientSounds.Controls.FocusHistoryModule"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -65,7 +65,7 @@
                     ItemClick="OnHistoryClicked"
                     ItemsSource="{x:Bind ViewModel.Items}"
                     SelectionMode="None"
-                    Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.PlaceholderVisible), Mode=OneWay}">
+                    Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.PlaceholderVisible), Mode=OneWay}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="viewmodels:FocusHistoryViewModel">
                             <Grid MinWidth="180" Padding="20,12,20,20">

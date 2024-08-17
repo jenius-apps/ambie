@@ -6,6 +6,7 @@
     xmlns:animatedvisuals="using:AnimatedVisuals"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -171,6 +172,7 @@
                                             Glyph="{StaticResource GlyphDownload}" />
                                     </Button>
 
+                                    <!--  preview button  -->
                                     <Button
                                         x:Uid="PreviewButton"
                                         Grid.Column="1"
@@ -252,6 +254,6 @@
             Margin="0,8,16,0"
             HorizontalAlignment="Stretch"
             AutomationProperties.AccessibilityView="Raw"
-            Visibility="{x:Bind converters:VisibilityConverter.InvertBool(SoundsVisible), Mode=OneWay}" />
+            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(SoundsVisible), Mode=OneWay}" />
     </Grid>
 </UserControl>
