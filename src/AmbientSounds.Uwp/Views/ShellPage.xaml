@@ -95,7 +95,8 @@
             <controls:TitleBarLogo
                 x:Name="TitleLogo"
                 Grid.Column="1"
-                Margin="14,14,0,0">
+                Margin="14,14,0,0"
+                UsePremiumTitle="{x:Bind ext:UIExtensions.Not(ViewModel.PremiumButtonVisible), Mode=OneWay}">
                 <animations:Implicit.Animations>
                     <animations:OffsetAnimation />
                 </animations:Implicit.Animations>
