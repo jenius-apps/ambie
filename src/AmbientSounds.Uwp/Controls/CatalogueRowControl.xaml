@@ -139,11 +139,11 @@
                                 RequestedTheme="Dark">
                                 <Grid
                                     Margin="6,0,6,6"
-                                    ColumnSpacing="4"
+                                    ColumnSpacing="{x:Bind local:UIHelper.PreviewColumnSpan(CanPreview)}"
                                     Visibility="{x:Bind NotInstalled, Mode=OneWay}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="{x:Bind local:UIHelper.PreviewButtonColumnWidth(CanPreview)}" />
                                     </Grid.ColumnDefinitions>
 
                                     <!--  buy button  -->
