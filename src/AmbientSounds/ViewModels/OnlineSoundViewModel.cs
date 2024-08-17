@@ -206,7 +206,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// Determines if the sound can be previewed.
     /// </summary>
     public bool CanPreview => 
-        !string.IsNullOrWhiteSpace(_sound.PreviewFilePath) && 
+        !string.IsNullOrEmpty(_sound.PreviewFilePath) && 
         Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
     /// <summary>
@@ -238,6 +238,11 @@ public partial class OnlineSoundViewModel : ObservableObject
     private void Preview()
     {
         _previewService.Play(_sound.PreviewFilePath);
+        _telemetry.TrackEvent(TelemetryConstants.PreviewPlayed, new Dictionary<string, string>
+        {
+            { "name", _sound.Name },
+            { "isOwned", IsOwned.ToString() },
+        });
     }
 
     [RelayCommand]
