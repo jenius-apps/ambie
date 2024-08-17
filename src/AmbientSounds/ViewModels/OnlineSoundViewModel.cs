@@ -238,6 +238,11 @@ public partial class OnlineSoundViewModel : ObservableObject
     private void Preview()
     {
         _previewService.Play(_sound.PreviewFilePath);
+        _telemetry.TrackEvent(TelemetryConstants.PreviewPlayed, new Dictionary<string, string>
+        {
+            { "name", _sound.Name },
+            { "isOwned", IsOwned.ToString() },
+        });
     }
 
     [RelayCommand]
