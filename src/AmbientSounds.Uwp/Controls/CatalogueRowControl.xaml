@@ -173,7 +173,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind PreviewCommand}"
-                                        Visibility="{x:Bind CanPreview}">
+                                        Visibility="{x:Bind CanPreview, Mode=OneWay}">
                                         <FontIcon
                                             Margin="6,0,0,0"
                                             FontFamily="{StaticResource FluentUIGlyphs}"

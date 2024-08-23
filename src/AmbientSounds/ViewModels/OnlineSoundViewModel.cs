@@ -93,6 +93,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(CanPreview))]
     [NotifyPropertyChangedFor(nameof(CanPlay))]
     [NotifyPropertyChangedFor(nameof(DownloadProgressPercent))]
     private double _downloadProgressValue;
@@ -200,7 +201,8 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// <summary>
     /// Determines if the sound can be previewed.
     /// </summary>
-    public bool CanPreview => 
+    public bool CanPreview =>
+        !DownloadProgressVisible &&
         !string.IsNullOrEmpty(_sound.PreviewFilePath) && 
         Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
