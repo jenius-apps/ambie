@@ -156,11 +156,6 @@ public partial class OnlineSoundViewModel : ObservableObject
     public string TelemetryLocation { get; set; } = "catalogue";
 
     /// <summary>
-    /// The sound's attribution.
-    /// </summary>
-    public string? Attribution => _sound.Attribution;
-
-    /// <summary>
     /// Name of the sound.
     /// </summary>
     public string Name => _assetLocalizer.GetLocalName(_sound);

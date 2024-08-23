@@ -124,13 +124,7 @@
                                     Text="{x:Bind Name, Mode=OneWay}"
                                     TextAlignment="Center"
                                     TextTrimming="CharacterEllipsis"
-                                    TextWrapping="Wrap">
-                                    <ToolTipService.ToolTip>
-                                        <Grid MaxWidth="300">
-                                            <TextBlock Text="{x:Bind Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                                        </Grid>
-                                    </ToolTipService.ToolTip>
-                                </TextBlock>
+                                    TextWrapping="Wrap" />
                             </Grid>
 
                             <Grid
