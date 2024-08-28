@@ -77,6 +77,16 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ext:UIExtensions.Not(ViewModel.PremiumButtonVisible), Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="UpdateButtonGrid.Margin" Value="88,12,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid
             x:Name="AppTitleBar"
@@ -95,7 +105,8 @@
             <controls:TitleBarLogo
                 x:Name="TitleLogo"
                 Grid.Column="1"
-                Margin="14,14,0,0">
+                Margin="14,14,0,0"
+                UsePremiumTitle="{x:Bind ext:UIExtensions.Not(ViewModel.PremiumButtonVisible), Mode=OneWay}">
                 <animations:Implicit.Animations>
                     <animations:OffsetAnimation />
                 </animations:Implicit.Animations>

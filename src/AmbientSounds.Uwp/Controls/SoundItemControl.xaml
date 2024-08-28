@@ -122,16 +122,6 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphEditHome}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
-                        <StackPanel Width="300" Margin="12">
-                            <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
-                            <TextBlock
-                                Margin="0,8,0,0"
-                                IsTextSelectionEnabled="True"
-                                Text="{x:Bind ViewModel.Attribution, Mode=OneWay}"
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                    </AppBarElementContainer>
                 </muxc:CommandBarFlyout.SecondaryCommands>
             </muxc:CommandBarFlyout>
         </Grid.ContextFlyout>
@@ -441,13 +431,7 @@
                     Foreground="White"
                     Text="{x:Bind ViewModel.Name, Mode=OneWay}"
                     TextTrimming="CharacterEllipsis"
-                    TextWrapping="Wrap">
-                    <ToolTipService.ToolTip>
-                        <Grid MaxWidth="300">
-                            <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                        </Grid>
-                    </ToolTipService.ToolTip>
-                </TextBlock>
+                    TextWrapping="Wrap" />
             </StackPanel>
 
             <Button

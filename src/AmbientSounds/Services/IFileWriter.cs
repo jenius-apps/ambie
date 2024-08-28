@@ -10,14 +10,6 @@ namespace AmbientSounds.Services
     public interface IFileWriter
     {
         /// <summary>
-        /// Writes sound to local directory.
-        /// </summary>
-        /// <param name="stream">The stream of the sound to write.</param>
-        /// <param name="nameWithExt">The name of the file with extension. E.g. Wind.mp3.</param>
-        /// <returns>The path of the saved sound.</returns>
-        Task<string> WriteSoundAsync(Stream stream, string nameWithExt);
-
-        /// <summary>
         /// Writes sound image to local directory.
         /// </summary>
         /// <param name="stream">The stream of the image.</param>
@@ -34,14 +26,6 @@ namespace AmbientSounds.Services
         /// If null or empty, then the root local directory will be used.</param>
         /// <returns></returns>
         Task<string> WriteFileAsync(Stream stream, string nameWithExt, string? localDirName = null);
-
-        /// <summary>
-        /// Encodes and writes a bitmap image to the local directory.
-        /// </summary>
-        /// <param name="stream">The stream of the bitmap image to be encoded and written to file.</param>
-        /// <param name="nameWithExt">The name of the file with extension. E.g. picture.png.</param>
-        /// <returns>Path to image.</returns>
-        Task<string> WriteBitmapAsync(Stream stream, string nameWithExt);
 
         /// <summary>
         /// Reads the contents of the specified local file and returns the value.

@@ -61,6 +61,8 @@ public partial class SettingsViewModel : ObservableObject
         {
             BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
         }
+
+        _xboxDisplayModeSelectedIndex = GetInitialXboxDisplayModeIndex();
     }
 
     [ObservableProperty]
@@ -214,17 +216,18 @@ public partial class SettingsViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
-        InitializeXboxDisplayModeSetting();
         ManageSubscriptionVisible = await _iapService.IsSubscriptionOwnedAsync();
     }
 
-    private void InitializeXboxDisplayModeSetting()
+    private int GetInitialXboxDisplayModeIndex()
     {
         string displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
         if (Enum.TryParse(displayModeString, out SlideshowMode result))
         {
-            XboxDisplayModeSelectedIndex = (int)result;
+            return (int)result;
         }
+
+        return (int)SlideshowMode.Images;
     }
 
     public void Uninitialize()

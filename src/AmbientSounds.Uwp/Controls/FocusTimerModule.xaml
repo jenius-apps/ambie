@@ -7,6 +7,7 @@
     xmlns:constants="using:AmbientSounds.Constants"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -215,7 +216,7 @@
                         x:Name="SlidersPanel"
                         Grid.ColumnSpan="2"
                         Margin="0,12,0,0"
-                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
+                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.CancelVisible), Mode=OneWay}">
                         <StackPanel>
                             <local:TimerSlider
                                 x:Name="Slider1"
@@ -223,7 +224,6 @@
                                 Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                                StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
 
@@ -245,7 +245,6 @@
                                 Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                                StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
 
@@ -385,7 +384,7 @@
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         Margin="12,12"
-                        Visibility="{x:Bind converters:VisibilityConverter.InvertBool(ViewModel.CancelVisible), Mode=OneWay}">
+                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.CancelVisible), Mode=OneWay}">
                         <toolkit:UniformGrid
                             ColumnSpacing="12"
                             Columns="2"

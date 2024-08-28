@@ -48,6 +48,7 @@ public class TelemetryConstants
     public const string BuyDurableClicked = Catalogue + "buyDurableClicked";
     public const string BuyDurablePurchased = Catalogue + "buyDurablePurchased";
     public const string BuyDurableCanceled = Catalogue + "buyDurableCanceled";
+    public const string PreviewPlayed = Catalogue + "previewPlayed";
 
     // premium
     private const string Premium = "premium:";

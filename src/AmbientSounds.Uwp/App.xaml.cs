@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Connectivity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -301,20 +302,23 @@ sealed partial class App : Application
         }
     }
 
-    private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
+    private async void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
     {
         try
         {
             var uri = protocolArgs.Uri;
             var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
 
-            if (uri.Host is "launch")
+            if (Services.GetService<ProtocolLaunchController>() is { } controller)
             {
-                Services.GetService<ProtocolLaunchController>()?.ProcessLaunchProtocolArguments(arg);
-            }
-            else if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
-            {
-                controller.ProcessShareProtocolArguments(arg);
+                if (uri.Host is "share")
+                {
+                    controller.ProcessShareProtocolArguments(arg);
+                }
+                else if (uri.Segments.LastOrDefault()?.Contains("autoplay", StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    await controller.ProcessAutoPlayProtocolArgumentsAsync(arg);
+                }
             }
         }
         catch (UriFormatException)
