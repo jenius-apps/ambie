@@ -19,6 +19,8 @@ using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Storage;
 using Windows.System.Profile;
+using JeniusApps.Common.Settings;
+using JeniusApps.Common.Settings.Uwp;
 
 #nullable enable
 
@@ -56,11 +58,18 @@ partial class App
 
         // Manually register additional services requiring more customization
         collection.AddSingleton(appsettings ?? new AppSettings());
+        collection.AddSingleton<IUserSettings, LocalSettings>(s => new LocalSettings(UserSettingsConstants.Defaults));
+        collection.AddSingleton<IExperimentationService, LocalExperimentationService>(s => new LocalExperimentationService(ExperimentConstants.AllKeys, s.GetRequiredService<IUserSettings>()));
         collection.AddSingleton<ITelemetry, AppInsightsTelemetry>(s =>
         {
             var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
             var isEnabled = s.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.TelemetryOn);
-            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled, context: GetContext());
+            var context = GetContext();
+            foreach (var experiment in s.GetRequiredService<IExperimentationService>().GetAllExperiments())
+            {
+                context?.GlobalProperties.Add(experiment.Key, experiment.Value.ToString());
+            }
+            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled, context: context);
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
@@ -177,7 +186,6 @@ partial class App
     [Singleton(typeof(SoundService), typeof(ISoundService))]
     [Singleton(typeof(GuideService), typeof(IGuideService))]
     [Singleton(typeof(FocusHistoryRepository), typeof(IFocusHistoryRepository))]
-    [Singleton(typeof(LocalSettings), typeof(IUserSettings))]
     [Singleton(typeof(SoundMixService), typeof(ISoundMixService))]
     [Singleton(typeof(Renamer), typeof(IRenamer))]
     [Singleton(typeof(UpdateService), typeof(IUpdateService))]
