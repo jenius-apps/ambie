@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using System.Threading.Tasks;
 

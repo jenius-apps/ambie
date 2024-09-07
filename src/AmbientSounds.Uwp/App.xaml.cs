@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Connectivity;

@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Settings;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
-using JeniusApps.Common.Telemetry;
 
 #nullable enable
 

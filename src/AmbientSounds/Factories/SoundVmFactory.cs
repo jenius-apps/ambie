@@ -1,15 +1,15 @@
 ﻿using AmbientSounds.Models;
+using AmbientSounds.Repositories;
 using AmbientSounds.Services;
-using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using JeniusApps.Common.Tools;
-using AmbientSounds.Repositories;
-using System.Collections.Concurrent;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Concurrent;
 
 namespace AmbientSounds.Factories;
 

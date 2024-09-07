@@ -305,7 +305,6 @@
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
-    <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\Navigator.cs" />
     <Compile Include="Services\PartnerCentreNotificationRegistrar.cs" />
     <Compile Include="Services\ScreensaverService.cs" />
@@ -773,7 +772,7 @@
       <Version>0.0.1</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.38-preview</Version>
+      <Version>0.0.40-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>
