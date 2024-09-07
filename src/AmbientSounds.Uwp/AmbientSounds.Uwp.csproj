@@ -318,6 +318,7 @@
       <DependentUpon>Resources.resw</DependentUpon>
     </Compile>
     <Compile Include="Tools\AssetsReader.cs" />
+    <Compile Include="Tools\CacheableHttpClient.cs" />
     <Compile Include="Tools\MicrosoftStoreRatings.cs" />
     <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
     <Compile Include="Tools\WindowsSystemMediaControls.cs" />
