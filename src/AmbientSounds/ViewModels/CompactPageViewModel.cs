@@ -3,11 +3,10 @@ using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 #nullable enable
 

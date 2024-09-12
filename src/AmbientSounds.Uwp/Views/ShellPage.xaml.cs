@@ -2,11 +2,11 @@
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Threading.Tasks;
 using Windows.Services.Store;
 using Windows.UI.ViewManagement;
