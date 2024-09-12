@@ -13,7 +13,7 @@ namespace AmbientSounds.Services;
 public class PresenceService : IPresenceService
 {
     private readonly HubConnection _connection;
-    private readonly HashSet<string> _connectedSoundIds = new();
+    private readonly HashSet<string> _connectedSoundIds = [];
     private readonly string _deviceId; // used to uniquely identify this device in signalr.
     private readonly ITelemetry _telemetry;
 

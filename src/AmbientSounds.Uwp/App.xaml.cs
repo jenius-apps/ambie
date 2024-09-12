@@ -60,30 +60,30 @@ sealed partial class App : Application
         }
     }
 
-    private async void OnNetworkChanged(object sender, EventArgs e)
+    private void OnNetworkChanged(object sender, EventArgs e)
     {
-        var presence = _serviceProvider?.GetService<IPresenceService>();
-        if (presence is null)
-        {
-            return;
-        }
+        //var presence = _serviceProvider?.GetService<IPresenceService>();
+        //if (presence is null)
+        //{
+        //    return;
+        //}
 
-        if (NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
-        {
-            await presence.EnsureInitializedAsync();
-        }
-        else
-        {
-            await presence.DisconnectAsync();
-        }
+        //if (NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
+        //{
+        //    await presence.EnsureInitializedAsync();
+        //}
+        //else
+        //{
+        //    await presence.DisconnectAsync();
+        //}
     }
 
-    private async void OnResuming(object sender, object e)
+    private void OnResuming(object sender, object e)
     {
-        if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
-        {
-            await presenceService.EnsureInitializedAsync();
-        }
+        //if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+        //{
+        //    await presenceService.EnsureInitializedAsync();
+        //}
     }
 
     private async void OnSuspension(object sender, SuspendingEventArgs e)
@@ -104,7 +104,7 @@ sealed partial class App : Application
             }
 
             await serviceProvider.GetRequiredService<IFocusNotesService>().SaveNotesToStorageAsync();
-            await serviceProvider.GetRequiredService<IPresenceService>().DisconnectAsync();
+            //await serviceProvider.GetRequiredService<IPresenceService>().DisconnectAsync();
             await flushTask;
         }
 

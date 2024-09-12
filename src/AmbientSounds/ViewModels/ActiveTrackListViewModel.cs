@@ -90,11 +90,11 @@ public partial class ActiveTrackListViewModel : ObservableObject
         _player.SoundRemoved += OnSoundRemoved;
         ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
 
-        // This track list is what we use
-        // to determine if a user should report presence
-        // for a sound. Thus, we initialize the presence service
-        // the same time this viewmodel is initialized.
-        var task = _presenceService.EnsureInitializedAsync();
+        //// This track list is what we use
+        //// to determine if a user should report presence
+        //// for a sound. Thus, we initialize the presence service
+        //// the same time this viewmodel is initialized.
+        //var task = _presenceService.EnsureInitializedAsync();
 
         if (ActiveTracks.Count > 0 || !_loadPreviousState)
         {
@@ -119,7 +119,7 @@ public partial class ActiveTrackListViewModel : ObservableObject
         _loaded = true;
         OnPropertyChanged(nameof(IsClearVisible));
         OnPropertyChanged(nameof(IsPlaceholderVisible));
-        await task;
+        //await task;
     }
 
     [RelayCommand]
@@ -149,7 +149,7 @@ public partial class ActiveTrackListViewModel : ObservableObject
         OnPropertyChanged(nameof(IsPlaceholderVisible));
     }
 
-    private async void OnSoundRemoved(object sender, SoundPausedArgs args)
+    private void OnSoundRemoved(object sender, SoundPausedArgs args)
     {
         var sound = ActiveTracks.FirstOrDefault(x => x.Sound?.Id == args.SoundId);
         if (sound is not null)
@@ -157,23 +157,23 @@ public partial class ActiveTrackListViewModel : ObservableObject
             ActiveTracks.Remove(sound);
             UpdateStoredState();
 
-            if (!sound.Sound.IsMix)
-            {
-                await _presenceService.DecrementAsync(args.SoundId);
-            }
+            //if (!sound.Sound.IsMix)
+            //{
+            //    await _presenceService.DecrementAsync(args.SoundId);
+            //}
         }
     }
 
-    private async void OnSoundAdded(object sender, SoundPlayedArgs args)
+    private void OnSoundAdded(object sender, SoundPlayedArgs args)
     {
         if (args?.Sound is not null)
         {
             AddSoundTrack(args.Sound);
 
-            if (!args.Sound.IsMix)
-            {
-                await _presenceService.IncrementAsync(args.Sound.Id);
-            }
+            //if (!args.Sound.IsMix)
+            //{
+            //    await _presenceService.IncrementAsync(args.Sound.Id);
+            //}
         }
     }
 
