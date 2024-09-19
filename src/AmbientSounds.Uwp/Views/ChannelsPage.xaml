@@ -21,7 +21,7 @@
 
         <GridView ItemsSource="{x:Bind ViewModel.Channels}" SelectedItem="{x:Bind ViewModel.SelectedSound, Mode=TwoWay}">
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="vm:OnlineSoundViewModel">
+                <DataTemplate x:DataType="vm:ChannelViewModel">
                     <StackPanel Padding="12">
                         <Border
                             Width="200"

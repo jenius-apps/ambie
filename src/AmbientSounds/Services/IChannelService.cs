@@ -6,6 +6,6 @@ namespace AmbientSounds.Services
 {
     public interface IChannelService
     {
-        Task<IReadOnlyList<Sound>> GetChannelsAsync();
+        Task<IReadOnlyList<Channel>> GetChannelsAsync();
     }
 }

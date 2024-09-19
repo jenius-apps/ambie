@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services;
@@ -16,15 +15,30 @@ public class ChannelService : IChannelService
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Sound>> GetChannelsAsync()
+    public async Task<IReadOnlyList<Channel>> GetChannelsAsync()
     {
-        // TODO use page service to fetch list of sound IDs
-        List<Sound> results = [];
+        await Task.Delay(1);
 
-        var onlineSounds = await _soundCache.GetOnlineSoundsAsync();
-        var preInstalledSounds = await _soundCache.GetPreinstalledSoundsAsync();
-        results.AddRange(onlineSounds.Where(x => x.AssociatedVideoIds.Count > 0));
-        results.AddRange(preInstalledSounds.Where(x => x.AssociatedVideoIds.Count > 0));
-        return results;
+        return
+        [
+            new Channel
+            {
+                Type = ChannelType.DarkScreen,
+                ImagePath = "https://getwallpapers.com/wallpaper/full/3/f/f/6072.jpg",
+                Localizations = new Dictionary<string, DisplayInformation>()
+                {
+                    { "en", new DisplayInformation { Name = "Dark screen", Description = "A dark screen that is ideal for sleeping or low stimulus." } }
+                },
+            },
+            new Channel 
+            {
+                Type = ChannelType.Slideshow,
+                ImagePath = "https://images.unsplash.com/photo-1531845116688-48819b3b68d9?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                Localizations = new Dictionary<string, DisplayInformation>()
+                {
+                    { "en", new DisplayInformation { Name = "Slideshow", Description = "An animated carousel of images based on the actively playing sounds." } }
+                },
+            }
+        ];
     }
 }

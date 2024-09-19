@@ -11,20 +11,20 @@ namespace AmbientSounds.ViewModels;
 public partial class ChannelsPageViewModel : ObservableObject
 {
     private readonly IChannelService _channelService;
-    private readonly ISoundVmFactory _soundVmFactory;
+    private readonly ChannelVmFactory _channelFactory;
 
     public ChannelsPageViewModel(
         IChannelService channelService,
-        ISoundVmFactory soundVmFactory)
+        ChannelVmFactory channelFactory)
     {
         _channelService = channelService;
-        _soundVmFactory = soundVmFactory;
+        _channelFactory = channelFactory;
     }
 
     [ObservableProperty]
     private OnlineSoundViewModel? _selectedSound;
 
-    public ObservableCollection<OnlineSoundViewModel> Channels { get; } = [];
+    public ObservableCollection<ChannelViewModel> Channels { get; } = [];
 
     public async Task InitializeAsync(CancellationToken ct)
     {
@@ -38,9 +38,9 @@ public partial class ChannelsPageViewModel : ObservableObject
         {
             ct.ThrowIfCancellationRequested();
 
-            if (_soundVmFactory.GetOnlineSoundVm(c) is { } vm)
+            if (_channelFactory.Create(c) is { } vm)
             {
-                tasks.Add(vm.LoadCommand.ExecuteAsync(null));
+                tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);
             }
         }
