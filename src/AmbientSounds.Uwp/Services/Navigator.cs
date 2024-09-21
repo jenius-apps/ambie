@@ -1,4 +1,5 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Events;
+using AmbientSounds.ViewModels;
 using AmbientSounds.Views;
 using System;
 using System.Threading.Tasks;
@@ -50,11 +51,11 @@ public class Navigator : INavigator
     }
 
     /// <inheritdoc/>
-    public void ToScreensaver()
+    public void ToScreensaver(ScreensaverArgs? args = null)
     {
         if (RootFrame is Frame f && f.CurrentSourcePageType != typeof(ScreensaverPage))
         {
-            f.Navigate(typeof(ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+            f.Navigate(typeof(ScreensaverPage), args, new DrillInNavigationTransitionInfo());
         }
     }
 

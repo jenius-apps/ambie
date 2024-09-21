@@ -109,6 +109,16 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     public bool FullScreenVisible => _systemInfoProvider.GetDeviceFamily() == "Windows.Desktop";
 
+    public Task InitializeAsync(ChannelType channelType)
+    {
+        return InitializeAsync(channelType switch
+        {
+            ChannelType.DarkScreen => DarkScreenId,
+            ChannelType.Slideshow => DefaultId,
+            _ => null
+        });
+    }
+
     public async Task InitializeAsync(string? screensaverToSelect = "")
     {
         if (Loading)

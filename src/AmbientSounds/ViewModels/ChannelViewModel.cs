@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Events;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -61,7 +62,7 @@ public partial class ChannelViewModel : ObservableObject
         await Task.Delay(1);
         if (_channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow)
         {
-            _navigator.ToScreensaver();
+            _navigator.ToScreensaver(new ScreensaverArgs { RequestedType = _channel.Type });
         }
     }
 }

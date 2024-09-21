@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbientSounds.Events;
+using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services;
@@ -33,7 +34,7 @@ public interface INavigator
     /// <summary>
     /// Navigates to the screensaver.
     /// </summary>
-    void ToScreensaver();
+    void ToScreensaver(ScreensaverArgs? args = null);
 
     /// <summary>
     /// Attempts to navigate back.

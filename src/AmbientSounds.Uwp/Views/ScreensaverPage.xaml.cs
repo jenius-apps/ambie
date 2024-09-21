@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
@@ -49,11 +50,17 @@ public sealed partial class ScreensaverPage : Page
 
     private DispatcherQueue Queue { get; set; }
 
-
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
-        var settings = App.Services.GetRequiredService<IUserSettings>();
-        await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
+        if (e.Parameter is ScreensaverArgs args)
+        {
+            await ViewModel.InitializeAsync(args.RequestedType);
+        }
+        else
+        {
+            var settings = App.Services.GetRequiredService<IUserSettings>();
+            await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
+        }
 
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
         telemetry.TrackPageView(nameof(ScreensaverPage));
