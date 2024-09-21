@@ -30,7 +30,6 @@ public partial class OnlineSoundViewModel : ObservableObject
     private Progress<double> _downloadProgress;
     private bool _loading;
     private bool _initialized;
-    private bool _previewExperimentEnabled;
 
     public OnlineSoundViewModel(
         Sound s, 
@@ -57,7 +56,6 @@ public partial class OnlineSoundViewModel : ObservableObject
         _mixMediaPlayerService = mixMediaPlayerService;
         _updateService = updateService;
         _localizer = localizer;
-        _previewExperimentEnabled = experimentationService.IsEnabled(ExperimentConstants.CataloguePreviews);
 
         _downloadProgress = new Progress<double>();
     }
@@ -205,7 +203,6 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// Determines if the sound can be previewed.
     /// </summary>
     public bool CanPreview =>
-        _previewExperimentEnabled &&
         !DownloadProgressVisible &&
         !string.IsNullOrEmpty(_sound.PreviewFilePath) && 
         Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);

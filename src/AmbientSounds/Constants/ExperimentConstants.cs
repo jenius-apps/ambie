@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 #nullable enable
 
@@ -14,11 +15,12 @@ public class ExperimentConstants
     /// </summary>
     public static readonly IReadOnlyList<string> AllKeys =
     [
-        CataloguePreviews
+        // add experiment constants here
     ];
 
     /// <summary>
     /// Key name to track the catalogue previews feature.
     /// </summary>
+    [Obsolete("Experiment complete. Successful.")]
     public const string CataloguePreviews = "cataloguePreviews";
 }
