@@ -22,7 +22,7 @@ public partial class ChannelsPageViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    private OnlineSoundViewModel? _selectedSound;
+    private ChannelViewModel? _selectedChannel;
 
     public ObservableCollection<ChannelViewModel> Channels { get; } = [];
 

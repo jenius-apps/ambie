@@ -5,6 +5,7 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:JeniusApps.Common.UI.Uwp"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
@@ -19,26 +20,44 @@
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
 
-        <GridView ItemsSource="{x:Bind ViewModel.Channels}" SelectedItem="{x:Bind ViewModel.SelectedSound, Mode=TwoWay}">
+        <GridView
+            Margin="20"
+            ItemsSource="{x:Bind ViewModel.Channels}"
+            SelectedItem="{x:Bind ViewModel.SelectedChannel, Mode=TwoWay}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="vm:ChannelViewModel">
-                    <StackPanel Padding="12">
+                    <Grid Width="208" Padding="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
                         <Border
                             Width="200"
                             Height="120"
                             CornerRadius="8">
                             <Border.Background>
-                                <ImageBrush ImageSource="{x:Bind ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+                                <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
                             </Border.Background>
                         </Border>
 
                         <TextBlock
-                            Margin="0,4,0,0"
+                            Grid.Row="1"
+                            Margin="4,8,0,0"
                             FontSize="12"
-                            Text="{x:Bind Name, Mode=OneWay}"
-                            TextAlignment="Center"
+                            Text="{x:Bind Name}"
                             TextWrapping="WrapWholeWords" />
-                    </StackPanel>
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Margin="4,0,0,0"
+                            FontSize="12"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            MaxLines="1"
+                            Text="{x:Bind Description}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="WrapWholeWords" />
+                    </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
@@ -61,9 +80,9 @@
                 Margin="20"
                 HorizontalAlignment="Stretch"
                 CornerRadius="8"
-                Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedSound), Mode=OneWay}">
+                Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
                 <Border.Background>
-                    <ImageBrush ImageSource="{x:Bind ViewModel.SelectedSound.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="{x:Bind ViewModel.SelectedChannel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
                 </Border.Background>
 
                 <ui:Effects.Shadow>
@@ -78,31 +97,36 @@
             <StackPanel
                 Grid.Row="1"
                 Margin="20,0"
-                Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedSound), Mode=OneWay}">
+                Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
                 <TextBlock
                     FontSize="12"
                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                    Text="{x:Bind ViewModel.SelectedSound.Description, Mode=OneWay}" />
+                    Text="{x:Bind ViewModel.SelectedChannel.Description, Mode=OneWay}"
+                    TextWrapping="WrapWholeWords" />
 
-                <controls:TimerData
-                    Title="{x:Bind strings:Resources.SlideshowImagesText}"
-                    Grid.Row="1"
-                    Glyph="{StaticResource GlyphPhoto}"
-                    Text="{x:Bind strings:Resources.IncludedText}"
-                    Visibility="{x:Bind ViewModel.SelectedSound.HasSlideshowImages}" />
+                <Grid Margin="0,20,0,0">
+                    <Button
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Content="Download"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.DownloadButtonVisible, Mode=OneWay}" />
 
-                <controls:TimerData
-                    Title="{x:Bind strings:Resources.VideoBackgroundText}"
-                    Grid.Row="2"
-                    Glyph="{StaticResource GlyphFilmstrip}"
-                    Text="{x:Bind strings:Resources.AvailableText}"
-                    Visibility="{x:Bind ViewModel.SelectedSound.HasBackgroundVideo}" />
+                    <Button
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.SelectedChannel.PlayCommand, Mode=OneWay}"
+                        Content="Play"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.PlayButtonVisible, Mode=OneWay}" />
+                </Grid>
 
-                <Button
+                <labs:Shimmer
                     MinHeight="48"
+                    Margin="0,20,0,0"
                     HorizontalAlignment="Stretch"
-                    Content="Download"
-                    Style="{StaticResource AccentButtonStyle}" />
+                    Visibility="{x:Bind ViewModel.SelectedChannel.ActionButtonLoading, Mode=OneWay}" />
+
             </StackPanel>
         </Grid>
     </Grid>

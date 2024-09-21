@@ -12,6 +12,7 @@ public class ChannelVmFactory(IServiceProvider serviceProvider)
     {
         return new ChannelViewModel(
             channel,
-            serviceProvider.GetRequiredService<IAssetLocalizer>());
+            serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            serviceProvider.GetRequiredService<INavigator>());
     }
 }
