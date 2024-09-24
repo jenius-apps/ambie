@@ -6,6 +6,7 @@
     "ColourHex": "#c59758",
     "ImagePath": "ms-appx:///Assets/Images/beach.png",
     "FilePath": "ms-appx:///Assets/Sounds/beach.wav",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/BeachPreview7Sec.mp3",
     "Attribution": "Sea Barcelona Beach Traffic Voices.wav by jordir -- https://freesound.org/s/360578/ -- License: Creative Commons 0. Photo by Ethan Robertson on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -100,6 +101,7 @@
     "Name": "birds",
     "ColourHex": "#5a8391",
     "ImagePath": "ms-appx:///Assets/Images/birds.png",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/BirdsPreview6Sec.mp3",
     "FilePath": "ms-appx:///Assets/Sounds/birds.wav",
     "Attribution": "Spring Birds Raw (New Jersey) by hargissssound -- https://freesound.org/s/345851/ -- License: Creative Commons 0. Photo by Cathy Holewinski on Unsplash",
     "ScreensaverImagePaths": [
@@ -191,6 +193,7 @@
     "Name": "citystreet",
     "ColourHex": "#a2775c",
     "ImagePath": "ms-appx:///Assets/Images/citystreet.png",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/CitystreetPreview6Sec.mp3",
     "FilePath": "ms-appx:///Assets/Sounds/citystreet.wav",
     "Attribution": "City park_1(traffic, cars, people, voices, shouting).wav by o_ciz -- https://freesound.org/s/475513/ -- License: Creative Commons 0. Photo by Yin Wong on Unsplash",
     "ScreensaverImagePaths": [
@@ -283,6 +286,7 @@
     "MetaDataVersion": 7,
     "Name": "coffeeshop",
     "ColourHex": "#636252",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/CoffeeshopPreview6Sec.mp3",
     "ImagePath": "ms-appx:///Assets/Images/coffeeshop.png",
     "FilePath": "ms-appx:///Assets/Sounds/coffeeshop.mp3",
     "Attribution": "370973__waweee__coffee-shop-ambience_remastered.mp3 by C_Rogers -- https://freesound.org/s/453074/ -- License: Creative Commons 0. Photo by Nathan Dumlao on Unsplash",
@@ -378,6 +382,7 @@
     "Name": "creek",
     "ColourHex": "#27281c",
     "ImagePath": "ms-appx:///Assets/Images/creek.png",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/CreekPreview5Sec.mp3",
     "FilePath": "ms-appx:///Assets/Sounds/creek.wav",
     "Attribution": "Burbling Brook by hargissssound -- https://freesound.org/s/324591/ -- License: Creative Commons 0. Photo by Ed Paulino Photography - https://www.instagram.com/birdlifelist.",
     "ScreensaverImagePaths": [
@@ -469,6 +474,7 @@
     "Name": "fireplace",
     "AssociatedVideoIds": [ "59c3b21c-3df1-44d0-a2f7-096bf55728c3" ],
     "ColourHex": "#442f12",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/FireplacePreview5Sec.mp3",
     "ImagePath": "ms-appx:///Assets/Images/fireplace.png",
     "FilePath": "ms-appx:///Assets/Sounds/fireplace.wav",
     "Attribution": "13_Fire in fireplace.wav by 16FThumaF -- https://freesound.org/s/499032/ -- License: Creative Commons 0. Photo by Oxana Lyashenko on Unsplash",
@@ -565,6 +571,7 @@
     "ColourHex": "#334337",
     "ImagePath": "ms-appx:///Assets/Images/rain.png",
     "FilePath": "ms-appx:///Assets/Sounds/rain.wav",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/RainPreview5Sec.mp3",
     "Attribution": "Rain heavy 1 (rural) by jmbphilmes -- https://freesound.org/s/200270/ -- License: Creative Commons 0. Photo by Priscilla Du Preez on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1496034663057-6245f11be793?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -660,6 +667,7 @@
     "ColourHex": "#152d0c",
     "ImagePath": "ms-appx:///Assets/Images/rainforest.png",
     "FilePath": "ms-appx:///Assets/Sounds/Rainforest.mp3",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/RainforestPreview6Sec.mp3",
     "Attribution": "Rain Sound and Rainforest.mp3 by INNORECORDS -- https://freesound.org/s/457447/ -- License: Creative Commons 0. Photo by Jeremy Allouche on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1534531409543-069f6204c5b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -754,6 +762,7 @@
     "ColourHex": "#00266f",
     "ImagePath": "ms-appx:///Assets/Images/thunder.png",
     "FilePath": "ms-appx:///Assets/Sounds/thunder.mp3",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/ThunderPreview6Sec.mp3",
     "Attribution": "thunder by hifijohn -- https://freesound.org/s/242735/ -- License: Creative Commons 0. Photo by Michał Mancewicz on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1431440869543-efaf3388c585?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -850,6 +859,7 @@
     "ColourHex": "#00c3d0",
     "ImagePath": "ms-appx:///Assets/Images/underwater.png",
     "FilePath": "ms-appx:///Assets/Sounds/underwater.wav",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/UnderwaterPreview5Sec.mp3",
     "Attribution": "Underwater Ambience by Kinoton -- https://freesound.org/s/393819/ -- License: Creative Commons 0. Photo by Angus Gray on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1586695571674-bbe48b4be70f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -945,6 +955,7 @@
     "ColourHex": "#8bbdd4",
     "ImagePath": "ms-appx:///Assets/Images/waterfall.png",
     "FilePath": "ms-appx:///Assets/Sounds/waterfall.wav",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/WaterfallPreview5Sec.mp3",
     "Attribution": "River in Icelandic nature (ambience, 5 minutes) by askeseverin -- https://freesound.org/s/376202/ -- License: Creative Commons 0. Photo by Aditya Chinchure on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1564500601744-d5dfe4e7ab72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -1040,6 +1051,7 @@
     "ColourHex": "#5e5b49",
     "ImagePath": "ms-appx:///Assets/Images/whitenoise.png",
     "FilePath": "ms-appx:///Assets/Sounds/whitenoise.wav",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/WhitenoisePreview5Sec.mp3",
     "Attribution": "Brown Noise by theundecided -- https://freesound.org/s/165056/ -- License: Creative Commons 0. Photo by Pierre Bamin on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1580243117731-a108c2953e2c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
@@ -1135,6 +1147,7 @@
     "ColourHex": "#0b2354",
     "ImagePath": "ms-appx:///Assets/Images/wind.png",
     "FilePath": "ms-appx:///Assets/Sounds/wind.wav",
+    "PreviewFilePath": "https://ambiecataloguestorage.blob.core.windows.net/soundpreviews/WindPreview5Sec.mp3",
     "Attribution": "wind-noise.wav by jorge0000 -- https://freesound.org/s/361053/ -- License: Creative Commons 0. Photo by Mila Young on Unsplash",
     "ScreensaverImagePaths": [
       "https://images.unsplash.com/photo-1495401220594-550313c3046b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80",
