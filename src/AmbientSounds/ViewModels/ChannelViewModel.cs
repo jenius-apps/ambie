@@ -12,15 +12,18 @@ public partial class ChannelViewModel : ObservableObject
     private readonly Channel _channel;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly INavigator _navigator;
+    private readonly IChannelService _channelService;
 
     public ChannelViewModel(
         Channel channel,
         IAssetLocalizer assetLocalizer,
-        INavigator navigator)
+        INavigator navigator,
+        IChannelService channelService)
     {
         _channel = channel;
         _assetLocalizer = assetLocalizer;
         _navigator = navigator;
+        _channelService = channelService;
     }
 
     public string Name => _assetLocalizer.GetLocalName(_channel);
@@ -44,13 +47,14 @@ public partial class ChannelViewModel : ObservableObject
 
         await Task.Delay(1000);
 
-        if (_channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow)
+        var isFullyDownloaded = await _channelService.IsFullyDownloadedAsync(_channel);
+        if (isFullyDownloaded)
         {
             PlayButtonVisible = true;
         }
         else
         {
-            // figure out if individual components are installed
+            DownloadButtonVisible = true;
         }
 
         ActionButtonLoading = false;

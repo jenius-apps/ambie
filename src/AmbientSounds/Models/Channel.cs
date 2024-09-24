@@ -60,6 +60,12 @@ public class Channel : IAsset
     public string ColourHex { get; set; } = string.Empty;
 
     /// <summary>
+    /// Ids used to identify the IAPs
+    /// associated with this asset.
+    /// </summary>
+    public IReadOnlyList<string> IapIds { get; set; } = [];
+
+    /// <summary>
     /// Describes the type of content to be displayed.
     /// </summary>
     [JsonConverter(typeof(JsonStringEnumConverter))]

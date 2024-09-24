@@ -7,5 +7,7 @@ namespace AmbientSounds.Services
     public interface IChannelService
     {
         Task<IReadOnlyList<Channel>> GetChannelsAsync();
+        Task<bool> IsFullyDownloadedAsync(Channel channel);
+        Task<bool> IsOwnedAsync(Channel channel);
     }
 }
