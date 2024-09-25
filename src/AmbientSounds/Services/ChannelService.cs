@@ -84,6 +84,13 @@ public class ChannelService : IChannelService
     /// <inheritdoc/>
     public async Task<bool> IsOwnedAsync(Channel channel)
     {
+        if (channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow)
+        {
+            // Dark screen and slideshow work without downloading anything,
+            // so they're always owned.
+            return true;
+        }
+
         var isOwned = await _iapService.IsAnyOwnedAsync(channel.IapIds);
         return isOwned;
     }

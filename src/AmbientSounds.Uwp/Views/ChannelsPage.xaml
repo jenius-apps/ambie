@@ -119,6 +119,13 @@
                         Content="Play"
                         Style="{StaticResource AccentButtonStyle}"
                         Visibility="{x:Bind ViewModel.SelectedChannel.PlayButtonVisible, Mode=OneWay}" />
+
+                    <Button
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Content="Unlock"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.BuyButtonVisible, Mode=OneWay}" />
                 </Grid>
 
                 <labs:Shimmer

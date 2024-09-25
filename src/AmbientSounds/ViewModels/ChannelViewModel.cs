@@ -32,30 +32,38 @@ public partial class ChannelViewModel : ObservableObject
 
     public string ImagePath => _channel.ImagePath;
 
-    [ObservableProperty]
-    private bool _downloadButtonVisible;
+    public bool DownloadButtonVisible => !ActionButtonLoading && IsOwned && !IsFullyDownloaded;
+
+    public bool PlayButtonVisible => !ActionButtonLoading && IsOwned && IsFullyDownloaded;
+
+    public bool BuyButtonVisible => !ActionButtonLoading && !IsOwned;
 
     [ObservableProperty]
-    private bool _playButtonVisible;
-
-    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
     private bool _actionButtonLoading;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
+    private bool _isOwned;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
+    private bool _isFullyDownloaded;
 
     public async Task InitializeAsync()
     {
         ActionButtonLoading = true;
 
-        await Task.Delay(1000);
+        var isOwnedTask = _channelService.IsOwnedAsync(_channel);
+        var isFullyDownloadedTask = _channelService.IsFullyDownloadedAsync(_channel);
 
-        var isFullyDownloaded = await _channelService.IsFullyDownloadedAsync(_channel);
-        if (isFullyDownloaded)
-        {
-            PlayButtonVisible = true;
-        }
-        else
-        {
-            DownloadButtonVisible = true;
-        }
+        IsOwned = await isOwnedTask;
+        IsFullyDownloaded = await isFullyDownloadedTask;
 
         ActionButtonLoading = false;
     }
