@@ -12,6 +12,7 @@
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid>
@@ -108,6 +109,7 @@
                     <Button
                         MinHeight="48"
                         HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.SelectedChannel.DownloadCommand, Mode=OneWay}"
                         Content="Download"
                         Style="{StaticResource AccentButtonStyle}"
                         Visibility="{x:Bind ViewModel.SelectedChannel.DownloadButtonVisible, Mode=OneWay}" />
@@ -133,6 +135,12 @@
                     Margin="0,20,0,0"
                     HorizontalAlignment="Stretch"
                     Visibility="{x:Bind ViewModel.SelectedChannel.ActionButtonLoading, Mode=OneWay}" />
+
+                <winui:ProgressBar
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Stretch"
+                    Visibility="{x:Bind ViewModel.SelectedChannel.DownloadProgressVisible, Mode=OneWay}"
+                    Value="{x:Bind ViewModel.SelectedChannel.DownloadProgressValue, Mode=OneWay}" />
 
             </StackPanel>
         </Grid>

@@ -1,5 +1,8 @@
 ﻿using AmbientSounds.Models;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Services;
@@ -9,15 +12,23 @@ public class ChannelService : IChannelService
     private readonly ISoundService _soundService;
     private readonly IVideoService _videoService;
     private readonly IIapService _iapService;
+    private readonly IDownloadManager _downloadManager;
+    private readonly ICatalogueService _cataloqueService;
+    private readonly ConcurrentDictionary<string, double> _activeVideoDownloadProgress = new();
+    private readonly ConcurrentDictionary<string, double> _activeSoundDownloadProgress = new();
 
     public ChannelService(
         ISoundService soundService,
         IVideoService videoService,
-        IIapService iapService)
+        IIapService iapService,
+        IDownloadManager downloadManager,
+        ICatalogueService catalogueService)
     {
         _soundService = soundService;
         _videoService = videoService;
         _iapService = iapService;
+        _downloadManager = downloadManager;
+        _cataloqueService = catalogueService;
     }
 
     /// <inheritdoc/>
@@ -55,8 +66,59 @@ public class ChannelService : IChannelService
                 },
                 VideoIds = ["59c3b21c-3df1-44d0-a2f7-096bf55728c3"],
                 SoundIds = ["b22901eb-2269-4b3f-80ab-af2722e68ff1"],
+                IapIds = ["ambieplus"]
             },
         ];
+    }
+
+    public async Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null)
+    {
+        var isDownloaded = await IsFullyDownloadedAsync(channel);
+        if (isDownloaded)
+        {
+            return false;
+        }
+
+        if (channel is not { VideoIds: [string videoId, ..], SoundIds: [string soundId, ..] })
+        {
+            return false;
+        }
+
+        var onlineVideos = await _videoService.GetVideosAsync(includeOffline: false);
+        var video = onlineVideos.FirstOrDefault(x => x.Id == videoId);
+        var sounds = await _cataloqueService.GetSoundsAsync([soundId]);
+        var sound = sounds.FirstOrDefault();
+
+        if (video is null || sound is null)
+        {
+            return false;
+        }
+
+        _activeVideoDownloadProgress[channel.Id] = 0;
+        _activeSoundDownloadProgress[channel.Id] = 0;
+
+        IProgress<double> channelProgress = progress ?? new Progress<double>();
+
+        var videoProgress = new Progress<double>();
+        var soundProgress = new Progress<double>();
+        videoProgress.ProgressChanged += OnVideoProgressChanged;
+        soundProgress.ProgressChanged += OnSoundProgressChanged;
+
+        void OnVideoProgressChanged(object sender, double e)
+        {
+            _activeVideoDownloadProgress[channel.Id] = e / 2;
+            channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+        }
+
+        void OnSoundProgressChanged(object sender, double e)
+        {
+            _activeSoundDownloadProgress[channel.Id] = e / 2;
+            channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+        }
+
+        await _videoService.InstallVideoAsync(video, videoProgress);
+        await _downloadManager.QueueAndDownloadAsync(sound, soundProgress);
+        return true;
     }
 
     /// <inheritdoc/>
