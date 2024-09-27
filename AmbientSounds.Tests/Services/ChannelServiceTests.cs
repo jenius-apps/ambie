@@ -77,6 +77,9 @@ public class ChannelServiceTests
 
         downloadManagerMock.Verify(x => x.QueueAndDownloadAsync(It.IsAny<Sound>(), It.IsAny<IProgress<double>>()), Times.Once());
         Assert.True(queued);
+
+        var duplicateQueue = await service.QueueInstallChannelAsync(channel);
+        Assert.False(duplicateQueue);
     }
 
     [Fact]
@@ -106,6 +109,9 @@ public class ChannelServiceTests
 
         videoServiceMock.Verify(x => x.InstallVideoAsync(It.IsAny<Video>(), It.IsAny<Progress<double>>()), Times.Once());
         Assert.True(queued);
+
+        var duplicateQueue = await service.QueueInstallChannelAsync(channel);
+        Assert.False(duplicateQueue);
     }
 
     [Fact]

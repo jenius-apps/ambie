@@ -95,7 +95,7 @@ public class ChannelService : IChannelService
             var sounds = await _cataloqueService.GetSoundsAsync([soundId]);
             var soundToDownload = sounds.Count > 0 ? sounds[0] : null;
 
-            if (soundToDownload is not null)
+            if (soundToDownload is not null && !_activeSoundDownloadProgress.ContainsKey(channel.Id))
             {
                 _activeSoundDownloadProgress[channel.Id] = 0;
                 var soundProgress = new Progress<double>();
@@ -106,7 +106,14 @@ public class ChannelService : IChannelService
                 void OnSoundProgressChanged(object sender, double e)
                 {
                     _activeSoundDownloadProgress[channel.Id] = e / 2;
-                    channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+                    var sum = _activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id];
+                    channelProgress.Report(sum);
+
+                    if (sum >= 100)
+                    {
+                        _activeSoundDownloadProgress.TryRemove(channel.Id, out _);
+                        _activeVideoDownloadProgress.TryRemove(channel.Id, out _);
+                    }
                 }
             }
         }
@@ -116,7 +123,7 @@ public class ChannelService : IChannelService
             var onlineVideos = await _videoService.GetVideosAsync(includeOffline: false);
             var videoToDownload = onlineVideos.FirstOrDefault(x => x.Id == videoId);
 
-            if (videoToDownload is not null)
+            if (videoToDownload is not null && !_activeVideoDownloadProgress.ContainsKey(channel.Id))
             {
                 _activeVideoDownloadProgress[channel.Id] = 0;
                 var videoProgress = new Progress<double>();
@@ -127,7 +134,14 @@ public class ChannelService : IChannelService
                 void OnVideoProgressChanged(object sender, double e)
                 {
                     _activeVideoDownloadProgress[channel.Id] = e / 2;
-                    channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+                    var sum = _activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id];
+                    channelProgress.Report(sum);
+
+                    if (sum >= 100)
+                    {
+                        _activeSoundDownloadProgress.TryRemove(channel.Id, out _);
+                        _activeVideoDownloadProgress.TryRemove(channel.Id, out _);
+                    }
                 }
             }
         }
