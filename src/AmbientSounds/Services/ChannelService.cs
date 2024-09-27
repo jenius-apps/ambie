@@ -17,6 +17,9 @@ public class ChannelService : IChannelService
     private readonly ConcurrentDictionary<string, double> _activeVideoDownloadProgress = new();
     private readonly ConcurrentDictionary<string, double> _activeSoundDownloadProgress = new();
 
+    /// <inheritdoc/>
+    public event EventHandler<string>? ChannelDownloaded;
+
     public ChannelService(
         ISoundService soundService,
         IVideoService videoService,
@@ -95,9 +98,9 @@ public class ChannelService : IChannelService
             var sounds = await _cataloqueService.GetSoundsAsync([soundId]);
             var soundToDownload = sounds.Count > 0 ? sounds[0] : null;
 
-            if (soundToDownload is not null && !_activeSoundDownloadProgress.ContainsKey(channel.Id))
+            if (soundToDownload is not null && !_activeSoundDownloadProgress.ContainsKey(soundId))
             {
-                _activeSoundDownloadProgress[channel.Id] = 0;
+                _activeSoundDownloadProgress[soundId] = 0;
                 var soundProgress = new Progress<double>();
                 soundProgress.ProgressChanged += OnSoundProgressChanged;
                 await _downloadManager.QueueAndDownloadAsync(soundToDownload, soundProgress);
@@ -105,14 +108,17 @@ public class ChannelService : IChannelService
 
                 void OnSoundProgressChanged(object sender, double e)
                 {
-                    _activeSoundDownloadProgress[channel.Id] = e / 2;
-                    var sum = _activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id];
-                    channelProgress.Report(sum);
+                    var sum = OnAssetProgressChanged(
+                        soundId,
+                        videoId,
+                        _activeSoundDownloadProgress,
+                        _activeVideoDownloadProgress,
+                        e,
+                        channelProgress);
 
                     if (sum >= 100)
                     {
-                        _activeSoundDownloadProgress.TryRemove(channel.Id, out _);
-                        _activeVideoDownloadProgress.TryRemove(channel.Id, out _);
+                        ChannelDownloaded?.Invoke(this, channel.Id);
                     }
                 }
             }
@@ -123,9 +129,9 @@ public class ChannelService : IChannelService
             var onlineVideos = await _videoService.GetVideosAsync(includeOffline: false);
             var videoToDownload = onlineVideos.FirstOrDefault(x => x.Id == videoId);
 
-            if (videoToDownload is not null && !_activeVideoDownloadProgress.ContainsKey(channel.Id))
+            if (videoToDownload is not null && !_activeVideoDownloadProgress.ContainsKey(videoId))
             {
-                _activeVideoDownloadProgress[channel.Id] = 0;
+                _activeVideoDownloadProgress[videoId] = 0;
                 var videoProgress = new Progress<double>();
                 videoProgress.ProgressChanged += OnVideoProgressChanged;
                 await _videoService.InstallVideoAsync(videoToDownload, videoProgress);
@@ -133,20 +139,38 @@ public class ChannelService : IChannelService
 
                 void OnVideoProgressChanged(object sender, double e)
                 {
-                    _activeVideoDownloadProgress[channel.Id] = e / 2;
-                    var sum = _activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id];
-                    channelProgress.Report(sum);
+                    var sum = OnAssetProgressChanged(
+                        videoId,
+                        soundId,
+                        _activeVideoDownloadProgress,
+                        _activeSoundDownloadProgress, 
+                        e,
+                        channelProgress);
 
-                    if (sum >= 100)
-                    {
-                        _activeSoundDownloadProgress.TryRemove(channel.Id, out _);
-                        _activeVideoDownloadProgress.TryRemove(channel.Id, out _);
-                    }
                 }
             }
         }
 
         return isSoundQueued || isVideoQueued;
+    }
+
+    private static double OnAssetProgressChanged(
+        string thisAssetId,
+        string otherAssetId,
+        ConcurrentDictionary<string, double> thisAssetDictionary,
+        ConcurrentDictionary<string, double> otherAssetDictionary,
+        double thisRawProgress,
+        IProgress<double> channelProgress)
+    {
+        var currentProgress = otherAssetDictionary.ContainsKey(otherAssetId) ? thisRawProgress / 2 : thisRawProgress;
+        thisAssetDictionary[thisAssetId] = currentProgress;
+
+        var sum = otherAssetDictionary.TryGetValue(otherAssetId, out double soundValue)
+            ? currentProgress + soundValue
+            : currentProgress;
+
+        channelProgress.Report(sum);
+        return sum;
     }
 
     /// <inheritdoc/>
