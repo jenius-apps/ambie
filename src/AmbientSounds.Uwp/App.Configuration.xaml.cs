@@ -91,8 +91,8 @@ partial class App
     {
         var context = new TelemetryContext();
         context.Session.Id = Guid.NewGuid().ToString();
-        context.Session.IsFirst = SystemInformation.Instance.IsFirstRun;
         context.Component.Version = SystemInformation.Instance.ApplicationVersion.ToFormattedString();
+        context.GlobalProperties.Add("isFirstRun", SystemInformation.Instance.IsFirstRun.ToString());
 
         if (ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.LocalUserIdKey] is string { Length: > 0 } id)
         {
