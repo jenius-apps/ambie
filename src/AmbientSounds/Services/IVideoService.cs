@@ -59,6 +59,11 @@ namespace AmbientSounds.Services
         /// and stores the video metadata to local storage.
         /// </summary>
         Task InstallVideoAsync(Video video, Progress<double>? progress = null);
+        
+        /// <summary>
+        /// Returns true if the video is installed.
+        /// </summary>
+        Task<bool> IsVideoInstalledAsync(string videoId);
 
         /// <summary>
         /// Removes the video file from local storage.

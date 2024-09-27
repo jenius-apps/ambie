@@ -73,52 +73,66 @@ public class ChannelService : IChannelService
 
     public async Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null)
     {
-        var isDownloaded = await IsFullyDownloadedAsync(channel);
-        if (isDownloaded)
+        if (channel is not { Type: ChannelType.Videos, VideoIds: [string videoId, ..], SoundIds: [string soundId, ..] })
         {
             return false;
         }
 
-        if (channel is not { VideoIds: [string videoId, ..], SoundIds: [string soundId, ..] })
+        var isSoundInstalled = await _soundService.IsSoundInstalledAsync(soundId);
+        var isVideoInstalled = await _videoService.IsVideoInstalledAsync(videoId);
+
+        if (isSoundInstalled && isVideoInstalled)
         {
             return false;
         }
 
-        var onlineVideos = await _videoService.GetVideosAsync(includeOffline: false);
-        var video = onlineVideos.FirstOrDefault(x => x.Id == videoId);
-        var sounds = await _cataloqueService.GetSoundsAsync([soundId]);
-        var sound = sounds.FirstOrDefault();
-
-        if (video is null || sound is null)
-        {
-            return false;
-        }
-
-        _activeVideoDownloadProgress[channel.Id] = 0;
-        _activeSoundDownloadProgress[channel.Id] = 0;
-
+        bool isSoundQueued = false;
+        bool isVideoQueued = false;
         IProgress<double> channelProgress = progress ?? new Progress<double>();
 
-        var videoProgress = new Progress<double>();
-        var soundProgress = new Progress<double>();
-        videoProgress.ProgressChanged += OnVideoProgressChanged;
-        soundProgress.ProgressChanged += OnSoundProgressChanged;
-
-        void OnVideoProgressChanged(object sender, double e)
+        if (!isSoundInstalled)
         {
-            _activeVideoDownloadProgress[channel.Id] = e / 2;
-            channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+            var sounds = await _cataloqueService.GetSoundsAsync([soundId]);
+            var soundToDownload = sounds.Count > 0 ? sounds[0] : null;
+
+            if (soundToDownload is not null)
+            {
+                _activeSoundDownloadProgress[channel.Id] = 0;
+                var soundProgress = new Progress<double>();
+                soundProgress.ProgressChanged += OnSoundProgressChanged;
+                await _downloadManager.QueueAndDownloadAsync(soundToDownload, soundProgress);
+                isSoundQueued = true;
+
+                void OnSoundProgressChanged(object sender, double e)
+                {
+                    _activeSoundDownloadProgress[channel.Id] = e / 2;
+                    channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+                }
+            }
         }
 
-        void OnSoundProgressChanged(object sender, double e)
+        if (!isVideoInstalled)
         {
-            _activeSoundDownloadProgress[channel.Id] = e / 2;
-            channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+            var onlineVideos = await _videoService.GetVideosAsync(includeOffline: false);
+            var videoToDownload = onlineVideos.FirstOrDefault(x => x.Id == videoId);
+
+            if (videoToDownload is not null)
+            {
+                _activeVideoDownloadProgress[channel.Id] = 0;
+                var videoProgress = new Progress<double>();
+                videoProgress.ProgressChanged += OnVideoProgressChanged;
+                await _videoService.InstallVideoAsync(videoToDownload, videoProgress);
+                isVideoQueued = true;
+
+                void OnVideoProgressChanged(object sender, double e)
+                {
+                    _activeVideoDownloadProgress[channel.Id] = e / 2;
+                    channelProgress.Report(_activeVideoDownloadProgress[channel.Id] + _activeSoundDownloadProgress[channel.Id]);
+                }
+            }
         }
 
-        await _videoService.InstallVideoAsync(video, videoProgress);
-        await _downloadManager.QueueAndDownloadAsync(sound, soundProgress);
-        return true;
+        return isSoundQueued || isVideoQueued;
     }
 
     /// <inheritdoc/>
@@ -139,8 +153,8 @@ public class ChannelService : IChannelService
         }
 
         bool isSoundInstalled = await _soundService.IsSoundInstalledAsync(soundId);
-        Video? video = await _videoService.GetLocalVideoAsync(videoId);
-        return isSoundInstalled && video is not null;
+        bool isVideoInstalled = await _videoService.IsVideoInstalledAsync(videoId);
+        return isSoundInstalled && isVideoInstalled;
     }
 
     /// <inheritdoc/>

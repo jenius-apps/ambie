@@ -195,5 +195,12 @@ namespace AmbientSounds.Services
         {
             return _videoCache.GetOfflineVideoAsync(videoId);
         }
+
+        /// <inheritdoc/>
+        public async Task<bool> IsVideoInstalledAsync(string videoId)
+        {
+            Video? video = await _videoCache.GetOfflineVideoAsync(videoId);
+            return video is not null;
+        }
     }
 }
