@@ -85,15 +85,9 @@ public partial class ChannelViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void Play()
+    private async Task Play()
     {
-        var args = new ScreensaverArgs()
-        {
-            RequestedType = _channel.Type,
-            VideoId = _channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] } ? videoId : null
-        };
-
-        _navigator.ToScreensaver(args);
+        await _channelService.PlayChannelAsync(_channel);
     }
 
     [RelayCommand]

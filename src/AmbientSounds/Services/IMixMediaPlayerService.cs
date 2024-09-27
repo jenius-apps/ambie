@@ -152,7 +152,7 @@ public interface IMixMediaPlayerService
     /// <summary>
     /// Plays the given sound.
     /// </summary>
-    Task PlayFeaturedSoundAsync(string id, string filepath);
+    Task PlayFeaturedSoundAsync(string id, string filepath, bool enableGaplessLoop = false);
 
     /// <summary>
     /// Plays a random sound.

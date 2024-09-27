@@ -12,6 +12,7 @@ namespace AmbientSounds.Services
         Task<IReadOnlyList<Channel>> GetChannelsAsync();
         Task<bool> IsFullyDownloadedAsync(Channel channel);
         Task<bool> IsOwnedAsync(Channel channel);
+        Task PlayChannelAsync(Channel channel);
         Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null);
     }
 }

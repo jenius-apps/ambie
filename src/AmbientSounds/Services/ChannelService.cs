@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Events;
+using AmbientSounds.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -13,7 +14,9 @@ public class ChannelService : IChannelService
     private readonly IVideoService _videoService;
     private readonly IIapService _iapService;
     private readonly IDownloadManager _downloadManager;
-    private readonly ICatalogueService _cataloqueService;
+    private readonly ICatalogueService _catalogueService;
+    private readonly INavigator _navigator;
+    private readonly IMixMediaPlayerService _player;
     private readonly ConcurrentDictionary<string, double> _activeVideoDownloadProgress = new();
     private readonly ConcurrentDictionary<string, double> _activeSoundDownloadProgress = new();
 
@@ -25,13 +28,17 @@ public class ChannelService : IChannelService
         IVideoService videoService,
         IIapService iapService,
         IDownloadManager downloadManager,
-        ICatalogueService catalogueService)
+        ICatalogueService catalogueService,
+        INavigator navigator,
+        IMixMediaPlayerService mixMediaPlayerService)
     {
         _soundService = soundService;
         _videoService = videoService;
         _iapService = iapService;
         _downloadManager = downloadManager;
-        _cataloqueService = catalogueService;
+        _catalogueService = catalogueService;
+        _navigator = navigator;
+        _player = mixMediaPlayerService;
     }
 
     /// <inheritdoc/>
@@ -107,7 +114,7 @@ public class ChannelService : IChannelService
 
         if (!isSoundInstalled)
         {
-            var sounds = await _cataloqueService.GetSoundsAsync([soundId]);
+            var sounds = await _catalogueService.GetSoundsAsync([soundId]);
             var soundToDownload = sounds.Count > 0 ? sounds[0] : null;
 
             if (soundToDownload is not null && !_activeSoundDownloadProgress.ContainsKey(soundId))
@@ -219,5 +226,31 @@ public class ChannelService : IChannelService
 
         var isOwned = await _iapService.IsAnyOwnedAsync(channel.IapIds);
         return isOwned;
+    }
+
+    /// <inheritdoc/>
+    public async Task PlayChannelAsync(Channel channel)
+    {
+        if (channel.SoundIds is not [string soundId, ..])
+        {
+            return;
+        }
+
+        var sound = await _soundService.GetLocalSoundAsync(soundId);
+        if (sound is null)
+        {
+            return;
+        }
+
+        // TODO, for the file path, need to handle the appx:// resource scenario.
+        await _player.PlayFeaturedSoundAsync(sound.Id, sound.FilePath, enableGaplessLoop: true);
+
+        var args = new ScreensaverArgs()
+        {
+            RequestedType = channel.Type,
+            VideoId = channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] } ? videoId : null
+        };
+
+        _navigator.ToScreensaver(args);
     }
 }

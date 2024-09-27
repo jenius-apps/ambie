@@ -194,7 +194,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         return keyValuePairList.Select(x => x.Key);
     }
 
-    public async Task PlayFeaturedSoundAsync(string id, string filePath)
+    public async Task PlayFeaturedSoundAsync(string id, string filePath, bool enableGaplessLoop = false)
     {
         if (_featureSoundData?.Id == id)
         {
@@ -207,7 +207,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             ?? _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
 
         player.Pause();
-        bool success = await player.SetSourceAsync(filePath);
+        bool success = await player.SetSourceAsync(filePath, enableGaplessLoop);
         
         if (success)
         {
