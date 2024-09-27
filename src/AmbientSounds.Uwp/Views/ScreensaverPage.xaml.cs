@@ -54,7 +54,7 @@ public sealed partial class ScreensaverPage : Page
     {
         if (e.Parameter is ScreensaverArgs args)
         {
-            await ViewModel.InitializeAsync(args.RequestedType);
+            await ViewModel.InitializeAsync(args);
         }
         else
         {

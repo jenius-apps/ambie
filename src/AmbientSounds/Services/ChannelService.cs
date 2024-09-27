@@ -71,6 +71,18 @@ public class ChannelService : IChannelService
                 SoundIds = ["b22901eb-2269-4b3f-80ab-af2722e68ff1"],
                 IapIds = ["ambieplus"]
             },
+            new Channel
+            {
+                Type = ChannelType.Videos,
+                ImagePath = "https://images.unsplash.com/photo-1504177151729-0e0600389766?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                Localizations = new Dictionary<string, DisplayInformation>()
+                {
+                    { "en", new DisplayInformation { Name = "Japanese pond", Description = "Relaxing pond in Japan." } }
+                },
+                VideoIds = ["5005f3f6-5856-4aba-9fb0-a40b527b7c11"],
+                SoundIds = ["0fff9b38-c06c-4008-a864-2fc86d4defc3"],
+                IapIds = ["ambieplus"]
+            },
         ];
     }
 

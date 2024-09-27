@@ -85,13 +85,15 @@ public partial class ChannelViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task PlayAsync()
+    private void Play()
     {
-        await Task.Delay(1);
-        if (_channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow)
+        var args = new ScreensaverArgs()
         {
-            _navigator.ToScreensaver(new ScreensaverArgs { RequestedType = _channel.Type });
-        }
+            RequestedType = _channel.Type,
+            VideoId = _channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] } ? videoId : null
+        };
+
+        _navigator.ToScreensaver(args);
     }
 
     [RelayCommand]

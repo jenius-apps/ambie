@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Diagnostics;
@@ -109,13 +110,14 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     public bool FullScreenVisible => _systemInfoProvider.GetDeviceFamily() == "Windows.Desktop";
 
-    public Task InitializeAsync(ChannelType channelType)
+    public Task InitializeAsync(ScreensaverArgs args)
     {
-        return InitializeAsync(channelType switch
+        return InitializeAsync(args.RequestedType switch
         {
             ChannelType.DarkScreen => DarkScreenId,
             ChannelType.Slideshow => DefaultId,
-            _ => null
+            ChannelType.Videos => args.VideoId,
+            _ => string.Empty
         });
     }
 
