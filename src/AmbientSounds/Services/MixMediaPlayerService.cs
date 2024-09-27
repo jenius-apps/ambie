@@ -2,7 +2,6 @@
 using AmbientSounds.Events;
 using AmbientSounds.Models;
 using AmbientSounds.Tools;
-using CommunityToolkit.Diagnostics;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
 using System;
@@ -17,9 +16,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private const double DefaultFadeInDurationMs = 1000;
     private const double DefaultFadeOutDurationMs = 300;
 
-    private readonly Dictionary<string, IMediaPlayer> _activePlayers = new();
-    private readonly Dictionary<string, string> _soundNames = new();
-    private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = new();
+    private readonly Dictionary<string, IMediaPlayer> _activePlayers = [];
+    private readonly Dictionary<string, string> _soundNames = [];
+    private readonly Dictionary<string, DateTimeOffset> _activeSoundDateTimes = [];
     private readonly ISystemMediaControls _smtc;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ISoundService _soundDataProvider;
@@ -28,7 +27,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private readonly IUserSettings _userSettings;
     private readonly int _maxActive;
     private readonly string _localDataFolderPath;
-    private (string GuideId, IMediaPlayer GuidePlayer)? _guideInfo;
+    private (string Id, IMediaPlayer Player)? _featureSoundData;
     private double _globalVolume;
     private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
     private string[] _lastAddedSoundIds = [];
@@ -49,7 +48,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
     /// <inheritdoc/>
-    public event EventHandler<TimeSpan>? GuidePositionChanged;
+    public event EventHandler<TimeSpan>? FeaturedSoundPositionChanged;
 
     public MixMediaPlayerService(
         IUserSettings userSettings,
@@ -78,10 +77,10 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public string CurrentMixId { get; set; } = "";
 
     /// <inheritdoc/>
-    public TimeSpan GuideDuration => _guideInfo?.GuidePlayer.Duration ?? TimeSpan.MinValue;
+    public TimeSpan FeaturedSoundDuration => _featureSoundData?.Player.Duration ?? TimeSpan.MinValue;
 
     /// <inheritdoc/>
-    public string CurrentGuideId => _guideInfo?.GuideId ?? string.Empty;
+    public string FeaturedSoundId => _featureSoundData?.Id ?? string.Empty;
 
     /// <inheritdoc/>
     public double GlobalVolume
@@ -136,7 +135,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             _activePlayers[soundId].Volume = GetVolume(soundId) * value;
         }
 
-        if (_guideInfo?.GuidePlayer is IMediaPlayer guidePlayer)
+        if (_featureSoundData?.Player is IMediaPlayer guidePlayer)
         {
             guidePlayer.Volume = value;
         }
@@ -154,7 +153,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             return false;
         }
 
-        return _activePlayers.ContainsKey(soundId) || _guideInfo?.GuideId == soundId;
+        return _activePlayers.ContainsKey(soundId) || _featureSoundData?.Id == soundId;
     }
 
     /// <inheritdoc/>
@@ -195,45 +194,39 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         return keyValuePairList.Select(x => x.Key);
     }
 
-    public async Task PlayGuideAsync(Guide guide)
+    public async Task PlayFeaturedSoundAsync(string id, string filePath)
     {
-        if (_guideInfo?.GuideId == guide.Id)
+        if (_featureSoundData?.Id == id)
         {
             // already loaded so don't change anything. Just play it
             Play();
             return;
         }
 
-        if (!guide.IsDownloaded)
-        {
-            ThrowHelper.ThrowArgumentException("The guide you tried to play wasn't downloaded. " +
-                "This should never happen. If it does, then you're doing something wrong. Please fix.");
-        }
-
-        IMediaPlayer player = _guideInfo?.GuidePlayer
+        IMediaPlayer player = _featureSoundData?.Player
             ?? _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
 
         player.Pause();
-        bool success = await player.SetSourceAsync(guide.FilePath);
+        bool success = await player.SetSourceAsync(filePath);
         
         if (success)
         {
-            player.PositionChanged -= OnGuidePositionChanged;
-            player.PositionChanged += OnGuidePositionChanged;
+            player.PositionChanged -= OnFeaturedSoundPositionChanged;
+            player.PositionChanged += OnFeaturedSoundPositionChanged;
 
             // TODO  refresh smtc title
             player.Volume = _globalVolume;
 
-            _guideInfo = (guide.Id, player);
+            _featureSoundData = (id, player);
 
-            _lastAddedSoundIds = [guide.Id];
+            _lastAddedSoundIds = [id];
             Play();
         }
     }
 
-    private void OnGuidePositionChanged(object sender, TimeSpan e)
+    private void OnFeaturedSoundPositionChanged(object sender, TimeSpan e)
     {
-        GuidePositionChanged?.Invoke(sender, e);
+        FeaturedSoundPositionChanged?.Invoke(sender, e);
     }
 
     /// <inheritdoc/>
@@ -363,13 +356,13 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             }
         }
 
-        if (fadeAll || _lastAddedSoundIds.Contains(_guideInfo?.GuideId))
+        if (fadeAll || _lastAddedSoundIds.Contains(_featureSoundData?.Id))
         {
-            _guideInfo?.GuidePlayer.Play(fadeInTargetVolume: 1.0 * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
+            _featureSoundData?.Player.Play(fadeInTargetVolume: 1.0 * _globalVolume, fadeDuration: DefaultFadeInDurationMs);
         }
         else
         {
-            _guideInfo?.GuidePlayer.Play();
+            _featureSoundData?.Player.Play();
         }
 
         // Reset this so that the next time play is clicked,
@@ -384,7 +377,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         {
             p.Pause(fadeDuration: DefaultFadeOutDurationMs);
         }
-        _guideInfo?.GuidePlayer.Pause(fadeDuration: DefaultFadeOutDurationMs);
+        _featureSoundData?.Player.Pause(fadeDuration: DefaultFadeOutDurationMs);
     }
 
     /// <inheritdoc/>
@@ -406,7 +399,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             return;
         }
 
-        if (_guideInfo?.GuideId == soundId)
+        if (_featureSoundData?.Id == soundId)
         {
             RemoveGuide();
             return;
@@ -489,12 +482,12 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     private void RemoveGuide()
     {
-        if (_guideInfo is { } guideInfo)
+        if (_featureSoundData is { } guideInfo)
         {
-            guideInfo.GuidePlayer.Pause(fadeDuration: DefaultFadeOutDurationMs, disposeAfterFadeOut: true);
-            guideInfo.GuidePlayer.PositionChanged -= OnGuidePositionChanged;
+            guideInfo.Player.Pause(fadeDuration: DefaultFadeOutDurationMs, disposeAfterFadeOut: true);
+            guideInfo.Player.PositionChanged -= OnFeaturedSoundPositionChanged;
         }
 
-        _guideInfo = null;
+        _featureSoundData = null;
     }
 }

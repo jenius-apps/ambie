@@ -80,7 +80,7 @@ public partial class MeditatePageViewModel : ObservableObject
 
             Guide? offlineGuide = await _guideService.GetOfflineGuideAsync(guide.Id);
             vm.IsDownloaded = offlineGuide is not null;
-            vm.IsPlaying = _mixMediaPlayerService.CurrentGuideId == guide.Id 
+            vm.IsPlaying = _mixMediaPlayerService.FeaturedSoundId == guide.Id 
                 && _mixMediaPlayerService.PlaybackState is MediaPlaybackState.Playing;
             vm.IsOwned = !guide.IsPremium || await _iapService.IsAnyOwnedAsync(guide.IapIds);
             Guides.Add(vm);
@@ -187,7 +187,7 @@ public partial class MeditatePageViewModel : ObservableObject
     {
         // This ensures that when a guide starts playing, the play icon changes
         // to the stop icon.
-        string currentGuideId = _mixMediaPlayerService.CurrentGuideId;
+        string currentGuideId = _mixMediaPlayerService.FeaturedSoundId;
         foreach (var guideVm in Guides)
         {
             guideVm.IsPlaying = guideVm.OnlineGuide.Id == currentGuideId;

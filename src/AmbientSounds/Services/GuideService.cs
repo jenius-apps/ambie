@@ -44,7 +44,7 @@ public class GuideService : IGuideService
         _fileWriter = fileWriter;
         _mixMediaPlayerService = mixMediaPlayerService;
 
-        _mixMediaPlayerService.GuidePositionChanged += OnGuidePositionChanged;
+        _mixMediaPlayerService.FeaturedSoundPositionChanged += OnFeaturedSoundPositionChanged;
     }
 
     public async Task PlayAsync(Guide guide)
@@ -73,7 +73,7 @@ public class GuideService : IGuideService
             }
 
             // Only an offline guide can be played because its sound file is saved locally
-            await _mixMediaPlayerService.PlayGuideAsync(offlineGuide);
+            await _mixMediaPlayerService.PlayFeaturedSoundAsync(offlineGuide.Id, offlineGuide.FilePath);
             GuideStarted?.Invoke(this, guide.Id);
         }
     }
@@ -89,7 +89,7 @@ public class GuideService : IGuideService
 
     public void Stop()
     {
-        if (_mixMediaPlayerService.CurrentGuideId is { Length: > 0 } guideId)
+        if (_mixMediaPlayerService.FeaturedSoundId is { Length: > 0 } guideId)
         {
             Stop(guideId);
         }
@@ -194,12 +194,12 @@ public class GuideService : IGuideService
         return success;
     }
 
-    private void OnGuidePositionChanged(object sender, TimeSpan e)
+    private void OnFeaturedSoundPositionChanged(object sender, TimeSpan e)
     {
-        if (_mixMediaPlayerService.CurrentGuideId is { Length: > 0 } guideId)
+        if (_mixMediaPlayerService.FeaturedSoundId is { Length: > 0 } guideId)
         {
-            if (_mixMediaPlayerService.GuideDuration > TimeSpan.MinValue &&
-                _mixMediaPlayerService.GuideDuration == e)
+            if (_mixMediaPlayerService.FeaturedSoundDuration > TimeSpan.MinValue &&
+                _mixMediaPlayerService.FeaturedSoundDuration == e)
             {
                 Stop(guideId);
             }
