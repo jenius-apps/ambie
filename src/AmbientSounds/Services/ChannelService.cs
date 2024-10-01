@@ -242,7 +242,6 @@ public class ChannelService : IChannelService
             return;
         }
 
-        // TODO, for the file path, need to handle the appx:// resource scenario.
         await _player.PlayFeaturedSoundAsync(sound.Id, sound.FilePath, enableGaplessLoop: true);
 
         var args = new ScreensaverArgs()

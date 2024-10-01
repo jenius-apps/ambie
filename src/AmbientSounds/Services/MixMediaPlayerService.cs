@@ -207,14 +207,17 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             ?? _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
 
         player.Pause();
-        bool success = await player.SetSourceAsync(filePath, enableGaplessLoop);
         
-        if (success)
+        if (await TrySetSourceAsync(player, filePath, enableGaplessLoop))
         {
             player.PositionChanged -= OnFeaturedSoundPositionChanged;
             player.PositionChanged += OnFeaturedSoundPositionChanged;
 
             // TODO  refresh smtc title
+
+            // Featured sound doesn't have
+            // separate volume. Instead, its volume is
+            // always the same as the global volume for the app.
             player.Volume = _globalVolume;
 
             _featureSoundData = (id, player);
@@ -267,16 +270,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         if (_activePlayers.Count < _maxActive)
         {
             IMediaPlayer player = _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
-
-            if (Uri.IsWellFormedUriString(sound.FilePath, UriKind.Absolute))
-            {
-                // sound path is packaged and must be read as URI.
-                sourceSetSuccessfully = player.SetUriSource(new Uri(sound.FilePath), enableGaplessLoop: true);
-            }
-            else if (sound.FilePath is not null && sound.FilePath.Contains(_localDataFolderPath))
-            {
-                sourceSetSuccessfully = await player.SetSourceAsync(sound.FilePath, enableGaplessLoop: true);
-            }
+            sourceSetSuccessfully = await TrySetSourceAsync(player, sound.FilePath, true);
 
             if (sourceSetSuccessfully)
             {
@@ -489,5 +483,21 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         _featureSoundData = null;
+    }
+
+    private async Task<bool> TrySetSourceAsync(IMediaPlayer player, string filePath, bool enableGaplessLoop)
+    {
+        bool result = false;
+        if (Uri.IsWellFormedUriString(filePath, UriKind.Absolute))
+        {
+            // sound path is packaged and must be read as URI.
+            result = player.SetUriSource(new Uri(filePath), enableGaplessLoop);
+        }
+        else if (filePath is not null && filePath.Contains(_localDataFolderPath))
+        {
+            result = await player.SetSourceAsync(filePath, enableGaplessLoop);
+        }
+
+        return result;
     }
 }
