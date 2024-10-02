@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-namespace AmbientSounds.Models;
+﻿namespace AmbientSounds.Models;
 
 /// <summary>
 /// Data transfer object representing details
