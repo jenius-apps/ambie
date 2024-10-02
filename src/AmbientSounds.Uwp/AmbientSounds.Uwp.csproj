@@ -825,6 +825,10 @@
     <Content Include="Assets\Data.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AmbientSounds.Models\AmbientSounds.Models.csproj">
+      <Project>{8cc4241a-f7b8-42ce-aa56-1ce90a8a72f9}</Project>
+      <Name>AmbientSounds.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AmbientSounds.Tasks\AmbientSounds.Tasks.csproj">
       <Project>{ef926887-a6b2-461e-97ca-1c25b065e0c6}</Project>
       <Name>AmbientSounds.Tasks</Name>

@@ -44,6 +44,10 @@
     <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AmbientSounds.Models\AmbientSounds.Models.csproj" />
+  </ItemGroup>
+
   <!-- MSBuild properties to customize the generation from PolySharp -->
   <PropertyGroup>
 
