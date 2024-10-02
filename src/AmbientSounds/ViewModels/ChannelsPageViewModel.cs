@@ -38,7 +38,7 @@ public partial class ChannelsPageViewModel : ObservableObject
         {
             ct.ThrowIfCancellationRequested();
 
-            if (_channelFactory.Create(c) is { } vm)
+            if (_channelFactory.Create(c.Value) is { } vm)
             {
                 tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);
