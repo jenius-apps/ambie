@@ -68,7 +68,7 @@ public class Channel : IAsset
     /// <summary>
     /// Describes the type of content to be displayed.
     /// </summary>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter<ChannelType>))]
     public ChannelType Type { get; set; }
 }
 
