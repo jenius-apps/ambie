@@ -3,9 +3,30 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	<Nullable>enable</Nullable>
+	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<PackageTags>jeniusapps,apps,common</PackageTags>
+	<RepositoryUrl>https://github.com/jenius-apps/ambie</RepositoryUrl>
+	<Authors>Daniel Paulino</Authors>
+	<Company>JeniusApps</Company>
+	<Copyright>© Jenius Apps</Copyright>
+	<PackageProjectUrl></PackageProjectUrl>
+	<Description>A .NET Standard 2.0 library of models used by Ambie White Noise.</Description>
+	<IsPackable>true</IsPackable>
+	<IncludeSymbols>true</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	<Version>1.0.0</Version>
   </PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
+      <None Include="..\..\LICENSE.txt">
+      	<Pack>True</Pack>
+      	<PackagePath></PackagePath>
+      </None>
+	</ItemGroup>
+
+	<ItemGroup>
     <PackageReference Include="PolySharp" Version="1.14.1" PrivateAssets="all" />
     <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
