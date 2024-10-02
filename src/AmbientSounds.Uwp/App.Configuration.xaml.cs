@@ -225,5 +225,7 @@ partial class App
     [Transient(typeof(XboxShellPageViewModel))]
     [Singleton(typeof(XboxSlideshowService), typeof(IXboxSlideshowService))]
     [Singleton(typeof(ChannelService), typeof(IChannelService))]
+    [Singleton(typeof(ChannelCache), typeof(IChannelCache))]
+    [Singleton(typeof(ChannelRepository), typeof(IChannelRepository))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

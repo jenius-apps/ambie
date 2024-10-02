@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Events;
+﻿using AmbientSounds.Cache;
+using AmbientSounds.Events;
 using AmbientSounds.Models;
 using System;
 using System.Collections.Concurrent;
@@ -8,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace AmbientSounds.Services;
 
-public class ChannelService : IChannelService
+public sealed class ChannelService : IChannelService
 {
+    private readonly IChannelCache _channelCache;
     private readonly ISoundService _soundService;
     private readonly IVideoService _videoService;
     private readonly IIapService _iapService;
@@ -24,6 +26,7 @@ public class ChannelService : IChannelService
     public event EventHandler<string>? ChannelDownloaded;
 
     public ChannelService(
+        IChannelCache channelCache,
         ISoundService soundService,
         IVideoService videoService,
         IIapService iapService,
@@ -32,6 +35,7 @@ public class ChannelService : IChannelService
         INavigator navigator,
         IMixMediaPlayerService mixMediaPlayerService)
     {
+        _channelCache = channelCache;
         _soundService = soundService;
         _videoService = videoService;
         _iapService = iapService;
@@ -42,55 +46,55 @@ public class ChannelService : IChannelService
     }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyList<Channel>> GetChannelsAsync()
+    public async Task<IReadOnlyDictionary<string, Channel>> GetChannelsAsync()
     {
-        await Task.Delay(1);
+        return await _channelCache.GetItemsAsync();
 
-        return
-        [
-            new Channel
-            {
-                Type = ChannelType.DarkScreen,
-                ImagePath = "https://getwallpapers.com/wallpaper/full/3/f/f/6072.jpg",
-                Localizations = new Dictionary<string, DisplayInformation>()
-                {
-                    { "en", new DisplayInformation { Name = "Dark screen", Description = "A dark screen that is ideal for sleeping or low stimulus." } }
-                },
-            },
-            new Channel
-            {
-                Type = ChannelType.Slideshow,
-                ImagePath = "https://images.unsplash.com/photo-1531845116688-48819b3b68d9?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                Localizations = new Dictionary<string, DisplayInformation>()
-                {
-                    { "en", new DisplayInformation { Name = "Slideshow", Description = "An animated carousel of images based on the actively playing sounds." } }
-                },
-            },
-            new Channel
-            {
-                Type = ChannelType.Videos,
-                ImagePath = "https://th.bing.com/th/id/R.af2a4af63bd0e46d1d57ea3b5bf5a822?rik=pLtrY6F8U2760g&riu=http%3a%2f%2fsuperiorclay.com%2fwp-content%2fuploads%2f2014%2f05%2fStandard-Fireplace.jpg&ehk=Nvs9OBUfk5ewZ2h7ysFBZyGW6IBZFy2RY%2fRxKhbn5T0%3d&risl=1&pid=ImgRaw&r=0",
-                Localizations = new Dictionary<string, DisplayInformation>()
-                {
-                    { "en", new DisplayInformation { Name = "Fireplace", Description = "Chestnuts roasting in an open fire." } }
-                },
-                VideoIds = ["59c3b21c-3df1-44d0-a2f7-096bf55728c3"],
-                SoundIds = ["b22901eb-2269-4b3f-80ab-af2722e68ff1"],
-                IapIds = ["ambieplus"]
-            },
-            new Channel
-            {
-                Type = ChannelType.Videos,
-                ImagePath = "https://images.unsplash.com/photo-1504177151729-0e0600389766?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                Localizations = new Dictionary<string, DisplayInformation>()
-                {
-                    { "en", new DisplayInformation { Name = "Japanese pond", Description = "Relaxing pond in Japan." } }
-                },
-                VideoIds = ["5005f3f6-5856-4aba-9fb0-a40b527b7c11"],
-                SoundIds = ["0fff9b38-c06c-4008-a864-2fc86d4defc3"],
-                IapIds = ["ambieplus"]
-            },
-        ];
+        //return
+        //[
+        //    new Channel
+        //    {
+        //        Type = ChannelType.DarkScreen,
+        //        ImagePath = "https://getwallpapers.com/wallpaper/full/3/f/f/6072.jpg",
+        //        Localizations = new Dictionary<string, DisplayInformation>()
+        //        {
+        //            { "en", new DisplayInformation { Name = "Dark screen", Description = "A dark screen that is ideal for sleeping or low stimulus." } }
+        //        },
+        //    },
+        //    new Channel
+        //    {
+        //        Type = ChannelType.Slideshow,
+        //        ImagePath = "https://images.unsplash.com/photo-1531845116688-48819b3b68d9?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        //        Localizations = new Dictionary<string, DisplayInformation>()
+        //        {
+        //            { "en", new DisplayInformation { Name = "Slideshow", Description = "An animated carousel of images based on the actively playing sounds." } }
+        //        },
+        //    },
+        //    new Channel
+        //    {
+        //        Type = ChannelType.Videos,
+        //        ImagePath = "https://th.bing.com/th/id/R.af2a4af63bd0e46d1d57ea3b5bf5a822?rik=pLtrY6F8U2760g&riu=http%3a%2f%2fsuperiorclay.com%2fwp-content%2fuploads%2f2014%2f05%2fStandard-Fireplace.jpg&ehk=Nvs9OBUfk5ewZ2h7ysFBZyGW6IBZFy2RY%2fRxKhbn5T0%3d&risl=1&pid=ImgRaw&r=0",
+        //        Localizations = new Dictionary<string, DisplayInformation>()
+        //        {
+        //            { "en", new DisplayInformation { Name = "Fireplace", Description = "Chestnuts roasting in an open fire." } }
+        //        },
+        //        VideoIds = ["59c3b21c-3df1-44d0-a2f7-096bf55728c3"],
+        //        SoundIds = ["b22901eb-2269-4b3f-80ab-af2722e68ff1"],
+        //        IapIds = ["ambieplus"]
+        //    },
+        //    new Channel
+        //    {
+        //        Type = ChannelType.Videos,
+        //        ImagePath = "https://images.unsplash.com/photo-1504177151729-0e0600389766?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        //        Localizations = new Dictionary<string, DisplayInformation>()
+        //        {
+        //            { "en", new DisplayInformation { Name = "Japanese pond", Description = "Relaxing pond in Japan." } }
+        //        },
+        //        VideoIds = ["5005f3f6-5856-4aba-9fb0-a40b527b7c11"],
+        //        SoundIds = ["0fff9b38-c06c-4008-a864-2fc86d4defc3"],
+        //        IapIds = ["ambieplus"]
+        //    },
+        //];
     }
 
     public async Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null)
