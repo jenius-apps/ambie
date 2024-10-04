@@ -16,6 +16,7 @@ public class Channel : IAsset
     /// <summary>
     /// Id for this channel.
     /// </summary>
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <summary>
