@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -39,7 +40,7 @@ public partial class ChannelsPageViewModel : ObservableObject
         {
             ct.ThrowIfCancellationRequested();
 
-            if (_channelFactory.Create(c.Value) is { } vm)
+            if (_channelFactory.Create(c.Value, ViewDetailsCommand) is { } vm)
             {
                 tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);
@@ -54,5 +55,11 @@ public partial class ChannelsPageViewModel : ObservableObject
     public void Uninitialize()
     {
         Channels.Clear();
+    }
+
+    [RelayCommand]
+    private void ViewDetails(ChannelViewModel? vmToSelect)
+    {
+        SelectedChannel = vmToSelect;
     }
 }

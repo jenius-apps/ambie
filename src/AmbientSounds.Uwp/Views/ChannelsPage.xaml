@@ -4,8 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:JeniusApps.Common.UI.Uwp"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,7 +21,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
         <GridView
@@ -33,10 +35,20 @@
                         Width="220"
                         Height="192"
                         HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"
-                        PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildRectangle}"
-                        PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}">
-                        <Grid Background="Transparent">
+                        VerticalContentAlignment="Stretch">
+
+                        <Grid
+                            Background="Transparent"
+                            PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildRectangle}"
+                            PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
+                            PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
+                            PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="Tapped">
+                                    <core:InvokeCommandAction Command="{x:Bind ViewDetailsCommand}" CommandParameter="{x:Bind}" />
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="auto" />
@@ -55,7 +67,7 @@
                                 RadiusY="8"
                                 Stretch="Fill">
                                 <ani:Implicit.Animations>
-                                    <ani:ScaleAnimation Duration="0:0:1" />
+                                    <ani:ScaleAnimation Duration="0:0:0.6" />
                                 </ani:Implicit.Animations>
 
                                 <Rectangle.Fill>
@@ -92,7 +104,24 @@
             </GridView.ItemTemplate>
         </GridView>
 
-        <Grid Grid.Column="1">
+        <Grid
+            Grid.Column="1"
+            Width="300"
+            Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
+            <ani:Implicit.ShowAnimations>
+                <ani:TranslationAnimation
+                    From="20,0,0"
+                    To="0"
+                    Duration="0:0:0.6" />
+            </ani:Implicit.ShowAnimations>
+
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="ManualContentFadeIn">
+                    <ani:StartAnimationActivity Animation="{x:Bind ImageFadeIn}" />
+                    <ani:StartAnimationActivity Animation="{x:Bind DetailsFadeIn}" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
@@ -109,11 +138,25 @@
                 Height="160"
                 Margin="20"
                 HorizontalAlignment="Stretch"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
                 CornerRadius="8"
                 Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
                 <Border.Background>
                     <ImageBrush ImageSource="{x:Bind ViewModel.SelectedChannel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
                 </Border.Background>
+
+                <ani:Explicit.Animations>
+                    <ani:AnimationSet x:Name="ImageFadeIn">
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.9" />
+                        <ani:ScaleAnimation
+                            From="0.9"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </ani:AnimationSet>
+                </ani:Explicit.Animations>
 
                 <ui:Effects.Shadow>
                     <media:AttachedCardShadow
@@ -127,7 +170,25 @@
             <StackPanel
                 Grid.Row="1"
                 Margin="20,0"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
                 Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
+                <ani:Explicit.Animations>
+                    <ani:AnimationSet x:Name="DetailsFadeIn">
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                        <ani:TranslationAnimation
+                            From="0,4,0"
+                            To="0"
+                            Duration="0:0:0.9" />
+                        <ani:ScaleAnimation
+                            From="0.95"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </ani:AnimationSet>
+                </ani:Explicit.Animations>
+
                 <TextBlock
                     FontSize="12"
                     Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -135,6 +196,11 @@
                     TextWrapping="WrapWholeWords" />
 
                 <Grid Margin="0,20,0,0">
+                    <labs:Shimmer
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.ActionButtonLoading, Mode=OneWay}" />
+
                     <Button
                         MinHeight="48"
                         HorizontalAlignment="Stretch"
@@ -158,12 +224,6 @@
                         Style="{StaticResource AccentButtonStyle}"
                         Visibility="{x:Bind ViewModel.SelectedChannel.BuyButtonVisible, Mode=OneWay}" />
                 </Grid>
-
-                <labs:Shimmer
-                    MinHeight="48"
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Stretch"
-                    Visibility="{x:Bind ViewModel.SelectedChannel.ActionButtonLoading, Mode=OneWay}" />
 
                 <winui:ProgressBar
                     Margin="0,20,0,0"

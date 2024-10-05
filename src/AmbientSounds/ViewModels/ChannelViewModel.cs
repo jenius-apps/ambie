@@ -19,16 +19,20 @@ public partial class ChannelViewModel : ObservableObject
         Channel channel,
         IAssetLocalizer assetLocalizer,
         INavigator navigator,
-        IChannelService channelService)
+        IChannelService channelService,
+        IRelayCommand<ChannelViewModel>? viewDetailsCommand = null)
     {
         _channel = channel;
         _assetLocalizer = assetLocalizer;
         _navigator = navigator;
         _channelService = channelService;
+        ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>((vm) => { });
 
         DownloadProgress = new Progress<double>();
         DownloadProgress.ProgressChanged += OnProgressChanged;
     }
+
+    public IRelayCommand ViewDetailsCommand { get; }
 
     public Progress<double> DownloadProgress { get; }
 

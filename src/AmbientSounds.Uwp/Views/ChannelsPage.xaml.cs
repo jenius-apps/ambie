@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.UI;
 using System;
+using System.ComponentModel;
 using System.Threading;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -24,6 +25,8 @@ public sealed partial class ChannelsPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        ViewModel.PropertyChanged += OnPropertyChanged;
+
         _cts ??= new();
 
         try
@@ -38,9 +41,18 @@ public sealed partial class ChannelsPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        ViewModel.PropertyChanged -= OnPropertyChanged;
         _cts?.Cancel();
         _cts = null;
         ViewModel.Uninitialize();
+    }
+
+    private async void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(ViewModel.SelectedChannel) && ViewModel.SelectedChannel is not null)
+        {
+            await ManualContentFadeIn.StartAsync();
+        }
     }
 
     private void OnGridViewLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
