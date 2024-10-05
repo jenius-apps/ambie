@@ -235,18 +235,31 @@ public sealed class ChannelService : IChannelService
     /// <inheritdoc/>
     public async Task PlayChannelAsync(Channel channel)
     {
-        if (channel.SoundIds is not [string soundId, ..])
+        if (channel.Type is ChannelType.Videos)
         {
-            return;
-        }
+            if (channel.SoundIds is not [string soundId, ..] || channel.VideoIds.Count == 0)
+            {
+                return;
+            }
 
-        var sound = await _soundService.GetLocalSoundAsync(soundId);
-        if (sound is null)
+            if (await _soundService.GetLocalSoundAsync(soundId) is not Sound s)
+            {
+                return;
+            }
+
+            _ = _player.PlayFeaturedSoundAsync(s.Id, s.FilePath, enableGaplessLoop: true);
+        }
+        else if (channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow)
         {
-            return;
+            if (_player.GetSoundIds().Length == 0)
+            {
+                await _player.AddRandomAsync();
+            }
+            else
+            {
+                _player.Play();
+            }
         }
-
-        await _player.PlayFeaturedSoundAsync(sound.Id, sound.FilePath, enableGaplessLoop: true);
 
         var args = new ScreensaverArgs()
         {
