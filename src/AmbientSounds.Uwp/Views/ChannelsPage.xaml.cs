@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.UI;
 using System;
 using System.Threading;
 using Windows.UI.Xaml.Controls;
@@ -40,5 +41,17 @@ public sealed partial class ChannelsPage : Page
         _cts?.Cancel();
         _cts = null;
         ViewModel.Uninitialize();
+    }
+
+    private void OnGridViewLoaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    {
+        if (sender is GridView gridView)
+        {
+            ScrollViewer? s = gridView.FindDescendant<ScrollViewer>();
+            if (s is not null)
+            {
+                s.CanContentRenderOutsideBounds = true;
+            }
+        }
     }
 }

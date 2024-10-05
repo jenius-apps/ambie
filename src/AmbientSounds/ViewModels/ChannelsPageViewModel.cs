@@ -3,6 +3,7 @@ using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -34,7 +35,7 @@ public partial class ChannelsPageViewModel : ObservableObject
 
         ct.ThrowIfCancellationRequested();
         var tasks = new List<Task>();
-        foreach (var c in channels)
+        foreach (var c in channels.OrderBy(x => x.Key))
         {
             ct.ThrowIfCancellationRequested();
 
