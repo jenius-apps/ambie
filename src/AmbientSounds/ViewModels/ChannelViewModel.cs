@@ -12,20 +12,20 @@ public partial class ChannelViewModel : ObservableObject
 {
     private readonly Channel _channel;
     private readonly IAssetLocalizer _assetLocalizer;
-    private readonly INavigator _navigator;
     private readonly IChannelService _channelService;
+    private readonly IDialogService _dialogService;
 
     public ChannelViewModel(
         Channel channel,
         IAssetLocalizer assetLocalizer,
-        INavigator navigator,
         IChannelService channelService,
+        IDialogService dialogService,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null)
     {
         _channel = channel;
         _assetLocalizer = assetLocalizer;
-        _navigator = navigator;
         _channelService = channelService;
+        _dialogService = dialogService;
         ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>((vm) => { });
 
         DownloadProgress = new Progress<double>();
@@ -92,6 +92,12 @@ public partial class ChannelViewModel : ObservableObject
     private async Task Play()
     {
         await _channelService.PlayChannelAsync(_channel);
+    }
+
+    [RelayCommand]
+    private async Task UnlockAsync()
+    {
+        await _dialogService.OpenPremiumAsync();
     }
 
     [RelayCommand]

@@ -220,6 +220,7 @@
                     <Button
                         MinHeight="48"
                         HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.SelectedChannel.UnlockCommand, Mode=OneWay}"
                         Content="Unlock"
                         Style="{StaticResource AccentButtonStyle}"
                         Visibility="{x:Bind ViewModel.SelectedChannel.BuyButtonVisible, Mode=OneWay}" />
