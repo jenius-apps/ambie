@@ -70,7 +70,10 @@ public partial class ChannelViewModel : ObservableObject
     private bool _isFullyDownloaded;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(DownloadProgressString))]
     private double _downloadProgressValue;
+
+    public string DownloadProgressString => $"{DownloadProgressValue:N0}%";
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
@@ -120,6 +123,7 @@ public partial class ChannelViewModel : ObservableObject
     [RelayCommand]
     private async Task DownloadAsync()
     {
+        ActionButtonLoading = true;
         await _channelService.QueueInstallChannelAsync(_channel, DownloadProgress);
     }
 
@@ -139,6 +143,7 @@ public partial class ChannelViewModel : ObservableObject
         {
             IsFullyDownloaded = true;
             DownloadProgressVisible = false;
+            ActionButtonLoading = false;
         }
 
         DownloadProgressValue = e;
