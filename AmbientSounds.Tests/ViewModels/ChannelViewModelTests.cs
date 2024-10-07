@@ -53,9 +53,10 @@ public class ChannelViewModelTests
 
         var vm = new ChannelViewModel(
             It.IsAny<Channel>(),
-            new Mock<IAssetLocalizer>().Object,
-            new Mock<INavigator>().Object,
-            channelServiceMock.Object);
+            Mock.Of<IAssetLocalizer>(),
+            channelServiceMock.Object,
+            Mock.Of<IDialogService>(),
+            Mock.Of<IIapService>());
 
         return vm;
     }
