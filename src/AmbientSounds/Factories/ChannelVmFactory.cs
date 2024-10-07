@@ -18,6 +18,7 @@ public class ChannelVmFactory(IServiceProvider serviceProvider)
             serviceProvider.GetRequiredService<IAssetLocalizer>(),
             serviceProvider.GetRequiredService<IChannelService>(),
             serviceProvider.GetRequiredService<IDialogService>(),
+            serviceProvider.GetRequiredService<IIapService>(),
             viewDetailsCommand);
     }
 }

@@ -1,9 +1,9 @@
-﻿using AmbientSounds.Events;
-using AmbientSounds.Models;
+﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -14,18 +14,22 @@ public partial class ChannelViewModel : ObservableObject
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IChannelService _channelService;
     private readonly IDialogService _dialogService;
+    private readonly IIapService _iapService;
+    private bool _eventsRegistered;
 
     public ChannelViewModel(
         Channel channel,
         IAssetLocalizer assetLocalizer,
         IChannelService channelService,
         IDialogService dialogService,
+        IIapService iapService,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null)
     {
         _channel = channel;
         _assetLocalizer = assetLocalizer;
         _channelService = channelService;
         _dialogService = dialogService;
+        _iapService = iapService;
         ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>((vm) => { });
 
         DownloadProgress = new Progress<double>();
@@ -79,6 +83,12 @@ public partial class ChannelViewModel : ObservableObject
     {
         ActionButtonLoading = true;
 
+        if (!_eventsRegistered)
+        {
+            _eventsRegistered = true;
+            _iapService.ProductPurchased += OnProductPurchased;
+        }
+
         var isOwnedTask = _channelService.IsOwnedAsync(_channel);
         var isFullyDownloadedTask = _channelService.IsFullyDownloadedAsync(_channel);
 
@@ -86,6 +96,11 @@ public partial class ChannelViewModel : ObservableObject
         IsFullyDownloaded = await isFullyDownloadedTask;
 
         ActionButtonLoading = false;
+    }
+
+    public void Uninitialize()
+    {
+        _iapService.ProductPurchased -= OnProductPurchased;
     }
 
     [RelayCommand]
@@ -97,7 +112,9 @@ public partial class ChannelViewModel : ObservableObject
     [RelayCommand]
     private async Task UnlockAsync()
     {
+        ActionButtonLoading = true;
         await _dialogService.OpenPremiumAsync();
+        ActionButtonLoading = false;
     }
 
     [RelayCommand]
@@ -125,5 +142,13 @@ public partial class ChannelViewModel : ObservableObject
         }
 
         DownloadProgressValue = e;
+    }
+
+    private void OnProductPurchased(object sender, string iapId)
+    {
+        if (_channel.IapIds.Contains(iapId))
+        {
+            IsOwned = true;
+        }
     }
 }

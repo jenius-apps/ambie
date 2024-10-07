@@ -54,6 +54,11 @@ public partial class ChannelsPageViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        foreach (var channel in Channels)
+        {
+            channel.Uninitialize();
+        }
+
         Channels.Clear();
     }
 
