@@ -89,6 +89,7 @@
         <MediaPlayerElement
             x:Name="VideoPlayer"
             AutoPlay="True"
+            Stretch="UniformToFill"
             Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
 
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />

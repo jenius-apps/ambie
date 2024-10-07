@@ -44,6 +44,11 @@ public partial class ChannelsPageViewModel : ObservableObject
             {
                 tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);
+
+                if (vm.Id == _channelService.MostRecentChannelDetailsViewed)
+                {
+                    SelectedChannel = vm;
+                }
             }
         }
 
@@ -66,5 +71,6 @@ public partial class ChannelsPageViewModel : ObservableObject
     private void ViewDetails(ChannelViewModel? vmToSelect)
     {
         SelectedChannel = vmToSelect;
+        _channelService.MostRecentChannelDetailsViewed = vmToSelect?.Id;
     }
 }

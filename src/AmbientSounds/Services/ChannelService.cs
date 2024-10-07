@@ -46,6 +46,9 @@ public sealed class ChannelService : IChannelService
     }
 
     /// <inheritdoc/>
+    public string? MostRecentChannelDetailsViewed { get; set; }
+
+    /// <inheritdoc/>
     public async Task<IReadOnlyDictionary<string, Channel>> GetChannelsAsync()
     {
         return await _channelCache.GetItemsAsync();

@@ -33,8 +33,8 @@ public class Navigator : INavigator
                 GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
                 break;
             case nameof(ScreensaverPage):
-                GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
-                NavigateTo(ContentPageType.Home);
+                GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
+                NavigateTo(ContentPageType.Channels);
                 break;
             default:
                 GoBackSafely(Frame);
@@ -55,7 +55,7 @@ public class Navigator : INavigator
     {
         if (RootFrame is Frame f && f.CurrentSourcePageType != typeof(ScreensaverPage))
         {
-            f.Navigate(typeof(ScreensaverPage), args, new DrillInNavigationTransitionInfo());
+            f.Navigate(typeof(ScreensaverPage), args, new SuppressNavigationTransitionInfo());
         }
     }
 

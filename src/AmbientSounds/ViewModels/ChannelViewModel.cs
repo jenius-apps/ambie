@@ -36,6 +36,8 @@ public partial class ChannelViewModel : ObservableObject
         DownloadProgress.ProgressChanged += OnProgressChanged;
     }
 
+    public string Id => _channel.Id;
+
     public IRelayCommand ViewDetailsCommand { get; }
 
     public Progress<double> DownloadProgress { get; }

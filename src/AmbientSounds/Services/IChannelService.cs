@@ -8,6 +8,14 @@ namespace AmbientSounds.Services;
 public interface IChannelService
 {
     /// <summary>
+    /// ID of channel whose details were most recently viewed.
+    /// </summary>
+    /// <remarks>
+    /// In-memory only. Does not persist if the app restarts.
+    /// </remarks>
+    string? MostRecentChannelDetailsViewed { get; set; }
+
+    /// <summary>
     /// Raised when a channel is downloaded.
     /// </summary>
     event EventHandler<string>? ChannelDownloaded;
