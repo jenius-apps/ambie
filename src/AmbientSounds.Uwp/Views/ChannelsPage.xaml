@@ -18,6 +18,10 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <x:Double x:Key="ActionButtonSpacing">8</x:Double>
+    </Page.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -205,25 +209,47 @@
                         MinHeight="48"
                         HorizontalAlignment="Stretch"
                         Command="{x:Bind ViewModel.SelectedChannel.DownloadCommand, Mode=OneWay}"
-                        Content="Download"
                         Style="{StaticResource AccentButtonStyle}"
-                        Visibility="{x:Bind ViewModel.SelectedChannel.DownloadButtonVisible, Mode=OneWay}" />
+                        Visibility="{x:Bind ViewModel.SelectedChannel.DownloadButtonVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="{StaticResource ActionButtonSpacing}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="{StaticResource SmallIconSize}"
+                                Glyph="{StaticResource GlyphDownload}" />
+                            <TextBlock VerticalAlignment="Center" Text="Download" />
+                        </StackPanel>
+                    </Button>
 
                     <Button
                         MinHeight="48"
                         HorizontalAlignment="Stretch"
                         Command="{x:Bind ViewModel.SelectedChannel.PlayCommand, Mode=OneWay}"
-                        Content="Play"
                         Style="{StaticResource AccentButtonStyle}"
-                        Visibility="{x:Bind ViewModel.SelectedChannel.PlayButtonVisible, Mode=OneWay}" />
+                        Visibility="{x:Bind ViewModel.SelectedChannel.PlayButtonVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="{StaticResource ActionButtonSpacing}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="{StaticResource SmallIconSize}"
+                                Glyph="{StaticResource GlyphPlay}" />
+                            <TextBlock VerticalAlignment="Center" Text="Play" />
+                        </StackPanel>
+                    </Button>
 
                     <Button
                         MinHeight="48"
                         HorizontalAlignment="Stretch"
                         Command="{x:Bind ViewModel.SelectedChannel.UnlockCommand, Mode=OneWay}"
-                        Content="Unlock"
                         Style="{StaticResource AccentButtonStyle}"
-                        Visibility="{x:Bind ViewModel.SelectedChannel.BuyButtonVisible, Mode=OneWay}" />
+                        Visibility="{x:Bind ViewModel.SelectedChannel.BuyButtonVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="{StaticResource ActionButtonSpacing}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="{StaticResource SmallIconSize}"
+                                Glyph="{StaticResource GlyphUnlock}" />
+                            <TextBlock VerticalAlignment="Center" Text="Unlock" />
+                        </StackPanel>
+
+                    </Button>
                 </Grid>
 
                 <winui:ProgressBar
