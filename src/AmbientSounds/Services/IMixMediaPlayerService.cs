@@ -78,6 +78,11 @@ public interface IMixMediaPlayerService
     string FeaturedSoundId { get; }
 
     /// <summary>
+    /// The type of featured sound. If a sound is not being played, this will be null.
+    /// </summary>
+    FeaturedSoundType? FeaturedSoundType { get; }
+
+    /// <summary>
     /// Cancels any current playback
     /// and plays a random sound instead.
     /// </summary>
@@ -152,7 +157,7 @@ public interface IMixMediaPlayerService
     /// <summary>
     /// Plays the given sound.
     /// </summary>
-    Task PlayFeaturedSoundAsync(string id, string filepath, bool enableGaplessLoop = false);
+    Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filepath, bool enableGaplessLoop = false);
 
     /// <summary>
     /// Plays a random sound.

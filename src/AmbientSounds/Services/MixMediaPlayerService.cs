@@ -27,7 +27,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private readonly IUserSettings _userSettings;
     private readonly int _maxActive;
     private readonly string _localDataFolderPath;
-    private (string Id, IMediaPlayer Player)? _featureSoundData;
+    private (string Id, IMediaPlayer Player, FeaturedSoundType Type)? _featureSoundData;
     private double _globalVolume;
     private MediaPlaybackState _playbackState = MediaPlaybackState.Paused;
     private string[] _lastAddedSoundIds = [];
@@ -81,6 +81,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     /// <inheritdoc/>
     public string FeaturedSoundId => _featureSoundData?.Id ?? string.Empty;
+
+    /// <inheritdoc/>
+    public FeaturedSoundType? FeaturedSoundType => _featureSoundData?.Type;
 
     /// <inheritdoc/>
     public double GlobalVolume
@@ -194,7 +197,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         return keyValuePairList.Select(x => x.Key);
     }
 
-    public async Task PlayFeaturedSoundAsync(string id, string filePath, bool enableGaplessLoop = false)
+    public async Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filePath, bool enableGaplessLoop = false)
     {
         if (_featureSoundData?.Id == id)
         {
@@ -220,7 +223,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             // always the same as the global volume for the app.
             player.Volume = _globalVolume;
 
-            _featureSoundData = (id, player);
+            _featureSoundData = (id, player, type);
 
             _lastAddedSoundIds = [id];
             Play();

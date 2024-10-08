@@ -73,7 +73,7 @@ public class GuideService : IGuideService
             }
 
             // Only an offline guide can be played because its sound file is saved locally
-            await _mixMediaPlayerService.PlayFeaturedSoundAsync(offlineGuide.Id, offlineGuide.FilePath);
+            await _mixMediaPlayerService.PlayFeaturedSoundAsync(FeaturedSoundType.Guide, offlineGuide.Id, offlineGuide.FilePath);
             GuideStarted?.Invoke(this, guide.Id);
         }
     }
@@ -196,7 +196,8 @@ public class GuideService : IGuideService
 
     private void OnFeaturedSoundPositionChanged(object sender, TimeSpan e)
     {
-        if (_mixMediaPlayerService.FeaturedSoundId is { Length: > 0 } guideId)
+        if (_mixMediaPlayerService.FeaturedSoundType is FeaturedSoundType.Guide &&
+            _mixMediaPlayerService.FeaturedSoundId is { Length: > 0 } guideId)
         {
             if (_mixMediaPlayerService.FeaturedSoundDuration > TimeSpan.MinValue &&
                 _mixMediaPlayerService.FeaturedSoundDuration == e)

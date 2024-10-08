@@ -1,8 +1,8 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
+using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Settings;
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -30,6 +31,8 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly ISystemInfoProvider _systemInfoProvider;
     private readonly IUserSettings _userSettings;
+    private readonly IChannelService _channelService;
+    private readonly ChannelVmFactory _channelFactory;
     private Uri _videoSource = new Uri(DefaultVideoSource);
 
     [ObservableProperty]
@@ -60,16 +63,10 @@ public partial class ScreensaverPageViewModel : ObservableObject
         IIapService iapService,
         ITelemetry telemetry,
         ISystemInfoProvider systemInfoProvider,
-        IUserSettings userSettings)
+        IUserSettings userSettings,
+        IChannelService channelService,
+        ChannelVmFactory channelVmFactory)
     {
-        Guard.IsNotNull(localizer, nameof(localizer));
-        Guard.IsNotNull(videoService, nameof(videoService));
-        Guard.IsNotNull(dialogService, nameof(dialogService));
-        Guard.IsNotNull(iapService, nameof(iapService));
-        Guard.IsNotNull(telemetry, nameof(telemetry));
-        Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
-        Guard.IsNotNull(userSettings, nameof(userSettings));
-
         _localizer = localizer;
         _videoService = videoService;
         _dialogService = dialogService;
@@ -77,12 +74,16 @@ public partial class ScreensaverPageViewModel : ObservableObject
         _telemetry = telemetry;
         _systemInfoProvider = systemInfoProvider;
         _userSettings = userSettings;
+        _channelService = channelService;
+        _channelFactory = channelVmFactory;
 
         _videoService.VideoDownloaded += OnVideoDownloaded;
         _videoService.VideoDeleted += OnVideoDeleted;
     }
 
     public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
+
+    public ObservableCollection<ChannelViewModel> Channels { get; } = [];
 
     public FlyoutMenuItem? CurrentSelection { get; set; }
 
@@ -130,11 +131,12 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
         Loading = true;
 
+        var channelsTask = InitializeChannelsAsync(default);
+
         MenuItems.Clear();
         IReadOnlyList<Video> videos = await _videoService.GetVideosAsync(includeOnline: false);
-        var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
-        MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
-        MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), screensaverCommand, DarkScreenId, true));
+        MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), ChangeScreensaverToCommand, DefaultId, true));
+        MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), ChangeScreensaverToCommand, DarkScreenId, true));
 
         foreach (var v in videos)
         {
@@ -144,10 +146,10 @@ public partial class ScreensaverPageViewModel : ObservableObject
                 continue;
             }
 
-            MenuItems.Add(new FlyoutMenuItem(v.Id, v.Name, screensaverCommand, v.Id, true));
+            MenuItems.Add(new FlyoutMenuItem(v.Id, v.Name, ChangeScreensaverToCommand, v.Id, true));
         }
 
-        MenuItems.Add(new FlyoutMenuItem(VideoDialogId, _localizer.GetString("MoreScreensavers"), screensaverCommand, VideoDialogId));
+        MenuItems.Add(new FlyoutMenuItem(VideoDialogId, _localizer.GetString("MoreScreensavers"), ChangeScreensaverToCommand, VideoDialogId));
 
         if (MenuItems.Count > 1)
         {
@@ -157,8 +159,34 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
         await ChangeScreensaverTo(string.IsNullOrEmpty(screensaverToSelect) ? DefaultId : screensaverToSelect);
 
+        await channelsTask;
         Loading = false;
         Loaded?.Invoke(this, EventArgs.Empty);
+    }
+
+    public async Task InitializeChannelsAsync(CancellationToken ct)
+    {
+        Channels.Clear();
+        ct.ThrowIfCancellationRequested();
+
+        var channels = await _channelService.GetChannelsAsync();
+
+        ct.ThrowIfCancellationRequested();
+        var tasks = new List<Task>();
+        foreach (var c in channels.OrderBy(x => x.Key))
+        {
+            ct.ThrowIfCancellationRequested();
+
+            if (_channelFactory.Create(c.Value, changeChannelCommand: ChangeChannelCommand) is { } vm)
+            {
+                tasks.Add(vm.InitializeAsync());
+                Channels.Add(vm);
+            }
+        }
+
+        ct.ThrowIfCancellationRequested();
+
+        await Task.WhenAll(tasks);
     }
 
     private async void OnVideoDeleted(object sender, string deletedVideoId)
@@ -173,6 +201,34 @@ public partial class ScreensaverPageViewModel : ObservableObject
         await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
     }
 
+    [RelayCommand]
+    private async Task ChangeChannelAsync(Channel? channel)
+    {
+        if (channel is null)
+        {
+            return;
+        }
+
+        await _channelService.PlayChannelAsync(channel, false);
+
+        string? menuItemId = null;
+        if (channel.Type is ChannelType.DarkScreen)
+        {
+            menuItemId = DarkScreenId;
+        }
+        else if (channel.Type is ChannelType.Slideshow)
+        {
+            menuItemId = DefaultId;
+        }
+        else if (channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] })
+        {
+            menuItemId = videoId;
+        }
+
+        await ChangeScreensaverTo(menuItemId);
+    }
+
+    [RelayCommand]
     private async Task ChangeScreensaverTo(string? menuItemId)
     {
         if (menuItemId is null)

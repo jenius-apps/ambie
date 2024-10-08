@@ -38,7 +38,7 @@ public interface IChannelService
     /// <summary>
     /// Performs the necessary UX changes to play the channel.
     /// </summary>
-    Task PlayChannelAsync(Channel channel);
+    Task PlayChannelAsync(Channel channel, bool performNavigation = true);
 
     /// <summary>
     /// Queues the channel for download and installation.

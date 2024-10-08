@@ -23,14 +23,16 @@ public partial class ChannelViewModel : ObservableObject
         IChannelService channelService,
         IDialogService dialogService,
         IIapService iapService,
-        IRelayCommand<ChannelViewModel>? viewDetailsCommand = null)
+        IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,
+        IRelayCommand<Channel>? changeChannelCommand = null)
     {
         _channel = channel;
         _assetLocalizer = assetLocalizer;
         _channelService = channelService;
         _dialogService = dialogService;
         _iapService = iapService;
-        ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>((vm) => { });
+        ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
+        ChangeChannelCommand = changeChannelCommand ?? new RelayCommand<Channel>(static (c) => { });
 
         DownloadProgress = new Progress<double>();
         DownloadProgress.ProgressChanged += OnProgressChanged;
@@ -38,7 +40,11 @@ public partial class ChannelViewModel : ObservableObject
 
     public string Id => _channel.Id;
 
-    public IRelayCommand ViewDetailsCommand { get; }
+    public Channel Channel => _channel;
+
+    public IRelayCommand<ChannelViewModel> ViewDetailsCommand { get; }
+
+    public IRelayCommand<Channel> ChangeChannelCommand { get; }
 
     public Progress<double> DownloadProgress { get; }
 
