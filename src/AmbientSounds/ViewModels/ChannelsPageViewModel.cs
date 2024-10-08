@@ -24,7 +24,10 @@ public partial class ChannelsPageViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(DetailsPaneVisible))]
     private ChannelViewModel? _selectedChannel;
+
+    public bool DetailsPaneVisible => SelectedChannel is not null;
 
     public ObservableCollection<ChannelViewModel> Channels { get; } = [];
 
@@ -71,6 +74,16 @@ public partial class ChannelsPageViewModel : ObservableObject
     private void ViewDetails(ChannelViewModel? vmToSelect)
     {
         SelectedChannel = vmToSelect;
-        _channelService.MostRecentChannelDetailsViewed = vmToSelect?.Id;
+    }
+
+    [RelayCommand]
+    private void CloseDetails()
+    {
+        SelectedChannel = null;
+    }
+
+    partial void OnSelectedChannelChanged(ChannelViewModel? value)
+    {
+        _channelService.MostRecentChannelDetailsViewed = value?.Id;
     }
 }

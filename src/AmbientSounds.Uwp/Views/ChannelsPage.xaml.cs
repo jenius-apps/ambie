@@ -66,4 +66,10 @@ public sealed partial class ChannelsPage : Page
             }
         }
     }
+
+    private async void OnClosePaneClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    {
+        await PaneFadeOut.StartAsync();
+        ViewModel.CloseDetailsCommand.Execute(null);
+    }
 }

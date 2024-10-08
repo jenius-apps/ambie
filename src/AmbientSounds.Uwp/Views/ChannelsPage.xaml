@@ -108,11 +108,13 @@
             </GridView.ItemTemplate>
         </GridView>
 
+        <!--  Details pane  -->
         <Grid
             Grid.Column="1"
             Width="300"
-            Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
+            Visibility="{x:Bind ViewModel.DetailsPaneVisible, Mode=OneWay}">
             <ani:Implicit.ShowAnimations>
+                <ani:OpacityAnimation From="0" To="1" />
                 <ani:TranslationAnimation
                     From="20,0,0"
                     To="0"
@@ -121,15 +123,27 @@
 
             <ani:Explicit.Animations>
                 <ani:AnimationSet x:Name="ManualContentFadeIn">
+                    <ani:StartAnimationActivity Animation="{x:Bind HeaderFadeIn}" />
                     <ani:StartAnimationActivity Animation="{x:Bind ImageFadeIn}" />
                     <ani:StartAnimationActivity Animation="{x:Bind DetailsFadeIn}" />
+                </ani:AnimationSet>
+
+                <ani:AnimationSet x:Name="PaneFadeOut">
+                    <ani:TranslationAnimation
+                        From="0"
+                        To="20,0,0"
+                        Duration="0:0:0.3" />
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.3" />
                 </ani:AnimationSet>
             </ani:Explicit.Animations>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Rectangle
                 Grid.RowSpan="3"
@@ -138,9 +152,49 @@
                 HorizontalAlignment="Left"
                 Style="{StaticResource ModuleVerticalDividerRectStyle}" />
 
+            <Grid Margin="20,20,12,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <ani:Explicit.Animations>
+                    <ani:AnimationSet x:Name="HeaderFadeIn">
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                        <ani:TranslationAnimation
+                            From="0,4,0"
+                            To="0"
+                            Duration="0:0:0.9" />
+                    </ani:AnimationSet>
+                </ani:Explicit.Animations>
+
+                <TextBlock
+                    Margin="0,0,4,0"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    Text="{x:Bind ViewModel.SelectedChannel.Name, Mode=OneWay}"
+                    TextTrimming="CharacterEllipsis" />
+
+                <Button
+                    Grid.Column="1"
+                    AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
+                    Click="OnClosePaneClicked"
+                    Style="{StaticResource SmallSubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.CloseText}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="16"
+                        Glyph="{StaticResource GlyphCancel}" />
+                </Button>
+            </Grid>
+
             <Border
+                Grid.Row="1"
                 Height="160"
-                Margin="20"
+                Margin="20,12,20,0"
                 HorizontalAlignment="Stretch"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
                 CornerRadius="8"
@@ -172,8 +226,8 @@
             </Border>
 
             <StackPanel
-                Grid.Row="1"
-                Margin="20,0"
+                Grid.Row="2"
+                Margin="20,20,20,0"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
                 Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
                 <ani:Explicit.Animations>
