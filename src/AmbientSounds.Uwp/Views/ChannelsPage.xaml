@@ -43,12 +43,6 @@
                         VerticalContentAlignment="Stretch">
 
                         <Grid>
-                            <!--<interactivity:Interaction.Behaviors>
-                                <core:EventTriggerBehavior EventName="Tapped">
-                                    <core:InvokeCommandAction Command="{x:Bind ViewDetailsCommand}" CommandParameter="{x:Bind}" />
-                                </core:EventTriggerBehavior>
-                            </interactivity:Interaction.Behaviors>-->
-
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="auto" />
@@ -59,7 +53,14 @@
                             <Grid
                                 Background="Transparent"
                                 PointerEntered="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}"
-                                PointerExited="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}">
+                                PointerExited="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}"
+                                PointerPressed="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}"
+                                PointerReleased="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{x:Bind PrimaryCommand, Mode=OneWay}" CommandParameter="{x:Bind}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
                                 <Rectangle
                                     x:Name="ImageRect"
                                     Width="200"
@@ -88,7 +89,7 @@
                                 <FontIcon
                                     x:Name="PrimaryIcon"
                                     FontFamily="{StaticResource FluentUIGlyphs}"
-                                    Glyph="{StaticResource GlyphDownload}"
+                                    Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}"
                                     Visibility="Collapsed" />
                             </Grid>
 

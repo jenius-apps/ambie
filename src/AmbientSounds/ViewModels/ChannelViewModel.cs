@@ -64,17 +64,23 @@ public partial class ChannelViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
+    [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
     private bool _actionButtonLoading;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
+    [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
     private bool _isOwned;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
+    [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
     private bool _isFullyDownloaded;
 
     [ObservableProperty]
@@ -89,6 +95,52 @@ public partial class ChannelViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _downloadProgressVisible;
+
+    public string PrimaryActionGlyph
+    {
+        get
+        {
+            if (ActionButtonLoading || DownloadProgressVisible || DownloadLoading)
+            {
+                return "\uE946";
+            }
+            else if (!IsOwned)
+            {
+                return "\uE785";
+            }
+            else if (!IsFullyDownloaded)
+            {
+                return "\uEBD3";
+            }
+            else
+            {
+                return "\uF5B0";
+            }
+        }
+    }
+
+    public IRelayCommand PrimaryCommand
+    {
+        get
+        {
+            if (ActionButtonLoading || DownloadProgressVisible || DownloadLoading)
+            {
+                return ViewDetailsCommand;
+            }
+            else if (!IsOwned)
+            {
+                return UnlockCommand;
+            }
+            else if (!IsFullyDownloaded)
+            {
+                return DownloadCommand;
+            }
+            else
+            {
+                return PlayCommand;
+            }
+        }
+    }
 
     public async Task InitializeAsync()
     {
@@ -132,6 +184,8 @@ public partial class ChannelViewModel : ObservableObject
     private async Task DownloadAsync()
     {
         ActionButtonLoading = true;
+        ViewDetailsCommand.Execute(this);
+        await Task.Delay(600);
         await _channelService.QueueInstallChannelAsync(_channel, DownloadProgress);
     }
 
