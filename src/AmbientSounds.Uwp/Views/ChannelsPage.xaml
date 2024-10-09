@@ -5,6 +5,7 @@
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:custom="using:AmbientSounds.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:JeniusApps.Common.UI.Uwp"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
@@ -41,17 +42,12 @@
                         HorizontalContentAlignment="Stretch"
                         VerticalContentAlignment="Stretch">
 
-                        <Grid
-                            Background="Transparent"
-                            PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildRectangle}"
-                            PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
-                            PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
-                            PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
-                            <interactivity:Interaction.Behaviors>
+                        <Grid>
+                            <!--<interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="Tapped">
                                     <core:InvokeCommandAction Command="{x:Bind ViewDetailsCommand}" CommandParameter="{x:Bind}" />
                                 </core:EventTriggerBehavior>
-                            </interactivity:Interaction.Behaviors>
+                            </interactivity:Interaction.Behaviors>-->
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -60,31 +56,41 @@
                             </Grid.RowDefinitions>
 
                             <!--  Image and the shadow  -->
-                            <Rectangle
-                                x:Name="ImageRect"
-                                Width="200"
-                                Height="120"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Bottom"
-                                ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
-                                RadiusX="8"
-                                RadiusY="8"
-                                Stretch="Fill">
-                                <ani:Implicit.Animations>
-                                    <ani:ScaleAnimation Duration="0:0:0.6" />
-                                </ani:Implicit.Animations>
+                            <Grid
+                                Background="Transparent"
+                                PointerEntered="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}"
+                                PointerExited="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}">
+                                <Rectangle
+                                    x:Name="ImageRect"
+                                    Width="200"
+                                    Height="120"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
+                                    RadiusX="8"
+                                    RadiusY="8"
+                                    Stretch="Fill">
+                                    <ani:Implicit.Animations>
+                                        <ani:ScaleAnimation Duration="0:0:0.6" />
+                                    </ani:Implicit.Animations>
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                                    </Rectangle.Fill>
+                                    <ui:Effects.Shadow>
+                                        <media:AttachedCardShadow
+                                            BlurRadius="10"
+                                            CornerRadius="16"
+                                            Opacity="0.2"
+                                            Offset="0,4" />
+                                    </ui:Effects.Shadow>
+                                </Rectangle>
 
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
-                                </Rectangle.Fill>
-                                <ui:Effects.Shadow>
-                                    <media:AttachedCardShadow
-                                        BlurRadius="10"
-                                        CornerRadius="16"
-                                        Opacity="0.2"
-                                        Offset="0,4" />
-                                </ui:Effects.Shadow>
-                            </Rectangle>
+                                <FontIcon
+                                    x:Name="PrimaryIcon"
+                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                    Glyph="{StaticResource GlyphDownload}"
+                                    Visibility="Collapsed" />
+                            </Grid>
 
                             <TextBlock
                                 Grid.Row="1"
@@ -93,15 +99,34 @@
                                 Text="{x:Bind Name}"
                                 TextWrapping="WrapWholeWords" />
 
-                            <TextBlock
-                                Grid.Row="2"
-                                Margin="12,0,12,6"
-                                FontSize="12"
-                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                MaxLines="2"
-                                Text="{x:Bind Description}"
-                                TextTrimming="CharacterEllipsis"
-                                TextWrapping="WrapWholeWords" />
+                            <Grid Grid.Row="2" Margin="12,0,4,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Margin="0,0,1,0"
+                                    FontSize="12"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    MaxLines="2"
+                                    Text="{x:Bind Description}"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="WrapWholeWords" />
+
+                                <!--  TODO localize  -->
+                                <Button
+                                    Grid.Column="1"
+                                    Command="{x:Bind ViewDetailsCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    Style="{StaticResource SmallSubtleIconButton}"
+                                    ToolTipService.ToolTip="View details">
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="{StaticResource SmallIconSize}"
+                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                        Glyph="{StaticResource GlyphThreeDots}" />
+                                </Button>
+                            </Grid>
                         </Grid>
                     </GridViewItem>
                 </DataTemplate>
@@ -270,6 +295,7 @@
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="{StaticResource SmallIconSize}"
                                 Glyph="{StaticResource GlyphDownload}" />
+                            <!--  TODO localize  -->
                             <TextBlock VerticalAlignment="Center" Text="Download" />
                         </StackPanel>
                     </Button>
@@ -285,6 +311,7 @@
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="{StaticResource SmallIconSize}"
                                 Glyph="{StaticResource GlyphPlay}" />
+                            <!--  TODO localize  -->
                             <TextBlock VerticalAlignment="Center" Text="Play" />
                         </StackPanel>
                     </Button>
@@ -300,6 +327,7 @@
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="{StaticResource SmallIconSize}"
                                 Glyph="{StaticResource GlyphUnlock}" />
+                            <!--  TODO localize  -->
                             <TextBlock VerticalAlignment="Center" Text="Unlock" />
                         </StackPanel>
                     </Button>
@@ -350,6 +378,7 @@
                             </ani:Implicit.ShowAnimations>
                         </winui:ProgressRing>
 
+                        <!--  TODO localize  -->
                         <TextBlock
                             Grid.Column="1"
                             Margin="12,0"
