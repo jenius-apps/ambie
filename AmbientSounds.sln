@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds.Tests", "Ambi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Tasks", "src\AmbientSounds.Tasks\AmbientSounds.Tasks.csproj", "{EF926887-A6B2-461E-97CA-1C25B065E0C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientSounds.Models", "src\AmbientSounds.Models\AmbientSounds.Models.csproj", "{8CC4241A-F7B8-42CE-AA56-1CE90A8A72F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientSounds.Models", "src\AmbientSounds.Models\AmbientSounds.Models.csproj", "{8CC4241A-F7B8-42CE-AA56-1CE90A8A72F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

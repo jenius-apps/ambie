@@ -127,6 +127,7 @@ partial class App
     [Singleton(typeof(CataloguePageViewModel))]
     [Singleton(typeof(FocusTaskModuleViewModel))]
     [Singleton(typeof(PremiumControlViewModel))]
+    [Transient(typeof(ChannelsPageViewModel))]
     [Singleton(typeof(FocusTimerModuleViewModel))]
     [Transient(typeof(ShellPageViewModel))]
     [Singleton(typeof(PlayerViewModel))] // shared in main and compact pages
@@ -164,6 +165,7 @@ partial class App
     [Singleton(typeof(SoundVmFactory), typeof(ISoundVmFactory))]
     [Singleton(typeof(GuideVmFactory), typeof(IGuideVmFactory))]
     [Singleton(typeof(CatalogueRowVmFactory))]
+    [Singleton(typeof(ChannelVmFactory))]
     [Singleton(typeof(CatalogueService), typeof(ICatalogueService))]
     [Singleton(typeof(VideoService), typeof(IVideoService))]
     [Singleton(typeof(FocusTaskCache), typeof(IFocusTaskCache))]
@@ -222,5 +224,8 @@ partial class App
     [Singleton(typeof(SleepTimerService), typeof(ISleepTimerService))]
     [Transient(typeof(XboxShellPageViewModel))]
     [Singleton(typeof(XboxSlideshowService), typeof(IXboxSlideshowService))]
+    [Singleton(typeof(ChannelService), typeof(IChannelService))]
+    [Singleton(typeof(ChannelCache), typeof(IChannelCache))]
+    [Singleton(typeof(ChannelRepository), typeof(IChannelRepository))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

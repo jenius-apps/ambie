@@ -6,8 +6,6 @@ using System.Linq;
 using System.Text.Json;
 using Xunit;
 
-#nullable enable
-
 namespace AmbientSounds.Tests.Models;
 
 public class GuideTests

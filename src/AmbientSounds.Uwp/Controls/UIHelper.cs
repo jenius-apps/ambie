@@ -8,6 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Shapes;
 
 #nullable enable
 
@@ -124,6 +125,24 @@ public static class UIHelper
         {
             var element = parent.FindControl<Grid>("ImageGrid");
             GridScaleUp(element, e);
+        }
+    }
+
+    public static void ScaleUpChildRectangle(object sender, PointerRoutedEventArgs e)
+    {
+        if (sender is UIElement parent)
+        {
+            var element = parent.FindControl<Rectangle>("ImageRect");
+            GridScaleUp(element, e);
+        }
+    }
+
+    public static void ScaleNormalChildRectangle(object sender, PointerRoutedEventArgs e)
+    {
+        if (sender is UIElement parent)
+        {
+            var element = parent.FindControl<Rectangle>("ImageRect");
+            GridScaleNormal(element, e);
         }
     }
 
