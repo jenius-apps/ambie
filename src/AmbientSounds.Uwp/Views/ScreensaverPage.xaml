@@ -108,8 +108,8 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <ScrollViewer
-                HorizontalScrollBarVisibility="Hidden"
-                HorizontalScrollMode="Auto"
+                HorizontalScrollBarVisibility="Auto"
+                HorizontalScrollMode="Enabled"
                 VerticalScrollBarVisibility="Disabled"
                 VerticalScrollMode="Disabled">
                 <ItemsControl Margin="40,0,40,20" ItemsSource="{x:Bind ViewModel.Channels}">
@@ -173,7 +173,7 @@
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" />
+                            <VirtualizingStackPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
