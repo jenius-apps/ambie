@@ -249,7 +249,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         get
         {
             TimeSpan duration = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
-            DateTime endTime = DateTime.Now.Add(duration);
+            DateTime endTime = _focusHistoryService.GetStartTime().Add(duration);
             return endTime.ToShortTimeString();
         }
     }
