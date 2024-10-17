@@ -50,7 +50,7 @@
         </Button>
 
         <StackPanel
-            Name="ActionButtons"
+            x:Name="ActionButtons"
             Margin="0,40,40,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
@@ -85,7 +85,10 @@
 
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
-        <Grid Height="240" VerticalAlignment="Bottom">
+        <Grid
+            x:Name="VideosGrid"
+            Height="240"
+            VerticalAlignment="Bottom">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0" Color="#00000000" />

@@ -241,6 +241,7 @@ public sealed partial class ScreensaverPage : Page
     {
         GoBackButton.Visibility = Visibility.Visible;
         ActionButtons.Visibility = Visibility.Visible;
+        VideosGrid.Visibility = Visibility.Visible;
         CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
         IsButtonsHidden = false;
     }
@@ -249,6 +250,7 @@ public sealed partial class ScreensaverPage : Page
     {
         GoBackButton.Visibility = Visibility.Collapsed;
         ActionButtons.Visibility = Visibility.Collapsed;
+        VideosGrid.Visibility = Visibility.Collapsed;
         CoreWindow.GetForCurrentThread().PointerCursor = null;
         IsButtonsHidden = true;
     }
