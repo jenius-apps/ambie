@@ -49,9 +49,40 @@ public sealed class ChannelService : IChannelService
     public string? MostRecentChannelDetailsViewed { get; set; }
 
     /// <inheritdoc/>
-    public async Task<IReadOnlyDictionary<string, Channel>> GetChannelsAsync()
+    public async Task<IReadOnlyList<Channel>> GetChannelsAsync()
     {
-        return await _channelCache.GetItemsAsync();
+        var cache = await _channelCache.GetItemsAsync().ConfigureAwait(false);
+        List<Channel> result = [];
+        Channel? darkscreen = null;
+        Channel? slideshow = null;
+
+        foreach (var c in cache.OrderBy(x => x.Key))
+        {
+            if (c.Value.Type is ChannelType.DarkScreen)
+            {
+                darkscreen = c.Value;
+            }
+            else if (c.Value.Type is ChannelType.Slideshow)
+            {
+                slideshow = c.Value;
+            }
+            else
+            {
+                result.Add(c.Value);
+            }
+        }
+
+        if (darkscreen is not null)
+        {
+            result.Insert(0, darkscreen);
+        }
+
+        if (slideshow is not null)
+        {
+            result.Insert(0, slideshow);
+        }
+
+        return result;
     }
 
     public async Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null)

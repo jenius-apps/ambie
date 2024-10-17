@@ -39,11 +39,11 @@ public partial class ChannelsPageViewModel : ObservableObject
 
         ct.ThrowIfCancellationRequested();
         var tasks = new List<Task>();
-        foreach (var c in channels.OrderBy(x => x.Key))
+        foreach (var c in channels)
         {
             ct.ThrowIfCancellationRequested();
 
-            if (_channelFactory.Create(c.Value, ViewDetailsCommand) is { } vm)
+            if (_channelFactory.Create(c, ViewDetailsCommand) is { } vm)
             {
                 tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);

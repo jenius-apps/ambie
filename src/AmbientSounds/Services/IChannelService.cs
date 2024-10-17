@@ -23,7 +23,7 @@ public interface IChannelService
     /// <summary>
     /// Fetches available channels.
     /// </summary>
-    Task<IReadOnlyDictionary<string, Channel>> GetChannelsAsync();
+    Task<IReadOnlyList<Channel>> GetChannelsAsync();
 
     /// <summary>
     /// Determines if the channel's components are fully downloaded.
