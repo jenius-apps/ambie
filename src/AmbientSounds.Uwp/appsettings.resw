@@ -153,4 +153,7 @@
   <data name="GuidesUrl" xml:space="preserve">
     <value>http://localhost</value>
   </data>
+  <data name="ChannelsUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
 </root>

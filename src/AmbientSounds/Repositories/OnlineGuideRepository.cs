@@ -33,11 +33,11 @@ public class OnlineGuideRepository : IOnlineGuideRepository
             var results = await JsonSerializer.DeserializeAsync(
                 result,
                 AmbieJsonSerializerContext.CaseInsensitive.GuideArray);
-            return results ?? Array.Empty<Guide>();
+            return results ?? [];
         }
         catch
         {
-            return Array.Empty<Guide>();
+            return [];
         }
     }
 
