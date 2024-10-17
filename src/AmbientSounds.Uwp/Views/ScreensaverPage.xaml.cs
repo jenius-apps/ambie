@@ -96,7 +96,6 @@ public sealed partial class ScreensaverPage : Page
         StopHideCursorTimer();
         CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
 
-        SettingsFlyout?.Items?.Clear();
         _displayRequest.RequestRelease();
     }
 
@@ -122,52 +121,6 @@ public sealed partial class ScreensaverPage : Page
         if (!ViewModel.SettingsButtonVisible)
         {
             return;
-        }
-
-        SettingsFlyout.Items.Clear();
-
-        foreach (var item in ViewModel.MenuItems)
-        {
-            MenuFlyoutItem menuItem;
-
-            if (item.IsToggle)
-            {
-                menuItem = new ToggleMenuFlyoutItem()
-                {
-                    IsChecked = item == ViewModel.CurrentSelection
-                };
-            }
-            else
-            {
-                menuItem = new MenuFlyoutItem();
-            }
-
-            menuItem.DataContext = item;
-            menuItem.Text = item.Text;
-            menuItem.Click += OnMenuItemClicked;
-
-            SettingsFlyout.Items.Add(menuItem);
-        }
-    }
-
-    private void OnMenuItemClicked(object sender, RoutedEventArgs e)
-    {
-        if (sender is MenuFlyoutItem flyoutItem &&
-            flyoutItem.DataContext is FlyoutMenuItem dc)
-        {
-
-            if (flyoutItem is ToggleMenuFlyoutItem)
-            {
-                foreach (var item in SettingsFlyout.Items)
-                {
-                    if (item is ToggleMenuFlyoutItem menuItem)
-                    {
-                        menuItem.IsChecked = menuItem == flyoutItem;
-                    }
-                }
-            }
-
-            dc.Command.Execute(dc.CommandParameter);
         }
     }
 

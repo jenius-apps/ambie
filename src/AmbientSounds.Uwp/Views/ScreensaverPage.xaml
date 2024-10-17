@@ -75,21 +75,6 @@
                         Visibility="{x:Bind IsFullscreen}" />
                 </Grid>
             </Button>
-            <Button
-                Margin="12,0,0,0"
-                AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
-                Style="{StaticResource IconButton}"
-                ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}"
-                Visibility="{x:Bind ViewModel.SettingsButtonVisible, Mode=OneWay}">
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="{StaticResource SmallIconSize}"
-                    Glyph="{StaticResource GlyphSettings}" />
-                <Button.Flyout>
-                    <!--  Contents of this is set in code behind  -->
-                    <MenuFlyout x:Name="SettingsFlyout" Placement="Bottom" />
-                </Button.Flyout>
-            </Button>
         </StackPanel>
 
         <MediaPlayerElement
@@ -100,84 +85,102 @@
 
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
-        <Grid VerticalAlignment="Bottom">
+        <Grid Height="240" VerticalAlignment="Bottom">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0" Color="#00000000" />
                     <GradientStop Offset="1" Color="#FF000000" />
                 </LinearGradientBrush>
             </Grid.Background>
-            <ScrollViewer
-                HorizontalScrollBarVisibility="Auto"
-                HorizontalScrollMode="Enabled"
-                VerticalScrollBarVisibility="Disabled"
-                VerticalScrollMode="Disabled">
-                <ItemsControl Margin="40,0,40,20" ItemsSource="{x:Bind ViewModel.Channels}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate x:DataType="viewmodels:ChannelViewModel">
-                            <Grid Width="220" Height="192">
-                                <Grid
-                                    Background="Transparent"
-                                    PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildRectangle}"
-                                    PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
-                                    PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
-                                    PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
-                                    <interactivity:Interaction.Behaviors>
-                                        <core:EventTriggerBehavior EventName="Tapped">
-                                            <core:InvokeCommandAction Command="{x:Bind ChangeChannelCommand}" CommandParameter="{x:Bind Channel}" />
-                                        </core:EventTriggerBehavior>
-                                    </interactivity:Interaction.Behaviors>
+            <ListView
+                Padding="40,0,0,0"
+                ItemsSource="{x:Bind ViewModel.Channels}"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ScrollViewer.HorizontalScrollMode="Enabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollMode="Disabled"
+                SelectionMode="None">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:ChannelViewModel">
+                        <Grid Width="220" Height="160">
+                            <Grid
+                                Background="Transparent"
+                                PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildRectangle}"
+                                PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
+                                PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
+                                PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{x:Bind ChangeChannelCommand}" CommandParameter="{x:Bind Channel}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="auto" />
-                                    </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
 
-                                    <!--  Image and the shadow  -->
-                                    <Rectangle
-                                        x:Name="ImageRect"
-                                        Width="200"
-                                        Height="120"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Bottom"
-                                        ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
-                                        RadiusX="8"
-                                        RadiusY="8"
-                                        Stretch="Fill">
-                                        <ani:Implicit.Animations>
-                                            <ani:ScaleAnimation Duration="0:0:0.6" />
-                                        </ani:Implicit.Animations>
+                                <Rectangle
+                                    x:Name="ImageRect"
+                                    Width="200"
+                                    Height="120"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
+                                    RadiusX="8"
+                                    RadiusY="8"
+                                    Stretch="Fill">
+                                    <ani:Implicit.Animations>
+                                        <ani:ScaleAnimation Duration="0:0:0.6" />
+                                    </ani:Implicit.Animations>
 
-                                        <Rectangle.Fill>
-                                            <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
-                                        </Rectangle.Fill>
-                                        <ui:Effects.Shadow>
-                                            <media:AttachedCardShadow
-                                                BlurRadius="10"
-                                                CornerRadius="16"
-                                                Opacity="0.2"
-                                                Offset="0,4" />
-                                        </ui:Effects.Shadow>
-                                    </Rectangle>
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                                    </Rectangle.Fill>
+                                    <ui:Effects.Shadow>
+                                        <media:AttachedCardShadow
+                                            BlurRadius="10"
+                                            CornerRadius="16"
+                                            Opacity="0.2"
+                                            Offset="0,4" />
+                                    </ui:Effects.Shadow>
+                                </Rectangle>
 
-                                    <TextBlock
-                                        Grid.Row="1"
-                                        Margin="12,8,12,0"
-                                        FontSize="12"
-                                        Text="{x:Bind Name}"
-                                        TextAlignment="Center"
-                                        TextWrapping="WrapWholeWords" />
-                                </Grid>
+                                <Border
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="{ThemeResource BackgroundAcrylicBrush}"
+                                    CornerRadius="8"
+                                    Visibility="{x:Bind BuyButtonVisible, Mode=OneWay}">
+                                    <FontIcon
+                                        Margin="8"
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        Glyph="{StaticResource GlyphUnlock}" />
+                                </Border>
+
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Margin="12,8,12,0"
+                                    FontSize="12"
+                                    Text="{x:Bind Name}"
+                                    TextAlignment="Center"
+                                    TextWrapping="WrapWholeWords" />
                             </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </ScrollViewer>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Grid>
 </Page>
