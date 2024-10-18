@@ -12,9 +12,11 @@
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    RequestedTheme="Dark"
     mc:Ignorable="d">
     <Page.Resources>
         <BrushTransition x:Key="Transition" Duration="0:0:1" />
+        <x:Double x:Key="GradientHeight">240</x:Double>
     </Page.Resources>
 
     <Grid
@@ -35,6 +37,20 @@
                 <VisualState x:Name="Normal" />
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+
+        <Rectangle
+            x:Name="TopGradient" Canvas.ZIndex="1"
+            Height="{StaticResource GradientHeight}"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="-1" Color="#FF000000" />
+                    <GradientStop Offset="1" Color="#00000000" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
         <Button
             x:Name="GoBackButton"
             x:Uid="BackButton"
@@ -87,7 +103,7 @@
 
         <Grid
             x:Name="VideosGrid"
-            Height="240"
+            Height="{StaticResource GradientHeight}"
             VerticalAlignment="Bottom">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
