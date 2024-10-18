@@ -191,20 +191,16 @@ namespace AmbientSounds.Services
         }
 
         /// <inheritdoc/>
-        public async Task<Video?> GetLocalVideoAsync(string videoId)
+        public Task<Video?> GetLocalVideoAsync(string videoId)
         {
-            if (string.IsNullOrEmpty(videoId))
-            {
-                return null;
-            }
+            return _videoCache.GetOfflineVideoAsync(videoId);
+        }
 
-            var offlineVids = await _videoCache.GetOfflineVideosAsync();
-            if (offlineVids.TryGetValue(videoId, out Video value))
-            {
-                return value;
-            }
-
-            return null;
+        /// <inheritdoc/>
+        public async Task<bool> IsVideoInstalledAsync(string videoId)
+        {
+            Video? video = await _videoCache.GetOfflineVideoAsync(videoId);
+            return video is not null;
         }
     }
 }

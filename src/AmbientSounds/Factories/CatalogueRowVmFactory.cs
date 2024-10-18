@@ -6,21 +6,14 @@ using System;
 
 namespace AmbientSounds.Factories;
 
-public class CatalogueRowVmFactory
+public class CatalogueRowVmFactory(IServiceProvider serviceProvider)
 {
-    private readonly IServiceProvider _serviceProvider;
-
-    public CatalogueRowVmFactory(IServiceProvider serviceProvider)
-    {
-        _serviceProvider = serviceProvider;
-    }
-
     public CatalogueRowViewModel Create(CatalogueRow row)
     {
         return new CatalogueRowViewModel(
             row,
-            _serviceProvider.GetRequiredService<IAssetLocalizer>(),
-            _serviceProvider.GetRequiredService<ICatalogueService>(),
-            _serviceProvider.GetRequiredService<ISoundVmFactory>());
+            serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            serviceProvider.GetRequiredService<ICatalogueService>(),
+            serviceProvider.GetRequiredService<ISoundVmFactory>());
     }
 }
