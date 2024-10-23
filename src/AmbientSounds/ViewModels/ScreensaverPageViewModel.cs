@@ -172,21 +172,20 @@ public partial class ScreensaverPageViewModel : ObservableObject
         var channels = await _channelService.GetChannelsAsync();
 
         ct.ThrowIfCancellationRequested();
-        var tasks = new List<Task>();
         foreach (var c in channels)
         {
             ct.ThrowIfCancellationRequested();
 
             if (_channelFactory.Create(c, changeChannelCommand: ChangeChannelCommand) is { } vm)
             {
-                tasks.Add(vm.InitializeAsync());
-                Channels.Add(vm);
+                await vm.InitializeAsync();
+
+                if (vm.IsFullyDownloaded)
+                {
+                    Channels.Add(vm);
+                }
             }
         }
-
-        ct.ThrowIfCancellationRequested();
-
-        await Task.WhenAll(tasks);
     }
 
     private async void OnVideoDeleted(object sender, string deletedVideoId)
