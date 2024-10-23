@@ -202,10 +202,22 @@ public partial class ScreensaverPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task ChangeChannelAsync(Channel? channel)
+    private async Task ChangeChannelAsync(ChannelViewModel? channelViewModel)
     {
-        if (channel is null)
+        if (channelViewModel?.Channel is not Channel channel)
         {
+            return;
+        }
+
+        if (!channelViewModel.IsOwned)
+        {
+            await channelViewModel.UnlockCommand.ExecuteAsync(null);
+            return;
+        }
+
+        if (!channelViewModel.IsFullyDownloaded)
+        {
+            // TODO handle this scenario.
             return;
         }
 

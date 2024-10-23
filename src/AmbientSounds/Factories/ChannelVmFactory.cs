@@ -12,7 +12,7 @@ public class ChannelVmFactory(IServiceProvider serviceProvider)
     public ChannelViewModel Create(
         Channel channel,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,
-        IRelayCommand<Channel>? changeChannelCommand = null)
+        IRelayCommand<ChannelViewModel>? changeChannelCommand = null)
     {
         return new ChannelViewModel(
             channel,

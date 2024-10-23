@@ -39,10 +39,11 @@
         </VisualStateManager.VisualStateGroups>
 
         <Rectangle
-            x:Name="TopGradient" Canvas.ZIndex="1"
+            x:Name="TopGradient"
             Height="{StaticResource GradientHeight}"
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Top">
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="-1" Color="#FF000000" />
@@ -141,7 +142,7 @@
                                 PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Tapped">
-                                        <core:InvokeCommandAction Command="{x:Bind ChangeChannelCommand}" CommandParameter="{x:Bind Channel}" />
+                                        <core:InvokeCommandAction Command="{x:Bind ChangeChannelCommand}" CommandParameter="{x:Bind}" />
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
 
