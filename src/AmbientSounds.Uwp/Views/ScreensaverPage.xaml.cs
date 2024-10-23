@@ -138,10 +138,6 @@ public sealed partial class ScreensaverPage : Page
             {
                 view.ExitFullScreenMode();
             }
-            else
-            {
-                GoBack();
-            }
 
             args.Handled = true;
         }
