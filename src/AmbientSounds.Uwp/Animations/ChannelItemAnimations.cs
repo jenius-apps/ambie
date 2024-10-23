@@ -20,18 +20,18 @@ internal static class ChannelItemAnimations
     public static async void ScaleUpChannelIcon(object sender, PointerRoutedEventArgs e)
     {
         if (sender is UIElement parent &&
-            parent.FindControl<FontIcon>("PrimaryIcon") is FontIcon icon)
+            parent.FindControl<Border>("PrimaryIconBorder") is Border border)
         {
-            if (_cts.TryGetValue(icon.GetHashCode(), out var oldCts))
+            if (_cts.TryGetValue(border.GetHashCode(), out var oldCts))
             {
                 oldCts.Cancel();
             }
 
             var newCts = new CancellationTokenSource();
-            _cts[icon.GetHashCode()] = newCts;
+            _cts[border.GetHashCode()] = newCts;
 
-            var visual = ElementCompositionPreview.GetElementVisual(icon);
-            icon.Visibility = Visibility.Visible;
+            var visual = ElementCompositionPreview.GetElementVisual(border);
+            border.Visibility = Visibility.Visible;
             visual.Opacity = 0;
             var animation = visual.Compositor.CreateScalarKeyFrameAnimation();
             animation.InsertKeyFrame(1f, 1f);
@@ -52,18 +52,18 @@ internal static class ChannelItemAnimations
     public static async void ScaleDownChannelIcon(object sender, PointerRoutedEventArgs e)
     {
         if (sender is UIElement parent &&
-            parent.FindControl<FontIcon>("PrimaryIcon") is FontIcon icon)
+            parent.FindControl<Border>("PrimaryIconBorder") is Border border)
         {
-            if (_cts.TryGetValue(icon.GetHashCode(), out var oldCts))
+            if (_cts.TryGetValue(border.GetHashCode(), out var oldCts))
             {
                 oldCts.Cancel();
             }
 
             var newCts = new CancellationTokenSource();
-            _cts[icon.GetHashCode()] = newCts;
+            _cts[border.GetHashCode()] = newCts;
 
-            var visual = ElementCompositionPreview.GetElementVisual(icon);
-            icon.Visibility = Visibility.Visible;
+            var visual = ElementCompositionPreview.GetElementVisual(border);
+            border.Visibility = Visibility.Visible;
             visual.Opacity = 1;
             var animation = visual.Compositor.CreateScalarKeyFrameAnimation();
             animation.InsertKeyFrame(1f, 0f);
@@ -77,7 +77,7 @@ internal static class ChannelItemAnimations
             {
                 visual.StopAnimation("Opacity");
             }
-            icon.Visibility = Visibility.Collapsed;
+            border.Visibility = Visibility.Collapsed;
         }
     }
 

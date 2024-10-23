@@ -55,7 +55,8 @@
                                 PointerEntered="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}"
                                 PointerExited="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}"
                                 PointerPressed="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}"
-                                PointerReleased="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}">
+                                PointerReleased="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}"
+                                RequestedTheme="Dark">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Tapped">
                                         <core:InvokeCommandAction Command="{x:Bind PrimaryCommand, Mode=OneWay}" CommandParameter="{x:Bind}" />
@@ -86,11 +87,18 @@
                                     </ui:Effects.Shadow>
                                 </Rectangle>
 
-                                <FontIcon
-                                    x:Name="PrimaryIcon"
-                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                    Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}"
-                                    Visibility="Collapsed" />
+                                <Border
+                                    x:Name="PrimaryIconBorder"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="{ThemeResource BackgroundAcrylicBrush}"
+                                    CornerRadius="8"
+                                    Visibility="Collapsed">
+                                    <FontIcon
+                                        Margin="8"
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}" />
+                                </Border>
                             </Grid>
 
                             <TextBlock
