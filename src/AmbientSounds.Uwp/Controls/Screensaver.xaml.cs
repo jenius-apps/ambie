@@ -17,14 +17,14 @@ public sealed partial class Screensaver : UserControl
         this.Loaded += (_, _) =>
         {
             ViewModel.Initialize();
-            ViewModel.PropertyChanging += PropertyChanging;
+            ViewModel.PropertyChanged += OnPropertyChanged;
         };
         this.Unloaded += (_, _) =>
         {
             ImageSb1.Stop();
             ImageSb2.Stop();
             ViewModel.Dispose();
-            ViewModel.PropertyChanging -= PropertyChanging;
+            ViewModel.PropertyChanged -= OnPropertyChanged;
         };
         this.SizeChanged += OnSizeChanged;
     }
@@ -34,7 +34,7 @@ public sealed partial class Screensaver : UserControl
     public void Uninitialize()
     {
         ImageSb1.Stop();
-        ImageSb1.Stop();
+        ImageSb2.Stop();
     }
 
     private void OnSizeChanged(object sender, SizeChangedEventArgs e)
@@ -55,14 +55,19 @@ public sealed partial class Screensaver : UserControl
         }
     }
 
-    private void PropertyChanging(object sender, PropertyChangingEventArgs e)
+    private async void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(ViewModel.ImageVisible1))
         {
             if (ViewModel.ImageVisible1 == false)
             {
-                _ = Image1Hide.StartAsync();
+                await Image1Hide.StartAsync();
+                image.Visibility = Visibility.Collapsed;
                 ImageSb1.Stop();
+            }
+            else
+            {
+                image.Visibility = Visibility.Visible;
                 ImageSb1.Begin();
             }
         }
@@ -70,8 +75,13 @@ public sealed partial class Screensaver : UserControl
         {
             if (ViewModel.ImageVisible2 == false)
             {
-                _ = Image2Hide.StartAsync();
+                await Image2Hide.StartAsync();
+                image2.Visibility = Visibility.Collapsed;
                 ImageSb2.Stop();
+            }
+            else
+            {
+                image2.Visibility = Visibility.Visible;
                 ImageSb2.Begin();
             }
         }
