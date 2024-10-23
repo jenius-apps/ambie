@@ -84,7 +84,7 @@ public sealed partial class ScreensaverPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
-        ScreensaverControl.Uninitialize();
+        ScreensaverControl?.Uninitialize();
         ViewModel.Loaded -= OnViewModelLoaded;
         ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
 
