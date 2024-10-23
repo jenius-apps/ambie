@@ -1230,6 +1230,10 @@
           <source>Free trial available</source>
           <target state="translated">可免费试用</target>
         </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="new">Open last channel</target>
+        </trans-unit>
       </group>
     </body>
   </file>

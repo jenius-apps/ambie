@@ -3173,6 +3173,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region OpenLastChannelText
+        /// <summary>
+        ///   Looks up a localized string similar to: Open last channel
+        /// </summary>
+        public static string OpenLastChannelText
+        {
+            get
+            {
+                return _resourceLoader.GetString("OpenLastChannelText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3427,6 +3440,7 @@ namespace AmbientSounds.Strings{
             SettingsFeedbackDescription,
             FreeTrialTipDescription,
             FreeTrialTipTitle,
+            OpenLastChannelText,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -1035,4 +1035,7 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Free trial available</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Open last channel</value>
+  </data>
 </root>
