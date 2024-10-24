@@ -1229,7 +1229,19 @@
         </trans-unit>
         <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
           <source>Open last channel</source>
-          <target state="new">Open last channel</target>
+          <target state="translated">Отваряне на последния канал</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">Канали</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">Преглеждайте видеоклипове на цял екран или друго визуално съдържание, за да ви помогне да се съсредоточите, да учите или да се отпуснете.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">Преглед на детайли</target>
         </trans-unit>
       </group>
     </body>

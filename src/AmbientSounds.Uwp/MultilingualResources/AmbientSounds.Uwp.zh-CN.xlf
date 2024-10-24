@@ -1232,7 +1232,19 @@
         </trans-unit>
         <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
           <source>Open last channel</source>
-          <target state="new">Open last channel</target>
+          <target state="translated">打开最后一个频道</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">渠道</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">查看全屏视频或其他视觉内容，以帮助您集中注意力、学习或放松。</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">查看详情</target>
         </trans-unit>
       </group>
     </body>

@@ -122,13 +122,13 @@
                                     TextTrimming="CharacterEllipsis"
                                     TextWrapping="WrapWholeWords" />
 
-                                <!--  TODO localize  -->
                                 <Button
                                     Grid.Column="1"
+                                    AutomationProperties.Name="{x:Bind strings:Resources.ViewDetailsText}"
                                     Command="{x:Bind ViewDetailsCommand}"
                                     CommandParameter="{x:Bind}"
                                     Style="{StaticResource SmallSubtleIconButton}"
-                                    ToolTipService.ToolTip="View details">
+                                    ToolTipService.ToolTip="{x:Bind strings:Resources.ViewDetailsText}">
                                     <FontIcon
                                         FontFamily="{StaticResource FluentUIGlyphs}"
                                         FontSize="{StaticResource SmallIconSize}"
@@ -304,8 +304,7 @@
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="{StaticResource SmallIconSize}"
                                 Glyph="{StaticResource GlyphDownload}" />
-                            <!--  TODO localize  -->
-                            <TextBlock VerticalAlignment="Center" Text="Download" />
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.DownloadText}" />
                         </StackPanel>
                     </Button>
 
@@ -320,8 +319,7 @@
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="{StaticResource SmallIconSize}"
                                 Glyph="{StaticResource GlyphPlay}" />
-                            <!--  TODO localize  -->
-                            <TextBlock VerticalAlignment="Center" Text="Play" />
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.PlayerPlayText}" />
                         </StackPanel>
                     </Button>
 
@@ -336,8 +334,7 @@
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 FontSize="{StaticResource SmallIconSize}"
                                 Glyph="{StaticResource GlyphUnlock}" />
-                            <!--  TODO localize  -->
-                            <TextBlock VerticalAlignment="Center" Text="Unlock" />
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.UnlockText}" />
                         </StackPanel>
                     </Button>
 
@@ -387,13 +384,12 @@
                             </ani:Implicit.ShowAnimations>
                         </winui:ProgressRing>
 
-                        <!--  TODO localize  -->
                         <TextBlock
                             Grid.Column="1"
                             Margin="12,0"
                             VerticalAlignment="Center"
                             Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                            Text="Downloading...">
+                            Text="{x:Bind strings:Resources.DownloadingText}">
                             <ani:Implicit.ShowAnimations>
                                 <ani:OpacityAnimation
                                     Delay="0:0:0.1"

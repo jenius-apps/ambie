@@ -1038,4 +1038,13 @@
   <data name="OpenLastChannelText" xml:space="preserve">
     <value>Open last channel</value>
   </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Channels</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>View full screen videos or other visual content to help you focus, study, or relax.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>View details</value>
+  </data>
 </root>

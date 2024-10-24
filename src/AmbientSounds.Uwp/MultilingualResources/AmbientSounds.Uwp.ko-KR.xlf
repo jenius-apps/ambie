@@ -1233,7 +1233,19 @@
         </trans-unit>
         <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
           <source>Open last channel</source>
-          <target state="new">Open last channel</target>
+          <target state="translated">마지막 채널 열기</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">채널</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">전체 화면 비디오 또는 기타 시각적 콘텐츠를 보고 집중하거나, 공부하거나, 긴장을 푸는 데 도움이 됩니다.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">세부 정보보기</target>
         </trans-unit>
       </group>
     </body>

@@ -1229,7 +1229,19 @@
         </trans-unit>
         <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
           <source>Open last channel</source>
-          <target state="new">Open last channel</target>
+          <target state="translated">آخرین کانال را باز کنید</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">کانال</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">ویدیوهای تمام صفحه یا سایر محتوای بصری را مشاهده کنید تا به شما در تمرکز، مطالعه یا آرامش کمک کند.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">مشاهده جزئیات</target>
         </trans-unit>
       </group>
     </body>

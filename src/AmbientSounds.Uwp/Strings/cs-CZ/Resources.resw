@@ -930,4 +930,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>K dispozici je bezplatná zkušební verze</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Otevřít poslední kanál</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanály</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Sledujte videa na celou obrazovku nebo jiný vizuální obsah, který vám pomůže soustředit se, studovat nebo relaxovat.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Zobrazit podrobnosti</value>
+  </data>
 </root>
