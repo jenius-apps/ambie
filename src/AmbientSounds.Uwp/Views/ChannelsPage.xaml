@@ -142,6 +142,54 @@
             </GridView.ItemTemplate>
         </GridView>
 
+        <StackPanel
+            Padding="40,30"
+            Orientation="Horizontal"
+            Spacing="26"
+            Visibility="{x:Bind ViewModel.LoadingChannels, Mode=OneWay}">
+            <StackPanel>
+                <labs:Shimmer Width="200" Height="120" />
+                <labs:Shimmer
+                    Width="80"
+                    Height="16"
+                    Margin="4,8,0,0"
+                    HorizontalAlignment="Left" />
+                <labs:Shimmer
+                    Width="160"
+                    Height="28"
+                    Margin="4,4,0,0"
+                    HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel>
+                <labs:Shimmer Width="200" Height="120" />
+                <labs:Shimmer
+                    Width="80"
+                    Height="16"
+                    Margin="4,8,0,0"
+                    HorizontalAlignment="Left" />
+                <labs:Shimmer
+                    Width="160"
+                    Height="28"
+                    Margin="4,4,0,0"
+                    HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel>
+                <labs:Shimmer Width="200" Height="120" />
+                <labs:Shimmer
+                    Width="80"
+                    Height="16"
+                    Margin="4,8,0,0"
+                    HorizontalAlignment="Left" />
+                <labs:Shimmer
+                    Width="160"
+                    Height="28"
+                    Margin="4,4,0,0"
+                    HorizontalAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+
         <!--  Details pane  -->
         <Grid
             Grid.Column="1"

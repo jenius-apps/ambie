@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -20,6 +21,7 @@ public class ChannelVmFactory(IServiceProvider serviceProvider)
             serviceProvider.GetRequiredService<IChannelService>(),
             serviceProvider.GetRequiredService<IDialogService>(),
             serviceProvider.GetRequiredService<IIapService>(),
+            serviceProvider.GetRequiredService<ITelemetry>(),
             viewDetailsCommand,
             changeChannelCommand);
     }

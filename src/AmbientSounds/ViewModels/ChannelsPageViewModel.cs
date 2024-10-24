@@ -35,8 +35,12 @@ public partial class ChannelsPageViewModel : ObservableObject
 
     public ObservableCollection<ChannelViewModel> Channels { get; } = [];
 
+    [ObservableProperty]
+    private bool _loadingChannels;
+
     public async Task InitializeAsync(CancellationToken ct)
     {
+        LoadingChannels = true;
         ct.ThrowIfCancellationRequested();
 
         var channels = await _channelService.GetChannelsAsync();
@@ -51,6 +55,7 @@ public partial class ChannelsPageViewModel : ObservableObject
             {
                 tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);
+                LoadingChannels = false;
 
                 if (vm.Id == _channelService.MostRecentChannelDetailsViewed)
                 {
