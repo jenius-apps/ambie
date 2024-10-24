@@ -1,8 +1,11 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +18,7 @@ public partial class ChannelViewModel : ObservableObject
     private readonly IChannelService _channelService;
     private readonly IDialogService _dialogService;
     private readonly IIapService _iapService;
+    private readonly ITelemetry _telemetry;
     private bool _eventsRegistered;
 
     public ChannelViewModel(
@@ -23,6 +27,7 @@ public partial class ChannelViewModel : ObservableObject
         IChannelService channelService,
         IDialogService dialogService,
         IIapService iapService,
+        ITelemetry telemetry,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,
         IRelayCommand<ChannelViewModel>? changeChannelCommand = null)
     {
@@ -31,6 +36,7 @@ public partial class ChannelViewModel : ObservableObject
         _channelService = channelService;
         _dialogService = dialogService;
         _iapService = iapService;
+        _telemetry = telemetry;
         ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
         ChangeChannelCommand = changeChannelCommand ?? new RelayCommand<ChannelViewModel>(static (c) => { });
 
@@ -170,12 +176,21 @@ public partial class ChannelViewModel : ObservableObject
     private async Task Play()
     {
         await _channelService.PlayChannelAsync(_channel);
+        _telemetry.TrackEvent(TelemetryConstants.ChannelPlayed, new Dictionary<string, string>
+        {
+            { "name", _channel.Name }
+        });
     }
 
     [RelayCommand]
     private async Task UnlockAsync()
     {
         ActionButtonLoading = true;
+        _telemetry.TrackEvent(TelemetryConstants.ChannelUnlockClicked, new Dictionary<string, string>
+        {
+            { "name", _channel.Name }
+        });
+
         await _dialogService.OpenPremiumAsync();
         ActionButtonLoading = false;
     }
@@ -187,6 +202,10 @@ public partial class ChannelViewModel : ObservableObject
         ViewDetailsCommand.Execute(this);
         await Task.Delay(600);
         await _channelService.QueueInstallChannelAsync(_channel, DownloadProgress);
+        _telemetry.TrackEvent(TelemetryConstants.ChannelDownloadClicked, new Dictionary<string, string>
+        {
+            { "name", _channel.Name }
+        });
     }
 
     private void OnProgressChanged(object sender, double e)

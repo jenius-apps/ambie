@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.UI;
 using System;
@@ -25,6 +26,7 @@ public sealed partial class ChannelsPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(ChannelsPage));
         ViewModel.PropertyChanged += OnPropertyChanged;
 
         _cts ??= new();

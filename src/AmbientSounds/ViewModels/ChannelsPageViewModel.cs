@@ -1,10 +1,11 @@
-﻿using AmbientSounds.Factories;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Telemetry;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,13 +15,16 @@ public partial class ChannelsPageViewModel : ObservableObject
 {
     private readonly IChannelService _channelService;
     private readonly ChannelVmFactory _channelFactory;
+    private readonly ITelemetry _telemetry;
 
     public ChannelsPageViewModel(
         IChannelService channelService,
-        ChannelVmFactory channelFactory)
+        ChannelVmFactory channelFactory,
+        ITelemetry telemetry)
     {
         _channelService = channelService;
         _channelFactory = channelFactory;
+        _telemetry = telemetry;
     }
 
     [ObservableProperty]
@@ -74,11 +78,20 @@ public partial class ChannelsPageViewModel : ObservableObject
     private void ViewDetails(ChannelViewModel? vmToSelect)
     {
         SelectedChannel = vmToSelect;
+        _telemetry.TrackEvent(TelemetryConstants.ChannelDetailsClicked, new Dictionary<string, string>
+        {
+            { "name", vmToSelect?.Channel.Name ?? string.Empty }
+        });
     }
 
     [RelayCommand]
     private void CloseDetails()
     {
+        _telemetry.TrackEvent(TelemetryConstants.ChannelDetailsClosed, new Dictionary<string, string>
+        {
+            { "name", SelectedChannel?.Channel.Name ?? string.Empty }
+        });
+
         SelectedChannel = null;
     }
 
