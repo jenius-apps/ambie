@@ -29,9 +29,6 @@ public class Navigator : INavigator
     {
         switch (sourcePage)
         {
-            case nameof(CompactPage):
-                GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
-                break;
             case nameof(ScreensaverPage):
                 GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
                 NavigateTo(ContentPageType.Channels);
