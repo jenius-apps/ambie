@@ -915,4 +915,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Διατίθεται δωρεάν δοκιμή</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Άνοιγμα τελευταίου καναλιού</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Κανάλια</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Προβάλετε βίντεο πλήρους οθόνης ή άλλο οπτικό περιεχόμενο που θα σας βοηθήσει να εστιάσετε, να μελετήσετε ή να χαλαρώσετε.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Προβολή λεπτομερειών</value>
+  </data>
 </root>

@@ -927,4 +927,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Gratis prøveversion tilgængelig</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Åbn sidste kanal</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanaler</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Se videoer i fuld skærm eller andet visuelt indhold, der hjælper dig med at fokusere, studere eller slappe af.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Se detaljer</value>
+  </data>
 </root>

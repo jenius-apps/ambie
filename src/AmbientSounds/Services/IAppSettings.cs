@@ -70,4 +70,9 @@ public interface IAppSettings
     /// The URL to access pages data.
     /// </summary>
     string PagesUrl { get; set; }
+
+    /// <summary>
+    /// The URL to access channels data.
+    /// </summary>
+    string ChannelsUrl { get; set; }
 }

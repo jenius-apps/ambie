@@ -930,4 +930,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>ניסיון חינם זמין</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>פתח ערוץ אחרון</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>ערוצי</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>צפה בסרטוני וידאו במסך מלא או בתוכן חזותי אחר שיעזרו לך להתמקד, ללמוד או להירגע.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>הצג פרטים</value>
+  </data>
 </root>

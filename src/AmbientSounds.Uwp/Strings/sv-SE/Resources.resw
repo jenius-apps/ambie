@@ -927,4 +927,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Gratis provperiod tillgänglig</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Öppna sista kanalen</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanaler</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Visa helskärmsvideor eller annat visuellt innehåll som hjälper dig att fokusera, studera eller koppla av.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Visa Detaljer</value>
+  </data>
 </root>

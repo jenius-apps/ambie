@@ -3173,6 +3173,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region OpenLastChannelText
+        /// <summary>
+        ///   Looks up a localized string similar to: Open last channel
+        /// </summary>
+        public static string OpenLastChannelText
+        {
+            get
+            {
+                return _resourceLoader.GetString("OpenLastChannelText");
+            }
+        }
+        #endregion
+
+        #region ChannelsTitleText
+        /// <summary>
+        ///   Looks up a localized string similar to: Channels
+        /// </summary>
+        public static string ChannelsTitleText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ChannelsTitleText");
+            }
+        }
+        #endregion
+
+        #region ChannelsSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: View full screen videos or other visual content to help you focus, study, or relax.
+        /// </summary>
+        public static string ChannelsSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("ChannelsSubtitle");
+            }
+        }
+        #endregion
+
+        #region ViewDetailsText
+        /// <summary>
+        ///   Looks up a localized string similar to: View details
+        /// </summary>
+        public static string ViewDetailsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ViewDetailsText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3427,6 +3479,10 @@ namespace AmbientSounds.Strings{
             SettingsFeedbackDescription,
             FreeTrialTipDescription,
             FreeTrialTipTitle,
+            OpenLastChannelText,
+            ChannelsTitleText,
+            ChannelsSubtitle,
+            ViewDetailsText,
         }
 
         private static ResourceLoader _resourceLoader;

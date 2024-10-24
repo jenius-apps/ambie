@@ -49,7 +49,12 @@ public sealed partial class ShellPage : Page
         {
             navigator.Frame = MainFrame;
 
-            if (e.Parameter is ShellPageNavigationArgs args)
+            // The ShellPageNavigationArgs is not designed to be used on back navigation
+            // because it's meant to control the subsequent content page navigation.
+            // When navigating backwards, the args are REUSED by uwp, which means we may navigate
+            // to a content page that we aren't actually intending to.
+            // Thus, we're preventing back navigation from using these args.
+            if (e is { NavigationMode: not NavigationMode.Back, Parameter: ShellPageNavigationArgs args })
             {
                 if (args.MillisecondsDelay > 0)
                 {

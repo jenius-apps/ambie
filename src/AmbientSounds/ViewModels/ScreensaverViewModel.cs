@@ -3,12 +3,12 @@ using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
+using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JeniusApps.Common.Telemetry;
-using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.ViewModels;
 

@@ -930,4 +930,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Наличен е безплатен пробен период</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Отваряне на последния канал</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Канали</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Преглеждайте видеоклипове на цял екран или друго визуално съдържание, за да ви помогне да се съсредоточите, да учите или да се отпуснете.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Преглед на детайли</value>
+  </data>
 </root>

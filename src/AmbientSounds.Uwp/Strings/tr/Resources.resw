@@ -924,4 +924,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Ücretsiz deneme sürümü mevcut</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Son kanalı aç</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanal</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Odaklanmanıza, çalışmanıza veya rahatlamanıza yardımcı olması için tam ekran videoları veya diğer görsel içerikleri görüntüleyin.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Ayrıntıları görüntüleme</value>
+  </data>
 </root>

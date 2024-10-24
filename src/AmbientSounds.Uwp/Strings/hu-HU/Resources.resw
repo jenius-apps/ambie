@@ -918,4 +918,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Ingyenes próbaverzió érhető el</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Utolsó csatorna megnyitása</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Csatornák</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Teljes képernyős videók vagy más vizuális tartalmak megtekintése az összpontosítás, a tanulás vagy a pihenés elősegítése érdekében.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Részletek megtekintése</value>
+  </data>
 </root>

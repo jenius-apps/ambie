@@ -1227,6 +1227,22 @@
           <source>Free trial available</source>
           <target state="translated">Încercare gratuită disponibilă</target>
         </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">Deschide ultimul canal</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">Canale</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">Vizualizați videoclipuri pe ecran complet sau alt conținut vizual pentru a vă ajuta să vă concentrați, să studiați sau să vă relaxați.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">Vezi detalii</target>
+        </trans-unit>
       </group>
     </body>
   </file>

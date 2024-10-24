@@ -927,4 +927,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Încercare gratuită disponibilă</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Deschide ultimul canal</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Canale</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Vizualizați videoclipuri pe ecran complet sau alt conținut vizual pentru a vă ajuta să vă concentrați, să studiați sau să vă relaxați.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Vezi detalii</value>
+  </data>
 </root>

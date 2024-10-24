@@ -1,4 +1,5 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
@@ -49,11 +50,17 @@ public sealed partial class ScreensaverPage : Page
 
     private DispatcherQueue Queue { get; set; }
 
-
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
-        var settings = App.Services.GetRequiredService<IUserSettings>();
-        await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
+        if (e.Parameter is ScreensaverArgs args)
+        {
+            await ViewModel.InitializeAsync(args);
+        }
+        else
+        {
+            var settings = App.Services.GetRequiredService<IUserSettings>();
+            await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
+        }
 
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
         telemetry.TrackPageView(nameof(ScreensaverPage));
@@ -77,6 +84,7 @@ public sealed partial class ScreensaverPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        ScreensaverControl?.Uninitialize();
         ViewModel.Loaded -= OnViewModelLoaded;
         ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
 
@@ -89,7 +97,6 @@ public sealed partial class ScreensaverPage : Page
         StopHideCursorTimer();
         CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
 
-        SettingsFlyout?.Items?.Clear();
         _displayRequest.RequestRelease();
     }
 
@@ -116,52 +123,6 @@ public sealed partial class ScreensaverPage : Page
         {
             return;
         }
-
-        SettingsFlyout.Items.Clear();
-
-        foreach (var item in ViewModel.MenuItems)
-        {
-            MenuFlyoutItem menuItem;
-
-            if (item.IsToggle)
-            {
-                menuItem = new ToggleMenuFlyoutItem()
-                {
-                    IsChecked = item == ViewModel.CurrentSelection
-                };
-            }
-            else
-            {
-                menuItem = new MenuFlyoutItem();
-            }
-
-            menuItem.DataContext = item;
-            menuItem.Text = item.Text;
-            menuItem.Click += OnMenuItemClicked;
-
-            SettingsFlyout.Items.Add(menuItem);
-        }
-    }
-
-    private void OnMenuItemClicked(object sender, RoutedEventArgs e)
-    {
-        if (sender is MenuFlyoutItem flyoutItem &&
-            flyoutItem.DataContext is FlyoutMenuItem dc)
-        {
-
-            if (flyoutItem is ToggleMenuFlyoutItem)
-            {
-                foreach (var item in SettingsFlyout.Items)
-                {
-                    if (item is ToggleMenuFlyoutItem menuItem)
-                    {
-                        menuItem.IsChecked = menuItem == flyoutItem;
-                    }
-                }
-            }
-
-            dc.Command.Execute(dc.CommandParameter);
-        }
     }
 
     private void OnBackRequested(object sender, BackRequestedEventArgs e)
@@ -177,10 +138,6 @@ public sealed partial class ScreensaverPage : Page
             if (ApplicationView.GetForCurrentView() is { IsFullScreenMode: true } view)
             {
                 view.ExitFullScreenMode();
-            }
-            else
-            {
-                GoBack();
             }
 
             args.Handled = true;
@@ -281,6 +238,8 @@ public sealed partial class ScreensaverPage : Page
     {
         GoBackButton.Visibility = Visibility.Visible;
         ActionButtons.Visibility = Visibility.Visible;
+        VideosGrid.Visibility = Visibility.Visible;
+        TopGradient.Visibility = Visibility.Visible;
         CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
         IsButtonsHidden = false;
     }
@@ -289,6 +248,8 @@ public sealed partial class ScreensaverPage : Page
     {
         GoBackButton.Visibility = Visibility.Collapsed;
         ActionButtons.Visibility = Visibility.Collapsed;
+        VideosGrid.Visibility = Visibility.Collapsed;
+        TopGradient.Visibility = Visibility.Collapsed;
         CoreWindow.GetForCurrentThread().PointerCursor = null;
         IsButtonsHidden = true;
     }

@@ -930,4 +930,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>可免费试用</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>打开最后一个频道</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>渠道</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>查看全屏视频或其他视觉内容，以帮助您集中注意力、学习或放松。</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>查看详情</value>
+  </data>
 </root>

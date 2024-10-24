@@ -930,4 +930,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>نسخة تجريبية مجانية متاحة</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>فتح القناة الأخيرة</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>القنوات</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>اعرض مقاطع الفيديو بملء الشاشة أو أي محتوى مرئي آخر لمساعدتك على التركيز أو الدراسة أو الاسترخاء.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>عرض التفاصيل</value>
+  </data>
 </root>

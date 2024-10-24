@@ -103,13 +103,13 @@ public partial class GuideViewModel : ObservableObject
 
     public void Initialize()
     {
-        _mixMediaPlayerService.GuidePositionChanged += OnGuidePositionChanged;
+        _mixMediaPlayerService.FeaturedSoundPositionChanged += OnGuidePositionChanged;
         DownloadProgress.ProgressChanged += OnProgressChanged;
     }
 
     public void Uninitialize()
     {
-        _mixMediaPlayerService.GuidePositionChanged -= OnGuidePositionChanged;
+        _mixMediaPlayerService.FeaturedSoundPositionChanged -= OnGuidePositionChanged;
         DownloadProgress.ProgressChanged -= OnProgressChanged;
     }
 
@@ -117,9 +117,9 @@ public partial class GuideViewModel : ObservableObject
     {
         _dispatcherQueue.TryEnqueue(() =>
         {
-            if (_mixMediaPlayerService.CurrentGuideId == OnlineGuide.Id)
+            if (_mixMediaPlayerService.FeaturedSoundId == OnlineGuide.Id)
             {
-                GuidePlaybackProgress = e.TotalSeconds / _mixMediaPlayerService.GuideDuration.TotalSeconds * 100;
+                GuidePlaybackProgress = e.TotalSeconds / _mixMediaPlayerService.FeaturedSoundDuration.TotalSeconds * 100;
             }
             else
             {

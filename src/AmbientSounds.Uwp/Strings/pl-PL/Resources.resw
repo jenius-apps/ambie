@@ -927,4 +927,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Dostępna bezpłatna wersja próbna</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Otwórz ostatni kanał</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanały</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Wyświetlaj filmy pełnoekranowe lub inne treści wizualne, które pomogą Ci się skupić, uczyć lub zrelaksować.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Zobacz szczegóły</value>
+  </data>
 </root>

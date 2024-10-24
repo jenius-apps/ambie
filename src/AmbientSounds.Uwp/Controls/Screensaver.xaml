@@ -60,7 +60,7 @@
                 x:Name="image"
                 d:Source="ms-appx:///Assets/Images/wind.png"
                 Style="{StaticResource ScreensaverImage}"
-                Visibility="{x:Bind ViewModel.ImageVisible1, Mode=OneWay}">
+                Visibility="Collapsed">
                 <Image.RenderTransform>
                     <CompositeTransform />
                 </Image.RenderTransform>
@@ -73,18 +73,20 @@
                         To="1.0"
                         Duration="0:0:3" />
                 </animations:Implicit.ShowAnimations>
-                <animations:Implicit.HideAnimations>
-                    <animations:OpacityAnimation
-                        From="1.0"
-                        To="0"
-                        Duration="0:0:3" />
-                </animations:Implicit.HideAnimations>
+                <animations:Explicit.Animations>
+                    <animations:AnimationSet x:Name="Image1Hide">
+                        <animations:OpacityAnimation
+                            From="1.0"
+                            To="0"
+                            Duration="0:0:3" />
+                    </animations:AnimationSet>
+                </animations:Explicit.Animations>
             </Image>
             <Image
                 x:Name="image2"
                 d:Source="ms-appx:///Assets/Images/beach.png"
                 Style="{StaticResource ScreensaverImage}"
-                Visibility="{x:Bind ViewModel.ImageVisible2, Mode=OneWay}">
+                Visibility="Collapsed">
                 <Image.RenderTransform>
                     <CompositeTransform />
                 </Image.RenderTransform>
@@ -98,12 +100,15 @@
                         To="1.0"
                         Duration="0:0:3" />
                 </animations:Implicit.ShowAnimations>
-                <animations:Implicit.HideAnimations>
-                    <animations:OpacityAnimation
-                        From="1.0"
-                        To="0"
-                        Duration="0:0:3" />
-                </animations:Implicit.HideAnimations>
+
+                <animations:Explicit.Animations>
+                    <animations:AnimationSet x:Name="Image2Hide">
+                        <animations:OpacityAnimation
+                            From="1.0"
+                            To="0"
+                            Duration="0:0:3" />
+                    </animations:AnimationSet>
+                </animations:Explicit.Animations>
             </Image>
         </Canvas>
     </Grid>
