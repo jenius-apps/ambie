@@ -43,16 +43,18 @@
             SelectionMode="None">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="vm:OnlineSoundViewModel">
-                    <Grid CornerRadius="{StaticResource SoundCardCornerRadius}">
-                        <Rectangle
-                            Width="150"
-                            Height="90"
-                            RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
-                            RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
-                            <Rectangle.Fill>
-                                <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
-                            </Rectangle.Fill>
-                        </Rectangle>
+                    <Grid
+                        Width="150"
+                        Height="90"
+                        CornerRadius="{StaticResource SoundCardCornerRadius}">
+                        <Image Stretch="UniformToFill">
+                            <Image.Source>
+                                <BitmapImage
+                                    DecodePixelType="Logical"
+                                    DecodePixelWidth="150"
+                                    UriSource="{x:Bind ImagePath}" />
+                            </Image.Source>
+                        </Image>
 
                         <Grid
                             Background="{ThemeResource SmokeFillColorDefaultBrush}"
