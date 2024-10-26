@@ -49,6 +49,12 @@
                         CornerRadius="{StaticResource SoundCardCornerRadius}">
                         <Image Stretch="UniformToFill">
                             <Image.Source>
+                                <!--
+                                    Using decode pixel width and type is necessary to
+                                    prevent memory crash on Xbox. Without this,
+                                    all the images on the page are loaded at the same time at full resolution behind the scenes,
+                                    and Xbox has strict memory usage rules for apps, so the OS will kill the app.
+                                -->
                                 <BitmapImage
                                     DecodePixelType="Logical"
                                     DecodePixelWidth="150"
