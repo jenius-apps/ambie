@@ -179,11 +179,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
             if (_channelFactory.Create(c, changeChannelCommand: ChangeChannelCommand) is { } vm)
             {
                 await vm.InitializeAsync();
-
-                if (vm.IsFullyDownloaded)
-                {
-                    Channels.Add(vm);
-                }
+                Channels.Add(vm);
             }
         }
     }

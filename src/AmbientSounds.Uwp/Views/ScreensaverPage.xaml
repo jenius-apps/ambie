@@ -142,6 +142,7 @@
                                 PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Tapped">
+                                        TODO change this to handle the primary action
                                         <core:InvokeCommandAction Command="{x:Bind ChangeChannelCommand}" CommandParameter="{x:Bind}" />
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
@@ -182,11 +183,11 @@
                                     VerticalAlignment="Center"
                                     Background="{ThemeResource BackgroundAcrylicBrush}"
                                     CornerRadius="8"
-                                    Visibility="{x:Bind BuyButtonVisible, Mode=OneWay}">
+                                    Visibility="{x:Bind BuyOrDownloadButtonVisible, Mode=OneWay}">
                                     <FontIcon
                                         Margin="8"
                                         FontFamily="{StaticResource FluentUIGlyphs}"
-                                        Glyph="{StaticResource GlyphUnlock}" />
+                                        Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}" />
                                 </Border>
 
                                 <TextBlock

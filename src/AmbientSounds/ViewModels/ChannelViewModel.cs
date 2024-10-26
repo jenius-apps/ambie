@@ -66,10 +66,13 @@ public partial class ChannelViewModel : ObservableObject
 
     public bool BuyButtonVisible => !ActionButtonLoading && !IsOwned;
 
+    public bool BuyOrDownloadButtonVisible => BuyButtonVisible || DownloadButtonVisible;
+
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(BuyOrDownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
     [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
     private bool _actionButtonLoading;
@@ -78,12 +81,14 @@ public partial class ChannelViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(BuyOrDownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
     [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
     private bool _isOwned;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(BuyOrDownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
     [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
