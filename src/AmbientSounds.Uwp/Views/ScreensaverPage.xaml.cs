@@ -24,7 +24,7 @@ namespace AmbientSounds.Views;
 
 public sealed partial class ScreensaverPage : Page
 {
-    private const int SecondsToHide = 5;
+    private const int SecondsToHide = 3;
     private readonly DisplayRequest _displayRequest;
     private readonly DispatcherQueue _dispatcherQueue;
 
