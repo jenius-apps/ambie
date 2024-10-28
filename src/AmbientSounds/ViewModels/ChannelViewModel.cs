@@ -66,13 +66,13 @@ public partial class ChannelViewModel : ObservableObject
 
     public bool BuyButtonVisible => !ActionButtonLoading && !IsOwned;
 
-    public bool BuyOrDownloadButtonVisible => BuyButtonVisible || DownloadButtonVisible;
+    public bool ScreensaverBackplateVisible => BuyButtonVisible || DownloadButtonVisible || DownloadProgressVisible;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
-    [NotifyPropertyChangedFor(nameof(BuyOrDownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(ScreensaverBackplateVisible))]
     [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
     [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
     private bool _actionButtonLoading;
@@ -81,14 +81,14 @@ public partial class ChannelViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(BuyButtonVisible))]
-    [NotifyPropertyChangedFor(nameof(BuyOrDownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(ScreensaverBackplateVisible))]
     [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
     [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
     private bool _isOwned;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
-    [NotifyPropertyChangedFor(nameof(BuyOrDownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(ScreensaverBackplateVisible))]
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
     [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
@@ -102,9 +102,11 @@ public partial class ChannelViewModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
+    [NotifyPropertyChangedFor(nameof(ScreensaverBackplateVisible))]
     private bool _downloadLoading;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ScreensaverBackplateVisible))]
     private bool _downloadProgressVisible;
 
     public string PrimaryActionGlyph

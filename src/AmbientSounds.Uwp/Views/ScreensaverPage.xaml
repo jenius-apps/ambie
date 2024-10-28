@@ -6,12 +6,14 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:strings="using:AmbientSounds.Strings"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     RequestedTheme="Dark"
     mc:Ignorable="d">
     <Page.Resources>
@@ -182,11 +184,30 @@
                                     VerticalAlignment="Center"
                                     Background="{ThemeResource BackgroundAcrylicBrush}"
                                     CornerRadius="8"
-                                    Visibility="{x:Bind BuyOrDownloadButtonVisible, Mode=OneWay}">
-                                    <FontIcon
-                                        Margin="8"
-                                        FontFamily="{StaticResource FluentUIGlyphs}"
-                                        Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}" />
+                                    Visibility="{x:Bind ScreensaverBackplateVisible, Mode=OneWay}">
+                                    <Grid>
+                                        <FontIcon
+                                            Margin="8"
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}"
+                                            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(DownloadProgressVisible), Mode=OneWay}" />
+
+                                        <Grid Margin="8" Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                AutomationProperties.AccessibilityView="Raw"
+                                                Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                                                IsIndeterminate="False"
+                                                Value="100" />
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                                IsIndeterminate="False"
+                                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                        </Grid>
+                                    </Grid>
                                 </Border>
 
                                 <TextBlock
