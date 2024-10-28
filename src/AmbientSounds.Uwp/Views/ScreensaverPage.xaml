@@ -142,7 +142,6 @@
                                 PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Tapped">
-                                        TODO change this to handle the primary action
                                         <core:InvokeCommandAction Command="{x:Bind ChangeChannelCommand}" CommandParameter="{x:Bind}" />
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>

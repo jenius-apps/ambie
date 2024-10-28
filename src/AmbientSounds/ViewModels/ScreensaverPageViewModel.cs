@@ -204,35 +204,34 @@ public partial class ScreensaverPageViewModel : ObservableObject
             return;
         }
 
-        if (!channelViewModel.IsOwned)
+        if (channelViewModel.PrimaryCommand == channelViewModel.PlayCommand)
         {
-            await channelViewModel.UnlockCommand.ExecuteAsync(null);
-            return;
-        }
+            // Override the play command because we need to ensure
+            // that navigation isn't performed when the channel is played.
+            // This is because the navigation would trigger a nav from screensaver page
+            // to a new instance of the screensaver page.
+            await _channelService.PlayChannelAsync(channel, performNavigation: false);
 
-        if (!channelViewModel.IsFullyDownloaded)
-        {
-            // TODO handle this scenario.
-            return;
-        }
+            string? menuItemId = null;
+            if (channel.Type is ChannelType.DarkScreen)
+            {
+                menuItemId = DarkScreenId;
+            }
+            else if (channel.Type is ChannelType.Slideshow)
+            {
+                menuItemId = DefaultId;
+            }
+            else if (channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] })
+            {
+                menuItemId = videoId;
+            }
 
-        await _channelService.PlayChannelAsync(channel, false);
-
-        string? menuItemId = null;
-        if (channel.Type is ChannelType.DarkScreen)
-        {
-            menuItemId = DarkScreenId;
+            await ChangeScreensaverTo(menuItemId);
         }
-        else if (channel.Type is ChannelType.Slideshow)
+        else
         {
-            menuItemId = DefaultId;
+            channelViewModel.PrimaryCommand.Execute(null);
         }
-        else if (channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] })
-        {
-            menuItemId = videoId;
-        }
-
-        await ChangeScreensaverTo(menuItemId);
     }
 
     [RelayCommand]
