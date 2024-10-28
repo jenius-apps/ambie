@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
@@ -84,6 +85,13 @@ public sealed partial class ScreensaverPage : Page
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        if (App.Services.GetRequiredService<IMixMediaPlayerService>() is { FeaturedSoundType: FeaturedSoundType.Channel } player)
+        {
+            // This ensures that channel sounds are always paused
+            // when leaving the screensaver page, which is by design.
+            player.StopFeaturedSound();
+        }
+
         ScreensaverControl?.Uninitialize();
         ViewModel.Loaded -= OnViewModelLoaded;
         ViewModel.PropertyChanged -= OnViewModelPropertyChanged;

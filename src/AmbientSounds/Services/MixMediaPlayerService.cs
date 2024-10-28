@@ -385,7 +385,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             RemoveSound(soundId);
         }
 
-        RemoveGuide();
+        StopFeaturedSound();
     }
 
     /// <inheritdoc/>
@@ -398,7 +398,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
         if (_featureSoundData?.Id == soundId)
         {
-            RemoveGuide();
+            StopFeaturedSound();
             return;
         }
 
@@ -477,7 +477,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         _smtc.UpdateDisplay(title, "Ambie");
     }
 
-    private void RemoveGuide()
+    public void StopFeaturedSound()
     {
         if (_featureSoundData is { } guideInfo)
         {

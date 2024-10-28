@@ -160,6 +160,11 @@ public interface IMixMediaPlayerService
     Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filepath, bool enableGaplessLoop = false);
 
     /// <summary>
+    /// Stops the featured sound and removes it from playback.
+    /// </summary>
+    void StopFeaturedSound();
+
+    /// <summary>
     /// Plays a random sound.
     /// </summary>
     Task AddRandomAsync();
