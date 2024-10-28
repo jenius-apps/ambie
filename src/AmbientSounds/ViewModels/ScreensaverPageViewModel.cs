@@ -261,7 +261,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
         if (newSelectedItem?.IsToggle == true)
         {
             CurrentSelection = newSelectedItem;
-            _userSettings.Set(UserSettingsConstants.LastUsedScreensaverKey, menuItemId);
+            _userSettings.Set(UserSettingsConstants.LastUsedChannelKey, menuItemId);
         }
 
         if (menuItemId == DefaultId)

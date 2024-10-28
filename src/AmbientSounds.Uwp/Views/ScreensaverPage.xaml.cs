@@ -60,7 +60,7 @@ public sealed partial class ScreensaverPage : Page
         else
         {
             var settings = App.Services.GetRequiredService<IUserSettings>();
-            await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedScreensaverKey));
+            await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedChannelKey));
         }
 
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
