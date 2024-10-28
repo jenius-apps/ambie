@@ -37,7 +37,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="PlayButton.Style" Value="{StaticResource XboxIconButton}" />
-                        <Setter Target="SecondColumn.Width" Value="92" />
+                        <Setter Target="SecondColumn.Width" Value="0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
