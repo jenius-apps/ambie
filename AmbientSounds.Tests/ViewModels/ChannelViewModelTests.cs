@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Telemetry;
 using Moq;
 using System.Threading.Tasks;
 using Xunit;
@@ -56,7 +57,8 @@ public class ChannelViewModelTests
             Mock.Of<IAssetLocalizer>(),
             channelServiceMock.Object,
             Mock.Of<IDialogService>(),
-            Mock.Of<IIapService>());
+            Mock.Of<IIapService>(),
+            Mock.Of<ITelemetry>());
 
         return vm;
     }
