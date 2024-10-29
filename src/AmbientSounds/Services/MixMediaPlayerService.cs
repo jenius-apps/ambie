@@ -206,6 +206,15 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             return;
         }
 
+        if (type is Models.FeaturedSoundType.Channel && IsSoundPlaying(id))
+        {
+            // The channel sound was manually played by user.
+            // In this case, just let it remain as a manual sound
+            // to give a consistent user experience.
+            Play();
+            return;
+        }
+
         IMediaPlayer player = _featureSoundData?.Player
             ?? _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
 
@@ -486,6 +495,11 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         _featureSoundData = null;
+
+        if (GetSoundIds().Length == 0)
+        {
+            Pause();
+        }
     }
 
     private async Task<bool> TrySetSourceAsync(IMediaPlayer player, string filePath, bool enableGaplessLoop)
