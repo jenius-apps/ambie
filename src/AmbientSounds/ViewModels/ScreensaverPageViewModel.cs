@@ -184,6 +184,16 @@ public partial class ScreensaverPageViewModel : ObservableObject
         }
     }
 
+    public void Uninitialize()
+    {
+        foreach (var channel in Channels)
+        {
+            channel.Uninitialize();
+        }
+
+        Channels.Clear();
+    }
+
     private async void OnVideoDeleted(object sender, string deletedVideoId)
     {
         await InitializeAsync(deletedVideoId == CurrentSelection?.Id

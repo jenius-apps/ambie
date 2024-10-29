@@ -20,6 +20,7 @@ public partial class ChannelViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly ITelemetry _telemetry;
     private bool _eventsRegistered;
+    private Progress<double>? _downloadProgress;
 
     public ChannelViewModel(
         Channel channel,
@@ -39,9 +40,6 @@ public partial class ChannelViewModel : ObservableObject
         _telemetry = telemetry;
         ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
         ChangeChannelCommand = changeChannelCommand ?? new RelayCommand<ChannelViewModel>(static (c) => { });
-
-        DownloadProgress = new Progress<double>();
-        DownloadProgress.ProgressChanged += OnProgressChanged;
     }
 
     public string Id => _channel.Id;
@@ -51,8 +49,6 @@ public partial class ChannelViewModel : ObservableObject
     public IRelayCommand<ChannelViewModel> ViewDetailsCommand { get; }
 
     public IRelayCommand<ChannelViewModel> ChangeChannelCommand { get; }
-
-    public Progress<double> DownloadProgress { get; }
 
     public string Name => _assetLocalizer.GetLocalName(_channel);
 
@@ -163,6 +159,11 @@ public partial class ChannelViewModel : ObservableObject
         {
             _eventsRegistered = true;
             _iapService.ProductPurchased += OnProductPurchased;
+            _downloadProgress = _channelService.TryGetActiveProgress(_channel);
+            if (_downloadProgress is not null)
+            {
+                _downloadProgress.ProgressChanged += OnProgressChanged;
+            }
         }
 
         var isOwnedTask = _channelService.IsOwnedAsync(_channel);
@@ -171,12 +172,20 @@ public partial class ChannelViewModel : ObservableObject
         IsOwned = await isOwnedTask;
         IsFullyDownloaded = await isFullyDownloadedTask;
 
-        ActionButtonLoading = false;
+        if (_downloadProgress is null)
+        {
+            ActionButtonLoading = false;
+        }
     }
 
     public void Uninitialize()
     {
         _iapService.ProductPurchased -= OnProductPurchased;
+
+        if (_downloadProgress is not null)
+        {
+            _downloadProgress.ProgressChanged -= OnProgressChanged;
+        }
     }
 
     [RelayCommand]
@@ -205,10 +214,18 @@ public partial class ChannelViewModel : ObservableObject
     [RelayCommand]
     private async Task DownloadAsync()
     {
+        if (_downloadProgress is not null)
+        {
+            return;
+        }
+
+        _downloadProgress = new Progress<double>();
+        _downloadProgress.ProgressChanged += OnProgressChanged;
+
         ActionButtonLoading = true;
         ViewDetailsCommand.Execute(this);
         await Task.Delay(600);
-        await _channelService.QueueInstallChannelAsync(_channel, DownloadProgress);
+        await _channelService.QueueInstallChannelAsync(_channel, _downloadProgress);
         _telemetry.TrackEvent(TelemetryConstants.ChannelDownloadClicked, new Dictionary<string, string>
         {
             { "name", _channel.Name }
@@ -232,6 +249,12 @@ public partial class ChannelViewModel : ObservableObject
             IsFullyDownloaded = true;
             DownloadProgressVisible = false;
             ActionButtonLoading = false;
+
+            if (_downloadProgress is { } progress)
+            {
+                progress.ProgressChanged += OnProgressChanged;
+                _downloadProgress = null;
+            }
         }
 
         DownloadProgressValue = e;

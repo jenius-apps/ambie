@@ -95,6 +95,7 @@ public sealed partial class ScreensaverPage : Page
         ScreensaverControl?.Uninitialize();
         ViewModel.Loaded -= OnViewModelLoaded;
         ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
+        ViewModel.Uninitialize();
 
         var coreWindow = CoreWindow.GetForCurrentThread();
         coreWindow.KeyDown -= CoreWindow_KeyDown;

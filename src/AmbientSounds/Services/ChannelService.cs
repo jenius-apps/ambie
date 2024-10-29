@@ -21,6 +21,7 @@ public sealed class ChannelService : IChannelService
     private readonly IMixMediaPlayerService _player;
     private readonly ConcurrentDictionary<string, double> _activeVideoDownloadProgress = new();
     private readonly ConcurrentDictionary<string, double> _activeSoundDownloadProgress = new();
+    private readonly ConcurrentDictionary<string, IProgress<double>> _activeChannelProgress = new();
 
     /// <inheritdoc/>
     public event EventHandler<string>? ChannelDownloaded;
@@ -85,6 +86,18 @@ public sealed class ChannelService : IChannelService
         return result;
     }
 
+    /// <inheritdoc/>
+    public Progress<double>? TryGetActiveProgress(Channel c)
+    {
+        if (_activeChannelProgress.TryGetValue(c.Id, out IProgress<double> activeProgress) &&
+            activeProgress is Progress<double> result)
+        {
+            return result;
+        }
+
+        return null;
+    }
+
     public async Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null)
     {
         if (channel is not { Type: ChannelType.Videos, VideoIds: [string videoId, ..], SoundIds: [string soundId, ..] })
@@ -102,7 +115,8 @@ public sealed class ChannelService : IChannelService
 
         bool isSoundQueued = false;
         bool isVideoQueued = false;
-        IProgress<double> channelProgress = progress ?? new Progress<double>();
+        Progress<double> channelProgress = progress ?? new();
+        channelProgress.ProgressChanged += OnChannelProgressChanged;
 
         if (!isSoundInstalled)
         {
@@ -111,6 +125,8 @@ public sealed class ChannelService : IChannelService
 
             if (soundToDownload is not null && !_activeSoundDownloadProgress.ContainsKey(soundId))
             {
+                // TODO expand if statement to check if there's an active sound download from
+                // outside the channel service. Need to check the downloader itself.
                 _activeSoundDownloadProgress[soundId] = 0;
                 var soundProgress = new Progress<double>();
                 soundProgress.ProgressChanged += OnSoundProgressChanged;
@@ -119,18 +135,13 @@ public sealed class ChannelService : IChannelService
 
                 void OnSoundProgressChanged(object sender, double e)
                 {
-                    var sum = OnAssetProgressChanged(
+                    OnAssetProgressChanged(
                         soundId,
                         videoId,
                         _activeSoundDownloadProgress,
                         _activeVideoDownloadProgress,
                         e,
                         channelProgress);
-
-                    if (sum >= 100)
-                    {
-                        ChannelDownloaded?.Invoke(this, channel.Id);
-                    }
                 }
             }
         }
@@ -142,6 +153,9 @@ public sealed class ChannelService : IChannelService
 
             if (videoToDownload is not null && !_activeVideoDownloadProgress.ContainsKey(videoId))
             {
+                // TODO expand if statement to check if there's an active sound download from
+                // outside the channel service. Need to check the downloader itself.
+
                 _activeVideoDownloadProgress[videoId] = 0;
                 var videoProgress = new Progress<double>();
                 videoProgress.ProgressChanged += OnVideoProgressChanged;
@@ -150,19 +164,41 @@ public sealed class ChannelService : IChannelService
 
                 void OnVideoProgressChanged(object sender, double e)
                 {
-                    var sum = OnAssetProgressChanged(
+                    OnAssetProgressChanged(
                         videoId,
                         soundId,
                         _activeVideoDownloadProgress,
                         _activeSoundDownloadProgress, 
                         e,
                         channelProgress);
-
                 }
             }
         }
 
-        return isSoundQueued || isVideoQueued;
+        bool queueSuccess = isSoundQueued || isVideoQueued;
+        if (queueSuccess)
+        {
+            _activeChannelProgress[channel.Id] = channelProgress;
+        }
+        else
+        {
+            channelProgress.ProgressChanged -= OnChannelProgressChanged;
+        }
+
+        void OnChannelProgressChanged(object sender, double e)
+        {
+            if (e >= 100)
+            {
+                ChannelDownloaded?.Invoke(this, channel.Id);
+                if (_activeChannelProgress.TryRemove(channel.Id, out var removedValue) && 
+                    removedValue is Progress<double> completedProgress)
+                {
+                    completedProgress.ProgressChanged -= OnChannelProgressChanged;
+                }
+            }
+        }
+
+        return queueSuccess;
     }
 
     private static double OnAssetProgressChanged(

@@ -44,4 +44,9 @@ public interface IChannelService
     /// Queues the channel for download and installation.
     /// </summary>
     Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null);
+
+    /// <summary>
+    /// Retrieves active progress for given channel.
+    /// </summary>
+    Progress<double>? TryGetActiveProgress(Channel c);
 }
