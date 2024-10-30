@@ -125,12 +125,20 @@ public sealed class ChannelService : IChannelService
 
             if (soundToDownload is not null && !_activeSoundDownloadProgress.ContainsKey(soundId))
             {
-                // TODO expand if statement to check if there's an active sound download from
-                // outside the channel service. Need to check the downloader itself.
+                // Check if sound is already being downloaded outside of the channel serivce.
+                IProgress<double>? activeExternalProgress = _downloadManager.GetProgress(soundToDownload);
+                bool shouldQueueNewSound = activeExternalProgress is null;
+                Progress<double> soundProgress = activeExternalProgress as Progress<double> ?? new();
+
                 _activeSoundDownloadProgress[soundId] = 0;
-                var soundProgress = new Progress<double>();
                 soundProgress.ProgressChanged += OnSoundProgressChanged;
-                await _downloadManager.QueueAndDownloadAsync(soundToDownload, soundProgress);
+
+                if (shouldQueueNewSound)
+                {
+                    // Only queue if the sound isn't already being downloaded.
+                    await _downloadManager.QueueAndDownloadAsync(soundToDownload, soundProgress);
+                }
+
                 isSoundQueued = true;
 
                 void OnSoundProgressChanged(object sender, double e)
