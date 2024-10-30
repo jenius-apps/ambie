@@ -43,6 +43,7 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ILocalizer _localizer;
     private readonly IAppStoreUpdater _appStoreUpdater;
     private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly IExperimentationService _experimentationService;
 
     public ShellPageViewModel(
         IUserSettings userSettings,
@@ -63,7 +64,8 @@ public partial class ShellPageViewModel : ObservableObject
         IAssetLocalizer assetLocalizer,
         ISearchService searchService,
         IStatService statService,
-        IAppStoreUpdater appStoreUpdater)
+        IAppStoreUpdater appStoreUpdater,
+        IExperimentationService experimentationService)
     {
         IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
@@ -87,11 +89,12 @@ public partial class ShellPageViewModel : ObservableObject
         _localizer = localizer;
         _appStoreUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
+        _experimentationService = experimentationService;
 
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString(), tooltipSubtitle: localizer.GetString("FocusSubtitle")));
-        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("ChannelsTitleText"), "\uE8B2", ContentPageType.Channels.ToString(), tooltipSubtitle: localizer.GetString("ChannelsSubtitle")));
+        if (_experimentationService.IsEnabled(ExperimentConstants.ChannelsExperiment)) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("ChannelsTitleText"), "\uE8B2", ContentPageType.Channels.ToString(), tooltipSubtitle: localizer.GetString("ChannelsSubtitle"))); }
         if (IsMeditatePageVisible) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle"))); }
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString(), tooltipSubtitle: localizer.GetString("UpdatesSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString(), tooltipSubtitle: localizer.GetString("SettingsSubtitle")));

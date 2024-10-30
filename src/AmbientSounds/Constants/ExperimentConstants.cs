@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable enable
-
 namespace AmbientSounds.Constants;
 
 /// <summary>
@@ -16,6 +14,7 @@ public class ExperimentConstants
     public static readonly IReadOnlyList<string> AllKeys =
     [
         // add experiment constants here
+        ChannelsExperiment
     ];
 
     /// <summary>
@@ -23,4 +22,9 @@ public class ExperimentConstants
     /// </summary>
     [Obsolete("Experiment complete. Successful.")]
     public const string CataloguePreviews = "cataloguePreviews";
+
+    /// <summary>
+    /// Key name to track the channels experiment.
+    /// </summary>
+    public const string ChannelsExperiment = "channelsExperiment";
 }
