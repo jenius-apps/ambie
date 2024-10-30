@@ -321,7 +321,7 @@ public partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     private async Task RedirectToFeedbackFormAsync()
     {
-        await _uriLauncher.LaunchUriAsync(new Uri("https://forms.office.com/r/7AcGhgJ81q"));
+        await _uriLauncher.LaunchUriAsync(new Uri("https://forms.office.com/r/VaPaEQWvx6"));
         _telemetry.TrackEvent(TelemetryConstants.FeedbackClicked);
     }
 
