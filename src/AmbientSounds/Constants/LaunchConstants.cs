@@ -10,6 +10,8 @@ public class LaunchConstants
 
     public const string NewSoundArgument = "newSound";
 
+    public const string NewChannelArgument = "newChannel";
+
     public const string FocusSegmentArgument = "focusSegmentToast";
 
     public const string FocusCompleteArgument = "focusCompleteToast";
@@ -27,6 +29,7 @@ public class LaunchConstants
             NewSoundArgument => ContentPageType.Catalogue,
             FocusSegmentArgument => ContentPageType.Focus,
             FocusCompleteArgument => ContentPageType.Focus,
+            NewChannelArgument => ContentPageType.Channels,
             _ => null
         };
     }

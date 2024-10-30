@@ -930,4 +930,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>無料トライアルあり</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>最後のチャネルを開く</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>チャンネル</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>全画面表示のビデオやその他のビジュアル コンテンツを表示して、集中力、学習、リラックスを支援します。</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>詳細を表示</value>
+  </data>
 </root>

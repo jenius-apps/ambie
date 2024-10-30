@@ -1234,6 +1234,22 @@
           <source>Free trial available</source>
           <target state="translated">Prueba gratuita disponible</target>
         </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">Abrir el último canal</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">Canales</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">Vea videos de pantalla completa u otro contenido visual para ayudarlo a concentrarse, estudiar o relajarse.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">Ver detalles</target>
+        </trans-unit>
       </group>
     </body>
   </file>

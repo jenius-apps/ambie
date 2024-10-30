@@ -98,6 +98,11 @@ public static class UserSettingsConstants
     public const string LastUsedScreensaverKey = "LastUsedScreensaver";
 
     /// <summary>
+    /// Used to remember what was the last used channel ID.
+    /// </summary>
+    public const string LastUsedChannelKey = "LastUsedChannel";
+
+    /// <summary>
     /// Used to remember if the user has closed the focus help message
     /// at least once.
     /// </summary>
@@ -190,6 +195,7 @@ public static class UserSettingsConstants
         { RatingDismissed, DateTime.MinValue },
         { ResumeOnLaunchKey, false },
         { LastUsedScreensaverKey, string.Empty },
+        { LastUsedChannelKey, string.Empty },
         { HasClosedFocusHelpMessageKey, false },
         { HasClosedInterruptionMessageKey, false },
         { RecentFocusKey, Array.Empty<RecentFocusSettings>() },

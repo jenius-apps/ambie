@@ -930,4 +930,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>무료 평가판 사용 가능</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>마지막 채널 열기</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>채널</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>전체 화면 비디오 또는 기타 시각적 콘텐츠를 보고 집중하거나, 공부하거나, 긴장을 푸는 데 도움이 됩니다.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>세부 정보보기</value>
+  </data>
 </root>

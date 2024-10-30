@@ -50,6 +50,14 @@ public class TelemetryConstants
     public const string BuyDurableCanceled = Catalogue + "buyDurableCanceled";
     public const string PreviewPlayed = Catalogue + "previewPlayed";
 
+    // channels
+    private const string Channel = "channel:";
+    public const string ChannelDetailsClicked = Channel + "detailsClicked";
+    public const string ChannelDetailsClosed = Channel + "detailsClosed";
+    public const string ChannelPlayed = Channel + "played";
+    public const string ChannelDownloadClicked = Channel + "downloadClicked";
+    public const string ChannelUnlockClicked = Channel + "unlockClicked";
+
     // premium
     private const string Premium = "premium:";
     public const string LifetimeClicked = Premium + "lifetimeClicked";

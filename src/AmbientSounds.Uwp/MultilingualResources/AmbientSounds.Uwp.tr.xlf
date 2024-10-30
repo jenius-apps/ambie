@@ -1241,6 +1241,22 @@
           <source>Free trial available</source>
           <target state="translated">Ücretsiz deneme sürümü mevcut</target>
         </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">Son kanalı aç</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">Kanal</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">Odaklanmanıza, çalışmanıza veya rahatlamanıza yardımcı olması için tam ekran videoları veya diğer görsel içerikleri görüntüleyin.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">Ayrıntıları görüntüleme</target>
+        </trans-unit>
       </group>
     </body>
   </file>

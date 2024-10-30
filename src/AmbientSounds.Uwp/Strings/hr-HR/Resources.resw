@@ -918,4 +918,16 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Dostupna besplatna probna verzija</value>
   </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Otvori zadnji kanal</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanalima</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Pregledajte videozapise preko cijelog zaslona ili drugi vizualni sadržaj koji će vam pomoći da se usredotočite, učite ili opustite.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Pogledajte detalje</value>
+  </data>
 </root>

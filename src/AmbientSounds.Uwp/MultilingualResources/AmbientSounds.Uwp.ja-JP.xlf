@@ -1227,6 +1227,22 @@
           <source>Free trial available</source>
           <target state="translated">無料トライアルあり</target>
         </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">最後のチャネルを開く</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">チャンネル</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">全画面表示のビデオやその他のビジュアル コンテンツを表示して、集中力、学習、リラックスを支援します。</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">詳細を表示</target>
+        </trans-unit>
       </group>
     </body>
   </file>
