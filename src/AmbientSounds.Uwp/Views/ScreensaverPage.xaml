@@ -40,61 +40,81 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Rectangle
-            x:Name="TopGradient"
-            Height="{StaticResource GradientHeight}"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Top"
-            Canvas.ZIndex="1">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Offset="-1" Color="#FF000000" />
-                    <GradientStop Offset="1" Color="#00000000" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Grid x:Name="TopPanel" Canvas.ZIndex="1">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="TopPanelHide">
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.6" />
+                    <ani:TranslationAnimation
+                        From="0"
+                        To="0,-20,0"
+                        Duration="0:0:0.6" />
+                </ani:AnimationSet>
+                <ani:AnimationSet x:Name="TopPanelShow">
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <ani:TranslationAnimation
+                        From="0,-20,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
 
-        <Button
-            x:Name="GoBackButton"
-            x:Uid="BackButton"
-            Margin="40,40,0,0"
-            VerticalAlignment="Top"
-            Canvas.ZIndex="1"
-            Click="GoBack"
-            Style="{StaticResource IconButton}">
-            <FontIcon
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="{StaticResource SmallIconSize}"
-                Glyph="{StaticResource GlyphBack}" />
-        </Button>
+            <Rectangle
+                Height="{StaticResource GradientHeight}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="-1" Color="#FF000000" />
+                        <GradientStop Offset="1" Color="#00000000" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
 
-        <StackPanel
-            x:Name="ActionButtons"
-            Margin="0,40,40,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Canvas.ZIndex="1"
-            Orientation="Horizontal">
             <Button
-                AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
-                Click="OnToggleFullscreen"
-                Style="{StaticResource IconButton}"
-                ToolTipService.ToolTip="{x:Bind strings:Resources.ToggleFullscreen}"
-                Visibility="{x:Bind ViewModel.FullScreenVisible, Mode=OneWay}">
-                <Grid>
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="{StaticResource SmallIconSize}"
-                        Glyph="{StaticResource GlyphExpand}"
-                        Visibility="{x:Bind controls:UIHelper.InvertVisibility(IsFullscreen)}" />
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="{StaticResource SmallIconSize}"
-                        Glyph="{StaticResource GlyphCollapse}"
-                        Visibility="{x:Bind IsFullscreen}" />
-                </Grid>
+                x:Name="GoBackButton"
+                x:Uid="BackButton"
+                Margin="40,40,0,0"
+                VerticalAlignment="Top"
+                Click="GoBack"
+                Style="{StaticResource IconButton}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="{StaticResource SmallIconSize}"
+                    Glyph="{StaticResource GlyphBack}" />
             </Button>
-        </StackPanel>
+
+            <StackPanel
+                Margin="0,40,40,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
+                    Click="OnToggleFullscreen"
+                    Style="{StaticResource IconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.ToggleFullscreen}"
+                    Visibility="{x:Bind ViewModel.FullScreenVisible, Mode=OneWay}">
+                    <Grid>
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="{StaticResource SmallIconSize}"
+                            Glyph="{StaticResource GlyphExpand}"
+                            Visibility="{x:Bind controls:UIHelper.InvertVisibility(IsFullscreen)}" />
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="{StaticResource SmallIconSize}"
+                            Glyph="{StaticResource GlyphCollapse}"
+                            Visibility="{x:Bind IsFullscreen}" />
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
 
         <MediaPlayerElement
             x:Name="VideoPlayer"
@@ -108,6 +128,28 @@
             x:Name="VideosGrid"
             Height="{StaticResource GradientHeight}"
             VerticalAlignment="Bottom">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="BottomPanelHide">
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.6" />
+                    <ani:TranslationAnimation
+                        From="0"
+                        To="0,20,0"
+                        Duration="0:0:0.6" />
+                </ani:AnimationSet>
+                <ani:AnimationSet x:Name="BottomPanelShow">
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <ani:TranslationAnimation
+                        From="0,20,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Offset="0" Color="#00000000" />

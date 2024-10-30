@@ -6,9 +6,11 @@ using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Windows.Media.Core;
 using Windows.System;
 using Windows.System.Display;
@@ -245,22 +247,37 @@ public sealed partial class ScreensaverPage : Page
 
     private void ShowButtonsAndCursor()
     {
-        GoBackButton.Visibility = Visibility.Visible;
-        ActionButtons.Visibility = Visibility.Visible;
-        VideosGrid.Visibility = Visibility.Visible;
-        TopGradient.Visibility = Visibility.Visible;
-        CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
         IsButtonsHidden = false;
+        CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
+
+        if (TopPanel.Visibility is Visibility.Collapsed)
+        {
+            TopPanel.Visibility = Visibility.Visible;
+            _ = TopPanelShow.StartAsync();
+        }
+
+        if (VideosGrid.Visibility is Visibility.Collapsed)
+        {
+            VideosGrid.Visibility = Visibility.Visible;
+            _ = BottomPanelShow.StartAsync();
+        }
     }
 
     private void HideButtonsAndCursor()
     {
-        GoBackButton.Visibility = Visibility.Collapsed;
-        ActionButtons.Visibility = Visibility.Collapsed;
-        VideosGrid.Visibility = Visibility.Collapsed;
-        TopGradient.Visibility = Visibility.Collapsed;
-        CoreWindow.GetForCurrentThread().PointerCursor = null;
         IsButtonsHidden = true;
+        CoreWindow.GetForCurrentThread().PointerCursor = null;
+        _ = FadeOutAsync(TopPanelHide, TopPanel);
+        _ = FadeOutAsync(BottomPanelHide, VideosGrid);
+    }
+
+    private async Task FadeOutAsync(AnimationSet fadeOutAnimation, UIElement element)
+    {
+        if (element.Visibility is Visibility.Visible)
+        {
+            await fadeOutAnimation.StartAsync();
+            element.Visibility = Visibility.Collapsed;
+        }
     }
 
     private void StopHideCursorTimer() => InactiveTimer?.Stop();
