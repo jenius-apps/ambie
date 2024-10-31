@@ -1,0 +1,96 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.OldScreensaverPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <BrushTransition x:Key="Transition" Duration="0:0:1" />
+    </Page.Resources>
+
+    <Grid
+        x:Name="RootPage"
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        BackgroundTransition="{StaticResource Transition}"
+        PointerMoved="RootPage_OnPointerMoved">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.IsDarkScreen, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootPage.Background" Value="Black" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Normal" />
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Button
+            x:Name="GoBackButton"
+            x:Uid="BackButton"
+            Margin="40,40,0,0"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            Click="GoBack"
+            Style="{StaticResource IconButton}">
+            <FontIcon
+                FontFamily="{StaticResource FluentUIGlyphs}"
+                FontSize="{StaticResource SmallIconSize}"
+                Glyph="{StaticResource GlyphBack}" />
+        </Button>
+
+        <StackPanel
+            Name="ActionButtons"
+            Margin="0,40,40,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            Orientation="Horizontal">
+            <Button
+                AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
+                Click="OnToggleFullscreen"
+                Style="{StaticResource IconButton}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.ToggleFullscreen}"
+                Visibility="{x:Bind ViewModel.FullScreenVisible, Mode=OneWay}">
+                <Grid>
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
+                        Glyph="{StaticResource GlyphExpand}"
+                        Visibility="{x:Bind controls:UIHelper.InvertVisibility(IsFullscreen)}" />
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
+                        Glyph="{StaticResource GlyphCollapse}"
+                        Visibility="{x:Bind IsFullscreen}" />
+                </Grid>
+            </Button>
+            <Button
+                Margin="12,0,0,0"
+                AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                Style="{StaticResource IconButton}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}"
+                Visibility="{x:Bind ViewModel.SettingsButtonVisible, Mode=OneWay}">
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="{StaticResource SmallIconSize}"
+                    Glyph="{StaticResource GlyphSettings}" />
+                <Button.Flyout>
+                    <!--  Contents of this is set in code behind  -->
+                    <MenuFlyout x:Name="SettingsFlyout" Placement="Bottom" />
+                </Button.Flyout>
+            </Button>
+        </StackPanel>
+
+        <MediaPlayerElement
+            x:Name="VideoPlayer"
+            AutoPlay="True"
+            Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
+
+        <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+    </Grid>
+</Page>

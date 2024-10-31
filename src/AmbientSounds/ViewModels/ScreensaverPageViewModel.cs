@@ -65,7 +65,8 @@ public partial class ScreensaverPageViewModel : ObservableObject
         ISystemInfoProvider systemInfoProvider,
         IUserSettings userSettings,
         IChannelService channelService,
-        ChannelVmFactory channelVmFactory)
+        ChannelVmFactory channelVmFactory,
+        IExperimentationService experimentationService)
     {
         _localizer = localizer;
         _videoService = videoService;
@@ -76,10 +77,14 @@ public partial class ScreensaverPageViewModel : ObservableObject
         _userSettings = userSettings;
         _channelService = channelService;
         _channelFactory = channelVmFactory;
+        ChannelsEnabled = experimentationService.IsEnabled(ExperimentConstants.ChannelsExperiment);
 
         _videoService.VideoDownloaded += OnVideoDownloaded;
         _videoService.VideoDeleted += OnVideoDeleted;
     }
+
+    [ObservableProperty]
+    private bool _channelsEnabled;
 
     public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
 
@@ -166,6 +171,11 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     public async Task InitializeChannelsAsync(CancellationToken ct)
     {
+        if (!ChannelsEnabled)
+        {
+            return;
+        }
+
         Channels.Clear();
         ct.ThrowIfCancellationRequested();
 
@@ -271,7 +281,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
         if (newSelectedItem?.IsToggle == true)
         {
             CurrentSelection = newSelectedItem;
-            _userSettings.Set(UserSettingsConstants.LastUsedChannelKey, menuItemId);
+            _userSettings.Set(ChannelsEnabled ? UserSettingsConstants.LastUsedChannelKey : UserSettingsConstants.LastUsedChannelKey, menuItemId);
         }
 
         if (menuItemId == DefaultId)

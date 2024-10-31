@@ -11,7 +11,7 @@ public class ExperimentConstants
     /// <summary>
     /// Convenient list of all experimentation key strings.
     /// </summary>
-    public static readonly IReadOnlyList<string> AllKeys =
+    public static IReadOnlyList<string> AllKeys { get; } =
     [
         // add experiment constants here
         ChannelsExperiment

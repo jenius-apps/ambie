@@ -1,6 +1,8 @@
-﻿using AmbientSounds.Events;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
 using AmbientSounds.ViewModels;
 using AmbientSounds.Views;
+using JeniusApps.Common.Tools;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.ViewManagement;
@@ -14,8 +16,9 @@ namespace AmbientSounds.Services.Uwp;
 /// <summary>
 /// Navigates programmatically in a UWP app.
 /// </summary>
-public class Navigator : INavigator
+public class Navigator(IExperimentationService experimentationService) : INavigator
 {
+
     /// <inheritdoc/>
     public event EventHandler<ContentPageType>? ContentPageChanged;
 
@@ -32,6 +35,10 @@ public class Navigator : INavigator
             case nameof(ScreensaverPage):
                 GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
                 NavigateTo(ContentPageType.Channels);
+                break;
+            case nameof(OldScreensaverPage):
+                GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
+                NavigateTo(ContentPageType.Home);
                 break;
             default:
                 GoBackSafely(Frame);
@@ -50,9 +57,13 @@ public class Navigator : INavigator
     /// <inheritdoc/>
     public void ToScreensaver(ScreensaverArgs? args = null)
     {
-        if (RootFrame is Frame f && f.CurrentSourcePageType != typeof(ScreensaverPage))
+        Type target = experimentationService.IsEnabled(ExperimentConstants.ChannelsExperiment)
+            ? typeof(ScreensaverPage)
+            : typeof(OldScreensaverPage);
+
+        if (RootFrame is Frame f && f.CurrentSourcePageType != target)
         {
-            f.Navigate(typeof(ScreensaverPage), args, new SuppressNavigationTransitionInfo());
+            f.Navigate(target, args, new SuppressNavigationTransitionInfo());
         }
     }
 
