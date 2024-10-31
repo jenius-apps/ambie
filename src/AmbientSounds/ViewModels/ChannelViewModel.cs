@@ -252,7 +252,7 @@ public partial class ChannelViewModel : ObservableObject
 
             if (_downloadProgress is { } progress)
             {
-                progress.ProgressChanged += OnProgressChanged;
+                progress.ProgressChanged -= OnProgressChanged;
                 _downloadProgress = null;
             }
         }

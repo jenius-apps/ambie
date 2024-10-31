@@ -33,7 +33,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private readonly IUserSettings _userSettings;
     private readonly IChannelService _channelService;
     private readonly ChannelVmFactory _channelFactory;
-    private Uri _videoSource = new Uri(DefaultVideoSource);
+    private Uri _videoSource = new(DefaultVideoSource);
 
     [ObservableProperty]
     private bool _settingsButtonVisible;
@@ -213,7 +213,10 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     private async void OnVideoDownloaded(object sender, string e)
     {
-        await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
+        if (!ChannelsEnabled)
+        {
+            await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
+        }
     }
 
     [RelayCommand]
@@ -271,17 +274,20 @@ public partial class ScreensaverPageViewModel : ObservableObject
             return;
         }
 
-        var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
-        if (newSelectedItem is null)
+        if (!ChannelsEnabled)
         {
-            menuItemId = DefaultId;
-            newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == DefaultId);
-        }
+            // Once channel experiment is over, refactor this entire file to remove dependency on menu items list.
+            var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
+            if (newSelectedItem is null)
+            {
+                menuItemId = DefaultId;
+                newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == DefaultId);
+            }
 
-        if (newSelectedItem?.IsToggle == true)
-        {
-            CurrentSelection = newSelectedItem;
-            _userSettings.Set(ChannelsEnabled ? UserSettingsConstants.LastUsedChannelKey : UserSettingsConstants.LastUsedChannelKey, menuItemId);
+            if (newSelectedItem?.IsToggle == true)
+            {
+                CurrentSelection = newSelectedItem;
+            }
         }
 
         if (menuItemId == DefaultId)
@@ -330,6 +336,8 @@ public partial class ScreensaverPageViewModel : ObservableObject
                 { "name", video?.Name ?? string.Empty }
             });
         }
+
+        _userSettings.Set(ChannelsEnabled ? UserSettingsConstants.LastUsedChannelKey : UserSettingsConstants.LastUsedChannelKey, menuItemId);
     }
 }
 
