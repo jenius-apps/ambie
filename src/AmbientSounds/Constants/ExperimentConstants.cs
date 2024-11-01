@@ -18,12 +18,6 @@ public class ExperimentConstants
     ];
 
     /// <summary>
-    /// Key name to track the catalogue previews feature.
-    /// </summary>
-    [Obsolete("Experiment complete. Successful.")]
-    public const string CataloguePreviews = "cataloguePreviews";
-
-    /// <summary>
     /// Key name to track the channels experiment.
     /// </summary>
     public const string ChannelsExperiment = "channelsExperiment";
