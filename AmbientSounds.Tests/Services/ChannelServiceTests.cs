@@ -243,4 +243,36 @@ public class ChannelServiceTests
         videoServiceMock.Verify(x => x.InstallVideoAsync(It.IsAny<Video>(), It.IsAny<Progress<double>>()), Times.Once());
         Assert.True(queued);
     }
+
+    [Fact]
+    public async Task Queue_Channel_VideoAssetOnly_Pass()
+    {
+        var videoId = "videoTest";
+        var videoServiceMock = new Mock<IVideoService>();
+        videoServiceMock.Setup(x => x.IsVideoInstalledAsync(videoId)).ReturnsAsync(false);
+        videoServiceMock.Setup(x => x.GetVideosAsync(It.IsAny<bool>(), It.IsAny<bool>())).ReturnsAsync([new() { Id = videoId }]);
+
+        var service = new ChannelService(
+            Mock.Of<IChannelCache>(),
+            Mock.Of<ISoundService>(),
+            videoServiceMock.Object,
+            Mock.Of<IIapService>(),
+            Mock.Of<IDownloadManager>(),
+            Mock.Of<ICatalogueService>(),
+            Mock.Of<INavigator>(),
+            Mock.Of<IMixMediaPlayerService>());
+
+        var channel = new Channel
+        {
+            Id = "channelTest",
+            Type = ChannelType.Videos,
+            VideoIds = [videoId],
+            SoundIds = [],
+        };
+
+        var queued = await service.QueueInstallChannelAsync(channel);
+
+        videoServiceMock.Verify(x => x.InstallVideoAsync(It.IsAny<Video>(), It.IsAny<Progress<double>>()), Times.Once());
+        Assert.True(queued);
+    }
 }

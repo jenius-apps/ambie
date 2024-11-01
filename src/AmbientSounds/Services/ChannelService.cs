@@ -100,17 +100,33 @@ public sealed class ChannelService : IChannelService
 
     public async Task<bool> QueueInstallChannelAsync(Channel channel, Progress<double>? progress = null)
     {
-        if (channel is not { Type: ChannelType.Videos, VideoIds: [string videoId, ..], SoundIds: [string soundId, ..] })
+        bool containsAssociatedSound = channel is { SoundIds.Count: > 0 };
+        string soundId = containsAssociatedSound
+            ? channel.SoundIds[0]
+            : string.Empty;
+
+        if (channel is not { Type: ChannelType.Videos, VideoIds: [string videoId, ..] })
         {
             return false;
         }
 
-        var isSoundInstalled = await _soundService.IsSoundInstalledAsync(soundId);
+        var isSoundInstalled = false;
         var isVideoInstalled = await _videoService.IsVideoInstalledAsync(videoId);
 
-        if (isSoundInstalled && isVideoInstalled)
+        if (containsAssociatedSound)
         {
-            return false;
+            isSoundInstalled = await _soundService.IsSoundInstalledAsync(soundId);
+            if (isSoundInstalled && isVideoInstalled)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (isVideoInstalled)
+            {
+                return false;
+            }
         }
 
         bool isSoundQueued = false;
@@ -118,7 +134,7 @@ public sealed class ChannelService : IChannelService
         Progress<double> channelProgress = progress ?? new();
         channelProgress.ProgressChanged += OnChannelProgressChanged;
 
-        if (!isSoundInstalled)
+        if (containsAssociatedSound && !isSoundInstalled)
         {
             var sounds = await _catalogueService.GetSoundsAsync([soundId]);
             var soundToDownload = sounds.Count > 0 ? sounds[0] : null;
