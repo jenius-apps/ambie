@@ -62,7 +62,7 @@ public partial class ChannelViewModel : ObservableObject
 
     public bool BuyButtonVisible => !ActionButtonLoading && !IsOwned;
 
-    public bool ScreensaverBackplateVisible => BuyButtonVisible || DownloadButtonVisible || DownloadProgressVisible;
+    public bool ScreensaverBackplateVisible => BuyButtonVisible || DownloadButtonVisible || DownloadProgressVisible || DownloadLoading;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
@@ -109,7 +109,11 @@ public partial class ChannelViewModel : ObservableObject
     {
         get
         {
-            if (ActionButtonLoading || DownloadProgressVisible || DownloadLoading)
+            if (DownloadLoading || DownloadProgressVisible)
+            {
+                return "";
+            }
+            else if (ActionButtonLoading)
             {
                 return "\uE946";
             }
@@ -223,6 +227,7 @@ public partial class ChannelViewModel : ObservableObject
         _downloadProgress.ProgressChanged += OnProgressChanged;
 
         ActionButtonLoading = true;
+        DownloadLoading = true;
         ViewDetailsCommand.Execute(this);
         await Task.Delay(600);
         await _channelService.QueueInstallChannelAsync(_channel, _downloadProgress);

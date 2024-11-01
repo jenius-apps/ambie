@@ -232,9 +232,9 @@
                                             Margin="8"
                                             FontFamily="{StaticResource FluentUIGlyphs}"
                                             Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}"
-                                            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(DownloadProgressVisible), Mode=OneWay}" />
+                                            Visibility="{x:Bind ex:UIExtensions.CollapsedIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}" />
 
-                                        <Grid Margin="8" Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                        <Grid Margin="8" Visibility="{x:Bind ex:UIExtensions.VisibleIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}">
                                             <winui:ProgressRing
                                                 Width="20"
                                                 Height="20"
@@ -246,7 +246,7 @@
                                                 Width="20"
                                                 Height="20"
                                                 Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                                IsIndeterminate="False"
+                                                IsIndeterminate="{x:Bind DownloadLoading, Mode=OneWay}"
                                                 Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
                                         </Grid>
                                     </Grid>

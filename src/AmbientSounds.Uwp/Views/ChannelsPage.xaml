@@ -7,7 +7,7 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:custom="using:AmbientSounds.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="using:JeniusApps.Common.UI.Uwp"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Views"
@@ -94,10 +94,30 @@
                                     Background="{ThemeResource BackgroundAcrylicBrush}"
                                     CornerRadius="8"
                                     Visibility="Collapsed">
-                                    <FontIcon
-                                        Margin="8"
-                                        FontFamily="{StaticResource FluentUIGlyphs}"
-                                        Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}" />
+                                    <Grid>
+                                        <FontIcon
+                                            Margin="8"
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}"
+                                            Visibility="{x:Bind ex:UIExtensions.CollapsedIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}" />
+
+                                        <Grid Margin="8" Visibility="{x:Bind ex:UIExtensions.VisibleIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}">
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                AutomationProperties.AccessibilityView="Raw"
+                                                Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                                                IsIndeterminate="False"
+                                                Value="100" />
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                                IsIndeterminate="{x:Bind DownloadLoading, Mode=OneWay}"
+                                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                        </Grid>
+                                    </Grid>
+
                                 </Border>
                             </Grid>
 
@@ -280,7 +300,7 @@
                 HorizontalAlignment="Stretch"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
                 CornerRadius="8"
-                Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
+                Visibility="{x:Bind ex:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
                 <Border.Background>
                     <ImageBrush ImageSource="{x:Bind ViewModel.SelectedChannel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
                 </Border.Background>
@@ -311,7 +331,7 @@
                 Grid.Row="2"
                 Margin="20,20,20,0"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
-                Visibility="{x:Bind extensions:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
+                Visibility="{x:Bind ex:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
                 <ani:Explicit.Animations>
                     <ani:AnimationSet x:Name="DetailsFadeIn">
                         <ani:OpacityAnimation
