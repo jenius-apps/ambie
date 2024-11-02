@@ -30,6 +30,7 @@
         </Grid.ColumnDefinitions>
 
         <GridView
+            x:Name="ChannelsGrid"
             Padding="32,20"
             ItemsSource="{x:Bind ViewModel.Channels}"
             Loaded="OnGridViewLoaded"

@@ -28,6 +28,7 @@ public sealed partial class ChannelsPage : Page
     {
         App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(ChannelsPage));
         ViewModel.PropertyChanged += OnPropertyChanged;
+        ViewModel.GridVideoPlayed += OnVideoPlayed;
 
         _cts ??= new();
 
@@ -44,6 +45,7 @@ public sealed partial class ChannelsPage : Page
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
         ViewModel.PropertyChanged -= OnPropertyChanged;
+        ViewModel.GridVideoPlayed -= OnVideoPlayed;
         _cts?.Cancel();
         _cts = null;
         ViewModel.Uninitialize();
@@ -67,6 +69,11 @@ public sealed partial class ChannelsPage : Page
                 s.CanContentRenderOutsideBounds = true;
             }
         }
+    }
+
+    private void OnVideoPlayed(object sender, ChannelViewModel vm)
+    {
+        ChannelsGrid.PrepareConnectedAnimation("channelVideoClicked", vm, "ImageRect");
     }
 
     private async void OnClosePaneClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)

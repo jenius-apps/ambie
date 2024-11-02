@@ -5,6 +5,7 @@ using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
@@ -17,6 +18,8 @@ public partial class ChannelsPageViewModel : ObservableObject
     private readonly IChannelService _channelService;
     private readonly ChannelVmFactory _channelFactory;
     private readonly ITelemetry _telemetry;
+
+    public EventHandler<ChannelViewModel>? GridVideoPlayed;
 
     public ChannelsPageViewModel(
         IChannelService channelService,
@@ -98,7 +101,13 @@ public partial class ChannelsPageViewModel : ObservableObject
             return;
         }
 
+        if (channel.Type is ChannelType.Videos)
+        {
+            VideoPlayed?.Invoke(this, vm);
+        }
+
         await _channelService.PlayChannelAsync(channel);
+
         _telemetry.TrackEvent(TelemetryConstants.ChannelPlayed, new Dictionary<string, string>
         {
             { "name", channel.Name }

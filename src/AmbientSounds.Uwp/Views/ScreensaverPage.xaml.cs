@@ -19,6 +19,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
@@ -83,6 +84,11 @@ public sealed partial class ScreensaverPage : Page
         }
 
         _displayRequest.RequestActive();
+
+        if (ConnectedAnimationService.GetForCurrentView().GetAnimation("channelVideoClicked") is ConnectedAnimation animation)
+        {
+            animation.TryStart(VideoPlayer);
+        }
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
