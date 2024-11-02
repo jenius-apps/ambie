@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using System.Threading;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 #nullable enable
@@ -73,7 +74,8 @@ public sealed partial class ChannelsPage : Page
 
     private void OnVideoPlayed(object sender, ChannelViewModel vm)
     {
-        ChannelsGrid.PrepareConnectedAnimation("channelVideoClicked", vm, "ImageRect");
+        var animation = ChannelsGrid.PrepareConnectedAnimation("channelVideoClicked", vm, "ImageRect");
+        animation.Configuration = new BasicConnectedAnimationConfiguration();
     }
 
     private async void OnClosePaneClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
