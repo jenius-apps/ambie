@@ -16,4 +16,9 @@ public class ScreensaverArgs
     /// Requested video ID, if channel type is <see cref="ChannelType.Videos"/>.
     /// </summary>
     public string? VideoId { get; init; }
+
+    /// <summary>
+    /// A URL to an image to be used as placeholder for the video as it loads.
+    /// </summary>
+    public string? VideoImagePreviewUrl { get; init; }
 }

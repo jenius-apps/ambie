@@ -86,6 +86,9 @@ public partial class ScreensaverPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _channelsEnabled;
 
+    [ObservableProperty]
+    private string _videoPlaceholderImageUrl = "http://localhost";
+
     public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
 
     public ObservableCollection<ChannelViewModel> Channels { get; } = [];
@@ -118,6 +121,8 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     public Task InitializeAsync(ScreensaverArgs args)
     {
+        VideoPlaceholderImageUrl = args.VideoImagePreviewUrl ?? "http://localhost";
+
         return InitializeAsync(args.RequestedType switch
         {
             ChannelType.DarkScreen => DarkScreenId,

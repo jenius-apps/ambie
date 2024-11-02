@@ -87,7 +87,11 @@ public sealed partial class ScreensaverPage : Page
 
         if (ConnectedAnimationService.GetForCurrentView().GetAnimation("channelVideoClicked") is ConnectedAnimation animation)
         {
-            animation.TryStart(VideoPlayer);
+            VideoPlaceholderImage.Visibility = Visibility.Visible;
+            animation.TryStart(VideoPlaceholderImage);
+            _ = VideoShow.StartAsync();
+            await VideoPlaceholderHide.StartAsync();
+            VideoPlaceholderImage.Visibility = Visibility.Collapsed;
         }
     }
 

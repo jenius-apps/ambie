@@ -103,7 +103,7 @@ public partial class ChannelsPageViewModel : ObservableObject
 
         if (channel.Type is ChannelType.Videos)
         {
-            VideoPlayed?.Invoke(this, vm);
+            GridVideoPlayed?.Invoke(this, vm);
         }
 
         await _channelService.PlayChannelAsync(channel);

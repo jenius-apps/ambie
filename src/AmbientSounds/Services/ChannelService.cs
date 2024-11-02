@@ -314,7 +314,8 @@ public sealed class ChannelService : IChannelService
             var args = new ScreensaverArgs()
             {
                 RequestedType = channel.Type,
-                VideoId = channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] } ? videoId : null
+                VideoId = channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] } ? videoId : null,
+                VideoImagePreviewUrl = channel.ImagePath
             };
 
             _navigator.ToScreensaver(args);

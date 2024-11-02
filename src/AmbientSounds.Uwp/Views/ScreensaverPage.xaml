@@ -120,7 +120,30 @@
             x:Name="VideoPlayer"
             AutoPlay="True"
             Stretch="UniformToFill"
-            Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
+            Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="VideoShow">
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:5" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
+        </MediaPlayerElement>
+
+        <Image
+            x:Name="VideoPlaceholderImage"
+            Source="{x:Bind ViewModel.VideoPlaceholderImageUrl, Mode=OneWay}"
+            Stretch="UniformToFill">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="VideoPlaceholderHide">
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:5" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
+        </Image>
 
         <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
