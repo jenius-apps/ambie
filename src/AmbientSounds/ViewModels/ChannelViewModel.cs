@@ -30,7 +30,7 @@ public partial class ChannelViewModel : ObservableObject
         IIapService iapService,
         ITelemetry telemetry,
         IRelayCommand<ChannelViewModel>? viewDetailsCommand = null,
-        IRelayCommand<ChannelViewModel>? changeChannelCommand = null)
+        IRelayCommand<ChannelViewModel>? playCommand = null)
     {
         _channel = channel;
         _assetLocalizer = assetLocalizer;
@@ -39,7 +39,7 @@ public partial class ChannelViewModel : ObservableObject
         _iapService = iapService;
         _telemetry = telemetry;
         ViewDetailsCommand = viewDetailsCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
-        ChangeChannelCommand = changeChannelCommand ?? new RelayCommand<ChannelViewModel>(static (c) => { });
+        PlayCommand = playCommand ?? new RelayCommand<ChannelViewModel>(static (vm) => { });
     }
 
     public string Id => _channel.Id;
@@ -48,7 +48,7 @@ public partial class ChannelViewModel : ObservableObject
 
     public IRelayCommand<ChannelViewModel> ViewDetailsCommand { get; }
 
-    public IRelayCommand<ChannelViewModel> ChangeChannelCommand { get; }
+    public IRelayCommand<ChannelViewModel> PlayCommand { get; }
 
     public string Name => _assetLocalizer.GetLocalName(_channel);
 
@@ -190,16 +190,6 @@ public partial class ChannelViewModel : ObservableObject
         {
             _downloadProgress.ProgressChanged -= OnProgressChanged;
         }
-    }
-
-    [RelayCommand]
-    private async Task Play()
-    {
-        await _channelService.PlayChannelAsync(_channel);
-        _telemetry.TrackEvent(TelemetryConstants.ChannelPlayed, new Dictionary<string, string>
-        {
-            { "name", _channel.Name }
-        });
     }
 
     [RelayCommand]

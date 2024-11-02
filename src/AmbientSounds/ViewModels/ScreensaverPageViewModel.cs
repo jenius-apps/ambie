@@ -186,7 +186,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
         {
             ct.ThrowIfCancellationRequested();
 
-            if (_channelFactory.Create(c, changeChannelCommand: ChangeChannelCommand) is { } vm)
+            if (_channelFactory.Create(c, playCommand: PlayChannelCommand) is { } vm)
             {
                 await vm.InitializeAsync();
                 Channels.Add(vm);
@@ -220,41 +220,30 @@ public partial class ScreensaverPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task ChangeChannelAsync(ChannelViewModel? channelViewModel)
+    private async Task PlayChannelAsync(ChannelViewModel? channelViewModel)
     {
         if (channelViewModel?.Channel is not Channel channel)
         {
             return;
         }
 
-        if (channelViewModel.PrimaryCommand == channelViewModel.PlayCommand)
-        {
-            // Override the play command because we need to ensure
-            // that navigation isn't performed when the channel is played.
-            // This is because the navigation would trigger a nav from screensaver page
-            // to a new instance of the screensaver page.
-            await _channelService.PlayChannelAsync(channel, performNavigation: false);
+        await _channelService.PlayChannelAsync(channel, performNavigation: false);
 
-            string? menuItemId = null;
-            if (channel.Type is ChannelType.DarkScreen)
-            {
-                menuItemId = DarkScreenId;
-            }
-            else if (channel.Type is ChannelType.Slideshow)
-            {
-                menuItemId = DefaultId;
-            }
-            else if (channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] })
-            {
-                menuItemId = videoId;
-            }
-
-            await ChangeScreensaverTo(menuItemId);
-        }
-        else
+        string? menuItemId = null;
+        if (channel.Type is ChannelType.DarkScreen)
         {
-            channelViewModel.PrimaryCommand.Execute(null);
+            menuItemId = DarkScreenId;
         }
+        else if (channel.Type is ChannelType.Slideshow)
+        {
+            menuItemId = DefaultId;
+        }
+        else if (channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] })
+        {
+            menuItemId = videoId;
+        }
+
+        await ChangeScreensaverTo(menuItemId);
     }
 
     [RelayCommand]

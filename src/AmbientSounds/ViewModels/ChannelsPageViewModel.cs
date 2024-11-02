@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Factories;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -51,7 +52,7 @@ public partial class ChannelsPageViewModel : ObservableObject
         {
             ct.ThrowIfCancellationRequested();
 
-            if (_channelFactory.Create(c, ViewDetailsCommand) is { } vm)
+            if (_channelFactory.Create(c, ViewDetailsCommand, PlayChannelCommand) is { } vm)
             {
                 tasks.Add(vm.InitializeAsync());
                 Channels.Add(vm);
@@ -86,6 +87,21 @@ public partial class ChannelsPageViewModel : ObservableObject
         _telemetry.TrackEvent(TelemetryConstants.ChannelDetailsClicked, new Dictionary<string, string>
         {
             { "name", vmToSelect?.Channel.Name ?? string.Empty }
+        });
+    }
+
+    [RelayCommand]
+    private async Task PlayChannelAsync(ChannelViewModel? vm)
+    {
+        if (vm?.Channel is not Channel channel)
+        {
+            return;
+        }
+
+        await _channelService.PlayChannelAsync(channel);
+        _telemetry.TrackEvent(TelemetryConstants.ChannelPlayed, new Dictionary<string, string>
+        {
+            { "name", channel.Name }
         });
     }
 
