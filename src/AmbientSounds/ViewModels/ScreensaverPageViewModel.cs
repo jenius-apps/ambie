@@ -34,6 +34,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private readonly IChannelService _channelService;
     private readonly ChannelVmFactory _channelFactory;
     private Uri _videoSource = new(DefaultVideoSource);
+    private string _activeScreensaverId = string.Empty;
 
     [ObservableProperty]
     private bool _settingsButtonVisible;
@@ -123,13 +124,16 @@ public partial class ScreensaverPageViewModel : ObservableObject
     {
         VideoPlaceholderImageUrl = args.VideoImagePreviewUrl ?? "http://localhost";
 
-        return InitializeAsync(args.RequestedType switch
+        string screensaverId = args.RequestedType switch
         {
             ChannelType.DarkScreen => DarkScreenId,
             ChannelType.Slideshow => DefaultId,
-            ChannelType.Videos => args.VideoId,
+            ChannelType.Videos => args.VideoId ?? string.Empty,
             _ => string.Empty
-        });
+        };
+
+        _activeScreensaverId = screensaverId;
+        return InitializeAsync(screensaverId);
     }
 
     public async Task InitializeAsync(string? screensaverToSelect = "")
@@ -232,8 +236,6 @@ public partial class ScreensaverPageViewModel : ObservableObject
             return;
         }
 
-        await _channelService.PlayChannelAsync(channel, performNavigation: false);
-
         string? menuItemId = null;
         if (channel.Type is ChannelType.DarkScreen)
         {
@@ -248,6 +250,13 @@ public partial class ScreensaverPageViewModel : ObservableObject
             menuItemId = videoId;
         }
 
+        if (menuItemId is not { Length: > 0 } || menuItemId == _activeScreensaverId)
+        {
+            return;
+        }
+
+        _activeScreensaverId = menuItemId;
+        await _channelService.PlayChannelAsync(channel, performNavigation: false);
         await ChangeScreensaverTo(menuItemId);
     }
 
