@@ -6,6 +6,7 @@ using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Connectivity;
+using Microsoft.WindowsAzure.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
+using Windows.Networking.PushNotifications;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -341,17 +343,15 @@ sealed partial class App : Application
         CustomizeTitleBar(sender.ActualTheme == ElementTheme.Dark);
     }
 
-    private Task TryRegisterNotifications()
+    private async Task TryRegisterNotifications()
     {
-        var settingsService = App.Services.GetRequiredService<IUserSettings>();
-
+        var settingsService = Services.GetRequiredService<IUserSettings>();
+        
         if (settingsService.Get<bool>(UserSettingsConstants.Notifications))
         {
-            return new PartnerCentreNotificationRegistrar().Register();
-        }
-        else
-        {
-            return Task.CompletedTask;
+            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+            var hub = new NotificationHub("ambieNotifications/ambieNotificationHub", "Endpoint=sb://ambieNotifications.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=am/Pz2xyrjFasua/UMwjKpjqZfGBOg7nyzwVe9wuUjQ=");
+            Registration result = await hub.RegisterNativeAsync(channel.Uri);
         }
     }
 
