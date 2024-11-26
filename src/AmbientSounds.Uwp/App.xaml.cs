@@ -349,9 +349,16 @@ sealed partial class App : Application
         
         if (settingsService.Get<bool>(UserSettingsConstants.Notifications))
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-            var hub = new NotificationHub("ambieNotifications/ambieNotificationHub", "Endpoint=sb://ambieNotifications.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=am/Pz2xyrjFasua/UMwjKpjqZfGBOg7nyzwVe9wuUjQ=");
-            Registration result = await hub.RegisterNativeAsync(channel.Uri);
+            try
+            {
+                var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+                var hub = new NotificationHub("ambieNotificationHub", "Endpoint=sb://ambieNotifications.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=am/Pz2xyrjFasua/UMwjKpjqZfGBOg7nyzwVe9wuUjQ=");
+                Registration result = await hub.RegisterNativeAsync(channel.Uri);
+            }
+            catch (Exception e)
+            {
+                Services.GetRequiredService<ITelemetry>().TrackError(e);
+            }
         }
     }
 
