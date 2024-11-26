@@ -51,6 +51,8 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='PagesUrl']").Value = "$(PagesUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='GuidesUrl']").Value = "$(GuidesUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='ChannelsUrl']").Value = "$(ChannelsUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubConnectionString']").Value = "$(NotificationHubConnectionString)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubName']").Value = "$(NotificationHubName)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 
