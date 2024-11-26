@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
+using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
@@ -268,7 +269,7 @@ sealed partial class App : Application
         SetAppRequestedTheme();
         Services.GetRequiredService<Services.INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
-        await TryRegisterNotifications();
+        _ = await Services.GetRequiredService<IPushNotificationRegistrar>().TryRegisterBasedOnUserSettingsAsync();
 
         try
         {
@@ -340,26 +341,6 @@ sealed partial class App : Application
     private void OnActualThemeChanged(FrameworkElement sender, object args)
     {
         CustomizeTitleBar(sender.ActualTheme == ElementTheme.Dark);
-    }
-
-    private async Task TryRegisterNotifications()
-    {
-        var settingsService = Services.GetRequiredService<IUserSettings>();
-        
-        if (settingsService.Get<bool>(UserSettingsConstants.Notifications))
-        {
-            try
-            {
-                var appsettings = Services.GetRequiredService<IAppSettings>();
-                var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-                var hub = new NotificationHub(appsettings.NotificationHubName, appsettings.NotificationHubConnectionString);
-                Registration result = await hub.RegisterNativeAsync(channel.Uri);
-            }
-            catch (Exception e)
-            {
-                Services.GetRequiredService<ITelemetry>().TrackError(e);
-            }
-        }
     }
 
     /// <summary>

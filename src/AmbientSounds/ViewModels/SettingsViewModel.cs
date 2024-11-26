@@ -21,7 +21,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IImagePicker _imagePicker;
     private readonly IAssetsReader _assetsReader;
     private readonly IUserSettings _userSettings;
-    private readonly IStoreNotificationRegistrar _notifications;
+    private readonly IPushNotificationRegistrar _notifications;
     private readonly ITelemetry _telemetry;
     private readonly IAppStoreRatings _appStoreRatings;
     private readonly IQuickResumeService _quickResumeService;
@@ -33,7 +33,7 @@ public partial class SettingsViewModel : ObservableObject
 
     public SettingsViewModel(
         IUserSettings userSettings,
-        IStoreNotificationRegistrar notifications,
+        IPushNotificationRegistrar notifications,
         ITelemetry telemetry,
         IAssetsReader assetsReader,
         IImagePicker imagePicker,
@@ -88,7 +88,7 @@ public partial class SettingsViewModel : ObservableObject
     /// </summary>
     public string CurrentTheme
     {
-        get => _userSettings.Get<string>(UserSettingsConstants.Theme);
+        get => _userSettings.Get<string>(UserSettingsConstants.Theme) ?? string.Empty;
         set
         {
             _userSettings.Set(UserSettingsConstants.Theme, value);
@@ -222,7 +222,7 @@ public partial class SettingsViewModel : ObservableObject
 
     private int GetInitialXboxDisplayModeIndex()
     {
-        string displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
+        string? displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
         if (Enum.TryParse(displayModeString, out SlideshowMode result))
         {
             return (int)result;
@@ -245,11 +245,11 @@ public partial class SettingsViewModel : ObservableObject
         _notificationsLoading = true;
         if (value)
         {
-            await _notifications.Register();
+            await _notifications.RegisterAsync();
         }
         else
         {
-            await _notifications.Unregiser();
+            await _notifications.UnregiserAsync();
         }
         _userSettings.Set(UserSettingsConstants.Notifications, value);
         _notificationsLoading = false;
