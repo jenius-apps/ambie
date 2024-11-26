@@ -1,11 +1,13 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
+using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Connectivity;
+using Microsoft.WindowsAzure.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,7 @@ using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
+using Windows.Networking.PushNotifications;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -204,7 +207,6 @@ sealed partial class App : Application
 
     private async Task ActivateAsync(
         bool prelaunched, 
-        IAppSettings? appsettings = null,
         string launchArguments = "")
     {
         // Do not repeat app initialization when the Window already has content
@@ -219,7 +221,7 @@ sealed partial class App : Application
             Window.Current.Content = rootFrame;
 
             // Configure the services for later use
-            _serviceProvider = ConfigureServices(appsettings);
+            _serviceProvider = ConfigureServices();
             rootFrame.ActualThemeChanged += OnActualThemeChanged;
             _userSettings = Services.GetRequiredService<IUserSettings>();
             _userSettings.SettingSet += OnSettingSet;
@@ -267,7 +269,7 @@ sealed partial class App : Application
         SetAppRequestedTheme();
         Services.GetRequiredService<Services.INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
-        await TryRegisterNotifications();
+        _ = await Services.GetRequiredService<IPushNotificationRegistrar>().TryRegisterBasedOnUserSettingsAsync();
 
         try
         {
@@ -339,20 +341,6 @@ sealed partial class App : Application
     private void OnActualThemeChanged(FrameworkElement sender, object args)
     {
         CustomizeTitleBar(sender.ActualTheme == ElementTheme.Dark);
-    }
-
-    private Task TryRegisterNotifications()
-    {
-        var settingsService = App.Services.GetRequiredService<IUserSettings>();
-
-        if (settingsService.Get<bool>(UserSettingsConstants.Notifications))
-        {
-            return new PartnerCentreNotificationRegistrar().Register();
-        }
-        else
-        {
-            return Task.CompletedTask;
-        }
     }
 
     /// <summary>

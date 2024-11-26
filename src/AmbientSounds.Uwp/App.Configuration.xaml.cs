@@ -50,14 +50,13 @@ partial class App
     /// </summary>
     /// <param name="appsettings">The <see cref="IAppSettings"/> instance to use, if available.</param>
     /// <returns>The resulting service provider.</returns>
-    private static IServiceProvider ConfigureServices(IAppSettings? appsettings = null)
+    private static IServiceProvider ConfigureServices()
     {
         ServiceCollection collection = new();
 
         ConfigureServices(collection);
 
         // Manually register additional services requiring more customization
-        collection.AddSingleton(appsettings ?? new AppSettings());
         collection.AddSingleton<IUserSettings, LocalSettings>(s => new LocalSettings(UserSettingsConstants.Defaults));
         collection.AddSingleton<IExperimentationService, LocalExperimentationService>(s => new LocalExperimentationService(ExperimentConstants.AllKeys, s.GetRequiredService<IUserSettings>()));
         collection.AddSingleton<ITelemetry, AppInsightsTelemetry>(s =>
@@ -119,6 +118,7 @@ partial class App
     /// Configures services used by the app.
     /// </summary>
     /// <param name="services">The target <see cref="IServiceCollection"/> instance to register services with.</param>
+    [Singleton(typeof(AppSettings), typeof(IAppSettings))]
     [Singleton(typeof(HttpClient))]
     [Singleton(typeof(SoundListViewModel))] // shared in main and compact pages
     [Transient(typeof(ScreensaverViewModel))]
@@ -147,7 +147,7 @@ partial class App
     [Singleton(typeof(AppServiceController))]
     [Singleton(typeof(PlaybackModeObserver))]
     [Singleton(typeof(ProtocolLaunchController))]
-    [Transient(typeof(PartnerCentreNotificationRegistrar), typeof(IStoreNotificationRegistrar))]
+    [Transient(typeof(AzurePushNotificationRegistrar), typeof(IPushNotificationRegistrar))]
     [Transient(typeof(ImagePicker), typeof(IImagePicker))]
     [Singleton(typeof(WindowsClipboard), typeof(IClipboard))]
     [Singleton(typeof(MicrosoftStoreRatings), typeof(IAppStoreRatings))]

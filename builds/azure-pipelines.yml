@@ -23,22 +23,6 @@ variables:
 
 steps:
 
-## This is required because the windows-2022 image dropped
-## support for this Store Engagement SDK, and Ambie uses it.
-- task: PowerShell@2
-  displayName: 'Installing Microsoft Store Engagement SDK'
-  inputs:
-    targetType: 'inline'
-    script: |
-      $sdkUrl = '$(EngagementSdkMsiUrl)'
-      $msiPath = Join-Path $env:TEMP "Setup.msi"
-
-      Write-Output "downloading $sdkUrl"
-      Invoke-WebRequest -Uri $sdkUrl -OutFile $msiPath
-
-      Write-Output "Installing $msiPath"
-      Start-Process $msiPath -ArgumentList "/q" -Wait
-
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
