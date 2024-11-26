@@ -206,7 +206,6 @@ sealed partial class App : Application
 
     private async Task ActivateAsync(
         bool prelaunched, 
-        IAppSettings? appsettings = null,
         string launchArguments = "")
     {
         // Do not repeat app initialization when the Window already has content
@@ -221,7 +220,7 @@ sealed partial class App : Application
             Window.Current.Content = rootFrame;
 
             // Configure the services for later use
-            _serviceProvider = ConfigureServices(appsettings);
+            _serviceProvider = ConfigureServices();
             rootFrame.ActualThemeChanged += OnActualThemeChanged;
             _userSettings = Services.GetRequiredService<IUserSettings>();
             _userSettings.SettingSet += OnSettingSet;
@@ -351,8 +350,9 @@ sealed partial class App : Application
         {
             try
             {
+                var appsettings = Services.GetRequiredService<IAppSettings>();
                 var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-                var hub = new NotificationHub("ambieNotificationHub", "Endpoint=sb://ambieNotifications.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=am/Pz2xyrjFasua/UMwjKpjqZfGBOg7nyzwVe9wuUjQ=");
+                var hub = new NotificationHub(appsettings.NotificationHubName, appsettings.NotificationHubConnectionString);
                 Registration result = await hub.RegisterNativeAsync(channel.Uri);
             }
             catch (Exception e)

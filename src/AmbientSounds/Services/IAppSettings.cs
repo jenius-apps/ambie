@@ -75,4 +75,14 @@ public interface IAppSettings
     /// The URL to access channels data.
     /// </summary>
     string ChannelsUrl { get; set; }
+
+    /// <summary>
+    /// The name of the notification hub.
+    /// </summary>
+    string NotificationHubName { get; }
+
+    /// <summary>
+    /// The connection string for the notification hub.
+    /// </summary>
+    string NotificationHubConnectionString { get; }
 }
