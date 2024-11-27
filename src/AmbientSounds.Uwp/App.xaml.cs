@@ -269,7 +269,7 @@ sealed partial class App : Application
         SetAppRequestedTheme();
         Services.GetRequiredService<Services.INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
-        _ = await Services.GetRequiredService<IPushNotificationRegistrar>().TryRegisterBasedOnUserSettingsAsync();
+        //_ = await Services.GetRequiredService<IPushNotificationRegistrar>().TryRegisterBasedOnUserSettingsAsync();
 
         try
         {
