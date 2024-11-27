@@ -315,7 +315,7 @@ public sealed class ChannelService : IChannelService
             {
                 RequestedType = channel.Type,
                 VideoId = channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] } ? videoId : null,
-                VideoImagePreviewUrl = channel.ImagePath
+                VideoImagePreviewUrl = channel.Type is ChannelType.Videos ? channel.ImagePath : null
             };
 
             _navigator.ToScreensaver(args);
