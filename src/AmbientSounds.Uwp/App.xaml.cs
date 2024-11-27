@@ -1,13 +1,11 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
-using AmbientSounds.Tools;
 using AmbientSounds.ViewModels;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Connectivity;
-using Microsoft.WindowsAzure.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +17,6 @@ using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation.Collections;
-using Windows.Networking.PushNotifications;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
@@ -269,6 +266,8 @@ sealed partial class App : Application
         SetAppRequestedTheme();
         Services.GetRequiredService<Services.INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
+
+        // Disabled for now because azure notification hub doesn't work
         //_ = await Services.GetRequiredService<IPushNotificationRegistrar>().TryRegisterBasedOnUserSettingsAsync();
 
         try

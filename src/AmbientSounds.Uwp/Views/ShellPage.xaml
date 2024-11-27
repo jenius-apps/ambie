@@ -218,22 +218,10 @@
                         Glyph="{StaticResource GlyphShuffle}" />
                 </Button>
                 <Button
-                    AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
-                    Click="{x:Bind ViewModel.GoToScreensaver}"
-                    Style="{StaticResource SmallSubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}"
-                    Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.ChannelsEnabled), Mode=OneWay}">
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="14"
-                        Glyph="{StaticResource GlyphPhoto}" />
-                </Button>
-                <Button
                     AutomationProperties.Name="{x:Bind strings:Resources.OpenLastChannelText}"
                     Click="{x:Bind ViewModel.GoToScreensaver}"
                     Style="{StaticResource SmallSubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.OpenLastChannelText}"
-                    Visibility="{x:Bind ViewModel.ChannelsEnabled, Mode=OneWay}">
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.OpenLastChannelText}">
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="14"

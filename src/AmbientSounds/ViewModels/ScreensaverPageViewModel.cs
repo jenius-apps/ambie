@@ -11,7 +11,6 @@ using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -78,19 +77,14 @@ public partial class ScreensaverPageViewModel : ObservableObject
         _userSettings = userSettings;
         _channelService = channelService;
         _channelFactory = channelVmFactory;
-        ChannelsEnabled = experimentationService.IsEnabled(ExperimentConstants.ChannelsExperiment);
 
-        _videoService.VideoDownloaded += OnVideoDownloaded;
         _videoService.VideoDeleted += OnVideoDeleted;
     }
 
     [ObservableProperty]
-    private bool _channelsEnabled;
-
-    [ObservableProperty]
     private string _videoPlaceholderImageUrl = "http://localhost";
 
-    public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
+    public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = [];
 
     public ObservableCollection<ChannelViewModel> Channels { get; } = [];
 
@@ -180,11 +174,6 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     public async Task InitializeChannelsAsync(CancellationToken ct)
     {
-        if (!ChannelsEnabled)
-        {
-            return;
-        }
-
         Channels.Clear();
         ct.ThrowIfCancellationRequested();
 
@@ -220,13 +209,6 @@ public partial class ScreensaverPageViewModel : ObservableObject
             : CurrentSelection?.Id);
     }
 
-    private async void OnVideoDownloaded(object sender, string e)
-    {
-        if (!ChannelsEnabled)
-        {
-            await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
-        }
-    }
 
     [RelayCommand]
     private async Task PlayChannelAsync(ChannelViewModel? channelViewModel)
@@ -277,22 +259,6 @@ public partial class ScreensaverPageViewModel : ObservableObject
             return;
         }
 
-        if (!ChannelsEnabled)
-        {
-            // Once channel experiment is over, refactor this entire file to remove dependency on menu items list.
-            var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
-            if (newSelectedItem is null)
-            {
-                menuItemId = DefaultId;
-                newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == DefaultId);
-            }
-
-            if (newSelectedItem?.IsToggle == true)
-            {
-                CurrentSelection = newSelectedItem;
-            }
-        }
-
         if (menuItemId == DefaultId)
         {
             IsDarkScreen = false;
@@ -340,7 +306,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
             });
         }
 
-        _userSettings.Set(ChannelsEnabled ? UserSettingsConstants.LastUsedChannelKey : UserSettingsConstants.LastUsedChannelKey, menuItemId);
+        _userSettings.Set(UserSettingsConstants.LastUsedChannelKey, menuItemId);
     }
 }
 
