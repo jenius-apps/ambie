@@ -29,6 +29,10 @@ public class StoreService : IIapService
     /// <inheritdoc/>
     public async Task<bool> IsOwnedAsync(string iapId)
     {
+#if DEBUG
+        //return true;
+#endif
+
         if (_ownershipCache.TryGetValue(iapId, out bool isOwned))
         {
             return isOwned;
