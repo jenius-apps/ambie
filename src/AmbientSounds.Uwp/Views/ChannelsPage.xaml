@@ -382,7 +382,7 @@
                         HorizontalAlignment="Stretch"
                         Command="{x:Bind ViewModel.SelectedChannel.PlayCommand, Mode=OneWay}"
                         CommandParameter="{x:Bind ViewModel.SelectedChannel, Mode=OneWay}"
-                        Style="{StaticResource AccentButtonStyle}" 
+                        Style="{StaticResource AccentButtonStyle}"
                         Visibility="{x:Bind ViewModel.SelectedChannel.PlayButtonVisible, Mode=OneWay}">
                         <StackPanel Orientation="Horizontal" Spacing="{StaticResource ActionButtonSpacing}">
                             <FontIcon
