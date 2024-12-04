@@ -26,6 +26,8 @@ public sealed class WindowsPushNotificationRegistrar : IPushNotificationRegistra
         _telemetry = telemetry;
     }
 
+    public string? ChannelUri { get; private set; }
+
     public async Task<bool> RegisterAsync()
     {
         PushNotificationChannel? channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
@@ -33,8 +35,10 @@ public sealed class WindowsPushNotificationRegistrar : IPushNotificationRegistra
         {
             return false;
         }
-        
+
         // upload channel URI to service.
+        ChannelUri = channel.Uri;
+        return true;
     }
 
     public async Task<bool> TryRegisterBasedOnUserSettingsAsync()
@@ -49,6 +53,6 @@ public sealed class WindowsPushNotificationRegistrar : IPushNotificationRegistra
 
     public Task UnregiserAsync()
     {
-        throw new NotImplementedException();
+        return Task.CompletedTask;
     }
 }
