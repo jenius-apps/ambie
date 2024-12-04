@@ -320,6 +320,7 @@
     <Compile Include="Tools\AzurePushNotificationRegistrar.cs" />
     <Compile Include="Tools\MicrosoftStoreRatings.cs" />
     <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
+    <Compile Include="Tools\WindowsPushNotificationRegistrar.cs" />
     <Compile Include="Tools\WindowsSystemMediaControls.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
