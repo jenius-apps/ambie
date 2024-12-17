@@ -36,7 +36,7 @@ public class AzureServiceBusPushNotificationStorage : IPushNotificationStorage
             Uri = string.Empty
         };
 
-        var message = JsonSerializer.Serialize(data);
+        var message = JsonSerializer.Serialize(data, PushNotificationSerializerContext.CaseInsensitive.DeviceRegistrationData);
         await _sender.SendMessageAsync(new ServiceBusMessage(message), ct);
     }
 
@@ -53,7 +53,7 @@ public class AzureServiceBusPushNotificationStorage : IPushNotificationStorage
     public async Task<bool> RegisterDeviceAsync(DeviceRegistrationData data, CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
-        var message = JsonSerializer.Serialize(data);
+        var message = JsonSerializer.Serialize(data, PushNotificationSerializerContext.CaseInsensitive.DeviceRegistrationData);
         await _sender.SendMessageAsync(new ServiceBusMessage(message), ct);
         return true;
     }
