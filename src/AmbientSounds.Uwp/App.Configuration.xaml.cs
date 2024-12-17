@@ -147,7 +147,7 @@ partial class App
     [Singleton(typeof(AppServiceController))]
     [Singleton(typeof(PlaybackModeObserver))]
     [Singleton(typeof(ProtocolLaunchController))]
-    [Transient(typeof(WindowsPushNotificationRegistrar), typeof(IPushNotificationRegistrar))]
+    [Transient(typeof(WindowsPushNotificationSource), typeof(IPushNotificationSource))]
     [Transient(typeof(ImagePicker), typeof(IImagePicker))]
     [Singleton(typeof(WindowsClipboard), typeof(IClipboard))]
     [Singleton(typeof(MicrosoftStoreRatings), typeof(IAppStoreRatings))]

@@ -21,7 +21,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IImagePicker _imagePicker;
     private readonly IAssetsReader _assetsReader;
     private readonly IUserSettings _userSettings;
-    private readonly IPushNotificationRegistrar _notifications;
+    private readonly IPushNotificationService _notifications;
     private readonly ITelemetry _telemetry;
     private readonly IAppStoreRatings _appStoreRatings;
     private readonly IQuickResumeService _quickResumeService;
@@ -29,11 +29,12 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly IUriLauncher _uriLauncher;
     private readonly IAppStoreUpdater _storeUpdater;
+    private readonly ISystemInfoProvider _systemInfoProvider;
     private bool _notificationsLoading;
 
     public SettingsViewModel(
         IUserSettings userSettings,
-        IPushNotificationRegistrar notifications,
+        IPushNotificationService notifications,
         ITelemetry telemetry,
         IAssetsReader assetsReader,
         IImagePicker imagePicker,
@@ -57,6 +58,7 @@ public partial class SettingsViewModel : ObservableObject
         _iapService = iapService;
         _uriLauncher = uriLauncher;
         _storeUpdater = appStoreUpdater;
+        _systemInfoProvider = systemInfoProvider;
 
         if (systemInfoProvider.IsOnBatterySaver())
         {
@@ -243,15 +245,21 @@ public partial class SettingsViewModel : ObservableObject
         }
 
         _notificationsLoading = true;
-        if (value)
+
+        string? deviceId = _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey);
+
+        if (deviceId is { Length: > 0 } id)
         {
-            await _notifications.RegisterAsync();
+            if (value)
+            {
+                await _notifications.RegisterAsync(id, _systemInfoProvider.GetCulture(), default);
+            }
+            else
+            {
+                await _notifications.UnregisterAsync(id, default);
+            }
+            _userSettings.Set(UserSettingsConstants.Notifications, value);
         }
-        else
-        {
-            await _notifications.UnregiserAsync();
-        }
-        _userSettings.Set(UserSettingsConstants.Notifications, value);
         _notificationsLoading = false;
     }
 

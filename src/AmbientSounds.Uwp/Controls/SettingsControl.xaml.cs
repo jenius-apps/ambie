@@ -1,6 +1,4 @@
-﻿using AmbientSounds.Tools;
-using AmbientSounds.Tools.Uwp;
-using AmbientSounds.ViewModels;
+﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.UI.Xaml;
@@ -46,14 +44,5 @@ public sealed partial class SettingsControl : UserControl
     private void OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
     {
         ExperimentalPanel.Visibility = Visibility.Visible;
-    }
-
-    private async void OnRegisterClicked(object sender, RoutedEventArgs e)
-    {
-        if (App.Services.GetRequiredService<IPushNotificationRegistrar>() is WindowsPushNotificationRegistrar wns)
-        {
-            await wns.RegisterAsync();
-            ChannelUriTextBlock.Text = wns.ChannelUri;
-        }
     }
 }
