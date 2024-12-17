@@ -6,6 +6,11 @@
 public class DeviceRegistrationData
 {
     /// <summary>
+    /// The action that the server will try to fulfill.
+    /// </summary>
+    public required string ActionRequested { get; init; }
+
+    /// <summary>
     /// The push notification URI retrieved from the platform.
     /// </summary>
     public required string Uri { get; init; }

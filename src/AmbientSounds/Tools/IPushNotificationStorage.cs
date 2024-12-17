@@ -22,4 +22,9 @@ public interface IPushNotificationStorage
     /// <param name="deviceId">The ID of the device's data that will be removed.</param>
     /// <param name="ct">A cancellation token.</param>
     Task DeleteDeviceRegistrationAsync(string deviceId, CancellationToken ct);
+
+    /// <summary>
+    /// Performs dispose operations.
+    /// </summary>
+    Task DisposeAsync();
 }

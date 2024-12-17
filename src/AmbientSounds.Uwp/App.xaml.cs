@@ -267,9 +267,6 @@ sealed partial class App : Application
         Services.GetRequiredService<Services.INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
 
-        // Disabled for now because azure notification hub doesn't work
-        //_ = await Services.GetRequiredService<IPushNotificationRegistrar>().TryRegisterBasedOnUserSettingsAsync();
-
         try
         {
             await BackgroundDownloadService.Instance.DiscoverActiveDownloadsAsync();
@@ -302,6 +299,28 @@ sealed partial class App : Application
                 bgServices.ToggleStreakReminderTask(true);
             }
         }
+
+        _ = TryRegisterPushNotificationsAsync();
+    }
+
+    private async Task TryRegisterPushNotificationsAsync()
+    {
+        IUserSettings userSettings = Services.GetRequiredService<IUserSettings>();
+
+        if (userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
+            userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
+        {
+            return;
+        }
+
+        try
+        {
+            await Services.GetRequiredService<Tools.IPushNotificationService>().RegisterAsync(
+                id,
+                Services.GetRequiredService<JeniusApps.Common.Tools.ISystemInfoProvider>().GetCulture(),
+                default);
+        }
+        catch { }
     }
 
     private async void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)

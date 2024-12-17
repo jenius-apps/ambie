@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.18.2" />
     <PackageReference Include="ByteSize" Version="2.1.2" />
     <PackageReference Include="CommunityToolkit.Common" Version="8.2.1" />
     <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.1" />

@@ -40,6 +40,7 @@ public class PushNotificationService : IPushNotificationService
 
         DeviceRegistrationData data = new()
         {
+            ActionRequested = "register",
             DeviceId = deviceId,
             PrimaryLanguageCode = primaryLanguageCode,
             Uri = uri

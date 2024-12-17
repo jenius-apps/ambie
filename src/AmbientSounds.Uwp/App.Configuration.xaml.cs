@@ -71,6 +71,13 @@ partial class App
             return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled, context: context);
         });
 
+        collection.AddSingleton<IPushNotificationStorage, AzureServiceBusPushNotificationStorage>(s =>
+        {
+            var connectionString = s.GetRequiredService<IAppSettings>().NotificationHubConnectionString;
+            var queueName = s.GetRequiredService<IAppSettings>().NotificationHubName;
+            return new AzureServiceBusPushNotificationStorage(connectionString, queueName);
+        });
+
         IServiceProvider provider = collection.BuildServiceProvider();
 
         // Preload telemetry so it's configured as soon as possible.
@@ -147,6 +154,7 @@ partial class App
     [Singleton(typeof(AppServiceController))]
     [Singleton(typeof(PlaybackModeObserver))]
     [Singleton(typeof(ProtocolLaunchController))]
+    [Transient(typeof(PushNotificationService), typeof(IPushNotificationService))]
     [Transient(typeof(WindowsPushNotificationSource), typeof(IPushNotificationSource))]
     [Transient(typeof(ImagePicker), typeof(IImagePicker))]
     [Singleton(typeof(WindowsClipboard), typeof(IClipboard))]
