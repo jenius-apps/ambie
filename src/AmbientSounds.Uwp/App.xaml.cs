@@ -307,7 +307,8 @@ sealed partial class App : Application
     {
         IUserSettings userSettings = Services.GetRequiredService<IUserSettings>();
 
-        if (userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
+        if (Services.GetRequiredService<JeniusApps.Common.Tools.IExperimentationService>().IsEnabled(ExperimentConstants.NotificationsExperiment) is false ||
+            userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
             userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
         {
             return;
@@ -315,10 +316,16 @@ sealed partial class App : Application
 
         try
         {
+#if DEBUG
+            // Don't want to needlessly send messages to the notification service
+            // when in debug mode.
+            await Task.Delay(1);
+#else
             await Services.GetRequiredService<Tools.IPushNotificationService>().RegisterAsync(
                 id,
                 Services.GetRequiredService<JeniusApps.Common.Tools.ISystemInfoProvider>().GetCulture(),
                 default);
+#endif
         }
         catch { }
     }

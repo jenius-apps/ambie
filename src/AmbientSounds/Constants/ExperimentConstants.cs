@@ -14,6 +14,7 @@ public class ExperimentConstants
     public static IReadOnlyList<string> AllKeys { get; } =
     [
         // add experiment constants here
+        NotificationsExperiment
     ];
 
     /// <summary>
@@ -21,4 +22,9 @@ public class ExperimentConstants
     /// </summary>
     [Obsolete("Experiment is over. Results were successful.")]
     public const string ChannelsExperiment = "channelsExperiment";
+
+    /// <summary>
+    /// Key name to track the notifications experiment.
+    /// </summary>
+    public const string NotificationsExperiment = "notificationsExperiment";
 }
