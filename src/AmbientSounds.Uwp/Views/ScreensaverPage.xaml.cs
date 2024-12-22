@@ -10,6 +10,7 @@ using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Media.Core;
 using Windows.System;
@@ -31,6 +32,7 @@ public sealed partial class ScreensaverPage : Page
     private const int SecondsToHide = 3;
     private readonly DisplayRequest _displayRequest;
     private readonly DispatcherQueue _dispatcherQueue;
+    private readonly SemaphoreSlim _inactiveLock = new(1, 1);
 
     public ScreensaverPage()
     {
@@ -225,24 +227,32 @@ public sealed partial class ScreensaverPage : Page
         InactiveTimer.Tick += OnInactive;
     }
 
-    private void OnInactive(DispatcherQueueTimer t, object sender)
+    private async void OnInactive(DispatcherQueueTimer t, object sender)
     {
         if (ViewModel.DialogOpen)
         {
             return;
         }
 
+        StopHideCursorTimer();
+
         if (!IsButtonsHidden)
         {
-            HideButtonsAndCursor();
+            await _inactiveLock.WaitAsync();
+            await HideButtonsAndCursorAsync();
+            await Task.Delay(1000);
+            _inactiveLock.Release();
         }
-
-        StopHideCursorTimer();
     }
 
     private void RootPage_OnPointerMoved(object sender, PointerRoutedEventArgs e)
     {
         if (ViewModel.DialogOpen)
+        {
+            return;
+        }
+
+        if (_inactiveLock.CurrentCount == 0)
         {
             return;
         }
@@ -273,12 +283,12 @@ public sealed partial class ScreensaverPage : Page
         }
     }
 
-    private void HideButtonsAndCursor()
+    private async Task HideButtonsAndCursorAsync()
     {
         IsButtonsHidden = true;
         CoreWindow.GetForCurrentThread().PointerCursor = null;
-        _ = FadeOutAsync(TopPanelHide, TopPanel);
-        _ = FadeOutAsync(BottomPanelHide, VideosGrid);
+
+        await Task.WhenAll(FadeOutAsync(TopPanelHide, TopPanel), FadeOutAsync(BottomPanelHide, VideosGrid));
     }
 
     private async Task FadeOutAsync(AnimationSet fadeOutAnimation, UIElement element)
