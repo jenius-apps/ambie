@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,6 +11,8 @@ namespace AmbientSounds.Controls;
 
 public sealed partial class Screensaver : UserControl
 {
+    public event EventHandler? ImageChanged;
+
     public Screensaver()
     {
         this.InitializeComponent();
@@ -70,6 +73,8 @@ public sealed partial class Screensaver : UserControl
                 image.Visibility = Visibility.Visible;
                 ImageSb1.Begin();
             }
+
+            ImageChanged?.Invoke(this, EventArgs.Empty);
         }
         else if (e.PropertyName == nameof(ViewModel.ImageVisible2))
         {
@@ -84,6 +89,8 @@ public sealed partial class Screensaver : UserControl
                 image2.Visibility = Visibility.Visible;
                 ImageSb2.Begin();
             }
+
+            ImageChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -32,7 +32,7 @@ public sealed partial class ScreensaverPage : Page
     private const int SecondsToHide = 3;
     private readonly DisplayRequest _displayRequest;
     private readonly DispatcherQueue _dispatcherQueue;
-    private readonly SemaphoreSlim _inactiveLock = new(1, 1);
+    private readonly SemaphoreSlim _blockPointerLock = new(1, 1);
 
     public ScreensaverPage()
     {
@@ -44,6 +44,8 @@ public sealed partial class ScreensaverPage : Page
         ViewModel.PropertyChanged += OnViewModelPropertyChanged;
         _displayRequest = new DisplayRequest();
         _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
+        ScreensaverControl.ImageChanged += OnImageChanged;
     }
 
     public ScreensaverPageViewModel ViewModel => (ScreensaverPageViewModel)this.DataContext;
@@ -238,21 +240,24 @@ public sealed partial class ScreensaverPage : Page
 
         if (!IsButtonsHidden)
         {
-            await _inactiveLock.WaitAsync();
+            await _blockPointerLock.WaitAsync();
             await HideButtonsAndCursorAsync();
             await Task.Delay(1000);
-            _inactiveLock.Release();
+            _blockPointerLock.Release();
         }
+    }
+
+    private async void OnImageChanged(object sender, EventArgs e)
+    {
+        await _blockPointerLock.WaitAsync();
+        await Task.Delay(1000);
+        _blockPointerLock.Release();
     }
 
     private void RootPage_OnPointerMoved(object sender, PointerRoutedEventArgs e)
     {
-        if (ViewModel.DialogOpen)
-        {
-            return;
-        }
-
-        if (_inactiveLock.CurrentCount == 0)
+        if (ViewModel.DialogOpen ||
+            _blockPointerLock.CurrentCount == 0)
         {
             return;
         }

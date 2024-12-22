@@ -145,7 +145,7 @@
             </ani:Explicit.Animations>
         </Image>
 
-        <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+        <controls:Screensaver x:Name="ScreensaverControl" Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
         <Grid
             x:Name="VideosGrid"
