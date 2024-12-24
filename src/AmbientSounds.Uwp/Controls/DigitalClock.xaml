@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.DigitalClock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid RequestedTheme="Dark">
+        <!--
+            The ShadowTarget Border here is a *sibling* element behind where our elements which will cast
+            shadows are located, this is important as otherwise if we used a parent element the
+            shadows would appear on top of our elements instead!
+        -->
+        <Border x:Name="ShadowTarget" />
+
+        <TextBlock
+            FontSize="120"
+            Text="{x:Bind TimeText, Mode=OneWay}"
+            Typography.NumeralAlignment="Tabular">
+            <ui:Effects.Shadow>
+                <ui:AttachedDropShadow
+                    BlurRadius="10"
+                    CastTo="{x:Bind ShadowTarget}"
+                    Opacity="0.5"
+                    Offset="0,4" />
+            </ui:Effects.Shadow>
+        </TextBlock>
+    </Grid>
+</UserControl>
