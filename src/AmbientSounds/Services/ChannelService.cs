@@ -285,28 +285,23 @@ public sealed class ChannelService : IChannelService
     {
         if (channel.Type is ChannelType.Videos)
         {
-            if (channel.SoundIds is not [string soundId, ..] || channel.VideoIds.Count == 0)
+            if (channel.VideoIds.Count == 0)
             {
                 return;
             }
 
-            if (await _soundService.GetLocalSoundAsync(soundId) is not Sound s)
+            if (channel.SoundIds is [string soundId, ..] && await _soundService.GetLocalSoundAsync(soundId) is Sound s)
             {
-                return;
-            }
-
-            await _player.PlayFeaturedSoundAsync(FeaturedSoundType.Channel, s.Id, s.FilePath, enableGaplessLoop: true);
-        }
-        else if (channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow)
-        {
-            if (_player.GetSoundIds().Length == 0)
-            {
-                await _player.AddRandomAsync();
+                await _player.PlayFeaturedSoundAsync(FeaturedSoundType.Channel, s.Id, s.FilePath, enableGaplessLoop: true);
             }
             else
             {
-                _player.Play();
+                await PlayCurrentSoundsOrRandomAsync(_player);
             }
+        }
+        else if (channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow)
+        {
+            await PlayCurrentSoundsOrRandomAsync(_player);
         }
 
         if (performNavigation)
@@ -319,6 +314,18 @@ public sealed class ChannelService : IChannelService
             };
 
             _navigator.ToScreensaver(args);
+        }
+    }
+
+    private static async Task PlayCurrentSoundsOrRandomAsync(IMixMediaPlayerService mixMediaPlayerService)
+    {
+        if (mixMediaPlayerService.GetSoundIds().Length == 0)
+        {
+            await mixMediaPlayerService.AddRandomAsync();
+        }
+        else
+        {
+            mixMediaPlayerService.Play();
         }
     }
 

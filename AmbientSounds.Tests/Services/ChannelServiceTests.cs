@@ -13,6 +13,27 @@ namespace AmbientSounds.Tests.Services;
 public class ChannelServiceTests
 {
     [Fact]
+    public async Task Play_VideoChannel_PlayerRandom_Success()
+    {
+        var playerMock = new Mock<IMixMediaPlayerService>();
+        playerMock.Setup(x => x.GetSoundIds()).Returns([]);
+
+        var service = new ChannelService(
+            Mock.Of<IChannelCache>(),
+            Mock.Of<ISoundService>(),
+            Mock.Of<IVideoService>(),
+            Mock.Of<IIapService>(),
+            Mock.Of<IDownloadManager>(),
+            Mock.Of<ICatalogueService>(),
+            Mock.Of<INavigator>(),
+            playerMock.Object);
+
+        var videoChannel = new Channel { Type = ChannelType.Videos, VideoIds = ["test"], SoundIds = [] };
+        await service.PlayChannelAsync(videoChannel);
+        playerMock.Verify(x => x.AddRandomAsync(), Times.Once());
+    }
+
+    [Fact]
     public async Task Play_NonVideoChannel_PlayerRandom_Success()
     {
         var playerMock = new Mock<IMixMediaPlayerService>();
