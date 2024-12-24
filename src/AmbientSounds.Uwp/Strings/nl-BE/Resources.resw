@@ -915,4 +915,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Bekijk details</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Klok inschakelen</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Seconden weergeven op klok</value>
+  </data>
 </root>

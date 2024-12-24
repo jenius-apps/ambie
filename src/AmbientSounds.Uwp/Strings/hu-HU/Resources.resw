@@ -930,4 +930,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Részletek megtekintése</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Óra engedélyezése</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Másodpercek kijelzése az órán</value>
+  </data>
 </root>

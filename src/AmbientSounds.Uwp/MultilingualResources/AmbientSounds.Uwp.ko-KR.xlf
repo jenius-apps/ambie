@@ -1247,6 +1247,14 @@
           <source>View details</source>
           <target state="translated">세부 정보보기</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">클럭 활성화</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">시계에 초 표시</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1257,6 +1257,14 @@
           <source>View details</source>
           <target state="translated">Részletek megtekintése</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Óra engedélyezése</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Másodpercek kijelzése az órán</target>
+        </trans-unit>
       </group>
     </body>
   </file>

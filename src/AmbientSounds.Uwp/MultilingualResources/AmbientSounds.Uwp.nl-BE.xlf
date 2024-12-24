@@ -1252,6 +1252,14 @@
           <source>View details</source>
           <target state="translated">Bekijk details</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Klok inschakelen</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Seconden weergeven op klok</target>
+        </trans-unit>
       </group>
     </body>
   </file>

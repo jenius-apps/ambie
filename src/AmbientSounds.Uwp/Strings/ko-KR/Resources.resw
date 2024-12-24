@@ -942,4 +942,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>세부 정보보기</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>클럭 활성화</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>시계에 초 표시</value>
+  </data>
 </root>

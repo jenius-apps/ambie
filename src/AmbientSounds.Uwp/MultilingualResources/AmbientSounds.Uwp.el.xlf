@@ -1243,6 +1243,14 @@
           <source>View details</source>
           <target state="translated">Προβολή λεπτομερειών</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Ενεργοποίηση ρολογιού</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Εμφάνιση δευτερολέπτων στο ρολόι</target>
+        </trans-unit>
       </group>
     </body>
   </file>

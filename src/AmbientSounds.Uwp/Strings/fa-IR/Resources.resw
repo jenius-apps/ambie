@@ -942,4 +942,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>مشاهده جزئیات</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>فعال کردن ساعت</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>نمایش ثانیه ها روی ساعت</value>
+  </data>
 </root>

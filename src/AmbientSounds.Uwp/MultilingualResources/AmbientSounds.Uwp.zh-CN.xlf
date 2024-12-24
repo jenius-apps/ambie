@@ -1246,6 +1246,14 @@
           <source>View details</source>
           <target state="translated">查看详情</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">启用时钟</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">在时钟上显示秒数</target>
+        </trans-unit>
       </group>
     </body>
   </file>

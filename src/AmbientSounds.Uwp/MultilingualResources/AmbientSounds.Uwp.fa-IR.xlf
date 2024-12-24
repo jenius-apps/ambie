@@ -1243,6 +1243,14 @@
           <source>View details</source>
           <target state="translated">مشاهده جزئیات</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">فعال کردن ساعت</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">نمایش ثانیه ها روی ساعت</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -43,7 +43,7 @@
         <ToggleSwitch
             Grid.Row="1"
             Margin="0,20,0,0"
-            Header="Enable clock"
+            Header="{x:Bind strings:Resources.SettingsEnableClockHeader}"
             IsOn="{x:Bind ViewModel.ChannelClockEnabled, Mode=TwoWay}">
             <ToggleSwitch.OffContent>
                 <TextBlock x:Uid="OffTextBlock" />
@@ -55,7 +55,7 @@
 
         <ToggleSwitch
             Grid.Row="2"
-            Header="Display seconds on clock"
+            Header="{x:Bind strings:Resources.SettingsEnableClockSecondsHeader}"
             IsEnabled="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}"
             IsOn="{x:Bind ViewModel.ChannelClockSecondsEnabled, Mode=TwoWay}">
             <ToggleSwitch.OffContent>

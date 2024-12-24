@@ -1255,6 +1255,14 @@
           <source>View details</source>
           <target state="translated">Mostra dettagli</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Abilita orologio</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Visualizzazione dei secondi sull'orologio</target>
+        </trans-unit>
       </group>
     </body>
   </file>

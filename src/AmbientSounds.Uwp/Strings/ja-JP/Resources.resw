@@ -942,4 +942,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>詳細を表示</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>クロックを有効にする</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>時計に秒を表示する</value>
+  </data>
 </root>
