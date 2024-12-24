@@ -331,7 +331,7 @@ public class DialogService : IDialogService
     public async Task OpenChannelPageSettingsAsync()
     {
         IsDialogOpen = true;
-        var dialog = new ContentDialog()
+        var dialog = new ChannelViewerSettingsDialog()
         {
             FlowDirection = GetFlowDirection(),
             RequestedTheme = GetTheme(),

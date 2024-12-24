@@ -35,21 +35,6 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private Uri _videoSource = new(DefaultVideoSource);
     private string _activeScreensaverId = string.Empty;
 
-    [ObservableProperty]
-    private bool _settingsButtonVisible;
-
-    [ObservableProperty]
-    private bool _loading;
-
-    [ObservableProperty]
-    private bool _slideshowVisible;
-
-    [ObservableProperty]
-    private bool _isDarkScreen;
-
-    [ObservableProperty]
-    private bool _dialogOpen;
-
     /// <summary>
     /// Raised when the view model has completed
     /// initialization.
@@ -79,7 +64,30 @@ public partial class ScreensaverPageViewModel : ObservableObject
         _channelFactory = channelVmFactory;
 
         _videoService.VideoDeleted += OnVideoDeleted;
+
+        UpdateClockSettings();
     }
+
+    [ObservableProperty]
+    private bool _clockVisible;
+
+    [ObservableProperty]
+    private bool _clockSecondsVisible;
+
+    [ObservableProperty]
+    private bool _settingsButtonVisible;
+
+    [ObservableProperty]
+    private bool _loading;
+
+    [ObservableProperty]
+    private bool _slideshowVisible;
+
+    [ObservableProperty]
+    private bool _isDarkScreen;
+
+    [ObservableProperty]
+    private bool _dialogOpen;
 
     [ObservableProperty]
     private string _videoPlaceholderImageUrl = "http://localhost";
@@ -216,6 +224,14 @@ public partial class ScreensaverPageViewModel : ObservableObject
         _telemetry.TrackEvent(TelemetryConstants.ChannelViewerSettingsClicked);
         await _dialogService.OpenChannelPageSettingsAsync();
         DialogOpen = false;
+
+        UpdateClockSettings();
+    }
+
+    private void UpdateClockSettings()
+    {
+        ClockVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
+        ClockSecondsVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
     }
 
 

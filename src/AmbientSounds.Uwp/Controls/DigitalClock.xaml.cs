@@ -12,11 +12,16 @@ namespace AmbientSounds.Controls;
 public sealed partial class DigitalClock : UserControl
 {
     private readonly IDispatcherQueue _dispatcher;
-
     private readonly Timer _timer = new()
     {
         Interval = 1000 // milliseconds
     };
+
+    public static readonly DependencyProperty ShowSecondsProperty = DependencyProperty.Register(
+        nameof(ShowSeconds),
+        typeof(bool),
+        typeof(DigitalClock),
+        new PropertyMetadata(false, OnShowSecondsChanged));
 
     private static readonly DependencyProperty TimeTextProperty = DependencyProperty.Register(
         nameof(TimeText),
@@ -32,6 +37,12 @@ public sealed partial class DigitalClock : UserControl
         UpdateTimeText();
         _timer.Elapsed += OnTimerElapsed;
         _timer.Start();
+    }
+
+    public bool ShowSeconds
+    {
+        get => (bool)GetValue(ShowSecondsProperty);
+        set => SetValue(ShowSecondsProperty, value);
     }
 
     private string TimeText
@@ -53,7 +64,12 @@ public sealed partial class DigitalClock : UserControl
     {
         _dispatcher.TryEnqueue(() =>
         {
-            TimeText = DateTime.Now.ToLongTimeString();
+            TimeText = ShowSeconds ? DateTime.Now.ToLongTimeString() : DateTime.Now.ToShortTimeString();
         });
+    }
+
+    private static void OnShowSecondsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((DigitalClock)d).UpdateTimeText();
     }
 }
