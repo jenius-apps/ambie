@@ -27,6 +27,7 @@ public sealed partial class DigitalClock : UserControl
     public DigitalClock()
     {
         this.InitializeComponent();
+        this.Unloaded += OnUnloaded;
         _dispatcher = App.Services.GetRequiredService<IDispatcherQueue>();
         UpdateTimeText();
         _timer.Elapsed += OnTimerElapsed;
@@ -40,6 +41,13 @@ public sealed partial class DigitalClock : UserControl
     }
 
     private void OnTimerElapsed(object sender, ElapsedEventArgs e) => UpdateTimeText();
+
+    private void OnUnloaded(object sender, RoutedEventArgs e)
+    {
+        this.Unloaded -= OnUnloaded;
+        _timer.Stop();
+        _timer.Elapsed -= OnTimerElapsed;
+    }
 
     private void UpdateTimeText()
     {
