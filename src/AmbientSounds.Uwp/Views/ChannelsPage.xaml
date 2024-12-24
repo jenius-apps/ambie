@@ -247,11 +247,11 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Rectangle
-                Grid.RowSpan="3"
+                Grid.RowSpan="4"
                 Width="0.5"
-                Margin="0,20"
                 HorizontalAlignment="Left"
                 Style="{StaticResource ModuleVerticalDividerRectStyle}" />
 
@@ -495,7 +495,34 @@
                         </TextBlock>
                     </Grid>
                 </Grid>
+
             </StackPanel>
+
+            <HyperlinkButton
+                Grid.Row="3"
+                Margin="20,12"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                AutomationProperties.Name="{x:Bind strings:Resources.DeleteText}"
+                Command="{x:Bind ViewModel.SelectedChannel.DeleteCommand, Mode=OneWay}"
+                Content="{x:Bind strings:Resources.DeleteText}"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Visibility="{x:Bind ViewModel.SelectedChannel.DeleteButtonVisible, Mode=OneWay}">
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        Delay="0:0:0.15"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.6" />
+                    <ani:ScaleAnimation
+                        Delay="0:0:0.15"
+                        From="0.8"
+                        To="1"
+                        Duration="0:0:0.6" />
+                </ani:Implicit.ShowAnimations>
+            </HyperlinkButton>
         </Grid>
     </Grid>
 </Page>

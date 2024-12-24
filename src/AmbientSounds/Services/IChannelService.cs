@@ -21,6 +21,14 @@ public interface IChannelService
     event EventHandler<string>? ChannelDownloaded;
 
     /// <summary>
+    /// Deletes the video behind the given channel.
+    /// Associated sound is not deleted because those sounds
+    /// can be deleted independently from the Home page.
+    /// </summary>
+    /// <param name="channel">The channel to delete.</param>
+    Task DeleteChannelAsync(Channel channel);
+
+    /// <summary>
     /// Fetches available channels.
     /// </summary>
     Task<IReadOnlyList<Channel>> GetChannelsAsync();

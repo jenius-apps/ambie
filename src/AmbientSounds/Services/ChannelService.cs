@@ -321,4 +321,22 @@ public sealed class ChannelService : IChannelService
             _navigator.ToScreensaver(args);
         }
     }
+
+    /// <inheritdoc/>
+    public async Task DeleteChannelAsync(Channel channel)
+    {
+        if (channel.Type is ChannelType.DarkScreen or ChannelType.Slideshow ||
+            channel.VideoIds is not [string videoId, ..])
+        {
+            return;
+        }
+
+        var video = await _videoService.GetLocalVideoAsync(videoId);
+        if (video is null)
+        {
+            return;
+        }
+
+        await _videoService.UninstallVideoAsync(video);
+    }
 }

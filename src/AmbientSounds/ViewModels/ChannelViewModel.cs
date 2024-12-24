@@ -62,6 +62,8 @@ public partial class ChannelViewModel : ObservableObject
 
     public bool BuyButtonVisible => !ActionButtonLoading && !IsOwned;
 
+    public bool DeleteButtonVisible => _channel.Type is ChannelType.Videos && IsFullyDownloaded;
+
     public bool ScreensaverBackplateVisible => BuyButtonVisible || DownloadButtonVisible || DownloadProgressVisible || DownloadLoading;
 
     [ObservableProperty]
@@ -88,6 +90,7 @@ public partial class ChannelViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(PlayButtonVisible))]
     [NotifyPropertyChangedFor(nameof(PrimaryActionGlyph))]
     [NotifyPropertyChangedFor(nameof(PrimaryCommand))]
+    [NotifyPropertyChangedFor(nameof(DeleteButtonVisible))]
     private bool _isFullyDownloaded;
 
     [ObservableProperty]
@@ -225,6 +228,16 @@ public partial class ChannelViewModel : ObservableObject
         {
             { "name", _channel.Name }
         });
+    }
+
+    [RelayCommand]
+    private async Task DeleteAsync()
+    {
+        ActionButtonLoading = true;
+        await _channelService.DeleteChannelAsync(_channel);
+        IsFullyDownloaded = await _channelService.IsFullyDownloadedAsync(_channel);
+        await Task.Delay(300); // Delay to improve UX
+        ActionButtonLoading = false;
     }
 
     private void OnProgressChanged(object sender, double e)
