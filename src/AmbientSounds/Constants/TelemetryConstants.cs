@@ -58,6 +58,10 @@ public class TelemetryConstants
     public const string ChannelDownloadClicked = Channel + "downloadClicked";
     public const string ChannelUnlockClicked = Channel + "unlockClicked";
 
+    // channel viewer
+    private const string ChannelViewer = "channelViewer:";
+    public const string ChannelViewerSettingsClicked = $"{ChannelViewer}settingsClicked";
+
     // premium
     private const string Premium = "premium:";
     public const string LifetimeClicked = Premium + "lifetimeClicked";

@@ -209,6 +209,15 @@ public partial class ScreensaverPageViewModel : ObservableObject
             : CurrentSelection?.Id);
     }
 
+    [RelayCommand]
+    private async Task PageSettingsAsync()
+    {
+        DialogOpen = true;
+        _telemetry.TrackEvent(TelemetryConstants.ChannelViewerSettingsClicked);
+        await _dialogService.OpenChannelPageSettingsAsync();
+        DialogOpen = false;
+    }
+
 
     [RelayCommand]
     private async Task PlayChannelAsync(ChannelViewModel? channelViewModel)
