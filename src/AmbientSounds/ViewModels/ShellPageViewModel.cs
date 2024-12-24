@@ -202,13 +202,8 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void GoToScreensaver()
     {
-        _telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
-        {
-            { "trigger", "mainPage" }
-        });
-
-            _navigator.ToScreensaver();
-        }
+        _navigator.ToScreensaver();
+    }
 
     [RelayCommand]
     private async Task PlayRandomSoundAsync()
