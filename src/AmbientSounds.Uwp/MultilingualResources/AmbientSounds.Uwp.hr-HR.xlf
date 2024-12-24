@@ -1250,6 +1250,14 @@
           <source>View details</source>
           <target state="translated">Pogledajte detalje</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Omogući sat</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Prikaz sekundi na satu</target>
+        </trans-unit>
       </group>
     </body>
   </file>

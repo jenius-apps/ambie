@@ -1249,6 +1249,14 @@
           <source>View details</source>
           <target state="translated">Visa Detaljer</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Aktivera klocka</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Visa sekunder på klockan</target>
+        </trans-unit>
       </group>
     </body>
   </file>

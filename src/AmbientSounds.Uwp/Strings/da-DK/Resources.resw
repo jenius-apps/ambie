@@ -939,4 +939,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Se detaljer</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Aktiver ur</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Vis sekunder på uret</value>
+  </data>
 </root>

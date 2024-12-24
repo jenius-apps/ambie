@@ -1248,6 +1248,14 @@
           <source>View details</source>
           <target state="translated">Details anzeigen</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Uhr aktivieren</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Zeige die Sekunden auf der Uhr an</target>
+        </trans-unit>
       </group>
     </body>
   </file>

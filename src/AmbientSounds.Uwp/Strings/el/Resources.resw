@@ -927,4 +927,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Προβολή λεπτομερειών</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Ενεργοποίηση ρολογιού</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Εμφάνιση δευτερολέπτων στο ρολόι</value>
+  </data>
 </root>

@@ -936,4 +936,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Ayrıntıları görüntüleme</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Saati etkinleştir</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Saatte saniyeleri göster</value>
+  </data>
 </root>

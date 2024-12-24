@@ -1248,6 +1248,14 @@
           <source>View details</source>
           <target state="translated">Перегляд докладних відомостей</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Увімкнути годинник</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Відображення секунд на годиннику</target>
+        </trans-unit>
       </group>
     </body>
   </file>

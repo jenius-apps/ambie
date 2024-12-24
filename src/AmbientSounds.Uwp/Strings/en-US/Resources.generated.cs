@@ -3225,6 +3225,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region SettingsEnableClockHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Enable clock
+        /// </summary>
+        public static string SettingsEnableClockHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsEnableClockHeader");
+            }
+        }
+        #endregion
+
+        #region SettingsEnableClockSecondsHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Display seconds on clock
+        /// </summary>
+        public static string SettingsEnableClockSecondsHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsEnableClockSecondsHeader");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3483,6 +3509,8 @@ namespace AmbientSounds.Strings{
             ChannelsTitleText,
             ChannelsSubtitle,
             ViewDetailsText,
+            SettingsEnableClockHeader,
+            SettingsEnableClockSecondsHeader,
         }
 
         private static ResourceLoader _resourceLoader;

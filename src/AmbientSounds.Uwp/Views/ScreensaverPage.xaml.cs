@@ -60,18 +60,23 @@ public sealed partial class ScreensaverPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        var settings = App.Services.GetRequiredService<IUserSettings>();
         if (e.Parameter is ScreensaverArgs args)
         {
             await ViewModel.InitializeAsync(args);
         }
         else
         {
-            var settings = App.Services.GetRequiredService<IUserSettings>();
             await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedChannelKey));
         }
 
         var telemetry = App.Services.GetRequiredService<ITelemetry>();
         telemetry.TrackPageView(nameof(ScreensaverPage));
+        telemetry.TrackEvent(TelemetryConstants.NavigatedToChannelViewer, new Dictionary<string, string>
+        {
+            { "clockEnabled", settings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey).ToString() },
+            { "clockSecondsEnabled", settings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey).ToString() },
+        });
 
         var coreWindow = CoreWindow.GetForCurrentThread();
         coreWindow.KeyDown += CoreWindow_KeyDown;
@@ -213,11 +218,7 @@ public sealed partial class ScreensaverPage : Page
         {
             view.TryEnterFullScreenMode();
             var telemetry = App.Services.GetRequiredService<ITelemetry>();
-            telemetry.TrackEvent(TelemetryConstants.ScreensaverFullscreen, new Dictionary<string, string>
-            {
-                { "id", ViewModel.CurrentSelection?.Id ?? "null" },
-                { "name", ViewModel.CurrentSelection?.Text ?? string.Empty }
-            });
+            telemetry.TrackEvent(TelemetryConstants.ChannelViewerFullScreen);
         }
     }
 

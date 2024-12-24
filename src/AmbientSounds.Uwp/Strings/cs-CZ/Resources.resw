@@ -942,4 +942,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Zobrazit podrobnosti</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Povolit hodiny</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Zobrazení sekund na hodinách</value>
+  </data>
 </root>

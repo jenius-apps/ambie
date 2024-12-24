@@ -942,4 +942,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Ver detalhes</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Ativar relógio</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Exibir segundos no relógio</value>
+  </data>
 </root>

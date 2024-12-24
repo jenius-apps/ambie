@@ -62,8 +62,6 @@ public partial class ScreensaverViewModel : ObservableObject
 
     public async void LoadAsync()
     {
-        _telemetry.TrackEvent(TelemetryConstants.ScreensaverLoaded);
-
         if (_mediaPlayerService.Screensavers.Count > 0)
         {
             var images = new List<string>();

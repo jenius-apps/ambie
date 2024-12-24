@@ -939,4 +939,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Vezi detalii</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Activați ceasul</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Afișați secundele pe ceas</value>
+  </data>
 </root>

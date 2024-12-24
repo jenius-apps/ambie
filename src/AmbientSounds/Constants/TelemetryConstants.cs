@@ -58,6 +58,17 @@ public class TelemetryConstants
     public const string ChannelDownloadClicked = Channel + "downloadClicked";
     public const string ChannelUnlockClicked = Channel + "unlockClicked";
 
+    // channel viewer
+    private const string ChannelViewer = "channelViewer:";
+    public const string ChannelViewerSettingsClicked = $"{ChannelViewer}settingsClicked";
+    public const string ChannelViewerClockEnabled = $"{ChannelViewer}clockEnabled";
+    public const string ChannelViewerClockDisabled = $"{ChannelViewer}clockDisabled";
+    public const string ChannelViewerClockSecondsEnabled = $"{ChannelViewer}clockSecondsEnabled";
+    public const string ChannelViewerClockSecondsDisabled = $"{ChannelViewer}clockSecondsDisabled";
+    public const string NavigatedToChannelViewer = $"{ChannelViewer}navigatedTo";
+    public const string ChannelViewerFullScreen = $"{ChannelViewer}fullScreen";
+
+
     // premium
     private const string Premium = "premium:";
     public const string LifetimeClicked = Premium + "lifetimeClicked";
@@ -81,12 +92,6 @@ public class TelemetryConstants
     public const string PlaybackRandom = Playback + "randomClicked";
     public const string PlaybackTime = Playback + "time";
     public const string PlaybackAutoResume = Playback + "autoResumeTriggered";
-
-    // screensaver
-    private const string Screensaver = "screensaver:";
-    public const string ScreensaverLoaded = Screensaver + "loaded";
-    public const string ScreensaverTriggered = Screensaver + "triggered";
-    public const string ScreensaverFullscreen = Screensaver + "fullscreen";
 
     // mix
     private const string Mix = "mix:";

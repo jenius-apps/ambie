@@ -177,6 +177,16 @@ public static class UserSettingsConstants
     public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
 
     /// <summary>
+    /// Remembers if the user enabled the channel clock.
+    /// </summary>
+    public const string ChannelClockEnabledKey = "ChannelClockEnabled";
+
+    /// <summary>
+    /// Remembers if the user enabled the channel clock's seconds.
+    /// </summary>
+    public const string ChannelClockSecondsEnabledKey = "ChannelClockSecondsEnabled";
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -212,5 +222,7 @@ public static class UserSettingsConstants
         { LastUsedContentPageKey, string.Empty },
         { XboxSlideshowModeKey, SlideshowMode.Video.ToString() },
         { HasViewedFreeTrialTipKey, false },
+        { ChannelClockEnabledKey, false },
+        { ChannelClockSecondsEnabledKey, false },
     };
 }

@@ -1,94 +1,87 @@
-﻿using AmbientSounds.Constants;
-using CommunityToolkit.Diagnostics;
-using System;
-using System.Collections.Generic;
-using Windows.UI.Xaml;
+﻿using CommunityToolkit.Diagnostics;
 using JeniusApps.Common.Telemetry;
+using System;
+using Windows.UI.Xaml;
 
 #nullable enable
 
-namespace AmbientSounds.Services.Uwp
+namespace AmbientSounds.Services.Uwp;
+
+public class ScreensaverService : IScreensaverService
 {
-    public class ScreensaverService : IScreensaverService
+    private const int ScreensaverTimeout = 60; // seconds
+    private readonly ITelemetry _telemetry;
+    private readonly INavigator _navigator;
+    private readonly IMixMediaPlayerService _mediaPlayerService;
+    private DispatcherTimer? _screensaverTriggerTimer;
+
+    public ScreensaverService(
+        ITelemetry telemetry,
+        INavigator navigator,
+        IMixMediaPlayerService mediaPlayerService)
     {
-        private const int ScreensaverTimeout = 60; // seconds
-        private readonly ITelemetry _telemetry;
-        private readonly INavigator _navigator;
-        private readonly IMixMediaPlayerService _mediaPlayerService;
-        private DispatcherTimer? _screensaverTriggerTimer;
+        Guard.IsNotNull(telemetry, nameof(telemetry));
+        Guard.IsNotNull(navigator, nameof(navigator));
+        Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
+        _mediaPlayerService = mediaPlayerService;
+        _telemetry = telemetry;
+        _navigator = navigator;
+    }
 
-        public ScreensaverService(
-            ITelemetry telemetry,
-            INavigator navigator,
-            IMixMediaPlayerService mediaPlayerService)
+    /// <inheritdoc/>
+    public bool IsScreensaverEnabled
+    {
+        get => false;
+    }
+
+    /// <inheritdoc/>
+    public void StartTimer()
+    {
+        if (!IsScreensaverEnabled 
+            || _screensaverTriggerTimer?.IsEnabled == true
+            || _mediaPlayerService.PlaybackState != MediaPlaybackState.Playing)
         {
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(navigator, nameof(navigator));
-            Guard.IsNotNull(mediaPlayerService, nameof(mediaPlayerService));
-            _mediaPlayerService = mediaPlayerService;
-            _telemetry = telemetry;
-            _navigator = navigator;
+            return;
         }
 
-        /// <inheritdoc/>
-        public bool IsScreensaverEnabled
+        _screensaverTriggerTimer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(ScreensaverTimeout) };
+        _screensaverTriggerTimer.Tick += ScreensaverTriggered;
+        _screensaverTriggerTimer.Start();
+    }
+
+    /// <inheritdoc/>
+    public void StopTimer()
+    {
+        if (_screensaverTriggerTimer is not null)
         {
-            get => false;
+            _screensaverTriggerTimer.Stop();
+            _screensaverTriggerTimer.Tick -= ScreensaverTriggered;
+            _screensaverTriggerTimer = null;
         }
+    }
 
-        /// <inheritdoc/>
-        public void StartTimer()
+    /// <inheritdoc/>
+    public void ResetScreensaverTimeout()
+    {
+        if (_screensaverTriggerTimer is not null)
         {
-            if (!IsScreensaverEnabled 
-                || _screensaverTriggerTimer?.IsEnabled == true
-                || _mediaPlayerService.PlaybackState != MediaPlaybackState.Playing)
-            {
-                return;
-            }
-
-            _screensaverTriggerTimer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(ScreensaverTimeout) };
-            _screensaverTriggerTimer.Tick += ScreensaverTriggered;
+            _screensaverTriggerTimer.Stop();
             _screensaverTriggerTimer.Start();
         }
+    }
 
-        /// <inheritdoc/>
-        public void StopTimer()
+    private void ScreensaverTriggered(object sender, object e)
+    {
+        // Don't navigate if a dialog is open. UX is jarring.
+        if (DialogService.IsDialogOpen)
         {
-            if (_screensaverTriggerTimer is not null)
-            {
-                _screensaverTriggerTimer.Stop();
-                _screensaverTriggerTimer.Tick -= ScreensaverTriggered;
-                _screensaverTriggerTimer = null;
-            }
+            return;
         }
 
-        /// <inheritdoc/>
-        public void ResetScreensaverTimeout()
-        {
-            if (_screensaverTriggerTimer is not null)
-            {
-                _screensaverTriggerTimer.Stop();
-                _screensaverTriggerTimer.Start();
-            }
-        }
+        _navigator.ToScreensaver();
 
-        private void ScreensaverTriggered(object sender, object e)
-        {
-            // Don't navigate if a dialog is open. UX is jarring.
-            if (DialogService.IsDialogOpen)
-            {
-                return;
-            }
-
-            _telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
-            {
-                { "trigger", "timer" }
-            });
-            _navigator.ToScreensaver();
-
-            // Once we navigate to the screensaver,
-            // stop timer to avoid navigating to the screensaver again.
-            StopTimer();
-        }
+        // Once we navigate to the screensaver,
+        // stop timer to avoid navigating to the screensaver again.
+        StopTimer();
     }
 }

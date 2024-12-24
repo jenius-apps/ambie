@@ -137,6 +137,36 @@ public partial class SettingsViewModel : ObservableObject
         set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
     }
 
+    public bool ChannelClockEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelClockEnabledKey, value);
+            OnPropertyChanged();
+            _telemetry.TrackEvent(value is true 
+                ? TelemetryConstants.ChannelViewerClockEnabled
+                : TelemetryConstants.ChannelViewerClockDisabled);
+        }
+    }
+
+    public string ChannelClockPreview => ChannelClockSecondsEnabled
+        ? DateTime.Now.ToLongTimeString()
+        : DateTime.Now.ToShortTimeString();
+
+    public bool ChannelClockSecondsEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelClockSecondsEnabledKey, value);
+            OnPropertyChanged(nameof(ChannelClockPreview));
+            _telemetry.TrackEvent(value is true
+                ? TelemetryConstants.ChannelViewerClockSecondsEnabled
+                : TelemetryConstants.ChannelViewerClockSecondsDisabled);
+        }
+    }
+
     public bool StreaksReminderEnabled
     {
         get => _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);

@@ -942,4 +942,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>查看详情</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>启用时钟</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>在时钟上显示秒数</value>
+  </data>
 </root>

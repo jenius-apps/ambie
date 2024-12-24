@@ -93,7 +93,8 @@
                 Margin="0,40,40,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Orientation="Horizontal">
+                Orientation="Horizontal"
+                Spacing="4">
                 <Button
                     AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
                     Click="OnToggleFullscreen"
@@ -112,6 +113,16 @@
                             Glyph="{StaticResource GlyphCollapse}"
                             Visibility="{x:Bind IsFullscreen}" />
                     </Grid>
+                </Button>
+                <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                    Command="{x:Bind ViewModel.PageSettingsCommand}"
+                    Style="{StaticResource IconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
+                        Glyph="{StaticResource GlyphSettings}" />
                 </Button>
             </StackPanel>
         </Grid>
@@ -146,6 +157,20 @@
         </Image>
 
         <controls:Screensaver x:Name="ScreensaverControl" Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+
+        <controls:DigitalClock
+            Margin="0,120,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            ShowSeconds="{x:Bind ViewModel.ClockSecondsVisible, Mode=OneWay}"
+            Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
+            <ani:Implicit.ShowAnimations>
+                <ani:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:5" />
+            </ani:Implicit.ShowAnimations>
+        </controls:DigitalClock>
 
         <Grid
             x:Name="VideosGrid"

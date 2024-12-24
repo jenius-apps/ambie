@@ -327,4 +327,17 @@ public class DialogService : IDialogService
     private FlowDirection GetFlowDirection() => App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
 
     private ElementTheme GetTheme() => _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme();
+
+    public async Task OpenChannelPageSettingsAsync()
+    {
+        IsDialogOpen = true;
+        var dialog = new ChannelViewerSettingsDialog()
+        {
+            FlowDirection = GetFlowDirection(),
+            RequestedTheme = GetTheme(),
+        };
+
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 }

@@ -41,6 +41,11 @@ public interface IDialogService
     Task<bool> MissingSoundsDialogAsync();
 
     /// <summary>
+    /// Opens the channel page settings dialog.
+    /// </summary>
+    Task OpenChannelPageSettingsAsync();
+
+    /// <summary>
     /// Opens videos menu dialog.
     /// </summary>
     Task OpenVideosMenuAsync();

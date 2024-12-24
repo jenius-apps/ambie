@@ -1243,6 +1243,14 @@
           <source>View details</source>
           <target state="translated">詳細を表示</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">クロックを有効にする</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">時計に秒を表示する</target>
+        </trans-unit>
       </group>
     </body>
   </file>

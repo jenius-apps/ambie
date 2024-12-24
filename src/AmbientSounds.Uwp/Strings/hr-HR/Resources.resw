@@ -930,4 +930,10 @@
   <data name="ViewDetailsText" xml:space="preserve">
     <value>Pogledajte detalje</value>
   </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Omogući sat</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Prikaz sekundi na satu</value>
+  </data>
 </root>
