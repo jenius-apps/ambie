@@ -11,16 +11,23 @@
     mc:Ignorable="d">
 
     <Grid RequestedTheme="Dark">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
         <!--
             The ShadowTarget Border here is a *sibling* element behind where our elements which will cast
             shadows are located, this is important as otherwise if we used a parent element the
             shadows would appear on top of our elements instead!
         -->
-        <Border x:Name="ShadowTarget" />
+        <Border x:Name="ShadowTarget" Grid.RowSpan="2" />
 
         <TextBlock
+            Margin="0,0,0,-24"
             FontSize="120"
-            Text="{x:Bind TimeText, Mode=OneWay}"
+            FontWeight="SemiBold"
+            Text="01:02:03"
+            TextAlignment="Center"
             Typography.NumeralAlignment="Tabular">
             <ui:Effects.Shadow>
                 <ui:AttachedDropShadow
@@ -28,6 +35,22 @@
                     CastTo="{x:Bind ShadowTarget}"
                     Opacity="0.5"
                     Offset="0,4" />
+            </ui:Effects.Shadow>
+        </TextBlock>
+
+        <TextBlock
+            Grid.Row="1"
+            FontSize="60"
+            FontWeight="SemiLight"
+            Text="{x:Bind TimeText, Mode=OneWay}"
+            TextAlignment="Center"
+            Typography.NumeralAlignment="Tabular">
+            <ui:Effects.Shadow>
+                <ui:AttachedDropShadow
+                    BlurRadius="5"
+                    CastTo="{x:Bind ShadowTarget}"
+                    Opacity="0.5"
+                    Offset="0,2" />
             </ui:Effects.Shadow>
         </TextBlock>
     </Grid>

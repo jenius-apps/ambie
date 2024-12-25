@@ -280,6 +280,9 @@ public partial class SettingsViewModel : ObservableObject
 
         if (deviceId is { Length: > 0 } id)
         {
+#if DEBUG
+            await Task.Delay(1);
+#else
             if (value)
             {
                 await _notifications.RegisterAsync(id, _systemInfoProvider.GetCulture(), default);
@@ -288,6 +291,7 @@ public partial class SettingsViewModel : ObservableObject
             {
                 await _notifications.UnregisterAsync(id, default);
             }
+#endif
             _userSettings.Set(UserSettingsConstants.Notifications, value);
         }
         _notificationsLoading = false;
