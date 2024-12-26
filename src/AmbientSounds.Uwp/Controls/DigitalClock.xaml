@@ -6,9 +6,24 @@
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style x:Key="TimerColon" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="68" />
+            <Setter Property="Text" Value=":" />
+        </Style>
+        <Style x:Key="TimerTextBox" TargetType="winui:NumberBox">
+            <Setter Property="FontSize" Value="72" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="Grid.Row" Value="1" />
+            <Setter Property="PlaceholderText" Value="00" />
+        </Style>
+    </UserControl.Resources>
 
     <Grid RequestedTheme="Dark">
         <Grid.RowDefinitions>
@@ -51,6 +66,60 @@
                     Offset="0,4" />
             </ui:Effects.Shadow>
         </TextBlock>
+
+        <Grid
+            HorizontalAlignment="Center"
+            RowSpacing="8"
+            Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock HorizontalAlignment="Center" Text="hr" />
+            <winui:NumberBox
+                x:Name="HourBox"
+                Maximum="99"
+                Style="{StaticResource TimerTextBox}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource TimerColon}" />
+
+            <TextBlock
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Text="min" />
+            <winui:NumberBox
+                x:Name="MinuteBox"
+                Grid.Column="2"
+                Maximum="59"
+                Style="{StaticResource TimerTextBox}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="3"
+                Style="{StaticResource TimerColon}" />
+
+            <TextBlock
+                Grid.Column="4"
+                HorizontalAlignment="Center"
+                Text="sec" />
+            <winui:NumberBox
+                x:Name="SecondBox"
+                Grid.Column="4"
+                Maximum="59"
+                Style="{StaticResource TimerTextBox}" />
+
+        </Grid>
 
         <TextBlock
             x:Name="ClockText"

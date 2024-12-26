@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Windows.Globalization.NumberFormatting;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -12,6 +13,7 @@ public sealed partial class DigitalClock : UserControl
     {
         this.InitializeComponent();
         ViewModel = App.Services.GetRequiredService<DigitalClockViewModel>();
+        SetNumberBoxNumberFormatter();
     }
 
     public DigitalClockViewModel ViewModel { get; }
@@ -19,4 +21,25 @@ public sealed partial class DigitalClock : UserControl
     public void Initialize() => ViewModel.Initialize();
 
     public void Uninitialize() => ViewModel.Uninitialize();
+
+    private void SetNumberBoxNumberFormatter()
+    {
+        IncrementNumberRounder rounder = new()
+        {
+            Increment = 1,
+            RoundingAlgorithm = RoundingAlgorithm.RoundHalfAwayFromZero
+        };
+
+        DecimalFormatter formatter = new()
+        {
+            IsDecimalPointAlwaysDisplayed = false,
+            IntegerDigits = 2,
+            FractionDigits = 0,
+            NumberRounder = rounder
+        };
+
+        HourBox.NumberFormatter = formatter;
+        MinuteBox.NumberFormatter = formatter;
+        SecondBox.NumberFormatter = formatter;
+    }
 }
