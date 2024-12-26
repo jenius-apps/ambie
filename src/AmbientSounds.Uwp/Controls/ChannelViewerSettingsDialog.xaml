@@ -16,6 +16,7 @@
             <RowDefinition Height="213" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid>
@@ -30,19 +31,40 @@
                 </Border.Background>
             </Border>
 
-            <TextBlock
-                Margin="0,40,0,0"
-                HorizontalAlignment="Center"
-                FontSize="24"
-                RequestedTheme="Dark"
-                Text="{x:Bind ViewModel.ChannelClockPreview, Mode=OneWay}"
-                Typography.NumeralAlignment="Tabular"
-                Visibility="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}" />
+            <StackPanel Margin="0,40,0,0" RequestedTheme="Dark">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="01:58:04"
+                    Typography.NumeralAlignment="Tabular"
+                    Visibility="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=OneWay}" />
+
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="SemiLight"
+                    Text="{x:Bind ViewModel.ChannelClockPreview, Mode=OneWay}"
+                    Typography.NumeralAlignment="Tabular"
+                    Visibility="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}" />
+            </StackPanel>
         </Grid>
 
         <ToggleSwitch
             Grid.Row="1"
             Margin="0,20,0,0"
+            Header="Enable countdown"
+            IsOn="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=TwoWay}">
+            <ToggleSwitch.OffContent>
+                <TextBlock x:Uid="OffTextBlock" />
+            </ToggleSwitch.OffContent>
+            <ToggleSwitch.OnContent>
+                <TextBlock x:Uid="OnTextBlock" />
+            </ToggleSwitch.OnContent>
+        </ToggleSwitch>
+
+        <ToggleSwitch
+            Grid.Row="2"
             Header="{x:Bind strings:Resources.SettingsEnableClockHeader}"
             IsOn="{x:Bind ViewModel.ChannelClockEnabled, Mode=TwoWay}">
             <ToggleSwitch.OffContent>
@@ -54,7 +76,7 @@
         </ToggleSwitch>
 
         <ToggleSwitch
-            Grid.Row="2"
+            Grid.Row="3"
             Header="{x:Bind strings:Resources.SettingsEnableClockSecondsHeader}"
             IsEnabled="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}"
             IsOn="{x:Bind ViewModel.ChannelClockSecondsEnabled, Mode=TwoWay}">

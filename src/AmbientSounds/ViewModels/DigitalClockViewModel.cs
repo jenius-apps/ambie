@@ -65,7 +65,6 @@ public partial class DigitalClockViewModel : ObservableObject
         if (ShowCountdown)
         {
             UpdateCountdownText();
-            _countdownTimer.Start();
         }
     }
 
@@ -107,6 +106,15 @@ public partial class DigitalClockViewModel : ObservableObject
         {
             ShowSeconds = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
             UpdateTimeText();
+        }
+        else if (settingKey == UserSettingsConstants.ChannelCountdownEnabledKey)
+        {
+            ShowCountdown = _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+
+            if (ShowCountdown)
+            {
+                UpdateCountdownText();
+            }
         }
     }
 
