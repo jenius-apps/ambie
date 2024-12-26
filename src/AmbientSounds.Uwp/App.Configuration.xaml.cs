@@ -139,6 +139,7 @@ partial class App
     [Transient(typeof(ShellPageViewModel))]
     [Singleton(typeof(PlayerViewModel))] // shared in main and compact pages
     [Singleton(typeof(SleepTimerViewModel))] // shared in main and compact pages
+    [Singleton(typeof(DigitalClockViewModel))] // timer needs to persist across pages
     [Singleton(typeof(FocusHistoryModuleViewModel))]
     [Singleton(typeof(VideosMenuViewModel))]
     [Singleton(typeof(TimeBannerViewModel))]

@@ -102,6 +102,8 @@ public sealed partial class ScreensaverPage : Page
             await VideoPlaceholderHide.StartAsync();
             VideoPlaceholderImage.Visibility = Visibility.Collapsed;
         }
+
+        ClockControl.Initialize();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -113,6 +115,7 @@ public sealed partial class ScreensaverPage : Page
             player.StopFeaturedSound();
         }
 
+        ClockControl.Uninitialize();
         ScreensaverControl?.Uninitialize();
         ViewModel.Loaded -= OnViewModelLoaded;
         ViewModel.PropertyChanged -= OnViewModelPropertyChanged;

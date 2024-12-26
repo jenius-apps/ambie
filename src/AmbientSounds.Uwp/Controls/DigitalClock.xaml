@@ -15,6 +15,19 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ClockText.FontWeight" Value="SemiLight" />
+                        <Setter Target="ClockText.FontSize" Value="60" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <!--
             The ShadowTarget Border here is a *sibling* element behind where our elements which will cast
             shadows are located, this is important as otherwise if we used a parent element the
@@ -26,9 +39,10 @@
             Margin="0,0,0,-24"
             FontSize="120"
             FontWeight="SemiBold"
-            Text="01:02:03"
+            Text="{x:Bind ViewModel.CountdownText, Mode=OneWay}"
             TextAlignment="Center"
-            Typography.NumeralAlignment="Tabular">
+            Typography.NumeralAlignment="Tabular"
+            Visibility="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}">
             <ui:Effects.Shadow>
                 <ui:AttachedDropShadow
                     BlurRadius="10"
@@ -39,15 +53,17 @@
         </TextBlock>
 
         <TextBlock
+            x:Name="ClockText"
             Grid.Row="1"
-            FontSize="60"
-            FontWeight="SemiLight"
-            Text="{x:Bind TimeText, Mode=OneWay}"
+            FontSize="120"
+            FontWeight="SemiBold"
+            Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"
             TextAlignment="Center"
-            Typography.NumeralAlignment="Tabular">
+            Typography.NumeralAlignment="Tabular"
+            Visibility="{x:Bind ViewModel.ShowClock, Mode=OneWay}">
             <ui:Effects.Shadow>
                 <ui:AttachedDropShadow
-                    BlurRadius="5"
+                    BlurRadius="10"
                     CastTo="{x:Bind ShadowTarget}"
                     Opacity="0.5"
                     Offset="0,2" />
