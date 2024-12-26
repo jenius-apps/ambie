@@ -1053,4 +1053,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Display seconds on clock</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Enable countdown timer</value>
+  </data>
 </root>

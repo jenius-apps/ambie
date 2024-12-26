@@ -53,7 +53,7 @@
         <ToggleSwitch
             Grid.Row="1"
             Margin="0,20,0,0"
-            Header="Enable countdown"
+            Header="{x:Bind strings:Resources.SettingsEnableCountdownHeader}"
             IsOn="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=TwoWay}">
             <ToggleSwitch.OffContent>
                 <TextBlock x:Uid="OffTextBlock" />
