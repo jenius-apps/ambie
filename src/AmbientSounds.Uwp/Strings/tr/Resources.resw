@@ -155,15 +155,15 @@
   </data>
   <data name="AlreadyDownloaded" xml:space="preserve">
     <value>Zaten indirildi</value>
-    <comment>The sound is already downloaded</comment>
+    <comment>Ses zaten indirildi</comment>
   </data>
   <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
     <value>Geri </value>
-    <comment>Going back to the previous page</comment>
+    <comment>Önceki sayfaya geri dön</comment>
   </data>
   <data name="CanDownload" xml:space="preserve">
     <value>İndirilebilir</value>
-    <comment>The sound can be downloaded</comment>
+    <comment>Ses indirilebilir</comment>
   </data>
   <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
     <value>Sesi indir</value>
@@ -176,7 +176,7 @@
   </data>
   <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
     <value>Sesler</value>
-    <comment>List of sounds</comment>
+    <comment>Ses listesi</comment>
   </data>
   <data name="PrivacyPolicyButton.Content" xml:space="preserve">
     <value>Gizlilik Politikası</value>
@@ -218,12 +218,12 @@
     <value>Sesi önizle</value>
   </data>
   <data name="Paused" xml:space="preserve">
-    <value>Durduruldu</value>
-    <comment>Sound is paused</comment>
+    <value>Duraklatıldı</value>
+    <comment>Ses duraklatıldı</comment>
   </data>
   <data name="Playing" xml:space="preserve">
-    <value>Oynatılıyor</value>
-    <comment>Sound is playing</comment>
+    <value>Çalıyor</value>
+    <comment>Ses çalıyor</comment>
   </data>
   <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
     <value>Ses seviyesi</value>
@@ -299,7 +299,7 @@
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Yenile</value>
-    <comment>Text for a button that will refresh a list with new data</comment>
+    <comment>Yeni Verilerle Yenile</comment>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Giriş yap</value>
@@ -351,18 +351,18 @@
   </data>
   <data name="RemoveActiveButton" xml:space="preserve">
     <value>{0} öğesini aktif listeden kaldır</value>
-    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+    <comment>Aktif çalan sesler listesinden bir sesi kaldır. Parametre, kaldırılacak sesin adıdır.</comment>
   </data>
   <data name="ThemeSettings" xml:space="preserve">
     <value>Tema Ayarları</value>
   </data>
   <data name="PricePerMonth" xml:space="preserve">
     <value>Aylık {0}</value>
-    <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
+    <comment>Aylık fiyat, burada {0} parametresi bir fiyatı (örneğin $1.00) temsil eder.</comment>
   </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Abone olduğunuz için teşekkürler!</value>
-    <comment>Thank you message shown after user purchases a subscription.</comment>
+    <comment>Abonelik satın alındıktan sonra gösterilen teşekkür mesajı Aboneliğiniz için teşekkür ederiz!</comment>
   </data>
   <data name="SubscriptionText1" xml:space="preserve">
     <value>Premium, yüksek kaliteli seslere erişin</value>
@@ -377,7 +377,7 @@
     <value>Tekrardan merhaba 👋🏽</value>
   </data>
   <data name="RateUsMessage" xml:space="preserve">
-    <value>Ambie'den hoşlanıyor musun? Lütfen bizi derecelendirmeyi düşünün!</value>
+    <value>Ambie'den hoşlanıyor musun? Lütfen bizi derecelendirin.</value>
   </data>
   <data name="SettingsResumeOnLaunch" xml:space="preserve">
     <value>Ambie açıldığında otomatik olarak devam ettir</value>
@@ -755,7 +755,7 @@
     <value>Oops! O sesi bulamadık. Gelecekte ekleyip ekleyemeyeceğimizi göreceğiz</value>
   </data>
   <data name="SearchText" xml:space="preserve">
-    <value>Aramak</value>
+    <value>Ara</value>
   </data>
   <data name="QuickResumeTitle" xml:space="preserve">
     <value>Hızlı Devam</value>
@@ -907,7 +907,7 @@
   </data>
   <data name="SubWithTrialCaptionTemplate" xml:space="preserve">
     <value>{0} ücretsiz, sonra {1}</value>
-    <comment>E.g. 1 week free, then $1.49/month</comment>
+    <comment>Örneğin: 1 hafta ücretsiz, ardından $1.49/ay</comment>
   </data>
   <data name="ContactUsText" xml:space="preserve">
     <value>Bize ulaşın</value>
