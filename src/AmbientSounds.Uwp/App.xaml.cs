@@ -307,8 +307,7 @@ sealed partial class App : Application
     {
         IUserSettings userSettings = Services.GetRequiredService<IUserSettings>();
 
-        if (Services.GetRequiredService<JeniusApps.Common.Tools.IExperimentationService>().IsEnabled(ExperimentConstants.NotificationsExperiment) is false ||
-            userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
+        if (userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
             userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
         {
             return;
