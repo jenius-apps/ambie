@@ -101,7 +101,7 @@ public partial class DigitalClockViewModel : ObservableObject
         _clockTimer.Stop();
         _clockTimer.Elapsed -= OnTimerElapsed;
         _userSettings.SettingSet -= OnSettingSet;
-        _countdownTimer.Stop();
+        ResetTimerCommand.Execute(null);
         _countdownTimer.IntervalElapsed -= OnCountdownIntervalElapsed;
     }
 
