@@ -161,6 +161,7 @@
             x:Name="ClockControl"
             Margin="0,120,0,0"
             VerticalAlignment="Top"
+            Canvas.ZIndex="1"
             Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
             <ani:Implicit.ShowAnimations>
                 <ani:OpacityAnimation

@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
@@ -30,6 +31,11 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -50,14 +56,27 @@
         -->
         <Border x:Name="ShadowTarget" Grid.RowSpan="2" />
 
+        <Button
+            Margin="0,32,16,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Command="{x:Bind ViewModel.ResetTimerCommand}"
+            CornerRadius="20"
+            IsEnabled="{x:Bind ViewModel.CountdownActive, Mode=OneWay}"
+            Style="{StaticResource IconButton}"
+            Visibility="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancelSemiBold}" />
+        </Button>
+
         <TextBlock
+            Grid.Column="1"
             Margin="0,0,0,-24"
             FontSize="120"
             FontWeight="SemiBold"
             Text="{x:Bind ViewModel.CountdownText, Mode=OneWay}"
             TextAlignment="Center"
             Typography.NumeralAlignment="Tabular"
-            Visibility="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}">
+            Visibility="{x:Bind ViewModel.CountdownTimerVisible, Mode=OneWay}">
             <ui:Effects.Shadow>
                 <ui:AttachedDropShadow
                     BlurRadius="10"
@@ -68,9 +87,11 @@
         </TextBlock>
 
         <Grid
+            x:Name="CountdownInput"
+            Grid.Column="1"
             HorizontalAlignment="Center"
             RowSpacing="8"
-            Visibility="Collapsed">
+            Visibility="{x:Bind ViewModel.CountdownInputVisible, Mode=OneWay}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
@@ -87,7 +108,8 @@
             <winui:NumberBox
                 x:Name="HourBox"
                 Maximum="99"
-                Style="{StaticResource TimerTextBox}" />
+                Style="{StaticResource TimerTextBox}"
+                Value="{x:Bind ViewModel.HoursInput, Mode=TwoWay}" />
 
             <TextBlock
                 Grid.Row="1"
@@ -102,7 +124,8 @@
                 x:Name="MinuteBox"
                 Grid.Column="2"
                 Maximum="59"
-                Style="{StaticResource TimerTextBox}" />
+                Style="{StaticResource TimerTextBox}"
+                Value="{x:Bind ViewModel.MinutesInput, Mode=TwoWay}" />
 
             <TextBlock
                 Grid.Row="1"
@@ -117,13 +140,34 @@
                 x:Name="SecondBox"
                 Grid.Column="4"
                 Maximum="59"
-                Style="{StaticResource TimerTextBox}" />
-
+                Style="{StaticResource TimerTextBox}"
+                Value="{x:Bind ViewModel.SecondsInput, Mode=TwoWay}" />
         </Grid>
+
+        <Button
+            Grid.Column="2"
+            Margin="16,32,0,0"
+            VerticalAlignment="Center"
+            Command="{x:Bind ViewModel.ToggleTimerCommand}"
+            CornerRadius="20"
+            Style="{StaticResource IconButton}"
+            Visibility="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}">
+            <Grid>
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="{StaticResource GlyphPlay}"
+                    Visibility="{x:Bind ViewModel.CanStart, Mode=OneWay}" />
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="{StaticResource GlyphPause}"
+                    Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.CanStart), Mode=OneWay}" />
+            </Grid>
+        </Button>
 
         <TextBlock
             x:Name="ClockText"
             Grid.Row="1"
+            Grid.Column="1"
             FontSize="120"
             FontWeight="SemiBold"
             Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"

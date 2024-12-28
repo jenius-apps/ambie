@@ -3,6 +3,7 @@ using System.Timers;
 using AmbientSounds.Constants;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
 
@@ -31,6 +32,15 @@ public partial class DigitalClockViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private int _hoursInput;
+
+    [ObservableProperty]
+    private int _minutesInput;
+
+    [ObservableProperty]
+    private int _secondsInput;
+
+    [ObservableProperty]
     private string _timeText = string.Empty;
 
     [ObservableProperty]
@@ -43,7 +53,25 @@ public partial class DigitalClockViewModel : ObservableObject
     private bool _showClock;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(CountdownTimerVisible))]
+    [NotifyPropertyChangedFor(nameof(CountdownInputVisible))]
     private bool _showCountdown;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(CountdownTimerVisible))]
+    [NotifyPropertyChangedFor(nameof(CountdownInputVisible))]
+    [NotifyPropertyChangedFor(nameof(CanStart))]
+    private bool _countdownActive;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(CanStart))]
+    private bool _countdownPaused;
+
+    public bool CanStart => !CountdownActive || CountdownPaused;
+
+    public bool CountdownTimerVisible => ShowCountdown && CountdownActive;
+
+    public bool CountdownInputVisible => ShowCountdown && !CountdownActive;
 
     public void Initialize()
     {
@@ -115,6 +143,10 @@ public partial class DigitalClockViewModel : ObservableObject
             {
                 UpdateCountdownText();
             }
+            else
+            {
+                ResetTimerCommand.Execute(null);
+            }
         }
     }
 
@@ -142,5 +174,59 @@ public partial class DigitalClockViewModel : ObservableObject
         {
             CountdownText = _countdownTimer.Remaining.ToString("g");
         });
+    }
+
+    [RelayCommand]
+    private void StartTimer()
+    {
+        if (CountdownPaused)
+        {
+            _countdownTimer.Start();
+            CountdownPaused = false;
+            return;
+        }
+
+        if (CanStart &&
+            (HoursInput > 0 || MinutesInput > 0 || SecondsInput > 0))
+        {
+            _countdownTimer.Remaining = new TimeSpan(HoursInput, MinutesInput, SecondsInput);
+            UpdateCountdownText();
+            _countdownTimer.Start();
+            CountdownActive = true;
+            CountdownPaused = false;
+        }
+    }
+
+    [RelayCommand]
+    private void ResetTimer()
+    {
+        _countdownTimer.Stop();
+        CountdownActive = false;
+        CountdownPaused = false;
+    }
+
+    [RelayCommand]
+    private void PauseTimer()
+    {
+        if (!CountdownActive || CountdownPaused)
+        {
+            return;
+        }
+
+        _countdownTimer.Stop();
+        CountdownPaused = true;
+    }
+
+    [RelayCommand]
+    private void ToggleTimer()
+    {
+        if (CountdownPaused || !CountdownActive)
+        {
+            StartTimerCommand.Execute(null);
+        }
+        else
+        {
+            PauseTimerCommand.Execute(null);
+        }
     }
 }
