@@ -144,7 +144,7 @@ public partial class SettingsViewModel : ObservableObject
         {
             _userSettings.Set(UserSettingsConstants.ChannelCountdownEnabledKey, value);
             OnPropertyChanged();
-            _telemetry.TrackEvent(value is true
+            _telemetry.TrackEvent(value
                 ? TelemetryConstants.ChannelViewerCountdownkEnabled
                 : TelemetryConstants.ChannelViewerCountdownDisabled);
         }
@@ -157,7 +157,7 @@ public partial class SettingsViewModel : ObservableObject
         {
             _userSettings.Set(UserSettingsConstants.ChannelClockEnabledKey, value);
             OnPropertyChanged();
-            _telemetry.TrackEvent(value is true
+            _telemetry.TrackEvent(value
                 ? TelemetryConstants.ChannelViewerClockEnabled
                 : TelemetryConstants.ChannelViewerClockDisabled);
         }

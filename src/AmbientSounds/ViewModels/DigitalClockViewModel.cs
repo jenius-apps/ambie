@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Timers;
 using AmbientSounds.Constants;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Settings;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 
 namespace AmbientSounds.ViewModels;
@@ -14,6 +16,7 @@ public partial class DigitalClockViewModel : ObservableObject
     private readonly IUserSettings _userSettings;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ITimerService _countdownTimer;
+    private readonly ITelemetry _telemetry;
     private readonly Timer _clockTimer = new()
     {
         Interval = 1000 // milliseconds
@@ -22,11 +25,13 @@ public partial class DigitalClockViewModel : ObservableObject
     public DigitalClockViewModel(
         IUserSettings userSettings,
         IDispatcherQueue dispatcherQueue,
-        ITimerService timerService)
+        ITimerService timerService,
+        ITelemetry telemetry)
     {
         _userSettings = userSettings;
         _dispatcherQueue = dispatcherQueue;
         _countdownTimer = timerService;
+        _telemetry = telemetry;
 
         _countdownTimer.Interval = 1000; // milliseconds
     }
@@ -194,6 +199,10 @@ public partial class DigitalClockViewModel : ObservableObject
             _countdownTimer.Start();
             CountdownActive = true;
             CountdownPaused = false;
+            _telemetry.TrackEvent(TelemetryConstants.ChannelViewerCountdownStarted, new Dictionary<string, string>
+            {
+                { "userInput", $"{HoursInput}:{MinutesInput}:{SecondsInput}" }
+            });
         }
     }
 
