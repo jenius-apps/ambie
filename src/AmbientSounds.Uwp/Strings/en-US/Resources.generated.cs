@@ -3226,6 +3226,19 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
+        #region SettingsEnableCountdownHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Enable clock
+        /// </summary>
+        public static string SettingsEnableCountdownHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsEnableCountdownHeader");
+            }
+        }
+        #endregion
+
         #region SettingsEnableClockHeader
         /// <summary>
         ///   Looks up a localized string similar to: Enable clock
@@ -3509,6 +3522,7 @@ namespace AmbientSounds.Strings{
             ChannelsTitleText,
             ChannelsSubtitle,
             ViewDetailsText,
+            SettingsEnableCountdownHeader,
             SettingsEnableClockHeader,
             SettingsEnableClockSecondsHeader,
         }

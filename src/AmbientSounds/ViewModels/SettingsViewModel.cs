@@ -137,6 +137,19 @@ public partial class SettingsViewModel : ObservableObject
         set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
     }
 
+    public bool ChannelCountdownEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelCountdownEnabledKey, value);
+            OnPropertyChanged();
+            _telemetry.TrackEvent(value
+                ? TelemetryConstants.ChannelViewerCountdownkEnabled
+                : TelemetryConstants.ChannelViewerCountdownDisabled);
+        }
+    }
+
     public bool ChannelClockEnabled
     {
         get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
@@ -144,7 +157,7 @@ public partial class SettingsViewModel : ObservableObject
         {
             _userSettings.Set(UserSettingsConstants.ChannelClockEnabledKey, value);
             OnPropertyChanged();
-            _telemetry.TrackEvent(value is true 
+            _telemetry.TrackEvent(value
                 ? TelemetryConstants.ChannelViewerClockEnabled
                 : TelemetryConstants.ChannelViewerClockDisabled);
         }
@@ -280,6 +293,9 @@ public partial class SettingsViewModel : ObservableObject
 
         if (deviceId is { Length: > 0 } id)
         {
+#if DEBUG
+            await Task.Delay(1);
+#else
             if (value)
             {
                 await _notifications.RegisterAsync(id, _systemInfoProvider.GetCulture(), default);
@@ -288,6 +304,7 @@ public partial class SettingsViewModel : ObservableObject
             {
                 await _notifications.UnregisterAsync(id, default);
             }
+#endif
             _userSettings.Set(UserSettingsConstants.Notifications, value);
         }
         _notificationsLoading = false;

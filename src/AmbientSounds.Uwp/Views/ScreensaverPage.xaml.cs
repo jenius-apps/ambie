@@ -102,6 +102,8 @@ public sealed partial class ScreensaverPage : Page
             await VideoPlaceholderHide.StartAsync();
             VideoPlaceholderImage.Visibility = Visibility.Collapsed;
         }
+
+        ClockControl.Initialize();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -113,6 +115,7 @@ public sealed partial class ScreensaverPage : Page
             player.StopFeaturedSound();
         }
 
+        ClockControl.Uninitialize();
         ScreensaverControl?.Uninitialize();
         ViewModel.Loaded -= OnViewModelLoaded;
         ViewModel.PropertyChanged -= OnViewModelPropertyChanged;
@@ -125,7 +128,6 @@ public sealed partial class ScreensaverPage : Page
         navigator.BackRequested -= OnBackRequested;
 
         StopHideCursorTimer();
-        CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
 
         _displayRequest.RequestRelease();
     }
@@ -274,7 +276,6 @@ public sealed partial class ScreensaverPage : Page
     private void ShowButtonsAndCursor()
     {
         IsButtonsHidden = false;
-        CoreWindow.GetForCurrentThread().PointerCursor = new CoreCursor(CoreCursorType.Arrow, 0);
 
         if (TopPanel.Visibility is Visibility.Collapsed)
         {
@@ -292,7 +293,6 @@ public sealed partial class ScreensaverPage : Page
     private async Task HideButtonsAndCursorAsync()
     {
         IsButtonsHidden = true;
-        CoreWindow.GetForCurrentThread().PointerCursor = null;
 
         await Task.WhenAll(FadeOutAsync(TopPanelHide, TopPanel), FadeOutAsync(BottomPanelHide, VideosGrid));
     }

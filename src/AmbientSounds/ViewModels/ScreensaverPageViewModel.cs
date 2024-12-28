@@ -72,9 +72,6 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private bool _clockVisible;
 
     [ObservableProperty]
-    private bool _clockSecondsVisible;
-
-    [ObservableProperty]
     private bool _settingsButtonVisible;
 
     [ObservableProperty]
@@ -230,8 +227,8 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     private void UpdateClockSettings()
     {
-        ClockVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
-        ClockSecondsVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
+        ClockVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey) ||
+            _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
     }
 
 

@@ -39,7 +39,6 @@
                 <VisualState x:Name="Normal" />
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
         <Grid x:Name="TopPanel" Canvas.ZIndex="1">
             <ani:Explicit.Animations>
                 <ani:AnimationSet x:Name="TopPanelHide">
@@ -159,10 +158,10 @@
         <controls:Screensaver x:Name="ScreensaverControl" Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
         <controls:DigitalClock
+            x:Name="ClockControl"
             Margin="0,120,0,0"
-            HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            ShowSeconds="{x:Bind ViewModel.ClockSecondsVisible, Mode=OneWay}"
+            Canvas.ZIndex="1"
             Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
             <ani:Implicit.ShowAnimations>
                 <ani:OpacityAnimation

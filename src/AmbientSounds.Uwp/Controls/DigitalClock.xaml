@@ -3,31 +3,183 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <Style x:Key="TimerColon" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="68" />
+            <Setter Property="Text" Value=":" />
+        </Style>
+        <Style x:Key="TimerTextBox" TargetType="winui:NumberBox">
+            <Setter Property="FontSize" Value="72" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Minimum" Value="0" />
+            <Setter Property="Grid.Row" Value="1" />
+            <Setter Property="PlaceholderText" Value="00" />
+        </Style>
+    </UserControl.Resources>
+
     <Grid RequestedTheme="Dark">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ClockText.FontWeight" Value="SemiLight" />
+                        <Setter Target="ClockText.FontSize" Value="60" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <!--
             The ShadowTarget Border here is a *sibling* element behind where our elements which will cast
             shadows are located, this is important as otherwise if we used a parent element the
             shadows would appear on top of our elements instead!
         -->
-        <Border x:Name="ShadowTarget" />
+        <Border x:Name="ShadowTarget" Grid.RowSpan="2" />
+
+        <Button
+            Margin="0,32,16,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Command="{x:Bind ViewModel.ResetTimerCommand}"
+            CornerRadius="20"
+            IsEnabled="{x:Bind ViewModel.CountdownActive, Mode=OneWay}"
+            Style="{StaticResource IconButton}"
+            Visibility="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphCancelSemiBold}" />
+        </Button>
 
         <TextBlock
+            Grid.Column="1"
+            Margin="0,0,0,-24"
             FontSize="120"
-            Text="{x:Bind TimeText, Mode=OneWay}"
-            Typography.NumeralAlignment="Tabular">
+            FontWeight="SemiBold"
+            Text="{x:Bind ViewModel.CountdownText, Mode=OneWay}"
+            TextAlignment="Center"
+            Typography.NumeralAlignment="Tabular"
+            Visibility="{x:Bind ViewModel.CountdownTimerVisible, Mode=OneWay}">
             <ui:Effects.Shadow>
                 <ui:AttachedDropShadow
                     BlurRadius="10"
                     CastTo="{x:Bind ShadowTarget}"
                     Opacity="0.5"
                     Offset="0,4" />
+            </ui:Effects.Shadow>
+        </TextBlock>
+
+        <Grid
+            x:Name="CountdownInput"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            RowSpacing="8"
+            Visibility="{x:Bind ViewModel.CountdownInputVisible, Mode=OneWay}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock HorizontalAlignment="Center" Text="hr" />
+            <winui:NumberBox
+                x:Name="HourBox"
+                Maximum="99"
+                Style="{StaticResource TimerTextBox}"
+                Value="{x:Bind ViewModel.HoursInput, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource TimerColon}" />
+
+            <TextBlock
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                Text="min" />
+            <winui:NumberBox
+                x:Name="MinuteBox"
+                Grid.Column="2"
+                Maximum="59"
+                Style="{StaticResource TimerTextBox}"
+                Value="{x:Bind ViewModel.MinutesInput, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="3"
+                Style="{StaticResource TimerColon}" />
+
+            <TextBlock
+                Grid.Column="4"
+                HorizontalAlignment="Center"
+                Text="sec" />
+            <winui:NumberBox
+                x:Name="SecondBox"
+                Grid.Column="4"
+                Maximum="59"
+                Style="{StaticResource TimerTextBox}"
+                Value="{x:Bind ViewModel.SecondsInput, Mode=TwoWay}" />
+        </Grid>
+
+        <Button
+            Grid.Column="2"
+            Margin="16,32,0,0"
+            VerticalAlignment="Center"
+            Command="{x:Bind ViewModel.ToggleTimerCommand}"
+            CornerRadius="20"
+            Style="{StaticResource IconButton}"
+            Visibility="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}">
+            <Grid>
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="{StaticResource GlyphPlay}"
+                    Visibility="{x:Bind ViewModel.CanStart, Mode=OneWay}" />
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    Glyph="{StaticResource GlyphPause}"
+                    Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.CanStart), Mode=OneWay}" />
+            </Grid>
+        </Button>
+
+        <TextBlock
+            x:Name="ClockText"
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="120"
+            FontWeight="SemiBold"
+            Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"
+            TextAlignment="Center"
+            Typography.NumeralAlignment="Tabular"
+            Visibility="{x:Bind ViewModel.ShowClock, Mode=OneWay}">
+            <ui:Effects.Shadow>
+                <ui:AttachedDropShadow
+                    BlurRadius="10"
+                    CastTo="{x:Bind ShadowTarget}"
+                    Opacity="0.5"
+                    Offset="0,2" />
             </ui:Effects.Shadow>
         </TextBlock>
     </Grid>

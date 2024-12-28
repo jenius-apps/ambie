@@ -177,6 +177,11 @@ public static class UserSettingsConstants
     public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
 
     /// <summary>
+    /// Remembers if the user enabled the channel countdown.
+    /// </summary>
+    public const string ChannelCountdownEnabledKey = "ChannelCountdownEnabled";
+
+    /// <summary>
     /// Remembers if the user enabled the channel clock.
     /// </summary>
     public const string ChannelClockEnabledKey = "ChannelClockEnabled";
