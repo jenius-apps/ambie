@@ -90,7 +90,10 @@
                                 <Grid.Background>
                                     <ImageBrush Stretch="UniformToFill">
                                         <ImageBrush.ImageSource>
-                                            <BitmapImage UriSource="{x:Bind ImagePath, Mode=OneWay}" />
+                                            <BitmapImage
+                                                DecodePixelType="Logical"
+                                                DecodePixelWidth="200"
+                                                UriSource="{x:Bind ImagePath, Mode=OneWay}" />
                                         </ImageBrush.ImageSource>
                                     </ImageBrush>
                                 </Grid.Background>
