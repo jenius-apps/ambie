@@ -77,7 +77,14 @@
                                         <ani:ScaleAnimation Duration="0:0:0.6" />
                                     </ani:Implicit.Animations>
                                     <Rectangle.Fill>
-                                        <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                                        <ImageBrush Stretch="UniformToFill">
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage
+                                                    DecodePixelType="Logical"
+                                                    DecodePixelWidth="300"
+                                                    UriSource="{x:Bind ImagePath}" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
                                     </Rectangle.Fill>
                                     <ui:Effects.Shadow>
                                         <media:AttachedCardShadow

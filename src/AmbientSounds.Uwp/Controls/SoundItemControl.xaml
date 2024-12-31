@@ -258,7 +258,14 @@
             RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
             RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+                <ImageBrush Stretch="UniformToFill">
+                    <ImageBrush.ImageSource>
+                        <BitmapImage
+                            DecodePixelType="Logical"
+                            DecodePixelWidth="200"
+                            UriSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" />
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
             </Rectangle.Fill>
 
             <ui:Effects.Shadow>
