@@ -1257,6 +1257,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">Visa sekunder på klockan</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Aktivera nedräkningstimer</target>
+        </trans-unit>
       </group>
     </body>
   </file>

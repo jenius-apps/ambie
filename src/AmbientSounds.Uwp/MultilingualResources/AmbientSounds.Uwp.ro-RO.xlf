@@ -1251,6 +1251,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">Afișați secundele pe ceas</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Activați cronometrul cu numărătoare inversă</target>
+        </trans-unit>
       </group>
     </body>
   </file>

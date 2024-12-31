@@ -945,4 +945,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Afișați secundele pe ceas</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Activați cronometrul cu numărătoare inversă</value>
+  </data>
 </root>

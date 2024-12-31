@@ -948,4 +948,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Відображення секунд на годиннику</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Увімкніть таймер зворотного відліку</value>
+  </data>
 </root>

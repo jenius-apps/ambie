@@ -948,4 +948,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>הצגת שניות על השעון</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>הפעל טיימר ספירה לאחור</value>
+  </data>
 </root>

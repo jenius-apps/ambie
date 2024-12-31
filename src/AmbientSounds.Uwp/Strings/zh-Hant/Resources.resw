@@ -948,4 +948,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>在時鐘上顯示秒數</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>啟用倒數計時器</value>
+  </data>
 </root>

@@ -948,4 +948,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>نمایش ثانیه ها روی ساعت</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>تایمر شمارش معکوس را فعال کنید</value>
+  </data>
 </root>

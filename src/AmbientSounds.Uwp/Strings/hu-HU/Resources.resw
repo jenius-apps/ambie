@@ -936,4 +936,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Másodpercek kijelzése az órán</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Visszaszámláló engedélyezése</value>
+  </data>
 </root>

@@ -1254,6 +1254,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">在时钟上显示秒数</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">启用倒数计时器</target>
+        </trans-unit>
       </group>
     </body>
   </file>

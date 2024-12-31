@@ -1251,6 +1251,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">時計に秒を表示する</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">カウントダウンタイマーを有効にする</target>
+        </trans-unit>
       </group>
     </body>
   </file>

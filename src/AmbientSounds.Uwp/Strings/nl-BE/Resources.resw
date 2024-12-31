@@ -921,4 +921,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Seconden weergeven op klok</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Afteltimer inschakelen</value>
+  </data>
 </root>

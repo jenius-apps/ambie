@@ -1254,6 +1254,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">הצגת שניות על השעון</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">הפעל טיימר ספירה לאחור</target>
+        </trans-unit>
       </group>
     </body>
   </file>

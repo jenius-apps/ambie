@@ -945,4 +945,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Mostrar segundos en el reloj</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Habilitar temporizador de cuenta regresiva</value>
+  </data>
 </root>

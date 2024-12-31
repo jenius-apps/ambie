@@ -936,4 +936,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Prikaz sekundi na satu</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Omogućite mjerač vremena</value>
+  </data>
 </root>

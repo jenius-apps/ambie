@@ -942,4 +942,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Zeige die Sekunden auf der Uhr an</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Countdown-Timer aktivieren</value>
+  </data>
 </root>

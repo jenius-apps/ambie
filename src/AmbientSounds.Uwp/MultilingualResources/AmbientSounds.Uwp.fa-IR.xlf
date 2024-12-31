@@ -1251,6 +1251,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">نمایش ثانیه ها روی ساعت</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">تایمر شمارش معکوس را فعال کنید</target>
+        </trans-unit>
       </group>
     </body>
   </file>

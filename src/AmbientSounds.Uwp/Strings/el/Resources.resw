@@ -933,4 +933,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Εμφάνιση δευτερολέπτων στο ρολόι</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Ενεργοποίηση χρονοδιακόπτη αντίστροφης μέτρησης</value>
+  </data>
 </root>

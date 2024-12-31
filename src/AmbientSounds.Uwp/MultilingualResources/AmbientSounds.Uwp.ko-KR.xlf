@@ -1255,6 +1255,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">시계에 초 표시</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">카운트다운 타이머 사용</target>
+        </trans-unit>
       </group>
     </body>
   </file>

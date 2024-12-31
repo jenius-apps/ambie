@@ -945,4 +945,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Wyświetlanie sekund na zegarze</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Włącz minutnik</value>
+  </data>
 </root>

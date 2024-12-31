@@ -948,4 +948,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>عرض الثواني على مدار الساعة</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>تمكين مؤقت العد التنازلي</value>
+  </data>
 </root>

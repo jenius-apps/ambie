@@ -942,4 +942,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Saatte saniyeleri göster</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Geri sayım sayacını etkinleştir</value>
+  </data>
 </root>

@@ -1251,6 +1251,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">Показване на секундите на часовника</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Активирайте таймера за обратно броене</target>
+        </trans-unit>
       </group>
     </body>
   </file>

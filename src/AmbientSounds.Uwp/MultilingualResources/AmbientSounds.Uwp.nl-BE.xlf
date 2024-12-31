@@ -1260,6 +1260,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">Seconden weergeven op klok</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Afteltimer inschakelen</target>
+        </trans-unit>
       </group>
     </body>
   </file>

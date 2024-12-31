@@ -1256,6 +1256,10 @@
           <source>Display seconds on clock</source>
           <target state="translated">Zeige die Sekunden auf der Uhr an</target>
         </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Countdown-Timer aktivieren</target>
+        </trans-unit>
       </group>
     </body>
   </file>

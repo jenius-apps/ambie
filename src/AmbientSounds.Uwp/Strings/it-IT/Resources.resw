@@ -948,4 +948,7 @@
   <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
     <value>Visualizzazione dei secondi sull'orologio</value>
   </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Abilita il timer per il conto alla rovescia</value>
+  </data>
 </root>
