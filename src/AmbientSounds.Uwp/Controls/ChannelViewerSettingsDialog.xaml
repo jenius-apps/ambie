@@ -27,7 +27,14 @@
                 Stretch="Fill" />
             <Border Margin="8" CornerRadius="6">
                 <Border.Background>
-                    <ImageBrush ImageSource="ms-appx:///Assets/Backgrounds/sand.png" />
+                    <ImageBrush>
+                        <ImageBrush.ImageSource>
+                            <BitmapImage
+                                DecodePixelType="Logical"
+                                DecodePixelWidth="200"
+                                UriSource="ms-appx:///Assets/Backgrounds/sand.png" />
+                        </ImageBrush.ImageSource>
+                    </ImageBrush>
                 </Border.Background>
             </Border>
 
