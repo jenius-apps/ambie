@@ -66,7 +66,12 @@ public partial class SettingsViewModel : ObservableObject
         }
 
         _xboxDisplayModeSelectedIndex = GetInitialXboxDisplayModeIndex();
+
+        DeviceId = _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) ?? string.Empty;
     }
+
+    [ObservableProperty]
+    private string _deviceId = string.Empty;
 
     [ObservableProperty]
     private bool _updateBarVisible;

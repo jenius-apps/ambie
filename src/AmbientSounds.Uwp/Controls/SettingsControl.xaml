@@ -253,12 +253,22 @@
                 Text="{x:Bind Version}" />
             <labs:SettingsExpander.Items>
                 <labs:SettingsCard>
-
                     <labs:SettingsCard.Header>
-                        <TextBlock DoubleTapped="OnDoubleTapped">
-                            <Run Text="🍁" />
-                            <Run x:Uid="HelloFromVancouver" />
-                        </TextBlock>
+                        <StackPanel>
+                            <TextBlock DoubleTapped="OnDoubleTapped">
+                                <Run Text="🍁" />
+                                <Run x:Uid="HelloFromVancouver" />
+                            </TextBlock>
+
+                            <TextBlock
+                                Margin="0,4,0,0"
+                                FontSize="12"
+                                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                IsTextSelectionEnabled="True">
+                                <Run Text="Ambie ID:" />
+                                <Run Text="{x:Bind ViewModel.DeviceId, Mode=OneWay}" />
+                            </TextBlock>
+                        </StackPanel>
                     </labs:SettingsCard.Header>
                 </labs:SettingsCard>
                 <labs:SettingsCard ContentAlignment="Left">
