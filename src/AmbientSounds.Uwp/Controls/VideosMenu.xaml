@@ -57,7 +57,7 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphsCustom}" Glyph="{StaticResource GlyphCustomPremium}" />
                             <Button.Flyout>
                                 <Flyout Opened="Flyout_Opened">
-                                    <local:PremiumControl CloseRequested="PremiumControl_CloseRequested" />
+                                    <!--<local:PremiumControl CloseRequested="PremiumControl_CloseRequested" />-->
                                 </Flyout>
                             </Button.Flyout>
                         </Button>
