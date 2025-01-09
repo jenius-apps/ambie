@@ -479,18 +479,6 @@
           <source>{0} lifetime</source>
           <target state="translated">{0} بدون محدودیت زمانی</target>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">به صداهای ممتاز و با کیفیت بالا دسترسی داشته باشید</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">دانلود فیلم محافظ صفحه نمایش</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">پشتیبانی از توسعه این برنامه</target>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">با تشکر از شما برای اشتراک !</target>

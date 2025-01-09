@@ -363,15 +363,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} διάρκεια ζωής</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Αποκτήστε πρόσβαση σε ήχους υψηλής ποιότητας</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Λήψη προφύλαξης οθόνης βίντεο</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Υποστήριξη ανάπτυξης</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Ευχαριστώ για την εγγραφή!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>

@@ -363,15 +363,6 @@
     <value>{0} לחודש</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>גישה לצלילים איכותיים ומובחרים</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>הורד שומרי מסך וידאו</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>תמיכה בפיתוח</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>תודה שנרשמת!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>

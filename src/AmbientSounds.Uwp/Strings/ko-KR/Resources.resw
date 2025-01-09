@@ -367,15 +367,6 @@
     <value>구독해주셔서 감사합니다!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>고품질의 프리미엄 소리들</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>비디오 화면 보호기</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>개발 지원</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>또 뵙네요 👋🏽</value>
   </data>

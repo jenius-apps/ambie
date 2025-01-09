@@ -367,15 +367,6 @@
     <value>Děkujeme za předplacení!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Získejte přístup k prémiovým zvukům s vysokou kvalitou</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Stáhnout spořiče obrazovky</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Podpořte vývoj</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Znovu zdravíme 👋🏽</value>
   </data>

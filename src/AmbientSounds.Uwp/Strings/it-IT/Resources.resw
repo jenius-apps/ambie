@@ -367,15 +367,6 @@
     <value>Grazie per esserti abbonato!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Ottieni l'accesso a suoni premium di alta qualità</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Scarica il salvaschermo</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Supporta lo sviluppo</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Ciao</value>
   </data>

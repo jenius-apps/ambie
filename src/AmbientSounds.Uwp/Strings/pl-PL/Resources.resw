@@ -366,15 +366,6 @@
     <value>{0} miesięcznie</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Zyskaj dostęp do dźwięków o wysokiej jakości</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Pobierz wygaszacze ekranu</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Wesprzyj rozwój aplikacji</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Dziękujemy za kupienie subskrypcji!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>

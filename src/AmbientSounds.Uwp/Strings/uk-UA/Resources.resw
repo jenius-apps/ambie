@@ -366,15 +366,6 @@
     <value>{0} на місяць</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Отримайте доступ до звуків високої якості</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Завантаження заставок</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Підтримати розробника</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Дякуємо за підписку!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>

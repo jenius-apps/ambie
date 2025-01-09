@@ -367,15 +367,6 @@
     <value>感謝您訂閱！</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>享用高級優質音效</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>下載螢幕保護影片</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>支持開發</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>嗨！又見面了！👋🏽</value>
   </data>
