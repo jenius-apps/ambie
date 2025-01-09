@@ -942,4 +942,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>カウントダウンタイマーを有効にする</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>高品質のサウンド、プレミアムビデオ、厳選された瞑想。今後のすべてのコンテンツへのアクセス。Ambie+ですべてをアンロックし、次のお気に入りの雰囲気を見つけてください。</value>
+  </data>
 </root>

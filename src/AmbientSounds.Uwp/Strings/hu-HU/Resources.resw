@@ -930,4 +930,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Visszaszámláló engedélyezése</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés minden jövőbeli tartalomhoz. Oldja fel mindezt az Ambie+ segítségével, és találja meg a következő kedvenc környezetét.</value>
+  </data>
 </root>

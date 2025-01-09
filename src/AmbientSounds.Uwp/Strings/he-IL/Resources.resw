@@ -942,4 +942,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>הפעל טיימר ספירה לאחור</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות נבחרות. גישה לכל התוכן העתידי. פתחו את הכל עם Ambie+ ומצאו את האווירה האהובה הבאה עליכם.</value>
+  </data>
 </root>

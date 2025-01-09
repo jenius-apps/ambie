@@ -936,4 +936,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Countdown-Timer aktivieren</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Hochwertige Sounds, Premium-Videos und kuratierte Meditationen. Zugriff auf alle zukünftigen Inhalte. Schalten Sie mit Ambie+ alles frei und finden Sie Ihr nächstes Lieblingsambiente.</value>
+  </data>
 </root>

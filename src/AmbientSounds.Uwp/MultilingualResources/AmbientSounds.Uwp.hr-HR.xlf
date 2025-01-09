@@ -1249,7 +1249,7 @@
         </trans-unit>
         <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="new">High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</target>
+          <target state="translated">Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</target>
         </trans-unit>
       </group>
     </body>

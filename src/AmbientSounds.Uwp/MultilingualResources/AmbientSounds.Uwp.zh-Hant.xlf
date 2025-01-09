@@ -1248,7 +1248,7 @@
         </trans-unit>
         <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="new">High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</target>
+          <target state="translated">高品質的聲音、優質的視頻和精心策劃的冥想。訪問所有未來內容。用Ambie+ 解鎖一切，找到你下一個最喜歡的氛圍。</target>
         </trans-unit>
       </group>
     </body>

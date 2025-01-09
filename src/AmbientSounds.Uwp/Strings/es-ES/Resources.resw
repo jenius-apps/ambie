@@ -939,4 +939,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Habilitar temporizador de cuenta regresiva</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Sonidos de alta calidad, videos premium y meditaciones seleccionadas. Acceso a todos los contenidos futuros. Desbloquéalo todo con Ambie+ y encuentra tu próximo ambiente favorito.</value>
+  </data>
 </root>

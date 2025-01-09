@@ -939,4 +939,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Włącz minutnik</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Wysokiej jakości dźwięki, filmy premium i wyselekcjonowane medytacje. Dostęp do całej przyszłej zawartości. Odblokuj to wszystko dzięki Ambie+ i znajdź swoją kolejną ulubioną atmosferę.</value>
+  </data>
 </root>

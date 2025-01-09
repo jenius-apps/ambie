@@ -927,4 +927,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Ενεργοποίηση χρονοδιακόπτη αντίστροφης μέτρησης</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Ήχοι υψηλής ποιότητας, premium βίντεο και επιμελημένοι διαλογισμοί. Πρόσβαση σε όλο το μελλοντικό περιεχόμενο. Ξεκλειδώστε τα όλα με το Ambie+ και βρείτε την επόμενη αγαπημένη σας ατμόσφαιρα.</value>
+  </data>
 </root>

@@ -930,4 +930,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Omogućite mjerač vremena</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</value>
+  </data>
 </root>

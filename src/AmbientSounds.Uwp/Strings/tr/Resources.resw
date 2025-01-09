@@ -936,4 +936,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Geri sayım sayacını etkinleştir</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Yüksek kaliteli sesler, birinci sınıf videolar ve küratörlüğünde meditasyonlar. Gelecekteki tüm içeriğe erişim. Ambie+ ile her şeyin kilidini açın ve yeni favori ambiyansınızı bulun.</value>
+  </data>
 </root>

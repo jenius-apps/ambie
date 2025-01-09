@@ -1250,7 +1250,7 @@
         </trans-unit>
         <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
-          <target state="new">High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</target>
+          <target state="translated">Високоякісні звуки, преміальні відео та кураторські медитації. Доступ до всього майбутнього контенту. Розблокуйте все це за допомогою Ambie+ і знайдіть свою наступну улюблену атмосферу.</target>
         </trans-unit>
       </group>
     </body>

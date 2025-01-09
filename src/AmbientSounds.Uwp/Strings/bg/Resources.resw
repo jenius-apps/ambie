@@ -942,4 +942,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Активирайте таймера за обратно броене</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Висококачествени звуци, първокласни видеоклипове и подбрани медитации. Достъп до цялото бъдещо съдържание. Отключете всичко с Ambie+ и намерете следващата си любима атмосфера.</value>
+  </data>
 </root>

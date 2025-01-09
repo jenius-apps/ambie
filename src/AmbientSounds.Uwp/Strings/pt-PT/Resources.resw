@@ -942,4 +942,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Ativar cronômetro de contagem regressiva</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Sons de alta qualidade, vídeos premium e meditações selecionadas. Acesso a todo o conteúdo futuro. Desbloqueie tudo com o Ambie+ e encontre o seu próximo ambiente favorito.</value>
+  </data>
 </root>

@@ -915,4 +915,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Afteltimer inschakelen</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</value>
+  </data>
 </root>

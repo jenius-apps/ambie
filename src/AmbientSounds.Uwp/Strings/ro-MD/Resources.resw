@@ -939,4 +939,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Activați cronometrul cu numărătoare inversă</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Sunete de înaltă calitate, videoclipuri premium și meditații organizate. Acces la tot conținutul viitor. Deblochează totul cu Ambie+ și găsește-ți următoarea ambianță preferată.</value>
+  </data>
 </root>

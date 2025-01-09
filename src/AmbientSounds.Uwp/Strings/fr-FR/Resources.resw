@@ -939,4 +939,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Activer le compte à rebours</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Des sons de haute qualité, des vidéos premium et des méditations organisées. Accès à tous les contenus futurs. Débloquez tout cela avec Ambie+ et trouvez votre prochaine ambiance préférée.</value>
+  </data>
 </root>

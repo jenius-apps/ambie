@@ -942,4 +942,7 @@
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Abilita il timer per il conto alla rovescia</value>
   </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Suoni di alta qualità, video premium e meditazioni curate. Accesso a tutti i contenuti futuri. Sblocca tutto con Ambie+ e trova il tuo prossimo ambiente preferito.</value>
+  </data>
 </root>
