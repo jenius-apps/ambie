@@ -12,8 +12,29 @@
     Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
     <ContentDialog.Resources>
-        <Thickness x:Key="ContentDialogPadding">0</Thickness>
-        <Thickness x:Key="ContentDialogBorderThickness">0</Thickness>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="ImageGradientBrush" Color="{StaticResource SystemColorWindowColor}" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
+                        <GradientStop Offset="0" Color="#FF2B2B2B" />
+                        <GradientStop Offset="0.8" Color="#00000000" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
+                        <GradientStop Offset="0.0" Color="#FFFFFFFF" />
+                        <GradientStop Offset="0.5" Color="#00000000" />
+                    </LinearGradientBrush>
+
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <Thickness x:Key="ContentDialogPadding">0</Thickness>
+            <Thickness x:Key="ContentDialogBorderThickness">0</Thickness>
+        </ResourceDictionary>
     </ContentDialog.Resources>
 
     <Grid Width="440" Height="560">
@@ -22,20 +43,13 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Border Margin="-5,0,0,0">
+        <Border>
             <Border.Background>
                 <ImageBrush ImageSource="ms-appx:///Assets/ambie_plus_banner.png" Stretch="UniformToFill" />
             </Border.Background>
         </Border>
 
-        <Rectangle Margin="0" Stretch="Fill">
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
-                    <GradientStop Offset="0" Color="{StaticResource SystemAltHighColor}" />
-                    <GradientStop Offset="0.8" Color="#00000000" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Rectangle Fill="{ThemeResource ImageGradientBrush}" Stretch="Fill" />
 
         <Button
             Margin="0,6,6,0"
@@ -52,32 +66,57 @@
                 Glyph="{StaticResource GlyphCancelSemiBold}" />
         </Button>
 
-        <ItemsControl
+        <Grid
             Grid.Row="1"
-            Margin="0,20,0,0"
-            ItemsSource="{x:Bind ViewModel.SubscriptionTexts}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate x:DataType="x:String">
-                    <Grid Margin="0,0,0,4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+            Padding="0,0,0,32"
+            RowSpacing="20">
+            <Grid.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="20" />
+            </Grid.ChildrenTransitions>
 
-                        <TextBlock
-                            Margin="0,0,4,0"
-                            AutomationProperties.AccessibilityView="Raw"
-                            Text="✅" />
-                        <TextBlock
-                            Grid.Column="1"
-                            Text="{x:Bind}"
-                            TextWrapping="Wrap" />
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Orientation="Horizontal"
+                Spacing="12">
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
+                </StackPanel.ChildrenTransitions>
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="32"
+                    Foreground="MediumPurple"
+                    Glyph="{StaticResource GlyphSound}" />
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="32"
+                    Foreground="DodgerBlue"
+                    Glyph="{StaticResource GlyphFilmstrip}" />
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="32"
+                    Foreground="ForestGreen"
+                    Glyph="{StaticResource GlyphLeaves}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Margin="40,0"
+                Text="High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience."
+                TextAlignment="Center"
+                TextWrapping="WrapWholeWords" />
+        </Grid>
 
         <Grid Grid.Row="2" Margin="24,0,24,24">
+            <Grid.ChildrenTransitions>
+                <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
+            </Grid.ChildrenTransitions>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />

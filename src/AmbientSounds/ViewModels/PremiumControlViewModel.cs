@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
@@ -25,25 +24,11 @@ public partial class PremiumControlViewModel : ObservableObject
         ILocalizer localizer,
         ISystemInfoProvider infoProvider)
     {
-        Guard.IsNotNull(iapService);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(localizer);
-        Guard.IsNotNull(infoProvider);
-
         _iapService = iapService;
         _telemetry = telemetry;
         _localizer = localizer;
         _infoProvider = infoProvider;
-
-        SubscriptionTexts =
-        [
-            _localizer.GetString("SubscriptionText1"),
-            _localizer.GetString("SubscriptionText2"),
-            _localizer.GetString("SubscriptionText3"),
-        ];
     }
-
-    public IReadOnlyList<string> SubscriptionTexts { get; }
 
     [ObservableProperty]
     private string _price = string.Empty;
