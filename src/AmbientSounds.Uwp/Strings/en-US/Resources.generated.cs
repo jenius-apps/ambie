@@ -3225,6 +3225,19 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region PremiumMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.
+        /// </summary>
+        public static string PremiumMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("PremiumMessage");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3483,6 +3496,7 @@ namespace AmbientSounds.Strings{
             SettingsEnableClockHeader,
             SettingsEnableClockSecondsHeader,
             SettingsEnableCountdownHeader,
+            PremiumMessage,
         }
 
         private static ResourceLoader _resourceLoader;

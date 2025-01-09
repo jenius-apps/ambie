@@ -107,7 +107,7 @@
             <TextBlock
                 Grid.Row="1"
                 Margin="40,0"
-                Text="High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience."
+                Text="{x:Bind strings:Resources.PremiumMessage}"
                 TextAlignment="Center"
                 TextWrapping="WrapWholeWords" />
         </Grid>
