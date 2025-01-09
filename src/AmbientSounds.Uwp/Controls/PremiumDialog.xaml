@@ -152,11 +152,30 @@
 
             <Button
                 Grid.Row="2"
+                Height="54"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutomationProperties.Name="{x:Bind ViewModel.AnnualPriceButtonAutomationName, Mode=OneWay}"
+                Command="{x:Bind ViewModel.PurchaseAnnualCommand}"
+                Visibility="{x:Bind ViewModel.AnnualButtonVisible, Mode=OneWay}">
+                <Grid>
+                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.AnnualPriceInfo, Mode=OneWay}" />
+                    <winui:ProgressRing
+                        Width="20"
+                        Height="20"
+                        Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                        IsActive="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}"
+                        Visibility="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}" />
+                </Grid>
+            </Button>
+
+            <Button
+                Grid.Row="2"
                 Height="36"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
-                Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
+                Visibility="{x:Bind ViewModel.LifetimeButtonVisible, Mode=OneWay}">
                 <Grid>
                     <TextBlock
                         FontSize="12"
@@ -170,7 +189,6 @@
                         Visibility="{x:Bind ViewModel.LifetimeButtonLoading, Mode=OneWay}" />
                 </Grid>
             </Button>
-
 
             <StackPanel Grid.RowSpan="3" Visibility="{x:Bind ViewModel.ThanksTextVisible, Mode=OneWay}">
                 <TextBlock

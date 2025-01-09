@@ -22,13 +22,20 @@ public partial class PremiumControlViewModel : ObservableObject
         IIapService iapService,
         ITelemetry telemetry,
         ILocalizer localizer,
-        ISystemInfoProvider infoProvider)
+        ISystemInfoProvider infoProvider,
+        IExperimentationService experimentationService)
     {
         _iapService = iapService;
         _telemetry = telemetry;
         _localizer = localizer;
         _infoProvider = infoProvider;
+        AnnualSubExperimentEnabled = experimentationService.IsEnabled(ExperimentConstants.AnnualSubExperiment);
     }
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(AnnualButtonVisible))]
+    private bool _annualSubExperimentEnabled;
 
     [ObservableProperty]
     private string _price = string.Empty;
@@ -43,10 +50,22 @@ public partial class PremiumControlViewModel : ObservableObject
     private bool _lifetimeButtonLoading;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(AnnualButtonVisible))]
     private bool _thanksTextVisible;
 
     [ObservableProperty]
     private PriceInfo? _priceInfo;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(AnnualPriceButtonAutomationName))]
+    private PriceInfo? _annualPriceInfo;
+
+    public string AnnualPriceButtonAutomationName => AnnualPriceInfo?.FormattedPrice ?? string.Empty;
+
+    public bool LifetimeButtonVisible => !ThanksTextVisible && !AnnualSubExperimentEnabled;
+
+    public bool AnnualButtonVisible => !ThanksTextVisible && AnnualSubExperimentEnabled;
 
     public async Task InitializeAsync()
     {
@@ -65,6 +84,11 @@ public partial class PremiumControlViewModel : ObservableObject
         PriceInfo = await priceTask;
         LifetimePrice = _localizer.GetString("PriceForLifetime", (await lifetimePriceTask).FormattedPrice);
         Price = PriceInfo.FormattedPrice;
+
+        if (AnnualSubExperimentEnabled)
+        {
+            AnnualPriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusAnnualId);
+        }
 
         ButtonLoading = false;
         LifetimeButtonLoading = false;
@@ -95,6 +119,12 @@ public partial class PremiumControlViewModel : ObservableObject
             _telemetry.TrackEvent(TelemetryConstants.PurchaseCancelled);
         }
         ButtonLoading = false;
+    }
+
+    [RelayCommand]
+    private async Task PurchaseAnnualAsync()
+    {
+        await Task.Delay(1);
     }
 
     [RelayCommand]
