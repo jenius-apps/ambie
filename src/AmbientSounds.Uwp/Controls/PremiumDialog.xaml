@@ -126,12 +126,12 @@
                 Height="54"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                AutomationProperties.Name="{x:Bind ViewModel.Price, Mode=OneWay}"
+                AutomationProperties.Name="{x:Bind ViewModel.MonthlyPriceButtonAutomationName, Mode=OneWay}"
                 Command="{x:Bind ViewModel.PurchaseMonthlyCommand}"
                 Style="{ThemeResource AccentButtonStyle}"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
                 <Grid>
-                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.PriceInfo, Mode=OneWay}" />
+                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.MonthlyPriceInfo, Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"

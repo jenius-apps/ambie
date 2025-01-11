@@ -77,6 +77,9 @@ public class TelemetryConstants
     public const string LifetimeClicked = Premium + "lifetimeClicked";
     public const string LifetimePurchased = Premium + "lifetimePurchased";
     public const string LifetimeCanceled = Premium + "lifetimeCanceled";
+    public const string PremiumAnnualClicked = $"{Premium}annualClicked";
+    public const string PremiumAnnualPurchased = $"{Premium}annualPurchased";
+    public const string PremiumAnnualCanceled = $"{Premium}annualCanceled";
 
     // gallery
     private const string Gallery = "gallery:";

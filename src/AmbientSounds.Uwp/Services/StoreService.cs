@@ -70,39 +70,13 @@ public class StoreService : IIapService
     /// <inheritdoc/>
     public async Task<bool> IsSubscriptionOwnedAsync()
     {
-        foreach (var key in _ownershipCache.Keys)
-        {
-            if (key.ContainsAmbiePlus() && _ownershipCache[key] is true)
-            {
-                return true;
-            }
-        }
-
-        _context ??= StoreContext.GetDefault();
-
-        StoreAppLicense appLicense = await _context.GetAppLicenseAsync();
-        if (appLicense is null)
-        {
-            return false;
-        }
-
-        foreach (var addOnLicense in appLicense.AddOnLicenses)
-        {
-            StoreLicense license = addOnLicense.Value;
-            if (license.IsActive && license.InAppOfferToken.ContainsAmbiePlus())
-            {
-                _ownershipCache.TryAdd(IapConstants.MsStoreAmbiePlusId, true);
-                return true;
-            }
-        }
-
-        return false;
+        return await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusAnnualId]).ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task<bool> CanShowPremiumButtonsAsync()
     {
-        return !await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusLifetimeId]);
+        return !await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusLifetimeId, IapConstants.MsStoreAmbiePlusAnnualId]);
     }
 
     /// <inheritdoc/>
@@ -123,7 +97,7 @@ public class StoreService : IIapService
     public async Task<PriceInfo> GetLatestPriceAsync(string iapId)
     {
         (string idOnly, _) = iapId.SplitIdAndVersion();
-        var addon = await GetLatestAddonAsync(idOnly);
+        var addon = await GetLatestAddonAsync(idOnly).ConfigureAwait(false);
 
         if (addon?.Price is null)
         {
