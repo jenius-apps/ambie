@@ -24,7 +24,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private readonly ISoundService _soundDataProvider;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IMediaPlayerFactory _mediaPlayerFactory;
-    private readonly IUserSettings _userSettings;
+    private readonly ISoundVolumeService _soundVolumeService;
     private readonly int _maxActive;
     private readonly string _localDataFolderPath;
     private (string Id, IMediaPlayer Player, FeaturedSoundType Type)? _featureSoundData;
@@ -57,9 +57,9 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         IDispatcherQueue dispatcherQueue,
         IMediaPlayerFactory mediaPlayerFactory,
         ISystemInfoProvider systemInfoProvider,
-        ISystemMediaControls systemMediaControls)
+        ISystemMediaControls systemMediaControls,
+        ISoundVolumeService soundVolumeService)
     {
-        _userSettings = userSettings;
         _soundDataProvider = soundDataProvider;
         _assetLocalizer = assetLocalizer;
         _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
@@ -68,10 +68,11 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         _localDataFolderPath = systemInfoProvider.LocalFolderPath();
         _smtc = systemMediaControls;
         InitializeSmtc();
+        _soundVolumeService = soundVolumeService;
     }
 
     /// <inheritdoc/>
-    public Dictionary<string, string[]> Screensavers { get; } = new();
+    public Dictionary<string, string[]> Screensavers { get; } = [];
 
     /// <inheritdoc/>
     public string CurrentMixId { get; set; } = "";
@@ -350,7 +351,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         PlaybackState = MediaPlaybackState.Playing;
         foreach (var key in _activePlayers.Keys)
         {
-            double volume = _userSettings.Get($"{key}:volume", 100d) / 100;
+            double volume = _soundVolumeService.GetVolume(key, CurrentMixId) / 100;
 
             if (fadeAll || _lastAddedSoundIds.Contains(key))
             {

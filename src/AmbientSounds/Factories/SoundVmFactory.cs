@@ -86,8 +86,8 @@ public class SoundVmFactory : ISoundVmFactory
             s,
             removeCommand,
             _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
-            _serviceProvider.GetRequiredService<IUserSettings>(),
-            _serviceProvider.GetRequiredService<IAssetLocalizer>());
+            _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            _serviceProvider.GetRequiredService<ISoundVolumeService>());
     }
 
     public VersionedAssetViewModel GetVersionAssetVm(IVersionedAsset versionedAsset, UpdateReason updateReason)

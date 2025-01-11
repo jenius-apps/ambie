@@ -175,6 +175,7 @@ partial class App
     [Singleton(typeof(GuideVmFactory), typeof(IGuideVmFactory))]
     [Singleton(typeof(CatalogueRowVmFactory))]
     [Singleton(typeof(ChannelVmFactory))]
+    [Singleton(typeof(SoundVolumeService), typeof(ISoundVolumeService))]
     [Singleton(typeof(CatalogueService), typeof(ICatalogueService))]
     [Singleton(typeof(VideoService), typeof(IVideoService))]
     [Singleton(typeof(FocusTaskCache), typeof(IFocusTaskCache))]
