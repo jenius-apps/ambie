@@ -150,7 +150,7 @@ public partial class PremiumControlViewModel : ObservableObject
         AnnualButtonLoading = true;
 
         _telemetry.TrackEvent(TelemetryConstants.PremiumAnnualClicked);
-        bool successful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusLifetimeId, latest: true);
+        bool successful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusAnnualId, latest: true);
         ThanksTextVisible = successful;
 
         if (successful)
