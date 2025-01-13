@@ -939,4 +939,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Hochwertige Sounds, Premium-Videos und kuratierte Meditationen. Zugriff auf alle zukünftigen Inhalte. Schalten Sie mit Ambie+ alles frei und finden Sie Ihr nächstes Lieblingsambiente.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Gleiche Vorteile, niedrigere monatliche Kosten</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Holen Sie sich den Jahresplan - {0}</value>
+  </data>
 </root>

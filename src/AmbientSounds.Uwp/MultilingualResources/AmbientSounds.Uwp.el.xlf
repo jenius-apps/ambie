@@ -1247,6 +1247,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">Ήχοι υψηλής ποιότητας, premium βίντεο και επιμελημένοι διαλογισμοί. Πρόσβαση σε όλο το μελλοντικό περιεχόμενο. Ξεκλειδώστε τα όλα με το Ambie+ και βρείτε την επόμενη αγαπημένη σας ατμόσφαιρα.</target>
         </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Ίδια οφέλη, χαμηλότερο μηνιαίο κόστος</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Αποκτήστε ετήσιο πρόγραμμα - {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

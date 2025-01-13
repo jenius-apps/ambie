@@ -933,4 +933,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Iste prednosti, niži mjesečni troškovi</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Nabavite godišnji plan - {0}</value>
+  </data>
 </root>

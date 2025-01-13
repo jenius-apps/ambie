@@ -1250,6 +1250,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">高品质的声音、优质的视频和精心策划的冥想。访问所有未来内容。用 Ambie+ 解锁一切，找到你下一个最喜欢的氛围。</target>
         </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">相同的权益，更低的每月费用</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">获取年度计划 - {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

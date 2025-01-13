@@ -3238,6 +3238,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region AnnualPlanCaption
+        /// <summary>
+        ///   Looks up a localized string similar to: Same benefits, lower monthly cost
+        /// </summary>
+        public static string AnnualPlanCaption
+        {
+            get
+            {
+                return _resourceLoader.GetString("AnnualPlanCaption");
+            }
+        }
+        #endregion
+
+        #region AnnualPlanTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Get annual plan - {0}
+        /// </summary>
+        public static string AnnualPlanTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("AnnualPlanTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3497,6 +3523,8 @@ namespace AmbientSounds.Strings{
             SettingsEnableClockSecondsHeader,
             SettingsEnableCountdownHeader,
             PremiumMessage,
+            AnnualPlanCaption,
+            AnnualPlanTitle,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -1250,6 +1250,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</target>
         </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Samma fördelar, lägre månadskostnad</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Skaffa årsplan - {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

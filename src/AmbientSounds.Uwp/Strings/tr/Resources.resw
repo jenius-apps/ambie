@@ -939,4 +939,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Yüksek kaliteli sesler, birinci sınıf videolar ve küratörlüğünde meditasyonlar. Gelecekteki tüm içeriğe erişim. Ambie+ ile her şeyin kilidini açın ve yeni favori ambiyansınızı bulun.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Aynı avantajlar, daha düşük aylık maliyet</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Yıllık planı alın - {0}</value>
+  </data>
 </root>

@@ -1247,6 +1247,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">Висококачествени звуци, първокласни видеоклипове и подбрани медитации. Достъп до цялото бъдещо съдържание. Отключете всичко с Ambie+ и намерете следващата си любима атмосфера.</target>
         </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Същите предимства, по-ниски месечни разходи</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Вземете годишен план - {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

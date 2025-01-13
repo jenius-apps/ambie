@@ -945,4 +945,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>高品质的声音、优质的视频和精心策划的冥想。访问所有未来内容。用 Ambie+ 解锁一切，找到你下一个最喜欢的氛围。</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>相同的权益，更低的每月费用</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>获取年度计划 - {0}</value>
+  </data>
 </root>

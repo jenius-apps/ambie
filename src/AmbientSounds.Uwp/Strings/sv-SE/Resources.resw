@@ -942,4 +942,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Samma fördelar, lägre månadskostnad</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Skaffa årsplan - {0}</value>
+  </data>
 </root>

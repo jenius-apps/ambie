@@ -945,4 +945,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות נבחרות. גישה לכל התוכן העתידי. פתחו את הכל עם Ambie+ ומצאו את האווירה האהובה הבאה עליכם.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>אותם יתרונות, עלות חודשית נמוכה יותר</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>קבל תוכנית שנתית - {0}</value>
+  </data>
 </root>

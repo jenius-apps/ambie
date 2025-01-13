@@ -1251,6 +1251,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">고품질 사운드, 프리미엄 비디오 및 선별된 명상. 향후 모든 콘텐츠에 대한 액세스. Ambie+로 모든 것을 잠금 해제하고 다음에 가장 좋아하는 분위기를 찾아보세요.</target>
         </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">동일한 혜택, 더 낮은 월간 비용</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">연간 요금제 받기 - {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

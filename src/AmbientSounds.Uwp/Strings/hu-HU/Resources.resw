@@ -933,4 +933,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés minden jövőbeli tartalomhoz. Oldja fel mindezt az Ambie+ segítségével, és találja meg a következő kedvenc környezetét.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Ugyanazok az előnyök, alacsonyabb havi költség</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Éves csomag beszerzése - {0}</value>
+  </data>
 </root>

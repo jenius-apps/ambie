@@ -1258,6 +1258,14 @@
           <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
           <target state="translated">Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés minden jövőbeli tartalomhoz. Oldja fel mindezt az Ambie+ segítségével, és találja meg a következő kedvenc környezetét.</target>
         </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Ugyanazok az előnyök, alacsonyabb havi költség</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Éves csomag beszerzése - {0}</target>
+        </trans-unit>
       </group>
     </body>
   </file>

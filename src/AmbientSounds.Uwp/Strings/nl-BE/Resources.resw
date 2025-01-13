@@ -918,4 +918,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Dezelfde voordelen, lagere maandelijkse kosten</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Ontvang een jaarabonnement - {0}</value>
+  </data>
 </root>

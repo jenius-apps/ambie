@@ -945,4 +945,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>صداهای با کیفیت بالا، ویدیوهای ممتاز و مدیتیشن های انتخاب شده. دسترسی به تمام محتوای آینده. قفل همه چیز را با Ambie+ باز کنید و محیط مورد علاقه بعدی خود را پیدا کنید.</value>
   </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>مزایای مشابه، هزینه ماهانه کمتر</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>دریافت برنامه سالانه - {0}</value>
+  </data>
 </root>

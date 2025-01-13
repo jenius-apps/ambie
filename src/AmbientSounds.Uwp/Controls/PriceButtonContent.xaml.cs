@@ -90,6 +90,11 @@ public sealed partial class PriceButtonContent : UserControl
                 HumanizeTime(PriceInfo.SubTrialLength, PriceInfo.SubTrialLengthUnit),
                 $"{PriceInfo.FormattedPrice}/{HumanizeRecurrence(PriceInfo.RecurrenceUnit)}");
         }
+        else if (PriceInfo is { IsSubscription: true, FormattedPrice: string price, RecurrenceUnit: DurationUnit.Year })
+        {
+            PrimaryText = string.Format(Strings.Resources.AnnualPlanTitle, $"{price}/{HumanizeRecurrence(DurationUnit.Year)}");
+            CaptionText = Strings.Resources.AnnualPlanCaption;
+        }
         else
         {
             PrimaryText = PriceInfo.FormattedPrice;
