@@ -7,9 +7,10 @@ namespace AmbientSounds.Constants
     public static class IapConstants
     {
         public const string MsStoreAmbiePlusId = "ambieplus";
+        public const string MsStoreAmbiePlusAnnualId = "annualambieplus";
         public const string MsStoreAmbiePlusLifetimeId = "lifetimeambieplus";
 
-        public static bool ContainsAmbiePlus(this IReadOnlyList<string> ids) => ids.ContainsId(MsStoreAmbiePlusId);
+        public static bool ContainsAmbiePlus(this IReadOnlyList<string> ids) => ids.ContainsId(MsStoreAmbiePlusId) || ids.ContainsId(MsStoreAmbiePlusAnnualId);
 
         public static bool ContainsAmbiePlus(this string id)
         {
@@ -18,7 +19,8 @@ namespace AmbientSounds.Constants
                 return false;
             }
 
-            return id.StartsWith(MsStoreAmbiePlusId);
+            return id.StartsWith(MsStoreAmbiePlusId, StringComparison.OrdinalIgnoreCase) || 
+                id.StartsWith(MsStoreAmbiePlusAnnualId, StringComparison.OrdinalIgnoreCase);
         }
 
         public static (string, int) SplitIdAndVersion(this string iapId)

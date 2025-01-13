@@ -363,15 +363,6 @@
     <value>{0} לחודש</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>גישה לצלילים איכותיים ומובחרים</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>הורד שומרי מסך וידאו</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>תמיכה בפיתוח</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>תודה שנרשמת!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -950,5 +941,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>הפעל טיימר ספירה לאחור</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות נבחרות. גישה לכל התוכן העתידי. פתחו את הכל עם Ambie+ ומצאו את האווירה האהובה הבאה עליכם.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>אותם יתרונות, עלות חודשית נמוכה יותר</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>קבל תוכנית שנתית - {0}</value>
   </data>
 </root>

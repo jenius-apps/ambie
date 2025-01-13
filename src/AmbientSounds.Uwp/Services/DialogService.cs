@@ -119,15 +119,12 @@ public class DialogService : IDialogService
         }
 
         IsDialogOpen = true;
-        var content = new PremiumControl();
-        var dialog = new NoPaddingDialog()
+        var dialog = new PremiumDialog()
         {
             FlowDirection = GetFlowDirection(),
             RequestedTheme = GetTheme(),
-            Content = content
         };
 
-        content.CloseRequested += (s, e) => dialog.Hide();
         await dialog.ShowAsync();
         IsDialogOpen = false;
     }

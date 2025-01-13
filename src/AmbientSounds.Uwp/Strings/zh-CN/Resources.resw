@@ -367,15 +367,6 @@
     <value>感谢您的订阅！</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>享用高级优质音效</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>下载视频</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>支持我们的开发</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>嗨！又见面了！👋🏽</value>
   </data>
@@ -950,5 +941,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>启用倒数计时器</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>高品质的声音、优质的视频和精心策划的冥想。访问所有未来内容。用 Ambie+ 解锁一切，找到你下一个最喜欢的氛围。</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>相同的权益，更低的每月费用</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>获取年度计划 - {0}</value>
   </data>
 </root>

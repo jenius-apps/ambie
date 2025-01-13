@@ -77,6 +77,9 @@ public class TelemetryConstants
     public const string LifetimeClicked = Premium + "lifetimeClicked";
     public const string LifetimePurchased = Premium + "lifetimePurchased";
     public const string LifetimeCanceled = Premium + "lifetimeCanceled";
+    public const string PremiumAnnualClicked = $"{Premium}annualClicked";
+    public const string PremiumAnnualPurchased = $"{Premium}annualPurchased";
+    public const string PremiumAnnualCanceled = $"{Premium}annualCanceled";
 
     // gallery
     private const string Gallery = "gallery:";
@@ -103,6 +106,8 @@ public class TelemetryConstants
     // sharing
     private const string Share = "share:";
     public const string SharePlayed = Share + "soundsPlayed";
+    public const string MissingSoundsMessageClicked = $"{Share}missingSoundsMessageClicked";
+    public const string MissingSoundsMessageShown = $"{Share}missingSoundsMessageShown";
 
     // pin
     private const string Oobe = "oobe:";

@@ -366,15 +366,6 @@
     <value>{0} на месец</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Достъп до първокласни, висококачествени звуци</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Изтегляне на видео скрийнсейвъри</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Подкрепете развитието</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Благодарим ви, че се абонирахте!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -950,5 +941,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Активирайте таймера за обратно броене</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Висококачествени звуци, първокласни видеоклипове и подбрани медитации. Достъп до цялото бъдещо съдържание. Отключете всичко с Ambie+ и намерете следващата си любима атмосфера.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Същите предимства, по-ниски месечни разходи</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Вземете годишен план - {0}</value>
   </data>
 </root>

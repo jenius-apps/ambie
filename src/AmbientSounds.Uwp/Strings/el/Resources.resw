@@ -363,15 +363,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} διάρκεια ζωής</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Αποκτήστε πρόσβαση σε ήχους υψηλής ποιότητας</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Λήψη προφύλαξης οθόνης βίντεο</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Υποστήριξη ανάπτυξης</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Ευχαριστώ για την εγγραφή!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -935,5 +926,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Ενεργοποίηση χρονοδιακόπτη αντίστροφης μέτρησης</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Ήχοι υψηλής ποιότητας, premium βίντεο και επιμελημένοι διαλογισμοί. Πρόσβαση σε όλο το μελλοντικό περιεχόμενο. Ξεκλειδώστε τα όλα με το Ambie+ και βρείτε την επόμενη αγαπημένη σας ατμόσφαιρα.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Ίδια οφέλη, χαμηλότερο μηνιαίο κόστος</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Αποκτήστε ετήσιο πρόγραμμα - {0}</value>
   </data>
 </root>

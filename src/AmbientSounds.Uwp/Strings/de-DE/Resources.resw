@@ -367,15 +367,6 @@
     <value>Vielen Dank für das Abonnement!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Greifen Sie auf erstklassige, hochwertige Sounds zu</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Videos herunterladen</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Unterstützen Sie die Entwicklung</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Nochmals Hallo 👋🏽</value>
   </data>
@@ -944,5 +935,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Countdown-Timer aktivieren</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Hochwertige Sounds, Premium-Videos und kuratierte Meditationen. Zugriff auf alle zukünftigen Inhalte. Schalten Sie mit Ambie+ alles frei und finden Sie Ihr nächstes Lieblingsambiente.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Gleiche Vorteile, niedrigere monatliche Kosten</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Holen Sie sich den Jahresplan - {0}</value>
   </data>
 </root>

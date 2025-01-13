@@ -474,15 +474,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} lifetime</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Access premium, high quality sounds</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Download video screensavers</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Support development</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Thank you for subscribing!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -1055,5 +1046,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Enable countdown timer</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Same benefits, lower monthly cost</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Get annual plan - {0}</value>
   </data>
 </root>

@@ -369,15 +369,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} بدون محدودیت زمانی</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>به صداهای ممتاز و با کیفیت بالا دسترسی داشته باشید</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>دانلود فیلم محافظ صفحه نمایش</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>پشتیبانی از توسعه این برنامه</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>با تشکر از شما برای اشتراک !</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -950,5 +941,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>تایمر شمارش معکوس را فعال کنید</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>صداهای با کیفیت بالا، ویدیوهای ممتاز و مدیتیشن های انتخاب شده. دسترسی به تمام محتوای آینده. قفل همه چیز را با Ambie+ باز کنید و محیط مورد علاقه بعدی خود را پیدا کنید.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>مزایای مشابه، هزینه ماهانه کمتر</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>دریافت برنامه سالانه - {0}</value>
   </data>
 </root>

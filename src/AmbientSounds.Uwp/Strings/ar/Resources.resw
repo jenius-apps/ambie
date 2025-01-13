@@ -369,15 +369,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} طول العمر</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>إحصل علي أصوات عالية الجودة ومتميزة</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>تحميل فيديو شاشة التوقف</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>دعم التنمية</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>!شكرا على الإشتراك</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -950,5 +941,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>تمكين مؤقت العد التنازلي</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>أصوات عالية الجودة ومقاطع فيديو متميزة وتأملات منسقة. الوصول إلى جميع المحتويات المستقبلية. افتح كل شيء مع Ambie+ ، وابحث عن أجواءك المفضلة التالية.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>نفس المزايا ، تكلفة شهرية أقل</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>احصل على خطة سنوية - {0}</value>
   </data>
 </root>

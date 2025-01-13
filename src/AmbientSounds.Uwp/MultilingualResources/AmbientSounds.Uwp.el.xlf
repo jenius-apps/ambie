@@ -479,18 +479,6 @@
           <source>{0} lifetime</source>
           <target state="translated">{0} διάρκεια ζωής</target>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">Αποκτήστε πρόσβαση σε ήχους υψηλής ποιότητας</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">Λήψη προφύλαξης οθόνης βίντεο</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">Υποστήριξη ανάπτυξης</target>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">Ευχαριστώ για την εγγραφή!</target>
@@ -1254,6 +1242,18 @@
         <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
           <source>Enable countdown timer</source>
           <target state="translated">Ενεργοποίηση χρονοδιακόπτη αντίστροφης μέτρησης</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Ήχοι υψηλής ποιότητας, premium βίντεο και επιμελημένοι διαλογισμοί. Πρόσβαση σε όλο το μελλοντικό περιεχόμενο. Ξεκλειδώστε τα όλα με το Ambie+ και βρείτε την επόμενη αγαπημένη σας ατμόσφαιρα.</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Ίδια οφέλη, χαμηλότερο μηνιαίο κόστος</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Αποκτήστε ετήσιο πρόγραμμα - {0}</target>
         </trans-unit>
       </group>
     </body>

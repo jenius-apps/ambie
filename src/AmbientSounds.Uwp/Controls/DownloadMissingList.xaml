@@ -46,11 +46,13 @@
                             ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
                             Visibility="{x:Bind local:UIHelper.InvertVisibility(IsOwned), Mode=OneWay}">
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphsCustom}" Glyph="{StaticResource GlyphCustomPremium}" />
-                            <Button.Flyout>
+                            <!--<Button.Flyout>
                                 <Flyout>
+                                    TODO: identify via telemetry how much traffic this dialog gets, and reimplement this with
+                                    the new premium dialog based on what the data shows.
                                     <local:PremiumControl CloseRequested="PremiumControl_CloseRequested" />
                                 </Flyout>
-                            </Button.Flyout>
+                            </Button.Flyout>-->
                         </Button>
 
                         <Grid Grid.Column="1" Visibility="{x:Bind IsOwned, Mode=OneWay}">

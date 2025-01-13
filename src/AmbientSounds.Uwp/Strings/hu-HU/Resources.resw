@@ -367,15 +367,6 @@
     <value>Köszönjük a feliratkozását!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Prémium, magasabb minőségű hangok!</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Növekvő katalógus!</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Fejlesztés támogatása!</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Üdv újra 👋🏽</value>
   </data>
@@ -938,5 +929,14 @@
   </data>
   <data name="SettingsEnableCountdownHeader" xml:space="preserve">
     <value>Visszaszámláló engedélyezése</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés minden jövőbeli tartalomhoz. Oldja fel mindezt az Ambie+ segítségével, és találja meg a következő kedvenc környezetét.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Ugyanazok az előnyök, alacsonyabb havi költség</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Éves csomag beszerzése - {0}</value>
   </data>
 </root>
