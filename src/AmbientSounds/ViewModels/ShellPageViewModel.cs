@@ -266,6 +266,8 @@ public partial class ShellPageViewModel : ObservableObject
         {
             IsMissingSoundsMessageVisible = true;
         });
+
+        _telemetry.TrackEvent(TelemetryConstants.MissingSoundsMessageShown);
     }
 
     public void LoadStreak(StreakChangedEventArgs? args = null)
@@ -302,6 +304,7 @@ public partial class ShellPageViewModel : ObservableObject
     private async Task OpenMissingDialogAsync()
     {
         IsMissingSoundsMessageVisible = false;
+        _telemetry.TrackEvent(TelemetryConstants.MissingSoundsMessageClicked);
         await _dialogService.MissingShareSoundsDialogAsync();
     }
 

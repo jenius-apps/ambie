@@ -106,6 +106,8 @@ public class TelemetryConstants
     // sharing
     private const string Share = "share:";
     public const string SharePlayed = Share + "soundsPlayed";
+    public const string MissingSoundsMessageClicked = $"{Share}missingSoundsMessageClicked";
+    public const string MissingSoundsMessageShown = $"{Share}missingSoundsMessageShown";
 
     // pin
     private const string Oobe = "oobe:";
