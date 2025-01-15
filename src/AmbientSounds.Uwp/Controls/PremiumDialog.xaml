@@ -41,7 +41,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="200" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" MinHeight="160" />
         </Grid.RowDefinitions>
         <Border>
             <Border.Background>
@@ -112,7 +112,26 @@
                 TextWrapping="WrapWholeWords" />
         </Grid>
 
-        <Grid Grid.Row="2" Margin="24,0,24,24">
+        <Grid Grid.Row="2" Visibility="{x:Bind ViewModel.ThanksTextVisible, Mode=OneWay}">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock
+                    AutomationProperties.AccessibilityView="Raw"
+                    Text="😍 🎉 🥳 "
+                    TextAlignment="Center" />
+                <TextBlock
+                    Grid.Row="1"
+                    MaxWidth="240"
+                    VerticalAlignment="Center"
+                    Text="{x:Bind strings:Resources.ThankYouForSub}"
+                    TextAlignment="Center"
+                    TextWrapping="WrapWholeWords" />
+            </StackPanel>
+        </Grid>
+
+        <Grid
+            Grid.Row="2"
+            Margin="24,0,24,24"
+            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
             <Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
             </Grid.ChildrenTransitions>
@@ -128,8 +147,7 @@
                 VerticalAlignment="Stretch"
                 AutomationProperties.Name="{x:Bind MonthlyPriceContent.AutomationName, Mode=OneWay}"
                 Command="{x:Bind ViewModel.PurchaseMonthlyCommand}"
-                Style="{ThemeResource AccentButtonStyle}"
-                Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
+                Style="{ThemeResource AccentButtonStyle}">
                 <Grid>
                     <local:PriceButtonContent
                         x:Name="MonthlyPriceContent"
@@ -150,8 +168,7 @@
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                 Text="{x:Bind strings:Resources.OrText.ToLower()}"
-                TextAlignment="Center"
-                Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}" />
+                TextAlignment="Center" />
 
             <!--  annual button  -->
             <Button
@@ -161,7 +178,7 @@
                 VerticalAlignment="Stretch"
                 AutomationProperties.Name="{x:Bind AnnualPriceContent.AutomationName, Mode=OneWay}"
                 Command="{x:Bind ViewModel.PurchaseAnnualCommand}"
-                Visibility="{x:Bind ViewModel.AnnualButtonVisible, Mode=OneWay}">
+                Visibility="{x:Bind ViewModel.AnnualSubExperimentEnabled}">
                 <Grid>
                     <local:PriceButtonContent
                         x:Name="AnnualPriceContent"
@@ -183,7 +200,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
-                Visibility="{x:Bind ViewModel.LifetimeButtonVisible, Mode=OneWay}">
+                Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualSubExperimentEnabled)}">
                 <Grid>
                     <TextBlock
                         FontSize="12"
@@ -197,19 +214,6 @@
                         Visibility="{x:Bind ViewModel.LifetimeButtonLoading, Mode=OneWay}" />
                 </Grid>
             </Button>
-
-            <StackPanel Grid.RowSpan="3" Visibility="{x:Bind ViewModel.ThanksTextVisible, Mode=OneWay}">
-                <TextBlock
-                    AutomationProperties.AccessibilityView="Raw"
-                    Text="😍 🎉 🥳 "
-                    TextAlignment="Center" />
-                <TextBlock
-                    MaxWidth="240"
-                    VerticalAlignment="Center"
-                    Text="{x:Bind strings:Resources.ThankYouForSub}"
-                    TextAlignment="Center"
-                    TextWrapping="WrapWholeWords" />
-            </StackPanel>
         </Grid>
     </Grid>
 </ContentDialog>
