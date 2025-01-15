@@ -126,12 +126,15 @@
                 Height="54"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                AutomationProperties.Name="{x:Bind ViewModel.MonthlyPriceButtonAutomationName, Mode=OneWay}"
+                AutomationProperties.Name="{x:Bind MonthlyPriceContent.AutomationName, Mode=OneWay}"
                 Command="{x:Bind ViewModel.PurchaseMonthlyCommand}"
                 Style="{ThemeResource AccentButtonStyle}"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
                 <Grid>
-                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.MonthlyPriceInfo, Mode=OneWay}" Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ButtonLoading), Mode=OneWay}" />
+                    <local:PriceButtonContent
+                        x:Name="MonthlyPriceContent"
+                        PriceInfo="{x:Bind ViewModel.MonthlyPriceInfo, Mode=OneWay}"
+                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ButtonLoading), Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
@@ -156,11 +159,14 @@
                 Height="54"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                AutomationProperties.Name="{x:Bind ViewModel.AnnualPriceButtonAutomationName, Mode=OneWay}"
+                AutomationProperties.Name="{x:Bind AnnualPriceContent.AutomationName, Mode=OneWay}"
                 Command="{x:Bind ViewModel.PurchaseAnnualCommand}"
                 Visibility="{x:Bind ViewModel.AnnualButtonVisible, Mode=OneWay}">
                 <Grid>
-                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.AnnualPriceInfo, Mode=OneWay}" Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualButtonLoading), Mode=OneWay}" />
+                    <local:PriceButtonContent
+                        x:Name="AnnualPriceContent"
+                        PriceInfo="{x:Bind ViewModel.AnnualPriceInfo, Mode=OneWay}"
+                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualButtonLoading), Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"

@@ -16,6 +16,12 @@ public sealed partial class PriceButtonContent : UserControl
 {
     private readonly ILocalizer _localizer;
 
+    public static readonly DependencyProperty AutomationNameProperty = DependencyProperty.Register(
+        nameof(AutomationName),
+        typeof(string),
+        typeof(PriceButtonContent),
+        new PropertyMetadata(string.Empty));
+
     public static readonly DependencyProperty PrimaryTextProperty = DependencyProperty.Register(
         nameof(PrimaryText),
         typeof(string),
@@ -49,6 +55,12 @@ public sealed partial class PriceButtonContent : UserControl
     {
         this.InitializeComponent();
         _localizer = App.Services.GetRequiredService<ILocalizer>();
+    }
+
+    public string AutomationName
+    {
+        get => (string)GetValue(AutomationNameProperty);
+        set => SetValue(AutomationNameProperty, value);
     }
 
     public string PrimaryText
@@ -101,6 +113,7 @@ public sealed partial class PriceButtonContent : UserControl
             CaptionText = string.Empty;
         }
 
+        AutomationName = $"{PrimaryText}. {CaptionText}.";
         PrimaryTextFontWeight = CaptionText.Length > 0 ? FontWeights.SemiBold : FontWeights.Normal;
     }
 
