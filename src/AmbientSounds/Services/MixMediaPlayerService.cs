@@ -110,6 +110,17 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     }
 
     /// <inheritdoc/>
+    public Dictionary<string, double> GetPlayerVolumes()
+    {
+        Dictionary<string, double> results = [];
+        foreach (var player in _activePlayers)
+        {
+            results.Add(player.Key, player.Value.Volume * 100);
+        }
+        return results;
+    }
+
+    /// <inheritdoc/>
     public void SetMixId(string mixId)
     {
         if (string.IsNullOrWhiteSpace(mixId))
@@ -118,7 +129,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         CurrentMixId = mixId;
-        MixPlayed?.Invoke(this, new MixPlayedArgs(mixId, _activePlayers.Keys.ToArray()));
+        MixPlayed?.Invoke(this, new MixPlayedArgs(mixId, [.. _activePlayers.Keys]));
     }
 
     private void UpdateAllVolumes(double value)

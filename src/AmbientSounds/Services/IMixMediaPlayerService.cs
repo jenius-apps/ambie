@@ -175,4 +175,9 @@ public interface IMixMediaPlayerService
     /// <param name="oldestToNewest">Sorts the list from oldest to newest if true. Otherwise, sorts newest to oldest.</param>
     /// <returns>Sorted list of active sound IDs.</returns>
     IEnumerable<string> GetSoundIds(bool oldestToNewest);
+
+    /// <summary>
+    /// Gets the volume of the active players.
+    /// </summary>
+    Dictionary<string, double> GetPlayerVolumes();
 }
