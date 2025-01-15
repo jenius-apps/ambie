@@ -131,11 +131,11 @@
                 Style="{ThemeResource AccentButtonStyle}"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
                 <Grid>
-                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.MonthlyPriceInfo, Mode=OneWay}" />
+                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.MonthlyPriceInfo, Mode=OneWay}" Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ButtonLoading), Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
-                        Foreground="White"
+                        Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
                         IsActive="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}"
                         Visibility="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}" />
                 </Grid>
@@ -150,6 +150,7 @@
                 TextAlignment="Center"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}" />
 
+            <!--  annual button  -->
             <Button
                 Grid.Row="2"
                 Height="54"
@@ -159,16 +160,17 @@
                 Command="{x:Bind ViewModel.PurchaseAnnualCommand}"
                 Visibility="{x:Bind ViewModel.AnnualButtonVisible, Mode=OneWay}">
                 <Grid>
-                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.AnnualPriceInfo, Mode=OneWay}" />
+                    <local:PriceButtonContent PriceInfo="{x:Bind ViewModel.AnnualPriceInfo, Mode=OneWay}" Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualButtonLoading), Mode=OneWay}" />
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
                         Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
-                        IsActive="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}"
-                        Visibility="{x:Bind ViewModel.ButtonLoading, Mode=OneWay}" />
+                        IsActive="{x:Bind ViewModel.AnnualButtonLoading, Mode=OneWay}"
+                        Visibility="{x:Bind ViewModel.AnnualButtonLoading, Mode=OneWay}" />
                 </Grid>
             </Button>
 
+            <!--  lifetime button  -->
             <Button
                 Grid.Row="2"
                 Height="36"
