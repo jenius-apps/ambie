@@ -15,10 +15,6 @@
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="HighContrast">
-                    <ImageBrush
-                        x:Key="HeaderImageBrush"
-                        ImageSource="ms-appx:///Assets/ambie_plus_banner.png"
-                        Stretch="UniformToFill" />
                     <SolidColorBrush x:Key="ImageGradientBrush" Color="{StaticResource SystemColorWindowColor}" />
 
                     <Style x:Key="IconBackdrop" TargetType="Ellipse">
@@ -28,11 +24,6 @@
 
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
-                    <ImageBrush
-                        x:Key="HeaderImageBrush"
-                        ImageSource="ms-appx:///Assets/ambie_plus_banner_dark.png"
-                        Stretch="UniformToFill" />
-
                     <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
                         <GradientStop Offset="0" Color="#FF2B2B2B" />
                         <GradientStop Offset="0.3" Color="#002B2B2B" />
@@ -46,11 +37,6 @@
 
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Light">
-                    <ImageBrush
-                        x:Key="HeaderImageBrush"
-                        ImageSource="ms-appx:///Assets/ambie_plus_banner.png"
-                        Stretch="UniformToFill" />
-
                     <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
                         <GradientStop Offset="0.0" Color="#FFFFFFFF" />
                         <GradientStop Offset="0.3" Color="#00FFFFFF" />
@@ -83,7 +69,15 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" MinHeight="160" />
         </Grid.RowDefinitions>
-        <Border Background="{ThemeResource HeaderImageBrush}" />
+        <Border>
+            <Border.Background>
+                <ImageBrush
+                    x:Name="BackgroundImage"
+                    ImageFailed="OnImageFailed"
+                    ImageSource="ms-appx:///Assets/AmbiePlusBanner.png"
+                    Stretch="UniformToFill" />
+            </Border.Background>
+        </Border>
 
         <Rectangle Fill="{ThemeResource ImageGradientBrush}" Stretch="Fill" />
 

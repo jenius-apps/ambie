@@ -388,7 +388,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ambie_plus_banner.png" />
+    <Content Include="Assets\contrast-high\AmbiePlusBanner.png" />
+    <Content Include="Assets\contrast-standard\theme-light\AmbiePlusBanner.png" />
+    <Content Include="Assets\contrast-standard\theme-dark\AmbiePlusBanner.png" />
     <Content Include="Assets\Backgrounds\blisslike.png" />
     <Content Include="Assets\Backgrounds\gradient.png" />
     <Content Include="Assets\Backgrounds\water.png" />
