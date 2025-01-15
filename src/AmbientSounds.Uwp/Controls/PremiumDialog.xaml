@@ -15,25 +15,65 @@
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="HighContrast">
+                    <ImageBrush
+                        x:Key="HeaderImageBrush"
+                        ImageSource="ms-appx:///Assets/ambie_plus_banner.png"
+                        Stretch="UniformToFill" />
                     <SolidColorBrush x:Key="ImageGradientBrush" Color="{StaticResource SystemColorWindowColor}" />
+
+                    <Style x:Key="IconBackdrop" TargetType="Ellipse">
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Height" Value="40" />
+                    </Style>
+
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
+                    <ImageBrush
+                        x:Key="HeaderImageBrush"
+                        ImageSource="ms-appx:///Assets/ambie_plus_banner_dark.png"
+                        Stretch="UniformToFill" />
+
                     <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
                         <GradientStop Offset="0" Color="#FF2B2B2B" />
-                        <GradientStop Offset="0.8" Color="#00000000" />
+                        <GradientStop Offset="0.3" Color="#002B2B2B" />
                     </LinearGradientBrush>
+
+                    <Style x:Key="IconBackdrop" TargetType="Ellipse">
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="Opacity" Value="1" />
+                    </Style>
+
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Light">
+                    <ImageBrush
+                        x:Key="HeaderImageBrush"
+                        ImageSource="ms-appx:///Assets/ambie_plus_banner.png"
+                        Stretch="UniformToFill" />
+
                     <LinearGradientBrush x:Key="ImageGradientBrush" StartPoint="0.5,1" EndPoint="0.5,0">
                         <GradientStop Offset="0.0" Color="#FFFFFFFF" />
-                        <GradientStop Offset="0.5" Color="#00000000" />
+                        <GradientStop Offset="0.3" Color="#00FFFFFF" />
                     </LinearGradientBrush>
+
+                    <Style x:Key="IconBackdrop" TargetType="Ellipse">
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="Opacity" Value="0.5" />
+                    </Style>
 
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
             <Thickness x:Key="ContentDialogPadding">0</Thickness>
             <Thickness x:Key="ContentDialogBorderThickness">0</Thickness>
+
+            <Style x:Key="FeatureIcon" TargetType="FontIcon">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontFamily" Value="{StaticResource FluentUIGlyphs}" />
+                <Setter Property="FontSize" Value="24" />
+            </Style>
         </ResourceDictionary>
     </ContentDialog.Resources>
 
@@ -43,11 +83,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" MinHeight="160" />
         </Grid.RowDefinitions>
-        <Border>
-            <Border.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/ambie_plus_banner.png" Stretch="UniformToFill" />
-            </Border.Background>
-        </Border>
+        <Border Background="{ThemeResource HeaderImageBrush}" />
 
         <Rectangle Fill="{ThemeResource ImageGradientBrush}" Stretch="Fill" />
 
@@ -62,13 +98,13 @@
             <FontIcon
                 FontFamily="{StaticResource FluentUIGlyphs}"
                 FontSize="{StaticResource SmallIconSize}"
-                Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
+                Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
                 Glyph="{StaticResource GlyphCancelSemiBold}" />
         </Button>
 
         <Grid
             Grid.Row="1"
-            Padding="0,0,0,32"
+            Padding="0,0,0,40"
             RowSpacing="20">
             <Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="20" />
@@ -83,25 +119,33 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Orientation="Horizontal"
-                Spacing="12">
+                Spacing="8">
                 <StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
                 </StackPanel.ChildrenTransitions>
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="32"
-                    Foreground="MediumPurple"
-                    Glyph="{StaticResource GlyphSound}" />
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="32"
-                    Foreground="DodgerBlue"
-                    Glyph="{StaticResource GlyphFilmstrip}" />
-                <FontIcon
-                    FontFamily="{StaticResource FluentUIGlyphs}"
-                    FontSize="32"
-                    Foreground="ForestGreen"
-                    Glyph="{StaticResource GlyphLeaves}" />
+                <Grid>
+                    <Ellipse Fill="Orange" Style="{ThemeResource IconBackdrop}" />
+                    <FontIcon
+                        FontSize="20"
+                        Foreground="DarkRed"
+                        Glyph="{StaticResource GlyphSound}"
+                        Style="{StaticResource FeatureIcon}" />
+                </Grid>
+                <Grid>
+                    <Ellipse Fill="SkyBlue" Style="{ThemeResource IconBackdrop}" />
+                    <FontIcon
+                        Foreground="MidnightBlue"
+                        Glyph="{StaticResource GlyphFilmstrip}"
+                        Style="{StaticResource FeatureIcon}" />
+                </Grid>
+                <Grid>
+                    <Ellipse Fill="PaleGreen" Style="{ThemeResource IconBackdrop}" />
+                    <FontIcon
+                        Margin="1,1,0,0"
+                        Foreground="DarkGreen"
+                        Glyph="{StaticResource GlyphLeaves}"
+                        Style="{StaticResource FeatureIcon}" />
+                </Grid>
             </StackPanel>
 
             <TextBlock
