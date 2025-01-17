@@ -248,8 +248,16 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     {
         get
         {
-            TimeSpan duration = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
-            DateTime endTime = _focusHistoryService.GetStartTime().Add(duration);
+            TimeSpan remainingDuration = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
+
+            // If the timer isn't running, then the end time is simply
+            // calculated as now + remaining duration. If the timer is running,
+            // then we use the start time that was logged for the active session.
+            DateTime start = _focusService.CurrentState is FocusState.None
+                ? DateTime.Now
+                : _focusHistoryService.GetStartTime();
+
+            DateTime endTime = start.Add(remainingDuration);
             return endTime.ToShortTimeString();
         }
     }
@@ -435,6 +443,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
                 InitializeSegments();
                 OnPropertyChanged(nameof(StartTime));
+                OnPropertyChanged(nameof(EndTime));
             }
         }
 
