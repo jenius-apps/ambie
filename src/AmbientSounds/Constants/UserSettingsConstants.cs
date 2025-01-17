@@ -192,6 +192,21 @@ public static class UserSettingsConstants
     public const string ChannelClockSecondsEnabledKey = "ChannelClockSecondsEnabled";
 
     /// <summary>
+    /// Remembers your last used timer focus length.
+    /// </summary>
+    public const string LastUsedFocusLengthKey = "LastUsedFocusLength";
+
+    /// <summary>
+    /// Remembers your last used timer rest length.
+    /// </summary>
+    public const string LastUsedRestLengthKey = "LastUsedRestLength";
+
+    /// <summary>
+    /// Remembers your last used timer reptitions.
+    /// </summary>
+    public const string LastUsedRepetitionsKey = "LastUsedRepetitions";
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -229,5 +244,8 @@ public static class UserSettingsConstants
         { HasViewedFreeTrialTipKey, false },
         { ChannelClockEnabledKey, false },
         { ChannelClockSecondsEnabledKey, false },
+        { LastUsedFocusLengthKey, 0 },
+        { LastUsedRestLengthKey, 0 },
+        { LastUsedRepetitionsKey, 0 },
     };
 }

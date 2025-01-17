@@ -179,6 +179,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _focusLength, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedFocusLengthKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(TotalFocus));
             OnPropertyChanged(nameof(EndTime));
@@ -193,6 +194,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _restLength, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedRestLengthKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(TotalRest));
             OnPropertyChanged(nameof(EndTime));
@@ -207,6 +209,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _repetitions, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedRepetitionsKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(EndTime));
             OnPropertyChanged(nameof(TotalFocus));
@@ -284,10 +287,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             RecentSettings.Add(new RecentFocusSettingsViewModel(recent, DeleteRecentSettingCommand));
         }
 
-        if (RecentSettings.FirstOrDefault() is { } s)
-        {
-            LoadRecentSettings(s);
-        }
+        // Load last used numbers
+        FocusLength = _userSettings.Get<int>(UserSettingsConstants.LastUsedFocusLengthKey);
+        RestLength = _userSettings.Get<int>(UserSettingsConstants.LastUsedRestLengthKey);
+        Repetitions = _userSettings.Get<int>(UserSettingsConstants.LastUsedRepetitionsKey);
 
         var interruptions = await recentInterruptionTask;
         InsightsVisible = interruptions.Count > 0;
