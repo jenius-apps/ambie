@@ -100,9 +100,9 @@
             Grid.Row="1"
             Padding="0,0,0,40"
             RowSpacing="20">
-            <Grid.ChildrenTransitions>
+            <!--<Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="20" />
-            </Grid.ChildrenTransitions>
+            </Grid.ChildrenTransitions>-->
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -114,9 +114,9 @@
                 VerticalAlignment="Bottom"
                 Orientation="Horizontal"
                 Spacing="8">
-                <StackPanel.ChildrenTransitions>
+                <!--<StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-                </StackPanel.ChildrenTransitions>
+                </StackPanel.ChildrenTransitions>-->
                 <Grid>
                     <Ellipse Fill="Orange" Style="{ThemeResource IconBackdrop}" />
                     <FontIcon
@@ -169,12 +169,13 @@
         <Grid
             Grid.Row="2"
             Margin="24,0,24,24"
-            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
-            <Grid.ChildrenTransitions>
+            Visibility="Collapsed">
+            <!--<Grid.ChildrenTransitions>
                 <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>
+            </Grid.ChildrenTransitions>-->
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -252,6 +253,54 @@
                         Visibility="{x:Bind ViewModel.LifetimeButtonLoading, Mode=OneWay}" />
                 </Grid>
             </Button>
+
+            <HyperlinkButton
+                Grid.Row="3"
+                Margin="-8,4,0,-12"
+                Padding="8,4"
+                HorizontalContentAlignment="Left"
+                Click="OnEnterPromoCodeClicked"
+                Content="Enter Promo Code"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+        </Grid>
+
+        <Grid
+            Grid.Row="2"
+            ColumnSpacing="12"
+            Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.ColumnSpan="2" Margin="48,0">
+                <TextBox MaxLength="100" />
+                <TextBlock
+                    Margin="0,4,0,0"
+                    FontSize="12"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Text="Enter a promotional code to unlock discounts and deals for Ambie+"
+                    TextAlignment="Center"
+                    TextWrapping="WrapWholeWords" />
+            </StackPanel>
+
+            <Button
+                Grid.Row="1"
+                Margin="24,0,0,24"
+                HorizontalAlignment="Stretch"
+                Content="Back" />
+            <Button
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,0,24,24"
+                HorizontalAlignment="Stretch"
+                Content="Submit"
+                Style="{StaticResource AccentButtonStyle}" />
         </Grid>
     </Grid>
 </ContentDialog>

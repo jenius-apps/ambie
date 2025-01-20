@@ -2,6 +2,7 @@
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -38,5 +39,9 @@ public sealed partial class PremiumDialog : ContentDialog
         {
             { "message", e.ErrorMessage }
         });
+    }
+
+    private void OnEnterPromoCodeClicked(object sender, RoutedEventArgs e)
+    {
     }
 }

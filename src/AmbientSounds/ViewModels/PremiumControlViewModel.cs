@@ -70,6 +70,9 @@ public partial class PremiumControlViewModel : ObservableObject
 
     public bool AnnualButtonVisible => !ThanksTextVisible && AnnualSubExperimentEnabled;
 
+    [ObservableProperty]
+    public bool _promoCodePageVisible;
+
     public async Task InitializeAsync()
     {
         await Task.WhenAll(InitializeMonthlyAsync(), InitializeLifetimeAsync(), InitializeAnnualAsync());
@@ -193,5 +196,11 @@ public partial class PremiumControlViewModel : ObservableObject
             _telemetry.TrackEvent(TelemetryConstants.LifetimeCanceled);
         }
         LifetimeButtonLoading = false;
+    }
+
+    [RelayCommand]
+    private async Task TogglePromoCodePage()
+    {
+        PromoCodePageVisible = !PromoCodePageVisible;
     }
 }
