@@ -2,6 +2,8 @@
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using Windows.Globalization;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
@@ -14,6 +16,11 @@ public sealed partial class PremiumDialog : ContentDialog
     {
         this.InitializeComponent();
         ViewModel = App.Services.GetRequiredService<PremiumControlViewModel>();
+
+        if (new GeographicRegion().CodeTwoLetter.Equals("us", System.StringComparison.OrdinalIgnoreCase))
+        {
+            TariffText.Visibility = Visibility.Visible;
+        }
     }
     
     public PremiumControlViewModel ViewModel { get; }
@@ -27,12 +34,12 @@ public sealed partial class PremiumDialog : ContentDialog
         catch { }
     }
 
-    private void CloseClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+    private void CloseClick(object sender, RoutedEventArgs e)
     {
         this.Hide();
     }
 
-    private void OnImageFailed(object sender, Windows.UI.Xaml.ExceptionRoutedEventArgs e)
+    private void OnImageFailed(object sender, ExceptionRoutedEventArgs e)
     {
         App.Services.GetRequiredService<ITelemetry>().TrackEvent("error:PremiumBannerImageFailed", new Dictionary<string, string>
         {

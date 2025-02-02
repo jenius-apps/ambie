@@ -234,16 +234,25 @@
             <!--  lifetime button  -->
             <Button
                 Grid.Row="2"
-                Height="36"
+                Height="54"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualSubExperimentEnabled)}">
                 <Grid>
-                    <TextBlock
-                        FontSize="12"
-                        Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}"
-                        Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}" />
+                    <StackPanel>
+                        <TextBlock
+                            FontSize="12"
+                            Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}"
+                            TextAlignment="Center"
+                            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}" />
+                        <TextBlock
+                            x:Name="TariffText"
+                            FontSize="10"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            Text="25% increase applied in response to US tariffs on Canadian goods"
+                            Visibility="Collapsed" />
+                    </StackPanel>
                     <winui:ProgressRing
                         Width="20"
                         Height="20"
