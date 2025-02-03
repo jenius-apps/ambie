@@ -240,12 +240,11 @@
                 Command="{x:Bind ViewModel.PurchaseLifetimeCommand}"
                 Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.AnnualSubExperimentEnabled)}">
                 <Grid>
-                    <StackPanel>
+                    <StackPanel Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}">
                         <TextBlock
                             FontSize="12"
                             Text="{x:Bind ViewModel.LifetimePrice, Mode=OneWay}"
-                            TextAlignment="Center"
-                            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.LifetimeButtonLoading), Mode=OneWay}" />
+                            TextAlignment="Center" />
                         <TextBlock
                             x:Name="TariffText"
                             FontSize="10"
