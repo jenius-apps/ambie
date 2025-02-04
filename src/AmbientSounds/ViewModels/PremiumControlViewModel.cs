@@ -22,14 +22,13 @@ public partial class PremiumControlViewModel : ObservableObject
         IIapService iapService,
         ITelemetry telemetry,
         ILocalizer localizer,
-        ISystemInfoProvider infoProvider,
-        IExperimentationService experimentationService)
+        ISystemInfoProvider infoProvider)
     {
         _iapService = iapService;
         _telemetry = telemetry;
         _localizer = localizer;
         _infoProvider = infoProvider;
-        AnnualSubExperimentEnabled = experimentationService.IsEnabled(ExperimentConstants.AnnualSubExperiment);
+        AnnualSubExperimentEnabled = false; // Disabling until further notice.
     }
 
     [ObservableProperty]

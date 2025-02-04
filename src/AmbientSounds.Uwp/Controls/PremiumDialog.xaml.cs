@@ -2,7 +2,6 @@
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
-using Windows.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -17,10 +16,11 @@ public sealed partial class PremiumDialog : ContentDialog
         this.InitializeComponent();
         ViewModel = App.Services.GetRequiredService<PremiumControlViewModel>();
 
-        if (new GeographicRegion().CodeTwoLetter.Equals("us", System.StringComparison.OrdinalIgnoreCase))
-        {
-            TariffText.Visibility = Visibility.Visible;
-        }
+        // Pausing for now while tariffs are paused. Will return if tariffs continue.
+        //if (new GeographicRegion().CodeTwoLetter.Equals("us", System.StringComparison.OrdinalIgnoreCase))
+        //{
+        //    TariffText.Visibility = Visibility.Visible;
+        //}
     }
     
     public PremiumControlViewModel ViewModel { get; }
