@@ -102,11 +102,6 @@ public partial class SoundViewModel : ObservableObject
     private bool _lockIconVisible;
 
     /// <summary>
-    /// The sound's attribution.
-    /// </summary>
-    public string? Attribution => _sound.Attribution;
-
-    /// <summary>
     /// Name of the sound.
     /// </summary>
     public string? Name => IsMix ? _sound.Name : _assetLocalizer.GetLocalName(_sound);

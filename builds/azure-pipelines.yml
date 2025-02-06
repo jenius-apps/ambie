@@ -23,22 +23,6 @@ variables:
 
 steps:
 
-## This is required because the windows-2022 image dropped
-## support for this Store Engagement SDK, and Ambie uses it.
-- task: PowerShell@2
-  displayName: 'Installing Microsoft Store Engagement SDK'
-  inputs:
-    targetType: 'inline'
-    script: |
-      $sdkUrl = '$(EngagementSdkMsiUrl)'
-      $msiPath = Join-Path $env:TEMP "Setup.msi"
-
-      Write-Output "downloading $sdkUrl"
-      Invoke-WebRequest -Uri $sdkUrl -OutFile $msiPath
-
-      Write-Output "Installing $msiPath"
-      Start-Process $msiPath -ArgumentList "/q" -Wait
-
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
@@ -65,6 +49,9 @@ steps:
       $xmlDoc.SelectSingleNode("//root/data[@name='ShareUrl']").Value = "$(ShareUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='PagesUrl']").Value = "$(PagesUrl)"
       $xmlDoc.SelectSingleNode("//root/data[@name='GuidesUrl']").Value = "$(GuidesUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='ChannelsUrl']").Value = "$(ChannelsUrl)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubConnectionString']").Value = "$(NotificationHubConnectionString)"
+      $xmlDoc.SelectSingleNode("//root/data[@name='NotificationHubName']").Value = "$(NotificationHubName)"
       $xmlDoc.Save('$(Build.SourcesDirectory)\src\AmbientSounds.Uwp\appsettings.resw')
     failOnStderr: true
 

@@ -369,15 +369,6 @@
   <data name="PriceForLifetime" xml:space="preserve">
     <value>{0} pe viata</value>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Acceseaza sunete premium, de inalta calitate</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Descarca economizor de ecran video </value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Suporta dezvoltarea aplicatiei</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Iti multumesc pentru abonare!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -926,5 +917,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Încercare gratuită disponibilă</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Deschide ultimul canal</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Canale</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Vizualizați videoclipuri pe ecran complet sau alt conținut vizual pentru a vă ajuta să vă concentrați, să studiați sau să vă relaxați.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Vezi detalii</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Activați ceasul</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Afișați secundele pe ceas</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Activați cronometrul cu numărătoare inversă</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Sunete de înaltă calitate, videoclipuri premium și meditații organizate. Acces la tot conținutul viitor. Deblochează totul cu Ambie+ și găsește-ți următoarea ambianță preferată.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Aceleași beneficii, cost lunar mai mic</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Obțineți un plan anual - {0}</value>
   </data>
 </root>

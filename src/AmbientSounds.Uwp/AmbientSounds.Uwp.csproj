@@ -124,6 +124,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animations\AnimationConstants.cs" />
+    <Compile Include="Animations\ChannelItemAnimations.cs" />
     <Compile Include="Animations\SoundItemAnimations.cs" />
     <Compile Include="App.Configuration.xaml.cs" />
     <Compile Include="App.xaml.cs">
@@ -144,8 +145,14 @@
     <Compile Include="Controls\CatalogueRowControl.xaml.cs">
       <DependentUpon>CatalogueRowControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ChannelViewerSettingsDialog.xaml.cs">
+      <DependentUpon>ChannelViewerSettingsDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CompactFocusTimerModule.xaml.cs">
       <DependentUpon>CompactFocusTimerModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DigitalClock.xaml.cs">
+      <DependentUpon>DigitalClock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DownloadMissingList.xaml.cs">
       <DependentUpon>DownloadMissingList.xaml</DependentUpon>
@@ -194,8 +201,8 @@
     <Compile Include="Controls\PlayerControl.xaml.cs">
       <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PremiumControl.xaml.cs">
-      <DependentUpon>PremiumControl.xaml</DependentUpon>
+    <Compile Include="Controls\PremiumDialog.xaml.cs">
+      <DependentUpon>PremiumDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PriceButtonContent.xaml.cs">
       <DependentUpon>PriceButtonContent.xaml</DependentUpon>
@@ -289,7 +296,6 @@
     </Compile>
     <Compile Include="Converters\LocalizationConverter.cs" />
     <Compile Include="Converters\ThemeConverter.cs" />
-    <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceDictionaries\SharedTemplates.xaml.cs">
       <DependentUpon>SharedTemplates.xaml</DependentUpon>
@@ -306,9 +312,7 @@
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\FileWriter.cs" />
-    <Compile Include="Services\LocalSettings.cs" />
     <Compile Include="Services\Navigator.cs" />
-    <Compile Include="Services\PartnerCentreNotificationRegistrar.cs" />
     <Compile Include="Services\ScreensaverService.cs" />
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\WindowsDownloadManager.cs" />
@@ -321,12 +325,16 @@
     <Compile Include="Tools\AssetsReader.cs" />
     <Compile Include="Tools\MicrosoftStoreRatings.cs" />
     <Compile Include="Tools\WindowsMediaPlayerFactory.cs" />
+    <Compile Include="Tools\WindowsPushNotificationSource.cs" />
     <Compile Include="Tools\WindowsSystemMediaControls.cs" />
     <Compile Include="Views\BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CataloguePage.xaml.cs">
       <DependentUpon>CataloguePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChannelsPage.xaml.cs">
+      <DependentUpon>ChannelsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CompactFocusPage.xaml.cs">
       <DependentUpon>CompactFocusPage.xaml</DependentUpon>
@@ -380,7 +388,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ambie_plus_banner.png" />
+    <Content Include="Assets\contrast-high\AmbiePlusBanner.png" />
+    <Content Include="Assets\contrast-standard\theme-light\AmbiePlusBanner.png" />
+    <Content Include="Assets\contrast-standard\theme-dark\AmbiePlusBanner.png" />
     <Content Include="Assets\Backgrounds\blisslike.png" />
     <Content Include="Assets\Backgrounds\gradient.png" />
     <Content Include="Assets\Backgrounds\water.png" />
@@ -502,7 +512,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ChannelViewerSettingsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\CompactFocusTimerModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DigitalClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -566,7 +584,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\PremiumControl.xaml">
+    <Page Include="Controls\PremiumDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -702,6 +720,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChannelsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CompactFocusPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -774,16 +796,13 @@
       <Version>0.0.1</Version>
     </PackageReference>
     <PackageReference Include="JeniusApps.Common.Uwp">
-      <Version>0.0.38-preview</Version>
+      <Version>0.0.41-preview</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
       <Version>7.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Services.Store.Engagement">
-      <Version>10.1901.28001</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp">
       <Version>7.1.3</Version>
@@ -815,11 +834,18 @@
     <PackageReference Include="QueryString.NET">
       <Version>1.0.0</Version>
     </PackageReference>
+    <PackageReference Include="WindowsAzure.Messaging.Managed">
+      <Version>0.1.7.9</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Data.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AmbientSounds.Models\AmbientSounds.Models.csproj">
+      <Project>{8cc4241a-f7b8-42ce-aa56-1ce90a8a72f9}</Project>
+      <Name>AmbientSounds.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AmbientSounds.Tasks\AmbientSounds.Tasks.csproj">
       <Project>{ef926887-a6b2-461e-97ca-1c25b065e0c6}</Project>
       <Name>AmbientSounds.Tasks</Name>
@@ -866,11 +892,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fluentui.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
-      <Name>Microsoft Engagement Framework</Name>
-    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\AmbientSounds.Uwp.ar.xlf" />

@@ -756,45 +756,6 @@ namespace AmbientSounds.Strings{
         }
         #endregion
 
-        #region SubscriptionText1
-        /// <summary>
-        ///   Looks up a localized string similar to: Access premium, high quality sounds
-        /// </summary>
-        public static string SubscriptionText1
-        {
-            get
-            {
-                return _resourceLoader.GetString("SubscriptionText1");
-            }
-        }
-        #endregion
-
-        #region SubscriptionText2
-        /// <summary>
-        ///   Looks up a localized string similar to: Download video screensavers
-        /// </summary>
-        public static string SubscriptionText2
-        {
-            get
-            {
-                return _resourceLoader.GetString("SubscriptionText2");
-            }
-        }
-        #endregion
-
-        #region SubscriptionText3
-        /// <summary>
-        ///   Looks up a localized string similar to: Support development
-        /// </summary>
-        public static string SubscriptionText3
-        {
-            get
-            {
-                return _resourceLoader.GetString("SubscriptionText3");
-            }
-        }
-        #endregion
-
         #region ThankYouForSub
         /// <summary>
         ///   Looks up a localized string similar to: Thank you for subscribing!
@@ -3173,6 +3134,136 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region OpenLastChannelText
+        /// <summary>
+        ///   Looks up a localized string similar to: Open last channel
+        /// </summary>
+        public static string OpenLastChannelText
+        {
+            get
+            {
+                return _resourceLoader.GetString("OpenLastChannelText");
+            }
+        }
+        #endregion
+
+        #region ChannelsTitleText
+        /// <summary>
+        ///   Looks up a localized string similar to: Channels
+        /// </summary>
+        public static string ChannelsTitleText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ChannelsTitleText");
+            }
+        }
+        #endregion
+
+        #region ChannelsSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: View full screen videos or other visual content to help you focus, study, or relax.
+        /// </summary>
+        public static string ChannelsSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("ChannelsSubtitle");
+            }
+        }
+        #endregion
+
+        #region ViewDetailsText
+        /// <summary>
+        ///   Looks up a localized string similar to: View details
+        /// </summary>
+        public static string ViewDetailsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("ViewDetailsText");
+            }
+        }
+        #endregion
+
+        #region SettingsEnableClockHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Enable clock
+        /// </summary>
+        public static string SettingsEnableClockHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsEnableClockHeader");
+            }
+        }
+        #endregion
+
+        #region SettingsEnableClockSecondsHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Display seconds on clock
+        /// </summary>
+        public static string SettingsEnableClockSecondsHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsEnableClockSecondsHeader");
+            }
+        }
+        #endregion
+
+        #region SettingsEnableCountdownHeader
+        /// <summary>
+        ///   Looks up a localized string similar to: Enable countdown timer
+        /// </summary>
+        public static string SettingsEnableCountdownHeader
+        {
+            get
+            {
+                return _resourceLoader.GetString("SettingsEnableCountdownHeader");
+            }
+        }
+        #endregion
+
+        #region PremiumMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.
+        /// </summary>
+        public static string PremiumMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("PremiumMessage");
+            }
+        }
+        #endregion
+
+        #region AnnualPlanCaption
+        /// <summary>
+        ///   Looks up a localized string similar to: Same benefits, lower monthly cost
+        /// </summary>
+        public static string AnnualPlanCaption
+        {
+            get
+            {
+                return _resourceLoader.GetString("AnnualPlanCaption");
+            }
+        }
+        #endregion
+
+        #region AnnualPlanTitle
+        /// <summary>
+        ///   Looks up a localized string similar to: Get annual plan - {0}
+        /// </summary>
+        public static string AnnualPlanTitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("AnnualPlanTitle");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3241,9 +3332,6 @@ namespace AmbientSounds.Strings{
             SettingsResumeOnLaunch,
             PricePerMonth,
             PriceForLifetime,
-            SubscriptionText1,
-            SubscriptionText2,
-            SubscriptionText3,
             ThankYouForSub,
             HelloAgain,
             RateUsMessage,
@@ -3427,6 +3515,16 @@ namespace AmbientSounds.Strings{
             SettingsFeedbackDescription,
             FreeTrialTipDescription,
             FreeTrialTipTitle,
+            OpenLastChannelText,
+            ChannelsTitleText,
+            ChannelsSubtitle,
+            ViewDetailsText,
+            SettingsEnableClockHeader,
+            SettingsEnableClockSecondsHeader,
+            SettingsEnableCountdownHeader,
+            PremiumMessage,
+            AnnualPlanCaption,
+            AnnualPlanTitle,
         }
 
         private static ResourceLoader _resourceLoader;

@@ -367,15 +367,6 @@
     <value>Obrigado por se inscrever!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Acesse sons premium de alta qualidade</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Catálogo em crescimento</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Apoie o desenvolvimento</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Olá de novo</value>
   </data>
@@ -929,5 +920,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Avaliação gratuita disponível</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Abrir último canal</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Canais</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Veja vídeos em tela cheia ou outro conteúdo visual para ajudá-lo a se concentrar, estudar ou relaxar.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Ver detalhes</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Ativar relógio</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Exibir segundos no relógio</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Ativar cronômetro de contagem regressiva</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Sons de alta qualidade, vídeos premium e meditações selecionadas. Acesso a todo o conteúdo futuro. Desbloqueie tudo com o Ambie+ e encontre o seu próximo ambiente favorito.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Mesmos benefícios, menor custo mensal</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Obtenha o plano anual - {0}</value>
   </data>
 </root>

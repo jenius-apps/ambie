@@ -487,18 +487,6 @@
           <target state="translated">Merci de vous être abonné!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">Accédez à des sons de haute qualité</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">Télécharger des vidéos</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">Soutenir le développement</target>
-        </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
           <target state="translated">Rebonjour 👋🏽</target>
@@ -1239,6 +1227,46 @@
         <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
           <source>Free trial available</source>
           <target state="translated">Essai gratuit disponible</target>
+        </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">Ouvrir la dernière chaîne</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">Canaux</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">Affichez des vidéos en plein écran ou d’autres contenus visuels pour vous aider à vous concentrer, à étudier ou à vous détendre.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">Voir les détails</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Activer l’horloge</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Afficher les secondes sur l’horloge</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Activer le compte à rebours</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Des sons de haute qualité, des vidéos premium et des méditations organisées. Accès à tous les contenus futurs. Débloquez tout cela avec Ambie+ et trouvez votre prochaine ambiance préférée.</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Mêmes avantages, coût mensuel inférieur</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Obtenir un plan annuel - {0}</target>
         </trans-unit>
       </group>
     </body>

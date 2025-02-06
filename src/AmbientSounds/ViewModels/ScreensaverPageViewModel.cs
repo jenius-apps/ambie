@@ -1,242 +1,335 @@
 ﻿using AmbientSounds.Constants;
+using AmbientSounds.Events;
+using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using JeniusApps.Common.Tools;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Settings;
+using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using JeniusApps.Common.Telemetry;
 
-namespace AmbientSounds.ViewModels
+namespace AmbientSounds.ViewModels;
+
+public partial class ScreensaverPageViewModel : ObservableObject
 {
-    public partial class ScreensaverPageViewModel : ObservableObject
+    private const string DefaultId = "default";
+    private const string DarkScreenId = "darkscreen";
+    private const string VideoDialogId = "videoDialog";
+    private const string DefaultVideoSource = "http://localhost";
+    private readonly ILocalizer _localizer;
+    private readonly IVideoService _videoService;
+    private readonly IDialogService _dialogService;
+    private readonly IIapService _iapService;
+    private readonly ITelemetry _telemetry;
+    private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly IUserSettings _userSettings;
+    private readonly IChannelService _channelService;
+    private readonly ChannelVmFactory _channelFactory;
+    private Uri _videoSource = new(DefaultVideoSource);
+    private string _activeScreensaverId = string.Empty;
+
+    /// <summary>
+    /// Raised when the view model has completed
+    /// initialization.
+    /// </summary>
+    public event EventHandler? Loaded;
+
+    public ScreensaverPageViewModel(
+        ILocalizer localizer,
+        IVideoService videoService,
+        IDialogService dialogService,
+        IIapService iapService,
+        ITelemetry telemetry,
+        ISystemInfoProvider systemInfoProvider,
+        IUserSettings userSettings,
+        IChannelService channelService,
+        ChannelVmFactory channelVmFactory,
+        IExperimentationService experimentationService)
     {
-        private const string DefaultId = "default";
-        private const string DarkScreenId = "darkscreen";
-        private const string VideoDialogId = "videoDialog";
-        private const string DefaultVideoSource = "http://localhost";
-        private readonly ILocalizer _localizer;
-        private readonly IVideoService _videoService;
-        private readonly IDialogService _dialogService;
-        private readonly IIapService _iapService;
-        private readonly ITelemetry _telemetry;
-        private readonly ISystemInfoProvider _systemInfoProvider;
-        private readonly IUserSettings _userSettings;
-        private Uri _videoSource = new Uri(DefaultVideoSource);
+        _localizer = localizer;
+        _videoService = videoService;
+        _dialogService = dialogService;
+        _iapService = iapService;
+        _telemetry = telemetry;
+        _systemInfoProvider = systemInfoProvider;
+        _userSettings = userSettings;
+        _channelService = channelService;
+        _channelFactory = channelVmFactory;
 
-        [ObservableProperty]
-        private bool _settingsButtonVisible;
+        _videoService.VideoDeleted += OnVideoDeleted;
 
-        [ObservableProperty]
-        private bool _loading;
+        UpdateClockSettings();
+    }
 
-        [ObservableProperty]
-        private bool _slideshowVisible;
+    [ObservableProperty]
+    private bool _clockVisible;
 
-        [ObservableProperty]
-        private bool _isDarkScreen;
+    [ObservableProperty]
+    private bool _settingsButtonVisible;
 
-        [ObservableProperty]
-        private bool _dialogOpen;
+    [ObservableProperty]
+    private bool _loading;
 
-        /// <summary>
-        /// Raised when the view model has completed
-        /// initialization.
-        /// </summary>
-        public event EventHandler? Loaded;
+    [ObservableProperty]
+    private bool _slideshowVisible;
 
-        public ScreensaverPageViewModel(
-            ILocalizer localizer,
-            IVideoService videoService,
-            IDialogService dialogService,
-            IIapService iapService,
-            ITelemetry telemetry,
-            ISystemInfoProvider systemInfoProvider,
-            IUserSettings userSettings)
+    [ObservableProperty]
+    private bool _isDarkScreen;
+
+    [ObservableProperty]
+    private bool _dialogOpen;
+
+    [ObservableProperty]
+    private string _videoPlaceholderImageUrl = "http://localhost";
+
+    public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = [];
+
+    public ObservableCollection<ChannelViewModel> Channels { get; } = [];
+
+    public FlyoutMenuItem? CurrentSelection { get; set; }
+
+    public Uri VideoSource
+    {
+        get => _videoSource;
+        set
         {
-            Guard.IsNotNull(localizer, nameof(localizer));
-            Guard.IsNotNull(videoService, nameof(videoService));
-            Guard.IsNotNull(dialogService, nameof(dialogService));
-            Guard.IsNotNull(iapService, nameof(iapService));
-            Guard.IsNotNull(telemetry, nameof(telemetry));
-            Guard.IsNotNull(systemInfoProvider, nameof(systemInfoProvider));
-            Guard.IsNotNull(userSettings, nameof(userSettings));
-
-            _localizer = localizer;
-            _videoService = videoService;
-            _dialogService = dialogService;
-            _iapService = iapService;
-            _telemetry = telemetry;
-            _systemInfoProvider = systemInfoProvider;
-            _userSettings = userSettings;
-
-            _videoService.VideoDownloaded += OnVideoDownloaded;
-            _videoService.VideoDeleted += OnVideoDeleted;
-        }
-
-        public ObservableCollection<FlyoutMenuItem> MenuItems { get; } = new();
-
-        public FlyoutMenuItem? CurrentSelection { get; set; }
-
-        public Uri VideoSource
-        {
-            get => _videoSource;
-            set
-            {
-                if (value is null)
-                {
-                    return;
-                }
-
-                _videoSource = value;
-                OnPropertyChanged(nameof(VideoPlayerVisible));
-
-                // Manually raise this event because
-                // UI depends on this being raised
-                // when navigating to the page.
-                OnPropertyChanged(nameof(VideoSource));
-            }
-        }
-
-        public bool VideoPlayerVisible => VideoSource.AbsoluteUri != DefaultVideoSource;
-
-        public bool FullScreenVisible => _systemInfoProvider.GetDeviceFamily() == "Windows.Desktop";
-
-        public async Task InitializeAsync(string? screensaverToSelect = "")
-        {
-            if (Loading)
+            if (value is null)
             {
                 return;
             }
 
-            Loading = true;
+            _videoSource = value;
+            OnPropertyChanged(nameof(VideoPlayerVisible));
 
-            MenuItems.Clear();
-            IReadOnlyList<Video> videos = await _videoService.GetVideosAsync(includeOnline: false);
-            var screensaverCommand = new AsyncRelayCommand<string>(ChangeScreensaverTo);
-            MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), screensaverCommand, DefaultId, true));
-            MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), screensaverCommand, DarkScreenId, true));
+            // Manually raise this event because
+            // UI depends on this being raised
+            // when navigating to the page.
+            OnPropertyChanged(nameof(VideoSource));
+        }
+    }
 
-            foreach (var v in videos)
-            {
-                if (_videoService.GetInstallProgress(v) is not null)
-                {
-                    // If a video is still being downloaded, don't add it to the menu.
-                    continue;
-                }
+    public bool VideoPlayerVisible => VideoSource.AbsoluteUri != DefaultVideoSource;
 
-                MenuItems.Add(new FlyoutMenuItem(v.Id, v.Name, screensaverCommand, v.Id, true));
-            }
+    public bool FullScreenVisible => _systemInfoProvider.GetDeviceFamily() == "Windows.Desktop";
 
-            MenuItems.Add(new FlyoutMenuItem(VideoDialogId, _localizer.GetString("MoreScreensavers"), screensaverCommand, VideoDialogId));
+    public Task InitializeAsync(ScreensaverArgs args)
+    {
+        VideoPlaceholderImageUrl = args.VideoImagePreviewUrl ?? "http://localhost";
 
-            if (MenuItems.Count > 1)
-            {
-                // Only show if we have more than the default option.
-                SettingsButtonVisible = true;
-            }
+        string screensaverId = args.RequestedType switch
+        {
+            ChannelType.DarkScreen => DarkScreenId,
+            ChannelType.Slideshow => DefaultId,
+            ChannelType.Videos => args.VideoId ?? string.Empty,
+            _ => string.Empty
+        };
 
-            await ChangeScreensaverTo(string.IsNullOrEmpty(screensaverToSelect) ? DefaultId : screensaverToSelect);
+        _activeScreensaverId = screensaverId;
+        return InitializeAsync(screensaverId);
+    }
 
-            Loading = false;
-            Loaded?.Invoke(this, EventArgs.Empty);
+    public async Task InitializeAsync(string? screensaverToSelect = "")
+    {
+        if (Loading)
+        {
+            return;
         }
 
-        private async void OnVideoDeleted(object sender, string deletedVideoId)
+        Loading = true;
+
+        var channelsTask = InitializeChannelsAsync(default);
+
+        MenuItems.Clear();
+        IReadOnlyList<Video> videos = await _videoService.GetVideosAsync(includeOnline: false);
+        MenuItems.Add(new FlyoutMenuItem(DefaultId, _localizer.GetString(DefaultId), ChangeScreensaverToCommand, DefaultId, true));
+        MenuItems.Add(new FlyoutMenuItem(DarkScreenId, _localizer.GetString("SettingsThemeDarkRadio/Content"), ChangeScreensaverToCommand, DarkScreenId, true));
+
+        foreach (var v in videos)
         {
-            await InitializeAsync(deletedVideoId == CurrentSelection?.Id
-                ? DefaultId
-                : CurrentSelection?.Id);
+            if (_videoService.GetInstallProgress(v) is not null)
+            {
+                // If a video is still being downloaded, don't add it to the menu.
+                continue;
+            }
+
+            MenuItems.Add(new FlyoutMenuItem(v.Id, v.Name, ChangeScreensaverToCommand, v.Id, true));
         }
 
-        private async void OnVideoDownloaded(object sender, string e)
+        MenuItems.Add(new FlyoutMenuItem(VideoDialogId, _localizer.GetString("MoreScreensavers"), ChangeScreensaverToCommand, VideoDialogId));
+
+        if (MenuItems.Count > 1)
         {
-            await InitializeAsync(screensaverToSelect: CurrentSelection?.Id);
+            // Only show if we have more than the default option.
+            SettingsButtonVisible = true;
         }
 
-        private async Task ChangeScreensaverTo(string? menuItemId)
+        await ChangeScreensaverTo(string.IsNullOrEmpty(screensaverToSelect) ? DefaultId : screensaverToSelect);
+
+        await channelsTask;
+        Loading = false;
+        Loaded?.Invoke(this, EventArgs.Empty);
+    }
+
+    public async Task InitializeChannelsAsync(CancellationToken ct)
+    {
+        Channels.Clear();
+        ct.ThrowIfCancellationRequested();
+
+        var channels = await _channelService.GetChannelsAsync();
+
+        ct.ThrowIfCancellationRequested();
+        foreach (var c in channels)
         {
-            if (menuItemId is null)
-            {
-                return;
-            }
+            ct.ThrowIfCancellationRequested();
 
-            if (menuItemId == VideoDialogId)
+            if (_channelFactory.Create(c, playCommand: PlayChannelCommand) is { } vm)
             {
-                _telemetry.TrackEvent(TelemetryConstants.VideoMenuOpened);
-                DialogOpen = true;
-                await _dialogService.OpenVideosMenuAsync();
-                DialogOpen = false;
-                return;
-            }
-
-            var newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == menuItemId);
-            if (newSelectedItem is null)
-            {
-                menuItemId = DefaultId;
-                newSelectedItem = MenuItems.FirstOrDefault(x => x.Id == DefaultId);
-            }
-
-            if (newSelectedItem?.IsToggle == true)
-            {
-                CurrentSelection = newSelectedItem;
-                _userSettings.Set(UserSettingsConstants.LastUsedScreensaverKey, menuItemId);
-            }
-
-            if (menuItemId == DefaultId)
-            {
-                IsDarkScreen = false;
-                VideoSource = new Uri(DefaultVideoSource);
-                SlideshowVisible = true;
-            }
-            else if (menuItemId == DarkScreenId)
-            {
-                IsDarkScreen = true;
-                VideoSource = new Uri(DefaultVideoSource);
-                SlideshowVisible = false;
-            }
-            else
-            {
-                IsDarkScreen = false;
-                Video? video = await _videoService.GetLocalVideoAsync(menuItemId!);
-                var isOwned = await _iapService.IsAnyOwnedAsync(video?.IapIds ?? Array.Empty<string>());
-                if (!isOwned)
-                {
-                    DialogOpen = true;
-                    await _dialogService.OpenPremiumAsync();
-                    DialogOpen = false;
-                    return;
-                }
-
-                var path = await _videoService.GetFilePathAsync(menuItemId);
-                if (!string.IsNullOrEmpty(path))
-                {
-                    SlideshowVisible = false;
-
-                    try
-                    {
-                        VideoSource = new Uri(path);
-                    }
-                    catch (UriFormatException)
-                    {
-                        // TODO log error
-                    }
-                }
-
-                _telemetry.TrackEvent(TelemetryConstants.VideoSelected, new Dictionary<string, string>()
-                {
-                    { "id",  menuItemId! },
-                    { "name", video?.Name ?? string.Empty }
-                });
+                await vm.InitializeAsync();
+                Channels.Add(vm);
             }
         }
     }
 
-    public record FlyoutMenuItem(string Id, string Text, ICommand Command, object? CommandParameter = null, bool IsToggle = false);
+    public void Uninitialize()
+    {
+        foreach (var channel in Channels)
+        {
+            channel.Uninitialize();
+        }
+
+        Channels.Clear();
+    }
+
+    private async void OnVideoDeleted(object sender, string deletedVideoId)
+    {
+        await InitializeAsync(deletedVideoId == CurrentSelection?.Id
+            ? DefaultId
+            : CurrentSelection?.Id);
+    }
+
+    [RelayCommand]
+    private async Task PageSettingsAsync()
+    {
+        DialogOpen = true;
+        _telemetry.TrackEvent(TelemetryConstants.ChannelViewerSettingsClicked);
+        await _dialogService.OpenChannelPageSettingsAsync();
+        DialogOpen = false;
+
+        UpdateClockSettings();
+    }
+
+    private void UpdateClockSettings()
+    {
+        ClockVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey) ||
+            _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+    }
+
+
+    [RelayCommand]
+    private async Task PlayChannelAsync(ChannelViewModel? channelViewModel)
+    {
+        if (channelViewModel?.Channel is not Channel channel)
+        {
+            return;
+        }
+
+        string? menuItemId = null;
+        if (channel.Type is ChannelType.DarkScreen)
+        {
+            menuItemId = DarkScreenId;
+        }
+        else if (channel.Type is ChannelType.Slideshow)
+        {
+            menuItemId = DefaultId;
+        }
+        else if (channel is { Type: ChannelType.Videos, VideoIds: [string videoId, ..] })
+        {
+            menuItemId = videoId;
+        }
+
+        if (menuItemId is not { Length: > 0 } || menuItemId == _activeScreensaverId)
+        {
+            return;
+        }
+
+        _activeScreensaverId = menuItemId;
+        await _channelService.PlayChannelAsync(channel, performNavigation: false);
+        await ChangeScreensaverTo(menuItemId);
+    }
+
+    [RelayCommand]
+    private async Task ChangeScreensaverTo(string? menuItemId)
+    {
+        if (menuItemId is null)
+        {
+            return;
+        }
+
+        if (menuItemId == VideoDialogId)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.VideoMenuOpened);
+            DialogOpen = true;
+            await _dialogService.OpenVideosMenuAsync();
+            DialogOpen = false;
+            return;
+        }
+
+        if (menuItemId == DefaultId)
+        {
+            IsDarkScreen = false;
+            VideoSource = new Uri(DefaultVideoSource);
+            SlideshowVisible = true;
+        }
+        else if (menuItemId == DarkScreenId)
+        {
+            IsDarkScreen = true;
+            VideoSource = new Uri(DefaultVideoSource);
+            SlideshowVisible = false;
+        }
+        else
+        {
+            IsDarkScreen = false;
+            Video? video = await _videoService.GetLocalVideoAsync(menuItemId!);
+            var isOwned = await _iapService.IsAnyOwnedAsync(video?.IapIds ?? Array.Empty<string>());
+            if (!isOwned)
+            {
+                DialogOpen = true;
+                await _dialogService.OpenPremiumAsync();
+                DialogOpen = false;
+                return;
+            }
+
+            var path = await _videoService.GetFilePathAsync(menuItemId);
+            if (!string.IsNullOrEmpty(path))
+            {
+                SlideshowVisible = false;
+
+                try
+                {
+                    VideoSource = new Uri(path);
+                }
+                catch (UriFormatException)
+                {
+                    // TODO log error
+                }
+            }
+
+            _telemetry.TrackEvent(TelemetryConstants.VideoSelected, new Dictionary<string, string>()
+            {
+                { "id",  menuItemId! },
+                { "name", video?.Name ?? string.Empty }
+            });
+        }
+
+        _userSettings.Set(UserSettingsConstants.LastUsedChannelKey, menuItemId);
+    }
 }
+
+public record FlyoutMenuItem(string Id, string Text, ICommand Command, object? CommandParameter = null, bool IsToggle = false);

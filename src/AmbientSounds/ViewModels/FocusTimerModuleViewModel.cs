@@ -4,6 +4,7 @@ using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
@@ -178,6 +179,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _focusLength, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedFocusLengthKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(TotalFocus));
             OnPropertyChanged(nameof(EndTime));
@@ -192,6 +194,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _restLength, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedRestLengthKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(TotalRest));
             OnPropertyChanged(nameof(EndTime));
@@ -206,6 +209,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         set
         {
             SetProperty(ref _repetitions, value);
+            _userSettings.Set(UserSettingsConstants.LastUsedRepetitionsKey, value);
             OnPropertyChanged(nameof(TotalTime));
             OnPropertyChanged(nameof(EndTime));
             OnPropertyChanged(nameof(TotalFocus));
@@ -247,8 +251,16 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     {
         get
         {
-            TimeSpan duration = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
-            DateTime endTime = DateTime.Now.Add(duration);
+            TimeSpan remainingDuration = FocusExtensions.GetTotalTime(FocusLength, RestLength, Repetitions);
+
+            // If the timer isn't running, then the end time is simply
+            // calculated as now + remaining duration. If the timer is running,
+            // then we use the start time that was logged for the active session.
+            DateTime start = _focusService.CurrentState is FocusState.None
+                ? DateTime.Now
+                : _focusHistoryService.GetStartTime();
+
+            DateTime endTime = start.Add(remainingDuration);
             return endTime.ToShortTimeString();
         }
     }
@@ -275,10 +287,10 @@ public partial class FocusTimerModuleViewModel : ObservableObject
             RecentSettings.Add(new RecentFocusSettingsViewModel(recent, DeleteRecentSettingCommand));
         }
 
-        if (RecentSettings.FirstOrDefault() is { } s)
-        {
-            LoadRecentSettings(s);
-        }
+        // Load last used numbers
+        FocusLength = _userSettings.Get<int>(UserSettingsConstants.LastUsedFocusLengthKey);
+        RestLength = _userSettings.Get<int>(UserSettingsConstants.LastUsedRestLengthKey);
+        Repetitions = _userSettings.Get<int>(UserSettingsConstants.LastUsedRepetitionsKey);
 
         var interruptions = await recentInterruptionTask;
         InsightsVisible = interruptions.Count > 0;
@@ -434,6 +446,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
                 _ = _recentFocusService.AddRecentAsync(FocusLength, RestLength, Repetitions);
                 InitializeSegments();
                 OnPropertyChanged(nameof(StartTime));
+                OnPropertyChanged(nameof(EndTime));
             }
         }
 

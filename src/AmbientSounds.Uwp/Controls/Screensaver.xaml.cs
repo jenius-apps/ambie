@@ -1,73 +1,96 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using static System.Net.Mime.MediaTypeNames;
 
 #nullable enable
 
-namespace AmbientSounds.Controls
+namespace AmbientSounds.Controls;
+
+public sealed partial class Screensaver : UserControl
 {
-    public sealed partial class Screensaver : UserControl
+    public event EventHandler? ImageChanged;
+
+    public Screensaver()
     {
-        public Screensaver()
+        this.InitializeComponent();
+        this.DataContext = App.Services.GetRequiredService<ScreensaverViewModel>();
+        this.Loaded += (_, _) =>
         {
-            this.InitializeComponent();
-            this.DataContext = App.Services.GetRequiredService<ScreensaverViewModel>();
-            this.Loaded += (_, _) =>
-            {
-                ViewModel.Initialize();
-                ViewModel.PropertyChanging += PropertyChanging;
-            };
-            this.Unloaded += (_, _) =>
-            {
-                ImageSb1.Stop();
-                ImageSb2.Stop();
-                ViewModel.Dispose();
-                ViewModel.PropertyChanging -= PropertyChanging;
-            };
-            this.SizeChanged += OnSizeChanged;
+            ViewModel.Initialize();
+            ViewModel.PropertyChanged += OnPropertyChanged;
+        };
+        this.Unloaded += (_, _) =>
+        {
+            ImageSb1.Stop();
+            ImageSb2.Stop();
+            ViewModel.Dispose();
+            ViewModel.PropertyChanged -= OnPropertyChanged;
+        };
+        this.SizeChanged += OnSizeChanged;
+    }
+
+    public ScreensaverViewModel ViewModel => (ScreensaverViewModel)this.DataContext;
+
+    public void Uninitialize()
+    {
+        ImageSb1.Stop();
+        ImageSb2.Stop();
+    }
+
+    private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        if (e.NewSize.Width >= e.NewSize.Height)
+        {
+            image.Width = e.NewSize.Width * 1.3;
+            image2.Width = e.NewSize.Width * 1.3;
+            image.Height = double.NaN;
+            image2.Height = double.NaN;
         }
-
-        public ScreensaverViewModel ViewModel => (ScreensaverViewModel)this.DataContext;
-
-        private void OnSizeChanged(object sender, SizeChangedEventArgs e)
+        else
         {
-            if (e.NewSize.Width >= e.NewSize.Height)
+            image.Height = e.NewSize.Height * 1.3;
+            image2.Height = e.NewSize.Height * 1.3;
+            image.Width = double.NaN;
+            image2.Width = double.NaN;
+        }
+    }
+
+    private async void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == nameof(ViewModel.ImageVisible1))
+        {
+            if (ViewModel.ImageVisible1 == false)
             {
-                image.Width = e.NewSize.Width * 1.3;
-                image2.Width = e.NewSize.Width * 1.3;
-                image.Height = double.NaN;
-                image2.Height = double.NaN;
+                await Image1Hide.StartAsync();
+                image.Visibility = Visibility.Collapsed;
+                ImageSb1.Stop();
             }
             else
             {
-                image.Height = e.NewSize.Height * 1.3;
-                image2.Height = e.NewSize.Height * 1.3;
-                image.Width = double.NaN;
-                image2.Width = double.NaN;
+                image.Visibility = Visibility.Visible;
+                ImageSb1.Begin();
             }
-        }
 
-        private void PropertyChanging(object sender, PropertyChangingEventArgs e)
+            ImageChanged?.Invoke(this, EventArgs.Empty);
+        }
+        else if (e.PropertyName == nameof(ViewModel.ImageVisible2))
         {
-            if (e.PropertyName == nameof(ViewModel.ImageVisible1))
+            if (ViewModel.ImageVisible2 == false)
             {
-                if (ViewModel.ImageVisible1 == false)
-                {
-                    ImageSb1.Stop();
-                    ImageSb1.Begin();
-                }
+                await Image2Hide.StartAsync();
+                image2.Visibility = Visibility.Collapsed;
+                ImageSb2.Stop();
             }
-            else if (e.PropertyName == nameof(ViewModel.ImageVisible2))
+            else
             {
-                if (ViewModel.ImageVisible2 == false)
-                {
-                    ImageSb2.Stop();
-                    ImageSb2.Begin();
-                }
+                image2.Visibility = Visibility.Visible;
+                ImageSb2.Begin();
             }
+
+            ImageChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

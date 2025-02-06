@@ -479,18 +479,6 @@
           <target state="translated">感謝您訂閱！</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Thank you message shown after user purchases a subscription.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">享用高級優質音效</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">下載螢幕保護影片</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">支持開發</target>
-        </trans-unit>
         <trans-unit id="HelloAgain" translate="yes" xml:space="preserve">
           <source>Hello again 👋🏽</source>
           <target state="translated">嗨！又見面了！👋🏽</target>
@@ -1229,6 +1217,46 @@
         <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
           <source>Free trial available</source>
           <target state="translated">可免費試用</target>
+        </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">打開最後一個頻道</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">管道</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">查看全屏視頻或其他視覺內容，以説明您集中注意力、學習或放鬆。</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">查看詳情</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">啟用時鐘</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">在時鐘上顯示秒數</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">啟用倒數計時器</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">高品質的聲音、優質的視頻和精心策劃的冥想。訪問所有未來內容。用Ambie+ 解鎖一切，找到你下一個最喜歡的氛圍。</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">相同的權益，更低的每月費用</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">獲取年度計劃 - {0}</target>
         </trans-unit>
       </group>
     </body>

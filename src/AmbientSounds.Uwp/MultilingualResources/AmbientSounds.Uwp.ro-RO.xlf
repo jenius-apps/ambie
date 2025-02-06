@@ -479,18 +479,6 @@
           <source>{0} lifetime</source>
           <target state="translated">{0} pe viata</target>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">Acceseaza sunete premium, de inalta calitate</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">Descarca economizor de ecran video </target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">Suporta dezvoltarea aplicatiei</target>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">Iti multumesc pentru abonare!</target>
@@ -1226,6 +1214,46 @@
         <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
           <source>Free trial available</source>
           <target state="translated">Încercare gratuită disponibilă</target>
+        </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">Deschide ultimul canal</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">Canale</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">Vizualizați videoclipuri pe ecran complet sau alt conținut vizual pentru a vă ajuta să vă concentrați, să studiați sau să vă relaxați.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">Vezi detalii</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Activați ceasul</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Afișați secundele pe ceas</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Activați cronometrul cu numărătoare inversă</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Sunete de înaltă calitate, videoclipuri premium și meditații organizate. Acces la tot conținutul viitor. Deblochează totul cu Ambie+ și găsește-ți următoarea ambianță preferată.</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Aceleași beneficii, cost lunar mai mic</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Obțineți un plan anual - {0}</target>
         </trans-unit>
       </group>
     </body>

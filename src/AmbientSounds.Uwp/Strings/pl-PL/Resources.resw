@@ -471,15 +471,6 @@
     <value>{0} miesięcznie</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Zyskaj dostęp do dźwięków o wysokiej jakości</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Pobierz wygaszacze ekranu</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Wesprzyj rozwój aplikacji</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Dziękujemy za kupienie subskrypcji!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -1031,6 +1022,36 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Dostępna bezpłatna wersja próbna</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Otwórz ostatni kanał</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanały</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Wyświetlaj filmy pełnoekranowe lub inne treści wizualne, które pomogą Ci się skupić, uczyć lub zrelaksować.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Zobacz szczegóły</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Włącz zegar</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Wyświetlanie sekund na zegarze</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Włącz minutnik</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Wysokiej jakości dźwięki, filmy premium i wyselekcjonowane medytacje. Dostęp do całej przyszłej zawartości. Odblokuj to wszystko dzięki Ambie+ i znajdź swoją kolejną ulubioną atmosferę.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Te same korzyści, niższy koszt miesięczny</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Skorzystaj z abonamentu rocznego - {0}</value>
   </data>
   <data name="CopyIDAppBarButton.Label" xml:space="preserve">
     <value>Kopiuj ID miksu</value>

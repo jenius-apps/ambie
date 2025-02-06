@@ -367,15 +367,6 @@
     <value>ご購入ありがとうございます！</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>プレミアムで高品質サウンドを取得する</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>動画スクリーンセーバーをダウンロードする</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>開発をサポートする</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>こんにちは</value>
   </data>
@@ -929,5 +920,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>無料トライアルあり</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>最後のチャネルを開く</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>チャンネル</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>全画面表示のビデオやその他のビジュアル コンテンツを表示して、集中力、学習、リラックスを支援します。</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>詳細を表示</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>クロックを有効にする</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>時計に秒を表示する</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>カウントダウンタイマーを有効にする</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>高品質のサウンド、プレミアムビデオ、厳選された瞑想。今後のすべてのコンテンツへのアクセス。Ambie+ですべてをアンロックし、次のお気に入りの雰囲気を見つけてください。</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>同じメリット、月額費用の削減</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>年間プランを入手 - {0}</value>
   </data>
 </root>

@@ -475,21 +475,6 @@
           <target state="translated">{0} mjesečno</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="needs-review-translation">Pristupite premium visoko kvalitetnim zvuovkima!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="needs-review-translation">Rastući katalog!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="needs-review-translation">Podržite razvoj aplikacije!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">Hvala vam na pretplati!</target>
@@ -1233,6 +1218,46 @@
         <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
           <source>Free trial available</source>
           <target state="translated">Dostupna besplatna probna verzija</target>
+        </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">Otvori zadnji kanal</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">Kanalima</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">Pregledajte videozapise preko cijelog zaslona ili drugi vizualni sadržaj koji će vam pomoći da se usredotočite, učite ili opustite.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">Pogledajte detalje</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">Omogući sat</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">Prikaz sekundi na satu</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">Omogućite mjerač vremena</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">Iste prednosti, niži mjesečni troškovi</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">Nabavite godišnji plan - {0}</target>
         </trans-unit>
       </group>
     </body>

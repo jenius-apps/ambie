@@ -366,15 +366,6 @@
     <value>{0} per månad</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Få tillgång till premiumljud av hög kvalitet!</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Växande katalog!</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Stöd utveckling!</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Tack för att du prenumererar!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -926,5 +917,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Gratis provperiod tillgänglig</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Öppna sista kanalen</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanaler</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Visa helskärmsvideor eller annat visuellt innehåll som hjälper dig att fokusera, studera eller koppla av.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Visa Detaljer</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Aktivera klocka</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Visa sekunder på klockan</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Aktivera nedräkningstimer</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Samma fördelar, lägre månadskostnad</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Skaffa årsplan - {0}</value>
   </data>
 </root>

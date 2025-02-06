@@ -127,16 +127,6 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphEditHome}" />
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarElementContainer Visibility="{x:Bind ViewModel.IsNotMix, Mode=OneWay}">
-                        <StackPanel Width="300" Margin="12">
-                            <TextBlock x:Uid="Copyright" FontWeight="SemiBold" />
-                            <TextBlock
-                                Margin="0,8,0,0"
-                                IsTextSelectionEnabled="True"
-                                Text="{x:Bind ViewModel.Attribution, Mode=OneWay}"
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                    </AppBarElementContainer>
                 </muxc:CommandBarFlyout.SecondaryCommands>
             </muxc:CommandBarFlyout>
         </Grid.ContextFlyout>
@@ -273,7 +263,14 @@
             RadiusX="{StaticResource SoundCardCornerRadiusDouble}"
             RadiusY="{StaticResource SoundCardCornerRadiusDouble}">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+                <ImageBrush Stretch="UniformToFill">
+                    <ImageBrush.ImageSource>
+                        <BitmapImage
+                            DecodePixelType="Logical"
+                            DecodePixelWidth="200"
+                            UriSource="{x:Bind ViewModel.ImagePath, Mode=OneWay}" />
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
             </Rectangle.Fill>
 
             <ui:Effects.Shadow>
@@ -446,13 +443,7 @@
                     Foreground="White"
                     Text="{x:Bind ViewModel.Name, Mode=OneWay}"
                     TextTrimming="CharacterEllipsis"
-                    TextWrapping="Wrap">
-                    <ToolTipService.ToolTip>
-                        <Grid MaxWidth="300">
-                            <TextBlock Text="{x:Bind ViewModel.Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                        </Grid>
-                    </ToolTipService.ToolTip>
-                </TextBlock>
+                    TextWrapping="Wrap" />
             </StackPanel>
 
             <Button

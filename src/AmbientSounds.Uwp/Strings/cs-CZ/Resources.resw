@@ -367,15 +367,6 @@
     <value>Děkujeme za předplacení!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Získejte přístup k prémiovým zvukům s vysokou kvalitou</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Stáhnout spořiče obrazovky</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Podpořte vývoj</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Znovu zdravíme 👋🏽</value>
   </data>
@@ -929,5 +920,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>K dispozici je bezplatná zkušební verze</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Otevřít poslední kanál</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanály</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Sledujte videa na celou obrazovku nebo jiný vizuální obsah, který vám pomůže soustředit se, studovat nebo relaxovat.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Zobrazit podrobnosti</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Povolit hodiny</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Zobrazení sekund na hodinách</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Povolit odpočítávání</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Vysoce kvalitní zvuky, prémiová videa a vybrané meditace. Přístup k veškerému budoucímu obsahu. Odemkněte vše s Ambie+ a najděte si své další oblíbené prostředí.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Stejné výhody, nižší měsíční náklady</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Získejte roční plán - {0}</value>
   </data>
 </root>

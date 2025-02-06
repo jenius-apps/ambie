@@ -474,18 +474,6 @@
           <target state="translated">{0} לחודש</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Price per month, where the parameter {0} is a price like $1.00.</note>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">גישה לצלילים איכותיים ומובחרים</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">הורד שומרי מסך וידאו</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">תמיכה בפיתוח</target>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">תודה שנרשמת!</target>
@@ -1229,6 +1217,46 @@
         <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
           <source>Free trial available</source>
           <target state="translated">ניסיון חינם זמין</target>
+        </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">פתח ערוץ אחרון</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">ערוצי</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">צפה בסרטוני וידאו במסך מלא או בתוכן חזותי אחר שיעזרו לך להתמקד, ללמוד או להירגע.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">הצג פרטים</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">הפעל שעון</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">הצגת שניות על השעון</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">הפעל טיימר ספירה לאחור</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות נבחרות. גישה לכל התוכן העתידי. פתחו את הכל עם Ambie+ ומצאו את האווירה האהובה הבאה עליכם.</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">אותם יתרונות, עלות חודשית נמוכה יותר</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">קבל תוכנית שנתית - {0}</target>
         </trans-unit>
       </group>
     </body>

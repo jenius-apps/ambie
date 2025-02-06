@@ -1,14 +1,15 @@
 ﻿using AmbientSounds.Models;
+using AmbientSounds.Repositories;
 using AmbientSounds.Services;
 using AmbientSounds.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
 using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using JeniusApps.Common.Tools;
-using AmbientSounds.Repositories;
-using System.Collections.Concurrent;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Concurrent;
 
 namespace AmbientSounds.Factories;
 
@@ -47,7 +48,8 @@ public class SoundVmFactory : ISoundVmFactory
             _serviceProvider.GetRequiredService<IAssetLocalizer>(),
             _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
             _serviceProvider.GetRequiredService<IUpdateService>(),
-            _serviceProvider.GetRequiredService<ILocalizer>());
+            _serviceProvider.GetRequiredService<ILocalizer>(),
+            _serviceProvider.GetRequiredService<IExperimentationService>());
 
         _onlineSoundVmCache.TryAdd(s.Id, newVm);
         return newVm;
@@ -85,8 +87,8 @@ public class SoundVmFactory : ISoundVmFactory
             s,
             removeCommand,
             _serviceProvider.GetRequiredService<IMixMediaPlayerService>(),
-            _serviceProvider.GetRequiredService<IUserSettings>(),
-            _serviceProvider.GetRequiredService<IAssetLocalizer>());
+            _serviceProvider.GetRequiredService<IAssetLocalizer>(),
+            _serviceProvider.GetRequiredService<ISoundVolumeService>());
     }
 
     public VersionedAssetViewModel GetVersionAssetVm(IVersionedAsset versionedAsset, UpdateReason updateReason)

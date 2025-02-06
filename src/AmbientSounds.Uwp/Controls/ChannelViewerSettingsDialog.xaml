@@ -1,0 +1,98 @@
+﻿<ContentDialog
+    x:Class="AmbientSounds.Controls.ChannelViewerSettingsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
+    Title="{x:Bind strings:Resources.SettingsText}"
+    CloseButtonText="{x:Bind strings:Resources.CloseText}"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    mc:Ignorable="d">
+
+    <Grid Width="320">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="213" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Rectangle
+                Fill="Black"
+                RadiusX="12"
+                RadiusY="12"
+                Stretch="Fill" />
+            <Border Margin="8" CornerRadius="6">
+                <Border.Background>
+                    <ImageBrush>
+                        <ImageBrush.ImageSource>
+                            <BitmapImage
+                                DecodePixelType="Logical"
+                                DecodePixelWidth="200"
+                                UriSource="ms-appx:///Assets/Backgrounds/sand.png" />
+                        </ImageBrush.ImageSource>
+                    </ImageBrush>
+                </Border.Background>
+            </Border>
+
+            <StackPanel Margin="0,40,0,0" RequestedTheme="Dark">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="01:58:04"
+                    Typography.NumeralAlignment="Tabular"
+                    Visibility="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=OneWay}" />
+
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="SemiLight"
+                    Text="{x:Bind ViewModel.ChannelClockPreview, Mode=OneWay}"
+                    Typography.NumeralAlignment="Tabular"
+                    Visibility="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}" />
+            </StackPanel>
+        </Grid>
+
+        <ToggleSwitch
+            Grid.Row="1"
+            Margin="0,20,0,0"
+            Header="{x:Bind strings:Resources.SettingsEnableCountdownHeader}"
+            IsOn="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=TwoWay}">
+            <ToggleSwitch.OffContent>
+                <TextBlock x:Uid="OffTextBlock" />
+            </ToggleSwitch.OffContent>
+            <ToggleSwitch.OnContent>
+                <TextBlock x:Uid="OnTextBlock" />
+            </ToggleSwitch.OnContent>
+        </ToggleSwitch>
+
+        <ToggleSwitch
+            Grid.Row="2"
+            Header="{x:Bind strings:Resources.SettingsEnableClockHeader}"
+            IsOn="{x:Bind ViewModel.ChannelClockEnabled, Mode=TwoWay}">
+            <ToggleSwitch.OffContent>
+                <TextBlock x:Uid="OffTextBlock" />
+            </ToggleSwitch.OffContent>
+            <ToggleSwitch.OnContent>
+                <TextBlock x:Uid="OnTextBlock" />
+            </ToggleSwitch.OnContent>
+        </ToggleSwitch>
+
+        <ToggleSwitch
+            Grid.Row="3"
+            Header="{x:Bind strings:Resources.SettingsEnableClockSecondsHeader}"
+            IsEnabled="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}"
+            IsOn="{x:Bind ViewModel.ChannelClockSecondsEnabled, Mode=TwoWay}">
+            <ToggleSwitch.OffContent>
+                <TextBlock x:Uid="OffTextBlock" />
+            </ToggleSwitch.OffContent>
+            <ToggleSwitch.OnContent>
+                <TextBlock x:Uid="OnTextBlock" />
+            </ToggleSwitch.OnContent>
+        </ToggleSwitch>
+    </Grid>
+</ContentDialog>

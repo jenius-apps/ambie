@@ -5,6 +5,7 @@ using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Models;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
@@ -90,6 +91,7 @@ public partial class ShellPageViewModel : ObservableObject
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Home"), "\uE10F", ContentPageType.Home.ToString(), tooltipSubtitle: localizer.GetString("HomeSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString(), tooltipSubtitle: localizer.GetString("FocusSubtitle")));
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("ChannelsTitleText"), "\uE8B2", ContentPageType.Channels.ToString(), tooltipSubtitle: localizer.GetString("ChannelsSubtitle")));
         if (IsMeditatePageVisible) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle"))); }
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString(), tooltipSubtitle: localizer.GetString("UpdatesSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString(), tooltipSubtitle: localizer.GetString("SettingsSubtitle")));
@@ -129,9 +131,6 @@ public partial class ShellPageViewModel : ObservableObject
     public bool SidePanelMica => IsWin11;
 
     [ObservableProperty]
-    private bool _guideBannerVisible;
-
-    [ObservableProperty]
     private bool _isRatingMessageVisible;
 
     [ObservableProperty]
@@ -139,10 +138,6 @@ public partial class ShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _premiumButtonVisible;
-
-    [ObservableProperty]
-    private bool _focusTimeBannerVisible;
-
 
     [ObservableProperty]
     private bool _isMissingSoundsMessageVisible;
@@ -153,20 +148,20 @@ public partial class ShellPageViewModel : ObservableObject
     [ObservableProperty]
     private bool _updateButtonVisible;
 
-    public ObservableCollection<MenuItem> MenuItems { get; } = new();
+    public ObservableCollection<MenuItem> MenuItems { get; } = [];
 
-    public ObservableCollection<MenuItem> FooterItems { get; } = new();
+    public ObservableCollection<MenuItem> FooterItems { get; } = [];
 
-    public ObservableCollection<DayActivityViewModel> RecentActivity { get; } = new();
+    public ObservableCollection<DayActivityViewModel> RecentActivity { get; } = [];
 
     [ObservableProperty]
-    public IReadOnlyList<AutosuggestSound> _searchAutosuggestItems = Array.Empty<AutosuggestSound>();
+    public IReadOnlyList<AutosuggestSound> _searchAutosuggestItems = [];
 
     public bool CanSaveMix => _soundMixService.CanSaveCurrentMix();
 
-    public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage);
+    public string BackgroundImagePath => _userSettings.Get<string>(UserSettingsConstants.BackgroundImage) ?? string.Empty;
 
-    public bool ShowBackgroundImage => !string.IsNullOrWhiteSpace(BackgroundImagePath);
+    public bool ShowBackgroundImage => !string.IsNullOrEmpty(BackgroundImagePath);
 
     public void UpdateCanSave()
     {
@@ -177,8 +172,6 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _navigator.NavigateTo(pageType, contentPageNavArgs);
         UpdateSelectedMenu(pageType);
-        UpdateTimeBannerVisibility();
-        UpdateGuideBannerVisibility();
     }
 
     [RelayCommand]
@@ -209,11 +202,6 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void GoToScreensaver()
     {
-        _telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
-        {
-            { "trigger", "mainPage" }
-        });
-
         _navigator.ToScreensaver();
     }
 
@@ -228,11 +216,8 @@ public partial class ShellPageViewModel : ObservableObject
     {
         _iapService.ProductPurchased += OnProductPurchased;
         _userSettings.SettingSet += OnSettingSet;
-        _focusService.FocusStateChanged += OnFocusStateChanged;
         _navigator.ContentPageChanged += OnContentPageChanged;
         _shareService.ShareFailed += OnShareFailed;
-        _guideService.GuideStarted += OnGuideStarted;
-        _guideService.GuideStopped += OnGuideStopped;
         _statService.StreakChanged += OnStreakChanged;
 
         _ = CheckForUpdatesAsync();
@@ -262,11 +247,8 @@ public partial class ShellPageViewModel : ObservableObject
         _ratingTimer.IntervalElapsed -= OnIntervalLapsed;
         _userSettings.SettingSet -= OnSettingSet;
         _iapService.ProductPurchased -= OnProductPurchased;
-        _focusService.FocusStateChanged -= OnFocusStateChanged;
         _navigator.ContentPageChanged -= OnContentPageChanged;
         _shareService.ShareFailed -= OnShareFailed;
-        _guideService.GuideStarted -= OnGuideStarted;
-        _guideService.GuideStopped -= OnGuideStopped;
         _statService.StreakChanged -= OnStreakChanged;
     }
 
@@ -284,6 +266,8 @@ public partial class ShellPageViewModel : ObservableObject
         {
             IsMissingSoundsMessageVisible = true;
         });
+
+        _telemetry.TrackEvent(TelemetryConstants.MissingSoundsMessageShown);
     }
 
     public void LoadStreak(StreakChangedEventArgs? args = null)
@@ -320,6 +304,7 @@ public partial class ShellPageViewModel : ObservableObject
     private async Task OpenMissingDialogAsync()
     {
         IsMissingSoundsMessageVisible = false;
+        _telemetry.TrackEvent(TelemetryConstants.MissingSoundsMessageClicked);
         await _dialogService.MissingShareSoundsDialogAsync();
     }
 
@@ -332,8 +317,6 @@ public partial class ShellPageViewModel : ObservableObject
     private void OnContentPageChanged(object sender, ContentPageType e)
     {
         UpdateSelectedMenu(e);
-        UpdateTimeBannerVisibility();
-        UpdateGuideBannerVisibility();
 
         if (e is not ContentPageType.Search)
         {
@@ -389,53 +372,11 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
-    private void OnFocusStateChanged(object sender, FocusState e)
-    {
-        _dispatcherQueue.TryEnqueue(UpdateTimeBannerVisibility);
-    }
-
-    private void UpdateTimeBannerVisibility()
-    {
-        FocusTimeBannerVisible =
-            _navigator.GetContentPageName() != "FocusPage" &&
-            _focusService.CurrentState != FocusState.None;
-    }
-
-    private void UpdateGuideBannerVisibility()
-    {
-        GuideBannerVisible =
-            _navigator.GetContentPageName() != "MeditatePage" &&
-            _mixMediaPlayerService.CurrentGuideId is { Length: > 0 };
-    }
-
     [RelayCommand]
     private async Task ApplyUpdatesAsync()
     {
         _telemetry.TrackEvent(TelemetryConstants.UpdateClicked);
         await _appStoreUpdater.TrySilentDownloadAndInstallAsync();
-    }
-
-    [RelayCommand]
-    private void HandleTitleBanner()
-    {
-        if (FocusTimeBannerVisible)
-        {
-            Navigate(ContentPageType.Focus);
-        }
-        else if (GuideBannerVisible)
-        {
-            Navigate(ContentPageType.Meditate);
-        }
-    }
-
-    private void OnGuideStopped(object sender, string e)
-    {
-        _dispatcherQueue.TryEnqueue(UpdateGuideBannerVisibility);
-    }
-
-    private void OnGuideStarted(object sender, string e)
-    {
-        _dispatcherQueue.TryEnqueue(UpdateGuideBannerVisibility);
     }
 
     [RelayCommand]

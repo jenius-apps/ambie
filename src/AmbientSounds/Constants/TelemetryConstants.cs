@@ -48,12 +48,38 @@ public class TelemetryConstants
     public const string BuyDurableClicked = Catalogue + "buyDurableClicked";
     public const string BuyDurablePurchased = Catalogue + "buyDurablePurchased";
     public const string BuyDurableCanceled = Catalogue + "buyDurableCanceled";
+    public const string PreviewPlayed = Catalogue + "previewPlayed";
+
+    // channels
+    private const string Channel = "channel:";
+    public const string ChannelDetailsClicked = Channel + "detailsClicked";
+    public const string ChannelDetailsClosed = Channel + "detailsClosed";
+    public const string ChannelPlayed = Channel + "played";
+    public const string ChannelDownloadClicked = Channel + "downloadClicked";
+    public const string ChannelUnlockClicked = Channel + "unlockClicked";
+
+    // channel viewer
+    private const string ChannelViewer = "channelViewer:";
+    public const string ChannelViewerSettingsClicked = $"{ChannelViewer}settingsClicked";
+    public const string ChannelViewerCountdownkEnabled = $"{ChannelViewer}countdownEnabled";
+    public const string ChannelViewerCountdownDisabled = $"{ChannelViewer}countdownDisabled";
+    public const string ChannelViewerCountdownStarted = $"{ChannelViewer}countdownStarted";
+    public const string ChannelViewerClockEnabled = $"{ChannelViewer}clockEnabled";
+    public const string ChannelViewerClockDisabled = $"{ChannelViewer}clockDisabled";
+    public const string ChannelViewerClockSecondsEnabled = $"{ChannelViewer}clockSecondsEnabled";
+    public const string ChannelViewerClockSecondsDisabled = $"{ChannelViewer}clockSecondsDisabled";
+    public const string NavigatedToChannelViewer = $"{ChannelViewer}navigatedTo";
+    public const string ChannelViewerFullScreen = $"{ChannelViewer}fullScreen";
+
 
     // premium
     private const string Premium = "premium:";
     public const string LifetimeClicked = Premium + "lifetimeClicked";
     public const string LifetimePurchased = Premium + "lifetimePurchased";
     public const string LifetimeCanceled = Premium + "lifetimeCanceled";
+    public const string PremiumAnnualClicked = $"{Premium}annualClicked";
+    public const string PremiumAnnualPurchased = $"{Premium}annualPurchased";
+    public const string PremiumAnnualCanceled = $"{Premium}annualCanceled";
 
     // gallery
     private const string Gallery = "gallery:";
@@ -73,12 +99,6 @@ public class TelemetryConstants
     public const string PlaybackTime = Playback + "time";
     public const string PlaybackAutoResume = Playback + "autoResumeTriggered";
 
-    // screensaver
-    private const string Screensaver = "screensaver:";
-    public const string ScreensaverLoaded = Screensaver + "loaded";
-    public const string ScreensaverTriggered = Screensaver + "triggered";
-    public const string ScreensaverFullscreen = Screensaver + "fullscreen";
-
     // mix
     private const string Mix = "mix:";
     public const string MixSaved = Mix + "saved";
@@ -86,6 +106,8 @@ public class TelemetryConstants
     // sharing
     private const string Share = "share:";
     public const string SharePlayed = Share + "soundsPlayed";
+    public const string MissingSoundsMessageClicked = $"{Share}missingSoundsMessageClicked";
+    public const string MissingSoundsMessageShown = $"{Share}missingSoundsMessageShown";
 
     // pin
     private const string Oobe = "oobe:";

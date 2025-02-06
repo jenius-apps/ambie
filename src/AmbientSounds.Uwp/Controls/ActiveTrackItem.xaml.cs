@@ -1,5 +1,5 @@
 ﻿using AmbientSounds.Constants;
-using AmbientSounds.Services;
+using JeniusApps.Common.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.UI.Helpers;
 using System;
@@ -88,7 +88,7 @@ public sealed partial class ActiveTrackItem : ObservableUserControl
         }
         else
         {
-            return userThemeSetting;
+            return userThemeSetting ?? string.Empty;
         }
     }
 

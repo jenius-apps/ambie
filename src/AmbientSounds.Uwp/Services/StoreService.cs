@@ -1,12 +1,13 @@
-﻿using System;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
+using Microsoft.Toolkit.Uwp.Connectivity;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Services.Store;
-using Microsoft.Toolkit.Uwp.Connectivity;
-using System.Collections.Concurrent;
-using AmbientSounds.Constants;
-using AmbientSounds.Models;
-using System.Linq;
 
 #nullable enable
 
@@ -18,10 +19,11 @@ namespace AmbientSounds.Services.Uwp;
 /// </summary>
 public class StoreService : IIapService
 {
-    private static readonly ConcurrentDictionary<string, (int Version, StoreProduct Product)> _versionedProductsCache = new();
-    private static readonly ConcurrentDictionary<string, StoreProduct> _productsCache = new();
-    private static readonly ConcurrentDictionary<string, bool> _ownershipCache = new();
-    private static StoreContext? _context;
+    private readonly ConcurrentDictionary<string, (int Version, StoreProduct Product)> _versionedProductsCache = new();
+    private readonly ConcurrentDictionary<string, StoreProduct> _productsCache = new();
+    private readonly ConcurrentDictionary<string, bool> _ownershipCache = new();
+    private StoreContext? _context;
+    private readonly SemaphoreSlim _versionedProductsLock = new(1, 1);
 
     /// <inheritdoc/>
     public event EventHandler<string>? ProductPurchased;
@@ -29,6 +31,10 @@ public class StoreService : IIapService
     /// <inheritdoc/>
     public async Task<bool> IsOwnedAsync(string iapId)
     {
+#if DEBUG
+        //return true;
+#endif
+
         if (_ownershipCache.TryGetValue(iapId, out bool isOwned))
         {
             return isOwned;
@@ -66,39 +72,13 @@ public class StoreService : IIapService
     /// <inheritdoc/>
     public async Task<bool> IsSubscriptionOwnedAsync()
     {
-        foreach (var key in _ownershipCache.Keys)
-        {
-            if (key.ContainsAmbiePlus() && _ownershipCache[key] is true)
-            {
-                return true;
-            }
-        }
-
-        _context ??= StoreContext.GetDefault();
-
-        StoreAppLicense appLicense = await _context.GetAppLicenseAsync();
-        if (appLicense is null)
-        {
-            return false;
-        }
-
-        foreach (var addOnLicense in appLicense.AddOnLicenses)
-        {
-            StoreLicense license = addOnLicense.Value;
-            if (license.IsActive && license.InAppOfferToken.ContainsAmbiePlus())
-            {
-                _ownershipCache.TryAdd(IapConstants.MsStoreAmbiePlusId, true);
-                return true;
-            }
-        }
-
-        return false;
+        return await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusAnnualId]).ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
     public async Task<bool> CanShowPremiumButtonsAsync()
     {
-        return !await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusLifetimeId]);
+        return !await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusLifetimeId, IapConstants.MsStoreAmbiePlusAnnualId]);
     }
 
     /// <inheritdoc/>
@@ -119,7 +99,7 @@ public class StoreService : IIapService
     public async Task<PriceInfo> GetLatestPriceAsync(string iapId)
     {
         (string idOnly, _) = iapId.SplitIdAndVersion();
-        var addon = await GetLatestAddonAsync(idOnly);
+        var addon = await GetLatestAddonAsync(idOnly).ConfigureAwait(false);
 
         if (addon?.Price is null)
         {
@@ -155,11 +135,11 @@ public class StoreService : IIapService
         };
     }
 
-    private static async Task<StoreProduct?> GetLatestAddonAsync(string idOnly)
+    private async Task<StoreProduct?> GetLatestAddonAsync(string idOnly)
     {
-        if (_versionedProductsCache.ContainsKey(idOnly))
+        if (_versionedProductsCache.TryGetValue(idOnly, out var cachedResult))
         {
-            return _versionedProductsCache[idOnly].Product;
+            return cachedResult.Product;
         }
 
         if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
@@ -167,36 +147,53 @@ public class StoreService : IIapService
             return null;
         }
 
+        // At this point, the product cache is likely not populated,
+        // so obtain the lock and then run the populate method.
+        await _versionedProductsLock.WaitAsync();
+
+        // Check cache again in case it changed while waiting.
+        if (_versionedProductsCache.TryGetValue(idOnly, out cachedResult))
+        {
+            return cachedResult.Product;
+        }
+
+        // Populate the cache.
+        await PopulateAddonCacheAsync();
+
+        _versionedProductsLock.Release();
+
+        // Try to return the desired add on.
+        return _versionedProductsCache.TryGetValue(idOnly, out cachedResult)
+            ? cachedResult.Product
+            : null;
+    }
+
+    private async Task PopulateAddonCacheAsync()
+    {
         _context ??= StoreContext.GetDefault();
 
-        /// Get all add-ons for this app.
+        // Get all add-ons for this app.
         var result = await _context.GetAssociatedStoreProductsAsync(["Durable", "Consumable"]);
         if (result.ExtendedError is not null)
         {
-            return null;
+            return;
         }
 
+        // Find all addons and cache the latest version
         foreach (var item in result.Products)
         {
             StoreProduct product = item.Value;
 
-            if (product.InAppOfferToken.StartsWith(idOnly))
+            (string id, int newVersion) = product.InAppOfferToken.SplitIdAndVersion();
+            if (_versionedProductsCache.TryGetValue(id, out var cachedResult) && newVersion > cachedResult.Version)
             {
-                (string id, int version) = product.InAppOfferToken.SplitIdAndVersion();
-                if (_versionedProductsCache.ContainsKey(idOnly) && version > _versionedProductsCache[idOnly].Version)
-                {
-                    _versionedProductsCache[idOnly] = (version, product);
-                }
-                else
-                {
-                    _versionedProductsCache.TryAdd(id, (version, product));
-                }
+                _versionedProductsCache[id] = (newVersion, product);
+            }
+            else
+            {
+                _versionedProductsCache.TryAdd(id, (newVersion, product));
             }
         }
-
-        return _versionedProductsCache.ContainsKey(idOnly)
-            ? _versionedProductsCache[idOnly].Product
-            : null;
     }
 
     /// <inheritdoc/>
@@ -218,7 +215,7 @@ public class StoreService : IIapService
         };
     }
 
-    private static async Task<StorePurchaseStatus> PurchaseAddOn(string id, bool latest = false)
+    private async Task<StorePurchaseStatus> PurchaseAddOn(string id, bool latest = false)
     {
         if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
         {
@@ -242,7 +239,7 @@ public class StoreService : IIapService
         return result.Status;
     }
 
-    private static async Task<StoreProduct?> GetAddOn(string id)
+    private async Task<StoreProduct?> GetAddOn(string id)
     {
         if (_productsCache.ContainsKey(id))
         {

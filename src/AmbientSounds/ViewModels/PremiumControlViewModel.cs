@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Telemetry;
@@ -25,28 +24,19 @@ public partial class PremiumControlViewModel : ObservableObject
         ILocalizer localizer,
         ISystemInfoProvider infoProvider)
     {
-        Guard.IsNotNull(iapService);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(localizer);
-        Guard.IsNotNull(infoProvider);
-
         _iapService = iapService;
         _telemetry = telemetry;
         _localizer = localizer;
         _infoProvider = infoProvider;
-
-        SubscriptionTexts =
-        [
-            _localizer.GetString("SubscriptionText1"),
-            _localizer.GetString("SubscriptionText2"),
-            _localizer.GetString("SubscriptionText3"),
-        ];
+        AnnualSubExperimentEnabled = false; // Disabling until further notice.
     }
 
-    public IReadOnlyList<string> SubscriptionTexts { get; }
-
     [ObservableProperty]
-    private string _price = string.Empty;
+    [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(AnnualButtonVisible))]
+    private bool _annualSubExperimentEnabled;
+
+    public string MonthlyPriceButtonAutomationName => MonthlyPriceInfo?.FormattedPrice ?? string.Empty;
 
     [ObservableProperty]
     private string _lifetimePrice = string.Empty;
@@ -58,31 +48,67 @@ public partial class PremiumControlViewModel : ObservableObject
     private bool _lifetimeButtonLoading;
 
     [ObservableProperty]
+    private bool _annualButtonLoading;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(AnnualButtonVisible))]
     private bool _thanksTextVisible;
 
     [ObservableProperty]
-    private PriceInfo? _priceInfo;
+    [NotifyPropertyChangedFor(nameof(MonthlyPriceButtonAutomationName))]
+    private PriceInfo? _monthlyPriceInfo;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(AnnualPriceButtonAutomationName))]
+    private PriceInfo? _annualPriceInfo;
+
+    public string AnnualPriceButtonAutomationName => AnnualPriceInfo?.FormattedPrice ?? string.Empty;
+
+    public bool LifetimeButtonVisible => !ThanksTextVisible && !AnnualSubExperimentEnabled;
+
+    public bool AnnualButtonVisible => !ThanksTextVisible && AnnualSubExperimentEnabled;
 
     public async Task InitializeAsync()
     {
-        if (PriceInfo is { } && 
-            LifetimePrice is { Length: > 0 })
+        await Task.WhenAll(InitializeMonthlyAsync(), InitializeLifetimeAsync(), InitializeAnnualAsync());
+    }
+
+    private async Task InitializeMonthlyAsync()
+    {
+        if (MonthlyPriceInfo is { } || ButtonLoading)
         {
             return;
         }
 
         ButtonLoading = true;
-        LifetimeButtonLoading = true;
-
-        var priceTask = _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusId);
-        var lifetimePriceTask = _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
-
-        PriceInfo = await priceTask;
-        LifetimePrice = _localizer.GetString("PriceForLifetime", (await lifetimePriceTask).FormattedPrice);
-        Price = PriceInfo.FormattedPrice;
-
+        MonthlyPriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusId);
         ButtonLoading = false;
+    }
+
+    private async Task InitializeLifetimeAsync()
+    {
+        if (LifetimePrice is { Length: > 0} || LifetimeButtonLoading || AnnualSubExperimentEnabled)
+        {
+            return;
+        }
+
+        LifetimeButtonLoading = true;
+        var priceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
+        LifetimePrice = _localizer.GetString("PriceForLifetime", priceInfo.FormattedPrice);
         LifetimeButtonLoading = false;
+    }
+
+    private async Task InitializeAnnualAsync()
+    {
+        if (AnnualPriceInfo is { } || AnnualButtonLoading || !AnnualSubExperimentEnabled)
+        {
+            return;
+        }
+
+        AnnualButtonLoading = true;
+        AnnualPriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusAnnualId);
+        AnnualButtonLoading = false;
     }
 
     [RelayCommand]
@@ -110,6 +136,35 @@ public partial class PremiumControlViewModel : ObservableObject
             _telemetry.TrackEvent(TelemetryConstants.PurchaseCancelled);
         }
         ButtonLoading = false;
+    }
+
+    [RelayCommand]
+    private async Task PurchaseAnnualAsync()
+    {
+        if (ButtonLoading || LifetimeButtonLoading || AnnualButtonLoading || !AnnualSubExperimentEnabled)
+        {
+            return;
+        }
+
+        AnnualButtonLoading = true;
+
+        _telemetry.TrackEvent(TelemetryConstants.PremiumAnnualClicked);
+        bool successful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusAnnualId, latest: true);
+        ThanksTextVisible = successful;
+
+        if (successful)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.PremiumAnnualPurchased, new Dictionary<string, string>
+            {
+                { "DaysSinceFirstUse", (DateTime.Now - _infoProvider.FirstUseDate()).Days.ToString() },
+            });
+        }
+        else
+        {
+            _telemetry.TrackEvent(TelemetryConstants.PremiumAnnualCanceled);
+        }
+
+        AnnualButtonLoading = false;
     }
 
     [RelayCommand]

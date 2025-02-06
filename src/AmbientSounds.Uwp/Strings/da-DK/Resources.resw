@@ -367,15 +367,6 @@
     <value>Tak fordi du abonnerede!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Få adgang til førsteklasses lyde i høj kvalitet</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Download video pauseskærme</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Støt udviklingen</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Hej igen 👋🏽</value>
   </data>
@@ -926,5 +917,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Gratis prøveversion tilgængelig</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Åbn sidste kanal</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanaler</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Se videoer i fuld skærm eller andet visuelt indhold, der hjælper dig med at fokusere, studere eller slappe af.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Se detaljer</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Aktiver ur</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Vis sekunder på uret</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Aktiver nedtællingstimer</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Lyde i høj kvalitet, førsteklasses videoer og kuraterede meditationer. Adgang til alt fremtidigt indhold. Lås op for det hele med Ambie+, og find din næste yndlingsstemning.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Samme fordele, lavere månedlige omkostninger</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Få årsabonnement - {0}</value>
   </data>
 </root>

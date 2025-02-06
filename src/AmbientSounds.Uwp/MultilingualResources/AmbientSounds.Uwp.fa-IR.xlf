@@ -479,18 +479,6 @@
           <source>{0} lifetime</source>
           <target state="translated">{0} بدون محدودیت زمانی</target>
         </trans-unit>
-        <trans-unit id="SubscriptionText1" translate="yes" xml:space="preserve">
-          <source>Access premium, high quality sounds</source>
-          <target state="translated">به صداهای ممتاز و با کیفیت بالا دسترسی داشته باشید</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText2" translate="yes" xml:space="preserve">
-          <source>Download video screensavers</source>
-          <target state="translated">دانلود فیلم محافظ صفحه نمایش</target>
-        </trans-unit>
-        <trans-unit id="SubscriptionText3" translate="yes" xml:space="preserve">
-          <source>Support development</source>
-          <target state="translated">پشتیبانی از توسعه این برنامه</target>
-        </trans-unit>
         <trans-unit id="ThankYouForSub" translate="yes" xml:space="preserve">
           <source>Thank you for subscribing!</source>
           <target state="translated">با تشکر از شما برای اشتراک !</target>
@@ -1226,6 +1214,46 @@
         <trans-unit id="FreeTrialTipTitle" translate="yes" xml:space="preserve">
           <source>Free trial available</source>
           <target state="translated">ازمایشی رایگان در دسترس است</target>
+        </trans-unit>
+        <trans-unit id="OpenLastChannelText" translate="yes" xml:space="preserve">
+          <source>Open last channel</source>
+          <target state="translated">آخرین کانال را باز کنید</target>
+        </trans-unit>
+        <trans-unit id="ChannelsTitleText" translate="yes" xml:space="preserve">
+          <source>Channels</source>
+          <target state="translated">کانال</target>
+        </trans-unit>
+        <trans-unit id="ChannelsSubtitle" translate="yes" xml:space="preserve">
+          <source>View full screen videos or other visual content to help you focus, study, or relax.</source>
+          <target state="translated">ویدیوهای تمام صفحه یا سایر محتوای بصری را مشاهده کنید تا به شما در تمرکز، مطالعه یا آرامش کمک کند.</target>
+        </trans-unit>
+        <trans-unit id="ViewDetailsText" translate="yes" xml:space="preserve">
+          <source>View details</source>
+          <target state="translated">مشاهده جزئیات</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockHeader" translate="yes" xml:space="preserve">
+          <source>Enable clock</source>
+          <target state="translated">فعال کردن ساعت</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableClockSecondsHeader" translate="yes" xml:space="preserve">
+          <source>Display seconds on clock</source>
+          <target state="translated">نمایش ثانیه ها روی ساعت</target>
+        </trans-unit>
+        <trans-unit id="SettingsEnableCountdownHeader" translate="yes" xml:space="preserve">
+          <source>Enable countdown timer</source>
+          <target state="translated">تایمر شمارش معکوس را فعال کنید</target>
+        </trans-unit>
+        <trans-unit id="PremiumMessage" translate="yes" xml:space="preserve">
+          <source>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</source>
+          <target state="translated">صداهای با کیفیت بالا، ویدیوهای ممتاز و مدیتیشن های انتخاب شده. دسترسی به تمام محتوای آینده. قفل همه چیز را با Ambie+ باز کنید و محیط مورد علاقه بعدی خود را پیدا کنید.</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanCaption" translate="yes" xml:space="preserve">
+          <source>Same benefits, lower monthly cost</source>
+          <target state="translated">مزایای مشابه، هزینه ماهانه کمتر</target>
+        </trans-unit>
+        <trans-unit id="AnnualPlanTitle" translate="yes" xml:space="preserve">
+          <source>Get annual plan - {0}</source>
+          <target state="translated">دریافت برنامه سالانه - {0}</target>
         </trans-unit>
       </group>
     </body>

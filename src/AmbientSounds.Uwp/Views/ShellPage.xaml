@@ -77,6 +77,16 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ext:UIExtensions.Not(ViewModel.PremiumButtonVisible), Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="UpdateButtonGrid.Margin" Value="88,12,0,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid
             x:Name="AppTitleBar"
@@ -95,7 +105,8 @@
             <controls:TitleBarLogo
                 x:Name="TitleLogo"
                 Grid.Column="1"
-                Margin="14,14,0,0">
+                Margin="14,14,0,0"
+                UsePremiumTitle="{x:Bind ext:UIExtensions.Not(ViewModel.PremiumButtonVisible), Mode=OneWay}">
                 <animations:Implicit.Animations>
                     <animations:OffsetAnimation />
                 </animations:Implicit.Animations>
@@ -207,14 +218,14 @@
                         Glyph="{StaticResource GlyphShuffle}" />
                 </Button>
                 <Button
-                    AutomationProperties.Name="{x:Bind strings:Resources.ScreensaverMode}"
+                    AutomationProperties.Name="{x:Bind strings:Resources.OpenLastChannelText}"
                     Click="{x:Bind ViewModel.GoToScreensaver}"
                     Style="{StaticResource SmallSubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.ScreensaverMode}">
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.OpenLastChannelText}">
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="14"
-                        Glyph="{StaticResource GlyphPhoto}" />
+                        Glyph="{StaticResource GlyphFilmstrip}" />
                 </Button>
                 <Button
                     x:Name="ShareButton"

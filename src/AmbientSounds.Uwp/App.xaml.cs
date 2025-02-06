@@ -2,6 +2,7 @@
 using AmbientSounds.Services;
 using AmbientSounds.Services.Uwp;
 using AmbientSounds.ViewModels;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Connectivity;
@@ -59,30 +60,30 @@ sealed partial class App : Application
         }
     }
 
-    private async void OnNetworkChanged(object sender, EventArgs e)
+    private void OnNetworkChanged(object sender, EventArgs e)
     {
-        var presence = _serviceProvider?.GetService<IPresenceService>();
-        if (presence is null)
-        {
-            return;
-        }
+        //var presence = _serviceProvider?.GetService<IPresenceService>();
+        //if (presence is null)
+        //{
+        //    return;
+        //}
 
-        if (NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
-        {
-            await presence.EnsureInitializedAsync();
-        }
-        else
-        {
-            await presence.DisconnectAsync();
-        }
+        //if (NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
+        //{
+        //    await presence.EnsureInitializedAsync();
+        //}
+        //else
+        //{
+        //    await presence.DisconnectAsync();
+        //}
     }
 
-    private async void OnResuming(object sender, object e)
+    private void OnResuming(object sender, object e)
     {
-        if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
-        {
-            await presenceService.EnsureInitializedAsync();
-        }
+        //if (_serviceProvider?.GetService<IPresenceService>() is IPresenceService presenceService)
+        //{
+        //    await presenceService.EnsureInitializedAsync();
+        //}
     }
 
     private async void OnSuspension(object sender, SuspendingEventArgs e)
@@ -103,7 +104,7 @@ sealed partial class App : Application
             }
 
             await serviceProvider.GetRequiredService<IFocusNotesService>().SaveNotesToStorageAsync();
-            await serviceProvider.GetRequiredService<IPresenceService>().DisconnectAsync();
+            //await serviceProvider.GetRequiredService<IPresenceService>().DisconnectAsync();
             await flushTask;
         }
 
@@ -203,7 +204,6 @@ sealed partial class App : Application
 
     private async Task ActivateAsync(
         bool prelaunched, 
-        IAppSettings? appsettings = null,
         string launchArguments = "")
     {
         // Do not repeat app initialization when the Window already has content
@@ -218,7 +218,7 @@ sealed partial class App : Application
             Window.Current.Content = rootFrame;
 
             // Configure the services for later use
-            _serviceProvider = ConfigureServices(appsettings);
+            _serviceProvider = ConfigureServices();
             rootFrame.ActualThemeChanged += OnActualThemeChanged;
             _userSettings = Services.GetRequiredService<IUserSettings>();
             _userSettings.SettingSet += OnSettingSet;
@@ -266,7 +266,6 @@ sealed partial class App : Application
         SetAppRequestedTheme();
         Services.GetRequiredService<Services.INavigator>().RootFrame = rootFrame;
         CustomizeTitleBar(rootFrame.ActualTheme == ElementTheme.Dark);
-        await TryRegisterNotifications();
 
         try
         {
@@ -300,23 +299,53 @@ sealed partial class App : Application
                 bgServices.ToggleStreakReminderTask(true);
             }
         }
+
+        _ = TryRegisterPushNotificationsAsync();
     }
 
-    private readonly IMixMediaPlayerService _player;
-    private void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
+    private async Task TryRegisterPushNotificationsAsync()
+    {
+        IUserSettings userSettings = Services.GetRequiredService<IUserSettings>();
+
+        if (userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
+            userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
+        {
+            return;
+        }
+
+        try
+        {
+#if DEBUG
+            // Don't want to needlessly send messages to the notification service
+            // when in debug mode.
+            await Task.Delay(1);
+#else
+            await Services.GetRequiredService<Tools.IPushNotificationService>().RegisterAsync(
+                id,
+                Services.GetRequiredService<JeniusApps.Common.Tools.ISystemInfoProvider>().GetCulture(),
+                default);
+#endif
+        }
+        catch { }
+    }
+
+    private async void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)
     {
         try
         {
             var uri = protocolArgs.Uri;
             var arg = protocolArgs.Uri.Query.Replace("?", string.Empty);
 
-            if (uri.Host is "share" && Services.GetService<ProtocolLaunchController>() is { } controller)
+            if (Services.GetService<ProtocolLaunchController>() is { } controller)
             {
-                controller.ProcessShareProtocolArguments(arg);
-            }
-            else if (uri.Segments.Last().Contains("autoplay"))
-            {
-                Services.GetService<ProtocolLaunchController>()?.ProcessAutoPlayProtocolArguments(arg);
+                if (uri.Host is "share")
+                {
+                    controller.ProcessShareProtocolArguments(arg);
+                }
+                else if (uri.Segments.LastOrDefault()?.Contains("autoplay", StringComparison.OrdinalIgnoreCase) == true)
+                {
+                    await controller.ProcessAutoPlayProtocolArgumentsAsync(arg);
+                }
             }
         }
         catch (UriFormatException)
@@ -336,20 +365,6 @@ sealed partial class App : Application
     private void OnActualThemeChanged(FrameworkElement sender, object args)
     {
         CustomizeTitleBar(sender.ActualTheme == ElementTheme.Dark);
-    }
-
-    private Task TryRegisterNotifications()
-    {
-        var settingsService = App.Services.GetRequiredService<IUserSettings>();
-
-        if (settingsService.Get<bool>(UserSettingsConstants.Notifications))
-        {
-            return new PartnerCentreNotificationRegistrar().Register();
-        }
-        else
-        {
-            return Task.CompletedTask;
-        }
     }
 
     /// <summary>

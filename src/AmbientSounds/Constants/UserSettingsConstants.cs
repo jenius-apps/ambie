@@ -98,6 +98,11 @@ public static class UserSettingsConstants
     public const string LastUsedScreensaverKey = "LastUsedScreensaver";
 
     /// <summary>
+    /// Used to remember what was the last used channel ID.
+    /// </summary>
+    public const string LastUsedChannelKey = "LastUsedChannel";
+
+    /// <summary>
     /// Used to remember if the user has closed the focus help message
     /// at least once.
     /// </summary>
@@ -172,6 +177,36 @@ public static class UserSettingsConstants
     public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
 
     /// <summary>
+    /// Remembers if the user enabled the channel countdown.
+    /// </summary>
+    public const string ChannelCountdownEnabledKey = "ChannelCountdownEnabled";
+
+    /// <summary>
+    /// Remembers if the user enabled the channel clock.
+    /// </summary>
+    public const string ChannelClockEnabledKey = "ChannelClockEnabled";
+
+    /// <summary>
+    /// Remembers if the user enabled the channel clock's seconds.
+    /// </summary>
+    public const string ChannelClockSecondsEnabledKey = "ChannelClockSecondsEnabled";
+
+    /// <summary>
+    /// Remembers your last used timer focus length.
+    /// </summary>
+    public const string LastUsedFocusLengthKey = "LastUsedFocusLength";
+
+    /// <summary>
+    /// Remembers your last used timer rest length.
+    /// </summary>
+    public const string LastUsedRestLengthKey = "LastUsedRestLength";
+
+    /// <summary>
+    /// Remembers your last used timer reptitions.
+    /// </summary>
+    public const string LastUsedRepetitionsKey = "LastUsedRepetitions";
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -190,6 +225,7 @@ public static class UserSettingsConstants
         { RatingDismissed, DateTime.MinValue },
         { ResumeOnLaunchKey, false },
         { LastUsedScreensaverKey, string.Empty },
+        { LastUsedChannelKey, string.Empty },
         { HasClosedFocusHelpMessageKey, false },
         { HasClosedInterruptionMessageKey, false },
         { RecentFocusKey, Array.Empty<RecentFocusSettings>() },
@@ -206,5 +242,10 @@ public static class UserSettingsConstants
         { LastUsedContentPageKey, string.Empty },
         { XboxSlideshowModeKey, SlideshowMode.Video.ToString() },
         { HasViewedFreeTrialTipKey, false },
+        { ChannelClockEnabledKey, false },
+        { ChannelClockSecondsEnabledKey, false },
+        { LastUsedFocusLengthKey, 0 },
+        { LastUsedRestLengthKey, 0 },
+        { LastUsedRepetitionsKey, 0 },
     };
 }

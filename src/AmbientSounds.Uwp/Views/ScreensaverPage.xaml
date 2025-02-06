@@ -2,13 +2,23 @@
     x:Class="AmbientSounds.Views.ScreensaverPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:viewmodels="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    RequestedTheme="Dark"
     mc:Ignorable="d">
     <Page.Resources>
         <BrushTransition x:Key="Transition" Duration="0:0:1" />
+        <x:Double x:Key="GradientHeight">240</x:Double>
     </Page.Resources>
 
     <Grid
@@ -29,68 +39,278 @@
                 <VisualState x:Name="Normal" />
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Button
-            x:Name="GoBackButton"
-            x:Uid="BackButton"
-            Margin="40,40,0,0"
-            VerticalAlignment="Top"
-            Canvas.ZIndex="1"
-            Click="GoBack"
-            Style="{StaticResource IconButton}">
-            <FontIcon
-                FontFamily="{StaticResource FluentUIGlyphs}"
-                FontSize="{StaticResource SmallIconSize}"
-                Glyph="{StaticResource GlyphBack}" />
-        </Button>
+        <Grid x:Name="TopPanel" Canvas.ZIndex="1">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="TopPanelHide">
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.6" />
+                    <ani:TranslationAnimation
+                        From="0"
+                        To="0,-20,0"
+                        Duration="0:0:0.6" />
+                </ani:AnimationSet>
+                <ani:AnimationSet x:Name="TopPanelShow">
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <ani:TranslationAnimation
+                        From="0,-20,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
 
-        <StackPanel
-            Name="ActionButtons"
-            Margin="0,40,40,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Canvas.ZIndex="1"
-            Orientation="Horizontal">
+            <Rectangle
+                Height="{StaticResource GradientHeight}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="-1" Color="#FF000000" />
+                        <GradientStop Offset="1" Color="#00000000" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
             <Button
-                AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
-                Click="OnToggleFullscreen"
-                Style="{StaticResource IconButton}"
-                ToolTipService.ToolTip="{x:Bind strings:Resources.ToggleFullscreen}"
-                Visibility="{x:Bind ViewModel.FullScreenVisible, Mode=OneWay}">
-                <Grid>
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="{StaticResource SmallIconSize}"
-                        Glyph="{StaticResource GlyphExpand}"
-                        Visibility="{x:Bind controls:UIHelper.InvertVisibility(IsFullscreen)}" />
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="{StaticResource SmallIconSize}"
-                        Glyph="{StaticResource GlyphCollapse}"
-                        Visibility="{x:Bind IsFullscreen}" />
-                </Grid>
-            </Button>
-            <Button
-                Margin="12,0,0,0"
-                AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
-                Style="{StaticResource IconButton}"
-                ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}"
-                Visibility="{x:Bind ViewModel.SettingsButtonVisible, Mode=OneWay}">
+                x:Name="GoBackButton"
+                x:Uid="BackButton"
+                Margin="40,40,0,0"
+                VerticalAlignment="Top"
+                Click="GoBack"
+                Style="{StaticResource IconButton}">
                 <FontIcon
                     FontFamily="{StaticResource FluentUIGlyphs}"
                     FontSize="{StaticResource SmallIconSize}"
-                    Glyph="{StaticResource GlyphSettings}" />
-                <Button.Flyout>
-                    <!--  Contents of this is set in code behind  -->
-                    <MenuFlyout x:Name="SettingsFlyout" Placement="Bottom" />
-                </Button.Flyout>
+                    Glyph="{StaticResource GlyphBack}" />
             </Button>
-        </StackPanel>
+
+            <StackPanel
+                Margin="0,40,40,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Orientation="Horizontal"
+                Spacing="4">
+                <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.ToggleFullscreen}"
+                    Click="OnToggleFullscreen"
+                    Style="{StaticResource IconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.ToggleFullscreen}"
+                    Visibility="{x:Bind ViewModel.FullScreenVisible, Mode=OneWay}">
+                    <Grid>
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="{StaticResource SmallIconSize}"
+                            Glyph="{StaticResource GlyphExpand}"
+                            Visibility="{x:Bind controls:UIHelper.InvertVisibility(IsFullscreen)}" />
+                        <FontIcon
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            FontSize="{StaticResource SmallIconSize}"
+                            Glyph="{StaticResource GlyphCollapse}"
+                            Visibility="{x:Bind IsFullscreen}" />
+                    </Grid>
+                </Button>
+                <Button
+                    AutomationProperties.Name="{x:Bind strings:Resources.SettingsText}"
+                    Command="{x:Bind ViewModel.PageSettingsCommand}"
+                    Style="{StaticResource IconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.SettingsText}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
+                        Glyph="{StaticResource GlyphSettings}" />
+                </Button>
+            </StackPanel>
+        </Grid>
 
         <MediaPlayerElement
             x:Name="VideoPlayer"
             AutoPlay="True"
-            Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}" />
+            Stretch="UniformToFill"
+            Visibility="{x:Bind ViewModel.VideoPlayerVisible, Mode=OneWay}">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="VideoShow">
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:5" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
+        </MediaPlayerElement>
 
-        <controls:Screensaver x:Name="ScreensaverControl" x:Load="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+        <Image
+            x:Name="VideoPlaceholderImage"
+            Source="{x:Bind ViewModel.VideoPlaceholderImageUrl, Mode=OneWay}"
+            Stretch="UniformToFill">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="VideoPlaceholderHide">
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:5" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
+        </Image>
+
+        <controls:Screensaver x:Name="ScreensaverControl" Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
+
+        <controls:DigitalClock
+            x:Name="ClockControl"
+            Margin="0,120,0,0"
+            VerticalAlignment="Top"
+            Canvas.ZIndex="1"
+            Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
+            <ani:Implicit.ShowAnimations>
+                <ani:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:5" />
+            </ani:Implicit.ShowAnimations>
+        </controls:DigitalClock>
+
+        <Grid
+            x:Name="VideosGrid"
+            Height="{StaticResource GradientHeight}"
+            VerticalAlignment="Bottom">
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="BottomPanelHide">
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.6" />
+                    <ani:TranslationAnimation
+                        From="0"
+                        To="0,20,0"
+                        Duration="0:0:0.6" />
+                </ani:AnimationSet>
+                <ani:AnimationSet x:Name="BottomPanelShow">
+                    <ani:OpacityAnimation
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.3" />
+                    <ani:TranslationAnimation
+                        From="0,20,0"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Offset="0" Color="#00000000" />
+                    <GradientStop Offset="1" Color="#FF000000" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <ListView
+                Padding="40,0,0,0"
+                ItemsSource="{x:Bind ViewModel.Channels}"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ScrollViewer.HorizontalScrollMode="Enabled"
+                ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollMode="Disabled"
+                SelectionMode="None">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="Margin" Value="0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:ChannelViewModel">
+                        <Grid Width="220" Height="160">
+                            <Grid
+                                Background="Transparent"
+                                PointerEntered="{x:Bind controls:UIHelper.ScaleUpChildRectangle}"
+                                PointerExited="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
+                                PointerPressed="{x:Bind controls:UIHelper.ScaleNormalChildRectangle}"
+                                PointerReleased="{x:Bind controls:UIHelper.ScaleUpChildRectangle}">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{x:Bind PrimaryCommand}" CommandParameter="{x:Bind}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <Rectangle
+                                    x:Name="ImageRect"
+                                    Width="200"
+                                    Height="120"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
+                                    RadiusX="8"
+                                    RadiusY="8"
+                                    Stretch="Fill">
+                                    <ani:Implicit.Animations>
+                                        <ani:ScaleAnimation Duration="0:0:0.6" />
+                                    </ani:Implicit.Animations>
+
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                                    </Rectangle.Fill>
+                                    <ui:Effects.Shadow>
+                                        <media:AttachedCardShadow
+                                            BlurRadius="10"
+                                            CornerRadius="16"
+                                            Opacity="0.2"
+                                            Offset="0,4" />
+                                    </ui:Effects.Shadow>
+                                </Rectangle>
+
+                                <Border
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="{ThemeResource BackgroundAcrylicBrush}"
+                                    CornerRadius="8"
+                                    Visibility="{x:Bind ScreensaverBackplateVisible, Mode=OneWay}">
+                                    <Grid>
+                                        <FontIcon
+                                            Margin="8"
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}"
+                                            Visibility="{x:Bind ex:UIExtensions.CollapsedIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}" />
+
+                                        <Grid Margin="8" Visibility="{x:Bind ex:UIExtensions.VisibleIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}">
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                AutomationProperties.AccessibilityView="Raw"
+                                                Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                                                IsIndeterminate="False"
+                                                Value="100" />
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                                IsIndeterminate="{x:Bind DownloadLoading, Mode=OneWay}"
+                                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Margin="12,8,12,0"
+                                    FontSize="12"
+                                    Text="{x:Bind Name}"
+                                    TextAlignment="Center"
+                                    TextWrapping="WrapWholeWords" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>

@@ -3,6 +3,7 @@ using AmbientSounds.Controls;
 using AmbientSounds.Converters;
 using AmbientSounds.ViewModels;
 using CommunityToolkit.Diagnostics;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
@@ -118,15 +119,12 @@ public class DialogService : IDialogService
         }
 
         IsDialogOpen = true;
-        var content = new PremiumControl();
-        var dialog = new NoPaddingDialog()
+        var dialog = new PremiumDialog()
         {
             FlowDirection = GetFlowDirection(),
             RequestedTheme = GetTheme(),
-            Content = content
         };
 
-        content.CloseRequested += (s, e) => dialog.Hide();
         await dialog.ShowAsync();
         IsDialogOpen = false;
     }
@@ -326,4 +324,17 @@ public class DialogService : IDialogService
     private FlowDirection GetFlowDirection() => App.IsRightToLeftLanguage ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
 
     private ElementTheme GetTheme() => _userSettings.Get<string>(UserSettingsConstants.Theme).ToTheme();
+
+    public async Task OpenChannelPageSettingsAsync()
+    {
+        IsDialogOpen = true;
+        var dialog = new ChannelViewerSettingsDialog()
+        {
+            FlowDirection = GetFlowDirection(),
+            RequestedTheme = GetTheme(),
+        };
+
+        await dialog.ShowAsync();
+        IsDialogOpen = false;
+    }
 }

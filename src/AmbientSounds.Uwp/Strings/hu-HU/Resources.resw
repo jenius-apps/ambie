@@ -367,15 +367,6 @@
     <value>Köszönjük a feliratkozását!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Prémium, magasabb minőségű hangok!</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Növekvő katalógus!</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Fejlesztés támogatása!</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Üdv újra 👋🏽</value>
   </data>
@@ -917,5 +908,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Ingyenes próbaverzió érhető el</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Utolsó csatorna megnyitása</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Csatornák</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Teljes képernyős videók vagy más vizuális tartalmak megtekintése az összpontosítás, a tanulás vagy a pihenés elősegítése érdekében.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Részletek megtekintése</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Óra engedélyezése</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Másodpercek kijelzése az órán</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Visszaszámláló engedélyezése</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Kiváló minőségű hangok, prémium videók és válogatott meditációk. Hozzáférés minden jövőbeli tartalomhoz. Oldja fel mindezt az Ambie+ segítségével, és találja meg a következő kedvenc környezetét.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Ugyanazok az előnyök, alacsonyabb havi költség</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Éves csomag beszerzése - {0}</value>
   </data>
 </root>

@@ -1,0 +1,535 @@
+﻿<Page
+    x:Class="AmbientSounds.Views.ChannelsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:AmbientSounds.Controls"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:custom="using:AmbientSounds.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
+    xmlns:local="using:AmbientSounds.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <x:Double x:Key="ActionButtonSpacing">8</x:Double>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <GridView
+            x:Name="ChannelsGrid"
+            Padding="32,20"
+            ItemsSource="{x:Bind ViewModel.Channels}"
+            Loaded="OnGridViewLoaded"
+            SelectionMode="None">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="vm:ChannelViewModel">
+                    <GridViewItem
+                        Width="220"
+                        Height="192"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <!--  Image and the shadow  -->
+                            <Grid
+                                Background="Transparent"
+                                PointerEntered="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}"
+                                PointerExited="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}"
+                                PointerPressed="{x:Bind custom:ChannelItemAnimations.OnRestChannelImage}"
+                                PointerReleased="{x:Bind custom:ChannelItemAnimations.OnHoverChannelImage}"
+                                RequestedTheme="Dark">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <core:InvokeCommandAction Command="{x:Bind PrimaryCommand, Mode=OneWay}" CommandParameter="{x:Bind}" />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <Rectangle
+                                    x:Name="ImageRect"
+                                    Width="200"
+                                    Height="120"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
+                                    RadiusX="8"
+                                    RadiusY="8"
+                                    Stretch="Fill">
+                                    <ani:Implicit.Animations>
+                                        <ani:ScaleAnimation Duration="0:0:0.6" />
+                                    </ani:Implicit.Animations>
+                                    <Rectangle.Fill>
+                                        <ImageBrush Stretch="UniformToFill">
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage
+                                                    DecodePixelType="Logical"
+                                                    DecodePixelWidth="300"
+                                                    UriSource="{x:Bind ImagePath}" />
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Rectangle.Fill>
+                                    <ui:Effects.Shadow>
+                                        <media:AttachedCardShadow
+                                            BlurRadius="10"
+                                            CornerRadius="16"
+                                            Opacity="0.2"
+                                            Offset="0,4" />
+                                    </ui:Effects.Shadow>
+                                </Rectangle>
+
+                                <Border
+                                    x:Name="PrimaryIconBorder"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Background="{ThemeResource BackgroundAcrylicBrush}"
+                                    CornerRadius="8"
+                                    Visibility="Collapsed">
+                                    <Grid>
+                                        <FontIcon
+                                            Margin="8"
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            Glyph="{x:Bind PrimaryActionGlyph, Mode=OneWay}"
+                                            Visibility="{x:Bind ex:UIExtensions.CollapsedIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}" />
+
+                                        <Grid Margin="8" Visibility="{x:Bind ex:UIExtensions.VisibleIfAny(DownloadLoading, DownloadProgressVisible), Mode=OneWay}">
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                AutomationProperties.AccessibilityView="Raw"
+                                                Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                                                IsIndeterminate="False"
+                                                Value="100" />
+                                            <winui:ProgressRing
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                                IsIndeterminate="{x:Bind DownloadLoading, Mode=OneWay}"
+                                                Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                        </Grid>
+                                    </Grid>
+
+                                </Border>
+                            </Grid>
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Margin="12,6,12,0"
+                                FontSize="12"
+                                Text="{x:Bind Name}"
+                                TextWrapping="WrapWholeWords" />
+
+                            <Grid Grid.Row="2" Margin="12,0,4,6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Margin="0,0,1,0"
+                                    FontSize="12"
+                                    Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                    MaxLines="2"
+                                    Text="{x:Bind Description}"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="WrapWholeWords" />
+
+                                <Button
+                                    Grid.Column="1"
+                                    AutomationProperties.Name="{x:Bind strings:Resources.ViewDetailsText}"
+                                    Command="{x:Bind ViewDetailsCommand}"
+                                    CommandParameter="{x:Bind}"
+                                    Style="{StaticResource SmallSubtleIconButton}"
+                                    ToolTipService.ToolTip="{x:Bind strings:Resources.ViewDetailsText}">
+                                    <FontIcon
+                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                        FontSize="{StaticResource SmallIconSize}"
+                                        Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                                        Glyph="{StaticResource GlyphThreeDots}" />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </GridViewItem>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+        <StackPanel
+            Padding="40,30"
+            Orientation="Horizontal"
+            Spacing="26"
+            Visibility="{x:Bind ViewModel.LoadingChannels, Mode=OneWay}">
+            <StackPanel>
+                <labs:Shimmer Width="200" Height="120" />
+                <labs:Shimmer
+                    Width="80"
+                    Height="16"
+                    Margin="4,8,0,0"
+                    HorizontalAlignment="Left" />
+                <labs:Shimmer
+                    Width="160"
+                    Height="28"
+                    Margin="4,4,0,0"
+                    HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel>
+                <labs:Shimmer Width="200" Height="120" />
+                <labs:Shimmer
+                    Width="80"
+                    Height="16"
+                    Margin="4,8,0,0"
+                    HorizontalAlignment="Left" />
+                <labs:Shimmer
+                    Width="160"
+                    Height="28"
+                    Margin="4,4,0,0"
+                    HorizontalAlignment="Left" />
+            </StackPanel>
+
+            <StackPanel>
+                <labs:Shimmer Width="200" Height="120" />
+                <labs:Shimmer
+                    Width="80"
+                    Height="16"
+                    Margin="4,8,0,0"
+                    HorizontalAlignment="Left" />
+                <labs:Shimmer
+                    Width="160"
+                    Height="28"
+                    Margin="4,4,0,0"
+                    HorizontalAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+
+        <!--  Details pane  -->
+        <Grid
+            Grid.Column="1"
+            Width="300"
+            Visibility="{x:Bind ViewModel.DetailsPaneVisible, Mode=OneWay}">
+            <ani:Implicit.ShowAnimations>
+                <ani:OpacityAnimation From="0" To="1" />
+                <ani:TranslationAnimation
+                    From="20,0,0"
+                    To="0"
+                    Duration="0:0:0.6" />
+            </ani:Implicit.ShowAnimations>
+
+            <ani:Explicit.Animations>
+                <ani:AnimationSet x:Name="ManualContentFadeIn">
+                    <ani:StartAnimationActivity Animation="{x:Bind HeaderFadeIn}" />
+                    <ani:StartAnimationActivity Animation="{x:Bind ImageFadeIn}" />
+                    <ani:StartAnimationActivity Animation="{x:Bind DetailsFadeIn}" />
+                </ani:AnimationSet>
+
+                <ani:AnimationSet x:Name="PaneFadeOut">
+                    <ani:TranslationAnimation
+                        From="0"
+                        To="20,0,0"
+                        Duration="0:0:0.3" />
+                    <ani:OpacityAnimation
+                        From="1"
+                        To="0"
+                        Duration="0:0:0.3" />
+                </ani:AnimationSet>
+            </ani:Explicit.Animations>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Rectangle
+                Grid.RowSpan="4"
+                Width="0.5"
+                HorizontalAlignment="Left"
+                Style="{StaticResource ModuleVerticalDividerRectStyle}" />
+
+            <Grid Margin="20,20,12,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <ani:Explicit.Animations>
+                    <ani:AnimationSet x:Name="HeaderFadeIn">
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                        <ani:TranslationAnimation
+                            From="0,4,0"
+                            To="0"
+                            Duration="0:0:0.9" />
+                    </ani:AnimationSet>
+                </ani:Explicit.Animations>
+
+                <TextBlock
+                    Margin="0,0,4,0"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    Text="{x:Bind ViewModel.SelectedChannel.Name, Mode=OneWay}"
+                    TextTrimming="CharacterEllipsis" />
+
+                <Button
+                    Grid.Column="1"
+                    AutomationProperties.Name="{x:Bind strings:Resources.CloseText}"
+                    Click="OnClosePaneClicked"
+                    Style="{StaticResource SmallSubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.CloseText}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="16"
+                        Glyph="{StaticResource GlyphCancel}" />
+                </Button>
+            </Grid>
+
+            <Border
+                Grid.Row="1"
+                Height="160"
+                Margin="20,12,20,0"
+                HorizontalAlignment="Stretch"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
+                CornerRadius="8"
+                Visibility="{x:Bind ex:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
+                <Border.Background>
+                    <ImageBrush ImageSource="{x:Bind ViewModel.SelectedChannel.ImagePath, Mode=OneWay}" Stretch="UniformToFill" />
+                </Border.Background>
+
+                <ani:Explicit.Animations>
+                    <ani:AnimationSet x:Name="ImageFadeIn">
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.9" />
+                        <ani:ScaleAnimation
+                            From="0.9"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </ani:AnimationSet>
+                </ani:Explicit.Animations>
+
+                <ui:Effects.Shadow>
+                    <media:AttachedCardShadow
+                        BlurRadius="12"
+                        CornerRadius="8"
+                        Opacity="0.3"
+                        Offset="0,2" />
+                </ui:Effects.Shadow>
+            </Border>
+
+            <StackPanel
+                Grid.Row="2"
+                Margin="20,20,20,0"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5,0.8"
+                Visibility="{x:Bind ex:UIExtensions.CollapsedIfNull(ViewModel.SelectedChannel), Mode=OneWay}">
+                <ani:Explicit.Animations>
+                    <ani:AnimationSet x:Name="DetailsFadeIn">
+                        <ani:OpacityAnimation
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                        <ani:TranslationAnimation
+                            From="0,4,0"
+                            To="0"
+                            Duration="0:0:0.9" />
+                        <ani:ScaleAnimation
+                            From="0.95"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </ani:AnimationSet>
+                </ani:Explicit.Animations>
+
+                <TextBlock
+                    FontSize="12"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    Text="{x:Bind ViewModel.SelectedChannel.Description, Mode=OneWay}"
+                    TextWrapping="WrapWholeWords" />
+
+                <Grid Margin="0,20,0,0">
+                    <labs:Shimmer
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.ActionButtonLoading, Mode=OneWay}" />
+
+                    <Button
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.SelectedChannel.DownloadCommand, Mode=OneWay}"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.DownloadButtonVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="{StaticResource ActionButtonSpacing}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="{StaticResource SmallIconSize}"
+                                Glyph="{StaticResource GlyphDownload}" />
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.DownloadText}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.SelectedChannel.PlayCommand, Mode=OneWay}"
+                        CommandParameter="{x:Bind ViewModel.SelectedChannel, Mode=OneWay}"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.PlayButtonVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="{StaticResource ActionButtonSpacing}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="{StaticResource SmallIconSize}"
+                                Glyph="{StaticResource GlyphPlay}" />
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.PlayerPlayText}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        MinHeight="48"
+                        HorizontalAlignment="Stretch"
+                        Command="{x:Bind ViewModel.SelectedChannel.UnlockCommand, Mode=OneWay}"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.BuyButtonVisible, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="{StaticResource ActionButtonSpacing}">
+                            <FontIcon
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="{StaticResource SmallIconSize}"
+                                Glyph="{StaticResource GlyphUnlock}" />
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind strings:Resources.UnlockText}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Grid
+                        MinHeight="48"
+                        Padding="20,0"
+                        Visibility="{x:Bind ViewModel.SelectedChannel.DownloadProgressVisible, Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <winui:ProgressRing
+                            Width="20"
+                            Height="20"
+                            AutomationProperties.AccessibilityView="Raw"
+                            Foreground="{ThemeResource TextFillColorDisabledBrush}"
+                            IsIndeterminate="False"
+                            Value="100">
+                            <ani:Implicit.ShowAnimations>
+                                <ani:OpacityAnimation
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:0.6" />
+                                <ani:TranslationAnimation
+                                    From="0,4,0"
+                                    To="0"
+                                    Duration="0:0:0.6" />
+                            </ani:Implicit.ShowAnimations>
+                        </winui:ProgressRing>
+                        <winui:ProgressRing
+                            Width="20"
+                            Height="20"
+                            Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                            IsIndeterminate="False"
+                            Value="{x:Bind ViewModel.SelectedChannel.DownloadProgressValue, Mode=OneWay}">
+                            <ani:Implicit.ShowAnimations>
+                                <ani:OpacityAnimation
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:0.6" />
+                                <ani:TranslationAnimation
+                                    From="0,4,0"
+                                    To="0"
+                                    Duration="0:0:0.6" />
+                            </ani:Implicit.ShowAnimations>
+                        </winui:ProgressRing>
+
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="12,0"
+                            VerticalAlignment="Center"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                            Text="{x:Bind strings:Resources.DownloadingText}">
+                            <ani:Implicit.ShowAnimations>
+                                <ani:OpacityAnimation
+                                    Delay="0:0:0.1"
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:0.6" />
+                                <ani:TranslationAnimation
+                                    Delay="0:0:0.1"
+                                    From="0,4,0"
+                                    To="0"
+                                    Duration="0:0:0.6" />
+                            </ani:Implicit.ShowAnimations>
+                        </TextBlock>
+
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Text="{x:Bind ViewModel.SelectedChannel.DownloadProgressString, Mode=OneWay}"
+                            Typography.NumeralAlignment="Tabular">
+                            <ani:Implicit.ShowAnimations>
+                                <ani:OpacityAnimation
+                                    Delay="0:0:0.2"
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:0.6" />
+                                <ani:TranslationAnimation
+                                    Delay="0:0:0.2"
+                                    From="0,4,0"
+                                    To="0"
+                                    Duration="0:0:0.6" />
+                            </ani:Implicit.ShowAnimations>
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+
+            </StackPanel>
+
+            <HyperlinkButton
+                Grid.Row="3"
+                Margin="20,12"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"
+                ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                AutomationProperties.Name="{x:Bind strings:Resources.DeleteText}"
+                Command="{x:Bind ViewModel.SelectedChannel.DeleteCommand, Mode=OneWay}"
+                Content="{x:Bind strings:Resources.DeleteText}"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Visibility="{x:Bind ViewModel.SelectedChannel.DeleteButtonVisible, Mode=OneWay}">
+                <ani:Implicit.ShowAnimations>
+                    <ani:OpacityAnimation
+                        Delay="0:0:0.15"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.6" />
+                    <ani:ScaleAnimation
+                        Delay="0:0:0.15"
+                        From="0.8"
+                        To="1"
+                        Duration="0:0:0.6" />
+                </ani:Implicit.ShowAnimations>
+            </HyperlinkButton>
+        </Grid>
+    </Grid>
+</Page>

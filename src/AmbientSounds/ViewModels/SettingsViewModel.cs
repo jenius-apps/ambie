@@ -4,6 +4,7 @@ using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
@@ -20,7 +21,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IImagePicker _imagePicker;
     private readonly IAssetsReader _assetsReader;
     private readonly IUserSettings _userSettings;
-    private readonly IStoreNotificationRegistrar _notifications;
+    private readonly IPushNotificationService _notifications;
     private readonly ITelemetry _telemetry;
     private readonly IAppStoreRatings _appStoreRatings;
     private readonly IQuickResumeService _quickResumeService;
@@ -28,11 +29,12 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly IUriLauncher _uriLauncher;
     private readonly IAppStoreUpdater _storeUpdater;
+    private readonly ISystemInfoProvider _systemInfoProvider;
     private bool _notificationsLoading;
 
     public SettingsViewModel(
         IUserSettings userSettings,
-        IStoreNotificationRegistrar notifications,
+        IPushNotificationService notifications,
         ITelemetry telemetry,
         IAssetsReader assetsReader,
         IImagePicker imagePicker,
@@ -56,12 +58,20 @@ public partial class SettingsViewModel : ObservableObject
         _iapService = iapService;
         _uriLauncher = uriLauncher;
         _storeUpdater = appStoreUpdater;
+        _systemInfoProvider = systemInfoProvider;
 
         if (systemInfoProvider.IsOnBatterySaver())
         {
             BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
         }
+
+        _xboxDisplayModeSelectedIndex = GetInitialXboxDisplayModeIndex();
+
+        DeviceId = _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) ?? string.Empty;
     }
+
+    [ObservableProperty]
+    private string _deviceId = string.Empty;
 
     [ObservableProperty]
     private bool _updateBarVisible;
@@ -85,7 +95,7 @@ public partial class SettingsViewModel : ObservableObject
     /// </summary>
     public string CurrentTheme
     {
-        get => _userSettings.Get<string>(UserSettingsConstants.Theme);
+        get => _userSettings.Get<string>(UserSettingsConstants.Theme) ?? string.Empty;
         set
         {
             _userSettings.Set(UserSettingsConstants.Theme, value);
@@ -130,6 +140,49 @@ public partial class SettingsViewModel : ObservableObject
     {
         get => _userSettings.Get<bool>(UserSettingsConstants.CompactOnFocusKey);
         set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
+    }
+
+    public bool ChannelCountdownEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelCountdownEnabledKey, value);
+            OnPropertyChanged();
+            _telemetry.TrackEvent(value
+                ? TelemetryConstants.ChannelViewerCountdownkEnabled
+                : TelemetryConstants.ChannelViewerCountdownDisabled);
+        }
+    }
+
+    public bool ChannelClockEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelClockEnabledKey, value);
+            OnPropertyChanged();
+            _telemetry.TrackEvent(value
+                ? TelemetryConstants.ChannelViewerClockEnabled
+                : TelemetryConstants.ChannelViewerClockDisabled);
+        }
+    }
+
+    public string ChannelClockPreview => ChannelClockSecondsEnabled
+        ? DateTime.Now.ToLongTimeString()
+        : DateTime.Now.ToShortTimeString();
+
+    public bool ChannelClockSecondsEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelClockSecondsEnabledKey, value);
+            OnPropertyChanged(nameof(ChannelClockPreview));
+            _telemetry.TrackEvent(value is true
+                ? TelemetryConstants.ChannelViewerClockSecondsEnabled
+                : TelemetryConstants.ChannelViewerClockSecondsDisabled);
+        }
     }
 
     public bool StreaksReminderEnabled
@@ -214,17 +267,18 @@ public partial class SettingsViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
-        InitializeXboxDisplayModeSetting();
         ManageSubscriptionVisible = await _iapService.IsSubscriptionOwnedAsync();
     }
 
-    private void InitializeXboxDisplayModeSetting()
+    private int GetInitialXboxDisplayModeIndex()
     {
-        string displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
+        string? displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
         if (Enum.TryParse(displayModeString, out SlideshowMode result))
         {
-            XboxDisplayModeSelectedIndex = (int)result;
+            return (int)result;
         }
+
+        return (int)SlideshowMode.Images;
     }
 
     public void Uninitialize()
@@ -239,15 +293,25 @@ public partial class SettingsViewModel : ObservableObject
         }
 
         _notificationsLoading = true;
-        if (value)
+
+        string? deviceId = _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey);
+
+        if (deviceId is { Length: > 0 } id)
         {
-            await _notifications.Register();
+#if DEBUG
+            await Task.Delay(1);
+#else
+            if (value)
+            {
+                await _notifications.RegisterAsync(id, _systemInfoProvider.GetCulture(), default);
+            }
+            else
+            {
+                await _notifications.UnregisterAsync(id, default);
+            }
+#endif
+            _userSettings.Set(UserSettingsConstants.Notifications, value);
         }
-        else
-        {
-            await _notifications.Unregiser();
-        }
-        _userSettings.Set(UserSettingsConstants.Notifications, value);
         _notificationsLoading = false;
     }
 
@@ -317,7 +381,7 @@ public partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     private async Task RedirectToFeedbackFormAsync()
     {
-        await _uriLauncher.LaunchUriAsync(new Uri("https://forms.office.com/r/7AcGhgJ81q"));
+        await _uriLauncher.LaunchUriAsync(new Uri("https://forms.office.com/r/VaPaEQWvx6"));
         _telemetry.TrackEvent(TelemetryConstants.FeedbackClicked);
     }
 

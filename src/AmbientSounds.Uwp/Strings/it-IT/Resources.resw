@@ -367,15 +367,6 @@
     <value>Grazie per esserti abbonato!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Ottieni l'accesso a suoni premium di alta qualità</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Scarica il salvaschermo</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Supporta lo sviluppo</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Ciao</value>
   </data>
@@ -929,5 +920,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Prova gratuita disponibile</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Apri l'ultimo canale</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Canali</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Visualizza video a schermo intero o altri contenuti visivi per aiutarti a concentrarti, studiare o rilassarti.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Mostra dettagli</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Abilita orologio</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Visualizzazione dei secondi sull'orologio</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Abilita il timer per il conto alla rovescia</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Suoni di alta qualità, video premium e meditazioni curate. Accesso a tutti i contenuti futuri. Sblocca tutto con Ambie+ e trova il tuo prossimo ambiente preferito.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Stessi vantaggi, costi mensili inferiori</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Ottieni il piano annuale - {0}</value>
   </data>
 </root>

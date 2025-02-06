@@ -3,8 +3,16 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     Loaded="UserControl_Loaded"
     Unloaded="UserControl_Unloaded">
+
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="Gradient" StartPoint="0.5,1" EndPoint="0.5,0">
+            <GradientStop Offset="1" Color="#FFFCC94E" />
+            <GradientStop Offset="0" Color="#FFD67606" />
+        </LinearGradientBrush>
+    </UserControl.Resources>
 
     <StackPanel Orientation="Horizontal">
         <VisualStateManager.VisualStateGroups>
@@ -12,6 +20,7 @@
                 <VisualState>
                     <VisualState.Setters>
                         <Setter Target="DisplayTextBlock.Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
+                        <Setter Target="PlusDisplayTextBlock.Foreground" Value="{StaticResource Gradient}" />
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <StateTrigger IsActive="{x:Bind IsWindowFocused, Mode=OneWay}" />
@@ -20,20 +29,30 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Image Height="18" Source="ms-appx:///Assets/logo.png" />
-        <TextBlock
-            x:Name="DisplayTextBlock"
-            Margin="8,0,0,0"
-            VerticalAlignment="Center"
-            FontSize="12"
-            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-            Text="{x:Bind DisplayText, Mode=OneWay}"
-            Visibility="{x:Bind TextVisible, Mode=OneWay}">
+        <Grid Margin="8,0,0,0" Visibility="{x:Bind TextVisible, Mode=OneWay}">
             <animations:Implicit.ShowAnimations>
                 <animations:OpacityAnimation
                     From="0"
                     To="1"
                     Duration="0:0:0.6" />
             </animations:Implicit.ShowAnimations>
-        </TextBlock>
+            <TextBlock
+                x:Name="DisplayTextBlock"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind DisplayText, Mode=OneWay}"
+                Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(UsePremiumTitle), Mode=OneWay}" />
+
+            <TextBlock
+                x:Name="PlusDisplayTextBlock"
+                VerticalAlignment="Center"
+                FontSize="12"
+                FontWeight="SemiBold"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Visibility="{x:Bind UsePremiumTitle, Mode=OneWay}">
+                <Run Text="{x:Bind DisplayText, Mode=OneWay}" /><Run Text="+" />
+            </TextBlock>
+        </Grid>
     </StackPanel>
 </UserControl>

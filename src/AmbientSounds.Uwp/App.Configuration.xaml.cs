@@ -19,6 +19,8 @@ using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Storage;
 using Windows.System.Profile;
+using JeniusApps.Common.Settings;
+using JeniusApps.Common.Settings.Uwp;
 
 #nullable enable
 
@@ -48,19 +50,32 @@ partial class App
     /// </summary>
     /// <param name="appsettings">The <see cref="IAppSettings"/> instance to use, if available.</param>
     /// <returns>The resulting service provider.</returns>
-    private static IServiceProvider ConfigureServices(IAppSettings? appsettings = null)
+    private static IServiceProvider ConfigureServices()
     {
         ServiceCollection collection = new();
 
         ConfigureServices(collection);
 
         // Manually register additional services requiring more customization
-        collection.AddSingleton(appsettings ?? new AppSettings());
+        collection.AddSingleton<IUserSettings, LocalSettings>(s => new LocalSettings(UserSettingsConstants.Defaults));
+        collection.AddSingleton<IExperimentationService, LocalExperimentationService>(s => new LocalExperimentationService(ExperimentConstants.AllKeys, s.GetRequiredService<IUserSettings>()));
         collection.AddSingleton<ITelemetry, AppInsightsTelemetry>(s =>
         {
             var apiKey = s.GetRequiredService<IAppSettings>().TelemetryApiKey;
             var isEnabled = s.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.TelemetryOn);
-            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled, context: GetContext());
+            var context = GetContext();
+            foreach (var experiment in s.GetRequiredService<IExperimentationService>().GetAllExperiments())
+            {
+                context?.GlobalProperties.Add(experiment.Key, experiment.Value.ToString());
+            }
+            return new AppInsightsTelemetry(apiKey, isEnabled: isEnabled, context: context);
+        });
+
+        collection.AddSingleton<IPushNotificationStorage, AzureServiceBusPushNotificationStorage>(s =>
+        {
+            var connectionString = s.GetRequiredService<IAppSettings>().NotificationHubConnectionString;
+            var queueName = s.GetRequiredService<IAppSettings>().NotificationHubName;
+            return new AzureServiceBusPushNotificationStorage(connectionString, queueName);
         });
 
         IServiceProvider provider = collection.BuildServiceProvider();
@@ -82,8 +97,8 @@ partial class App
     {
         var context = new TelemetryContext();
         context.Session.Id = Guid.NewGuid().ToString();
-        context.Session.IsFirst = SystemInformation.Instance.IsFirstRun;
         context.Component.Version = SystemInformation.Instance.ApplicationVersion.ToFormattedString();
+        context.GlobalProperties.Add("isFirstRun", SystemInformation.Instance.IsFirstRun.ToString());
 
         if (ApplicationData.Current.LocalSettings.Values[UserSettingsConstants.LocalUserIdKey] is string { Length: > 0 } id)
         {
@@ -110,6 +125,7 @@ partial class App
     /// Configures services used by the app.
     /// </summary>
     /// <param name="services">The target <see cref="IServiceCollection"/> instance to register services with.</param>
+    [Singleton(typeof(AppSettings), typeof(IAppSettings))]
     [Singleton(typeof(HttpClient))]
     [Singleton(typeof(SoundListViewModel))] // shared in main and compact pages
     [Transient(typeof(ScreensaverViewModel))]
@@ -118,10 +134,12 @@ partial class App
     [Singleton(typeof(CataloguePageViewModel))]
     [Singleton(typeof(FocusTaskModuleViewModel))]
     [Singleton(typeof(PremiumControlViewModel))]
+    [Transient(typeof(ChannelsPageViewModel))]
     [Singleton(typeof(FocusTimerModuleViewModel))]
     [Transient(typeof(ShellPageViewModel))]
     [Singleton(typeof(PlayerViewModel))] // shared in main and compact pages
     [Singleton(typeof(SleepTimerViewModel))] // shared in main and compact pages
+    [Singleton(typeof(DigitalClockViewModel))] // timer needs to persist across pages
     [Singleton(typeof(FocusHistoryModuleViewModel))]
     [Singleton(typeof(VideosMenuViewModel))]
     [Singleton(typeof(TimeBannerViewModel))]
@@ -137,7 +155,8 @@ partial class App
     [Singleton(typeof(AppServiceController))]
     [Singleton(typeof(PlaybackModeObserver))]
     [Singleton(typeof(ProtocolLaunchController))]
-    [Transient(typeof(PartnerCentreNotificationRegistrar), typeof(IStoreNotificationRegistrar))]
+    [Transient(typeof(PushNotificationService), typeof(IPushNotificationService))]
+    [Transient(typeof(WindowsPushNotificationSource), typeof(IPushNotificationSource))]
     [Transient(typeof(ImagePicker), typeof(IImagePicker))]
     [Singleton(typeof(WindowsClipboard), typeof(IClipboard))]
     [Singleton(typeof(MicrosoftStoreRatings), typeof(IAppStoreRatings))]
@@ -155,6 +174,8 @@ partial class App
     [Singleton(typeof(SoundVmFactory), typeof(ISoundVmFactory))]
     [Singleton(typeof(GuideVmFactory), typeof(IGuideVmFactory))]
     [Singleton(typeof(CatalogueRowVmFactory))]
+    [Singleton(typeof(ChannelVmFactory))]
+    [Singleton(typeof(SoundVolumeService), typeof(ISoundVolumeService))]
     [Singleton(typeof(CatalogueService), typeof(ICatalogueService))]
     [Singleton(typeof(VideoService), typeof(IVideoService))]
     [Singleton(typeof(FocusTaskCache), typeof(IFocusTaskCache))]
@@ -177,7 +198,6 @@ partial class App
     [Singleton(typeof(SoundService), typeof(ISoundService))]
     [Singleton(typeof(GuideService), typeof(IGuideService))]
     [Singleton(typeof(FocusHistoryRepository), typeof(IFocusHistoryRepository))]
-    [Singleton(typeof(LocalSettings), typeof(IUserSettings))]
     [Singleton(typeof(SoundMixService), typeof(ISoundMixService))]
     [Singleton(typeof(Renamer), typeof(IRenamer))]
     [Singleton(typeof(UpdateService), typeof(IUpdateService))]
@@ -214,5 +234,8 @@ partial class App
     [Singleton(typeof(SleepTimerService), typeof(ISleepTimerService))]
     [Transient(typeof(XboxShellPageViewModel))]
     [Singleton(typeof(XboxSlideshowService), typeof(IXboxSlideshowService))]
+    [Singleton(typeof(ChannelService), typeof(IChannelService))]
+    [Singleton(typeof(ChannelCache), typeof(IChannelCache))]
+    [Singleton(typeof(ChannelRepository), typeof(IChannelRepository))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

@@ -367,15 +367,6 @@
     <value>Vielen Dank für das Abonnement!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Greifen Sie auf erstklassige, hochwertige Sounds zu</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Videos herunterladen</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Unterstützen Sie die Entwicklung</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Nochmals Hallo 👋🏽</value>
   </data>
@@ -923,5 +914,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Kostenlose Testversion verfügbar</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Letzten Kanal öffnen</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanäle</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Sieh dir Videos im Vollbildmodus oder andere visuelle Inhalte an, die dir helfen, dich zu konzentrieren, zu lernen oder dich zu entspannen.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Uhr aktivieren</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Zeige die Sekunden auf der Uhr an</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Countdown-Timer aktivieren</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Hochwertige Sounds, Premium-Videos und kuratierte Meditationen. Zugriff auf alle zukünftigen Inhalte. Schalten Sie mit Ambie+ alles frei und finden Sie Ihr nächstes Lieblingsambiente.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Gleiche Vorteile, niedrigere monatliche Kosten</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Holen Sie sich den Jahresplan - {0}</value>
   </data>
 </root>

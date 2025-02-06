@@ -6,6 +6,7 @@
     xmlns:animatedvisuals="using:AnimatedVisuals"
     xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -89,7 +90,10 @@
                                 <Grid.Background>
                                     <ImageBrush Stretch="UniformToFill">
                                         <ImageBrush.ImageSource>
-                                            <BitmapImage UriSource="{x:Bind ImagePath, Mode=OneWay}" />
+                                            <BitmapImage
+                                                DecodePixelType="Logical"
+                                                DecodePixelWidth="200"
+                                                UriSource="{x:Bind ImagePath, Mode=OneWay}" />
                                         </ImageBrush.ImageSource>
                                     </ImageBrush>
                                 </Grid.Background>
@@ -123,25 +127,25 @@
                                     Text="{x:Bind Name, Mode=OneWay}"
                                     TextAlignment="Center"
                                     TextTrimming="CharacterEllipsis"
-                                    TextWrapping="Wrap">
-                                    <ToolTipService.ToolTip>
-                                        <Grid MaxWidth="300">
-                                            <TextBlock Text="{x:Bind Attribution, Mode=OneWay}" TextWrapping="Wrap" />
-                                        </Grid>
-                                    </ToolTipService.ToolTip>
-                                </TextBlock>
+                                    TextWrapping="Wrap" />
                             </Grid>
 
                             <Grid
                                 Grid.Row="2"
                                 Height="40"
                                 RequestedTheme="Dark">
-                                <Grid Margin="0,0,0,6" Visibility="{x:Bind NotInstalled, Mode=OneWay}">
+                                <Grid
+                                    Margin="6,0,6,6"
+                                    ColumnSpacing="{x:Bind local:UIHelper.PreviewColumnSpan(CanPreview)}"
+                                    Visibility="{x:Bind NotInstalled, Mode=OneWay}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="{x:Bind local:UIHelper.PreviewButtonColumnWidth(CanPreview)}" />
+                                    </Grid.ColumnDefinitions>
 
                                     <!--  buy button  -->
                                     <Button
                                         x:Uid="BuyButton"
-                                        Margin="6,0"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind BuySoundCommand, Mode=OneWay}"
@@ -155,7 +159,6 @@
                                     <!--  download button  -->
                                     <Button
                                         x:Uid="DownloadSoundButton"
-                                        Margin="6,0"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         Command="{x:Bind DownloadCommand, Mode=OneWay}"
@@ -166,7 +169,24 @@
                                             Glyph="{StaticResource GlyphDownload}" />
                                     </Button>
 
-                                    <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
+                                    <!--  preview button  -->
+                                    <Button
+                                        x:Uid="PreviewButton"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Command="{x:Bind PreviewCommand}"
+                                        Visibility="{x:Bind CanPreview, Mode=OneWay}">
+                                        <FontIcon
+                                            Margin="6,0,0,0"
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            Glyph="{StaticResource GlyphVolumeSmall}" />
+                                    </Button>
+
+                                    <Grid
+                                        Grid.ColumnSpan="2"
+                                        ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                                        Visibility="{x:Bind DownloadProgressVisible, Mode=OneWay}">
                                         <ani:Implicit.ShowAnimations>
                                             <ani:OpacityAnimation
                                                 From="0"
@@ -231,6 +251,6 @@
             Margin="0,8,16,0"
             HorizontalAlignment="Stretch"
             AutomationProperties.AccessibilityView="Raw"
-            Visibility="{x:Bind converters:VisibilityConverter.InvertBool(SoundsVisible), Mode=OneWay}" />
+            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(SoundsVisible), Mode=OneWay}" />
     </Grid>
 </UserControl>

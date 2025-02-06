@@ -358,15 +358,6 @@
     <value>Bedankt voor je inschrijving!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Krijg toegang tot hoogwaardige geluiden van hoge kwaliteit</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Videoscreensavers downloaden</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Ondersteuning van ontwikkeling</value>
-  </data>
   <data name="HelloAgain" xml:space="preserve">
     <value>Hallo nogmaals 👋🏽</value>
   </data>
@@ -902,5 +893,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Gratis proefversie beschikbaar</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Laatste kanaal openen</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanalen</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Bekijk video's op volledig scherm of andere visuele inhoud om u te helpen focussen, studeren of ontspannen.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Bekijk details</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Klok inschakelen</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Seconden weergeven op klok</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Afteltimer inschakelen</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Dezelfde voordelen, lagere maandelijkse kosten</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Ontvang een jaarabonnement - {0}</value>
   </data>
 </root>

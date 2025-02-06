@@ -2,8 +2,8 @@
     x:Class="AmbientSounds.Controls.SegmentItem"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="using:AmbientSounds.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="300"
@@ -15,7 +15,7 @@
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind converters:VisibilityConverter.Invert(IsChecked), Mode=OneWay}" />
+                        <StateTrigger IsActive="{x:Bind ex:UIExtensions.Not(IsChecked), Mode=OneWay}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="SegmentButton.Background" Value="Transparent" />

@@ -42,7 +42,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         IAssetLocalizer assetLocalizer,
         IMixMediaPlayerService mixMediaPlayerService,
         IUpdateService updateService,
-        ILocalizer localizer)
+        ILocalizer localizer,
+        IExperimentationService experimentationService)
     {
         _sound = s;
         _downloadManager = downloadManager;
@@ -93,6 +94,7 @@ public partial class OnlineSoundViewModel : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DownloadProgressVisible))]
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(CanPreview))]
     [NotifyPropertyChangedFor(nameof(CanPlay))]
     [NotifyPropertyChangedFor(nameof(DownloadProgressPercent))]
     private double _downloadProgressValue;
@@ -156,11 +158,6 @@ public partial class OnlineSoundViewModel : ObservableObject
     public string TelemetryLocation { get; set; } = "catalogue";
 
     /// <summary>
-    /// The sound's attribution.
-    /// </summary>
-    public string? Attribution => _sound.Attribution;
-
-    /// <summary>
     /// Name of the sound.
     /// </summary>
     public string Name => _assetLocalizer.GetLocalName(_sound);
@@ -205,8 +202,9 @@ public partial class OnlineSoundViewModel : ObservableObject
     /// <summary>
     /// Determines if the sound can be previewed.
     /// </summary>
-    public bool CanPreview => 
-        !string.IsNullOrWhiteSpace(_sound.PreviewFilePath) && 
+    public bool CanPreview =>
+        !DownloadProgressVisible &&
+        !string.IsNullOrEmpty(_sound.PreviewFilePath) && 
         Uri.IsWellFormedUriString(_sound.PreviewFilePath, UriKind.Absolute);
 
     /// <summary>
@@ -238,6 +236,11 @@ public partial class OnlineSoundViewModel : ObservableObject
     private void Preview()
     {
         _previewService.Play(_sound.PreviewFilePath);
+        _telemetry.TrackEvent(TelemetryConstants.PreviewPlayed, new Dictionary<string, string>
+        {
+            { "name", _sound.Name },
+            { "isOwned", IsOwned.ToString() },
+        });
     }
 
     [RelayCommand]

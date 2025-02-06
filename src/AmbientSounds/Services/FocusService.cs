@@ -1,10 +1,11 @@
 ﻿using AmbientSounds.Constants;
-using CommunityToolkit.Diagnostics;
-using System;
-using System.Collections.Generic;
 using AmbientSounds.Models;
 using AmbientSounds.Tools;
+using CommunityToolkit.Diagnostics;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
+using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.Services;
 

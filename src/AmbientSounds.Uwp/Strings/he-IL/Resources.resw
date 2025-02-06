@@ -363,15 +363,6 @@
     <value>{0} לחודש</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>גישה לצלילים איכותיים ומובחרים</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>הורד שומרי מסך וידאו</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>תמיכה בפיתוח</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>תודה שנרשמת!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -929,5 +920,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>ניסיון חינם זמין</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>פתח ערוץ אחרון</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>ערוצי</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>צפה בסרטוני וידאו במסך מלא או בתוכן חזותי אחר שיעזרו לך להתמקד, ללמוד או להירגע.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>הצג פרטים</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>הפעל שעון</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>הצגת שניות על השעון</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>הפעל טיימר ספירה לאחור</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות נבחרות. גישה לכל התוכן העתידי. פתחו את הכל עם Ambie+ ומצאו את האווירה האהובה הבאה עליכם.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>אותם יתרונות, עלות חודשית נמוכה יותר</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>קבל תוכנית שנתית - {0}</value>
   </data>
 </root>

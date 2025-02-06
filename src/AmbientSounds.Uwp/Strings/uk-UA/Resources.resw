@@ -366,15 +366,6 @@
     <value>{0} на місяць</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Отримайте доступ до звуків високої якості</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Завантаження заставок</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Підтримати розробника</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Дякуємо за підписку!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -929,5 +920,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Доступна безкоштовна пробна версія</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Відкрити останній канал</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Канали</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Переглядайте повноекранні відео або інший візуальний контент, який допоможе вам зосередитися, вчитися або розслаблятися.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Перегляд докладних відомостей</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Увімкнути годинник</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Відображення секунд на годиннику</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Увімкніть таймер зворотного відліку</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Високоякісні звуки, преміальні відео та кураторські медитації. Доступ до всього майбутнього контенту. Розблокуйте все це за допомогою Ambie+ і знайдіть свою наступну улюблену атмосферу.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Ті самі переваги, нижчі щомісячні витрати</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Отримати річний план - {0}</value>
   </data>
 </root>

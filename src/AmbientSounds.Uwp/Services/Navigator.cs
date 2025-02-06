@@ -1,4 +1,5 @@
-﻿using AmbientSounds.ViewModels;
+﻿using AmbientSounds.Events;
+using AmbientSounds.ViewModels;
 using AmbientSounds.Views;
 using System;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace AmbientSounds.Services.Uwp;
 /// </summary>
 public class Navigator : INavigator
 {
+
     /// <inheritdoc/>
     public event EventHandler<ContentPageType>? ContentPageChanged;
 
@@ -28,12 +30,9 @@ public class Navigator : INavigator
     {
         switch (sourcePage)
         {
-            case nameof(CompactPage):
-                GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
-                break;
             case nameof(ScreensaverPage):
-                GoBackSafely(RootFrame, new DrillInNavigationTransitionInfo());
-                NavigateTo(ContentPageType.Home);
+                GoBackSafely(RootFrame, new SuppressNavigationTransitionInfo());
+                NavigateTo(ContentPageType.Channels);
                 break;
             default:
                 GoBackSafely(Frame);
@@ -50,11 +49,11 @@ public class Navigator : INavigator
     }
 
     /// <inheritdoc/>
-    public void ToScreensaver()
+    public void ToScreensaver(ScreensaverArgs? args = null)
     {
         if (RootFrame is Frame f && f.CurrentSourcePageType != typeof(ScreensaverPage))
         {
-            f.Navigate(typeof(ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+            f.Navigate(typeof(ScreensaverPage), args, new SuppressNavigationTransitionInfo());
         }
     }
 
@@ -69,6 +68,7 @@ public class Navigator : INavigator
             ContentPageType.Updates => typeof(UpdatesPage),
             ContentPageType.Meditate => typeof(MeditatePage),
             ContentPageType.Search => typeof(SearchPage),
+            ContentPageType.Channels => typeof(ChannelsPage),
             _ => typeof(HomePage)
         };
 

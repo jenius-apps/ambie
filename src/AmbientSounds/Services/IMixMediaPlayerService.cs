@@ -41,14 +41,14 @@ public interface IMixMediaPlayerService
     event EventHandler<MediaPlaybackState>? PlaybackStateChanged;
 
     /// <summary>
-    /// Raised when the guide's playback position changed.
+    /// Raised when the sound's playback position changed.
     /// </summary>
-    event EventHandler<TimeSpan>? GuidePositionChanged;
+    event EventHandler<TimeSpan>? FeaturedSoundPositionChanged;
 
     /// <summary>
-    /// The total duration of the current guide.
+    /// The total duration of the current featured sound.
     /// </summary>
-    TimeSpan GuideDuration { get; }
+    TimeSpan FeaturedSoundDuration { get; }
 
     /// <summary>
     /// Global volume control. Max = 1. Min = 0.
@@ -72,10 +72,15 @@ public interface IMixMediaPlayerService
     MediaPlaybackState PlaybackState { get; set; }
 
     /// <summary>
-    /// The ID of the current guide being played.
-    /// If a guide is not being played, this will be empty.
+    /// The ID of the current featured sound being played.
+    /// If a sound is not being played, this will be an empty string.
     /// </summary>
-    string CurrentGuideId { get; }
+    string FeaturedSoundId { get; }
+
+    /// <summary>
+    /// The type of featured sound. If a sound is not being played, this will be null.
+    /// </summary>
+    FeaturedSoundType? FeaturedSoundType { get; }
 
     /// <summary>
     /// Cancels any current playback
@@ -150,10 +155,18 @@ public interface IMixMediaPlayerService
     void SetVolume(string soundId, double value);
 
     /// <summary>
-    /// Plays the given guide.
+    /// Plays the given sound.
     /// </summary>
-    /// <param name="guide">The guide to play.</param>
-    Task PlayGuideAsync(Guide guide);
+    Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filepath, bool enableGaplessLoop = false);
+
+    /// <summary>
+    /// Stops the featured sound and removes it from playback.
+    /// </summary>
+    void StopFeaturedSound();
+
+    /// <summary>
+    /// Plays a random sound.
+    /// </summary>
     Task AddRandomAsync();
 
     /// <summary>
@@ -162,4 +175,9 @@ public interface IMixMediaPlayerService
     /// <param name="oldestToNewest">Sorts the list from oldest to newest if true. Otherwise, sorts newest to oldest.</param>
     /// <returns>Sorted list of active sound IDs.</returns>
     IEnumerable<string> GetSoundIds(bool oldestToNewest);
+
+    /// <summary>
+    /// Gets the volume of the active players.
+    /// </summary>
+    Dictionary<string, double> GetPlayerVolumes();
 }

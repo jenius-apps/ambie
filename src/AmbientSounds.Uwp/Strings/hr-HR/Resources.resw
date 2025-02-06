@@ -363,15 +363,6 @@
     <value>{0} mjesečno</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
   </data>
-  <data name="SubscriptionText1" xml:space="preserve">
-    <value>Pristupite premium visoko kvalitetnim zvuovkima!</value>
-  </data>
-  <data name="SubscriptionText2" xml:space="preserve">
-    <value>Rastući katalog!</value>
-  </data>
-  <data name="SubscriptionText3" xml:space="preserve">
-    <value>Podržite razvoj aplikacije!</value>
-  </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Hvala vam na pretplati!</value>
     <comment>Thank you message shown after user purchases a subscription.</comment>
@@ -917,5 +908,35 @@
   </data>
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Dostupna besplatna probna verzija</value>
+  </data>
+  <data name="OpenLastChannelText" xml:space="preserve">
+    <value>Otvori zadnji kanal</value>
+  </data>
+  <data name="ChannelsTitleText" xml:space="preserve">
+    <value>Kanalima</value>
+  </data>
+  <data name="ChannelsSubtitle" xml:space="preserve">
+    <value>Pregledajte videozapise preko cijelog zaslona ili drugi vizualni sadržaj koji će vam pomoći da se usredotočite, učite ili opustite.</value>
+  </data>
+  <data name="ViewDetailsText" xml:space="preserve">
+    <value>Pogledajte detalje</value>
+  </data>
+  <data name="SettingsEnableClockHeader" xml:space="preserve">
+    <value>Omogući sat</value>
+  </data>
+  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
+    <value>Prikaz sekundi na satu</value>
+  </data>
+  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
+    <value>Omogućite mjerač vremena</value>
+  </data>
+  <data name="PremiumMessage" xml:space="preserve">
+    <value>Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</value>
+  </data>
+  <data name="AnnualPlanCaption" xml:space="preserve">
+    <value>Iste prednosti, niži mjesečni troškovi</value>
+  </data>
+  <data name="AnnualPlanTitle" xml:space="preserve">
+    <value>Nabavite godišnji plan - {0}</value>
   </data>
 </root>
