@@ -752,7 +752,7 @@
     <value>Oops! Nie mogliśmy znaleźć tego dźwięku. Zobaczymy, czy uda nam się go dodać w przyszłości</value>
   </data>
   <data name="SearchText" xml:space="preserve">
-    <value>Szukać</value>
+    <value>Szukaj</value>
   </data>
   <data name="QuickResumeTitle" xml:space="preserve">
     <value>Szybkie wznawianie</value>
