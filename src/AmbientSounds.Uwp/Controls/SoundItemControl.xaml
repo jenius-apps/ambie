@@ -117,6 +117,11 @@
                         Command="{x:Bind ViewModel.RenameCommand, Mode=OneWay}"
                         Icon="Rename"
                         Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
+                    <AppBarButton
+                        x:Uid="CopyIDAppBarButton"
+                        Command="{x:Bind ViewModel.CopyMixIDCommand, Mode=OneWay}"
+                        Icon="Copy"
+                        Visibility="{x:Bind ViewModel.IsMix, Mode=OneWay}" />
                     <AppBarButton Click="OnEditHomePageClicked" Label="{x:Bind strings:Resources.EditHomePage}">
                         <AppBarButton.Icon>
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphEditHome}" />

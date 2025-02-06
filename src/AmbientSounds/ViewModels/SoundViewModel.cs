@@ -35,6 +35,7 @@ public partial class SoundViewModel : ObservableObject
     private readonly IPresenceService _presenceService;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly IAssetLocalizer _assetLocalizer;
+    private readonly IClipboard _clipboard;
     private Progress<double>? _downloadProgress;
 
     [ObservableProperty]
@@ -71,7 +72,8 @@ public partial class SoundViewModel : ObservableObject
         IPresenceService presenceService,
         IDispatcherQueue dispatcherQueue,
         IOnlineSoundRepository onlineSoundRepo,
-        IAssetLocalizer assetLocalizer)
+        IAssetLocalizer assetLocalizer,
+        IClipboard clipboard)
     {
         _sound = s;
         _soundMixService = soundMixService;
@@ -86,6 +88,7 @@ public partial class SoundViewModel : ObservableObject
         _dispatcherQueue = dispatcherQueue;
         _onlineSoundRepo = onlineSoundRepo;
         _assetLocalizer = assetLocalizer;
+        _clipboard = clipboard;
     }
 
     public IAsyncRelayCommand<IList<string>>? MixUnavailableCommand { get; set; }
@@ -231,6 +234,19 @@ public partial class SoundViewModel : ObservableObject
             DownloadProgressValue = 0;
         }
     }
+
+    /// <summary>
+    /// Copies the mix ID to the clipboard.
+    /// </summary>
+    [RelayCommand]
+    private void CopyMixID()
+    {
+        if (IsMix)
+        {
+            _clipboard.CopyToClipboard(Id);
+        }
+    }
+
 
     /// <summary>
     /// Loads this sound into the player and plays it.

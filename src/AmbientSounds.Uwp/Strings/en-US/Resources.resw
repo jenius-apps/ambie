@@ -1026,34 +1026,4 @@
   <data name="FreeTrialTipTitle" xml:space="preserve">
     <value>Free trial available</value>
   </data>
-  <data name="OpenLastChannelText" xml:space="preserve">
-    <value>Open last channel</value>
-  </data>
-  <data name="ChannelsTitleText" xml:space="preserve">
-    <value>Channels</value>
-  </data>
-  <data name="ChannelsSubtitle" xml:space="preserve">
-    <value>View full screen videos or other visual content to help you focus, study, or relax.</value>
-  </data>
-  <data name="ViewDetailsText" xml:space="preserve">
-    <value>View details</value>
-  </data>
-  <data name="SettingsEnableClockHeader" xml:space="preserve">
-    <value>Enable clock</value>
-  </data>
-  <data name="SettingsEnableClockSecondsHeader" xml:space="preserve">
-    <value>Display seconds on clock</value>
-  </data>
-  <data name="SettingsEnableCountdownHeader" xml:space="preserve">
-    <value>Enable countdown timer</value>
-  </data>
-  <data name="PremiumMessage" xml:space="preserve">
-    <value>High quality sounds, premium videos, and curated meditations. Access to all future content. Unlock it all with Ambie+, and find your next favourite ambience.</value>
-  </data>
-  <data name="AnnualPlanCaption" xml:space="preserve">
-    <value>Same benefits, lower monthly cost</value>
-  </data>
-  <data name="AnnualPlanTitle" xml:space="preserve">
-    <value>Get annual plan - {0}</value>
-  </data>
 </root>

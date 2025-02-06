@@ -2,7 +2,9 @@
 using Microsoft.QueryStringDotNET;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using AmbientSounds.Constants;
+using JeniusApps.Common.Telemetry;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.System;
 
 #nullable enable
@@ -13,16 +15,26 @@ public class ProtocolLaunchController
 {
     private readonly IMixMediaPlayerService _player;
     private readonly IShareService _shareService;
+    private readonly ITelemetry _telemetry;
+    private readonly INavigator _navigator;
+
+    private const string AutoPlayKey = "autoPlay";
 
     public ProtocolLaunchController(
         IMixMediaPlayerService player,
-        IShareService shareService)
+        IShareService shareService,
+        ITelemetry telemetry,
+        INavigator navigator)
     {
         Guard.IsNotNull(player);
         Guard.IsNotNull(shareService);
+        Guard.IsNotNull(telemetry);
+        Guard.IsNotNull(navigator);
 
         _player = player;
         _shareService = shareService;
+        _telemetry = telemetry;
+        _navigator = navigator;
     }
 
     public void ProcessShareProtocolArguments(string arguments)
@@ -37,9 +49,16 @@ public class ProtocolLaunchController
 
     public async Task ProcessAutoPlayProtocolArgumentsAsync(string arguments)
     {
-        _player.Play();
+        bool minimize = false;
+        
+        if (arguments.Contains("minimize"))
+        {
+            minimize = true;
+        }
 
-        if (arguments.Contains("minimize", StringComparison.OrdinalIgnoreCase))
+        _player?.Play();
+
+        if (minimize)
         {
             IList<AppDiagnosticInfo> infos = await AppDiagnosticInfo.RequestInfoForAppAsync();
             IList<AppResourceGroupInfo> resourceInfos = infos[0].GetResourceGroups();
