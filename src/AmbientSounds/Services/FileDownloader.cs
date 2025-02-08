@@ -35,8 +35,17 @@ public class FileDownloader : IFileDownloader
         }
 
         HttpResponseMessage response = await _client.GetAsync(url);
+        if (response?.Content is null)
+        {
+            _telemetry.TrackEvent("ImageDownloadAndSaveAsyncNullResponse", new Dictionary<string, string>
+            {
+                { "imageUrl", url ?? string.Empty }
+            });
 
-        var contentType = response.Content.Headers.ContentType.MediaType;
+            return string.Empty;
+        }
+
+        string contentType = response.Content.Headers?.ContentType?.MediaType ?? string.Empty;
         string nameWithExt;
         try
         {
