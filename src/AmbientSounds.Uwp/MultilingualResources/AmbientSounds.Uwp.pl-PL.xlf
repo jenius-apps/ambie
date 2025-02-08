@@ -995,7 +995,7 @@
         </trans-unit>
         <trans-unit id="SearchText" translate="yes" xml:space="preserve">
           <source>Search</source>
-          <target state="translated">Szukać</target>
+          <target state="translated">Szukaj</target>
         </trans-unit>
         <trans-unit id="QuickResumeTitle" translate="yes" xml:space="preserve">
           <source>Quick Resume</source>
