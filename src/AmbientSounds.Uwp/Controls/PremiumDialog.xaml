@@ -159,6 +159,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Button
                 Height="54"
@@ -241,6 +242,44 @@
                         Visibility="{x:Bind ViewModel.LifetimeButtonLoading, Mode=OneWay}" />
                 </Grid>
             </Button>
+
+            <HyperlinkButton
+                Grid.Row="3"
+                Margin="0,8,0,-8"
+                Padding="8,4"
+                HorizontalAlignment="Right"
+                Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
+                Content="Enter promo code"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+        </Grid>
+
+        <Grid
+            Grid.Row="2"
+            Margin="24,0,24,24"
+            Visibility="{x:Bind ViewModel.PromoCodePageVisible, Mode=OneWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Spacing="4">
+                <Button Style="{StaticResource SmallSubtleIconButton}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
+                        Glyph="{StaticResource GlyphBack}" />
+                </Button>
+                <TextBlock VerticalAlignment="Center" Text="Enter promo code" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Text="Promo codes let you get Ambie+ via special deals or discounts" />
+
+            <TextBox Grid.Row="2" PlaceholderText="Enter code" />
+
+            <Button Grid.Row="3" Content="Submit" />
         </Grid>
     </Grid>
 </ContentDialog>

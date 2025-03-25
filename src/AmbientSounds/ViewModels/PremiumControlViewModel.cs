@@ -32,6 +32,9 @@ public partial class PremiumControlViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    private bool _promoCodePageVisible;
+
+    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
     [NotifyPropertyChangedFor(nameof(AnnualButtonVisible))]
     private bool _annualSubExperimentEnabled;
@@ -192,5 +195,11 @@ public partial class PremiumControlViewModel : ObservableObject
             _telemetry.TrackEvent(TelemetryConstants.LifetimeCanceled);
         }
         LifetimeButtonLoading = false;
+    }
+
+    [RelayCommand]
+    private void TogglePromoCodePage()
+    {
+        PromoCodePageVisible = !PromoCodePageVisible;
     }
 }
