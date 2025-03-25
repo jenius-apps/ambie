@@ -96,58 +96,42 @@
                 Glyph="{StaticResource GlyphCancelSemiBold}" />
         </Button>
 
-        <Grid
-            Grid.Row="1"
-            Padding="0,0,0,40"
-            RowSpacing="20">
-            <Grid.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="20" />
-            </Grid.ChildrenTransitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <StackPanel
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Orientation="Horizontal"
-                Spacing="8">
-                <StackPanel.ChildrenTransitions>
-                    <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-                </StackPanel.ChildrenTransitions>
-                <Grid>
-                    <Ellipse Fill="Orange" Style="{ThemeResource IconBackdrop}" />
-                    <FontIcon
-                        FontSize="20"
-                        Foreground="DarkRed"
-                        Glyph="{StaticResource GlyphSound}"
-                        Style="{StaticResource FeatureIcon}" />
-                </Grid>
-                <Grid>
-                    <Ellipse Fill="SkyBlue" Style="{ThemeResource IconBackdrop}" />
-                    <FontIcon
-                        Foreground="MidnightBlue"
-                        Glyph="{StaticResource GlyphFilmstrip}"
-                        Style="{StaticResource FeatureIcon}" />
-                </Grid>
-                <Grid>
-                    <Ellipse Fill="PaleGreen" Style="{ThemeResource IconBackdrop}" />
-                    <FontIcon
-                        Margin="1,1,0,0"
-                        Foreground="DarkGreen"
-                        Glyph="{StaticResource GlyphLeaves}"
-                        Style="{StaticResource FeatureIcon}" />
-                </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    Spacing="8">
+                    <Grid>
+                        <Ellipse Fill="Orange" Style="{ThemeResource IconBackdrop}" />
+                        <FontIcon
+                            FontSize="20"
+                            Foreground="DarkRed"
+                            Glyph="{StaticResource GlyphSound}"
+                            Style="{StaticResource FeatureIcon}" />
+                    </Grid>
+                    <Grid>
+                        <Ellipse Fill="SkyBlue" Style="{ThemeResource IconBackdrop}" />
+                        <FontIcon
+                            Foreground="MidnightBlue"
+                            Glyph="{StaticResource GlyphFilmstrip}"
+                            Style="{StaticResource FeatureIcon}" />
+                    </Grid>
+                    <Grid>
+                        <Ellipse Fill="PaleGreen" Style="{ThemeResource IconBackdrop}" />
+                        <FontIcon
+                            Margin="1,1,0,0"
+                            Foreground="DarkGreen"
+                            Glyph="{StaticResource GlyphLeaves}"
+                            Style="{StaticResource FeatureIcon}" />
+                    </Grid>
+                </StackPanel>
+                <TextBlock
+                    Margin="40,12,40,0"
+                    Text="{x:Bind strings:Resources.PremiumMessage}"
+                    TextAlignment="Center"
+                    TextWrapping="WrapWholeWords" />
             </StackPanel>
-
-            <TextBlock
-                Grid.Row="1"
-                Margin="40,0"
-                Text="{x:Bind strings:Resources.PremiumMessage}"
-                TextAlignment="Center"
-                TextWrapping="WrapWholeWords" />
         </Grid>
 
         <Grid Grid.Row="2" Visibility="{x:Bind ViewModel.ThanksTextVisible, Mode=OneWay}">
@@ -170,9 +154,6 @@
             Grid.Row="2"
             Margin="24,0,24,24"
             Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
-            <Grid.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-            </Grid.ChildrenTransitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
