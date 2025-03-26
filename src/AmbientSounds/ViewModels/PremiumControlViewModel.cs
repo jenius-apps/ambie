@@ -32,6 +32,7 @@ public partial class PremiumControlViewModel : ObservableObject
     }
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(PurchasePageVisible))]
     private bool _promoCodePageVisible;
 
     [ObservableProperty]
@@ -53,9 +54,12 @@ public partial class PremiumControlViewModel : ObservableObject
     [ObservableProperty]
     private bool _annualButtonLoading;
 
+    public bool PurchasePageVisible => !ThanksTextVisible && !PromoCodePageVisible;
+
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
     [NotifyPropertyChangedFor(nameof(AnnualButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PurchasePageVisible))]
     private bool _thanksTextVisible;
 
     [ObservableProperty]
@@ -74,6 +78,7 @@ public partial class PremiumControlViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
+        PromoCodePageVisible = false;
         await Task.WhenAll(InitializeMonthlyAsync(), InitializeLifetimeAsync(), InitializeAnnualAsync());
     }
 

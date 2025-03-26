@@ -153,7 +153,7 @@
         <Grid
             Grid.Row="2"
             Margin="24,0,24,24"
-            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
+            Visibility="{x:Bind ViewModel.PurchasePageVisible, Mode=OneWay}">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -256,7 +256,7 @@
 
         <Grid
             Grid.Row="2"
-            Margin="24,0,24,24"
+            Margin="24,-24,24,24"
             Visibility="{x:Bind ViewModel.PromoCodePageVisible, Mode=OneWay}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -266,20 +266,39 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Spacing="4">
-                <Button Style="{StaticResource SmallSubtleIconButton}">
+                <Button
+                    Margin="-8,0,0,0"
+                    Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
+                    Style="{StaticResource SmallSubtleIconButton}">
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="{StaticResource SmallIconSize}"
                         Glyph="{StaticResource GlyphBack}" />
                 </Button>
-                <TextBlock VerticalAlignment="Center" Text="Enter promo code" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontWeight="SemiBold"
+                    Text="Enter promo code" />
             </StackPanel>
 
-            <TextBlock Grid.Row="1" Text="Promo codes let you get Ambie+ via special deals or discounts" />
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,4,0,0"
+                FontSize="12"
+                Text="Promo codes let you get Ambie+ via special deals or discounts" />
 
-            <TextBox Grid.Row="2" PlaceholderText="Enter code" />
+            <TextBox
+                Grid.Row="2"
+                Margin="0,12,0,0"
+                PlaceholderText="Enter code" />
 
-            <Button Grid.Row="3" Content="Submit" />
+            <Button
+                Grid.Row="3"
+                MinHeight="48"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Stretch"
+                Content="Submit"
+                Style="{StaticResource AccentButtonStyle}" />
         </Grid>
     </Grid>
 </ContentDialog>
