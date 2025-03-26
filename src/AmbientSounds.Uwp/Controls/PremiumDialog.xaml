@@ -245,7 +245,7 @@
 
             <HyperlinkButton
                 Grid.Row="3"
-                Margin="0,8,0,-8"
+                Margin="0,8,-8,-8"
                 Padding="8,4"
                 HorizontalAlignment="Right"
                 Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
@@ -285,7 +285,9 @@
                 Grid.Row="1"
                 Margin="0,4,0,0"
                 FontSize="12"
-                Text="Promo codes let you get Ambie+ via special deals or discounts" />
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="Use a promo code to unlock discounts for Ambie+"
+                TextWrapping="Wrap" />
 
             <TextBox
                 Grid.Row="2"
