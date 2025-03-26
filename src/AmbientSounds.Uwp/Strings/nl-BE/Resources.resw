@@ -924,4 +924,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>Ontvang een jaarabonnement - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Voer de code in</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Voer de promotiecode in</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Gebruik een code om kortingen te ontgrendelen voor Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Opslaan</value>
+  </data>
 </root>

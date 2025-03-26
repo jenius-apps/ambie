@@ -249,7 +249,7 @@
                 Padding="8,4"
                 HorizontalAlignment="Right"
                 Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
-                Content="Enter promo code"
+                Content="{x:Bind strings:Resources.EnterPromoCodeText}"
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
         </Grid>
@@ -267,6 +267,7 @@
 
             <StackPanel Orientation="Horizontal" Spacing="4">
                 <Button
+                    x:Uid="BackButton"
                     Margin="-8,0,0,0"
                     Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
                     Style="{StaticResource SmallSubtleIconButton}">
@@ -278,7 +279,7 @@
                 <TextBlock
                     VerticalAlignment="Center"
                     FontWeight="SemiBold"
-                    Text="Enter promo code" />
+                    Text="{x:Bind strings:Resources.EnterPromoCodeText}" />
             </StackPanel>
 
             <TextBlock
@@ -286,20 +287,20 @@
                 Margin="0,4,0,0"
                 FontSize="12"
                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                Text="Use a promo code to unlock discounts for Ambie+"
+                Text="{x:Bind strings:Resources.PromoCodeMessage}"
                 TextWrapping="Wrap" />
 
             <TextBox
                 Grid.Row="2"
                 Margin="0,12,0,0"
-                PlaceholderText="Enter code" />
+                PlaceholderText="{x:Bind strings:Resources.EnterCodePlaceholder}" />
 
             <Button
                 Grid.Row="3"
                 MinHeight="48"
                 Margin="0,12,0,0"
                 HorizontalAlignment="Stretch"
-                Content="Submit"
+                Content="{x:Bind strings:Resources.SubmitText}"
                 Style="{StaticResource AccentButtonStyle}" />
         </Grid>
     </Grid>

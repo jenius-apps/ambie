@@ -951,4 +951,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>获取年度计划 - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>输入代码</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>输入促销代码</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>使用代码解锁 Ambie+ 的折扣</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>提交</value>
+  </data>
 </root>

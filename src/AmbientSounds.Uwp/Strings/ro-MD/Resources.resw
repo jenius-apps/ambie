@@ -948,4 +948,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>Obțineți un plan anual - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Introduceți codul</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Introduceți codul promoțional</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Folosește un cod pentru a debloca reduceri pentru Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Prezinte</value>
+  </data>
 </root>

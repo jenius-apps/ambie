@@ -951,4 +951,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>Získejte roční plán - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Zadat kód</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Zadejte promo kód</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Odemkněte si slevy na Ambie+ pomocí kódu</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Podat</value>
+  </data>
 </root>

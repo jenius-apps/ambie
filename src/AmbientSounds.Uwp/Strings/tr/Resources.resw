@@ -945,4 +945,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>Yıllık planı alın - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Kodu girin</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Promosyon kodunu girin</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Ambie+ indirimlerinin kilidini açmak için bir kod kullanın</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
 </root>
