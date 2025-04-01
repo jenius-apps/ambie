@@ -16,7 +16,7 @@
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-	<Version>1.0.2-preview</Version>
+	<Version>1.0.3</Version>
   </PropertyGroup>
 
 	<ItemGroup>
