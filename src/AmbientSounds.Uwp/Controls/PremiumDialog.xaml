@@ -288,6 +288,7 @@
                     x:Uid="BackButton"
                     Margin="-8,0,0,0"
                     Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
+                    IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
                     Style="{StaticResource SmallSubtleIconButton}">
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
@@ -311,14 +312,18 @@
             <TextBox
                 Grid.Row="2"
                 Margin="0,12,0,0"
-                PlaceholderText="{x:Bind strings:Resources.EnterCodePlaceholder}" />
+                IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
+                PlaceholderText="{x:Bind strings:Resources.EnterCodePlaceholder}"
+                Text="{x:Bind ViewModel.PromoCodeInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <Button
                 Grid.Row="3"
                 MinHeight="48"
                 Margin="0,12,0,0"
                 HorizontalAlignment="Stretch"
+                Command="{x:Bind ViewModel.SubmitCodeCommand}"
                 Content="{x:Bind strings:Resources.SubmitText}"
+                IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
                 Style="{StaticResource AccentButtonStyle}" />
         </Grid>
     </Grid>

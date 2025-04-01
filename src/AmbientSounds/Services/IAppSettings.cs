@@ -85,4 +85,9 @@ public interface IAppSettings
     /// The connection string for the notification hub.
     /// </summary>
     string NotificationHubConnectionString { get; }
+
+    /// <summary>
+    /// The URL for the promo codes API.
+    /// </summary>
+    string PromoCodesUrl { get; }
 }

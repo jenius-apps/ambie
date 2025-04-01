@@ -27,6 +27,7 @@ public class AppSettings : IAppSettings
         ChannelsUrl = resourceLoader.GetString(nameof(ChannelsUrl));
         NotificationHubName = resourceLoader.GetString(nameof(NotificationHubName));
         NotificationHubConnectionString = resourceLoader.GetString(nameof(NotificationHubConnectionString));
+        PromoCodesUrl = resourceLoader.GetString(nameof(PromoCodesUrl));
     }
 
     /// <inheritdoc/>
@@ -76,4 +77,7 @@ public class AppSettings : IAppSettings
 
     /// <inheritdoc/>
     public string NotificationHubConnectionString { get; }
+
+    /// <inheritdoc/>
+    public string PromoCodesUrl { get; }
 }
