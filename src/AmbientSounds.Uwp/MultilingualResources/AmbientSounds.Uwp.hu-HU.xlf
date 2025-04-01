@@ -1266,6 +1266,22 @@
           <source>Get annual plan - {0}</source>
           <target state="translated">Éves csomag beszerzése - {0}</target>
         </trans-unit>
+        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
+          <source>Enter code</source>
+          <target state="translated">Írja be a kódot</target>
+        </trans-unit>
+        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
+          <source>Enter promo code</source>
+          <target state="translated">Írja be a promóciós kódot</target>
+        </trans-unit>
+        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
+          <source>Use a code to unlock discounts for Ambie+</source>
+          <target state="translated">Kód használata az Ambie+ kedvezményeinek feloldásához</target>
+        </trans-unit>
+        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="translated">Előterjeszt</target>
+        </trans-unit>
       </group>
     </body>
   </file>

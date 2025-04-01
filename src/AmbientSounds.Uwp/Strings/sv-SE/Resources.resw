@@ -948,4 +948,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>Skaffa årsplan - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Ange kod</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Ange kampanjkod</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Använd en kod för att låsa upp rabatter för Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Inlämna</value>
+  </data>
 </root>

@@ -951,4 +951,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>دریافت برنامه سالانه - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>کد را وارد کنید</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>کد تبلیغاتی را وارد کنید</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>از یک کد برای باز کردن قفل تخفیف برای Ambie+ استفاده کنید</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
 </root>

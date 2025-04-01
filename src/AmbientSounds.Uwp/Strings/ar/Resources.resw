@@ -951,4 +951,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>احصل على خطة سنوية - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>أدخل الرمز</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>أدخل الرمز الترويجي</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>استخدم رمزا لفتح خصومات Ambie +</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
 </root>

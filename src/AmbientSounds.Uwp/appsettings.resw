@@ -162,4 +162,7 @@
   <data name="NotificationHubName" xml:space="preserve">
     <value />
   </data>
+  <data name="PromoCodesUrl" xml:space="preserve">
+    <value>http://localhost</value>
+  </data>
 </root>

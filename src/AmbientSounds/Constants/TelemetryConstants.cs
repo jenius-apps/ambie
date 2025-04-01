@@ -80,6 +80,12 @@ public class TelemetryConstants
     public const string PremiumAnnualClicked = $"{Premium}annualClicked";
     public const string PremiumAnnualPurchased = $"{Premium}annualPurchased";
     public const string PremiumAnnualCanceled = $"{Premium}annualCanceled";
+    public const string PromoCodeBackClicked = $"{Premium}promoCodeBackClicked";
+    public const string PromoCodePageOpened = $"{Premium}promoCodePageOpened";
+    public const string PromoCodeAttempted = $"{Premium}promoCodeAttempted";
+    public const string PromoCodeAddonShown = $"{Premium}promoCodeAddonShown";
+    public const string PromoCodePurchased = $"{Premium}promoCodePurchased";
+    public const string PromoCodeCancelled = $"{Premium}promoCodeCancelled";
 
     // gallery
     private const string Gallery = "gallery:";

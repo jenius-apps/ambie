@@ -1255,6 +1255,22 @@
           <source>Get annual plan - {0}</source>
           <target state="translated">Αποκτήστε ετήσιο πρόγραμμα - {0}</target>
         </trans-unit>
+        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
+          <source>Enter code</source>
+          <target state="translated">Εισάγετε τον κωδικό</target>
+        </trans-unit>
+        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
+          <source>Enter promo code</source>
+          <target state="translated">Εισαγάγετε τον κωδικό προσφοράς</target>
+        </trans-unit>
+        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
+          <source>Use a code to unlock discounts for Ambie+</source>
+          <target state="translated">Χρησιμοποιήστε έναν κωδικό για να ξεκλειδώσετε εκπτώσεις για το Ambie+</target>
+        </trans-unit>
+        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="translated">Υποβάλλω</target>
+        </trans-unit>
       </group>
     </body>
   </file>

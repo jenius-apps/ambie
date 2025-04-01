@@ -939,4 +939,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>Éves csomag beszerzése - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Írja be a kódot</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Írja be a promóciós kódot</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Kód használata az Ambie+ kedvezményeinek feloldásához</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Előterjeszt</value>
+  </data>
 </root>

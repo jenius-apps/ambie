@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Controls.PremiumDialog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
@@ -98,6 +99,10 @@
 
         <Grid Grid.Row="1">
             <StackPanel VerticalAlignment="Center">
+                <ani:Implicit.Animations>
+                    <ani:OffsetAnimation />
+                </ani:Implicit.Animations>
+
                 <StackPanel
                     HorizontalAlignment="Center"
                     Orientation="Horizontal"
@@ -153,9 +158,16 @@
         <Grid
             Grid.Row="2"
             Margin="24,0,24,24"
-            Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.ThanksTextVisible), Mode=OneWay}">
+            Visibility="{x:Bind ViewModel.PurchasePageVisible, Mode=OneWay}">
+            <ani:Implicit.ShowAnimations>
+                <ani:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:0.3" />
+            </ani:Implicit.ShowAnimations>
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -241,6 +253,78 @@
                         Visibility="{x:Bind ViewModel.LifetimeButtonLoading, Mode=OneWay}" />
                 </Grid>
             </Button>
+
+            <HyperlinkButton
+                Grid.Row="3"
+                Margin="0,8,-8,-8"
+                Padding="8,4"
+                HorizontalAlignment="Right"
+                Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
+                Content="{x:Bind strings:Resources.EnterPromoCodeText}"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+        </Grid>
+
+        <Grid
+            Grid.Row="2"
+            Margin="24,-24,24,24"
+            Visibility="{x:Bind ViewModel.PromoCodePageVisible, Mode=OneWay}">
+            <ani:Implicit.ShowAnimations>
+                <ani:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:0.3" />
+            </ani:Implicit.ShowAnimations>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Spacing="4">
+                <Button
+                    x:Uid="BackButton"
+                    Margin="-8,0,0,0"
+                    Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
+                    IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
+                    Style="{StaticResource SmallSubtleIconButton}">
+                    <FontIcon
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="{StaticResource SmallIconSize}"
+                        Glyph="{StaticResource GlyphBack}" />
+                </Button>
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontWeight="SemiBold"
+                    Text="{x:Bind strings:Resources.EnterPromoCodeText}" />
+            </StackPanel>
+
+            <TextBlock
+                Grid.Row="1"
+                Margin="0,4,0,0"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Text="{x:Bind strings:Resources.PromoCodeMessage}"
+                TextWrapping="Wrap" />
+
+            <TextBox
+                Grid.Row="2"
+                Margin="0,12,0,0"
+                IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
+                PlaceholderText="{x:Bind strings:Resources.EnterCodePlaceholder}"
+                Text="{x:Bind ViewModel.PromoCodeInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Button
+                Grid.Row="3"
+                MinHeight="48"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Stretch"
+                Command="{x:Bind ViewModel.SubmitCodeCommand}"
+                Content="{x:Bind strings:Resources.SubmitText}"
+                IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
+                Style="{StaticResource AccentButtonStyle}" />
         </Grid>
     </Grid>
 </ContentDialog>

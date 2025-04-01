@@ -17,19 +17,26 @@ public partial class PremiumControlViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly ILocalizer _localizer;
     private readonly ISystemInfoProvider _infoProvider;
+    private readonly IPromoCodeService _promoCodeService;
 
     public PremiumControlViewModel(
         IIapService iapService,
         ITelemetry telemetry,
         ILocalizer localizer,
-        ISystemInfoProvider infoProvider)
+        ISystemInfoProvider infoProvider,
+        IPromoCodeService promoCodeService)
     {
         _iapService = iapService;
         _telemetry = telemetry;
         _localizer = localizer;
         _infoProvider = infoProvider;
+        _promoCodeService = promoCodeService;
         AnnualSubExperimentEnabled = false; // Disabling until further notice.
     }
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(PurchasePageVisible))]
+    private bool _promoCodePageVisible;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
@@ -50,9 +57,12 @@ public partial class PremiumControlViewModel : ObservableObject
     [ObservableProperty]
     private bool _annualButtonLoading;
 
+    public bool PurchasePageVisible => !ThanksTextVisible && !PromoCodePageVisible;
+
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(LifetimeButtonVisible))]
     [NotifyPropertyChangedFor(nameof(AnnualButtonVisible))]
+    [NotifyPropertyChangedFor(nameof(PurchasePageVisible))]
     private bool _thanksTextVisible;
 
     [ObservableProperty]
@@ -63,6 +73,9 @@ public partial class PremiumControlViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(AnnualPriceButtonAutomationName))]
     private PriceInfo? _annualPriceInfo;
 
+    [ObservableProperty]
+    private string _promoCodeInput = string.Empty;
+
     public string AnnualPriceButtonAutomationName => AnnualPriceInfo?.FormattedPrice ?? string.Empty;
 
     public bool LifetimeButtonVisible => !ThanksTextVisible && !AnnualSubExperimentEnabled;
@@ -71,6 +84,8 @@ public partial class PremiumControlViewModel : ObservableObject
 
     public async Task InitializeAsync()
     {
+        PromoCodeInput = string.Empty;
+        PromoCodePageVisible = false;
         await Task.WhenAll(InitializeMonthlyAsync(), InitializeLifetimeAsync(), InitializeAnnualAsync());
     }
 
@@ -192,5 +207,70 @@ public partial class PremiumControlViewModel : ObservableObject
             _telemetry.TrackEvent(TelemetryConstants.LifetimeCanceled);
         }
         LifetimeButtonLoading = false;
+    }
+
+    [RelayCommand]
+    private void TogglePromoCodePage()
+    {
+        PromoCodePageVisible = !PromoCodePageVisible;
+
+        if (PromoCodePageVisible)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.PromoCodePageOpened);
+        }
+        else
+        {
+            _telemetry.TrackEvent(TelemetryConstants.PromoCodeBackClicked);
+        }
+    }
+
+    [RelayCommand]
+    private async Task SubmitCodeAsync()
+    {
+        if (PromoCodeInput is not string { Length: > 0 } input)
+        {
+            return;
+        }
+
+        _telemetry.TrackEvent(TelemetryConstants.PromoCodeAttempted, new Dictionary<string, string>
+        {
+            { "code", input },
+        });
+
+        string? iapId = await _promoCodeService.TryGetAddOnAsync(input);
+        if (iapId is not string { Length: > 0 })
+        {
+            return;
+        }
+
+        _telemetry.TrackEvent(TelemetryConstants.PromoCodeAddonShown, new Dictionary<string, string>
+        {
+            { "code", input },
+            { "iapid", iapId },
+        });
+
+        var success = await _iapService.BuyAsync(iapId, latest: true);
+
+        if (success)
+        {
+            PromoCodeInput = string.Empty;
+            ThanksTextVisible = true;
+            PromoCodePageVisible = false;
+
+            _telemetry.TrackEvent(TelemetryConstants.PromoCodePurchased, new Dictionary<string, string>
+            {
+                { "DaysSinceFirstUse", (DateTime.Now - _infoProvider.FirstUseDate()).Days.ToString() },
+                { "code", input },
+                { "iapid", iapId },
+            });
+        }
+        else
+        {
+            _telemetry.TrackEvent(TelemetryConstants.PromoCodeCancelled, new Dictionary<string, string>
+            {
+                { "code", input },
+                { "iapid", iapId },
+            });
+        }
     }
 }

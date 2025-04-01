@@ -948,4 +948,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>Obtener plan anual - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>Introduzca el código</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>Ingresa el código promocional</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>Usa un código para desbloquear descuentos en Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
 </root>

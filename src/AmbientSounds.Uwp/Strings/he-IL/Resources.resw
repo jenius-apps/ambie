@@ -951,4 +951,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>קבל תוכנית שנתית - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>הזן קוד</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>הזן קוד הטבה</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>השתמש בקוד כדי לפתוח הנחות עבור Ambie+</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>שלח</value>
+  </data>
 </root>

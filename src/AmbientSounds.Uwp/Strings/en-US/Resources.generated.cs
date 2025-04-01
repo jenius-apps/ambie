@@ -3264,6 +3264,58 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region EnterCodePlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Enter code
+        /// </summary>
+        public static string EnterCodePlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("EnterCodePlaceholder");
+            }
+        }
+        #endregion
+
+        #region EnterPromoCodeText
+        /// <summary>
+        ///   Looks up a localized string similar to: Enter promo code
+        /// </summary>
+        public static string EnterPromoCodeText
+        {
+            get
+            {
+                return _resourceLoader.GetString("EnterPromoCodeText");
+            }
+        }
+        #endregion
+
+        #region PromoCodeMessage
+        /// <summary>
+        ///   Looks up a localized string similar to: Use a code to unlock discounts for Ambie+
+        /// </summary>
+        public static string PromoCodeMessage
+        {
+            get
+            {
+                return _resourceLoader.GetString("PromoCodeMessage");
+            }
+        }
+        #endregion
+
+        #region SubmitText
+        /// <summary>
+        ///   Looks up a localized string similar to: Submit
+        /// </summary>
+        public static string SubmitText
+        {
+            get
+            {
+                return _resourceLoader.GetString("SubmitText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3525,6 +3577,10 @@ namespace AmbientSounds.Strings{
             PremiumMessage,
             AnnualPlanCaption,
             AnnualPlanTitle,
+            EnterCodePlaceholder,
+            EnterPromoCodeText,
+            PromoCodeMessage,
+            SubmitText,
         }
 
         private static ResourceLoader _resourceLoader;

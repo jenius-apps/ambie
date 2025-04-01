@@ -951,4 +951,16 @@
   <data name="AnnualPlanTitle" xml:space="preserve">
     <value>年間プランを入手 - {0}</value>
   </data>
+  <data name="EnterCodePlaceholder" xml:space="preserve">
+    <value>コードを入力する</value>
+  </data>
+  <data name="EnterPromoCodeText" xml:space="preserve">
+    <value>プロモーションコードを入力してください</value>
+  </data>
+  <data name="PromoCodeMessage" xml:space="preserve">
+    <value>コードを使用してAmbie+の割引を解除する</value>
+  </data>
+  <data name="SubmitText" xml:space="preserve">
+    <value>送信</value>
+  </data>
 </root>

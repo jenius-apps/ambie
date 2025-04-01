@@ -1258,6 +1258,22 @@
           <source>Get annual plan - {0}</source>
           <target state="translated">קבל תוכנית שנתית - {0}</target>
         </trans-unit>
+        <trans-unit id="EnterCodePlaceholder" translate="yes" xml:space="preserve">
+          <source>Enter code</source>
+          <target state="translated">הזן קוד</target>
+        </trans-unit>
+        <trans-unit id="EnterPromoCodeText" translate="yes" xml:space="preserve">
+          <source>Enter promo code</source>
+          <target state="translated">הזן קוד הטבה</target>
+        </trans-unit>
+        <trans-unit id="PromoCodeMessage" translate="yes" xml:space="preserve">
+          <source>Use a code to unlock discounts for Ambie+</source>
+          <target state="translated">השתמש בקוד כדי לפתוח הנחות עבור Ambie+</target>
+        </trans-unit>
+        <trans-unit id="SubmitText" translate="yes" xml:space="preserve">
+          <source>Submit</source>
+          <target state="translated">שלח</target>
+        </trans-unit>
       </group>
     </body>
   </file>
