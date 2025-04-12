@@ -7,8 +7,8 @@ namespace AmbientSounds.Tools;
 
 public class AzureServiceBusPushNotificationStorage : IPushNotificationStorage
 {
-    private readonly ServiceBusClient _client;
-    private readonly ServiceBusSender _sender;
+    private readonly ServiceBusClient? _client;
+    private readonly ServiceBusSender? _sender;
 
     public AzureServiceBusPushNotificationStorage(string connectionString, string queueName)
     {
@@ -20,13 +20,21 @@ public class AzureServiceBusPushNotificationStorage : IPushNotificationStorage
             TransportType = ServiceBusTransportType.AmqpWebSockets
         };
 
-        _client = new ServiceBusClient(connectionString, clientOptions);
-        _sender = _client.CreateSender(queueName);
+        if (!string.IsNullOrEmpty(connectionString))
+        {
+            _client = new ServiceBusClient(connectionString, clientOptions);
+            _sender = _client.CreateSender(queueName);
+        }
     }
 
     /// <inheritdoc/>
     public async Task DeleteDeviceRegistrationAsync(string deviceId, CancellationToken ct)
     {
+        if (_sender is null)
+        {
+            return;
+        }
+
         ct.ThrowIfCancellationRequested();
         DeviceRegistrationData data = new()
         {
@@ -45,13 +53,26 @@ public class AzureServiceBusPushNotificationStorage : IPushNotificationStorage
     {
         // Calling DisposeAsync on client types is required to ensure that network
         // resources and other unmanaged objects are properly cleaned up.
-        await _sender.DisposeAsync();
-        await _client.DisposeAsync();
+
+        if (_sender is not null)
+        {
+            await _sender.DisposeAsync();
+        }
+
+        if (_client is not null)
+        {
+            await _client.DisposeAsync();
+        }
     }
 
     /// <inheritdoc/>
     public async Task<bool> RegisterDeviceAsync(DeviceRegistrationData data, CancellationToken ct)
     {
+        if (_sender is null)
+        {
+            return false;
+        }
+
         ct.ThrowIfCancellationRequested();
         var message = JsonSerializer.Serialize(data, PushNotificationSerializerContext.CaseInsensitive.DeviceRegistrationData);
         await _sender.SendMessageAsync(new ServiceBusMessage(message), ct);

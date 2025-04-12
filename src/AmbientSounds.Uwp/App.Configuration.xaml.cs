@@ -238,5 +238,6 @@ partial class App
     [Singleton(typeof(ChannelCache), typeof(IChannelCache))]
     [Singleton(typeof(ChannelRepository), typeof(IChannelRepository))]
     [Singleton(typeof(PromoCodeService), typeof(IPromoCodeService))]
+    [Transient(typeof(StatsPageViewModel))]
     private static partial void ConfigureServices(IServiceCollection services);
 }
