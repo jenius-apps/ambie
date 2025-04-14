@@ -16,11 +16,11 @@ public class ExperimentConstants
     public static IReadOnlyList<string> AllKeys { get; } =
     [
         // add experiment constants here
-        //AnnualSubExperiment
+        PromoCodeExperiment
     ];
 
     /// <summary>
-    /// Experiment key for the annual subscription feature.
+    /// Experiment key for the promo code feature.
     /// </summary>
-    //public const string AnnualSubExperiment = "AnnualSubExperiment";
+    public const string PromoCodeExperiment = nameof(PromoCodeExperiment);
 }

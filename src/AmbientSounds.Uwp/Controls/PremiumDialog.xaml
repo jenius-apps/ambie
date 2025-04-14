@@ -262,7 +262,8 @@
                 Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
                 Content="{x:Bind strings:Resources.EnterPromoCodeText}"
                 FontSize="12"
-                Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Visibility="{x:Bind ViewModel.PromoCodeHyperlinkVisible, Mode=OneWay}" />
         </Grid>
 
         <Grid

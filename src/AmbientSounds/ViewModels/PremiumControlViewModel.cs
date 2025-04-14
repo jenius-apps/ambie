@@ -24,7 +24,8 @@ public partial class PremiumControlViewModel : ObservableObject
         ITelemetry telemetry,
         ILocalizer localizer,
         ISystemInfoProvider infoProvider,
-        IPromoCodeService promoCodeService)
+        IPromoCodeService promoCodeService,
+        IExperimentationService experimentationService)
     {
         _iapService = iapService;
         _telemetry = telemetry;
@@ -32,7 +33,12 @@ public partial class PremiumControlViewModel : ObservableObject
         _infoProvider = infoProvider;
         _promoCodeService = promoCodeService;
         AnnualSubExperimentEnabled = false; // Disabling until further notice.
+
+        PromoCodeHyperlinkVisible = experimentationService.IsEnabled(ExperimentConstants.PromoCodeExperiment);
     }
+
+    [ObservableProperty]
+    private bool _promoCodeHyperlinkVisible;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(PurchasePageVisible))]
