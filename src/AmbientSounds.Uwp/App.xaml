@@ -266,7 +266,6 @@
             <x:String x:Key="GlyphSleep">&#xEC46;</x:String>
             <x:String x:Key="GlyphInterruption">&#xEB44;</x:String>
             <x:String x:Key="GlyphChevronRight">&#xE0E3;</x:String>
-            <x:String x:Key="GlyphSaleTag">&#xE1CB;</x:String>
             <x:String x:Key="GlyphBack">&#xE112;</x:String>
             <x:String x:Key="GlyphForward">&#xE111;</x:String>
             <x:String x:Key="GlyphDiagnostics">&#xE9D9;</x:String>
@@ -314,6 +313,7 @@
             <x:String x:Key="GlyphFilmstrip">&#xE8B2;</x:String>
             <x:String x:Key="GlyphFeedback">&#xED15;</x:String>
             <x:String x:Key="GlyphGiftbox">&#xF133;</x:String>
+            <x:String x:Key="GlyphSaleTag">&#xE8EC;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>
