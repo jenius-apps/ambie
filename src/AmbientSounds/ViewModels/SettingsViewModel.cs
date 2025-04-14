@@ -418,6 +418,7 @@ public partial class SettingsViewModel : ObservableObject
     private async Task EnterPromoCodeAsync()
     {
         await _dialogService.OpenPremiumAsync(launchPromoCodeDirectly: true);
+        PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
     }
 
     partial void OnXboxDisplayModeSelectedIndexChanged(int oldIndex, int newIndex)
