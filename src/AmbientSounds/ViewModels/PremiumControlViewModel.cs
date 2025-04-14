@@ -94,13 +94,10 @@ public partial class PremiumControlViewModel : ObservableObject
     public async Task InitializeAsync(bool launchPromoCodesDirectly)
     {
         PromoCodeInput = string.Empty;
+        PromoCodeBackButtonVisible = !launchPromoCodesDirectly;
         PromoCodePageVisible = launchPromoCodesDirectly;
-        await Task.WhenAll(InitializeMonthlyAsync(), InitializeLifetimeAsync(), InitializeAnnualAsync());
 
-        if (launchPromoCodesDirectly)
-        {
-            PromoCodeBackButtonVisible = false;
-        }
+        await Task.WhenAll(InitializeMonthlyAsync(), InitializeLifetimeAsync(), InitializeAnnualAsync());
     }
 
     private async Task InitializeMonthlyAsync()
