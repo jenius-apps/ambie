@@ -57,6 +57,9 @@ public partial class PremiumControlViewModel : ObservableObject
     [ObservableProperty]
     private bool _annualButtonLoading;
 
+    [ObservableProperty]
+    private bool _promoCodeBackButtonVisible = true;
+
     public bool PurchasePageVisible => !ThanksTextVisible && !PromoCodePageVisible;
 
     [ObservableProperty]
@@ -87,6 +90,11 @@ public partial class PremiumControlViewModel : ObservableObject
         PromoCodeInput = string.Empty;
         PromoCodePageVisible = launchPromoCodesDirectly;
         await Task.WhenAll(InitializeMonthlyAsync(), InitializeLifetimeAsync(), InitializeAnnualAsync());
+
+        if (launchPromoCodesDirectly)
+        {
+            PromoCodeBackButtonVisible = false;
+        }
     }
 
     private async Task InitializeMonthlyAsync()
