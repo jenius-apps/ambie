@@ -25,11 +25,13 @@ public sealed partial class PremiumDialog : ContentDialog
     
     public PremiumControlViewModel ViewModel { get; }
 
+    public bool LaunchPromoCodeDirectly { get; set; }
+
     private async void OnOpened(ContentDialog sender, ContentDialogOpenedEventArgs args)
     {
         try
         {
-            await ViewModel.InitializeAsync();
+            await ViewModel.InitializeAsync(LaunchPromoCodeDirectly);
         }
         catch { }
     }

@@ -111,7 +111,7 @@ public class DialogService : IDialogService
     }
 
     /// <inheritdoc/>
-    public async Task OpenPremiumAsync()
+    public async Task OpenPremiumAsync(bool launchPromoCodeDirectly = false)
     {
         if (IsDialogOpen || _systemInfoProvider.IsCompact())
         {
@@ -123,6 +123,7 @@ public class DialogService : IDialogService
         {
             FlowDirection = GetFlowDirection(),
             RequestedTheme = GetTheme(),
+            LaunchPromoCodeDirectly = launchPromoCodeDirectly
         };
 
         await dialog.ShowAsync();
