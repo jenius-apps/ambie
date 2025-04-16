@@ -1,6 +1,7 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 #nullable enable
 
@@ -15,4 +16,9 @@ public sealed partial class StatsPage : Page
     }
 
     public StatsPageViewModel ViewModel { get; }
+
+    protected override async void OnNavigatedTo(NavigationEventArgs e)
+    {
+        await ViewModel.InitializeAsync();
+    }
 }
