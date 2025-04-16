@@ -30,6 +30,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IUriLauncher _uriLauncher;
     private readonly IAppStoreUpdater _storeUpdater;
     private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly IDialogService _dialogService;
     private bool _notificationsLoading;
 
     public SettingsViewModel(
@@ -45,7 +46,8 @@ public partial class SettingsViewModel : ObservableObject
         ILocalizer localizer,
         IIapService iapService,
         IUriLauncher uriLauncher,
-        IAppStoreUpdater appStoreUpdater)
+        IAppStoreUpdater appStoreUpdater,
+        IDialogService dialogService)
     {
         _userSettings = userSettings;
         _notifications = notifications;
@@ -59,6 +61,7 @@ public partial class SettingsViewModel : ObservableObject
         _uriLauncher = uriLauncher;
         _storeUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
+        _dialogService = dialogService;
 
         if (systemInfoProvider.IsOnBatterySaver())
         {
@@ -84,6 +87,9 @@ public partial class SettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private int _xboxDisplayModeSelectedIndex;
+
+    [ObservableProperty]
+    private bool _promoCodeVisible;
 
     /// <summary>
     /// Paths to available background images.
@@ -268,6 +274,7 @@ public partial class SettingsViewModel : ObservableObject
     public async Task InitializeAsync()
     {
         ManageSubscriptionVisible = await _iapService.IsSubscriptionOwnedAsync();
+        PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
     }
 
     private int GetInitialXboxDisplayModeIndex()
@@ -405,6 +412,13 @@ public partial class SettingsViewModel : ObservableObject
         UpdateBarVisible = true;
         await _storeUpdater.TryApplyUpdatesAsync();
         UpdateBarVisible = false;
+    }
+
+    [RelayCommand]
+    private async Task EnterPromoCodeAsync()
+    {
+        await _dialogService.OpenPremiumAsync(launchPromoCodeDirectly: true);
+        PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
     }
 
     partial void OnXboxDisplayModeSelectedIndexChanged(int oldIndex, int newIndex)

@@ -262,7 +262,8 @@
                 Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
                 Content="{x:Bind strings:Resources.EnterPromoCodeText}"
                 FontSize="12"
-                Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                Visibility="{x:Bind ViewModel.PromoCodeHyperlinkVisible, Mode=OneWay}" />
         </Grid>
 
         <Grid
@@ -283,13 +284,14 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" Spacing="4">
+            <StackPanel Orientation="Horizontal">
                 <Button
                     x:Uid="BackButton"
-                    Margin="-8,0,0,0"
+                    Margin="-8,0,4,0"
                     Command="{x:Bind ViewModel.TogglePromoCodePageCommand}"
                     IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
-                    Style="{StaticResource SmallSubtleIconButton}">
+                    Style="{StaticResource SmallSubtleIconButton}"
+                    Visibility="{x:Bind ViewModel.PromoCodeBackButtonVisible, Mode=OneWay}">
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
                         FontSize="{StaticResource SmallIconSize}"
