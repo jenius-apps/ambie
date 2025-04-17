@@ -2,6 +2,7 @@
     x:Class="AmbientSounds.Views.StatsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ext="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Views"
@@ -10,6 +11,7 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:vm="using:AmbientSounds.ViewModels"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -183,10 +185,104 @@
                     <Grid
                         x:Name="SummaryGrid"
                         Grid.Row="1"
-                        MinHeight="100"
+                        Padding="0,36"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
-                        Style="{StaticResource CardStyle}" />
+                        Style="{StaticResource CardStyle}">
+                        <toolkit:UniformGrid
+                            HorizontalAlignment="Center"
+                            ColumnSpacing="60"
+                            Columns="2"
+                            Orientation="Vertical"
+                            RowSpacing="24"
+                            Rows="3">
+                            <controls:TimerData
+                                Title="Lifetime hours"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphClock}"
+                                Text="999" />
+                            <controls:TimerData
+                                Title="Hours this month"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphStopwatch}"
+                                Text="32" />
+                            <controls:TimerData
+                                Title="Streak record"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFocus}"
+                                Text="11" />
+                            <controls:TimerData
+                                Title="Tasks completed"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphSleep}"
+                                Text="5" />
+                            <controls:TimerData
+                                Title="Streak record"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFocus}"
+                                Text="11" />
+                            <controls:TimerData
+                                Title="Tasks completed"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphSleep}"
+                                Text="5" />
+                        </toolkit:UniformGrid>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    Margin="0,4,0,0"
+                    Padding="20"
+                    Style="{StaticResource CardStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontWeight="SemiBold" Text="Top played sounds" />
+
+                    <ItemsControl Grid.Row="1" Margin="0,20,0,0">
+                        <ItemsControl.Items>
+                            <StackPanel Margin="0,0,0,12">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontSize="12" Text="Beach" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        FontSize="12"
+                                        Text="62 hours" />
+                                </Grid>
+
+                                <winui:ProgressBar
+                                    Margin="0,8,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    Maximum="100"
+                                    Value="62" />
+                            </StackPanel>
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontSize="12" Text="Birds" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        FontSize="12"
+                                        Text="50 hours" />
+                                </Grid>
+
+                                <winui:ProgressBar
+                                    Margin="0,8,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    Maximum="100"
+                                    Value="50" />
+                            </StackPanel>
+                        </ItemsControl.Items>
+                    </ItemsControl>
                 </Grid>
             </StackPanel>
         </Grid>
