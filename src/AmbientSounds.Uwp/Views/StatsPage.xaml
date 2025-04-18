@@ -185,46 +185,45 @@
                     <Grid
                         x:Name="SummaryGrid"
                         Grid.Row="1"
-                        Padding="0,36"
+                        Padding="40"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Style="{StaticResource CardStyle}">
                         <toolkit:UniformGrid
-                            HorizontalAlignment="Center"
-                            ColumnSpacing="60"
+                            ColumnSpacing="0"
                             Columns="2"
                             Orientation="Vertical"
                             RowSpacing="24"
                             Rows="3">
                             <controls:TimerData
-                                Title="Lifetime hours"
+                                Title="Total hours"
                                 VerticalAlignment="Center"
-                                Glyph="{StaticResource GlyphClock}"
+                                Glyph="{StaticResource GlyphPersonWithRibbon}"
                                 Text="999" />
                             <controls:TimerData
                                 Title="Hours this month"
                                 VerticalAlignment="Center"
-                                Glyph="{StaticResource GlyphStopwatch}"
+                                Glyph="{StaticResource GlyphCalendar}"
                                 Text="32" />
                             <controls:TimerData
-                                Title="Streak record"
+                                Title="Hours this week"
                                 VerticalAlignment="Center"
-                                Glyph="{StaticResource GlyphFocus}"
-                                Text="11" />
-                            <controls:TimerData
-                                Title="Tasks completed"
-                                VerticalAlignment="Center"
-                                Glyph="{StaticResource GlyphSleep}"
+                                Glyph="{StaticResource GlyphCalendarWeek}"
                                 Text="5" />
                             <controls:TimerData
-                                Title="Streak record"
+                                Title="Longest streak"
+                                VerticalAlignment="Center"
+                                Glyph="{StaticResource GlyphFire}"
+                                Text="11" />
+                            <controls:TimerData
+                                Title="Focus hours"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphFocus}"
                                 Text="11" />
                             <controls:TimerData
                                 Title="Tasks completed"
                                 VerticalAlignment="Center"
-                                Glyph="{StaticResource GlyphSleep}"
+                                Glyph="{StaticResource GlyphCheckMarkCircle}"
                                 Text="5" />
                         </toolkit:UniformGrid>
                     </Grid>
