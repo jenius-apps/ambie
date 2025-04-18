@@ -37,8 +37,8 @@ public sealed class StatService : IStatService
 
     public int ValidateAndRetrieveStreak()
     {
-        var now = DateTime.Now;
-        var lastUpdated = StreakLastUpdated();
+        DateTime now = DateTime.Now;
+        DateTime lastUpdated = StreakLastUpdated();
 
         if (now.Date > lastUpdated.AddDays(1).Date)
         {
@@ -56,15 +56,15 @@ public sealed class StatService : IStatService
 
     public async Task LogStreakAsync()
     {
-        var now = DateTime.Now;
-        var lastUpdated = StreakLastUpdated();
+        DateTime now = DateTime.Now;
+        DateTime lastUpdated = StreakLastUpdated();
 
         if (lastUpdated.Date >= now.Date)
         {
             return;
         }
 
-        var currentCount = ValidateAndRetrieveStreak();
+        int currentCount = ValidateAndRetrieveStreak();
         currentCount++;
         _userSettings.Set(UserSettingsConstants.ActiveStreakKey, currentCount);
         _userSettings.Set(UserSettingsConstants.ActiveStreakUpdateDateTicksKey, now.Ticks);
@@ -86,12 +86,12 @@ public sealed class StatService : IStatService
     {
         if (days <= 0)
         {
-            return Array.Empty<bool>();
+            return [];
         }
 
-        var tempDate = DateTime.Now.AddDays((days - 1) * -1);
-        var history = await _streakHistoryCache.GetStreakHistoryAsync();
-        List<bool> recentHistory = new();
+        DateTime tempDate = DateTime.Now.AddDays((days - 1) * -1);
+        StreakHistory history = await _streakHistoryCache.GetStreakHistoryAsync();
+        List<bool> recentHistory = [];
         for (int i = 0; i < days; i++)
         {
             if (history.Years.TryGetValue(tempDate.Year.ToString(), out var monthly) &&
@@ -110,24 +110,24 @@ public sealed class StatService : IStatService
 
         return recentHistory;
     }
-    
+
     private async Task LogActivityAsync(DateTime date)
     {
-        var streakHistory = await _streakHistoryCache.GetStreakHistoryAsync();
-        var year = date.Year.ToString();
-        var month = date.Month.ToString();
+        StreakHistory streakHistory = await _streakHistoryCache.GetStreakHistoryAsync();
+        string year = date.Year.ToString();
+        string month = date.Month.ToString();
 
         if (!streakHistory.Years.ContainsKey(year))
         {
-            streakHistory.Years.Add(year, new());
+            streakHistory.Years.Add(year, []);
         }
 
         if (!streakHistory.Years[year].ContainsKey(month))
         {
-            streakHistory.Years[year].Add(month, new());
+            streakHistory.Years[year].Add(month, []);
         }
 
-        streakHistory.Years[year][month].Add(date.Day);
+        _ = streakHistory.Years[year][month].Add(date.Day);
         await _streakHistoryCache.UpdateStreakHistory(streakHistory);
     }
 
@@ -151,7 +151,7 @@ public sealed class StatService : IStatService
 
     private DateTime StreakLastUpdated()
     {
-        var lastUpdatedTicks = _userSettings.Get<long>(UserSettingsConstants.ActiveStreakUpdateDateTicksKey);
+        long lastUpdatedTicks = _userSettings.Get<long>(UserSettingsConstants.ActiveStreakUpdateDateTicksKey);
         return new DateTime(lastUpdatedTicks);
     }
 }
