@@ -4,7 +4,7 @@ using System;
 
 namespace AmbientSounds.Factories;
 
-public sealed class TimerFactory
+public sealed class TimerFactory : ITimerFactory
 {
     private readonly IServiceProvider _serviceProvider;
 

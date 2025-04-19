@@ -1,4 +1,5 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Models;
+using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using JeniusApps.Common.Tools;
 using System;
@@ -35,6 +36,24 @@ public partial class StatsPageViewModel : ObservableObject
     private string _streakText = string.Empty;
 
     /// <summary>
+    /// Total hours of usage.
+    /// </summary>
+    [ObservableProperty]
+    private double _totalHours;
+
+    /// <summary>
+    /// Total hours of usage this month.
+    /// </summary>
+    [ObservableProperty]
+    private double _hoursThisMonth;
+
+    /// <summary>
+    /// Total hours of usage this week
+    /// </summary>
+    [ObservableProperty]
+    private double _hoursThisWeek;
+
+    /// <summary>
     /// List of recent streak activity to display on screen.
     /// </summary>
     public ObservableCollection<DayActivityViewModel> RecentActivity { get; } = [];
@@ -46,6 +65,16 @@ public partial class StatsPageViewModel : ObservableObject
     {
         LoadStreak();
         await LoadRecentActivityAsync();
+        await LoadUsageStatsAsync();
+    }
+
+    private async Task LoadUsageStatsAsync()
+    {
+        DateTime now = DateTime.Now;
+        StreakHistory history = await _statService.GetStreakHistory();
+        TotalHours = history.TotalHours;
+        HoursThisMonth = history.MonthlyHours[now.Month - 1];
+        HoursThisWeek = history.WeeklyHours[(int)now.DayOfWeek];
     }
 
     private void LoadStreak(StreakChangedEventArgs? args = null)

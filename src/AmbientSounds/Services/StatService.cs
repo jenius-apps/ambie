@@ -17,6 +17,7 @@ public sealed class StatService : IStatService
     private readonly IStreakHistoryCache _streakHistoryCache;
     private readonly ITimerService _dayTimer;
     private readonly ITimerService _usageTimer;
+    private readonly TimeSpan _usageInterval = TimeSpan.FromMinutes(15);
 
     public event EventHandler<StreakChangedEventArgs>? StreakChanged;
 
@@ -24,7 +25,7 @@ public sealed class StatService : IStatService
         IUserSettings userSettings,
         IMixMediaPlayerService mixMediaPlayerService,
         IStreakHistoryCache streakHistoryCache,
-        TimerFactory timerFactory)
+        ITimerFactory timerFactory)
     {
         _userSettings = userSettings;
         _mixMediaPlayerService = mixMediaPlayerService;
@@ -35,12 +36,13 @@ public sealed class StatService : IStatService
         _dayTimer.IntervalElapsed += OnDayElapsed;
 
         _usageTimer = timerFactory.Create();
-        _usageTimer.Interval = 900000; // 15 minute
-        _usageTimer.IntervalElapsed += OnFifteenMinutesElapsed;
+        _usageTimer.Interval = (int)_usageInterval.TotalMilliseconds; // 15 minutes
+        _usageTimer.IntervalElapsed += OnUsageIntervalElapsed;
 
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
     }
 
+    /// <inheritdoc/>
     public int ValidateAndRetrieveStreak()
     {
         DateTime now = DateTime.Now;
@@ -60,6 +62,7 @@ public sealed class StatService : IStatService
         }
     }
 
+    /// <inheritdoc/>
     public async Task LogStreakAsync()
     {
         DateTime now = DateTime.Now;
@@ -83,11 +86,13 @@ public sealed class StatService : IStatService
         });
     }
 
+    /// <inheritdoc/>
     public Task<StreakHistory> GetStreakHistory()
     {
         return _streakHistoryCache.GetStreakHistoryAsync();
     }
 
+    /// <inheritdoc/>
     public async Task<IReadOnlyList<bool>> GetRecentActiveHistory(int days)
     {
         if (days <= 0)
@@ -143,10 +148,12 @@ public sealed class StatService : IStatService
         {
             await LogStreakAsync();
             _dayTimer.Start();
+            _usageTimer.Start();
         }
         else
         {
             _dayTimer.Stop();
+            _usageTimer.Stop();
         }
     }
 
@@ -161,20 +168,35 @@ public sealed class StatService : IStatService
         return new DateTime(lastUpdatedTicks);
     }
 
-    private async void OnFifteenMinutesElapsed(object sender, TimeSpan e)
+    private async void OnUsageIntervalElapsed(object sender, TimeSpan e)
     {
-        await LogUsageTimeAsync(minutes: 15);
+        await LogUsageTimeAsync(minutes: _usageInterval.TotalMinutes);
     }
 
     private async Task LogUsageTimeAsync(double minutes)
     {
         StreakHistory streakHistory = await _streakHistoryCache.GetStreakHistoryAsync();
-        DateTime now = DateTime.Now;
-        double hourValue = minutes / 60;
-        streakHistory.TotalHours += (long)hourValue;
-        streakHistory.MonthlyHours[now.Month - 1] += hourValue;
-        streakHistory.WeeklyHours[(int)now.DayOfWeek] += hourValue;
+        UpdateUsageTime(streakHistory, minutes, DateTime.Now);
         await _streakHistoryCache.UpdateStreakHistory(streakHistory);
+    }
+
+    /// <summary>
+    /// Updates the given streak history object with new usage minutes.
+    /// </summary>
+    /// <remarks>
+    /// This public static class was exposed like this primarily to make unit testing a bit easier.
+    /// This is not intended to be used in real scenarios outside of this class.
+    /// Callers should only rely on the methods exposed via <see cref="IStatService"/>.
+    /// </remarks>
+    /// <param name="streakHistory">The object to update.</param>
+    /// <param name="minutes">The new usage minutes.</param>
+    /// <param name="currentDate">The given date when the usage was recorded.</param>
+    public static void UpdateUsageTime(StreakHistory streakHistory, double minutes, DateTime currentDate)
+    {
+        double hourValue = minutes / 60;
+        streakHistory.TotalHours += hourValue;
+        streakHistory.MonthlyHours[currentDate.Month - 1] += hourValue;
+        streakHistory.WeeklyHours[(int)currentDate.DayOfWeek] += hourValue;
     }
 }
 

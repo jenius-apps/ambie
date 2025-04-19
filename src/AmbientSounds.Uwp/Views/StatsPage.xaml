@@ -199,17 +199,17 @@
                                 Title="Total hours"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphPersonWithRibbon}"
-                                Text="999" />
+                                Text="{x:Bind ViewModel.TotalHours, Mode=OneWay}" />
                             <controls:TimerData
                                 Title="Hours this month"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphCalendar}"
-                                Text="32" />
+                                Text="{x:Bind ViewModel.HoursThisMonth, Mode=OneWay}" />
                             <controls:TimerData
                                 Title="Hours this week"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphCalendarWeek}"
-                                Text="5" />
+                                Text="{x:Bind ViewModel.HoursThisWeek, Mode=OneWay}" />
                             <controls:TimerData
                                 Title="Longest streak"
                                 VerticalAlignment="Center"

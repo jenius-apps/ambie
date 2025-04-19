@@ -18,17 +18,17 @@ public class StreakHistory
     /// <summary>
     /// Total hours of usage.
     /// </summary>
-    public long TotalHours { get; set; }
+    public double TotalHours { get; set; }
 
     /// <summary>
     /// An array of 12 doubles. Each position represents a month of the year, January = 0, February = 1, etc.
     /// The value in each position represents the usage hours for that month.
     /// </summary>
-    public double[] MonthlyHours { get; } = new double[12];
+    public double[] MonthlyHours { get; set; } = new double[12];
 
     /// <summary>
     /// An array of 7 doubles. Each position represents a day of the week, Sunday = 0, Monday = 1, etc.
     /// The value in each position represents the usage hours for that day.
     /// </summary>
-    public double[] WeeklyHours { get; } = new double[7];
+    public double[] WeeklyHours { get; set; } = new double[7];
 }
