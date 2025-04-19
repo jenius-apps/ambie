@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Constants;
+using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Tools;
 using JeniusApps.Common.Settings;
@@ -14,7 +15,8 @@ public sealed class StatService : IStatService
     private readonly IUserSettings _userSettings;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IStreakHistoryCache _streakHistoryCache;
-    private readonly ITimerService _timerService;
+    private readonly ITimerService _dayTimer;
+    private readonly ITimerService _usageTimer;
 
     public event EventHandler<StreakChangedEventArgs>? StreakChanged;
 
@@ -22,15 +24,19 @@ public sealed class StatService : IStatService
         IUserSettings userSettings,
         IMixMediaPlayerService mixMediaPlayerService,
         IStreakHistoryCache streakHistoryCache,
-        ITimerService timerService)
+        TimerFactory timerFactory)
     {
         _userSettings = userSettings;
         _mixMediaPlayerService = mixMediaPlayerService;
         _streakHistoryCache = streakHistoryCache;
-        _timerService = timerService;
 
-        _timerService.Interval = 86400000; // 24 hours
-        _timerService.IntervalElapsed += OnDayElapsed;
+        _dayTimer = timerFactory.Create();
+        _dayTimer.Interval = 86400000; // 24 hours
+        _dayTimer.IntervalElapsed += OnDayElapsed;
+
+        _usageTimer = timerFactory.Create();
+        _usageTimer.Interval = 900000; // 15 minute
+        _usageTimer.IntervalElapsed += OnFifteenMinutesElapsed;
 
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
     }
@@ -136,11 +142,11 @@ public sealed class StatService : IStatService
         if (e is MediaPlaybackState.Opening or MediaPlaybackState.Playing)
         {
             await LogStreakAsync();
-            _timerService.Start();
+            _dayTimer.Start();
         }
         else
         {
-            _timerService.Stop();
+            _dayTimer.Stop();
         }
     }
 
@@ -153,6 +159,22 @@ public sealed class StatService : IStatService
     {
         long lastUpdatedTicks = _userSettings.Get<long>(UserSettingsConstants.ActiveStreakUpdateDateTicksKey);
         return new DateTime(lastUpdatedTicks);
+    }
+
+    private async void OnFifteenMinutesElapsed(object sender, TimeSpan e)
+    {
+        await LogUsageTimeAsync(minutes: 15);
+    }
+
+    private async Task LogUsageTimeAsync(double minutes)
+    {
+        StreakHistory streakHistory = await _streakHistoryCache.GetStreakHistoryAsync();
+        DateTime now = DateTime.Now;
+        double hourValue = minutes / 60;
+        streakHistory.TotalHours += (long)hourValue;
+        streakHistory.MonthlyHours[now.Month - 1] += hourValue;
+        streakHistory.WeeklyHours[(int)now.DayOfWeek] += hourValue;
+        await _streakHistoryCache.UpdateStreakHistory(streakHistory);
     }
 }
 
