@@ -31,4 +31,14 @@ public class StreakHistory
     /// The value in each position represents the usage hours for that day.
     /// </summary>
     public double[] WeeklyHours { get; set; } = new double[7];
+
+    /// <summary>
+    /// Total hours of focus usage.
+    /// </summary>
+    public double TotalFocusHours { get; set; }
+
+    /// <summary>
+    /// Total amount of tasks completed during a focus session.
+    /// </summary>
+    public int TotalTasksCompleted { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Cache;
 using AmbientSounds.Constants;
+using AmbientSounds.Extensions;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Tools;
@@ -17,6 +18,7 @@ public sealed class StatService : IStatService
     private readonly IStreakHistoryCache _streakHistoryCache;
     private readonly ITimerService _dayTimer;
     private readonly ITimerService _usageTimer;
+    private readonly IFocusHistoryService _focusHistoryService;
     private readonly TimeSpan _usageInterval = TimeSpan.FromMinutes(15);
 
     public event EventHandler<StreakChangedEventArgs>? StreakChanged;
@@ -25,11 +27,13 @@ public sealed class StatService : IStatService
         IUserSettings userSettings,
         IMixMediaPlayerService mixMediaPlayerService,
         IStreakHistoryCache streakHistoryCache,
-        ITimerFactory timerFactory)
+        ITimerFactory timerFactory,
+        IFocusHistoryService focusHistoryService)
     {
         _userSettings = userSettings;
         _mixMediaPlayerService = mixMediaPlayerService;
         _streakHistoryCache = streakHistoryCache;
+        _focusHistoryService = focusHistoryService;
 
         _dayTimer = timerFactory.Create();
         _dayTimer.Interval = 86400000; // 24 hours
@@ -40,6 +44,7 @@ public sealed class StatService : IStatService
         _usageTimer.IntervalElapsed += OnUsageIntervalElapsed;
 
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
+        _focusHistoryService.HistoryAdded += OnFocusHistoryAdded;
     }
 
     /// <inheritdoc/>
@@ -180,6 +185,23 @@ public sealed class StatService : IStatService
         await _streakHistoryCache.UpdateStreakHistory(streakHistory);
     }
 
+    private async void OnFocusHistoryAdded(object sender, FocusHistory? history)
+    {
+        await LogFocusUsageAsync(history).ConfigureAwait(false);
+    }
+
+    private async Task LogFocusUsageAsync(FocusHistory? history)
+    {
+        if (history is null)
+        {
+            return;
+        }
+
+        StreakHistory streakHistory = await _streakHistoryCache.GetStreakHistoryAsync().ConfigureAwait(false);
+        UpdateFocusUsage(streakHistory, history);
+        await _streakHistoryCache.UpdateStreakHistory(streakHistory).ConfigureAwait(false);
+    }
+
     /// <summary>
     /// Updates the given streak history object with new usage minutes.
     /// </summary>
@@ -197,6 +219,22 @@ public sealed class StatService : IStatService
         streakHistory.TotalHours += hourValue;
         streakHistory.MonthlyHours[currentDate.Month - 1] += hourValue;
         streakHistory.WeeklyHours[(int)currentDate.DayOfWeek] += hourValue;
+    }
+
+    /// <summary>
+    /// Updates the given streak history object with new focus usage.
+    /// </summary>
+    /// <remarks>
+    /// This public static class was exposed like this primarily to make unit testing a bit easier.
+    /// This is not intended to be used in real scenarios outside of this class.
+    /// Callers should only rely on the methods exposed via <see cref="IStatService"/>.
+    /// </remarks>
+    /// <param name="streakHistory">The object to update.</param>
+    /// <param name="focusHistory">The new focus history object..</param>
+    public static void UpdateFocusUsage(StreakHistory streakHistory, FocusHistory focusHistory)
+    {
+        streakHistory.TotalFocusHours += focusHistory.GetFocusTimeCompleted() / 60;
+        streakHistory.TotalTasksCompleted += focusHistory.TasksCompleted;
     }
 }
 
