@@ -5,6 +5,7 @@ using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -48,10 +49,22 @@ public partial class StatsPageViewModel : ObservableObject
     private double _hoursThisMonth;
 
     /// <summary>
-    /// Total hours of usage this week
+    /// Total hours of usage the past 7 days.
     /// </summary>
     [ObservableProperty]
     private double _hoursThisWeek;
+
+    /// <summary>
+    /// Total hours of focus usage.
+    /// </summary>
+    [ObservableProperty]
+    private double _totalFocusHours;
+
+    /// <summary>
+    /// Total tasks completed during a focus session.
+    /// </summary>
+    [ObservableProperty]
+    private int _tasksCompleted;
 
     /// <summary>
     /// List of recent streak activity to display on screen.
@@ -72,9 +85,11 @@ public partial class StatsPageViewModel : ObservableObject
     {
         DateTime now = DateTime.Now;
         StreakHistory history = await _statService.GetStreakHistory();
-        TotalHours = history.TotalHours;
-        HoursThisMonth = history.MonthlyHours[now.Month - 1];
-        HoursThisWeek = history.WeeklyHours[(int)now.DayOfWeek];
+        TotalHours = Math.Round(history.TotalHours, 1);
+        HoursThisMonth = Math.Round(history.MonthlyHours[now.Month - 1], 1);
+        HoursThisWeek = Math.Round(history.WeeklyHours.Sum(), 1);
+        TasksCompleted = history.TotalTasksCompleted;
+        TotalFocusHours = Math.Round(history.TotalFocusHours, 1);
     }
 
     private void LoadStreak(StreakChangedEventArgs? args = null)

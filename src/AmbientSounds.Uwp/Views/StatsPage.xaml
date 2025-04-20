@@ -206,7 +206,7 @@
                                 Glyph="{StaticResource GlyphCalendar}"
                                 Text="{x:Bind ViewModel.HoursThisMonth, Mode=OneWay}" />
                             <controls:TimerData
-                                Title="Hours this week"
+                                Title="Last 7 days"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphCalendarWeek}"
                                 Text="{x:Bind ViewModel.HoursThisWeek, Mode=OneWay}" />
@@ -216,15 +216,15 @@
                                 Glyph="{StaticResource GlyphFire}"
                                 Text="11" />
                             <controls:TimerData
-                                Title="Focus hours"
+                                Title="Total focus hours"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphFocus}"
-                                Text="11" />
+                                Text="{x:Bind ViewModel.TotalFocusHours, Mode=OneWay}" />
                             <controls:TimerData
                                 Title="Tasks completed"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphCheckMarkCircle}"
-                                Text="5" />
+                                Text="{x:Bind ViewModel.TasksCompleted, Mode=OneWay}" />
                         </toolkit:UniformGrid>
                     </Grid>
                 </Grid>

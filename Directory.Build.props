@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <LangVersion>12.0</LangVersion>
+    <LangVersion>13.0</LangVersion>
 
     <!--
       Enable the latest warning wave, which shows additional warnings for invalid language features that are disabled by default.
