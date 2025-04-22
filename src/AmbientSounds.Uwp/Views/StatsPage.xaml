@@ -199,32 +199,32 @@
                             RowSpacing="24"
                             Rows="3">
                             <controls:TimerData
-                                Title="Total hours"
+                                Title="{x:Bind strings:Resources.StatsTotalHours}"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphPersonWithRibbon}"
                                 Text="{x:Bind ViewModel.TotalHours, Mode=OneWay}" />
                             <controls:TimerData
-                                Title="Hours this month"
+                                Title="{x:Bind strings:Resources.StatsMonthlyHours}"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphCalendar}"
                                 Text="{x:Bind ViewModel.HoursThisMonth, Mode=OneWay}" />
                             <controls:TimerData
-                                Title="Last 7 days"
+                                Title="{x:Bind strings:Resources.StatsWeeklyHours}"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphCalendarWeek}"
                                 Text="{x:Bind ViewModel.HoursThisWeek, Mode=OneWay}" />
                             <controls:TimerData
-                                Title="Longest streak"
+                                Title="{x:Bind strings:Resources.StatsLongestStreak}"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphFire}"
                                 Text="{x:Bind ViewModel.LongestStreak, Mode=OneWay}" />
                             <controls:TimerData
-                                Title="Total focus hours"
+                                Title="{x:Bind strings:Resources.StatsTotalFocusHours}"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphFocus}"
                                 Text="{x:Bind ViewModel.TotalFocusHours, Mode=OneWay}" />
                             <controls:TimerData
-                                Title="Tasks completed"
+                                Title="{x:Bind strings:Resources.TasksCompleted}"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphCheckMarkCircle}"
                                 Text="{x:Bind ViewModel.TasksCompleted, Mode=OneWay}" />

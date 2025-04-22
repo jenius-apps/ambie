@@ -3316,6 +3316,71 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region StatsLongestStreak
+        /// <summary>
+        ///   Looks up a localized string similar to: Longest streak
+        /// </summary>
+        public static string StatsLongestStreak
+        {
+            get
+            {
+                return _resourceLoader.GetString("StatsLongestStreak");
+            }
+        }
+        #endregion
+
+        #region StatsMonthlyHours
+        /// <summary>
+        ///   Looks up a localized string similar to: Hours this month
+        /// </summary>
+        public static string StatsMonthlyHours
+        {
+            get
+            {
+                return _resourceLoader.GetString("StatsMonthlyHours");
+            }
+        }
+        #endregion
+
+        #region StatsTotalFocusHours
+        /// <summary>
+        ///   Looks up a localized string similar to: Focus hours
+        /// </summary>
+        public static string StatsTotalFocusHours
+        {
+            get
+            {
+                return _resourceLoader.GetString("StatsTotalFocusHours");
+            }
+        }
+        #endregion
+
+        #region StatsTotalHours
+        /// <summary>
+        ///   Looks up a localized string similar to: Total hours
+        /// </summary>
+        public static string StatsTotalHours
+        {
+            get
+            {
+                return _resourceLoader.GetString("StatsTotalHours");
+            }
+        }
+        #endregion
+
+        #region StatsWeeklyHours
+        /// <summary>
+        ///   Looks up a localized string similar to: Last 7 days
+        /// </summary>
+        public static string StatsWeeklyHours
+        {
+            get
+            {
+                return _resourceLoader.GetString("StatsWeeklyHours");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3581,6 +3646,11 @@ namespace AmbientSounds.Strings{
             EnterPromoCodeText,
             PromoCodeMessage,
             SubmitText,
+            StatsLongestStreak,
+            StatsMonthlyHours,
+            StatsTotalFocusHours,
+            StatsTotalHours,
+            StatsWeeklyHours,
         }
 
         private static ResourceLoader _resourceLoader;

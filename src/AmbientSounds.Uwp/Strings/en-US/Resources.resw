@@ -1068,4 +1068,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Submit</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Longest streak</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Hours this month</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Focus hours</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Total hours</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Last 7 days</value>
+  </data>
 </root>
