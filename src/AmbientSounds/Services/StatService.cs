@@ -19,6 +19,8 @@ public sealed class StatService : IStatService
     private readonly ITimerService _dayTimer;
     private readonly ITimerService _usageTimer;
     private readonly IFocusHistoryService _focusHistoryService;
+    private readonly ISoundCache _soundCache;
+    private readonly IAssetLocalizer _assetLocalizer;
     private readonly TimeSpan _usageInterval = TimeSpan.FromMinutes(15);
 
     public event EventHandler<StreakChangedEventArgs>? StreakChanged;
@@ -28,12 +30,16 @@ public sealed class StatService : IStatService
         IMixMediaPlayerService mixMediaPlayerService,
         IStreakHistoryCache streakHistoryCache,
         ITimerFactory timerFactory,
-        IFocusHistoryService focusHistoryService)
+        IFocusHistoryService focusHistoryService,
+        ISoundCache soundCache,
+        IAssetLocalizer assetLocalizer)
     {
         _userSettings = userSettings;
         _mixMediaPlayerService = mixMediaPlayerService;
         _streakHistoryCache = streakHistoryCache;
         _focusHistoryService = focusHistoryService;
+        _soundCache = soundCache;
+        _assetLocalizer = assetLocalizer;
 
         _dayTimer = timerFactory.Create();
         _dayTimer.Interval = 86400000; // 24 hours
@@ -181,13 +187,23 @@ public sealed class StatService : IStatService
 
     private async void OnUsageIntervalElapsed(object sender, TimeSpan e)
     {
-        await LogUsageTimeAsync(minutes: _usageInterval.TotalMinutes);
+        await LogUsageTimeAsync(minutes: _usageInterval.TotalMinutes, _mixMediaPlayerService.GetSoundIds());
     }
 
-    private async Task LogUsageTimeAsync(double minutes)
+    private async Task LogUsageTimeAsync(double minutes, IReadOnlyList<string> soundIds)
     {
         StreakHistory streakHistory = await _streakHistoryCache.GetStreakHistoryAsync();
-        UpdateUsageTime(streakHistory, minutes, DateTime.Now);
+
+        List<(string, string)> soundList = [];
+        foreach (var id in soundIds)
+        {
+            if (await _soundCache.GetInstalledSoundAsync(id) is Sound s)
+            {
+                soundList.Add((s.Id, _assetLocalizer.GetLocalName(s)));
+            }
+        }
+
+        UpdateUsageTime(streakHistory, minutes, DateTime.Now, soundList);
         await _streakHistoryCache.UpdateStreakHistory(streakHistory);
     }
 
@@ -219,12 +235,30 @@ public sealed class StatService : IStatService
     /// <param name="streakHistory">The object to update.</param>
     /// <param name="minutes">The new usage minutes.</param>
     /// <param name="currentDate">The given date when the usage was recorded.</param>
-    public static void UpdateUsageTime(StreakHistory streakHistory, double minutes, DateTime currentDate)
+    public static void UpdateUsageTime(StreakHistory streakHistory, double minutes, DateTime currentDate, IReadOnlyList<(string Id, string Name)> sounds)
     {
         double hourValue = minutes / 60;
         streakHistory.TotalHours += hourValue;
         streakHistory.MonthlyHours[currentDate.Month - 1] += hourValue;
         streakHistory.WeeklyHours[(int)currentDate.DayOfWeek] += hourValue;
+
+        foreach (var (Id, Name) in sounds)
+        {
+            if (streakHistory.SoundUsage.ContainsKey(Id))
+            {
+                streakHistory.SoundUsage[Id].TotalHours += hourValue;
+            }
+            else
+            {
+                SoundUsageHistory newEntry = new()
+                {
+                    Id = Id,
+                    LocalizedName = Name,
+                    TotalHours = hourValue
+                };
+                streakHistory.SoundUsage.Add(Id, newEntry);
+            }
+        }
     }
 
     /// <summary>

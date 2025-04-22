@@ -46,4 +46,38 @@ public class StreakHistory
     /// Total amount of tasks completed during a focus session.
     /// </summary>
     public int TotalTasksCompleted { get; set; }
+
+    /// <summary>
+    /// Dictionary of usage for individual sounds.
+    /// </summary>
+    /// <remarks>
+    /// The keys are the sound IDs.
+    /// </remarks>
+    public Dictionary<string, SoundUsageHistory> SoundUsage { get; set; } = [];
+}
+
+/// <summary>
+/// Class representing a sound's usage history.
+/// </summary>
+public class SoundUsageHistory
+{
+    /// <summary>
+    /// The sound's ID.
+    /// </summary>
+    public string Id { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Localized name of the sound for easy UI display.
+    /// </summary>
+    /// <remarks>
+    /// Since sounds can be deleted, it would be expensive to retrieve
+    /// localized names from the server. So we save it locally for
+    /// ease of use.
+    /// </remarks>
+    public string LocalizedName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Total usage of the sound in hours.
+    /// </summary>
+    public double TotalHours { get; set; }
 }
