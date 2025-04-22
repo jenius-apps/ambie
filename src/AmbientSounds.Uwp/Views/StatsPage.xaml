@@ -63,6 +63,7 @@
                 <ColumnDefinition x:Name="RightGutter" Width="auto" />
             </Grid.ColumnDefinitions>
 
+            <!--  Top section with streak and stat summary  -->
             <StackPanel Grid.Column="1">
                 <Grid x:Name="TopSection" RowSpacing="4">
                     <Grid.RowDefinitions>
@@ -74,6 +75,7 @@
                         <ColumnDefinition x:Name="RightColumn" Width="auto" />
                     </Grid.ColumnDefinitions>
 
+                    <!--  Streak  -->
                     <Grid
                         x:Name="StreakGrid"
                         Padding="12,0,12,20"
@@ -182,6 +184,7 @@
                             TextWrapping="WrapWholeWords" />
                     </Grid>
 
+                    <!--  Stat summary  -->
                     <Grid
                         x:Name="SummaryGrid"
                         Grid.Row="1"
@@ -214,7 +217,7 @@
                                 Title="Longest streak"
                                 VerticalAlignment="Center"
                                 Glyph="{StaticResource GlyphFire}"
-                                Text="11" />
+                                Text="{x:Bind ViewModel.LongestStreak, Mode=OneWay}" />
                             <controls:TimerData
                                 Title="Total focus hours"
                                 VerticalAlignment="Center"
@@ -229,6 +232,7 @@
                     </Grid>
                 </Grid>
 
+                <!--  Sound usage  -->
                 <Grid
                     Margin="0,4,0,0"
                     Padding="20"

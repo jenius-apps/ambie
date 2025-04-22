@@ -16,6 +16,11 @@ public class StreakHistory
     public Dictionary<string, Dictionary<string, HashSet<int>>> Years { get; set; } = [];
 
     /// <summary>
+    /// Longest consecutive day streak.
+    /// </summary>
+    public int LongestStreak { get; set; }
+
+    /// <summary>
     /// Total hours of usage.
     /// </summary>
     public double TotalHours { get; set; }

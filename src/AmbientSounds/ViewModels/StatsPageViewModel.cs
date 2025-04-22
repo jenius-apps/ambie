@@ -67,6 +67,12 @@ public partial class StatsPageViewModel : ObservableObject
     private int _tasksCompleted;
 
     /// <summary>
+    /// Longest consecutive days of listening to sounds.
+    /// </summary>
+    [ObservableProperty]
+    private int _longestStreak;
+
+    /// <summary>
     /// List of recent streak activity to display on screen.
     /// </summary>
     public ObservableCollection<DayActivityViewModel> RecentActivity { get; } = [];
@@ -90,6 +96,7 @@ public partial class StatsPageViewModel : ObservableObject
         HoursThisWeek = Math.Round(history.WeeklyHours.Sum(), 1);
         TasksCompleted = history.TotalTasksCompleted;
         TotalFocusHours = Math.Round(history.TotalFocusHours, 1);
+        LongestStreak = history.LongestStreak;
     }
 
     private void LoadStreak(StreakChangedEventArgs? args = null)

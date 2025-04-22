@@ -82,7 +82,7 @@ public sealed class StatService : IStatService
         currentCount++;
         _userSettings.Set(UserSettingsConstants.ActiveStreakKey, currentCount);
         _userSettings.Set(UserSettingsConstants.ActiveStreakUpdateDateTicksKey, now.Ticks);
-        await LogActivityAsync(now);
+        await LogActivityAsync(now, currentCount);
 
         StreakChanged?.Invoke(this, new StreakChangedEventArgs
         {
@@ -127,7 +127,7 @@ public sealed class StatService : IStatService
         return recentHistory;
     }
 
-    private async Task LogActivityAsync(DateTime date)
+    private async Task LogActivityAsync(DateTime date, int latestStreak)
     {
         StreakHistory streakHistory = await _streakHistoryCache.GetStreakHistoryAsync();
         string year = date.Year.ToString();
@@ -144,6 +144,12 @@ public sealed class StatService : IStatService
         }
 
         _ = streakHistory.Years[year][month].Add(date.Day);
+
+        if (latestStreak > streakHistory.LongestStreak)
+        {
+            streakHistory.LongestStreak = latestStreak;
+        }
+
         await _streakHistoryCache.UpdateStreakHistory(streakHistory);
     }
 
