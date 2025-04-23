@@ -963,4 +963,31 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Изпрати</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Най-дълга серия</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Работно време този месец</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Часове за фокусиране</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Общо часове</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Последните 7 дни</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Най-възпроизвежданите звуци</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Използвайте Ambie малко повече, за да видите повече статистики</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Преглед на статистическите данни за използването в Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
 </root>

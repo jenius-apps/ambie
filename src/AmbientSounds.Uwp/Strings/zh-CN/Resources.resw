@@ -963,4 +963,31 @@
   <data name="SubmitText" xml:space="preserve">
     <value>提交</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>最长连胜</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>本月营业时间</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>专注时间</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>总小时数</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>最近 7 天</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>最常播放的声音</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>多使用 Ambie 可查看更多统计数据</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>在 Ambie 中查看您的使用统计数据</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>统计</value>
+  </data>
 </root>

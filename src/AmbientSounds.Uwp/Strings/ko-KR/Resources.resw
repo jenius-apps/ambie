@@ -963,4 +963,31 @@
   <data name="SubmitText" xml:space="preserve">
     <value>전송</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>최장 연승 기록</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>이번 달의 시간</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>포커스 시간</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>총 시간</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>지난 7일</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>가장 많이 재생된 소리</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>더 많은 통계를 보려면 Ambie를 조금 더 사용하십시오.</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Ambie에서 사용 통계 보기</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>통계</value>
+  </data>
 </root>

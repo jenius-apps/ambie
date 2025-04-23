@@ -69,6 +69,7 @@ public class Navigator : INavigator
             ContentPageType.Meditate => typeof(MeditatePage),
             ContentPageType.Search => typeof(SearchPage),
             ContentPageType.Channels => typeof(ChannelsPage),
+            ContentPageType.Stats => typeof(StatsPage),
             _ => typeof(HomePage)
         };
 

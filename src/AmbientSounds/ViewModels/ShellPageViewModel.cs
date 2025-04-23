@@ -30,12 +30,10 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly INavigator _navigator;
     private readonly IDialogService _dialogService;
     private readonly IIapService _iapService;
-    private readonly IFocusService _focusService;
     private readonly ISoundMixService _soundMixService;
     private readonly IMixMediaPlayerService _mixMediaPlayerService;
     private readonly IShareService _shareService;
     private readonly IDispatcherQueue _dispatcherQueue;
-    private readonly IGuideService _guideService;
     private readonly ISoundService _soundService;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ISearchService _searchService;
@@ -52,19 +50,19 @@ public partial class ShellPageViewModel : ObservableObject
         INavigator navigator,
         IDialogService dialogService,
         IIapService iapService,
-        IFocusService focusService,
         ISoundMixService soundMixService,
         IMixMediaPlayerService mixMediaPlayerService,
         IShareService shareService,
-        IGuideService guideService,
         IDispatcherQueue dispatcherQueue,
         ILocalizer localizer,
         ISoundService soundService,
         IAssetLocalizer assetLocalizer,
         ISearchService searchService,
         IStatService statService,
-        IAppStoreUpdater appStoreUpdater)
+        IAppStoreUpdater appStoreUpdater,
+        IExperimentationService experimentationService)
     {
+        StatsPageEnabled = experimentationService.IsEnabled(ExperimentConstants.StatsPageExperiment);
         IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
 
@@ -74,12 +72,10 @@ public partial class ShellPageViewModel : ObservableObject
         _navigator = navigator;
         _dialogService = dialogService;
         _iapService = iapService;
-        _focusService = focusService;
         _soundMixService = soundMixService;
         _mixMediaPlayerService = mixMediaPlayerService;
         _shareService = shareService;
         _dispatcherQueue = dispatcherQueue;
-        _guideService = guideService;
         _soundService = soundService;
         _assetLocalizer = assetLocalizer;
         _searchService = searchService;
@@ -93,6 +89,7 @@ public partial class ShellPageViewModel : ObservableObject
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString(), tooltipSubtitle: localizer.GetString("FocusSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("ChannelsTitleText"), "\uE8B2", ContentPageType.Channels.ToString(), tooltipSubtitle: localizer.GetString("ChannelsSubtitle")));
         if (IsMeditatePageVisible) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle"))); }
+        if (StatsPageEnabled) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("StatsTitleText"), "\uEAFC", ContentPageType.Stats.ToString(), tooltipSubtitle: localizer.GetString("StatsSubtitle"))); }
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString(), tooltipSubtitle: localizer.GetString("UpdatesSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString(), tooltipSubtitle: localizer.GetString("SettingsSubtitle")));
 
@@ -111,6 +108,9 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.Start();
         }
     }
+
+    [ObservableProperty]
+    private bool _statsPageEnabled;
 
     [ObservableProperty]
     private int _streakCount;
@@ -272,6 +272,13 @@ public partial class ShellPageViewModel : ObservableObject
 
     public void LoadStreak(StreakChangedEventArgs? args = null)
     {
+        if (StatsPageEnabled)
+        {
+            // Don't load streak on shell page if stats page is enabled.
+            // This is because stats page is replacing the streaks flyout.
+            return;
+        }
+
         int count = args?.NewStreak ?? _statService.ValidateAndRetrieveStreak();
 
         StreakText = count == 1

@@ -41,7 +41,7 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.17" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="MimeTypeMapOfficial" Version="1.0.17" />
-    <PackageReference Include="PolySharp" Version="1.14.1" PrivateAssets="all" />
+    <PackageReference Include="PolySharp" Version="1.15.0" PrivateAssets="all" />
     <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 

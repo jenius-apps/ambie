@@ -145,7 +145,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             value = 0.000001d;
         }
 
-        foreach (var soundId in _activePlayers.Keys)
+        foreach (string soundId in _activePlayers.Keys)
         {
             _activePlayers[soundId].Volume = GetVolume(soundId) * value;
         }
@@ -175,7 +175,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public async Task PlayRandomAsync()
     {
         RemoveAll();
-        var sound = await _soundDataProvider.GetRandomSoundAsync();
+        Sound? sound = await _soundDataProvider.GetRandomSoundAsync();
         if (sound is not null)
         {
             await ToggleSoundAsync(sound);
@@ -197,7 +197,10 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     }
 
     /// <inheritdoc/>
-    public string[] GetSoundIds() => _activePlayers.Keys.ToArray();
+    public string[] GetSoundIds()
+    {
+        return [.. _activePlayers.Keys];
+    }
 
     /// <inheritdoc/>
     public IEnumerable<string> GetSoundIds(bool oldestToNewest)

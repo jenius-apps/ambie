@@ -936,4 +936,28 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Opslaan</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Langste reeks</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Uren deze maand</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Focus uren</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Totaal aantal uren</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Afgelopen 7 dagen</value>
+  </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Meest afgespeelde geluiden</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Gebruik Ambie iets meer om meer statistieken te bekijken</value>
+  </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Bekijk uw gebruiksstatistieken in Ambie</value>
+  </data>
 </root>
