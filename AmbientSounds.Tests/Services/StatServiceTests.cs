@@ -15,15 +15,24 @@ public class StatServiceTests
         StreakHistory stats = new();
         double minutes = 15;
         DateTime testDate = new(2025, 4, 19);
+        string soundIdTest = nameof(soundIdTest);
 
         // Act
-        StatService.UpdateUsageTime(stats, minutes, testDate);
+        StatService.UpdateUsageTime(stats, minutes, testDate, [(soundIdTest, soundIdTest)]);
 
         // Assert
         double hoursResult = minutes / 60;
         Assert.Equal(hoursResult, stats.TotalHours);
         Assert.Equal(hoursResult, stats.MonthlyHours[testDate.Month - 1]);
         Assert.Equal(hoursResult, stats.WeeklyHours[(int)testDate.DayOfWeek]);
+        Assert.Equal(hoursResult, stats.SoundUsage[soundIdTest].TotalHours);
+
+        // Double check that adding on top of existing data also works.
+        StatService.UpdateUsageTime(stats, minutes, testDate, [(soundIdTest, soundIdTest)]);
+        Assert.Equal(hoursResult * 2, stats.TotalHours);
+        Assert.Equal(hoursResult * 2, stats.MonthlyHours[testDate.Month - 1]);
+        Assert.Equal(hoursResult * 2, stats.WeeklyHours[(int)testDate.DayOfWeek]);
+        Assert.Equal(hoursResult * 2, stats.SoundUsage[soundIdTest].TotalHours);
     }
 
     [Fact]
