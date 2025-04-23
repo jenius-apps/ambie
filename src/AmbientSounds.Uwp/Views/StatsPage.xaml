@@ -65,7 +65,15 @@
 
             <!--  Top section with streak and stat summary  -->
             <StackPanel Grid.Column="1">
+                <StackPanel.ChildrenTransitions>
+                    <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+                </StackPanel.ChildrenTransitions>
+
                 <Grid x:Name="TopSection" RowSpacing="4">
+                    <Grid.ChildrenTransitions>
+                        <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
+                    </Grid.ChildrenTransitions>
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
@@ -198,6 +206,10 @@
                             Orientation="Vertical"
                             RowSpacing="24"
                             Rows="3">
+                            <toolkit:UniformGrid.ChildrenTransitions>
+                                <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
+                            </toolkit:UniformGrid.ChildrenTransitions>
+
                             <controls:TimerData
                                 Title="{x:Bind strings:Resources.StatsTotalHours}"
                                 VerticalAlignment="Center"
@@ -255,6 +267,7 @@
                             TextAlignment="Center" />
                         <TextBlock
                             MaxWidth="180"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             Text="{x:Bind strings:Resources.TopPlayedSoundsPlaceholder}"
                             TextAlignment="Center"
                             TextWrapping="WrapWholeWords" />
@@ -264,6 +277,10 @@
                         Grid.Row="1"
                         Margin="0,20,0,0"
                         ItemsSource="{x:Bind ViewModel.SoundUsage}">
+                        <ItemsControl.ItemContainerTransitions>
+                            <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
+                        </ItemsControl.ItemContainerTransitions>
+
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="vm:SoundUsageHistoryViewModel">
                                 <StackPanel Margin="0,0,0,12">
