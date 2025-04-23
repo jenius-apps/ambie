@@ -963,4 +963,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Представити</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Найдовша серія</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Годин роботи в цьому місяці</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Години фокусування</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Всього годин</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Останні 7 днів</value>
+  </data>
 </root>

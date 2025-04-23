@@ -963,4 +963,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>提交</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>最長連勝</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>本月上班時間</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>專注時間</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>總小時數</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>最近 7 天</value>
+  </data>
 </root>

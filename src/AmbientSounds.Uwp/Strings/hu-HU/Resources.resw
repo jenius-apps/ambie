@@ -951,4 +951,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Előterjeszt</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Leghosszabb sorozat</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Órák ebben a hónapban</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Fókusz órák</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Összes óra</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Az elmúlt 7 nap</value>
+  </data>
 </root>

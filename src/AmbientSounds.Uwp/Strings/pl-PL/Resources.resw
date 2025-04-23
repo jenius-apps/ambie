@@ -960,4 +960,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Prześlij</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Najdłuższa passa</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Godziny w tym miesiącu</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Godziny skupienia</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Łączna liczba godzin</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Ostatnie 7 dni</value>
+  </data>
 </root>

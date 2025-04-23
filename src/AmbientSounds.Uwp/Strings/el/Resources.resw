@@ -948,4 +948,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Υποβάλλω</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Μεγαλύτερο σερί</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Ώρες αυτόν τον μήνα</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Ώρες συγκέντρωσης</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Σύνολο ωρών</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Τελευταίες 7 ημέρες</value>
+  </data>
 </root>

@@ -957,4 +957,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Senden</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Längste Serie</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Stunden in diesem Monat</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Fokus-Stunden</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Gesamtstunden</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Letzte 7 Tage</value>
+  </data>
 </root>

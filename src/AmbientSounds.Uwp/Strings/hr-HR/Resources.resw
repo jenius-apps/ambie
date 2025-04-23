@@ -951,4 +951,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Predati se</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Najduži niz</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Sati ovog mjeseca</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Sati fokusa</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Ukupno sati</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Posljednjih 7 dana</value>
+  </data>
 </root>

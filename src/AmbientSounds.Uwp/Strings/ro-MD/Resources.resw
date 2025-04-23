@@ -960,4 +960,19 @@
   <data name="SubmitText" xml:space="preserve">
     <value>Prezinte</value>
   </data>
+  <data name="StatsLongestStreak" xml:space="preserve">
+    <value>Cea mai lungă serie</value>
+  </data>
+  <data name="StatsMonthlyHours" xml:space="preserve">
+    <value>Ore în această lună</value>
+  </data>
+  <data name="StatsTotalFocusHours" xml:space="preserve">
+    <value>Orele de concentrare</value>
+  </data>
+  <data name="StatsTotalHours" xml:space="preserve">
+    <value>Total ore</value>
+  </data>
+  <data name="StatsWeeklyHours" xml:space="preserve">
+    <value>Ultimele 7 zile</value>
+  </data>
 </root>
