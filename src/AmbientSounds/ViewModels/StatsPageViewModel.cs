@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels;
@@ -94,15 +95,19 @@ public partial class StatsPageViewModel : ObservableObject
     /// <summary>
     /// Initializes this viewmodel.
     /// </summary>
-    public async Task InitializeAsync() // todo add cancel token
+    public async Task InitializeAsync(CancellationToken cancellationToken)
     {
+        cancellationToken.ThrowIfCancellationRequested();
+
         LoadStreak();
         await LoadRecentActivityAsync();
-        await LoadUsageStatsAsync();
+        await LoadUsageStatsAsync(cancellationToken);
     }
 
-    private async Task LoadUsageStatsAsync()
+    private async Task LoadUsageStatsAsync(CancellationToken cancellationToken)
     {
+        cancellationToken.ThrowIfCancellationRequested();
+
         DateTime now = DateTime.Now;
         StreakHistory history = await _statService.GetStreakHistory();
         TotalHours = Math.Round(history.TotalHours, 1);
@@ -122,6 +127,8 @@ public partial class StatsPageViewModel : ObservableObject
 
         foreach (SoundUsageHistory soundUsage in history.SoundUsage.Values.OrderByDescending(x => x.TotalHours))
         {
+            cancellationToken.ThrowIfCancellationRequested();
+
             SoundUsage.Add(new SoundUsageHistoryViewModel(soundUsage, maxUsage));
         }
 
