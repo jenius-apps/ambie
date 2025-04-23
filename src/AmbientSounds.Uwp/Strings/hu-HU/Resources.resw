@@ -972,4 +972,10 @@
   <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
     <value>Használja az Ambie-t egy kicsit többet, hogy további statisztikákat tekintsen meg</value>
   </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Tekintse meg használati statisztikáit az Ambie-ben</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statisztika</value>
+  </data>
 </root>

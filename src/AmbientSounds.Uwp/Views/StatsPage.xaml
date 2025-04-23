@@ -267,6 +267,7 @@
                             TextAlignment="Center" />
                         <TextBlock
                             MaxWidth="180"
+                            FontSize="12"
                             Foreground="{ThemeResource TextFillColorTertiaryBrush}"
                             Text="{x:Bind strings:Resources.TopPlayedSoundsPlaceholder}"
                             TextAlignment="Center"

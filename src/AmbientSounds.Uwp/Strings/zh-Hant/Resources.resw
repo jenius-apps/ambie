@@ -984,4 +984,10 @@
   <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
     <value>多使用Ambie可查看更多統計數據</value>
   </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>在Ambie中查看您的使用統計數據</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>統計</value>
+  </data>
 </root>

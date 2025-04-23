@@ -1313,6 +1313,14 @@
           <source>Use Ambie a little more to view more stats</source>
           <target state="translated">Daha fazla istatistik görüntülemek için Ambie'yi biraz daha kullanın</target>
         </trans-unit>
+        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
+          <source>View your usage stats in Ambie</source>
+          <target state="translated">Ambie'de kullanım istatistiklerinizi görüntüleme</target>
+        </trans-unit>
+        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <target state="translated">Istatistik</target>
+        </trans-unit>
       </group>
     </body>
   </file>

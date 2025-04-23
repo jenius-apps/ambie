@@ -1304,6 +1304,14 @@
           <source>Use Ambie a little more to view more stats</source>
           <target state="translated">Używaj Ambie trochę więcej, aby wyświetlić więcej statystyk</target>
         </trans-unit>
+        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
+          <source>View your usage stats in Ambie</source>
+          <target state="translated">Wyświetlanie statystyk użytkowania w Ambie</target>
+        </trans-unit>
+        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <target state="translated">Statystyki</target>
+        </trans-unit>
       </group>
     </body>
   </file>

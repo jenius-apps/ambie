@@ -1303,6 +1303,14 @@
           <source>Use Ambie a little more to view more stats</source>
           <target state="translated">Použijte Ambie trochu více pro zobrazení více statistik</target>
         </trans-unit>
+        <trans-unit id="StatsSubtitle" translate="yes" xml:space="preserve">
+          <source>View your usage stats in Ambie</source>
+          <target state="translated">Zobrazení statistik využití v Ambie</target>
+        </trans-unit>
+        <trans-unit id="StatsTitleText" translate="yes" xml:space="preserve">
+          <source>Stats</source>
+          <target state="translated">Statistické údaje</target>
+        </trans-unit>
       </group>
     </body>
   </file>

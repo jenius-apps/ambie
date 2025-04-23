@@ -3407,6 +3407,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region StatsSubtitle
+        /// <summary>
+        ///   Looks up a localized string similar to: View your usage stats in Ambie
+        /// </summary>
+        public static string StatsSubtitle
+        {
+            get
+            {
+                return _resourceLoader.GetString("StatsSubtitle");
+            }
+        }
+        #endregion
+
+        #region StatsTitleText
+        /// <summary>
+        ///   Looks up a localized string similar to: Stats
+        /// </summary>
+        public static string StatsTitleText
+        {
+            get
+            {
+                return _resourceLoader.GetString("StatsTitleText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3679,6 +3705,8 @@ namespace AmbientSounds.Strings{
             StatsWeeklyHours,
             TopPlayedSoundsPlaceholder,
             TopPlayedSoundsText,
+            StatsSubtitle,
+            StatsTitleText,
         }
 
         private static ResourceLoader _resourceLoader;

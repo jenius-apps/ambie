@@ -1089,4 +1089,10 @@
   <data name="TopPlayedSoundsText" xml:space="preserve">
     <value>Top played sounds</value>
   </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>View your usage stats in Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Stats</value>
+  </data>
 </root>

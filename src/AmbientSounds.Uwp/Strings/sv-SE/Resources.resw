@@ -981,4 +981,10 @@
   <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
     <value>Använd Ambie lite mer för att se mer statistik</value>
   </data>
+  <data name="StatsSubtitle" xml:space="preserve">
+    <value>Visa din användningsstatistik i Ambie</value>
+  </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statistik</value>
+  </data>
 </root>
