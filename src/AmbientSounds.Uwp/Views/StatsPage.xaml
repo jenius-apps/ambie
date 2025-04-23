@@ -244,47 +244,33 @@
 
                     <TextBlock FontWeight="SemiBold" Text="Top played sounds" />
 
-                    <ItemsControl Grid.Row="1" Margin="0,20,0,0">
-                        <ItemsControl.Items>
-                            <StackPanel Margin="0,0,0,12">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock FontSize="12" Text="Beach" />
-                                    <TextBlock
-                                        Grid.Column="1"
-                                        FontSize="12"
-                                        Text="62 hours" />
-                                </Grid>
+                    <ItemsControl
+                        Grid.Row="1"
+                        Margin="0,20,0,0"
+                        ItemsSource="{x:Bind ViewModel.SoundUsage}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:SoundUsageHistoryViewModel">
+                                <StackPanel Margin="0,0,0,12">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock FontSize="12" Text="{x:Bind Name}" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            FontSize="12"
+                                            Text="{x:Bind UsageTime}" />
+                                    </Grid>
 
-                                <winui:ProgressBar
-                                    Margin="0,8,0,0"
-                                    HorizontalAlignment="Stretch"
-                                    Maximum="100"
-                                    Value="62" />
-                            </StackPanel>
-                            <StackPanel>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock FontSize="12" Text="Birds" />
-                                    <TextBlock
-                                        Grid.Column="1"
-                                        FontSize="12"
-                                        Text="50 hours" />
-                                </Grid>
-
-                                <winui:ProgressBar
-                                    Margin="0,8,0,0"
-                                    HorizontalAlignment="Stretch"
-                                    Maximum="100"
-                                    Value="50" />
-                            </StackPanel>
-                        </ItemsControl.Items>
+                                    <winui:ProgressBar
+                                        Margin="0,8,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        Maximum="{x:Bind MaxValue}"
+                                        Value="{x:Bind UsageValue}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </Grid>
             </StackPanel>

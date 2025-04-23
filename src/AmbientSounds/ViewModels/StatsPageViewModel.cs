@@ -1,6 +1,8 @@
 ﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Humanizer;
+using Humanizer.Localisation;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace AmbientSounds.ViewModels;
 
 public partial class StatsPageViewModel : ObservableObject
 {
+    private const double DefaultMaxSoundUsage = 100; // Just used to ensure we don't divide by zero anywhere
     private const int LastDaysStreak = 7; // # of days to track streak
     private readonly IStatService _statService;
     private readonly ILocalizer _localizer;
@@ -78,9 +81,14 @@ public partial class StatsPageViewModel : ObservableObject
     public ObservableCollection<DayActivityViewModel> RecentActivity { get; } = [];
 
     /// <summary>
+    /// List of sound usage.
+    /// </summary>
+    public ObservableCollection<SoundUsageHistoryViewModel> SoundUsage { get; } = [];
+
+    /// <summary>
     /// Initializes this viewmodel.
     /// </summary>
-    public async Task InitializeAsync()
+    public async Task InitializeAsync() // todo add cancel token
     {
         LoadStreak();
         await LoadRecentActivityAsync();
@@ -97,6 +105,19 @@ public partial class StatsPageViewModel : ObservableObject
         TasksCompleted = history.TotalTasksCompleted;
         TotalFocusHours = Math.Round(history.TotalFocusHours, 1);
         LongestStreak = history.LongestStreak;
+
+        double maxUsage = history.SoundUsage.Count > 0
+            ? history.SoundUsage.Values.Max(x => x.TotalHours)
+            : DefaultMaxSoundUsage;
+
+        // For aesthetic purposes, we set the max to a little bit higher
+        // than the real max so the top sound is only roughly 90% filled.
+        maxUsage *= 1.05;
+
+        foreach (SoundUsageHistory soundUsage in history.SoundUsage.Values.OrderByDescending(x => x.TotalHours))
+        {
+            SoundUsage.Add(new SoundUsageHistoryViewModel(soundUsage, maxUsage));
+        }
     }
 
     private void LoadStreak(StreakChangedEventArgs? args = null)
@@ -126,4 +147,23 @@ public partial class StatsPageViewModel : ObservableObject
             tempDate = tempDate.AddDays(1);
         }
     }
+}
+
+public sealed class SoundUsageHistoryViewModel
+{
+    public SoundUsageHistoryViewModel(SoundUsageHistory usage, double max)
+    {
+        UsageValue = usage.TotalHours;
+        MaxValue = max;
+        UsageTime = TimeSpan.FromHours(usage.TotalHours).Humanize(minUnit: TimeUnit.Minute);
+        Name = usage.LocalizedName;
+    }
+
+    public double MaxValue { get; }
+
+    public double UsageValue { get; }
+
+    public string UsageTime { get; }
+
+    public string Name { get; }
 }
