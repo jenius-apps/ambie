@@ -1294,6 +1294,14 @@
           <source>Last 7 days</source>
           <target state="translated">Senaste 7 dagarna</target>
         </trans-unit>
+        <trans-unit id="TopPlayedSoundsText" translate="yes" xml:space="preserve">
+          <source>Top played sounds</source>
+          <target state="translated">Mest spelade ljud</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Use Ambie a little more to view more stats</source>
+          <target state="translated">Använd Ambie lite mer för att se mer statistik</target>
+        </trans-unit>
       </group>
     </body>
   </file>

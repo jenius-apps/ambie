@@ -966,4 +966,10 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>Az elmúlt 7 nap</value>
   </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Leggyakrabban lejátszott hangok</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Használja az Ambie-t egy kicsit többet, hogy további statisztikákat tekintsen meg</value>
+  </data>
 </root>

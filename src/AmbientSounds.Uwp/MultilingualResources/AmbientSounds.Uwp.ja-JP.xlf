@@ -1291,6 +1291,14 @@
           <source>Last 7 days</source>
           <target state="translated">過去 7 日間</target>
         </trans-unit>
+        <trans-unit id="TopPlayedSoundsText" translate="yes" xml:space="preserve">
+          <source>Top played sounds</source>
+          <target state="translated">よく再生される音</target>
+        </trans-unit>
+        <trans-unit id="TopPlayedSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Use Ambie a little more to view more stats</source>
+          <target state="translated">Ambieをもう少し使って、より多くの統計を表示する</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -242,7 +242,23 @@
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontWeight="SemiBold" Text="Top played sounds" />
+                    <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.TopPlayedSoundsText}" />
+
+                    <StackPanel
+                        Grid.Row="1"
+                        Margin="0,28"
+                        Visibility="{x:Bind ViewModel.TopPlayedSoundsPlaceholderVisible, Mode=OneWay}">
+                        <TextBlock
+                            AutomationProperties.AccessibilityView="Raw"
+                            FontSize="120"
+                            Text="🎧"
+                            TextAlignment="Center" />
+                        <TextBlock
+                            MaxWidth="180"
+                            Text="{x:Bind strings:Resources.TopPlayedSoundsPlaceholder}"
+                            TextAlignment="Center"
+                            TextWrapping="WrapWholeWords" />
+                    </StackPanel>
 
                     <ItemsControl
                         Grid.Row="1"

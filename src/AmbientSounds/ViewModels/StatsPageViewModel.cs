@@ -86,6 +86,12 @@ public partial class StatsPageViewModel : ObservableObject
     public ObservableCollection<SoundUsageHistoryViewModel> SoundUsage { get; } = [];
 
     /// <summary>
+    /// Determines if the top played sounds placeholder should be visible.
+    /// </summary>
+    [ObservableProperty]
+    private bool _topPlayedSoundsPlaceholderVisible;
+
+    /// <summary>
     /// Initializes this viewmodel.
     /// </summary>
     public async Task InitializeAsync() // todo add cancel token
@@ -118,6 +124,8 @@ public partial class StatsPageViewModel : ObservableObject
         {
             SoundUsage.Add(new SoundUsageHistoryViewModel(soundUsage, maxUsage));
         }
+
+        TopPlayedSoundsPlaceholderVisible = SoundUsage.Count == 0;
     }
 
     private void LoadStreak(StreakChangedEventArgs? args = null)

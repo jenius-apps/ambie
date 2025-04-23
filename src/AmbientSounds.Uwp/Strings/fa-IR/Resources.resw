@@ -978,4 +978,10 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>7 روز گذشته</value>
   </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>صداهای پخش شده برتر</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>برای مشاهده آمار بیشتر از Ambie کمی بیشتر استفاده کنید</value>
+  </data>
 </root>

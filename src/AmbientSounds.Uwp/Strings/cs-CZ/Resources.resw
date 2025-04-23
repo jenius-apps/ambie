@@ -978,4 +978,10 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>Posledních 7 dní</value>
   </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Nejlépe hrané zvuky</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Použijte Ambie trochu více pro zobrazení více statistik</value>
+  </data>
 </root>

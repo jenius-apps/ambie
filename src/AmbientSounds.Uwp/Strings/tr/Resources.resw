@@ -972,4 +972,10 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>Son 7 gün</value>
   </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>En çok çalınan sesler</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Daha fazla istatistik görüntülemek için Ambie'yi biraz daha kullanın</value>
+  </data>
 </root>

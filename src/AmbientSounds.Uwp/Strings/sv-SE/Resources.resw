@@ -975,4 +975,10 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>Senaste 7 dagarna</value>
   </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Mest spelade ljud</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Använd Ambie lite mer för att se mer statistik</value>
+  </data>
 </root>

@@ -3381,6 +3381,32 @@ namespace AmbientSounds.Strings{
             }
         }
         #endregion
+
+        #region TopPlayedSoundsPlaceholder
+        /// <summary>
+        ///   Looks up a localized string similar to: Use Ambie a little more to view more stats
+        /// </summary>
+        public static string TopPlayedSoundsPlaceholder
+        {
+            get
+            {
+                return _resourceLoader.GetString("TopPlayedSoundsPlaceholder");
+            }
+        }
+        #endregion
+
+        #region TopPlayedSoundsText
+        /// <summary>
+        ///   Looks up a localized string similar to: Top played sounds
+        /// </summary>
+        public static string TopPlayedSoundsText
+        {
+            get
+            {
+                return _resourceLoader.GetString("TopPlayedSoundsText");
+            }
+        }
+        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("DotNetPlus.ReswPlus", "2.1.3")]
@@ -3651,6 +3677,8 @@ namespace AmbientSounds.Strings{
             StatsTotalFocusHours,
             StatsTotalHours,
             StatsWeeklyHours,
+            TopPlayedSoundsPlaceholder,
+            TopPlayedSoundsText,
         }
 
         private static ResourceLoader _resourceLoader;

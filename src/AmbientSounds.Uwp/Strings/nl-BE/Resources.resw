@@ -951,4 +951,10 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>Afgelopen 7 dagen</value>
   </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Meest afgespeelde geluiden</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Gebruik Ambie iets meer om meer statistieken te bekijken</value>
+  </data>
 </root>

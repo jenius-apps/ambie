@@ -975,4 +975,10 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>Ultimele 7 zile</value>
   </data>
+  <data name="TopPlayedSoundsText" xml:space="preserve">
+    <value>Cele mai redate sunete</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Folosește Ambie puțin mai mult pentru a vedea mai multe statistici</value>
+  </data>
 </root>
