@@ -260,7 +260,7 @@ public partial class PremiumControlViewModel : ObservableObject
             { "iapid", iapId },
         });
 
-        var success = await _iapService.BuyAsync(iapId, latest: true);
+        var success = await _iapService.BuyAsync(iapId, latest: true, iapIdCacheOverride: IapConstants.MsStoreAmbiePlusId);
 
         if (success)
         {

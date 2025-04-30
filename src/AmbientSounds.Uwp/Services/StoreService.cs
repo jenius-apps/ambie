@@ -78,7 +78,7 @@ public class StoreService : IIapService
     /// <inheritdoc/>
     public async Task<bool> CanShowPremiumButtonsAsync()
     {
-        return !await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusLifetimeId, IapConstants.MsStoreAmbiePlusAnnualId]);
+        return !await IsAnyOwnedAsync([IapConstants.MsStoreAmbiePlusId, IapConstants.MsStoreAmbiePlusLifetimeId, IapConstants.MsStoreAmbiePlusAnnualId]).ConfigureAwait(false);
     }
 
     /// <inheritdoc/>
@@ -197,14 +197,14 @@ public class StoreService : IIapService
     }
 
     /// <inheritdoc/>
-    public async Task<bool> BuyAsync(string iapId, bool latest = false)
+    public async Task<bool> BuyAsync(string iapId, bool latest = false, string? iapIdCacheOverride = null)
     {
-        StorePurchaseStatus result = await PurchaseAddOn(iapId, latest);
+        StorePurchaseStatus result = await PurchaseAddOn(iapId, latest).ConfigureAwait(false);
 
         if (result == StorePurchaseStatus.Succeeded || result == StorePurchaseStatus.AlreadyPurchased)
         {
-            _ownershipCache[iapId] = true;
-            ProductPurchased?.Invoke(this, iapId);
+            _ownershipCache[iapIdCacheOverride ?? iapId] = true;
+            ProductPurchased?.Invoke(this, iapIdCacheOverride ?? iapId);
         }
 
         return result switch
