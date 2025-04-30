@@ -315,6 +315,7 @@
                 Grid.Row="2"
                 Margin="0,12,0,0"
                 IsEnabled="{x:Bind ex:UIExtensions.Not(ViewModel.SubmitCodeCommand.IsRunning), Mode=OneWay}"
+                KeyDown="OnPromoCodeBoxKeyDown"
                 PlaceholderText="{x:Bind strings:Resources.EnterCodePlaceholder}"
                 Text="{x:Bind ViewModel.PromoCodeInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 

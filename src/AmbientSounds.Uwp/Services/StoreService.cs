@@ -199,7 +199,7 @@ public class StoreService : IIapService
     /// <inheritdoc/>
     public async Task<bool> BuyAsync(string iapId, bool latest = false, string? iapIdCacheOverride = null)
     {
-        StorePurchaseStatus result = await PurchaseAddOn(iapId, latest).ConfigureAwait(false);
+        StorePurchaseStatus result = await PurchaseAddOn(iapId, latest);
 
         if (result == StorePurchaseStatus.Succeeded || result == StorePurchaseStatus.AlreadyPurchased)
         {

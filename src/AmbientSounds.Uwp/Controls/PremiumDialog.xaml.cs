@@ -2,8 +2,10 @@
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 #nullable enable
 
@@ -47,5 +49,14 @@ public sealed partial class PremiumDialog : ContentDialog
         {
             { "message", e.ErrorMessage }
         });
+    }
+
+    private async void OnPromoCodeBoxKeyDown(object sender, KeyRoutedEventArgs e)
+    {
+        if (e.Key is VirtualKey.Enter)
+        {
+            e.Handled = true;
+            await ViewModel.SubmitCodeCommand.ExecuteAsync(null);
+        }
     }
 }
