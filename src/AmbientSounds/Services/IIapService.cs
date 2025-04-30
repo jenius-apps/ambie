@@ -38,7 +38,7 @@ public interface IIapService
     /// </summary>
     /// <param name="iapId">The IAP ID of the add-on we want to purchase.</param>
     /// <returns>True if the sound is purchased successfully.</returns>
-    Task<bool> BuyAsync(string iapId, bool latest = false);
+    Task<bool> BuyAsync(string iapId, bool latest = false, string? iapIdCacheOverride = null);
 
     /// <summary>
     /// Retrieves the latest price of the item.
