@@ -16,14 +16,8 @@ public class ExperimentConstants
     public static IReadOnlyList<string> AllKeys { get; } =
     [
         // add experiment constants here
-        PromoCodeExperiment,
         StatsPageExperiment,
     ];
-
-    /// <summary>
-    /// Experiment key for the promo code feature.
-    /// </summary>
-    public const string PromoCodeExperiment = nameof(PromoCodeExperiment);
 
     /// <summary>
     /// Experiment key for the stats page feature.

@@ -34,7 +34,7 @@ public partial class PremiumControlViewModel : ObservableObject
         _promoCodeService = promoCodeService;
         AnnualSubExperimentEnabled = false; // Disabling until further notice.
 
-        PromoCodeHyperlinkVisible = experimentationService.IsEnabled(ExperimentConstants.PromoCodeExperiment);
+        PromoCodeHyperlinkVisible = false; // Disabling until promo codes are confirmed ready.
     }
 
     [ObservableProperty]

@@ -62,8 +62,7 @@ public partial class ShellPageViewModel : ObservableObject
         IAppStoreUpdater appStoreUpdater,
         IExperimentationService experimentationService)
     {
-        //StatsPageEnabled = experimentationService.IsEnabled(ExperimentConstants.StatsPageExperiment);
-        StatsPageEnabled = false; // False until some time later.
+        StatsPageEnabled = experimentationService.IsEnabled(ExperimentConstants.StatsPageExperiment);
         IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
 
