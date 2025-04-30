@@ -59,7 +59,7 @@ public partial class OnlineSoundViewModel : ObservableObject
 
         _downloadProgress = new Progress<double>();
     }
-    
+
     public event EventHandler? DownloadCompleted;
 
     public bool HasSlideshowImages => _sound.ScreensaverImagePaths is { Length: > 0 };
@@ -117,12 +117,9 @@ public partial class OnlineSoundViewModel : ObservableObject
     [NotifyPropertyChangedFor(nameof(DownloadButtonVisible))]
     private bool _isOwned;
 
-    private void OnProductPurchased(object sender, string iapId)
+    private async void OnProductPurchased(object sender, string iapId)
     {
-        if (_sound.IsPremium && _sound.IapIds.Contains(iapId))
-        {
-            IsOwned = true;
-        }
+        await UpdateIsOwnedAsync(iapId);
     }
 
     private async void OnSoundDeleted(object sender, string id)
@@ -132,8 +129,7 @@ public partial class OnlineSoundViewModel : ObservableObject
             IsInstalled = await _soundService.IsSoundInstalledAsync(_sound.Id);
             DownloadProgressValue = 0;
 
-            // Note: a non-premium sound is treated as "owned"
-            IsOwned = _sound.IsPremium ? await _iapService.IsAnyOwnedAsync(_sound.IapIds) : true;
+            await UpdateIsOwnedAsync();
         }
     }
 
@@ -326,18 +322,8 @@ public partial class OnlineSoundViewModel : ObservableObject
         }
 
         // Determine ownership
-        bool isOwned;
-        if (_sound.IsPremium)
-        {
-            isOwned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
-        }
-        else
-        {
-            // a non premium sound is treated as "owned"
-            isOwned = true;
-        }
+        await UpdateIsOwnedAsync();
 
-        IsOwned = isOwned;
         _loading = false;
         _loadingLock.Release();
     }
@@ -418,5 +404,27 @@ public partial class OnlineSoundViewModel : ObservableObject
         _iapService.ProductPurchased -= OnProductPurchased;
         _downloadProgress.ProgressChanged -= OnProgressChanged;
         _soundService.LocalSoundDeleted -= OnSoundDeleted;
+    }
+
+    private async Task UpdateIsOwnedAsync(string? newlyPurchasedIapId = null)
+    {
+        if (!_sound.IsPremium)
+        {
+            // a non premium sound is always treated as "owned"
+            IsOwned = true;
+            return;
+        }
+
+        if (newlyPurchasedIapId is { Length: > 0 })
+        {
+            // New IAP was just purchased, so we perform
+            // a local check to see if the sound gets unlocked.
+            IsOwned = _sound.IapIds.Contains(newlyPurchasedIapId) || (newlyPurchasedIapId.ContainsAmbiePlus() && _sound.IapIds.ContainsAmbiePlus());
+        }
+        else
+        {
+            // New IAP is null, meaning that we're just checking if the user already owns the product.
+            IsOwned = await _iapService.IsAnyOwnedAsync(_sound.IapIds);
+        }
     }
 }

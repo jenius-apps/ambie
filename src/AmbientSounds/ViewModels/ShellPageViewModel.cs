@@ -371,13 +371,9 @@ public partial class ShellPageViewModel : ObservableObject
         }
     }
 
-    private void OnProductPurchased(object sender, string iapId)
+    private async void OnProductPurchased(object sender, string iapId)
     {
-        if (iapId is IapConstants.MsStoreAmbiePlusId 
-            or IapConstants.MsStoreAmbiePlusLifetimeId)
-        {
-            PremiumButtonVisible = false;
-        }
+        PremiumButtonVisible = await _iapService.CanShowPremiumButtonsAsync();
     }
 
     [RelayCommand]
