@@ -260,6 +260,10 @@
                         Grid.Row="1"
                         Margin="0,28"
                         Visibility="{x:Bind ViewModel.TopPlayedSoundsPlaceholderVisible, Mode=OneWay}">
+                        <StackPanel.ChildrenTransitions>
+                            <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
+                        </StackPanel.ChildrenTransitions>
+
                         <TextBlock
                             AutomationProperties.AccessibilityView="Raw"
                             FontSize="120"
