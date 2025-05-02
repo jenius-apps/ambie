@@ -24,7 +24,7 @@ public sealed partial class StatsPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
-        App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(ChannelsPage));
+        App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(StatsPage));
         _cts ??= new();
 
         try
