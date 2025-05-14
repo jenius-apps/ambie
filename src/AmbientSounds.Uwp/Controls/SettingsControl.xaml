@@ -319,8 +319,6 @@
                     <StackPanel Margin="-12,0,0,0" Orientation="Vertical">
                         <HyperlinkButton x:Uid="PrivacyPolicyButton" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
                         <HyperlinkButton Content="{x:Bind strings:Resources.TermsOfUse}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
-                        <HyperlinkButton Content="{x:Bind strings:Resources.FollowTwitter}" NavigateUri="https://twitter.com/ambie_app" />
-                        <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
                         <HyperlinkButton Command="{x:Bind ViewModel.TryUpdateCommand}" Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
                         <winui:ProgressBar
                             Width="200"
@@ -340,6 +338,7 @@
                 Margin="1,29,0,5"
                 Style="{StaticResource BodyStrongTextBlockStyle}"
                 Text="Experimental features" />
+            <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
         </StackPanel>
     </StackPanel>
 </UserControl>
