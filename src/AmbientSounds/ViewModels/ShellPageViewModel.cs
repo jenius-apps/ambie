@@ -22,7 +22,6 @@ namespace AmbientSounds.ViewModels;
 /// </summary>
 public partial class ShellPageViewModel : ObservableObject
 {
-    private const int LastDaysStreak = 7;
     private const int RatingsTimerInterval = 1800000; // 30 minutes
     private readonly IUserSettings _userSettings;
     private readonly ITimerService _ratingTimer;
@@ -37,8 +36,6 @@ public partial class ShellPageViewModel : ObservableObject
     private readonly ISoundService _soundService;
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly ISearchService _searchService;
-    private readonly IStatService _statService;
-    private readonly ILocalizer _localizer;
     private readonly IAppStoreUpdater _appStoreUpdater;
     private readonly ISystemInfoProvider _systemInfoProvider;
 
@@ -58,11 +55,8 @@ public partial class ShellPageViewModel : ObservableObject
         ISoundService soundService,
         IAssetLocalizer assetLocalizer,
         ISearchService searchService,
-        IStatService statService,
-        IAppStoreUpdater appStoreUpdater,
-        IExperimentationService experimentationService)
+        IAppStoreUpdater appStoreUpdater)
     {
-        StatsPageEnabled = experimentationService.IsEnabled(ExperimentConstants.StatsPageExperiment);
         IsWin11 = systemInfoProvider.IsWin11();
         IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
 
@@ -79,8 +73,6 @@ public partial class ShellPageViewModel : ObservableObject
         _soundService = soundService;
         _assetLocalizer = assetLocalizer;
         _searchService = searchService;
-        _statService = statService;
-        _localizer = localizer;
         _appStoreUpdater = appStoreUpdater;
         _systemInfoProvider = systemInfoProvider;
 
@@ -89,7 +81,7 @@ public partial class ShellPageViewModel : ObservableObject
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString(), tooltipSubtitle: localizer.GetString("FocusSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("ChannelsTitleText"), "\uE8B2", ContentPageType.Channels.ToString(), tooltipSubtitle: localizer.GetString("ChannelsSubtitle")));
         if (IsMeditatePageVisible) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle"))); }
-        if (StatsPageEnabled) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("StatsTitleText"), "\uEAFC", ContentPageType.Stats.ToString(), tooltipSubtitle: localizer.GetString("StatsSubtitle"))); }
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("StatsTitleText"), "\uEAFC", ContentPageType.Stats.ToString(), tooltipSubtitle: localizer.GetString("StatsSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString(), tooltipSubtitle: localizer.GetString("UpdatesSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString(), tooltipSubtitle: localizer.GetString("SettingsSubtitle")));
 
@@ -108,21 +100,6 @@ public partial class ShellPageViewModel : ObservableObject
             _ratingTimer.Start();
         }
     }
-
-    [ObservableProperty]
-    private bool _statsPageEnabled;
-
-    [ObservableProperty]
-    private int _streakCount;
-
-    [ObservableProperty]
-    private string _streakText = string.Empty;
-
-    [ObservableProperty]
-    private bool _showStreak;
-
-    [ObservableProperty]
-    private bool _newStreakExperience;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(SidePanelMica))]
@@ -218,10 +195,8 @@ public partial class ShellPageViewModel : ObservableObject
         _userSettings.SettingSet += OnSettingSet;
         _navigator.ContentPageChanged += OnContentPageChanged;
         _shareService.ShareFailed += OnShareFailed;
-        _statService.StreakChanged += OnStreakChanged;
 
         _ = CheckForUpdatesAsync();
-        LoadStreak();
         await LoadPremiumContentAsync();
     }
 
@@ -249,15 +224,6 @@ public partial class ShellPageViewModel : ObservableObject
         _iapService.ProductPurchased -= OnProductPurchased;
         _navigator.ContentPageChanged -= OnContentPageChanged;
         _shareService.ShareFailed -= OnShareFailed;
-        _statService.StreakChanged -= OnStreakChanged;
-    }
-
-    private void OnStreakChanged(object sender, StreakChangedEventArgs e)
-    {
-        _dispatcherQueue.TryEnqueue(() =>
-        {
-            LoadStreak(e);
-        });
     }
 
     private void OnShareFailed(object sender, EventArgs e)
@@ -268,43 +234,6 @@ public partial class ShellPageViewModel : ObservableObject
         });
 
         _telemetry.TrackEvent(TelemetryConstants.MissingSoundsMessageShown);
-    }
-
-    public void LoadStreak(StreakChangedEventArgs? args = null)
-    {
-        if (StatsPageEnabled)
-        {
-            // Don't load streak on shell page if stats page is enabled.
-            // This is because stats page is replacing the streaks flyout.
-            return;
-        }
-
-        int count = args?.NewStreak ?? _statService.ValidateAndRetrieveStreak();
-
-        StreakText = count == 1
-            ? _localizer.GetString("DaySingular")
-            : _localizer.GetString("DayPlural", count.ToString());
-
-        StreakCount = count;
-        NewStreakExperience = args?.AnimationRecommended ?? false;
-        ShowStreak = count > 0;
-    }
-
-    public async Task LoadRecentActivityAsync()
-    {
-        var recent = await _statService.GetRecentActiveHistory(LastDaysStreak);
-        DateTime tempDate = DateTime.Now.AddDays((LastDaysStreak - 1) * -1).Date;
-        RecentActivity.Clear();
-        foreach (var x in recent)
-        {
-            RecentActivity.Add(new DayActivityViewModel
-            {
-                Active = x,
-                Date = tempDate
-            });
-
-            tempDate = tempDate.AddDays(1);
-        }
     }
 
     [RelayCommand]
