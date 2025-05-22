@@ -24,17 +24,23 @@ public partial class StatsPageViewModel : ObservableObject
     private readonly ILocalizer _localizer;
     private readonly IUserSettings _userSettings;
     private readonly IQuickResumeService _quickResumeService;
+    private readonly IStreakReminderService _streakReminderService;
+    private readonly IUriLauncher _uriLauncher;
 
     public StatsPageViewModel(
         IStatService statService,
         ILocalizer localizer,
         IUserSettings userSettings,
-        IQuickResumeService quickResumeService)
+        IQuickResumeService quickResumeService,
+        IStreakReminderService streakReminderService,
+        IUriLauncher uriLauncher)
     {
         _statService = statService;
         _localizer = localizer;
         _userSettings = userSettings;
         _quickResumeService = quickResumeService;
+        _streakReminderService = streakReminderService;
+        _uriLauncher = uriLauncher;
 
         InitializeUserSettings();
     }
@@ -44,6 +50,12 @@ public partial class StatsPageViewModel : ObservableObject
     /// </summary>
     [ObservableProperty]
     private bool _isQuickResumeEnabled;
+
+    /// <summary>
+    /// Determines if streak reminder is enabled.
+    /// </summary>
+    [ObservableProperty]
+    private bool _isStreakReminderEnabled;
 
     /// <summary>
     /// The current streak count to display on screen.
@@ -121,12 +133,18 @@ public partial class StatsPageViewModel : ObservableObject
         await LoadUsageStatsAsync(cancellationToken);
     }
 
+    private void InitializeUserSettings()
+    {
+        IsQuickResumeEnabled = _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
+        IsStreakReminderEnabled = _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
+    }
+
     [RelayCommand]
     private async Task EnableQuickResumeAsync()
     {
         if (IsQuickResumeEnabled || _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey))
         {
-            // If quick resume already enabled, fast return.
+            // If already enabled, fast return.
             return;
         }
 
@@ -136,9 +154,29 @@ public partial class StatsPageViewModel : ObservableObject
         IsQuickResumeEnabled = successful;
     }
 
-    private void InitializeUserSettings()
+    [RelayCommand]
+    private async Task EnableStreakReminderAsync()
     {
-        IsQuickResumeEnabled = _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
+        if (IsStreakReminderEnabled || _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey))
+        {
+            // If already enabled, fast return.
+            return;
+        }
+
+        bool successful = await _streakReminderService.TryEnableAsync();
+        await Task.Delay(300); // delay is to improve UX
+        _userSettings.Set(UserSettingsConstants.StreaksReminderEnabledKey, successful);
+        IsStreakReminderEnabled = successful;
+    }
+
+    [RelayCommand]
+    private async Task LaunchWindowsNotificationSettingsAsync()
+    {
+        try
+        {
+            await _uriLauncher.LaunchUriAsync(new Uri("ms-settings:notifications", UriKind.Absolute));
+        }
+        catch { }
     }
 
     private async Task LoadUsageStatsAsync(CancellationToken cancellationToken)

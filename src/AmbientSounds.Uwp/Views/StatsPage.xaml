@@ -371,26 +371,26 @@
                         </labs:SettingsCard.HeaderIcon>
 
                         <Grid>
-                            <Grid Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsQuickResumeEnabled), Mode=OneWay}">
+                            <Grid Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsStreakReminderEnabled), Mode=OneWay}">
                                 <Button
                                     MinWidth="80"
-                                    Command="{x:Bind ViewModel.EnableQuickResumeCommand}"
+                                    Command="{x:Bind ViewModel.EnableStreakReminderCommand}"
                                     Content="{x:Bind strings:Resources.EnableText}"
-                                    Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.EnableQuickResumeCommand.IsRunning), Mode=OneWay}" />
+                                    Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.EnableStreakReminderCommand.IsRunning), Mode=OneWay}" />
                                 <winui:ProgressRing
                                     Width="20"
                                     Height="20"
                                     Margin="0,0,13,1"
                                     Foreground="{ThemeResource TextFillColorPrimaryBrush}"
-                                    IsActive="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}"
+                                    IsActive="{x:Bind ViewModel.EnableStreakReminderCommand.IsRunning, Mode=OneWay}"
                                     IsIndeterminate="True"
-                                    Visibility="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}" />
+                                    Visibility="{x:Bind ViewModel.EnableStreakReminderCommand.IsRunning, Mode=OneWay}" />
                             </Grid>
                             <FontIcon
                                 Margin="0,0,12,0"
                                 FontFamily="{StaticResource FluentUIGlyphs}"
                                 Glyph="{StaticResource GlyphCheckMarkCircle}"
-                                Visibility="{x:Bind ViewModel.IsQuickResumeEnabled, Mode=OneWay}" />
+                                Visibility="{x:Bind ViewModel.IsStreakReminderEnabled, Mode=OneWay}" />
                         </Grid>
                     </labs:SettingsCard>
 
@@ -398,6 +398,8 @@
                         Grid.Row="3"
                         Margin="0,6,0,-6"
                         Padding="4,2"
+                        AutomationProperties.Name="{x:Bind strings:Resources.OsNotificationHelpMessage}"
+                        Command="{x:Bind ViewModel.LaunchWindowsNotificationSettingsCommand}"
                         FontSize="12">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{x:Bind strings:Resources.OsNotificationHelpMessage}" />
