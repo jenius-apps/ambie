@@ -1095,4 +1095,7 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Stats</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Ensure Windows notifications are enabled for Ambie</value>
+  </data>
 </root>

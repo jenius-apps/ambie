@@ -1311,6 +1311,10 @@
           <source>Stats</source>
           <target state="translated">통계</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="new">Ensure Windows notifications are enabled for Ambie</target>
+        </trans-unit>
       </group>
     </body>
   </file>

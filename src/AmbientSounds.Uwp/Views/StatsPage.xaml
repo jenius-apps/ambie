@@ -382,7 +382,7 @@
                         Padding="4,2"
                         FontSize="12">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Ensure Windows notifications are enabled for Ambie" />
+                            <TextBlock Text="{x:Bind strings:Resources.OsNotificationHelpMessage}" />
                             <FontIcon
                                 Margin="4,0,0,0"
                                 FontFamily="{StaticResource FluentUIGlyphs}"
