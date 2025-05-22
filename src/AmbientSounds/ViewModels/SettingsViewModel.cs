@@ -21,7 +21,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IImagePicker _imagePicker;
     private readonly IAssetsReader _assetsReader;
     private readonly IUserSettings _userSettings;
-    private readonly IPushNotificationService _notifications;
+    private readonly IPushNotificationService _notifications; // used in release mode, don't remove
     private readonly ITelemetry _telemetry;
     private readonly IAppStoreRatings _appStoreRatings;
     private readonly IQuickResumeService _quickResumeService;
@@ -29,7 +29,7 @@ public partial class SettingsViewModel : ObservableObject
     private readonly IIapService _iapService;
     private readonly IUriLauncher _uriLauncher;
     private readonly IAppStoreUpdater _storeUpdater;
-    private readonly ISystemInfoProvider _systemInfoProvider;
+    private readonly ISystemInfoProvider _systemInfoProvider; // used in release mode, don't remove
     private readonly IDialogService _dialogService;
     private bool _notificationsLoading;
 
