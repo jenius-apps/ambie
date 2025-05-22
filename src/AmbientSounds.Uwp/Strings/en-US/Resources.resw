@@ -1098,4 +1098,10 @@
   <data name="OsNotificationHelpMessage" xml:space="preserve">
     <value>Ensure Windows notifications are enabled for Ambie</value>
   </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Helpful options</value>
+  </data>
 </root>

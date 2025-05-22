@@ -324,7 +324,7 @@
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontWeight="SemiBold" Text="Helpful options" />
+                    <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.StatsPageSettingsHeader}" />
 
                     <!--  Quick Resume  -->
                     <labs:SettingsCard
@@ -341,7 +341,7 @@
                                 <Button
                                     MinWidth="80"
                                     Command="{x:Bind ViewModel.EnableQuickResumeCommand}"
-                                    Content="Enable"
+                                    Content="{x:Bind strings:Resources.EnableText}"
                                     Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.EnableQuickResumeCommand.IsRunning), Mode=OneWay}" />
                                 <winui:ProgressRing
                                     Width="20"
@@ -370,10 +370,28 @@
                             <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
                         </labs:SettingsCard.HeaderIcon>
 
-                        <FontIcon
-                            Margin="0,0,12,0"
-                            FontFamily="{StaticResource FluentUIGlyphs}"
-                            Glyph="{StaticResource GlyphCheckMarkCircle}" />
+                        <Grid>
+                            <Grid Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsQuickResumeEnabled), Mode=OneWay}">
+                                <Button
+                                    MinWidth="80"
+                                    Command="{x:Bind ViewModel.EnableQuickResumeCommand}"
+                                    Content="{x:Bind strings:Resources.EnableText}"
+                                    Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.EnableQuickResumeCommand.IsRunning), Mode=OneWay}" />
+                                <winui:ProgressRing
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,13,1"
+                                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                    IsActive="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}"
+                                    IsIndeterminate="True"
+                                    Visibility="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}" />
+                            </Grid>
+                            <FontIcon
+                                Margin="0,0,12,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                Visibility="{x:Bind ViewModel.IsQuickResumeEnabled, Mode=OneWay}" />
+                        </Grid>
                     </labs:SettingsCard>
 
                     <HyperlinkButton

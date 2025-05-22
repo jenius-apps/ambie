@@ -1322,6 +1322,14 @@
           <source>Ensure Windows notifications are enabled for Ambie</source>
           <target state="new">Ensure Windows notifications are enabled for Ambie</target>
         </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="new">Enable</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="new">Helpful options</target>
+        </trans-unit>
       </group>
     </body>
   </file>
