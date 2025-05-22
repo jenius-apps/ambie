@@ -1,8 +1,11 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Humanizer;
 using Humanizer.Localisation;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
@@ -19,14 +22,28 @@ public partial class StatsPageViewModel : ObservableObject
     private const int LastDaysStreak = 7; // # of days to track streak
     private readonly IStatService _statService;
     private readonly ILocalizer _localizer;
+    private readonly IUserSettings _userSettings;
+    private readonly IQuickResumeService _quickResumeService;
 
     public StatsPageViewModel(
         IStatService statService,
-        ILocalizer localizer)
+        ILocalizer localizer,
+        IUserSettings userSettings,
+        IQuickResumeService quickResumeService)
     {
         _statService = statService;
         _localizer = localizer;
+        _userSettings = userSettings;
+        _quickResumeService = quickResumeService;
+
+        InitializeUserSettings();
     }
+
+    /// <summary>
+    /// Determines if quick resume is enabled.
+    /// </summary>
+    [ObservableProperty]
+    private bool _isQuickResumeEnabled;
 
     /// <summary>
     /// The current streak count to display on screen.
@@ -102,6 +119,26 @@ public partial class StatsPageViewModel : ObservableObject
         LoadStreak();
         await LoadRecentActivityAsync();
         await LoadUsageStatsAsync(cancellationToken);
+    }
+
+    [RelayCommand]
+    private async Task EnableQuickResumeAsync()
+    {
+        if (IsQuickResumeEnabled || _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey))
+        {
+            // If quick resume already enabled, fast return.
+            return;
+        }
+
+        bool successful = await _quickResumeService.TryEnableAsync();
+        await Task.Delay(300); // delay is to improve UX
+        _userSettings.Set(UserSettingsConstants.QuickResumeKey, successful);
+        IsQuickResumeEnabled = successful;
+    }
+
+    private void InitializeUserSettings()
+    {
+        IsQuickResumeEnabled = _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
     }
 
     private async Task LoadUsageStatsAsync(CancellationToken cancellationToken)

@@ -5,6 +5,7 @@
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ext="using:JeniusApps.Common.UI.Uwp"
+    xmlns:labs="using:CommunityToolkit.Labs.WinUI"
     xmlns:local="using:AmbientSounds.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
@@ -63,16 +64,16 @@
                 <ColumnDefinition x:Name="RightGutter" Width="auto" />
             </Grid.ColumnDefinitions>
 
-            <!--  Top section with streak and stat summary  -->
             <StackPanel Grid.Column="1">
-                <StackPanel.ChildrenTransitions>
+                <!--<StackPanel.ChildrenTransitions>
                     <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-                </StackPanel.ChildrenTransitions>
+                </StackPanel.ChildrenTransitions>-->
 
+                <!--  Top section with streak and stat summary  -->
                 <Grid x:Name="TopSection" RowSpacing="4">
-                    <Grid.ChildrenTransitions>
+                    <!--<Grid.ChildrenTransitions>
                         <EntranceThemeTransition FromVerticalOffset="50" IsStaggeringEnabled="True" />
-                    </Grid.ChildrenTransitions>
+                    </Grid.ChildrenTransitions>-->
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
@@ -206,9 +207,9 @@
                             Orientation="Vertical"
                             RowSpacing="24"
                             Rows="3">
-                            <toolkit:UniformGrid.ChildrenTransitions>
+                            <!--<toolkit:UniformGrid.ChildrenTransitions>
                                 <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-                            </toolkit:UniformGrid.ChildrenTransitions>
+                            </toolkit:UniformGrid.ChildrenTransitions>-->
 
                             <controls:TimerData
                                 Title="{x:Bind strings:Resources.StatsTotalHours}"
@@ -260,9 +261,9 @@
                         Grid.Row="1"
                         Margin="0,28"
                         Visibility="{x:Bind ViewModel.TopPlayedSoundsPlaceholderVisible, Mode=OneWay}">
-                        <StackPanel.ChildrenTransitions>
+                        <!--<StackPanel.ChildrenTransitions>
                             <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-                        </StackPanel.ChildrenTransitions>
+                        </StackPanel.ChildrenTransitions>-->
 
                         <TextBlock
                             AutomationProperties.AccessibilityView="Raw"
@@ -282,9 +283,9 @@
                         Grid.Row="1"
                         Margin="0,20,0,0"
                         ItemsSource="{x:Bind ViewModel.SoundUsage}">
-                        <ItemsControl.ItemContainerTransitions>
+                        <!--<ItemsControl.ItemContainerTransitions>
                             <EntranceThemeTransition FromVerticalOffset="20" IsStaggeringEnabled="True" />
-                        </ItemsControl.ItemContainerTransitions>
+                        </ItemsControl.ItemContainerTransitions>-->
 
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="vm:SoundUsageHistoryViewModel">
@@ -310,6 +311,85 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+                </Grid>
+
+                <Grid
+                    Margin="0,4,0,0"
+                    Padding="20"
+                    Style="{StaticResource CardStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontWeight="SemiBold" Text="Helpful options" />
+
+                    <!--  Quick Resume  -->
+                    <labs:SettingsCard
+                        Grid.Row="1"
+                        Margin="0,12,0,0"
+                        Description="{x:Bind strings:Resources.QuickResumeDescription}"
+                        Header="{x:Bind strings:Resources.QuickResumeTitle}">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphPcStartup}" />
+                        </labs:SettingsCard.HeaderIcon>
+
+                        <Grid>
+                            <Grid Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.IsQuickResumeEnabled), Mode=OneWay}">
+                                <Button
+                                    MinWidth="80"
+                                    Command="{x:Bind ViewModel.EnableQuickResumeCommand}"
+                                    Content="Enable"
+                                    Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ViewModel.EnableQuickResumeCommand.IsRunning), Mode=OneWay}" />
+                                <winui:ProgressRing
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,13,1"
+                                    Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                                    IsActive="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}"
+                                    IsIndeterminate="True"
+                                    Visibility="{x:Bind ViewModel.EnableQuickResumeCommand.IsRunning, Mode=OneWay}" />
+                            </Grid>
+                            <FontIcon
+                                Margin="0,0,12,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                Glyph="{StaticResource GlyphCheckMarkCircle}"
+                                Visibility="{x:Bind ViewModel.IsQuickResumeEnabled, Mode=OneWay}" />
+                        </Grid>
+                    </labs:SettingsCard>
+
+                    <!--  streak reminder  -->
+                    <labs:SettingsCard
+                        Grid.Row="2"
+                        Margin="0,3,0,0"
+                        Description="{x:Bind strings:Resources.SettingsStreakReminderDescription}"
+                        Header="{x:Bind strings:Resources.SettingsStreakReminderHeader}">
+                        <labs:SettingsCard.HeaderIcon>
+                            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="{StaticResource GlyphFire}" />
+                        </labs:SettingsCard.HeaderIcon>
+
+                        <FontIcon
+                            Margin="0,0,12,0"
+                            FontFamily="{StaticResource FluentUIGlyphs}"
+                            Glyph="{StaticResource GlyphCheckMarkCircle}" />
+                    </labs:SettingsCard>
+
+                    <HyperlinkButton
+                        Grid.Row="3"
+                        Margin="0,6,0,-6"
+                        Padding="4,2"
+                        FontSize="12">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Ensure Windows notifications are enabled for Ambie" />
+                            <FontIcon
+                                Margin="4,0,0,0"
+                                FontFamily="{StaticResource FluentUIGlyphs}"
+                                FontSize="12"
+                                Glyph="{StaticResource GlyphRedirect}" />
+                        </StackPanel>
+                    </HyperlinkButton>
                 </Grid>
             </StackPanel>
         </Grid>
