@@ -313,10 +313,12 @@
                     </ItemsControl>
                 </Grid>
 
+                <!--  Helpful options  -->
                 <Grid
                     Margin="0,4,0,0"
                     Padding="20"
-                    Style="{StaticResource CardStyle}">
+                    Style="{StaticResource CardStyle}"
+                    Visibility="{x:Bind ViewModel.HelpfulOptionsVisible, Mode=OneWay}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />

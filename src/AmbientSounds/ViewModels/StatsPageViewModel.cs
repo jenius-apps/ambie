@@ -46,6 +46,12 @@ public partial class StatsPageViewModel : ObservableObject
     }
 
     /// <summary>
+    /// Determines if the helpful options section is visible.
+    /// </summary>
+    [ObservableProperty]
+    private bool _helpfulOptionsVisible;
+
+    /// <summary>
     /// Determines if quick resume is enabled.
     /// </summary>
     [ObservableProperty]
@@ -137,6 +143,11 @@ public partial class StatsPageViewModel : ObservableObject
     {
         IsQuickResumeEnabled = _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
         IsStreakReminderEnabled = _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
+
+        // Do not display the options if all the settings are enabled.
+        // The intention here is to only show the options to people who haven't turned it all on.
+        // So if all the settings are already on, don't show it.
+        HelpfulOptionsVisible = !(IsQuickResumeEnabled && IsStreakReminderEnabled);
     }
 
     [RelayCommand]
