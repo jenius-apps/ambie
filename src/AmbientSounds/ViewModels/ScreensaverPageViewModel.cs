@@ -66,7 +66,12 @@ public partial class ScreensaverPageViewModel : ObservableObject
         _videoService.VideoDeleted += OnVideoDeleted;
 
         UpdateClockSettings();
+
+        ChannelSwitcherVisible = !_userSettings.Get<bool>(UserSettingsConstants.ChannelSwitcherHidden);
     }
+
+    [ObservableProperty]
+    private bool _channelSwitcherVisible;
 
     [ObservableProperty]
     private bool _clockVisible;
@@ -223,6 +228,13 @@ public partial class ScreensaverPageViewModel : ObservableObject
         DialogOpen = false;
 
         UpdateClockSettings();
+    }
+
+    [RelayCommand]
+    private void ToggleChannelSwitcher()
+    {
+        ChannelSwitcherVisible = !ChannelSwitcherVisible;
+        _userSettings.Set(UserSettingsConstants.ChannelSwitcherHidden, !ChannelSwitcherVisible);
     }
 
     private void UpdateClockSettings()

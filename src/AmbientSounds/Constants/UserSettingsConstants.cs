@@ -207,6 +207,11 @@ public static class UserSettingsConstants
     public const string LastUsedRepetitionsKey = "LastUsedRepetitions";
 
     /// <summary>
+    /// Remembers if the user has decided to hide the channel switcher.
+    /// </summary>
+    public const string ChannelSwitcherHidden = nameof(ChannelSwitcherHidden);
+
+    /// <summary>
     ///  Settings defaults.
     /// </summary>
     public static IReadOnlyDictionary<string, object> Defaults { get; } = new Dictionary<string, object>()
@@ -247,5 +252,6 @@ public static class UserSettingsConstants
         { LastUsedFocusLengthKey, 0 },
         { LastUsedRestLengthKey, 0 },
         { LastUsedRepetitionsKey, 0 },
+        { ChannelSwitcherHidden, false },
     };
 }

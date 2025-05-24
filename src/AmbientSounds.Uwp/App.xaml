@@ -267,6 +267,8 @@
             <x:String x:Key="GlyphSleep">&#xEC46;</x:String>
             <x:String x:Key="GlyphInterruption">&#xEB44;</x:String>
             <x:String x:Key="GlyphChevronRight">&#xE0E3;</x:String>
+            <x:String x:Key="GlyphChevronDown">&#xE70D;</x:String>
+            <x:String x:Key="GlyphChevronUp">&#xE70E;</x:String>
             <x:String x:Key="GlyphBack">&#xE112;</x:String>
             <x:String x:Key="GlyphForward">&#xE111;</x:String>
             <x:String x:Key="GlyphDiagnostics">&#xE9D9;</x:String>
