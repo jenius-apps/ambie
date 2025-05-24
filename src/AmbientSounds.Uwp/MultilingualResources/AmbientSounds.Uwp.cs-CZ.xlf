@@ -1311,6 +1311,18 @@
           <source>Stats</source>
           <target state="translated">Statistické údaje</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Zkontrolujte, zda jsou pro Ambie povoleny notifikace systému Windows</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Zapnout</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">Užitečné možnosti</target>
+        </trans-unit>
       </group>
     </body>
   </file>

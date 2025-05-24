@@ -990,4 +990,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>統計</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>確保為Ambie啟用 Windows 通知</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>使</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>有用的選項</value>
+  </data>
 </root>

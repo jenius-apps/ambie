@@ -71,6 +71,13 @@ public class TelemetryConstants
     public const string NavigatedToChannelViewer = $"{ChannelViewer}navigatedTo";
     public const string ChannelViewerFullScreen = $"{ChannelViewer}fullScreen";
 
+    // stats page
+    private const string StatsPage = "statsPage:";
+    public const string StatsLoaded = $"{StatsPage}statsLoaded";
+    public const string StatsSettingsLoaded = $"{StatsPage}settingsLoaded";
+    public const string StatsSettingsQuickResumeEnabled = $"{StatsPage}quickResumeEnabled";
+    public const string StatsSettingsStreakRemindersEnabled = $"{StatsPage}streakRemindersEnabled";
+    public const string StatsSettingsNotificationsLinkClicked = $"{StatsPage}notificationsLinkClicked";
 
     // premium
     private const string Premium = "premium:";

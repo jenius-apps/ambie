@@ -978,4 +978,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Statistika</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Provjerite jesu li obavijesti sustava Windows omogućene za Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Omogućili</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Korisne opcije</value>
+  </data>
 </root>

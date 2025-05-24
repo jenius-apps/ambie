@@ -1310,6 +1310,18 @@
           <source>Stats</source>
           <target state="translated">統計</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">確保為Ambie啟用 Windows 通知</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">使</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">有用的選項</target>
+        </trans-unit>
       </group>
     </body>
   </file>

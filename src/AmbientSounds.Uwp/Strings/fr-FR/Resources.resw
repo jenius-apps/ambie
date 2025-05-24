@@ -984,4 +984,13 @@
   <data name="StatsSubtitle" xml:space="preserve">
     <value>Afficher vos statistiques d’utilisation dans Ambie</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Assurez-vous que les notifications Windows sont activées pour Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Activer</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Options utiles</value>
+  </data>
 </root>

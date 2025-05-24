@@ -1311,6 +1311,18 @@
           <source>Stats</source>
           <target state="translated">통계</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Ambie에 대해 Windows 알림이 활성화되어 있는지 확인합니다.</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">사용</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">유용한 옵션</target>
+        </trans-unit>
       </group>
     </body>
   </file>

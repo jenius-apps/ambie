@@ -960,4 +960,13 @@
   <data name="StatsSubtitle" xml:space="preserve">
     <value>Bekijk uw gebruiksstatistieken in Ambie</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Zorg ervoor dat Windows-meldingen zijn ingeschakeld voor Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Inschakelen</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Handige opties</value>
+  </data>
 </root>

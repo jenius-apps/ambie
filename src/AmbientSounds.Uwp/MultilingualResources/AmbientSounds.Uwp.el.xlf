@@ -1307,6 +1307,18 @@
           <source>Stats</source>
           <target state="translated">Στατιστικά</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Βεβαιωθείτε ότι οι ειδοποιήσεις των Windows είναι ενεργοποιημένες για το Ambie</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Ενεργοποιώ</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">Χρήσιμες επιλογές</target>
+        </trans-unit>
       </group>
     </body>
   </file>

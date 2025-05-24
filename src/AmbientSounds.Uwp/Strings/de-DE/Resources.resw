@@ -984,4 +984,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Statistiken</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Stellen Sie sicher, dass Windows-Benachrichtigungen für Ambie aktiviert sind</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Ermöglichen</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Hilfreiche Optionen</value>
+  </data>
 </root>

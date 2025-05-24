@@ -1310,6 +1310,18 @@
           <source>Stats</source>
           <target state="translated">Statistik</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Se till att Windows-meddelanden är aktiverade för Ambie</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Möjliggöra</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">Användbara alternativ</target>
+        </trans-unit>
       </group>
     </body>
   </file>

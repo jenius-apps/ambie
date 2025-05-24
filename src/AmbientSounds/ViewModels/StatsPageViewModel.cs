@@ -1,8 +1,12 @@
-﻿using AmbientSounds.Models;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Humanizer;
 using Humanizer.Localisation;
+using JeniusApps.Common.Settings;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
@@ -19,14 +23,52 @@ public partial class StatsPageViewModel : ObservableObject
     private const int LastDaysStreak = 7; // # of days to track streak
     private readonly IStatService _statService;
     private readonly ILocalizer _localizer;
+    private readonly IUserSettings _userSettings;
+    private readonly IQuickResumeService _quickResumeService;
+    private readonly IStreakReminderService _streakReminderService;
+    private readonly IUriLauncher _uriLauncher;
+    private readonly ITelemetry _telemetry;
+    private readonly IExperimentationService _experimentationService;
 
     public StatsPageViewModel(
         IStatService statService,
-        ILocalizer localizer)
+        ILocalizer localizer,
+        IUserSettings userSettings,
+        IQuickResumeService quickResumeService,
+        IStreakReminderService streakReminderService,
+        IUriLauncher uriLauncher,
+        ITelemetry telemetry,
+        IExperimentationService experimentationService)
     {
         _statService = statService;
         _localizer = localizer;
+        _userSettings = userSettings;
+        _quickResumeService = quickResumeService;
+        _streakReminderService = streakReminderService;
+        _uriLauncher = uriLauncher;
+        _telemetry = telemetry;
+        _experimentationService = experimentationService;
+
+        InitializeUserSettings();
     }
+
+    /// <summary>
+    /// Determines if the helpful options section is visible.
+    /// </summary>
+    [ObservableProperty]
+    private bool _helpfulOptionsVisible;
+
+    /// <summary>
+    /// Determines if quick resume is enabled.
+    /// </summary>
+    [ObservableProperty]
+    private bool _isQuickResumeEnabled;
+
+    /// <summary>
+    /// Determines if streak reminder is enabled.
+    /// </summary>
+    [ObservableProperty]
+    private bool _isStreakReminderEnabled;
 
     /// <summary>
     /// The current streak count to display on screen.
@@ -102,6 +144,84 @@ public partial class StatsPageViewModel : ObservableObject
         LoadStreak();
         await LoadRecentActivityAsync();
         await LoadUsageStatsAsync(cancellationToken);
+
+        _telemetry.TrackEvent(TelemetryConstants.StatsLoaded, new Dictionary<string, string>
+        {
+            { "currentStreak", StreakCount.ToString() },
+            { "soundUsageCount", SoundUsage.Count.ToString() }
+        });
+    }
+
+    private void InitializeUserSettings()
+    {
+        if (_experimentationService.IsEnabled(ExperimentConstants.StatsPageSettingsExperiment))
+        {
+            return;
+        }
+
+        IsQuickResumeEnabled = _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
+        IsStreakReminderEnabled = _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
+
+        // Do not display the options if all the settings are enabled.
+        // The intention here is to only show the options to people who haven't turned it all on.
+        // So if all the settings are already on, don't show it.
+        HelpfulOptionsVisible = !(IsQuickResumeEnabled && IsStreakReminderEnabled);
+
+        if (HelpfulOptionsVisible)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsLoaded);
+        }
+    }
+
+    [RelayCommand]
+    private async Task EnableQuickResumeAsync()
+    {
+        if (IsQuickResumeEnabled || _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey))
+        {
+            // If already enabled, fast return.
+            return;
+        }
+
+        bool successful = await _quickResumeService.TryEnableAsync();
+        await Task.Delay(300); // delay is to improve UX
+        _userSettings.Set(UserSettingsConstants.QuickResumeKey, successful);
+        IsQuickResumeEnabled = successful;
+
+        if (successful)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsQuickResumeEnabled);
+        }
+    }
+
+    [RelayCommand]
+    private async Task EnableStreakReminderAsync()
+    {
+        if (IsStreakReminderEnabled || _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey))
+        {
+            // If already enabled, fast return.
+            return;
+        }
+
+        bool successful = await _streakReminderService.TryEnableAsync();
+        await Task.Delay(300); // delay is to improve UX
+        _userSettings.Set(UserSettingsConstants.StreaksReminderEnabledKey, successful);
+        IsStreakReminderEnabled = successful;
+
+        if (successful)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsStreakRemindersEnabled);
+        }
+    }
+
+    [RelayCommand]
+    private async Task LaunchWindowsNotificationSettingsAsync()
+    {
+        try
+        {
+            await _uriLauncher.LaunchUriAsync(new Uri("ms-settings:notifications", UriKind.Absolute));
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsNotificationsLinkClicked);
+        }
+        catch { }
     }
 
     private async Task LoadUsageStatsAsync(CancellationToken cancellationToken)

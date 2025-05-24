@@ -2,11 +2,11 @@
 
 namespace AmbientSounds.Services;
 
-public class QuickResumeService : IQuickResumeService
+public sealed class StreakReminderService : IStreakReminderService
 {
     private readonly IBackgroundTaskService _backgroundTaskService;
 
-    public QuickResumeService(IBackgroundTaskService backgroundTaskService)
+    public StreakReminderService(IBackgroundTaskService backgroundTaskService)
     {
         _backgroundTaskService = backgroundTaskService;
     }
@@ -20,13 +20,13 @@ public class QuickResumeService : IQuickResumeService
             return false;
         }
 
-        _backgroundTaskService.ToggleQuickResumeStartupTask(true);
+        _backgroundTaskService.ToggleStreakReminderTask(true);
         return true;
     }
 
     /// <inheritdoc/>
     public void Disable()
     {
-        _backgroundTaskService.ToggleQuickResumeStartupTask(false);
+        _backgroundTaskService.ToggleStreakReminderTask(false);
     }
 }

@@ -990,4 +990,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>آمار</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>اطمینان حاصل کنید که اعلان های ویندوز برای Ambie فعال هستند</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>گزینه های مفید</value>
+  </data>
 </root>

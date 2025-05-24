@@ -987,4 +987,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Statistik</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Se till att Windows-meddelanden är aktiverade för Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Möjliggöra</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Användbara alternativ</value>
+  </data>
 </root>

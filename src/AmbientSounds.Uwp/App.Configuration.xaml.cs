@@ -226,6 +226,7 @@ partial class App
     [Transient(typeof(SearchPageViewModel))]
     [Singleton(typeof(ResumeOnLaunchService), typeof(IResumeOnLaunchService))]
     [Singleton(typeof(QuickResumeService), typeof(IQuickResumeService))]
+    [Singleton(typeof(StreakReminderService), typeof(IStreakReminderService))]
     [Singleton(typeof(BackgroundTaskService), typeof(IBackgroundTaskService))]
     [Singleton(typeof(StatService), typeof(IStatService))]
     [Singleton(typeof(StreakHistoryCache), typeof(IStreakHistoryCache))]

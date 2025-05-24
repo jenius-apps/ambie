@@ -1317,6 +1317,18 @@
           <source>Stats</source>
           <target state="translated">Statistiche</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">Assicurati che le notifiche di Windows siano abilitate per Ambie</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">Abilitare</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">Opzioni utili</target>
+        </trans-unit>
       </group>
     </body>
   </file>

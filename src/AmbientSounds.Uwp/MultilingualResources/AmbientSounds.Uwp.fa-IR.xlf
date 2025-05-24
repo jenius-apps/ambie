@@ -1307,6 +1307,18 @@
           <source>Stats</source>
           <target state="translated">آمار</target>
         </trans-unit>
+        <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
+          <source>Ensure Windows notifications are enabled for Ambie</source>
+          <target state="translated">اطمینان حاصل کنید که اعلان های ویندوز برای Ambie فعال هستند</target>
+        </trans-unit>
+        <trans-unit id="EnableText" translate="yes" xml:space="preserve">
+          <source>Enable</source>
+          <target state="translated">فعال</target>
+        </trans-unit>
+        <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
+          <source>Helpful options</source>
+          <target state="translated">گزینه های مفید</target>
+        </trans-unit>
       </group>
     </body>
   </file>
