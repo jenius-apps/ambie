@@ -177,11 +177,6 @@ public partial class ShellPageViewModel : ObservableObject
         await _dialogService.OpenPremiumAsync();
     }
 
-    public void GoToScreensaver()
-    {
-        _navigator.ToScreensaver();
-    }
-
     [RelayCommand]
     private async Task PlayRandomSoundAsync()
     {

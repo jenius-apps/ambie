@@ -215,16 +215,6 @@
                         Glyph="{StaticResource GlyphShuffle}" />
                 </Button>
                 <Button
-                    AutomationProperties.Name="{x:Bind strings:Resources.OpenLastChannelText}"
-                    Click="{x:Bind ViewModel.GoToScreensaver}"
-                    Style="{StaticResource SmallSubtleIconButton}"
-                    ToolTipService.ToolTip="{x:Bind strings:Resources.OpenLastChannelText}">
-                    <FontIcon
-                        FontFamily="{StaticResource FluentUIGlyphs}"
-                        FontSize="14"
-                        Glyph="{StaticResource GlyphFilmstrip}" />
-                </Button>
-                <Button
                     x:Name="ShareButton"
                     AutomationProperties.Name="{x:Bind strings:Resources.ShareMessage}"
                     Command="{x:Bind ViewModel.OpenShareCommand}"
