@@ -1309,15 +1309,15 @@
         </trans-unit>
         <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
           <source>Ensure Windows notifications are enabled for Ambie</source>
-          <target state="new">Ensure Windows notifications are enabled for Ambie</target>
+          <target state="translated">Уверете се, че известията на Windows са активирани за Ambie</target>
         </trans-unit>
         <trans-unit id="EnableText" translate="yes" xml:space="preserve">
           <source>Enable</source>
-          <target state="new">Enable</target>
+          <target state="translated">Разрешите</target>
         </trans-unit>
         <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
           <source>Helpful options</source>
-          <target state="new">Helpful options</target>
+          <target state="translated">Полезни опции</target>
         </trans-unit>
       </group>
     </body>

@@ -990,4 +990,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Estatísticas</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Certifique-se de que as notificações do Windows estejam habilitadas para o Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Habilitar</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Opções úteis</value>
+  </data>
 </root>

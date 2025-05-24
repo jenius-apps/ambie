@@ -987,4 +987,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Statystyki</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Upewnij się, że powiadomienia systemu Windows są włączone dla systemu Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Umożliwiać</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Przydatne opcje</value>
+  </data>
 </root>

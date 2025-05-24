@@ -1313,15 +1313,15 @@
         </trans-unit>
         <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
           <source>Ensure Windows notifications are enabled for Ambie</source>
-          <target state="new">Ensure Windows notifications are enabled for Ambie</target>
+          <target state="translated">Zkontrolujte, zda jsou pro Ambie povoleny notifikace systému Windows</target>
         </trans-unit>
         <trans-unit id="EnableText" translate="yes" xml:space="preserve">
           <source>Enable</source>
-          <target state="new">Enable</target>
+          <target state="translated">Zapnout</target>
         </trans-unit>
         <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
           <source>Helpful options</source>
-          <target state="new">Helpful options</target>
+          <target state="translated">Užitečné možnosti</target>
         </trans-unit>
       </group>
     </body>

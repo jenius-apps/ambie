@@ -978,4 +978,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Statisztika</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Győződjön meg arról, hogy a Windows-értesítések engedélyezve vannak az Ambie számára</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Engedélyez</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Hasznos lehetőségek</value>
+  </data>
 </root>

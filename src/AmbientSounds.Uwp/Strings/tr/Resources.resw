@@ -984,4 +984,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Istatistik</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Ambie için Windows bildirimlerinin etkinleştirildiğinden emin olun</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Etkinleştirmek</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Yardımcı seçenekler</value>
+  </data>
 </root>

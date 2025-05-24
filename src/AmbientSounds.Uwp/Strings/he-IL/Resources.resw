@@ -990,4 +990,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>סטטיסטיקה</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>ודא שהודעות Windows זמינות עבור Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>לאפשר</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>אפשרויות שימושיות</value>
+  </data>
 </root>

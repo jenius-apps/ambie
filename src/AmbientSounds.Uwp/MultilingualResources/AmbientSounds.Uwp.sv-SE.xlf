@@ -1312,15 +1312,15 @@
         </trans-unit>
         <trans-unit id="OsNotificationHelpMessage" translate="yes" xml:space="preserve">
           <source>Ensure Windows notifications are enabled for Ambie</source>
-          <target state="new">Ensure Windows notifications are enabled for Ambie</target>
+          <target state="translated">Se till att Windows-meddelanden är aktiverade för Ambie</target>
         </trans-unit>
         <trans-unit id="EnableText" translate="yes" xml:space="preserve">
           <source>Enable</source>
-          <target state="new">Enable</target>
+          <target state="translated">Möjliggöra</target>
         </trans-unit>
         <trans-unit id="StatsPageSettingsHeader" translate="yes" xml:space="preserve">
           <source>Helpful options</source>
-          <target state="new">Helpful options</target>
+          <target state="translated">Användbara alternativ</target>
         </trans-unit>
       </group>
     </body>

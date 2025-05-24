@@ -975,4 +975,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Στατιστικά</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Βεβαιωθείτε ότι οι ειδοποιήσεις των Windows είναι ενεργοποιημένες για το Ambie</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Ενεργοποιώ</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Χρήσιμες επιλογές</value>
+  </data>
 </root>

@@ -990,4 +990,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>統計</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Windows 通知が Ambie に対して有効になっていることを確認する</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>エネーブル</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>便利なオプション</value>
+  </data>
 </root>

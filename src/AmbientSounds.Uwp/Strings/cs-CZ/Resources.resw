@@ -990,4 +990,13 @@
   <data name="StatsTitleText" xml:space="preserve">
     <value>Statistické údaje</value>
   </data>
+  <data name="OsNotificationHelpMessage" xml:space="preserve">
+    <value>Zkontrolujte, zda jsou pro Ambie povoleny notifikace systému Windows</value>
+  </data>
+  <data name="EnableText" xml:space="preserve">
+    <value>Zapnout</value>
+  </data>
+  <data name="StatsPageSettingsHeader" xml:space="preserve">
+    <value>Užitečné možnosti</value>
+  </data>
 </root>
