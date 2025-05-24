@@ -6,6 +6,7 @@ using CommunityToolkit.Mvvm.Input;
 using Humanizer;
 using Humanizer.Localisation;
 using JeniusApps.Common.Settings;
+using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ public partial class StatsPageViewModel : ObservableObject
     private readonly IQuickResumeService _quickResumeService;
     private readonly IStreakReminderService _streakReminderService;
     private readonly IUriLauncher _uriLauncher;
+    private readonly ITelemetry _telemetry;
 
     public StatsPageViewModel(
         IStatService statService,
@@ -33,7 +35,8 @@ public partial class StatsPageViewModel : ObservableObject
         IUserSettings userSettings,
         IQuickResumeService quickResumeService,
         IStreakReminderService streakReminderService,
-        IUriLauncher uriLauncher)
+        IUriLauncher uriLauncher,
+        ITelemetry telemetry)
     {
         _statService = statService;
         _localizer = localizer;
@@ -41,6 +44,7 @@ public partial class StatsPageViewModel : ObservableObject
         _quickResumeService = quickResumeService;
         _streakReminderService = streakReminderService;
         _uriLauncher = uriLauncher;
+        _telemetry = telemetry;
 
         InitializeUserSettings();
     }
@@ -137,6 +141,12 @@ public partial class StatsPageViewModel : ObservableObject
         LoadStreak();
         await LoadRecentActivityAsync();
         await LoadUsageStatsAsync(cancellationToken);
+
+        _telemetry.TrackEvent(TelemetryConstants.StatsLoaded, new Dictionary<string, string>
+        {
+            { "currentStreak", StreakCount.ToString() },
+            { "soundUsageCount", SoundUsage.Count.ToString() }
+        });
     }
 
     private void InitializeUserSettings()
@@ -148,6 +158,11 @@ public partial class StatsPageViewModel : ObservableObject
         // The intention here is to only show the options to people who haven't turned it all on.
         // So if all the settings are already on, don't show it.
         HelpfulOptionsVisible = !(IsQuickResumeEnabled && IsStreakReminderEnabled);
+
+        if (HelpfulOptionsVisible)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsLoaded);
+        }
     }
 
     [RelayCommand]
@@ -163,6 +178,11 @@ public partial class StatsPageViewModel : ObservableObject
         await Task.Delay(300); // delay is to improve UX
         _userSettings.Set(UserSettingsConstants.QuickResumeKey, successful);
         IsQuickResumeEnabled = successful;
+
+        if (successful)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsQuickResumeEnabled);
+        }
     }
 
     [RelayCommand]
@@ -178,6 +198,11 @@ public partial class StatsPageViewModel : ObservableObject
         await Task.Delay(300); // delay is to improve UX
         _userSettings.Set(UserSettingsConstants.StreaksReminderEnabledKey, successful);
         IsStreakReminderEnabled = successful;
+
+        if (successful)
+        {
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsStreakRemindersEnabled);
+        }
     }
 
     [RelayCommand]
@@ -186,6 +211,7 @@ public partial class StatsPageViewModel : ObservableObject
         try
         {
             await _uriLauncher.LaunchUriAsync(new Uri("ms-settings:notifications", UriKind.Absolute));
+            _telemetry.TrackEvent(TelemetryConstants.StatsSettingsNotificationsLinkClicked);
         }
         catch { }
     }
