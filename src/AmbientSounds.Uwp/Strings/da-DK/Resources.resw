@@ -996,4 +996,10 @@
   <data name="StatsPageSettingsHeader" xml:space="preserve">
     <value>Nyttige muligheder</value>
   </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Skjul kanaler</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Vis kanaler</value>
+  </data>
 </root>

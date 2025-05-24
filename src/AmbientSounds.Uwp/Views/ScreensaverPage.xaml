@@ -210,8 +210,10 @@
             <Button
                 Margin="48,0,0,40"
                 VerticalAlignment="Bottom"
+                AutomationProperties.Name="{x:Bind ViewModel.ToggleChannelSwitcherText, Mode=OneWay}"
                 Command="{x:Bind ViewModel.ToggleChannelSwitcherCommand}"
-                Style="{StaticResource IconButton}">
+                Style="{StaticResource IconButton}"
+                ToolTipService.ToolTip="{x:Bind ViewModel.ToggleChannelSwitcherText, Mode=OneWay}">
                 <ani:Implicit.Animations>
                     <ani:OffsetAnimation Duration="0:0:0.3" />
                 </ani:Implicit.Animations>

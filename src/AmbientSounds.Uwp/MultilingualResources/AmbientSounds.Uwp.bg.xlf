@@ -1319,6 +1319,14 @@
           <source>Helpful options</source>
           <target state="translated">Полезни опции</target>
         </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">Скриване на канали</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">Показване на канали</target>
+        </trans-unit>
       </group>
     </body>
   </file>

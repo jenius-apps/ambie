@@ -999,4 +999,10 @@
   <data name="StatsPageSettingsHeader" xml:space="preserve">
     <value>便利なオプション</value>
   </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>チャンネルを隠す</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>チャンネルを表示</value>
+  </data>
 </root>

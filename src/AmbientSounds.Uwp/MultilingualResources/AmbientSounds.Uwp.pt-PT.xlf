@@ -1323,6 +1323,14 @@
           <source>Helpful options</source>
           <target state="translated">Opções úteis</target>
         </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">Ocultar canais</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">Mostrar canais</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -999,4 +999,10 @@
   <data name="StatsPageSettingsHeader" xml:space="preserve">
     <value>Корисні опції</value>
   </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Сховати канали</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Показувати канали</value>
+  </data>
 </root>

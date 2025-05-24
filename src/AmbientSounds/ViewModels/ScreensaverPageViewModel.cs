@@ -70,7 +70,18 @@ public partial class ScreensaverPageViewModel : ObservableObject
         ChannelSwitcherVisible = !_userSettings.Get<bool>(UserSettingsConstants.ChannelSwitcherHidden);
     }
 
+    /// <summary>
+    /// A11y text to use for channel switcher toggle button.
+    /// </summary>
+    public string ToggleChannelSwitcherText => ChannelSwitcherVisible
+        ? _localizer.GetString("ChannelSwitcherHide")
+        : _localizer.GetString("ChannelSwitcherShow");
+
+    /// <summary>
+    /// Determines if the channel switcher is visible.
+    /// </summary>
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ToggleChannelSwitcherText))]
     private bool _channelSwitcherVisible;
 
     [ObservableProperty]

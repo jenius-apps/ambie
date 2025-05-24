@@ -987,4 +987,10 @@
   <data name="StatsPageSettingsHeader" xml:space="preserve">
     <value>Hasznos lehetőségek</value>
   </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Csatornák elrejtése</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Csatornák megjelenítése</value>
+  </data>
 </root>

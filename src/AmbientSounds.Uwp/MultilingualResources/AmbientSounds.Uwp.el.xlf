@@ -1319,6 +1319,14 @@
           <source>Helpful options</source>
           <target state="translated">Χρήσιμες επιλογές</target>
         </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">Απόκρυψη καναλιών</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">Εμφάνιση καναλιών</target>
+        </trans-unit>
       </group>
     </body>
   </file>

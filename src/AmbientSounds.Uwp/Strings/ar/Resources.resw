@@ -999,4 +999,10 @@
   <data name="StatsPageSettingsHeader" xml:space="preserve">
     <value>خيارات مفيدة</value>
   </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>إخفاء القنوات</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>عرض القنوات</value>
+  </data>
 </root>

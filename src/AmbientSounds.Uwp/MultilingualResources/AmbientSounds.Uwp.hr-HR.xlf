@@ -1323,6 +1323,14 @@
           <source>Helpful options</source>
           <target state="translated">Korisne opcije</target>
         </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">Sakrij kanale</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">Prikaži kanale</target>
+        </trans-unit>
       </group>
     </body>
   </file>

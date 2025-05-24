@@ -1319,6 +1319,14 @@
           <source>Helpful options</source>
           <target state="translated">便利なオプション</target>
         </trans-unit>
+        <trans-unit id="ChannelSwitcherHide" translate="yes" xml:space="preserve">
+          <source>Hide channels</source>
+          <target state="translated">チャンネルを隠す</target>
+        </trans-unit>
+        <trans-unit id="ChannelSwitcherShow" translate="yes" xml:space="preserve">
+          <source>Show channels</source>
+          <target state="translated">チャンネルを表示</target>
+        </trans-unit>
       </group>
     </body>
   </file>

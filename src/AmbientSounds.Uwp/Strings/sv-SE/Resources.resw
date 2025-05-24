@@ -996,4 +996,10 @@
   <data name="StatsPageSettingsHeader" xml:space="preserve">
     <value>Användbara alternativ</value>
   </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>Dölj kanaler</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>Visa kanaler</value>
+  </data>
 </root>

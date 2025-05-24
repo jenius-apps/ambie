@@ -999,4 +999,10 @@
   <data name="StatsPageSettingsHeader" xml:space="preserve">
     <value>有用的选项</value>
   </data>
+  <data name="ChannelSwitcherHide" xml:space="preserve">
+    <value>隐藏频道</value>
+  </data>
+  <data name="ChannelSwitcherShow" xml:space="preserve">
+    <value>显示频道</value>
+  </data>
 </root>
