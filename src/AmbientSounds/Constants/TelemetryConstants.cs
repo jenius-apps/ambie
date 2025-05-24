@@ -135,6 +135,7 @@ public class TelemetryConstants
     public const string SettingsModifySubscriptionClicked = Settings + "modifySubscriptionClicked";
     public const string FeedbackClicked = Settings + "feedbackClicked";
     public const string CheckForUpdatesClicked = Settings + "checkForUpdatesClicked";
+    public const string SettingsRateUsClicked = $"{Settings}rateUsClicked";
 
     // videos
     private const string Videos = "videos:";

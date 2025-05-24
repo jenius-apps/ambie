@@ -317,14 +317,9 @@
                 </labs:SettingsCard>
                 <labs:SettingsCard ContentAlignment="Left">
                     <StackPanel Margin="-12,0,0,0" Orientation="Vertical">
+                        <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
                         <HyperlinkButton x:Uid="PrivacyPolicyButton" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/privacypolicy.md" />
                         <HyperlinkButton Content="{x:Bind strings:Resources.TermsOfUse}" NavigateUri="https://github.com/jenius-apps/ambie/blob/main/termsofuse.md" />
-                        <HyperlinkButton Command="{x:Bind ViewModel.TryUpdateCommand}" Content="{x:Bind strings:Resources.CheckForUpdatesText}" />
-                        <winui:ProgressBar
-                            Width="200"
-                            Margin="12,4,0,4"
-                            IsIndeterminate="True"
-                            Visibility="{x:Bind ViewModel.UpdateBarVisible}" />
                     </StackPanel>
                 </labs:SettingsCard>
             </labs:SettingsExpander.Items>
@@ -338,7 +333,6 @@
                 Margin="1,29,0,5"
                 Style="{StaticResource BodyStrongTextBlockStyle}"
                 Text="Experimental features" />
-            <HyperlinkButton Command="{x:Bind ViewModel.RequestRatingCommand}" Content="{x:Bind strings:Resources.RateUsText}" />
         </StackPanel>
     </StackPanel>
 </UserControl>

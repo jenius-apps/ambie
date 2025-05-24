@@ -376,6 +376,8 @@ public partial class SettingsViewModel : ObservableObject
         {
             _userSettings.Set(UserSettingsConstants.HasRated, true);
         }
+
+        _telemetry.TrackEvent(TelemetryConstants.SettingsRateUsClicked);
     }
 
     [RelayCommand]
