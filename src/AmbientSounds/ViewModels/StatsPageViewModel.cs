@@ -28,6 +28,7 @@ public partial class StatsPageViewModel : ObservableObject
     private readonly IStreakReminderService _streakReminderService;
     private readonly IUriLauncher _uriLauncher;
     private readonly ITelemetry _telemetry;
+    private readonly IExperimentationService _experimentationService;
 
     public StatsPageViewModel(
         IStatService statService,
@@ -36,7 +37,8 @@ public partial class StatsPageViewModel : ObservableObject
         IQuickResumeService quickResumeService,
         IStreakReminderService streakReminderService,
         IUriLauncher uriLauncher,
-        ITelemetry telemetry)
+        ITelemetry telemetry,
+        IExperimentationService experimentationService)
     {
         _statService = statService;
         _localizer = localizer;
@@ -45,6 +47,7 @@ public partial class StatsPageViewModel : ObservableObject
         _streakReminderService = streakReminderService;
         _uriLauncher = uriLauncher;
         _telemetry = telemetry;
+        _experimentationService = experimentationService;
 
         InitializeUserSettings();
     }
@@ -151,6 +154,11 @@ public partial class StatsPageViewModel : ObservableObject
 
     private void InitializeUserSettings()
     {
+        if (_experimentationService.IsEnabled(ExperimentConstants.StatsPageSettingsExperiment))
+        {
+            return;
+        }
+
         IsQuickResumeEnabled = _userSettings.Get<bool>(UserSettingsConstants.QuickResumeKey);
         IsStreakReminderEnabled = _userSettings.Get<bool>(UserSettingsConstants.StreaksReminderEnabledKey);
 
