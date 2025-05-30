@@ -101,7 +101,7 @@ public class Navigator : INavigator
 
         if (RootFrame is Frame f)
         {
-            if (f.CurrentSourcePageType == typeof(CompactPage))
+            if (f.CurrentSourcePageType == typeof(CompactPage) || f.CurrentSourcePageType == typeof(ScreensaverPage))
             {
                 return;
             }
