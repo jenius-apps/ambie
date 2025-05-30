@@ -104,7 +104,7 @@ public sealed partial class ScreensaverPage : Page
         }
 
         ClockControl.Initialize();
-        await FocusTimerWidget.InitializeAsync();
+        await FocusTimerWidget.InitializeAsync(allowSoundPausing: false);
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

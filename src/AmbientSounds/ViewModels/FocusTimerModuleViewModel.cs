@@ -36,6 +36,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
     private readonly IDialogService _dialogService;
     private readonly ICompactNavigator _compactNavigator;
     private readonly IDispatcherQueue _dispatcherQueue;
+    private bool? _allowSoundPausing;
     private bool _isHelpMessageVisible;
     private int _focusLength;
     private int _restLength;
@@ -265,8 +266,9 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         }
     }
 
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(bool allowSoundPausing)
     {
+        _allowSoundPausing = allowSoundPausing;
         _focusService.TimeUpdated += OnTimeUpdated;
         _focusService.FocusStateChanged += OnFocusStateChanged;
         _userSettings.SettingSet += OnSettingChanged;
@@ -301,6 +303,7 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     public void Uninitialize()
     {
+        _allowSoundPausing = null;
         _focusService.TimeUpdated -= OnTimeUpdated;
         _focusService.FocusStateChanged -= OnFocusStateChanged;
         _userSettings.SettingSet -= OnSettingChanged;
@@ -317,7 +320,8 @@ public partial class FocusTimerModuleViewModel : ObservableObject
         return SlidersEnabled;
     }
 
-    public void PlayOrPause()
+    [RelayCommand]
+    private void PlayOrPause()
     {
         if (PauseVisible)
         {
@@ -331,13 +335,14 @@ public partial class FocusTimerModuleViewModel : ObservableObject
 
     private void Pause()
     {
-        _focusService.PauseTimer();
+        _focusService.PauseTimer(pauseSounds: _allowSoundPausing ?? true);
     }
 
-    public void Stop()
+    [RelayCommand]
+    private void Stop()
     {
         Segments.Clear();
-        _focusService.StopTimer();
+        _focusService.StopTimer(pauseSounds: _allowSoundPausing ?? true);
     }
 
     public void ShowHelpMessage()
