@@ -52,9 +52,6 @@ public partial class DigitalClockViewModel : ObservableObject
     private string _countdownText = string.Empty;
 
     [ObservableProperty]
-    private bool _showSeconds;
-
-    [ObservableProperty]
     private bool _showClock;
 
     [ObservableProperty]
@@ -86,7 +83,6 @@ public partial class DigitalClockViewModel : ObservableObject
         _countdownTimer.Remaining = new TimeSpan(2, 0, 0);
 
         ShowCountdown = _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
-        ShowSeconds = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
         ShowClock = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
 
         if (ShowClock)
@@ -135,11 +131,6 @@ public partial class DigitalClockViewModel : ObservableObject
                 _clockTimer.Stop();
             }
         }
-        else if (settingKey == UserSettingsConstants.ChannelClockSecondsEnabledKey)
-        {
-            ShowSeconds = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
-            UpdateTimeText();
-        }
         else if (settingKey == UserSettingsConstants.ChannelCountdownEnabledKey)
         {
             ShowCountdown = _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
@@ -164,7 +155,7 @@ public partial class DigitalClockViewModel : ObservableObject
 
         _dispatcherQueue.TryEnqueue(() =>
         {
-            TimeText = ShowSeconds ? DateTime.Now.ToLongTimeString() : DateTime.Now.ToShortTimeString();
+            TimeText = DateTime.Now.ToShortTimeString();
         });
     }
 

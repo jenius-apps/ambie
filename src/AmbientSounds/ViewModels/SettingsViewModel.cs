@@ -174,22 +174,7 @@ public partial class SettingsViewModel : ObservableObject
         }
     }
 
-    public string ChannelClockPreview => ChannelClockSecondsEnabled
-        ? DateTime.Now.ToLongTimeString()
-        : DateTime.Now.ToShortTimeString();
-
-    public bool ChannelClockSecondsEnabled
-    {
-        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
-        set
-        {
-            _userSettings.Set(UserSettingsConstants.ChannelClockSecondsEnabledKey, value);
-            OnPropertyChanged(nameof(ChannelClockPreview));
-            _telemetry.TrackEvent(value is true
-                ? TelemetryConstants.ChannelViewerClockSecondsEnabled
-                : TelemetryConstants.ChannelViewerClockSecondsDisabled);
-        }
-    }
+    public string ChannelClockPreview => DateTime.Now.ToShortTimeString();
 
     public bool StreaksReminderEnabled
     {

@@ -16,7 +16,6 @@
             <RowDefinition Height="213" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Grid>
@@ -74,19 +73,6 @@
             Grid.Row="2"
             Header="{x:Bind strings:Resources.SettingsEnableClockHeader}"
             IsOn="{x:Bind ViewModel.ChannelClockEnabled, Mode=TwoWay}">
-            <ToggleSwitch.OffContent>
-                <TextBlock x:Uid="OffTextBlock" />
-            </ToggleSwitch.OffContent>
-            <ToggleSwitch.OnContent>
-                <TextBlock x:Uid="OnTextBlock" />
-            </ToggleSwitch.OnContent>
-        </ToggleSwitch>
-
-        <ToggleSwitch
-            Grid.Row="3"
-            Header="{x:Bind strings:Resources.SettingsEnableClockSecondsHeader}"
-            IsEnabled="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}"
-            IsOn="{x:Bind ViewModel.ChannelClockSecondsEnabled, Mode=TwoWay}">
             <ToggleSwitch.OffContent>
                 <TextBlock x:Uid="OffTextBlock" />
             </ToggleSwitch.OffContent>

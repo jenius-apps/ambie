@@ -75,7 +75,6 @@ public sealed partial class ScreensaverPage : Page
         telemetry.TrackEvent(TelemetryConstants.NavigatedToChannelViewer, new Dictionary<string, string>
         {
             { "clockEnabled", settings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey).ToString() },
-            { "clockSecondsEnabled", settings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey).ToString() },
         });
 
         var coreWindow = CoreWindow.GetForCurrentThread();

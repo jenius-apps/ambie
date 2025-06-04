@@ -187,11 +187,6 @@ public static class UserSettingsConstants
     public const string ChannelClockEnabledKey = "ChannelClockEnabled";
 
     /// <summary>
-    /// Remembers if the user enabled the channel clock's seconds.
-    /// </summary>
-    public const string ChannelClockSecondsEnabledKey = "ChannelClockSecondsEnabled";
-
-    /// <summary>
     /// Remembers your last used timer focus length.
     /// </summary>
     public const string LastUsedFocusLengthKey = "LastUsedFocusLength";
@@ -237,7 +232,7 @@ public static class UserSettingsConstants
         { DevicePresenceIdKey, string.Empty },
         { CompactOnFocusKey, true },
         { HasLoadedPackagedSoundsKey, false },
-        { PlayAfterFocusKey, true }, 
+        { PlayAfterFocusKey, true },
         { QuickResumeKey, false },
         { ShowHomePageDownloadMessageKey, true },
         { ActiveStreakKey, 0 },
@@ -248,7 +243,6 @@ public static class UserSettingsConstants
         { XboxSlideshowModeKey, SlideshowMode.Video.ToString() },
         { HasViewedFreeTrialTipKey, false },
         { ChannelClockEnabledKey, false },
-        { ChannelClockSecondsEnabledKey, false },
         { LastUsedFocusLengthKey, 0 },
         { LastUsedRestLengthKey, 0 },
         { LastUsedRepetitionsKey, 0 },
