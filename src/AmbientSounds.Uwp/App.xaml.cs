@@ -320,7 +320,7 @@ sealed partial class App : Application
             // when in debug mode.
             await Task.Delay(1);
 #else
-            await Services.GetRequiredService<Tools.IPushNotificationService>().RegisterAsync(
+            await Services.GetRequiredService<JeniusApps.Common.PushNotifications.IPushNotificationService>().RegisterAsync(
                 id,
                 Services.GetRequiredService<JeniusApps.Common.Tools.ISystemInfoProvider>().GetCulture(),
                 default);
