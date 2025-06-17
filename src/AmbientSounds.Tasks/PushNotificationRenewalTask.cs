@@ -1,15 +1,16 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
 using CommunityToolkit.Extensions.DependencyInjection;
-using JeniusApps.Common.Settings;
-using JeniusApps.Common.Settings.Uwp;
 using JeniusApps.Common.PushNotifications;
 using JeniusApps.Common.PushNotifications.Uwp;
+using JeniusApps.Common.Settings;
+using JeniusApps.Common.Settings.Uwp;
+using JeniusApps.Common.Tools;
+using JeniusApps.Common.Tools.Uwp;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
-using JeniusApps.Common.Tools;
 
 #nullable enable
 
@@ -34,16 +35,16 @@ public partial class PushNotificationRenewalTask : IBackgroundTask
 
         try
         {
-//#if DEBUG
+#if DEBUG
             // Don't want to needlessly send messages to the notification service
             // when in debug mode.
             await Task.Delay(1);
-//#else
-            await Services.GetRequiredService<IPushNotificationService>().RegisterAsync(
+#else
+            await _serviceProvider.GetRequiredService<IPushNotificationService>().RegisterAsync(
                 id,
-                Services.GetRequiredService<ISystemInfoProvider>().GetCulture(),
+                _serviceProvider.GetRequiredService<ISystemInfoProvider>().GetCulture(),
                 default);
-//#endif
+#endif
         }
         catch { }
 
@@ -68,6 +69,7 @@ public partial class PushNotificationRenewalTask : IBackgroundTask
 
     }
 
+    [Singleton(typeof(SystemInfoProvider), typeof(ISystemInfoProvider))]
     [Singleton(typeof(PushNotificationService), typeof(IPushNotificationService))]
     [Singleton(typeof(WindowsPushNotificationSource), typeof(IPushNotificationSource))]
     private static partial void ConfigureServices(IServiceCollection services);
