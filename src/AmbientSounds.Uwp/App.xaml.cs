@@ -298,6 +298,11 @@ sealed partial class App : Application
             {
                 bgServices.ToggleStreakReminderTask(true);
             }
+
+            if (userSettings.Get<bool>(UserSettingsConstants.Notifications))
+            {
+                bgServices.TogglePushNotificationRenewalTask(true);
+            }
         }
 
         _ = TryRegisterPushNotificationsAsync();

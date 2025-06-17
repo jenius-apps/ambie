@@ -16,7 +16,7 @@ using Windows.ApplicationModel.Background;
 
 namespace AmbientSounds.Tasks;
 
-public partial class PushNotificationRenewalTask : IBackgroundTask
+public sealed partial class PushNotificationRenewalTask : IBackgroundTask
 {
     private IServiceProvider? _serviceProvider;
 

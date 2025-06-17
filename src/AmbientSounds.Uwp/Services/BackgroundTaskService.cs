@@ -30,11 +30,10 @@ public class BackgroundTaskService : IBackgroundTaskService
     {
         var taskType = typeof(PushNotificationRenewalTask);
 
-        if (!enable)
-        {
-            UnregisterTask(taskType.Name);
-        }
-        else
+        // To avoid duplicate registrations, always unregister no matter the "enable" value.
+        UnregisterTask(taskType.Name);
+
+        if (enable)
         {
             var builder = new BackgroundTaskBuilder
             {
