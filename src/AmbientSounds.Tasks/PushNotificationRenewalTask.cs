@@ -9,7 +9,6 @@ using JeniusApps.Common.Tools;
 using JeniusApps.Common.Tools.Uwp;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 
 #nullable enable
@@ -25,28 +24,7 @@ public sealed partial class PushNotificationRenewalTask : IBackgroundTask
         var d = taskInstance.GetDeferral();
         _serviceProvider = ConfigureServices();
 
-        IUserSettings userSettings = _serviceProvider.GetRequiredService<IUserSettings>();
-
-        if (userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
-            userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
-        {
-            return;
-        }
-
-        try
-        {
-#if DEBUG
-            // Don't want to needlessly send messages to the notification service
-            // when in debug mode.
-            await Task.Delay(1);
-#else
-            await _serviceProvider.GetRequiredService<IPushNotificationService>().RegisterAsync(
-                id,
-                _serviceProvider.GetRequiredService<ISystemInfoProvider>().GetCulture(),
-                default);
-#endif
-        }
-        catch { }
+        _ = await _serviceProvider.GetRequiredService<IPushNotificationRegistrationService>().TryRegisterPushNotificationsAsync();
 
         d.Complete();
     }
@@ -69,6 +47,7 @@ public sealed partial class PushNotificationRenewalTask : IBackgroundTask
 
     }
 
+    [Singleton(typeof(PushNotificationRegistrationService), typeof(IPushNotificationRegistrationService))]
     [Singleton(typeof(SystemInfoProvider), typeof(ISystemInfoProvider))]
     [Singleton(typeof(PushNotificationService), typeof(IPushNotificationService))]
     [Singleton(typeof(WindowsPushNotificationSource), typeof(IPushNotificationSource))]

@@ -305,33 +305,7 @@ sealed partial class App : Application
             }
         }
 
-        _ = TryRegisterPushNotificationsAsync();
-    }
-
-    private async Task TryRegisterPushNotificationsAsync()
-    {
-        IUserSettings userSettings = Services.GetRequiredService<IUserSettings>();
-
-        if (userSettings.Get<bool>(UserSettingsConstants.Notifications) is false ||
-            userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) is not { Length: > 0 } id)
-        {
-            return;
-        }
-
-        try
-        {
-#if DEBUG
-            // Don't want to needlessly send messages to the notification service
-            // when in debug mode.
-            await Task.Delay(1);
-#else
-            await Services.GetRequiredService<JeniusApps.Common.PushNotifications.IPushNotificationService>().RegisterAsync(
-                id,
-                Services.GetRequiredService<JeniusApps.Common.Tools.ISystemInfoProvider>().GetCulture(),
-                default);
-#endif
-        }
-        catch { }
+        _ = Services.GetRequiredService<IPushNotificationRegistrationService>().TryRegisterPushNotificationsAsync();
     }
 
     private async void HandleProtocolLaunch(IProtocolActivatedEventArgs protocolArgs)

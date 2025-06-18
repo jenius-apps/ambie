@@ -242,6 +242,7 @@ partial class App
     [Singleton(typeof(ChannelRepository), typeof(IChannelRepository))]
     [Singleton(typeof(PromoCodeService), typeof(IPromoCodeService))]
     [Singleton(typeof(TimerFactory), typeof(ITimerFactory))]
+    [Singleton(typeof(PushNotificationRegistrationService), typeof(IPushNotificationRegistrationService))]
     [Transient(typeof(StatsPageViewModel))]
     private static partial void ConfigureServices(IServiceCollection services);
 }
