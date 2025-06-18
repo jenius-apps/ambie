@@ -14,12 +14,12 @@
 
     <UserControl.Resources>
         <Style x:Key="TimerColon" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="68" />
+            <Setter Property="FontSize" Value="48" />
             <Setter Property="Text" Value=":" />
         </Style>
         <Style x:Key="TimerTextBox" TargetType="winui:NumberBox">
-            <Setter Property="FontSize" Value="72" />
-            <Setter Property="Width" Value="100" />
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="Width" Value="76" />
             <Setter Property="Minimum" Value="0" />
             <Setter Property="Grid.Row" Value="1" />
             <Setter Property="PlaceholderText" Value="00" />
@@ -46,7 +46,7 @@
         <TextBlock
             x:Name="ClockText"
             Grid.Column="1"
-            FontSize="120"
+            FontSize="112"
             FontWeight="SemiBold"
             Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"
             TextAlignment="Center"
@@ -78,7 +78,7 @@
             Grid.Row="1"
             Grid.Column="1"
             Margin="0,0,0,-24"
-            FontSize="120"
+            FontSize="72"
             FontWeight="SemiBold"
             Text="{x:Bind ViewModel.CountdownText, Mode=OneWay}"
             TextAlignment="Center"

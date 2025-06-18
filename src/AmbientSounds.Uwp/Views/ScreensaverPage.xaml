@@ -184,7 +184,8 @@
                 Background="{ThemeResource BackgroundAcrylicBrush}"
                 BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
                 BorderThickness="1"
-                CornerRadius="4">
+                CornerRadius="4"
+                Visibility="{x:Bind ViewModel.FocusTimerVisible, Mode=OneWay}">
                 <controls:CompactFocusTimerModule x:Name="FocusTimerWidget" />
             </Border>
         </Grid>
