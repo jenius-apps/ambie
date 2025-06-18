@@ -63,12 +63,17 @@
 	        <Task Type="systemEvent"/>
 	      </BackgroundTasks>
 	    </Extension>
-	    <Extension Category="windows.backgroundTasks" EntryPoint="AmbientSounds.Tasks.StreakReminderTask">
-	      <BackgroundTasks>
-	        <Task Type="timer"/>
-	      </BackgroundTasks>
-	    </Extension>
-      </Extensions>
+		<Extension Category="windows.backgroundTasks" EntryPoint="AmbientSounds.Tasks.StreakReminderTask">
+			<BackgroundTasks>
+				<Task Type="timer"/>
+			</BackgroundTasks>
+		</Extension>
+		<Extension Category="windows.backgroundTasks" EntryPoint="AmbientSounds.Tasks.PushNotificationRenewalTask">
+			<BackgroundTasks>
+				<Task Type="timer"/>
+			</BackgroundTasks>
+		</Extension>
+	  </Extensions>
     </Application>
   </Applications>
   <Capabilities>
