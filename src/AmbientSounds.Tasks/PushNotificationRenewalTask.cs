@@ -10,6 +10,7 @@ using JeniusApps.Common.Tools.Uwp;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Windows.ApplicationModel.Background;
+using Windows.ApplicationModel.Resources;
 
 #nullable enable
 
@@ -31,14 +32,15 @@ public sealed partial class PushNotificationRenewalTask : IBackgroundTask
 
     private static IServiceProvider ConfigureServices()
     {
+        var resourceLoader = ResourceLoader.GetForViewIndependentUse("appsettings");
         ServiceCollection collection = new();
         ConfigureServices(collection);
 
         collection.AddSingleton<IUserSettings, LocalSettings>(s => new LocalSettings(UserSettingsConstants.Defaults));
         collection.AddSingleton<IPushNotificationStorage, AzureServiceBusPushNotificationStorage>(s =>
         {
-            var connectionString = s.GetRequiredService<IAppSettings>().NotificationHubConnectionString;
-            var queueName = s.GetRequiredService<IAppSettings>().NotificationHubName;
+            var connectionString = resourceLoader.GetString("NotificationHubConnectionString");
+            var queueName = resourceLoader.GetString("NotificationHubName");
             return new AzureServiceBusPushNotificationStorage(connectionString, queueName);
         });
 
