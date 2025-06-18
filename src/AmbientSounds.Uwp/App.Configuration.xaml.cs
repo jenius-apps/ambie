@@ -1,26 +1,28 @@
-﻿using AmbientSounds.Services.Uwp;
-using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
-using JeniusApps.Common.Telemetry;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using AmbientSounds.ViewModels;
-using CommunityToolkit.Extensions.DependencyInjection;
-using System.Net.Http;
-using JeniusApps.Common.Tools.Uwp;
-using AmbientSounds.Tools.Uwp;
-using AmbientSounds.Tools;
-using JeniusApps.Common.Tools;
-using AmbientSounds.Factories;
-using AmbientSounds.Cache;
-using AmbientSounds.Repositories;
+﻿using AmbientSounds.Cache;
 using AmbientSounds.Constants;
-using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Windows.Storage;
-using Windows.System.Profile;
+using AmbientSounds.Factories;
+using AmbientSounds.Repositories;
+using AmbientSounds.Services;
+using AmbientSounds.Services.Uwp;
+using AmbientSounds.Tools;
+using AmbientSounds.Tools.Uwp;
+using AmbientSounds.ViewModels;
+using CommunityToolkit.Diagnostics;
+using CommunityToolkit.Extensions.DependencyInjection;
+using JeniusApps.Common.PushNotifications;
+using JeniusApps.Common.PushNotifications.Uwp;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Settings.Uwp;
+using JeniusApps.Common.Telemetry;
+using JeniusApps.Common.Tools;
+using JeniusApps.Common.Tools.Uwp;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Toolkit.Uwp.Helpers;
+using System;
+using System.Net.Http;
+using Windows.Storage;
+using Windows.System.Profile;
 
 #nullable enable
 
@@ -240,6 +242,7 @@ partial class App
     [Singleton(typeof(ChannelRepository), typeof(IChannelRepository))]
     [Singleton(typeof(PromoCodeService), typeof(IPromoCodeService))]
     [Singleton(typeof(TimerFactory), typeof(ITimerFactory))]
+    [Singleton(typeof(PushNotificationRegistrationService), typeof(IPushNotificationRegistrationService))]
     [Transient(typeof(StatsPageViewModel))]
     private static partial void ConfigureServices(IServiceCollection services);
 }

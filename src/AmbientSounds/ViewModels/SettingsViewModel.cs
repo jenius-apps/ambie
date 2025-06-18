@@ -4,6 +4,7 @@ using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using JeniusApps.Common.PushNotifications;
 using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using JeniusApps.Common.Tools;
@@ -295,10 +296,12 @@ public partial class SettingsViewModel : ObservableObject
 #else
             if (value)
             {
+                _backgroundTaskService.TogglePushNotificationRenewalTask(true);
                 await _notifications.RegisterAsync(id, _systemInfoProvider.GetCulture(), default);
             }
             else
             {
+                _backgroundTaskService.TogglePushNotificationRenewalTask(false);
                 await _notifications.UnregisterAsync(id, default);
             }
 #endif
