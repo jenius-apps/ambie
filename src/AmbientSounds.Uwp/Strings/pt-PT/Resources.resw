@@ -1005,4 +1005,10 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Mostrar canais</value>
   </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Contagem regressiva</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Nenhum</value>
+  </data>
 </root>

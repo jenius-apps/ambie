@@ -1327,6 +1327,14 @@
           <source>Show channels</source>
           <target state="translated">チャンネルを表示</target>
         </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">カウントダウン</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">何一つ</target>
+        </trans-unit>
       </group>
     </body>
   </file>

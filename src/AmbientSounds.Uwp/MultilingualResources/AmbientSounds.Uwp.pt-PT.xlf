@@ -1331,6 +1331,14 @@
           <source>Show channels</source>
           <target state="translated">Mostrar canais</target>
         </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">Contagem regressiva</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Nenhum</target>
+        </trans-unit>
       </group>
     </body>
   </file>

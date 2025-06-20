@@ -73,11 +73,11 @@
         <ComboBox
             Grid.Row="2"
             HorizontalAlignment="Stretch"
-            Header="Enable timer"
+            Header="{x:Bind strings:Resources.Timer}"
             SelectedIndex="{x:Bind ViewModel.ChannelTimerModeIndex, Mode=TwoWay}">
-            <ComboBoxItem Content="None" />
-            <ComboBoxItem Content="Focus timer" />
-            <ComboBoxItem Content="Countdown timer" />
+            <ComboBoxItem Content="{x:Bind strings:Resources.NoneText}" />
+            <ComboBoxItem Content="{x:Bind strings:Resources.FocusText}" />
+            <ComboBoxItem Content="{x:Bind strings:Resources.CountdownText}" />
         </ComboBox>
     </Grid>
 </ContentDialog>

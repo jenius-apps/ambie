@@ -999,4 +999,10 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Afficher les chaînes</value>
   </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Compte à rebours</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Aucun</value>
+  </data>
 </root>

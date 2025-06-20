@@ -999,4 +999,7 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Kanäle anzeigen</value>
   </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Nichts</value>
+  </data>
 </root>

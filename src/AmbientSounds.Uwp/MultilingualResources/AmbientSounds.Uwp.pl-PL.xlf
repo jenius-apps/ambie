@@ -1332,6 +1332,14 @@
           <source>Show channels</source>
           <target state="translated">Pokaż kanały</target>
         </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">Odliczanie</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Żaden</target>
+        </trans-unit>
       </group>
     </body>
   </file>
