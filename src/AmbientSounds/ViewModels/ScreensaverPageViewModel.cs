@@ -257,7 +257,7 @@ public partial class ScreensaverPageViewModel : ObservableObject
     private void UpdateClockSettings()
     {
         ClockVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey) ||
-            _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+            _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey) == ChannelTimerMode.Countdown.ToString();
 
         FocusTimerVisible = _focusService.CurrentState is not FocusState.None;
     }

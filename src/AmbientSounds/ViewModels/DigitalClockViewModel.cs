@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Timers;
 using AmbientSounds.Constants;
+using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -95,7 +96,7 @@ public partial class DigitalClockViewModel : ObservableObject
         _countdownTimer.IntervalElapsed += OnCountdownIntervalElapsed;
         _countdownTimer.Remaining = new TimeSpan(2, 0, 0);
 
-        CountdownEnabled = _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+        CountdownEnabled = _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey) == ChannelTimerMode.Countdown.ToString();
         ShowClock = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
 
         if (ShowClock)
@@ -144,9 +145,9 @@ public partial class DigitalClockViewModel : ObservableObject
                 _clockTimer.Stop();
             }
         }
-        else if (settingKey == UserSettingsConstants.ChannelCountdownEnabledKey)
+        else if (settingKey == UserSettingsConstants.ChannelTimerModeKey)
         {
-            CountdownEnabled = _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+            CountdownEnabled = _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey) == ChannelTimerMode.Countdown.ToString();
 
             if (ShowCountdown)
             {

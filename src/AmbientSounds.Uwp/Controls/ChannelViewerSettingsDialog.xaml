@@ -42,35 +42,24 @@
                     HorizontalAlignment="Center"
                     FontSize="24"
                     FontWeight="SemiBold"
-                    Text="01:58:04"
+                    Text="{x:Bind ViewModel.ChannelClockPreview, Mode=OneWay}"
                     Typography.NumeralAlignment="Tabular"
-                    Visibility="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=OneWay}" />
+                    Visibility="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}" />
 
                 <TextBlock
                     HorizontalAlignment="Center"
                     FontSize="16"
                     FontWeight="SemiLight"
-                    Text="{x:Bind ViewModel.ChannelClockPreview, Mode=OneWay}"
+                    Text="01:58:04"
                     Typography.NumeralAlignment="Tabular"
-                    Visibility="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}" />
+                    Visibility="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=OneWay}" />
+
             </StackPanel>
         </Grid>
 
         <ToggleSwitch
             Grid.Row="1"
             Margin="0,20,0,0"
-            Header="{x:Bind strings:Resources.SettingsEnableCountdownHeader}"
-            IsOn="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=TwoWay}">
-            <ToggleSwitch.OffContent>
-                <TextBlock x:Uid="OffTextBlock" />
-            </ToggleSwitch.OffContent>
-            <ToggleSwitch.OnContent>
-                <TextBlock x:Uid="OnTextBlock" />
-            </ToggleSwitch.OnContent>
-        </ToggleSwitch>
-
-        <ToggleSwitch
-            Grid.Row="2"
             Header="{x:Bind strings:Resources.SettingsEnableClockHeader}"
             IsOn="{x:Bind ViewModel.ChannelClockEnabled, Mode=TwoWay}">
             <ToggleSwitch.OffContent>
@@ -80,5 +69,15 @@
                 <TextBlock x:Uid="OnTextBlock" />
             </ToggleSwitch.OnContent>
         </ToggleSwitch>
+
+        <ComboBox
+            Grid.Row="2"
+            HorizontalAlignment="Stretch"
+            Header="Enable timer"
+            SelectedIndex="{x:Bind ViewModel.ChannelTimerModeIndex, Mode=TwoWay}">
+            <ComboBoxItem Content="None" />
+            <ComboBoxItem Content="Focus timer" />
+            <ComboBoxItem Content="Countdown timer" />
+        </ComboBox>
     </Grid>
 </ContentDialog>

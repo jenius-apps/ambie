@@ -177,9 +177,9 @@ public static class UserSettingsConstants
     public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
 
     /// <summary>
-    /// Remembers if the user enabled the channel countdown.
+    /// Remembers the timer mode for the channel page.
     /// </summary>
-    public const string ChannelCountdownEnabledKey = "ChannelCountdownEnabled";
+    public const string ChannelTimerModeKey = nameof(ChannelTimerModeKey);
 
     /// <summary>
     /// Remembers if the user enabled the channel clock.
@@ -242,6 +242,7 @@ public static class UserSettingsConstants
         { LastUsedContentPageKey, string.Empty },
         { XboxSlideshowModeKey, SlideshowMode.Video.ToString() },
         { HasViewedFreeTrialTipKey, false },
+        { ChannelTimerModeKey, ChannelTimerMode.None.ToString() },
         { ChannelClockEnabledKey, false },
         { LastUsedFocusLengthKey, 0 },
         { LastUsedRestLengthKey, 0 },
