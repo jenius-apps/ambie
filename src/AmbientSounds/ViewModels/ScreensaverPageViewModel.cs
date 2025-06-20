@@ -256,10 +256,11 @@ public partial class ScreensaverPageViewModel : ObservableObject
 
     private void UpdateClockSettings()
     {
+        string? channelTimerModeString = _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey);
         ClockVisible = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey) ||
-            _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey) == ChannelTimerMode.Countdown.ToString();
+            channelTimerModeString == ChannelTimerMode.Countdown.ToString();
 
-        FocusTimerVisible = _focusService.CurrentState is not FocusState.None;
+        FocusTimerVisible = _focusService.CurrentState is not FocusState.None || channelTimerModeString == ChannelTimerMode.Focus.ToString();
     }
 
 
