@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Nessuno</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Il timer di messa a fuoco viene sempre visualizzato durante una sessione di messa a fuoco attiva.</value>
+  </data>
 </root>

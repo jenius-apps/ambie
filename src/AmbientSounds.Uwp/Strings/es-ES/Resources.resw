@@ -1008,4 +1008,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Ninguno</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>El temporizador de enfoque siempre se muestra durante una sesión de enfoque activa.</value>
+  </data>
 </root>

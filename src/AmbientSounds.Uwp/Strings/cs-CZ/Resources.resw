@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Žádný</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Časovač zaostření se zobrazuje vždy během aktivní relace zaostření.</value>
+  </data>
 </root>

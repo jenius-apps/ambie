@@ -1335,6 +1335,10 @@
           <source>None</source>
           <target state="translated">Niciunul</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Cronometrul de focalizare este întotdeauna afișat în timpul unei sesiuni de focalizare activă.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

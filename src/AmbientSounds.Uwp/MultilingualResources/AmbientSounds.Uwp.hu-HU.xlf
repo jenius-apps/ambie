@@ -1346,6 +1346,10 @@
           <source>None</source>
           <target state="translated">Egyik sem</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">A fókuszidőzítő mindig megjelenik aktív fókuszálás közben.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

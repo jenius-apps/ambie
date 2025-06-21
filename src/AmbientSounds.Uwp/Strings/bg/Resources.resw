@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Никой</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Таймерът за фокусиране винаги се показва по време на активна сесия за фокусиране.</value>
+  </data>
 </root>

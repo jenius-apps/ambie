@@ -1335,6 +1335,10 @@
           <source>None</source>
           <target state="translated">اي</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">يتم عرض مؤقت التركيز البؤري دائما أثناء جلسة التركيز البؤري النشطة.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

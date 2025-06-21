@@ -1339,6 +1339,10 @@
           <source>None</source>
           <target state="translated">Nenhum</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">O temporizador de focagem é sempre apresentado durante uma sessão de focagem ativa.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

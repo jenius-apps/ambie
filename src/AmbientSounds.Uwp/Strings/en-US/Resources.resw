@@ -1116,4 +1116,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>None</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Focus timer is always shown during an active focus session.</value>
+  </data>
 </root>

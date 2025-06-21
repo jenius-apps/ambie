@@ -46,6 +46,7 @@
         <TextBlock
             x:Name="ClockText"
             Grid.Column="1"
+            FontFamily="Calibri"
             FontSize="112"
             FontWeight="SemiBold"
             Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"

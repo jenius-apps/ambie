@@ -1340,6 +1340,10 @@
           <source>None</source>
           <target state="translated">Żaden</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Timer ostrości jest zawsze wyświetlany podczas aktywnej sesji ostrości.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -999,4 +999,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Egyik sem</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>A fókuszidőzítő mindig megjelenik aktív fókuszálás közben.</value>
+  </data>
 </root>

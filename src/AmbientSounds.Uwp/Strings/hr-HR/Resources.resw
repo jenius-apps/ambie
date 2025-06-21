@@ -999,4 +999,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Nijedan</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Mjerač vremena za fokusiranje uvijek se prikazuje tijekom aktivne sesije fokusiranja.</value>
+  </data>
 </root>

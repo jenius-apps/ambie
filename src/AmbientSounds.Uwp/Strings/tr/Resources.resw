@@ -1005,4 +1005,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Hiç kimse</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Odak zamanlayıcısı, aktif bir odak oturumu sırasında her zaman gösterilir.</value>
+  </data>
 </root>

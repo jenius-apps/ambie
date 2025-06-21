@@ -1005,4 +1005,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Aucun</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>La minuterie de mise au point est toujours affichée pendant une session de mise au point active.</value>
+  </data>
 </root>

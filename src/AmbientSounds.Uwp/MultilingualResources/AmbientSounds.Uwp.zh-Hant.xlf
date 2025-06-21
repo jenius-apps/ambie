@@ -1338,6 +1338,10 @@
           <source>None</source>
           <target state="translated">沒有</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">焦點計時器始終顯示在活動焦點會話期間。</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Nenhum</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>O temporizador de focagem é sempre apresentado durante uma sessão de focagem ativa.</value>
+  </data>
 </root>

@@ -1008,4 +1008,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Żaden</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Timer ostrości jest zawsze wyświetlany podczas aktywnej sesji ostrości.</value>
+  </data>
 </root>

@@ -1008,4 +1008,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>Ingen</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Fokustimern visas alltid under en aktiv fokussession.</value>
+  </data>
 </root>

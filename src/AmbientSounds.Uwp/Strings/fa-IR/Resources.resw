@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>هیچ کدام</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>تایمر فوکوس همیشه در طول یک جلسه فوکوس فعال نشان داده می شود.</value>
+  </data>
 </root>

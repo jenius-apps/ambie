@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>없음</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>초점 타이머는 활성 초점 세션 중에 항상 표시됩니다.</value>
+  </data>
 </root>

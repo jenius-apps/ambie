@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>اي</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>يتم عرض مؤقت التركيز البؤري دائما أثناء جلسة التركيز البؤري النشطة.</value>
+  </data>
 </root>

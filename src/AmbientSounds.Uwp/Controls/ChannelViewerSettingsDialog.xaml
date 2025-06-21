@@ -3,9 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:strings="using:AmbientSounds.Strings"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     Title="{x:Bind strings:Resources.SettingsText}"
     CloseButtonText="{x:Bind strings:Resources.CloseText}"
     Style="{StaticResource DefaultContentDialogStyle}"
@@ -14,6 +16,7 @@
     <Grid Width="320">
         <Grid.RowDefinitions>
             <RowDefinition Height="213" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
@@ -74,10 +77,19 @@
             Grid.Row="2"
             HorizontalAlignment="Stretch"
             Header="{x:Bind strings:Resources.Timer}"
+            IsEnabled="{x:Bind CanChangeTimerSettings}"
             SelectedIndex="{x:Bind ViewModel.ChannelTimerModeIndex, Mode=TwoWay}">
             <ComboBoxItem Content="{x:Bind strings:Resources.NoneText}" />
             <ComboBoxItem Content="{x:Bind strings:Resources.FocusText}" />
             <ComboBoxItem Content="{x:Bind strings:Resources.CountdownText}" />
         </ComboBox>
+
+        <winui:InfoBar
+            Grid.Row="3"
+            Margin="0,12,0,0"
+            IsClosable="False"
+            IsOpen="{x:Bind ex:UIExtensions.Not(CanChangeTimerSettings)}"
+            Message="{x:Bind strings:Resources.ChannelTimerFocusDisclaimer}"
+            Severity="Informational" />
     </Grid>
 </ContentDialog>

@@ -1339,6 +1339,10 @@
           <source>None</source>
           <target state="translated">Žádný</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Časovač zaostření se zobrazuje vždy během aktivní relace zaostření.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

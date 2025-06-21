@@ -1345,6 +1345,10 @@
           <source>None</source>
           <target state="translated">Nessuno</target>
         </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Il timer di messa a fuoco viene sempre visualizzato durante una sessione di messa a fuoco attiva.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

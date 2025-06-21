@@ -1011,4 +1011,7 @@
   <data name="NoneText" xml:space="preserve">
     <value>ללא</value>
   </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>טיימר מיקוד מוצג תמיד במהלך הפעלת מיקוד פעילה.</value>
+  </data>
 </root>
