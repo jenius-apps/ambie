@@ -125,8 +125,13 @@ public partial class DigitalClockViewModel : ObservableObject
         UpdateTimeText();
     }
 
-    private void OnCountdownIntervalElapsed(object sender, TimeSpan e)
+    private void OnCountdownIntervalElapsed(object sender, TimeSpan remaining)
     {
+        if (remaining.TotalMilliseconds <= 0)
+        {
+            _dispatcherQueue.TryEnqueue(ResetTimer);
+        }
+
         UpdateCountdownText();
     }
 

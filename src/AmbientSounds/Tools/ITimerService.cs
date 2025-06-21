@@ -9,7 +9,7 @@ public interface ITimerService
 {
     /// <summary>
     /// Triggered when the interval elapses.
-    /// Interval is milliseconds.
+    /// TimeSpan payload is the <see cref="Remaining"/> time left.
     /// </summary>
     /// <remarks>
     /// This is not in the UI thread.
