@@ -1005,4 +1005,13 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Показване на канали</value>
   </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Отброяване</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Никой</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Таймерът за фокусиране винаги се показва по време на активна сесия за фокусиране.</value>
+  </data>
 </root>

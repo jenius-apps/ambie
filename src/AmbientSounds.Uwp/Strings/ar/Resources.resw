@@ -1005,4 +1005,13 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>عرض القنوات</value>
   </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>العد التنازلي</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>اي</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>يتم عرض مؤقت التركيز البؤري دائما أثناء جلسة التركيز البؤري النشطة.</value>
+  </data>
 </root>

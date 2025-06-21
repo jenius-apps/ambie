@@ -1005,4 +1005,13 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>顯示頻道</value>
   </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>倒計時</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>沒有</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>焦點計時器始終顯示在活動焦點會話期間。</value>
+  </data>
 </root>

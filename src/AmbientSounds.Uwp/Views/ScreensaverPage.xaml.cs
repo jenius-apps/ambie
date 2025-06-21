@@ -60,7 +60,17 @@ public sealed partial class ScreensaverPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
+        _ = PlayConnectedAnimationAsync();
+        ClockControl.Initialize();
+
         var settings = App.Services.GetRequiredService<IUserSettings>();
+        var telemetry = App.Services.GetRequiredService<ITelemetry>();
+        telemetry.TrackPageView(nameof(ScreensaverPage));
+        telemetry.TrackEvent(TelemetryConstants.NavigatedToChannelViewer, new Dictionary<string, string>
+        {
+            { "clockEnabled", settings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey).ToString() },
+        });
+
         if (e.Parameter is ScreensaverArgs args)
         {
             await ViewModel.InitializeAsync(args);
@@ -69,14 +79,7 @@ public sealed partial class ScreensaverPage : Page
         {
             await ViewModel.InitializeAsync(settings.Get<string>(UserSettingsConstants.LastUsedChannelKey));
         }
-
-        var telemetry = App.Services.GetRequiredService<ITelemetry>();
-        telemetry.TrackPageView(nameof(ScreensaverPage));
-        telemetry.TrackEvent(TelemetryConstants.NavigatedToChannelViewer, new Dictionary<string, string>
-        {
-            { "clockEnabled", settings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey).ToString() },
-            { "clockSecondsEnabled", settings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey).ToString() },
-        });
+        await FocusTimerWidget.InitializeAsync(allowSoundPausing: false);
 
         var coreWindow = CoreWindow.GetForCurrentThread();
         coreWindow.KeyDown += CoreWindow_KeyDown;
@@ -93,7 +96,10 @@ public sealed partial class ScreensaverPage : Page
         }
 
         _displayRequest.RequestActive();
+    }
 
+    private async Task PlayConnectedAnimationAsync()
+    {
         if (ConnectedAnimationService.GetForCurrentView().GetAnimation("channelVideoClicked") is ConnectedAnimation animation)
         {
             VideoPlaceholderImage.Visibility = Visibility.Visible;
@@ -102,8 +108,6 @@ public sealed partial class ScreensaverPage : Page
             await VideoPlaceholderHide.StartAsync();
             VideoPlaceholderImage.Visibility = Visibility.Collapsed;
         }
-
-        ClockControl.Initialize();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

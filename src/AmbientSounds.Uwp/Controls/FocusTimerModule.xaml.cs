@@ -31,7 +31,7 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
 
     public async Task InitializeAsync()
     {
-        await ViewModel.InitializeAsync();
+        await ViewModel.InitializeAsync(allowSoundPausing: true);
     }
 
     public void Uninitialize() => ViewModel.Uninitialize();
@@ -109,7 +109,7 @@ public sealed partial class FocusTimerModule : UserControl, ICanInitialize
     private void OnResetClicked(object sender, RoutedEventArgs e)
     {
         StartButton.Focus(Windows.UI.Xaml.FocusState.Programmatic);
-        ViewModel.Stop();
+        ViewModel.StopCommand.Execute(null);
     }
 
     private void OnRecentClicked(object sender, ItemClickEventArgs e)

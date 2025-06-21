@@ -1327,6 +1327,18 @@
           <source>Show channels</source>
           <target state="translated">عرض القنوات</target>
         </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">العد التنازلي</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">اي</target>
+        </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">يتم عرض مؤقت التركيز البؤري دائما أثناء جلسة التركيز البؤري النشطة.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

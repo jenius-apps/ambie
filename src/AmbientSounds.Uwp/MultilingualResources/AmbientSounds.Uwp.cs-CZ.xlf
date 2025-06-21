@@ -1331,6 +1331,18 @@
           <source>Show channels</source>
           <target state="translated">Zobrazit kanály</target>
         </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">Odpočítávání</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Žádný</target>
+        </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Časovač zaostření se zobrazuje vždy během aktivní relace zaostření.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
