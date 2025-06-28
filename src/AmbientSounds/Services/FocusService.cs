@@ -133,16 +133,12 @@ public class FocusService : IFocusService
 
     public bool CanStartSession(int focusLength, int restLength) => focusLength > 0 && restLength >= 0;
 
-    public void PauseTimer(bool pauseSounds = true)
+    public void PauseTimer()
     {
         _timerService.Stop();
         _focusToastService.ClearToasts();
         CurrentState = FocusState.Paused;
-
-        if (pauseSounds)
-        {
-            _mixMediaPlayerService.Pause();
-        }
+        _mixMediaPlayerService.Pause();
     }
 
     public void StopTimer(bool sessionCompleted = false, bool pauseSounds = true)

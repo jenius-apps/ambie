@@ -990,13 +990,4 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Εμφάνιση καναλιών</value>
   </data>
-  <data name="CountdownText" xml:space="preserve">
-    <value>Αντίστροφη μέτρηση</value>
-  </data>
-  <data name="NoneText" xml:space="preserve">
-    <value>Κανένας</value>
-  </data>
-  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
-    <value>Ο χρονοδιακόπτης εστίασης εμφανίζεται πάντα κατά τη διάρκεια μιας ενεργής περιόδου λειτουργίας εστίασης.</value>
-  </data>
 </root>

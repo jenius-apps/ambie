@@ -14,12 +14,12 @@
 
     <UserControl.Resources>
         <Style x:Key="TimerColon" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="48" />
+            <Setter Property="FontSize" Value="68" />
             <Setter Property="Text" Value=":" />
         </Style>
         <Style x:Key="TimerTextBox" TargetType="winui:NumberBox">
-            <Setter Property="FontSize" Value="48" />
-            <Setter Property="Width" Value="76" />
+            <Setter Property="FontSize" Value="72" />
+            <Setter Property="Width" Value="100" />
             <Setter Property="Minimum" Value="0" />
             <Setter Property="Grid.Row" Value="1" />
             <Setter Property="PlaceholderText" Value="00" />
@@ -36,6 +36,19 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <StateTrigger IsActive="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ClockText.FontWeight" Value="SemiLight" />
+                        <Setter Target="ClockText.FontSize" Value="60" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <!--
             The ShadowTarget Border here is a *sibling* element behind where our elements which will cast
             shadows are located, this is important as otherwise if we used a parent element the
@@ -43,27 +56,7 @@
         -->
         <Border x:Name="ShadowTarget" Grid.RowSpan="2" />
 
-        <TextBlock
-            x:Name="ClockText"
-            Grid.Column="1"
-            FontFamily="Calibri"
-            FontSize="112"
-            FontWeight="SemiBold"
-            Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"
-            TextAlignment="Center"
-            Typography.NumeralAlignment="Tabular"
-            Visibility="{x:Bind ViewModel.ShowClock, Mode=OneWay}">
-            <ui:Effects.Shadow>
-                <ui:AttachedDropShadow
-                    BlurRadius="10"
-                    CastTo="{x:Bind ShadowTarget}"
-                    Opacity="0.5"
-                    Offset="0,2" />
-            </ui:Effects.Shadow>
-        </TextBlock>
-
         <Button
-            Grid.Row="1"
             Margin="0,32,16,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
@@ -76,10 +69,9 @@
         </Button>
 
         <TextBlock
-            Grid.Row="1"
             Grid.Column="1"
             Margin="0,0,0,-24"
-            FontSize="72"
+            FontSize="120"
             FontWeight="SemiBold"
             Text="{x:Bind ViewModel.CountdownText, Mode=OneWay}"
             TextAlignment="Center"
@@ -96,7 +88,6 @@
 
         <Grid
             x:Name="CountdownInput"
-            Grid.Row="1"
             Grid.Column="1"
             HorizontalAlignment="Center"
             RowSpacing="8"
@@ -154,7 +145,6 @@
         </Grid>
 
         <Button
-            Grid.Row="1"
             Grid.Column="2"
             Margin="16,32,0,0"
             VerticalAlignment="Center"
@@ -173,5 +163,24 @@
                     Visibility="{x:Bind ex:UIExtensions.InvertBoolToVis(ViewModel.CanStart), Mode=OneWay}" />
             </Grid>
         </Button>
+
+        <TextBlock
+            x:Name="ClockText"
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="120"
+            FontWeight="SemiBold"
+            Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"
+            TextAlignment="Center"
+            Typography.NumeralAlignment="Tabular"
+            Visibility="{x:Bind ViewModel.ShowClock, Mode=OneWay}">
+            <ui:Effects.Shadow>
+                <ui:AttachedDropShadow
+                    BlurRadius="10"
+                    CastTo="{x:Bind ShadowTarget}"
+                    Opacity="0.5"
+                    Offset="0,2" />
+            </ui:Effects.Shadow>
+        </TextBlock>
     </Grid>
 </UserControl>

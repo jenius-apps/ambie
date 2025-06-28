@@ -8,6 +8,8 @@ using JeniusApps.Common.Telemetry;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+#nullable enable
+
 namespace AmbientSounds.ViewModels;
 
 public sealed partial class CompactPageViewModel : ObservableObject
@@ -27,7 +29,7 @@ public sealed partial class CompactPageViewModel : ObservableObject
         IUserSettings userSettings,
         ICompactNavigator compactNavigator,
         ITelemetry telemetry)
-    {
+    {                   
         Guard.IsNotNull(navigator);
         Guard.IsNotNull(userSettings);
         Guard.IsNotNull(compactNavigator);

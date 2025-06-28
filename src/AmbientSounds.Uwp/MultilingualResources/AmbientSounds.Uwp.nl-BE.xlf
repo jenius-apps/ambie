@@ -1336,18 +1336,6 @@
           <source>Show channels</source>
           <target state="translated">Toon kanalen</target>
         </trans-unit>
-        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
-          <source>Countdown</source>
-          <target state="translated">Aftellen</target>
-        </trans-unit>
-        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">Geen</target>
-        </trans-unit>
-        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
-          <source>Focus timer is always shown during an active focus session.</source>
-          <target state="translated">De focustimer wordt altijd weergegeven tijdens een actieve focussessie.</target>
-        </trans-unit>
       </group>
     </body>
   </file>

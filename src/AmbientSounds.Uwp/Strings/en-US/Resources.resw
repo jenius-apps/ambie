@@ -1110,13 +1110,4 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Show channels</value>
   </data>
-  <data name="CountdownText" xml:space="preserve">
-    <value>Countdown</value>
-  </data>
-  <data name="NoneText" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
-    <value>Focus timer is always shown during an active focus session.</value>
-  </data>
 </root>

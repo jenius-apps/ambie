@@ -69,8 +69,7 @@ public partial class SettingsViewModel : ObservableObject
             BackgroundImageDescription = "🥰 " + localizer.GetString("SettingsBackgroundDescription");
         }
 
-        _xboxDisplayModeSelectedIndex = (int)GetEnum(UserSettingsConstants.XboxSlideshowModeKey, SlideshowMode.Images);
-        _channelTimerModeIndex = (int)GetEnum(UserSettingsConstants.ChannelTimerModeKey, ChannelTimerMode.None);
+        _xboxDisplayModeSelectedIndex = GetInitialXboxDisplayModeIndex();
 
         DeviceId = _userSettings.Get<string>(UserSettingsConstants.LocalUserIdKey) ?? string.Empty;
     }
@@ -92,13 +91,6 @@ public partial class SettingsViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _promoCodeVisible;
-
-    /// <summary>
-    /// Determines the selected index for the channel timer mode.
-    /// </summary>
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(ChannelCountdownEnabled))]
-    private int _channelTimerModeIndex;
 
     /// <summary>
     /// Paths to available background images.
@@ -157,10 +149,18 @@ public partial class SettingsViewModel : ObservableObject
         set => _userSettings.Set(UserSettingsConstants.CompactOnFocusKey, value);
     }
 
-    /// <summary>
-    /// Determines if the countdown timer on the channel viewer page is enabled.
-    /// </summary>
-    public bool ChannelCountdownEnabled => ((ChannelTimerMode)ChannelTimerModeIndex) is ChannelTimerMode.Countdown;
+    public bool ChannelCountdownEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelCountdownEnabledKey, value);
+            OnPropertyChanged();
+            _telemetry.TrackEvent(value
+                ? TelemetryConstants.ChannelViewerCountdownkEnabled
+                : TelemetryConstants.ChannelViewerCountdownDisabled);
+        }
+    }
 
     public bool ChannelClockEnabled
     {
@@ -175,7 +175,22 @@ public partial class SettingsViewModel : ObservableObject
         }
     }
 
-    public string ChannelClockPreview => DateTime.Now.ToShortTimeString();
+    public string ChannelClockPreview => ChannelClockSecondsEnabled
+        ? DateTime.Now.ToLongTimeString()
+        : DateTime.Now.ToShortTimeString();
+
+    public bool ChannelClockSecondsEnabled
+    {
+        get => _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
+        set
+        {
+            _userSettings.Set(UserSettingsConstants.ChannelClockSecondsEnabledKey, value);
+            OnPropertyChanged(nameof(ChannelClockPreview));
+            _telemetry.TrackEvent(value is true
+                ? TelemetryConstants.ChannelViewerClockSecondsEnabled
+                : TelemetryConstants.ChannelViewerClockSecondsDisabled);
+        }
+    }
 
     public bool StreaksReminderEnabled
     {
@@ -263,10 +278,15 @@ public partial class SettingsViewModel : ObservableObject
         PromoCodeVisible = await _iapService.CanShowPremiumButtonsAsync();
     }
 
-    private TEnum GetEnum<TEnum>(string settingsKey, TEnum defaultValue) where TEnum : struct
+    private int GetInitialXboxDisplayModeIndex()
     {
-        string? rawStringValue = _userSettings.Get<string>(settingsKey);
-        return Enum.TryParse(rawStringValue, out TEnum result) ? result : defaultValue;
+        string? displayModeString = _userSettings.Get<string>(UserSettingsConstants.XboxSlideshowModeKey);
+        if (Enum.TryParse(displayModeString, out SlideshowMode result))
+        {
+            return (int)result;
+        }
+
+        return (int)SlideshowMode.Images;
     }
 
     public void Uninitialize()
@@ -422,25 +442,6 @@ public partial class SettingsViewModel : ObservableObject
             {
                 { "mode", mode.ToString() }
             });
-        }
-    }
-
-    partial void OnChannelTimerModeIndexChanged(int oldIndex, int newIndex)
-    {
-        if (oldIndex == newIndex)
-        {
-            return;
-        }
-
-        if (Enum.GetNames(typeof(ChannelTimerMode)).Length > newIndex && newIndex >= 0)
-        {
-            var mode = (ChannelTimerMode)newIndex;
-            _userSettings.Set(UserSettingsConstants.ChannelTimerModeKey, mode.ToString());
-
-            //_telemetry.TrackEvent(TelemetryConstants.XboxSlideshowModeChanged, new Dictionary<string, string>
-            //{
-            //    { "mode", mode.ToString() }
-            //});
         }
     }
 }

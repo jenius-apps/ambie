@@ -177,14 +177,19 @@ public static class UserSettingsConstants
     public const string HasViewedFreeTrialTipKey = "HasViewedFreeTrialTip";
 
     /// <summary>
-    /// Remembers the timer mode for the channel page.
+    /// Remembers if the user enabled the channel countdown.
     /// </summary>
-    public const string ChannelTimerModeKey = nameof(ChannelTimerModeKey);
+    public const string ChannelCountdownEnabledKey = "ChannelCountdownEnabled";
 
     /// <summary>
     /// Remembers if the user enabled the channel clock.
     /// </summary>
     public const string ChannelClockEnabledKey = "ChannelClockEnabled";
+
+    /// <summary>
+    /// Remembers if the user enabled the channel clock's seconds.
+    /// </summary>
+    public const string ChannelClockSecondsEnabledKey = "ChannelClockSecondsEnabled";
 
     /// <summary>
     /// Remembers your last used timer focus length.
@@ -232,7 +237,7 @@ public static class UserSettingsConstants
         { DevicePresenceIdKey, string.Empty },
         { CompactOnFocusKey, true },
         { HasLoadedPackagedSoundsKey, false },
-        { PlayAfterFocusKey, true },
+        { PlayAfterFocusKey, true }, 
         { QuickResumeKey, false },
         { ShowHomePageDownloadMessageKey, true },
         { ActiveStreakKey, 0 },
@@ -242,8 +247,8 @@ public static class UserSettingsConstants
         { LastUsedContentPageKey, string.Empty },
         { XboxSlideshowModeKey, SlideshowMode.Video.ToString() },
         { HasViewedFreeTrialTipKey, false },
-        { ChannelTimerModeKey, ChannelTimerMode.None.ToString() },
         { ChannelClockEnabledKey, false },
+        { ChannelClockSecondsEnabledKey, false },
         { LastUsedFocusLengthKey, 0 },
         { LastUsedRestLengthKey, 0 },
         { LastUsedRepetitionsKey, 0 },

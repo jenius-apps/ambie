@@ -38,7 +38,7 @@ namespace AmbientSounds.Views
             telemetry.TrackPageView(nameof(FocusPage));
 
             var mainTask = ViewModel.InitializeAsync();
-            await Task.WhenAll(_controlsToInitialize.Select(static x => x.InitializeAsync()));
+            await Task.WhenAll(_controlsToInitialize.Select(x => x.InitializeAsync()));
             await mainTask;
         }
 

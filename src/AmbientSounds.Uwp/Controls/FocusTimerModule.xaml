@@ -518,7 +518,7 @@
                         x:Name="StartButton"
                         Grid.ColumnSpan="2"
                         AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
-                        Command="{x:Bind ViewModel.PlayOrPauseCommand}"
+                        Click="{x:Bind ViewModel.PlayOrPause}"
                         IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
                         Style="{StaticResource TimerActionButton}">
                         <Grid>

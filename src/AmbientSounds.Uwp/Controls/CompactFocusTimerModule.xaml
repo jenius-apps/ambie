@@ -138,7 +138,7 @@
             <Button
                 Grid.Column="6"
                 AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
-                Command="{x:Bind ViewModel.PlayOrPauseCommand}"
+                Click="{x:Bind ViewModel.PlayOrPause}"
                 IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
                 Style="{StaticResource SmallSubtleIconButton}">
                 <FontIcon FontSize="12" Style="{StaticResource PlayTimerIcon}" />
@@ -228,7 +228,7 @@
                 Orientation="Horizontal">
                 <Button
                     AutomationProperties.Name="{x:Bind ViewModel.PrimaryButtonText, Mode=OneWay}"
-                    Command="{x:Bind ViewModel.PlayOrPauseCommand}"
+                    Click="{x:Bind ViewModel.PlayOrPause}"
                     IsEnabled="{x:Bind ViewModel.PlayEnabled, Mode=OneWay}"
                     Style="{StaticResource SmallSubtleIconButton}">
                     <Grid>
@@ -243,7 +243,7 @@
                     </Grid>
                 </Button>
                 <Button
-                    Command="{x:Bind ViewModel.StopCommand}"
+                    Click="{x:Bind ViewModel.Stop}"
                     Style="{StaticResource SmallSubtleIconButton}"
                     Visibility="{x:Bind ViewModel.CancelVisible, Mode=OneWay}">
                     <FontIcon FontSize="12" Style="{StaticResource StopTimerIcon}" />

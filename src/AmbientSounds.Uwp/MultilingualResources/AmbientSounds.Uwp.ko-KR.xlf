@@ -1331,18 +1331,6 @@
           <source>Show channels</source>
           <target state="translated">채널 표시</target>
         </trans-unit>
-        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
-          <source>Countdown</source>
-          <target state="translated">카운트다운</target>
-        </trans-unit>
-        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">없음</target>
-        </trans-unit>
-        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
-          <source>Focus timer is always shown during an active focus session.</source>
-          <target state="translated">초점 타이머는 활성 초점 세션 중에 항상 표시됩니다.</target>
-        </trans-unit>
       </group>
     </body>
   </file>

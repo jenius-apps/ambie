@@ -1327,18 +1327,6 @@
           <source>Show channels</source>
           <target state="translated">Показване на канали</target>
         </trans-unit>
-        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
-          <source>Countdown</source>
-          <target state="translated">Отброяване</target>
-        </trans-unit>
-        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
-          <source>None</source>
-          <target state="translated">Никой</target>
-        </trans-unit>
-        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
-          <source>Focus timer is always shown during an active focus session.</source>
-          <target state="translated">Таймерът за фокусиране винаги се показва по време на активна сесия за фокусиране.</target>
-        </trans-unit>
       </group>
     </body>
   </file>

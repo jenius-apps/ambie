@@ -1002,13 +1002,4 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Afișați canalele</value>
   </data>
-  <data name="CountdownText" xml:space="preserve">
-    <value>Numărătoarea inversă</value>
-  </data>
-  <data name="NoneText" xml:space="preserve">
-    <value>Niciunul</value>
-  </data>
-  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
-    <value>Cronometrul de focalizare este întotdeauna afișat în timpul unei sesiuni de focalizare activă.</value>
-  </data>
 </root>

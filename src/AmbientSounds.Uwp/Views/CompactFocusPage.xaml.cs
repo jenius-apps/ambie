@@ -12,7 +12,7 @@ public sealed partial class CompactFocusPage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
-        await TimerModule.InitializeAsync(allowSoundPausing: true);
+        await TimerModule.InitializeAsync();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)

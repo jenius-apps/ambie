@@ -975,13 +975,4 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Toon kanalen</value>
   </data>
-  <data name="CountdownText" xml:space="preserve">
-    <value>Aftellen</value>
-  </data>
-  <data name="NoneText" xml:space="preserve">
-    <value>Geen</value>
-  </data>
-  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
-    <value>De focustimer wordt altijd weergegeven tijdens een actieve focussessie.</value>
-  </data>
 </root>

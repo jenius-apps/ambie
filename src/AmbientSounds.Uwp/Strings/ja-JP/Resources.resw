@@ -1005,13 +1005,4 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>チャンネルを表示</value>
   </data>
-  <data name="CountdownText" xml:space="preserve">
-    <value>カウントダウン</value>
-  </data>
-  <data name="NoneText" xml:space="preserve">
-    <value>何一つ</value>
-  </data>
-  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
-    <value>フォーカスタイマーは、アクティブフォーカスセッション中に常に表示されます。</value>
-  </data>
 </root>

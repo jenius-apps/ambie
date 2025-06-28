@@ -1005,13 +1005,4 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Zobrazit kanály</value>
   </data>
-  <data name="CountdownText" xml:space="preserve">
-    <value>Odpočítávání</value>
-  </data>
-  <data name="NoneText" xml:space="preserve">
-    <value>Žádný</value>
-  </data>
-  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
-    <value>Časovač zaostření se zobrazuje vždy během aktivní relace zaostření.</value>
-  </data>
 </root>

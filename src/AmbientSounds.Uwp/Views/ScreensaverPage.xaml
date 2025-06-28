@@ -157,38 +157,19 @@
 
         <controls:Screensaver x:Name="ScreensaverControl" Visibility="{x:Bind ViewModel.SlideshowVisible, Mode=OneWay}" />
 
-        <!--  clock timer controls  -->
-        <Grid
+        <controls:DigitalClock
+            x:Name="ClockControl"
             Margin="0,120,0,0"
             VerticalAlignment="Top"
-            Canvas.ZIndex="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-            <controls:DigitalClock x:Name="ClockControl" Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
-                <ani:Implicit.ShowAnimations>
-                    <ani:OpacityAnimation
-                        From="0"
-                        To="1"
-                        Duration="0:0:5" />
-                </ani:Implicit.ShowAnimations>
-            </controls:DigitalClock>
-
-            <Border
-                Grid.Row="1"
-                Width="328"
-                MinHeight="100"
-                Margin="0,4,0,0"
-                HorizontalAlignment="Center"
-                Background="{ThemeResource BackgroundAcrylicBrush}"
-                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                BorderThickness="1"
-                CornerRadius="4"
-                Visibility="{x:Bind ViewModel.FocusTimerVisible, Mode=OneWay}">
-                <controls:CompactFocusTimerModule x:Name="FocusTimerWidget" />
-            </Border>
-        </Grid>
+            Canvas.ZIndex="1"
+            Visibility="{x:Bind ViewModel.ClockVisible, Mode=OneWay}">
+            <ani:Implicit.ShowAnimations>
+                <ani:OpacityAnimation
+                    From="0"
+                    To="1"
+                    Duration="0:0:5" />
+            </ani:Implicit.ShowAnimations>
+        </controls:DigitalClock>
 
         <Grid
             x:Name="VideosGrid"
