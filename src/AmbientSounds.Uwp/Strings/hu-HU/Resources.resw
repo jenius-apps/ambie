@@ -993,4 +993,13 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Csatornák megjelenítése</value>
   </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Visszaszámlálás</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Egyik sem</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>A fókuszidőzítő mindig megjelenik aktív fókuszálás közben.</value>
+  </data>
 </root>

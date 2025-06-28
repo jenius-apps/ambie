@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Timers;
 using AmbientSounds.Constants;
+using AmbientSounds.Models;
+using AmbientSounds.Services;
 using AmbientSounds.Tools;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -17,6 +19,7 @@ public partial class DigitalClockViewModel : ObservableObject
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ITimerService _countdownTimer;
     private readonly ITelemetry _telemetry;
+    private readonly IFocusService _focusService;
     private readonly Timer _clockTimer = new()
     {
         Interval = 1000 // milliseconds
@@ -26,12 +29,14 @@ public partial class DigitalClockViewModel : ObservableObject
         IUserSettings userSettings,
         IDispatcherQueue dispatcherQueue,
         ITimerService timerService,
-        ITelemetry telemetry)
+        ITelemetry telemetry,
+        IFocusService focusService)
     {
         _userSettings = userSettings;
         _dispatcherQueue = dispatcherQueue;
         _countdownTimer = timerService;
         _telemetry = telemetry;
+        _focusService = focusService;
 
         _countdownTimer.Interval = 1000; // milliseconds
     }
@@ -52,15 +57,21 @@ public partial class DigitalClockViewModel : ObservableObject
     private string _countdownText = string.Empty;
 
     [ObservableProperty]
-    private bool _showSeconds;
-
-    [ObservableProperty]
     private bool _showClock;
 
+    /// <summary>
+    /// Boolean to track if the countdown is enabled via settings.
+    /// </summary>
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(CountdownTimerVisible))]
     [NotifyPropertyChangedFor(nameof(CountdownInputVisible))]
-    private bool _showCountdown;
+    [NotifyPropertyChangedFor(nameof(ShowCountdown))]
+    private bool _countdownEnabled;
+
+    /// <summary>
+    /// Determines if the countdown control should be shown.
+    /// </summary>
+    public bool ShowCountdown => CountdownEnabled && _focusService.CurrentState is FocusState.None;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(CountdownTimerVisible))]
@@ -85,8 +96,7 @@ public partial class DigitalClockViewModel : ObservableObject
         _countdownTimer.IntervalElapsed += OnCountdownIntervalElapsed;
         _countdownTimer.Remaining = new TimeSpan(2, 0, 0);
 
-        ShowCountdown = _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
-        ShowSeconds = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
+        CountdownEnabled = _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey) == ChannelTimerMode.Countdown.ToString();
         ShowClock = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockEnabledKey);
 
         if (ShowClock)
@@ -140,14 +150,9 @@ public partial class DigitalClockViewModel : ObservableObject
                 _clockTimer.Stop();
             }
         }
-        else if (settingKey == UserSettingsConstants.ChannelClockSecondsEnabledKey)
+        else if (settingKey == UserSettingsConstants.ChannelTimerModeKey)
         {
-            ShowSeconds = _userSettings.Get<bool>(UserSettingsConstants.ChannelClockSecondsEnabledKey);
-            UpdateTimeText();
-        }
-        else if (settingKey == UserSettingsConstants.ChannelCountdownEnabledKey)
-        {
-            ShowCountdown = _userSettings.Get<bool>(UserSettingsConstants.ChannelCountdownEnabledKey);
+            CountdownEnabled = _userSettings.Get<string>(UserSettingsConstants.ChannelTimerModeKey) == ChannelTimerMode.Countdown.ToString();
 
             if (ShowCountdown)
             {
@@ -169,7 +174,7 @@ public partial class DigitalClockViewModel : ObservableObject
 
         _dispatcherQueue.TryEnqueue(() =>
         {
-            TimeText = ShowSeconds ? DateTime.Now.ToLongTimeString() : DateTime.Now.ToShortTimeString();
+            TimeText = DateTime.Now.ToShortTimeString();
         });
     }
 

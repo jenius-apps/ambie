@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace AmbientSounds.Controls;
 
-public sealed partial class CompactFocusTimerModule : UserControl, ICanInitialize
+public sealed partial class CompactFocusTimerModule : UserControl
 {
     public CompactFocusTimerModule()
     {
@@ -18,9 +18,9 @@ public sealed partial class CompactFocusTimerModule : UserControl, ICanInitializ
 
     public FocusTimerModuleViewModel ViewModel => (FocusTimerModuleViewModel)this.DataContext;
 
-    public async Task InitializeAsync()
+    public async Task InitializeAsync(bool allowSoundPausing)
     {
-        await ViewModel.InitializeAsync();
+        await ViewModel.InitializeAsync(allowSoundPausing);
     }
 
     public void Uninitialize()

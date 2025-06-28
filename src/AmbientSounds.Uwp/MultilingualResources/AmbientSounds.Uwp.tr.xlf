@@ -1341,6 +1341,18 @@
           <source>Show channels</source>
           <target state="translated">Kanalları göster</target>
         </trans-unit>
+        <trans-unit id="CountdownText" translate="yes" xml:space="preserve">
+          <source>Countdown</source>
+          <target state="translated">Geri sayım</target>
+        </trans-unit>
+        <trans-unit id="NoneText" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <target state="translated">Hiç kimse</target>
+        </trans-unit>
+        <trans-unit id="ChannelTimerFocusDisclaimer" translate="yes" xml:space="preserve">
+          <source>Focus timer is always shown during an active focus session.</source>
+          <target state="translated">Odak zamanlayıcısı, aktif bir odak oturumu sırasında her zaman gösterilir.</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1002,4 +1002,13 @@
   <data name="ChannelSwitcherShow" xml:space="preserve">
     <value>Visa kanaler</value>
   </data>
+  <data name="CountdownText" xml:space="preserve">
+    <value>Nedräkning</value>
+  </data>
+  <data name="NoneText" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
+  <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
+    <value>Fokustimern visas alltid under en aktiv fokussession.</value>
+  </data>
 </root>

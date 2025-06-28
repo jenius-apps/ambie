@@ -35,7 +35,7 @@ namespace AmbientSounds.Services
         /// <summary>
         /// Pauses the given focus session.
         /// </summary>
-        void PauseTimer();
+        void PauseTimer(bool pauseSounds = true);
 
         /// <summary>
         /// Resumes the current active focus session.
