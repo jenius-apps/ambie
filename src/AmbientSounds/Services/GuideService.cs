@@ -89,7 +89,8 @@ public class GuideService : IGuideService
 
     public void Stop()
     {
-        if (_mixMediaPlayerService.FeaturedSoundId is { Length: > 0 } guideId)
+        if (_mixMediaPlayerService.FeaturedSoundType is FeaturedSoundType.Guide &&
+            _mixMediaPlayerService.FeaturedSoundId is { Length: > 0 } guideId)
         {
             Stop(guideId);
         }

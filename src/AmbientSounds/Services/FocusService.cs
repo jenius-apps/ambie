@@ -121,7 +121,7 @@ public class FocusService : IFocusService
     private void PlaySounds()
     {
         var sounds = _mixMediaPlayerService.GetSoundIds();
-        if (sounds.Length > 0)
+        if (sounds.Length > 0 || !string.IsNullOrEmpty(_mixMediaPlayerService.FeaturedSoundId))
         {
             _mixMediaPlayerService.Play();
         }
