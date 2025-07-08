@@ -49,11 +49,38 @@
                     Typography.NumeralAlignment="Tabular"
                     Visibility="{x:Bind ViewModel.ChannelClockEnabled, Mode=OneWay}" />
 
+                <StackPanel
+                    Margin="0,4,0,0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    Visibility="{x:Bind ViewModel.ChannelFocusEnabled, Mode=OneWay}">
+                    <FontIcon
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphFocus}" />
+                    <TextBlock
+                        Margin="6,0"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="SemiLight"
+                        Text="05:32/20:00"
+                        TextLineBounds="Tight"
+                        Typography.NumeralAlignment="Tabular" />
+                    <FontIcon
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource FluentUIGlyphs}"
+                        FontSize="14"
+                        Glyph="{StaticResource GlyphPlay}" />
+                </StackPanel>
+
                 <TextBlock
+                    Margin="0,4,0,0"
                     HorizontalAlignment="Center"
                     FontSize="16"
                     FontWeight="SemiLight"
                     Text="01:58:04"
+                    TextLineBounds="Tight"
                     Typography.NumeralAlignment="Tabular"
                     Visibility="{x:Bind ViewModel.ChannelCountdownEnabled, Mode=OneWay}" />
 

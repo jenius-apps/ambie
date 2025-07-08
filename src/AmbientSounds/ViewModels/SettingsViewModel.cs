@@ -98,6 +98,7 @@ public partial class SettingsViewModel : ObservableObject
     /// </summary>
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(ChannelCountdownEnabled))]
+    [NotifyPropertyChangedFor(nameof(ChannelFocusEnabled))]
     private int _channelTimerModeIndex;
 
     /// <summary>
@@ -161,6 +162,11 @@ public partial class SettingsViewModel : ObservableObject
     /// Determines if the countdown timer on the channel viewer page is enabled.
     /// </summary>
     public bool ChannelCountdownEnabled => ((ChannelTimerMode)ChannelTimerModeIndex) is ChannelTimerMode.Countdown;
+
+    /// <summary>
+    /// Determines if the focus timer on the channel viewer page is enabled.
+    /// </summary>
+    public bool ChannelFocusEnabled => ((ChannelTimerMode)ChannelTimerModeIndex) is ChannelTimerMode.Focus;
 
     public bool ChannelClockEnabled
     {
