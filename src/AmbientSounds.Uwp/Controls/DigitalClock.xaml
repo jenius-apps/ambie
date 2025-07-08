@@ -6,6 +6,7 @@
     xmlns:ex="using:JeniusApps.Common.UI.Uwp"
     xmlns:local="using:AmbientSounds.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:strings="using:AmbientSounds.Strings"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     d:DesignHeight="300"
@@ -141,8 +142,10 @@
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
                 <Button
+                    AutomationProperties.Name="{x:Bind GetPlayButtonAutomationName(ViewModel.CanStart), Mode=OneWay}"
                     Command="{x:Bind ViewModel.ToggleTimerCommand}"
                     Style="{StaticResource SmallSubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind GetPlayButtonAutomationName(ViewModel.CanStart), Mode=OneWay}"
                     Visibility="{x:Bind ViewModel.ShowCountdown, Mode=OneWay}">
                     <Grid>
                         <FontIcon
@@ -160,8 +163,10 @@
 
                 <Button
                     Margin="2,0,0,0"
+                    AutomationProperties.Name="{x:Bind strings:Resources.CancelText}"
                     Command="{x:Bind ViewModel.ResetTimerCommand}"
                     Style="{StaticResource SmallSubtleIconButton}"
+                    ToolTipService.ToolTip="{x:Bind strings:Resources.CancelText}"
                     Visibility="{x:Bind ViewModel.CountdownActive, Mode=OneWay}">
                     <FontIcon
                         FontFamily="{StaticResource FluentUIGlyphs}"
