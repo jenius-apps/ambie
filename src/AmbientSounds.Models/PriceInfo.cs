@@ -11,7 +11,7 @@ public class PriceInfo
     /// <remarks>
     /// Formatted as productid/skuid. E.g. 9PXXXXXXX/0101
     /// </remarks>
-    public required string SkuId { get; init; }
+    public string SkuId { get; init; } = string.Empty;
 
     /// <summary>
     /// The localized and formatted price of the product.
