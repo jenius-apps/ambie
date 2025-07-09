@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>焦点计时器始终显示在活动焦点会话期间。</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>小时</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>分钟</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>周</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>年</value>
+  </data>
 </root>

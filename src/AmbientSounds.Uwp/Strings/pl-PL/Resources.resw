@@ -1011,4 +1011,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Timer ostrości jest zawsze wyświetlany podczas aktywnej sesji ostrości.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dzień</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>godzina</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuta</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>miesiąc</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>tydzień</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>rok</value>
+  </data>
 </root>

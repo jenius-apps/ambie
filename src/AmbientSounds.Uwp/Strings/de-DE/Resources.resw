@@ -1005,4 +1005,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Der Fokus-Timer wird immer während einer aktiven Fokussitzung angezeigt.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>Stunde</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>Minute</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>Monat</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>Woche</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>Jahr</value>
+  </data>
 </root>

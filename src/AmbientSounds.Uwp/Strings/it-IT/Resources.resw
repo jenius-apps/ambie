@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Il timer di messa a fuoco viene sempre visualizzato durante una sessione di messa a fuoco attiva.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>giorno</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>ora</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuto</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>mese</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>settimana</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>anno</value>
+  </data>
 </root>

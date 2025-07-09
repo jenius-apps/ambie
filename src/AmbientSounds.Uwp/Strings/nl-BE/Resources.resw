@@ -984,4 +984,19 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>De focustimer wordt altijd weergegeven tijdens een actieve focussessie.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dag</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>uur</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuut</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>maand</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>jaar</value>
+  </data>
 </root>

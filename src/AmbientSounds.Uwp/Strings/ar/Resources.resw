@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>يتم عرض مؤقت التركيز البؤري دائما أثناء جلسة التركيز البؤري النشطة.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>يوم</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>ساعة</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>دقيقة</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>شهر</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>أسبوع</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>سنة</value>
+  </data>
 </root>

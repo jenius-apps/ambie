@@ -119,18 +119,16 @@ public sealed partial class PriceButtonContent : UserControl
 
     private static string HumanizeRecurrence(DurationUnit unit)
     {
-        var result = unit switch
+        return unit switch
         {
-            DurationUnit.Minute => TimeUnit.Minute.Humanize(),
-            DurationUnit.Hour => TimeUnit.Hour.Humanize(),
-            DurationUnit.Day => TimeUnit.Day.Humanize(),
-            DurationUnit.Week => TimeUnit.Week.Humanize(),
-            DurationUnit.Month => TimeUnit.Month.Humanize(),
-            DurationUnit.Year => TimeUnit.Year.Humanize(),
+            DurationUnit.Minute => Strings.Resources.DurationUnitMinute,
+            DurationUnit.Hour => Strings.Resources.DurationUnitHour,
+            DurationUnit.Day => Strings.Resources.DurationUnitDay,
+            DurationUnit.Week => Strings.Resources.DurationUnitWeek,
+            DurationUnit.Month => Strings.Resources.DurationUnitMonth,
+            DurationUnit.Year => Strings.Resources.DurationUnitYear,
             _ => string.Empty
         };
-
-        return result.ToLower();
     }
 
     private static string HumanizeTime(int length, DurationUnit unit)

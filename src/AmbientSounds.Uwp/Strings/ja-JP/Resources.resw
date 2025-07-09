@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>フォーカスタイマーは、アクティブフォーカスセッション中に常に表示されます。</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>時</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>分</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>週</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>年</value>
+  </data>
 </root>

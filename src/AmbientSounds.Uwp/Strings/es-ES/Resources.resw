@@ -1011,4 +1011,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>El temporizador de enfoque siempre se muestra durante una sesión de enfoque activa.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>día</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>hora</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuto</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>mes</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>semana</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>año</value>
+  </data>
 </root>

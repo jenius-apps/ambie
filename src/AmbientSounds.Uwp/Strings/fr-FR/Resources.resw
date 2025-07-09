@@ -1008,4 +1008,19 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>La minuterie de mise au point est toujours affichée pendant une session de mise au point active.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>jour</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>heure</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>mois</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>semaine</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>année</value>
+  </data>
 </root>

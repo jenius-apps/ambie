@@ -999,4 +999,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Ο χρονοδιακόπτης εστίασης εμφανίζεται πάντα κατά τη διάρκεια μιας ενεργής περιόδου λειτουργίας εστίασης.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>μέρα</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>ώρα</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>λεπτό</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>μήνας</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>εβδομάδα</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>έτος</value>
+  </data>
 </root>

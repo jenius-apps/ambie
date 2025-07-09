@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>초점 타이머는 활성 초점 세션 중에 항상 표시됩니다.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>하루</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>시</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>분</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>달</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>주</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>년</value>
+  </data>
 </root>
