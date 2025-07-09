@@ -1008,4 +1008,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Odak zamanlayıcısı, aktif bir odak oturumu sırasında her zaman gösterilir.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>gün</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>saat</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>dakika</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>ay</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>hafta</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>yıl</value>
+  </data>
 </root>

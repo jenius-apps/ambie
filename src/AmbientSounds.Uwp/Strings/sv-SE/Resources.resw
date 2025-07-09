@@ -1011,4 +1011,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Fokustimern visas alltid under en aktiv fokussession.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dag</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>timme</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minut</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>månad</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>vecka</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>år</value>
+  </data>
 </root>

@@ -1119,4 +1119,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Focus timer is always shown during an active focus session.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>day</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>hour</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>month</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>week</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>year</value>
+  </data>
 </root>

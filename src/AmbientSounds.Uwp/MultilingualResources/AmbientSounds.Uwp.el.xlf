@@ -1339,6 +1339,30 @@
           <source>Focus timer is always shown during an active focus session.</source>
           <target state="translated">Ο χρονοδιακόπτης εστίασης εμφανίζεται πάντα κατά τη διάρκεια μιας ενεργής περιόδου λειτουργίας εστίασης.</target>
         </trans-unit>
+        <trans-unit id="DurationUnitDay" translate="yes" xml:space="preserve">
+          <source>day</source>
+          <target state="translated">μέρα</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitHour" translate="yes" xml:space="preserve">
+          <source>hour</source>
+          <target state="translated">ώρα</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMinute" translate="yes" xml:space="preserve">
+          <source>minute</source>
+          <target state="translated">λεπτό</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitMonth" translate="yes" xml:space="preserve">
+          <source>month</source>
+          <target state="translated">μήνας</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitWeek" translate="yes" xml:space="preserve">
+          <source>week</source>
+          <target state="translated">εβδομάδα</target>
+        </trans-unit>
+        <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
+          <source>year</source>
+          <target state="translated">έτος</target>
+        </trans-unit>
       </group>
     </body>
   </file>

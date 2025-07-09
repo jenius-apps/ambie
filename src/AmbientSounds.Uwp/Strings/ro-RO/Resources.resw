@@ -1011,4 +1011,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Cronometrul de focalizare este întotdeauna afișat în timpul unei sesiuni de focalizare activă.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>zi</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>oră</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minut</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>lună</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>săptămână</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>an</value>
+  </data>
 </root>

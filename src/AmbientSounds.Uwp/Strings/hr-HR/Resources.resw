@@ -1002,4 +1002,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Mjerač vremena za fokusiranje uvijek se prikazuje tijekom aktivne sesije fokusiranja.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>dan</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>sat</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuta</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>mjesec</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>tjedan</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>godina</value>
+  </data>
 </root>

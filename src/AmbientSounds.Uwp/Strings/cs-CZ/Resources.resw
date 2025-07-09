@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Časovač zaostření se zobrazuje vždy během aktivní relace zaostření.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>den</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>hodina</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minuta</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>měsíc</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>týden</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>rok</value>
+  </data>
 </root>

@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>טיימר מיקוד מוצג תמיד במהלך הפעלת מיקוד פעילה.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>יום</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>שעה</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>דקה</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>חודש</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>שבוע</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>שנה</value>
+  </data>
 </root>

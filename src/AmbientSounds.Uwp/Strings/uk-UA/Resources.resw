@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>Таймер фокусування завжди відображається під час активного сеансу фокусування.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>день</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>година</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>хвилина</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>місяць</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>тиждень</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>рік</value>
+  </data>
 </root>

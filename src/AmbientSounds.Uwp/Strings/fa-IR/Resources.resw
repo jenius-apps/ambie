@@ -1014,4 +1014,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>تایمر فوکوس همیشه در طول یک جلسه فوکوس فعال نشان داده می شود.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>روز</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>ساعت</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>دقیقه</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>ماه</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>هفته</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>سال</value>
+  </data>
 </root>

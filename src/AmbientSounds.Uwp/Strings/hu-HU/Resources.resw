@@ -1002,4 +1002,22 @@
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
     <value>A fókuszidőzítő mindig megjelenik aktív fókuszálás közben.</value>
   </data>
+  <data name="DurationUnitDay" xml:space="preserve">
+    <value>nap</value>
+  </data>
+  <data name="DurationUnitHour" xml:space="preserve">
+    <value>óra</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>perc</value>
+  </data>
+  <data name="DurationUnitMonth" xml:space="preserve">
+    <value>hónap</value>
+  </data>
+  <data name="DurationUnitWeek" xml:space="preserve">
+    <value>hét</value>
+  </data>
+  <data name="DurationUnitYear" xml:space="preserve">
+    <value>év</value>
+  </data>
 </root>
