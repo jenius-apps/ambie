@@ -6,6 +6,14 @@
 public class PriceInfo
 {
     /// <summary>
+    /// The sku id for the add on object that this info represents.
+    /// </summary>
+    /// <remarks>
+    /// Formatted as productid/skuid. E.g. 9PXXXXXXX/0101
+    /// </remarks>
+    public required string SkuId { get; init; }
+
+    /// <summary>
     /// The localized and formatted price of the product.
     /// E.g. $1.49.
     /// </summary>
