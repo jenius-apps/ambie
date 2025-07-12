@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+#nullable enable
+
 namespace AmbientSounds.Services;
 
 /// <summary>
@@ -36,7 +38,7 @@ public interface IIapService
     /// </summary>
     /// <param name="iapId">The IAP ID of the add-on we want to purchase.</param>
     /// <returns>True if the sound is purchased successfully.</returns>
-    Task<bool> BuyAsync(string iapId, string skuId, bool latest = false, string? iapIdCacheOverride = null);
+    Task<bool> BuyAsync(string iapId, bool latest = false, string? iapIdCacheOverride = null);
 
     /// <summary>
     /// Retrieves the latest price of the item.

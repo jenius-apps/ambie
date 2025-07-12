@@ -103,26 +103,21 @@ public class StoreService : IIapService
 
         if (addon?.Price is null)
         {
-            return new PriceInfo { SkuId = string.Empty, FormattedPrice = "-" };
+            return new PriceInfo { FormattedPrice = "-" };
         }
 
-        if (addon.Skus?.FirstOrDefault() is not StoreSku sku)
-        {
-            return new PriceInfo { SkuId = string.Empty, FormattedPrice = "-" };
-        }
-
-        bool isSub = sku.IsSubscription;
+        var sku = addon.Skus?.FirstOrDefault();
+        bool isSub = sku?.IsSubscription ?? false;
 
         return new PriceInfo
         {
-            SkuId = sku.StoreId,
             FormattedPrice = isSub ? addon.Price.FormattedRecurrencePrice : addon.Price.FormattedPrice,
             IsSubscription = isSub,
-            RecurrenceLength = (int)(sku.SubscriptionInfo?.BillingPeriod ?? 0),
-            RecurrenceUnit = ToDurationUnit(sku.SubscriptionInfo?.BillingPeriodUnit),
-            HasSubTrial = sku.SubscriptionInfo?.HasTrialPeriod ?? false,
-            SubTrialLength = (int)(sku.SubscriptionInfo?.TrialPeriod ?? 0),
-            SubTrialLengthUnit = ToDurationUnit(sku.SubscriptionInfo?.TrialPeriodUnit),
+            RecurrenceLength = (int)(sku?.SubscriptionInfo?.BillingPeriod ?? 0),
+            RecurrenceUnit = ToDurationUnit(sku?.SubscriptionInfo?.BillingPeriodUnit),
+            HasSubTrial = sku?.SubscriptionInfo?.HasTrialPeriod ?? false,
+            SubTrialLength = (int)(sku?.SubscriptionInfo?.TrialPeriod ?? 0),
+            SubTrialLengthUnit = ToDurationUnit(sku?.SubscriptionInfo?.TrialPeriodUnit),
         };
     }
 
@@ -202,9 +197,9 @@ public class StoreService : IIapService
     }
 
     /// <inheritdoc/>
-    public async Task<bool> BuyAsync(string iapId, string skuId, bool latest = false, string? iapIdCacheOverride = null)
+    public async Task<bool> BuyAsync(string iapId, bool latest = false, string? iapIdCacheOverride = null)
     {
-        StorePurchaseStatus result = await PurchaseAddOn(iapId, skuId, latest);
+        StorePurchaseStatus result = await PurchaseAddOn(iapId, latest);
 
         if (result == StorePurchaseStatus.Succeeded || result == StorePurchaseStatus.AlreadyPurchased)
         {
@@ -220,31 +215,24 @@ public class StoreService : IIapService
         };
     }
 
-    private async Task<StorePurchaseStatus> PurchaseAddOn(string iapId, string skuId, bool latest = false)
+    private async Task<StorePurchaseStatus> PurchaseAddOn(string id, bool latest = false)
     {
         if (!NetworkHelper.Instance.ConnectionInformation.IsInternetAvailable)
         {
             return StorePurchaseStatus.NetworkError;
         }
 
-        (string idOnly, _) = iapId.SplitIdAndVersion();
+        (string idOnly, _) = id.SplitIdAndVersion();
 
         var addOnProduct = latest
             ? await GetLatestAddonAsync(idOnly)
-            : await GetAddOn(iapId);
+            : await GetAddOn(id);
 
         if (addOnProduct is null)
-        {
             return StorePurchaseStatus.ServerError;
-        }
 
-        StoreSku? skuToPurchase = addOnProduct.Skus.FirstOrDefault(x => x.StoreId == skuId);
-
-        // Attempt purchase
-        var result = skuToPurchase is not null
-            ? await skuToPurchase.RequestPurchaseAsync() // purchase requested sku if available
-            : await addOnProduct.RequestPurchaseAsync(); // else, just trigger purchase from main product object.
-             
+        /// Attempt purchase
+        var result = await addOnProduct.RequestPurchaseAsync();
         if (result is null)
             return StorePurchaseStatus.ServerError;
 

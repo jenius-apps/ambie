@@ -51,9 +51,8 @@ public partial class PremiumControlViewModel : ObservableObject
 
     public string MonthlyPriceButtonAutomationName => MonthlyPriceInfo?.FormattedPrice ?? string.Empty;
 
-    public string LifetimePrice => LifetimePriceInfo?.FormattedPrice is { Length: > 0 } price
-        ? _localizer.GetString("PriceForLifetime", price)
-        : string.Empty;
+    [ObservableProperty]
+    private string _lifetimePrice = string.Empty;
 
     [ObservableProperty]
     private bool _buttonLoading;
@@ -82,10 +81,6 @@ public partial class PremiumControlViewModel : ObservableObject
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(AnnualPriceButtonAutomationName))]
     private PriceInfo? _annualPriceInfo;
-
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(LifetimePrice))]
-    private PriceInfo? _lifetimePriceInfo;
 
     [ObservableProperty]
     private string _promoCodeInput = string.Empty;
@@ -119,13 +114,14 @@ public partial class PremiumControlViewModel : ObservableObject
 
     private async Task InitializeLifetimeAsync()
     {
-        if (LifetimePrice is { Length: > 0 } || LifetimeButtonLoading || AnnualSubExperimentEnabled)
+        if (LifetimePrice is { Length: > 0} || LifetimeButtonLoading || AnnualSubExperimentEnabled)
         {
             return;
         }
 
         LifetimeButtonLoading = true;
-        LifetimePriceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
+        var priceInfo = await _iapService.GetLatestPriceAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
+        LifetimePrice = _localizer.GetString("PriceForLifetime", priceInfo.FormattedPrice);
         LifetimeButtonLoading = false;
     }
 
@@ -144,14 +140,14 @@ public partial class PremiumControlViewModel : ObservableObject
     [RelayCommand]
     private async Task PurchaseMonthlyAsync()
     {
-        if (ButtonLoading || LifetimeButtonLoading || MonthlyPriceInfo?.SkuId is not { Length: > 0 } skuId)
+        if (ButtonLoading || LifetimeButtonLoading)
         {
             return;
         }
 
         ButtonLoading = true;
         _telemetry.TrackEvent(TelemetryConstants.SubscribeClicked);
-        bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId, skuId, latest: true);
+        bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusId, latest: true);
         ThanksTextVisible = purchaseSuccessful;
 
         if (purchaseSuccessful)
@@ -171,7 +167,7 @@ public partial class PremiumControlViewModel : ObservableObject
     [RelayCommand]
     private async Task PurchaseAnnualAsync()
     {
-        if (ButtonLoading || LifetimeButtonLoading || AnnualButtonLoading || !AnnualSubExperimentEnabled || AnnualPriceInfo?.SkuId is not { Length: > 0 } skuId)
+        if (ButtonLoading || LifetimeButtonLoading || AnnualButtonLoading || !AnnualSubExperimentEnabled)
         {
             return;
         }
@@ -179,7 +175,7 @@ public partial class PremiumControlViewModel : ObservableObject
         AnnualButtonLoading = true;
 
         _telemetry.TrackEvent(TelemetryConstants.PremiumAnnualClicked);
-        bool successful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusAnnualId, skuId, latest: true);
+        bool successful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusAnnualId, latest: true);
         ThanksTextVisible = successful;
 
         if (successful)
@@ -200,14 +196,14 @@ public partial class PremiumControlViewModel : ObservableObject
     [RelayCommand]
     private async Task PurchaseLifetimeAsync()
     {
-        if (ButtonLoading || LifetimeButtonLoading || LifetimePriceInfo?.SkuId is not { Length: > 0 } skuId)
+        if (ButtonLoading || LifetimeButtonLoading)
         {
             return;
         }
 
         LifetimeButtonLoading = true;
         _telemetry.TrackEvent(TelemetryConstants.LifetimeClicked);
-        bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusLifetimeId, skuId);
+        bool purchaseSuccessful = await _iapService.BuyAsync(IapConstants.MsStoreAmbiePlusLifetimeId);
         ThanksTextVisible = purchaseSuccessful;
 
         if (purchaseSuccessful)
@@ -264,7 +260,7 @@ public partial class PremiumControlViewModel : ObservableObject
             { "iapid", iapId },
         });
 
-        bool success = await _iapService.BuyAsync(iapId, string.Empty, latest: true, iapIdCacheOverride: IapConstants.MsStoreAmbiePlusId);
+        var success = await _iapService.BuyAsync(iapId, latest: true, iapIdCacheOverride: IapConstants.MsStoreAmbiePlusId);
 
         if (success)
         {
