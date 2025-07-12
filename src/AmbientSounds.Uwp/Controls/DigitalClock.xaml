@@ -40,9 +40,7 @@
 
         <TextBlock
             x:Name="ClockText"
-            FontFamily="Calibri"
             FontSize="112"
-            FontWeight="SemiBold"
             Text="{x:Bind ViewModel.TimeText, Mode=OneWay}"
             TextAlignment="Center"
             Typography.NumeralAlignment="Tabular"
