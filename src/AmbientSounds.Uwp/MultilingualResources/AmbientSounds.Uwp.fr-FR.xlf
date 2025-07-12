@@ -1135,7 +1135,7 @@
           <target state="translated">Télécharger des sons</target>
         </trans-unit>
         <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Dispaly mode</source>
+          <source>Display mode</source>
           <target state="translated">Mode d’affichage</target>
         </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">

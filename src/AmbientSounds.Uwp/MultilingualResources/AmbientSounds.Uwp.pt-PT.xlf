@@ -1126,8 +1126,9 @@
           <target state="translated">Baixar sons</target>
         </trans-unit>
         <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Dispaly mode</source>
-          <target state="translated">Modo Dispaly</target>
+          <source>Display mode</source>
+          <target state="needs-review-translation">Modo Dispaly</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
           <source>Dark screen</source>

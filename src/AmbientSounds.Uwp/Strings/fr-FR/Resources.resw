@@ -36,9 +36,6 @@
   <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
     <value>Voir plus d'options</value>
   </data>
-  <data name="CompactMode" xml:space="preserve">
-    <value>Ambie Mini</value>
-  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contacter le créateur</value>
   </data>
@@ -131,9 +128,6 @@
   </data>
   <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
     <value>Volume général</value>
-  </data>
-  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
-    <value>Volume</value>
   </data>
   <data name="SettingsThemeHeader.Text" xml:space="preserve">
     <value>Thème</value>
@@ -231,6 +225,9 @@
     <value>En cours de lecture</value>
     <comment>Sound is playing</comment>
   </data>
+  <data name="VolumeSliderSound.AutomationProperties.Name" xml:space="preserve">
+    <value>Volume</value>
+  </data>
   <data name="ActiveTrackListView.AutomationProperties.Name" xml:space="preserve">
     <value>Sons actifs</value>
   </data>
@@ -252,10 +249,6 @@
   <data name="NameInputBox.PlaceholderText" xml:space="preserve">
     <value>Facultatif</value>
   </data>
-  <data name="RemoveActiveButton" xml:space="preserve">
-    <value>Retirer {0} de la liste d'écoute active</value>
-    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
-  </data>
   <data name="SaveMixButton.AutomationProperties.Name" xml:space="preserve">
     <value>Sauvegarder ce mélange de sons personnalisé</value>
   </data>
@@ -270,6 +263,9 @@
   </data>
   <data name="RenameAppBarButton.Label" xml:space="preserve">
     <value>Renommer</value>
+  </data>
+  <data name="CompactMode" xml:space="preserve">
+    <value>Ambie Mini</value>
   </data>
   <data name="SignOutAppBarButton.Label" xml:space="preserve">
     <value>Se déconnecter</value>
@@ -292,11 +288,11 @@
   <data name="SyncAppBarButton.Label" xml:space="preserve">
     <value>Synchroniser</value>
   </data>
-  <data name="Attribution" xml:space="preserve">
-    <value>Attribution</value>
-  </data>
   <data name="BrowseText" xml:space="preserve">
     <value>Parcourir</value>
+  </data>
+  <data name="Attribution" xml:space="preserve">
+    <value>Attribution</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
@@ -356,18 +352,16 @@
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mélanger jusqu'à 3 sons</value>
   </data>
+  <data name="RemoveActiveButton" xml:space="preserve">
+    <value>Retirer {0} de la liste d'écoute active</value>
+    <comment>Remove a sound from the list of active playing sounds. The parameter is the name of the sound to remove.</comment>
+  </data>
   <data name="ThemeSettings" xml:space="preserve">
     <value>Paramètres du thème</value>
-  </data>
-  <data name="SettingsResumeOnLaunch" xml:space="preserve">
-    <value>Reprendre à l'ouverture d'Ambie</value>
   </data>
   <data name="PricePerMonth" xml:space="preserve">
     <value>{0} par mois</value>
     <comment>Price per month, where the parameter {0} is a price like $1.00.</comment>
-  </data>
-  <data name="PriceForLifetime" xml:space="preserve">
-    <value>{0} vie</value>
   </data>
   <data name="ThankYouForSub" xml:space="preserve">
     <value>Merci de vous être abonné!</value>
@@ -378,6 +372,9 @@
   </data>
   <data name="RateUsMessage" xml:space="preserve">
     <value>Veuillez nous évaluer</value>
+  </data>
+  <data name="SettingsResumeOnLaunch" xml:space="preserve">
+    <value>Reprendre à l'ouverture d'Ambie</value>
   </data>
   <data name="DownloadText" xml:space="preserve">
     <value>Télécharger</value>
@@ -404,7 +401,7 @@
     <value>Catalogue d'économiseurs d'écran</value>
   </data>
   <data name="ViewPremiumInfo" xml:space="preserve">
-    <value>Afficher les informations sur les primes</value>
+    <value>Afficher les informations sur les abonnements</value>
   </data>
   <data name="ToggleFullscreen" xml:space="preserve">
     <value>Passer en plein écran</value>
@@ -425,7 +422,7 @@
     <value>Bon travail!</value>
   </data>
   <data name="FocusSessionCompleteTitle" xml:space="preserve">
-    <value>Séance de mise au point terminée</value>
+    <value>Séance de concentration terminée</value>
   </data>
   <data name="FocusSessionFocusMessage" xml:space="preserve">
     <value>Le temps de se concentrer</value>
@@ -434,13 +431,13 @@
     <value>Temps de repos</value>
   </data>
   <data name="RestText" xml:space="preserve">
-    <value>Le repos</value>
+    <value>Repos</value>
   </data>
   <data name="FocusDotTooltip" xml:space="preserve">
-    <value>La session de mise au point est active</value>
+    <value>La session de concentration est active</value>
   </data>
   <data name="SessionTypeFocus" xml:space="preserve">
-    <value>Mise au point</value>
+    <value>En concentration</value>
   </data>
   <data name="SessionTypeRest" xml:space="preserve">
     <value>Repos</value>
@@ -469,11 +466,11 @@
   <data name="Notepad" xml:space="preserve">
     <value>Bloc-notes</value>
   </data>
-  <data name="Repeats" xml:space="preserve">
-    <value>Répète</value>
-  </data>
   <data name="RestLength" xml:space="preserve">
     <value>Minutes de repos</value>
+  </data>
+  <data name="Repeats" xml:space="preserve">
+    <value>Répétitions</value>
   </data>
   <data name="FocusTimerHelpAction" xml:space="preserve">
     <value>Montre moi comment l'utiliser</value>
@@ -482,7 +479,7 @@
     <value>Il s'agit d'un minuteur d'intervalle inspiré de la technique Pomodoro. L'objectif est de se concentrer sur une tâche pendant une longue période de temps, puis de prendre une pause plus courte. Répétez ce cycle pour continuer à vous concentrer !</value>
   </data>
   <data name="FocusTimerHelpTitle" xml:space="preserve">
-    <value>Bienvenue à la minuterie de mise au point</value>
+    <value>Bienvenue à la minuterie de concentration</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Aide</value>
@@ -491,13 +488,13 @@
     <value>Suivant</value>
   </data>
   <data name="TipFocusMessage" xml:space="preserve">
-    <value>Chaque cycle comporte un segment de mise au point et un segment de repos. Choisissez la durée de chaque segment de mise au point. Nous recommandons 25 minutes pour commencer !</value>
+    <value>Chaque cycle comporte un segment de concentration et un segment de repos. Choisissez la durée de chaque segment de concentration. Nous recommandons 25 minutes pour commencer !</value>
   </data>
   <data name="TipFocusTitle" xml:space="preserve">
-    <value>Définir les minutes de mise au point</value>
+    <value>Définir les minutes de concentration</value>
   </data>
   <data name="TipRepeatsMessage" xml:space="preserve">
-    <value>Chaque cycle de mise au point et de repos peut se répéter plusieurs fois. Essayez d'ajouter 1 répétition !</value>
+    <value>Chaque cycle de concentration et de repos peut se répéter plusieurs fois. Essayez d'ajouter 1 répétition !</value>
   </data>
   <data name="TipRepeatsTitle" xml:space="preserve">
     <value>Définir des répétitions</value>
@@ -584,13 +581,7 @@
     <value>Tache {0}</value>
   </data>
   <data name="SettingsCompactMode" xml:space="preserve">
-    <value>Ouvrez Ambie Mini lors de la mise au point</value>
-  </data>
-  <data name="CompactModeTooltipTitle" xml:space="preserve">
-    <value>Ouvrir Ambie Mini</value>
-  </data>
-  <data name="CompactModeTooltipMessage" xml:space="preserve">
-    <value>Avec Ambie Mini, nous réduirons la fenêtre et n'afficherons que les éléments nécessaires pour vous aider à vous concentrer.</value>
+    <value>Ouvrez Ambie Mini lors de la concentration</value>
   </data>
   <data name="DurationText" xml:space="preserve">
     <value>Durée</value>
@@ -600,6 +591,12 @@
   </data>
   <data name="MiniText" xml:space="preserve">
     <value>Mini</value>
+  </data>
+  <data name="CompactModeTooltipTitle" xml:space="preserve">
+    <value>Ouvrir Ambie Mini</value>
+  </data>
+  <data name="CompactModeTooltipMessage" xml:space="preserve">
+    <value>Avec Ambie Mini, nous réduirons la fenêtre et n'afficherons que les éléments nécessaires pour vous aider à vous concentrer.</value>
   </data>
   <data name="PausesText" xml:space="preserve">
     <value>Pauses</value>
@@ -611,7 +608,7 @@
     <value>Modifier la page de démarrage</value>
   </data>
   <data name="EditHomePageMessage" xml:space="preserve">
-    <value>Faites glisser et déposez des sons pour personnaliser votre page de départ. Essayez-le maintenant!</value>
+    <value>Faites glisser et déposez des sons pour personnaliser votre page d'accueil. Essayez-le maintenant!</value>
   </data>
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>Désolé pour ça! Nous n'avons pas pu charger le catalogue. Essayez de vérifier votre connexion Internet.</value>
@@ -620,7 +617,7 @@
     <value>Informations sur l’application</value>
   </data>
   <data name="SettingsCompactModeDescription" xml:space="preserve">
-    <value>Ambie Mini s’ouvre automatiquement lors de la mise au point</value>
+    <value>Ambie Mini s’ouvre automatiquement lors de la concentration</value>
   </data>
   <data name="SettingsNotificationsSwitchDescription" xml:space="preserve">
     <value>Nous vous informerons lorsque de nouveaux sons seront disponibles</value>
@@ -653,7 +650,7 @@
     <value>Voyons s'ils peuvent être téléchargés.</value>
   </data>
   <data name="MissingShareSoundsTitle" xml:space="preserve">
-    <value>La musique te manque</value>
+    <value>Les sont sont absents</value>
   </data>
   <data name="ReviewText" xml:space="preserve">
     <value>Revoir</value>
@@ -670,6 +667,9 @@
   <data name="OrText" xml:space="preserve">
     <value>Ou</value>
   </data>
+  <data name="PriceForLifetime" xml:space="preserve">
+    <value>{0} vie</value>
+  </data>
   <data name="CheckForUpdatesText" xml:space="preserve">
     <value>Rechercher les mises à jour</value>
   </data>
@@ -682,14 +682,14 @@
   <data name="UpdatesText" xml:space="preserve">
     <value>Mises à jour</value>
   </data>
+  <data name="UpdateAllText" xml:space="preserve">
+    <value>Tout mettre à jour</value>
+  </data>
   <data name="DataVersionColon" xml:space="preserve">
     <value>Version des données :</value>
   </data>
   <data name="FileVersionColon" xml:space="preserve">
     <value>Version du fichier :</value>
-  </data>
-  <data name="UpdateAllText" xml:space="preserve">
-    <value>Tout mettre à jour</value>
   </data>
   <data name="UpdatesPlaceholderText" xml:space="preserve">
     <value>Entièrement à jour. Vous êtes prêt.</value>
@@ -722,7 +722,7 @@
     <value>Les sons continueront à jouer après la fin de votre séance de concentration</value>
   </data>
   <data name="SettingsPlayAfterFocusHeader" xml:space="preserve">
-    <value>Continuer les sons après la mise au point</value>
+    <value>Continuer les sons après la concentration</value>
   </data>
   <data name="RelaxText" xml:space="preserve">
     <value>Se détendre</value>
@@ -751,14 +751,14 @@
   <data name="SearchText" xml:space="preserve">
     <value>Rechercher</value>
   </data>
-  <data name="QuickResumeDescription" xml:space="preserve">
-    <value>Reprenez votre dernière ambiance en un clic au démarrage de votre PC</value>
-  </data>
   <data name="QuickResumeTitle" xml:space="preserve">
     <value>Reprise rapide</value>
   </data>
   <data name="QuickResumeToastMessage" xml:space="preserve">
     <value>Reprenez votre dernière ambiance</value>
+  </data>
+  <data name="QuickResumeDescription" xml:space="preserve">
+    <value>Reprenez votre dernière ambiance en un clic au démarrage de votre PC</value>
   </data>
   <data name="HomePageDownloadMessage" xml:space="preserve">
     <value>Obtenez plus de sons du catalogue</value>
@@ -804,7 +804,7 @@
     <value>Accédez au catalogue de sons intégré. Téléchargez votre prochaine musique préférée ici.</value>
   </data>
   <data name="FocusSubtitle" xml:space="preserve">
-    <value>Travaillez-vous ou étudiez-vous ? Utilisez notre minuterie de mise au point innovante pour vous aider à être productif.</value>
+    <value>Travaillez-vous ou étudiez-vous ? Utilisez notre minuterie de concentration innovante pour vous aider à être productif.</value>
   </data>
   <data name="HomeSubtitle" xml:space="preserve">
     <value>Visualisez les sons que vous avez installés, jouez jusqu’à 3 sons et trouvez votre combinaison préférée.</value>
@@ -840,7 +840,7 @@
     <value>Minuterie de mise en veille</value>
   </data>
   <data name="UnlockText" xml:space="preserve">
-    <value>Déverouiller</value>
+    <value>Déverouillez</value>
   </data>
   <data name="AdjustSoundVolume" xml:space="preserve">
     <value>Régler le volume sonore</value>
@@ -975,11 +975,11 @@
   <data name="StatsWeeklyHours" xml:space="preserve">
     <value>7 derniers jours</value>
   </data>
-  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
-    <value>Utilisez Ambie un peu plus pour voir plus de statistiques</value>
-  </data>
   <data name="TopPlayedSoundsText" xml:space="preserve">
     <value>Les sons les plus joués</value>
+  </data>
+  <data name="TopPlayedSoundsPlaceholder" xml:space="preserve">
+    <value>Utilisez Ambie un peu plus pour voir plus de statistiques</value>
   </data>
   <data name="StatsSubtitle" xml:space="preserve">
     <value>Afficher vos statistiques d’utilisation dans Ambie</value>
@@ -1009,7 +1009,7 @@
     <value>Aucun</value>
   </data>
   <data name="ChannelTimerFocusDisclaimer" xml:space="preserve">
-    <value>La minuterie de mise au point est toujours affichée pendant une session de mise au point active.</value>
+    <value>La minuterie de concentration est toujours affichée pendant une session de concentration active.</value>
   </data>
   <data name="DurationUnitDay" xml:space="preserve">
     <value>jour</value>
