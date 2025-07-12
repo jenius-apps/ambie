@@ -97,7 +97,7 @@
     <value>Rue urbaine</value>
   </data>
   <data name="Soundcoffeeshop" xml:space="preserve">
-    <value>Café-restaurant</value>
+    <value>Café</value>
   </data>
   <data name="Soundcreek" xml:space="preserve">
     <value>Ruisseau</value>
@@ -235,10 +235,10 @@
     <value>Sons actifs</value>
   </data>
   <data name="ClearActiveButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Effacer tous les sons actifs</value>
+    <value>Arrêter tous les sons actifs</value>
   </data>
   <data name="ClearActiveButton.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Effacer tous les sons actifs</value>
+    <value>Arrêter tous les sons actifs</value>
   </data>
   <data name="ConfirmSaveButton.AutomationProperties.Name" xml:space="preserve">
     <value>Confirmer la sauvegarde</value>
@@ -485,7 +485,7 @@
     <value>Bienvenue à la minuterie de mise au point</value>
   </data>
   <data name="Help" xml:space="preserve">
-    <value>Aider</value>
+    <value>Aide</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Suivant</value>
@@ -509,10 +509,10 @@
     <value>Définir les minutes de repos</value>
   </data>
   <data name="TipStartButtonMessage" xml:space="preserve">
-    <value>Démarrez le chronomètre et travaillez sur vos tâches. Nous vous enverrons des notifications lorsqu'il sera temps de vous reposer. Travailler dur!</value>
+    <value>Démarrez la minuterie et travaillez sur vos tâches. Nous vous enverrons des notifications lorsqu'il sera temps de vous reposer. Travaillez dur!</value>
   </data>
   <data name="TipStartButtonTitle" xml:space="preserve">
-    <value>Prêt, prêt, partez</value>
+    <value>Prêt, partez</value>
   </data>
   <data name="RecentFocusAccessibleName" xml:space="preserve">
     <value>{0} minutes de concentration, {1} minutes de repos, {2} répétitions.</value>
@@ -611,7 +611,7 @@
     <value>Modifier la page de démarrage</value>
   </data>
   <data name="EditHomePageMessage" xml:space="preserve">
-    <value>Faites glisser et déposez des sons pour personnaliser votre âge de départ. Essayez-le maintenant!</value>
+    <value>Faites glisser et déposez des sons pour personnaliser votre page de départ. Essayez-le maintenant!</value>
   </data>
   <data name="EmptyCatalogueMessage" xml:space="preserve">
     <value>Désolé pour ça! Nous n'avons pas pu charger le catalogue. Essayez de vérifier votre connexion Internet.</value>
@@ -626,7 +626,7 @@
     <value>Nous vous informerons lorsque de nouveaux sons seront disponibles</value>
   </data>
   <data name="SettingsResumeOnLaunchDescription" xml:space="preserve">
-    <value>Au lancement, Ambie reprendra le jeu automatiquement</value>
+    <value>Au lancement, Ambie reprendra la lecture automatiquement</value>
   </data>
   <data name="SettingsTelemetrySwitchDescription" xml:space="preserve">
     <value>Des erreurs et des informations d’utilisation anonymes sont signalées pour aider à améliorer Ambie</value>
@@ -776,7 +776,7 @@
     <value>Ma série</value>
   </data>
   <data name="StreakReminderMessage" xml:space="preserve">
-    <value>Continuez votre série en vie !</value>
+    <value>Gardez votre série en vie !</value>
   </data>
   <data name="StreakReminderTitle" xml:space="preserve">
     <value>Série de {0} jours</value>
@@ -840,7 +840,7 @@
     <value>Minuterie de mise en veille</value>
   </data>
   <data name="UnlockText" xml:space="preserve">
-    <value>Ouvrir</value>
+    <value>Déverouiller</value>
   </data>
   <data name="AdjustSoundVolume" xml:space="preserve">
     <value>Régler le volume sonore</value>
@@ -984,6 +984,9 @@
   <data name="StatsSubtitle" xml:space="preserve">
     <value>Afficher vos statistiques d’utilisation dans Ambie</value>
   </data>
+  <data name="StatsTitleText" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
   <data name="OsNotificationHelpMessage" xml:space="preserve">
     <value>Assurez-vous que les notifications Windows sont activées pour Ambie</value>
   </data>
@@ -1013,6 +1016,9 @@
   </data>
   <data name="DurationUnitHour" xml:space="preserve">
     <value>heure</value>
+  </data>
+  <data name="DurationUnitMinute" xml:space="preserve">
+    <value>minute</value>
   </data>
   <data name="DurationUnitMonth" xml:space="preserve">
     <value>mois</value>

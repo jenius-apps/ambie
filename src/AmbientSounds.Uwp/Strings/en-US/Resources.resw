@@ -957,7 +957,7 @@
     <value>Download sounds</value>
   </data>
   <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly mode</value>
+    <value>Display mode</value>
   </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Dark screen</value>
