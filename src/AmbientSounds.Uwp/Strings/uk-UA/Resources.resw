@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Завантажити звуки</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Режим Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Темний екран</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>рік</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Режим відображення</value>
   </data>
 </root>

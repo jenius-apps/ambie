@@ -839,9 +839,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Preuzimanje zvukova</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly način rada</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Tamni zaslon</value>
   </data>
@@ -1019,5 +1016,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>godina</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Način prikaza</value>
   </data>
 </root>

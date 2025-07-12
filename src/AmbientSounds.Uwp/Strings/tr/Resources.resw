@@ -845,9 +845,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Sesleri indir</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly modu</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Karanlık ekran</value>
   </data>
@@ -1025,5 +1022,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>yıl</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Ekran modu</value>
   </data>
 </root>

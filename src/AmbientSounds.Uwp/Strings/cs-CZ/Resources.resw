@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Stahování zvuků</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Režim zobrazení</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Tmavá obrazovka</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>rok</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Režim zobrazení</value>
   </data>
 </root>

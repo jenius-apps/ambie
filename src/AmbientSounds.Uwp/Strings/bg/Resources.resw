@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Изтегляне на звуци</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Режим Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Тъмен екран</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>година</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Режим на показване</value>
   </data>
 </root>

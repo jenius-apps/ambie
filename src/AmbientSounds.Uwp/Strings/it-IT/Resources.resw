@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Scarica suoni</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Modalità di visualizzazione</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Schermo scuro</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>anno</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Modalità di visualizzazione</value>
   </data>
 </root>

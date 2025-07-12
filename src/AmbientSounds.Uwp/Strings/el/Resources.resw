@@ -836,9 +836,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Λήψη ήχων</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Λειτουργία Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Σκοτεινή οθόνη</value>
   </data>
@@ -1016,5 +1013,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>έτος</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Λειτουργία εμφάνισης</value>
   </data>
 </root>

@@ -1135,11 +1135,6 @@
           <source>Download sounds</source>
           <target state="translated">Sesleri indir</target>
         </trans-unit>
-        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Display mode</source>
-          <target state="needs-review-translation">Dispaly modu</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
           <source>Dark screen</source>
           <target state="translated">Karanlık ekran</target>
@@ -1377,6 +1372,10 @@
         <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
           <source>year</source>
           <target state="translated">yıl</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Display mode</source>
+          <target state="translated">Ekran modu</target>
         </trans-unit>
       </group>
     </body>

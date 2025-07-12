@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>הורדת צלילים</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>מצב Dispaly</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>מסך כהה</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>שנה</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>מצב תצוגה</value>
   </data>
 </root>

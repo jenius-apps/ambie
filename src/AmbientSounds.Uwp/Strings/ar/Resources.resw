@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>تنزيل الأصوات</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>وضع ديسبالي</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>شاشة مظلمة</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>سنة</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>وضع العرض</value>
   </data>
 </root>

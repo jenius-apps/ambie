@@ -839,9 +839,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Hangok letöltése</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly mód</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Sötét képernyő</value>
   </data>
@@ -1019,5 +1016,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>év</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Megjelenítési mód</value>
   </data>
 </root>

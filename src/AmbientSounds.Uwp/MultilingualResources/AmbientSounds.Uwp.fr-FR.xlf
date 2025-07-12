@@ -1134,10 +1134,6 @@
           <source>Download sounds</source>
           <target state="translated">Télécharger des sons</target>
         </trans-unit>
-        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
-          <source>Display mode</source>
-          <target state="translated">Mode d’affichage</target>
-        </trans-unit>
         <trans-unit id="DisplayModeDarkScreen" translate="yes" xml:space="preserve">
           <source>Dark screen</source>
           <target state="translated">Écran sombre</target>
@@ -1375,6 +1371,10 @@
         <trans-unit id="DurationUnitYear" translate="yes" xml:space="preserve">
           <source>year</source>
           <target state="translated">année</target>
+        </trans-unit>
+        <trans-unit id="DisplayMode" translate="yes" xml:space="preserve">
+          <source>Display mode</source>
+          <target state="translated">Mode d’affichage</target>
         </trans-unit>
       </group>
     </body>

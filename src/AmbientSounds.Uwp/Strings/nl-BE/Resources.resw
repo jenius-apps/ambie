@@ -824,9 +824,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Geluiden downloaden</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly-modus</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Donker scherm</value>
   </data>
@@ -998,5 +995,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>jaar</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Weergave modus</value>
   </data>
 </root>

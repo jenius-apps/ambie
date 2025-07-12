@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>下載聲音</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>虛幻模式</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>暗屏</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>年</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>顯示模式</value>
   </data>
 </root>

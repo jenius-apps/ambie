@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>Download lyde</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>Dispaly-tilstand</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>Mørk skærm</value>
   </data>
@@ -1028,5 +1025,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>år</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>Visningstilstand</value>
   </data>
 </root>

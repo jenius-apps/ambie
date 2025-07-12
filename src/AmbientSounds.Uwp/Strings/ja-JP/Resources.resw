@@ -851,9 +851,6 @@
   <data name="DownloadSounds" xml:space="preserve">
     <value>サウンドのダウンロード</value>
   </data>
-  <data name="DisplayMode" xml:space="preserve">
-    <value>表示モード</value>
-  </data>
   <data name="DisplayModeDarkScreen" xml:space="preserve">
     <value>暗い画面</value>
   </data>
@@ -1031,5 +1028,8 @@
   </data>
   <data name="DurationUnitYear" xml:space="preserve">
     <value>年</value>
+  </data>
+  <data name="DisplayMode" xml:space="preserve">
+    <value>表示モード</value>
   </data>
 </root>
