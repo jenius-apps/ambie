@@ -229,6 +229,13 @@
                 <Setter Property="Fill" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
             </Style>
 
+            <Style x:Key="CardStyle" TargetType="Grid">
+                <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
+                <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+
             <x:Double x:Key="WideWindowBreakpoint">670</x:Double>
             <Thickness x:Key="NarrowPageMargin">16,0</Thickness>
             <Thickness x:Key="WidePageMargin">40,0</Thickness>
