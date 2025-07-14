@@ -70,7 +70,6 @@
                                 Header="{x:Bind strings:Resources.FocusLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                                StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.FocusLength, Mode=TwoWay}" />
                         </Grid>
@@ -99,7 +98,6 @@
                                 Header="{x:Bind strings:Resources.RestLength}"
                                 IsEnabled="{x:Bind ViewModel.SlidersEnabled, Mode=OneWay}"
                                 Maximum="{x:Bind constants:FocusConstants.TimerLimit}"
-                                StepFrequency="5"
                                 TickFrequency="15"
                                 Value="{x:Bind ViewModel.RestLength, Mode=TwoWay}" />
                         </Grid>
