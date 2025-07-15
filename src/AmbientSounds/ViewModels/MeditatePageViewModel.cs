@@ -42,7 +42,7 @@ public partial class MeditatePageViewModel : ObservableObject
         _telemetry = telemetry;
     }
 
-    public ObservableCollection<GuideViewModel> Guides { get; } = new();
+    public ObservableCollection<GuideViewModel> Guides { get; } = [];
 
     [ObservableProperty]
     private bool _placeholderVisible;
@@ -62,7 +62,7 @@ public partial class MeditatePageViewModel : ObservableObject
         var guidesTask = _guideService.GetOnlineGuidesAsync();
 
         // Include delay to account for shimmer effect.
-        await Task.WhenAll(guidesTask, Task.Delay(600)); 
+        await Task.WhenAll(guidesTask, Task.Delay(300));
         var guides = await guidesTask;
 
         foreach (var guide in guides.OrderBy(static x => x.Id))
@@ -80,7 +80,7 @@ public partial class MeditatePageViewModel : ObservableObject
 
             Guide? offlineGuide = await _guideService.GetOfflineGuideAsync(guide.Id);
             vm.IsDownloaded = offlineGuide is not null;
-            vm.IsPlaying = _mixMediaPlayerService.FeaturedSoundId == guide.Id 
+            vm.IsPlaying = _mixMediaPlayerService.FeaturedSoundId == guide.Id
                 && _mixMediaPlayerService.PlaybackState is MediaPlaybackState.Playing;
             vm.IsOwned = !guide.IsPremium || await _iapService.IsAnyOwnedAsync(guide.IapIds);
             Guides.Add(vm);
