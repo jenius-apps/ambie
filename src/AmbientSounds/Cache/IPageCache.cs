@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Models;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.Cache;
@@ -14,4 +15,10 @@ public interface IPageCache
     /// </summary>
     /// <returns>List of catalogue rows that define the page.</returns>
     Task<IReadOnlyList<CatalogueRow>> GetCatalogueRowsAsync();
+
+    /// <summary>
+    /// Retrieves list of meditate page data.
+    /// </summary>
+    /// <returns>List of meditate rows that define the page.</returns>
+    Task<IReadOnlyList<CatalogueRow>> GetMeditatePageRowsAsync(CancellationToken ct);
 }

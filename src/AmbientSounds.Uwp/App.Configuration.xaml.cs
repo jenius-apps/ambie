@@ -175,7 +175,7 @@ partial class App
     [Singleton(typeof(FileDownloader), typeof(IFileDownloader))]
     [Singleton(typeof(SoundVmFactory), typeof(ISoundVmFactory))]
     [Singleton(typeof(GuideVmFactory), typeof(IGuideVmFactory))]
-    [Singleton(typeof(CatalogueRowVmFactory))]
+    [Singleton(typeof(CatalogueRowVmFactory), typeof(ICatalogueRowVmFactory))]
     [Singleton(typeof(ChannelVmFactory))]
     [Singleton(typeof(SoundVolumeService), typeof(ISoundVolumeService))]
     [Singleton(typeof(CatalogueService), typeof(ICatalogueService))]

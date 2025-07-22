@@ -292,26 +292,18 @@
                 </Grid>
 
                 <Grid Grid.Row="2" Margin="0,20,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
 
-                    <TextBlock
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Text="Recommended ambient sounds" />
-
-                    <controls:SoundGridControl
-                        Grid.Row="1"
-                        Margin="0,8,0,0"
-                        CanScrollOutOfBounds="False">
-                        <controls:SoundGridControl.ItemTemplate>
-                            <DataTemplate x:DataType="vm:SoundViewModel">
-                                <controls:SoundItemControl ViewModel="{x:Bind}" />
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:CatalogueRowViewModel">
+                                <controls:CatalogueRowControl
+                                    Margin="0,0,0,24"
+                                    ItemsSource="{x:Bind Sounds, Mode=OneWay}"
+                                    SoundsVisible="{x:Bind RowVisible, Mode=OneWay}"
+                                    TitleText="{x:Bind Title, Mode=OneWay}" />
                             </DataTemplate>
-                        </controls:SoundGridControl.ItemTemplate>
-                    </controls:SoundGridControl>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Grid>
             </Grid>
         </ScrollViewer>

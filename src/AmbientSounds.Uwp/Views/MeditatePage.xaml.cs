@@ -1,8 +1,8 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.ViewModels;
+﻿using AmbientSounds.ViewModels;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
+using System;
+using System.Threading;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -12,6 +12,8 @@ namespace AmbientSounds.Views;
 
 public sealed partial class MeditatePage : Page
 {
+    private CancellationTokenSource? _cts;
+
     public MeditatePage()
     {
         this.InitializeComponent();
@@ -22,13 +24,24 @@ public sealed partial class MeditatePage : Page
 
     protected override async void OnNavigatedTo(NavigationEventArgs e)
     {
-        await ViewModel.InitializeAsync();
-
         App.Services.GetRequiredService<ITelemetry>().TrackPageView(nameof(MeditatePage));
+
+        _cts ??= new();
+
+        try
+        {
+            await ViewModel.InitializeAsync(_cts.Token);
+        }
+        catch (OperationCanceledException)
+        {
+
+        }
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
+        _cts?.Cancel();
+        _cts = null;
         ViewModel.Uninitialize();
     }
 }
