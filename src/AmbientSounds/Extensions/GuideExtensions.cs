@@ -28,4 +28,9 @@ public static class GuideExtensions
             ColourHex = guide.ColourHex,
         };
     }
+
+    public static string UpperCaseCulture(this Guide guide)
+    {
+        return guide.Culture.ToUpper();
+    }
 }
