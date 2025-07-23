@@ -58,7 +58,6 @@ public partial class ShellPageViewModel : ObservableObject
         IAppStoreUpdater appStoreUpdater)
     {
         IsWin11 = systemInfoProvider.IsWin11();
-        IsMeditatePageVisible = systemInfoProvider.GetCulture().ToLower().Contains("en");
 
         _userSettings = userSettings;
         _ratingTimer = timer;
@@ -80,7 +79,7 @@ public partial class ShellPageViewModel : ObservableObject
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("Catalogue"), "\uEC4F", ContentPageType.Catalogue.ToString(), tooltipSubtitle: localizer.GetString("CatalogueSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("FocusText"), "\uF272", ContentPageType.Focus.ToString(), tooltipSubtitle: localizer.GetString("FocusSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("ChannelsTitleText"), "\uE8B2", ContentPageType.Channels.ToString(), tooltipSubtitle: localizer.GetString("ChannelsSubtitle")));
-        if (IsMeditatePageVisible) { MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle"))); }
+        MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("RelaxText"), "\uEC0A", ContentPageType.Meditate.ToString(), tooltipSubtitle: localizer.GetString("MeditateSubtitle")));
         MenuItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("StatsTitleText"), "\uEAFC", ContentPageType.Stats.ToString(), tooltipSubtitle: localizer.GetString("StatsSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("UpdatesText"), "\uE118", ContentPageType.Updates.ToString(), tooltipSubtitle: localizer.GetString("UpdatesSubtitle")));
         FooterItems.Add(new MenuItem(NavigateToPageCommand, localizer.GetString("SettingsText"), "\uE713", ContentPageType.Settings.ToString(), tooltipSubtitle: localizer.GetString("SettingsSubtitle")));
@@ -118,9 +117,6 @@ public partial class ShellPageViewModel : ObservableObject
 
     [ObservableProperty]
     private bool _isMissingSoundsMessageVisible;
-
-    [ObservableProperty]
-    private bool _isMeditatePageVisible;
 
     [ObservableProperty]
     private bool _updateButtonVisible;
