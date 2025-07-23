@@ -156,9 +156,9 @@
                                                 ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
                                                 Visibility="{x:Bind BuyButtonVisible, Mode=OneWay}">
                                                 <FontIcon
-                                                    FontFamily="{StaticResource FluentUIGlyphsCustom}"
-                                                    FontSize="15"
-                                                    Glyph="{StaticResource GlyphCustomPremium}" />
+                                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                                    FontSize="14"
+                                                    Glyph="{StaticResource GlyphUnlock}" />
                                             </Button>
 
                                             <!--  Download button and progress  -->
@@ -276,7 +276,10 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <ItemsControl Grid.Row="1" Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
+                    <ItemsControl
+                        Grid.Row="1"
+                        Margin="0,8,0,0"
+                        Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
