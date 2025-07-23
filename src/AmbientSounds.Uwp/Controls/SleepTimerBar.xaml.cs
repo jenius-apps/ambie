@@ -1,11 +1,13 @@
 ﻿using AmbientSounds.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
 #nullable enable
 
 namespace AmbientSounds.Controls;
-public sealed partial class SleepTimerBar : UserControl
+
+public sealed partial class SleepTimerBar : UserControl, ICanInitialize
 {
     public SleepTimerBar()
     {
@@ -15,7 +17,14 @@ public sealed partial class SleepTimerBar : UserControl
 
     public SleepTimerViewModel ViewModel => (SleepTimerViewModel)this.DataContext;
 
-    public void Initialize() => ViewModel.Initialize();
+    public Task InitializeAsync()
+    {
+        ViewModel.Initialize();
+        return Task.CompletedTask;
+    }
 
-    public void Uninitialize() => ViewModel.Uninitialize();
+    public void Uninitialize()
+    {
+        ViewModel.Uninitialize();
+    }
 }

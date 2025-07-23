@@ -25,7 +25,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Padding="12" Style="{StaticResource CardStyle}">
-                    <controls:SleepTimerBar />
+                    <controls:SleepTimerBar x:Name="TimerBar" />
                 </Grid>
 
                 <Grid Grid.Row="1" Margin="0,20,0,0">

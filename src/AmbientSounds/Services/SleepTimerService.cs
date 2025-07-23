@@ -63,10 +63,16 @@ public sealed class SleepTimerService : ISleepTimerService
         _timer.Remaining = timeLeft;
         State = SleepTimerState.Running;
 
-        if (_player.PlaybackState is MediaPlaybackState.Playing)
+        if (_player.GetSoundIds() is { Length: > 0 })
         {
-            _timer.Start();
+            _player.Play();
         }
+        else
+        {
+            _ = _player.PlayRandomAsync();
+        }
+
+        _timer.Start();
     }
 
     /// <inheritdoc/>
