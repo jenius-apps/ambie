@@ -12,6 +12,11 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     public string Id { get; set; } = string.Empty;
 
     /// <summary>
+    /// The two letter language code the spoken language for this guide. E.g. "EN"
+    /// </summary>
+    public string TwoLetterLanguageCode { get; set; } = "EN";
+
+    /// <summary>
     /// Represents the length of the guide in minutes.
     /// </summary>
     public double MinutesLength { get; set; }

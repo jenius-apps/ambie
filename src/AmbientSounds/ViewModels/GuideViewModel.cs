@@ -33,7 +33,7 @@ public partial class GuideViewModel : ObservableObject
         StopCommand = stop;
         PurchaseCommand = purchase;
         Name = assetLocalizer.GetLocalName(onlineGuide);
-        PreviewText = $"{onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
+        PreviewText = $"{onlineGuide.TwoLetterLanguageCode} {FocusConstants.DotSeparator} {onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
         ImagePath = onlineGuide.ImagePath;
         ColourHex = onlineGuide.ColourHex;
         _mixMediaPlayerService = mixMediaPlayerService;
