@@ -1032,4 +1032,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Režim zobrazení</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Časovač relaxace</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Použijte časovač relaxace, který vám pomůže relaxovat, spát nebo meditovat.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informace o časovači relaxace</value>
+  </data>
 </root>

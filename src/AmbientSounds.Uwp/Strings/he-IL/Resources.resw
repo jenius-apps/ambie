@@ -1032,4 +1032,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>מצב תצוגה</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>טיימר הרפיה</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>השתמש בטיימר ההרפיה כדי לעזור לך להירגע, לישון או לעשות מדיטציה.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>מידע על טיימר הרפיה</value>
+  </data>
 </root>

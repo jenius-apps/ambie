@@ -1032,4 +1032,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>وضع العرض</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>مؤقت الاسترخاء</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>استخدم مؤقت الاسترخاء لمساعدتك على الاسترخاء أو النوم أو التأمل.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>معلومات مؤقت الاسترخاء</value>
+  </data>
 </root>

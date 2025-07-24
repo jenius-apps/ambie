@@ -1029,4 +1029,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Modo de visualización</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Temporizador de relajación</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Use el temporizador de relajación para ayudarlo a relajarse, dormir o meditar.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Información del temporizador de relajación</value>
+  </data>
 </root>

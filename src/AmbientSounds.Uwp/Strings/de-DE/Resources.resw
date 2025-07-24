@@ -1023,4 +1023,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Anzeigemodus</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Entspannungs-Timer</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Verwenden Sie den Entspannungs-Timer, um sich zu entspannen, zu schlafen oder zu meditieren.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informationen zum Entspannungs-Timer</value>
+  </data>
 </root>

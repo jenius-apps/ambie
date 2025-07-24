@@ -1032,4 +1032,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Режим на показване</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Таймер за релаксация</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Използвайте таймера за релаксация, за да ви помогне да се отпуснете, да спите или да медитирате.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Информация за таймера за релаксация</value>
+  </data>
 </root>

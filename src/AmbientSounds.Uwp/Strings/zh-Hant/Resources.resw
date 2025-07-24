@@ -1032,4 +1032,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>顯示模式</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>放鬆定時器</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>使用放鬆計時器説明您放鬆、睡眠或冥想。</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>放鬆計時器資訊</value>
+  </data>
 </root>

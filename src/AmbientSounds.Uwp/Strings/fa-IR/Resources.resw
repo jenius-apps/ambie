@@ -1032,4 +1032,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>حالت نمایش</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>تایمر آرامش</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>از تایمر آرامش برای کمک به استراحت، خوابیدن یا مدیتیشن استفاده کنید.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>اطلاعات تایمر آرامش</value>
+  </data>
 </root>

@@ -23,10 +23,40 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock
-            FontSize="12"
-            Foreground="{ThemeResource AccentFillColorDefaultBrush}"
-            Text="{x:Bind strings:Resources.SleepTimerText}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="{ThemeResource AccentFillColorDefaultBrush}"
+                Text="{x:Bind strings:Resources.RelaxationTimerText}" />
+
+            <Button
+                Grid.Column="1"
+                AutomationProperties.Name="{x:Bind strings:Resources.RelaxationTimerHelpButtonAutomationName}"
+                Style="{StaticResource TinySubtleIconButton}"
+                ToolTipService.ToolTip="{x:Bind strings:Resources.RelaxationTimerHelpButtonAutomationName}"
+                Visibility="Visible">
+                <Button.Flyout>
+                    <Flyout Placement="BottomEdgeAlignedRight">
+                        <TextBlock
+                            MaxWidth="200"
+                            Margin="-4"
+                            FontSize="12"
+                            Foreground="{StaticResource TextFillColorSecondaryBrush}"
+                            Text="{x:Bind strings:Resources.RelaxationTimerHelpMessage}"
+                            TextWrapping="WrapWholeWords" />
+                    </Flyout>
+                </Button.Flyout>
+                <FontIcon
+                    FontFamily="{StaticResource FluentUIGlyphs}"
+                    FontSize="{StaticResource SmallIconSize}"
+                    Foreground="{StaticResource TextFillColorTertiaryBrush}"
+                    Glyph="{StaticResource GlyphInfo}" />
+            </Button>
+        </Grid>
 
         <Rectangle
             Grid.Row="1"

@@ -1017,4 +1017,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Λειτουργία εμφάνισης</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Χρονοδιακόπτης χαλάρωσης</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Χρησιμοποιήστε το χρονόμετρο χαλάρωσης για να σας βοηθήσει να χαλαρώσετε, να κοιμηθείτε ή να διαλογιστείτε.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Πληροφορίες χρονοδιακόπτη χαλάρωσης</value>
+  </data>
 </root>

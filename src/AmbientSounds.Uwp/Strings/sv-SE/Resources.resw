@@ -1029,4 +1029,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Visningsläge</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Timer för avslappning</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Använd avslappningstimern för att hjälpa dig att slappna av, sova eller meditera.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Information om avslappningstimer</value>
+  </data>
 </root>

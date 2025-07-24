@@ -1029,4 +1029,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Mod de afișare</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Cronometru de relaxare</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Utilizați cronometrul de relaxare pentru a vă ajuta să vă relaxați, să dormiți sau să meditați.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informații despre cronometrul de relaxare</value>
+  </data>
 </root>

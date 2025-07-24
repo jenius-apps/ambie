@@ -999,4 +999,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Weergave modus</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Ontspanning timer</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Gebruik de ontspanningstimer om u te helpen ontspannen, slapen of mediteren.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informatie over de ontspanningstimer</value>
+  </data>
 </root>
