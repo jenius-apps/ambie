@@ -289,9 +289,6 @@
                             <controls:GuideShimmer />
                             <controls:GuideShimmer />
                             <controls:GuideShimmer />
-                            <controls:GuideShimmer />
-                            <controls:GuideShimmer />
-                            <controls:GuideShimmer />
                         </ItemsControl.Items>
                     </ItemsControl>
                 </Grid>
