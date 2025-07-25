@@ -40,9 +40,9 @@ public class SoundMixService : ISoundMixService
             return string.Empty;
         }
 
-        var activeTracks = _player.GetSoundIds();
-        var sounds = await _soundService.GetLocalSoundsAsync(soundIds: activeTracks);
-        var id = await SaveMixAsync(sounds, name);
+        string[] activeTracks = _player.GetSoundIds();
+        IReadOnlyList<Sound> sounds = await _soundService.GetLocalSoundsAsync(soundIds: activeTracks);
+        string id = await SaveMixAsync(sounds, name);
 
         if (!string.IsNullOrEmpty(id))
         {
@@ -71,12 +71,12 @@ public class SoundMixService : ISoundMixService
             Id = Guid.NewGuid().ToString(),
             IsMix = true,
             Name = string.IsNullOrWhiteSpace(name) ? RandomName() : name.Trim(),
-            SoundIds = sounds.Select(static x => x.Id).ToArray(),
-            ImagePaths = sounds.Select(static x => x.ImagePath).ToArray()
+            SoundIds = [.. sounds.Select(static x => x.Id)],
+            ImagePaths = [.. sounds.Select(static x => x.ImagePath)]
         };
 
-        var playerVolumes = _player.GetPlayerVolumes();
-        foreach (var pair in playerVolumes)
+        Dictionary<string, double> playerVolumes = _player.GetPlayerVolumes();
+        foreach (KeyValuePair<string, double> pair in playerVolumes)
         {
             if (mix.SoundIds.Contains(pair.Key))
             {
@@ -93,27 +93,30 @@ public class SoundMixService : ISoundMixService
     {
         if (mix?.SoundIds is null || !mix.IsMix)
         {
-            return Enumerable.Empty<string>();
+            return [];
         }
 
-        var sounds = await _soundService.GetLocalSoundsAsync(soundIds: mix.SoundIds);
+        IReadOnlyList<Sound>? sounds = await _soundService.GetLocalSoundsAsync(soundIds: mix.SoundIds);
         if (sounds is null)
         {
-            return Enumerable.Empty<string>();
+            return [];
         }
 
-        var availableIds = sounds.Select(x => x.Id);
+        IEnumerable<string> availableIds = sounds.Select(x => x.Id);
         return mix.SoundIds.Where(id => !availableIds.Contains(id));
     }
 
     /// <inheritdoc/>
     public async Task<bool> LoadMixAsync(Sound mix)
     {
-        if (mix?.SoundIds is null || !mix.IsMix) return false;
+        if (mix?.SoundIds is null || !mix.IsMix)
+        {
+            return false;
+        }
 
         // save instance of id
         // since RemoveAll will reset the id.
-        var previousMixId = _player.CurrentMixId;
+        string previousMixId = _player.CurrentMixId;
 
         // if the mix we're trying to play was
         // the same as the previous, return now
@@ -126,7 +129,7 @@ public class SoundMixService : ISoundMixService
 
         _player.RemoveAll();
 
-        var sounds = await _soundService.GetLocalSoundsAsync(soundIds: mix.SoundIds);
+        IReadOnlyList<Sound>? sounds = await _soundService.GetLocalSoundsAsync(soundIds: mix.SoundIds);
         if (sounds is not null && sounds.Count == mix.SoundIds.Length)
         {
             await _player.ToggleSoundsAsync(sounds, mix.Id);
@@ -144,13 +147,13 @@ public class SoundMixService : ISoundMixService
             return;
         }
 
-        var allSounds = await _soundService.GetLocalSoundsAsync();
-        var allSoundIds = allSounds.Select(static x => x.Id);
+        IReadOnlyList<Sound> allSounds = await _soundService.GetLocalSoundsAsync();
+        IEnumerable<string> allSoundIds = allSounds.Select(static x => x.Id);
 
-        foreach (var soundMix in dehydratedMixes)
+        foreach (Sound soundMix in dehydratedMixes)
         {
-            if (allSoundIds.Contains(soundMix.Id) || 
-                soundMix.SoundIds is null || 
+            if (allSoundIds.Contains(soundMix.Id) ||
+                soundMix.SoundIds is null ||
                 soundMix.SoundIds.Length == 0)
             {
                 continue;
@@ -163,8 +166,8 @@ public class SoundMixService : ISoundMixService
                 Id = soundMix.Id,
                 Name = soundMix.Name,
                 IsMix = true,
-                SoundIds = soundsForThisMix.Select(static x => x.Id).ToArray(),
-                ImagePaths = soundsForThisMix.Select(static x => x.ImagePath).ToArray()
+                SoundIds = [.. soundsForThisMix.Select(static x => x.Id)],
+                ImagePaths = [.. soundsForThisMix.Select(static x => x.ImagePath)]
             };
 
             await _soundService.AddLocalSoundAsync(hydratedMix);
@@ -174,7 +177,7 @@ public class SoundMixService : ISoundMixService
     private string RandomName()
     {
         var rand = new Random();
-        var result = rand.Next(4);
+        int result = rand.Next(4);
         return _namePlaceholders[result];
     }
 }

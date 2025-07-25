@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 namespace AmbientSounds.Models;
 
-public record QueuedSound(Sound SoundData, IProgress<double> Progress);
-
 /// <summary>
 /// A sound object.
 /// </summary>
@@ -54,7 +52,7 @@ public class Sound : IVersionedAsset
     /// The list of image paths to be used
     /// for the screensaver.
     /// </summary>
-    public string[]? ScreensaverImagePaths { get; set; } = Array.Empty<string>();
+    public string[]? ScreensaverImagePaths { get; set; } = [];
 
     /// <summary>
     /// True if sound is premium.
@@ -72,7 +70,7 @@ public class Sound : IVersionedAsset
     /// Ids used to identify the IAPs
     /// associated with this sound.
     /// </summary>
-    public IReadOnlyList<string> IapIds { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> IapIds { get; set; } = [];
 
     /// <summary>
     /// If true, this sound is a custom mix.
@@ -83,12 +81,12 @@ public class Sound : IVersionedAsset
     /// The list of image paths to be used
     /// for the mix.
     /// </summary>
-    public string[] ImagePaths { get; set; } = Array.Empty<string>();
+    public string[] ImagePaths { get; set; } = [];
 
     /// <summary>
     /// List of sound Ids for this mix.
     /// </summary>
-    public string[] SoundIds { get; set; } = Array.Empty<string>();
+    public string[] SoundIds { get; set; } = [];
 
     /// <summary>
     /// Unique user ID of the person who uploaded the sound file.
@@ -103,7 +101,7 @@ public class Sound : IVersionedAsset
     /// <summary>
     /// List of donation links to be displayed.
     /// </summary>
-    public string[] SponsorLinks { get; set; } = Array.Empty<string>();
+    public string[] SponsorLinks { get; set; } = [];
 
     /// <summary>
     /// The state of the sound's publication in the catalogue.
@@ -141,6 +139,11 @@ public class Sound : IVersionedAsset
     /// List of video IDs associated with this sound.
     /// </summary>
     public IReadOnlyList<string> AssociatedVideoIds { get; set; } = [];
+
+    /// <summary>
+    /// List of tags associated with the sound.
+    /// </summary>
+    public IReadOnlyList<string> Tags { get; set; } = [];
 
     /// <inheritdoc/>
     public override string ToString()
