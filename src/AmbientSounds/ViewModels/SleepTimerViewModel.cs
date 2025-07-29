@@ -18,7 +18,7 @@ public partial class SleepTimerViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly ILocalizer _localizer;
-    private readonly int[] _timeOptions = [15, 30, 45, 60, 90, 120];
+    private readonly int[] _timeOptions = [5, 10, 15, 30, 45, 60, 90, 120];
     private SleepTimerOptionsViewModel? _activeTimerOption;
 
     public SleepTimerViewModel(
