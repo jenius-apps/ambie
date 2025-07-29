@@ -33,7 +33,7 @@ public class SoundMixService : ISoundMixService
     }
 
     /// <inheritdoc/>
-    public async Task<string> SaveCurrentMixAsync(string name = "")
+    public async Task<string> SaveCurrentMixAsync(string name = "", IReadOnlyList<string>? tags = null)
     {
         if (!CanSaveCurrentMix())
         {
@@ -42,7 +42,7 @@ public class SoundMixService : ISoundMixService
 
         string[] activeTracks = _player.GetSoundIds();
         IReadOnlyList<Sound> sounds = await _soundService.GetLocalSoundsAsync(soundIds: activeTracks);
-        string id = await SaveMixAsync(sounds, name);
+        string id = await SaveMixAsync(sounds, name, tags: tags);
 
         if (!string.IsNullOrEmpty(id))
         {
@@ -59,7 +59,7 @@ public class SoundMixService : ISoundMixService
     }
 
     /// <inheritdoc/>
-    public async Task<string> SaveMixAsync(IReadOnlyList<Sound> sounds, string name = "")
+    public async Task<string> SaveMixAsync(IReadOnlyList<Sound> sounds, string name = "", IReadOnlyList<string>? tags = null)
     {
         if (sounds is null || sounds.Count <= 1)
         {
@@ -72,7 +72,8 @@ public class SoundMixService : ISoundMixService
             IsMix = true,
             Name = string.IsNullOrWhiteSpace(name) ? RandomName() : name.Trim(),
             SoundIds = [.. sounds.Select(static x => x.Id)],
-            ImagePaths = [.. sounds.Select(static x => x.ImagePath)]
+            ImagePaths = [.. sounds.Select(static x => x.ImagePath)],
+            Tags = tags is { Count: > 0 } ? [.. tags] : []
         };
 
         Dictionary<string, double> playerVolumes = _player.GetPlayerVolumes();

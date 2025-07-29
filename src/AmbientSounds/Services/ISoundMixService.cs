@@ -19,8 +19,10 @@ public interface ISoundMixService
     /// Saves the list of sounds into a new sound mix.
     /// </summary>
     /// <param name="sounds">List of sounds to save.</param>
+    /// <param name="name">Optional name for the mix.</param>
+    /// <param name="tags">A list of tags to save along with the mix.</param>
     /// <returns>The string Id of the new sound mix.</returns>
-    Task<string> SaveMixAsync(IReadOnlyList<Sound> sounds, string name = "");
+    Task<string> SaveMixAsync(IReadOnlyList<Sound> sounds, string name = "", IReadOnlyList<string>? tags = null);
 
     /// <summary>
     /// Reconstructs the given sound mixes and adds them to
@@ -47,8 +49,9 @@ public interface ISoundMixService
     /// Saves the current active sounds into a mix.
     /// </summary>
     /// <param name="name">Optional name for the mix.</param>
+    /// <param name="tags">A list of tags to save along with the mix.</param>
     /// <returns>The string Id of the new sound mix.</returns>
-    Task<string> SaveCurrentMixAsync(string name = "");
+    Task<string> SaveCurrentMixAsync(string name = "", IReadOnlyList<string>? tags = null);
 
     /// <summary>
     /// Returns true if the current mix can be saved.
