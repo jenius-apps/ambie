@@ -1368,6 +1368,18 @@
           <source>Display mode</source>
           <target state="translated">Tryb wyświetlania</target>
         </trans-unit>
+        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
+          <source>Relaxation timer</source>
+          <target state="translated">Zegar relaksu</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
+          <target state="translated">Użyj timera relaksu, który pomoże Ci się zrelaksować, zasnąć lub medytować.</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
+          <source>Relaxation timer information</source>
+          <target state="translated">Informacje o timerze relaksu</target>
+        </trans-unit>
       </group>
     </body>
   </file>

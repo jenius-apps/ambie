@@ -1029,4 +1029,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Tryb wyświetlania</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Zegar relaksu</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Użyj timera relaksu, który pomoże Ci się zrelaksować, zasnąć lub medytować.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informacje o timerze relaksu</value>
+  </data>
 </root>

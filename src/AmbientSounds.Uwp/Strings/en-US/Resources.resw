@@ -947,6 +947,15 @@
   <data name="SleepTimerText" xml:space="preserve">
     <value>Sleep Timer</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Relaxation timer</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Use the relaxation timer to help you relax, sleep, or meditate.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Relaxation timer information</value>
+  </data>
   <data name="UnlockText" xml:space="preserve">
     <value>Unlock</value>
   </data>

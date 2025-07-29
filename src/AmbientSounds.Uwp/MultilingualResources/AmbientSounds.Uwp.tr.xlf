@@ -1377,6 +1377,18 @@
           <source>Display mode</source>
           <target state="translated">Ekran modu</target>
         </trans-unit>
+        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
+          <source>Relaxation timer</source>
+          <target state="translated">Gevşeme zamanlayıcısı</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
+          <target state="translated">Rahatlamanıza, uyumanıza veya meditasyon yapmanıza yardımcı olması için gevşeme zamanlayıcısını kullanın.</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
+          <source>Relaxation timer information</source>
+          <target state="translated">Gevşeme zamanlayıcı bilgileri</target>
+        </trans-unit>
       </group>
     </body>
   </file>

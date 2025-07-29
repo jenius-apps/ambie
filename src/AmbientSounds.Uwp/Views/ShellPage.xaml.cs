@@ -67,14 +67,12 @@ public sealed partial class ShellPage : Page
             }
         }
 
-        SleepTimer.Initialize();
         await ViewModel.InitializeAsync();
     }
 
     protected override void OnNavigatedFrom(NavigationEventArgs e)
     {
         App.Services.GetRequiredService<INavigator>().Frame = null;
-        SleepTimer.Uninitialize();
         ViewModel.Uninitialize();
     }
 

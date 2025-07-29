@@ -1032,4 +1032,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>디스플레이 모드</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>릴렉스 타이머</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>휴식 타이머를 사용하여 긴장을 풀고, 잠을 자고, 명상하는 데 도움을 줍니다.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>릴렉스 타이머 정보</value>
+  </data>
 </root>

@@ -16,15 +16,6 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <Style x:Key="CardStyle" TargetType="Grid">
-            <Setter Property="Background" Value="{ThemeResource CardBackgroundFillColorDefaultBrush}" />
-            <Setter Property="BorderBrush" Value="{ThemeResource CardStrokeColorDefaultBrush}" />
-            <Setter Property="CornerRadius" Value="12" />
-            <Setter Property="BorderThickness" Value="1" />
-        </Style>
-    </Page.Resources>
-
     <ScrollViewer Margin="{StaticResource MainFramePageMargin}" CanContentRenderOutsideBounds="True">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

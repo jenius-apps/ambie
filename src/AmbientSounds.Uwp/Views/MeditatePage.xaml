@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:AmbientSounds.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ext="using:JeniusApps.Common.UI.Uwp"
@@ -17,253 +18,299 @@
 
     <Grid Margin="{StaticResource MainFramePageMargin}">
         <ScrollViewer Padding="0,0,16,0" CanContentRenderOutsideBounds="True">
-            <ItemsControl ItemsSource="{x:Bind ViewModel.Guides}">
-                <ItemsControl.ItemContainerTransitions>
-                    <EntranceThemeTransition IsStaggeringEnabled="True" />
-                </ItemsControl.ItemContainerTransitions>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="vm:GuideViewModel">
-                        <Grid
-                            Width="{StaticResource GuideCardWidth}"
-                            Height="{StaticResource ImageCardHeight}"
-                            RequestedTheme="Dark">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
 
-                            <!--  Image and the shadow  -->
-                            <Rectangle
-                                Grid.RowSpan="2"
-                                RadiusX="8"
-                                RadiusY="8"
-                                Stretch="Fill">
-                                <Rectangle.Fill>
-                                    <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
-                                </Rectangle.Fill>
-                                <ui:Effects.Shadow>
-                                    <media:AttachedCardShadow
-                                        BlurRadius="5"
-                                        CornerRadius="8"
-                                        Opacity="0.2"
-                                        Offset="0,4" />
-                                </ui:Effects.Shadow>
-                            </Rectangle>
+                <Grid Padding="12,4,12,12" Style="{StaticResource CardStyle}">
+                    <controls:SleepTimerBar x:Name="TimerBar" />
+                </Grid>
 
-                            <!--  Gradient overlay  -->
-                            <Rectangle
-                                Grid.RowSpan="2"
-                                RadiusX="8"
-                                RadiusY="8">
-                                <Rectangle.Fill>
-                                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,0.8">
-                                        <GradientStop Offset="0" Color="#00000000" />
-                                        <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
-                                    </LinearGradientBrush>
-                                </Rectangle.Fill>
-                            </Rectangle>
+                <Grid Grid.Row="1" Margin="0,20,0,0">
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                    </animations:Implicit.Animations>
 
-                            <!--  Delete button flyout  -->
-                            <Button
-                                Margin="0,8,8,0"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Style="{StaticResource SmallSubtleIconButton}"
-                                Visibility="{x:Bind PlaybackButtonsVisible, Mode=OneWay}">
-                                <FontIcon
-                                    FontFamily="{StaticResource FluentUIGlyphs}"
-                                    FontSize="15"
-                                    Glyph="{StaticResource GlyphThreeDots}" />
-                                <Button.Flyout>
-                                    <MenuFlyout Placement="BottomEdgeAlignedRight">
-                                        <MenuFlyoutItem
-                                            Command="{x:Bind DeleteCommand}"
-                                            CommandParameter="{x:Bind}"
-                                            Icon="Delete"
-                                            Text="{x:Bind strings:Resources.DeleteText}" />
-                                    </MenuFlyout>
-                                </Button.Flyout>
-                            </Button>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
 
-                            <!--  Bottom section  -->
-                            <Grid Grid.Row="1" VerticalAlignment="Bottom">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
+                    <TextBlock
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                        Text="Sleep and meditation guides" />
 
-                                <!--  title and preview text  -->
-                                <StackPanel Margin="12,0,4,12" Background="Transparent">
-                                    <TextBlock
-                                        FontWeight="SemiBold"
-                                        Foreground="WhiteSmoke"
-                                        Text="{x:Bind Name}"
-                                        TextTrimming="CharacterEllipsis" />
+                    <ItemsControl
+                        Grid.Row="1"
+                        Margin="0,8,0,0"
+                        ItemsSource="{x:Bind ViewModel.Guides}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:GuideViewModel">
+                                <Grid
+                                    Width="{StaticResource GuideCardWidth}"
+                                    Height="{StaticResource ImageCardHeight}"
+                                    RequestedTheme="Dark">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
 
-                                    <TextBlock
-                                        FontSize="10"
-                                        Foreground="LightGray"
-                                        Text="{x:Bind PreviewText}"
-                                        TextTrimming="CharacterEllipsis"
-                                        TextWrapping="WrapWholeWords" />
-                                </StackPanel>
+                                    <!--  Image and the shadow  -->
+                                    <Rectangle
+                                        Grid.RowSpan="2"
+                                        RadiusX="8"
+                                        RadiusY="8"
+                                        Stretch="Fill">
+                                        <Rectangle.Fill>
+                                            <ImageBrush ImageSource="{x:Bind ImagePath}" Stretch="UniformToFill" />
+                                        </Rectangle.Fill>
+                                        <ui:Effects.Shadow>
+                                            <media:AttachedCardShadow
+                                                BlurRadius="5"
+                                                CornerRadius="8"
+                                                Opacity="0.2"
+                                                Offset="0,4" />
+                                        </ui:Effects.Shadow>
+                                    </Rectangle>
 
-                                <!--  Buy, download, and play buttons  -->
-                                <StackPanel
-                                    Grid.Column="1"
-                                    Margin="0,0,8,8"
-                                    VerticalAlignment="Bottom"
-                                    Background="Transparent"
-                                    Orientation="Horizontal">
+                                    <!--  Gradient overlay  -->
+                                    <Rectangle
+                                        Grid.RowSpan="2"
+                                        RadiusX="8"
+                                        RadiusY="8">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,0.8">
+                                                <GradientStop Offset="0" Color="#00000000" />
+                                                <GradientStop Offset="1" Color="{x:Bind controls:UIHelper.ToColour(ColourHex), Mode=OneWay}" />
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
 
-                                    <!--  Buy button  -->
+                                    <!--  Delete button flyout  -->
                                     <Button
-                                        AutomationProperties.Name="{x:Bind strings:Resources.ViewPremiumInfo}"
-                                        Command="{x:Bind PurchaseCommand}"
+                                        Margin="0,8,8,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
                                         Style="{StaticResource SmallSubtleIconButton}"
-                                        ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
-                                        Visibility="{x:Bind BuyButtonVisible, Mode=OneWay}">
-                                        <FontIcon
-                                            FontFamily="{StaticResource FluentUIGlyphsCustom}"
-                                            FontSize="15"
-                                            Glyph="{StaticResource GlyphCustomPremium}" />
-                                    </Button>
-
-                                    <!--  Download button and progress  -->
-                                    <Button
-                                        AutomationProperties.Name="{x:Bind strings:Resources.DownloadText}"
-                                        Command="{x:Bind DownloadCommand}"
-                                        CommandParameter="{x:Bind}"
-                                        Style="{StaticResource SmallSubtleIconButton}"
-                                        ToolTipService.ToolTip="{x:Bind strings:Resources.DownloadText}"
-                                        Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
-                                        <Grid>
-                                            <FontIcon
-                                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                                FontSize="15"
-                                                Glyph="{StaticResource GlyphDownload}"
-                                                Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ProgressRingVisible), Mode=OneWay}" />
-
-                                            <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}">
-                                                <ani:Implicit.ShowAnimations>
-                                                    <ani:ScaleAnimation
-                                                        From="0.80"
-                                                        To="1"
-                                                        Duration="0:0:0.3" />
-                                                    <ani:OpacityAnimation
-                                                        From="0"
-                                                        To="1"
-                                                        Duration="0:0:0.3" />
-                                                </ani:Implicit.ShowAnimations>
-
-                                                <winui:ProgressRing
-                                                    Width="16"
-                                                    Height="16"
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"
-                                                    Foreground="White"
-                                                    IsIndeterminate="False"
-                                                    Opacity="0.1"
-                                                    Value="100" />
-                                                <winui:ProgressRing
-                                                    Width="16"
-                                                    Height="16"
-                                                    HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"
-                                                    Foreground="White"
-                                                    IsIndeterminate="{x:Bind Loading, Mode=OneWay}"
-                                                    Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
-                                            </Grid>
-                                        </Grid>
-                                    </Button>
-
-                                    <!--  Play and stop button  -->
-                                    <Button
-                                        AutomationProperties.Name="{x:Bind strings:Resources.PlayerPlayText}"
-                                        Command="{x:Bind ToggleCommand}"
-                                        Style="{StaticResource SmallSubtleIconButton}"
-                                        ToolTipService.ToolTip="{x:Bind strings:Resources.PlayerPlayText}"
                                         Visibility="{x:Bind PlaybackButtonsVisible, Mode=OneWay}">
-                                        <Grid>
-                                            <FontIcon
-                                                ui:VisualExtensions.NormalizedCenterPoint="0.5"
-                                                FontFamily="{StaticResource FluentUIGlyphs}"
-                                                FontSize="15"
-                                                Glyph="{StaticResource GlyphPlay}"
-                                                Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsPlaying), Mode=OneWay}">
-                                                <ani:Implicit.ShowAnimations>
-                                                    <ani:ScaleAnimation
-                                                        From="0.80"
-                                                        To="1"
-                                                        Duration="0:0:0.3" />
-                                                    <ani:OpacityAnimation
-                                                        From="0"
-                                                        To="1"
-                                                        Duration="0:0:0.3" />
-                                                </ani:Implicit.ShowAnimations>
-                                            </FontIcon>
+                                        <FontIcon
+                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                            FontSize="15"
+                                            Glyph="{StaticResource GlyphThreeDots}" />
+                                        <Button.Flyout>
+                                            <MenuFlyout Placement="BottomEdgeAlignedRight">
+                                                <MenuFlyoutItem
+                                                    Command="{x:Bind DeleteCommand}"
+                                                    CommandParameter="{x:Bind}"
+                                                    Icon="Delete"
+                                                    Text="{x:Bind strings:Resources.DeleteText}" />
+                                            </MenuFlyout>
+                                        </Button.Flyout>
+                                    </Button>
 
-                                            <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind IsPlaying, Mode=OneWay}">
-                                                <ani:Implicit.ShowAnimations>
-                                                    <ani:ScaleAnimation
-                                                        From="0.80"
-                                                        To="1"
-                                                        Duration="0:0:0.3" />
-                                                    <ani:OpacityAnimation
-                                                        From="0"
-                                                        To="1"
-                                                        Duration="0:0:0.3" />
-                                                </ani:Implicit.ShowAnimations>
+                                    <!--  Bottom section  -->
+                                    <Grid Grid.Row="1" VerticalAlignment="Bottom">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
 
-                                                <winui:ProgressRing
-                                                    Width="24"
-                                                    Height="24"
-                                                    Foreground="White"
-                                                    IsIndeterminate="False"
-                                                    Opacity="0.1"
-                                                    Value="100" />
-                                                <winui:ProgressRing
-                                                    Width="24"
-                                                    Height="24"
-                                                    Foreground="White"
-                                                    IsIndeterminate="False"
-                                                    Maximum="100"
-                                                    Minimum="0"
-                                                    Value="{x:Bind GuidePlaybackProgress, Mode=OneWay}" />
+                                        <!--  title and preview text  -->
+                                        <StackPanel Margin="12,0,4,12" Background="Transparent">
+                                            <TextBlock
+                                                FontWeight="SemiBold"
+                                                Foreground="WhiteSmoke"
+                                                Text="{x:Bind Name}"
+                                                TextTrimming="CharacterEllipsis" />
+
+                                            <TextBlock
+                                                FontSize="10"
+                                                Foreground="LightGray"
+                                                Text="{x:Bind PreviewText}"
+                                                TextTrimming="CharacterEllipsis"
+                                                TextWrapping="WrapWholeWords" />
+                                        </StackPanel>
+
+                                        <!--  Buy, download, and play buttons  -->
+                                        <StackPanel
+                                            Grid.Column="1"
+                                            Margin="0,0,8,8"
+                                            VerticalAlignment="Bottom"
+                                            Background="Transparent"
+                                            Orientation="Horizontal">
+
+                                            <!--  Buy button  -->
+                                            <Button
+                                                AutomationProperties.Name="{x:Bind strings:Resources.ViewPremiumInfo}"
+                                                Command="{x:Bind PurchaseCommand}"
+                                                Style="{StaticResource SmallSubtleIconButton}"
+                                                ToolTipService.ToolTip="{x:Bind strings:Resources.ViewPremiumInfo}"
+                                                Visibility="{x:Bind BuyButtonVisible, Mode=OneWay}">
                                                 <FontIcon
                                                     FontFamily="{StaticResource FluentUIGlyphs}"
-                                                    FontSize="8"
-                                                    Glyph="{StaticResource GlyphStop}" />
-                                            </Grid>
-                                        </Grid>
-                                    </Button>
-                                </StackPanel>
-                            </Grid>
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+                                                    FontSize="14"
+                                                    Glyph="{StaticResource GlyphUnlock}" />
+                                            </Button>
 
-        <ItemsControl Margin="0,0,16,0" Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.Items>
-                <controls:GuideShimmer />
-                <controls:GuideShimmer />
-                <controls:GuideShimmer />
-                <controls:GuideShimmer />
-                <controls:GuideShimmer />
-                <controls:GuideShimmer />
-            </ItemsControl.Items>
-        </ItemsControl>
+                                            <!--  Download button and progress  -->
+                                            <Button
+                                                AutomationProperties.Name="{x:Bind strings:Resources.DownloadText}"
+                                                Command="{x:Bind DownloadCommand}"
+                                                CommandParameter="{x:Bind}"
+                                                Style="{StaticResource SmallSubtleIconButton}"
+                                                ToolTipService.ToolTip="{x:Bind strings:Resources.DownloadText}"
+                                                Visibility="{x:Bind DownloadButtonVisible, Mode=OneWay}">
+                                                <Grid>
+                                                    <FontIcon
+                                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                                        FontSize="15"
+                                                        Glyph="{StaticResource GlyphDownload}"
+                                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(ProgressRingVisible), Mode=OneWay}" />
+
+                                                    <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind ProgressRingVisible, Mode=OneWay}">
+                                                        <ani:Implicit.ShowAnimations>
+                                                            <ani:ScaleAnimation
+                                                                From="0.80"
+                                                                To="1"
+                                                                Duration="0:0:0.3" />
+                                                            <ani:OpacityAnimation
+                                                                From="0"
+                                                                To="1"
+                                                                Duration="0:0:0.3" />
+                                                        </ani:Implicit.ShowAnimations>
+
+                                                        <winui:ProgressRing
+                                                            Width="16"
+                                                            Height="16"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Foreground="White"
+                                                            IsIndeterminate="False"
+                                                            Opacity="0.1"
+                                                            Value="100" />
+                                                        <winui:ProgressRing
+                                                            Width="16"
+                                                            Height="16"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Foreground="White"
+                                                            IsIndeterminate="{x:Bind Loading, Mode=OneWay}"
+                                                            Value="{x:Bind DownloadProgressValue, Mode=OneWay}" />
+                                                    </Grid>
+                                                </Grid>
+                                            </Button>
+
+                                            <!--  Play and stop button  -->
+                                            <Button
+                                                AutomationProperties.Name="{x:Bind strings:Resources.PlayerPlayText}"
+                                                Command="{x:Bind ToggleCommand}"
+                                                Style="{StaticResource SmallSubtleIconButton}"
+                                                ToolTipService.ToolTip="{x:Bind strings:Resources.PlayerPlayText}"
+                                                Visibility="{x:Bind PlaybackButtonsVisible, Mode=OneWay}">
+                                                <Grid>
+                                                    <FontIcon
+                                                        ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                                                        FontFamily="{StaticResource FluentUIGlyphs}"
+                                                        FontSize="15"
+                                                        Glyph="{StaticResource GlyphPlay}"
+                                                        Visibility="{x:Bind ext:UIExtensions.InvertBoolToVis(IsPlaying), Mode=OneWay}">
+                                                        <ani:Implicit.ShowAnimations>
+                                                            <ani:ScaleAnimation
+                                                                From="0.80"
+                                                                To="1"
+                                                                Duration="0:0:0.3" />
+                                                            <ani:OpacityAnimation
+                                                                From="0"
+                                                                To="1"
+                                                                Duration="0:0:0.3" />
+                                                        </ani:Implicit.ShowAnimations>
+                                                    </FontIcon>
+
+                                                    <Grid ui:VisualExtensions.NormalizedCenterPoint="0.5" Visibility="{x:Bind IsPlaying, Mode=OneWay}">
+                                                        <ani:Implicit.ShowAnimations>
+                                                            <ani:ScaleAnimation
+                                                                From="0.80"
+                                                                To="1"
+                                                                Duration="0:0:0.3" />
+                                                            <ani:OpacityAnimation
+                                                                From="0"
+                                                                To="1"
+                                                                Duration="0:0:0.3" />
+                                                        </ani:Implicit.ShowAnimations>
+
+                                                        <winui:ProgressRing
+                                                            Width="24"
+                                                            Height="24"
+                                                            Foreground="White"
+                                                            IsIndeterminate="False"
+                                                            Opacity="0.1"
+                                                            Value="100" />
+                                                        <winui:ProgressRing
+                                                            Width="24"
+                                                            Height="24"
+                                                            Foreground="White"
+                                                            IsIndeterminate="False"
+                                                            Maximum="100"
+                                                            Minimum="0"
+                                                            Value="{x:Bind GuidePlaybackProgress, Mode=OneWay}" />
+                                                        <FontIcon
+                                                            FontFamily="{StaticResource FluentUIGlyphs}"
+                                                            FontSize="8"
+                                                            Glyph="{StaticResource GlyphStop}" />
+                                                    </Grid>
+                                                </Grid>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <ItemsControl
+                        Grid.Row="1"
+                        Margin="0,8,0,0"
+                        Visibility="{x:Bind ViewModel.PlaceholderVisible, Mode=OneWay}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <toolkit:WrapPanel HorizontalSpacing="8" VerticalSpacing="8" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.Items>
+                            <controls:GuideShimmer />
+                            <controls:GuideShimmer />
+                            <controls:GuideShimmer />
+                        </ItemsControl.Items>
+                    </ItemsControl>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="0,20,0,0">
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.3" />
+                    </animations:Implicit.Animations>
+
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Rows}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:CatalogueRowViewModel">
+                                <controls:CatalogueRowControl
+                                    Margin="0,0,0,24"
+                                    ItemsSource="{x:Bind Sounds, Mode=OneWay}"
+                                    SoundsVisible="{x:Bind RowVisible, Mode=OneWay}"
+                                    TitleText="{x:Bind Title, Mode=OneWay}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

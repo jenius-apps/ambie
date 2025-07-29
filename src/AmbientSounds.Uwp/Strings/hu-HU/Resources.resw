@@ -1020,4 +1020,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Megjelenítési mód</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Relaxációs időzítő</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Használja a relaxációs időzítőt, hogy segítsen ellazulni, aludni vagy meditálni.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Relaxációs időzítő információk</value>
+  </data>
 </root>

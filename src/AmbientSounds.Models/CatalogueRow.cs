@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AmbientSounds.Models;
 
@@ -9,7 +8,7 @@ public class CatalogueRow : IAsset
 
     public string Description { get; set; } = string.Empty;
 
-    public IReadOnlyList<string> SoundIds { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> SoundIds { get; set; } = [];
 
     public IReadOnlyDictionary<string, DisplayInformation> Localizations { get; set; } = new Dictionary<string, DisplayInformation>();
 }

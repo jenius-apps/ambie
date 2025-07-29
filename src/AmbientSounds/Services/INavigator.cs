@@ -12,7 +12,7 @@ public interface INavigator
     /// <summary>
     /// Raised when the content page was changed.
     /// </summary>
-    event EventHandler<ContentPageType>? ContentPageChanged; 
+    event EventHandler<ContentPageType>? ContentPageChanged;
 
     /// <summary>
     /// The root frame of the app.

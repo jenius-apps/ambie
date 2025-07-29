@@ -12,6 +12,8 @@ public class LaunchConstants
 
     public const string NewChannelArgument = "newChannel";
 
+    public const string NewGuideArgument = "newGuide";
+
     public const string FocusSegmentArgument = "focusSegmentToast";
 
     public const string FocusCompleteArgument = "focusCompleteToast";
@@ -30,6 +32,7 @@ public class LaunchConstants
             FocusSegmentArgument => ContentPageType.Focus,
             FocusCompleteArgument => ContentPageType.Focus,
             NewChannelArgument => ContentPageType.Channels,
+            NewGuideArgument => ContentPageType.Meditate,
             _ => null
         };
     }

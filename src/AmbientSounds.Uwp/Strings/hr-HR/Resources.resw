@@ -1020,4 +1020,13 @@
   <data name="DisplayMode" xml:space="preserve">
     <value>Način prikaza</value>
   </data>
+  <data name="RelaxationTimerText" xml:space="preserve">
+    <value>Mjerač vremena za opuštanje</value>
+  </data>
+  <data name="RelaxationTimerHelpMessage" xml:space="preserve">
+    <value>Koristite mjerač vremena za opuštanje koji će vam pomoći da se opustite, zaspite ili meditirate.</value>
+  </data>
+  <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
+    <value>Informacije o mjeraču vremena za opuštanje</value>
+  </data>
 </root>

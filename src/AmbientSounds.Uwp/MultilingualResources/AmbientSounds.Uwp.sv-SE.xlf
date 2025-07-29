@@ -1366,6 +1366,18 @@
           <source>Display mode</source>
           <target state="translated">Visningsläge</target>
         </trans-unit>
+        <trans-unit id="RelaxationTimerText" translate="yes" xml:space="preserve">
+          <source>Relaxation timer</source>
+          <target state="translated">Timer för avslappning</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpMessage" translate="yes" xml:space="preserve">
+          <source>Use the relaxation timer to help you relax, sleep, or meditate.</source>
+          <target state="translated">Använd avslappningstimern för att hjälpa dig att slappna av, sova eller meditera.</target>
+        </trans-unit>
+        <trans-unit id="RelaxationTimerHelpButtonAutomationName" translate="yes" xml:space="preserve">
+          <source>Relaxation timer information</source>
+          <target state="translated">Information om avslappningstimer</target>
+        </trans-unit>
       </group>
     </body>
   </file>

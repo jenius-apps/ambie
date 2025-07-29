@@ -6,7 +6,7 @@ using System;
 
 namespace AmbientSounds.Factories;
 
-public class CatalogueRowVmFactory(IServiceProvider serviceProvider)
+public class CatalogueRowVmFactory(IServiceProvider serviceProvider) : ICatalogueRowVmFactory
 {
     public CatalogueRowViewModel Create(CatalogueRow row)
     {

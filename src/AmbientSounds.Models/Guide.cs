@@ -17,9 +17,9 @@ public class Guide : IVersionedAsset, IEquatable<Guide>
     public double MinutesLength { get; set; }
 
     /// <summary>
-    /// The culture of this guide.
+    /// The two letter language code the spoken language for this guide. E.g. "EN"
     /// </summary>
-    public string Culture { get; set; } = string.Empty;
+    public string Culture { get; set; } = "en";
 
     /// <summary>
     /// Colour to use to decorate the images.
