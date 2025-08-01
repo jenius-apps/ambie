@@ -1,7 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Events;
 using AmbientSounds.Models;
-using AmbientSounds.Repositories;
 using AmbientSounds.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -11,8 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-#nullable enable
 
 namespace AmbientSounds.ViewModels;
 
@@ -25,7 +22,6 @@ public partial class SoundViewModel : ObservableObject
     private readonly Sound _sound;
     private readonly IMixMediaPlayerService _playerService;
     private readonly ISoundService _soundService;
-    private readonly IOnlineSoundRepository _onlineSoundRepo;
     private readonly ISoundMixService _soundMixService;
     private readonly ITelemetry _telemetry;
     private readonly IRenamer _renamer;
@@ -70,7 +66,6 @@ public partial class SoundViewModel : ObservableObject
         IDownloadManager downloadManager,
         IPresenceService presenceService,
         IDispatcherQueue dispatcherQueue,
-        IOnlineSoundRepository onlineSoundRepo,
         IAssetLocalizer assetLocalizer)
     {
         _sound = s;
@@ -84,7 +79,6 @@ public partial class SoundViewModel : ObservableObject
         _downloadManager = downloadManager;
         _presenceService = presenceService;
         _dispatcherQueue = dispatcherQueue;
-        _onlineSoundRepo = onlineSoundRepo;
         _assetLocalizer = assetLocalizer;
     }
 
@@ -325,7 +319,7 @@ public partial class SoundViewModel : ObservableObject
     private void OnPresenceDisconnected(object sender, EventArgs e)
     {
         _dispatcherQueue.TryEnqueue(() =>
-        { 
+        {
             PresenceCount = 0;
             OnPropertyChanged(nameof(IsPresenceVisible));
         });
@@ -369,10 +363,7 @@ public partial class SoundViewModel : ObservableObject
     [RelayCommand]
     private async Task ShareAsync()
     {
-        IReadOnlyList<string> ids = IsMix ? _sound.SoundIds.OrderBy(x => x).ToArray() : new string[]
-        {
-            Id
-        };
+        IReadOnlyList<string> ids = IsMix ? _sound.SoundIds.OrderBy(x => x).ToArray() : [Id];
 
         await _dialogService.OpenShareAsync(ids);
     }
