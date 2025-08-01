@@ -1389,6 +1389,10 @@
           <source>Relaxation timer information</source>
           <target state="translated">Gevşeme zamanlayıcı bilgileri</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">Relax sayfasına dahil et</target>
+        </trans-unit>
       </group>
     </body>
   </file>

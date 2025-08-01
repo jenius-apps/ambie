@@ -1146,4 +1146,7 @@
   <data name="DurationUnitYear" xml:space="preserve">
     <value>year</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Include in Relax page</value>
+  </data>
 </root>

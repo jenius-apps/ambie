@@ -1008,4 +1008,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informatie over de ontspanningstimer</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Opnemen in Relax pagina</value>
+  </data>
 </root>

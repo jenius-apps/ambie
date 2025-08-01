@@ -1038,4 +1038,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informations sur la minuterie de relaxation</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Inclure dans la page Relax</value>
+  </data>
 </root>

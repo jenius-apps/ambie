@@ -1375,6 +1375,10 @@
           <source>Relaxation timer information</source>
           <target state="translated">リラクゼーションタイマー情報</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">リラックスページに含める</target>
+        </trans-unit>
       </group>
     </body>
   </file>

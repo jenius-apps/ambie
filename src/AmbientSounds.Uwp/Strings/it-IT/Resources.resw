@@ -1041,4 +1041,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informazioni sul timer di rilassamento</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Includi nella pagina Relax</value>
+  </data>
 </root>

@@ -1378,6 +1378,10 @@
           <source>Relaxation timer information</source>
           <target state="translated">מידע על טיימר הרפיה</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">כלול בדף Relax</target>
+        </trans-unit>
       </group>
     </body>
   </file>

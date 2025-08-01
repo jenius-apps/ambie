@@ -1041,4 +1041,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informace o časovači relaxace</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Zahrnout do stránky Relax</value>
+  </data>
 </root>

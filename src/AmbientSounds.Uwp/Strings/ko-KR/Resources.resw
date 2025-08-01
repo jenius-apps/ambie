@@ -1041,4 +1041,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>릴렉스 타이머 정보</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>휴식 페이지에 포함</value>
+  </data>
 </root>

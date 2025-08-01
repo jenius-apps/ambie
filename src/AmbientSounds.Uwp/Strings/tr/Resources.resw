@@ -1035,4 +1035,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Gevşeme zamanlayıcı bilgileri</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Relax sayfasına dahil et</value>
+  </data>
 </root>

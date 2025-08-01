@@ -1041,4 +1041,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>放松计时器信息</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>包含在 Relax 页面中</value>
+  </data>
 </root>

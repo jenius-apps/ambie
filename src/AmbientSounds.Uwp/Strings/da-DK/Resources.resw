@@ -1038,4 +1038,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Oplysninger om afslapningstimer</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Medtag på Relax-siden</value>
+  </data>
 </root>

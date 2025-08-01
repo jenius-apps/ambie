@@ -1041,4 +1041,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>اطلاعات تایمر آرامش</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>در صفحه Relax گنجانده شود</value>
+  </data>
 </root>

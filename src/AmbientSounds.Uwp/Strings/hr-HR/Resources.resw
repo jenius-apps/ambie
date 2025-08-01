@@ -1029,4 +1029,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informacije o mjeraču vremena za opuštanje</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Uključi na stranicu Relax</value>
+  </data>
 </root>

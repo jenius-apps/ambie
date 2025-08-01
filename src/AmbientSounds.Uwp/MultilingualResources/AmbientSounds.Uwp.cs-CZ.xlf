@@ -1379,6 +1379,10 @@
           <source>Relaxation timer information</source>
           <target state="translated">Informace o časovači relaxace</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">Zahrnout do stránky Relax</target>
+        </trans-unit>
       </group>
     </body>
   </file>

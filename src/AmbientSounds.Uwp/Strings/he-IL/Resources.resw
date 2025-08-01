@@ -1041,4 +1041,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>מידע על טיימר הרפיה</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>כלול בדף Relax</value>
+  </data>
 </root>

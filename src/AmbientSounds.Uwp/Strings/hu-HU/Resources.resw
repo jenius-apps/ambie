@@ -1029,4 +1029,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Relaxációs időzítő információk</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Belefoglalás a Relax oldalra</value>
+  </data>
 </root>

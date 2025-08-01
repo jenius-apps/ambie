@@ -1038,4 +1038,7 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informații despre cronometrul de relaxare</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Includeți în pagina Relaxare</value>
+  </data>
 </root>

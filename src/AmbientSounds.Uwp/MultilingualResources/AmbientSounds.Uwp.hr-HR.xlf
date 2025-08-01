@@ -1379,6 +1379,10 @@
           <source>Relaxation timer information</source>
           <target state="translated">Informacije o mjeraču vremena za opuštanje</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">Uključi na stranicu Relax</target>
+        </trans-unit>
       </group>
     </body>
   </file>

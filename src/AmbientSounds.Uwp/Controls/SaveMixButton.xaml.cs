@@ -1,5 +1,6 @@
 ﻿using AmbientSounds.Constants;
 using AmbientSounds.Services;
+using JeniusApps.Common.Settings;
 using JeniusApps.Common.Telemetry;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -29,6 +30,7 @@ public sealed partial class SaveMixButton : UserControl
     public SaveMixButton()
     {
         this.InitializeComponent();
+        ShowInRelaxPage = App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ShowMixInRelaxPageKey);
     }
 
     /// <summary>
