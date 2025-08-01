@@ -258,6 +258,9 @@
     <Compile Include="Controls\SoundListItem.xaml.cs">
       <DependentUpon>SoundListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SoundViewModelGridView.xaml.cs">
+      <DependentUpon>SoundViewModelGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SparkleLottie.cs" />
     <Compile Include="Controls\SplitView.xaml.cs">
       <DependentUpon>SplitView.xaml</DependentUpon>
@@ -657,6 +660,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SoundListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SoundViewModelGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

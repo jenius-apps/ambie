@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-#nullable enable
-
 namespace AmbientSounds.Services;
 
 public interface ISoundService
@@ -31,6 +29,14 @@ public interface ISoundService
     /// </summary>
     /// <returns>List of installed sound objects.</returns>
     Task<IReadOnlyList<Sound>> GetLocalSoundsAsync(IReadOnlyList<string>? soundIds = null);
+
+    /// <summary>
+    /// Gets the list of sound mixes that are saved offline.
+    /// </summary>
+    /// <param name="soundMixIds">Optional. List of specific sound mixes to fetch.</param>
+    /// <param name="tag">Optional. A tag to filter for.</param>
+    /// <returns>List of saved sound mixes.</returns>
+    Task<IReadOnlyList<Sound>> GetLocalMixesAsync(HashSet<string>? soundMixIds = null, string? tag = null);
 
     /// <summary>
     /// Takes the packaged sounds and installs them

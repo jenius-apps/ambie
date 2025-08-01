@@ -27,6 +27,8 @@ public partial class MeditatePageViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly IPageCache _pageCache;
     private readonly ICatalogueRowVmFactory _catalogueRowVmFactory;
+    private readonly ISoundService _soundService;
+    private readonly ISoundVmFactory _soundVmFactory;
 
     public MeditatePageViewModel(
         IGuideService guideService,
@@ -37,7 +39,9 @@ public partial class MeditatePageViewModel : ObservableObject
         IDispatcherQueue dispatcherQueue,
         ITelemetry telemetry,
         IPageCache pageCache,
-        ICatalogueRowVmFactory catalogueRowVmFactory)
+        ICatalogueRowVmFactory catalogueRowVmFactory,
+        ISoundService soundService,
+        ISoundVmFactory soundVmFactory)
     {
         _guideService = guideService;
         _guideVmFactory = guideVmFactory;
@@ -48,7 +52,11 @@ public partial class MeditatePageViewModel : ObservableObject
         _telemetry = telemetry;
         _pageCache = pageCache;
         _catalogueRowVmFactory = catalogueRowVmFactory;
+        _soundService = soundService;
+        _soundVmFactory = soundVmFactory;
     }
+
+    public ObservableCollection<SoundViewModel> SavedMixes { get; } = [];
 
     public ObservableCollection<GuideViewModel> Guides { get; } = [];
 
@@ -104,7 +112,21 @@ public partial class MeditatePageViewModel : ObservableObject
             }
         }
 
+        await LoadMixesAsync(ct);
         await LoadRowsAsync(ct);
+    }
+
+    private async Task LoadMixesAsync(CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+        IReadOnlyList<Sound> mixes = await _soundService.GetLocalMixesAsync(tag: AssetTagConstants.MeditatePageTag);
+        ct.ThrowIfCancellationRequested();
+        foreach (Sound mix in mixes)
+        {
+            ct.ThrowIfCancellationRequested();
+            SoundViewModel vm = _soundVmFactory.GetSoundVm(mix);
+            SavedMixes.Add(vm);
+        }
     }
 
     private async Task LoadRowsAsync(CancellationToken ct)

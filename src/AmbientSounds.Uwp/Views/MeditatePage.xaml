@@ -23,6 +23,7 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
                 <Grid Padding="12,4,12,12" Style="{StaticResource CardStyle}">
@@ -293,7 +294,11 @@
                     </ItemsControl>
                 </Grid>
 
-                <Grid Grid.Row="2" Margin="0,20,0,0">
+                <Grid Grid.Row="2">
+                    <controls:SoundViewModelGridView ItemsSource="{x:Bind ViewModel.SavedMixes}" />
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="0,20,0,0">
                     <animations:Implicit.Animations>
                         <animations:OffsetAnimation Duration="0:0:0.3" />
                     </animations:Implicit.Animations>
