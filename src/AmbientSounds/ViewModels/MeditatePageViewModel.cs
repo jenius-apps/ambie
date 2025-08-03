@@ -10,6 +10,7 @@ using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -54,6 +55,8 @@ public partial class MeditatePageViewModel : ObservableObject
         _catalogueRowVmFactory = catalogueRowVmFactory;
         _soundService = soundService;
         _soundVmFactory = soundVmFactory;
+
+        SavedMixes.CollectionChanged += OnSavedMixesCollectionChanged;
     }
 
     public ObservableCollection<SoundViewModel> SavedMixes { get; } = [];
@@ -134,8 +137,6 @@ public partial class MeditatePageViewModel : ObservableObject
             SoundViewModel vm = _soundVmFactory.GetSoundVm(mix);
             SavedMixes.Add(vm);
         }
-
-        OnPropertyChanged(nameof(SavedMixesVisible));
     }
 
     private async Task LoadRowsAsync(CancellationToken ct)
@@ -313,5 +314,10 @@ public partial class MeditatePageViewModel : ObservableObject
                 guideVm.IsPlaying = false;
             }
         });
+    }
+
+    private void OnSavedMixesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        OnPropertyChanged(nameof(SavedMixesVisible));
     }
 }
