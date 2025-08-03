@@ -1381,6 +1381,18 @@
           <source>Relaxation timer information</source>
           <target state="translated">Información del temporizador de relajación</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">Incluir en la página de Relax</target>
+        </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">Tus mezclas de sonido guardadas</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">Guías de sueño y meditación</target>
+        </trans-unit>
       </group>
     </body>
   </file>

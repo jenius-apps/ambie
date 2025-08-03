@@ -6,85 +6,87 @@ using Windows.UI.Xaml.Controls;
 
 #nullable enable
 
-namespace AmbientSounds.Controls
+namespace AmbientSounds.Controls;
+
+/// <summary>
+/// Used for home page scenarios because it's designed to show all offline sounds available.
+/// </summary>
+public sealed partial class SoundGridControl : UserControl
 {
-    public sealed partial class SoundGridControl : UserControl
+    public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(
+        nameof(ItemTemplate),
+        typeof(DataTemplate),
+        typeof(SoundGridControl),
+        null);
+
+    public static readonly DependencyProperty IsCompactProperty = DependencyProperty.Register(
+        nameof(IsCompact),
+        typeof(bool),
+        typeof(SoundGridControl),
+        new PropertyMetadata(false));
+
+    public static readonly DependencyProperty IsXboxProperty = DependencyProperty.Register(
+        nameof(IsXbox),
+        typeof(bool),
+        typeof(SoundGridControl),
+        new PropertyMetadata(false));
+
+    public static readonly DependencyProperty CanScrollOutOfBoundsProperty = DependencyProperty.Register(
+        nameof(CanScrollOutOfBounds),
+        typeof(bool),
+        typeof(SoundGridControl),
+        new PropertyMetadata(false));
+
+    public SoundGridControl()
     {
-        public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(
-            nameof(ItemTemplate),
-            typeof(DataTemplate),
-            typeof(SoundGridControl),
-            null);
+        this.InitializeComponent();
+        this.DataContext = App.Services.GetRequiredService<SoundListViewModel>();
+        this.Loaded += async (_, _) => { await ViewModel.LoadCommand.ExecuteAsync(null); };
+        this.Unloaded += (_, _) => { ViewModel.Dispose(); };
+    }
 
-        public static readonly DependencyProperty IsCompactProperty = DependencyProperty.Register(
-            nameof(IsCompact),
-            typeof(bool),
-            typeof(SoundGridControl),
-            new PropertyMetadata(false));
+    public SoundListViewModel ViewModel => (SoundListViewModel)this.DataContext;
 
-        public static readonly DependencyProperty IsXboxProperty = DependencyProperty.Register(
-            nameof(IsXbox),
-            typeof(bool),
-            typeof(SoundGridControl),
-            new PropertyMetadata(false));
+    public DataTemplate? ItemTemplate
+    {
+        get => (DataTemplate?)GetValue(ItemTemplateProperty);
+        set => SetValue(ItemTemplateProperty, value);
+    }
 
-        public static readonly DependencyProperty CanScrollOutOfBoundsProperty = DependencyProperty.Register(
-            nameof(CanScrollOutOfBounds),
-            typeof(bool),
-            typeof(SoundGridControl),
-            new PropertyMetadata(false));
+    public bool IsCompact
+    {
+        get => (bool)GetValue(IsCompactProperty);
+        set => SetValue(IsCompactProperty, value);
+    }
 
-        public SoundGridControl()
+    public bool IsXbox
+    {
+        get => (bool)GetValue(IsXboxProperty);
+        set => SetValue(IsXboxProperty, value);
+    }
+
+    public bool CanScrollOutOfBounds
+    {
+        get => (bool)GetValue(CanScrollOutOfBoundsProperty);
+        set => SetValue(CanScrollOutOfBoundsProperty, value);
+    }
+
+    private async void OnItemClick(object sender, ItemClickEventArgs e)
+    {
+        if (e.ClickedItem is SoundViewModel vm)
         {
-            this.InitializeComponent();
-            this.DataContext = App.Services.GetRequiredService<SoundListViewModel>();
-            this.Loaded += async (_, _) => { await ViewModel.LoadCommand.ExecuteAsync(null); };
-            this.Unloaded += (_, _) => { ViewModel.Dispose(); };
+            await vm.PlayCommand.ExecuteAsync(null);
         }
+    }
 
-        public SoundListViewModel ViewModel => (SoundListViewModel)this.DataContext;
-
-        public DataTemplate? ItemTemplate
+    private void OnGridViewLoaded(object sender, RoutedEventArgs e)
+    {
+        if (CanScrollOutOfBounds && sender is GridView gridView)
         {
-            get => (DataTemplate?)GetValue(ItemTemplateProperty);
-            set => SetValue(ItemTemplateProperty, value);
-        }
-
-        public bool IsCompact
-        {
-            get => (bool)GetValue(IsCompactProperty);
-            set => SetValue(IsCompactProperty, value);
-        }
-
-        public bool IsXbox
-        {
-            get => (bool)GetValue(IsXboxProperty);
-            set => SetValue(IsXboxProperty, value);
-        }
-
-        public bool CanScrollOutOfBounds
-        {
-            get => (bool)GetValue(CanScrollOutOfBoundsProperty);
-            set => SetValue(CanScrollOutOfBoundsProperty, value);
-        }
-
-        private async void OnItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (e.ClickedItem is SoundViewModel vm)
+            ScrollViewer? s = gridView.FindDescendant<ScrollViewer>();
+            if (s is not null)
             {
-                await vm.PlayCommand.ExecuteAsync(null);
-            }
-        }
-
-        private void OnGridViewLoaded(object sender, RoutedEventArgs e)
-        {
-            if (CanScrollOutOfBounds && sender is GridView gridView)
-            {
-                ScrollViewer? s = gridView.FindDescendant<ScrollViewer>();
-                if (s is not null)
-                {
-                    s.CanContentRenderOutsideBounds = true;
-                }
+                s.CanContentRenderOutsideBounds = true;
             }
         }
     }

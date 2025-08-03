@@ -10,6 +10,7 @@ using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ public partial class MeditatePageViewModel : ObservableObject
     private readonly ITelemetry _telemetry;
     private readonly IPageCache _pageCache;
     private readonly ICatalogueRowVmFactory _catalogueRowVmFactory;
+    private readonly ISoundService _soundService;
+    private readonly ISoundVmFactory _soundVmFactory;
 
     public MeditatePageViewModel(
         IGuideService guideService,
@@ -37,7 +40,9 @@ public partial class MeditatePageViewModel : ObservableObject
         IDispatcherQueue dispatcherQueue,
         ITelemetry telemetry,
         IPageCache pageCache,
-        ICatalogueRowVmFactory catalogueRowVmFactory)
+        ICatalogueRowVmFactory catalogueRowVmFactory,
+        ISoundService soundService,
+        ISoundVmFactory soundVmFactory)
     {
         _guideService = guideService;
         _guideVmFactory = guideVmFactory;
@@ -48,7 +53,13 @@ public partial class MeditatePageViewModel : ObservableObject
         _telemetry = telemetry;
         _pageCache = pageCache;
         _catalogueRowVmFactory = catalogueRowVmFactory;
+        _soundService = soundService;
+        _soundVmFactory = soundVmFactory;
+
+        SavedMixes.CollectionChanged += OnSavedMixesCollectionChanged;
     }
+
+    public ObservableCollection<SoundViewModel> SavedMixes { get; } = [];
 
     public ObservableCollection<GuideViewModel> Guides { get; } = [];
 
@@ -57,12 +68,19 @@ public partial class MeditatePageViewModel : ObservableObject
     [ObservableProperty]
     private bool _placeholderVisible;
 
+    /// <summary>
+    /// Determines if the saved mixes UI is visible.
+    /// </summary>
+    public bool SavedMixesVisible => SavedMixes.Count > 0;
+
     public async Task InitializeAsync(CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
         _iapService.ProductPurchased += OnProductPurchased;
         _guideService.GuideStopped += OnGuideStopped;
+        _soundService.LocalSoundAdded += OnLocalSoundAdded;
+        _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
 
         if (Guides.Count > 0)
         {
@@ -104,7 +122,21 @@ public partial class MeditatePageViewModel : ObservableObject
             }
         }
 
+        await LoadMixesAsync(ct);
         await LoadRowsAsync(ct);
+    }
+
+    private async Task LoadMixesAsync(CancellationToken ct)
+    {
+        ct.ThrowIfCancellationRequested();
+        IReadOnlyList<Sound> mixes = await _soundService.GetLocalMixesAsync(tag: AssetTagConstants.MeditatePageTag);
+        ct.ThrowIfCancellationRequested();
+        foreach (Sound mix in mixes.OrderBy(x => x.Name))
+        {
+            ct.ThrowIfCancellationRequested();
+            SoundViewModel vm = _soundVmFactory.GetSoundVm(mix);
+            SavedMixes.Add(vm);
+        }
     }
 
     private async Task LoadRowsAsync(CancellationToken ct)
@@ -130,20 +162,48 @@ public partial class MeditatePageViewModel : ObservableObject
         _mixMediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
         _iapService.ProductPurchased -= OnProductPurchased;
         _guideService.GuideStopped -= OnGuideStopped;
+        _soundService.LocalSoundAdded -= OnLocalSoundAdded;
+        _soundService.LocalSoundDeleted -= OnLocalSoundDeleted;
 
         foreach (GuideViewModel g in Guides)
         {
             g.Uninitialize();
         }
-
         Guides.Clear();
 
         foreach (CatalogueRowViewModel row in Rows)
         {
             row.Uninitialize();
         }
-
         Rows.Clear();
+
+        foreach (SoundViewModel mixVm in SavedMixes)
+        {
+            mixVm.Dispose();
+        }
+        SavedMixes.Clear();
+    }
+
+    private void OnLocalSoundAdded(object sender, Sound newSound)
+    {
+        if (!newSound.IsMix)
+        {
+            return;
+        }
+
+        SoundViewModel vm = _soundVmFactory.GetSoundVm(newSound);
+        _dispatcherQueue.TryEnqueue(() => SavedMixes.Add(vm));
+    }
+
+    private void OnLocalSoundDeleted(object sender, string removedSoundId)
+    {
+        SoundViewModel? mixToRemove = SavedMixes.FirstOrDefault(x => x.Id == removedSoundId);
+        if (mixToRemove is null)
+        {
+            return;
+        }
+
+        _dispatcherQueue.TryEnqueue(() => SavedMixes.Remove(mixToRemove));
     }
 
     [RelayCommand]
@@ -254,5 +314,10 @@ public partial class MeditatePageViewModel : ObservableObject
                 guideVm.IsPlaying = false;
             }
         });
+    }
+
+    private void OnSavedMixesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        OnPropertyChanged(nameof(SavedMixesVisible));
     }
 }

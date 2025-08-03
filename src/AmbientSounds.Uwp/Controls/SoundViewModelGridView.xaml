@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="AmbientSounds.Controls.SoundViewModelGridView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:AmbientSounds.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:AmbientSounds.ViewModels"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <GridView
+        IsItemClickEnabled="True"
+        ItemClick="OnItemClick"
+        ItemsSource="{x:Bind ItemsSource, Mode=OneWay}"
+        SelectionMode="None">
+        <GridView.ItemContainerStyle>
+            <Style BasedOn="{StaticResource DefaultGridViewItemStyle}" TargetType="GridViewItem">
+                <Setter Property="Margin" Value="0,0,2,2" />
+            </Style>
+        </GridView.ItemContainerStyle>
+        <GridView.ItemTemplate>
+            <DataTemplate x:DataType="vm:SoundViewModel">
+                <local:SoundItemControl ViewModel="{x:Bind}" />
+            </DataTemplate>
+        </GridView.ItemTemplate>
+    </GridView>
+</UserControl>

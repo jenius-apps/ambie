@@ -1041,4 +1041,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>릴렉스 타이머 정보</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>휴식 페이지에 포함</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>저장된 사운드 믹스</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>수면 및 명상 가이드</value>
+  </data>
 </root>

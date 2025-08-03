@@ -1038,4 +1038,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Información del temporizador de relajación</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Incluir en la página de Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Tus mezclas de sonido guardadas</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Guías de sueño y meditación</value>
+  </data>
 </root>

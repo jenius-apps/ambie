@@ -17,9 +17,10 @@
     mc:Ignorable="d">
 
     <Grid Margin="{StaticResource MainFramePageMargin}">
-        <ScrollViewer Padding="0,0,16,0" CanContentRenderOutsideBounds="True">
+        <ScrollViewer Padding="0,0,16,16" CanContentRenderOutsideBounds="True">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
@@ -42,7 +43,7 @@
                     <TextBlock
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Sleep and meditation guides" />
+                        Text="{x:Bind strings:Resources.SleepMeditationGuideHeader}" />
 
                     <ItemsControl
                         Grid.Row="1"
@@ -126,6 +127,20 @@
 
                                         <!--  title and preview text  -->
                                         <StackPanel Margin="12,0,4,12" Background="Transparent">
+                                            <StackPanel Orientation="Horizontal">
+                                                <FontIcon
+                                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                                    FontSize="12"
+                                                    Foreground="LightGray"
+                                                    Glyph="{StaticResource GlyphLanguage}" />
+                                                <TextBlock
+                                                    Margin="4,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="10"
+                                                    Foreground="LightGray"
+                                                    Text="{x:Bind GuideCulture}" />
+                                            </StackPanel>
+
                                             <TextBlock
                                                 FontWeight="SemiBold"
                                                 Foreground="WhiteSmoke"
@@ -309,6 +324,20 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+                </Grid>
+
+                <Grid Grid.Row="3" Visibility="{x:Bind ViewModel.SavedMixesVisible, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.SavedSoundMixHeader}" />
+
+                    <controls:SoundViewModelGridView
+                        Grid.Row="1"
+                        Margin="0,8,0,0"
+                        ItemsSource="{x:Bind ViewModel.SavedMixes}" />
                 </Grid>
             </Grid>
         </ScrollViewer>

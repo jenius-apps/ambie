@@ -202,6 +202,11 @@ public static class UserSettingsConstants
     public const string LastUsedRepetitionsKey = "LastUsedRepetitions";
 
     /// <summary>
+    /// Remembers the user's last choice for 'show mix in relax page' option.
+    /// </summary>
+    public const string ShowMixInRelaxPageKey = nameof(ShowMixInRelaxPageKey);
+
+    /// <summary>
     /// Remembers if the user has decided to hide the channel switcher.
     /// </summary>
     public const string ChannelSwitcherHidden = nameof(ChannelSwitcherHidden);
@@ -248,5 +253,6 @@ public static class UserSettingsConstants
         { LastUsedRestLengthKey, 0 },
         { LastUsedRepetitionsKey, 0 },
         { ChannelSwitcherHidden, false },
+        { ShowMixInRelaxPageKey, true },
     };
 }

@@ -1378,6 +1378,18 @@
           <source>Relaxation timer information</source>
           <target state="translated">מידע על טיימר הרפיה</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">כלול בדף Relax</target>
+        </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">מיקסי הצלילים השמורים שלך</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">מדריכי שינה ומדיטציה</target>
+        </trans-unit>
       </group>
     </body>
   </file>

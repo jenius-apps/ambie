@@ -1041,4 +1041,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Інформація про таймер релаксації</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Включити на сторінку Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Збережені звукові мікси</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Посібники зі сну та медитації</value>
+  </data>
 </root>

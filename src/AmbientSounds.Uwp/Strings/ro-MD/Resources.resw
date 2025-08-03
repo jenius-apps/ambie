@@ -1038,4 +1038,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informații despre cronometrul de relaxare</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Includeți în pagina Relaxare</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Mixajele de sunet salvate</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Ghiduri de somn și meditație</value>
+  </data>
 </root>

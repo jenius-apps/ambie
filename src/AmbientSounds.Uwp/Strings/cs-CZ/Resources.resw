@@ -1041,4 +1041,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Informace o časovači relaxace</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Zahrnout do stránky Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Vaše uložené zvukové mixy</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Průvodci spánkem a meditací</value>
+  </data>
 </root>

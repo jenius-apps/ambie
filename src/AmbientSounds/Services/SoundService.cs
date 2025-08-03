@@ -7,8 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-#nullable enable
-
 namespace AmbientSounds.Services;
 
 public class SoundService : ISoundService
@@ -214,5 +212,24 @@ public class SoundService : ISoundService
             updatedSound.SortPosition = sound.SortPosition;
             await _soundCache.AddLocalInstalledSoundAsync(updatedSound);
         }
+    }
+
+    /// <inheritdoc/>
+    public async Task<IReadOnlyList<Sound>> GetLocalMixesAsync(HashSet<string>? soundMixIds = null, string? tag = null)
+    {
+        IReadOnlyList<Sound> localSounds = await _soundCache.GetInstalledSoundsAsync();
+        IEnumerable<Sound> localMixes = localSounds.Where(x => x.IsMix);
+
+        if (tag is { Length: > 0 })
+        {
+            localMixes = localMixes.Where(x => x.Tags.Contains(tag));
+        }
+
+        if (soundMixIds is { Count: > 0 })
+        {
+            localMixes = localMixes.Where(x => soundMixIds.Contains(x.Id));
+        }
+
+        return [.. localMixes];
     }
 }

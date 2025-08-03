@@ -16,8 +16,8 @@ public class ExperimentConstants
     public static IReadOnlyList<string> AllKeys { get; } =
     [
         // add experiment constants here
-        //RelaxPageV2,
+        RelaxPageV2,
     ];
 
-    //public const string RelaxPageV2 = nameof(RelaxPageV2);
+    public const string RelaxPageV2 = nameof(RelaxPageV2);
 }

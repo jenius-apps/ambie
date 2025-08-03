@@ -1026,4 +1026,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Πληροφορίες χρονοδιακόπτη χαλάρωσης</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Συμπερίληψη στη σελίδα Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Οι αποθηκευμένες μίξεις ήχου</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Οδηγοί ύπνου και διαλογισμού</value>
+  </data>
 </root>

@@ -1379,6 +1379,18 @@
           <source>Relaxation timer information</source>
           <target state="translated">릴렉스 타이머 정보</target>
         </trans-unit>
+        <trans-unit id="IncludeInRelaxPageText" translate="yes" xml:space="preserve">
+          <source>Include in Relax page</source>
+          <target state="translated">휴식 페이지에 포함</target>
+        </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">저장된 사운드 믹스</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">수면 및 명상 가이드</target>
+        </trans-unit>
       </group>
     </body>
   </file>

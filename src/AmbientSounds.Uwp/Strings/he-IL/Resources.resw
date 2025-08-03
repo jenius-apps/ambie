@@ -1041,4 +1041,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>מידע על טיימר הרפיה</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>כלול בדף Relax</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>מיקסי הצלילים השמורים שלך</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>מדריכי שינה ומדיטציה</value>
+  </data>
 </root>

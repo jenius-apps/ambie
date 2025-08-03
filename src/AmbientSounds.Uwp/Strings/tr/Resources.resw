@@ -1035,4 +1035,13 @@
   <data name="RelaxationTimerHelpButtonAutomationName" xml:space="preserve">
     <value>Gevşeme zamanlayıcı bilgileri</value>
   </data>
+  <data name="IncludeInRelaxPageText" xml:space="preserve">
+    <value>Relax sayfasına dahil et</value>
+  </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Kaydettiğiniz ses karışımları</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Uyku ve meditasyon rehberleri</value>
+  </data>
 </root>
