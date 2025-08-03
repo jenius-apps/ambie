@@ -326,6 +326,7 @@
             <x:String x:Key="GlyphSaleTag">&#xE8EC;</x:String>
             <x:String x:Key="GlyphStarFilled">&#xE735;</x:String>
             <x:String x:Key="GlyphPersonWithRibbon">&#xECA7;</x:String>
+            <x:String x:Key="GlyphLanguage">&#xF2B7;</x:String>
 
             <x:Double x:Key="NarrowWindowBreakpoint">540</x:Double>
         </ResourceDictionary>

@@ -127,6 +127,20 @@
 
                                         <!--  title and preview text  -->
                                         <StackPanel Margin="12,0,4,12" Background="Transparent">
+                                            <StackPanel Orientation="Horizontal">
+                                                <FontIcon
+                                                    FontFamily="{StaticResource FluentUIGlyphs}"
+                                                    FontSize="12"
+                                                    Foreground="LightGray"
+                                                    Glyph="{StaticResource GlyphLanguage}" />
+                                                <TextBlock
+                                                    Margin="4,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="10"
+                                                    Foreground="LightGray"
+                                                    Text="{x:Bind GuideCulture}" />
+                                            </StackPanel>
+
                                             <TextBlock
                                                 FontWeight="SemiBold"
                                                 Foreground="WhiteSmoke"

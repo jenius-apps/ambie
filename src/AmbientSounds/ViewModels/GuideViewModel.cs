@@ -34,7 +34,7 @@ public partial class GuideViewModel : ObservableObject
         StopCommand = stop;
         PurchaseCommand = purchase;
         Name = assetLocalizer.GetLocalName(onlineGuide);
-        PreviewText = $"{onlineGuide.UpperCaseCulture()} {FocusConstants.DotSeparator} {onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
+        PreviewText = $"{onlineGuide.MinutesLength}m {FocusConstants.DotSeparator} {assetLocalizer.GetLocalDescription(onlineGuide)}";
         ImagePath = onlineGuide.ImagePath;
         ColourHex = onlineGuide.ColourHex;
         _mixMediaPlayerService = mixMediaPlayerService;
@@ -42,6 +42,11 @@ public partial class GuideViewModel : ObservableObject
 
         DownloadProgress = progress ?? new();
     }
+
+    /// <summary>
+    /// The two-letter language code for this guide content.
+    /// </summary>
+    public string GuideCulture => OnlineGuide.UpperCaseCulture();
 
     [ObservableProperty]
     private double _downloadProgressValue;
