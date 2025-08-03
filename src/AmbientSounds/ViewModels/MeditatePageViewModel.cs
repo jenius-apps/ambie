@@ -65,12 +65,19 @@ public partial class MeditatePageViewModel : ObservableObject
     [ObservableProperty]
     private bool _placeholderVisible;
 
+    /// <summary>
+    /// Determines if the saved mixes UI is visible.
+    /// </summary>
+    public bool SavedMixesVisible => SavedMixes.Count > 0;
+
     public async Task InitializeAsync(CancellationToken ct)
     {
         ct.ThrowIfCancellationRequested();
         _mixMediaPlayerService.PlaybackStateChanged += OnPlaybackChanged;
         _iapService.ProductPurchased += OnProductPurchased;
         _guideService.GuideStopped += OnGuideStopped;
+        _soundService.LocalSoundAdded += OnLocalSoundAdded;
+        _soundService.LocalSoundDeleted += OnLocalSoundDeleted;
 
         if (Guides.Count > 0)
         {
@@ -121,12 +128,14 @@ public partial class MeditatePageViewModel : ObservableObject
         ct.ThrowIfCancellationRequested();
         IReadOnlyList<Sound> mixes = await _soundService.GetLocalMixesAsync(tag: AssetTagConstants.MeditatePageTag);
         ct.ThrowIfCancellationRequested();
-        foreach (Sound mix in mixes)
+        foreach (Sound mix in mixes.OrderBy(x => x.Name))
         {
             ct.ThrowIfCancellationRequested();
             SoundViewModel vm = _soundVmFactory.GetSoundVm(mix);
             SavedMixes.Add(vm);
         }
+
+        OnPropertyChanged(nameof(SavedMixesVisible));
     }
 
     private async Task LoadRowsAsync(CancellationToken ct)
@@ -152,20 +161,48 @@ public partial class MeditatePageViewModel : ObservableObject
         _mixMediaPlayerService.PlaybackStateChanged -= OnPlaybackChanged;
         _iapService.ProductPurchased -= OnProductPurchased;
         _guideService.GuideStopped -= OnGuideStopped;
+        _soundService.LocalSoundAdded -= OnLocalSoundAdded;
+        _soundService.LocalSoundDeleted -= OnLocalSoundDeleted;
 
         foreach (GuideViewModel g in Guides)
         {
             g.Uninitialize();
         }
-
         Guides.Clear();
 
         foreach (CatalogueRowViewModel row in Rows)
         {
             row.Uninitialize();
         }
-
         Rows.Clear();
+
+        foreach (SoundViewModel mixVm in SavedMixes)
+        {
+            mixVm.Dispose();
+        }
+        SavedMixes.Clear();
+    }
+
+    private void OnLocalSoundAdded(object sender, Sound newSound)
+    {
+        if (!newSound.IsMix)
+        {
+            return;
+        }
+
+        SoundViewModel vm = _soundVmFactory.GetSoundVm(newSound);
+        _dispatcherQueue.TryEnqueue(() => SavedMixes.Add(vm));
+    }
+
+    private void OnLocalSoundDeleted(object sender, string removedSoundId)
+    {
+        SoundViewModel? mixToRemove = SavedMixes.FirstOrDefault(x => x.Id == removedSoundId);
+        if (mixToRemove is null)
+        {
+            return;
+        }
+
+        _dispatcherQueue.TryEnqueue(() => SavedMixes.Remove(mixToRemove));
     }
 
     [RelayCommand]
