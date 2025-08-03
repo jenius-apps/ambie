@@ -77,7 +77,8 @@ public sealed partial class SaveMixButton : UserControl
             MixSaved?.Invoke(this, EventArgs.Empty);
             App.Services.GetRequiredService<ITelemetry>().TrackEvent(TelemetryConstants.MixSaved, new Dictionary<string, string>
             {
-                { "invokedBy", telemtrySource }
+                { "invokedBy", telemtrySource },
+                { "mixTags", string.Join(',', tags) }
             });
         }
     }
