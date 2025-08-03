@@ -1035,4 +1035,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>In der Entspannungsseite enthalten</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Ihre gespeicherten Tonmischungen</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Schlaf- und Meditationsanleitungen</value>
+  </data>
 </root>

@@ -1011,4 +1011,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>Opnemen in Relax pagina</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Uw opgeslagen geluidsmixen</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Slaap- en meditatiegidsen</value>
+  </data>
 </root>

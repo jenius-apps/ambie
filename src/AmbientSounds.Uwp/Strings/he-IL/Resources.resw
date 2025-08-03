@@ -1044,4 +1044,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>כלול בדף Relax</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>מיקסי הצלילים השמורים שלך</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>מדריכי שינה ומדיטציה</value>
+  </data>
 </root>

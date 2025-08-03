@@ -1044,4 +1044,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>包含在 Relax 頁面中</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>您保存的混音</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>睡眠和冥想指南</value>
+  </data>
 </root>

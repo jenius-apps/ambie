@@ -1379,6 +1379,14 @@
           <source>Include in Relax page</source>
           <target state="translated">リラックスページに含める</target>
         </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">保存したサウンドミックス</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">睡眠と瞑想のガイド</target>
+        </trans-unit>
       </group>
     </body>
   </file>

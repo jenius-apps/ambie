@@ -43,7 +43,7 @@
                     <TextBlock
                         FontSize="14"
                         FontWeight="SemiBold"
-                        Text="Sleep and meditation guides" />
+                        Text="{x:Bind strings:Resources.SleepMeditationGuideHeader}" />
 
                     <ItemsControl
                         Grid.Row="1"
@@ -318,7 +318,7 @@
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontWeight="SemiBold" Text="Your saved sound mixes" />
+                    <TextBlock FontWeight="SemiBold" Text="{x:Bind strings:Resources.SavedSoundMixHeader}" />
 
                     <controls:SoundViewModelGridView
                         Grid.Row="1"

@@ -1041,4 +1041,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>Dołącz do strony Relaks</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Zapisane miksy dźwiękowe</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Przewodniki po śnie i medytacji</value>
+  </data>
 </root>

@@ -1383,6 +1383,14 @@
           <source>Include in Relax page</source>
           <target state="translated">Zahrnout do stránky Relax</target>
         </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">Vaše uložené zvukové mixy</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">Průvodci spánkem a meditací</target>
+        </trans-unit>
       </group>
     </body>
   </file>

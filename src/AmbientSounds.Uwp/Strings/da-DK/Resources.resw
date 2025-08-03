@@ -1041,4 +1041,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>Medtag på Relax-siden</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Dine gemte lydmix</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Søvn- og meditationsguider</value>
+  </data>
 </root>

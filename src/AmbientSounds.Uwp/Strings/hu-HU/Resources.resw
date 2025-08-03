@@ -1032,4 +1032,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>Belefoglalás a Relax oldalra</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>A mentett hangkeverések</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Alvási és meditációs útmutatók</value>
+  </data>
 </root>

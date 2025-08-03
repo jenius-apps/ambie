@@ -1382,6 +1382,14 @@
           <source>Include in Relax page</source>
           <target state="translated">包含在 Relax 页面中</target>
         </trans-unit>
+        <trans-unit id="SavedSoundMixHeader" translate="yes" xml:space="preserve">
+          <source>Your saved sound mixes</source>
+          <target state="translated">您保存的混音</target>
+        </trans-unit>
+        <trans-unit id="SleepMeditationGuideHeader" translate="yes" xml:space="preserve">
+          <source>Sleep and meditation guides</source>
+          <target state="translated">睡眠和冥想指南</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1032,4 +1032,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>Uključi na stranicu Relax</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>Vaši spremljeni miksevi zvuka</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>Vodiči za spavanje i meditaciju</value>
+  </data>
 </root>

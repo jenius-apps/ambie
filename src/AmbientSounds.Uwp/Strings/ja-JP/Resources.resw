@@ -1044,4 +1044,10 @@
   <data name="IncludeInRelaxPageText" xml:space="preserve">
     <value>リラックスページに含める</value>
   </data>
+  <data name="SavedSoundMixHeader" xml:space="preserve">
+    <value>保存したサウンドミックス</value>
+  </data>
+  <data name="SleepMeditationGuideHeader" xml:space="preserve">
+    <value>睡眠と瞑想のガイド</value>
+  </data>
 </root>
