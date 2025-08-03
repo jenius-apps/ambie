@@ -17,7 +17,7 @@
     mc:Ignorable="d">
 
     <Grid Margin="{StaticResource MainFramePageMargin}">
-        <ScrollViewer Padding="0,0,16,0" CanContentRenderOutsideBounds="True">
+        <ScrollViewer Padding="0,0,16,16" CanContentRenderOutsideBounds="True">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -294,11 +294,7 @@
                     </ItemsControl>
                 </Grid>
 
-                <Grid Grid.Row="2">
-                    <controls:SoundViewModelGridView ItemsSource="{x:Bind ViewModel.SavedMixes}" />
-                </Grid>
-
-                <Grid Grid.Row="3" Margin="0,20,0,0">
+                <Grid Grid.Row="2" Margin="0,20,0,0">
                     <animations:Implicit.Animations>
                         <animations:OffsetAnimation Duration="0:0:0.3" />
                     </animations:Implicit.Animations>
@@ -314,6 +310,20 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+                </Grid>
+
+                <Grid Grid.Row="3" Visibility="{x:Bind ViewModel.SavedMixesVisible, Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock FontWeight="SemiBold" Text="Your saved sound mixes" />
+
+                    <controls:SoundViewModelGridView
+                        Grid.Row="1"
+                        Margin="0,8,0,0"
+                        ItemsSource="{x:Bind ViewModel.SavedMixes}" />
                 </Grid>
             </Grid>
         </ScrollViewer>
