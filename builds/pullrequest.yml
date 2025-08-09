@@ -80,7 +80,9 @@ steps:
       !**\obj\**
       !**\ref\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
-    
+    runTestsInIsolation: true
+    codeCoverageEnabled: true
+
 # - task: PublishBuildArtifacts@1
 #   displayName: 'Publish Artifact: drop'
 #   inputs:
