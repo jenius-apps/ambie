@@ -72,6 +72,15 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
 
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- script: dotnet build AmbientSounds.Tests\AmbientSounds.Tests.csproj --configuration $(BuildConfiguration)
+  displayName: 'Build tests'
+
 - task: VSTest@3
   inputs:
     testSelector: 'testAssemblies'
@@ -79,7 +88,7 @@ steps:
       "**\AmbientSounds.Tests.dll"
       !**\obj\**
       !**\ref\**
-    searchFolder: '$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\net6.0\'
+    searchFolder: '$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\*\'
     runTestsInIsolation: true
     codeCoverageEnabled: true
 
