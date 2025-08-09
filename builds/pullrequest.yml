@@ -78,18 +78,18 @@ steps:
     version: '9.x'
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
-- script: dotnet build AmbientSounds.Tests\AmbientSounds.Tests.csproj --configuration $(BuildConfiguration)
+- script: dotnet test AmbientSounds.Tests\AmbientSounds.Tests.csproj --configuration $(BuildConfiguration) --collect:"XPlat Code Coverage"
   displayName: 'Build tests'
 
-- task: VSTest@3
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      "$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\net6.0\AmbientSounds.Tests.dll"
-      !**\obj\**
-      !**\ref\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
+# - task: VSTest@3
+#   inputs:
+#     testSelector: 'testAssemblies'
+#     testAssemblyVer2: |
+#       "$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\net6.0\AmbientSounds.Tests.dll"
+#       !**\obj\**
+#       !**\ref\**
+#     searchFolder: '$(System.DefaultWorkingDirectory)'
+#     codeCoverageEnabled: true
 
 # - task: PublishBuildArtifacts@1
 #   displayName: 'Publish Artifact: drop'
