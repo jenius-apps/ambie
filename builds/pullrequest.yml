@@ -72,6 +72,15 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
 
+- task: VSTest@3
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\bin\$(BuildConfiguration)\**\*.tests.dll
+      !**\obj\**
+      !**\ref\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    
 # - task: PublishBuildArtifacts@1
 #   displayName: 'Publish Artifact: drop'
 #   inputs:
