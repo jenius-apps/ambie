@@ -65,6 +65,7 @@ steps:
     nugetConfigPath: 'nuget.config'
     feedsToUse: 'config'
 
+# Ensure the uwp app project can build successfully.
 - task: VSBuild@1
   inputs:
     platform: 'x64'
@@ -72,20 +73,18 @@ steps:
     configuration: '$(buildConfiguration)'
     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=CI'
 
+# Install same .NET version that the Tests project uses.
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
     version: '9.x'
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
-- script: dotnet test AmbientSounds.Tests\AmbientSounds.Tests.csproj --configuration Debug --collect:"Code coverage"
-  displayName: 'Run tests'
+# Build the test project
+- script: dotnet build AmbientSounds.Tests\AmbientSounds.Tests.csproj --configuration Debug
+  displayName: 'Build test project'
 
-- task: PublishCodeCoverageResults@2
-  displayName: 'Publish test results'
-  inputs:
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\TestResults\*\*.coverage'
-
+# Run the test runner using the generated DLL from the previous step.
 - task: VSTest@3
   displayName: "Running VS test runner"
   inputs:
