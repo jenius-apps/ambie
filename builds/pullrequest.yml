@@ -85,11 +85,10 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      "**\AmbientSounds.Tests.dll"
+      "$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\net6.0\AmbientSounds.dll"
       !**\obj\**
       !**\ref\**
-    searchFolder: '$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\*\'
-    runTestsInIsolation: true
+    searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
 
 # - task: PublishBuildArtifacts@1
