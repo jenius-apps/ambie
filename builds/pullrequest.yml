@@ -85,7 +85,7 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      "$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\net6.0\AmbientSounds.dll"
+      "$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\net6.0\AmbientSounds.Tests.dll"
       !**\obj\**
       !**\ref\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
