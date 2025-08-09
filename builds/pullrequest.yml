@@ -76,7 +76,7 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **\bin\$(BuildConfiguration)\**\*.tests.dll
+      "AmbientSounds.Tests\bin\$(BuildConfiguration)\**\AmbientSounds.Tests.dll"
       !**\obj\**
       !**\ref\**
     searchFolder: '$(System.DefaultWorkingDirectory)'
