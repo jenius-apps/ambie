@@ -76,10 +76,10 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      "AmbientSounds.Tests\bin\$(BuildConfiguration)\**\AmbientSounds.Tests.dll"
+      "AmbientSounds.Tests.dll"
       !**\obj\**
       !**\ref\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    searchFolder: '$(System.DefaultWorkingDirectory)\AmbientSounds.Tests\bin\$(BuildConfiguration)\net6.0'
     runTestsInIsolation: true
     codeCoverageEnabled: true
 
