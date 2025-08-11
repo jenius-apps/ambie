@@ -32,10 +32,7 @@ public sealed partial class SaveMixButton : UserControl
     {
         this.InitializeComponent();
         ShowInRelaxPage = App.Services.GetRequiredService<IUserSettings>().Get<bool>(UserSettingsConstants.ShowMixInRelaxPageKey);
-        ShowInRelaxPageEnabled = App.Services.GetRequiredService<IExperimentationService>().IsEnabled(ExperimentConstants.RelaxPageV2);
     }
-
-    private bool ShowInRelaxPageEnabled { get; }
 
     /// <summary>
     /// Controls checkbox for whether the mix should be shown in relax page.

@@ -65,8 +65,7 @@
                         Grid.Row="1"
                         Grid.ColumnSpan="1"
                         Margin="2,8,0,0"
-                        IsChecked="{x:Bind ShowInRelaxPage, Mode=OneWay}"
-                        Visibility="{x:Bind ShowInRelaxPageEnabled}">
+                        IsChecked="{x:Bind ShowInRelaxPage, Mode=OneWay}">
                         <TextBlock
                             Margin="0,3,0,0"
                             FontSize="12"
