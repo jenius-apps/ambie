@@ -3,8 +3,14 @@
 # Add steps that test and distribute an app, save build artifacts, and more:
 # https://aka.ms/yaml
 
-trigger: none
-
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - src/AmbientSounds.Uwp/Package.appxmanifest
+      
 pr: none
 
 pool:
