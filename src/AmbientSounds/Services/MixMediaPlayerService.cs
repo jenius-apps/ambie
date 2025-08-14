@@ -182,18 +182,20 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
     }
 
-    public async Task AddRandomAsync()
+    public async Task<string?> AddRandomAsync(bool keepPaused = false)
     {
         if (GetSoundIds().Length >= _maxActive)
         {
-            return;
+            return null;
         }
 
-        var sound = await _soundDataProvider.GetRandomSoundAsync();
-        if (sound is not null)
+        if (await _soundDataProvider.GetRandomSoundAsync() is Sound sound)
         {
-            await ToggleSoundAsync(sound);
+            await ToggleSoundAsync(sound, keepPaused: keepPaused);
+            return sound.Id;
         }
+
+        return null;
     }
 
     /// <inheritdoc/>
@@ -212,7 +214,12 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         return keyValuePairList.Select(x => x.Key);
     }
 
-    public async Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filePath, bool enableGaplessLoop = false)
+    public async Task PlayFeaturedSoundAsync(
+        FeaturedSoundType type,
+        string id,
+        string filePath,
+        bool enableGaplessLoop = false,
+        bool addRandomIfNoActives = false)
     {
         if (_featureSoundData?.Id == id)
         {
@@ -234,7 +241,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
             ?? _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
 
         player.Pause();
-        
+
         if (await TrySetSourceAsync(player, filePath, enableGaplessLoop))
         {
             player.PositionChanged -= OnFeaturedSoundPositionChanged;
@@ -249,7 +256,13 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
             _featureSoundData = (id, player, type);
 
-            _lastAddedSoundIds = [id];
+            string? addedSoundId = null;
+            if (addRandomIfNoActives && GetSoundIds() is { Length: 0 })
+            {
+                addedSoundId = await AddRandomAsync(keepPaused: true);
+            }
+
+            _lastAddedSoundIds = addedSoundId is not null ? [id, addedSoundId] : [id];
             Play();
         }
     }

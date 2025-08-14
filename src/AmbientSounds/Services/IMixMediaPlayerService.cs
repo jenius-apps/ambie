@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-#nullable enable
-
 namespace AmbientSounds.Services;
 
 /// <summary>
@@ -157,7 +155,7 @@ public interface IMixMediaPlayerService
     /// <summary>
     /// Plays the given sound.
     /// </summary>
-    Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filepath, bool enableGaplessLoop = false);
+    Task PlayFeaturedSoundAsync(FeaturedSoundType type, string id, string filepath, bool enableGaplessLoop = false, bool addRandomIfNoActives = false);
 
     /// <summary>
     /// Stops the featured sound and removes it from playback.
@@ -167,7 +165,7 @@ public interface IMixMediaPlayerService
     /// <summary>
     /// Plays a random sound.
     /// </summary>
-    Task AddRandomAsync();
+    Task<string?> AddRandomAsync(bool keepPaused = false);
 
     /// <summary>
     /// Retrieves enumerable of active sound IDs.

@@ -55,7 +55,7 @@ public class GuideService : IGuideService
         {
             if (noActiveSounds)
             {
-                await _mixMediaPlayerService.AddRandomAsync();
+                _ = await _mixMediaPlayerService.AddRandomAsync();
             }
             else
             {
@@ -67,13 +67,9 @@ public class GuideService : IGuideService
 
         if (await GetOfflineGuideAsync(guide.Id) is Guide offlineGuide)
         {
-            if (noActiveSounds)
-            {
-                await _mixMediaPlayerService.AddRandomAsync();
-            }
 
             // Only an offline guide can be played because its sound file is saved locally
-            await _mixMediaPlayerService.PlayFeaturedSoundAsync(FeaturedSoundType.Guide, offlineGuide.Id, offlineGuide.FilePath);
+            await _mixMediaPlayerService.PlayFeaturedSoundAsync(FeaturedSoundType.Guide, offlineGuide.Id, offlineGuide.FilePath, addRandomIfNoActives: true);
             GuideStarted?.Invoke(this, guide.Id);
         }
     }
