@@ -30,7 +30,7 @@ public class ChannelServiceTests
 
         var videoChannel = new Channel { Type = ChannelType.Videos, VideoIds = ["test"], SoundIds = [] };
         await service.PlayChannelAsync(videoChannel);
-        playerMock.Verify(x => x.AddRandomAsync(), Times.Once());
+        playerMock.Verify(x => x.AddRandomAsync(It.IsAny<bool>()), Times.Once());
     }
 
     [Fact]
@@ -51,13 +51,13 @@ public class ChannelServiceTests
 
         var darkScreenChannel = new Channel { Type = ChannelType.DarkScreen };
         await service.PlayChannelAsync(darkScreenChannel);
-        playerMock.Verify(x => x.AddRandomAsync(), Times.Once());
+        playerMock.Verify(x => x.AddRandomAsync(It.IsAny<bool>()), Times.Once());
 
         playerMock.Reset();
 
         var slideshowChannel = new Channel { Type = ChannelType.Slideshow };
         await service.PlayChannelAsync(slideshowChannel);
-        playerMock.Verify(x => x.AddRandomAsync(), Times.Once());
+        playerMock.Verify(x => x.AddRandomAsync(It.IsAny<bool>()), Times.Once());
     }
 
     [Fact]
