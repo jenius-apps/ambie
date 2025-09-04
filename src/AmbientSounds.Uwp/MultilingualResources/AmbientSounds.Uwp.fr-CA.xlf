@@ -1400,6 +1400,10 @@
           <source>Sleep and meditation guides</source>
           <target state="translated">Guides de sommeil et de méditation</target>
         </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">Mélangez et associez jusqu’à 5 sons</target>
+        </trans-unit>
       </group>
     </body>
   </file>

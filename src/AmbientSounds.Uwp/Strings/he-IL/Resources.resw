@@ -1050,4 +1050,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>מדריכי שינה ומדיטציה</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>ערבב והתאם עד 5 צלילים</value>
+  </data>
 </root>

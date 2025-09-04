@@ -1050,4 +1050,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>راهنماهای خواب و مدیتیشن</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>تا 5 صدا را میکس و مطابقت دهید</value>
+  </data>
 </root>

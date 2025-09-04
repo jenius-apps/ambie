@@ -62,11 +62,6 @@ public static class UserSettingsConstants
     public const string Notifications = "NotificationSetting";
 
     /// <summary>
-    /// The number of max active tracks.
-    /// </summary>
-    public const string MaxActive = "MaxActive";
-
-    /// <summary>
     /// Key for the list of active tracks.
     /// </summary>
     public const string ActiveTracks = "ActiveTracks";
@@ -219,7 +214,6 @@ public static class UserSettingsConstants
         { Volume, 80d },
         { TelemetryOn, true },
         { Notifications, true },
-        { MaxActive, 3 },
         { ActiveTracks, Array.Empty<string>() },
         { ActiveMixId, string.Empty },
         { CurrentUserId, string.Empty },

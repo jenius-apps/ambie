@@ -1044,4 +1044,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>Uyku ve meditasyon rehberleri</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>5 sese kadar karıştırın ve eşleştirin</value>
+  </data>
 </root>

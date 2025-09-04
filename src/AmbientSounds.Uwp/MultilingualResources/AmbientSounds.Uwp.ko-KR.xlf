@@ -1391,6 +1391,10 @@
           <source>Sleep and meditation guides</source>
           <target state="translated">수면 및 명상 가이드</target>
         </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">최대 5개의 사운드를 믹스 앤 매치</target>
+        </trans-unit>
       </group>
     </body>
   </file>

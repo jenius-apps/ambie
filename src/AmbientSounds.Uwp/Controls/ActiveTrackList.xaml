@@ -93,7 +93,7 @@
                     Margin="16,0,0,0"
                     FontSize="12"
                     Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                    Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
+                    Text="{x:Bind ViewModel.SelectSoundsPlaceholderText, Mode=OneWay}"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
             </StackPanel>
@@ -186,7 +186,7 @@
                                 Margin="16,0,0,0"
                                 FontSize="12"
                                 Foreground="{ThemeResource TextFillColorTertiaryBrush}"
-                                Text="{x:Bind strings:Resources.SelectSoundsPlaceholder}"
+                                Text="{x:Bind ViewModel.SelectSoundsPlaceholderText, Mode=OneWay}"
                                 TextAlignment="Center"
                                 TextWrapping="Wrap" />
                         </StackPanel>

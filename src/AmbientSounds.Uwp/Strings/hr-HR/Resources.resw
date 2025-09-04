@@ -1038,4 +1038,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>Vodiči za spavanje i meditaciju</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Miješajte i spajajte do 5 zvukova</value>
+  </data>
 </root>

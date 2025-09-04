@@ -1041,4 +1041,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>Schlaf- und Meditationsanleitungen</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mischen und kombinieren Sie bis zu 5 Sounds</value>
+  </data>
 </root>

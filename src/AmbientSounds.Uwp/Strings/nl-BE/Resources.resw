@@ -1017,4 +1017,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>Slaap- en meditatiegidsen</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mix en match tot 5 geluiden</value>
+  </data>
 </root>

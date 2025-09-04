@@ -1390,6 +1390,10 @@
           <source>Sleep and meditation guides</source>
           <target state="translated">מדריכי שינה ומדיטציה</target>
         </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">ערבב והתאם עד 5 צלילים</target>
+        </trans-unit>
       </group>
     </body>
   </file>
