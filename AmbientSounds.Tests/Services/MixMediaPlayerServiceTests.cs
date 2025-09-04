@@ -1,8 +1,6 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Models;
+﻿using AmbientSounds.Models;
 using AmbientSounds.Services;
 using AmbientSounds.Tools;
-using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
 using Moq;
 using System.Collections.Generic;
