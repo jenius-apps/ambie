@@ -1047,4 +1047,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>Ghiduri de somn și meditație</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Amestecați și potriviți până la 5 sunete</value>
+  </data>
 </root>

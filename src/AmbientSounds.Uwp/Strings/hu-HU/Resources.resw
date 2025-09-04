@@ -1038,4 +1038,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>Alvási és meditációs útmutatók</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Keverjen és illesszen össze akár 5 hangot</value>
+  </data>
 </root>

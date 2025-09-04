@@ -1050,4 +1050,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>睡眠と瞑想のガイド</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>最大5つのサウンドをミックス&amp;マッチ</value>
+  </data>
 </root>

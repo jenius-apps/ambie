@@ -461,6 +461,9 @@
   <data name="SelectSoundsPlaceholder" xml:space="preserve">
     <value>Mix and match up to 3 sounds</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Mix and match up to 5 sounds</value>
+  </data>
   <data name="ThemeSettings" xml:space="preserve">
     <value>Theme settings</value>
   </data>

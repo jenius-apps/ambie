@@ -1396,6 +1396,10 @@
           <source>Sleep and meditation guides</source>
           <target state="translated">Søvn- og meditationsguider</target>
         </trans-unit>
+        <trans-unit id="SelectMoreSoundsPlaceholder" translate="yes" xml:space="preserve">
+          <source>Mix and match up to 5 sounds</source>
+          <target state="translated">Mix og match op til 5 lyde</target>
+        </trans-unit>
       </group>
     </body>
   </file>

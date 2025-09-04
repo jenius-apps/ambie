@@ -3,7 +3,6 @@ using AmbientSounds.Events;
 using AmbientSounds.Factories;
 using AmbientSounds.Models;
 using AmbientSounds.Services;
-using CommunityToolkit.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using JeniusApps.Common.Settings;
@@ -25,8 +24,9 @@ public partial class ActiveTrackListViewModel : ObservableObject
     private readonly IUserSettings _userSettings;
     private readonly ISoundService _soundDataProvider;
     private readonly ITelemetry _telemetry;
-    private readonly IPresenceService _presenceService;
     private readonly IShareService _shareService;
+    private readonly IIapService _iapService;
+    private readonly ILocalizer _localizer;
     private readonly IDispatcherQueue _dispatcherQueue;
     private readonly bool _loadPreviousState;
     private bool _loaded;
@@ -40,30 +40,25 @@ public partial class ActiveTrackListViewModel : ObservableObject
         ITelemetry telemetry,
         ISoundService soundDataProvider,
         IAppSettings appSettings,
-        IPresenceService presenceService,
         IShareService shareService,
+        IIapService iapService,
+        ILocalizer localizer,
         IDispatcherQueue dispatcherQueue)
     {
-        Guard.IsNotNull(player);
-        Guard.IsNotNull(soundVmFactory);
-        Guard.IsNotNull(userSettings);
-        Guard.IsNotNull(soundDataProvider);
-        Guard.IsNotNull(telemetry);
-        Guard.IsNotNull(appSettings);
-        Guard.IsNotNull(presenceService);
-        Guard.IsNotNull(shareService);
-        Guard.IsNotNull(dispatcherQueue);
-
         _loadPreviousState = appSettings.LoadPreviousState;
         _telemetry = telemetry;
         _soundDataProvider = soundDataProvider;
         _userSettings = userSettings;
         _soundVmFactory = soundVmFactory;
         _player = player;
-        _presenceService = presenceService;
         _shareService = shareService;
+        _iapService = iapService;
+        _localizer = localizer;
         _dispatcherQueue = dispatcherQueue;
     }
+
+    [ObservableProperty]
+    private string _selectSoundsPlaceholderText = string.Empty;
 
     /// <summary>
     /// List of active sounds being played.
@@ -89,12 +84,9 @@ public partial class ActiveTrackListViewModel : ObservableObject
         _player.SoundAdded += OnSoundAdded;
         _player.SoundRemoved += OnSoundRemoved;
         ActiveTracks.CollectionChanged += ActiveTracks_CollectionChanged;
+        _iapService.ProductPurchased += OnProductPurchased;
 
-        //// This track list is what we use
-        //// to determine if a user should report presence
-        //// for a sound. Thus, we initialize the presence service
-        //// the same time this viewmodel is initialized.
-        //var task = _presenceService.EnsureInitializedAsync();
+        await UpdateSoundsPlaceholderAsync();
 
         if (ActiveTracks.Count > 0 || !_loadPreviousState)
         {
@@ -106,7 +98,7 @@ public partial class ActiveTrackListViewModel : ObservableObject
         {
             // This case is when the track list is returning to view because of a page navigation.
 
-            var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: soundIds.ToArray());
+            var sounds = await _soundDataProvider.GetLocalSoundsAsync(soundIds: [.. soundIds]);
             if (sounds is { Count: > 0 })
             {
                 foreach (var s in sounds)
@@ -119,7 +111,13 @@ public partial class ActiveTrackListViewModel : ObservableObject
         _loaded = true;
         OnPropertyChanged(nameof(IsClearVisible));
         OnPropertyChanged(nameof(IsPlaceholderVisible));
-        //await task;
+    }
+
+    private async Task UpdateSoundsPlaceholderAsync()
+    {
+        SelectSoundsPlaceholderText = await _iapService.CanShowPremiumButtonsAsync()
+            ? _localizer.GetString("SelectSoundsPlaceholder")
+            : _localizer.GetString("SelectMoreSoundsPlaceholder");
     }
 
     [RelayCommand]
@@ -156,11 +154,6 @@ public partial class ActiveTrackListViewModel : ObservableObject
         {
             ActiveTracks.Remove(sound);
             UpdateStoredState();
-
-            //if (!sound.Sound.IsMix)
-            //{
-            //    await _presenceService.DecrementAsync(args.SoundId);
-            //}
         }
     }
 
@@ -169,11 +162,6 @@ public partial class ActiveTrackListViewModel : ObservableObject
         if (args?.Sound is not null)
         {
             AddSoundTrack(args.Sound);
-
-            //if (!args.Sound.IsMix)
-            //{
-            //    await _presenceService.IncrementAsync(args.Sound.Id);
-            //}
         }
     }
 
@@ -201,6 +189,7 @@ public partial class ActiveTrackListViewModel : ObservableObject
         _player.SoundAdded -= OnSoundAdded;
         _player.SoundRemoved -= OnSoundRemoved;
         _shareService.ShareRequested -= OnShareRequested;
+        _iapService.ProductPurchased -= OnProductPurchased;
     }
 
     private async void OnShareRequested(object sender, IReadOnlyList<string> soundIds)
@@ -229,5 +218,13 @@ public partial class ActiveTrackListViewModel : ObservableObject
                 { "id count", soundIds.Count.ToString() }
             });
         }
+    }
+
+    private void OnProductPurchased(object sender, string e)
+    {
+        _dispatcherQueue.TryEnqueue(async () =>
+        {
+            await UpdateSoundsPlaceholderAsync();
+        });
     }
 }

@@ -1,8 +1,6 @@
-﻿using AmbientSounds.Constants;
-using AmbientSounds.Events;
+﻿using AmbientSounds.Events;
 using AmbientSounds.Models;
 using AmbientSounds.Tools;
-using JeniusApps.Common.Settings;
 using JeniusApps.Common.Tools;
 using System;
 using System.Collections.Generic;
@@ -25,7 +23,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     private readonly IAssetLocalizer _assetLocalizer;
     private readonly IMediaPlayerFactory _mediaPlayerFactory;
     private readonly ISoundVolumeService _soundVolumeService;
-    private readonly int _maxActive;
+    private readonly IIapService _iapService;
     private readonly string _localDataFolderPath;
     private (string Id, IMediaPlayer Player, FeaturedSoundType Type)? _featureSoundData;
     private double _globalVolume;
@@ -51,24 +49,24 @@ public class MixMediaPlayerService : IMixMediaPlayerService
     public event EventHandler<TimeSpan>? FeaturedSoundPositionChanged;
 
     public MixMediaPlayerService(
-        IUserSettings userSettings,
         ISoundService soundDataProvider,
         IAssetLocalizer assetLocalizer,
         IDispatcherQueue dispatcherQueue,
         IMediaPlayerFactory mediaPlayerFactory,
         ISystemInfoProvider systemInfoProvider,
         ISystemMediaControls systemMediaControls,
-        ISoundVolumeService soundVolumeService)
+        ISoundVolumeService soundVolumeService,
+        IIapService iapService)
     {
         _soundDataProvider = soundDataProvider;
         _assetLocalizer = assetLocalizer;
-        _maxActive = userSettings.Get<int>(UserSettingsConstants.MaxActive);
         _dispatcherQueue = dispatcherQueue;
         _mediaPlayerFactory = mediaPlayerFactory;
         _localDataFolderPath = systemInfoProvider.LocalFolderPath();
         _smtc = systemMediaControls;
         InitializeSmtc();
         _soundVolumeService = soundVolumeService;
+        _iapService = iapService;
     }
 
     /// <inheritdoc/>
@@ -184,7 +182,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
 
     public async Task<string?> AddRandomAsync(bool keepPaused = false)
     {
-        if (GetSoundIds().Length >= _maxActive)
+        if (GetSoundIds().Length >= await GetMaxActiveAsync())
         {
             return null;
         }
@@ -298,7 +296,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         string? soundIdRemoved = null;
-        if (_activePlayers.Count >= _maxActive)
+        if (_activePlayers.Count >= await GetMaxActiveAsync())
         {
             // remove sound
             var oldestTime = _activeSoundDateTimes.Min(static x => x.Value);
@@ -307,7 +305,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         bool sourceSetSuccessfully = false;
-        if (_activePlayers.Count < _maxActive)
+        if (_activePlayers.Count < await GetMaxActiveAsync())
         {
             IMediaPlayer player = _mediaPlayerFactory.CreatePlayer(disableDefaultSystemControls: true);
             sourceSetSuccessfully = await TrySetSourceAsync(player, sound.FilePath, true);
@@ -352,7 +350,7 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         SoundsChanged?.Invoke(this, args);
     }
 
-        /// <inheritdoc/>
+    /// <inheritdoc/>
     public void SetVolume(string soundId, double value)
     {
         if (IsSoundPlaying(soundId) && value <= 1d && value >= 0d)
@@ -544,5 +542,10 @@ public class MixMediaPlayerService : IMixMediaPlayerService
         }
 
         return result;
+    }
+
+    private async Task<int> GetMaxActiveAsync()
+    {
+        return await _iapService.CanShowPremiumButtonsAsync() ? 3 : 5;
     }
 }

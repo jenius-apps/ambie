@@ -1050,4 +1050,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>أدلة النوم والتأمل</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>امزج وطابق ما يصل إلى 5 أصوات</value>
+  </data>
 </root>

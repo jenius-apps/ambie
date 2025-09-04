@@ -1035,4 +1035,7 @@
   <data name="SleepMeditationGuideHeader" xml:space="preserve">
     <value>Οδηγοί ύπνου και διαλογισμού</value>
   </data>
+  <data name="SelectMoreSoundsPlaceholder" xml:space="preserve">
+    <value>Μίξη και αντιστοίχιση έως και 5 ήχων</value>
+  </data>
 </root>
