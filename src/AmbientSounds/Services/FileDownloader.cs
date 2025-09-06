@@ -34,7 +34,20 @@ public class FileDownloader : IFileDownloader
             return "";
         }
 
-        HttpResponseMessage response = await _client.GetAsync(url);
+        HttpResponseMessage? response = null;
+        try
+        {
+            response = await _client.GetAsync(url);
+        }
+        catch (Exception ex)
+        {
+            _telemetry.TrackEvent("ImageDownloadException", new Dictionary<string, string>
+            {
+                { "imageUrl", url ?? string.Empty },
+                { "exception", ex.Message },
+            });
+        }
+
         if (response?.Content is null)
         {
             _telemetry.TrackEvent("ImageDownloadAndSaveAsyncNullResponse", new Dictionary<string, string>
