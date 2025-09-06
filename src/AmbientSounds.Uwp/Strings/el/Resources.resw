@@ -1038,4 +1038,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Ήχοι υψηλής ποιότητας, premium βίντεο και επιμελημένοι διαλογισμοί. Πρόσβαση σε όλο το μελλοντικό περιεχόμενο. Αναπαραγωγή περισσότερων από 3 ήχων. Ξεκλειδώστε τα όλα με το Ambie+ και βρείτε την επόμενη αγαπημένη σας ατμόσφαιρα.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Αποκτήστε το Ambie+ για αναπαραγωγή έως και 5 ήχων</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Μίξη και αντιστοίχιση περισσότερων ήχων</value>
+  </data>
 </root>

@@ -1053,4 +1053,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>고품질 사운드, 프리미엄 비디오, 엄선된 명상. 향후 모든 콘텐츠에 대한 액세스. 3개 이상의 사운드를 재생합니다. Ambie+로 모든 것을 잠금 해제하고 다음으로 좋아하는 분위기를 찾으십시오.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Ambie+를 사용하여 최대 5개의 사운드를 재생하세요.</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>더 많은 사운드를 믹스 앤 매치</value>
+  </data>
 </root>

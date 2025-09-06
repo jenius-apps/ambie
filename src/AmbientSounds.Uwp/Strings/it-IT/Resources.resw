@@ -1053,4 +1053,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Suoni di alta qualità, video premium e meditazioni curate. Accesso a tutti i contenuti futuri. Riproduci più di 3 suoni. Sblocca tutto con Ambie+ e trova il tuo prossimo ambiente preferito.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Fai in modo che Ambie+ riproduca fino a 5 suoni</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mescola e abbina più suoni</value>
+  </data>
 </root>

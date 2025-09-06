@@ -1020,4 +1020,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Geluiden van hoge kwaliteit, premium video's en gecureerde meditaties. Toegang tot alle toekomstige inhoud. Speel meer dan 3 geluiden af. Ontgrendel het allemaal met Ambie+ en vind je volgende favoriete sfeer.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Krijg Ambie+ om tot 5 geluiden af te spelen</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mix en match meer geluiden</value>
+  </data>
 </root>

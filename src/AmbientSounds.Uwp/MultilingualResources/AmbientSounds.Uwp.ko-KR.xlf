@@ -1397,11 +1397,11 @@
         </trans-unit>
         <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
           <source>Get Ambie+ to play up to 5 sounds</source>
-          <target state="new">Get Ambie+ to play up to 5 sounds</target>
+          <target state="translated">Ambie+를 사용하여 최대 5개의 사운드를 재생하세요.</target>
         </trans-unit>
         <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
           <source>Mix and match more sounds</source>
-          <target state="new">Mix and match more sounds</target>
+          <target state="translated">더 많은 사운드를 믹스 앤 매치</target>
         </trans-unit>
       </group>
     </body>

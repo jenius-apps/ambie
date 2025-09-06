@@ -1050,4 +1050,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Ljud av hög kvalitet, premiumvideor och utvalda meditationer. Tillgång till allt framtida innehåll. Spela upp fler än 3 ljud. Lås upp allt med Ambie+ och hitta din nästa favoritmiljö.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Få Ambie+ att spela upp till 5 ljud</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mixa och matcha fler ljud</value>
+  </data>
 </root>

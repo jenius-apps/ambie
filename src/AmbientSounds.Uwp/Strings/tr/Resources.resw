@@ -1047,4 +1047,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Yüksek kaliteli sesler, birinci sınıf videolar ve küratörlüğünde meditasyonlar. Gelecekteki tüm içeriğe erişim. 3'ten fazla ses çalın. Ambie+ ile her şeyin kilidini açın ve yeni favori ambiyansınızı bulun.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Ambie+'ın 5 adede kadar ses çalmasını sağlayın</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Daha fazla sesi karıştırın ve eşleştirin</value>
+  </data>
 </root>

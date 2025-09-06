@@ -1050,4 +1050,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Lyde i høj kvalitet, førsteklasses videoer og kuraterede meditationer. Adgang til alt fremtidigt indhold. Afspil mere end 3 lyde. Lås op for det hele med Ambie+, og find din næste yndlingsstemning.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Få Ambie+ til at afspille op til 5 lyde</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mix og match flere lyde</value>
+  </data>
 </root>

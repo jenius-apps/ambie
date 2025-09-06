@@ -1053,4 +1053,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Високоякісні звуки, преміальні відео та кураторські медитації. Доступ до всього майбутнього контенту. Відтворювати більше 3 звуків. Розблокуйте все це за допомогою Ambie+ і знайдіть свою наступну улюблену атмосферу.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Налаштуйте Ambie+ на відтворення до 5 звуків</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Мікшуйте та поєднуйте більше звуків</value>
+  </data>
 </root>

@@ -1050,4 +1050,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Des sons de haute qualité, des vidéos premium et des méditations organisées. Accès à tous les contenus futurs. Jouez plus de 3 sons. Débloquez tout cela avec Ambie+ et trouvez votre prochaine ambiance préférée.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Obtenez Ambie+ pour jouer jusqu’à 5 sons</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Mélangez et assortissez plus de sons</value>
+  </data>
 </root>

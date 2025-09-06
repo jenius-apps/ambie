@@ -1396,11 +1396,11 @@
         </trans-unit>
         <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
           <source>Get Ambie+ to play up to 5 sounds</source>
-          <target state="new">Get Ambie+ to play up to 5 sounds</target>
+          <target state="translated">讓 Ambie+ 播放多達 5 種聲音</target>
         </trans-unit>
         <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
           <source>Mix and match more sounds</source>
-          <target state="new">Mix and match more sounds</target>
+          <target state="translated">混合搭配更多聲音</target>
         </trans-unit>
       </group>
     </body>

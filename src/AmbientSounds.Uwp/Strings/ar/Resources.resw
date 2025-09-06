@@ -1053,4 +1053,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>أصوات عالية الجودة ومقاطع فيديو متميزة وتأملات منسقة. الوصول إلى جميع المحتويات المستقبلية. قم بتشغيل أكثر من 3 أصوات. افتح كل شيء مع Ambie+ ، وابحث عن أجواءك المفضلة التالية.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>احصل على Ambie+ لتشغيل ما يصل إلى 5 أصوات</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>امزج وطابق المزيد من الأصوات</value>
+  </data>
 </root>

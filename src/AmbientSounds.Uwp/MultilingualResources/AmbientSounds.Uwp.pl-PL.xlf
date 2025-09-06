@@ -1398,11 +1398,11 @@
         </trans-unit>
         <trans-unit id="MoreSoundsTipDescription" translate="yes" xml:space="preserve">
           <source>Get Ambie+ to play up to 5 sounds</source>
-          <target state="new">Get Ambie+ to play up to 5 sounds</target>
+          <target state="translated">Pobierz Ambie+, aby odtwarzać do 5 dźwięków</target>
         </trans-unit>
         <trans-unit id="MoreSoundsTipTitle" translate="yes" xml:space="preserve">
           <source>Mix and match more sounds</source>
-          <target state="new">Mix and match more sounds</target>
+          <target state="translated">Miksuj i dopasowuj więcej dźwięków</target>
         </trans-unit>
       </group>
     </body>

@@ -1053,4 +1053,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>צלילים באיכות גבוהה, סרטוני פרימיום ומדיטציות שנאספו. גישה לכל התוכן העתידי. השמע יותר מ-3 צלילים. פתחו את הכל עם Ambie+, ומצאו את האווירה האהובה הבאה עליכם.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>קבל את Ambie+ כדי להשמיע עד 5 צלילים</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>ערבב והתאם צלילים נוספים</value>
+  </data>
 </root>

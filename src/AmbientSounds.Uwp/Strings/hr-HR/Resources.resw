@@ -1041,4 +1041,10 @@
   <data name="PremiumMessage" xml:space="preserve">
     <value>Zvukovi visoke kvalitete, vrhunski videozapisi i odabrane meditacije. Pristup svim budućim sadržajima. Reproducirajte više od 3 zvuka. Otključajte sve uz Ambie+ i pronađite svoj sljedeći omiljeni ambijent.</value>
   </data>
+  <data name="MoreSoundsTipDescription" xml:space="preserve">
+    <value>Nabavite Ambie+ za reprodukciju do 5 zvukova</value>
+  </data>
+  <data name="MoreSoundsTipTitle" xml:space="preserve">
+    <value>Miješajte i spajajte više zvukova</value>
+  </data>
 </root>
